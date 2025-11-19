@@ -438,20 +438,22 @@ const LongDivisionTutor = () => {
                                 // or we just check exact match.
                                 const isInputTarget = inputCoords && inputCoords.r === actualRow && inputCoords.c === divOffset + cIdx;
 
-                                // If it's a multi-digit input (width > 1), we might want to render a wider input
-                                // But for simplicity, let's just ask for the number in a single box positioned at the end
+                                // Calculate width based on the answer length (default to 1)
+                                const inputWidth = (isInputTarget && inputCoords?.width) ? inputCoords.width : 1;
+                                const widthStyle = { width: `${inputWidth * 2}rem` };
 
                                 return (
                                     <div key={`cell-${actualRow}-${cIdx}`}
                                         className="h-14 flex items-center justify-center relative"
                                         style={cell?.style as React.CSSProperties}>
                                         {isInputTarget ? (
-                                            <form onSubmit={handleInteractiveSubmit} className="absolute z-10 w-20 flex justify-center" style={{ right: 0 }}>
+                                            <form onSubmit={handleInteractiveSubmit} className="absolute z-10 flex justify-end" style={{ right: 0, width: 'auto' }}>
                                                 <input
                                                     ref={inputRef}
                                                     type="text"
                                                     pattern="\d*"
-                                                    className={`w-12 h-10 text-center border-2 rounded shadow-sm focus:outline-none text-lg ${isError ? 'border-red-500 bg-red-50' : 'border-blue-500 bg-white'}`}
+                                                    className={`h-10 text-center border-2 rounded shadow-sm focus:outline-none text-lg ${isError ? 'border-red-500 bg-red-50' : 'border-blue-500 bg-white'}`}
+                                                    style={widthStyle}
                                                     value={userVal}
                                                     placeholder="?"
                                                     onChange={(e) => setUserVal(e.target.value)}
