@@ -13,10 +13,16 @@ export interface Term {
     topics: Topic[];
 }
 
+export interface Subject {
+    id: string;
+    title: string;
+    terms: Term[];
+}
+
 export interface Grade {
     id: number;
     title: string;
-    terms: Term[];
+    subjects: Subject[];
 }
 
 export interface Curriculum {

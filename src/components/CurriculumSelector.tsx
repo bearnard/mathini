@@ -1,6 +1,6 @@
 import React from 'react';
-import { ChevronRight, GraduationCap, Calendar, Book, ArrowLeft } from 'lucide-react';
-import { Curriculum, Grade, Term, Topic } from '../types/curriculum';
+import { ChevronRight, GraduationCap, Calendar, Book, ArrowLeft, Library } from 'lucide-react';
+import { Curriculum, Grade, Subject, Term, Topic } from '../types/curriculum';
 import { motion } from 'framer-motion';
 import Card from './ui/Card';
 import Button from './ui/Button';
@@ -8,9 +8,11 @@ import Button from './ui/Button';
 interface CurriculumSelectorProps {
     curriculum: Curriculum;
     selectedGrade: Grade | null;
+    selectedSubject: Subject | null;
     selectedTerm: Term | null;
     selectedTopic: Topic | null;
     onSelectGrade: (grade: Grade) => void;
+    onSelectSubject: (subject: Subject) => void;
     onSelectTerm: (term: Term) => void;
     onSelectTopic: (topic: Topic) => void;
     onBackStep: () => void;
@@ -19,9 +21,11 @@ interface CurriculumSelectorProps {
 const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
     curriculum,
     selectedGrade,
+    selectedSubject,
     selectedTerm,
     selectedTopic,
     onSelectGrade,
+    onSelectSubject,
     onSelectTerm,
     onSelectTopic,
     onBackStep
@@ -67,7 +71,7 @@ const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
                     transition={{ delay: 0.1 }}
                     className="text-lg text-slate-500 font-medium"
                 >
-                    Your friendly math companion
+                    Your friendly learning companion
                 </motion.p>
             </div>
 
@@ -96,7 +100,51 @@ const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
                                             <span className="text-2xl font-black">{grade.id}</span>
                                         </div>
                                         <h3 className="text-xl font-bold text-slate-800 mb-2">{grade.title}</h3>
-                                        <p className="text-slate-500 font-medium">{grade.terms.length} Terms Available</p>
+                                        <p className="text-slate-500 font-medium">{grade.subjects.length} Subjects Available</p>
+                                    </Card>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+
+                {/* Subject Selection */}
+                {selectedGrade && !selectedSubject && (
+                    <motion.div
+                        variants={container}
+                        initial="hidden"
+                        animate="show"
+                        className="space-y-6"
+                    >
+                        <div className="flex items-center justify-between mb-8">
+                            <Button variant="ghost" size="sm" onClick={onBackStep}>
+                                <ArrowLeft className="w-4 h-4 mr-2" /> Back
+                            </Button>
+                            <div className="flex items-center gap-2 text-indigo-600">
+                                <Library className="w-6 h-6" />
+                                <h2 className="text-xl font-bold uppercase tracking-wider">{selectedGrade.title} Subjects</h2>
+                            </div>
+                            <div className="w-20" /> {/* Spacer for centering */}
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {selectedGrade.subjects.map(subject => (
+                                <motion.div key={subject.id} variants={item}>
+                                    <Card
+                                        variant="interactive"
+                                        onClick={() => onSelectSubject(subject)}
+                                        className="p-6 flex items-center justify-between group hover:border-indigo-500"
+                                    >
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                                                {subject.title.charAt(0)}
+                                            </div>
+                                            <div>
+                                                <h3 className="text-lg font-bold text-slate-800">{subject.title}</h3>
+                                                <p className="text-sm text-slate-500 font-medium">{subject.terms.length} Terms</p>
+                                            </div>
+                                        </div>
+                                        <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all" />
                                     </Card>
                                 </motion.div>
                             ))}
@@ -105,7 +153,7 @@ const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
                 )}
 
                 {/* Term Selection */}
-                {selectedGrade && !selectedTerm && (
+                {selectedGrade && selectedSubject && !selectedTerm && (
                     <motion.div
                         variants={container}
                         initial="hidden"
@@ -118,13 +166,13 @@ const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
                             </Button>
                             <div className="flex items-center gap-2 text-indigo-600">
                                 <Calendar className="w-6 h-6" />
-                                <h2 className="text-xl font-bold uppercase tracking-wider">{selectedGrade.title} Terms</h2>
+                                <h2 className="text-xl font-bold uppercase tracking-wider">{selectedSubject.title} Terms</h2>
                             </div>
                             <div className="w-20" /> {/* Spacer for centering */}
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {selectedGrade.terms.map(term => (
+                            {selectedSubject.terms.map(term => (
                                 <motion.div key={term.id} variants={item}>
                                     <Card
                                         variant="interactive"
@@ -149,7 +197,7 @@ const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
                 )}
 
                 {/* Topic Selection */}
-                {selectedGrade && selectedTerm && !selectedTopic && (
+                {selectedGrade && selectedSubject && selectedTerm && !selectedTopic && (
                     <motion.div
                         variants={container}
                         initial="hidden"
