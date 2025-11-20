@@ -88,17 +88,23 @@ const App = () => {
     const [selectedTerm, setSelectedTerm] = useState<Term | null>(null);
     const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
 
-    const handleReset = () => {
-        setSelectedGrade(null);
-        setSelectedTerm(null);
-        setSelectedTopic(null);
+
+
+    const handleBackStep = () => {
+        if (selectedTopic) {
+            setSelectedTopic(null);
+        } else if (selectedTerm) {
+            setSelectedTerm(null);
+        } else if (selectedGrade) {
+            setSelectedGrade(null);
+        }
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+        <div className="min-h-screen bg-slate-50 font-sans text-slate-900 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-50 via-slate-50 to-slate-50">
             {/* Navigation Bar (only visible when deep in navigation) */}
             {selectedTopic && (
-                <div className="bg-white border-b border-slate-200 px-4 py-3 flex items-center gap-4 sticky top-0 z-50">
+                <div className="bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 py-3 flex items-center gap-4 sticky top-0 z-50 shadow-sm">
                     <button
                         onClick={() => setSelectedTopic(null)}
                         className="p-2 hover:bg-slate-100 rounded-full text-slate-500 transition-colors"
@@ -116,7 +122,9 @@ const App = () => {
             )}
 
             {selectedTopic ? (
-                <selectedTopic.component />
+                <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                    <selectedTopic.component />
+                </div>
             ) : (
                 <CurriculumSelector
                     curriculum={curriculumData}
@@ -126,7 +134,7 @@ const App = () => {
                     onSelectGrade={setSelectedGrade}
                     onSelectTerm={setSelectedTerm}
                     onSelectTopic={setSelectedTopic}
-                    onReset={handleReset}
+                    onBackStep={handleBackStep}
                 />
             )}
         </div>

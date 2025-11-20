@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-import { CheckCircle2, XCircle, RefreshCw } from 'lucide-react';
+import { triggerConfetti } from '../../../../lib/confetti';
+import Card from '../../../../components/ui/Card';
+import Button from '../../../../components/ui/Button';
+import Streak from '../../../../components/gamification/Streak';
+import Feedback from '../../../../components/ui/Feedback';
+import { cn } from '../../../../lib/utils';
 
 interface Shape {
     name: string;
@@ -56,6 +61,7 @@ const Shapes2D = () => {
         if (shapeName === targetShape.name) {
             setIsCorrect(true);
             setStreak(s => s + 1);
+            triggerConfetti();
         } else {
             setIsCorrect(false);
             setStreak(0);
@@ -131,84 +137,63 @@ const Shapes2D = () => {
     };
 
     return (
-        <div className="max-w-3xl mx-auto p-6">
-            <div className="flex justify-between items-center mb-8">
+        <div className="max-w-3xl mx-auto p-4 md:p-6 space-y-8">
+            <div className="flex justify-between items-center">
                 <h2 className="text-2xl font-bold text-slate-800">2D Shapes</h2>
-                <div className="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full font-bold text-sm">
-                    Streak: {streak} 🔥
-                </div>
+                <Streak count={streak} />
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 text-center mb-8">
-                <p className="text-slate-500 mb-4 text-lg">Which shape is this?</p>
+            <Card className="p-8 text-center space-y-8">
+                <p className="text-slate-500 text-lg">Which shape is this?</p>
 
-                <div className="mb-8 flex justify-center">
+                <div className="flex justify-center animate-in zoom-in duration-500">
                     {renderSVGShape(targetShape, 200)}
                 </div>
 
-                <p className="text-sm text-slate-400 mb-8">
+                <p className="text-sm text-slate-400 font-medium">
                     {targetShape.sides > 0 ? `This shape has ${targetShape.sides} sides` : 'This shape has no corners or edges'}
                 </p>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto">
                     {options.map((shape) => {
-                        let btnClass = "p-4 rounded-xl border-2 transition-all hover:scale-105 ";
-                        if (selectedShape === null) {
-                            btnClass += "bg-white border-slate-200 hover:border-indigo-400 hover:shadow-md";
-                        } else {
+                        let variant: 'primary' | 'secondary' | 'outline' | 'success' | 'danger' | 'ghost' = 'outline';
+
+                        if (selectedShape !== null) {
                             if (shape.name === targetShape.name) {
-                                btnClass += "bg-emerald-100 border-emerald-500";
+                                variant = 'success';
                             } else if (shape.name === selectedShape) {
-                                btnClass += "bg-red-100 border-red-500";
+                                variant = 'danger';
                             } else {
-                                btnClass += "bg-slate-50 border-slate-100 opacity-50";
+                                variant = 'ghost';
                             }
                         }
 
                         return (
-                            <button
+                            <Button
                                 key={shape.name}
                                 onClick={() => handleSelect(shape.name)}
                                 disabled={selectedShape !== null}
-                                className={btnClass}
+                                variant={variant}
+                                className={cn(
+                                    "h-16 text-lg",
+                                    selectedShape === null && "hover:border-indigo-400 hover:bg-indigo-50"
+                                )}
                             >
-                                {renderSVGShape(shape, 60)}
-                                <p className="mt-2 font-bold text-slate-700">{shape.name}</p>
-                            </button>
+                                {shape.name}
+                            </Button>
                         );
                     })}
                 </div>
-            </div>
+            </Card>
 
-            {selectedShape !== null && (
-                <div className={`p-6 rounded-xl flex items-center justify-between animate-in fade-in slide-in-from-bottom-4 ${isCorrect ? 'bg-emerald-50 border border-emerald-200' : 'bg-red-50 border border-red-200'}`}>
-                    <div className="flex items-center gap-4">
-                        {isCorrect ? (
-                            <div className="bg-emerald-100 p-2 rounded-full">
-                                <CheckCircle2 className="w-8 h-8 text-emerald-600" />
-                            </div>
-                        ) : (
-                            <div className="bg-red-100 p-2 rounded-full">
-                                <XCircle className="w-8 h-8 text-red-600" />
-                            </div>
-                        )}
-                        <div>
-                            <h3 className={`font-bold text-lg ${isCorrect ? 'text-emerald-800' : 'text-red-800'}`}>
-                                {isCorrect ? "Correct!" : "Not quite."}
-                            </h3>
-                            <p className={`${isCorrect ? 'text-emerald-600' : 'text-red-600'}`}>
-                                The shape is a <strong>{targetShape.name}</strong>.
-                            </p>
-                        </div>
-                    </div>
-                    <button
-                        onClick={generateProblem}
-                        className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold shadow-md transition-colors flex items-center gap-2"
-                    >
-                        Next Shape <RefreshCw className="w-4 h-4" />
-                    </button>
-                </div>
-            )}
+            <div className="h-24">
+                <Feedback
+                    isCorrect={isCorrect}
+                    correctMessage={`That is a ${targetShape.name}.`}
+                    incorrectMessage={`That is not a ${selectedShape}. It is a ${targetShape.name}.`}
+                    onNext={generateProblem}
+                />
+            </div>
         </div>
     );
 };

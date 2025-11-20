@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-import { CheckCircle2, XCircle, RefreshCw } from 'lucide-react';
+import { triggerConfetti } from '../../../../lib/confetti';
+import Card from '../../../../components/ui/Card';
+import Button from '../../../../components/ui/Button';
+import Streak from '../../../../components/gamification/Streak';
+import Feedback from '../../../../components/ui/Feedback';
+import { cn } from '../../../../lib/utils';
 
 const EquivalentFractions = () => {
     const [targetNum, setTargetNum] = useState<number>(1);
@@ -29,8 +34,8 @@ const EquivalentFractions = () => {
         generateProblem();
     }, []);
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = (e?: React.FormEvent) => {
+        if (e) e.preventDefault();
         if (!userNum || !userDen) return;
 
         const uNum = parseInt(userNum);
@@ -41,6 +46,7 @@ const EquivalentFractions = () => {
         if (targetNum * uDen === uNum * targetDen && uNum > 0 && uDen > 0) {
             setIsCorrect(true);
             setStreak(s => s + 1);
+            triggerConfetti();
         } else {
             setIsCorrect(false);
             setStreak(0);
@@ -61,42 +67,38 @@ const EquivalentFractions = () => {
                     fill={i < num ? color : '#f1f5f9'}
                     stroke="#cbd5e1"
                     strokeWidth={2}
+                    rx={4}
                 />
             );
         }
         return (
-            <svg width="300" height="50" className="mx-auto">
+            <svg width="100%" height="50" viewBox="0 0 300 50" className="mx-auto max-w-[300px]">
                 {parts}
             </svg>
         );
     };
 
     return (
-        <div className="max-w-2xl mx-auto p-6">
-            <div className="flex justify-between items-center mb-8">
+        <div className="max-w-2xl mx-auto p-4 md:p-6 space-y-8">
+            <div className="flex justify-between items-center">
                 <h2 className="text-2xl font-bold text-slate-800">Equivalent Fractions</h2>
-                <div className="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full font-bold text-sm">
-                    Streak: {streak} 🔥
-                </div>
+                <Streak count={streak} />
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 mb-8">
-                <p className="text-slate-500 mb-6 text-lg text-center">Find an equivalent fraction</p>
+            <Card className="p-8 text-center space-y-8">
+                <p className="text-slate-500 text-lg">Find an equivalent fraction</p>
 
-                <div className="mb-8">
-                    <div className="text-center mb-4">
-                        <div className="inline-flex items-center gap-2 text-5xl font-bold text-indigo-600">
-                            <span>{targetNum}</span>
-                            <span className="text-slate-300">/</span>
-                            <span>{targetDen}</span>
-                        </div>
+                <div className="space-y-4">
+                    <div className="inline-flex items-center gap-2 text-5xl font-black text-indigo-600">
+                        <span>{targetNum}</span>
+                        <span className="text-slate-300 font-light">/</span>
+                        <span>{targetDen}</span>
                     </div>
-
                     {renderFractionBar(targetNum, targetDen, '#6366f1')}
                 </div>
 
-                <div className="flex items-center justify-center gap-4 mb-8">
-                    <span className="text-3xl text-slate-400">=</span>
+                <div className="flex items-center justify-center gap-4 md:gap-8">
+                    <span className="text-4xl text-slate-300 font-light">=</span>
 
                     <form onSubmit={handleSubmit} className="flex items-center gap-2">
                         <input
@@ -106,14 +108,16 @@ const EquivalentFractions = () => {
                             value={userNum}
                             onChange={(e) => setUserNum(e.target.value)}
                             disabled={isCorrect !== null}
-                            className={`w-20 text-center text-3xl font-bold p-2 border-2 rounded-lg outline-none transition-all ${isCorrect === true ? 'border-emerald-500 bg-emerald-50 text-emerald-700' :
+                            className={cn(
+                                "w-20 h-20 text-center text-3xl font-bold border-2 rounded-xl outline-none transition-all",
+                                isCorrect === true ? 'border-emerald-500 bg-emerald-50 text-emerald-700' :
                                     isCorrect === false ? 'border-red-500 bg-red-50 text-red-700' :
-                                        'border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100'
-                                }`}
+                                        'border-slate-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100'
+                            )}
                             placeholder="?"
                             autoFocus
                         />
-                        <span className="text-3xl text-slate-300 font-bold">/</span>
+                        <span className="text-4xl text-slate-300 font-light">/</span>
                         <input
                             type="number"
                             min="1"
@@ -121,60 +125,41 @@ const EquivalentFractions = () => {
                             value={userDen}
                             onChange={(e) => setUserDen(e.target.value)}
                             disabled={isCorrect !== null}
-                            className={`w-20 text-center text-3xl font-bold p-2 border-2 rounded-lg outline-none transition-all ${isCorrect === true ? 'border-emerald-500 bg-emerald-50 text-emerald-700' :
+                            className={cn(
+                                "w-20 h-20 text-center text-3xl font-bold border-2 rounded-xl outline-none transition-all",
+                                isCorrect === true ? 'border-emerald-500 bg-emerald-50 text-emerald-700' :
                                     isCorrect === false ? 'border-red-500 bg-red-50 text-red-700' :
-                                        'border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100'
-                                }`}
+                                        'border-slate-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100'
+                            )}
                             placeholder="?"
                         />
                         {isCorrect === null && (
-                            <button type="submit" className="hidden">Check</button>
+                            <Button type="submit" className="hidden">Check</Button>
                         )}
                     </form>
                 </div>
 
                 {userNum && userDen && parseInt(userNum) > 0 && parseInt(userDen) > 0 && isCorrect === null && (
-                    <div className="mb-4">
+                    <div className="animate-in fade-in slide-in-from-bottom-2">
                         {renderFractionBar(parseInt(userNum), parseInt(userDen), '#10b981')}
                     </div>
                 )}
 
-                <p className="text-center text-sm text-slate-400">
-                    Hint: Multiply or divide both the numerator and denominator by the same number
-                </p>
-            </div>
-
-            {isCorrect !== null && (
-                <div className={`p-6 rounded-xl flex items-center justify-between animate-in fade-in slide-in-from-bottom-4 ${isCorrect ? 'bg-emerald-50 border border-emerald-200' : 'bg-red-50 border border-red-200'}`}>
-                    <div className="flex items-center gap-4">
-                        {isCorrect ? (
-                            <div className="bg-emerald-100 p-2 rounded-full">
-                                <CheckCircle2 className="w-8 h-8 text-emerald-600" />
-                            </div>
-                        ) : (
-                            <div className="bg-red-100 p-2 rounded-full">
-                                <XCircle className="w-8 h-8 text-red-600" />
-                            </div>
-                        )}
-                        <div>
-                            <h3 className={`font-bold text-lg ${isCorrect ? 'text-emerald-800' : 'text-red-800'}`}>
-                                {isCorrect ? "Correct!" : "Try again."}
-                            </h3>
-                            <p className={`${isCorrect ? 'text-emerald-600' : 'text-red-600'}`}>
-                                {isCorrect
-                                    ? `${targetNum}/${targetDen} = ${userNum}/${userDen}`
-                                    : `Those fractions are not equivalent. Try multiplying ${targetNum}/${targetDen} by 2, 3, or 4.`}
-                            </p>
-                        </div>
-                    </div>
-                    <button
-                        onClick={generateProblem}
-                        className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold shadow-md transition-colors flex items-center gap-2"
-                    >
-                        Next <RefreshCw className="w-4 h-4" />
-                    </button>
+                <div className="bg-slate-50 p-4 rounded-xl">
+                    <p className="text-sm text-slate-500 font-medium">
+                        💡 Hint: Multiply or divide both the numerator and denominator by the same number
+                    </p>
                 </div>
-            )}
+            </Card>
+
+            <div className="h-24"> {/* Spacer for layout stability */}
+                <Feedback
+                    isCorrect={isCorrect}
+                    correctMessage={`${targetNum}/${targetDen} is equal to ${userNum}/${userDen}`}
+                    incorrectMessage={`Those fractions are not equivalent. Try multiplying ${targetNum}/${targetDen} by 2, 3, or 4.`}
+                    onNext={generateProblem}
+                />
+            </div>
         </div>
     );
 };
