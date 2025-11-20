@@ -1,15 +1,27 @@
 import { useState, useEffect } from 'react';
-import { CheckCircle2, XCircle, RefreshCw } from 'lucide-react';
+import { triggerConfetti } from '../../../../lib/confetti';
+import Card from '../../../../components/ui/Card';
+import Button from '../../../../components/ui/Button';
+import Streak from '../../../../components/gamification/Streak';
+import Feedback from '../../../../components/ui/Feedback';
+import { cn } from '../../../../lib/utils';
+import TopicContainer from '../../../../components/layout/TopicContainer';
+import { ArrowRight } from 'lucide-react';
 
 const NumberPatterns = () => {
+    const [mode, setMode] = useState<'learn' | 'practice'>('learn');
+
+    // Practice State
     const [sequence, setSequence] = useState<number[]>([]);
     const [rule, setRule] = useState<string>("");
     const [userAnswer, setUserAnswer] = useState<string>("");
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
     const [streak, setStreak] = useState(0);
 
+    // Learn State
+    const [learnStep, setLearnStep] = useState(0);
+
     const generateProblem = () => {
-        // Generate different pattern types
         const types = ['add', 'subtract', 'multiply', 'square', 'mixed'];
         const type = types[Math.floor(Math.random() * types.length)];
 
@@ -35,7 +47,6 @@ const NumberPatterns = () => {
             seq = [1, 4, 9, 16, 25];
             ruleText = "Square numbers (1², 2², 3², ...)";
         } else {
-            // Mixed: like 2, 5, 11, 23 (double and add 1)
             seq = [start];
             for (let i = 0; i < 4; i++) {
                 seq.push(seq[seq.length - 1] * 2 + 1);
@@ -72,8 +83,8 @@ const NumberPatterns = () => {
         return 0;
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = (e?: React.FormEvent) => {
+        if (e) e.preventDefault();
         if (!userAnswer) return;
 
         const val = parseInt(userAnswer);
@@ -82,94 +93,165 @@ const NumberPatterns = () => {
         if (val === correctNext) {
             setIsCorrect(true);
             setStreak(s => s + 1);
+            triggerConfetti();
         } else {
             setIsCorrect(false);
             setStreak(0);
         }
     };
 
-    return (
-        <div className="max-w-2xl mx-auto p-6">
-            <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl font-bold text-slate-800">Number Patterns</h2>
-                <div className="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full font-bold text-sm">
-                    Streak: {streak} 🔥
-                </div>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 mb-8">
-                <p className="text-slate-500 mb-6 text-lg text-center">What comes next in the pattern?</p>
-
-                <div className="flex flex-wrap justify-center items-center gap-3 mb-8">
-                    {sequence.map((num, idx) => (
-                        <div key={idx} className="flex items-center gap-3">
-                            <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-indigo-100 rounded-xl border-2 border-indigo-200 text-2xl md:text-3xl font-bold text-indigo-600">
-                                {num}
-                            </div>
-                            {idx < sequence.length - 1 && (
-                                <div className="text-slate-300 text-2xl">→</div>
-                            )}
+    const LearnContent = () => {
+        const steps = [
+            {
+                title: "What is a Number Pattern?",
+                content: (
+                    <div className="space-y-6 text-center">
+                        <p className="text-lg text-slate-600">A number pattern is a list of numbers that follow a <strong>rule</strong>.</p>
+                        <div className="flex justify-center gap-4 items-center bg-indigo-50 p-6 rounded-xl">
+                            <div className="text-3xl font-bold text-indigo-600">2</div>
+                            <ArrowRight className="text-slate-300" />
+                            <div className="text-3xl font-bold text-indigo-600">4</div>
+                            <ArrowRight className="text-slate-300" />
+                            <div className="text-3xl font-bold text-indigo-600">6</div>
+                            <ArrowRight className="text-slate-300" />
+                            <div className="text-3xl font-bold text-indigo-600">8</div>
                         </div>
-                    ))}
-
-                    <div className="flex items-center gap-3">
-                        <div className="text-slate-300 text-2xl">→</div>
-                        <form onSubmit={handleSubmit} className="relative">
-                            <input
-                                type="number"
-                                value={userAnswer}
-                                onChange={(e) => setUserAnswer(e.target.value)}
-                                disabled={isCorrect !== null}
-                                className={`w-16 h-16 md:w-20 md:h-20 text-center text-2xl md:text-3xl font-bold border-2 rounded-xl outline-none transition-all ${isCorrect === true ? 'border-emerald-500 bg-emerald-50 text-emerald-700' :
-                                        isCorrect === false ? 'border-red-500 bg-red-50 text-red-700' :
-                                            'border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100'
-                                    }`}
-                                placeholder="?"
-                                autoFocus
-                            />
-                            {isCorrect === null && (
-                                <button type="submit" className="hidden">Check</button>
-                            )}
-                        </form>
+                        <p className="text-slate-500">Can you guess the rule? It's <strong>Add 2</strong>!</p>
                     </div>
-                </div>
-
-                <div className="text-center text-sm text-slate-400">
-                    Hint: Look for what changes from one number to the next
-                </div>
-            </div>
-
-            {isCorrect !== null && (
-                <div className={`p-6 rounded-xl flex items-center justify-between animate-in fade-in slide-in-from-bottom-4 ${isCorrect ? 'bg-emerald-50 border border-emerald-200' : 'bg-red-50 border border-red-200'}`}>
-                    <div className="flex items-center gap-4">
-                        {isCorrect ? (
-                            <div className="bg-emerald-100 p-2 rounded-full">
-                                <CheckCircle2 className="w-8 h-8 text-emerald-600" />
+                )
+            },
+            {
+                title: "Finding the Rule",
+                content: (
+                    <div className="space-y-6 text-center">
+                        <p className="text-lg text-slate-600">To find the rule, look at how to get from one number to the next.</p>
+                        <div className="flex justify-center gap-8 items-center">
+                            <div className="flex flex-col items-center">
+                                <span className="text-2xl font-bold text-slate-700">5</span>
+                                <span className="text-sm text-emerald-500 font-bold mt-2">+5</span>
                             </div>
-                        ) : (
-                            <div className="bg-red-100 p-2 rounded-full">
-                                <XCircle className="w-8 h-8 text-red-600" />
+                            <ArrowRight className="text-slate-300" />
+                            <div className="flex flex-col items-center">
+                                <span className="text-2xl font-bold text-slate-700">10</span>
+                                <span className="text-sm text-emerald-500 font-bold mt-2">+5</span>
                             </div>
-                        )}
-                        <div>
-                            <h3 className={`font-bold text-lg ${isCorrect ? 'text-emerald-800' : 'text-red-800'}`}>
-                                {isCorrect ? "Correct!" : "Not quite."}
-                            </h3>
-                            <p className={`${isCorrect ? 'text-emerald-600' : 'text-red-600'}`}>
-                                The rule is: <strong>{rule}</strong>
-                                {!isCorrect && ` → Next number is ${getNextNumber()}`}
+                            <ArrowRight className="text-slate-300" />
+                            <div className="flex flex-col items-center">
+                                <span className="text-2xl font-bold text-slate-700">15</span>
+                                <span className="text-sm text-emerald-500 font-bold mt-2">+5</span>
+                            </div>
+                        </div>
+                        <p className="text-slate-500">Sometimes you add, subtract, or multiply.</p>
+                    </div>
+                )
+            }
+        ];
+
+        return (
+            <Card className="p-8 space-y-8">
+                <h2 className="text-2xl font-bold text-slate-800">{steps[learnStep].title}</h2>
+                {steps[learnStep].content}
+
+                <div className="flex justify-between pt-8 border-t border-slate-100">
+                    <Button
+                        variant="secondary"
+                        disabled={learnStep === 0}
+                        onClick={() => setLearnStep(prev => prev - 1)}
+                    >
+                        Previous
+                    </Button>
+                    <div className="flex gap-1 items-center">
+                        {steps.map((_, i) => (
+                            <div key={i} className={cn("w-2 h-2 rounded-full transition-colors", i === learnStep ? "bg-indigo-600" : "bg-slate-200")} />
+                        ))}
+                    </div>
+                    <Button
+                        onClick={() => {
+                            if (learnStep < steps.length - 1) {
+                                setLearnStep(prev => prev + 1);
+                            } else {
+                                setMode('practice');
+                            }
+                        }}
+                    >
+                        {learnStep === steps.length - 1 ? "Start Practice" : "Next"}
+                    </Button>
+                </div>
+            </Card>
+        );
+    };
+
+    return (
+        <TopicContainer
+            title="Number Patterns"
+            subtitle="Discover the rules behind number sequences"
+            onModeChange={setMode}
+        >
+            {mode === 'learn' ? (
+                <LearnContent />
+            ) : (
+                <div className="space-y-8">
+                    <div className="flex justify-end">
+                        <Streak count={streak} />
+                    </div>
+
+                    <Card className="p-8 text-center space-y-8">
+                        <p className="text-slate-500 text-lg">What comes next?</p>
+
+                        <div className="flex flex-wrap justify-center items-center gap-3">
+                            {sequence.map((num, idx) => (
+                                <div key={idx} className="flex items-center gap-3">
+                                    <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-indigo-100 rounded-xl border-2 border-indigo-200 text-2xl md:text-3xl font-bold text-indigo-600 shadow-sm">
+                                        {num}
+                                    </div>
+                                    {idx < sequence.length - 1 && (
+                                        <ArrowRight className="text-slate-300 w-6 h-6" />
+                                    )}
+                                </div>
+                            ))}
+
+                            <div className="flex items-center gap-3">
+                                <ArrowRight className="text-slate-300 w-6 h-6" />
+                                <form onSubmit={handleSubmit} className="relative">
+                                    <input
+                                        type="number"
+                                        value={userAnswer}
+                                        onChange={(e) => setUserAnswer(e.target.value)}
+                                        disabled={isCorrect !== null}
+                                        className={cn(
+                                            "w-16 h-16 md:w-20 md:h-20 text-center text-2xl md:text-3xl font-bold border-2 rounded-xl outline-none transition-all shadow-sm",
+                                            isCorrect === true ? 'border-emerald-500 bg-emerald-50 text-emerald-700' :
+                                                isCorrect === false ? 'border-red-500 bg-red-50 text-red-700' :
+                                                    'border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100'
+                                        )}
+                                        placeholder="?"
+                                        autoFocus
+                                    />
+                                    {isCorrect === null && (
+                                        <Button type="submit" className="hidden">Check</Button>
+                                    )}
+                                </form>
+                            </div>
+                        </div>
+
+                        <div className="bg-slate-50 p-4 rounded-xl inline-block">
+                            <p className="text-sm text-slate-500 font-medium">
+                                💡 Hint: Look for what changes from one number to the next
                             </p>
                         </div>
+                    </Card>
+
+                    <div className="h-24">
+                        <Feedback
+                            isCorrect={isCorrect}
+                            correctMessage={`Correct! The rule is: ${rule}`}
+                            incorrectMessage={`Not quite. The rule is: ${rule}. The next number is ${getNextNumber()}.`}
+                            onNext={generateProblem}
+                        />
                     </div>
-                    <button
-                        onClick={generateProblem}
-                        className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold shadow-md transition-colors flex items-center gap-2"
-                    >
-                        Next Pattern <RefreshCw className="w-4 h-4" />
-                    </button>
                 </div>
             )}
-        </div>
+        </TopicContainer>
     );
 };
 

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { RotateCcw, BookOpen, Play, Pause, StepForward, CheckCircle2, Edit3, HelpCircle } from 'lucide-react';
+import { RotateCcw, Play, Pause, StepForward, CheckCircle2, Edit3, HelpCircle } from 'lucide-react';
+import TopicContainer from '../../../../components/layout/TopicContainer';
+
 
 // --- Types ---
 
@@ -87,9 +89,6 @@ const generateDivisionSteps = (dividend: number, divisor: number): Step[] => {
     const dividendStr = dividend.toString();
     const steps: Step[] = [];
     let currentRemainder = 0;
-
-    // Grid state tracking
-    // We need to map "visual rows" to specific actions
     let currentRow = 0;
 
     for (let i = 0; i < dividendStr.length; i++) {
@@ -116,12 +115,6 @@ const generateDivisionSteps = (dividend: number, divisor: number): Step[] => {
                 answer: digit.toString()
             });
         }
-
-        // Check if divisor fits
-        // If first digit is smaller than divisor, we might skip or put 0
-        // Standard long division often omits the leading 0 for the first digit if it doesn't fit
-        // but technically it's 0. We will simplify: if first digit < divisor, we just combine next step mentally in many methods
-        // but here we stick to strict alg: 0 times.
 
         const qDigit = Math.floor(currentVal / divisor);
 
@@ -175,7 +168,8 @@ const generateDivisionSteps = (dividend: number, divisor: number): Step[] => {
 };
 
 const LongDivisionTutor = () => {
-    const [isInteractive, setIsInteractive] = useState(false);
+    const [mode, setMode] = useState<'learn' | 'practice'>('learn');
+
     const [dividend, setDividend] = useState(532);
     const [divisor, setDivisor] = useState(4);
 
@@ -200,12 +194,12 @@ const LongDivisionTutor = () => {
 
     // Focus input when step changes in interactive mode
     useEffect(() => {
-        if (isInteractive && inputRef.current) {
+        if (mode === 'practice' && inputRef.current) {
             inputRef.current.focus();
             setUserVal("");
             setIsError(false);
         }
-    }, [currentStep, isInteractive]);
+    }, [currentStep, mode]);
 
     const resetProblem = () => {
         const generated = generateDivisionSteps(dividend, divisor);
@@ -244,7 +238,7 @@ const LongDivisionTutor = () => {
     // Auto-play effect
     useEffect(() => {
         let interval: ReturnType<typeof setInterval>;
-        if (isPlaying && !isInteractive && currentStep < steps.length - 1) {
+        if (isPlaying && mode === 'learn' && currentStep < steps.length - 1) {
             interval = setInterval(() => {
                 setCurrentStep(prev => prev + 1);
             }, 2000);
@@ -252,7 +246,7 @@ const LongDivisionTutor = () => {
             setIsPlaying(false);
         }
         return () => clearInterval(interval);
-    }, [isPlaying, currentStep, steps.length, isInteractive]);
+    }, [isPlaying, currentStep, steps.length, mode]);
 
     // Auto-scroll
     useEffect(() => {
@@ -295,7 +289,7 @@ const LongDivisionTutor = () => {
         // Determine how far to render standard text
         // If interactive, we render standard text up to currentStep - 1
         // Then we render an INPUT at currentStep location
-        const limit = isInteractive ? currentStep - 1 : currentStep;
+        const limit = mode === 'practice' ? currentStep - 1 : currentStep;
 
         for (let i = 0; i <= limit; i++) {
             const step = steps[i];
@@ -305,15 +299,11 @@ const LongDivisionTutor = () => {
                 quotientMap[step.col!] = step.result!;
             } else if (step.type === 'MULTIPLY') {
                 const productStr = step.result!.toString();
-                // If the product is 0 (e.g. 0x4), we still write it usually, or standard short division skips it. 
-                // This algo writes it. 
-                // Align right to step.col
                 for (let d = 0; d < productStr.length; d++) {
                     const charIndex = step.col! - (productStr.length - 1) + d;
                     const cellStyle = { color: '#ef4444' };
                     setCell(workingRow, divOffset + charIndex, productStr[d], cellStyle, d === 0);
                 }
-                // Underline
                 for (let d = 0; d < productStr.length; d++) {
                     const charIndex = step.col! - (productStr.length - 1) + d;
                     const cell = grid[workingRow][divOffset + charIndex];
@@ -333,7 +323,7 @@ const LongDivisionTutor = () => {
         }
 
         // If interactive and current step is MULTIPLY, ensure minus sign is visible
-        if (isInteractive && steps[currentStep]?.type === 'MULTIPLY') {
+        if (mode === 'practice' && steps[currentStep]?.type === 'MULTIPLY') {
             const s = steps[currentStep];
             const productLen = s.answer!.length;
             const startCol = s.col! - (productLen - 1);
@@ -349,38 +339,16 @@ const LongDivisionTutor = () => {
         }
 
         // --- INTERACTIVE INPUT RENDERING ---
-        // If we are in interactive mode, we need to inject the input box at the correct coordinate
-        // for the *current* step.
         let inputCoords: { r: number, c: number, width?: number } | null = null;
-        if (isInteractive && steps[currentStep]) {
+        if (mode === 'practice' && steps[currentStep]) {
             const s = steps[currentStep];
             if (s.type === 'DIVIDE') {
                 inputCoords = { r: 0, c: divOffset + s.col };
             } else if (s.type === 'MULTIPLY') {
-                // Product row is current workingRow
-                // Right aligned to s.col
-                // We only ask for the full number, so we place input spanning the cells or just at the rightmost?
-                // Let's place it at the rightmost digit for simplicity, or special InputCell
                 inputCoords = { r: workingRow, c: divOffset + s.col, width: s.answer!.length };
             } else if (s.type === 'SUBTRACT') {
-                // Result is at current workingRow (SUBTRACT shares row with previous BRING_DOWN result usually? No, SUBTRACT is new line)
-                // Wait, in my loop above:
-                // MULTIPLY increments workingRow.
-                // SUBTRACT does NOT increment workingRow in the loop, it writes to the same line as MULTIPLY? No.
-                // Let's trace:
-                // MULTIPLY writes, adds underline, increments row.
-                // SUBTRACT writes to that new row.
-                // BRING_DOWN writes to that SAME row (appended).
-                // Then loop finishes, increments row? No, the BRING_DOWN logic in `generateDivisionSteps` handles `currentRow += 2`
-                // My render loop uses `workingRow`.
-                // Let's fix the render loop logic for the 'Input' case.
-
-                // If previous was MULTIPLY, workingRow is already incremented to the empty line.
                 inputCoords = { r: workingRow, c: divOffset + s.col, width: s.answer!.length };
             } else if (s.type === 'BRING_DOWN') {
-                // BRING_DOWN is on the same row as the last SUBTRACT result.
-                // In the loop: SUBTRACT writes, does not ++. BRING_DOWN writes, then ++.
-                // So if we are at BRING_DOWN step, we are on the same row as the result of subtraction.
                 inputCoords = { r: workingRow, c: divOffset + s.col };
             }
         }
@@ -388,7 +356,7 @@ const LongDivisionTutor = () => {
         // Apply Quotient Values to Grid (Non-Interactive parts)
         quotientMap.forEach((q, idx) => {
             const currentS = steps[currentStep];
-            if (q !== "" && (!isInteractive || (currentS && currentS.col !== undefined && currentS.col > idx) || (currentS && currentS.type !== 'DIVIDE'))) {
+            if (q !== "" && (mode !== 'practice' || (currentS && currentS.col !== undefined && currentS.col > idx) || (currentS && currentS.type !== 'DIVIDE'))) {
                 setCell(0, divOffset + idx, q, { fontWeight: 'bold', color: '#4f46e5' });
             }
         });
@@ -450,12 +418,7 @@ const LongDivisionTutor = () => {
                             <div className="col-span-2"></div>
                             {Array.from({ length: dividendStr.length }).map((_, cIdx) => {
                                 const cell = grid[actualRow] && grid[actualRow][divOffset + cIdx];
-                                // Check if this specific cell is the target for input
-                                // For multi-digit inputs (like products), we might only render input on the rightmost cell
-                                // or we just check exact match.
                                 const isInputTarget = inputCoords && inputCoords.r === actualRow && inputCoords.c === divOffset + cIdx;
-
-                                // Calculate width based on the answer length (default to 1)
                                 const inputWidth = (isInputTarget && inputCoords?.width) ? inputCoords.width : 1;
                                 const widthStyle = { width: `${inputWidth * 2}rem` };
 
@@ -491,36 +454,15 @@ const LongDivisionTutor = () => {
     };
 
     return (
-        <div className="flex flex-col items-center w-full">
-            {/* Header */}
-            <header className="w-full max-w-4xl flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-                <div className="flex items-center gap-3">
-                    <div className="bg-indigo-600 p-3 rounded-xl shadow-lg">
-                        <BookOpen className="text-white w-6 h-6" />
-                    </div>
-                    <div>
-                        <h1 className="text-2xl font-bold text-slate-800">Long Division Tutor</h1>
-                        <p className="text-slate-500 text-sm">Master the step-by-step process</p>
-                    </div>
-                </div>
-
-                <div className="flex gap-2">
-                    <button
-                        onClick={() => { setIsInteractive(false); resetProblem(); }}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all border ${!isInteractive ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'}`}
-                    >
-                        Watch & Learn
-                    </button>
-                    <button
-                        onClick={() => { setIsInteractive(true); resetProblem(); }}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all border ${isInteractive ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'}`}
-                    >
-                        Interactive Practice
-                    </button>
-                </div>
-            </header>
-
-            <main className="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <TopicContainer
+            title="Long Division Tutor"
+            subtitle="Master the step-by-step process"
+            onModeChange={(m) => {
+                setMode(m);
+                resetProblem();
+            }}
+        >
+            <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6">
 
                 {/* Left Col: Controls */}
                 <div className="lg:col-span-1 flex flex-col gap-6">
@@ -577,14 +519,14 @@ const LongDivisionTutor = () => {
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
                         <div className="flex justify-between items-center mb-4">
                             <h3 className="font-semibold text-slate-700">
-                                {isInteractive ? "Your Turn" : "Controls"}
+                                {mode === 'practice' ? "Your Turn" : "Controls"}
                             </h3>
                             <span className="text-xs font-bold bg-slate-100 text-slate-500 px-2 py-1 rounded-full">
                                 Step {currentStep + 1}/{steps.length}
                             </span>
                         </div>
 
-                        {!isInteractive ? (
+                        {mode === 'learn' ? (
                             <div className="grid grid-cols-3 gap-2">
                                 <button
                                     onClick={() => { setIsPlaying(false); setCurrentStep(Math.max(0, currentStep - 1)); }}
@@ -665,7 +607,7 @@ const LongDivisionTutor = () => {
                                     {isError ? "That's not quite right. Try again!" : steps[currentStep]?.message}
                                 </p>
                             </div>
-                            {isInteractive && steps[currentStep]?.type !== 'FINISH' && steps[currentStep]?.type !== 'FOCUS' && (
+                            {mode === 'practice' && steps[currentStep]?.type !== 'FINISH' && steps[currentStep]?.type !== 'FOCUS' && (
                                 <HelpCircle className="text-slate-300 w-6 h-6" />
                             )}
                         </div>
@@ -683,8 +625,8 @@ const LongDivisionTutor = () => {
                     </div>
 
                 </div>
-            </main>
-        </div>
+            </div>
+        </TopicContainer>
     );
 };
 

@@ -1,30 +1,37 @@
 import { useState, useEffect } from 'react';
-import { CheckCircle2, XCircle, RefreshCw } from 'lucide-react';
+import { triggerConfetti } from '../../../../lib/confetti';
+import Card from '../../../../components/ui/Card';
+import Button from '../../../../components/ui/Button';
+import Streak from '../../../../components/gamification/Streak';
+import Feedback from '../../../../components/ui/Feedback';
+import { cn } from '../../../../lib/utils';
+import TopicContainer from '../../../../components/layout/TopicContainer';
+import { Scale } from 'lucide-react';
 
 const Comparing = () => {
+    const [mode, setMode] = useState<'learn' | 'practice'>('learn');
+
+    // Practice State
     const [numA, setNumA] = useState<number>(0);
     const [numB, setNumB] = useState<number>(0);
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
     const [streak, setStreak] = useState(0);
 
-    const generateProblem = () => {
-        // Generate two numbers up to 6 digits
-        const base = Math.floor(Math.random() * 900000) + 100000;
+    // Learn State
+    const [learnStep, setLearnStep] = useState(0);
 
-        // To make it tricky, often make them very similar
+    const generateProblem = () => {
+        const base = Math.floor(Math.random() * 900000) + 100000;
         const type = Math.random();
         let a = base;
         let b = base;
 
         if (type < 0.4) {
-            // Identical (Equal)
             b = a;
         } else if (type < 0.7) {
-            // Very close (off by 1, 10, 100)
             const diff = Math.pow(10, Math.floor(Math.random() * 4));
             b = Math.random() < 0.5 ? a + diff : a - diff;
         } else {
-            // Randomly different
             b = Math.floor(Math.random() * 900000) + 100000;
         }
 
@@ -48,6 +55,7 @@ const Comparing = () => {
         if (operator === correctOp) {
             setIsCorrect(true);
             setStreak(s => s + 1);
+            triggerConfetti();
         } else {
             setIsCorrect(false);
             setStreak(0);
@@ -58,81 +66,145 @@ const Comparing = () => {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     };
 
-    return (
-        <div className="max-w-2xl mx-auto p-6">
-            <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl font-bold text-slate-800">Compare Numbers</h2>
-                <div className="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full font-bold text-sm">
-                    Streak: {streak} 🔥
-                </div>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 text-center mb-8">
-                <p className="text-slate-500 mb-8 text-lg">Which sign makes the statement true?</p>
-
-                <div className="flex items-center justify-center gap-4 md:gap-8 mb-12">
-                    <div className="flex-1 text-3xl md:text-5xl font-mono font-bold text-slate-800 text-right">
-                        {formatNumber(numA)}
-                    </div>
-
-                    <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-slate-100 rounded-xl border-2 border-slate-200 text-4xl font-bold text-slate-400">
-                        {isCorrect === null ? "?" : (
-                            numA < numB ? "<" : numA > numB ? ">" : "="
-                        )}
-                    </div>
-
-                    <div className="flex-1 text-3xl md:text-5xl font-mono font-bold text-slate-800 text-left">
-                        {formatNumber(numB)}
-                    </div>
-                </div>
-
-                <div className="flex justify-center gap-4">
-                    {['<', '=', '>'].map((op) => (
-                        <button
-                            key={op}
-                            onClick={() => handleCheck(op as any)}
-                            disabled={isCorrect !== null}
-                            className={`w-20 h-20 rounded-xl text-4xl font-bold border-b-4 active:border-b-0 active:translate-y-1 transition-all ${isCorrect !== null
-                                    ? 'bg-slate-100 text-slate-400 border-slate-200'
-                                    : 'bg-white border-indigo-200 text-indigo-600 hover:bg-indigo-50 hover:border-indigo-300 shadow-sm'
-                                }`}
-                        >
-                            {op}
-                        </button>
-                    ))}
-                </div>
-            </div>
-
-            {isCorrect !== null && (
-                <div className={`p-6 rounded-xl flex items-center justify-between animate-in fade-in slide-in-from-bottom-4 ${isCorrect ? 'bg-emerald-50 border border-emerald-200' : 'bg-red-50 border border-red-200'}`}>
-                    <div className="flex items-center gap-4">
-                        {isCorrect ? (
-                            <div className="bg-emerald-100 p-2 rounded-full">
-                                <CheckCircle2 className="w-8 h-8 text-emerald-600" />
+    const LearnContent = () => {
+        const steps = [
+            {
+                title: "Comparing Numbers",
+                content: (
+                    <div className="space-y-6 text-center">
+                        <p className="text-lg text-slate-600">We use three signs to compare numbers:</p>
+                        <div className="grid grid-cols-3 gap-4 max-w-md mx-auto">
+                            <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100 flex flex-col items-center">
+                                <span className="text-4xl font-bold text-indigo-600 mb-2">&lt;</span>
+                                <span className="text-sm font-bold text-indigo-800">Less Than</span>
+                                <span className="text-xs text-indigo-500">Smaller</span>
                             </div>
-                        ) : (
-                            <div className="bg-red-100 p-2 rounded-full">
-                                <XCircle className="w-8 h-8 text-red-600" />
+                            <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100 flex flex-col items-center">
+                                <span className="text-4xl font-bold text-indigo-600 mb-2">=</span>
+                                <span className="text-sm font-bold text-indigo-800">Equal To</span>
+                                <span className="text-xs text-indigo-500">Same</span>
                             </div>
-                        )}
-                        <div>
-                            <h3 className={`font-bold text-lg ${isCorrect ? 'text-emerald-800' : 'text-red-800'}`}>
-                                {isCorrect ? "Correct!" : "Oops!"}
-                            </h3>
-                            <p className={`${isCorrect ? 'text-emerald-600' : 'text-red-600'}`}>
-                                {numA} is <strong>{numA < numB ? "less than" : numA > numB ? "greater than" : "equal to"}</strong> {numB}.
-                            </p>
+                            <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100 flex flex-col items-center">
+                                <span className="text-4xl font-bold text-indigo-600 mb-2">&gt;</span>
+                                <span className="text-sm font-bold text-indigo-800">Greater Than</span>
+                                <span className="text-xs text-indigo-500">Bigger</span>
+                            </div>
                         </div>
                     </div>
-                    <button
-                        onClick={generateProblem}
-                        className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold shadow-md transition-colors flex items-center gap-2"
+                )
+            },
+            {
+                title: "The Hungry Crocodile",
+                content: (
+                    <div className="space-y-6 text-center">
+                        <p className="text-lg text-slate-600">Imagine the sign is a hungry crocodile's mouth.</p>
+                        <div className="flex items-center justify-center gap-8 text-3xl font-bold text-slate-700">
+                            <div className="bg-white p-4 rounded-lg shadow-sm border border-slate-200">5</div>
+                            <div className="text-emerald-600 text-5xl">&lt;</div>
+                            <div className="bg-white p-4 rounded-lg shadow-sm border border-slate-200">10</div>
+                        </div>
+                        <p className="text-emerald-600 font-medium">It always wants to eat the BIGGER number!</p>
+                    </div>
+                )
+            }
+        ];
+
+        return (
+            <Card className="p-8 space-y-8">
+                <h2 className="text-2xl font-bold text-slate-800">{steps[learnStep].title}</h2>
+                {steps[learnStep].content}
+
+                <div className="flex justify-between pt-8 border-t border-slate-100">
+                    <Button
+                        variant="secondary"
+                        disabled={learnStep === 0}
+                        onClick={() => setLearnStep(prev => prev - 1)}
                     >
-                        Next Pair <RefreshCw className="w-4 h-4" />
-                    </button>
+                        Previous
+                    </Button>
+                    <div className="flex gap-1 items-center">
+                        {steps.map((_, i) => (
+                            <div key={i} className={cn("w-2 h-2 rounded-full transition-colors", i === learnStep ? "bg-indigo-600" : "bg-slate-200")} />
+                        ))}
+                    </div>
+                    <Button
+                        onClick={() => {
+                            if (learnStep < steps.length - 1) {
+                                setLearnStep(prev => prev + 1);
+                            } else {
+                                setMode('practice');
+                            }
+                        }}
+                    >
+                        {learnStep === steps.length - 1 ? "Start Practice" : "Next"}
+                    </Button>
+                </div>
+            </Card>
+        );
+    };
+
+    return (
+        <TopicContainer
+            title="Compare Numbers"
+            subtitle="Master the art of comparing large numbers"
+            onModeChange={setMode}
+        >
+            {mode === 'learn' ? (
+                <LearnContent />
+            ) : (
+                <div className="space-y-8">
+                    <div className="flex justify-end">
+                        <Streak count={streak} />
+                    </div>
+
+                    <Card className="p-8 text-center space-y-8">
+                        <div className="flex items-center justify-center gap-2 text-slate-500 mb-4">
+                            <Scale className="w-5 h-5" />
+                            <p className="text-lg">Which sign makes the statement true?</p>
+                        </div>
+
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-8">
+                            <div className="flex-1 text-3xl md:text-4xl font-mono font-bold text-slate-800 md:text-right">
+                                {formatNumber(numA)}
+                            </div>
+
+                            <div className="w-20 h-20 flex items-center justify-center bg-slate-100 rounded-2xl border-2 border-slate-200 text-5xl font-bold text-slate-400 shadow-inner">
+                                {isCorrect === null ? "?" : (
+                                    numA < numB ? "<" : numA > numB ? ">" : "="
+                                )}
+                            </div>
+
+                            <div className="flex-1 text-3xl md:text-4xl font-mono font-bold text-slate-800 md:text-left">
+                                {formatNumber(numB)}
+                            </div>
+                        </div>
+
+                        <div className="flex justify-center gap-4">
+                            {['<', '=', '>'].map((op) => (
+                                <Button
+                                    key={op}
+                                    onClick={() => handleCheck(op as any)}
+                                    disabled={isCorrect !== null}
+                                    variant={isCorrect !== null ? 'secondary' : 'outline'}
+                                    className="w-24 h-20 text-4xl font-bold"
+                                >
+                                    {op}
+                                </Button>
+                            ))}
+                        </div>
+                    </Card>
+
+                    <div className="h-24">
+                        <Feedback
+                            isCorrect={isCorrect}
+                            correctMessage={`Correct! ${formatNumber(numA)} is ${numA < numB ? "less than" : numA > numB ? "greater than" : "equal to"} ${formatNumber(numB)}.`}
+                            incorrectMessage={`Oops! ${formatNumber(numA)} is ${numA < numB ? "less than" : numA > numB ? "greater than" : "equal to"} ${formatNumber(numB)}.`}
+                            onNext={generateProblem}
+                        />
+                    </div>
                 </div>
             )}
-        </div>
+        </TopicContainer>
     );
 };
 

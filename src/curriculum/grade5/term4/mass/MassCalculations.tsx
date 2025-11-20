@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react';
-import { CheckCircle2, XCircle, RefreshCw } from 'lucide-react';
+import { triggerConfetti } from '../../../../lib/confetti';
+import Card from '../../../../components/ui/Card';
+import Button from '../../../../components/ui/Button';
+import Streak from '../../../../components/gamification/Streak';
+import Feedback from '../../../../components/ui/Feedback';
+import { cn } from '../../../../lib/utils';
+import TopicContainer from '../../../../components/layout/TopicContainer';
+import { Calculator } from 'lucide-react';
 
 interface Problem {
     question: string;
@@ -8,10 +15,16 @@ interface Problem {
 }
 
 const MassCalculations = () => {
+    const [mode, setMode] = useState<'learn' | 'practice'>('learn');
+
+    // Practice State
     const [problem, setProblem] = useState<Problem | null>(null);
     const [userAnswer, setUserAnswer] = useState("");
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
     const [streak, setStreak] = useState(0);
+
+    // Learn State
+    const [learnStep, setLearnStep] = useState(0);
 
     const generateProblem = () => {
         const types = ['add', 'sub', 'mul', 'div'];
@@ -19,7 +32,7 @@ const MassCalculations = () => {
 
         let q = "";
         let a = 0;
-        let u = "g"; // or kg
+        let u = "g";
 
         const names = ["Thabo", "Sarah", "The baker", "Mom", "The truck"];
         const name = names[Math.floor(Math.random() * names.length)];
@@ -38,13 +51,13 @@ const MassCalculations = () => {
             u = "g";
         } else if (type === 'mul') {
             const count = Math.floor(Math.random() * 8) + 2;
-            const weight = Math.floor(Math.random() * 10) + 1; // kg
+            const weight = Math.floor(Math.random() * 10) + 1;
             q = `A brick weighs ${weight}kg. What is the mass of ${count} bricks?`;
             a = count * weight;
             u = "kg";
         } else if (type === 'div') {
             const count = Math.floor(Math.random() * 4) + 2;
-            const total = count * (Math.floor(Math.random() * 20) + 5); // Ensure divisibility
+            const total = count * (Math.floor(Math.random() * 20) + 5);
             q = `${count} identical bags of rice weigh ${total}kg together. How much does one bag weigh?`;
             a = total / count;
             u = "kg";
@@ -59,8 +72,8 @@ const MassCalculations = () => {
         generateProblem();
     }, []);
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = (e?: React.FormEvent) => {
+        if (e) e.preventDefault();
         if (!userAnswer || !problem) return;
 
         const val = parseFloat(userAnswer);
@@ -68,81 +81,139 @@ const MassCalculations = () => {
         if (Math.abs(val - problem.answer) < 0.1) {
             setIsCorrect(true);
             setStreak(s => s + 1);
+            triggerConfetti();
         } else {
             setIsCorrect(false);
             setStreak(0);
         }
     };
 
-    return (
-        <div className="max-w-2xl mx-auto p-6">
-            <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl font-bold text-slate-800">Mass Word Problems</h2>
-                <div className="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full font-bold text-sm">
-                    Streak: {streak} 🔥
-                </div>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 mb-8">
-                <div className="bg-indigo-50 p-6 rounded-xl mb-8 border border-indigo-100">
-                    <p className="text-xl text-indigo-900 font-medium leading-relaxed">
-                        {problem?.question}
-                    </p>
-                </div>
-
-                <form onSubmit={handleSubmit} className="max-w-xs mx-auto relative">
-                    <input
-                        type="number"
-                        value={userAnswer}
-                        onChange={(e) => setUserAnswer(e.target.value)}
-                        disabled={isCorrect !== null}
-                        className={`w-full text-center text-3xl font-bold p-3 border-2 rounded-xl outline-none transition-all ${isCorrect === true ? 'border-emerald-500 bg-emerald-50 text-emerald-700' :
-                                isCorrect === false ? 'border-red-500 bg-red-50 text-red-700' :
-                                    'border-slate-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100'
-                            }`}
-                        placeholder="?"
-                        autoFocus
-                    />
-                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold">
-                        {problem?.unit}
-                    </span>
-
-                    {isCorrect === null && (
-                        <button type="submit" className="hidden">Check</button>
-                    )}
-                </form>
-            </div>
-
-            {isCorrect !== null && (
-                <div className={`p-6 rounded-xl flex items-center justify-between animate-in fade-in slide-in-from-bottom-4 ${isCorrect ? 'bg-emerald-50 border border-emerald-200' : 'bg-red-50 border border-red-200'}`}>
-                    <div className="flex items-center gap-4">
-                        {isCorrect ? (
-                            <div className="bg-emerald-100 p-2 rounded-full">
-                                <CheckCircle2 className="w-8 h-8 text-emerald-600" />
-                            </div>
-                        ) : (
-                            <div className="bg-red-100 p-2 rounded-full">
-                                <XCircle className="w-8 h-8 text-red-600" />
-                            </div>
-                        )}
-                        <div>
-                            <h3 className={`font-bold text-lg ${isCorrect ? 'text-emerald-800' : 'text-red-800'}`}>
-                                {isCorrect ? "Correct!" : "Not quite."}
-                            </h3>
-                            <p className={`${isCorrect ? 'text-emerald-600' : 'text-red-600'}`}>
-                                The answer is <strong>{problem?.answer} {problem?.unit}</strong>.
-                            </p>
+    const LearnContent = () => {
+        const steps = [
+            {
+                title: "Solving Mass Problems",
+                content: (
+                    <div className="space-y-6 text-center">
+                        <p className="text-lg text-slate-600">We can add, subtract, multiply, and divide mass just like normal numbers.</p>
+                        <div className="bg-indigo-50 p-6 rounded-xl border border-indigo-100 inline-block">
+                            <p className="text-indigo-800 font-medium">Always check the units!</p>
+                            <p className="text-sm text-indigo-600 mt-2">Make sure you are adding grams to grams, or kg to kg.</p>
                         </div>
                     </div>
-                    <button
-                        onClick={generateProblem}
-                        className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold shadow-md transition-colors flex items-center gap-2"
+                )
+            },
+            {
+                title: "Example: Total Mass",
+                content: (
+                    <div className="space-y-6 text-center">
+                        <p className="text-lg text-slate-600">"A bag of apples is 2kg. A bag of oranges is 3kg. What is the total?"</p>
+                        <div className="flex items-center justify-center gap-4 text-2xl font-bold text-slate-700">
+                            <div className="bg-red-100 px-4 py-2 rounded-lg text-red-800">2 kg</div>
+                            <div>+</div>
+                            <div className="bg-orange-100 px-4 py-2 rounded-lg text-orange-800">3 kg</div>
+                            <div>=</div>
+                            <div className="bg-emerald-100 px-4 py-2 rounded-lg text-emerald-800">5 kg</div>
+                        </div>
+                    </div>
+                )
+            }
+        ];
+
+        return (
+            <Card className="p-8 space-y-8">
+                <h2 className="text-2xl font-bold text-slate-800">{steps[learnStep].title}</h2>
+                {steps[learnStep].content}
+
+                <div className="flex justify-between pt-8 border-t border-slate-100">
+                    <Button
+                        variant="secondary"
+                        disabled={learnStep === 0}
+                        onClick={() => setLearnStep(prev => prev - 1)}
                     >
-                        Next Problem <RefreshCw className="w-4 h-4" />
-                    </button>
+                        Previous
+                    </Button>
+                    <div className="flex gap-1 items-center">
+                        {steps.map((_, i) => (
+                            <div key={i} className={cn("w-2 h-2 rounded-full transition-colors", i === learnStep ? "bg-indigo-600" : "bg-slate-200")} />
+                        ))}
+                    </div>
+                    <Button
+                        onClick={() => {
+                            if (learnStep < steps.length - 1) {
+                                setLearnStep(prev => prev + 1);
+                            } else {
+                                setMode('practice');
+                            }
+                        }}
+                    >
+                        {learnStep === steps.length - 1 ? "Start Practice" : "Next"}
+                    </Button>
+                </div>
+            </Card>
+        );
+    };
+
+    return (
+        <TopicContainer
+            title="Mass Word Problems"
+            subtitle="Solve real-world mass problems"
+            onModeChange={setMode}
+        >
+            {mode === 'learn' ? (
+                <LearnContent />
+            ) : (
+                <div className="space-y-8">
+                    <div className="flex justify-end">
+                        <Streak count={streak} />
+                    </div>
+
+                    <Card className="p-8 text-center space-y-8">
+                        <div className="flex items-center justify-center gap-2 text-slate-500 mb-4">
+                            <Calculator className="w-5 h-5" />
+                            <p className="text-lg">Solve the problem</p>
+                        </div>
+
+                        <div className="bg-indigo-50 p-8 rounded-2xl border border-indigo-100 shadow-sm">
+                            <p className="text-xl md:text-2xl text-indigo-900 font-medium leading-relaxed">
+                                {problem?.question}
+                            </p>
+                        </div>
+
+                        <form onSubmit={handleSubmit} className="max-w-xs mx-auto relative">
+                            <input
+                                type="number"
+                                value={userAnswer}
+                                onChange={(e) => setUserAnswer(e.target.value)}
+                                disabled={isCorrect !== null}
+                                className={cn(
+                                    "w-full text-center text-3xl font-bold p-4 border-2 rounded-xl outline-none transition-all shadow-sm",
+                                    isCorrect === true ? 'border-emerald-500 bg-emerald-50 text-emerald-700' :
+                                        isCorrect === false ? 'border-red-500 bg-red-50 text-red-700' :
+                                            'border-slate-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100'
+                                )}
+                                placeholder="?"
+                                autoFocus
+                            />
+                            <span className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-xl">
+                                {problem?.unit}
+                            </span>
+                            {isCorrect === null && (
+                                <Button type="submit" className="hidden">Check</Button>
+                            )}
+                        </form>
+                    </Card>
+
+                    <div className="h-24">
+                        <Feedback
+                            isCorrect={isCorrect}
+                            correctMessage={`Correct! The answer is ${problem?.answer} ${problem?.unit}.`}
+                            incorrectMessage={`Not quite. The answer is ${problem?.answer} ${problem?.unit}.`}
+                            onNext={generateProblem}
+                        />
+                    </div>
                 </div>
             )}
-        </div>
+        </TopicContainer>
     );
 };
 
