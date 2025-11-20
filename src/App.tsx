@@ -4,8 +4,13 @@ import CurriculumSelector from './components/CurriculumSelector';
 import LongDivisionTutor from './curriculum/grade5/term4/long-division/LongDivisionTutor';
 import WholeNumbers from './curriculum/grade5/term4/whole-numbers/WholeNumbers';
 import Mass from './curriculum/grade5/term4/mass/Mass';
+import G6WholeNumbers from './curriculum/grade6/term1/whole-numbers/G6WholeNumbers';
+import Fractions from './curriculum/grade6/term1/fractions/Fractions';
+import Patterns from './curriculum/grade6/term1/patterns/Patterns';
+import Geometry from './curriculum/grade6/term1/geometry/Geometry';
 import { ArrowLeft } from 'lucide-react';
 
+// --- Curriculum Data Definition ---
 // --- Curriculum Data Definition ---
 const curriculumData: Curriculum = {
     grades: [
@@ -34,6 +39,42 @@ const curriculumData: Curriculum = {
                             title: "Measurement: Mass",
                             description: "Working with grams and kilograms.",
                             component: Mass
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 6,
+            title: "Grade 6",
+            terms: [
+                {
+                    id: 1,
+                    title: "Term 1",
+                    topics: [
+                        {
+                            id: "g6-whole-numbers",
+                            title: "Whole Numbers",
+                            description: "Large numbers (9 digits) and Prime Numbers.",
+                            component: G6WholeNumbers
+                        },
+                        {
+                            id: "fractions",
+                            title: "Fractions",
+                            description: "Equivalent fractions and decimals.",
+                            component: Fractions
+                        },
+                        {
+                            id: "patterns",
+                            title: "Patterns & Algebra",
+                            description: "Number patterns and flow diagrams.",
+                            component: Patterns
+                        },
+                        {
+                            id: "geometry",
+                            title: "Geometry",
+                            description: "2D shapes and 3D objects.",
+                            component: Geometry
                         }
                     ]
                 }
