@@ -6,6 +6,7 @@ import WholeNumbers from './curriculum/grade5/term4/whole-numbers/WholeNumbers';
 import Mass from './curriculum/grade5/term4/mass/Mass';
 import HeritageTrail from './curriculum/grade5/term4/history/HeritageTrail';
 import FinalAssessment from './curriculum/grade5/term5/history/FinalAssessment';
+import LifeSkillsAssessment from './curriculum/grade5/term5/life-skills/LifeSkillsAssessment';
 import G6WholeNumbers from './curriculum/grade6/term1/whole-numbers/G6WholeNumbers';
 import Fractions from './curriculum/grade6/term1/fractions/Fractions';
 import Patterns from './curriculum/grade6/term1/patterns/Patterns';
@@ -74,6 +75,24 @@ const curriculumData: Curriculum = {
                                     title: "History Assessment",
                                     description: "Final assessment covering Ancient Egypt and Heritage Trail.",
                                     component: FinalAssessment
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: "life-skills",
+                    title: "Life Skills",
+                    terms: [
+                        {
+                            id: 5,
+                            title: "Final Assessment",
+                            topics: [
+                                {
+                                    id: "life-skills-final",
+                                    title: "Life Skills Assessment",
+                                    description: "Final assessment covering Festivals, Healthy Eating, Environment, Substance Abuse, and TB/HIV.",
+                                    component: LifeSkillsAssessment
                                 }
                             ]
                         }
