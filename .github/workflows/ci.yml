@@ -35,6 +35,7 @@ jobs:
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=sha
+            type=raw,value=${{ github.run_id }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
