@@ -7,6 +7,7 @@ import Mass from './curriculum/grade5/term4/mass/Mass';
 import HeritageTrail from './curriculum/grade5/term4/history/HeritageTrail';
 import FinalAssessment from './curriculum/grade5/term5/history/FinalAssessment';
 import LifeSkillsAssessment from './curriculum/grade5/term5/life-skills/LifeSkillsAssessment';
+import GeographyAssessment from './curriculum/grade5/term5/geography/GeographyAssessment';
 import G6WholeNumbers from './curriculum/grade6/term1/whole-numbers/G6WholeNumbers';
 import Fractions from './curriculum/grade6/term1/fractions/Fractions';
 import Patterns from './curriculum/grade6/term1/patterns/Patterns';
@@ -93,6 +94,24 @@ const curriculumData: Curriculum = {
                                     title: "Life Skills Assessment",
                                     description: "Final assessment covering Festivals, Healthy Eating, Environment, Substance Abuse, and TB/HIV.",
                                     component: LifeSkillsAssessment
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: "geography",
+                    title: "Geography",
+                    terms: [
+                        {
+                            id: 5,
+                            title: "Final Assessment",
+                            topics: [
+                                {
+                                    id: "geography-final",
+                                    title: "Geography Assessment",
+                                    description: "Final assessment covering Map Skills, Physical Features, Weather, Climate, and Mining.",
+                                    component: GeographyAssessment
                                 }
                             ]
                         }
