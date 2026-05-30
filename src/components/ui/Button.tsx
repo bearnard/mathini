@@ -21,9 +21,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         };
 
         const sizes = {
-            sm: 'h-9 px-3 text-sm',
-            md: 'h-11 px-6 text-base',
-            lg: 'h-14 px-8 text-lg',
+            sm: 'min-h-9 px-3 py-1.5 text-sm',
+            md: 'min-h-11 px-6 py-2 text-base',
+            lg: 'min-h-14 px-8 py-2.5 text-lg',
             icon: 'h-11 w-11 p-0 flex items-center justify-center',
         };
 
@@ -33,7 +33,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 whileTap={{ scale: 0.95 }}
                 whileHover={{ scale: disabled ? 1 : 1.02 }}
                 className={cn(
-                    'inline-flex items-center justify-center rounded-xl font-bold border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
+                    'inline-flex items-center justify-center text-center whitespace-normal break-words rounded-xl font-bold border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
                     variants[variant],
                     sizes[size],
                     className
