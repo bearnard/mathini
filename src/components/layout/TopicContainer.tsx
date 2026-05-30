@@ -17,7 +17,7 @@ export const TopicContainer: React.FC<TopicContainerProps> = ({
     children,
     className
 }) => {
-    const [mode, setMode] = useState<'learn' | 'practice'>('practice');
+    const [mode, setMode] = useState<'learn' | 'practice'>('learn');
 
     const handleModeChange = (newMode: 'learn' | 'practice') => {
         setMode(newMode);

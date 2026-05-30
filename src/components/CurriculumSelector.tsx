@@ -54,16 +54,27 @@ const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ type: "spring", duration: 0.8 }}
-                    className="inline-block p-4 rounded-3xl bg-white shadow-lg mb-6"
+                    className="inline-block px-5 py-3 rounded-3xl bg-white shadow-lg mb-6"
                 >
-                    <div className="text-5xl">🦁</div>
+                    <img
+                        src="/preppals-logo.svg"
+                        alt="PrepPals"
+                        className="h-32 md:h-40 w-auto"
+                    />
                 </motion.div>
                 <motion.h1
                     initial={{ y: -20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    className="text-4xl md:text-5xl font-black text-slate-800 mb-4 tracking-tight"
+                    className="text-4xl md:text-5xl font-black mb-4 tracking-tight"
                 >
-                    Mathini Tutor
+                    {'PrepPals'.split('').map((char, i) => (
+                        <span
+                            key={i}
+                            style={{ color: ['#f68535', '#3285bc', '#60a763', '#f97665', '#fac446'][i % 5] }}
+                        >
+                            {char}
+                        </span>
+                    ))}
                 </motion.h1>
                 <motion.p
                     initial={{ y: -20, opacity: 0 }}

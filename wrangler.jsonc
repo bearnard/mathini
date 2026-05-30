@@ -1,0 +1,33 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mathini",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-05-05",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "preppals",
+      "database_id": "46f7b6a0-c555-4168-ae45-681dba2ceec2"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "AUDIO",
+      "bucket_name": "preppals-audio"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    {
+      "pattern": "scholar.hibbins.org",
+      "custom_domain": true
+    }
+  ]
+}
