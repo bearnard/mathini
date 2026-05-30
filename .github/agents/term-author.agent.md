@@ -73,8 +73,13 @@ Note: `path` has **no** leading slash; the topic file's `image.src` is `"/" + pa
 
 ## Working method
 1. Read `_shared/types.ts`, `_shared/<X>Topic.tsx`, and one finished sibling topic file to lock in exact conventions.
-2. Confirm the term's 4 CAPS topics and their slugs.
-3. Write the 4 topic files, the manifest fragment, and all `svg` sources.
+2. Confirm the term's 4 CAPS topics and their slugs. Plan all file content mentally before writing.
+3. **Create ALL files in one parallel batch** — a single turn with simultaneous `create` calls for:
+   - All 4 topic `.tsx` components
+   - The 1 manifest fragment JSON
+   - All `type:"svg"` SVG sources
+
+   Do **not** write files one at a time. This is a hard efficiency requirement: the entire term's output must land in a single parallel creation turn. Only use sequential calls if a later file's content genuinely depends on a result from an earlier one (it never should for this task).
 4. Self-check before returning: every `answer` is verbatim one of exactly 4 unique `options`; every `image.src` matches a manifest `path`; every `type:"svg"` entry has a real `svgSource` file; no `import React`; no unused identifiers; valid JSON.
 5. **Report back** the exact list of files you created (full paths) so the orchestrator can generate assets and wire `App.tsx`.
 
