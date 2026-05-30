@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">European medicine discoveries timeline</title>
+  <desc id="desc">A colourful timeline showing hospitals, germ theory, hygiene, and vaccines.</desc>
+  <rect width="900" height="520" rx="36" fill="#f8fafc"/>
+  <text x="450" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#1e293b">Medical discoveries</text>
+  <line x1="120" y1="260" x2="780" y2="260" stroke="#94a3b8" stroke-width="10" stroke-linecap="round"/>
+
+  <g transform="translate(120 260)">
+    <circle r="42" fill="#38bdf8" stroke="#0369a1" stroke-width="5"/>
+    <rect x="-20" y="-18" width="40" height="36" rx="5" fill="#ffffff"/>
+    <rect x="-6" y="-32" width="12" height="64" fill="#ef4444"/>
+    <rect x="-32" y="-6" width="64" height="12" fill="#ef4444"/>
+    <text x="0" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">Hospitals</text>
+    <text x="0" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#475569">care for patients</text>
+  </g>
+
+  <g transform="translate(340 260)">
+    <circle r="42" fill="#f87171" stroke="#b91c1c" stroke-width="5"/>
+    <circle cx="0" cy="0" r="18" fill="#ffffff"/>
+    <circle cx="-19" cy="-18" r="7" fill="#ffffff"/>
+    <circle cx="22" cy="-9" r="6" fill="#ffffff"/>
+    <circle cx="10" cy="22" r="8" fill="#ffffff"/>
+    <line x1="-34" y1="0" x2="34" y2="0" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <line x1="0" y1="-34" x2="0" y2="34" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <text x="0" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">Germ theory</text>
+    <text x="0" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#475569">germs cause disease</text>
+  </g>
+
+  <g transform="translate(560 260)">
+    <circle r="42" fill="#34d399" stroke="#047857" stroke-width="5"/>
+    <path d="M-24 7c18 22 42 22 60-6" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="-20" cy="-12" r="8" fill="#ffffff"/>
+    <circle cx="8" cy="-21" r="10" fill="#ffffff"/>
+    <circle cx="29" cy="-4" r="7" fill="#ffffff"/>
+    <text x="0" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">Hygiene</text>
+    <text x="0" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#475569">clean hands and wards</text>
+  </g>
+
+  <g transform="translate(780 260)">
+    <circle r="42" fill="#a78bfa" stroke="#6d28d9" stroke-width="5"/>
+    <rect x="-8" y="-30" width="16" height="48" rx="5" fill="#ffffff" transform="rotate(-35)"/>
+    <line x1="13" y1="-22" x2="39" y2="-48" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <line x1="-18" y1="21" x2="-31" y2="34" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <text x="0" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">Vaccines</text>
+    <text x="0" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#475569">prevent some diseases</text>
+  </g>
+
+  <path d="M206 260h48" stroke="#64748b" stroke-width="6" stroke-linecap="round"/>
+  <path d="M254 260l-18-13v26z" fill="#64748b"/>
+  <path d="M426 260h48" stroke="#64748b" stroke-width="6" stroke-linecap="round"/>
+  <path d="M474 260l-18-13v26z" fill="#64748b"/>
+  <path d="M646 260h48" stroke="#64748b" stroke-width="6" stroke-linecap="round"/>
+  <path d="M694 260l-18-13v26z" fill="#64748b"/>
+</svg>

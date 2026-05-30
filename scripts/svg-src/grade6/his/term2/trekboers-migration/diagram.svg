@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Trekboer migration inland from the Cape</title>
+  <desc id="desc">A simple colourful map with arrows showing Trekboer wagons and cattle moving inland from the Cape.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#16a34a" />
+    </marker>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.16" />
+    </filter>
+  </defs>
+  <rect width="900" height="560" rx="28" fill="#f8fafc" />
+  <path d="M55 395 C130 355 220 365 300 318 C390 265 460 290 555 238 C650 185 745 178 850 132 L850 505 L55 505 Z" fill="#dcfce7" />
+  <path d="M55 395 C130 355 220 365 300 318 C390 265 460 290 555 238 C650 185 745 178 850 132" fill="none" stroke="#22c55e" stroke-width="5" />
+  <path d="M90 445 C175 410 255 405 330 372 C410 338 480 320 555 286 L555 505 L90 505 Z" fill="#fed7aa" stroke="#fb923c" stroke-width="4" filter="url(#softShadow)" />
+  <text x="240" y="448" text-anchor="middle" font-family="Arial, sans-serif" font-size="33" font-weight="800" fill="#9a3412">Cape</text>
+  <path d="M260 360 C360 300 455 252 565 225" fill="none" stroke="#16a34a" stroke-width="13" stroke-linecap="round" marker-end="url(#arrow)" />
+  <path d="M315 405 C430 370 520 325 675 285" fill="none" stroke="#16a34a" stroke-width="13" stroke-linecap="round" marker-end="url(#arrow)" opacity="0.85" />
+  <text x="535" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="800" fill="#166534">moving inland</text>
+  <g transform="translate(360 296)" filter="url(#softShadow)">
+    <rect x="0" y="18" width="78" height="42" rx="8" fill="#fef3c7" stroke="#92400e" stroke-width="4" />
+    <path d="M8 18 L24 0 H60 L75 18 Z" fill="#fde68a" stroke="#92400e" stroke-width="4" />
+    <circle cx="18" cy="66" r="12" fill="#334155" />
+    <circle cx="62" cy="66" r="12" fill="#334155" />
+  </g>
+  <g transform="translate(575 306)">
+    <ellipse cx="42" cy="30" rx="37" ry="22" fill="#a16207" />
+    <circle cx="76" cy="20" r="15" fill="#a16207" />
+    <path d="M85 12 L100 2 M85 18 L101 17" stroke="#713f12" stroke-width="5" stroke-linecap="round" />
+    <path d="M18 48 L12 76 M38 50 L34 78 M58 50 L64 78 M74 43 L82 70" stroke="#713f12" stroke-width="6" stroke-linecap="round" />
+  </g>
+  <g transform="translate(665 246)">
+    <ellipse cx="38" cy="25" rx="32" ry="19" fill="#92400e" />
+    <circle cx="67" cy="17" r="13" fill="#92400e" />
+    <path d="M74 10 L88 0 M75 18 L91 17" stroke="#713f12" stroke-width="4" stroke-linecap="round" />
+    <path d="M16 42 L11 65 M34 44 L31 68 M52 43 L58 66" stroke="#713f12" stroke-width="5" stroke-linecap="round" />
+  </g>
+  <text x="650" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" font-weight="800" fill="#166534">grazing land</text>
+  <circle cx="125" cy="120" r="42" fill="#fbbf24" opacity="0.9" />
+  <text x="450" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="800" fill="#0f172a">Trekboers and Migration</text>
+</svg>

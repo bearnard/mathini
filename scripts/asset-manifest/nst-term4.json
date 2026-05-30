@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade6",
+    "subject": "nst",
+    "term": "term4",
+    "topic": "solar-system",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade6/nst/term4/solar-system/diagram.svg",
+    "alt": "The Sun and eight labelled planets in order",
+    "svgSource": "scripts/svg-src/grade6/nst/term4/solar-system/diagram.svg"
+  },
+  {
+    "grade": "grade6",
+    "subject": "nst",
+    "term": "term4",
+    "topic": "earth-moon-movement",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade6/nst/term4/earth-moon-movement/diagram.svg",
+    "alt": "Earth rotating and revolving around the Sun with the Moon orbiting Earth",
+    "svgSource": "scripts/svg-src/grade6/nst/term4/earth-moon-movement/diagram.svg"
+  },
+  {
+    "grade": "grade6",
+    "subject": "nst",
+    "term": "term4",
+    "topic": "day-night-seasons",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade6/nst/term4/day-night-seasons/diagram.svg",
+    "alt": "Tilted Earth showing day side, night side and Sun rays",
+    "svgSource": "scripts/svg-src/grade6/nst/term4/day-night-seasons/diagram.svg"
+  },
+  {
+    "grade": "grade6",
+    "subject": "nst",
+    "term": "term4",
+    "topic": "space-exploration",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/nst/term4/space-exploration/diagram.webp",
+    "alt": "Friendly space exploration technology illustration",
+    "prompt": "Create a flat friendly educational illustration for Grade 6 learners showing a telescope on Earth looking upward, a satellite orbiting above, and a rocket launching into space as one clear space-exploration scene. Use bright simple shapes, clean composition, and a child-friendly science textbook style. NO text, NO words, NO labels, NO numbers in the image."
+  }
+]

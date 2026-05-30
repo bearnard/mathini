@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "example",
+    "subject": "example",
+    "term": "example",
+    "topic": "example-ai",
+    "section": "hero",
+    "type": "ai",
+    "path": "curriculum/example/assets/example-ai.webp",
+    "alt": "A friendly educational illustration of a green leaf collecting sunlight on a clean white background.",
+    "prompt": "A single green leaf catching warm sunlight, with a few simple water droplets and gentle rays, suitable for a Grade 6 science lesson"
+  },
+  {
+    "grade": "example",
+    "subject": "example",
+    "term": "example",
+    "topic": "example-svg",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/example/assets/example-diagram.svg",
+    "alt": "A simple triangle diagram with three colored points.",
+    "svgSource": "scripts/svg-src/example/diagram.svg"
+  }
+]

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-labelledby="title desc">
+  <title id="title">Example triangle diagram</title>
+  <desc id="desc">A simple educational triangle diagram with three colored points.</desc>
+  <rect width="320" height="180" fill="#ffffff"/>
+  <path d="M160 28 L54 150 H266 Z" fill="#dbeafe" stroke="#2563eb" stroke-width="6" stroke-linejoin="round"/>
+  <circle cx="160" cy="28" r="10" fill="#f97316"/>
+  <circle cx="54" cy="150" r="10" fill="#22c55e"/>
+  <circle cx="266" cy="150" r="10" fill="#ef4444"/>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Imports and exports</title>
+  <desc id="desc">Two arrows between a country and the world showing imports coming in and exports going out.</desc>
+  <defs>
+    <marker id="arrow-blue" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L12 7 L2 12 Z" fill="#2563eb" />
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L12 7 L2 12 Z" fill="#059669" />
+    </marker>
+  </defs>
+  <rect width="900" height="520" rx="34" fill="#f8fafc" />
+  <circle cx="190" cy="250" r="120" fill="#dbeafe" stroke="#2563eb" stroke-width="5" />
+  <path d="M92 232 C130 190 170 190 205 218 C234 242 275 226 295 260 C260 325 150 337 98 286 C82 268 78 250 92 232Z" fill="#22c55e" opacity="0.9" />
+  <path d="M130 165 C170 146 226 150 262 187 C226 193 205 208 176 195 C154 185 140 187 130 165Z" fill="#16a34a" opacity="0.85" />
+  <text x="190" y="405" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" fill="#1e3a8a">World</text>
+  <rect x="560" y="130" width="190" height="170" rx="22" fill="#fef3c7" stroke="#d97706" stroke-width="5" />
+  <path d="M590 270 L720 270 L720 236 L690 236 L690 204 L655 176 L620 204 L620 236 L590 236 Z" fill="#f59e0b" />
+  <path d="M655 176 L604 219 H706 Z" fill="#92400e" opacity="0.2" />
+  <rect x="642" y="232" width="26" height="38" fill="#fff7ed" />
+  <text x="655" y="354" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" fill="#92400e">Country</text>
+  <path d="M320 190 C405 120 500 118 585 177" fill="none" stroke="#2563eb" stroke-width="16" stroke-linecap="round" marker-end="url(#arrow-blue)" />
+  <text x="450" y="100" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" fill="#2563eb">Imports</text>
+  <text x="450" y="136" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" fill="#475569">goods coming in</text>
+  <path d="M585 315 C500 395 405 396 315 320" fill="none" stroke="#059669" stroke-width="16" stroke-linecap="round" marker-end="url(#arrow-green)" />
+  <text x="450" y="426" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" fill="#059669">Exports</text>
+  <text x="450" y="462" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" fill="#475569">goods going out</text>
+  <g transform="translate(112 228)">
+    <rect x="0" y="0" width="44" height="34" rx="6" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="3" />
+    <rect x="12" y="-10" width="20" height="10" rx="3" fill="#93c5fd" />
+  </g>
+  <g transform="translate(690 156)">
+    <circle cx="0" cy="0" r="16" fill="#ef4444" />
+    <path d="M0 -18 C8 -34 25 -33 31 -22 C17 -20 8 -16 0 -6Z" fill="#16a34a" />
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade6",
+    "subject": "geo",
+    "term": "term3",
+    "topic": "climate-regions",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade6/geo/term3/climate-regions/diagram.svg",
+    "alt": "climate belts from equator to poles diagram",
+    "svgSource": "scripts/svg-src/grade6/geo/term3/climate-regions/diagram.svg"
+  },
+  {
+    "grade": "grade6",
+    "subject": "geo",
+    "term": "term3",
+    "topic": "tropical-desert",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/geo/term3/tropical-desert/diagram.webp",
+    "alt": "tropical rainforest beside hot desert illustration",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a split scene of a lush green tropical rainforest beside a sandy hot desert with a cactus. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade6",
+    "subject": "geo",
+    "term": "term3",
+    "topic": "temperate-polar",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/geo/term3/temperate-polar/diagram.webp",
+    "alt": "temperate landscape beside snowy polar area illustration",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a temperate grassland and forest landscape beside a cold snowy polar area. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade6",
+    "subject": "geo",
+    "term": "term3",
+    "topic": "vegetation-adaptations",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/geo/term3/vegetation-adaptations/diagram.webp",
+    "alt": "desert cactus and adapted animal illustration",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a desert cactus storing water with spines beside an animal adapted to its environment. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]

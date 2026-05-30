@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade6",
+    "subject": "nst",
+    "term": "term3",
+    "topic": "electric-circuits",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade6/nst/term3/electric-circuits/diagram.svg",
+    "alt": "Closed circuit with a cell, bulb, switch and wires labelled",
+    "svgSource": "scripts/svg-src/grade6/nst/term3/electric-circuits/diagram.svg"
+  },
+  {
+    "grade": "grade6",
+    "subject": "nst",
+    "term": "term3",
+    "topic": "conductors-insulators",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade6/nst/term3/conductors-insulators/diagram.svg",
+    "alt": "Test circuit with a material gap and conductor and insulator examples",
+    "svgSource": "scripts/svg-src/grade6/nst/term3/conductors-insulators/diagram.svg"
+  },
+  {
+    "grade": "grade6",
+    "subject": "nst",
+    "term": "term3",
+    "topic": "circuit-diagrams",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade6/nst/term3/circuit-diagrams/diagram.svg",
+    "alt": "Chart of standard circuit symbols for a cell, battery, lamp, switches and wire",
+    "svgSource": "scripts/svg-src/grade6/nst/term3/circuit-diagrams/diagram.svg"
+  },
+  {
+    "grade": "grade6",
+    "subject": "nst",
+    "term": "term3",
+    "topic": "mains-electricity",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade6/nst/term3/mains-electricity/diagram.svg",
+    "alt": "Power station sending electricity through pylons and power lines to a house",
+    "svgSource": "scripts/svg-src/grade6/nst/term3/mains-electricity/diagram.svg"
+  }
+]

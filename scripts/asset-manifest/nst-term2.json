@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade6",
+    "subject": "nst",
+    "term": "term2",
+    "topic": "materials-properties",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/nst/term2/materials-properties/diagram.webp",
+    "alt": "objects made from different materials showing their properties",
+    "prompt": "Single clear subject: a neat tabletop display of a metal cooking pot, a glass window pane, a rubber tyre, a waterproof raincoat, and a wooden spoon demonstrating different material properties; flat friendly educational illustration for Grade 6 science; bright simple shapes; no text, no words, no labels in the image."
+  },
+  {
+    "grade": "grade6",
+    "subject": "nst",
+    "term": "term2",
+    "topic": "mixtures",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/nst/term2/mixtures/diagram.webp",
+    "alt": "examples of mixtures including cereal, fruit salad, muddy water, and air",
+    "prompt": "Single clear subject: four simple classroom examples of mixtures arranged together, including a bowl of cereal with raisins, a fruit salad bowl, a clear jar of muddy water with sediment, and a gentle swirl of air particles; flat friendly educational illustration for Grade 6 science; bright simple shapes; no text, no words, no labels in the image."
+  },
+  {
+    "grade": "grade6",
+    "subject": "nst",
+    "term": "term2",
+    "topic": "separating-mixtures",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade6/nst/term2/separating-mixtures/diagram.svg",
+    "alt": "labelled filtration setup showing residue and filtrate",
+    "svgSource": "scripts/svg-src/grade6/nst/term2/separating-mixtures/diagram.svg"
+  },
+  {
+    "grade": "grade6",
+    "subject": "nst",
+    "term": "term2",
+    "topic": "solutions-dissolving",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade6/nst/term2/solutions-dissolving/diagram.svg",
+    "alt": "labelled diagram of sugar dissolving in water",
+    "svgSource": "scripts/svg-src/grade6/nst/term2/solutions-dissolving/diagram.svg"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade6",
+    "subject": "geo",
+    "term": "term2",
+    "topic": "what-is-trade",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade6/geo/term2/what-is-trade/diagram.svg",
+    "alt": "imports and exports arrows between a country and the world",
+    "svgSource": "scripts/svg-src/grade6/geo/term2/what-is-trade/diagram.svg"
+  },
+  {
+    "grade": "grade6",
+    "subject": "geo",
+    "term": "term2",
+    "topic": "resources-value",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/geo/term2/resources-value/diagram.webp",
+    "alt": "natural resources including a mine forest farm water and solar energy",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing natural resources together in one simple scene: a small mine, a forest, farmland, clean water, and solar panels. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade6",
+    "subject": "geo",
+    "term": "term2",
+    "topic": "fair-trade",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/geo/term2/fair-trade/diagram.webp",
+    "alt": "South African farmer at a market stall with fresh produce",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a smiling South African farmer at a market stall with fresh produce, suggesting fair trade and community support. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade6",
+    "subject": "geo",
+    "term": "term2",
+    "topic": "trade-case-studies",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade6/geo/term2/trade-case-studies/diagram.svg",
+    "alt": "South Africa trade map with export icons and import arrows",
+    "svgSource": "scripts/svg-src/grade6/geo/term2/trade-case-studies/diagram.svg"
+  }
+]
