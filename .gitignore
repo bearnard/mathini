@@ -115,3 +115,23 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Next.js
+.next/
+next-env.d.ts
+
+# OpenNext / Cloudflare
+.open-next/
+.wrangler/
+cloudflare-env.d.ts
+.dev.vars
+.env.local
+.env.*.local
+
+# SSH / API keys generated locally
+flux-image-automation-key
+flux-image-automation-key.pub
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
