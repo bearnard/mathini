@@ -22,6 +22,7 @@ function prepare(items: HisItem[]): HisItem[] {
 export function useHisItems(task: string, bank: HisItem[]) {
   const [queue, setQueue] = useState<HisItem[]>([]);
   const [index, setIndex] = useState(0);
+  const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const loadBatch = useCallback(async () => {
@@ -54,15 +55,18 @@ export function useHisItems(task: string, bank: HisItem[]) {
   }, [loadBatch]);
 
   const next = useCallback(() => {
-    setIndex((prev) => {
-      if (prev + 1 < queue.length) {
-        return prev + 1;
-      }
-      // Exhausted the batch — reshuffle the same items for continued practice.
-      setQueue((q) => prepare(q));
-      return 0;
-    });
-  }, [queue.length]);
+    if (index + 1 < queue.length) {
+      setIndex(index + 1);
+    } else {
+      setDone(true);
+    }
+  }, [index, queue.length]);
 
-  return { current: queue[index] as HisItem | undefined, loading, next };
+  const reset = useCallback(() => {
+    setQueue((q) => prepare(q));
+    setIndex(0);
+    setDone(false);
+  }, []);
+
+  return { current: queue[index] as HisItem | undefined, loading, next, done, reset, index, total: queue.length };
 }

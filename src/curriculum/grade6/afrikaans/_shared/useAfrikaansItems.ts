@@ -22,6 +22,7 @@ function prepare(items: AfrikaansItem[]): AfrikaansItem[] {
 export function useAfrikaansItems(task: string, bank: AfrikaansItem[]) {
   const [queue, setQueue] = useState<AfrikaansItem[]>([]);
   const [index, setIndex] = useState(0);
+  const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const loadBatch = useCallback(async () => {
@@ -54,15 +55,18 @@ export function useAfrikaansItems(task: string, bank: AfrikaansItem[]) {
   }, [loadBatch]);
 
   const next = useCallback(() => {
-    setIndex((prev) => {
-      if (prev + 1 < queue.length) {
-        return prev + 1;
-      }
-      // Exhausted the batch — reshuffle the same items for continued practice.
-      setQueue((q) => prepare(q));
-      return 0;
-    });
-  }, [queue.length]);
+    if (index + 1 < queue.length) {
+      setIndex(index + 1);
+    } else {
+      setDone(true);
+    }
+  }, [index, queue.length]);
 
-  return { current: queue[index] as AfrikaansItem | undefined, loading, next };
+  const reset = useCallback(() => {
+    setQueue((q) => prepare(q));
+    setIndex(0);
+    setDone(false);
+  }, []);
+
+  return { current: queue[index] as AfrikaansItem | undefined, loading, next, done, reset, index, total: queue.length };
 }
