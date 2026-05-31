@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "math",
+    "term": "term3",
+    "topic": "common-and-decimal-fractions",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/math/term3/common-and-decimal-fractions/diagram.webp",
+    "alt": "Grade 8 learners converting and calculating with common and decimal fractions",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners converting between fractions and decimals and solving context calculations with both forms. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "math",
+    "term": "term3",
+    "topic": "theorem-of-pythagoras",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/math/term3/theorem-of-pythagoras/diagram.webp",
+    "alt": "Grade 8 learners applying Pythagoras to right-angled triangles",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners identifying hypotenuse and calculating unknown sides of right-angled triangles. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "math",
+    "term": "term3",
+    "topic": "area-perimeter-surface-area-and-volume",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/math/term3/area-perimeter-surface-area-and-volume/diagram.webp",
+    "alt": "Grade 8 learners comparing area, perimeter, surface area, and volume",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners selecting formulas for area, perimeter, surface area, and volume of common shapes and solids. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "math",
+    "term": "term3",
+    "topic": "data-handling",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/math/term3/data-handling/diagram.webp",
+    "alt": "Grade 8 learners creating graphs and interpreting data summaries",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners organising survey data, drawing graphs, and discussing summary measures together. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "gr9-transformations-t4": "Topic: Transformation Geometry. Cover translations, reflections, rotations, and enlargements on coordinate axes. Ask Grade 9 learners to describe transformations precisely, use coordinates to specify transformation details (centre, scale factor, direction), verify results mathematically, explore symmetry and congruence, and analyse which transformations preserve shape and size.",
+    "gr9-3d-objects-t4": "Topic: Geometry of 3D Objects. Cover properties of solids (faces, edges, vertices), classification of 3D objects, nets of common solids, and spatial reasoning. Ask Grade 9 learners to count and describe faces, edges, and vertices, match solids to nets, apply Euler's formula, classify solids accurately, and visualise 3D shapes from different perspectives.",
+    "gr9-data-handling-t4": "Topic: Data Handling. Cover data collection, representation using graphs and tables, and summary measures (mean, median, mode, range). Ask Grade 9 learners to choose appropriate representations, calculate summary measures, compare data sets, identify outliers and bias, discuss data spread, and critique graph choices for accuracy and clarity.",
+    "gr9-probability-t4": "Topic: Probability. Cover simple and compound events, tree diagrams and two-way tables, mutually exclusive and independent events, and relative frequency. Ask Grade 9 learners to calculate probabilities of single and compound events, interpret probability notation, explain likelihood in context, use tree diagrams correctly, and compare theoretical and experimental probabilities."
+  }
+}

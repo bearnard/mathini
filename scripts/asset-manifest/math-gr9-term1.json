@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "math",
+    "term": "term1",
+    "topic": "number-systems-operations",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/math/term1/number-systems-operations/diagram.webp",
+    "alt": "Grade 9 learners working with real numbers, integers, and fractions",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing generic learners classifying numbers, performing operations with integers, and converting between fractions and decimals. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "math",
+    "term": "term1",
+    "topic": "exponents",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/math/term1/exponents/diagram.webp",
+    "alt": "Grade 9 learners exploring exponent laws and simplifying powers",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing generic learners applying exponent laws, simplifying expressions with powers, and comparing exponential forms. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "math",
+    "term": "term1",
+    "topic": "patterns-functions",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/math/term1/patterns-functions/diagram.webp",
+    "alt": "Grade 9 learners finding pattern rules and identifying input-output relationships",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing generic learners identifying numeric and geometric patterns from sequences and tables, deriving pattern rules, and explaining input-output relationships. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "math",
+    "term": "term1",
+    "topic": "algebraic-expressions",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/math/term1/algebraic-expressions/diagram.webp",
+    "alt": "Grade 9 learners simplifying expressions, expanding brackets, and solving equations",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing generic learners combining like terms, expanding brackets, factorising expressions, and solving linear equations with clear steps. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

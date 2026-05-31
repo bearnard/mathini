@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade7",
+    "subject": "math",
+    "term": "term1",
+    "topic": "whole-numbers",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/math/term1/whole-numbers/diagram.webp",
+    "alt": "Grade 7 learners solving factor, multiple, ratio, and rate problems with whole numbers",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners solving whole-number tasks with factors, multiples, ratio, and rate in a classroom. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "math",
+    "term": "term1",
+    "topic": "exponents",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/math/term1/exponents/diagram.webp",
+    "alt": "Grade 7 learners modelling powers, squares, and cubes with exponent cards",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners exploring exponents with powers, squares, cubes, and simplified expressions using manipulatives. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "math",
+    "term": "term1",
+    "topic": "construction-of-geometric-figures",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/math/term1/construction-of-geometric-figures/diagram.webp",
+    "alt": "Grade 7 learners constructing angles, triangles, and quadrilaterals with geometry instruments",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners using ruler, compass, and protractor to construct angles, triangles, and quadrilaterals accurately. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "math",
+    "term": "term1",
+    "topic": "geometry-of-2d-shapes-and-straight-lines",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/math/term1/geometry-of-2d-shapes-and-straight-lines/diagram.webp",
+    "alt": "Grade 7 learners classifying 2D shapes and investigating straight-line angle relationships",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners classifying triangles and quadrilaterals and solving angle relationships on intersecting and parallel lines. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "creative-writing-project",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/eng/term3/creative-writing-project/diagram.webp",
+    "alt": "learner planning a creative writing project with research notes and draft pages",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner planning a creative writing project with research notes, draft pages and peer feedback cues. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade8",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "short-stories-narrative-technique",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/eng/term3/short-stories-narrative-technique/diagram.webp",
+    "alt": "learner mapping narrator sequencing conflict climax and characterisation in a short story",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner analysing a short story map with narrator, sequence, conflict, climax and character cues. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade8",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "essay-writing-style",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/eng/term3/essay-writing-style/diagram.webp",
+    "alt": "learner planning introduction body paragraphs and conclusion for an essay",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner structuring an essay with introduction, connected body paragraphs and conclusion planning cards. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]

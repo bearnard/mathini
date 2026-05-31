@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade7",
+    "subject": "nst",
+    "term": "term1",
+    "topic": "biosphere-biodiversity-and-reproduction",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/nst/term1/biosphere-biodiversity-and-reproduction/diagram.webp",
+    "alt": "Grade 7 learners classifying organisms and comparing sexual and asexual reproduction in habitats",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners classifying living things in different habitats and comparing sexual and asexual reproduction with pollination and seed dispersal cues. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "nst",
+    "term": "term1",
+    "topic": "design-process-and-structures",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/nst/term1/design-process-and-structures/diagram.webp",
+    "alt": "Grade 7 learners using IDMEC to design and test frame, shell, and solid structures",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners investigating a design brief and testing frame, shell, and solid structures with force arrows for tension and compression. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

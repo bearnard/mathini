@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "ns",
+    "term": "term3",
+    "topic": "classification-of-matter-and-periodic-table",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ns/term3/classification-of-matter-and-periodic-table/diagram.webp",
+    "alt": "Grade 8 learners classifying matter and reading periodic-table clues",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners sorting samples into elements, compounds, and mixtures while using a simplified periodic-table display for metal and non-metal clues. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "ns",
+    "term": "term3",
+    "topic": "chemical-reactions-acids-and-bases",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ns/term3/chemical-reactions-acids-and-bases/diagram.webp",
+    "alt": "Grade 8 learners observing reaction evidence and indicator colour changes for acids and bases",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners performing safe chemistry activities with acids and bases, indicators, and visible reaction evidence like bubbles and colour change. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

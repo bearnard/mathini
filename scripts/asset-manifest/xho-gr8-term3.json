@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "listening-speaking",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/xho/term3/listening-speaking/diagram.webp",
+    "alt": "Grade 8 learners delivering prepared speeches and taking part in role-play discussion",
+    "prompt": "Friendly educational illustration for Grade 8 isiXhosa FAL showing learners giving prepared speeches, doing role play, and responding to literature in group discussion, bright educational style, no text labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "reading-viewing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/xho/term3/reading-viewing/diagram.webp",
+    "alt": "Grade 8 learners interpreting drama scenes, poetry, and short stories with visual support",
+    "prompt": "Friendly educational illustration for Grade 8 isiXhosa FAL showing learners exploring a drama scene, poem and short story with visual support cards for literary response, classroom scene, no text labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "writing-presenting",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/xho/term3/writing-presenting/diagram.webp",
+    "alt": "Grade 8 learner planning a descriptive essay, formal letter, and project notes",
+    "prompt": "Friendly educational illustration for Grade 8 isiXhosa FAL showing a learner drafting descriptive and narrative writing, preparing a formal letter, and organising project presentation notes, no text labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "language-structures",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/xho/term3/language-structures/diagram.webp",
+    "alt": "Grade 8 learners using adverbs, prepositions, and clause cards while editing sentences",
+    "prompt": "Friendly educational illustration for Grade 8 isiXhosa FAL showing learners editing sentence cards for adverbs, prepositions, clause structure and punctuation, clear flat classroom composition, no text labels."
+  }
+]

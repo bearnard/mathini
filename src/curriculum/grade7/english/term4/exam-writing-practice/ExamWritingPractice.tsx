@@ -1,0 +1,137 @@
+import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
+import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+
+const learnSteps: LearnStep[] = [
+  {
+    title: 'Prepare for exam writing under time limits',
+    image: {
+      src: '/curriculum/grade7/eng/term4/exam-writing-practice/diagram.webp',
+      alt: 'learner planning an exam essay and transactional text with a timer and editing checklist',
+    },
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">
+          Exam writing practice focuses on selecting suitable text types, planning quickly, and producing accurate work
+          within limited time.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Plan before writing',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">
+          A short plan saves time later. Decide on structure, audience, tone, and main points before drafting essays or
+          transactional texts.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Edit for clarity, format and accuracy',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">
+          Final checks should target grammar, punctuation, format requirements, and whether each paragraph supports the
+          task purpose.
+        </p>
+      </div>
+    ),
+  },
+];
+
+const bank: CapsItem[] = [
+  {
+    prompt: 'What should you do first in an exam writing task?',
+    options: ['Read the question and plan key points', 'Write randomly and edit later', 'Skip the instructions', 'Copy from memory only'],
+    answer: 'Read the question and plan key points',
+    explanation: 'A quick plan keeps writing focused and relevant.',
+  },
+  {
+    prompt: 'Which text is a transactional writing form?',
+    options: ['Formal letter', 'Poem analysis', 'Character sketch', 'Novel chapter review'],
+    answer: 'Formal letter',
+    explanation: 'Transactional texts include practical communication forms like letters.',
+  },
+  {
+    prompt: 'Why is timing important in exam writing?',
+    options: [
+      'It helps you complete planning, drafting, and editing',
+      'It removes the need for structure',
+      'It lets you skip conclusions',
+      'It makes punctuation optional',
+    ],
+    answer: 'It helps you complete planning, drafting, and editing',
+    explanation: 'Time management ensures all parts of the task are covered.',
+  },
+  {
+    prompt: 'Which sentence best matches formal tone?',
+    options: [
+      'I would appreciate your response regarding this matter.',
+      'Hey, just fix this quickly please!',
+      'Yo, this is not cool at all.',
+      'Whatever, do what you want.',
+    ],
+    answer: 'I would appreciate your response regarding this matter.',
+    explanation: 'Formal tone is polite and professional.',
+  },
+  {
+    prompt: 'What is the purpose of an editing checklist?',
+    options: [
+      'to catch errors before final submission',
+      'to increase word count without meaning',
+      'to replace planning',
+      'to avoid rereading',
+    ],
+    answer: 'to catch errors before final submission',
+    explanation: 'Checklists help you systematically improve accuracy.',
+  },
+  {
+    prompt: 'Which choice shows good paragraph organisation?',
+    options: [
+      'Each paragraph develops one clear idea with support',
+      'Every paragraph repeats the same sentence',
+      'Paragraphs switch topic each line',
+      'Paragraphs have no linking words',
+    ],
+    answer: 'Each paragraph develops one clear idea with support',
+    explanation: 'Organised paragraphs improve clarity and coherence.',
+  },
+  {
+    prompt: 'In a timed essay, what is a practical planning method?',
+    options: [
+      'Make a brief outline of introduction, body points, and conclusion',
+      'Write the final copy immediately with no plan',
+      'Spend all the time on the title',
+      'Ignore the intended audience',
+    ],
+    answer: 'Make a brief outline of introduction, body points, and conclusion',
+    explanation: 'A short outline keeps the essay structured.',
+  },
+  {
+    prompt: 'Which is a common exam trap during editing?',
+    options: [
+      'Forgetting punctuation and agreement errors',
+      'Using a clear introduction',
+      'Checking format requirements',
+      'Leaving time for proofreading',
+    ],
+    answer: 'Forgetting punctuation and agreement errors',
+    explanation: 'Many marks are lost when basic language errors are missed.',
+  },
+];
+
+const ExamWritingPractice = () => (
+  <CapsSubjectTopic
+    title="Exam Writing Practice"
+    subtitle="Timed planning, text-type choice and accurate final editing"
+    learnSteps={learnSteps}
+    task="gr7-exam-writing-practice-t4"
+    bank={bank}
+    apiPath="/api/caps/eng"
+  />
+);
+
+export default ExamWritingPractice;
+

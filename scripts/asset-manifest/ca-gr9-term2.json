@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "ca",
+    "term": "term2",
+    "topic": "visual-arts",
+    "section": "image1",
+    "type": "ai",
+    "path": "curriculum/grade9/creative-arts/term2/visual-arts/image1.jpg",
+    "alt": "Grade 9 learners researching South African artists and developing planned artworks",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing students researching South African artists, exploring print and craft techniques, experimenting with materials, and creating planned artworks informed by research and visual analysis. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "ca",
+    "term": "term2",
+    "topic": "music",
+    "section": "image1",
+    "type": "ai",
+    "path": "curriculum/grade9/creative-arts/term2/music/image1.jpg",
+    "alt": "Grade 9 learners exploring African instruments and comparing musical styles",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing students exploring African and world music styles, listening and analyzing, recognizing diverse instruments, understanding harmony and texture, and maintaining ensemble balance in group performance. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "ca",
+    "term": "term2",
+    "topic": "drama",
+    "section": "image1",
+    "type": "ai",
+    "path": "curriculum/grade9/creative-arts/term2/drama/image1.jpg",
+    "alt": "Grade 9 learners interpreting scripts and exploring character choices",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing students interpreting scripts with cultural awareness, making strong character choices, using voice and gesture control, following stage directions, and connecting to South African theatrical traditions and social themes. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "ca",
+    "term": "term2",
+    "topic": "dance",
+    "section": "image1",
+    "type": "ai",
+    "path": "curriculum/grade9/creative-arts/term2/dance/image1.jpg",
+    "alt": "Grade 9 learners exploring social and cultural dance traditions",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing students exploring social and cultural dance forms, developing choreographic intent, using canon and repetition devices, arranging formations, coordinating ensemble patterns, and demonstrating cultural respect and understanding. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

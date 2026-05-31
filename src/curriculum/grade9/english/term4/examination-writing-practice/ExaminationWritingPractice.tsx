@@ -1,0 +1,109 @@
+import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
+import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+
+const learnSteps: LearnStep[] = [
+  {
+    title: 'Plan essays and transactional writing under time pressure',
+    image: {
+      src: '/curriculum/grade9/english/term4/examination-writing-practice/image1.jpg',
+      alt: 'learner planning an essay and timed response with outline and checking strategy',
+    },
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">
+          Exam writing requires quick planning and effective time use. Outline main points before writing, maintain 
+          focus on the topic, and leave time for editing. Timed responses test your ability to produce accurate, 
+          well-structured pieces under pressure.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Recall correct formats for letters and essays',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">
+          Different text types have specific formats: formal letters follow conventions of layout and salutation; 
+          essays need clear paragraphing and logical flow. Format recall prevents errors and demonstrates command of 
+          writing conventions.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Edit for common errors and technical accuracy',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">
+          Final editing checks grammar, spelling, punctuation, and tense consistency. Recognizing and correcting common 
+          mistakes improves your score and shows attention to detail. Practice builds speed and accuracy in error 
+          detection.
+        </p>
+      </div>
+    ),
+  },
+];
+
+const bank: CapsItem[] = [
+  {
+    prompt: 'What is the first step when writing an essay in an exam?',
+    options: ['plan your main points and structure', 'start writing immediately without thinking', 'write the conclusion first', 'skip planning to save time'],
+    answer: 'plan your main points and structure',
+    explanation: 'Planning ensures your essay stays focused and organized.',
+  },
+  {
+    prompt: 'How much time should you usually spend on exam planning?',
+    options: ['5-10 minutes per essay', '30 seconds only', 'no time at all', 'half the total exam time'],
+    answer: '5-10 minutes per essay',
+    explanation: 'Quick planning prevents rambling and ensures you address the question.',
+  },
+  {
+    prompt: 'What format feature is required in a formal letter?',
+    options: ['sender\'s address, date, and recipient\'s address at the top', 'no spacing or indentation', 'only a first name', 'informal salutation'],
+    answer: 'sender\'s address, date, and recipient\'s address at the top',
+    explanation: 'Formal layout shows professionalism and follows convention.',
+  },
+  {
+    prompt: 'Which sentence shows topic focus in an exam essay?',
+    options: ['The task asks me to discuss climate change, which I will address.', 'I will write about anything I want.', 'Climate change is interesting because penguins are cute.', 'Let me talk about many unrelated topics.'],
+    answer: 'The task asks me to discuss climate change, which I will address.',
+    explanation: 'Clear focus ensures your essay answers the specific question.',
+  },
+  {
+    prompt: 'What common editing error should you check in timed writing?',
+    options: ['tense consistency and subject-verb agreement', 'never check your work', 'make random changes', 'ignore all grammar'],
+    answer: 'tense consistency and subject-verb agreement',
+    explanation: 'These errors frequently affect clarity and appear in rushed writing.',
+  },
+  {
+    prompt: 'How can you manage time across multiple exam sections?',
+    options: ['allocate time proportionally to question marks; skip if running late', 'spend all time on one section', 'never track time', 'finish quickly regardless of quality'],
+    answer: 'allocate time proportionally to question marks; skip if running late',
+    explanation: 'Strategic time use ensures you attempt all sections.',
+  },
+  {
+    prompt: 'Which proofreading technique is most effective under time pressure?',
+    options: ['read your work aloud to catch errors quickly', 'don\'t proofread at all', 'change every sentence randomly', 'only check the first line'],
+    answer: 'read your work aloud to catch errors quickly',
+    explanation: 'Reading aloud helps you hear awkward phrasing and errors faster.',
+  },
+  {
+    prompt: 'What editing priority should you follow?',
+    options: ['major errors (spelling, grammar, sense) before minor (style)', 'ignore all errors', 'only fix the last sentence', 'focus on word count only'],
+    answer: 'major errors (spelling, grammar, sense) before minor (style)',
+    explanation: 'Prioritizing ensures your time corrects the most important mistakes.',
+  },
+];
+
+const ExaminationWritingPractice = () => (
+  <CapsSubjectTopic
+    title="Examination Writing Practice"
+    subtitle="Letters, essays, planning, editing, timed responses and format recall"
+    learnSteps={learnSteps}
+    task="gr9-examination-writing-practice-t4"
+    bank={bank}
+    apiPath="/api/caps/eng"
+  />
+);
+
+export default ExaminationWritingPractice;

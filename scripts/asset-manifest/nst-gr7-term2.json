@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade7",
+    "subject": "nst",
+    "term": "term2",
+    "topic": "matter-mixtures-acids-and-bases",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/nst/term2/matter-mixtures-acids-and-bases/diagram.webp",
+    "alt": "Grade 7 learners modelling particles and testing acids and bases with indicators",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners using particle models, classifying mixtures and solutions, and testing acids and bases with safe indicator experiments. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "nst",
+    "term": "term2",
+    "topic": "processing-materials-and-properties",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/nst/term2/processing-materials-and-properties/diagram.webp",
+    "alt": "Grade 7 learners selecting and processing materials based on properties and sustainability",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners selecting natural and processed materials, shaping and joining them safely, and considering sustainability in a product design task. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "ca",
+    "term": "term4",
+    "topic": "visual-arts",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ca/term4/visual-arts/diagram.webp",
+    "alt": "Grade 8 learners preparing portfolios and planning an artwork display",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing learners selecting portfolio artworks, refining finishes, and planning an exhibition layout. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "ca",
+    "term": "term4",
+    "topic": "music",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ca/term4/music/diagram.webp",
+    "alt": "Grade 8 learners rehearsing a final music item with stage etiquette",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing learners revising a music performance, comparing genre features, and demonstrating respectful stage etiquette. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "ca",
+    "term": "term4",
+    "topic": "drama",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ca/term4/drama/diagram.webp",
+    "alt": "Grade 8 learners presenting a polished scripted performance to an audience",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing learners presenting a polished scripted drama performance with rehearsal discipline and audience etiquette. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "ca",
+    "term": "term4",
+    "topic": "dance",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ca/term4/dance/diagram.webp",
+    "alt": "Grade 8 learners performing a final dance routine with expression and timing",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing learners performing a complete dance routine with accurate timing, expression, and confident group coordination. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "tech",
+    "term": "term3",
+    "topic": "electrical-circuits",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/technology/term3/electrical-circuits/image1.jpg",
+    "alt": "learner measuring current with an ammeter and voltage with a voltmeter in a circuit containing resistors",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner assembling an electrical circuit with resistors, batteries, ammeters, and voltmeters. Include visual indicators for current flow (arrows), voltage (potential difference), resistance, series and parallel circuit arrangements, and resistor colour bands. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade9",
+    "subject": "tech",
+    "term": "term3",
+    "topic": "electronic-control",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/technology/term3/electronic-control/image1.jpg",
+    "alt": "learner examining diodes, LEDs, LDRs, thermistors, and transistors in a control circuit setup",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner examining electronic components (diode, LED, LDR, thermistor, transistor) and their circuit symbols. Include visual indicators for light-dependent resistance changes, temperature-sensitive behaviour, switching action, and logic gates (AND, OR). Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]

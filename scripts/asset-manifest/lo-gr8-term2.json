@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "lo",
+    "term": "term2",
+    "topic": "social-and-environmental-responsibility",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/lo/term2/social-and-environmental-responsibility/diagram.webp",
+    "alt": "grade 8 learners cleaning a shared space and sorting waste for recycling",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners taking social and environmental responsibility through waste sorting, water care, and community clean-up action. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "lo",
+    "term": "term2",
+    "topic": "health-and-risk-behaviour",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/lo/term2/health-and-risk-behaviour/diagram.webp",
+    "alt": "grade 8 learner choosing safe responses to peer pressure and risk situations",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners identifying risky situations and practising refusal skills and personal safety choices. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "lo",
+    "term": "term2",
+    "topic": "community-responsibility",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/lo/term2/community-responsibility/diagram.webp",
+    "alt": "grade 8 learners volunteering and learning about community support services",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners volunteering in a community project and connecting people with local support services. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "lo",
+    "term": "term2",
+    "topic": "physical-education-task",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/lo/term2/physical-education-task/diagram.webp",
+    "alt": "grade 8 learners practising net wall game movement and coordination drills",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners practising net or wall game skills, agility runs, and coordination drills with teamwork. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels."
+  }
+]

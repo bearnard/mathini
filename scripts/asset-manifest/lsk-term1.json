@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade6",
+    "subject": "lsk",
+    "term": "term1",
+    "topic": "personal-social-wellbeing-t1",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/lsk/term1/personal-social-wellbeing-t1/diagram.webp",
+    "alt": "friendly group of Grade 6 learners sitting in a discussion circle and listening to one another",
+    "prompt": "Friendly educational illustration of Grade 6 children sitting in a discussion circle, sharing ideas respectfully and listening to one another in a calm Life Skills lesson."
+  },
+  {
+    "grade": "grade6",
+    "subject": "lsk",
+    "term": "term1",
+    "topic": "physical-education-t1",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/lsk/term1/physical-education-t1/diagram.webp",
+    "alt": "Grade 6 learners doing balance and coordination activities in a physical education class",
+    "prompt": "Friendly educational illustration of Grade 6 children doing balance and coordination activities, such as stepping, balancing, and aiming beanbags, during a Physical Education lesson."
+  },
+  {
+    "grade": "grade6",
+    "subject": "lsk",
+    "term": "term1",
+    "topic": "creative-arts-t1",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/lsk/term1/creative-arts-t1/diagram.webp",
+    "alt": "Grade 6 learners creating colourful line and shape artwork together",
+    "prompt": "Friendly educational illustration of Grade 6 children creating colourful line-and-shape artwork with paint, crayons, and simple patterns in a Creative Arts lesson."
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "ns",
+    "term": "term2",
+    "topic": "atoms-elements-compounds",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/ns/term2/atoms-elements-compounds/diagram.webp",
+    "alt": "Grade 9 learners learning about atomic structure with nucleus and electron orbits, elements from the periodic table",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing atomic structure (nucleus with protons and neutrons, electrons orbiting) alongside representations of elements like hydrogen, oxygen, and carbon. Use bright simple colours, a clean white background, and no text except element symbols."
+  },
+  {
+    "grade": "grade9",
+    "subject": "ns",
+    "term": "term2",
+    "topic": "chemical-reactions-acids-bases",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/ns/term2/chemical-reactions-acids-bases/diagram.webp",
+    "alt": "Grade 9 learners conducting a pH test experiment with different liquids and observing color changes",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing test tubes with different coloured liquids (acids red, neutral green, bases blue) being tested with indicator paper. Show students recording observations. Use bright simple colours, a clean white background, and no text or numbers."
+  }
+]

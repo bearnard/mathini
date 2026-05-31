@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "gr9-geometry-constructions-t2": "Topic: Construction of Geometric Figures. Cover constructions using compass and straightedge: triangles, angle bisectors, perpendicular bisectors, and perpendiculars to lines. Ask Grade 9 learners to construct figures accurately, explain why constructions work using geometric properties, use correct notation, and justify the resulting angles and measurements.",
+    "gr9-geometry-2d-shapes-t2": "Topic: Geometry of 2D Shapes and Straight Lines. Cover properties of triangles and quadrilaterals (angle sums, classification), angle relationships (vertically opposite, corresponding, co-interior angles on parallel lines), and polygon properties. Ask Grade 9 learners to solve geometry problems using deductive reasoning, provide step-by-step justifications, and apply angle properties to find unknown angles.",
+    "gr9-pythagoras-t2": "Topic: Theorem of Pythagoras. Cover the relationship a² + b² = c² in right triangles, identifying Pythagorean triples, and using the theorem to find unknown sides. Ask Grade 9 learners to select the correct sides of right triangles, apply the theorem in geometric diagrams and practical contexts, and interpret answers with appropriate units and precision.",
+    "gr9-area-perimeter-t2": "Topic: Area and Perimeter of 2D Shapes. Cover formulae for common shapes (rectangles, triangles, circles, parallelograms) and composite figures. Ask Grade 9 learners to calculate perimeters and areas, break complex figures into simpler parts, ensure unit consistency, and distinguish between perimeter and area in practical problem-solving."
+  }
+}

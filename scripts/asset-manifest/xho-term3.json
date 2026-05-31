@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade6",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "listening-speaking-t3",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/xho/term3/listening-speaking-t3/diagram.webp",
+    "alt": "learners discussing weather and transport while retelling a folktale",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 6 learners showing a small isiXhosa SAL class discussion about weather, transport, and a folktale retell. Include learners speaking and listening respectfully. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade6",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "reading-viewing-t3",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/xho/term3/reading-viewing-t3/diagram.webp",
+    "alt": "learner comparing a folktale page, poem, and poster using picture clues",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 6 learners showing a learner reading a folktale, a short factual text, and a poster with visual cues. Show matching ideas between words and pictures. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade6",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "writing-presenting-t3",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/xho/term3/writing-presenting-t3/diagram.webp",
+    "alt": "learner drafting an invitation and short recount with organised sentence flow",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 6 learners showing a learner planning and writing an invitation, route directions, and a short recount paragraph. Include a neat presentation setup. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade6",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "language-structures-t3",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/xho/term3/language-structures-t3/diagram.webp",
+    "alt": "colourful sentence pieces joining with connectors and tense cues",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 6 learners showing colourful sentence strips joining together to represent future tense, conjunctions, connectors, and question words in isiXhosa SAL. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]

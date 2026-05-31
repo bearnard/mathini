@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade6",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "current-issues-media",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/eng/term1/current-issues-media/diagram.webp",
+    "alt": "learner comparing a newspaper article and radio report about a community issue",
+    "prompt": "clear, single-subject, flat friendly educational illustration for Grade 6 learners, simple bright shapes, clean white background, no text words numbers or labels in the image. Scene: a learner comparing a newspaper article and a radio microphone while thinking about a community issue."
+  },
+  {
+    "grade": "grade6",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "fiction-visual-literacy",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/eng/term1/fiction-visual-literacy/diagram.webp",
+    "alt": "learner reading a story while studying a colourful advertisement poster",
+    "prompt": "clear, single-subject, flat friendly educational illustration for Grade 6 learners, simple bright shapes, clean white background, no text words numbers or labels in the image. Scene: a learner reading a storybook while looking at a bright poster-style advertisement with simple picture clues."
+  },
+  {
+    "grade": "grade6",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "process-writing-grammar",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/eng/term1/process-writing-grammar/diagram.webp",
+    "alt": "learner planning drafting and editing a piece of writing at a desk",
+    "prompt": "clear, single-subject, flat friendly educational illustration for Grade 6 learners, simple bright shapes, clean white background, no text words numbers or labels in the image. Scene: a learner at a desk planning, drafting, and editing a piece of writing with neat pages and a pencil."
+  }
+]

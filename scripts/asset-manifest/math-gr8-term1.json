@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "math",
+    "term": "term1",
+    "topic": "whole-numbers-and-integers",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/math/term1/whole-numbers-and-integers/diagram.webp",
+    "alt": "Grade 8 learners solving whole-number and integer problems in real-life contexts",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners solving whole-number and integer tasks linked to gains, losses, and temperature contexts. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "math",
+    "term": "term1",
+    "topic": "exponents",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/math/term1/exponents/diagram.webp",
+    "alt": "Grade 8 learners exploring exponent laws with squares and cubes",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners simplifying powers and comparing square and cube representations with manipulatives. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "math",
+    "term": "term1",
+    "topic": "numeric-and-geometric-patterns-functions-and-relationships",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/math/term1/numeric-and-geometric-patterns-functions-and-relationships/diagram.webp",
+    "alt": "Grade 8 learners finding pattern rules from tables and sequences",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners identifying numeric and geometric pattern rules from sequence cards and input-output tables. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "math",
+    "term": "term1",
+    "topic": "algebraic-expressions-and-equations",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/math/term1/algebraic-expressions-and-equations/diagram.webp",
+    "alt": "Grade 8 learners simplifying algebraic expressions and solving equations",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners combining like terms, expanding brackets, and solving linear equations on a board. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

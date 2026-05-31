@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade7",
+    "subject": "nst",
+    "term": "term3",
+    "topic": "energy-transfer-heat-and-motion",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/nst/term3/energy-transfer-heat-and-motion/diagram.webp",
+    "alt": "Grade 7 learners investigating conduction, convection, radiation, and motion energy",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners investigating heat transfer by conduction, convection, and radiation while comparing kinetic and potential energy in motion contexts. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "nst",
+    "term": "term3",
+    "topic": "mechanical-systems-and-control",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/nst/term3/mechanical-systems-and-control/diagram.webp",
+    "alt": "Grade 7 learners exploring levers, gears, pulleys, linkages, and control systems",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners building and testing mechanical models with levers, gears, pulleys, and linkages linked to simple input-process-output control ideas. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

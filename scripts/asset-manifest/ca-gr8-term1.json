@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "ca",
+    "term": "term1",
+    "topic": "visual-arts",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ca/term1/visual-arts/diagram.webp",
+    "alt": "Grade 8 learners doing observational drawing with line, shape, colour, and texture choices",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing learners doing observational drawing while discussing line, shape, colour, texture, and balanced 2D composition. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "ca",
+    "term": "term1",
+    "topic": "music",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ca/term1/music/diagram.webp",
+    "alt": "Grade 8 learners clapping rhythms and reading simple music patterns together",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing learners clapping rhythm patterns, counting beats, and following simple notation while listening carefully in class. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "ca",
+    "term": "term1",
+    "topic": "drama",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ca/term1/drama/diagram.webp",
+    "alt": "Grade 8 learners creating tableaux and improvised character scenes",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing learners warming up, practising voice projection, and building a tableau before improvising a short character scene. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "ca",
+    "term": "term1",
+    "topic": "dance",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ca/term1/dance/diagram.webp",
+    "alt": "Grade 8 learners practising locomotor and non-locomotor dance movements safely",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing learners practising locomotor and non-locomotor dance movements with posture control, safe stretching, and timing cues. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

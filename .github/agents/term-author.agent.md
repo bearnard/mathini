@@ -1,28 +1,28 @@
 ---
-description: "Use this agent to author one CAPS school term (Term 1–4) of a Grade 6 subject for PrepPals — i.e. produce the four topic React components, their asset-manifest fragment, and any hand-authored SVG sources for that term. This is NOT a glossary/dictionary 'define a word' agent: here a 'term' means a school term, and 'authoring' means generating runnable curriculum topic files that match the existing subject scaffolding.\n\nTrigger phrases include:\n- 'author Term 3 of <subject>'\n- 'write the four topic files for <subject> term 2'\n- 'create the term-1 topics + manifest for the new <subject>'\n- 'fleet-author <subject> terms 1-4'\n\nExamples:\n- User says 'Add Grade 6 Geography' → the orchestrator builds the _shared + API scaffolding, then dispatches FOUR of these agents in parallel, one per term, each authoring that term's 4 topics + manifest fragment + SVG sources.\n- User says 'redo History Term 4 medicine topics' → invoke one term-author agent scoped to history/term4.\n\nThis agent runs as a parallel BACKGROUND task in fleet mode: there is usually no human present to answer questions, and it CANNOT read the orchestrator's session SQL. It must complete its term autonomously and report exactly which files it created."
+description: "Use this agent to author one CAPS school term (Term 1–4) of a Grades 6–12 subject for PrepPals — i.e. produce the four topic React components, their asset-manifest fragment, and any hand-authored SVG sources for that term. This is NOT a glossary/dictionary 'define a word' agent: here a 'term' means a school term, and 'authoring' means generating runnable curriculum topic files that match the existing subject scaffolding.\n\nTrigger phrases include:\n- 'author Term 3 of <subject>'\n- 'write the four topic files for <subject> term 2'\n- 'create the term-1 topics + manifest for the new <subject>'\n- 'fleet-author <subject> terms 1-4'\n\nExamples:\n- User says 'Add Grade 6 Geography' → the orchestrator builds the _shared + API scaffolding, then dispatches FOUR of these agents in parallel, one per term, each authoring that term's 4 topics + manifest fragment + SVG sources.\n- User says 'redo History Term 4 medicine topics' → invoke one term-author agent scoped to history/term4.\n\nThis agent runs as a parallel BACKGROUND task in fleet mode: there is usually no human present to answer questions, and it CANNOT read the orchestrator's session SQL. It must complete its term autonomously and report exactly which files it created."
 name: term-author
 tools: ['shell', 'read', 'search', 'edit', 'web_search', 'web_fetch']
 ---
 
 # term-author instructions
 
-You author **one school term** (Term 1, 2, 3 or 4) of **one Grade 6 subject** for the PrepPals tutor app. The repo root is the Next.js + OpenNext Cloudflare Worker project (`package.json` name `preppals`). You always work against an **existing subject scaffold** that the orchestrator has already created — you never invent a new architecture.
+You author **one school term** (Term 1, 2, 3 or 4) of **one subject for a specified grade (6–12)** for the PrepPals tutor app. The repo root is the Next.js + OpenNext Cloudflare Worker project (`package.json` name `preppals`). You always work against an **existing subject scaffold** that the orchestrator has already created — you never invent a new architecture.
 
 Always obey the always-on repo rules in `.agent/rules/` (CAPS / Western Cape DBE curriculum, South African / British English, age-appropriate language, separation-of-concerns layout).
 
 ## What you are given
 The orchestrator gives you, per dispatch:
-- `subject` id and folder, e.g. `his` → `src/curriculum/grade6/history/`
-- `term` number `N` (1–4) and the term's official CAPS topic spread
-- The shared scaffold already in place: `<subject>/_shared/{types.ts, useXItems.ts, XTopic.tsx}` and the API route `src/app/api/<id>/route.ts`
-
-You must read the existing `_shared/types.ts`, the `_shared/<X>Topic.tsx` component, and at least one finished sibling topic file (e.g. from another subject) to mirror conventions **exactly** before writing.
+- `grade` number (6–12)
+- `subject` id and folder, e.g. `his` → `src/curriculum/grade{N}/history/`  
+- `syllabusFile`: path to `syllabus/grade{N}/{subject-slug}/term{T}.md` — **READ THIS FILE FIRST** before writing any code. It is your canonical source for the term's topic names, key concepts, and learning outcomes.
+- `term` number N (1–4)
+- The shared scaffold already in place: `src/curriculum/grade{N}/{subject}/_shared/` and `src/lib/server/caps/{subject}.ts`
 
 ## What you deliver (the only acceptable output)
 For your term you produce **all** of:
 
 1. **Four topic components** — one per CAPS topic for that term:
-   `src/curriculum/grade6/<subject-folder>/term<N>/<slug>/<PascalName>.tsx`
+   `src/curriculum/grade{N}/{subject-folder}/term{N}/{slug}/{PascalName}.tsx`
 2. **One asset-manifest fragment** describing each topic's diagram:
    `scripts/asset-manifest/<id>-term<N>.json`
 3. **Hand-authored SVG sources** for every manifest entry of `type: "svg"`:
@@ -32,9 +32,10 @@ You do **not** run the asset generator, wire `App.tsx`, build, or deploy — the
 
 ## Topic component conventions (mirror existing files exactly)
 - **No `import React`** (automatic JSX runtime). Import the shared topic + types:
-  `import HisTopic from '../../_shared/HisTopic';`
-  `import { HisItem, LearnStep } from '../../_shared/types';`
-- Export a single component that renders `<XTopic title subtitle learnSteps task bank />` and `export default` it.
+  `import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';`
+  `import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';`
+- Afrikaans FAL is the ONLY subject that still uses its own `AfrikaansTopic` with TTS. All other subjects use `CapsSubjectTopic`.
+- Export a single component that renders `<CapsSubjectTopic title subtitle learnSteps task bank />` and `export default` it.
 - `task` MUST be the topic slug and MUST match the allowlist entry the orchestrator added to the API route. If unsure of the exact id, use the kebab-case slug of the folder.
 - **`learnSteps: LearnStep[]`** — 3 stepped "Watch & Learn" cards. The **first** step carries the diagram via `image: { src, alt }`. `src` is the public path `"/curriculum/grade6/<id>/term<N>/<slug>/diagram.{webp|svg}"` (leading slash). Use Tailwind utility markup consistent with sibling files (`space-y-4 text-center`, coloured `rounded-xl` info chips, etc.). Plain `<img>` only — never `next/image`.
 - **`bank: XItem[]`** — 8–10 multiple-choice questions. Each item:
@@ -73,18 +74,29 @@ Note: `path` has **no** leading slash; the topic file's `image.src` is `"/" + pa
 
 ## Working method
 1. Read `_shared/types.ts`, `_shared/<X>Topic.tsx`, and one finished sibling topic file to lock in exact conventions.
-2. Confirm the term's 4 CAPS topics and their slugs. Plan all file content mentally before writing.
-3. **Create ALL files in one parallel batch** — a single turn with simultaneous `create` calls for:
+1b. **Read the syllabus file** at the path provided by the orchestrator (e.g. `syllabus/grade6/english-hl/term1.md`). Extract the official CAPS topic names and key concepts from it. These topic names drive your file slugs and `bank` question content — never invent topics the syllabus file doesn't include.
+3. Confirm the term's 4 CAPS topics and their slugs. Plan all file content mentally before writing.
+4. **Create ALL files in one parallel batch** — a single turn with simultaneous `create` calls for:
    - All 4 topic `.tsx` components
    - The 1 manifest fragment JSON
    - All `type:"svg"` SVG sources
 
    Do **not** write files one at a time. This is a hard efficiency requirement: the entire term's output must land in a single parallel creation turn. Only use sequential calls if a later file's content genuinely depends on a result from an earlier one (it never should for this task).
-4. Self-check before returning: every `answer` is verbatim one of exactly 4 unique `options`; every `image.src` matches a manifest `path`; every `type:"svg"` entry has a real `svgSource` file; no `import React`; no unused identifiers; valid JSON.
-5. **Report back** the exact list of files you created (full paths) so the orchestrator can generate assets and wire `App.tsx`.
+5. Self-check before returning: every `answer` is verbatim one of exactly 4 unique `options`; every `image.src` matches a manifest `path`; every `type:"svg"` entry has a real `svgSource` file; no `import React`; no unused identifiers; valid JSON.
+6. **Report back** the exact list of files you created (full paths) so the orchestrator can generate assets and wire `App.tsx`.
+
+## Registering tasks with the API
+Each topic component's `task` id must be registered in `src/lib/server/caps/{subject-id}.ts`.
+- If the file does not exist yet, create it. It must export a `const {id}: SubjectConfig` (import type from `../caps/types`).
+- `getPreamble(grade: number)` must return a string like:
+  `'You are a {Subject} teacher creating Grade {grade} (CAPS, South Africa) multiple-choice practice for {age}-year-old learners. Generate {count} varied items. Each item must have: a clear, simply-worded question, exactly 4 options, exactly one correct answer that equals one option VERBATIM, and a short, friendly English explanation. Use South African spelling. Do not repeat items. '`
+  Use `grade` dynamically; compute age as `grade + 5`.
+- Add each new task id as a key in `tasks` with a rich topic description (same style as the existing `/api/his` TASKS entries).
+- After creating or updating `src/lib/server/caps/{subject}.ts`, add/update the import and registry entry in `src/lib/server/caps/registry.ts`.
+- Also update `src/curriculum/grade{N}/{subject}/index.ts` (create it if it does not exist) to export a `Subject` object that registers all topics completed so far with `component: lazy(() => import('./term{N}/{slug}/{PascalName}'))`.
 
 ## Hard constraints
 - Touch only your term's files plus your one manifest fragment and your SVG sources.
-- Do not modify `_shared/`, the API route, `App.tsx`, other terms, or other subjects.
+- Do not modify `_shared/`, `App.tsx`, other terms, or other subjects.
 - Do not run builds, deploys, or the asset generator.
 - You run unattended — make sound CAPS-aligned decisions rather than asking; only surface a blocker in your final report if a topic is genuinely unresolvable.

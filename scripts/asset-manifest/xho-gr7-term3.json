@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade7",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "listening-speaking",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/xho/term3/listening-speaking/diagram.webp",
+    "alt": "Grade 7 learners discussing culture and retelling a folktale in isiXhosa SAL",
+    "prompt": "Friendly educational illustration for Grade 7 isiXhosa SAL showing learners in a circle retelling a folktale, discussing culture and giving opinions with interview prompts, clean bright style, no text labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "reading-viewing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/xho/term3/reading-viewing/diagram.webp",
+    "alt": "Grade 7 learners analysing a poem, poster and picture sequence cards",
+    "prompt": "Friendly educational illustration for Grade 7 isiXhosa SAL showing learners reading a poem, interpreting a community poster, and arranging picture-sequence cards, flat educational style, no text labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "writing-presenting",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/xho/term3/writing-presenting/diagram.webp",
+    "alt": "Grade 7 learner creating an invitation and cultural paragraph presentation notes",
+    "prompt": "Friendly educational illustration for Grade 7 isiXhosa SAL showing a learner drafting an invitation, short report and cultural paragraph for oral presentation, classroom desk scene, no text labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "language-structures",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/xho/term3/language-structures/diagram.webp",
+    "alt": "Grade 7 learners linking isiXhosa sentences with connectors and punctuation",
+    "prompt": "Friendly educational illustration for Grade 7 isiXhosa SAL showing learners connecting sentence cards with conjunctions and checking tense and concord punctuation, bright classroom composition, no text labels."
+  }
+]

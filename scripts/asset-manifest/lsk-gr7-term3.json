@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade7",
+    "subject": "lsk",
+    "term": "term3",
+    "topic": "personal-social-wellbeing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/lsk/term3/personal-social-wellbeing/diagram.webp",
+    "alt": "Grade 7 learners discussing diversity, rights, inclusion, and career interests",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners in a respectful class discussion about diversity, human rights, inclusion, and career interests. Include collaborative planning materials and supportive interaction. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "lsk",
+    "term": "term3",
+    "topic": "physical-education",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/lsk/term3/physical-education/diagram.webp",
+    "alt": "Grade 7 learners doing athletics drills and indigenous games with teamwork",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners completing athletics drills, flexibility work, and an indigenous game activity that demonstrates teamwork and fair play. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "lsk",
+    "term": "term3",
+    "topic": "creative-arts",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/lsk/term3/creative-arts/diagram.webp",
+    "alt": "Grade 7 learners creating mixed-media heritage art and rehearsing choreography",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners creating mixed-media artworks inspired by South African heritage while another group rehearses scene building and choreography. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

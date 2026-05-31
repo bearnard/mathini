@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "advertising-visual-design",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/english/term1/advertising-visual-design/image1.jpg",
+    "alt": "learner analysing advertisement posters for AIDA, tone, emotive language and visual techniques",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner analysing advertisement posters with visual cues for AIDA framework, tone, emotive language, colour, layout and target audience. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade9",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "essay-transactional-writing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/english/term1/essay-transactional-writing/image1.jpg",
+    "alt": "learner planning a narrative essay with characters, setting, conflict and process writing steps",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner planning an essay with visual representations of narrative structure (characters, setting, conflict), essay types (narrative, descriptive, reflective, argumentative), and process writing stages (plan, draft, review, revise). Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade9",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "grammar-revision-accuracy",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/english/term1/grammar-revision-accuracy/image1.jpg",
+    "alt": "learner identifying nouns adjectives verbs and punctuation marks in a passage",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner identifying and colour-coding parts of speech (nouns, adjectives, verbs) and punctuation marks (full stops, commas, quotation marks, question marks) in a passage. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]

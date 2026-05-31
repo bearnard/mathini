@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "ca",
+    "term": "term2",
+    "topic": "visual-arts",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ca/term2/visual-arts/diagram.webp",
+    "alt": "Grade 8 learners planning printmaking and collage designs with pattern and contrast",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing learners planning a design artwork using pattern, repetition, contrast, printmaking, and collage with African visual references. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "ca",
+    "term": "term2",
+    "topic": "music",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ca/term2/music/diagram.webp",
+    "alt": "Grade 8 learners performing a call-and-response ensemble with balanced sound",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing a small school ensemble performing call-and-response patterns while balancing melody and texture in a South African style rehearsal. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "ca",
+    "term": "term2",
+    "topic": "drama",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ca/term2/drama/diagram.webp",
+    "alt": "Grade 8 learners shaping a storytelling scene with clear focus and tension",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing learners building a short storytelling scene from script cues, with strong focus, tension, and audience awareness. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "ca",
+    "term": "term2",
+    "topic": "dance",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/ca/term2/dance/diagram.webp",
+    "alt": "Grade 8 learners developing dance motifs in group patterns",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing learners developing a dance motif into group patterns inspired by folk or social dance rhythms. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

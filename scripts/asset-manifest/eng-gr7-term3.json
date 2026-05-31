@@ -1,0 +1,36 @@
+[
+  {
+    "grade": "grade7",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "visual-literacy-persuasive-texts",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/eng/term3/visual-literacy-persuasive-texts/diagram.webp",
+    "alt": "learner analysing an advertisement and poster for persuasive language and audience",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 7 learners showing a learner studying an advertisement poster with visual cues for slogan, audience, layout, and persuasive language. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade7",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "drama-continued-novel-study",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/eng/term3/drama-continued-novel-study/diagram.webp",
+    "alt": "learners discussing a drama scene and novel chapter with dialogue and conflict notes",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 7 learners showing learners discussing a drama scene and novel chapter with visual symbols for dialogue, conflict, and theme. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade7",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "project-language-refinement",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/eng/term3/project-language-refinement/diagram.webp",
+    "alt": "learner planning a writing project and editing voice, punctuation and clauses",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 7 learners showing a learner planning a language project and editing sentences for active-passive voice, punctuation, and clause structure. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]
+

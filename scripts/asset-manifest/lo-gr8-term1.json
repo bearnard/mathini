@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "lo",
+    "term": "term1",
+    "topic": "development-of-the-self-in-society",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/lo/term1/development-of-the-self-in-society/diagram.webp",
+    "alt": "grade 8 learner reflecting on strengths goals and support systems in life orientation",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner reflecting on strengths, personal goals, and support systems in a life orientation context. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "lo",
+    "term": "term1",
+    "topic": "relationships-and-emotional-wellbeing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/lo/term1/relationships-and-emotional-wellbeing/diagram.webp",
+    "alt": "grade 8 learners practising respectful communication and emotional support",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing respectful peer communication, anti-bullying support, and emotional wellbeing in a school setting. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "lo",
+    "term": "term1",
+    "topic": "study-skills-and-personal-organisation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/lo/term1/study-skills-and-personal-organisation/diagram.webp",
+    "alt": "grade 8 learner organising homework timetable and study materials",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner planning a study timetable, organising school materials, and using focus strategies. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "lo",
+    "term": "term1",
+    "topic": "physical-education-task",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/lo/term1/physical-education-task/diagram.webp",
+    "alt": "grade 8 learners doing warm ups and invasion game drills safely",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners doing warm-ups, basic fitness stations, and invasion-game drills with teamwork and safety cues. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels."
+  }
+]

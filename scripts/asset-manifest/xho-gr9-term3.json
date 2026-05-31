@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "listening-speaking",
+    "section": "image1",
+    "type": "ai",
+    "path": "curriculum/grade9/isixhosa/term3/listening-speaking/image1.jpg",
+    "alt": "Grade 9 isiXhosa FAL learners engaging in debate and oral literary discussions",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner confidently debating with another student while an audience observes, demonstrating argumentation and oral persuasion. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade9",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "reading-viewing",
+    "section": "image1",
+    "type": "ai",
+    "path": "curriculum/grade9/isixhosa/term3/reading-viewing/image1.jpg",
+    "alt": "Grade 9 isiXhosa FAL learners analysing drama scenes, poetry, and literary character motivation",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner analysing dramatic scenes and poetry with visual cues for tone, character motivation and poetic devices. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade9",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "writing-presenting",
+    "section": "image1",
+    "type": "ai",
+    "path": "curriculum/grade9/isixhosa/term3/writing-presenting/image1.jpg",
+    "alt": "Grade 9 isiXhosa FAL learners writing discursive paragraphs, formal letters, and project presentations",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner developing a project with research materials, formal letter writing and presentation preparation visible. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade9",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "language-structures",
+    "section": "image1",
+    "type": "ai",
+    "path": "curriculum/grade9/isixhosa/term3/language-structures/image1.jpg",
+    "alt": "Grade 9 isiXhosa FAL learners learning complex sentence structures and advanced punctuation",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner studying complex sentence construction with visual cues for conjunctions, clause relationships and sophisticated punctuation marks. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "math",
+    "term": "term3",
+    "topic": "functions-relationships",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/math/term3/functions-relationships/diagram.webp",
+    "alt": "Grade 9 learners connecting tables, formulae, and graphs to represent relationships",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing generic learners connecting different representations of relationships: input-output tables, algebraic formulae, and graphical representations. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "math",
+    "term": "term3",
+    "topic": "graphs",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/math/term3/graphs/diagram.webp",
+    "alt": "Grade 9 learners plotting and interpreting linear and non-linear graphs",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing generic learners plotting points on the Cartesian plane, drawing linear and curved graphs, identifying intercepts, and describing slopes. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "math",
+    "term": "term3",
+    "topic": "surface-volume-3d",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/math/term3/surface-volume-3d/diagram.webp",
+    "alt": "Grade 9 learners calculating surface area and volume of 3D objects",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing generic learners calculating surface area and volume of rectangular prisms, cylinders, and composite 3D shapes using nets and formulae. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

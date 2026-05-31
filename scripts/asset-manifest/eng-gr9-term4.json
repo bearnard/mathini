@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "eng",
+    "term": "term4",
+    "topic": "synoptic-revision",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/english/term4/synoptic-revision/image1.jpg",
+    "alt": "learner reviewing multiple texts from different genres with reading comprehension strategies",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner reviewing multiple text types (poem, prose, drama, report, letter, essay) with visual indicators for comprehension strategies (skimming, scanning, inference, summarising, evidence selection) and mixed-paper preparation. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade9",
+    "subject": "eng",
+    "term": "term4",
+    "topic": "examination-writing-practice",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/english/term4/examination-writing-practice/image1.jpg",
+    "alt": "learner planning an essay and timed response with outline checklist and editing strategy",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner planning an essay outline before writing and then checking a completed timed response with editing checklist for grammar, spelling, format, and tense consistency. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade9",
+    "subject": "eng",
+    "term": "term4",
+    "topic": "grammar-literature-consolidation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/english/term4/grammar-literature-consolidation/image1.jpg",
+    "alt": "learner linking grammar concepts with literary analysis and integrated MCQ questions",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner connecting grammar knowledge (punctuation, tense, voice) with literary analysis (theme, device, characterisation) in an integrated way, with visual indicators for MCQ items and contextual questions. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]

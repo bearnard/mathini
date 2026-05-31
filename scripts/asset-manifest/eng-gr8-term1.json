@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "brochures-visual-literacy",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/eng/term1/brochures-visual-literacy/diagram.webp",
+    "alt": "learner analysing brochure panels and visual clues for audience and purpose",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner analysing brochure panels with icons for audience, purpose, layout, skimming and scanning. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade8",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "poetry-close-reading",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/eng/term1/poetry-close-reading/diagram.webp",
+    "alt": "learner close reading a poem for imagery tone rhyme and theme",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner closely reading a poem with visual cues for stanza, rhyme, imagery, tone and theme. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade8",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "language-structures-bias",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/eng/term1/language-structures-bias/diagram.webp",
+    "alt": "learner identifying grammar parts and spotting biased wording in a passage",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner identifying grammar parts and checking a passage for biased wording and stereotypes. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]

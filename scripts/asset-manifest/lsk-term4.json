@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade6",
+    "subject": "lsk",
+    "term": "term4",
+    "topic": "personal-social-wellbeing-t4",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/lsk/term4/personal-social-wellbeing-t4/diagram.webp",
+    "alt": "friendly life skills scene showing emotions, growth, community care, and future career ideas",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 6 learners showing generic learners exploring emotions and growth respectfully, a trusted-adult support symbol, community service items, and community helper career icons in one balanced scene. Use bright simple classroom colours, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real identifiable people."
+  },
+  {
+    "grade": "grade6",
+    "subject": "lsk",
+    "term": "term4",
+    "topic": "physical-education-t4",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/lsk/term4/physical-education-t4/diagram.webp",
+    "alt": "friendly physical education scene with learners in a team game and fitness circuit stations",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 6 learners showing generic learners doing a team game with passing and movement while nearby fitness circuit stations show cones, skipping, balancing, and stretching as one organised PE scene. Use bright simple colours, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real identifiable people."
+  },
+  {
+    "grade": "grade6",
+    "subject": "lsk",
+    "term": "term4",
+    "topic": "creative-arts-t4",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/lsk/term4/creative-arts-t4/diagram.webp",
+    "alt": "friendly creative arts scene with a 3D model plan, sculpture materials, and a simple dance-drama performance",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 6 learners showing generic learners sketching a 3D design, building a simple model with recycled materials, and performing a small dance-drama presentation in one balanced creative arts scene. Use bright simple shapes, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real identifiable people."
+  }
+]

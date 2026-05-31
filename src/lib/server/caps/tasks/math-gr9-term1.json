@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "gr9-number-systems-operations-t1": "Topic: Number Systems and Operations. Cover the real number system (natural, whole, integers, rational, irrational), operations with integers, and calculations with fractions and decimals. Ask Grade 9 learners to classify numbers correctly, apply the order of operations (BODMAS/PEMDAS), and solve contextual numerical problems involving signed numbers and equivalent fraction-decimal representations.",
+    "gr9-exponents-t1": "Topic: Exponents. Cover laws of exponents (product rule, quotient rule, power rule), zero and negative exponents, and equivalent exponential forms. Ask Grade 9 learners to simplify multi-step exponential expressions, identify equivalent expressions, and explain when exponents are useful for representing large and small numbers.",
+    "gr9-patterns-functions-t1": "Topic: Numeric and Geometric Patterns; Functions and Relationships. Cover pattern generalisation, input-output relationships, linear and geometric patterns, and function rules. Ask Grade 9 learners to find general rules from sequences, predict missing terms, justify pattern growth, and describe relationships between variables using tables, graphs, and formulae.",
+    "gr9-algebraic-expressions-t1": "Topic: Algebraic Expressions and Equations. Cover simplifying expressions, combining like terms, expanding brackets, factorisation, and solving linear equations. Ask Grade 9 learners to convert word problems to algebraic form, solve multi-step equations, verify solutions by substitution, and interpret algebra in contextual problem situations."
+  }
+}

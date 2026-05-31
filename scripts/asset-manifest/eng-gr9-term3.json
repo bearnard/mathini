@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "oral-literature-narrative",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/english/term3/oral-literature-narrative/image1.jpg",
+    "alt": "learner presenting a folktale with gesture expression and eye contact to an audience",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner presenting a folktale or oral narrative with visual indicators for delivery techniques (gesture, expression, pacing, eye contact), audience engagement, and oral traditions features (repetition, formulaic language, cultural context). Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade9",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "reports-instructional-texts",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/english/term3/reports-instructional-texts/image1.jpg",
+    "alt": "learner organizing report information with headings and clear structure plus instructional steps",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner organizing report information with headings, sections and clear logical structure on one side, and instructional text with numbered steps on the other side, with visual indicators for audience awareness, sequencing and information flow. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade9",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "advanced-language-context",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/english/term3/advanced-language-context/image1.jpg",
+    "alt": "learner transforming active voice to passive voice and identifying figurative language",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner transforming active voice sentences to passive voice with visual indicators for effect changes, and identifying figurative language (metaphor, simile, personification, hyperbole) in another text section. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]

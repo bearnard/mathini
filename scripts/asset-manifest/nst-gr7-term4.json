@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade7",
+    "subject": "nst",
+    "term": "term4",
+    "topic": "sun-earth-relationship-and-gravity",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/nst/term4/sun-earth-relationship-and-gravity/diagram.webp",
+    "alt": "Grade 7 learners modelling Sun-Earth-Moon positions for seasons, phases, tides, and gravity",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners using a model of the Sun, Earth, and Moon to explain seasons, Moon phases, tides, and gravity effects. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "nst",
+    "term": "term4",
+    "topic": "electrical-systems-and-control",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/nst/term4/electrical-systems-and-control/diagram.webp",
+    "alt": "Grade 7 learners building safe series and parallel circuits with switches and control outputs",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners building series and parallel circuits, testing switches, and discussing safe electrical control systems with input-process-output examples. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

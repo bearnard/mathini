@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade7",
+    "subject": "xho",
+    "term": "term2",
+    "topic": "listening-speaking",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/xho/term2/listening-speaking/diagram.webp",
+    "alt": "Grade 7 learners role-playing shopping and transport conversations in isiXhosa SAL",
+    "prompt": "Friendly educational illustration for Grade 7 isiXhosa SAL showing learners doing role plays about shopping, transport questions and giving directions in a community map context, clean flat style, no text labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "xho",
+    "term": "term2",
+    "topic": "reading-viewing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/xho/term2/reading-viewing/diagram.webp",
+    "alt": "Grade 7 learner comparing a timetable and a folk story text in isiXhosa",
+    "prompt": "Friendly educational illustration for Grade 7 isiXhosa SAL showing learners reading a timetable, signs, and a short folk story to compare factual and fictional details, classroom setting, no text labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "xho",
+    "term": "term2",
+    "topic": "writing-presenting",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/xho/term2/writing-presenting/diagram.webp",
+    "alt": "Grade 7 learner planning a diary entry and short report in isiXhosa SAL",
+    "prompt": "Friendly educational illustration for Grade 7 isiXhosa SAL showing a learner writing diary notes, a short report outline, and message cards at a school desk, bright colors, no text labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "xho",
+    "term": "term2",
+    "topic": "language-structures",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/xho/term2/language-structures/diagram.webp",
+    "alt": "Grade 7 learners constructing question and negative sentence patterns in isiXhosa",
+    "prompt": "Friendly educational illustration for Grade 7 isiXhosa SAL showing learners practising question forms, negatives, pronouns and concords with sentence strips, simple classroom background, no text labels."
+  }
+]

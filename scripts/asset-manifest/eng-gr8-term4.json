@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "eng",
+    "term": "term4",
+    "topic": "revision-oral-completion",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/eng/term4/revision-oral-completion/diagram.webp",
+    "alt": "learner revising mixed English genres and preparing oral evidence",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner revising mixed English genres while preparing oral completion evidence. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade8",
+    "subject": "eng",
+    "term": "term4",
+    "topic": "examination-writing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/eng/term4/examination-writing/diagram.webp",
+    "alt": "learner planning essay and transactional responses with timed exam checklist",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner planning exam writing with essay and transactional response notes and a simple time-management checklist. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade8",
+    "subject": "eng",
+    "term": "term4",
+    "topic": "language-literature-consolidation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/eng/term4/language-literature-consolidation/diagram.webp",
+    "alt": "learner combining comprehension literature response grammar and summary practice",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner combining comprehension, literature response, grammar revision, and summary practice tasks. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]

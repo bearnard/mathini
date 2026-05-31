@@ -1,0 +1,36 @@
+[
+  {
+    "grade": "grade7",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "novel-short-story-study",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/eng/term1/novel-short-story-study/diagram.webp",
+    "alt": "learner mapping character, plot, conflict, setting and theme from a short story",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 7 learners showing a learner analysing a short story with icons for character, plot, conflict, setting, and theme. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade7",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "review-essay-writing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/eng/term1/review-essay-writing/diagram.webp",
+    "alt": "learner planning a review and essay with an introduction, body and conclusion",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 7 learners showing a learner planning review and essay writing with visual sections for introduction, body, and conclusion. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade7",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "foundational-grammar-context",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/eng/term1/foundational-grammar-context/diagram.webp",
+    "alt": "learner editing sentences for tense, number, word order and reported speech",
+    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 7 learners showing a learner editing sentence cards representing tense, singular and plural forms, word order, and direct-indirect speech. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]
+

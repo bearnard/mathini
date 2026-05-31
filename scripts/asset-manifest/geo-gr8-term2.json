@@ -1,0 +1,13 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "geo",
+    "term": "term2",
+    "topic": "climate-regions-in-south-africa-and-the-world",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/geo/term2/climate-regions-in-south-africa-and-the-world/diagram.webp",
+    "alt": "Grade 8 learners interpreting climate regions with maps, rainfall-temperature graphs, and South African examples",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners comparing world climate regions and South African climate patterns using a map, a climate graph, and coastal current cues. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

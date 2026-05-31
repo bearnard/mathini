@@ -1,0 +1,6 @@
+{
+  "tasks": {
+    "gr9-electrical-circuits-t3": "Topic: Electrical circuits and Ohm's law. Cover current, voltage, resistance, series and parallel circuits, Ohm's law (V=IR), and resistor colour codes. Ask Grade 9 learners to calculate unknown electrical quantities using Ohm's law, interpret circuit behaviour and component interactions, identify resistor values from colour codes, analyze voltage and current distribution in series and parallel circuits, and troubleshoot faults.",
+    "gr9-electronic-control-t3": "Topic: Electronic control and PAT 2. Cover diodes, LEDs, LDRs, thermistors, transistors, AND/OR logic gates, and control devices. Ask Grade 9 learners to identify electronic components and their symbols, design electronic solutions to specified problems, assemble and test circuits, evaluate device performance against design criteria, justify component selection, and connect sensor inputs to control outputs using logic principles."
+  }
+}

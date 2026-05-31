@@ -1,0 +1,105 @@
+import { lazy } from 'react';
+import type { Subject } from '../../../types/curriculum';
+
+export const afrikaansFALGrade8: Subject = {
+  id: 'afr',
+  title: 'Afrikaans FAL',
+  terms: [
+    {
+      id: 1,
+      title: 'Term 1',
+      topics: [
+        {
+          id: 'afr-visual-literacy-advertisements',
+          title: 'Visuele Geletterdheid & Advertensies',
+          description: 'Visual-text analysis with audience, layout and persuasive language.',
+          component: lazy(() => import('./term1/visual-literacy-advertisements/VisualLiteracyAdvertisements')),
+        },
+        {
+          id: 'afr-poetry-early-literature-study',
+          title: 'Poësie & Vroeë Literatuurstudie',
+          description: 'Poetry structure, imagery, tone and introductory literary interpretation.',
+          component: lazy(() => import('./term1/poetry-early-literature-study/PoetryEarlyLiteratureStudy')),
+        },
+        {
+          id: 'afr-narrative-writing-grammar',
+          title: 'Narratiewe Skryfwerk & Grammatika',
+          description: 'Narrative technique, tense control, punctuation and editing in context.',
+          component: lazy(() => import('./term1/narrative-writing-grammar/NarrativeWritingGrammar')),
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: 'Term 2',
+      topics: [
+        {
+          id: 'afr-electronic-communication-reviews',
+          title: 'Elektroniese Kommunikasie & Resensies',
+          description: 'Email conventions, review tone and audience-aware register choices.',
+          component: lazy(() => import('./term2/electronic-communication-reviews/ElectronicCommunicationReviews')),
+        },
+        {
+          id: 'afr-folklore-youth-novel-study',
+          title: 'Volksverhale & Jeugromanstudie',
+          description: 'Character, conflict and plot evidence in longer prose texts.',
+          component: lazy(() => import('./term2/folklore-youth-novel-study/FolkloreYouthNovelStudy')),
+        },
+        {
+          id: 'afr-grammar-reporting-coherence',
+          title: 'Grammatika vir Verslagdoening & Samehang',
+          description: 'Direct/indirect speech, pronouns, concord and cohesive sentence flow.',
+          component: lazy(() => import('./term2/grammar-reporting-coherence/GrammarReportingCoherence')),
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: 'Term 3',
+      topics: [
+        {
+          id: 'afr-creative-writing-project',
+          title: 'Kreatiewe Skryfprojek',
+          description: 'Project planning, drafting, revision and presentation skills.',
+          component: lazy(() => import('./term3/creative-writing-project/CreativeWritingProject')),
+        },
+        {
+          id: 'afr-short-stories-drama',
+          title: 'Kortverhale & Drama',
+          description: 'Literary response to short stories, scenes, conflict and theme.',
+          component: lazy(() => import('./term3/short-stories-drama/ShortStoriesDrama')),
+        },
+        {
+          id: 'afr-transactional-writing-language-refinement',
+          title: 'Transaksionele Skryfwerk & Taalverfyning',
+          description: 'Formal formats plus conjunction, punctuation and reporting accuracy.',
+          component: lazy(() => import('./term3/transactional-writing-language-refinement/TransactionalWritingLanguageRefinement')),
+        },
+      ],
+    },
+    {
+      id: 4,
+      title: 'Term 4',
+      topics: [
+        {
+          id: 'afr-revision-exam-preparation',
+          title: 'Hersiening & Eksamenvoorbereiding',
+          description: 'Exam-style comprehension, summary and strategy-focused revision.',
+          component: lazy(() => import('./term4/revision-exam-preparation/RevisionExamPreparation')),
+        },
+        {
+          id: 'afr-review-report-writing',
+          title: 'Resensie- en Verslagskryfwerk',
+          description: 'Controlled report and review writing with concise, relevant detail.',
+          component: lazy(() => import('./term4/review-report-writing/ReviewReportWriting')),
+        },
+        {
+          id: 'afr-language-consolidation',
+          title: 'Taalkonsolidasie',
+          description: 'Comprehensive year-end grammar and sentence-control revision.',
+          component: lazy(() => import('./term4/language-consolidation/LanguageConsolidation')),
+        },
+      ],
+    },
+  ],
+};

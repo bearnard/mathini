@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade7",
+    "subject": "lsk",
+    "term": "term2",
+    "topic": "personal-social-wellbeing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/lsk/term2/personal-social-wellbeing/diagram.webp",
+    "alt": "Grade 7 learners discussing peer influence, online safety, and assertive communication",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners discussing peer influence, online safety, empathy, and assertive communication choices in a classroom circle. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "lsk",
+    "term": "term2",
+    "topic": "physical-education",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/lsk/term2/physical-education/diagram.webp",
+    "alt": "Grade 7 learners practising passing, receiving, and fair competition in modified games",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners in a modified team game practising passing, receiving, movement into space, and fair competition with a student referee. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade7",
+    "subject": "lsk",
+    "term": "term2",
+    "topic": "creative-arts",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/lsk/term2/creative-arts/diagram.webp",
+    "alt": "Grade 7 learners designing posters and rehearsing character and movement motifs",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners designing a themed poster while another group rehearses characterisation, song structure, and repeating movement motifs for an audience. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade6",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "deeper-literature-response",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/eng/term3/deeper-literature-response/diagram.webp",
+    "alt": "learner reading a novel and noting theme, mood, and character clues",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 6 learners showing a child reading a storybook and noticing symbols for theme, mood, and character clues around the book. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade6",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "extended-writing-speaking",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/eng/term3/extended-writing-speaking/diagram.webp",
+    "alt": "learner planning a book review and oral talk with cue cards",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 6 learners showing a child planning a book review and oral presentation with cue cards, notebook pages, and a confident speaking pose. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  },
+  {
+    "grade": "grade6",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "complex-sentence-work",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade6/eng/term3/complex-sentence-work/diagram.webp",
+    "alt": "colourful sentence strips showing phrases and clauses joining together",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 6 learners showing colourful sentence strips joining together to represent phrases, clauses, and conjunctions forming longer sentences. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "gr8-functions-and-relationships-t4": "Topic: Functions and relationships. Cover tables, rules, and variable relationships in numeric and contextual settings. Ask Grade 8 learners to generate rules, find unknowns, and compare changing versus constant relationships.",
+    "gr8-algebraic-equations-t4": "Topic: Algebraic equations. Revisit linear equation fluency for speed and accuracy. Ask Grade 8 learners to solve, justify transformations, and check solutions by substitution.",
+    "gr8-graphs-t4": "Topic: Graphs. Cover plotting ordered pairs, reading trends, and interpreting linear and non-linear behaviour. Ask Grade 8 learners to represent data from tables and describe increases, decreases, and constants.",
+    "gr8-transformation-geometry-t4": "Topic: Transformation geometry. Cover translations, reflections, rotations, and enlargements on coordinate planes. Ask Grade 8 learners to describe image movement precisely and verify transformations using coordinates.",
+    "gr8-geometry-of-3d-objects-t4": "Topic: Geometry of 3D objects. Cover properties, classification, and nets of solids. Ask Grade 8 learners to compare faces, edges, and vertices and connect nets to corresponding objects.",
+    "gr8-probability-t4": "Topic: Probability. Cover equally likely outcomes, sample spaces, simple events, and relative frequency. Ask Grade 8 learners to calculate probabilities and compare experimental and theoretical results."
+  }
+}

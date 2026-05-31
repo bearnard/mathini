@@ -1,0 +1,13 @@
+[
+  {
+    "grade": "grade7",
+    "subject": "geo",
+    "term": "term1",
+    "topic": "map-skills-in-the-local-area",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade7/geo/term1/map-skills-in-the-local-area/diagram.webp",
+    "alt": "Grade 7 learners using a local map to plan routes, scale distance, and coordinate positions",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners reading a local street map, planning a route, and using scale and simple coordinate clues. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]

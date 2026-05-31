@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade8",
+    "subject": "tech",
+    "term": "term4",
+    "topic": "indigenous-technology-and-processing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/tech/term4/indigenous-technology-and-processing/diagram.webp",
+    "alt": "Grade 8 learners comparing galvanising painting electroplating and food preservation methods",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners comparing indigenous and modern processing methods such as galvanising, painting, electroplating, and food preservation. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  },
+  {
+    "grade": "grade8",
+    "subject": "tech",
+    "term": "term4",
+    "topic": "systems-consolidation-and-exam-preparation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade8/tech/term4/systems-consolidation-and-exam-preparation/diagram.webp",
+    "alt": "Grade 8 learners revising integrated mechanical structural and electrical systems before exams",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners revising integrated mechanical, structural, and electrical systems with mixed diagrams and exam preparation focus. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
+  }
+]
