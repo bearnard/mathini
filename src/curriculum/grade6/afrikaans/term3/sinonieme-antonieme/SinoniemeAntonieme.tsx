@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -39,6 +40,25 @@ const learnSteps: LearnStep[] = [
         <span className="inline-flex items-center text-2xl font-bold text-indigo-600">
           warm ↔ koud <SpeakButton text="warm, koud" />
         </span>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Say these vocabulary labels and example words aloud to strengthen meaning relationships.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"sinoniem"} phonetic={"[sənoˈnim]"} meaning={"synonym"} lang="af" />
+          <PronunciationPlayer word={"antoniem"} phonetic={"[antoˈnim]"} meaning={"antonym"} lang="af" />
+          <PronunciationPlayer word={"bly"} phonetic={"[blɛi]"} meaning={"happy"} lang="af" />
+          <PronunciationPlayer word={"hartseer"} phonetic={"[ˈhartsɪər]"} meaning={"sad"} lang="af" />
+          <PronunciationPlayer word={"vinnig"} phonetic={"[ˈfənəχ]"} meaning={"fast"} lang="af" />
+          <PronunciationPlayer word={"stadig"} phonetic={"[ˈstɑːdəχ]"} meaning={"slow"} lang="af" />
+        </div>
       </div>
     ),
   },

@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
@@ -15,6 +16,20 @@ const learnSteps: LearnStep[] = [
           character response in both oral and written tasks.
         </p>
       </div>
+    ),
+  },
+  {
+    title: "Annotated extract",
+    content: (
+      <AnnotatedText
+        title={"From \"Julius Caesar\" — William Shakespeare"}
+        text={"Friends, Romans, countrymen, lend me your ears; I come to bury Caesar, not to praise him."}
+        annotations={[
+          { start: 0, end: 27, device: "diction", note: "The ordered address draws in different groups of listeners and sounds carefully persuasive." },
+          { start: 29, end: 46, device: "metaphor", note: "Antony does not want literal ears; he wants attention and sympathy." },
+          { start: 71, end: 88, device: "irony", note: "The audience soon realises Antony’s speech does exactly the opposite of what he claims." },
+        ]}
+      />
     ),
   },
   {

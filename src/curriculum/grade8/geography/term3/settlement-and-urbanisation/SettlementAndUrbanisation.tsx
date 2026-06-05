@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -14,6 +16,31 @@ const learnSteps: LearnStep[] = [
           Settlement geography studies where people live, how land is used, and why places grow. Urbanisation links
           migration, services, jobs, and historical processes that shaped South African towns and cities.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Urbanisation Data — South Africa Over Time',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">Urbanisation means the growth of towns and cities as a share of the total population. South Africa has become steadily more urban over the last few decades.</p>
+        <DataChart
+          data={[
+                        { year: 1990, urbanRate: 52 },
+                        { year: 2000, urbanRate: 57 },
+                        { year: 2010, urbanRate: 62 },
+                        { year: 2023, urbanRate: 68 },
+                      ]}
+          xKey="year"
+          series={[
+                        { key: 'urbanRate', label: 'Urban population (%)', type: 'line', color: '#06b6d4' },
+                      ]}
+          type="line"
+          yLabel="Percent"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">Urban growth changes land use, increases transport demand, and creates both opportunities and planning challenges.</p>
       </div>
     ),
   },

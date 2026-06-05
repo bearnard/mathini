@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import ClimateGraph from '@/components/subjects/ClimateGraph';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -52,6 +54,35 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-slate-50 p-4"><strong>Ice and snow</strong><br />long winters</div>
           <div className="rounded-xl bg-indigo-50 p-4"><strong>Few plants</strong><br />short growing season</div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Climate Data — Moscow',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">Moscow shows a cool temperate continental climate with cold winters, warmer summers, and rainfall through the year. It helps learners compare temperate conditions with even colder polar regions farther north.</p>
+        <div className="mx-auto max-w-3xl">
+          <ClimateGraph
+            station="Moscow"
+            data={[
+                      { month: 'Jan', rainfall: 42, temp: -8 },
+                      { month: 'Feb', rainfall: 36, temp: -7 },
+                      { month: 'Mar', rainfall: 34, temp: -1 },
+                      { month: 'Apr', rainfall: 37, temp: 8 },
+                      { month: 'May', rainfall: 51, temp: 15 },
+                      { month: 'Jun', rainfall: 75, temp: 18 },
+                      { month: 'Jul', rainfall: 85, temp: 20 },
+                      { month: 'Aug', rainfall: 77, temp: 18 },
+                      { month: 'Sep', rainfall: 65, temp: 12 },
+                      { month: 'Oct', rainfall: 59, temp: 6 },
+                      { month: 'Nov', rainfall: 58, temp: 0 },
+                      { month: 'Dec', rainfall: 52, temp: -5 },
+                    ]}
+          />
+        </div>
+
+        <p className="text-sm text-slate-500">Very cold winters and a short warm season limit the type of vegetation that can grow for much of the year.</p>
       </div>
     ),
   },

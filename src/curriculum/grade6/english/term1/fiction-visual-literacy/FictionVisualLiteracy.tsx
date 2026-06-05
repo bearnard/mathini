@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
@@ -47,6 +48,20 @@ const learnSteps: LearnStep[] = [
           </div>
         </div>
       </div>
+    ),
+  },
+  {
+    title: "Annotated extract",
+    content: (
+      <AnnotatedText
+        title={"From \"Alice's Adventures in Wonderland\" — Lewis Carroll"}
+        text={"\"Curiouser and curiouser!\" cried Alice. \"Now I'm opening out like the largest telescope that ever was! Goodbye, feet!\""}
+        annotations={[
+          { start: 1, end: 25, device: "tone", note: "The excited exclamation creates a playful, astonished tone at the start of the moment." },
+          { start: 61, end: 87, device: "simile", note: "Alice explains her growth through a vivid comparison that a young reader can picture immediately." },
+          { start: 103, end: 117, device: "personification", note: "She speaks to her own feet as though they could listen, adding comic fantasy to the scene." },
+        ]}
+      />
     ),
   },
   {
@@ -239,7 +254,7 @@ const FictionVisualLiteracy = () => (
     learnSteps={learnSteps}
     task="fiction-visual-literacy"
     bank={bank}
-    apiPath="/api/caps/eng"
+    apiPath="/api/caps/grade6"
   />
 );
 

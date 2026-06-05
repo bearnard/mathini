@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "gr12-social-implications-privacy-ethics-t3": "Topic: Social Implications, Privacy and Ethics. Cover privacy, POPIA-style data protection principles, informed consent, accessibility, the digital divide, plagiarism, intellectual honesty and environmental responsibility. Ask Grade 12 learners to evaluate realistic scenarios and justify ethical recommendations using evidence.",
+    "gr12-cyber-security-emerging-technologies-t3": "Topic: Cyber Security and Emerging Technologies. Cover malware, ransomware, patching, backups, authentication, AI, IoT, cloud computing, remote access and the risks and benefits of new technologies. Ask Grade 12 learners to recommend security controls and evaluate the social impact of emerging tools.",
+    "gr12-integrated-solution-development-pat-completion-t3": "Topic: Integrated Solution Development and PAT Completion. Cover requirements analysis, UML or structured planning, combining GUI, classes and databases, systematic testing, user documentation and assembling PAT evidence. Ask Grade 12 learners to reason about whole-solution quality, not only isolated code fragments."
+  }
+}

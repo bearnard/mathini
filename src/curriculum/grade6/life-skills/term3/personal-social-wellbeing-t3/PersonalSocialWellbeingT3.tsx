@@ -247,7 +247,7 @@ const PersonalSocialWellbeingT3 = () => (
     learnSteps={learnSteps}
     task="personal-social-wellbeing-t3"
     bank={bank}
-    apiPath="/api/caps/lsk"
+    apiPath="/api/caps/grade6"
   />
 );
 

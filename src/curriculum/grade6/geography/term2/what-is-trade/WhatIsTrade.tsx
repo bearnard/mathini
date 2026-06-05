@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -52,6 +54,31 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-purple-50 p-4"><strong>Skills</strong><br />designing or farming</div>
           <div className="rounded-xl bg-slate-50 p-4"><strong>Needs</strong><br />fuel or machines</div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Trade Data — A Simple Export and Import Example',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">This example uses a few products to show how exports and imports can be compared. When exports are larger than imports for a product, the country earns more from that trade item.</p>
+        <DataChart
+          data={[
+                        { product: 'Fruit', exports: 12, imports: 3 },
+                        { product: 'Gold', exports: 25, imports: 1 },
+                        { product: 'Clothing', exports: 4, imports: 10 },
+                        { product: 'Computers', exports: 2, imports: 14 },
+                      ]}
+          xKey="product"
+          series={[
+                        { key: 'exports', label: 'Exports', type: 'bar', color: '#0ea5e9' },
+                        { key: 'imports', label: 'Imports', type: 'bar', color: '#8b5cf6' },
+                      ]}
+          yLabel="Value index"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">Trade is easier to understand when learners compare what a country sells to other countries with what it buys.</p>
       </div>
     ),
   },

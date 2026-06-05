@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "geo",
+    "term": "term4",
+    "topic": "renewable-non-renewable-resources",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/geo/term4/renewable-non-renewable-resources/diagram.webp",
+    "alt": "Grade 9 learners comparing renewable resources like solar and forests with non-renewable fossil fuels",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing renewable vs non-renewable resources. Left side (renewable): sun, wind turbine, forest, water cycle, crops. Right side (non-renewable): coal mine, oil rig, minerals. Use green for renewable, dark colors for non-renewable. Simple flat style, clean white background, minimal text labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "geo",
+    "term": "term4",
+    "topic": "overfishing-overgrazing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/geo/term4/overfishing-overgrazing/diagram.webp",
+    "alt": "Grade 9 learners understanding overfishing and overgrazing depleting resources",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing overfishing and overgrazing impacts. Left: fishing boat with many fish being removed, depleted ocean. Right: too many cattle on grassland, eroded land. Use blues for water, greens for pasture that becomes brown. Simple flat style, clean white background, minimal text labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "geo",
+    "term": "term4",
+    "topic": "food-security-farming",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/geo/term4/food-security-farming/diagram.webp",
+    "alt": "Grade 9 learners learning about sustainable agriculture and food security solutions",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing sustainable farming. Display: crop rotation fields, farmers at work, drip irrigation, composting, diverse crops, healthy soil. Use greens for healthy vegetation, bright colors, simple flat style, clean white background, and minimal text labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "geo",
+    "term": "term4",
+    "topic": "technology-sustainability",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/geo/term4/technology-sustainability/diagram.webp",
+    "alt": "Grade 9 learners discovering technology solutions for sustainable agriculture and resource use",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing technology in sustainable farming. Display: solar panels on field, drone/GPS sensors, drip irrigation system, smartphone with farming app, data display, wind turbine, biogas digester. Use tech-inspired colors, simple flat style, clean white background, minimal text labels."
+  }
+]

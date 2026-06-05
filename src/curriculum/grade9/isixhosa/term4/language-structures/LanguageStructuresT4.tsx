@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -17,6 +18,25 @@ const learnSteps: LearnStep[] = [
         <p className="text-slate-600">
           Learners correct common errors and prepare for the move into FET language demands.
         </p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Keep these core grammar words active in memory while revising forms, tense control, and punctuation.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"Isibizo"} phonetic={"[isi'biːzo]"} meaning={"Noun"} lang="xh" />
+          <PronunciationPlayer word={"Isimelabizo"} phonetic={"[isi.mɛla'biːzo]"} meaning={"Pronoun"} lang="xh" />
+          <PronunciationPlayer word={"Ixesha"} phonetic={"[i'kʰeʃa]"} meaning={"Tense / time"} lang="xh" />
+          <PronunciationPlayer word={"Kwaye"} phonetic={"[kwa'jɛ]"} meaning={"And"} lang="xh" />
+          <PronunciationPlayer word={"Kodwa"} phonetic={"[kɔ'dwa]"} meaning={"But"} lang="xh" />
+          <PronunciationPlayer word={"Isiphumlisi"} phonetic={"[isi.pʰum'liːsi]"} meaning={"Punctuation mark"} lang="xh" />
+        </div>
       </div>
     ),
   },

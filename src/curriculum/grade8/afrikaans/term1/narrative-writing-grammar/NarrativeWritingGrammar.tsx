@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -37,6 +38,25 @@ const learnSteps: LearnStep[] = [
           Final drafts should have accurate sentence control and clear paragraph links.
         </p>
         <p className="text-slate-500">Read each sentence aloud to catch awkward wording.</p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Repeat these present-tense verbs aloud before using them in simple Afrikaans sentences.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"lees"} phonetic={"[leəs]"} meaning={"read"} lang="af" />
+          <PronunciationPlayer word={"skryf"} phonetic={"[skrɛif]"} meaning={"write"} lang="af" />
+          <PronunciationPlayer word={"praat"} phonetic={"[prɑːt]"} meaning={"speak / talk"} lang="af" />
+          <PronunciationPlayer word={"speel"} phonetic={"[speəl]"} meaning={"play"} lang="af" />
+          <PronunciationPlayer word={"eet"} phonetic={"[eət]"} meaning={"eat"} lang="af" />
+          <PronunciationPlayer word={"loop"} phonetic={"[loəp]"} meaning={"walk"} lang="af" />
+        </div>
       </div>
     ),
   },

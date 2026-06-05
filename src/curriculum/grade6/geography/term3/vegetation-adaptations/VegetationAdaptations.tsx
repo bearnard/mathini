@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import ClimateGraph from '@/components/subjects/ClimateGraph';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -53,6 +55,53 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-blue-50 p-4"><strong>Polar</strong><br />keep warm</div>
           <div className="rounded-xl bg-purple-50 p-4"><strong>Night activity</strong><br />avoid heat</div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Climate Data — Desert vs Humid Vegetation',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">These graphs show why vegetation has to adapt differently in a very dry desert climate and a warm humid coastal climate.</p>
+        <div className="grid gap-4 lg:grid-cols-2">
+          <ClimateGraph
+            station="Cairo"
+            data={[
+                      { month: 'Jan', rainfall: 5, temp: 14 },
+                      { month: 'Feb', rainfall: 4, temp: 15 },
+                      { month: 'Mar', rainfall: 4, temp: 18 },
+                      { month: 'Apr', rainfall: 2, temp: 23 },
+                      { month: 'May', rainfall: 1, temp: 28 },
+                      { month: 'Jun', rainfall: 0, temp: 31 },
+                      { month: 'Jul', rainfall: 0, temp: 32 },
+                      { month: 'Aug', rainfall: 0, temp: 32 },
+                      { month: 'Sep', rainfall: 0, temp: 29 },
+                      { month: 'Oct', rainfall: 1, temp: 26 },
+                      { month: 'Nov', rainfall: 4, temp: 20 },
+                      { month: 'Dec', rainfall: 6, temp: 15 },
+                    ]}
+          />
+
+          <ClimateGraph
+            station="Durban"
+            data={[
+                      { month: 'Jan', rainfall: 130, temp: 27 },
+                      { month: 'Feb', rainfall: 130, temp: 27 },
+                      { month: 'Mar', rainfall: 120, temp: 27 },
+                      { month: 'Apr', rainfall: 80, temp: 25 },
+                      { month: 'May', rainfall: 50, temp: 23 },
+                      { month: 'Jun', rainfall: 40, temp: 21 },
+                      { month: 'Jul', rainfall: 30, temp: 21 },
+                      { month: 'Aug', rainfall: 40, temp: 22 },
+                      { month: 'Sep', rainfall: 60, temp: 23 },
+                      { month: 'Oct', rainfall: 90, temp: 24 },
+                      { month: 'Nov', rainfall: 110, temp: 25 },
+                      { month: 'Dec', rainfall: 120, temp: 26 },
+                    ]}
+          />
+        </div>
+
+        <p className="text-sm text-slate-500">Sparse desert plants conserve water, while humid subtropical plants can support broad leaves and denser growth.</p>
       </div>
     ),
   },

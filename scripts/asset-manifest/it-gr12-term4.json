@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "it",
+    "term": "term4",
+    "topic": "nsc-theory-exam-technique",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/it/term4/nsc-theory-exam-technique/diagram.webp",
+    "alt": "NSC Theory Exam Technique",
+    "prompt": "A clear educational illustration depicting \"NSC Theory Exam Technique\": Answering CAPS theory questions with precision, evidence and balance."
+  },
+  {
+    "grade": "grade12",
+    "subject": "it",
+    "term": "term4",
+    "topic": "nsc-practical-programming-revision",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/it/term4/nsc-practical-programming-revision/diagram.webp",
+    "alt": "NSC Practical Programming Revision",
+    "prompt": "A clear educational illustration depicting \"NSC Practical Programming Revision\": Revising OOP, validation and debugging under exam conditions."
+  },
+  {
+    "grade": "grade12",
+    "subject": "it",
+    "term": "term4",
+    "topic": "nsc-database-sql-revision",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/it/term4/nsc-database-sql-revision/diagram.webp",
+    "alt": "NSC Database and SQL Revision",
+    "prompt": "A clear educational illustration depicting \"NSC Database and SQL Revision\": Practising joins, criteria and summaries for the final practical paper."
+  }
+]

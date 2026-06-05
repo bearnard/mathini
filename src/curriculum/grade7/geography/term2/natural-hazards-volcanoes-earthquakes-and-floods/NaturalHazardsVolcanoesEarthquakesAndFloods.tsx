@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -14,6 +16,31 @@ const learnSteps: LearnStep[] = [
           Natural hazards are linked to Earth systems. Plate movement causes earthquakes and volcanoes, while floods
           are shaped by rainfall, drainage, and land use. Disaster reduction lowers risk to people and places.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Hazard Data — Typical Global Disaster Frequency',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">Different natural hazards do not happen equally often. Floods and storms usually affect more places each year than volcanic eruptions.</p>
+        <DataChart
+          data={[
+                        { hazard: 'Floods', events: 160 },
+                        { hazard: 'Storms', events: 120 },
+                        { hazard: 'Droughts', events: 35 },
+                        { hazard: 'Earthquakes', events: 28 },
+                        { hazard: 'Volcanic eruptions', events: 8 },
+                      ]}
+          xKey="hazard"
+          series={[
+                        { key: 'events', label: 'Average events per year', type: 'bar', color: '#ef4444' },
+                      ]}
+          yLabel="Events"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">Frequency is only one part of risk. A less common hazard can still be very dangerous if many people are exposed.</p>
       </div>
     ),
   },

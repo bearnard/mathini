@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "lo",
+    "term": "term3",
+    "topic": "democracy-human-rights",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/lo/term3/democracy-human-rights/diagram.webp",
+    "alt": "Grade 9 learners participating in democracy, voting, understanding rights, and being informed citizens",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing diverse young people voting, discussing the Constitution, learning about rights, and participating in their school and community. Use bright simple colours, a clean white background, and no text except labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "lo",
+    "term": "term3",
+    "topic": "diversity-social-justice",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/lo/term3/diversity-social-justice/diagram.webp",
+    "alt": "Grade 9 learners celebrating diversity, standing against discrimination, and building inclusive communities",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing diverse young people from different backgrounds working together, supporting each other, and building inclusive school and community spaces. Celebrate diversity and inclusion. Use bright simple colours, a clean white background, and no text except labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "lo",
+    "term": "term3",
+    "topic": "conflict-resolution-advocacy",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/lo/term3/conflict-resolution-advocacy/diagram.webp",
+    "alt": "Grade 9 learners resolving conflicts respectfully, advocating for causes, and showing leadership",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing diverse young people having respectful dialogue, mediating conflicts, demonstrating leadership, and taking action for causes they care about. Use bright simple colours, a clean white background, and no text except labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "lo",
+    "term": "term3",
+    "topic": "physical-education-task-3",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/lo/term3/physical-education-task-3/diagram.webp",
+    "alt": "Grade 9 learners competing in athletics, playing indigenous games, and showing athletic leadership",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing diverse young people participating in running events, indigenous games, and athletic activities with focus and leadership. Use bright simple colours, a clean white background, and no text except labels."
+  }
+]

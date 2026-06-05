@@ -124,7 +124,7 @@ const LanguageConsolidation = () => (
     learnSteps={learnSteps}
     task="language-consolidation"
     bank={bank}
-    apiPath="/api/caps/eng"
+    apiPath="/api/caps/grade6"
   />
 );
 

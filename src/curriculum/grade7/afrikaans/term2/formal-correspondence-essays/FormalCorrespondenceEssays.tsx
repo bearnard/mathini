@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -38,6 +39,25 @@ const learnSteps: LearnStep[] = [
           For essays, plan ideas first, then write an introduction, body and conclusion.
         </p>
         <p className="text-slate-500">Stay on topic and support each point with an example.</p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Practice these formal-writing words aloud so register and structure feel more natural on the page.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"Geagte"} phonetic={"[χəˈɑxtə]"} meaning={"Dear / respected"} lang="af" />
+          <PronunciationPlayer word={"Onderwerp"} phonetic={"[ˈɔndərvɛrp]"} meaning={"Subject"} lang="af" />
+          <PronunciationPlayer word={"Adres"} phonetic={"[aˈdrɛs]"} meaning={"Address"} lang="af" />
+          <PronunciationPlayer word={"Datum"} phonetic={"[ˈdɑːtəm]"} meaning={"Date"} lang="af" />
+          <PronunciationPlayer word={"Handtekening"} phonetic={"[ˈhanttɛikəneŋ]"} meaning={"Signature"} lang="af" />
+          <PronunciationPlayer word={"Vriendelik"} phonetic={"[ˈfriəndələk]"} meaning={"Kind / friendly"} lang="af" />
+        </div>
       </div>
     ),
   },

@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "gr12-information-management-pat-completion-t3": "Topic: Information Management and PAT Completion. Cover information processing and analysis, source evaluation, presenting findings, and PAT phase 3 completion with appropriate evidence and reflection. Ask about Grade 12 CAT scenarios, terminology, application choices, troubleshooting and exam-style reasoning.",
+    "gr12-system-utilities-security-performance-t3": "Topic: System Utilities, Security and Performance. Cover operating-system utilities, backups, antivirus, file management, performance tuning, and safe practical workflows for Grade 12 CAT. Ask about Grade 12 CAT scenarios, terminology, application choices, troubleshooting and exam-style reasoning.",
+    "gr12-digital-communication-emerging-technologies-t3": "Topic: Digital Communication and Emerging Technologies. Cover browsers, online communication, AI, VR, AR, social networking, and the opportunities and risks of emerging digital technologies. Ask about Grade 12 CAT scenarios, terminology, application choices, troubleshooting and exam-style reasoning.",
+    "gr12-advanced-application-integration-t3": "Topic: Advanced Application Integration. Cover advanced spreadsheets, databases, HTML and linked documents, with a focus on integrating outputs accurately across applications. Ask about Grade 12 CAT scenarios, terminology, application choices, troubleshooting and exam-style reasoning."
+  }
+}

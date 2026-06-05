@@ -1,7 +1,24 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "Before 1652", "title": "Khoikhoi and San communities live", "description": "Khoikhoi and San communities lived in southern Africa long before European settlement at the Cape. They used land, water, and grazing in ways shaped by local environments."},
+            {"date": "1600s", "title": "Xhosa chiefdoms grow east", "description": "Xhosa-speaking communities were established across the eastern regions of southern Africa. They farmed, kept cattle, and formed powerful chiefdoms."},
+            {"date": "1700s", "title": "Trekboers move inland", "description": "Dutch-descended Trekboers moved inland and eastward with livestock. Their movement increased contact, trade, and tension with other frontier peoples."},
+            {"date": "1795", "title": "British arrive at Cape", "description": "British occupation added another powerful group to frontier history. The eastern frontier became an even more complex contact zone of cooperation and conflict."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Many peoples lived near the frontier',
     image: {

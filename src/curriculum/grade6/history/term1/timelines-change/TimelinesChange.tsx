@@ -1,7 +1,24 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "45 BCE", "title": "Julian calendar begins", "description": "Julius Caesar introduced the Julian calendar in Rome. It helped organise dates more clearly across years."},
+            {"date": "525 CE", "title": "AD dating proposed", "description": "Dionysius Exiguus helped popularise numbering years from AD 1. This became important for timelines using BC and AD."},
+            {"date": "1582", "title": "Gregorian calendar introduced", "description": "Pope Gregory XIII introduced a new calendar to correct errors in the Julian system. The Gregorian calendar later became the world's most widely used calendar."},
+            {"date": "1949", "title": "Radiocarbon dating improves timelines", "description": "Willard Libby developed radiocarbon dating for ancient materials. It helped historians and archaeologists place past events more accurately in time."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Timelines put events in order',
     image: {

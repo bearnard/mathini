@@ -1,7 +1,26 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1870s", "title": "European rivalry intensifies", "description": "European powers increased their competition for African territory, trade, and resources. This rivalry set the stage for rapid colonisation."},
+            {"date": "1884–1885", "title": "Berlin Conference held", "description": "European leaders met in Berlin to set rules for claiming African territory. Africans were excluded from decisions about their own lands."},
+            {"date": "1896", "title": "Ethiopia wins at Adwa", "description": "Ethiopian forces defeated Italy at the Battle of Adwa. It became one of the most important examples of successful African resistance."},
+            {"date": "1896", "title": "Prempeh I exiled", "description": "The British removed Ashanti king Prempeh I and sent him into exile. This weakened Ashanti independence but did not end resistance."},
+            {"date": "1900", "title": "Yaa Asantewaa leads revolt", "description": "Yaa Asantewaa led the War of the Golden Stool against British rule in Ashanti. The conflict showed determined military and political resistance to colonisation."},
+            {"date": "Early 1900s", "title": "Colonial borders harden", "description": "European powers fixed borders across Africa without respecting many local societies and political systems. These boundaries had lasting consequences for the continent."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Colonial competition and African resistance',
     image: {

@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -30,6 +31,25 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           Practice strengthens your command of Afrikaans language and literature.
         </p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Use these mixed-genre revision words aloud while preparing for final Afrikaans consolidation.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"begrip"} phonetic={"[bəˈχrəp]"} meaning={"comprehension"} lang="af" />
+          <PronunciationPlayer word={"woordeskat"} phonetic={"[ˈvuərdəskat]"} meaning={"vocabulary"} lang="af" />
+          <PronunciationPlayer word={"gedig"} phonetic={"[χəˈdəχ]"} meaning={"poem"} lang="af" />
+          <PronunciationPlayer word={"brief"} phonetic={"[brif]"} meaning={"letter"} lang="af" />
+          <PronunciationPlayer word={"advertensie"} phonetic={"[adfərˈtɛnsi]"} meaning={"advertisement"} lang="af" />
+          <PronunciationPlayer word={"hersiening"} phonetic={"[hərˈsiənəŋ]"} meaning={"revision"} lang="af" />
+        </div>
       </div>
     ),
   },

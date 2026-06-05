@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -39,6 +40,25 @@ const learnSteps: LearnStep[] = [
         <span className="inline-flex items-center text-2xl font-bold text-indigo-600">
           goed, beter, beste <SpeakButton text="goed, beter, beste" />
         </span>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Practice these comparison forms aloud so the sound of each degree becomes familiar.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"groot"} phonetic={"[χruət]"} meaning={"big"} lang="af" />
+          <PronunciationPlayer word={"groter"} phonetic={"[ˈχruətər]"} meaning={"bigger"} lang="af" />
+          <PronunciationPlayer word={"grootste"} phonetic={"[ˈχruətstə]"} meaning={"biggest"} lang="af" />
+          <PronunciationPlayer word={"mooi"} phonetic={"[moi]"} meaning={"pretty"} lang="af" />
+          <PronunciationPlayer word={"mooier"} phonetic={"[ˈmojər]"} meaning={"prettier"} lang="af" />
+          <PronunciationPlayer word={"mooiste"} phonetic={"[ˈmojstə]"} meaning={"prettiest"} lang="af" />
+        </div>
       </div>
     ),
   },

@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
@@ -15,6 +16,21 @@ const learnSteps: LearnStep[] = [
           identify these devices and explain how they support the poem\'s theme and emotional impact.
         </p>
       </div>
+    ),
+  },
+  {
+    title: "Annotated extract",
+    content: (
+      <AnnotatedText
+        title={"From \"Macbeth\" — William Shakespeare"}
+        text={"Out, out, brief candle! Life's but a walking shadow, a poor player that struts and frets his hour upon the stage."}
+        annotations={[
+          { start: 10, end: 22, device: "symbolism", note: "The candle symbolises how fragile and temporary life can be." },
+          { start: 37, end: 51, device: "metaphor", note: "Life is compared to something insubstantial, deepening the tragedy." },
+          { start: 55, end: 66, device: "metaphor", note: "Shakespeare turns life into a performance to stress its emptiness." },
+          { start: 72, end: 88, device: "diction", note: "The verbs suggest noisy anxiety, helping the speech sound bitter and restless." },
+        ]}
+      />
     ),
   },
   {

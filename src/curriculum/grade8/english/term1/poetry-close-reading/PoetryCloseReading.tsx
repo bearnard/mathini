@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
@@ -15,6 +16,21 @@ const learnSteps: LearnStep[] = [
           structure, rhyme, and repeated language.
         </p>
       </div>
+    ),
+  },
+  {
+    title: "Annotated extract",
+    content: (
+      <AnnotatedText
+        title={"From \"I Wandered Lonely as a Cloud\" — William Wordsworth"}
+        text={"I wandered lonely as a cloud that floats on high o'er vales and hills, when all at once I saw a crowd, a host, of golden daffodils."}
+        annotations={[
+          { start: 11, end: 28, device: "simile", note: "The speaker compares himself to a drifting cloud to show isolation and movement." },
+          { start: 94, end: 109, device: "hyperbole", note: "The flowers are described in enlarged terms to emphasise their abundance." },
+          { start: 114, end: 130, device: "imagery", note: "The bright colour makes the natural scene vivid and memorable." },
+          { start: 34, end: 48, device: "tone", note: "The gentle phrase creates a calm, reflective tone before the joyful discovery." },
+        ]}
+      />
     ),
   },
   {

@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "gr11-systems-technologies-accessibility-t1": "Topic: Systems technologies and accessibility. Cover the information processing cycle, input/output/storage devices, hardware choices for different users, accessibility options (screen readers, magnifiers, on-screen keyboards), hardware theft and protection, computer management. Ask about hardware comparisons, accessibility scenarios, storage-type questions, and information-processing cycle items.",
+    "gr11-hardware-storage-management-t1": "Topic: Hardware and storage management. Cover primary and secondary storage, volatile vs non-volatile memory, RAM vs ROM, storage capacity units (KB/MB/GB/TB), cloud storage, removable media, file systems, folder structures, access control, user accounts, and hardware protection strategies. Ask about storage type matching, capacity calculations, access-control scenarios, and file-management tasks.",
+    "gr11-word-processing-templates-forms-t1": "Topic: Word processing templates and forms. Cover document templates, styles, form fields (text, checkbox, drop-down), form controls, mail-merge concepts, table formatting, section breaks, headers/footers, watermarks, and track changes. Ask about template-creation steps, form-field types, formatting corrections, and style application tasks.",
+    "gr11-spreadsheets-databases-fundamentals-t1": "Topic: Spreadsheets and databases fundamentals. Cover spreadsheet absolute vs relative cell references, named ranges, built-in functions (SUM, AVERAGE, MAX, MIN, COUNT, IF), database structure (tables, fields, records, primary keys), table relationships, basic queries, and report creation. Ask about cell reference types, function syntax, database terminology, and table design questions."
+  }
+}

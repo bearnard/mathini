@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -52,6 +54,30 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-green-50 p-4"><strong>Farming</strong><br />food and fibres</div>
           <div className="rounded-xl bg-blue-50 p-4"><strong>Water and sun</strong><br />support life and energy</div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Resource Data — South African Export Value',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">Some resources are valuable because they are used widely in energy, transport, and manufacturing. This example compares the export value of major South African resources.</p>
+        <DataChart
+          data={[
+                        { resource: 'Coal', exportValue: 190 },
+                        { resource: 'Platinum', exportValue: 260 },
+                        { resource: 'Gold', exportValue: 130 },
+                        { resource: 'Iron ore', exportValue: 150 },
+                      ]}
+          xKey="resource"
+          series={[
+                        { key: 'exportValue', label: 'Export value (R billions)', type: 'bar', color: '#6366f1' },
+                      ]}
+          yLabel="R billions"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">Large export values show why countries protect and manage important natural resources carefully.</p>
       </div>
     ),
   },

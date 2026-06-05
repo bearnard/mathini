@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -52,6 +54,31 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-cyan-50 p-4"><strong>Electronics</strong><br />phones and computers</div>
           <div className="rounded-xl bg-emerald-50 p-4"><strong>Transport</strong><br />ports and roads</div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Trade Data — South Africa and Major Trade Partners',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">South Africa trades with many partners. Comparing exports and imports helps learners see that trade flows in both directions.</p>
+        <DataChart
+          data={[
+                        { partner: 'EU', exports: 24, imports: 20 },
+                        { partner: 'China', exports: 18, imports: 24 },
+                        { partner: 'USA', exports: 14, imports: 11 },
+                        { partner: 'India', exports: 10, imports: 9 },
+                      ]}
+          xKey="partner"
+          series={[
+                        { key: 'exports', label: 'Exports (US$ bn)', type: 'bar', color: '#10b981' },
+                        { key: 'imports', label: 'Imports (US$ bn)', type: 'bar', color: '#f97316' },
+                      ]}
+          yLabel="US$ billions"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">Goods such as minerals, vehicles, machinery, and chemicals move through these trade links.</p>
       </div>
     ),
   },

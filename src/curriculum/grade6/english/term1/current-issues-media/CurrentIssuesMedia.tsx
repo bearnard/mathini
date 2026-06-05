@@ -233,7 +233,7 @@ const CurrentIssuesMedia = () => (
     learnSteps={learnSteps}
     task="current-issues-media"
     bank={bank}
-    apiPath="/api/caps/eng"
+    apiPath="/api/caps/grade6"
   />
 );
 

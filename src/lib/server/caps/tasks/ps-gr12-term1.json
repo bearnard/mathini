@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "gr12-momentum-impulse-collisions-t1": "Topic: Momentum, impulse and collisions. Cover momentum as a vector (p = mv), impulse (J = FΔt = Δp), conservation of linear momentum in isolated systems, elastic and inelastic collisions, and safety applications such as airbags and crumple zones. Ask Grade 12 learners to solve one-dimensional collision problems, interpret force-time graphs and reason with direction signs consistently.",
+    "gr12-vertical-projectile-motion-t1": "Topic: Vertical projectile motion. Cover free fall under gravity, equations of motion, displacement, velocity-time and acceleration-time graphs, maximum height, symmetry of flight and correct sign conventions. Ask Grade 12 learners to calculate time, height and velocity, and to interpret upward and downward motion on graphs.",
+    "gr12-organic-molecules-reactions-t1": "Topic: Organic molecules. Cover homologous series, functional groups, structural formulae, IUPAC naming, isomerism, physical properties, and the addition, substitution, elimination and esterification reactions in CAPS Grade 12 chemistry. Ask learners to identify compounds, name isomers, compare properties and predict likely organic reactions."
+  }
+}

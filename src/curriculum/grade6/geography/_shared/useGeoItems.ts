@@ -15,9 +15,9 @@ function prepare(items: GeoItem[]): GeoItem[] {
 }
 
 /**
- * Supplies practice items for a Geography topic. Fetches a fresh batch from the
- * Gemini-backed `/api/geo` route; on any failure (or invalid response) it falls
- * back to the topic's curated `bank` so practice always works offline.
+ * Supplies practice items for a Geography topic. Fetches from the D1-backed
+ * `/api/caps/grade6` route; falls back to the curated `bank` if D1 has no
+ * questions yet for this task.
  */
 export function useGeoItems(task: string, bank: GeoItem[]) {
   const [queue, setQueue] = useState<GeoItem[]>([]);
@@ -28,11 +28,7 @@ export function useGeoItems(task: string, bank: GeoItem[]) {
   const loadBatch = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/geo', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ task, count: 8 }),
-      });
+      const res = await fetch(`/api/caps/grade6?task=${encodeURIComponent(task)}&count=20`);
       if (res.ok) {
         const data = (await res.json()) as { items?: GeoItem[] };
         if (data.items && data.items.length >= 1) {

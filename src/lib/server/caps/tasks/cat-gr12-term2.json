@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "gr12-networks-communication-infrastructure-t2": "Topic: Networks and Communication Infrastructure. Cover WANs, network hardware, communication infrastructure, internet access, network completion questions, and the social implications of communication technologies. Ask about Grade 12 CAT scenarios, terminology, application choices, troubleshooting and exam-style reasoning.",
+    "gr12-html-web-design-usability-t2": "Topic: HTML, Web Design and Usability. Cover HTML structure, tags and attributes, page layout, usability, readability, navigation, communication goals, and web design choices for specific scenarios. Ask about Grade 12 CAT scenarios, terminology, application choices, troubleshooting and exam-style reasoning.",
+    "gr12-solution-development-advanced-applications-t2": "Topic: Solution Development in Advanced Applications. Cover advanced spreadsheet formulas, database outputs, word-processing refinements, information management, and cross-application solution development for practical tasks. Ask about Grade 12 CAT scenarios, terminology, application choices, troubleshooting and exam-style reasoning.",
+    "gr12-pat-phase2-june-exam-preparation-t2": "Topic: PAT Phase 2 and June Exam Preparation. Cover PAT phase 2 processing and presentation, spreadsheet/database/document refinements, and preparation for June practical and theory examinations. Ask about Grade 12 CAT scenarios, terminology, application choices, troubleshooting and exam-style reasoning."
+  }
+}

@@ -198,7 +198,7 @@ const ComplexSentenceWork = () => (
     learnSteps={learnSteps}
     task="complex-sentence-work"
     bank={bank}
-    apiPath="/api/caps/eng"
+    apiPath="/api/caps/grade6"
   />
 );
 

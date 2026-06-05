@@ -11,6 +11,18 @@ import xhoGr8Term1 from './tasks/xho-gr8-term1.json';
 import xhoGr8Term2 from './tasks/xho-gr8-term2.json';
 import xhoGr8Term3 from './tasks/xho-gr8-term3.json';
 import xhoGr8Term4 from './tasks/xho-gr8-term4.json';
+import xhoGr9Term1 from './tasks/xho-gr9-term1.json';
+import xhoGr9Term2 from './tasks/xho-gr9-term2.json';
+import xhoGr9Term3 from './tasks/xho-gr9-term3.json';
+import xhoGr9Term4 from './tasks/xho-gr9-term4.json';
+import xhoGr11Term1 from './tasks/xho-gr11-term1.json';
+import xhoGr11Term2 from './tasks/xho-gr11-term2.json';
+import xhoGr11Term3 from './tasks/xho-gr11-term3.json';
+import xhoGr11Term4 from './tasks/xho-gr11-term4.json';
+import xhoGr12Term1 from './tasks/xho-gr12-term1.json';
+import xhoGr12Term2 from './tasks/xho-gr12-term2.json';
+import xhoGr12Term3 from './tasks/xho-gr12-term3.json';
+import xhoGr12Term4 from './tasks/xho-gr12-term4.json';
 
 export const xho: SubjectConfig = {
   getPreamble(grade: number): string {
@@ -34,5 +46,17 @@ export const xho: SubjectConfig = {
     ...xhoGr8Term2.tasks,
     ...xhoGr8Term3.tasks,
     ...xhoGr8Term4.tasks,
+    ...xhoGr9Term1.tasks,
+    ...xhoGr9Term2.tasks,
+    ...xhoGr9Term3.tasks,
+    ...xhoGr9Term4.tasks,
+    ...xhoGr11Term1.tasks,
+    ...xhoGr11Term2.tasks,
+    ...xhoGr11Term3.tasks,
+    ...xhoGr11Term4.tasks,
+    ...xhoGr12Term1.tasks,
+    ...xhoGr12Term2.tasks,
+    ...xhoGr12Term3.tasks,
+    ...xhoGr12Term4.tasks,
   },
 };

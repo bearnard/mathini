@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -17,6 +18,25 @@ const learnSteps: LearnStep[] = [
         <p className="text-slate-600">
           Learners improve coherence and accuracy across longer written responses.
         </p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Use these advanced language words when working with reported speech, passive forms, and editing tasks.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"Wathi"} phonetic={"[wa'ti]"} meaning={"He / she said"} lang="xh" />
+          <PronunciationPlayer word={"Ukuba"} phonetic={"[u'kuba]"} meaning={"That"} lang="xh" />
+          <PronunciationPlayer word={"Kuthiwa"} phonetic={"[ku'tiwa]"} meaning={"It is said"} lang="xh" />
+          <PronunciationPlayer word={"Kwenziwa"} phonetic={"[kwɛn'ziwa]"} meaning={"It is done / made"} lang="xh" />
+          <PronunciationPlayer word={"Isihlanganisi"} phonetic={"[isi.hlaŋga'niːsi]"} meaning={"Connector / conjunction"} lang="xh" />
+          <PronunciationPlayer word={"Ukuhlela"} phonetic={"[uku'ɬɛla]"} meaning={"Editing / arranging"} lang="xh" />
+        </div>
       </div>
     ),
   },

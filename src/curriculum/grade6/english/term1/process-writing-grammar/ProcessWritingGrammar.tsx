@@ -241,7 +241,7 @@ const ProcessWritingGrammar = () => (
     learnSteps={learnSteps}
     task="process-writing-grammar"
     bank={bank}
-    apiPath="/api/caps/eng"
+    apiPath="/api/caps/grade6"
   />
 );
 

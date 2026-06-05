@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "gr12-nsc-practical-programming-revision-t4": "Topic: NSC Practical Programming Revision. Cover timed reading of practical questions, OOP review, validation, file handling, debugging and test planning for the final Grade 12 programming paper. Ask learners to choose efficient strategies and avoid common exam mistakes.",
+    "gr12-nsc-database-sql-revision-t4": "Topic: NSC Database and SQL Revision. Cover reading schemas, selecting fields, join conditions, LIKE, BETWEEN, GROUP BY, HAVING, aggregate functions and common syntax mistakes in the final Grade 12 practical paper. Ask learners to predict outputs and justify query structures carefully.",
+    "gr12-nsc-theory-exam-technique-t4": "Topic: NSC Theory Exam Technique. Cover balanced revision across networks, social implications, security and practical concepts, plus interpreting command words such as explain, discuss, compare, justify and evaluate. Ask learners to answer source-based questions accurately and manage time in the final theory paper."
+  }
+}

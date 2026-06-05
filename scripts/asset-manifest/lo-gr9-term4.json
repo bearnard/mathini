@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "lo",
+    "term": "term4",
+    "topic": "careers-career-choices",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/lo/term4/careers-career-choices/diagram.webp",
+    "alt": "Grade 9 learners exploring different career paths, matching abilities to careers, and planning their futures",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing diverse young people exploring different career fields (STEM, creative, healthcare, business), having career conversations with professionals, and making thoughtful subject choices. Use bright simple colours, a clean white background, and no text except labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "lo",
+    "term": "term4",
+    "topic": "study-methods-exam-readiness",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/lo/term4/study-methods-exam-readiness/diagram.webp",
+    "alt": "Grade 9 learners preparing for exams with proper technique, time management, and stress management",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing diverse young people studying effectively using revision schedules, managing their time, taking care of their health with sleep and exercise, and feeling confident about exams. Use bright simple colours, a clean white background, and no text except labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "lo",
+    "term": "term4",
+    "topic": "responsible-future-planning",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/lo/term4/responsible-future-planning/diagram.webp",
+    "alt": "Grade 9 learners reviewing goals, building resilience, accessing support, and planning for Grade 10",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing diverse young people reviewing their annual progress, feeling resilient despite challenges, surrounded by supportive people, and feeling ready for the next phase. Use bright simple colours, a clean white background, and no text except labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "lo",
+    "term": "term4",
+    "topic": "physical-education-task-4",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/lo/term4/physical-education-task-4/diagram.webp",
+    "alt": "Grade 9 learners reviewing fitness progress, setting personal targets, and planning for lifelong active lifestyles",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing diverse young people celebrating fitness achievements, setting new goals, documenting participation, and looking forward to active lifestyles. Use bright simple colours, a clean white background, and no text except labels."
+  }
+]

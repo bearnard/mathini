@@ -3,6 +3,18 @@ import loGr8Term1 from './tasks/lo-gr8-term1.json';
 import loGr8Term2 from './tasks/lo-gr8-term2.json';
 import loGr8Term3 from './tasks/lo-gr8-term3.json';
 import loGr8Term4 from './tasks/lo-gr8-term4.json';
+import loGr9Term1 from './tasks/lo-gr9-term1.json';
+import loGr9Term2 from './tasks/lo-gr9-term2.json';
+import loGr9Term3 from './tasks/lo-gr9-term3.json';
+import loGr9Term4 from './tasks/lo-gr9-term4.json';
+import loGr11Term1 from './tasks/lo-gr11-term1.json';
+import loGr11Term2 from './tasks/lo-gr11-term2.json';
+import loGr11Term3 from './tasks/lo-gr11-term3.json';
+import loGr11Term4 from './tasks/lo-gr11-term4.json';
+import loGr12Term1 from './tasks/lo-gr12-term1.json';
+import loGr12Term2 from './tasks/lo-gr12-term2.json';
+import loGr12Term3 from './tasks/lo-gr12-term3.json';
+import loGr12Term4 from './tasks/lo-gr12-term4.json';
 
 export const lo: SubjectConfig = {
   getPreamble(grade: number): string {
@@ -18,5 +30,17 @@ export const lo: SubjectConfig = {
     ...loGr8Term2.tasks,
     ...loGr8Term3.tasks,
     ...loGr8Term4.tasks,
+    ...loGr9Term1.tasks,
+    ...loGr9Term2.tasks,
+    ...loGr9Term3.tasks,
+    ...loGr9Term4.tasks,
+    ...loGr11Term1.tasks,
+    ...loGr11Term2.tasks,
+    ...loGr11Term3.tasks,
+    ...loGr11Term4.tasks,
+    ...loGr12Term1.tasks,
+    ...loGr12Term2.tasks,
+    ...loGr12Term3.tasks,
+    ...loGr12Term4.tasks,
   },
 };

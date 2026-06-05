@@ -1,7 +1,26 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1712", "title": "Newcomen engine introduced", "description": "Thomas Newcomen's steam engine was first used to pump water from mines. Steam power later became vital to factories and industrial growth."},
+            {"date": "1764", "title": "Spinning Jenny invented", "description": "James Hargreaves invented the Spinning Jenny, allowing workers to spin more thread at once. It helped accelerate mechanised textile production in Britain."},
+            {"date": "1780s", "title": "Factories rapidly expand", "description": "Machine production spread through Britain's textile industry and factory towns grew quickly. This drove urbanisation and changed how people worked and lived."},
+            {"date": "1833", "title": "Factory Act passed", "description": "Britain passed a Factory Act to limit some forms of child labour and regulate working hours. It reflected growing concern about workers' rights and unsafe conditions."},
+            {"date": "1867", "title": "Diamonds found near Kimberley", "description": "Diamond discoveries in southern Africa transformed Kimberley into a major mining centre. This linked industrial change in Britain to new economic changes in the region."},
+            {"date": "1871", "title": "Kimberley rush intensifies", "description": "Large numbers of diggers moved to the Kimberley fields and mining expanded rapidly. Town growth, labour demand, and trade all increased."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Industrial change reshaped work and society',
     image: {

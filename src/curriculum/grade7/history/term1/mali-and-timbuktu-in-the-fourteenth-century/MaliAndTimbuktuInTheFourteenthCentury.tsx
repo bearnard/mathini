@@ -1,7 +1,26 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1235", "title": "Mali Empire founded", "description": "Sundiata Keita defeated Sosso forces at the Battle of Kirina and established the Mali Empire. This created the political base for later wealth from trans-Saharan trade."},
+            {"date": "c. 1285", "title": "Timbuktu joins Mali", "description": "Mali brought Timbuktu under its influence in the late thirteenth century. The city grew as an important trading point linking the Sahara and West Africa."},
+            {"date": "1312", "title": "Mansa Musa begins rule", "description": "Mansa Musa became emperor of Mali and expanded its fame and influence. His reign is strongly associated with Mali's wealth, Islam, and learning."},
+            {"date": "1324–1325", "title": "Mansa Musa makes hajj", "description": "Mansa Musa travelled to Mecca on a famous pilgrimage, displaying Mali's enormous gold wealth. News of the journey spread across North Africa and the Mediterranean world."},
+            {"date": "1327", "title": "Djinguereber Mosque built", "description": "A major mosque was built in Timbuktu during Mansa Musa's reign. It symbolised the city's importance as a centre of Islam, scholarship, and architecture."},
+            {"date": "14th century", "title": "Timbuktu becomes learning centre", "description": "Timbuktu became known for scholars, manuscripts, and Islamic study. Trade wealth helped support schools and intellectual life in the city."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Mali grew through trade and leadership',
     image: {

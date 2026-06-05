@@ -1,0 +1,57 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "math",
+    "term": "term3",
+    "topic": "measurement",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/math/term3/measurement/diagram.webp",
+    "alt": "3D shapes including cylinder, cone and sphere with measurement indicators",
+    "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing a cylinder, cone and sphere side by side with arrows indicating radius and height dimensions. Simple bright pastel shapes, white background, no text or labels in the image."
+  },
+  {
+    "grade": "grade11",
+    "subject": "math",
+    "term": "term3",
+    "topic": "euclidean-geometry",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade11/math/term3/euclidean-geometry/diagram.svg",
+    "alt": "circle with inscribed cyclic quadrilateral, tangent line and labelled angle arcs",
+    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a circle with four points A, B, C, D on the circumference forming a cyclic quadrilateral, a tangent line at point D, and arc labels showing the angle relationships of circle theorems."
+  },
+  {
+    "grade": "grade11",
+    "subject": "math",
+    "term": "term3",
+    "topic": "trig-sine-cosine-rule",
+    "section": "diagram",
+    "type": "svg",
+    "path": "curriculum/grade11/math/term3/trig-sine-cosine-rule/diagram.svg",
+    "alt": "non-right-angled triangle with labelled sides a, b, c and angles A, B, C",
+    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a non-right-angled triangle with vertices A, B, C and opposite sides labelled a, b, c. Each angle and side is clearly labelled to illustrate the sine rule and cosine rule setup."
+  },
+  {
+    "grade": "grade11",
+    "subject": "math",
+    "term": "term3",
+    "topic": "finance-growth-decay",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/math/term3/finance-growth-decay/diagram.webp",
+    "alt": "two curves illustrating compound growth and compound decay over time",
+    "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing two smooth curves on a minimal time axis — one curving upward (compound growth) in green and one curving downward (compound decay) in orange. Simple bright shapes, white background, no text or labels in the image."
+  },
+  {
+    "grade": "grade11",
+    "subject": "math",
+    "term": "term3",
+    "topic": "probability",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/math/term3/probability/diagram.webp",
+    "alt": "probability tree diagram with two stages and branching coloured paths",
+    "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing a tree diagram with two branching stages — each branch splits into two colourful paths (red and blue), forming a tree of four outcome paths. Simple bright shapes, white background, no text or labels in the image."
+  }
+]

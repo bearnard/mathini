@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -40,6 +41,25 @@ const learnSteps: LearnStep[] = [
         <span className="inline-flex items-center gap-2 text-2xl font-bold text-indigo-600">
           Jou maatjie <SpeakButton text="Jou maatjie" />
         </span>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Say these letter-writing words aloud before planning the format of a friendly letter.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"Beste"} phonetic={"[ˈbɛstə]"} meaning={"Dear"} lang="af" />
+          <PronunciationPlayer word={"Liewe"} phonetic={"[ˈliːvə]"} meaning={"Beloved / dear"} lang="af" />
+          <PronunciationPlayer word={"Datum"} phonetic={"[ˈdɑːtəm]"} meaning={"Date"} lang="af" />
+          <PronunciationPlayer word={"Adres"} phonetic={"[aˈdrɛs]"} meaning={"Address"} lang="af" />
+          <PronunciationPlayer word={"Groete"} phonetic={"[ˈχruətə]"} meaning={"Greetings / regards"} lang="af" />
+          <PronunciationPlayer word={"Vriend"} phonetic={"[friənt]"} meaning={"Friend"} lang="af" />
+        </div>
       </div>
     ),
   },

@@ -1,7 +1,24 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1895", "title": "X-rays discovered", "description": "Wilhelm Röntgen discovered X-rays in 1895. Doctors could suddenly look inside the body without cutting it open."},
+            {"date": "1928", "title": "Penicillin found", "description": "Alexander Fleming discovered penicillin from a mould. It became one of the first important antibiotics."},
+            {"date": "1943", "title": "Penicillin used widely", "description": "During World War II, penicillin began to be produced and used on a large scale. It saved many lives by treating bacterial infections."},
+            {"date": "1967", "title": "First heart transplant", "description": "Dr Christiaan Barnard performed the first human heart transplant in Cape Town. It was a major South African and world medical milestone."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Modern tools help doctors diagnose',
     image: {

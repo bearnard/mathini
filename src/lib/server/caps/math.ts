@@ -11,6 +11,14 @@ import mathGr9Term1 from './tasks/math-gr9-term1.json';
 import mathGr9Term2 from './tasks/math-gr9-term2.json';
 import mathGr9Term3 from './tasks/math-gr9-term3.json';
 import mathGr9Term4 from './tasks/math-gr9-term4.json';
+import mathGr11Term1 from './tasks/math-gr11-term1.json';
+import mathGr11Term2 from './tasks/math-gr11-term2.json';
+import mathGr11Term3 from './tasks/math-gr11-term3.json';
+import mathGr11Term4 from './tasks/math-gr11-term4.json';
+import mathGr12Term1 from './tasks/math-gr12-term1.json';
+import mathGr12Term2 from './tasks/math-gr12-term2.json';
+import mathGr12Term3 from './tasks/math-gr12-term3.json';
+import mathGr12Term4 from './tasks/math-gr12-term4.json';
 
 export const math: SubjectConfig = {
   getPreamble(grade: number): string {
@@ -18,7 +26,8 @@ export const math: SubjectConfig = {
     return (
       `You are a Mathematics teacher creating Grade ${grade} (CAPS, South Africa) multiple-choice practice for ${age}-year-old learners. ` +
       'Generate {count} varied items. Each item must have: a clear, simply-worded question, exactly 4 options, exactly one correct answer that equals one option VERBATIM, and a short, friendly explanation. ' +
-      'Keep language accurate, age-appropriate and South African in spelling and context. Do not repeat items. '
+      'Keep language accurate, age-appropriate and South African in spelling and context. Do not repeat items. ' +
+      'IMPORTANT: Wrap every mathematical expression in single dollar signs, e.g. $x^2 + 3x = 0$, $f(x) = -x^3 + 3x$, $\\frac{1}{2}$. This applies to prompts, options, answers and explanations. '
     );
   },
   tasks: {
@@ -34,5 +43,13 @@ export const math: SubjectConfig = {
     ...mathGr9Term2.tasks,
     ...mathGr9Term3.tasks,
     ...mathGr9Term4.tasks,
+    ...mathGr11Term1.tasks,
+    ...mathGr11Term2.tasks,
+    ...mathGr11Term3.tasks,
+    ...mathGr11Term4.tasks,
+    ...mathGr12Term1.tasks,
+    ...mathGr12Term2.tasks,
+    ...mathGr12Term3.tasks,
+    ...mathGr12Term4.tasks,
   },
 };

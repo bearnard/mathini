@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
@@ -16,6 +17,21 @@ const learnSteps: LearnStep[] = [
           prose or drama texts.
         </p>
       </div>
+    ),
+  },
+  {
+    title: "Annotated extract",
+    content: (
+      <AnnotatedText
+        title={"From \"The Tyger\" — William Blake"}
+        text={"Tyger Tyger, burning bright, in the forests of the night; what immortal hand or eye could frame thy fearful symmetry?"}
+        annotations={[
+          { start: 13, end: 27, device: "imagery", note: "The phrase makes the tiger feel luminous and unforgettable." },
+          { start: 36, end: 56, device: "symbolism", note: "Night becomes symbolic of mystery and danger surrounding the tiger." },
+          { start: 63, end: 83, device: "allusion", note: "The speaker hints at a divine maker beyond ordinary human power." },
+          { start: 100, end: 116, device: "tone", note: "The uneasy phrase mixes awe with fear, shaping the poem’s questioning tone." },
+        ]}
+      />
     ),
   },
   {

@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "gr12-systems-technologies-social-implications-t1": "Topic: Systems Technologies and Social Implications. Cover system requirements, user-centred design, hardware/software choices, accessibility, environmental issues, and the social implications of technology use. Ask about Grade 12 CAT scenarios, terminology, application choices, troubleshooting and exam-style reasoning.",
+    "gr12-hardware-software-accessibility-t1": "Topic: Hardware, Software and Accessibility. Cover input, output and storage devices, operating systems and application software, licensing, accessibility options, and hardware/software suitability for different users. Ask about Grade 12 CAT scenarios, terminology, application choices, troubleshooting and exam-style reasoning.",
+    "gr12-advanced-databases-t1": "Topic: Advanced Databases. Cover database fields and records, data types, sorting and filtering, queries, report design, calculated fields, and data quality in Grade 12 practical tasks. Ask about Grade 12 CAT scenarios, terminology, application choices, troubleshooting and exam-style reasoning.",
+    "gr12-spreadsheets-word-processing-pat-planning-t1": "Topic: Spreadsheets, Word Processing and PAT Planning. Cover named ranges, lookup functions, nested IF, complex formulas, professional document formatting, file management, and PAT phase 1 planning and information collection. Ask about Grade 12 CAT scenarios, terminology, application choices, troubleshooting and exam-style reasoning."
+  }
+}

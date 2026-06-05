@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
@@ -15,6 +16,21 @@ const learnSteps: LearnStep[] = [
           <strong>conflict</strong>, <strong>setting</strong>, and <strong>theme</strong> to explain meaning.
         </p>
       </div>
+    ),
+  },
+  {
+    title: "Annotated extract",
+    content: (
+      <AnnotatedText
+        title={"From \"The Secret Garden\" — Frances Hodgson Burnett"}
+        text={"The robin flew to the nearest tree and began to sing. Mary felt as if the small bright creature were showing her where to look."}
+        annotations={[
+          { start: 39, end: 52, device: "tone", note: "The gentle action creates a hopeful, inviting tone in the scene." },
+          { start: 64, end: 112, device: "simile", note: "Mary imagines the bird guiding her, revealing how narration can show character feeling." },
+          { start: 74, end: 95, device: "diction", note: "These carefully chosen words make the robin seem lively and important." },
+          { start: 96, end: 126, device: "personification", note: "The robin is given almost human intention, which adds magic to the episode." },
+        ]}
+      />
     ),
   },
   {

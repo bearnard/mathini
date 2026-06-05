@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "geo",
+    "term": "term1",
+    "topic": "contour-lines-slopes",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/geo/term1/contour-lines-slopes/diagram.webp",
+    "alt": "Grade 9 learners studying topographic maps with contour lines showing steep mountains and gentle slopes",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing a topographic map with contour lines. Depict a cross-section of terrain with close contour lines on a steep slope and widely spaced lines on flat areas. Use earth tones (greens, browns), a clean white background, and include simplified legend showing contour intervals. No text except for labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "geo",
+    "term": "term1",
+    "topic": "orthophoto-maps-symbols",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/geo/term1/orthophoto-maps-symbols/diagram.webp",
+    "alt": "Grade 9 learners comparing an orthophoto aerial view with a map legend showing symbols and colors",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing both an orthophoto and a map legend. The orthophoto should show buildings (grey), vegetation (green), water (blue), and roads. The legend should clearly label different features and colors. Use bright, simple colors, a clean white background, and no text except labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "geo",
+    "term": "term1",
+    "topic": "map-scale-coordinates",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/geo/term1/map-scale-coordinates/diagram.webp",
+    "alt": "Grade 9 learners using map scale and latitude-longitude grid to locate places on a map",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing a map with latitude and longitude grid lines. Include a bar scale at the bottom showing distance measurements (0-1-2-3 km). Show a sample location marked with a pin or point. Use clean white background, simple colors, and minimal text labels only."
+  },
+  {
+    "grade": "grade9",
+    "subject": "geo",
+    "term": "term1",
+    "topic": "land-use-interpretation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/geo/term1/land-use-interpretation/diagram.webp",
+    "alt": "Grade 9 learners analyzing a land-use map showing urban areas, agriculture, forests, and water bodies",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing different land-use types on a map. Display: urban areas (red/pink buildings), agricultural land (yellow/tan fields), forests (green), water bodies (blue), and recreational areas (light green). Use a color legend, simple colors, clean white background, and no text except labels."
+  }
+]

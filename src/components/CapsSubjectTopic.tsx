@@ -9,6 +9,7 @@ import { cn } from '../lib/utils';
 import TopicContainer from './layout/TopicContainer';
 import { useCapsItems } from '../lib/client/useCapsItems';
 import type { CapsItem } from '../lib/client/useCapsItems';
+import MathText from './subjects/MathText';
 
 export interface LearnStep {
   title: string;
@@ -21,18 +22,31 @@ interface CapsSubjectTopicProps {
   subtitle: string;
   /** Stepped "Watch & Learn" slides — authoritative static content. */
   learnSteps: LearnStep[];
-  /** Allowlisted task id understood by the configured API route. */
-  task: string;
-  /** Curated fallback items used if the AI request fails. */
+  /** Pre-curated practice questions for Gr7–12 topics (ignored in pool mode). */
   bank: CapsItem[];
+  /**
+   * API path for the D1 question pool. When provided together with `task`,
+   * the component fetches questions from D1 instead of using `bank`.
+   * Grade 6 topics set this to "/api/caps/grade6".
+   */
+  task?: string;
+  /**
+   * Task key identifying which question set to fetch from D1.
+   * Must be provided alongside `apiPath` to activate pool mode.
+   */
   apiPath?: string;
+  grade?: number;
 }
 
-const CapsSubjectTopic = ({ title, subtitle, learnSteps, task, bank, apiPath }: CapsSubjectTopicProps) => {
+const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, grade }: CapsSubjectTopicProps) => {
+  void grade;
   const [mode, setMode] = useState<'learn' | 'practice'>('learn');
   const [learnStep, setLearnStep] = useState(0);
 
-  const { current, loading, next, done, reset, index, total } = useCapsItems(apiPath ?? '/api/caps', task, bank);
+  const { current, loading, next, done, reset, index, total } = useCapsItems(
+    bank,
+    task && apiPath ? { task, apiPath } : undefined,
+  );
   const [selected, setSelected] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [streak, setStreak] = useState(0);
@@ -158,7 +172,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, task, bank, apiPath }: 
                 ) : (
                   <>
                     <p className="text-xl md:text-2xl font-bold text-slate-800 text-center">
-                      {current.prompt}
+                      <MathText>{current.prompt}</MathText>
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -180,7 +194,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, task, bank, apiPath }: 
                             variant={variant}
                             className="text-lg py-6"
                           >
-                            {option}
+                            <MathText>{option}</MathText>
                           </Button>
                         );
                       })}
@@ -193,14 +207,17 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, task, bank, apiPath }: 
                 <Feedback
                   isCorrect={isCorrect}
                   correctMessage={
-                    current?.explanation ? `Correct! ${current.explanation}` : 'Correct! Well done!'
+                    current?.explanation ? <>Correct! {current.explanation}</> : 'Correct! Well done!'
                   }
                   incorrectMessage={
-                    current
-                      ? `Not quite. The answer is "${current.answer}".${
-                          current.explanation ? ` ${current.explanation}` : ''
-                        }`
-                      : 'Not quite.'
+                    current ? (
+                      <>
+                        Not quite. The answer is &ldquo;<MathText>{current.answer}</MathText>&rdquo;.
+                        {current.explanation ? ` ${current.explanation}` : ''}
+                      </>
+                    ) : (
+                      'Not quite.'
+                    )
                   }
                   onNext={handleNext}
                 />

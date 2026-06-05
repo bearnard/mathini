@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "gr12-advanced-oop-inheritance-polymorphism-t1": "Topic: Advanced OOP — Inheritance and Polymorphism. Cover superclass and subclass relationships, code reuse through inheritance, method overriding, polymorphism, abstract design ideas, constructors in hierarchies and UML inheritance notation. Ask Grade 12 learners to trace object-oriented code, predict which method runs, justify when inheritance is appropriate and interpret class diagrams accurately.",
+    "gr12-encapsulation-class-design-exception-handling-t1": "Topic: Encapsulation, Class Design and Exception Handling. Cover private fields, public methods, getters and setters, constructor design, validation rules, try/except/finally style error handling, user-friendly error messages and debugging with breakpoints or tracing. Ask Grade 12 learners to justify class design decisions, identify safer code structures and reason about runtime errors and recovery.",
+    "gr12-gui-design-event-driven-programming-t1": "Topic: GUI Design and Event-Driven Programming. Cover form layout, labels, text boxes, combo boxes, buttons, event handlers, user input validation, interface feedback, and separating interface code from application logic. Ask Grade 12 learners to reason about GUI usability, control selection and how user actions trigger program behaviour.",
+    "gr12-algorithmic-refinement-validation-testing-t1": "Topic: Algorithmic Refinement, Validation and Testing. Cover modular decomposition, reusable functions and procedures, advanced logic patterns, recursion, boundary checking, validation loops, trace tables and selecting normal, abnormal and boundary test data. Ask Grade 12 learners to improve algorithms for correctness, elegance and reliability."
+  }
+}

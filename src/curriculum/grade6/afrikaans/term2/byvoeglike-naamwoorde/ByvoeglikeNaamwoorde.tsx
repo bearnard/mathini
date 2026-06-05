@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -40,6 +41,25 @@ const learnSteps: LearnStep[] = [
         <span className="inline-flex items-center gap-2 text-2xl font-bold text-indigo-600">
           'n goeie boek <SpeakButton text="'n goeie boek" />
         </span>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Practice these noun and article words aloud so grammar labels connect with familiar examples.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"die"} phonetic={"[di]"} meaning={"the"} lang="af" />
+          <PronunciationPlayer word={"'n"} phonetic={"[ə]"} meaning={"a / an"} lang="af" />
+          <PronunciationPlayer word={"boek"} phonetic={"[buk]"} meaning={"book"} lang="af" />
+          <PronunciationPlayer word={"tafel"} phonetic={"[ˈtɑːfəl]"} meaning={"table"} lang="af" />
+          <PronunciationPlayer word={"hond"} phonetic={"[hɔnt]"} meaning={"dog"} lang="af" />
+          <PronunciationPlayer word={"kind"} phonetic={"[kənt]"} meaning={"child"} lang="af" />
+        </div>
       </div>
     ),
   },

@@ -1,7 +1,25 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1948", "title": "Apartheid starts", "description": "The National Party came to power and built apartheid into law. These unfair laws later made a strong Constitution and Bill of Rights especially important."},
+            {"date": "1955", "title": "Freedom Charter adopted", "description": "The Freedom Charter declared that South Africa belongs to all who live in it. It called for equality and rights that later influenced constitutional ideas."},
+            {"date": "1993", "title": "Interim Constitution approved", "description": "South Africa adopted an Interim Constitution during the move to democracy. It prepared the way for a new legal order based on equal rights."},
+            {"date": "1994", "title": "South Africans vote equally", "description": "The first democratic election gave all adult citizens the right to vote. This was a major step toward constitutional democracy."},
+            {"date": "1997", "title": "Final Constitution takes effect", "description": "South Africa's final Constitution came into force on 4 February 1997. It included the Bill of Rights and became the highest law of the country."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'The Constitution is the highest law',
     image: {

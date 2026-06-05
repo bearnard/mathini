@@ -1,7 +1,27 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1795", "title": "Britain first occupies Cape", "description": "Britain seized the Cape Colony during the wars with revolutionary France. British control would shape frontier politics in the nineteenth century."},
+            {"date": "1811–1812", "title": "Fourth Frontier War", "description": "British-led forces expelled many Xhosa west of the Fish River. The war was driven by land, cattle, and colonial control."},
+            {"date": "1819", "title": "Nxele attacks Grahamstown", "description": "Xhosa forces led by Maqana Nxele attacked Grahamstown in resistance to colonial expansion. The failed attack became a key moment in frontier conflict."},
+            {"date": "1820", "title": "British settlers arrive", "description": "Thousands of British settlers were placed in the eastern Cape. Their arrival strengthened colonial presence on the frontier and increased pressure on land."},
+            {"date": "1834", "title": "Slavery abolished at Cape", "description": "Britain legally abolished slavery in the Cape Colony. Former slave owners were compensated, but freed people still faced major inequality."},
+            {"date": "1834–1835", "title": "Sixth Frontier War", "description": "A major war broke out between Xhosa communities and colonial forces. It showed both fierce resistance and the instability of the eastern frontier."},
+            {"date": "1836", "title": "Great Trek begins", "description": "Many Boers left the Cape Colony and moved inland. Migration was influenced by dissatisfaction with British rule, frontier insecurity, and changing labour systems."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Frontier life involved conflict and cooperation',
     image: {

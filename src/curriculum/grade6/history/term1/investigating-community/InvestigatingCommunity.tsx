@@ -1,7 +1,24 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1683", "title": "Public museums open", "description": "The Ashmolean Museum opened in Oxford as one of the first public museums. Museums became important places for preserving community objects and stories."},
+            {"date": "1839", "title": "Photography records communities", "description": "The invention of practical photography allowed streets, buildings, and families to be recorded visually. Old photographs later became useful local history evidence."},
+            {"date": "1948", "title": "Recorded interviews spread", "description": "Oral history projects increasingly used recording technology after World War II. This made it easier to preserve elders' memories as oral sources."},
+            {"date": "1994", "title": "District Six Museum opens", "description": "The District Six Museum opened in Cape Town to preserve memories of a community damaged by forced removals. It is a strong example of local history being collected and shared."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Local history starts with questions',
     image: {

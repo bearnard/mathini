@@ -1,7 +1,25 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1779", "title": "First frontier war begins", "description": "The first major frontier war broke out between settlers and Xhosa groups on the eastern frontier. Competition over land, cattle, and grazing helped cause the conflict."},
+            {"date": "1811–1812", "title": "Fourth war clears Zuurveld", "description": "British-led forces drove many Xhosa west of the Fish River from the Zuurveld. This showed how colonial power increased pressure on African communities."},
+            {"date": "1834–1835", "title": "Sixth war spreads widely", "description": "A major frontier war spread across the eastern Cape after rising tensions and attacks. It caused severe hardship and loss on all sides."},
+            {"date": "1850–1853", "title": "Eighth war devastates frontier", "description": "The War of Mlanjeni was one of the longest and most destructive frontier wars. Communities suffered from deaths, destruction, and loss of land."},
+            {"date": "1877–1879", "title": "Ninth war ends", "description": "The last of the frontier wars ended in the late 1870s. It marked the end of a long series of conflicts tied to colonial expansion on the eastern frontier."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'The eastern frontier expanded',
     image: {

@@ -7,6 +7,18 @@ import geoGr8Term1 from './tasks/geo-gr8-term1.json';
 import geoGr8Term2 from './tasks/geo-gr8-term2.json';
 import geoGr8Term3 from './tasks/geo-gr8-term3.json';
 import geoGr8Term4 from './tasks/geo-gr8-term4.json';
+import geoGr9Term1 from './tasks/geo-gr9-term1.json';
+import geoGr9Term2 from './tasks/geo-gr9-term2.json';
+import geoGr9Term3 from './tasks/geo-gr9-term3.json';
+import geoGr9Term4 from './tasks/geo-gr9-term4.json';
+import geoGr11Term1 from './tasks/geo-gr11-term1.json';
+import geoGr11Term2 from './tasks/geo-gr11-term2.json';
+import geoGr11Term3 from './tasks/geo-gr11-term3.json';
+import geoGr11Term4 from './tasks/geo-gr11-term4.json';
+import geoGr12Term1 from './tasks/geo-gr12-term1.json';
+import geoGr12Term2 from './tasks/geo-gr12-term2.json';
+import geoGr12Term3 from './tasks/geo-gr12-term3.json';
+import geoGr12Term4 from './tasks/geo-gr12-term4.json';
 
 export const geo: SubjectConfig = {
   getPreamble(grade: number): string {
@@ -58,5 +70,17 @@ export const geo: SubjectConfig = {
     ...geoGr8Term2.tasks,
     ...geoGr8Term3.tasks,
     ...geoGr8Term4.tasks,
+    ...geoGr9Term1.tasks,
+    ...geoGr9Term2.tasks,
+    ...geoGr9Term3.tasks,
+    ...geoGr9Term4.tasks,
+    ...geoGr11Term1.tasks,
+    ...geoGr11Term2.tasks,
+    ...geoGr11Term3.tasks,
+    ...geoGr11Term4.tasks,
+    ...geoGr12Term1.tasks,
+    ...geoGr12Term2.tasks,
+    ...geoGr12Term3.tasks,
+    ...geoGr12Term4.tasks,
   },
 };

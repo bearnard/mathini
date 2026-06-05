@@ -123,7 +123,7 @@ const IntegratedRevision = () => (
     learnSteps={learnSteps}
     task="integrated-revision"
     bank={bank}
-    apiPath="/api/caps/eng"
+    apiPath="/api/caps/grade6"
   />
 );
 

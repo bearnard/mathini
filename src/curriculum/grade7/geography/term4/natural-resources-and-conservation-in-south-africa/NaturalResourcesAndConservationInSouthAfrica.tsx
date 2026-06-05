@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -14,6 +16,30 @@ const learnSteps: LearnStep[] = [
           South Africa depends on natural resources such as water, air, soil, and marine ecosystems. Conservation and
           responsible resource management protect biodiversity, livelihoods, and future sustainability.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Conservation Data — South African Biodiversity Richness',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">South Africa protects natural resources because it has exceptional biodiversity. This simple chart compares the number of species in different groups.</p>
+        <DataChart
+          data={[
+                        { group: 'Flowering plants', species: 24000 },
+                        { group: 'Marine fish', species: 2200 },
+                        { group: 'Birds', species: 870 },
+                        { group: 'Mammals', species: 300 },
+                      ]}
+          xKey="group"
+          series={[
+                        { key: 'species', label: 'Approximate species count', type: 'bar', color: '#16a34a' },
+                      ]}
+          yLabel="Species"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">High biodiversity is one reason why conservation areas, national parks, and habitat protection are important.</p>
       </div>
     ),
   },

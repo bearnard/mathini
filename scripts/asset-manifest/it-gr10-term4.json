@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "it",
+    "term": "term4",
+    "topic": "social-implications-cyber-safety",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/it/term4/social-implications-cyber-safety/diagram.webp",
+    "alt": "Social Implications and Cyber Safety",
+    "prompt": "A clear educational illustration depicting \"Social Implications and Cyber Safety\": IT ethics, security, and digital citizenship."
+  },
+  {
+    "grade": "grade10",
+    "subject": "it",
+    "term": "term4",
+    "topic": "revision-year-end-examination-preparation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/it/term4/revision-year-end-examination-preparation/diagram.webp",
+    "alt": "Revision and Year-End Examination Preparation",
+    "prompt": "A clear educational illustration depicting \"Revision and Year-End Examination Preparation\": Comprehensive review for final assessment."
+  }
+]

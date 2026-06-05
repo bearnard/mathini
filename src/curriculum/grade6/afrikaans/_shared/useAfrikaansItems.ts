@@ -15,9 +15,9 @@ function prepare(items: AfrikaansItem[]): AfrikaansItem[] {
 }
 
 /**
- * Supplies practice items for an Afrikaans topic. Fetches a fresh batch from the
- * Gemini-backed `/api/gemini` route; on any failure (or invalid response) it
- * falls back to the topic's curated `bank` so practice always works offline.
+ * Supplies practice items for an Afrikaans topic. Fetches from the D1-backed
+ * `/api/caps/grade6` route; falls back to the curated `bank` if D1 has no
+ * questions yet for this task.
  */
 export function useAfrikaansItems(task: string, bank: AfrikaansItem[]) {
   const [queue, setQueue] = useState<AfrikaansItem[]>([]);
@@ -28,11 +28,7 @@ export function useAfrikaansItems(task: string, bank: AfrikaansItem[]) {
   const loadBatch = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/gemini', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ task, count: 8 }),
-      });
+      const res = await fetch(`/api/caps/grade6?task=${encodeURIComponent(task)}&count=20`);
       if (res.ok) {
         const data = (await res.json()) as { items?: AfrikaansItem[] };
         if (data.items && data.items.length >= 1) {

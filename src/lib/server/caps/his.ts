@@ -7,6 +7,18 @@ import hisGr8Term1 from './tasks/his-gr8-term1.json';
 import hisGr8Term2 from './tasks/his-gr8-term2.json';
 import hisGr8Term3 from './tasks/his-gr8-term3.json';
 import hisGr8Term4 from './tasks/his-gr8-term4.json';
+import hisGr9Term1 from './tasks/his-gr9-term1.json';
+import hisGr9Term2 from './tasks/his-gr9-term2.json';
+import hisGr9Term3 from './tasks/his-gr9-term3.json';
+import hisGr9Term4 from './tasks/his-gr9-term4.json';
+import hisGr11Term1 from './tasks/his-gr11-term1.json';
+import hisGr11Term2 from './tasks/his-gr11-term2.json';
+import hisGr11Term3 from './tasks/his-gr11-term3.json';
+import hisGr11Term4 from './tasks/his-gr11-term4.json';
+import hisGr12Term1 from './tasks/his-gr12-term1.json';
+import hisGr12Term2 from './tasks/his-gr12-term2.json';
+import hisGr12Term3 from './tasks/his-gr12-term3.json';
+import hisGr12Term4 from './tasks/his-gr12-term4.json';
 
 const existingHistoryTasks: Record<string, string> = {
   'what-is-history':
@@ -62,5 +74,17 @@ export const his: SubjectConfig = {
     ...hisGr8Term2.tasks,
     ...hisGr8Term3.tasks,
     ...hisGr8Term4.tasks,
+    ...hisGr9Term1.tasks,
+    ...hisGr9Term2.tasks,
+    ...hisGr9Term3.tasks,
+    ...hisGr9Term4.tasks,
+    ...hisGr11Term1.tasks,
+    ...hisGr11Term2.tasks,
+    ...hisGr11Term3.tasks,
+    ...hisGr11Term4.tasks,
+    ...hisGr12Term1.tasks,
+    ...hisGr12Term2.tasks,
+    ...hisGr12Term3.tasks,
+    ...hisGr12Term4.tasks,
   },
 };

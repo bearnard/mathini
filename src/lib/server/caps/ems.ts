@@ -3,6 +3,10 @@ import emsGr8Term1 from './tasks/ems-gr8-term1.json';
 import emsGr8Term2 from './tasks/ems-gr8-term2.json';
 import emsGr8Term3 from './tasks/ems-gr8-term3.json';
 import emsGr8Term4 from './tasks/ems-gr8-term4.json';
+import emsGr9Term1 from './tasks/ems-gr9-term1.json';
+import emsGr9Term2 from './tasks/ems-gr9-term2.json';
+import emsGr9Term3 from './tasks/ems-gr9-term3.json';
+import emsGr9Term4 from './tasks/ems-gr9-term4.json';
 
 export const ems: SubjectConfig = {
   getPreamble(grade: number): string {
@@ -18,5 +22,9 @@ export const ems: SubjectConfig = {
     ...emsGr8Term2.tasks,
     ...emsGr8Term3.tasks,
     ...emsGr8Term4.tasks,
+    ...emsGr9Term1.tasks,
+    ...emsGr9Term2.tasks,
+    ...emsGr9Term3.tasks,
+    ...emsGr9Term4.tasks,
   },
 };

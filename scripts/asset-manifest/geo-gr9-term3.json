@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "geo",
+    "term": "term3",
+    "topic": "weathering-erosion",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/geo/term3/weathering-erosion/diagram.webp",
+    "alt": "Grade 9 learners understanding weathering, erosion, and deposition in a landscape",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing a landscape cross-section with weathering (cracked rocks), erosion (water washing away soil), and deposition (sediment settling). Show a cliff with cracks, water flow, and sediment accumulation. Use earth tones, simple flat style, clean white background, and minimal text labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "geo",
+    "term": "term3",
+    "topic": "river-coastal-landscapes",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/geo/term3/river-coastal-landscapes/diagram.webp",
+    "alt": "Grade 9 learners studying river valley development and coastal erosion landforms",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing a river from source to delta. Display V-shaped upper valley, meandering middle course, and flat delta at river mouth. Show waves eroding coastal cliffs. Use blue for water, earth tones for land, simple flat style, clean white background, and minimal text labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "geo",
+    "term": "term3",
+    "topic": "glaciation-wind-action",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/geo/term3/glaciation-wind-action/diagram.webp",
+    "alt": "Grade 9 learners learning about glacial landforms and wind erosion in deserts",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing glacial features and desert landforms. Show a U-shaped valley (glacial), a cirque at the top, sand dunes (desert), and wind-sculpted rocks. Use whites/blues for glacial features, warm tones for desert. Simple flat style, clean white background, minimal text labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "geo",
+    "term": "term3",
+    "topic": "soil-erosion-management",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/geo/term3/soil-erosion-management/diagram.webp",
+    "alt": "Grade 9 learners seeing sheet erosion and gully erosion, plus soil conservation techniques",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing soil erosion and conservation. Left side: severe erosion (gullies, bare ground). Right side: conservation (terraces, trees, vegetation, contour ploughing). Use greens for vegetation, browns for soil, reds for erosion. Simple flat style, clean white background, minimal text labels."
+  }
+]

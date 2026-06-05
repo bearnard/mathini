@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import ClimateGraph from '@/components/subjects/ClimateGraph';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -14,6 +16,53 @@ const learnSteps: LearnStep[] = [
           Climate patterns depend on latitude, altitude, ocean currents, and relief. Learners compare climate graphs,
           identify world climate regions, and connect South African regional climates to physical controls.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Climate Data — Johannesburg vs Cape Town',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">These two South African stations show a major climate contrast. Johannesburg is a summer-rainfall city, while Cape Town is a winter-rainfall city.</p>
+        <div className="grid gap-4 lg:grid-cols-2">
+          <ClimateGraph
+            station="Johannesburg"
+            data={[
+                      { month: 'Jan', rainfall: 114, temp: 21 },
+                      { month: 'Feb', rainfall: 109, temp: 22 },
+                      { month: 'Mar', rainfall: 89, temp: 20 },
+                      { month: 'Apr', rainfall: 38, temp: 17 },
+                      { month: 'May', rainfall: 13, temp: 14 },
+                      { month: 'Jun', rainfall: 8, temp: 11 },
+                      { month: 'Jul', rainfall: 4, temp: 11 },
+                      { month: 'Aug', rainfall: 6, temp: 13 },
+                      { month: 'Sep', rainfall: 23, temp: 16 },
+                      { month: 'Oct', rainfall: 60, temp: 18 },
+                      { month: 'Nov', rainfall: 107, temp: 20 },
+                      { month: 'Dec', rainfall: 125, temp: 21 },
+                    ]}
+          />
+
+          <ClimateGraph
+            station="Cape Town"
+            data={[
+                      { month: 'Jan', rainfall: 15, temp: 21 },
+                      { month: 'Feb', rainfall: 17, temp: 21 },
+                      { month: 'Mar', rainfall: 20, temp: 20 },
+                      { month: 'Apr', rainfall: 41, temp: 17 },
+                      { month: 'May', rainfall: 69, temp: 15 },
+                      { month: 'Jun', rainfall: 93, temp: 13 },
+                      { month: 'Jul', rainfall: 82, temp: 12 },
+                      { month: 'Aug', rainfall: 77, temp: 13 },
+                      { month: 'Sep', rainfall: 40, temp: 14 },
+                      { month: 'Oct', rainfall: 30, temp: 16 },
+                      { month: 'Nov', rainfall: 14, temp: 18 },
+                      { month: 'Dec', rainfall: 17, temp: 20 },
+                    ]}
+          />
+        </div>
+
+        <p className="text-sm text-slate-500">The different rainfall seasons help explain changes in farming systems, water storage, and natural vegetation.</p>
       </div>
     ),
   },

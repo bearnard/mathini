@@ -1,0 +1,24 @@
+import type { Grade } from '../../types/curriculum';
+import { accountingGrade10 } from './accounting';
+import { businessStudiesGrade10 } from './business-studies';
+import { computerApplicationsTechnologyGrade10 } from './computer-applications-technology';
+import { economicsGrade10 } from './economics';
+import { itGrade10 } from './it';
+import { lsGrade10 } from './ls';
+import { mlGrade10 } from './ml';
+import { psGrade10 } from './ps';
+
+export const grade10: Grade = {
+  id: 10,
+  title: 'Grade 10',
+  subjects: [
+    accountingGrade10,
+    businessStudiesGrade10,
+    computerApplicationsTechnologyGrade10,
+    economicsGrade10,
+    itGrade10,
+    lsGrade10,
+    mlGrade10,
+    psGrade10,
+  ],
+};

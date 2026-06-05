@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -30,6 +31,25 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           Practice strengthens your command of Afrikaans language and literature.
         </p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Repeat these sentence-structure words aloud before changing voice or improving editing accuracy.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"onderwerp"} phonetic={"[ˈɔndərvɛrp]"} meaning={"subject"} lang="af" />
+          <PronunciationPlayer word={"werkwoord"} phonetic={"[ˈvɛrkvuərt]"} meaning={"verb"} lang="af" />
+          <PronunciationPlayer word={"voorwerp"} phonetic={"[ˈfoːrvɛrp]"} meaning={"object"} lang="af" />
+          <PronunciationPlayer word={"bedrywende vorm"} phonetic={"[bəˈdrɛivəndə fɔrm]"} meaning={"active voice"} lang="af" />
+          <PronunciationPlayer word={"lydende vorm"} phonetic={"[ˈlœidəndə fɔrm]"} meaning={"passive voice"} lang="af" />
+          <PronunciationPlayer word={"sinsbou"} phonetic={"[ˈsənsboʊ]"} meaning={"sentence structure"} lang="af" />
+        </div>
       </div>
     ),
   },

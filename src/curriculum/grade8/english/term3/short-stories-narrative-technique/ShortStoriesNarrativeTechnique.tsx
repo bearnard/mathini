@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
@@ -15,6 +16,20 @@ const learnSteps: LearnStep[] = [
           how the writer builds impact.
         </p>
       </div>
+    ),
+  },
+  {
+    title: "Annotated extract",
+    content: (
+      <AnnotatedText
+        title={"From \"The Fall of the House of Usher\" — Edgar Allan Poe"}
+        text={"During the whole of a dull, dark, and soundless day in the autumn of the year, I had been passing alone, on horseback, through a singularly dreary tract of country."}
+        annotations={[
+          { start: 22, end: 47, device: "diction", note: "The repeated gloomy adjectives show how word choice shapes atmosphere." },
+          { start: 90, end: 117, device: "imagery", note: "The narrator’s lonely movement gives readers a clear visual entry into the setting." },
+          { start: 129, end: 163, device: "tone", note: "The description establishes the bleak tone that drives the story forward." },
+        ]}
+      />
     ),
   },
   {

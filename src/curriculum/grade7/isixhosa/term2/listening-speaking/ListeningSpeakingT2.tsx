@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -23,6 +24,27 @@ const learnSteps: LearnStep[] = [
             <p className="font-semibold text-teal-800">Directions</p>
             <p className="text-slate-600">Give and follow route instructions in correct sequence.</p>
           </div>
+        </div>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Say these everyday conversation words clearly so that shopping, directions, and service talk feel natural.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"Ndicela"} phonetic={"[ndi'cɛla]"} meaning={"Please / I request"} lang="xh" />
+          <PronunciationPlayer word={"Nceda"} phonetic={"[ŋ'cɛda]"} meaning={"Help / Please assist"} lang="xh" />
+          <PronunciationPlayer word={"Ukutya"} phonetic={"[uku'tja]"} meaning={"Food"} lang="xh" />
+          <PronunciationPlayer word={"Amanzi"} phonetic={"[a'manzi]"} meaning={"Water"} lang="xh" />
+          <PronunciationPlayer word={"Ivenkile"} phonetic={"[ivɛn'kile]"} meaning={"Shop / Store"} lang="xh" />
+          <PronunciationPlayer word={"Indlela"} phonetic={"[in'dlɛla]"} meaning={"Way / Direction"} lang="xh" />
+          <PronunciationPlayer word={"Ekhohlo"} phonetic={"[ɛ'kʰɔɬɔ]"} meaning={"Left"} lang="xh" />
+          <PronunciationPlayer word={"Ekunene"} phonetic={"[ɛku'nɛːnɛ]"} meaning={"Right"} lang="xh" />
         </div>
       </div>
     ),

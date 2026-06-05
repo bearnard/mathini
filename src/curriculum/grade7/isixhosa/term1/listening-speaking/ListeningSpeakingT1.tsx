@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -23,6 +24,27 @@ const learnSteps: LearnStep[] = [
             <p className="font-semibold text-emerald-800">Hobbies</p>
             <p className="text-slate-600">Talk about interests and respond to follow-up questions.</p>
           </div>
+        </div>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Practice these introduction and classroom words aloud before completing the lesson tasks.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"Molo"} phonetic={"[mɔ:lɔ]"} meaning={"Hello (to one person)"} lang="xh" />
+          <PronunciationPlayer word={"Molweni"} phonetic={"[mɔl'wɛni]"} meaning={"Hello (to more than one person)"} lang="xh" />
+          <PronunciationPlayer word={"Unjani?"} phonetic={"[un'dʒani]"} meaning={"How are you?"} lang="xh" />
+          <PronunciationPlayer word={"Ndingu..."} phonetic={"[ndiŋ'gu]"} meaning={"I am ... / My name is ..."} lang="xh" />
+          <PronunciationPlayer word={"Isikolo"} phonetic={"[isi'kɔlɔ]"} meaning={"School"} lang="xh" />
+          <PronunciationPlayer word={"Ithishala"} phonetic={"[iti'ʃala]"} meaning={"Teacher"} lang="xh" />
+          <PronunciationPlayer word={"Enkosi"} phonetic={"[ɛŋ'kɔsi]"} meaning={"Thank you"} lang="xh" />
+          <PronunciationPlayer word={"Uxolo"} phonetic={"[u'xɔlɔ]"} meaning={"Sorry / Peace"} lang="xh" />
         </div>
       </div>
     ),

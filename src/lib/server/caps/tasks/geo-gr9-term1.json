@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "gr9-contour-lines-slopes-t1": "Topic: Contour Lines and Slopes. Cover contour lines, slopes, contour intervals, map interpretation. Ask learners to read topographic maps, calculate slope angles, identify landforms from contours, or describe terrain features.",
+    "gr9-orthophoto-maps-symbols-t1": "Topic: Orthophoto Maps and Map Symbols. Cover orthophoto maps, map legends, symbols, and feature identification. Ask learners to interpret orthophotos, identify features by appearance, use map symbols, or compare maps.",
+    "gr9-map-scale-coordinates-t1": "Topic: Map Scale and Coordinates. Cover map scale types, distance calculation, latitude/longitude, and grid references. Ask learners to calculate real-world distances, use coordinates to locate places, or work with different scale types.",
+    "gr9-land-use-interpretation-t1": "Topic: Land-Use Interpretation. Cover land-use categories, classification on maps and orthophotos, and pattern analysis. Ask learners to identify land-use types, analyze land-use changes, or discuss implications of development patterns."
+  }
+}

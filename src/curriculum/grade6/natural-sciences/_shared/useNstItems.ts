@@ -15,10 +15,9 @@ function prepare(items: NstItem[]): NstItem[] {
 }
 
 /**
- * Supplies practice items for a Natural Sciences & Technology topic. Fetches a
- * fresh batch from the Gemini-backed `/api/nst` route; on any failure (or
- * invalid response) it falls back to the topic's curated `bank` so practice
- * always works offline.
+ * Supplies practice items for a Natural Sciences & Technology topic. Fetches
+ * from the D1-backed `/api/caps/grade6` route; falls back to the curated
+ * `bank` if D1 has no questions yet for this task.
  */
 export function useNstItems(task: string, bank: NstItem[]) {
   const [queue, setQueue] = useState<NstItem[]>([]);
@@ -29,11 +28,7 @@ export function useNstItems(task: string, bank: NstItem[]) {
   const loadBatch = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/nst', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ task, count: 8 }),
-      });
+      const res = await fetch(`/api/caps/grade6?task=${encodeURIComponent(task)}&count=20`);
       if (res.ok) {
         const data = (await res.json()) as { items?: NstItem[] };
         if (data.items && data.items.length >= 1) {

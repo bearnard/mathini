@@ -252,7 +252,7 @@ const PhysicalEducationT3 = () => (
     learnSteps={learnSteps}
     task="physical-education-t3"
     bank={bank}
-    apiPath="/api/caps/lsk"
+    apiPath="/api/caps/grade6"
   />
 );
 

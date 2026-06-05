@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -41,6 +42,25 @@ const learnSteps: LearnStep[] = [
         <div className="flex flex-wrap justify-center gap-3 text-2xl font-bold text-indigo-600">
           <span className="inline-flex items-center">of <SpeakButton text="of" /></span>
           <span className="inline-flex items-center">omdat <SpeakButton text="omdat" /></span>
+        </div>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Practice these joining words aloud to make links between ideas sound smooth and accurate.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"en"} phonetic={"[ɛn]"} meaning={"and"} lang="af" />
+          <PronunciationPlayer word={"maar"} phonetic={"[mɑːr]"} meaning={"but"} lang="af" />
+          <PronunciationPlayer word={"want"} phonetic={"[vant]"} meaning={"because / for"} lang="af" />
+          <PronunciationPlayer word={"omdat"} phonetic={"[ɔmˈdat]"} meaning={"because"} lang="af" />
+          <PronunciationPlayer word={"daarom"} phonetic={"[ˈdɑːrɔm]"} meaning={"therefore"} lang="af" />
+          <PronunciationPlayer word={"terwyl"} phonetic={"[tərˈvɛil]"} meaning={"while"} lang="af" />
         </div>
       </div>
     ),

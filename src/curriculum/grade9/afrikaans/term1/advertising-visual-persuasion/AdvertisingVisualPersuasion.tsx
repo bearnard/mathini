@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -30,6 +31,25 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           Practice strengthens your command of Afrikaans language and literature.
         </p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Practice these persuasive words aloud before analysing how adverts and campaigns influence audiences.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"koop"} phonetic={"[koəp]"} meaning={"buy"} lang="af" />
+          <PronunciationPlayer word={"spesiaal"} phonetic={"[spɛsiˈɑːl]"} meaning={"special"} lang="af" />
+          <PronunciationPlayer word={"vars"} phonetic={"[fars]"} meaning={"fresh"} lang="af" />
+          <PronunciationPlayer word={"keuse"} phonetic={"[ˈkœsə]"} meaning={"choice"} lang="af" />
+          <PronunciationPlayer word={"aandag"} phonetic={"[ˈaːndax]"} meaning={"attention"} lang="af" />
+          <PronunciationPlayer word={"oortuig"} phonetic={"[ˈuːrtœiχ]"} meaning={"convince / persuade"} lang="af" />
+        </div>
       </div>
     ),
   },

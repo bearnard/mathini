@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
@@ -15,6 +16,20 @@ const learnSteps: LearnStep[] = [
           closes the central idea.
         </p>
       </div>
+    ),
+  },
+  {
+    title: "Annotated extract",
+    content: (
+      <AnnotatedText
+        title={"From \"Hard Times\" — Charles Dickens"}
+        text={"It was a town of red brick, or of brick that would have been red if the smoke and ashes had allowed it."}
+        annotations={[
+          { start: 45, end: 64, device: "irony", note: "The line points out how industrial pollution has ruined what should have been bright and ordinary." },
+          { start: 72, end: 87, device: "imagery", note: "The concrete details make the polluted town easy to picture." },
+          { start: 88, end: 102, device: "personification", note: "Smoke and ashes are treated as if they can choose to withhold colour." },
+        ]}
+      />
     ),
   },
   {

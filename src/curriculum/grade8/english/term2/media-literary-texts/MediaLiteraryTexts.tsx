@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
@@ -15,6 +16,20 @@ const learnSteps: LearnStep[] = [
           stories use plot and character to build meaning.
         </p>
       </div>
+    ),
+  },
+  {
+    title: "Annotated extract",
+    content: (
+      <AnnotatedText
+        title={"From \"The War of the Worlds\" — H. G. Wells"}
+        text={"No one would have believed in the last years of the nineteenth century that this world was being watched keenly and closely by intelligences greater than man's."}
+        annotations={[
+          { start: 0, end: 26, device: "tone", note: "The opening immediately creates a serious, ominous narrative voice." },
+          { start: 97, end: 123, device: "imagery", note: "The wording makes readers picture an unsettling gaze fixed on humanity." },
+          { start: 127, end: 159, device: "diction", note: "The elevated wording stresses human weakness beside a superior force." },
+        ]}
+      />
     ),
   },
   {

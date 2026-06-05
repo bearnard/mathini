@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "it",
+    "term": "term2",
+    "topic": "database-introductory-object-concepts",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/it/term2/database-introductory-object-concepts/diagram.webp",
+    "alt": "Database and Introductory Object Concepts",
+    "prompt": "A clear educational illustration depicting \"Database and Introductory Object Concepts\": Data organization and object-oriented fundamentals."
+  },
+  {
+    "grade": "grade10",
+    "subject": "it",
+    "term": "term2",
+    "topic": "control-structures-modular-programming",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/it/term2/control-structures-modular-programming/diagram.webp",
+    "alt": "Control Structures and Modular Programming",
+    "prompt": "A clear educational illustration depicting \"Control Structures and Modular Programming\": Flow control and function-based development."
+  }
+]

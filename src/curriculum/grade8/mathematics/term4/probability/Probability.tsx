@@ -1,7 +1,20 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import ProbabilitySimulator from '@/components/subjects/ProbabilitySimulator';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Probability Simulator',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">
+          Run repeated experiments and compare theoretical probability with experimental results to see how relative
+          frequency changes as more trials are added.
+        </p>
+        <ProbabilitySimulator defaultMode="coin" />
+      </div>
+    ),
+  },
   {
     title: 'Calculate and compare simple probabilities',
     image: {

@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -93,6 +94,24 @@ const learnSteps: LearnStep[] = [
       </div>
     ),
   },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Say these writing words clearly so that everyday transactional tasks become easier to plan and present.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"Idayari"} phonetic={"[i'dajari]"} meaning={"Diary"} lang="xh" />
+          <PronunciationPlayer word={"Uluhlu"} phonetic={"[ulu'ɬu]"} meaning={"List"} lang="xh" />
+          <PronunciationPlayer word={"Imiyalelo"} phonetic={"[imi.ja'lɛlɔ]"} meaning={"Instructions"} lang="xh" />
+          <PronunciationPlayer word={"Umyalezo"} phonetic={"[umja'lɛzo]"} meaning={"Message"} lang="xh" />
+          <PronunciationPlayer word={"Inkcazo"} phonetic={"[iŋ'kazɔ]"} meaning={"Description"} lang="xh" />
+        </div>
+      </div>
+    ),
+  },
 ];
 
 const bank: CapsItem[] = [
@@ -159,7 +178,7 @@ const WritingPresentingT2 = () => (
     learnSteps={learnSteps}
     task="writing-presenting-t2"
     bank={bank}
-    apiPath="/api/caps/xho"
+    apiPath="/api/caps/grade6"
   />
 );
 

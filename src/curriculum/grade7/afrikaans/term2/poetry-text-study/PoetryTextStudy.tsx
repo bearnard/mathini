@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -39,6 +40,25 @@ const learnSteps: LearnStep[] = [
           In tests, support answers with evidence from a specific line or phrase.
         </p>
         <p className="text-slate-500">Quote short words from the poem to justify your choice.</p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Say these poetry words aloud before analysing line references, image patterns, and poetic mood.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"gedig"} phonetic={"[χəˈdəχ]"} meaning={"poem"} lang="af" />
+          <PronunciationPlayer word={"beeldspraak"} phonetic={"[ˈbeəltsprɑːk]"} meaning={"figurative language"} lang="af" />
+          <PronunciationPlayer word={"stemming"} phonetic={"[ˈstɛməŋ]"} meaning={"mood"} lang="af" />
+          <PronunciationPlayer word={"rym"} phonetic={"[rɛim]"} meaning={"rhyme"} lang="af" />
+          <PronunciationPlayer word={"versreël"} phonetic={"[ˈfɛrsrɛil]"} meaning={"line of verse"} lang="af" />
+          <PronunciationPlayer word={"metafoor"} phonetic={"[mɛtaˈfoːr]"} meaning={"metaphor"} lang="af" />
+        </div>
       </div>
     ),
   },

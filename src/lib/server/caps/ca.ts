@@ -3,6 +3,10 @@ import caGr8Term1 from './tasks/ca-gr8-term1.json';
 import caGr8Term2 from './tasks/ca-gr8-term2.json';
 import caGr8Term3 from './tasks/ca-gr8-term3.json';
 import caGr8Term4 from './tasks/ca-gr8-term4.json';
+import caGr9Term1 from './tasks/ca-gr9-term1.json';
+import caGr9Term2 from './tasks/ca-gr9-term2.json';
+import caGr9Term3 from './tasks/ca-gr9-term3.json';
+import caGr9Term4 from './tasks/ca-gr9-term4.json';
 
 export const ca: SubjectConfig = {
   getPreamble(grade: number): string {
@@ -18,5 +22,9 @@ export const ca: SubjectConfig = {
     ...caGr8Term2.tasks,
     ...caGr8Term3.tasks,
     ...caGr8Term4.tasks,
+    ...caGr9Term1.tasks,
+    ...caGr9Term2.tasks,
+    ...caGr9Term3.tasks,
+    ...caGr9Term4.tasks,
   },
 };

@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -45,6 +46,25 @@ const learnSteps: LearnStep[] = [
         <p className="text-xl text-slate-700">
           Die boek lê <strong>op</strong> die tafel. = The book is <strong>on</strong> the table.
         </p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Say these position words aloud to connect meaning with movement and place.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"op"} phonetic={"[ɔp]"} meaning={"on"} lang="af" />
+          <PronunciationPlayer word={"onder"} phonetic={"[ˈɔndər]"} meaning={"under"} lang="af" />
+          <PronunciationPlayer word={"langs"} phonetic={"[laŋs]"} meaning={"next to / along"} lang="af" />
+          <PronunciationPlayer word={"tussen"} phonetic={"[ˈtœsən]"} meaning={"between"} lang="af" />
+          <PronunciationPlayer word={"agter"} phonetic={"[ˈaxtər]"} meaning={"behind"} lang="af" />
+          <PronunciationPlayer word={"voor"} phonetic={"[foːr]"} meaning={"in front of / for"} lang="af" />
+        </div>
       </div>
     ),
   },

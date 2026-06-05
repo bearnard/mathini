@@ -1,7 +1,24 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1948", "title": "Apartheid limits citizenship", "description": "Apartheid laws denied full rights to most South Africans. This showed how badly a country can function when rights are not protected equally."},
+            {"date": "1994", "title": "Equal national vote", "description": "For the first time, all adult citizens could vote in a national election. Democratic citizenship now carried both rights and responsibilities for everyone."},
+            {"date": "1996", "title": "Constitution defines government spheres", "description": "The 1996 Constitution set out national, provincial, and local spheres of government. It also linked democratic rights with responsible citizenship."},
+            {"date": "2000", "title": "New municipalities begin", "description": "South Africa's new municipal system started in 2000 with local elections under the democratic order. This strengthened local government's role in serving communities."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Citizens have rights and responsibilities',
     image: {

@@ -5,6 +5,24 @@ import { motion } from 'framer-motion';
 import Card from './ui/Card';
 import Button from './ui/Button';
 
+// Renders a generated icon; falls back to `fallback` if the file is missing
+// (so ungenerated icons never break the UI). `overlay` shows only on success.
+const IconImage: React.FC<{ src: string; className?: string; fallback: React.ReactNode; overlay?: React.ReactNode }> = ({
+    src,
+    className,
+    fallback,
+    overlay,
+}) => {
+    const [failed, setFailed] = React.useState(false);
+    if (failed) return <>{fallback}</>;
+    return (
+        <>
+            <img src={src} alt="" className={className} onError={() => setFailed(true)} />
+            {overlay}
+        </>
+    );
+};
+
 interface CurriculumSelectorProps {
     curriculum: Curriculum;
     selectedGrade: Grade | null;
@@ -107,8 +125,17 @@ const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
                                         onClick={() => onSelectGrade(grade)}
                                         className="p-6 h-full flex flex-col items-center text-center hover:border-indigo-500 group"
                                     >
-                                        <div className="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                                            <span className="text-2xl font-black">{grade.id}</span>
+                                        <div className="relative w-16 h-16 rounded-2xl overflow-hidden bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                            <IconImage
+                                                src={`/icons/grade-${grade.id}.webp`}
+                                                className="w-full h-full object-cover"
+                                                fallback={<span className="text-2xl font-black">{grade.id}</span>}
+                                                overlay={
+                                                    <span className="absolute bottom-0 right-0 bg-indigo-600/90 text-white text-[10px] leading-none font-black px-1 py-0.5 rounded-tl-md">
+                                                        {grade.id}
+                                                    </span>
+                                                }
+                                            />
                                         </div>
                                         <h3 className="text-xl font-bold text-slate-800 mb-2">{grade.title}</h3>
                                         <p className="text-slate-500 font-medium">{grade.subjects.length} Subjects Available</p>
@@ -147,8 +174,12 @@ const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
                                         className="p-6 flex items-center justify-between group hover:border-indigo-500"
                                     >
                                         <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                                                {subject.title.charAt(0)}
+                                            <div className="w-12 h-12 rounded-xl overflow-hidden bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                                                <IconImage
+                                                    src={`/icons/subject-${subject.id}.webp`}
+                                                    className="w-full h-full object-cover"
+                                                    fallback={<>{subject.title.charAt(0)}</>}
+                                                />
                                             </div>
                                             <div>
                                                 <h3 className="text-lg font-bold text-slate-800">{subject.title}</h3>

@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -37,6 +38,25 @@ const learnSteps: LearnStep[] = [
           Reserve a few minutes to check spelling, punctuation and sentence flow.
         </p>
         <p className="text-slate-500">Small corrections can improve marks quickly.</p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Say these exam-practice words aloud before moving into timed writing and revision tasks.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"beplan"} phonetic={"[bəˈplan]"} meaning={"plan"} lang="af" />
+          <PronunciationPlayer word={"formaat"} phonetic={"[fɔrˈmɑːt]"} meaning={"format"} lang="af" />
+          <PronunciationPlayer word={"proeflees"} phonetic={"[ˈprufleəs]"} meaning={"proofread"} lang="af" />
+          <PronunciationPlayer word={"tyd"} phonetic={"[tɛit]"} meaning={"time"} lang="af" />
+          <PronunciationPlayer word={"vraag"} phonetic={"[frɑːχ]"} meaning={"question"} lang="af" />
+          <PronunciationPlayer word={"antwoord"} phonetic={"[ˈantvɔrt]"} meaning={"answer"} lang="af" />
+        </div>
       </div>
     ),
   },

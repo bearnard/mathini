@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "it",
+    "term": "term1",
+    "topic": "gui-design-event-driven-programming",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/it/term1/gui-design-event-driven-programming/diagram.webp",
+    "alt": "GUI Design and Event-Driven Programming",
+    "prompt": "A clear educational illustration depicting \"GUI Design and Event-Driven Programming\": Building user-friendly interfaces and linking controls to program logic."
+  },
+  {
+    "grade": "grade12",
+    "subject": "it",
+    "term": "term1",
+    "topic": "encapsulation-class-design-exception-handling",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/it/term1/encapsulation-class-design-exception-handling/diagram.webp",
+    "alt": "Encapsulation, Class Design and Exception Handling",
+    "prompt": "A clear educational illustration depicting \"Encapsulation, Class Design and Exception Handling\": Protecting object state and responding safely to runtime problems."
+  },
+  {
+    "grade": "grade12",
+    "subject": "it",
+    "term": "term1",
+    "topic": "algorithmic-refinement-validation-testing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/it/term1/algorithmic-refinement-validation-testing/diagram.webp",
+    "alt": "Algorithmic Refinement, Validation and Testing",
+    "prompt": "A clear educational illustration depicting \"Algorithmic Refinement, Validation and Testing\": Improving program logic through modular design and systematic checks."
+  },
+  {
+    "grade": "grade12",
+    "subject": "it",
+    "term": "term1",
+    "topic": "advanced-oop-inheritance-polymorphism",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/it/term1/advanced-oop-inheritance-polymorphism/diagram.webp",
+    "alt": "Advanced OOP: Inheritance and Polymorphism",
+    "prompt": "A clear educational illustration depicting \"Advanced OOP: Inheritance and Polymorphism\": Extending classes and predicting object behaviour across hierarchies."
+  }
+]

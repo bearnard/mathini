@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -17,6 +18,25 @@ const learnSteps: LearnStep[] = [
         <p className="text-slate-600">
           Use year-end strategies to answer accurately and present ideas confidently.
         </p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Say these health, feelings, and celebration words aloud to build confidence for revision conversations.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"Impilo"} phonetic={"[im'piːlɔ]"} meaning={"Health"} lang="xh" />
+          <PronunciationPlayer word={"Uvuyo"} phonetic={"[u'vujɔ]"} meaning={"Joy"} lang="xh" />
+          <PronunciationPlayer word={"Usizi"} phonetic={"[u'siːzi]"} meaning={"Sadness"} lang="xh" />
+          <PronunciationPlayer word={"Ndidiniwe"} phonetic={"[ndi.di'niːwe]"} meaning={"I am tired"} lang="xh" />
+          <PronunciationPlayer word={"Umnyhadala"} phonetic={"[umɲa'dala]"} meaning={"Celebration / event"} lang="xh" />
+          <PronunciationPlayer word={"Phumla"} phonetic={"[pʰum'la]"} meaning={"Rest"} lang="xh" />
+        </div>
       </div>
     ),
   },

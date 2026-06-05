@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -23,6 +24,25 @@ const learnSteps: LearnStep[] = [
             <p className="font-semibold text-slate-700">Opinions</p>
             <p className="text-slate-600">Use phrases like “Ndicinga ukuba...” with reasons.</p>
           </div>
+        </div>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Use these oral-storytelling and discussion words when retelling events or giving reasons for an opinion.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"Balisa"} phonetic={"[ba'liːsa]"} meaning={"Retell / narrate"} lang="xh" />
+          <PronunciationPlayer word={"Uluvo"} phonetic={"[u'luːvɔ]"} meaning={"Opinion"} lang="xh" />
+          <PronunciationPlayer word={"Kutheni?"} phonetic={"[ku'tʰɛni]"} meaning={"Why?"} lang="xh" />
+          <PronunciationPlayer word={"Ngoko"} phonetic={"[ŋɔ'kɔ]"} meaning={"So / therefore"} lang="xh" />
+          <PronunciationPlayer word={"Intsomi"} phonetic={"[in'tsɔmi]"} meaning={"Folktale"} lang="xh" />
+          <PronunciationPlayer word={"Umxholo"} phonetic={"[um'xɔlɔ]"} meaning={"Theme / main idea"} lang="xh" />
         </div>
       </div>
     ),

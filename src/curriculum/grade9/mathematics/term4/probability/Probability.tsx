@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { MathematicsItem, LearnStep } from '../../_shared/types';
+import ProbabilitySimulator from '@/components/subjects/ProbabilitySimulator';
 
 const learnSteps: LearnStep[] = [
   {
@@ -19,6 +20,18 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           Use tree diagrams and tables to find probabilities of compound events and independent events.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Probability Simulator',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">
+          Run repeated experiments and compare theoretical probability with experimental results to see how dice data
+          approaches expected values.
+        </p>
+        <ProbabilitySimulator defaultMode="dice" />
       </div>
     ),
   },

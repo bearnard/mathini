@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -51,6 +53,30 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-orange-50 p-4"><strong>Services</strong><br />more demand</div>
           <div className="rounded-xl bg-blue-50 p-4"><strong>Adapt</strong><br />new routines</div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Migration Data — Provincial Net Migration in South Africa',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">Net migration shows whether more people are moving into or out of a province. Positive values mean a province is gaining people, while negative values mean it is losing people.</p>
+        <DataChart
+          data={[
+                        { province: 'Gauteng', netMigration: 480 },
+                        { province: 'Western Cape', netMigration: 220 },
+                        { province: 'KwaZulu-Natal', netMigration: -60 },
+                        { province: 'Eastern Cape', netMigration: -180 },
+                      ]}
+          xKey="province"
+          series={[
+                        { key: 'netMigration', label: 'Net migration (thousands)', type: 'bar', color: '#14b8a6' },
+                      ]}
+          yLabel="Thousands of people"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">Large inflows can increase demand for jobs, housing, schools, and transport in destination areas.</p>
       </div>
     ),
   },

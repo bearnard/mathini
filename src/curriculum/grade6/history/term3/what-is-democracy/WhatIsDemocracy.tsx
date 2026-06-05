@@ -1,7 +1,24 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "508/507 BCE", "title": "Athenian reforms widen participation", "description": "Cleisthenes introduced reforms in ancient Athens that gave more citizens a role in government. This is one of the earliest famous examples of democracy."},
+            {"date": "1215", "title": "Magna Carta limits kings", "description": "England's Magna Carta said that even the king had to obey the law. It became an important step toward limiting government power."},
+            {"date": "1948", "title": "Human rights declared", "description": "The Universal Declaration of Human Rights affirmed equality and basic freedoms for all people. These ideas are closely linked to modern democracy."},
+            {"date": "27 Apr 1994", "title": "South Africa votes freely", "description": "South Africa held its first democratic election based on one person, one vote. It showed democracy in action through a free and fair national election."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Democracy means people have a voice',
     image: {

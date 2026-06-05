@@ -1,12 +1,20 @@
-// Generic hook for any CAPS subject — replaces per-subject useXItems hooks.
-// apiPath example: '/api/caps'  task example: 'gr6-history-what-is-history'
-import { useState, useEffect, useCallback } from 'react';
+// Generic hook for any CAPS subject.
+// - Without options: serves questions from the static bank (Gr7–12 topics).
+// - With apiPath + task: fetches from the D1 question pool, falling back to the
+//   curated static `bank` when the pool is empty (not yet seeded) or the fetch
+//   fails — so a topic always has practice items rather than an empty state.
+import { useState, useCallback, useEffect, useRef } from 'react';
 
 export interface CapsItem {
   prompt: string;
   options: string[];
   answer: string;
   explanation?: string;
+}
+
+interface PoolOptions {
+  apiPath: string;
+  task: string;
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -23,58 +31,108 @@ function prepare(items: CapsItem[]): CapsItem[] {
 }
 
 /**
- * Supplies practice items for a CAPS topic. Fetches a fresh batch from the
- * Gemini-backed route; on any failure (or invalid response) it falls back to
- * the topic's curated `bank` so practice always works offline.
+ * Picks the question set for pool mode: the fetched pool when it has any items,
+ * otherwise the curated static `bank`. A null/undefined pool means the fetch
+ * failed or returned no `items` field — both fall back to the bank.
  */
-export function useCapsItems(apiPath: string, task: string, bank: CapsItem[]) {
-  const [queue, setQueue] = useState<CapsItem[]>([]);
+export function selectQueue(
+  pool: CapsItem[] | null | undefined,
+  bank: CapsItem[],
+): CapsItem[] {
+  return pool && pool.length > 0 ? pool : bank;
+}
+
+/**
+ * Supplies practice items for a topic.
+ *
+ * Static mode (no options): shuffles the pre-curated `bank` — no network call.
+ * Pool mode (apiPath + task): fetches from the D1 question pool via the given
+ * API path, and falls back to the static `bank` when the pool returns no items
+ * or the request fails.
+ */
+export function useCapsItems(bank: CapsItem[], options?: PoolOptions) {
+  const isPoolMode = !!(options?.apiPath && options?.task);
+
+  // Latest bank, read inside the fetch effect without making it a dependency.
+  const bankRef = useRef(bank);
+  bankRef.current = bank;
+
+  const [queue, setQueue] = useState<CapsItem[]>(() =>
+    isPoolMode ? [] : prepare(bank),
+  );
+  const [loading, setLoading] = useState(isPoolMode);
   const [index, setIndex] = useState(0);
   const [done, setDone] = useState(false);
-  const [loading, setLoading] = useState(true);
-
-  const loadBatch = useCallback(async () => {
-    setLoading(true);
-    try {
-      const res = await fetch(apiPath, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ task, count: 8 }),
-      });
-      if (res.ok) {
-        const data = (await res.json()) as { items?: CapsItem[] };
-        if (data.items && data.items.length >= 1) {
-          setQueue(prepare(data.items));
-          setIndex(0);
-          setLoading(false);
-          return;
-        }
-      }
-      throw new Error('no items');
-    } catch {
-      setQueue(prepare(bank));
-      setIndex(0);
-      setLoading(false);
-    }
-  }, [apiPath, task, bank]);
 
   useEffect(() => {
-    loadBatch();
-  }, [loadBatch]);
+    if (!isPoolMode) return;
+
+    let cancelled = false;
+
+    const fetchPool = async () => {
+      setLoading(true);
+      try {
+        const url = `${options.apiPath}?task=${encodeURIComponent(options.task)}&count=20`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`API error ${res.status}`);
+        const data = (await res.json()) as { items?: CapsItem[] };
+        if (!cancelled) {
+          setQueue(prepare(selectQueue(data.items, bankRef.current)));
+          setLoading(false);
+        }
+      } catch {
+        if (!cancelled) {
+          setQueue(prepare(selectQueue(null, bankRef.current)));
+          setLoading(false);
+        }
+      }
+    };
+
+    void fetchPool();
+    return () => {
+      cancelled = true;
+    };
+  }, [isPoolMode, options?.apiPath, options?.task]);
 
   const next = useCallback(() => {
-    if (index + 1 < queue.length) {
-      setIndex(index + 1);
-    } else {
+    setIndex((i) => {
+      if (i + 1 < queue.length) return i + 1;
       setDone(true);
-    }
-  }, [index, queue.length]);
+      return i;
+    });
+  }, [queue.length]);
 
   const reset = useCallback(() => {
-    setQueue((q) => prepare(q));
-    setIndex(0);
-    setDone(false);
-  }, []);
+    if (isPoolMode && options?.apiPath && options?.task) {
+      setLoading(true);
+      setIndex(0);
+      setDone(false);
+      const url = `${options.apiPath}?task=${encodeURIComponent(options.task)}&count=20`;
+      fetch(url)
+        .then((r) => r.json() as Promise<{ items?: CapsItem[] }>)
+        .then((data) => {
+          setQueue(prepare(selectQueue(data.items, bank)));
+          setLoading(false);
+        })
+        .catch(() => {
+          setQueue(prepare(selectQueue(null, bank)));
+          setLoading(false);
+        });
+    } else {
+      setQueue(prepare(bank));
+      setIndex(0);
+      setDone(false);
+    }
+  }, [isPoolMode, options?.apiPath, options?.task, bank]);
 
-  return { current: queue[index] as CapsItem | undefined, loading, next, done, reset, index, total: queue.length };
+  return {
+    current: queue[index] as CapsItem | undefined,
+    loading,
+    next,
+    done,
+    reset,
+    index,
+    total: queue.length,
+  };
 }
+

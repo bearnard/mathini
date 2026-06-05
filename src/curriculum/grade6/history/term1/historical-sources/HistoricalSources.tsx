@@ -1,7 +1,24 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "c. 3200 BCE", "title": "Writing begins in Mesopotamia", "description": "Some of the earliest written records were made in Mesopotamia. These tablets became important primary sources for studying ancient societies."},
+            {"date": "c. 440 BCE", "title": "Herodotus uses many sources", "description": "Herodotus wrote about past events using stories, eyewitness accounts, and observations. His work shows how historians compare different kinds of evidence."},
+            {"date": "c. 1450", "title": "Printing multiplies records", "description": "Gutenberg's printing press made books and pamphlets far easier to copy. This greatly increased the number of written sources and later secondary sources."},
+            {"date": "1839", "title": "Photography becomes evidence", "description": "Practical photography was announced in France in 1839. Photographs soon became valuable visual sources for historians."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Sources are clues about the past',
     image: {

@@ -252,7 +252,7 @@ const CreativeArtsT3 = () => (
     learnSteps={learnSteps}
     task="creative-arts-t3"
     bank={bank}
-    apiPath="/api/caps/lsk"
+    apiPath="/api/caps/grade6"
   />
 );
 

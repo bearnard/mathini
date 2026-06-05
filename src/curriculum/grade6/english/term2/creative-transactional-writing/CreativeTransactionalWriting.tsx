@@ -154,7 +154,7 @@ const CreativeTransactionalWriting = () => (
     learnSteps={learnSteps}
     task="creative-transactional-writing"
     bank={bank}
-    apiPath="/api/caps/eng"
+    apiPath="/api/caps/grade6"
   />
 );
 

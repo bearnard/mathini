@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -39,6 +40,25 @@ const learnSteps: LearnStep[] = [
         <span className="inline-flex items-center gap-2 text-2xl font-bold text-indigo-600">
           die regte antwoord <SpeakButton text="die regte antwoord" />
         </span>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Practice these comprehension words aloud so question terms are familiar during reading tasks.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"vraag"} phonetic={"[frɑːχ]"} meaning={"question"} lang="af" />
+          <PronunciationPlayer word={"antwoord"} phonetic={"[ˈantvɔrt]"} meaning={"answer"} lang="af" />
+          <PronunciationPlayer word={"paragraaf"} phonetic={"[paraˈχrɑːf]"} meaning={"paragraph"} lang="af" />
+          <PronunciationPlayer word={"hoofgedagte"} phonetic={"[ˈhoəfχədaχtə]"} meaning={"main idea"} lang="af" />
+          <PronunciationPlayer word={"detail"} phonetic={"[diˈtœil]"} meaning={"detail"} lang="af" />
+          <PronunciationPlayer word={"opsomming"} phonetic={"[ˈɔpsɔməŋ]"} meaning={"summary"} lang="af" />
+        </div>
       </div>
     ),
   },

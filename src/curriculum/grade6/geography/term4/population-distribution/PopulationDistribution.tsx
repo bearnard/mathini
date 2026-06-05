@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -58,6 +60,30 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-stone-100 p-4"><strong>Steep land</strong><br />hard to build</div>
           <div className="rounded-xl bg-sky-50 p-4"><strong>Far away</strong><br />few services</div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Population Data — Density in South African Provinces',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">Population density tells us how many people live in each square kilometre. Provinces with more jobs and services usually have much higher densities.</p>
+        <DataChart
+          data={[
+                        { province: 'Gauteng', density: 890 },
+                        { province: 'KwaZulu-Natal', density: 140 },
+                        { province: 'Limpopo', density: 48 },
+                        { province: 'Northern Cape', density: 4 },
+                      ]}
+          xKey="province"
+          series={[
+                        { key: 'density', label: 'People per km²', type: 'bar', color: '#f59e0b' },
+                      ]}
+          yLabel="People per km²"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">Dense populations often form where transport routes, industries, and major cities are concentrated.</p>
       </div>
     ),
   },

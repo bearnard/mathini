@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "bus",
+    "term": "term2",
+    "topic": "creative-thinking-problem-solving",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/bus/term2/creative-thinking-problem-solving/diagram.webp",
+    "alt": "Grade 11 learners applying creative thinking tools: brainstorming, mind mapping and lateral thinking to solve business problems",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing three creative thinking tools side by side: a brainstorming group (people with speech bubbles), a mind map (central node with branches), and lateral thinking (zig-zag arrow beside a lightbulb). Below, show a circular problem-solving cycle with 5 steps. Use bright colours, simple flat design, clean white background, and minimal text labels."
+  },
+  {
+    "grade": "grade11",
+    "subject": "bus",
+    "term": "term2",
+    "topic": "change-crisis-management",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/bus/term2/change-crisis-management/diagram.webp",
+    "alt": "Grade 11 learners studying Lewin's change model with unfreeze, change and refreeze stages alongside crisis management steps",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing Lewin's three-stage change model as three blocks: Unfreeze (melting ice cube), Change (arrows and transition), Refreeze (solid ice cube). Beside it show a crisis management cycle with icons for: identify, respond, communicate, recover. Use cool blues and oranges, simple flat design, clean white background, and minimal text labels."
+  },
+  {
+    "grade": "grade11",
+    "subject": "bus",
+    "term": "term2",
+    "topic": "operations-marketing-function",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/bus/term2/operations-marketing-function/diagram.webp",
+    "alt": "Grade 11 learners seeing the input-process-output production model alongside the 7 Ps of the marketing mix",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners. On the left show the input-process-output model as three connected boxes with small icons (raw materials → factory cogs → finished product). On the right show a 7-part flower or wheel diagram for the marketing mix Ps: Product, Price, Place, Promotion, People, Process, Physical evidence. Use bright distinct colours, simple flat design, clean white background, minimal text labels."
+  },
+  {
+    "grade": "grade11",
+    "subject": "bus",
+    "term": "term2",
+    "topic": "quality-ethics-professionalism",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/bus/term2/quality-ethics-professionalism/diagram.webp",
+    "alt": "Grade 11 learners comparing quality control and quality assurance and seeing the pillars of professional ethical conduct",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners. Show two columns: Quality Control (inspector with magnifying glass checking output) vs Quality Assurance (process checklist with tick marks throughout). Below, show three pillars labelled Ethics, Safety, and Professionalism with small icons (scales, hard hat, suit figure). Use greens and blues, simple flat design, clean white background, minimal text labels."
+  }
+]

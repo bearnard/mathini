@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import ClimateGraph from '@/components/subjects/ClimateGraph';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -52,6 +54,53 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-green-50 p-4"><strong>Rainforest</strong><br />many layers of leafy plants</div>
           <div className="rounded-xl bg-stone-100 p-4"><strong>Desert</strong><br />few plants that conserve water</div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Climate Data — Cairo vs Nairobi',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">Cairo represents a hot desert climate with very little rain, while Nairobi shows a tropical highland climate with two rainy seasons and milder temperatures.</p>
+        <div className="grid gap-4 lg:grid-cols-2">
+          <ClimateGraph
+            station="Cairo"
+            data={[
+                      { month: 'Jan', rainfall: 5, temp: 14 },
+                      { month: 'Feb', rainfall: 4, temp: 15 },
+                      { month: 'Mar', rainfall: 4, temp: 18 },
+                      { month: 'Apr', rainfall: 2, temp: 23 },
+                      { month: 'May', rainfall: 1, temp: 28 },
+                      { month: 'Jun', rainfall: 0, temp: 31 },
+                      { month: 'Jul', rainfall: 0, temp: 32 },
+                      { month: 'Aug', rainfall: 0, temp: 32 },
+                      { month: 'Sep', rainfall: 0, temp: 29 },
+                      { month: 'Oct', rainfall: 1, temp: 26 },
+                      { month: 'Nov', rainfall: 4, temp: 20 },
+                      { month: 'Dec', rainfall: 6, temp: 15 },
+                    ]}
+          />
+
+          <ClimateGraph
+            station="Nairobi"
+            data={[
+                      { month: 'Jan', rainfall: 38, temp: 24 },
+                      { month: 'Feb', rainfall: 64, temp: 25 },
+                      { month: 'Mar', rainfall: 79, temp: 24 },
+                      { month: 'Apr', rainfall: 211, temp: 23 },
+                      { month: 'May', rainfall: 158, temp: 22 },
+                      { month: 'Jun', rainfall: 46, temp: 21 },
+                      { month: 'Jul', rainfall: 15, temp: 21 },
+                      { month: 'Aug', rainfall: 23, temp: 21 },
+                      { month: 'Sep', rainfall: 26, temp: 22 },
+                      { month: 'Oct', rainfall: 53, temp: 23 },
+                      { month: 'Nov', rainfall: 109, temp: 22 },
+                      { month: 'Dec', rainfall: 86, temp: 23 },
+                    ]}
+          />
+        </div>
+
+        <p className="text-sm text-slate-500">The contrast between dry desert conditions and wetter tropical conditions helps explain why plants, animals, and farming differ so much.</p>
       </div>
     ),
   },

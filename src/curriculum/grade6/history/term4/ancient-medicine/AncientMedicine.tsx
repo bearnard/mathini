@@ -1,7 +1,24 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "c. 2600 BCE", "title": "Imhotep heals in Egypt", "description": "Imhotep became famous in ancient Egypt for knowledge linked to healing and learning. He represents some of the earliest recorded medical practice."},
+            {"date": "c. 1550 BCE", "title": "Ebers Papyrus compiled", "description": "Ancient Egyptians recorded treatments and remedies in the Ebers Papyrus. It shows the use of plants, observation, and practical care."},
+            {"date": "c. 400 BCE", "title": "Hippocrates teaches observation", "description": "Hippocrates encouraged healers to observe patients carefully instead of relying only on superstition. His work influenced later medicine."},
+            {"date": "c. 200 CE", "title": "Galen influences medicine", "description": "The Roman doctor Galen wrote widely about the body and disease. His ideas shaped medical thinking for many centuries, even when some were wrong."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Medicine in ancient societies',
     image: {

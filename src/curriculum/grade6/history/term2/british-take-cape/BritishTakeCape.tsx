@@ -1,7 +1,25 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1488", "title": "Dias rounds the Cape", "description": "Bartolomeu Dias sailed around the southern tip of Africa. His voyage showed that the Cape lay on an important sea route to the East."},
+            {"date": "1652", "title": "Dutch station founded", "description": "Jan van Riebeeck established a Dutch refreshment station at the Cape. Ships could stop there for water, food, and repairs."},
+            {"date": "1795", "title": "Britain first occupies Cape", "description": "Britain captured the Cape from the Dutch during the wars in Europe. The Cape mattered because it helped protect the sea route to India and the East."},
+            {"date": "1806", "title": "Britain wins again", "description": "Britain took the Cape again after the Battle of Blaauwberg. From then on, British control lasted for many years."},
+            {"date": "1834", "title": "Slavery is abolished", "description": "Slavery was abolished in the Cape Colony under British rule. This was a major change, even though equality did not come immediately."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Why the Cape was important',
     image: {

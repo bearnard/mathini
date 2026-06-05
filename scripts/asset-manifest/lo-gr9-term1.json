@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade9",
+    "subject": "lo",
+    "term": "term1",
+    "topic": "development-of-self",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/lo/term1/development-of-self/diagram.webp",
+    "alt": "Grade 9 learners reflecting on personal values, setting SMART goals, and making thoughtful decisions",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing young people thinking about their personal values, writing goals on a board, and discussing decisions respectfully. Use bright simple colours, a clean white background, and no text except labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "lo",
+    "term": "term1",
+    "topic": "relationships-life-changes",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/lo/term1/relationships-life-changes/diagram.webp",
+    "alt": "Grade 9 learners navigating healthy relationships, setting boundaries, and communicating with peers and family",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing diverse young people in positive relationships, having respectful conversations, and supporting each other. Use bright simple colours, a clean white background, and no text except labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "lo",
+    "term": "term1",
+    "topic": "study-skills-transition",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/lo/term1/study-skills-transition/diagram.webp",
+    "alt": "Grade 9 learners studying with focus, following a timetable, and preparing for Grade 10",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing students studying with concentration, using a study timetable, reviewing notes, and looking ready for the next phase. Use bright simple colours, a clean white background, and no text except labels."
+  },
+  {
+    "grade": "grade9",
+    "subject": "lo",
+    "term": "term1",
+    "topic": "physical-education-task-1",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade9/lo/term1/physical-education-task-1/diagram.webp",
+    "alt": "Grade 9 learners participating in fitness activities, showing teamwork and safe movement practices",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing diverse young people exercising safely, working together in teams, and demonstrating good fitness practices. Use bright simple colours, a clean white background, and no text except labels."
+  }
+]

@@ -1,11 +1,12 @@
+import type { ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, XCircle, RefreshCw } from 'lucide-react';
 import Button from './Button';
 
 interface FeedbackProps {
     isCorrect: boolean | null;
-    correctMessage?: string;
-    incorrectMessage?: string;
+    correctMessage?: ReactNode;
+    incorrectMessage?: ReactNode;
     onNext: () => void;
     actionLabel?: string;
 }

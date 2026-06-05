@@ -1,7 +1,25 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1948", "title": "Apartheid government elected", "description": "The National Party won the election and began formal apartheid. Most South Africans were denied equal rights and voting power."},
+            {"date": "1955", "title": "Freedom Charter demands rights", "description": "The Congress of the People adopted the Freedom Charter at Kliptown. It called for equal rights, democracy, and a fairer South Africa."},
+            {"date": "1990", "title": "Mandela is released", "description": "Nelson Mandela was released from prison on 11 February 1990. His release became a powerful symbol of change and negotiation."},
+            {"date": "1993", "title": "Interim Constitution signed", "description": "Political negotiations produced an Interim Constitution. It created the legal path to South Africa's first democratic election."},
+            {"date": "27 Apr 1994", "title": "First democratic election", "description": "South Africans voted in the first democratic national election. Freedom Day remembers this moment, and Nelson Mandela became president."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Apartheid blocked democracy',
     image: {

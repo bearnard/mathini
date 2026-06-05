@@ -153,7 +153,7 @@ const LanguageExtension = () => (
     learnSteps={learnSteps}
     task="language-extension"
     bank={bank}
-    apiPath="/api/caps/eng"
+    apiPath="/api/caps/grade6"
   />
 );
 

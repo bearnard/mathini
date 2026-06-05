@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -37,6 +38,27 @@ const learnSteps: LearnStep[] = [
           Edit punctuation and reporting forms to improve formal writing quality.
         </p>
         <p className="text-slate-500">Final checks prevent avoidable language errors.</p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Say these greeting phrases aloud so that everyday Afrikaans conversation feels natural and confident.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"Goeiemore"} phonetic={"[ɣujəˈmɔːrə]"} meaning={"Good morning"} lang="af" />
+          <PronunciationPlayer word={"Goedag"} phonetic={"[ɣuˈdax]"} meaning={"Good day"} lang="af" />
+          <PronunciationPlayer word={"Totsiens"} phonetic={"[tɔtˈsins]"} meaning={"Goodbye"} lang="af" />
+          <PronunciationPlayer word={"Dankie"} phonetic={"[ˈdaŋki]"} meaning={"Thank you"} lang="af" />
+          <PronunciationPlayer word={"Asseblief"} phonetic={"[asəˈblif]"} meaning={"Please"} lang="af" />
+          <PronunciationPlayer word={"Verskoon my"} phonetic={"[fərˈskoːn mɛi]"} meaning={"Excuse me"} lang="af" />
+          <PronunciationPlayer word={"Hoe gaan dit?"} phonetic={"[huː χɑːn dət]"} meaning={"How are you?"} lang="af" />
+          <PronunciationPlayer word={"Baie goed"} phonetic={"[ˈbɑːiə χut]"} meaning={"Very well"} lang="af" />
+        </div>
       </div>
     ),
   },

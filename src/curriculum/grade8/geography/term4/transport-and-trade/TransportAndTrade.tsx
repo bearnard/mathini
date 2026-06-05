@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -14,6 +16,29 @@ const learnSteps: LearnStep[] = [
           Trade depends on transport networks that move people and goods efficiently. Learners compare road, rail, air,
           and sea transport, and connect imports, exports, harbours, and commuter travel to economic activity.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Transport Data — Freight by Transport Mode',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">Trade depends on transport systems. In South Africa, most freight moves by road, with smaller shares on rail and pipelines.</p>
+        <DataChart
+          data={[
+                        { mode: 'Road', share: 76 },
+                        { mode: 'Rail', share: 19 },
+                        { mode: 'Pipeline', share: 5 },
+                      ]}
+          xKey="mode"
+          series={[
+                        { key: 'share', label: 'Share of freight (%)', type: 'bar', color: '#f97316' },
+                      ]}
+          yLabel="Percent"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">When one transport mode carries most freight, bottlenecks on that network can slow trade and raise costs.</p>
       </div>
     ),
   },

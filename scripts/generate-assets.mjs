@@ -130,13 +130,19 @@ function matchesFilters(entry, selectedFilters) {
 async function processEntry(entry, index) {
   validateEntry(entry);
   const outputPath = outputPathFor(entry.path);
+  const exists = existsSync(outputPath);
+  const relPath = path.relative(repoRoot, outputPath);
 
   if (values['dry-run']) {
-    console.log(`↷ ${entryLabel(entry)} -> ${path.relative(repoRoot, outputPath)}`);
-    return 'skipped';
+    if (exists && !values.force) {
+      console.log(`↷ exists      ${entryLabel(entry)}`);
+      return 'skipped';
+    }
+    console.log(`✚ would gen   ${entryLabel(entry)} -> ${relPath}${exists ? ' (overwrite, --force)' : ''}`);
+    return 'generated';
   }
 
-  if (!values.force && existsSync(outputPath)) {
+  if (!values.force && exists) {
     console.log(`↷ ${entryLabel(entry)} exists`);
     return 'skipped';
   }
@@ -273,10 +279,12 @@ async function runPool(items, limit, worker) {
 }
 
 function printSummary(summary) {
-  console.log('\nSummary');
-  console.log(`  generated: ${summary.generated}`);
-  console.log(`  skipped:   ${summary.skipped}`);
-  console.log(`  failed:    ${summary.failures.length}`);
+  const dry = values['dry-run'];
+  console.log('\nSummary' + (dry ? ' (dry run)' : ''));
+  console.log(`  ${dry ? 'to generate (new):' : 'generated:'} ${summary.generated}`);
+  console.log(`  ${dry ? 'already exist:    ' : 'skipped:  '} ${summary.skipped}`);
+  if (!dry) console.log(`  failed:    ${summary.failures.length}`);
+  else if (summary.failures.length) console.log(`  invalid:   ${summary.failures.length}`);
   if (summary.failures.length > 0) {
     console.log('\nFailures:');
     for (const failure of summary.failures) {

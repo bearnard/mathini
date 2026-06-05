@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "acc",
+    "term": "term2",
+    "topic": "partnership-financial-statements",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/acc/term2/partnership-financial-statements/diagram.webp",
+    "alt": "Grade 11 learners understanding the structure of full partnership financial statements including income statement, appropriation account, and balance sheet",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing the three sections of partnership financial statements. Display three document panels: 'Income Statement' showing sales, cost of sales, gross profit, and net profit; 'Appropriation Account' showing distribution of net profit; and 'Balance Sheet' showing assets, liabilities, and equity. Connect them with arrows. Use blue, green, and purple colours, clean white background, simple flat design, and minimal text labels."
+  },
+  {
+    "grade": "grade11",
+    "subject": "acc",
+    "term": "term2",
+    "topic": "partnership-notes-disclosures",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/acc/term2/partnership-notes-disclosures/diagram.webp",
+    "alt": "Grade 11 learners seeing how notes to financial statements link to the main statements with detail on partner capital and current accounts",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing how notes support financial statements. Display a main balance sheet document with an arrow pointing to a 'Notes' document. The notes document shows two smaller tables: 'Partner Capital Accounts' (opening balance, additions, withdrawals, closing balance) and 'Partner Current Accounts' (opening balance, salary, interest, drawings, closing balance). Use clean white background, simple flat design, blue and green colours, and minimal text labels."
+  },
+  {
+    "grade": "grade11",
+    "subject": "acc",
+    "term": "term2",
+    "topic": "partnership-ratio-analysis",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/acc/term2/partnership-ratio-analysis/diagram.webp",
+    "alt": "Grade 11 learners understanding the three categories of financial ratios: profitability, liquidity, and solvency shown as three gauges",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing three financial ratio categories as dashboard gauges or dials. Label the first gauge 'Profitability' (green), the second 'Liquidity' (blue), and the third 'Solvency' (purple). Each gauge shows a needle pointing to a good/healthy position. Use bright colours, clean white background, simple flat design, and minimal text labels including the key formula for each category."
+  },
+  {
+    "grade": "grade11",
+    "subject": "acc",
+    "term": "term2",
+    "topic": "partnership-performance-interpretation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/acc/term2/partnership-performance-interpretation/diagram.webp",
+    "alt": "Grade 11 learners comparing current year and prior year financial ratios to identify improving and deteriorating trends",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing how to compare financial ratios across two years. Display a simple table with three rows (Gross Profit %, Current Ratio, Debt-to-Equity) and two columns (Year 1, Year 2). Show upward arrows next to improving ratios in green and downward arrows next to deteriorating ratios in red. Add a small comment box with 'Favourable' and 'Unfavourable' labels. Use clean white background, simple flat design, and minimal text."
+  }
+]

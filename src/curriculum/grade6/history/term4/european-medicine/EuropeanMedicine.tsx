@@ -1,7 +1,25 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "c. 370 CE", "title": "Early hospitals expand care", "description": "Large Christian hospitals began appearing in the late Roman world. They provided organised care for the sick and influenced later hospital medicine."},
+            {"date": "1796", "title": "Jenner tests vaccination", "description": "Edward Jenner tested the first successful smallpox vaccine. Vaccination became a major way to prevent disease."},
+            {"date": "1847", "title": "Semmelweis promotes handwashing", "description": "Ignaz Semmelweis showed that handwashing reduced deaths in hospitals. His work helped people understand the value of hygiene."},
+            {"date": "1861", "title": "Pasteur explains germ theory", "description": "Louis Pasteur provided strong evidence that tiny organisms could cause disease and spoilage. Germ theory changed how doctors understood illness."},
+            {"date": "1867", "title": "Lister uses antiseptic surgery", "description": "Joseph Lister applied antiseptics in surgery to reduce infection. Cleaner hospitals and operations helped save many more patients."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'New places for care',
     image: {

@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -53,6 +55,30 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-emerald-50 p-4"><strong>Choose</strong><br />responsible sellers</div>
           <div className="rounded-xl bg-rose-50 p-4"><strong>Respect</strong><br />people and nature</div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Trade Data — Fair-trade Producer Prices',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">This chart compares example producer prices for common fair-trade goods. Fair-trade systems aim to pay producers a more stable and better price for the same product.</p>
+        <DataChart
+          data={[
+                        { commodity: 'Coffee', fairTrade: 52, conventional: 44 },
+                        { commodity: 'Cocoa', fairTrade: 38, conventional: 31 },
+                        { commodity: 'Bananas', fairTrade: 18, conventional: 14 },
+                      ]}
+          xKey="commodity"
+          series={[
+                        { key: 'fairTrade', label: 'Fair-trade producer price (R/kg)', type: 'bar', color: '#10b981' },
+                        { key: 'conventional', label: 'Conventional producer price (R/kg)', type: 'bar', color: '#f59e0b' },
+                      ]}
+          yLabel="R/kg"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">A higher producer price can help farmers pay workers fairly, invest in tools, and keep farming sustainably.</p>
       </div>
     ),
   },

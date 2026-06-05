@@ -1,7 +1,27 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1867", "title": "Diamonds discovered", "description": "Diamonds were discovered near Kimberley, beginning large-scale mining in South Africa. This marked the start of the Mineral Revolution."},
+            {"date": "1871", "title": "Kimberley mining boom", "description": "A diamond rush turned Kimberley into a fast-growing mining town. Mining capital and labour control became increasingly important."},
+            {"date": "1885", "title": "Closed compounds spread", "description": "Mining companies developed closed compounds to house and control African workers near the mines. These systems restricted movement and strengthened labour discipline."},
+            {"date": "1886", "title": "Witwatersrand gold discovered", "description": "Gold was discovered on the Witwatersrand, triggering a massive new mining industry. The find reshaped the South African economy and politics."},
+            {"date": "1887", "title": "Johannesburg rapidly grows", "description": "Johannesburg was founded after the gold discovery and expanded with remarkable speed. It became the centre of the gold-mining industry."},
+            {"date": "1910", "title": "Union of South Africa", "description": "The Union of South Africa united four colonies under one government. Mining wealth strongly influenced the new state's priorities and labour policies."},
+            {"date": "1913", "title": "Natives Land Act", "description": "The Natives Land Act restricted African land ownership to limited areas. It reinforced dispossession and supported the migrant labour system used by the mines."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'Mining transformed South African society',
     image: {

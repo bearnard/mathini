@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -37,6 +38,25 @@ const learnSteps: LearnStep[] = [
           Final projects should be neat, accurate, and easy to follow.
         </p>
         <p className="text-slate-500">Check spelling, punctuation and layout before submission.</p>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Practice these drafting words aloud before turning ideas into a polished creative piece.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"idees"} phonetic={"[iˈdeəs]"} meaning={"ideas"} lang="af" />
+          <PronunciationPlayer word={"beplan"} phonetic={"[bəˈplan]"} meaning={"plan"} lang="af" />
+          <PronunciationPlayer word={"eerste weergawe"} phonetic={"[ˈiərstə viərˌχɑːvə]"} meaning={"first draft"} lang="af" />
+          <PronunciationPlayer word={"wysig"} phonetic={"[ˈvɛisəχ]"} meaning={"revise / edit"} lang="af" />
+          <PronunciationPlayer word={"aanbied"} phonetic={"[ˈanbeət]"} meaning={"present"} lang="af" />
+          <PronunciationPlayer word={"skryf"} phonetic={"[skrɛif]"} meaning={"write"} lang="af" />
+        </div>
       </div>
     ),
   },

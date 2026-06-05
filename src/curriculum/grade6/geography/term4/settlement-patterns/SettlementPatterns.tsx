@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -56,6 +58,31 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-lime-50 p-4"><strong>Villages</strong><br />small communities</div>
           <div className="rounded-xl bg-amber-50 p-4"><strong>Open land</strong><br />fewer buildings</div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Settlement Data — South African Urbanisation Trend',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">Urbanisation is the percentage of people living in towns and cities. This trend shows how South Africa has become more urban over time.</p>
+        <DataChart
+          data={[
+                        { year: 1996, urbanRate: 52 },
+                        { year: 2005, urbanRate: 59 },
+                        { year: 2015, urbanRate: 65 },
+                        { year: 2023, urbanRate: 68 },
+                      ]}
+          xKey="year"
+          series={[
+                        { key: 'urbanRate', label: 'Urban population (%)', type: 'line', color: '#0ea5e9' },
+                      ]}
+          type="line"
+          yLabel="Percent"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">As urbanisation rises, settlement patterns change from mainly rural villages to larger towns, cities, and metropolitan areas.</p>
       </div>
     ),
   },

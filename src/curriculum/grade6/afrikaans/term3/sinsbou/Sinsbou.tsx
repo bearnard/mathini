@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -39,6 +40,25 @@ const learnSteps: LearnStep[] = [
         <span className="inline-flex items-center text-2xl font-bold text-indigo-600">
           Vandag speel ek buite <SpeakButton text="Vandag speel ek buite" />
         </span>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Repeat these time and linking words aloud while practising Afrikaans word order.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"eers"} phonetic={"[iərs]"} meaning={"first"} lang="af" />
+          <PronunciationPlayer word={"dan"} phonetic={"[dan]"} meaning={"then"} lang="af" />
+          <PronunciationPlayer word={"omdat"} phonetic={"[ɔmˈdat]"} meaning={"because"} lang="af" />
+          <PronunciationPlayer word={"vandag"} phonetic={"[fanˈdax]"} meaning={"today"} lang="af" />
+          <PronunciationPlayer word={"môre"} phonetic={"[ˈmɔːrə]"} meaning={"tomorrow / morning"} lang="af" />
+          <PronunciationPlayer word={"gister"} phonetic={"[ˈχəstər]"} meaning={"yesterday"} lang="af" />
+        </div>
       </div>
     ),
   },

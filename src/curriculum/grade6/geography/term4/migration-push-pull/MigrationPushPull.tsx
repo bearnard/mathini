@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -51,6 +53,31 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-indigo-50 p-4"><strong>Schools</strong><br />education choices</div>
           <div className="rounded-xl bg-sky-50 p-4"><strong>Clinics</strong><br />health services</div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Migration Data — Main Reasons People Move',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">Push and pull factors can be shown with simple data. Jobs, family links, education, and safety are some of the strongest reasons for migration.</p>
+        <DataChart
+          data={[
+                        { reason: 'Jobs', share: 44 },
+                        { reason: 'Family', share: 20 },
+                        { reason: 'Education', share: 16 },
+                        { reason: 'Housing', share: 10 },
+                        { reason: 'Safety', share: 10 },
+                      ]}
+          xKey="reason"
+          series={[
+                        { key: 'share', label: 'Share of migrants (%)', type: 'bar', color: '#6366f1' },
+                      ]}
+          yLabel="Percent"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">Economic pull factors such as employment usually attract the largest share of migrants.</p>
       </div>
     ),
   },

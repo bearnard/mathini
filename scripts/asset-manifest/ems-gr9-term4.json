@@ -1,12 +1,90 @@
-{
-  "assets": {
-    "curriculum/grade9/economic-management-sciences/term4/business-responsibility-integration/image1.jpg": "Grade 9 learners examining worker rights, fair wages and safe working conditions protected by South African labour law.",
-    "curriculum/grade9/economic-management-sciences/term4/business-responsibility-integration/image2.jpg": "Grade 9 learners evaluating corporate social responsibility initiatives demonstrating business commitment to society.",
-    "curriculum/grade9/economic-management-sciences/term4/business-responsibility-integration/image3.jpg": "Grade 9 learners analyzing business ethics and stakeholder responsibilities to employees, customers and community.",
-    "curriculum/grade9/economic-management-sciences/term4/business-responsibility-integration/image4.jpg": "Grade 9 learners integrating business functions with responsibility principles for sustainable success.",
-    "curriculum/grade9/economic-management-sciences/term4/exam-revision-preparation/image1.jpg": "Grade 9 learners analyzing complex case studies and identifying relevant economic concepts to apply.",
-    "curriculum/grade9/economic-management-sciences/term4/exam-revision-preparation/image2.jpg": "Grade 9 learners reviewing economic systems, entrepreneurship, financials and marketing topics for year-end assessment.",
-    "curriculum/grade9/economic-management-sciences/term4/exam-revision-preparation/image3.jpg": "Grade 9 learners practicing exam strategies including time management, defining terms and justifying answers.",
-    "curriculum/grade9/economic-management-sciences/term4/exam-revision-preparation/image4.jpg": "Grade 9 learners demonstrating integrated understanding by connecting concepts across all EMS topics."
+[
+  {
+    "grade": "grade9",
+    "subject": "economic-management-sciences",
+    "term": "term4",
+    "topic": "business-responsibility-integration",
+    "section": "image1",
+    "type": "ai",
+    "path": "curriculum/grade9/economic-management-sciences/term4/business-responsibility-integration/image1.jpg",
+    "alt": "Grade 9 learners examining worker rights, fair wages and safe working conditions protected by South African labour law.",
+    "prompt": "Grade 9 learners examining worker rights, fair wages and safe working conditions protected by South African labour law."
+  },
+  {
+    "grade": "grade9",
+    "subject": "economic-management-sciences",
+    "term": "term4",
+    "topic": "business-responsibility-integration",
+    "section": "image2",
+    "type": "ai",
+    "path": "curriculum/grade9/economic-management-sciences/term4/business-responsibility-integration/image2.jpg",
+    "alt": "Grade 9 learners evaluating corporate social responsibility initiatives demonstrating business commitment to society.",
+    "prompt": "Grade 9 learners evaluating corporate social responsibility initiatives demonstrating business commitment to society."
+  },
+  {
+    "grade": "grade9",
+    "subject": "economic-management-sciences",
+    "term": "term4",
+    "topic": "business-responsibility-integration",
+    "section": "image3",
+    "type": "ai",
+    "path": "curriculum/grade9/economic-management-sciences/term4/business-responsibility-integration/image3.jpg",
+    "alt": "Grade 9 learners analyzing business ethics and stakeholder responsibilities to employees, customers and community.",
+    "prompt": "Grade 9 learners analyzing business ethics and stakeholder responsibilities to employees, customers and community."
+  },
+  {
+    "grade": "grade9",
+    "subject": "economic-management-sciences",
+    "term": "term4",
+    "topic": "business-responsibility-integration",
+    "section": "image4",
+    "type": "ai",
+    "path": "curriculum/grade9/economic-management-sciences/term4/business-responsibility-integration/image4.jpg",
+    "alt": "Grade 9 learners integrating business functions with responsibility principles for sustainable success.",
+    "prompt": "Grade 9 learners integrating business functions with responsibility principles for sustainable success."
+  },
+  {
+    "grade": "grade9",
+    "subject": "economic-management-sciences",
+    "term": "term4",
+    "topic": "exam-revision-preparation",
+    "section": "image1",
+    "type": "ai",
+    "path": "curriculum/grade9/economic-management-sciences/term4/exam-revision-preparation/image1.jpg",
+    "alt": "Grade 9 learners analyzing complex case studies and identifying relevant economic concepts to apply.",
+    "prompt": "Grade 9 learners analyzing complex case studies and identifying relevant economic concepts to apply."
+  },
+  {
+    "grade": "grade9",
+    "subject": "economic-management-sciences",
+    "term": "term4",
+    "topic": "exam-revision-preparation",
+    "section": "image2",
+    "type": "ai",
+    "path": "curriculum/grade9/economic-management-sciences/term4/exam-revision-preparation/image2.jpg",
+    "alt": "Grade 9 learners reviewing economic systems, entrepreneurship, financials and marketing topics for year-end assessment.",
+    "prompt": "Grade 9 learners reviewing economic systems, entrepreneurship, financials and marketing topics for year-end assessment."
+  },
+  {
+    "grade": "grade9",
+    "subject": "economic-management-sciences",
+    "term": "term4",
+    "topic": "exam-revision-preparation",
+    "section": "image3",
+    "type": "ai",
+    "path": "curriculum/grade9/economic-management-sciences/term4/exam-revision-preparation/image3.jpg",
+    "alt": "Grade 9 learners practicing exam strategies including time management, defining terms and justifying answers.",
+    "prompt": "Grade 9 learners practicing exam strategies including time management, defining terms and justifying answers."
+  },
+  {
+    "grade": "grade9",
+    "subject": "economic-management-sciences",
+    "term": "term4",
+    "topic": "exam-revision-preparation",
+    "section": "image4",
+    "type": "ai",
+    "path": "curriculum/grade9/economic-management-sciences/term4/exam-revision-preparation/image4.jpg",
+    "alt": "Grade 9 learners demonstrating integrated understanding by connecting concepts across all EMS topics.",
+    "prompt": "Grade 9 learners demonstrating integrated understanding by connecting concepts across all EMS topics."
   }
-}
+]

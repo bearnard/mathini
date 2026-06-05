@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import DataChart from '@/components/subjects/DataChart';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -14,6 +16,32 @@ const learnSteps: LearnStep[] = [
           Population change is shaped by birth rates, death rates, infant mortality, life expectancy, and major
           health events. Graphs and case studies help us explain why populations grow at different rates.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Population Data — World Growth Milestones',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">World population has grown rapidly over the last century. These milestones show how quickly the global total has increased.</p>
+        <DataChart
+          data={[
+                        { year: 1950, population: 2.5 },
+                        { year: 1974, population: 4.0 },
+                        { year: 1999, population: 6.0 },
+                        { year: 2011, population: 7.0 },
+                        { year: 2022, population: 8.0 },
+                      ]}
+          xKey="year"
+          series={[
+                        { key: 'population', label: 'World population (billions)', type: 'line', color: '#8b5cf6' },
+                      ]}
+          type="line"
+          yLabel="Billions"
+          height={220}
+        />
+
+        <p className="text-sm text-slate-500">Population growth affects food supply, housing demand, water use, and pressure on the environment.</p>
       </div>
     ),
   },

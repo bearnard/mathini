@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import ClimateGraph from '@/components/subjects/ClimateGraph';
+
 
 const learnSteps: LearnStep[] = [
   {
@@ -56,6 +58,53 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-amber-50 p-4"><strong>Dry climate</strong><br />water is precious</div>
           <div className="rounded-xl bg-indigo-50 p-4"><strong>Cold climate</strong><br />warm shelter needed</div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Climate Data — Cape Town vs Johannesburg',
+    content: (
+      <div className="space-y-4 text-center">
+        <p className="text-lg text-slate-600">These climatographs compare two South African climate regions. Johannesburg gets most of its rain in summer, while Cape Town gets most of its rain in winter.</p>
+        <div className="grid gap-4 lg:grid-cols-2">
+          <ClimateGraph
+            station="Johannesburg"
+            data={[
+                      { month: 'Jan', rainfall: 114, temp: 21 },
+                      { month: 'Feb', rainfall: 109, temp: 22 },
+                      { month: 'Mar', rainfall: 89, temp: 20 },
+                      { month: 'Apr', rainfall: 38, temp: 17 },
+                      { month: 'May', rainfall: 13, temp: 14 },
+                      { month: 'Jun', rainfall: 8, temp: 11 },
+                      { month: 'Jul', rainfall: 4, temp: 11 },
+                      { month: 'Aug', rainfall: 6, temp: 13 },
+                      { month: 'Sep', rainfall: 23, temp: 16 },
+                      { month: 'Oct', rainfall: 60, temp: 18 },
+                      { month: 'Nov', rainfall: 107, temp: 20 },
+                      { month: 'Dec', rainfall: 125, temp: 21 },
+                    ]}
+          />
+
+          <ClimateGraph
+            station="Cape Town"
+            data={[
+                      { month: 'Jan', rainfall: 15, temp: 21 },
+                      { month: 'Feb', rainfall: 17, temp: 21 },
+                      { month: 'Mar', rainfall: 20, temp: 20 },
+                      { month: 'Apr', rainfall: 41, temp: 17 },
+                      { month: 'May', rainfall: 69, temp: 15 },
+                      { month: 'Jun', rainfall: 93, temp: 13 },
+                      { month: 'Jul', rainfall: 82, temp: 12 },
+                      { month: 'Aug', rainfall: 77, temp: 13 },
+                      { month: 'Sep', rainfall: 40, temp: 14 },
+                      { month: 'Oct', rainfall: 30, temp: 16 },
+                      { month: 'Nov', rainfall: 14, temp: 18 },
+                      { month: 'Dec', rainfall: 17, temp: 20 },
+                    ]}
+          />
+        </div>
+
+        <p className="text-sm text-slate-500">Comparing rainfall season and temperature range helps explain why different climate regions support different vegetation and ways of life.</p>
       </div>
     ),
   },

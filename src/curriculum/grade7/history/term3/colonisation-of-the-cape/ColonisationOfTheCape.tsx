@@ -1,7 +1,26 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1652", "title": "VOC founds Cape settlement", "description": "Jan van Riebeeck established a refreshment station for the Dutch East India Company at Table Bay. This began formal Dutch colonisation at the Cape."},
+            {"date": "1657", "title": "Free burghers created", "description": "Some VOC employees were released from company service and allowed to farm independently. Their farms increased settler expansion beyond the original station."},
+            {"date": "1658", "title": "Slaves imported to Cape", "description": "The VOC imported enslaved people to meet labour demands in the colony. Slavery became central to farming and domestic work at the Cape."},
+            {"date": "1679", "title": "Stellenbosch established", "description": "The founding of Stellenbosch encouraged further farming inland. This deepened colonial occupation and pressure on local land and resources."},
+            {"date": "1688", "title": "French Huguenots arrive", "description": "French Protestant refugees settled at the Cape and added to the settler population. They contributed to agriculture, especially wine farming."},
+            {"date": "18th century", "title": "Trekboers move inland", "description": "Semi-nomadic settler farmers moved deeper into the interior in search of grazing and land. Their expansion increased dispossession and conflict with indigenous communities."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'The Cape changed under Dutch colonial expansion',
     image: {

@@ -7,6 +7,18 @@ import engGr8Term1 from './tasks/eng-gr8-term1.json';
 import engGr8Term2 from './tasks/eng-gr8-term2.json';
 import engGr8Term3 from './tasks/eng-gr8-term3.json';
 import engGr8Term4 from './tasks/eng-gr8-term4.json';
+import engGr9Term1 from './tasks/eng-gr9-term1.json';
+import engGr9Term2 from './tasks/eng-gr9-term2.json';
+import engGr9Term3 from './tasks/eng-gr9-term3.json';
+import engGr9Term4 from './tasks/eng-gr9-term4.json';
+import engGr11Term1 from './tasks/eng-gr11-term1.json';
+import engGr11Term2 from './tasks/eng-gr11-term2.json';
+import engGr11Term3 from './tasks/eng-gr11-term3.json';
+import engGr11Term4 from './tasks/eng-gr11-term4.json';
+import engGr12Term1 from './tasks/eng-gr12-term1.json';
+import engGr12Term2 from './tasks/eng-gr12-term2.json';
+import engGr12Term3 from './tasks/eng-gr12-term3.json';
+import engGr12Term4 from './tasks/eng-gr12-term4.json';
 
 export const eng: SubjectConfig = {
   getPreamble(grade: number): string {
@@ -56,5 +68,18 @@ export const eng: SubjectConfig = {
     ...engGr8Term2.tasks,
     ...engGr8Term3.tasks,
     ...engGr8Term4.tasks,
+    // Grade 9
+    ...engGr9Term1.tasks,
+    ...engGr9Term2.tasks,
+    ...engGr9Term3.tasks,
+    ...engGr9Term4.tasks,
+    ...engGr11Term1.tasks,
+    ...engGr11Term2.tasks,
+    ...engGr11Term3.tasks,
+    ...engGr11Term4.tasks,
+    ...engGr12Term1.tasks,
+    ...engGr12Term2.tasks,
+    ...engGr12Term3.tasks,
+    ...engGr12Term4.tasks,
   },
 };

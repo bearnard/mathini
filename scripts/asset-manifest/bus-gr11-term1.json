@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "bus",
+    "term": "term1",
+    "topic": "business-environments-influences",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/bus/term1/business-environments-influences/diagram.webp",
+    "alt": "Grade 11 learners studying the three business environments: micro, market and macro with PESTLE factors",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing three nested circles representing the micro (innermost), market (middle) and macro (outermost) business environments. Use distinct colours for each ring. Add small icons in each ring: people/building icons for micro, competitors/suppliers for market, and PESTLE icons (politics, economics, society, technology, law, environment) for macro. Simple flat design, clean white background, minimal text labels."
+  },
+  {
+    "grade": "grade11",
+    "subject": "bus",
+    "term": "term1",
+    "topic": "challenges-adapting-change",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/bus/term1/challenges-adapting-change/diagram.webp",
+    "alt": "Grade 11 learners seeing South African business challenges like unemployment and inequality alongside adaptation strategies",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing two columns: on the left, challenge icons (unemployment figure, poverty symbol, inequality scale, crime warning sign); on the right, adaptation strategy icons (innovation lightbulb, training/upskilling symbol, diversity group). Use arrows connecting challenges to strategies. Bright colours, simple flat design, clean white background, minimal text labels."
+  },
+  {
+    "grade": "grade11",
+    "subject": "bus",
+    "term": "term1",
+    "topic": "business-sectors-ownership",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/bus/term1/business-sectors-ownership/diagram.webp",
+    "alt": "Grade 11 learners comparing primary, secondary and tertiary business sectors alongside ownership forms like companies and co-operatives",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing a horizontal flow: primary sector (farm/mine icon) → secondary sector (factory icon) → tertiary sector (shop/service icon). Below this, show ownership form icons: a sole proprietor person, a partnership pair, a company building, and a co-operative group. Use bright colours, simple flat icons, clean white background, and minimal text labels."
+  },
+  {
+    "grade": "grade11",
+    "subject": "bus",
+    "term": "term1",
+    "topic": "acquiring-a-business",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/bus/term1/acquiring-a-business/diagram.webp",
+    "alt": "Grade 11 learners exploring four ways to acquire a business: starting new, buying existing, franchising, and family business",
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing four paths to business ownership in separate coloured boxes: 1) Start from scratch (seedling/lightbulb), 2) Buy an existing business (handshake + building), 3) Buy a franchise (chain store logo placeholder), 4) Family business (family group + building). Use bright distinct colours per box, simple icons, clean white background, and minimal text labels."
+  }
+]

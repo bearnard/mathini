@@ -3,6 +3,10 @@ import nsGr8Term1 from './tasks/ns-gr8-term1.json';
 import nsGr8Term2 from './tasks/ns-gr8-term2.json';
 import nsGr8Term3 from './tasks/ns-gr8-term3.json';
 import nsGr8Term4 from './tasks/ns-gr8-term4.json';
+import nsGr9Term1 from './tasks/ns-gr9-term1.json';
+import nsGr9Term2 from './tasks/ns-gr9-term2.json';
+import nsGr9Term3 from './tasks/ns-gr9-term3.json';
+import nsGr9Term4 from './tasks/ns-gr9-term4.json';
 
 export const ns: SubjectConfig = {
   getPreamble(grade: number): string {
@@ -18,5 +22,9 @@ export const ns: SubjectConfig = {
     ...nsGr8Term2.tasks,
     ...nsGr8Term3.tasks,
     ...nsGr8Term4.tasks,
+    ...nsGr9Term1.tasks,
+    ...nsGr9Term2.tasks,
+    ...nsGr9Term3.tasks,
+    ...nsGr9Term4.tasks,
   },
 };

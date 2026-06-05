@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
@@ -16,6 +17,21 @@ const learnSteps: LearnStep[] = [
           and audience engagement.
         </p>
       </div>
+    ),
+  },
+  {
+    title: "Annotated extract",
+    content: (
+      <AnnotatedText
+        title={"From \"Jack and the Beanstalk\" — traditional tale"}
+        text={"Fee-fi-fo-fum, I smell the blood of an Englishman. Be he alive, or be he dead, I'll grind his bones to make my bread."}
+        annotations={[
+          { start: 0, end: 13, device: "alliteration", note: "The repeated opening sounds make the giant’s chant memorable and oral in style." },
+          { start: 17, end: 49, device: "imagery", note: "The line creates a vivid and frightening sensory image." },
+          { start: 79, end: 116, device: "hyperbole", note: "The giant’s threat is wildly exaggerated to heighten fear and drama." },
+          { start: 51, end: 77, device: "tone", note: "The balanced phrase strengthens the chant’s cold, threatening tone." },
+        ]}
+      />
     ),
   },
   {

@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -93,6 +94,25 @@ const learnSteps: LearnStep[] = [
       </div>
     ),
   },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Practice these question and control words to strengthen negatives, question forms, and sentence accuracy.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"Umbuzo"} phonetic={"[um'buːzo]"} meaning={"Question"} lang="xh" />
+          <PronunciationPlayer word={"Ngubani?"} phonetic={"[ŋu'baːni]"} meaning={"Who?"} lang="xh" />
+          <PronunciationPlayer word={"Phi?"} phonetic={"[pʰi]"} meaning={"Where?"} lang="xh" />
+          <PronunciationPlayer word={"Nini?"} phonetic={"[ni'ni]"} meaning={"When?"} lang="xh" />
+          <PronunciationPlayer word={"Kutheni?"} phonetic={"[ku'tʰɛni]"} meaning={"Why?"} lang="xh" />
+          <PronunciationPlayer word={"Hayi"} phonetic={"[hayi]"} meaning={"No / not"} lang="xh" />
+        </div>
+      </div>
+    ),
+  },
 ];
 
 const bank: CapsItem[] = [
@@ -159,7 +179,7 @@ const LanguageStructuresT2 = () => (
     learnSteps={learnSteps}
     task="language-structures-t2"
     bank={bank}
-    apiPath="/api/caps/xho"
+    apiPath="/api/caps/grade6"
   />
 );
 

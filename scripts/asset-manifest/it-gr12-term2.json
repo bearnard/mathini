@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "it",
+    "term": "term2",
+    "topic": "relational-data-joins-normalisation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/it/term2/relational-data-joins-normalisation/diagram.webp",
+    "alt": "Relational Data, Joins and Normalisation",
+    "prompt": "A clear educational illustration depicting \"Relational Data, Joins and Normalisation\": Linking tables correctly and reducing duplication in database design."
+  },
+  {
+    "grade": "grade12",
+    "subject": "it",
+    "term": "term2",
+    "topic": "networks-security-systems-integration",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/it/term2/networks-security-systems-integration/diagram.webp",
+    "alt": "Networks, Security and Systems Integration",
+    "prompt": "A clear educational illustration depicting \"Networks, Security and Systems Integration\": Explaining modern communication structures and protecting connected systems."
+  },
+  {
+    "grade": "grade12",
+    "subject": "it",
+    "term": "term2",
+    "topic": "forms-reports-database-program-integration",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/it/term2/forms-reports-database-program-integration/diagram.webp",
+    "alt": "Forms, Reports and Database Program Integration",
+    "prompt": "A clear educational illustration depicting \"Forms, Reports and Database Program Integration\": Capturing accurate data and presenting meaningful outputs in applications."
+  },
+  {
+    "grade": "grade12",
+    "subject": "it",
+    "term": "term2",
+    "topic": "advanced-databases-sql",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/it/term2/advanced-databases-sql/diagram.webp",
+    "alt": "Advanced Databases and SQL",
+    "prompt": "A clear educational illustration depicting \"Advanced Databases and SQL\": Using structured queries and data rules to solve practical problems."
+  }
+]

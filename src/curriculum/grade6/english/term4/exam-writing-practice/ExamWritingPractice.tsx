@@ -121,7 +121,7 @@ const ExamWritingPractice = () => (
     learnSteps={learnSteps}
     task="exam-writing-practice"
     bank={bank}
-    apiPath="/api/caps/eng"
+    apiPath="/api/caps/grade6"
   />
 );
 

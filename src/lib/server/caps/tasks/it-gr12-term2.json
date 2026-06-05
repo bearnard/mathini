@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "gr12-advanced-databases-sql-t2": "Topic: Advanced Databases and SQL. Cover tables, primary keys, foreign keys, SELECT queries with criteria, sorting, aggregate functions, GROUP BY, and safe INSERT, UPDATE and DELETE operations. Ask Grade 12 learners to trace query results, choose suitable data types and explain how structured data supports reliable applications.",
+    "gr12-relational-data-joins-normalisation-t2": "Topic: Relational Data, Joins and Normalisation. Cover one-to-one, one-to-many and many-to-many relationships, join logic, linking or junction tables, referential integrity and normalisation to reduce redundancy. Ask Grade 12 learners to interpret schemas, choose suitable joins and explain why poor design causes duplication and anomalies.",
+    "gr12-forms-reports-database-program-integration-t2": "Topic: Forms, Reports and Database Program Integration. Cover forms for data capture, lookup controls, validation in forms, reports for grouped output, parameter-driven queries and integrating program code with a database connection. Ask Grade 12 learners to reason about input accuracy, output design and reliable program-database workflows.",
+    "gr12-networks-security-systems-integration-t2": "Topic: Networks, Security and Systems Integration. Cover LANs and WANs, routers and switches, TCP/IP ideas, DNS, HTTP/HTTPS, authentication, encryption, firewalls, malware threats and system integration through connected services. Ask Grade 12 learners to match technologies to scenarios and recommend secure communication practices."
+  }
+}

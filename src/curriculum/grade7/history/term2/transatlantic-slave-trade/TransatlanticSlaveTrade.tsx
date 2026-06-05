@@ -1,7 +1,27 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "1502", "title": "Enslaved Africans reach Americas", "description": "The first recorded shipment of enslaved Africans arrived in the Spanish Caribbean. This marked the early growth of the transatlantic slave trade."},
+            {"date": "16th–18th centuries", "title": "Middle Passage expands", "description": "European traders transported millions of enslaved Africans across the Atlantic under brutal conditions. West and West-Central Africa were heavily affected by this forced migration."},
+            {"date": "1619", "title": "Africans arrive in Virginia", "description": "A ship brought captive Africans to the English colony of Virginia. This became an important moment in the history of slavery in English North America."},
+            {"date": "1791", "title": "Haitian Revolution begins", "description": "Enslaved people in Saint-Domingue launched a major revolt against slavery and colonial rule. It became the most successful slave uprising in Atlantic history."},
+            {"date": "1807", "title": "Britain ends slave trade", "description": "The British Parliament abolished the transatlantic slave trade in the British Empire. Although illegal trading continued, abolitionists had won a major victory."},
+            {"date": "1833", "title": "Britain abolishes slavery", "description": "The Slavery Abolition Act ended slavery in most British colonies. Enslaved people still faced apprenticeship schemes and continuing inequality."},
+            {"date": "1888", "title": "Brazil abolishes slavery", "description": "Brazil passed the Golden Law and became the last country in the Americas to abolish slavery. This marked the final legal end of slavery in the Atlantic world."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'The transatlantic slave trade reshaped many societies',
     image: {

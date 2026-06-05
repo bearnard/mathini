@@ -1,6 +1,7 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
+import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
@@ -43,6 +44,25 @@ const learnSteps: LearnStep[] = [
         <span className="inline-flex items-center gap-2 text-2xl font-bold text-indigo-600">
           Ek was moeg <SpeakButton text="Ek was moeg" />
         </span>
+      </div>
+    ),
+  },
+
+  {
+    title: "Pronunciation practice",
+    content: (
+      <div className="space-y-4">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+          Use these past-tense words aloud to notice the common het ge- pattern in Afrikaans.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <PronunciationPlayer word={"het"} phonetic={"[hɛt]"} meaning={"has / had (auxiliary)"} lang="af" />
+          <PronunciationPlayer word={"ge-"} phonetic={"[χə]"} meaning={"past-tense prefix"} lang="af" />
+          <PronunciationPlayer word={"gespeel"} phonetic={"[χəˈspeəl]"} meaning={"played"} lang="af" />
+          <PronunciationPlayer word={"gelees"} phonetic={"[χəˈleəs]"} meaning={"read (past)"} lang="af" />
+          <PronunciationPlayer word={"geskryf"} phonetic={"[χəˈskrɛif]"} meaning={"wrote / written"} lang="af" />
+          <PronunciationPlayer word={"gekook"} phonetic={"[χəˈkuək]"} meaning={"cooked"} lang="af" />
+        </div>
       </div>
     ),
   },

@@ -1,7 +1,27 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
+  {
+    title: 'Key Events — Timeline',
+    content: (
+      <div className="space-y-4">
+        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
+        <Timeline
+          events={[
+            {"date": "28 Jun 1914", "title": "Archduke Franz Ferdinand assassinated", "description": "The heir to the Austro-Hungarian throne was assassinated in Sarajevo. The killing triggered the alliance crisis that led to world war."},
+            {"date": "Aug 1914", "title": "War spreads across Europe", "description": "Alliance commitments drew many countries into the conflict after Austria-Hungary declared war on Serbia. What began as a regional crisis became a global war."},
+            {"date": "1914–1918", "title": "Trench warfare dominates", "description": "On the Western Front, armies fought from long trench systems defended by machine guns and artillery. Soldiers endured mud, disease, fear, and stalemate."},
+            {"date": "Jul 1916", "title": "Battle of Delville Wood", "description": "South African troops fought in a devastating battle during the Somme offensive in France. Delville Wood became a key symbol of South African sacrifice."},
+            {"date": "21 Feb 1917", "title": "SS Mendi sinks", "description": "The SS Mendi sank in the English Channel while carrying members of the South African Native Labour Corps. More than 600 Black South Africans died in the disaster."},
+            {"date": "11 Nov 1918", "title": "Armistice signed", "description": "Germany agreed to an armistice and fighting stopped on the Western Front. The war ended, but its human and political consequences continued."},
+            {"date": "1919", "title": "Treaty of Versailles signed", "description": "The peace treaty imposed harsh terms on Germany, including territorial losses and reparations. Many historians see it as a source of later tension in Europe."},
+          ]}
+        />
+      </div>
+    ),
+  },
   {
     title: 'A global war with local South African links',
     image: {

@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
@@ -31,6 +32,20 @@ const learnSteps: LearnStep[] = [
           </div>
         </div>
       </div>
+    ),
+  },
+  {
+    title: "Annotated extract",
+    content: (
+      <AnnotatedText
+        title={"From \"As You Like It\" — William Shakespeare"}
+        text={"All the world's a stage, and all the men and women merely players; they have their exits and their entrances."}
+        annotations={[
+          { start: 8, end: 23, device: "metaphor", note: "Human life is compared directly to a play, helping learners recognise a key dramatic metaphor." },
+          { start: 51, end: 65, device: "symbolism", note: "People become symbols of the roles they perform in society." },
+          { start: 83, end: 108, device: "imagery", note: "Stage directions turn the abstract idea of life into a scene the reader can imagine." },
+        ]}
+      />
     ),
   },
   {
@@ -151,7 +166,7 @@ const LiteraryGenres = () => (
     learnSteps={learnSteps}
     task="literary-genres"
     bank={bank}
-    apiPath="/api/caps/eng"
+    apiPath="/api/caps/grade6"
   />
 );
 

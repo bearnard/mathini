@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "gr11-functions-t2": "Topic: Functions. Cover the effects of parameters a, p, q on quadratic (y = a(x−p)² + q), hyperbolic (y = a/(x+p) + q), exponential (y = a·b^(x+p) + q) and trigonometric graphs; recognising turning points, asymptotes, intercepts and domain/range; and calculating the average gradient between two points. Ask Grade 11 learners to sketch and interpret transformed graphs, describe the effect of each parameter, determine key features, and connect symbolic and graphical forms.",
+    "gr11-trigonometry-t2": "Topic: Trigonometry — Identities, Reduction Formulae and General Solutions. Cover the Pythagorean identity (sin²x + cos²x = 1), quotient identity (tan x = sin x/cos x), reduction formulae for angles in all four quadrants (e.g. sin(180°−x) = sin x, cos(360°−x) = cos x), co-function identities, and general solutions of trigonometric equations. Ask Grade 11 learners to prove identities step-by-step, simplify expressions using reduction formulae, and solve trig equations giving general and restricted solutions.",
+    "gr11-exam-preparation-t2": "Topic: Mid-Year Examination Preparation. Consolidate Term 1 and Term 2 work including exponents and surds, equations and inequalities, number patterns, analytical geometry, functions, and trigonometry. Ask Grade 11 learners to solve integrated multi-step problems covering all these areas, practise Paper 1 and Paper 2 style questions, manage time effectively, and review common mistakes in algebra, graph interpretation, and trig simplification."
+  }
+}
