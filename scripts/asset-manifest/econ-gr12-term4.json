@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "econ",
+    "term": "term4",
+    "topic": "microeconomics-revision",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/econ/term4/microeconomics-revision/diagram.webp",
+    "alt": "Microeconomics Revision Market",
+    "prompt": "A clear educational illustration depicting \"Microeconomics Revision Market\": Integrated revision of trade, market structures and market failure."
+  },
+  {
+    "grade": "grade12",
+    "subject": "econ",
+    "term": "term4",
+    "topic": "macroeconomics-revision",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/econ/term4/macroeconomics-revision/diagram.webp",
+    "alt": "Foreign Exchange Revision Market",
+    "prompt": "A clear educational illustration depicting \"Foreign Exchange Revision Market\": Integrated revision of circular flow, cycles, public sector and foreign exchange."
+  },
+  {
+    "grade": "grade12",
+    "subject": "econ",
+    "term": "term4",
+    "topic": "economic-pursuits-contemporary-revision",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/econ/term4/economic-pursuits-contemporary-revision/diagram.webp",
+    "alt": "Economic Pursuits and Contemporary Issues Revision",
+    "prompt": "A clear educational illustration depicting \"Economic Pursuits and Contemporary Issues Revision\": Revision of growth, indicators, tourism, sustainability and current issues."
+  }
+]

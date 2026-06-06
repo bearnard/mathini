@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "ls",
+    "term": "term4",
+    "topic": "revision-examination-practice",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ls/term4/revision-examination-practice/diagram.webp",
+    "alt": "Exam Question Hierarchy",
+    "prompt": "A clear educational illustration depicting \"Exam Question Hierarchy\": Comprehensive review and assessment preparation."
+  },
+  {
+    "grade": "grade10",
+    "subject": "ls",
+    "term": "term4",
+    "topic": "diagnostic-features-major-kingdoms",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ls/term4/diagnostic-features-major-kingdoms/diagram.webp",
+    "alt": "The Five Kingdoms",
+    "prompt": "A clear educational illustration depicting \"The Five Kingdoms\": Kingdom characteristics and organization."
+  }
+]

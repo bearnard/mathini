@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term1",
+    "topic": "trigonometry-identities-equations",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term1/trigonometry-identities-equations/diagram.webp",
+    "alt": "Trigonometry: Identities and Equations",
+    "prompt": "A clear educational illustration depicting \"Trigonometry: Identities and Equations\": Compound angles, double angles and formal trig solving."
+  },
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term1",
+    "topic": "sequences-series-sigma",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term1/sequences-series-sigma/diagram.webp",
+    "alt": "Sequences, Series and Sigma Notation",
+    "prompt": "A clear educational illustration depicting \"Sequences, Series and Sigma Notation\": Arithmetic and geometric patterns, sums and sigma notation."
+  },
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term1",
+    "topic": "functions-inverse-functions",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term1/functions-inverse-functions/diagram.webp",
+    "alt": "Functions and Inverse Functions",
+    "prompt": "A clear educational illustration depicting \"Functions and Inverse Functions\": One-to-one relations, domain restrictions and inverse graphs."
+  },
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term1",
+    "topic": "exponential-logarithmic-finance",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term1/exponential-logarithmic-finance/diagram.webp",
+    "alt": "Exponential and Logarithmic Functions in Finance",
+    "prompt": "A clear educational illustration depicting \"Exponential and Logarithmic Functions in Finance\": Log laws, growth and decay, and compound-interest reasoning."
+  }
+]

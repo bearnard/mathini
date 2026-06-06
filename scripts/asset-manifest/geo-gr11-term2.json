@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "geo",
+    "term": "term2",
+    "topic": "slopes-mass-movement",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/geo/term2/slopes-mass-movement/diagram.webp",
+    "alt": "Slopes and Mass Movement",
+    "prompt": "A clear educational illustration depicting \"Slopes and Mass Movement\": Slope components, stability factors and types of mass movement."
+  },
+  {
+    "grade": "grade11",
+    "subject": "geo",
+    "term": "term2",
+    "topic": "layered-rocks-karoo",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/geo/term2/layered-rocks-karoo/diagram.webp",
+    "alt": "Layered Rocks and Karoo Landscapes",
+    "prompt": "A clear educational illustration depicting \"Layered Rocks and Karoo Landscapes\": Sedimentary rock formation, the Karoo Supergroup, cuestas and hogbacks."
+  },
+  {
+    "grade": "grade11",
+    "subject": "geo",
+    "term": "term2",
+    "topic": "igneous-landforms",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/geo/term2/igneous-landforms/diagram.webp",
+    "alt": "Massive Igneous Landforms",
+    "prompt": "A clear educational illustration depicting \"Massive Igneous Landforms\": Intrusive bodies, dolerite koppies, inselbergs and South African examples."
+  },
+  {
+    "grade": "grade11",
+    "subject": "geo",
+    "term": "term2",
+    "topic": "geomorphology-mapwork",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/geo/term2/geomorphology-mapwork/diagram.webp",
+    "alt": "Geomorphology and Topographic Mapwork",
+    "prompt": "A clear educational illustration depicting \"Geomorphology and Topographic Mapwork\": Reading 1:50 000 maps, slope types, cross-sections and landform identification."
+  }
+]

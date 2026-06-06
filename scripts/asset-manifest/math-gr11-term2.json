@@ -31,5 +31,27 @@
     "path": "curriculum/grade11/math/term2/exam-preparation/diagram.webp",
     "alt": "student reviewing multiple maths topics illustrated as colourful topic cards",
     "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing a student at a desk surrounded by colourful glowing topic cards representing maths subjects — algebra, graphs, geometry and trigonometry. Simple bright shapes, white background, no text or labels in the image."
+  },
+  {
+    "grade": "grade11",
+    "subject": "math",
+    "term": "term2",
+    "topic": "trigonometry",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/math/term2/trigonometry/diagram.webp",
+    "alt": "Trigonometry",
+    "prompt": "A clear educational illustration depicting \"Trigonometry\": Identities, reduction formulae and general solutions."
+  },
+  {
+    "grade": "grade11",
+    "subject": "math",
+    "term": "term2",
+    "topic": "functions",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/math/term2/functions/diagram.webp",
+    "alt": "Functions",
+    "prompt": "A clear educational illustration depicting \"Functions\": Parameters, graph transformations and average gradient."
   }
 ]

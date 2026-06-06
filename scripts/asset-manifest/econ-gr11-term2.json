@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "econ",
+    "term": "term2",
+    "topic": "price-elasticity",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/econ/term2/price-elasticity/diagram.webp",
+    "alt": "Elastic vs Inelastic Demand",
+    "prompt": "A clear educational illustration depicting \"Elastic vs Inelastic Demand\": Measuring how responsive buyers and sellers are to price changes."
+  },
+  {
+    "grade": "grade11",
+    "subject": "econ",
+    "term": "term2",
+    "topic": "market-structures",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/econ/term2/market-structures/diagram.webp",
+    "alt": "Competitive Market",
+    "prompt": "A clear educational illustration depicting \"Competitive Market\": From perfect competition to monopoly — costs, revenue and profit maximisation."
+  },
+  {
+    "grade": "grade11",
+    "subject": "econ",
+    "term": "term2",
+    "topic": "income-cross-elasticity",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/econ/term2/income-cross-elasticity/diagram.webp",
+    "alt": "Substitutes and Complements",
+    "prompt": "A clear educational illustration depicting \"Substitutes and Complements\": Classifying goods using YED and XED, with South African applications."
+  },
+  {
+    "grade": "grade11",
+    "subject": "econ",
+    "term": "term2",
+    "topic": "gini-redistribution",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/econ/term2/gini-redistribution/diagram.webp",
+    "alt": "Gini Coefficient and Income Redistribution",
+    "prompt": "A clear educational illustration depicting \"Gini Coefficient and Income Redistribution\": Measuring inequality and evaluating policies to reduce it in South Africa."
+  }
+]

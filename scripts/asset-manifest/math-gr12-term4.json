@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term4",
+    "topic": "paper2-geometry-trigonometry",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term4/paper2-geometry-trigonometry/diagram.webp",
+    "alt": "Paper 2 Geometry and Trigonometry Revision",
+    "prompt": "A clear educational illustration depicting \"Paper 2 Geometry and Trigonometry Revision\": Proof structure, theorem recall and non-routine trig review."
+  },
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term4",
+    "topic": "paper2-analytical-geometry-statistics",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term4/paper2-analytical-geometry-statistics/diagram.webp",
+    "alt": "Paper 2 Analytical Geometry and Statistics Revision",
+    "prompt": "A clear educational illustration depicting \"Paper 2 Analytical Geometry and Statistics Revision\": Coordinate geometry, circle facts, regression and data interpretation."
+  },
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term4",
+    "topic": "paper1-consolidation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term4/paper1-consolidation/diagram.webp",
+    "alt": "Paper 1 Consolidation",
+    "prompt": "A clear educational illustration depicting \"Paper 1 Consolidation\": Fast revision across sequences, functions, finance, calculus and probability."
+  }
+]

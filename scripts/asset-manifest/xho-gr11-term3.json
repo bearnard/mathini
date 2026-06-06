@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "writing-presenting",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/xho/term3/writing-presenting/diagram.webp",
+    "alt": "Writing & Presenting",
+    "prompt": "A clear educational illustration depicting \"Writing & Presenting\": Argumentative and discursive essay, formal letter, article, and project presentation."
+  },
+  {
+    "grade": "grade11",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "reading-viewing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/xho/term3/reading-viewing/diagram.webp",
+    "alt": "Reading & Viewing",
+    "prompt": "A clear educational illustration depicting \"Reading & Viewing\": Drama, poetry, short stories, critical reading, and contextual analysis."
+  },
+  {
+    "grade": "grade11",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "listening-speaking",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/xho/term3/listening-speaking/diagram.webp",
+    "alt": "Listening & Speaking",
+    "prompt": "A clear educational illustration depicting \"Listening & Speaking\": Debate, prepared speech, seminar discussion, and oral response to issues."
+  },
+  {
+    "grade": "grade11",
+    "subject": "xho",
+    "term": "term3",
+    "topic": "language-structures",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/xho/term3/language-structures/diagram.webp",
+    "alt": "Language Structures",
+    "prompt": "A clear educational illustration depicting \"Language Structures\": Complex sentences, style, punctuation mastery, and vocabulary refinement."
+  }
+]

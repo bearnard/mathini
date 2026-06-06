@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "his",
+    "term": "term2",
+    "topic": "wall-street-crash",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/his/term2/wall-street-crash/diagram.webp",
+    "alt": "The Wall Street Crash and Great Depression",
+    "prompt": "A clear educational illustration depicting \"The Wall Street Crash and Great Depression\": Over-production, speculation, collapse, and the global impact."
+  },
+  {
+    "grade": "grade11",
+    "subject": "his",
+    "term": "term2",
+    "topic": "roaring-twenties",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/his/term2/roaring-twenties/diagram.webp",
+    "alt": "The Roaring Twenties",
+    "prompt": "A clear educational illustration depicting \"The Roaring Twenties\": Mass production, consumerism, the Jazz Age, and the limits of prosperity."
+  },
+  {
+    "grade": "grade11",
+    "subject": "his",
+    "term": "term2",
+    "topic": "new-deal",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/his/term2/new-deal/diagram.webp",
+    "alt": "Roosevelt",
+    "prompt": "A clear educational illustration depicting \"Roosevelt\": State intervention, the three Rs, key programmes, and their legacy."
+  },
+  {
+    "grade": "grade11",
+    "subject": "his",
+    "term": "term2",
+    "topic": "capitalism-vs-communism",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/his/term2/capitalism-vs-communism/diagram.webp",
+    "alt": "Capitalism versus Communism",
+    "prompt": "A clear educational illustration depicting \"Capitalism versus Communism\": Comparing economic systems and identifying ideological perspective in sources."
+  }
+]

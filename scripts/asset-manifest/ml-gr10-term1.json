@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "ml",
+    "term": "term1",
+    "topic": "patterns-relationships-representations",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ml/term1/patterns-relationships-representations/diagram.webp",
+    "alt": "Patterns, Relationships and Representations",
+    "prompt": "A clear educational illustration depicting \"Patterns, Relationships and Representations\": Sequences, functions, and data visualization."
+  },
+  {
+    "grade": "grade10",
+    "subject": "ml",
+    "term": "term1",
+    "topic": "numbers-calculations-context",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ml/term1/numbers-calculations-context/diagram.webp",
+    "alt": "Numbers and Calculations in Context",
+    "prompt": "A clear educational illustration depicting \"Numbers and Calculations in Context\": Real-world arithmetic applications."
+  },
+  {
+    "grade": "grade10",
+    "subject": "ml",
+    "term": "term1",
+    "topic": "measurement-conversions-time",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ml/term1/measurement-conversions-time/diagram.webp",
+    "alt": "Measurement: Conversions and Time",
+    "prompt": "A clear educational illustration depicting \"Measurement: Conversions and Time\": Units and temporal calculations."
+  }
+]

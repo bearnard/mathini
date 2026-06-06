@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "econ",
+    "term": "term3",
+    "topic": "tourism-environmental-sustainability",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/econ/term3/tourism-environmental-sustainability/diagram.webp",
+    "alt": "Tourism and Environmental Sustainability",
+    "prompt": "A clear educational illustration depicting \"Tourism and Environmental Sustainability\": Tourism as a growth sector and the need for sustainable use of resources."
+  },
+  {
+    "grade": "grade12",
+    "subject": "econ",
+    "term": "term3",
+    "topic": "growth-development-industrial-policy",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/econ/term3/growth-development-industrial-policy/diagram.webp",
+    "alt": "Growth, Development and Industrial Policy",
+    "prompt": "A clear educational illustration depicting \"Growth, Development and Industrial Policy\": Broadening growth through industrialisation and structural change."
+  },
+  {
+    "grade": "grade12",
+    "subject": "econ",
+    "term": "term3",
+    "topic": "economic-indicators-inflation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/econ/term3/economic-indicators-inflation/diagram.webp",
+    "alt": "Economic Indicators and Inflation",
+    "prompt": "A clear educational illustration depicting \"Economic Indicators and Inflation\": Reading macro indicators and understanding price instability."
+  },
+  {
+    "grade": "grade12",
+    "subject": "econ",
+    "term": "term3",
+    "topic": "contemporary-economic-issues",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/econ/term3/contemporary-economic-issues/diagram.webp",
+    "alt": "Contemporary Economic Issues",
+    "prompt": "A clear educational illustration depicting \"Contemporary Economic Issues\": Applying Economics to unemployment, energy, inequality and inclusion."
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "ls",
+    "term": "term1",
+    "topic": "reproduction-vertebrates",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ls/term1/reproduction-vertebrates/diagram.webp",
+    "alt": "Fertilisation strategies in vertebrates",
+    "prompt": "A clear educational illustration depicting \"Fertilisation strategies in vertebrates\": Fertilisation strategies, ovipary, vivipary and parental care."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ls",
+    "term": "term1",
+    "topic": "meiosis",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ls/term1/meiosis/diagram.webp",
+    "alt": "Stages of meiosis I",
+    "prompt": "A clear educational illustration depicting \"Stages of meiosis I\": Reduction division, chromosome behaviour and genetic variation."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ls",
+    "term": "term1",
+    "topic": "human-reproduction",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ls/term1/human-reproduction/diagram.webp",
+    "alt": "Human reproductive structures",
+    "prompt": "A clear educational illustration depicting \"Human reproductive structures\": Reproductive systems, menstrual cycle, fertilisation and pregnancy."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ls",
+    "term": "term1",
+    "topic": "dna-protein-synthesis",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ls/term1/dna-protein-synthesis/diagram.webp",
+    "alt": "Organisation of genetic material",
+    "prompt": "A clear educational illustration depicting \"Organisation of genetic material\": DNA structure, replication, transcription and translation."
+  }
+]

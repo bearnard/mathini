@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "ls",
+    "term": "term1",
+    "topic": "mitosis-cancer",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ls/term1/mitosis-cancer/diagram.webp",
+    "alt": "Stages of Mitosis",
+    "prompt": "A clear educational illustration depicting \"Stages of Mitosis\": Cell division and abnormal growth."
+  },
+  {
+    "grade": "grade10",
+    "subject": "ls",
+    "term": "term1",
+    "topic": "cells-transport",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ls/term1/cells-transport/diagram.webp",
+    "alt": "Transport Across Membranes",
+    "prompt": "A clear educational illustration depicting \"Transport Across Membranes\": Cell biology and membrane mechanisms."
+  },
+  {
+    "grade": "grade10",
+    "subject": "ls",
+    "term": "term1",
+    "topic": "chemistry-of-life-enzymes",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ls/term1/chemistry-of-life-enzymes/diagram.webp",
+    "alt": "Enzyme-catalysed reaction",
+    "prompt": "A clear educational illustration depicting \"Enzyme-catalysed reaction\": Biochemistry and cellular processes."
+  }
+]

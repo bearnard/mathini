@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "ps",
+    "term": "term4",
+    "topic": "paper2-chemistry-integration",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ps/term4/paper2-chemistry-integration/diagram.webp",
+    "alt": "Paper 2 Chemistry Integration",
+    "prompt": "A clear educational illustration depicting \"Paper 2 Chemistry Integration\": Organic chemistry, equilibrium, acids-bases and electrochemistry revision."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ps",
+    "term": "term4",
+    "topic": "paper1-mechanics-waves-electricity",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ps/term4/paper1-mechanics-waves-electricity/diagram.webp",
+    "alt": "Paper 1 Mechanics, Waves and Electricity Revision",
+    "prompt": "A clear educational illustration depicting \"Paper 1 Mechanics, Waves and Electricity Revision\": Integrated NSC revision across mechanics, Doppler effect and circuits."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ps",
+    "term": "term4",
+    "topic": "paper1-electrodynamics-optics-skills",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ps/term4/paper1-electrodynamics-optics-skills/diagram.webp",
+    "alt": "Paper 1 Electrodynamics and Optics Revision",
+    "prompt": "A clear educational illustration depicting \"Paper 1 Electrodynamics and Optics Revision\": Generators, motors, modern physics and exam interpretation skills."
+  }
+]

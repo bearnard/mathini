@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "oral-trial-preparation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/eng/term3/oral-trial-preparation/diagram.webp",
+    "alt": "Oral Completion and Trial Preparation",
+    "prompt": "A clear educational illustration depicting \"Oral Completion and Trial Preparation\": Finishing oral requirements and sharpening speaking and exam routines for trials."
+  },
+  {
+    "grade": "grade12",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "literature-revision-synthesis",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/eng/term3/literature-revision-synthesis/diagram.webp",
+    "alt": "From \\",
+    "prompt": "A clear educational illustration depicting \"From \\\": Deepening literature revision for trial-exam precision and whole-text insight."
+  },
+  {
+    "grade": "grade12",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "advanced-writing-editing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/eng/term3/advanced-writing-editing/diagram.webp",
+    "alt": "Advanced Writing and Editing",
+    "prompt": "A clear educational illustration depicting \"Advanced Writing and Editing\": Polishing writing through coherence, precision and exam-aware editing."
+  }
+]

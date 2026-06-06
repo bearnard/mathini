@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "ps",
+    "term": "term3",
+    "topic": "vectors-motion-mechanical-energy",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ps/term3/vectors-motion-mechanical-energy/diagram.webp",
+    "alt": "Vectors, Motion and Mechanical Energy",
+    "prompt": "A clear educational illustration depicting \"Vectors, Motion and Mechanical Energy\": Kinematics and energy analysis."
+  },
+  {
+    "grade": "grade10",
+    "subject": "ps",
+    "term": "term3",
+    "topic": "chemical-change-stoichiometry",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ps/term3/chemical-change-stoichiometry/diagram.webp",
+    "alt": "Chemical Change and Stoichiometry",
+    "prompt": "A clear educational illustration depicting \"Chemical Change and Stoichiometry\": Reactions and quantitative analysis."
+  }
+]

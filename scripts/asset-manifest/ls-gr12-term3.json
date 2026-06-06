@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "ls",
+    "term": "term3",
+    "topic": "revision-trial-examinations",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ls/term3/revision-trial-examinations/diagram.webp",
+    "alt": "Grade 12 Life Sciences revision map",
+    "prompt": "A clear educational illustration depicting \"Grade 12 Life Sciences revision map\": Integrating Paper 1 and Paper 2 content for trial exams."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ls",
+    "term": "term3",
+    "topic": "human-evolution",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ls/term3/human-evolution/diagram.webp",
+    "alt": "Common ancestry in primates",
+    "prompt": "A clear educational illustration depicting \"Common ancestry in primates\": Hominid fossils, common ancestry and the Out of Africa hypothesis."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ls",
+    "term": "term3",
+    "topic": "evolution-natural-selection",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ls/term3/evolution-natural-selection/diagram.webp",
+    "alt": "Sequence of natural selection",
+    "prompt": "A clear educational illustration depicting \"Sequence of natural selection\": Darwinism, Lamarckism, variation, selection and speciation."
+  }
+]

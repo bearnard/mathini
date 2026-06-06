@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "lo",
+    "term": "term3",
+    "topic": "ideologies-media-and-citizenship",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/lo/term3/ideologies-media-and-citizenship/diagram.webp",
+    "alt": "Ideologies, Media and Citizenship",
+    "prompt": "A clear educational illustration depicting \"Ideologies, Media and Citizenship\": Ideology, bias, propaganda, social movements and responsible participation in democracy.."
+  },
+  {
+    "grade": "grade12",
+    "subject": "lo",
+    "term": "term3",
+    "topic": "physical-education-task-3",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/lo/term3/physical-education-task-3/diagram.webp",
+    "alt": "Physical Education Task — Term 3",
+    "prompt": "A clear educational illustration depicting \"Physical Education Task — Term 3\": Fitness maintenance, teamwork, self-discipline, participation review and health responsibility.."
+  },
+  {
+    "grade": "grade12",
+    "subject": "lo",
+    "term": "term3",
+    "topic": "democracy-and-human-rights",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/lo/term3/democracy-and-human-rights/diagram.webp",
+    "alt": "Democracy and Human Rights",
+    "prompt": "A clear educational illustration depicting \"Democracy and Human Rights\": Human rights violations, discrimination, redress, constitutional values and accountability.."
+  },
+  {
+    "grade": "grade12",
+    "subject": "lo",
+    "term": "term3",
+    "topic": "active-citizenship-and-leadership",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/lo/term3/active-citizenship-and-leadership/diagram.webp",
+    "alt": "Active Citizenship and Leadership",
+    "prompt": "A clear educational illustration depicting \"Active Citizenship and Leadership\": Civic participation, social justice, diversity, ethical leadership and social cohesion.."
+  }
+]

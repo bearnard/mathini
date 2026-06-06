@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "cat",
+    "term": "term3",
+    "topic": "internet-communication-networks",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/cat/term3/internet-communication-networks/diagram.webp",
+    "alt": "Internet, Communication and Networks",
+    "prompt": "A clear educational illustration depicting \"Internet, Communication and Networks\": Grade 10 · Computer Applications Technology · Term 3."
+  },
+  {
+    "grade": "grade10",
+    "subject": "cat",
+    "term": "term3",
+    "topic": "application-development-web-basics",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/cat/term3/application-development-web-basics/diagram.webp",
+    "alt": "Application Development and Web Basics",
+    "prompt": "A clear educational illustration depicting \"Application Development and Web Basics\": Grade 10 · Computer Applications Technology · Term 3."
+  }
+]

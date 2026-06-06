@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "his",
+    "term": "term4",
+    "topic": "source-based-and-essay-skills",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/his/term4/source-based-and-essay-skills/diagram.webp",
+    "alt": "Source-based and Essay Skills",
+    "prompt": "A clear educational illustration depicting \"Source-based and Essay Skills\": How to read sources, plan arguments, and write successful History answers."
+  },
+  {
+    "grade": "grade12",
+    "subject": "his",
+    "term": "term4",
+    "topic": "resistance-and-apartheid-crisis-revision",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/his/term4/resistance-and-apartheid-crisis-revision/diagram.webp",
+    "alt": "Resistance and Apartheid Crisis Revision",
+    "prompt": "A clear educational illustration depicting \"Resistance and Apartheid Crisis Revision\": Synoptic review of Black Consciousness, Soweto, unions, UDF, reform, and sanctions."
+  },
+  {
+    "grade": "grade12",
+    "subject": "his",
+    "term": "term4",
+    "topic": "democracy-and-cold-war-revision",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/his/term4/democracy-and-cold-war-revision/diagram.webp",
+    "alt": "Democracy and Cold War Revision",
+    "prompt": "A clear educational illustration depicting \"Democracy and Cold War Revision\": Synoptic review of African independence, negotiations, democracy, and the new world order."
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term3",
+    "topic": "statistics-regression-correlation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term3/statistics-regression-correlation/diagram.webp",
+    "alt": "Statistics: Regression and Correlation",
+    "prompt": "A clear educational illustration depicting \"Statistics: Regression and Correlation\": Scatter plots, least-squares lines and sensible prediction."
+  },
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term3",
+    "topic": "euclidean-geometry",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term3/euclidean-geometry/diagram.webp",
+    "alt": "Euclidean Geometry",
+    "prompt": "A clear educational illustration depicting \"Euclidean Geometry\": Similarity, proportional reasoning, midpoint theorem and riders."
+  },
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term3",
+    "topic": "counting-probability",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term3/counting-probability/diagram.webp",
+    "alt": "Counting and Probability",
+    "prompt": "A clear educational illustration depicting \"Counting and Probability\": Counting principle, Venn diagrams, trees and compound events."
+  }
+]

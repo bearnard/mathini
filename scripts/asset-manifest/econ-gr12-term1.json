@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "econ",
+    "term": "term1",
+    "topic": "public-sector",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/econ/term1/public-sector/diagram.webp",
+    "alt": "The Public Sector",
+    "prompt": "A clear educational illustration depicting \"The Public Sector\": Government functions, budgeting, taxation and public-sector failure."
+  },
+  {
+    "grade": "grade12",
+    "subject": "econ",
+    "term": "term1",
+    "topic": "foreign-exchange-balance-of-payments",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/econ/term1/foreign-exchange-balance-of-payments/diagram.webp",
+    "alt": "Foreign Exchange Market",
+    "prompt": "A clear educational illustration depicting \"Foreign Exchange Market\": Exchange rates, demand and supply of currency, and external accounts."
+  },
+  {
+    "grade": "grade12",
+    "subject": "econ",
+    "term": "term1",
+    "topic": "circular-flow-multiplier",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/econ/term1/circular-flow-multiplier/diagram.webp",
+    "alt": "Circular Flow and the Multiplier",
+    "prompt": "A clear educational illustration depicting \"Circular Flow and the Multiplier\": How income moves through an open economy and why injections multiply."
+  },
+  {
+    "grade": "grade12",
+    "subject": "econ",
+    "term": "term1",
+    "topic": "business-cycles",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/econ/term1/business-cycles/diagram.webp",
+    "alt": "Business Cycles",
+    "prompt": "A clear educational illustration depicting \"Business Cycles\": Phases, turning points, indicators and stabilisation policy."
+  }
+]

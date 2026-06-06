@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "cat",
+    "term": "term2",
+    "topic": "word-processing-spreadsheets-information-management",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/cat/term2/word-processing-spreadsheets-information-management/diagram.webp",
+    "alt": "Word Processing, Spreadsheets and Information Management",
+    "prompt": "A clear educational illustration depicting \"Word Processing, Spreadsheets and Information Management\": Grade 10 · Computer Applications Technology · Term 2."
+  },
+  {
+    "grade": "grade10",
+    "subject": "cat",
+    "term": "term2",
+    "topic": "systems-networks-digital-responsibility",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/cat/term2/systems-networks-digital-responsibility/diagram.webp",
+    "alt": "Systems, Networks and Digital Responsibility",
+    "prompt": "A clear educational illustration depicting \"Systems, Networks and Digital Responsibility\": Grade 10 · Computer Applications Technology · Term 2."
+  }
+]

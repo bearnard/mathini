@@ -1,0 +1,13 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "econ",
+    "term": "term4",
+    "topic": "current-south-african-economic-issues",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/econ/term4/current-south-african-economic-issues/diagram.webp",
+    "alt": "Current South African Economic Issues",
+    "prompt": "A clear educational illustration depicting \"Current South African Economic Issues\": Grade 10 · Economics · Term 4."
+  }
+]

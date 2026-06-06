@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "geo",
+    "term": "term1",
+    "topic": "pressure-belts-winds",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/geo/term1/pressure-belts-winds/diagram.webp",
+    "alt": "Pressure Belts and Global Winds",
+    "prompt": "A clear educational illustration depicting \"Pressure Belts and Global Winds\": Atmospheric circulation, trade winds, westerlies and monsoons."
+  },
+  {
+    "grade": "grade11",
+    "subject": "geo",
+    "term": "term1",
+    "topic": "energy-balance",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/geo/term1/energy-balance/diagram.webp",
+    "alt": "The Earth",
+    "prompt": "A clear educational illustration depicting \"The Earth\": Radiation, albedo and the greenhouse effect."
+  },
+  {
+    "grade": "grade11",
+    "subject": "geo",
+    "term": "term1",
+    "topic": "el-nino-la-nina",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/geo/term1/el-nino-la-nina/diagram.webp",
+    "alt": "El Niño and La Niña",
+    "prompt": "A clear educational illustration depicting \"El Niño and La Niña\": The ENSO cycle and its impact on Africa."
+  },
+  {
+    "grade": "grade11",
+    "subject": "geo",
+    "term": "term1",
+    "topic": "africa-climate-gis",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/geo/term1/africa-climate-gis/diagram.webp",
+    "alt": "Africa",
+    "prompt": "A clear educational illustration depicting \"Africa\": Climate zones, desertification, the Benguela Current and remote sensing."
+  }
+]

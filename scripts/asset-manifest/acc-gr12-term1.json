@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "acc",
+    "term": "term1",
+    "topic": "company-share-capital",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/acc/term1/company-share-capital/diagram.webp",
+    "alt": "Statement of Changes in Equity (Extract)",
+    "prompt": "A clear educational illustration depicting \"Statement of Changes in Equity (Extract)\": Ordinary shares, buy-backs, dividends and the roles of shareholders, directors and auditors."
+  },
+  {
+    "grade": "grade12",
+    "subject": "acc",
+    "term": "term1",
+    "topic": "company-financial-statements",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/acc/term1/company-financial-statements/diagram.webp",
+    "alt": "Statement of Comprehensive Income",
+    "prompt": "A clear educational illustration depicting \"Statement of Comprehensive Income\": Preparing the statement of comprehensive income, statement of financial position and supporting notes."
+  },
+  {
+    "grade": "grade12",
+    "subject": "acc",
+    "term": "term1",
+    "topic": "cash-flow-statements",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/acc/term1/cash-flow-statements/diagram.webp",
+    "alt": "Cash Flow Statement (Extract)",
+    "prompt": "A clear educational illustration depicting \"Cash Flow Statement (Extract)\": Operating, investing and financing activities in Grade 12 company reporting."
+  },
+  {
+    "grade": "grade12",
+    "subject": "acc",
+    "term": "term1",
+    "topic": "analysis-interpretation-ethics",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/acc/term1/analysis-interpretation-ethics/diagram.webp",
+    "alt": "Statement of Comprehensive Income (Extract)",
+    "prompt": "A clear educational illustration depicting \"Statement of Comprehensive Income (Extract)\": Using company indicators, governance principles and ethical judgement."
+  }
+]

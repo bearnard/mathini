@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "ml",
+    "term": "term4",
+    "topic": "exchange-rates",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ml/term4/exchange-rates/diagram.webp",
+    "alt": "Finance: Exchange Rates",
+    "prompt": "A clear educational illustration depicting \"Finance: Exchange Rates\": Converting currencies, buying and selling rates, and the impact of rand movements."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ml",
+    "term": "term4",
+    "topic": "exam-integration",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ml/term4/exam-integration/diagram.webp",
+    "alt": "Revision and Exam Integration",
+    "prompt": "A clear educational illustration depicting \"Revision and Exam Integration\": Integrating all Grade 11 ML topics for end-of-year examination preparation."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ml",
+    "term": "term4",
+    "topic": "data-handling",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ml/term4/data-handling/diagram.webp",
+    "alt": "Data Handling",
+    "prompt": "A clear educational illustration depicting \"Data Handling\": Organising, representing, interpreting data and writing evidence-based conclusions."
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "ps",
+    "term": "term4",
+    "topic": "physics-consolidation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ps/term4/physics-consolidation/diagram.webp",
+    "alt": "Physics Consolidation",
+    "prompt": "A clear educational illustration depicting \"Physics Consolidation\": Integrated review of Grade 11 mechanics and electricity topics."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ps",
+    "term": "term4",
+    "topic": "final-exam-prep",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ps/term4/final-exam-prep/diagram.webp",
+    "alt": "Final Examination Preparation",
+    "prompt": "A clear educational illustration depicting \"Final Examination Preparation\": Paper structure, exam strategies and integrated Grade 11 practice."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ps",
+    "term": "term4",
+    "topic": "chemistry-consolidation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ps/term4/chemistry-consolidation/diagram.webp",
+    "alt": "Chemistry Consolidation",
+    "prompt": "A clear educational illustration depicting \"Chemistry Consolidation\": Integrated review of Grade 11 organic chemistry and electrochemistry."
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "geo",
+    "term": "term3",
+    "topic": "mining-industries-and-development-corridors",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/geo/term3/mining-industries-and-development-corridors/diagram.webp",
+    "alt": "Mining, Industries and Development Corridors",
+    "prompt": "A clear educational illustration depicting \"Mining, Industries and Development Corridors\": Resources, manufacturing and strategic growth zones."
+  },
+  {
+    "grade": "grade12",
+    "subject": "geo",
+    "term": "term3",
+    "topic": "economic-sectors-and-employment",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/geo/term3/economic-sectors-and-employment/diagram.webp",
+    "alt": "Economic Sectors and Employment",
+    "prompt": "A clear educational illustration depicting \"Economic Sectors and Employment\": How South Africa’s economy is organised and where people work."
+  },
+  {
+    "grade": "grade12",
+    "subject": "geo",
+    "term": "term3",
+    "topic": "agriculture-and-food-security",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/geo/term3/agriculture-and-food-security/diagram.webp",
+    "alt": "Agriculture and Food Security",
+    "prompt": "A clear educational illustration depicting \"Agriculture and Food Security\": Farming systems, production factors and feeding the population."
+  }
+]

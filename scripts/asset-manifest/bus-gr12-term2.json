@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "bus",
+    "term": "term2",
+    "topic": "quality-management-systems",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/bus/term2/quality-management-systems/diagram.webp",
+    "alt": "SWOT Analysis: Quality Improvement Plan",
+    "prompt": "A clear educational illustration depicting \"SWOT Analysis: Quality Improvement Plan\": Quality concepts, quality control, quality assurance and quality circles."
+  },
+  {
+    "grade": "grade12",
+    "subject": "bus",
+    "term": "term2",
+    "topic": "leadership-management",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/bus/term2/leadership-management/diagram.webp",
+    "alt": "SWOT Analysis: Entrepreneurial Business",
+    "prompt": "A clear educational illustration depicting \"SWOT Analysis: Entrepreneurial Business\": Management tasks, leadership styles and leadership theories."
+  },
+  {
+    "grade": "grade12",
+    "subject": "bus",
+    "term": "term2",
+    "topic": "investment-insurance-conflict-management",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/bus/term2/investment-insurance-conflict-management/diagram.webp",
+    "alt": "SWOT Analysis: Investing Business Surplus Funds",
+    "prompt": "A clear educational illustration depicting \"SWOT Analysis: Investing Business Surplus Funds\": JSE, investment options, insurance principles and resolving team conflict."
+  },
+  {
+    "grade": "grade12",
+    "subject": "bus",
+    "term": "term2",
+    "topic": "business-sectors-environments",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/bus/term2/business-sectors-environments/diagram.webp",
+    "alt": "SWOT Analysis: Small Food Manufacturer",
+    "prompt": "A clear educational illustration depicting \"SWOT Analysis: Small Food Manufacturer\": Primary, secondary and tertiary sectors within changing business environments."
+  }
+]

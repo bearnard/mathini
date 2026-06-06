@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "it",
+    "term": "term3",
+    "topic": "social-implications",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/it/term3/social-implications/diagram.webp",
+    "alt": "Social Implications of Technology",
+    "prompt": "A clear educational illustration depicting \"Social Implications of Technology\": Privacy, cybercrime and responsible digital citizenship."
+  },
+  {
+    "grade": "grade11",
+    "subject": "it",
+    "term": "term3",
+    "topic": "protocols-media",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/it/term3/protocols-media/diagram.webp",
+    "alt": "Protocols and Communication Media",
+    "prompt": "A clear educational illustration depicting \"Protocols and Communication Media\": Rules for data transmission and types of transmission media."
+  },
+  {
+    "grade": "grade11",
+    "subject": "it",
+    "term": "term3",
+    "topic": "network-topologies",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/it/term3/network-topologies/diagram.webp",
+    "alt": "Network Topologies",
+    "prompt": "A clear educational illustration depicting \"Network Topologies\": Types of network layouts and their characteristics."
+  },
+  {
+    "grade": "grade11",
+    "subject": "it",
+    "term": "term3",
+    "topic": "data-processing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/it/term3/data-processing/diagram.webp",
+    "alt": "Data Processing and Validation",
+    "prompt": "A clear educational illustration depicting \"Data Processing and Validation\": Validating input, processing arrays and handling exceptions."
+  }
+]

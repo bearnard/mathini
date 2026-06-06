@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "ps",
+    "term": "term2",
+    "topic": "matter-states-phase-change",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ps/term2/matter-states-phase-change/diagram.webp",
+    "alt": "Matter, States and Phase Change",
+    "prompt": "A clear educational illustration depicting \"Matter, States and Phase Change\": Properties and transformations of matter."
+  },
+  {
+    "grade": "grade10",
+    "subject": "ps",
+    "term": "term2",
+    "topic": "atoms-periodic-table-bonding",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ps/term2/atoms-periodic-table-bonding/diagram.webp",
+    "alt": "Atoms, Periodic Table and Bonding",
+    "prompt": "A clear educational illustration depicting \"Atoms, Periodic Table and Bonding\": Atomic structure and chemical bonds."
+  }
+]

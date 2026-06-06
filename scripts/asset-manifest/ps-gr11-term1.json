@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "ps",
+    "term": "term1",
+    "topic": "work-energy",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ps/term1/work-energy/diagram.webp",
+    "alt": "Work, Energy and Power",
+    "prompt": "A clear educational illustration depicting \"Work, Energy and Power\": Work done, kinetic and potential energy, conservation and power."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ps",
+    "term": "term1",
+    "topic": "vectors",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ps/term1/vectors/diagram.webp",
+    "alt": "Vectors and Forces",
+    "prompt": "A clear educational illustration depicting \"Vectors and Forces\": Resultant vectors, component resolution and free-body diagrams."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ps",
+    "term": "term1",
+    "topic": "newtons-laws",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ps/term1/newtons-laws/diagram.webp",
+    "alt": "Newton",
+    "prompt": "A clear educational illustration depicting \"Newton\": Inertia, F = ma, action-reaction pairs and friction forces."
+  }
+]

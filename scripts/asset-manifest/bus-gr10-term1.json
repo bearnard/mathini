@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "bus",
+    "term": "term1",
+    "topic": "quality-external-environments",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/bus/term1/quality-external-environments/diagram.webp",
+    "alt": "Quality and the External Environment",
+    "prompt": "A clear educational illustration depicting \"Quality and the External Environment\": Grade 10 · Business Studies · Term 1."
+  },
+  {
+    "grade": "grade10",
+    "subject": "bus",
+    "term": "term1",
+    "topic": "business-environments-functions",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/bus/term1/business-environments-functions/diagram.webp",
+    "alt": "Business Environments and Functions",
+    "prompt": "A clear educational illustration depicting \"Business Environments and Functions\": Grade 10 · Business Studies · Term 1."
+  }
+]

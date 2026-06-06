@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "literary-transactional-responses",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/eng/term3/literary-transactional-responses/diagram.webp",
+    "alt": "Literary and Transactional Responses",
+    "prompt": "A clear educational illustration depicting \"Literary and Transactional Responses\": Literary essays, reviews, interviews, reports and register control."
+  },
+  {
+    "grade": "grade11",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "language-consolidation-editing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/eng/term3/language-consolidation-editing/diagram.webp",
+    "alt": "Language Consolidation and Editing",
+    "prompt": "A clear educational illustration depicting \"Language Consolidation and Editing\": Editing, active and passive voice, direct and indirect speech, oral delivery."
+  },
+  {
+    "grade": "grade11",
+    "subject": "eng",
+    "term": "term3",
+    "topic": "drama-poetry-comparison",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/eng/term3/drama-poetry-comparison/diagram.webp",
+    "alt": "From \\",
+    "prompt": "A clear educational illustration depicting \"From \\\": Stagecraft, dramatic devices, poetry comparison and analytical responses."
+  }
+]

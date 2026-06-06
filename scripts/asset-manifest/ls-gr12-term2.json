@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "ls",
+    "term": "term2",
+    "topic": "pedigrees-sex-linkage-mutations",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ls/term2/pedigrees-sex-linkage-mutations/diagram.webp",
+    "alt": "Basic pedigree conventions",
+    "prompt": "A clear educational illustration depicting \"Basic pedigree conventions\": Pedigree analysis, X-linked inheritance and mutation effects."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ls",
+    "term": "term2",
+    "topic": "nervous-system-sense-organs",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ls/term2/nervous-system-sense-organs/diagram.webp",
+    "alt": "Organisation of the nervous system",
+    "prompt": "A clear educational illustration depicting \"Organisation of the nervous system\": Neurons, reflexes, coordination, the eye and the ear."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ls",
+    "term": "term2",
+    "topic": "genetics-inheritance",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ls/term2/genetics-inheritance/diagram.webp",
+    "alt": "Key inheritance terms",
+    "prompt": "A clear educational illustration depicting \"Key inheritance terms\": Genes, alleles, monohybrid crosses and inheritance patterns."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ls",
+    "term": "term2",
+    "topic": "endocrine-homeostasis-plant-responses",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ls/term2/endocrine-homeostasis-plant-responses/diagram.webp",
+    "alt": "Major endocrine control points",
+    "prompt": "A clear educational illustration depicting \"Major endocrine control points\": Hormones, negative feedback, blood glucose, thermoregulation and tropisms."
+  }
+]

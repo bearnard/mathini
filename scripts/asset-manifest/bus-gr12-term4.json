@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "bus",
+    "term": "term4",
+    "topic": "paper2-case-studies-essays",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/bus/term4/paper2-case-studies-essays/diagram.webp",
+    "alt": "SWOT Analysis: Essay-Writing Strategy",
+    "prompt": "A clear educational illustration depicting \"SWOT Analysis: Essay-Writing Strategy\": Paper 2 focus areas, evidence use and essay planning."
+  },
+  {
+    "grade": "grade12",
+    "subject": "bus",
+    "term": "term4",
+    "topic": "paper1-integrated-revision",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/bus/term4/paper1-integrated-revision/diagram.webp",
+    "alt": "SWOT Analysis: Paper 1 Revision Plan",
+    "prompt": "A clear educational illustration depicting \"SWOT Analysis: Paper 1 Revision Plan\": Revision strategies for environments, operations and integrated case studies."
+  },
+  {
+    "grade": "grade12",
+    "subject": "bus",
+    "term": "term4",
+    "topic": "exam-action-verbs-time-management",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/bus/term4/exam-action-verbs-time-management/diagram.webp",
+    "alt": "SWOT Analysis: Exam Preparation Strategy",
+    "prompt": "A clear educational illustration depicting \"SWOT Analysis: Exam Preparation Strategy\": Command words, mark allocation and smart NSC exam timing."
+  }
+]

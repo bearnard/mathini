@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "ps",
+    "term": "term2",
+    "topic": "projectile-motion",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ps/term2/projectile-motion/diagram.webp",
+    "alt": "Vertical Projectile Motion",
+    "prompt": "A clear educational illustration depicting \"Vertical Projectile Motion\": Free fall, kinematic equations and motion graphs for vertical projectiles."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ps",
+    "term": "term2",
+    "topic": "momentum",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ps/term2/momentum/diagram.webp",
+    "alt": "Momentum and Impulse",
+    "prompt": "A clear educational illustration depicting \"Momentum and Impulse\": Momentum, impulse-momentum theorem and conservation of momentum."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ps",
+    "term": "term2",
+    "topic": "electrostatics",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ps/term2/electrostatics/diagram.webp",
+    "alt": "Electrostatics",
+    "prompt": "A clear educational illustration depicting \"Electrostatics\": Electric charge, Coulomb."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ps",
+    "term": "term2",
+    "topic": "electric-circuits",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ps/term2/electric-circuits/diagram.webp",
+    "alt": "Electric Circuits",
+    "prompt": "A clear educational illustration depicting \"Electric Circuits\": Ohm."
+  }
+]

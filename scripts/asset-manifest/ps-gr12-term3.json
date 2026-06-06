@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "ps",
+    "term": "term3",
+    "topic": "photoelectric-effect-spectra",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ps/term3/photoelectric-effect-spectra/diagram.webp",
+    "alt": "Photoelectric Effect and Atomic Spectra",
+    "prompt": "A clear educational illustration depicting \"Photoelectric Effect and Atomic Spectra\": Photons, threshold frequency and line spectra evidence."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ps",
+    "term": "term3",
+    "topic": "electric-circuits-internal-resistance",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ps/term3/electric-circuits-internal-resistance/diagram.webp",
+    "alt": "Electric Circuits and Internal Resistance",
+    "prompt": "A clear educational illustration depicting \"Electric Circuits and Internal Resistance\": EMF, terminal potential difference and complex circuit analysis."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ps",
+    "term": "term3",
+    "topic": "electrodynamics-generators-motors",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ps/term3/electrodynamics-generators-motors/diagram.webp",
+    "alt": "Electrodynamics: Generators and Motors",
+    "prompt": "A clear educational illustration depicting \"Electrodynamics: Generators and Motors\": Electromagnetic induction, machine comparison and RMS values."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ps",
+    "term": "term3",
+    "topic": "electrochemical-reactions",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ps/term3/electrochemical-reactions/diagram.webp",
+    "alt": "Electrochemical Reactions",
+    "prompt": "A clear educational illustration depicting \"Electrochemical Reactions\": Galvanic cells, electrolysis, half-reactions and industrial applications."
+  }
+]

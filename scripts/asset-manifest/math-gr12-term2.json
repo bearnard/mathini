@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term2",
+    "topic": "trigonometry-two-three-dimensions",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term2/trigonometry-two-three-dimensions/diagram.webp",
+    "alt": "Trigonometry in Two and Three Dimensions",
+    "prompt": "A clear educational illustration depicting \"Trigonometry in Two and Three Dimensions\": Non-routine diagrams, sine and cosine rules, and 3D reasoning."
+  },
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term2",
+    "topic": "polynomial-functions",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term2/polynomial-functions/diagram.webp",
+    "alt": "Polynomial Functions",
+    "prompt": "A clear educational illustration depicting \"Polynomial Functions\": Factor theorem, remainder theorem and cubic behaviour."
+  },
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term2",
+    "topic": "differential-calculus",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term2/differential-calculus/diagram.webp",
+    "alt": "Differential Calculus",
+    "prompt": "A clear educational illustration depicting \"Differential Calculus\": Derivatives, tangents, stationary points and optimisation."
+  },
+  {
+    "grade": "grade12",
+    "subject": "math",
+    "term": "term2",
+    "topic": "analytical-geometry-circle",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/math/term2/analytical-geometry-circle/diagram.webp",
+    "alt": "Analytical Geometry of the Circle",
+    "prompt": "A clear educational illustration depicting \"Analytical Geometry of the Circle\": Circle equations, tangents, diameters and coordinate proofs."
+  }
+]

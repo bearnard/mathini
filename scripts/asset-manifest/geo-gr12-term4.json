@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "geo",
+    "term": "term4",
+    "topic": "settlements-revision",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/geo/term4/settlements-revision/diagram.webp",
+    "alt": "Settlements Revision",
+    "prompt": "A clear educational illustration depicting \"Settlements Revision\": Rural and urban concepts for exam consolidation."
+  },
+  {
+    "grade": "grade12",
+    "subject": "geo",
+    "term": "term4",
+    "topic": "economic-geography-and-mapwork-revision",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/geo/term4/economic-geography-and-mapwork-revision/diagram.webp",
+    "alt": "Economic Geography and Mapwork Revision",
+    "prompt": "A clear educational illustration depicting \"Economic Geography and Mapwork Revision\": Consolidating sectors, resources, corridors, GIS and exam technique."
+  },
+  {
+    "grade": "grade12",
+    "subject": "geo",
+    "term": "term4",
+    "topic": "climate-and-geomorphology-revision",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/geo/term4/climate-and-geomorphology-revision/diagram.webp",
+    "alt": "Climate and Geomorphology Revision",
+    "prompt": "A clear educational illustration depicting \"Climate and Geomorphology Revision\": Key synoptic, local climate and river-system ideas for exams."
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "acc",
+    "term": "term4",
+    "topic": "cost-accounting-basics",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/acc/term4/cost-accounting-basics/diagram.webp",
+    "alt": "Factory Overhead Control",
+    "prompt": "A clear educational illustration depicting \"Factory Overhead Control\": Classifying manufacturing costs, recording factory overheads and calculating the cost per unit."
+  },
+  {
+    "grade": "grade10",
+    "subject": "acc",
+    "term": "term4",
+    "topic": "budgeting-examination-consolidation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/acc/term4/budgeting-examination-consolidation/diagram.webp",
+    "alt": "Cash Budget",
+    "prompt": "A clear educational illustration depicting \"Cash Budget\": Using cash budgets and projected results to revise Grade 10 accounting in an exam-ready way."
+  }
+]

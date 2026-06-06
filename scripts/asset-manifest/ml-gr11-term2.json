@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "ml",
+    "term": "term2",
+    "topic": "midyear-prep",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ml/term2/midyear-prep/diagram.webp",
+    "alt": "Revision and Mid-year Preparation",
+    "prompt": "A clear educational illustration depicting \"Revision and Mid-year Preparation\": Integrating finance, measurement and map skills for mid-year examinations."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ml",
+    "term": "term2",
+    "topic": "measurement",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ml/term2/measurement/diagram.webp",
+    "alt": "Measurement",
+    "prompt": "A clear educational illustration depicting \"Measurement\": Length, mass, volume, temperature and reading measuring instruments."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ml",
+    "term": "term2",
+    "topic": "maps-plans-scale",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ml/term2/maps-plans-scale/diagram.webp",
+    "alt": "Maps, Plans and Scale",
+    "prompt": "A clear educational illustration depicting \"Maps, Plans and Scale\": Interpreting scales, calculating real distances and reading floor plans."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ml",
+    "term": "term2",
+    "topic": "interest-banking-inflation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ml/term2/interest-banking-inflation/diagram.webp",
+    "alt": "Finance: Interest, Banking and Inflation",
+    "prompt": "A clear educational illustration depicting \"Finance: Interest, Banking and Inflation\": Simple and compound interest, banking products and the effect of inflation."
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "acc",
+    "term": "term2",
+    "topic": "manufacturing-cost-statements",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/acc/term2/manufacturing-cost-statements/diagram.webp",
+    "alt": "Production Cost Statement",
+    "prompt": "A clear educational illustration depicting \"Production Cost Statement\": Prime cost, factory overheads and the cost of producing finished goods."
+  },
+  {
+    "grade": "grade12",
+    "subject": "acc",
+    "term": "term2",
+    "topic": "inventory-valuation-control",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/acc/term2/inventory-valuation-control/diagram.webp",
+    "alt": "Trading Stock",
+    "prompt": "A clear educational illustration depicting \"Trading Stock\": Valuing stock correctly and protecting it through sound internal control."
+  },
+  {
+    "grade": "grade12",
+    "subject": "acc",
+    "term": "term2",
+    "topic": "fixed-assets-analysis-control",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/acc/term2/fixed-assets-analysis-control/diagram.webp",
+    "alt": "Tangible Assets Note (Extract)",
+    "prompt": "A clear educational illustration depicting \"Tangible Assets Note (Extract)\": Depreciation, carrying value, disposals and internal control over tangible assets."
+  },
+  {
+    "grade": "grade12",
+    "subject": "acc",
+    "term": "term2",
+    "topic": "bank-creditors-reconciliations",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/acc/term2/bank-creditors-reconciliations/diagram.webp",
+    "alt": "Bank Account (Updated Cashbook View)",
+    "prompt": "A clear educational illustration depicting \"Bank Account (Updated Cashbook View)\": Reconciling records, finding errors and improving internal control."
+  }
+]

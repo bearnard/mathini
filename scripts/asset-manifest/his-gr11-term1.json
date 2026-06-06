@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "his",
+    "term": "term1",
+    "topic": "stalins-ussr",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/his/term1/stalins-ussr/diagram.webp",
+    "alt": "Stalin",
+    "prompt": "A clear educational illustration depicting \"Stalin\": Collectivisation, the Five-Year Plans, and the Great Terror."
+  },
+  {
+    "grade": "grade11",
+    "subject": "his",
+    "term": "term1",
+    "topic": "tsarism-1905-revolution",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/his/term1/tsarism-1905-revolution/diagram.webp",
+    "alt": "Tsarism and the 1905 Revolution",
+    "prompt": "A clear educational illustration depicting \"Tsarism and the 1905 Revolution\": Autocracy, discontent, Bloody Sunday, and the limits of reform."
+  },
+  {
+    "grade": "grade11",
+    "subject": "his",
+    "term": "term1",
+    "topic": "communist-ideology",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/his/term1/communist-ideology/diagram.webp",
+    "alt": "Communist Ideology",
+    "prompt": "A clear educational illustration depicting \"Communist Ideology\": Marxism, Leninism, the communist state, and propaganda."
+  },
+  {
+    "grade": "grade11",
+    "subject": "his",
+    "term": "term1",
+    "topic": "1917-russian-revolution",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/his/term1/1917-russian-revolution/diagram.webp",
+    "alt": "The 1917 Russian Revolution",
+    "prompt": "A clear educational illustration depicting \"The 1917 Russian Revolution\": From the February Revolution to the Bolshevik seizure of power."
+  }
+]

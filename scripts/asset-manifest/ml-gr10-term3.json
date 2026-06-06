@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade10",
+    "subject": "ml",
+    "term": "term3",
+    "topic": "measurement-perimeter-area-volume",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ml/term3/measurement-perimeter-area-volume/diagram.webp",
+    "alt": "Measurement: Perimeter, Area and Volume",
+    "prompt": "A clear educational illustration depicting \"Measurement: Perimeter, Area and Volume\": Spatial measurements of 2D and 3D shapes."
+  },
+  {
+    "grade": "grade10",
+    "subject": "ml",
+    "term": "term3",
+    "topic": "maps-plans-models",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ml/term3/maps-plans-models/diagram.webp",
+    "alt": "Maps, Plans and Models",
+    "prompt": "A clear educational illustration depicting \"Maps, Plans and Models\": Spatial visualization and representation."
+  },
+  {
+    "grade": "grade10",
+    "subject": "ml",
+    "term": "term3",
+    "topic": "finance-income-expenditure-profit-loss-budgets",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade10/ml/term3/finance-income-expenditure-profit-loss-budgets/diagram.webp",
+    "alt": "Finance: Income, Expenditure, Profit, Loss and Budgets",
+    "prompt": "A clear educational illustration depicting \"Finance: Income, Expenditure, Profit, Loss and Budgets\": Financial planning and analysis."
+  }
+]

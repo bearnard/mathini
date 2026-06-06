@@ -1,0 +1,24 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "ls",
+    "term": "term4",
+    "topic": "revision-exam-prep",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ls/term4/revision-exam-prep/diagram.webp",
+    "alt": "Revision and Examination Practice",
+    "prompt": "A clear educational illustration depicting \"Revision and Examination Practice\": Integrating Grade 11 content, drawings, graphs, and exam technique."
+  },
+  {
+    "grade": "grade11",
+    "subject": "ls",
+    "term": "term4",
+    "topic": "human-impact-environment",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/ls/term4/human-impact-environment/diagram.webp",
+    "alt": "Human Impact on the Environment",
+    "prompt": "A clear educational illustration depicting \"Human Impact on the Environment\": Climate change, biodiversity loss, pollution, and sustainable strategies."
+  }
+]

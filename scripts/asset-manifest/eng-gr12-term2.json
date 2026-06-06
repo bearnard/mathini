@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "eng",
+    "term": "term2",
+    "topic": "unseen-poetry-interpretation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/eng/term2/unseen-poetry-interpretation/diagram.webp",
+    "alt": "From \\",
+    "prompt": "A clear educational illustration depicting \"From \\\": Approaching unseen poetry with method, close reading and controlled interpretation."
+  },
+  {
+    "grade": "grade12",
+    "subject": "eng",
+    "term": "term2",
+    "topic": "prescribed-works-comparison",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/eng/term2/prescribed-works-comparison/diagram.webp",
+    "alt": "From \\",
+    "prompt": "A clear educational illustration depicting \"From \\\": Extending literature study through comparison, interpretation and thematic links."
+  },
+  {
+    "grade": "grade12",
+    "subject": "eng",
+    "term": "term2",
+    "topic": "midyear-exam-preparation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/eng/term2/midyear-exam-preparation/diagram.webp",
+    "alt": "Mid-Year Exam Preparation",
+    "prompt": "A clear educational illustration depicting \"Mid-Year Exam Preparation\": Getting ready for the first major Grade 12 exam cycle across all papers."
+  },
+  {
+    "grade": "grade12",
+    "subject": "eng",
+    "term": "term2",
+    "topic": "formal-persuasive-writing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/eng/term2/formal-persuasive-writing/diagram.webp",
+    "alt": "Formal and Persuasive Writing",
+    "prompt": "A clear educational illustration depicting \"Formal and Persuasive Writing\": Sustaining argument and adapting tone for speeches, letters, articles and reviews."
+  }
+]

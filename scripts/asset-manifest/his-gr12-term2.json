@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "his",
+    "term": "term2",
+    "topic": "tricameral-parliament-and-pw-botha-reforms",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/his/term2/tricameral-parliament-and-pw-botha-reforms/diagram.webp",
+    "alt": "Tricameral Parliament and P.W. Botha Reforms",
+    "prompt": "A clear educational illustration depicting \"Tricameral Parliament and P.W. Botha Reforms\": Limited reform, continued exclusion, and the apartheid state’s total strategy."
+  },
+  {
+    "grade": "grade12",
+    "subject": "his",
+    "term": "term2",
+    "topic": "sanctions-disinvestment-and-the-road-to-negotiations",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/his/term2/sanctions-disinvestment-and-the-road-to-negotiations/diagram.webp",
+    "alt": "Sanctions, Disinvestment, and the Road to Negotiations",
+    "prompt": "A clear educational illustration depicting \"Sanctions, Disinvestment, and the Road to Negotiations\": International pressure, economic crisis, and the weakening of apartheid."
+  },
+  {
+    "grade": "grade12",
+    "subject": "his",
+    "term": "term2",
+    "topic": "repression-and-states-of-emergency",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/his/term2/repression-and-states-of-emergency/diagram.webp",
+    "alt": "Repression and States of Emergency",
+    "prompt": "A clear educational illustration depicting \"Repression and States of Emergency\": Security crackdowns, detention without trial, and the limits of force."
+  },
+  {
+    "grade": "grade12",
+    "subject": "his",
+    "term": "term2",
+    "topic": "mass-democratic-movement-and-cosatu",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/his/term2/mass-democratic-movement-and-cosatu/diagram.webp",
+    "alt": "Mass Democratic Movement and COSATU",
+    "prompt": "A clear educational illustration depicting \"Mass Democratic Movement and COSATU\": UDF networks, worker unity, and making apartheid ungovernable."
+  }
+]

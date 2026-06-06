@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "lo",
+    "term": "term1",
+    "topic": "study-skills-coping-strategies",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/lo/term1/study-skills-coping-strategies/diagram.webp",
+    "alt": "Study Skills and Coping Strategies",
+    "prompt": "A clear educational illustration depicting \"Study Skills and Coping Strategies\": Exam strategies, workload management, stress resilience and support systems."
+  },
+  {
+    "grade": "grade11",
+    "subject": "lo",
+    "term": "term1",
+    "topic": "relationships-sexuality-health",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/lo/term1/relationships-sexuality-health/diagram.webp",
+    "alt": "Relationships, Sexuality and Health",
+    "prompt": "A clear educational illustration depicting \"Relationships, Sexuality and Health\": Healthy relationships, consent, reproductive health and responsible communication."
+  },
+  {
+    "grade": "grade11",
+    "subject": "lo",
+    "term": "term1",
+    "topic": "physical-education-task-1",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/lo/term1/physical-education-task-1/diagram.webp",
+    "alt": "Physical Education Task — Term 1",
+    "prompt": "A clear educational illustration depicting \"Physical Education Task — Term 1\": Fitness components, technique, personal activity programming and health benefits."
+  },
+  {
+    "grade": "grade11",
+    "subject": "lo",
+    "term": "term1",
+    "topic": "development-of-self-in-society",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/lo/term1/development-of-self-in-society/diagram.webp",
+    "alt": "Development of the Self in Society",
+    "prompt": "A clear educational illustration depicting \"Development of the Self in Society\": Life roles, values, self-management and intentional personal growth."
+  }
+]

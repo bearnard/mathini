@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade11",
+    "subject": "lo",
+    "term": "term3",
+    "topic": "physical-education-task-3",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/lo/term3/physical-education-task-3/diagram.webp",
+    "alt": "Physical Education Task — Term 3",
+    "prompt": "A clear educational illustration depicting \"Physical Education Task — Term 3\": Athletics skills, conditioning, inclusive leadership, safe practice and sustained effort."
+  },
+  {
+    "grade": "grade11",
+    "subject": "lo",
+    "term": "term3",
+    "topic": "media-ideology-citizenship",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/lo/term3/media-ideology-citizenship/diagram.webp",
+    "alt": "Media, Ideology and Active Citizenship",
+    "prompt": "A clear educational illustration depicting \"Media, Ideology and Active Citizenship\": Media influence, propaganda, critical literacy and evidence-based civic engagement."
+  },
+  {
+    "grade": "grade11",
+    "subject": "lo",
+    "term": "term3",
+    "topic": "democratic-structures-participation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/lo/term3/democratic-structures-participation/diagram.webp",
+    "alt": "Democratic Structures and Participation",
+    "prompt": "A clear educational illustration depicting \"Democratic Structures and Participation\": Branches of government, elections, public participation, accountability and the rule of law."
+  },
+  {
+    "grade": "grade11",
+    "subject": "lo",
+    "term": "term3",
+    "topic": "democracy-human-rights",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/lo/term3/democracy-human-rights/diagram.webp",
+    "alt": "Democracy and Human Rights",
+    "prompt": "A clear educational illustration depicting \"Democracy and Human Rights\": The Bill of Rights, discrimination, inclusivity, social justice and advocacy."
+  }
+]

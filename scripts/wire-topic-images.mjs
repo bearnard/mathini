@@ -49,12 +49,14 @@ function topicPrompt(title, subtitle) {
 }
 
 // Inject `image: {src, alt}` into the FIRST learnStep object, if absent.
+// Handles both typed (`const learnSteps: LearnStep[] = [`) and untyped
+// (`const learnSteps = [`) declarations.
 function injectImage(src, imgSrc, alt) {
-  const re = /(const\s+learnSteps\s*:\s*LearnStep\[\]\s*=\s*\[\s*)\{/;
+  const re = /(const\s+learnSteps\s*(?::\s*LearnStep\[\])?\s*=\s*\[\s*)\{/;
   if (!re.test(src)) return null; // unexpected structure — skip
   // already has an image on the first step?
   const firstObj = src.slice(src.search(re));
-  if (/^\s*const[\s\S]*?\{\s*image\s*:/.test(firstObj.slice(0, 120))) return src; // already imaged
+  if (/^\s*const[\s\S]*?\{\s*image\s*:/.test(firstObj.slice(0, 140))) return src; // already imaged
   const inject = `{\n    image: { src: ${JSON.stringify(imgSrc)}, alt: ${JSON.stringify(alt)} },`;
   return src.replace(re, `$1${inject}`);
 }

@@ -1,1 +1,46 @@
-[]
+[
+  {
+    "grade": "grade11",
+    "subject": "cat",
+    "term": "term1",
+    "topic": "word-processing-templates-forms",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/cat/term1/word-processing-templates-forms/diagram.webp",
+    "alt": "Word Processing: Templates and Forms",
+    "prompt": "A clear educational illustration depicting \"Word Processing: Templates and Forms\": Document templates, form controls, and advanced formatting."
+  },
+  {
+    "grade": "grade11",
+    "subject": "cat",
+    "term": "term1",
+    "topic": "systems-technologies-accessibility",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/cat/term1/systems-technologies-accessibility/diagram.webp",
+    "alt": "Systems Technologies and Accessibility",
+    "prompt": "A clear educational illustration depicting \"Systems Technologies and Accessibility\": Hardware, the processing cycle, and accessible computing."
+  },
+  {
+    "grade": "grade11",
+    "subject": "cat",
+    "term": "term1",
+    "topic": "spreadsheets-databases-fundamentals",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/cat/term1/spreadsheets-databases-fundamentals/diagram.webp",
+    "alt": "Spreadsheets and Databases Fundamentals",
+    "prompt": "A clear educational illustration depicting \"Spreadsheets and Databases Fundamentals\": Cell references, functions, database structure, keys, and queries."
+  },
+  {
+    "grade": "grade11",
+    "subject": "cat",
+    "term": "term1",
+    "topic": "hardware-storage-management",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade11/cat/term1/hardware-storage-management/diagram.webp",
+    "alt": "Hardware and Storage Management",
+    "prompt": "A clear educational illustration depicting \"Hardware and Storage Management\": Storage types, capacity, file management, and access control."
+  }
+]

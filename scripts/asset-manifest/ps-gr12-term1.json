@@ -1,0 +1,35 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "ps",
+    "term": "term1",
+    "topic": "vertical-projectile-motion",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ps/term1/vertical-projectile-motion/diagram.webp",
+    "alt": "Vertical Projectile Motion",
+    "prompt": "A clear educational illustration depicting \"Vertical Projectile Motion\": Free fall, kinematics, graph interpretation and sign conventions."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ps",
+    "term": "term1",
+    "topic": "organic-molecules-reactions",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ps/term1/organic-molecules-reactions/diagram.webp",
+    "alt": "Organic Molecules and Reactions",
+    "prompt": "A clear educational illustration depicting \"Organic Molecules and Reactions\": Functional groups, naming, isomers and key organic reactions."
+  },
+  {
+    "grade": "grade12",
+    "subject": "ps",
+    "term": "term1",
+    "topic": "momentum-impulse-collisions",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/ps/term1/momentum-impulse-collisions/diagram.webp",
+    "alt": "Momentum, Impulse and Collisions",
+    "prompt": "A clear educational illustration depicting \"Momentum, Impulse and Collisions\": Momentum as a vector, impulse, conservation and collision analysis."
+  }
+]

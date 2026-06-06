@@ -1,0 +1,46 @@
+[
+  {
+    "grade": "grade12",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "prescribed-texts-orientation",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/eng/term1/prescribed-texts-orientation/diagram.webp",
+    "alt": "From \\",
+    "prompt": "A clear educational illustration depicting \"From \\\": Launching Paper 2 with strong literary vocabulary, evidence habits and exam awareness."
+  },
+  {
+    "grade": "grade12",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "paper3-essay-writing",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/eng/term1/paper3-essay-writing/diagram.webp",
+    "alt": "Paper 3 Essay Writing",
+    "prompt": "A clear educational illustration depicting \"Paper 3 Essay Writing\": Selecting the right essay type and shaping ideas for Paper 3 success."
+  },
+  {
+    "grade": "grade12",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "paper1-language-practice",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/eng/term1/paper1-language-practice/diagram.webp",
+    "alt": "Paper 1 Language Practice",
+    "prompt": "A clear educational illustration depicting \"Paper 1 Language Practice\": Reading strategically, summarising accurately and editing with exam discipline."
+  },
+  {
+    "grade": "grade12",
+    "subject": "eng",
+    "term": "term1",
+    "topic": "literary-essay-contextual-skills",
+    "section": "diagram",
+    "type": "ai",
+    "path": "curriculum/grade12/eng/term1/literary-essay-contextual-skills/diagram.webp",
+    "alt": "From \\",
+    "prompt": "A clear educational illustration depicting \"From \\\": Writing analytical literature responses with structure, textual support and control."
+  }
+]
