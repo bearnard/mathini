@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { triggerConfetti } from '../lib/confetti';
 import Card from './ui/Card';
@@ -10,6 +10,9 @@ import TopicContainer from './layout/TopicContainer';
 import { useCapsItems } from '../lib/client/useCapsItems';
 import type { CapsItem } from '../lib/client/useCapsItems';
 import MathText from './subjects/MathText';
+import { useStudent } from '../lib/client/StudentContext';
+import { aggregateResultsBySection, pickWeakSections } from '../lib/client/revision';
+import BadgeUnlockModal from './gamification/BadgeUnlockModal';
 
 export interface LearnStep {
   title: string;
@@ -39,7 +42,7 @@ interface CapsSubjectTopicProps {
 }
 
 const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, grade }: CapsSubjectTopicProps) => {
-  void grade;
+  const { student, refreshStudent } = useStudent();
   const [mode, setMode] = useState<'learn' | 'practice'>('learn');
   const [learnStep, setLearnStep] = useState(0);
 
@@ -50,21 +53,82 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
   const [selected, setSelected] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [streak, setStreak] = useState(0);
+  const [pendingBadges, setPendingBadges] = useState<string[]>([]);
+
+  // Track per-question results for section aggregation
+  const resultsRef = useRef<{ section?: string; correct: boolean }[]>([]);
+  const hasSubmitted = useRef(false);
 
   const handleSelect = (option: string) => {
     if (selected !== null || !current) {
       return;
     }
     setSelected(option);
-    if (option === current.answer) {
-      setIsCorrect(true);
-      setStreak((s) => s + 1);
+    const correct = option === current.answer;
+    setIsCorrect(correct);
+    setStreak((s) => (correct ? s + 1 : 0));
+
+    // Record result for section aggregation
+    resultsRef.current.push({ section: current.section, correct });
+
+    if (correct) {
       triggerConfetti();
-    } else {
-      setIsCorrect(false);
-      setStreak(0);
     }
   };
+
+  // Submit results when practice is done (once per session, for logged-in students)
+  useEffect(() => {
+    if (!done || !task || hasSubmitted.current) return;
+    hasSubmitted.current = true;
+    if (!student) return;
+
+    const results = resultsRef.current;
+    if (results.length === 0) return;
+
+    // Dummy aggregate POST (fire-and-forget, response not used)
+    fetch('/api/attempts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        task,
+        subject: taskToSubject(apiPath),
+        isCorrect: true,
+        streak: 0,
+      }),
+    }).catch(() => {});
+
+    // Per-result POSTs — collect newBadges from responses
+    const promises = results.map((r) =>
+      fetch('/api/attempts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          task,
+          subject: taskToSubject(apiPath),
+          section: r.section,
+          isCorrect: r.correct,
+          streak: 0,
+        }),
+      })
+        .then((res) => res.json() as Promise<{ newBadges?: string[] }>)
+        .catch(() => null),
+    );
+
+    Promise.allSettled(promises).then((settled) => {
+      const newBadges = [
+        ...new Set(
+          settled
+            .filter(
+              (r): r is PromiseFulfilledResult<{ newBadges?: string[] }> =>
+                r.status === 'fulfilled' && r.value !== null,
+            )
+            .flatMap((r) => r.value.newBadges ?? []),
+        ),
+      ];
+      if (newBadges.length > 0) setPendingBadges(newBadges);
+      refreshStudent();
+    });
+  }, [done, task, apiPath, student, refreshStudent]);
 
   const handleNext = () => {
     setSelected(null);
@@ -76,14 +140,23 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
     setSelected(null);
     setIsCorrect(null);
     setStreak(0);
+    setPendingBadges([]);
     reset();
+    resultsRef.current = [];
+    hasSubmitted.current = false;
   };
+
+  // Compute weak sections from results
+  const results = resultsRef.current;
+  const sectionResults = aggregateResultsBySection(results);
+  const weakSections = pickWeakSections(sectionResults);
 
   const step = learnSteps[learnStep];
 
   return (
-    <TopicContainer title={title} subtitle={subtitle} onModeChange={setMode}>
-      {mode === 'learn' ? (
+    <>
+      <TopicContainer title={title} subtitle={subtitle} onModeChange={setMode}>
+        {mode === 'learn' ? (
         <Card className="p-8 space-y-8">
           <h2 className="text-2xl font-bold text-slate-800">{step.title}</h2>
 
@@ -93,6 +166,11 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
                 src={step.image.src}
                 alt={step.image.alt}
                 className="rounded-2xl bg-slate-50 max-h-72 w-auto object-contain shadow-sm"
+                onError={(e) => {
+                  // Hide gracefully if the diagram hasn't been generated yet,
+                  // so partially-generated batches don't show broken images.
+                  e.currentTarget.style.display = 'none';
+                }}
               />
             </div>
           )}
@@ -141,6 +219,20 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
               <div className="flex justify-center">
                 <Streak count={streak} />
               </div>
+
+              {weakSections.length > 0 && (
+                <div className="space-y-3">
+                  <p className="text-slate-600">Revise the sections you struggled with:</p>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {weakSections.map((section) => (
+                      <Button key={section} variant="secondary" size="sm">
+                        {section}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
                 <Button variant="secondary" onClick={() => setMode('learn')}>
                   Back to Learn
@@ -226,9 +318,22 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
           )}
         </>
       )}
-    </TopicContainer>
+      </TopicContainer>
+
+      <BadgeUnlockModal
+        badges={pendingBadges}
+        onDismiss={() => setPendingBadges([])}
+      />
+    </>
   );
 };
+
+/** Derive subject code from an apiPath like /api/caps/math or /api/caps/grade6 */
+function taskToSubject(apiPath?: string): string {
+  if (!apiPath) return 'unknown';
+  const parts = apiPath.split('/').filter(Boolean);
+  return parts[parts.length - 1] ?? 'unknown';
+}
 
 export default CapsSubjectTopic;
 export type { CapsItem };
