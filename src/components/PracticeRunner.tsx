@@ -72,6 +72,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
     setSelected(null);
     setIsCorrect(null);
     setStreak(0);
+    setPendingBadges([]);
     reset();
     resultsRef.current = [];
     hasSubmitted.current = false;
