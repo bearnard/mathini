@@ -5,6 +5,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/geo/term3/aid-gender-development/diagram.webp", alt: "Aid, Gender and Development" },
     title: 'Types of aid',
     content: (
       <div className="space-y-4 text-center">

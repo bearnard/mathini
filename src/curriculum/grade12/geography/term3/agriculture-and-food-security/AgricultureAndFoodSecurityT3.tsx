@@ -4,6 +4,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/geo/term3/agriculture-and-food-security/diagram.webp", alt: "Agriculture and Food Security" },
     title: "What controls agricultural production",
     content: (
       <div className="space-y-4 text-left">

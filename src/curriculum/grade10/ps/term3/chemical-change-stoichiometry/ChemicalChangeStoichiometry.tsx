@@ -4,6 +4,7 @@ import type { PhysicalSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ps/term3/chemical-change-stoichiometry/diagram.webp", alt: "Chemical Change and Stoichiometry" },
     title: 'Chemical Reactions and Balanced Equations',
     content: (
       <div className="space-y-6">

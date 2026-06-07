@@ -7,6 +7,7 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/acc/term2/bank-creditors-reconciliations/diagram.webp", alt: "Bank Account (Updated Cashbook View)" },
     title: 'Why reconciliations matter',
     content: (
       <div className="space-y-6">

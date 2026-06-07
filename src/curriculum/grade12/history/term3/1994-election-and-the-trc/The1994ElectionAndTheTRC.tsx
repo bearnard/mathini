@@ -3,6 +3,7 @@ import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/his/term3/1994-election-and-the-trc/diagram.webp", alt: "1994 Election and the TRC" },
     title: 'Key Events — Timeline',
     content: (
       <div className="space-y-4">

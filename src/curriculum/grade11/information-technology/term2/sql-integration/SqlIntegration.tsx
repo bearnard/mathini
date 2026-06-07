@@ -4,6 +4,7 @@ import type { ITItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/it/term2/sql-integration/diagram.webp", alt: "SQL Integration with Code" },
     title: 'Connecting a program to a database',
     content: (
       <div className="space-y-4 text-center">

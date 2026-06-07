@@ -12,6 +12,7 @@ const incomePatternData = [
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/econ/term2/income-cross-elasticity/diagram.webp", alt: "Substitutes and Complements" },
     title: 'Income Elasticity of Demand (YED)',
     content: (
       <div className="space-y-6">

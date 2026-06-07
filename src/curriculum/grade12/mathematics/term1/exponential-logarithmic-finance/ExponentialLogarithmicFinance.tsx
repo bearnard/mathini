@@ -6,6 +6,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 
   const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/math/term1/exponential-logarithmic-finance/diagram.webp", alt: "Exponential and Logarithmic Functions in Finance" },
     title: 'Reading exponential functions',
     content: (
       <>

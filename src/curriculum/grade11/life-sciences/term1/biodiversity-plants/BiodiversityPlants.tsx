@@ -3,6 +3,7 @@ import type { LSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/ls/term1/biodiversity-plants/diagram.webp", alt: "Biodiversity of Plants" },
     title: 'The Four Plant Divisions',
     content: (
       <div className="space-y-4 text-center">

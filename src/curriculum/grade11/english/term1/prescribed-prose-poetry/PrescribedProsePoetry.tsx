@@ -4,6 +4,7 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/eng/term1/prescribed-prose-poetry/diagram.webp", alt: "From \\" },
     title: 'Engaging with prescribed prose and folklore',
     content: (
       <div className="space-y-4 text-center">

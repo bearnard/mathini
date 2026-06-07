@@ -136,9 +136,9 @@ export async function GET(req: NextRequest) {
           await vectorize.upsert([{ id: vid, values: emb, metadata: { task: taskKey } }]);
           await db
             .prepare(
-              'INSERT OR IGNORE INTO item_cache (task, prompt, options, answer, explanation, created_at, vector_id) VALUES (?, ?, ?, ?, ?, ?, ?)',
+              'INSERT OR IGNORE INTO item_cache (task, prompt, options, answer, explanation, created_at, vector_id, section) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
             )
-            .bind(taskKey, item.prompt, JSON.stringify(item.options), item.answer, item.explanation ?? '', Date.now(), vid)
+            .bind(taskKey, item.prompt, JSON.stringify(item.options), item.answer, item.explanation ?? '', Date.now(), vid, 'general')
             .run();
 
           taskEmbeddings.push(emb);

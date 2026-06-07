@@ -7,6 +7,7 @@ import BudgetPlanner from '@/components/subjects/BudgetPlanner';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ml/term2/finance-interest-banking-inflation/diagram.webp", alt: "Finance: Interest, Banking and Inflation" },
     title: 'Calculate simple and compound interest',
     content: (
       <div className="space-y-4 text-left">

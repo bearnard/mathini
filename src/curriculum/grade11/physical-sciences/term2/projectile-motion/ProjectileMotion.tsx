@@ -7,6 +7,7 @@ const ProjectileMotionSim = dynamic(() => import('@/components/subjects/PhysicsS
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/ps/term2/projectile-motion/diagram.webp", alt: "Vertical Projectile Motion" },
     title: 'Free Fall and Gravitational Acceleration',
     content: (
       <div className="space-y-4 text-center">

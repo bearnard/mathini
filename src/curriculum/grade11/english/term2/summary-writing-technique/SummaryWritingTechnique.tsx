@@ -3,6 +3,7 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/eng/term2/summary-writing-technique/diagram.webp", alt: "Summary Writing Technique" },
     title: 'What summary writing requires',
     content: (
       <div className="space-y-4 text-center">

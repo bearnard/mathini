@@ -2,6 +2,7 @@ import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/eng/term2/midyear-exam-preparation/diagram.webp", alt: "Mid-Year Exam Preparation" },
     title: "Revising all three papers together",
     content: (
       <div className="space-y-4 text-left">

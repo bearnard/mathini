@@ -7,6 +7,7 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/acc/term2/inventory-valuation-control/diagram.webp", alt: "Trading Stock" },
     title: 'Inventory systems and records',
     content: (
       <div className="space-y-6">

@@ -5,6 +5,7 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/cat/term2/systems-networks-digital-responsibility/diagram.webp", alt: "Systems, Networks and Digital Responsibility" },
     title: 'System software and utility tools',
     content: (
       <div className="space-y-6">

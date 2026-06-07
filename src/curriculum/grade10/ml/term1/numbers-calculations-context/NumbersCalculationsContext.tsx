@@ -5,6 +5,7 @@ import type { MathematicalLiteracyItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ml/term1/numbers-calculations-context/diagram.webp", alt: "Numbers and Calculations in Context" },
     title: 'Working with Numbers in Context',
     content: (
       <div className="space-y-6">

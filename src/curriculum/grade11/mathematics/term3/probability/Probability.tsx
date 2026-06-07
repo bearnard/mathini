@@ -6,6 +6,7 @@ import ProbabilitySimulator from '@/components/subjects/ProbabilitySimulator';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/math/term3/probability/diagram.webp", alt: "Probability" },
     title: 'Organise Outcomes Clearly',
     content: (
       <div className="space-y-4 text-center">

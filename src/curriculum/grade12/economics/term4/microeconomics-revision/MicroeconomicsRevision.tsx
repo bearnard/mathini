@@ -14,6 +14,7 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/econ/term4/microeconomics-revision/diagram.webp", alt: "Microeconomics Revision Market" },
     title: 'Trade and market structures together',
     content: (
       <div className="space-y-6">

@@ -7,6 +7,7 @@ import MeasurementConverter from '@/components/subjects/MeasurementConverter';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ml/term2/measurement/diagram.webp", alt: "Measurement" },
     title: 'Select the correct measure for the task',
     content: (
       <div className="space-y-4 text-left">

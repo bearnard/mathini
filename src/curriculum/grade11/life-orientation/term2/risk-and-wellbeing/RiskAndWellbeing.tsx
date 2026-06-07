@@ -3,6 +3,7 @@ import type { LearnStep } from '@/components/CapsSubjectTopic';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/lo/term2/risk-and-wellbeing/diagram.webp", alt: "Risk and Wellbeing" },
     title: 'Substance Abuse: Causes and Consequences',
     content: (
       <div className="space-y-4 text-center">

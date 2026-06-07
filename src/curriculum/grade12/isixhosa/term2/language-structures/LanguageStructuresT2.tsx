@@ -4,6 +4,7 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/xho/term2/language-structures/diagram.webp", alt: "Language Structures" },
     title: 'Connectors for cohesion',
     content: (
       <div className="space-y-4 text-center">

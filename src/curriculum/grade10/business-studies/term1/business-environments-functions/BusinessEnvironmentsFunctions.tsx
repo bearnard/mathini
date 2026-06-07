@@ -5,6 +5,7 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/bus/term1/business-environments-functions/diagram.webp", alt: "Business Environments and Functions" },
     title: 'Understanding the business environments',
     content: (
       <div className="space-y-6">

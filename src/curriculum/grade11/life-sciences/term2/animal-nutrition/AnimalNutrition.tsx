@@ -3,6 +3,7 @@ import type { LSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/ls/term2/animal-nutrition/diagram.webp", alt: "Animal Nutrition" },
     title: 'The Alimentary Canal',
     content: (
       <div className="space-y-4 text-center">

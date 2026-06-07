@@ -5,6 +5,7 @@ import type { PhysicalSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ps/term3/vectors-motion-mechanical-energy/diagram.webp", alt: "Vectors, Motion and Mechanical Energy" },
     title: 'Vectors and Scalars',
     content: (
       <div className="space-y-6">

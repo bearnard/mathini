@@ -14,6 +14,7 @@ const monetaryData = [
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/econ/term3/money-banking/diagram.webp", alt: "Loanable Funds Market" },
     title: 'Functions and Forms of Money',
     content: (
       <div className="space-y-6">

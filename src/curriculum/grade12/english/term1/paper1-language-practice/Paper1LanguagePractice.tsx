@@ -2,6 +2,7 @@ import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/eng/term1/paper1-language-practice/diagram.webp", alt: "Paper 1 Language Practice" },
     title: "Reading comprehension actively",
     content: (
       <div className="space-y-4 text-left">

@@ -4,6 +4,7 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/xho/term3/language-structures/diagram.webp", alt: "Language Structures" },
     title: 'Identifying grammar errors: concord and tense',
     content: (
       <div className="space-y-4 text-center">

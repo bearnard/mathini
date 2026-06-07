@@ -6,6 +6,7 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/math/term3/trig-sine-cosine-rule/diagram.webp", alt: "Trigonometry — Sine, Cosine and Area Rules" },
     title: 'Choose Between the Sine and Cosine Rule',
     content: (
       <div className="space-y-4 text-center">

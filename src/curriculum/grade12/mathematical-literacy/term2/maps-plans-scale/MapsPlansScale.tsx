@@ -6,6 +6,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ml/term2/maps-plans-scale/diagram.webp", alt: "Maps, Plans and Scale" },
     title: 'Interpret ratio and line scales',
     content: (
       <div className="space-y-4 text-left">

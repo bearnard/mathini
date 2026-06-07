@@ -4,6 +4,7 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/eng/term3/drama-poetry-comparison/diagram.webp", alt: "From \\" },
     title: 'Studying drama: stagecraft and dramatic devices',
     content: (
       <div className="space-y-4 text-center">

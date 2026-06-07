@@ -4,6 +4,7 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ls/term2/transport-systems-mammals/diagram.webp", alt: "Blood Circulation Through the Heart" },
     title: 'Circulatory System',
     content: (
       <div className="space-y-6">

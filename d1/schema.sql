@@ -20,7 +20,11 @@ CREATE TABLE IF NOT EXISTS item_cache (
   options     TEXT NOT NULL,
   answer      TEXT NOT NULL,
   explanation TEXT NOT NULL DEFAULT '',
-  created_at  INTEGER NOT NULL
+  created_at  INTEGER NOT NULL,
+  -- Sub-section of the topic this question targets (e.g. 'large-numbers').
+  -- Tasks without meaningful sub-sections use 'general'.
+  section     TEXT NOT NULL DEFAULT 'general'
 );
 
 CREATE INDEX IF NOT EXISTS idx_item_cache_task ON item_cache (task);
+CREATE INDEX IF NOT EXISTS idx_item_cache_task_section ON item_cache (task, section);

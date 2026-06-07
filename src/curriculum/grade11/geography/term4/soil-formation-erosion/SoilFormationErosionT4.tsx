@@ -5,6 +5,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/geo/term4/soil-formation-erosion/diagram.webp", alt: "Soil Formation and Erosion" },
     title: 'Soil formation: the five factors',
     content: (
       <div className="space-y-4 text-center">

@@ -3,6 +3,7 @@ import type { LearnStep } from '@/components/CapsSubjectTopic';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/lo/term3/democratic-structures-participation/diagram.webp", alt: "Democratic Structures and Participation" },
     title: 'Branches of Government',
     content: (
       <div className="space-y-4 text-center">

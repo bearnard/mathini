@@ -14,6 +14,7 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/econ/term1/foreign-exchange-balance-of-payments/diagram.webp", alt: "Foreign Exchange Market" },
     title: 'How the forex market works',
     content: (
       <div className="space-y-6">

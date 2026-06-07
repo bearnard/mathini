@@ -13,6 +13,7 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/econ/term4/economic-pursuits-contemporary-revision/diagram.webp", alt: "Economic Pursuits and Contemporary Issues Revision" },
     title: 'Revising economic pursuits',
     content: (
       <div className="space-y-6">

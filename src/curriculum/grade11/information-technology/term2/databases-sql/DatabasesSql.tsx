@@ -4,6 +4,7 @@ import type { ITItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/it/term2/databases-sql/diagram.webp", alt: "Databases and SQL" },
     title: 'Relational database concepts',
     content: (
       <div className="space-y-4 text-center">

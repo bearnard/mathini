@@ -5,6 +5,7 @@ import type { MathematicalLiteracyItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ml/term4/revision-exam-integration/diagram.webp", alt: "Revision and Exam Integration" },
     title: 'Integration of Topics',
     content: (
       <div className="space-y-6">

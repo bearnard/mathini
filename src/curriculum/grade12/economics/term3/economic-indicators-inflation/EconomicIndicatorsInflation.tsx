@@ -13,6 +13,7 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/econ/term3/economic-indicators-inflation/diagram.webp", alt: "Economic Indicators and Inflation" },
     title: 'Why indicators matter',
     content: (
       <div className="space-y-6">

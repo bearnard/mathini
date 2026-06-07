@@ -6,6 +6,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ml/term3/probability-trial-preparation/diagram.webp", alt: "Probability and Trial Preparation" },
     title: 'Describe probability on a scale from 0 to 1',
     content: (
       <div className="space-y-4 text-left">

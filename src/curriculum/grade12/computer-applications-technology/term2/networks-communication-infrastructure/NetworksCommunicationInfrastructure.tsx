@@ -3,6 +3,7 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/cat/term2/networks-communication-infrastructure/diagram.webp", alt: "Networks and Communication Infrastructure" },
     title: "LANs, WANs and connectivity",
     content: (
       <div className="space-y-4 text-left">

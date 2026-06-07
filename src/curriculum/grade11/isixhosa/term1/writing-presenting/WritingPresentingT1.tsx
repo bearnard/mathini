@@ -4,6 +4,7 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/xho/term1/writing-presenting/diagram.webp", alt: "Writing & Presenting" },
     title: 'Reflective essay — personal voice and structure',
     content: (
       <div className="space-y-4 text-center">

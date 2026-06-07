@@ -4,6 +4,7 @@ import type { PSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/ps/term3/organic-chemistry/diagram.webp", alt: "Organic Chemistry" },
     title: 'Hydrocarbons — Alkanes, Alkenes, Alkynes',
     content: (
       <div className="space-y-4 text-center">

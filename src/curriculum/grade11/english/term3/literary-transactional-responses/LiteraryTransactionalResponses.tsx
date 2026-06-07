@@ -3,6 +3,7 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/eng/term3/literary-transactional-responses/diagram.webp", alt: "Literary and Transactional Responses" },
     title: 'Writing a literary essay',
     content: (
       <div className="space-y-4 text-center">

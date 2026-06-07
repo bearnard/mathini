@@ -3,6 +3,7 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/eng/term1/listening-language-context/diagram.webp", alt: "Listening and Language in Context" },
     title: 'Listening comprehension strategies',
     content: (
       <div className="space-y-4 text-center">

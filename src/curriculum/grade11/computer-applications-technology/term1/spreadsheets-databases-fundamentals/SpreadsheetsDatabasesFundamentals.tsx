@@ -3,6 +3,7 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/cat/term1/spreadsheets-databases-fundamentals/diagram.webp", alt: "Spreadsheets and Databases Fundamentals" },
     title: 'Absolute vs relative cell references',
     content: (
       <div className="space-y-4 text-center">

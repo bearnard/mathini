@@ -12,6 +12,7 @@ const accessGapData = [
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/econ/term1/infrastructure-exclusion/diagram.webp", alt: "Transport Costs and Supply" },
     title: 'Types of Infrastructure',
     content: (
       <div className="space-y-6">

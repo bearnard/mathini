@@ -6,6 +6,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 
   const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/math/term2/differential-calculus/diagram.webp", alt: "Differential Calculus" },
     title: 'Derivative from first principles',
     content: (
       <>

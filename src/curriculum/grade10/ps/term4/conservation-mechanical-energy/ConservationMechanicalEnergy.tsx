@@ -5,6 +5,7 @@ import type { PhysicalSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ps/term4/conservation-mechanical-energy/diagram.webp", alt: "Conservation of Mechanical Energy" },
     title: 'Law of Conservation of Mechanical Energy',
     content: (
       <div className="space-y-6">

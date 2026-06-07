@@ -8,6 +8,7 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ls/term1/reproduction-vertebrates/diagram.webp", alt: "Fertilisation strategies in vertebrates" },
     title: 'Vertebrates use different fertilisation strategies',
     content: (
       <div className="space-y-6 text-left">

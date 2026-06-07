@@ -5,6 +5,7 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/bus/term1/salary-determination-professionalism/diagram.webp", alt: "SWOT Analysis: Retaining Skilled Electricians" },
     title: 'How salaries are determined',
     content: (
       <div className="space-y-6">

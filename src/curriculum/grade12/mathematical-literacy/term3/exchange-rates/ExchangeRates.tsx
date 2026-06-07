@@ -6,6 +6,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ml/term3/exchange-rates/diagram.webp", alt: "Finance: Exchange Rates" },
     title: 'Know the difference between buying and selling rates',
     content: (
       <div className="space-y-4 text-left">

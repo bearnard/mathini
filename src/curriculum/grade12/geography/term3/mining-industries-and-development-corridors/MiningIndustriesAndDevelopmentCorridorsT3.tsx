@@ -4,6 +4,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/geo/term3/mining-industries-and-development-corridors/diagram.webp", alt: "Mining, Industries and Development Corridors" },
     title: "Why mining matters",
     content: (
       <div className="space-y-4 text-left">

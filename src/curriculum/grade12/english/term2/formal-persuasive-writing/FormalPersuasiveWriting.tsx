@@ -2,6 +2,7 @@ import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/eng/term2/formal-persuasive-writing/diagram.webp", alt: "Formal and Persuasive Writing" },
     title: "Sustaining a line of argument",
     content: (
       <div className="space-y-4 text-left">

@@ -3,6 +3,7 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/cat/term3/fourth-industrial-revolution-information-management/diagram.webp", alt: "Fourth Industrial Revolution and Information Management" },
     title: 'The Fourth Industrial Revolution (4IR)',
     content: (
       <div className="space-y-4 text-center">

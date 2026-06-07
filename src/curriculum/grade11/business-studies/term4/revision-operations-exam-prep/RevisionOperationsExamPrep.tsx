@@ -3,6 +3,7 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/bus/term4/revision-operations-exam-prep/diagram.webp", alt: "Revision: Operations and Exam Prep" },
     title: 'Revision checklist — operations and marketing',
     content: (
       <div className="space-y-4 text-center">

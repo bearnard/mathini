@@ -4,6 +4,7 @@ import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/his/term1/1917-russian-revolution/diagram.webp", alt: "The 1917 Russian Revolution" },
     title: 'Key Events — Timeline',
     content: (
       <div className="space-y-4">

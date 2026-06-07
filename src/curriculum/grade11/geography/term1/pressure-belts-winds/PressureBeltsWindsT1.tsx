@@ -5,6 +5,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/geo/term1/pressure-belts-winds/diagram.webp", alt: "Pressure Belts and Global Winds" },
     title: 'Global atmospheric circulation cells',
     content: (
       <div className="space-y-4 text-center">

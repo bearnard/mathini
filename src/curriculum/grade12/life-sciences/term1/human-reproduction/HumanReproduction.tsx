@@ -8,6 +8,7 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ls/term1/human-reproduction/diagram.webp", alt: "Human reproductive structures" },
     title: 'Male and female organs have specific reproductive roles',
     content: (
       <div className="space-y-6 text-left">

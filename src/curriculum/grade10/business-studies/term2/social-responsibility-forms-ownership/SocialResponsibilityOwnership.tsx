@@ -5,6 +5,7 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/bus/term2/social-responsibility-forms-ownership/diagram.webp", alt: "Social Responsibility and Forms of Ownership" },
     title: 'Social responsibility and ethics',
     content: (
       <div className="space-y-6">

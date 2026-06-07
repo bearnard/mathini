@@ -5,6 +5,7 @@ import Formula from '@/components/subjects/Formula';
 
   const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/math/term4/paper1-consolidation/diagram.webp", alt: "Paper 1 Consolidation" },
     title: 'Choosing efficient methods under time pressure',
     content: (
       <>

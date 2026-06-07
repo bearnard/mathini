@@ -3,6 +3,7 @@ import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/his/term3/codesa-and-negotiated-settlement/diagram.webp", alt: "CODESA and the Negotiated Settlement" },
     title: 'Key Events — Timeline',
     content: (
       <div className="space-y-4">

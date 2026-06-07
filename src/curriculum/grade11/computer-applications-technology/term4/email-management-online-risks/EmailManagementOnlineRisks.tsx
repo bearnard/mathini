@@ -3,6 +3,7 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/cat/term4/email-management-online-risks/diagram.webp", alt: "Email Management and Online Risks" },
     title: 'Email organisation and management',
     content: (
       <div className="space-y-4 text-center">

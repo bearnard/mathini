@@ -5,6 +5,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/geo/term4/energy-resources/diagram.webp", alt: "Energy Resources" },
     title: 'Conventional (non-renewable) energy',
     content: (
       <div className="space-y-4 text-center">

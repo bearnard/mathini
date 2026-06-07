@@ -4,6 +4,7 @@ import ClimateGraph from '@/components/subjects/ClimateGraph';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/geo/term1/mid-latitude-cyclones/diagram.webp", alt: "Mid-Latitude Cyclones" },
     title: "Where mid-latitude cyclones form",
     content: (
       <div className="space-y-4 text-left">

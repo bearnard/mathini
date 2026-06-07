@@ -3,6 +3,7 @@ import type { LearnStep } from '@/components/CapsSubjectTopic';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/lo/term4/application-documents-planning/diagram.webp", alt: "Application Documents and Planning" },
     title: 'Formal Application Letters',
     content: (
       <div className="space-y-4 text-center">

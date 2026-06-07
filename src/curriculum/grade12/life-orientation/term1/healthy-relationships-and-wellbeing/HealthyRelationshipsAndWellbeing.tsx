@@ -3,6 +3,7 @@ import type { LearnStep } from '@/components/CapsSubjectTopic';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/lo/term1/healthy-relationships-and-wellbeing/diagram.webp", alt: "Healthy Relationships and Wellbeing" },
     title: 'Healthy Relationship Qualities',
     content: (
       <div className="space-y-4 text-left">

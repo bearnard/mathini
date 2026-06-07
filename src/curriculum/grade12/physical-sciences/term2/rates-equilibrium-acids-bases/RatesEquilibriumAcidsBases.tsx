@@ -5,6 +5,7 @@ import Formula from '@/components/subjects/Formula';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ps/term2/rates-equilibrium-acids-bases/diagram.webp", alt: "Reaction Rates, Equilibrium and Acids-Bases" },
     title: 'Collision theory explains reaction rate',
     content: (
       <div className="space-y-4 text-left">

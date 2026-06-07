@@ -4,6 +4,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/geo/term2/rural-settlement-challenges/diagram.webp", alt: "Rural Settlement Challenges" },
     title: "Why rural depopulation happens",
     content: (
       <div className="space-y-4 text-left">

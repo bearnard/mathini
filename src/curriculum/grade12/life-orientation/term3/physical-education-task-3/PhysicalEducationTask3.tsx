@@ -3,6 +3,7 @@ import type { LearnStep } from '@/components/CapsSubjectTopic';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/lo/term3/physical-education-task-3/diagram.webp", alt: "Physical Education Task — Term 3" },
     title: 'Consistency and Fitness Maintenance',
     content: (
       <div className="space-y-4 text-left">

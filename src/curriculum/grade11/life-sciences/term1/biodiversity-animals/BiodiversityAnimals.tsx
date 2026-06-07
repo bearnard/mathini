@@ -3,6 +3,7 @@ import type { LSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/ls/term1/biodiversity-animals/diagram.webp", alt: "Biodiversity of Animals" },
     title: 'Major Invertebrate Phyla',
     content: (
       <div className="space-y-4 text-center">

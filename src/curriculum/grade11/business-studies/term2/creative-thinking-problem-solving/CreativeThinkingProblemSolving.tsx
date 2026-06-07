@@ -3,6 +3,7 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/bus/term2/creative-thinking-problem-solving/diagram.webp", alt: "Creative Thinking and Problem Solving" },
     title: 'What is creative thinking?',
     content: (
       <div className="space-y-4 text-center">

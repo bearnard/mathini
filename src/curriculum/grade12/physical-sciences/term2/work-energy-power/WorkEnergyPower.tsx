@@ -6,6 +6,7 @@ import ProjectileMotion from '@/components/subjects/PhysicsSim/ProjectileMotion'
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ps/term2/work-energy-power/diagram.webp", alt: "Work, Energy and Power" },
     title: 'Work depends on force, displacement and direction',
     content: (
       <div className="space-y-4 text-left">

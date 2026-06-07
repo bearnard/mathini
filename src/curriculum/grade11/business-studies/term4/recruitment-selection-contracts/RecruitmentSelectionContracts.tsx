@@ -3,6 +3,7 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/bus/term4/recruitment-selection-contracts/diagram.webp", alt: "Recruitment, Selection and Contracts" },
     title: 'Internal vs external recruitment',
     content: (
       <div className="space-y-4 text-center">

@@ -3,6 +3,7 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/bus/term2/quality-ethics-professionalism/diagram.webp", alt: "Quality, Ethics and Professionalism" },
     title: 'Quality control vs quality assurance',
     content: (
       <div className="space-y-4 text-center">

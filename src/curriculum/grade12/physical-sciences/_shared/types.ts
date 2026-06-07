@@ -9,6 +9,7 @@ export interface PhysicalSciencesItem {
 }
 
 export interface LearnStep {
+  image?: { src: string; alt: string };
   title: string;
   content: ReactNode;
 }

@@ -5,6 +5,7 @@ import FunctionGraph from '../../../../../components/subjects/FunctionGraph';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/math/term3/finance-growth-decay/diagram.webp", alt: "Finance, Growth and Decay" },
     title: 'Model Growth and Decay Exponentially',
     content: (
       <div className="space-y-4 text-center">

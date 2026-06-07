@@ -3,6 +3,7 @@ import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/his/term2/tricameral-parliament-and-pw-botha-reforms/diagram.webp", alt: "Tricameral Parliament and P.W. Botha Reforms" },
     title: 'Key Events — Timeline',
     content: (
       <div className="space-y-4">

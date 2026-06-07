@@ -12,6 +12,8 @@ declare global {
     GEMINI_API_KEY: string;
     // Optional secret for manual cron trigger (set via `wrangler secret put CRON_SECRET`)
     CRON_SECRET?: string;
+    // Session signing secret (set via `wrangler secret put SESSION_SECRET`)
+    SESSION_SECRET: string;
   }
 }
 

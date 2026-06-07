@@ -3,6 +3,7 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/cat/term3/database-reports-spreadsheet-integration/diagram.webp", alt: "Database Reports and Spreadsheet Integration" },
     title: 'Database report design',
     content: (
       <div className="space-y-4 text-center">

@@ -6,6 +6,8 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 
 export interface CapsItem {
+  id?: number;
+  section?: string;
   prompt: string;
   options: string[];
   answer: string;

@@ -7,6 +7,7 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/acc/term2/manufacturing-cost-statements/diagram.webp", alt: "Production Cost Statement" },
     title: 'Main manufacturing cost categories',
     content: (
       <div className="space-y-6">

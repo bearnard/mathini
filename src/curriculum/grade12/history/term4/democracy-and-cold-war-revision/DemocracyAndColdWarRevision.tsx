@@ -3,6 +3,7 @@ import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/his/term4/democracy-and-cold-war-revision/diagram.webp", alt: "Democracy and Cold War Revision" },
     title: 'Key Events — Timeline',
     content: (
       <div className="space-y-4">

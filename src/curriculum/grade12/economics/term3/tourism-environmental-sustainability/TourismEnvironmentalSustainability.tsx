@@ -13,6 +13,7 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/econ/term3/tourism-environmental-sustainability/diagram.webp", alt: "Tourism and Environmental Sustainability" },
     title: 'Tourism as an economic driver',
     content: (
       <div className="space-y-6">

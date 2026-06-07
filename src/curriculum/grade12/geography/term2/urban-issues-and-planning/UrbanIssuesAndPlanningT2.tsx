@@ -4,6 +4,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/geo/term2/urban-issues-and-planning/diagram.webp", alt: "Urban Issues and Planning" },
     title: "Rapid urbanisation and its causes",
     content: (
       <div className="space-y-4 text-left">

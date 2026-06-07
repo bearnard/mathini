@@ -8,6 +8,7 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ls/term3/evolution-natural-selection/diagram.webp", alt: "Sequence of natural selection" },
     title: 'Evolution explains change in populations over time',
     content: (
       <div className="space-y-6 text-left">

@@ -7,6 +7,7 @@ const SimpleCircuit = dynamic(() => import('@/components/subjects/PhysicsSim/Sim
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/ps/term2/electric-circuits/diagram.webp", alt: "Electric Circuits" },
     title: 'Current, Voltage and Ohm\'s Law',
     content: (
       <div className="space-y-4 text-center">

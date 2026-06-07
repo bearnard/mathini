@@ -6,6 +6,7 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
 
   const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/math/term2/trigonometry-two-three-dimensions/diagram.webp", alt: "Trigonometry in Two and Three Dimensions" },
     title: 'Choosing the right trig tool',
     content: (
       <>

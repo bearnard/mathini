@@ -5,6 +5,7 @@ import FunctionGraph from '../../../../../components/subjects/FunctionGraph';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/math/term2/functions/diagram.webp", alt: "Functions" },
     title: 'Read Transformations from the Equation',
     content: (
       <div className="space-y-4 text-center">

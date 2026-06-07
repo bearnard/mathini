@@ -3,6 +3,7 @@ import type { ITItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/it/term4/pat-completion/diagram.webp", alt: "PAT Completion" },
     title: 'PAT phases and requirements',
     content: (
       <div className="space-y-4 text-center">

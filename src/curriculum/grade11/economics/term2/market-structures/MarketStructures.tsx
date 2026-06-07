@@ -14,6 +14,7 @@ const costRevenueData = [
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/econ/term2/market-structures/diagram.webp", alt: "Competitive Market" },
     title: 'The Four Market Structures',
     content: (
       <div className="space-y-6">

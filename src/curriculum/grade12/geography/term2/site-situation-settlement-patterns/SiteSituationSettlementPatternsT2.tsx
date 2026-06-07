@@ -4,6 +4,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/geo/term2/site-situation-settlement-patterns/diagram.webp", alt: "Site, Situation and Settlement Patterns" },
     title: "Understanding site and situation",
     content: (
       <div className="space-y-4 text-left">

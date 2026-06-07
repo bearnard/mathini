@@ -13,6 +13,7 @@ const regionalTradeData = [
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/econ/term3/south-africa-africa/diagram.webp", alt: "South Africa in Africa: SADC and NEPAD" },
     title: "South Africa's Role in Africa",
     content: (
       <div className="space-y-6">

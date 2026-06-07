@@ -5,6 +5,7 @@ import type { PSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/ps/term2/electrostatics/diagram.webp", alt: "Electrostatics" },
     title: 'Electric Charge and Coulomb\'s Law',
     content: (
       <div className="space-y-4 text-center">

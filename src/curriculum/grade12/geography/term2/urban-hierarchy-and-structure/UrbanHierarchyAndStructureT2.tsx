@@ -4,6 +4,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/geo/term2/urban-hierarchy-and-structure/diagram.webp", alt: "Urban Hierarchy and Structure" },
     title: "The settlement hierarchy",
     content: (
       <div className="space-y-4 text-left">

@@ -3,6 +3,7 @@ import type { LSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/ls/term2/photosynthesis/diagram.webp", alt: "Photosynthesis" },
     title: 'The Photosynthesis Equation',
     content: (
       <div className="space-y-4 text-center">

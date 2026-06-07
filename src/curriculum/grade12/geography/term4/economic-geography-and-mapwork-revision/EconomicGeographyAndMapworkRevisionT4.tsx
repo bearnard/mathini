@@ -4,6 +4,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/geo/term4/economic-geography-and-mapwork-revision/diagram.webp", alt: "Economic Geography and Mapwork Revision" },
     title: "Revise sector classification",
     content: (
       <div className="space-y-4 text-left">

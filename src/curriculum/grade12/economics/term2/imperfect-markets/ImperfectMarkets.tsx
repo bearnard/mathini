@@ -14,6 +14,7 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/econ/term2/imperfect-markets/diagram.webp", alt: "Imperfect Market Pricing" },
     title: 'Why markets become imperfect',
     content: (
       <div className="space-y-6">

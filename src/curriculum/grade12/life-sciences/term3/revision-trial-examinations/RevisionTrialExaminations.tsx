@@ -8,6 +8,7 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ls/term3/revision-trial-examinations/diagram.webp", alt: "Grade 12 Life Sciences revision map" },
     title: 'Trial revision must connect topics across papers',
     content: (
       <div className="space-y-6 text-left">

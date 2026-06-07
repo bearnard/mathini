@@ -5,6 +5,7 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/bus/term2/leadership-management/diagram.webp", alt: "SWOT Analysis: Entrepreneurial Business" },
     title: 'Management and leadership are related but different',
     content: (
       <div className="space-y-6">

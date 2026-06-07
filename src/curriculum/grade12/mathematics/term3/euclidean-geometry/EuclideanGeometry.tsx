@@ -5,6 +5,7 @@ import Formula from '@/components/subjects/Formula';
 
   const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/math/term3/euclidean-geometry/diagram.webp", alt: "Euclidean Geometry" },
     title: 'Similarity and proportional reasoning',
     content: (
       <>

@@ -3,6 +3,7 @@ import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/his/term2/sanctions-disinvestment-and-the-road-to-negotiations/diagram.webp", alt: "Sanctions, Disinvestment, and the Road to Negotiations" },
     title: 'Key Events — Timeline',
     content: (
       <div className="space-y-4">

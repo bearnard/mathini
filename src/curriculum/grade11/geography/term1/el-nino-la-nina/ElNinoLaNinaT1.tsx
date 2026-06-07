@@ -5,6 +5,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/geo/term1/el-nino-la-nina/diagram.webp", alt: "El Niño and La Niña" },
     title: 'The ENSO cycle',
     content: (
       <div className="space-y-4 text-center">

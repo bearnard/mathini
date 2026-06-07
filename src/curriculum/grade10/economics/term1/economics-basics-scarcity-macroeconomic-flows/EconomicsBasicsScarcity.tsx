@@ -6,6 +6,7 @@ import type { EconomicsItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/econ/term1/economics-basics-scarcity-macroeconomic-flows/diagram.webp", alt: "Economics Basics, Scarcity and Macroeconomic Flows" },
     title: 'Scarcity, choice and opportunity cost',
     content: (
       <div className="space-y-6">

@@ -3,6 +3,7 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/cat/term1/advanced-databases/diagram.webp", alt: "Advanced Databases" },
     title: "Fields, records and data quality",
     content: (
       <div className="space-y-4 text-left">

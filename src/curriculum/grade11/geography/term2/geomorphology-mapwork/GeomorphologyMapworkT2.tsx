@@ -3,6 +3,7 @@ import type { LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/geo/term2/geomorphology-mapwork/diagram.webp", alt: "Geomorphology and Topographic Mapwork" },
     title: 'Reading topographic maps for geomorphology',
     content: (
       <div className="space-y-4 text-center">

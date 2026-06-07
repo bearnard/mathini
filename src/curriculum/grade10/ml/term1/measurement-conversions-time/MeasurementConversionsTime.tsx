@@ -6,6 +6,7 @@ import MeasurementConverter from '@/components/subjects/MeasurementConverter';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ml/term1/measurement-conversions-time/diagram.webp", alt: "Measurement: Conversions and Time" },
     title: 'Metric Unit Conversions',
     content: (
       <div className="space-y-6">

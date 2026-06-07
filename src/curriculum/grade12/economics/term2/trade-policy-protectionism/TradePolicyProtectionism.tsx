@@ -14,6 +14,7 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/econ/term2/trade-policy-protectionism/diagram.webp", alt: "Imported Goods Market" },
     title: 'Free trade and protection',
     content: (
       <div className="space-y-6">

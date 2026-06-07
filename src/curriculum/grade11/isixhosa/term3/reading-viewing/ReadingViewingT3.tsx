@@ -4,6 +4,7 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/xho/term3/reading-viewing/diagram.webp", alt: "Reading & Viewing" },
     title: 'Drama analysis — conflict, climax, and stage directions',
     content: (
       <div className="space-y-4 text-center">

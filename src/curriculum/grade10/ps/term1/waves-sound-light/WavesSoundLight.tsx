@@ -5,6 +5,7 @@ import type { PhysicalSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ps/term1/waves-sound-light/diagram.webp", alt: "Waves, Sound and Light" },
     title: 'Wave Properties and the Wave Equation',
     content: (
       <div className="space-y-6">

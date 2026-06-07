@@ -9,6 +9,7 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ls/term1/meiosis/diagram.webp", alt: "Stages of meiosis I" },
     title: 'Meiosis halves the chromosome number',
     content: (
       <div className="space-y-6 text-left">

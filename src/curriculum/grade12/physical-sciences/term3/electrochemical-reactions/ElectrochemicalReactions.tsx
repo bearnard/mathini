@@ -5,6 +5,7 @@ import Formula from '@/components/subjects/Formula';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ps/term3/electrochemical-reactions/diagram.webp", alt: "Electrochemical Reactions" },
     title: 'Oxidation and reduction always occur together',
     content: (
       <div className="space-y-4 text-left">

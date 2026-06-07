@@ -2,6 +2,7 @@ import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/eng/term4/writing-recall-proofreading/diagram.webp", alt: "Writing Recall and Proofreading" },
     title: "Recalling formats under pressure",
     content: (
       <div className="space-y-4 text-left">

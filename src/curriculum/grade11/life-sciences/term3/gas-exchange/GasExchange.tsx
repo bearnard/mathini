@@ -3,6 +3,7 @@ import type { LSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/ls/term3/gas-exchange/diagram.webp", alt: "Gas Exchange" },
     title: 'Structure of the Human Breathing System',
     content: (
       <div className="space-y-4 text-center">

@@ -4,6 +4,7 @@ import type { PSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/ps/term4/chemistry-consolidation/diagram.webp", alt: "Chemistry Consolidation" },
     title: 'Organic Chemistry Review',
     content: (
       <div className="space-y-4 text-center">

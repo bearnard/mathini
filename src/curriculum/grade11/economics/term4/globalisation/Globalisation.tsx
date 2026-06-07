@@ -13,6 +13,7 @@ const globalisationData = [
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/econ/term4/globalisation/diagram.webp", alt: "Globalisation and the North-South Divide" },
     title: 'What is Globalisation?',
     content: (
       <div className="space-y-6">

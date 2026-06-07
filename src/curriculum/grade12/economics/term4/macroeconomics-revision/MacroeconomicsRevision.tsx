@@ -14,6 +14,7 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/econ/term4/macroeconomics-revision/diagram.webp", alt: "Foreign Exchange Revision Market" },
     title: 'Linking the macro topics',
     content: (
       <div className="space-y-6">

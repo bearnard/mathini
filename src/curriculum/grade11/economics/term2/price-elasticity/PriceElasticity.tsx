@@ -13,6 +13,7 @@ const revenueTestData = [
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/econ/term2/price-elasticity/diagram.webp", alt: "Elastic vs Inelastic Demand" },
     title: 'Price Elasticity of Demand (PED)',
     content: (
       <div className="space-y-6">

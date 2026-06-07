@@ -13,6 +13,7 @@ const roleBalanceData = [
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/econ/term1/mixed-economy/diagram.webp", alt: "Market for Maize" },
     title: 'Three Economic Systems',
     content: (
       <div className="space-y-6">

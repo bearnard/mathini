@@ -6,6 +6,7 @@ import BudgetPlanner from '@/components/subjects/BudgetPlanner';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ml/term3/finance-income-expenditure-profit-loss-budgets/diagram.webp", alt: "Finance: Income, Expenditure, Profit, Loss and Budgets" },
     title: 'Income and Sources',
     content: (
       <div className="space-y-6">

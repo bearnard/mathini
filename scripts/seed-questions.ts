@@ -24,6 +24,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { glob } from "glob";
 import { registry } from "../src/lib/server/caps/registry";
+import { getSections } from "../src/lib/server/caps/sections";
 
 // ── Config ─────────────────────────────────────────────────────────────────
 
@@ -583,7 +584,10 @@ async function vectorizeUpsert(
 
 // ── D1 (Cloudflare REST API) ─────────────────────────────────────────────────
 
-async function d1Insert(item: GeneratedItem & { task: string; vectorId: string }): Promise<void> {
+async function d1Insert(
+  item: GeneratedItem & { task: string; vectorId: string; section?: string },
+): Promise<void> {
+  const section = item.section ?? "general";
   const res = await fetch(
     `${CF_BASE}/d1/database/${D1_DATABASE_ID}/query`,
     {
@@ -591,8 +595,8 @@ async function d1Insert(item: GeneratedItem & { task: string; vectorId: string }
       headers: CF_HEADERS,
       body: JSON.stringify({
         sql: `INSERT OR IGNORE INTO item_cache
-              (task, prompt, options, answer, explanation, created_at, vector_id)
-              VALUES (?, ?, ?, ?, ?, ?, ?)`,
+              (task, prompt, options, answer, explanation, created_at, vector_id, section)
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
         params: [
           item.task,
           item.prompt,
@@ -601,6 +605,7 @@ async function d1Insert(item: GeneratedItem & { task: string; vectorId: string }
           item.explanation,
           Date.now(),
           item.vectorId,
+          section,
         ],
       }),
     }
@@ -904,6 +909,12 @@ async function main() {
       let taskDeduped  = 0;
       let taskErrored  = 0;
 
+      // Determine sections for this task (empty = use 'general' for all)
+      const taskSections = getSections(taskKey) ?? [];
+      // If the task has sections, cycle through them; otherwise all 'general'
+      const assignSection = (idx: number): string =>
+        taskSections.length > 0 ? taskSections[idx % taskSections.length].slug : "general";
+
       for (let j = 0; j < allItems.length; j++) {
         const item = allItems[j];
         const emb  = embeddings[j];
@@ -930,7 +941,7 @@ async function main() {
           // D1 first — INSERT OR IGNORE is idempotent on retry.
           // If D1 succeeds but Vectorize fails, the next run re-generates the
           // question and INSERT OR IGNORE silently skips the D1 duplicate.
-          await d1Insert({ ...item, task: taskKey, vectorId: vid });
+          await d1Insert({ ...item, task: taskKey, vectorId: vid, section: assignSection(j) });
           await vectorizeUpsert(vid, emb, taskKey, VECTORIZE_INDEX);
           taskEmbeddings.push(emb);
           taskInserted++;

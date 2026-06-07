@@ -7,6 +7,7 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/acc/term2/fixed-assets-analysis-control/diagram.webp", alt: "Tangible Assets Note (Extract)" },
     title: 'Cost, carrying value and depreciation',
     content: (
       <div className="space-y-6">

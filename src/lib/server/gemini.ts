@@ -274,10 +274,10 @@ export async function persistItems(task: string, items: GeneratedItem[]): Promis
   try {
     const now = Date.now();
     const stmt = db.prepare(
-      'INSERT INTO item_cache (task, prompt, options, answer, explanation, created_at) VALUES (?, ?, ?, ?, ?, ?)',
+      'INSERT INTO item_cache (task, prompt, options, answer, explanation, created_at, section) VALUES (?, ?, ?, ?, ?, ?, ?)',
     );
     const batch = items.map((it) =>
-      stmt.bind(task, it.prompt, JSON.stringify(it.options), it.answer, it.explanation ?? '', now),
+      stmt.bind(task, it.prompt, JSON.stringify(it.options), it.answer, it.explanation ?? '', now, 'general'),
     );
     await db.batch(batch);
   } catch {

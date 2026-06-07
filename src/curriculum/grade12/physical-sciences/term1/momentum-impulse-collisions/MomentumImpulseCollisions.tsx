@@ -6,6 +6,7 @@ import ProjectileMotion from '@/components/subjects/PhysicsSim/ProjectileMotion'
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ps/term1/momentum-impulse-collisions/diagram.webp", alt: "Momentum, Impulse and Collisions" },
     title: 'Momentum is a vector quantity',
     content: (
       <div className="space-y-4 text-left">

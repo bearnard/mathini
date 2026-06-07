@@ -5,6 +5,7 @@ import type { MathematicalLiteracyItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ml/term4/data-handling/diagram.webp", alt: "Data Handling" },
     title: 'Collecting and Organizing Data',
     content: (
       <div className="space-y-6">

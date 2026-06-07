@@ -4,6 +4,7 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/eng/term4/literature-revision/diagram.webp", alt: "From \\" },
     title: 'Revising across genres: novel, drama and poetry',
     content: (
       <div className="space-y-4 text-center">

@@ -6,6 +6,7 @@ import type { EconomicsItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/econ/term4/current-south-african-economic-issues/diagram.webp", alt: "Current South African Economic Issues" },
     title: 'Unemployment in South Africa',
     content: (
       <div className="space-y-6">

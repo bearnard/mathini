@@ -9,6 +9,7 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ls/term2/genetics-inheritance/diagram.webp", alt: "Key inheritance terms" },
     title: 'Genes and alleles determine inherited traits',
     content: (
       <div className="space-y-6 text-left">

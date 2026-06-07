@@ -3,6 +3,7 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/cat/term2/pat-phase2-june-exam-preparation/diagram.webp", alt: "PAT Phase 2 and June Exam Preparation" },
     title: "What PAT phase 2 involves",
     content: (
       <div className="space-y-4 text-left">

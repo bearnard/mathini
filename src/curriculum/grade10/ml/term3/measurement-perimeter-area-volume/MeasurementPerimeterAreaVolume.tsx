@@ -6,6 +6,7 @@ import MeasurementConverter from '@/components/subjects/MeasurementConverter';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ml/term3/measurement-perimeter-area-volume/diagram.webp", alt: "Measurement: Perimeter, Area and Volume" },
     title: 'Perimeter of 2D Shapes',
     content: (
       <div className="space-y-6">

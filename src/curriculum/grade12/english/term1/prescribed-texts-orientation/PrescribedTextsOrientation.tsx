@@ -3,6 +3,7 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/eng/term1/prescribed-texts-orientation/diagram.webp", alt: "From \\" },
     title: "Understanding the Grade 12 paper system",
     content: (
       <div className="space-y-4 text-left">

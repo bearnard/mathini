@@ -3,6 +3,7 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/cat/term3/digital-communication-emerging-technologies/diagram.webp", alt: "Digital Communication and Emerging Technologies" },
     title: "Digital communication tools",
     content: (
       <div className="space-y-4 text-left">

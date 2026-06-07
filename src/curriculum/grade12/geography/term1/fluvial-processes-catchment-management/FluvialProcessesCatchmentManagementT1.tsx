@@ -4,6 +4,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps = [
   {
+    image: { src: "/curriculum/grade12/geo/term1/fluvial-processes-catchment-management/diagram.webp", alt: "Fluvial Processes and Catchment Management" },
     title: "Parts of a drainage basin",
     content: (
       <div className="space-y-4 text-left">

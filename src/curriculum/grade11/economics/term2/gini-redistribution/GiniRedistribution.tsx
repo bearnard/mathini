@@ -21,6 +21,7 @@ const redistributionData = [
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/econ/term2/gini-redistribution/diagram.webp", alt: "Gini Coefficient and Income Redistribution" },
     title: 'Income Inequality and the Lorenz Curve',
     content: (
       <div className="space-y-6">

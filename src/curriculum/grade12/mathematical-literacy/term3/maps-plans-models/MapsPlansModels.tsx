@@ -6,6 +6,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ml/term3/maps-plans-models/diagram.webp", alt: "Maps, Plans and Models" },
     title: 'Connect plans and models to real dimensions',
     content: (
       <div className="space-y-4 text-left">

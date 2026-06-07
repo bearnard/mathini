@@ -4,6 +4,7 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ls/term3/biodiversity-classification/diagram.webp", alt: "Taxonomic Hierarchy" },
     title: 'Classification Systems',
     content: (
       <div className="space-y-6">

@@ -8,6 +8,7 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ls/term4/paper1-human-reproduction-homeostasis/diagram.webp", alt: "Core sequence in human reproduction" },
     title: 'Revise the sequence of human reproduction',
     content: (
       <div className="space-y-6 text-left">

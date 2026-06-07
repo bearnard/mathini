@@ -6,6 +6,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ml/term4/paper1-readiness/diagram.webp", alt: "Paper 1 Readiness" },
     title: 'Expect source-based finance questions',
     content: (
       <div className="space-y-4 text-left">

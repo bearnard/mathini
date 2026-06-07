@@ -21,6 +21,15 @@
       "bucket_name": "preppals-audio"
     }
   ],
+  "vectorize": [
+    {
+      "binding": "QUESTIONS_IDX",
+      "index_name": "preppals-questions"
+    }
+  ],
+  "triggers": {
+    "crons": ["0 3 * * SUN"]
+  },
   "observability": {
     "enabled": true
   },

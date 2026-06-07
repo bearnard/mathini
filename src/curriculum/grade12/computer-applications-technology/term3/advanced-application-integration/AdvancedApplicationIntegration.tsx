@@ -3,6 +3,7 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/cat/term3/advanced-application-integration/diagram.webp", alt: "Advanced Application Integration" },
     title: "Why application integration matters",
     content: (
       <div className="space-y-4 text-left">

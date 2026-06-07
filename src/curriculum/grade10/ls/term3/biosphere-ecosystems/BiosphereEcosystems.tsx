@@ -4,6 +4,7 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade10/ls/term3/biosphere-ecosystems/diagram.webp", alt: "Energy Flow Through Trophic Levels" },
     title: 'Ecosystem Components',
     content: (
       <div className="space-y-6">

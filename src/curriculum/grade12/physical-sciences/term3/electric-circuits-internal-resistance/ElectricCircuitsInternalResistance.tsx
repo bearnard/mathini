@@ -8,6 +8,7 @@ const SimpleCircuit = dynamic(() => import('@/components/subjects/PhysicsSim/Sim
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade12/ps/term3/electric-circuits-internal-resistance/diagram.webp", alt: "Electric Circuits and Internal Resistance" },
     title: 'EMF and terminal voltage describe different energy transfers',
     content: (
       <div className="space-y-4 text-left">

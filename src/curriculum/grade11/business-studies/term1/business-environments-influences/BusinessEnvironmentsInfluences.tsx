@@ -3,6 +3,7 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/bus/term1/business-environments-influences/diagram.webp", alt: "Business Environments and Influences" },
     title: 'The three business environments',
     content: (
       <div className="space-y-4 text-center">

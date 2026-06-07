@@ -5,6 +5,7 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
+    image: { src: "/curriculum/grade11/geo/term2/layered-rocks-karoo/diagram.webp", alt: "Layered Rocks and Karoo Landscapes" },
     title: 'Sedimentary rock formation',
     content: (
       <div className="space-y-4 text-center">
