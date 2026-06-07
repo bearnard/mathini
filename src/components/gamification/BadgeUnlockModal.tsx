@@ -64,6 +64,7 @@ export default function BadgeUnlockModal({ badges, onDismiss }: BadgeUnlockModal
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+        onClick={() => {}}
       >
         <motion.div
           key={id}
@@ -72,6 +73,7 @@ export default function BadgeUnlockModal({ badges, onDismiss }: BadgeUnlockModal
           exit={{ scale: 0.8, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 300, damping: 25 }}
           className="bg-white rounded-2xl shadow-2xl p-8 max-w-xs w-full text-center space-y-4"
+          onClick={(e) => e.stopPropagation()}
         >
           {hasMultiple && (
             <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
