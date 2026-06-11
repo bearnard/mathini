@@ -3,6 +3,8 @@ import { CheckCircle, XCircle, RefreshCw, BookOpen, Award, ArrowRight } from 'lu
 import Card from '../../../../components/ui/Card';
 import Button from '../../../../components/ui/Button';
 import { motion } from 'framer-motion';
+import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
+import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
 
 interface Question {
   id: number;
@@ -284,7 +286,16 @@ const questions: Question[] = [
   }
 ];
 
+const getSection = (id: number): string => {
+  if (id <= 3) return 'map-skills';
+  if (id <= 6) return 'physical-features';
+  if (id <= 12) return 'weather-climate-vegetation';
+  if (id <= 20) return 'minerals-and-mining';
+  return 'general-geography';
+};
+
 const GeographyAssessment = () => {
+  const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-geography-final-t5', 'geo');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
@@ -304,6 +315,7 @@ const GeographyAssessment = () => {
     if (selectedAnswer === questions[currentQuestion].correctAnswer) {
       setScore(score + 1);
     }
+    recordAttempt(selectedAnswer === questions[currentQuestion].correctAnswer, getSection(questions[currentQuestion].id));
   };
 
   const nextQuestion = () => {
@@ -563,6 +575,7 @@ const GeographyAssessment = () => {
           </Button>
         )}
       </div>
+      <BadgeUnlockModal badges={pendingBadges} onDismiss={clearBadges} />
     </div>
   );
 };

@@ -6,10 +6,13 @@ import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
 import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
+import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
+import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
 import { ArrowRight, Scale } from 'lucide-react';
 
 const Conversions = () => {
     const [mode, setMode] = useState<'learn' | 'practice'>('learn');
+    const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-mass-t4', 'math');
 
     // Practice State
     const [grams, setGrams] = useState<number>(0);
@@ -60,6 +63,7 @@ const Conversions = () => {
             setIsCorrect(false);
             setStreak(0);
         }
+        recordAttempt(correct, 'conversions');
     };
 
     const LearnContent = () => {
@@ -214,6 +218,7 @@ const Conversions = () => {
                     </div>
                 </div>
             )}
+            <BadgeUnlockModal badges={pendingBadges} onDismiss={clearBadges} />
         </TopicContainer>
     );
 };

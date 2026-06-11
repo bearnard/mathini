@@ -6,10 +6,13 @@ import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
 import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
+import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
+import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
 import { ArrowRight, Target } from 'lucide-react';
 
 const Rounding = () => {
     const [mode, setMode] = useState<'learn' | 'practice'>('learn');
+    const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-whole-numbers-t4', 'math');
 
     // Practice State
     const [number, setNumber] = useState<number>(0);
@@ -63,6 +66,7 @@ const Rounding = () => {
             setIsCorrect(false);
             setStreak(0);
         }
+        recordAttempt(val === correctVal, 'rounding');
     };
 
     const formatNumber = (num: number) => {
@@ -213,6 +217,7 @@ const Rounding = () => {
                     </div>
                 </div>
             )}
+            <BadgeUnlockModal badges={pendingBadges} onDismiss={clearBadges} />
         </TopicContainer>
     );
 };

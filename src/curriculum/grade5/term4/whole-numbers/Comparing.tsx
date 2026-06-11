@@ -6,10 +6,13 @@ import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
 import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
+import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
+import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
 import { Scale } from 'lucide-react';
 
 const Comparing = () => {
     const [mode, setMode] = useState<'learn' | 'practice'>('learn');
+    const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-whole-numbers-t4', 'math');
 
     // Practice State
     const [numA, setNumA] = useState<number>(0);
@@ -60,6 +63,7 @@ const Comparing = () => {
             setIsCorrect(false);
             setStreak(0);
         }
+        recordAttempt(operator === correctOp, 'comparing');
     };
 
     const formatNumber = (num: number) => {
@@ -204,6 +208,7 @@ const Comparing = () => {
                     </div>
                 </div>
             )}
+            <BadgeUnlockModal badges={pendingBadges} onDismiss={clearBadges} />
         </TopicContainer>
     );
 };

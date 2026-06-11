@@ -6,6 +6,8 @@ import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
 import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
+import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
+import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
 import { Calculator } from 'lucide-react';
 
 interface Problem {
@@ -16,6 +18,7 @@ interface Problem {
 
 const MassCalculations = () => {
     const [mode, setMode] = useState<'learn' | 'practice'>('learn');
+    const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-mass-t4', 'math');
 
     // Practice State
     const [problem, setProblem] = useState<Problem | null>(null);
@@ -86,6 +89,7 @@ const MassCalculations = () => {
             setIsCorrect(false);
             setStreak(0);
         }
+        recordAttempt(Math.abs(val - problem.answer) < 0.1, 'calculations');
     };
 
     const LearnContent = () => {
@@ -213,6 +217,7 @@ const MassCalculations = () => {
                     </div>
                 </div>
             )}
+            <BadgeUnlockModal badges={pendingBadges} onDismiss={clearBadges} />
         </TopicContainer>
     );
 };

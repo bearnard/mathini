@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { CheckCircle2, XCircle, RefreshCw, Trophy, PenTool } from 'lucide-react';
+import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
+import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
 
 interface Question {
     id: number;
@@ -231,7 +233,16 @@ const questions: Question[] = [
     }
 ];
 
+const getSection = (id: number): string => {
+    if (id <= 6) return 'festivals-and-customs';
+    if (id <= 12) return 'healthy-eating';
+    if (id <= 18) return 'local-environmental-problems';
+    if (id <= 24) return 'substance-abuse';
+    return 'tb-and-hiv';
+};
+
 const LifeSkillsAssessment = () => {
+    const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-life-skills-final-t5', 'lsk');
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
     const [showResult, setShowResult] = useState(false);
@@ -252,6 +263,7 @@ const LifeSkillsAssessment = () => {
         if (selectedOption === questions[currentQuestion].correctAnswer) {
             setScore(score + 1);
         }
+        recordAttempt(selectedOption === questions[currentQuestion].correctAnswer, getSection(questions[currentQuestion].id));
         setShowResult(true);
     };
 
@@ -506,6 +518,7 @@ const LifeSkillsAssessment = () => {
                     </div>
                 </div>
             </div>
+            <BadgeUnlockModal badges={pendingBadges} onDismiss={clearBadges} />
         </div>
     );
 };

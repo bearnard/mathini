@@ -85,18 +85,6 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
     const results = resultsRef.current;
     if (results.length === 0) return;
 
-    // Dummy aggregate POST (fire-and-forget, response not used)
-    fetch('/api/attempts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        task,
-        subject: taskToSubject(apiPath),
-        isCorrect: true,
-        streak: 0,
-      }),
-    }).catch(() => {});
-
     // Per-result POSTs — collect newBadges from responses
     const promises = results.map((r) =>
       fetch('/api/attempts', {

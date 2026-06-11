@@ -6,10 +6,13 @@ import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
 import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
+import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
+import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
 import { Scale } from 'lucide-react';
 
 const ReadingScales = () => {
     const [mode, setMode] = useState<'learn' | 'practice'>('learn');
+    const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-mass-t4', 'math');
 
     // Practice State
     const [weight, setWeight] = useState<number>(0);
@@ -62,6 +65,7 @@ const ReadingScales = () => {
             setIsCorrect(false);
             setStreak(0);
         }
+        recordAttempt(Math.abs(val - weight) < 1, 'reading-scales');
     };
 
     const renderAnalogueScale = (currentWeight: number, max: number, size: number = 300) => {
@@ -267,6 +271,7 @@ const ReadingScales = () => {
                     </div>
                 </div>
             )}
+            <BadgeUnlockModal badges={pendingBadges} onDismiss={clearBadges} />
         </TopicContainer>
     );
 };

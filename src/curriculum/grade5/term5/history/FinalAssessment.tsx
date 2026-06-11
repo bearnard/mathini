@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { CheckCircle2, XCircle, RefreshCw, Trophy, PenTool } from 'lucide-react';
+import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
+import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
 
 interface Question {
     id: number;
@@ -223,6 +225,7 @@ const questions: Question[] = [
 ];
 
 const FinalAssessment = () => {
+    const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-history-final-t5', 'his');
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
     const [showResult, setShowResult] = useState(false);
@@ -243,6 +246,7 @@ const FinalAssessment = () => {
         if (selectedOption === questions[currentQuestion].correctAnswer) {
             setScore(score + 1);
         }
+        recordAttempt(selectedOption === questions[currentQuestion].correctAnswer);
         setShowResult(true);
     };
 
@@ -462,6 +466,7 @@ const FinalAssessment = () => {
                     </div>
                 </div>
             </div>
+            <BadgeUnlockModal badges={pendingBadges} onDismiss={clearBadges} />
         </div>
     );
 };
