@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trophy, Award } from 'lucide-react';
+import { Trophy } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { useStudent } from '../../lib/client/StudentContext';
 
@@ -15,6 +15,7 @@ interface LeaderboardEntry {
   xp: number;
   correctCount: number;
   totalCount: number;
+  isMe: boolean;
 }
 
 export default function LeaderboardView({
@@ -25,8 +26,15 @@ export default function LeaderboardView({
   onRefresh: () => void;
 }) {
   const { student } = useStudent();
-  const [scope, setScope] = useState<Scope>('overall');
+  const [scope, setScopeState] = useState<Scope>('overall');
   const [filterValue, setFilterValue] = useState<string>(student?.grade.toString() ?? '');
+
+  // Each scope has its own filter type — reset the value when switching tabs
+  // so e.g. a grade number doesn't leak into the subject query.
+  const setScope = (next: Scope) => {
+    setScopeState(next);
+    setFilterValue(next === 'grade' ? student?.grade.toString() ?? '5' : '');
+  };
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -145,12 +153,12 @@ export default function LeaderboardView({
       ) : (
         <div className="space-y-2">
           {leaderboard.map((entry) => {
-            const isCurrentStudent = student && entry.displayName === student.displayName;
+            const isCurrentStudent = entry.isMe;
             const isTop3 = entry.rank <= 3;
 
             return (
               <motion.div
-                key={entry.rank}
+                key={`${entry.rank}-${entry.displayName}`}
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: entry.rank * 0.03 }}
@@ -158,18 +166,18 @@ export default function LeaderboardView({
                   'flex items-center gap-3 px-4 py-3 rounded-xl transition-colors',
                   isCurrentStudent
                     ? 'bg-indigo-50 border-2 border-indigo-300'
-                    : 'bg-white border border-slate-100 hover:bg-slate-50',
+                    : entry.rank === 1
+                      ? 'bg-amber-50 border border-amber-200 hover:bg-amber-100'
+                      : entry.rank === 2
+                        ? 'bg-slate-50 border border-slate-200 hover:bg-slate-100'
+                        : entry.rank === 3
+                          ? 'bg-orange-50 border border-orange-200 hover:bg-orange-100'
+                          : 'bg-white border border-slate-100 hover:bg-slate-50',
                 )}
               >
                 {/* Rank */}
-                <div className={cn(
-                  'w-8 text-center font-bold text-lg',
-                  entry.rank === 1 ? 'text-amber-500' :
-                  entry.rank === 2 ? 'text-slate-400' :
-                  entry.rank === 3 ? 'text-amber-700' :
-                  'text-slate-400',
-                )}>
-                  {isTop3 ? <Award className="w-5 h-5 mx-auto" /> : `#${entry.rank}`}
+                <div className="w-8 text-center font-bold text-lg text-slate-400">
+                  {isTop3 ? ['🥇', '🥈', '🥉'][entry.rank - 1] : `#${entry.rank}`}
                 </div>
 
                 {/* Avatar */}

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { verifyPin } from '../../../lib/server/identity';
+import { signSession, verifySession, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from '../../../lib/server/session';
 
 export const dynamic = 'force-dynamic';
 
@@ -56,16 +57,22 @@ export async function POST(req: NextRequest) {
       .bind(now, student.id)
       .run();
 
-    // Set session cookie
-    const cookie = await signSession(student.id, env.SESSION_SECRET);
-
-    return NextResponse.json({
+    // Set session cookie so the browser stays signed in across reloads
+    const token = await signSession(student.id, env.SESSION_SECRET);
+    const response = NextResponse.json({
       studentId: student.id,
       displayName: student.display_name,
       grade: student.grade,
       avatar: student.avatar,
-      cookie,
     });
+    response.cookies.set(SESSION_COOKIE_NAME, token, {
+      httpOnly: true,
+      sameSite: 'lax',
+      path: '/',
+      maxAge: SESSION_COOKIE_MAX_AGE,
+      secure: process.env.NODE_ENV === 'production',
+    });
+    return response;
   } catch (err) {
     console.error('Session resume error:', err);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
@@ -74,7 +81,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
   const { env } = getCloudflareContext();
-  const session = readSession(req);
+  const session = await verifySession(req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
   if (!session) {
     return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
   }
@@ -100,48 +107,8 @@ export async function GET(req: NextRequest) {
 
 export async function DELETE(req: NextRequest) {
   const response = NextResponse.json({ ok: true });
-  response.cookies.delete('pp_session');
+  response.cookies.delete(SESSION_COOKIE_NAME);
   return response;
-}
-
-async function signSession(studentId: string, secret: string): Promise<string> {
-  const payload = studentId;
-  const hmac = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-  const signature = await crypto.subtle.sign('HMAC', hmac, new TextEncoder().encode(payload));
-  const sigHex = Array.from(new Uint8Array(signature)).map((b) => b.toString(16).padStart(2, '0')).join('');
-  return `${payload}.${sigHex}`;
-}
-
-async function readSession(req: NextRequest): Promise<string | null> {
-  const cookie = req.cookies.get('pp_session')?.value;
-  if (!cookie) return null;
-  const dotIndex = cookie.indexOf('.');
-  if (dotIndex === -1) return null;
-  const payload = cookie.slice(0, dotIndex);
-  const sig = cookie.slice(dotIndex + 1);
-
-  // Verify HMAC (best-effort — if session secret is missing, trust the payload)
-  const secret = process.env.SESSION_SECRET;
-  if (secret) {
-    try {
-      const hmacKey = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['verify']);
-      const sigBytes = hexToBytes(sig);
-      const valid = await crypto.subtle.verify('HMAC', hmacKey, sigBytes.buffer as ArrayBuffer, new TextEncoder().encode(payload).buffer as ArrayBuffer);
-      if (!valid) return null;
-    } catch {
-      return null;
-    }
-  }
-
-  return payload;
-}
-
-function hexToBytes(hex: string): Uint8Array {
-  const bytes = new Uint8Array(hex.length / 2);
-  for (let i = 0; i < hex.length; i += 2) {
-    bytes[i / 2] = parseInt(hex.slice(i, i + 2), 16);
-  }
-  return bytes;
 }
 
 function incrementRateLimit(key: string): void {

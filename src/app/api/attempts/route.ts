@@ -3,6 +3,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { computeXp } from '../../../lib/server/scoring';
 import { evaluateBadges, type BadgeStats } from '../../../lib/server/badges';
 import { parseTaskSlug } from '../../../lib/server/caps/slug';
+import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,19 +25,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
     }
 
-    // Read session from cookie
-    const cookie = req.cookies.get('pp_session')?.value;
-    if (!cookie) {
-      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-    }
-
-    const studentId = extractStudentId(cookie);
-    if (!studentId) {
-      return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
-    }
-
     const { env } = getCloudflareContext();
     const db = env.DB;
+
+    // Read session from cookie
+    const studentId = await verifySession(req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
+    if (!studentId) {
+      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
+    }
 
     // Parse task slug for denormalised fields
     const parsed = parseTaskSlug(task);
@@ -72,7 +68,7 @@ export async function POST(req: NextRequest) {
            total_count = total_count + 1,
            updated_at = ?`,
       )
-        .bind(studentId, scope, xpAwarded, isCorrect ? 1 : 0, 1, now, xpAwarded, isCorrect ? 1 : 0, 1, now),
+        .bind(studentId, scope, xpAwarded, isCorrect ? 1 : 0, 1, now, xpAwarded, isCorrect ? 1 : 0, now),
     );
 
     await db.batch(batch);
@@ -103,11 +99,15 @@ export async function POST(req: NextRequest) {
     if (earnedBadges.length > 0) {
       for (const badgeId of earnedBadges) {
         try {
-          await db
+          const inserted = await db
             .prepare('INSERT OR IGNORE INTO student_badges (student_id, badge_id, earned_at) VALUES (?, ?, ?)')
             .bind(studentId, badgeId, now)
             .run();
-          insertedBadges.push(badgeId);
+          // Only report badges that were actually new, so the unlock modal
+          // doesn't re-fire for badges earned on earlier attempts.
+          if (inserted.meta.changes > 0) {
+            insertedBadges.push(badgeId);
+          }
         } catch {
           // Ignore duplicate insert errors
         }
@@ -131,10 +131,4 @@ export async function POST(req: NextRequest) {
     console.error('Attempt submit error:', err);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
-}
-
-function extractStudentId(cookie: string): string | null {
-  const dotIndex = cookie.indexOf('.');
-  if (dotIndex === -1) return null;
-  return cookie.slice(0, dotIndex);
 }

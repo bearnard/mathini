@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
+import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
 
 export const dynamic = 'force-dynamic';
 
@@ -32,17 +33,20 @@ export async function GET(req: NextRequest) {
     const { env } = getCloudflareContext();
     const db = env.DB;
 
+    // Identify the requesting student (if signed in) so the UI can highlight their row
+    const sessionStudentId = await verifySession(req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
+
     const result = await db
       .prepare(
-        `SELECT s.display_name, s.avatar, x.xp, x.correct_count, x.total_count
+        `SELECT s.id, s.display_name, s.avatar, x.xp, x.correct_count, x.total_count
          FROM student_xp x
          JOIN students s ON s.id = x.student_id
-         WHERE ${whereClause}
+         WHERE ${whereClause} AND x.total_count > 0
          ORDER BY x.xp DESC
          LIMIT ?`,
       )
       .bind(...params, limit)
-      .all<{ display_name: string; avatar: string; xp: number; correct_count: number; total_count: number }>();
+      .all<{ id: string; display_name: string; avatar: string; xp: number; correct_count: number; total_count: number }>();
 
     const rows = (result.results ?? []).map((r, idx) => ({
       rank: idx + 1,
@@ -51,6 +55,7 @@ export async function GET(req: NextRequest) {
       xp: r.xp,
       correctCount: r.correct_count,
       totalCount: r.total_count,
+      isMe: sessionStudentId !== null && r.id === sessionStudentId,
     }));
 
     return NextResponse.json({ leaderboard: rows });

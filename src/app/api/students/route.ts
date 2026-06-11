@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { hashPin, generateLoginCode, generatePin } from '../../../lib/server/identity';
-import { computeXp } from '../../../lib/server/scoring';
+import { signSession, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from '../../../lib/server/session';
 
 export const dynamic = 'force-dynamic';
 
@@ -58,26 +58,25 @@ export async function POST(req: NextRequest) {
       .bind(studentId, now)
       .run();
 
-    // Set session cookie
-    const cookie = await signSession(studentId, env.SESSION_SECRET);
-
-    return NextResponse.json({
+    // Set session cookie so the browser stays signed in across reloads
+    const token = await signSession(studentId, env.SESSION_SECRET);
+    const response = NextResponse.json({
       studentId,
       displayName,
       loginCode,
       pin,
-      cookie,
     });
+    response.cookies.set(SESSION_COOKIE_NAME, token, {
+      httpOnly: true,
+      sameSite: 'lax',
+      path: '/',
+      maxAge: SESSION_COOKIE_MAX_AGE,
+      secure: process.env.NODE_ENV === 'production',
+    });
+    return response;
   } catch (err) {
     console.error('Onboarding error:', err);
     return NextResponse.json({ error: 'Internal server error: ' + (err instanceof Error ? err.message : String(err)) }, { status: 500 });
   }
 }
 
-async function signSession(studentId: string, secret: string): Promise<string> {
-  const payload = studentId;
-  const hmac = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-  const signature = await crypto.subtle.sign('HMAC', hmac, new TextEncoder().encode(payload));
-  const sigHex = Array.from(new Uint8Array(signature)).map((b) => b.toString(16).padStart(2, '0')).join('');
-  return `${payload}.${sigHex}`;
-}

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { pickWeakSections, type SectionAccuracy } from '../../../../../lib/server/revision';
+import { verifySession, SESSION_COOKIE_NAME } from '../../../../../lib/server/session';
 
 export const dynamic = 'force-dynamic';
 
@@ -11,20 +12,14 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'Missing task' }, { status: 400 });
     }
 
-    // Read session from cookie
-    const cookie = req.cookies.get('pp_session')?.value;
-    if (!cookie) {
-      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-    }
-
-    const dotIndex = cookie.indexOf('.');
-    if (dotIndex === -1) {
-      return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
-    }
-    const studentId = cookie.slice(0, dotIndex);
-
     const { env } = getCloudflareContext();
     const db = env.DB;
+
+    // Read session from cookie
+    const studentId = await verifySession(req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
+    if (!studentId) {
+      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
+    }
 
     // Query per-section accuracy for this student + task
     const result = await db

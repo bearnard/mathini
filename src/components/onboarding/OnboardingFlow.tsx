@@ -26,7 +26,7 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
   const [step, setStep] = useState(0); // 0 = register, 1 = save code, 2 = done
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [result, setResult] = useState<{ loginCode: string; pin: string } | null>(null);
+  const [result, setResult] = useState<{ loginCode: string; pin: string; studentId: string } | null>(null);
 
   const [form, setForm] = useState({
     realName: '',
@@ -80,7 +80,7 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
       }
 
       const json = (await res.json()) as { loginCode: string; pin: string; studentId: string };
-      setResult({ loginCode: json.loginCode, pin: json.pin });
+      setResult({ loginCode: json.loginCode, pin: json.pin, studentId: json.studentId });
       setStep(1);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Registration failed');
@@ -92,7 +92,7 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
   const handleConfirm = () => {
     // Save the student
     setStudent({
-      id: '', // Will be set by the session route
+      id: result?.studentId ?? '',
       displayName: form.displayName,
       avatar: form.avatar,
       grade: Number(form.grade),
