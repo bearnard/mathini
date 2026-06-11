@@ -1,257 +1,89 @@
-import { useState, useEffect } from 'react';
-import { triggerConfetti } from '../../../../lib/confetti';
-import Card from '../../../../components/ui/Card';
-import Button from '../../../../components/ui/Button';
-import Streak from '../../../../components/gamification/Streak';
-import Feedback from '../../../../components/ui/Feedback';
-import { cn } from '../../../../lib/utils';
-import TopicContainer from '../../../../components/layout/TopicContainer';
+import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
+import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
 
-interface Shape {
-    name: string;
-    sides: number;
-    color: string;
-}
+const learnSteps: LearnStep[] = [
+  {
+    title: 'Counting Sides',
+    content: (
+      <div className="space-y-6 text-center">
+        <p className="text-lg text-slate-600">A <strong>2D shape</strong> is flat. Count its <strong>sides</strong> to name it.</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto">
+          {[['Triangle', 3], ['Quadrilateral', 4], ['Pentagon', 5], ['Hexagon', 6]].map(([name, sides]) => (
+            <div key={name} className="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
+              <p className="font-bold text-slate-800">{name}</p>
+              <p className="text-sm text-slate-500">{sides} sides</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: 'More Polygons',
+    content: (
+      <div className="space-y-6 text-center">
+        <p className="text-lg text-slate-600">Shapes with straight sides are called <strong>polygons</strong>.</p>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-2xl mx-auto">
+          {[['Octagon', 8], ['Circle', 0], ['Rectangle', 4]].map(([name, sides]) => (
+            <div key={name} className="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+              <p className="font-bold text-slate-800">{name}</p>
+              <p className="text-sm text-slate-500">{(sides as number) > 0 ? `${sides} sides` : 'No straight sides'}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+];
 
-const Shapes2D = () => {
-    const [mode, setMode] = useState<'learn' | 'practice'>('learn');
+const bank: CapsItem[] = [
+  {
+    prompt: 'How many sides does a hexagon have?',
+    options: ['5', '6', '7', '8'],
+    answer: '6',
+    explanation: 'Hex means six. A hexagon has 6 sides.',
+  },
+  {
+    prompt: 'What is a polygon?',
+    options: ['A shape with straight sides', 'A shape with curves', 'Any 3D object', 'A circle'],
+    answer: 'A shape with straight sides',
+    explanation: 'A polygon is a closed 2D shape made entirely of straight sides.',
+  },
+  {
+    prompt: 'How many sides does a pentagon have?',
+    options: ['4', '5', '6', '3'],
+    answer: '5',
+    explanation: 'Penta means five. A pentagon has 5 sides.',
+  },
+  {
+    prompt: 'A quadrilateral always has how many sides?',
+    options: ['3', '4', '5', '6'],
+    answer: '4',
+    explanation: 'Quad means four. Any quadrilateral (square, rectangle, rhombus, etc.) has exactly 4 sides.',
+  },
+  {
+    prompt: 'Which shape has 8 sides?',
+    options: ['Hexagon', 'Heptagon', 'Octagon', 'Nonagon'],
+    answer: 'Octagon',
+    explanation: 'Octa means eight. An octagon has 8 sides.',
+  },
+  {
+    prompt: 'How many angles does a triangle have?',
+    options: ['2', '3', '4', '6'],
+    answer: '3',
+    explanation: 'A triangle has 3 sides and 3 angles.',
+  },
+];
 
-    // Practice State
-    const [targetShape, setTargetShape] = useState<Shape>({ name: 'Triangle', sides: 3, color: '#6366f1' });
-    const [options, setOptions] = useState<Shape[]>([]);
-    const [selectedShape, setSelectedShape] = useState<string | null>(null);
-    const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-    const [streak, setStreak] = useState(0);
-
-    // Learn State
-    const [learnIndex, setLearnIndex] = useState(0);
-
-    const allShapes: Shape[] = [
-        { name: 'Triangle', sides: 3, color: '#6366f1' },
-        { name: 'Square', sides: 4, color: '#10b981' },
-        { name: 'Rectangle', sides: 4, color: '#f59e0b' },
-        { name: 'Pentagon', sides: 5, color: '#ef4444' },
-        { name: 'Hexagon', sides: 6, color: '#8b5cf6' },
-        { name: 'Circle', sides: 0, color: '#06b6d4' },
-    ];
-
-    const generateProblem = () => {
-        const target = allShapes[Math.floor(Math.random() * allShapes.length)];
-        setTargetShape(target);
-
-        const opts = [target];
-        const otherShapes = allShapes.filter(s => s.name !== target.name);
-
-        while (opts.length < 4) {
-            const random = otherShapes[Math.floor(Math.random() * otherShapes.length)];
-            if (!opts.find(s => s.name === random.name)) {
-                opts.push(random);
-            }
-        }
-
-        setOptions(opts.sort(() => Math.random() - 0.5));
-        setSelectedShape(null);
-        setIsCorrect(null);
-    };
-
-    useEffect(() => {
-        generateProblem();
-    }, []);
-
-    const handleSelect = (shapeName: string) => {
-        if (selectedShape !== null) return;
-
-        setSelectedShape(shapeName);
-
-        if (shapeName === targetShape.name) {
-            setIsCorrect(true);
-            setStreak(s => s + 1);
-            triggerConfetti();
-        } else {
-            setIsCorrect(false);
-            setStreak(0);
-        }
-    };
-
-    const renderSVGShape = (shape: Shape, size: number = 100) => {
-        const center = size / 2;
-
-        if (shape.sides === 0) {
-            return (
-                <svg width={size} height={size}>
-                    <circle cx={center} cy={center} r={center - 10} fill={shape.color} stroke="#1e293b" strokeWidth="3" />
-                </svg>
-            );
-        } else if (shape.sides === 3) {
-            const height = (size - 20) * Math.sqrt(3) / 2;
-            return (
-                <svg width={size} height={size}>
-                    <polygon
-                        points={`${center},10 ${size - 10},${height + 10} 10,${height + 10}`}
-                        fill={shape.color}
-                        stroke="#1e293b"
-                        strokeWidth="3"
-                    />
-                </svg>
-            );
-        } else if (shape.sides === 4) {
-            const width = shape.name === 'Square' ? size - 20 : size - 20;
-            const height = shape.name === 'Square' ? size - 20 : (size - 20) * 0.6;
-            const x = (size - width) / 2;
-            const y = (size - height) / 2;
-
-            return (
-                <svg width={size} height={size}>
-                    <rect
-                        x={x}
-                        y={y}
-                        width={width}
-                        height={height}
-                        fill={shape.color}
-                        stroke="#1e293b"
-                        strokeWidth="3"
-                    />
-                </svg>
-            );
-        } else {
-            const radius = (size - 20) / 2;
-            const points = [];
-            for (let i = 0; i < shape.sides; i++) {
-                const angle = (i * 2 * Math.PI / shape.sides) - Math.PI / 2;
-                const x = center + radius * Math.cos(angle);
-                const y = center + radius * Math.sin(angle);
-                points.push(`${x},${y}`);
-            }
-
-            return (
-                <svg width={size} height={size}>
-                    <polygon
-                        points={points.join(' ')}
-                        fill={shape.color}
-                        stroke="#1e293b"
-                        strokeWidth="3"
-                    />
-                </svg>
-            );
-        }
-    };
-
-    const LearnContent = () => {
-        const currentShape = allShapes[learnIndex];
-
-        return (
-            <Card className="p-8 space-y-8 text-center">
-                <div className="flex justify-between items-center">
-                    <h2 className="text-2xl font-bold text-slate-800">Meet the Shapes</h2>
-                    <span className="text-sm font-bold bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full">
-                        {learnIndex + 1} / {allShapes.length}
-                    </span>
-                </div>
-
-                <div className="py-8 animate-in zoom-in duration-500 key={learnIndex}">
-                    <div className="flex justify-center mb-6">
-                        {renderSVGShape(currentShape, 200)}
-                    </div>
-                    <h3 className="text-3xl font-black text-slate-800 mb-2">{currentShape.name}</h3>
-                    <p className="text-xl text-slate-500">
-                        I have <strong className="text-indigo-600">{currentShape.sides > 0 ? currentShape.sides : 'no'}</strong> sides.
-                    </p>
-                </div>
-
-                <div className="flex justify-between pt-8 border-t border-slate-100">
-                    <Button
-                        variant="secondary"
-                        disabled={learnIndex === 0}
-                        onClick={() => setLearnIndex(prev => prev - 1)}
-                    >
-                        Previous
-                    </Button>
-
-                    <Button
-                        onClick={() => {
-                            if (learnIndex < allShapes.length - 1) {
-                                setLearnIndex(prev => prev + 1);
-                            } else {
-                                setMode('practice');
-                            }
-                        }}
-                    >
-                        {learnIndex === allShapes.length - 1 ? "Start Practice" : "Next Shape"}
-                    </Button>
-                </div>
-            </Card>
-        );
-    };
-
-    return (
-        <TopicContainer
-            title="2D Shapes"
-            subtitle="Learn to identify different shapes and their properties"
-            onModeChange={setMode}
-        >
-            {mode === 'learn' ? (
-                <LearnContent />
-            ) : (
-                <div className="space-y-8">
-                    <div className="flex justify-end">
-                        <Streak count={streak} />
-                    </div>
-
-                    <Card className="p-8 text-center space-y-8">
-                        <p className="text-slate-500 text-lg">Which shape is this?</p>
-
-                        <div className="flex justify-center animate-in zoom-in duration-500">
-                            {renderSVGShape(targetShape, 200)}
-                        </div>
-
-                        <p className="text-sm text-slate-400 font-medium">
-                            {targetShape.sides > 0 ? `This shape has ${targetShape.sides} sides` : 'This shape has no corners or edges'}
-                        </p>
-
-                        <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto">
-                            {options.map((shape) => {
-                                let variant: 'primary' | 'secondary' | 'outline' | 'success' | 'danger' | 'ghost' = 'outline';
-
-                                if (selectedShape !== null) {
-                                    if (shape.name === targetShape.name) {
-                                        variant = 'success';
-                                    } else if (shape.name === selectedShape) {
-                                        variant = 'danger';
-                                    } else {
-                                        variant = 'ghost';
-                                    }
-                                }
-
-                                return (
-                                    <Button
-                                        key={shape.name}
-                                        onClick={() => handleSelect(shape.name)}
-                                        disabled={selectedShape !== null}
-                                        variant={variant}
-                                        className={cn(
-                                            "h-16 text-lg",
-                                            selectedShape === null && "hover:border-indigo-400 hover:bg-indigo-50"
-                                        )}
-                                    >
-                                        {shape.name}
-                                    </Button>
-                                );
-                            })}
-                        </div>
-                    </Card>
-
-                    <div className="h-24">
-                        <Feedback
-                            isCorrect={isCorrect}
-                            correctMessage={`That is a ${targetShape.name}.`}
-                            incorrectMessage={`That is not a ${selectedShape}. It is a ${targetShape.name}.`}
-                            onNext={generateProblem}
-                        />
-                    </div>
-                </div>
-            )}
-        </TopicContainer>
-    );
-};
+const Shapes2D = () => (
+  <CapsSubjectTopic
+    title="2D Shapes"
+    subtitle="Learn to identify different shapes and their properties"
+    learnSteps={learnSteps}
+    task="gr6-shapes-2d-t1"
+    bank={bank}
+    apiPath="/api/caps/grade6"
+  />
+);
 
 export default Shapes2D;

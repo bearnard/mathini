@@ -23,6 +23,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import { glob } from "glob";
+import { Agent as UndiciAgent } from "undici";
 import { registry } from "../src/lib/server/caps/registry";
 import { getSections } from "../src/lib/server/caps/sections";
 
@@ -48,7 +49,7 @@ if (!CF_ACCOUNT_ID || !CF_API_TOKEN || (!USE_LOCAL && !GEMINI_API_KEY)) {
 const OLLAMA_BASE       = "http://localhost:11434";
 const LEMONADE_BASE     = "http://localhost:13305";
 const LEMONADE_KEY      = "lemonade";
-const LOCAL_GEN_MODEL   = "Qwen3.6-35B-A3B-MTP-GGUF";
+const LOCAL_GEN_MODEL   = "Gemma-4-12B-it-GGUF";
 const LOCAL_EMBED_MODEL = "embeddinggemma:latest";
 // embeddinggemma outputs 768-dim vectors natively, matching the Vectorize index
 // (the slice to EMBED_DIMS below is then a no-op). NOTE: switching embedding
@@ -415,13 +416,18 @@ async function generateTasksLocal(
           stream: false,
           response_format: { type: "json_object" },
         }),
-        signal: AbortSignal.timeout(15 * 60_000), // 15 min — generous ceiling for slow local multi-task batches
-      });
+        signal: AbortSignal.timeout(15 * 60_000),
+        // undici's headersTimeout defaults to 5 min and fires before slow models finish
+        dispatcher: new UndiciAgent({ headersTimeout: 30 * 60_000, bodyTimeout: 30 * 60_000 }),
+      } as RequestInit);
     } catch (err) {
-      const msg = `  ⚠️  fetch error (attempt ${attempt + 1}/${retries + 1}): ${err}`;
+      const cause = err instanceof Error && (err as NodeJS.ErrnoException).cause
+        ? ` (cause: ${(err as NodeJS.ErrnoException).cause})`
+        : '';
+      const msg = `  ⚠️  fetch error (attempt ${attempt + 1}/${retries + 1}): ${err}${cause}`;
       debugLog(`generateTasksLocal tasks=${specs.map((s) => s.slug).join(",")} ${msg}`);
       if (attempt < retries) {
-        console.warn(`${msg} — retrying...`);
+        console.warn(`${msg} — retrying... if it's a timeout maybe increase it?`);
         await sleep(3000);
         continue;
       }

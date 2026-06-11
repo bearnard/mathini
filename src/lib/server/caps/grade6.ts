@@ -2,8 +2,11 @@ import type { SubjectConfig } from '../caps/types';
 // The grade-6 instruction sets were authored under subject codes WITHOUT a
 // grade prefix (eng-term*, lsk-term*, xho-term*) but were never wired into a
 // SubjectConfig — grade 6 ships under the single `/api/caps/grade6` code, so it
-// spans English, Life Skills and isiXhosa here. (The FET English / Life Skills /
-// isiXhosa subjects use the grade-prefixed eng-gr*, lsk-gr7*, xho-gr* files.)
+// spans English, Life Skills, isiXhosa and Mathematics here.
+import mathGr6Term1 from './tasks/math-gr6-term1.json';
+import mathGr6Term2 from './tasks/math-gr6-term2.json';
+import mathGr6Term3 from './tasks/math-gr6-term3.json';
+import mathGr6Term4 from './tasks/math-gr6-term4.json';
 import engTerm1 from './tasks/eng-term1.json';
 import engTerm2 from './tasks/eng-term2.json';
 import engTerm3 from './tasks/eng-term3.json';
@@ -41,6 +44,10 @@ export const grade6: SubjectConfig = {
     );
   },
   tasks: {
+    ...mathGr6Term1.tasks,
+    ...mathGr6Term2.tasks,
+    ...mathGr6Term3.tasks,
+    ...mathGr6Term4.tasks,
     ...engTerm1.tasks,
     ...engTerm2.tasks,
     ...engTerm3.tasks,

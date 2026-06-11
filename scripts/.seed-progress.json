@@ -103,8 +103,31 @@
     "writing-presenting-t1",
     "writing-presenting-t2",
     "writing-presenting-t3",
-    "writing-presenting-t4"
+    "writing-presenting-t4",
+    "gr6-area-perimeter-t3",
+    "gr6-capacity-t4",
+    "gr6-common-fractions-t2",
+    "gr6-comparing-fractions-t1",
+    "gr6-data-handling-t4",
+    "gr6-decimal-fractions-t2",
+    "gr6-decimal-place-value-t1",
+    "gr6-equivalent-fractions-t1",
+    "gr6-flow-diagrams-t1",
+    "gr6-large-numbers-t1",
+    "gr6-length-t3",
+    "gr6-mass-t4",
+    "gr6-number-patterns-t1",
+    "gr6-number-sentences-t2",
+    "gr6-objects-3d-t1",
+    "gr6-patterns-t2",
+    "gr6-prime-numbers-t1",
+    "gr6-problem-solving-t4",
+    "gr6-shapes-2d-t1",
+    "gr6-shapes-t3",
+    "gr6-symmetry-t3",
+    "gr6-volume-t3",
+    "gr6-time-t4"
   ],
   "failed": [],
-  "totalInserted": 3309
+  "totalInserted": 4145
 }

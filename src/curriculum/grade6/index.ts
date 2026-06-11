@@ -17,28 +17,58 @@ export const grade6: Grade = {
                             title: "Term 1",
                             topics: [
                                 {
-                                    id: "g6-whole-numbers",
-                                    title: "Whole Numbers",
-                                    description: "Large numbers (9 digits) and Prime Numbers.",
-                                    component: lazy(() => import('./term1/whole-numbers/G6WholeNumbers'))
+                                    id: "g6-large-numbers",
+                                    title: "Large Numbers",
+                                    description: "Place value up to 9-digit numbers.",
+                                    component: lazy(() => import('./term1/whole-numbers/LargeNumbers'))
                                 },
                                 {
-                                    id: "fractions",
-                                    title: "Fractions",
-                                    description: "Equivalent fractions and decimals.",
-                                    component: lazy(() => import('./term1/fractions/Fractions'))
+                                    id: "g6-prime-numbers",
+                                    title: "Prime Numbers",
+                                    description: "Prime and composite numbers, factors and multiples.",
+                                    component: lazy(() => import('./term1/whole-numbers/PrimeNumbers'))
                                 },
                                 {
-                                    id: "patterns",
-                                    title: "Patterns & Algebra",
-                                    description: "Number patterns and flow diagrams.",
-                                    component: lazy(() => import('./term1/patterns/Patterns'))
+                                    id: "g6-equivalent-fractions",
+                                    title: "Equivalent Fractions",
+                                    description: "Understand how different fractions can have the same value.",
+                                    component: lazy(() => import('./term1/fractions/EquivalentFractions'))
                                 },
                                 {
-                                    id: "geometry",
-                                    title: "Geometry",
-                                    description: "2D shapes and 3D objects.",
-                                    component: lazy(() => import('./term1/geometry/Geometry'))
+                                    id: "g6-comparing-fractions",
+                                    title: "Comparing Fractions",
+                                    description: "Compare fractions to find which is bigger or smaller.",
+                                    component: lazy(() => import('./term1/fractions/ComparingFractions'))
+                                },
+                                {
+                                    id: "g6-decimal-place-value",
+                                    title: "Decimal Place Value",
+                                    description: "Understand the value of digits in decimal numbers.",
+                                    component: lazy(() => import('./term1/fractions/DecimalPlaceValue'))
+                                },
+                                {
+                                    id: "g6-number-patterns",
+                                    title: "Number Patterns",
+                                    description: "Discover the rules behind number sequences.",
+                                    component: lazy(() => import('./term1/patterns/NumberPatterns'))
+                                },
+                                {
+                                    id: "g6-flow-diagrams",
+                                    title: "Flow Diagrams",
+                                    description: "Understand input and output rules.",
+                                    component: lazy(() => import('./term1/patterns/FlowDiagrams'))
+                                },
+                                {
+                                    id: "g6-2d-shapes",
+                                    title: "2D Shapes",
+                                    description: "Learn to identify different shapes and their properties.",
+                                    component: lazy(() => import('./term1/geometry/Shapes2D'))
+                                },
+                                {
+                                    id: "g6-3d-objects",
+                                    title: "3D Objects",
+                                    description: "Explore 3D shapes and their properties.",
+                                    component: lazy(() => import('./term1/geometry/Objects3D'))
                                 }
                             ]
                         },

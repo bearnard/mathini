@@ -1,310 +1,107 @@
-import { useState, useEffect, useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Environment, Float } from '@react-three/drei';
-import { triggerConfetti } from '../../../../lib/confetti';
-import Card from '../../../../components/ui/Card';
-import Button from '../../../../components/ui/Button';
-import Streak from '../../../../components/gamification/Streak';
-import Feedback from '../../../../components/ui/Feedback';
-import { cn } from '../../../../lib/utils';
-import TopicContainer from '../../../../components/layout/TopicContainer';
-import * as THREE from 'three';
+import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
+import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
 
-interface Object3DData {
-    name: string;
-    faces: number;
-    edges: number;
-    vertices: number;
-    color: string;
-    geometry: 'box' | 'sphere' | 'cone' | 'cylinder' | 'torus' | 'pyramid' | 'prism';
-    args?: any[];
-}
+const learnSteps: LearnStep[] = [
+  {
+    title: 'Faces, Edges and Vertices',
+    content: (
+      <div className="space-y-6 text-center">
+        <p className="text-lg text-slate-600">A 3D object has <strong>faces</strong> (flat sides), <strong>edges</strong> (where faces meet) and <strong>vertices</strong> (corners).</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <div className="bg-amber-50 p-5 rounded-xl border border-amber-100">
+            <div className="text-5xl mb-3">🎲</div>
+            <p className="font-bold text-slate-800">Cube</p>
+            <p className="text-sm text-slate-500">6 faces, 12 edges, 8 vertices</p>
+          </div>
+          <div className="bg-sky-50 p-5 rounded-xl border border-sky-100">
+            <div className="text-5xl mb-3">🥫</div>
+            <p className="font-bold text-slate-800">Cylinder</p>
+            <p className="text-sm text-slate-500">3 faces, 2 edges, 0 vertices</p>
+          </div>
+          <div className="bg-fuchsia-50 p-5 rounded-xl border border-fuchsia-100">
+            <div className="text-5xl mb-3">🔶</div>
+            <p className="font-bold text-slate-800">Square Pyramid</p>
+            <p className="text-sm text-slate-500">5 faces, 8 edges, 5 vertices</p>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: 'More 3D Objects',
+    content: (
+      <div className="space-y-6 text-center">
+        <p className="text-lg text-slate-600">Different 3D objects have different numbers of faces, edges, and vertices.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <div className="bg-rose-50 p-5 rounded-xl border border-rose-100">
+            <div className="text-5xl mb-3">🍦</div>
+            <p className="font-bold text-slate-800">Cone</p>
+            <p className="text-sm text-slate-500">2 faces, 1 edge, 1 vertex</p>
+          </div>
+          <div className="bg-emerald-50 p-5 rounded-xl border border-emerald-100">
+            <div className="text-5xl mb-3">⚽</div>
+            <p className="font-bold text-slate-800">Sphere</p>
+            <p className="text-sm text-slate-500">1 face, 0 edges, 0 vertices</p>
+          </div>
+          <div className="bg-indigo-50 p-5 rounded-xl border border-indigo-100">
+            <div className="text-5xl mb-3">📦</div>
+            <p className="font-bold text-slate-800">Rectangular Prism</p>
+            <p className="text-sm text-slate-500">6 faces, 12 edges, 8 vertices</p>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+];
 
-// Specialized components for correct edge rendering
-const ShapeMesh = ({ data }: { data: Object3DData }) => {
-    const meshRef = useRef<THREE.Mesh>(null);
+const bank: CapsItem[] = [
+  {
+    prompt: 'How many faces does a cube have?',
+    options: ['4', '5', '6', '8'],
+    answer: '6',
+    explanation: 'A cube has 6 square faces: top, bottom, front, back, left, right.',
+  },
+  {
+    prompt: 'How many edges does a cone have?',
+    options: ['0', '1', '2', '3'],
+    answer: '1',
+    explanation: 'A cone has 1 curved edge — the circle at its base.',
+  },
+  {
+    prompt: 'How many vertices does a sphere have?',
+    options: ['0', '1', '2', '4'],
+    answer: '0',
+    explanation: 'A sphere is perfectly round with no corners or edges, so it has 0 vertices.',
+  },
+  {
+    prompt: 'A square pyramid has how many faces?',
+    options: ['4', '5', '6', '8'],
+    answer: '5',
+    explanation: 'A square pyramid has 1 square base and 4 triangular sides = 5 faces in total.',
+  },
+  {
+    prompt: 'Which 3D object has 3 faces, 2 edges, and 0 vertices?',
+    options: ['Cube', 'Cone', 'Cylinder', 'Sphere'],
+    answer: 'Cylinder',
+    explanation: 'A cylinder has 2 circular flat faces and 1 curved face (3 faces), 2 circular edges, and 0 vertices.',
+  },
+  {
+    prompt: 'How many edges does a rectangular prism have?',
+    options: ['6', '8', '10', '12'],
+    answer: '12',
+    explanation: 'A rectangular prism has 12 edges: 4 along the top, 4 along the bottom, and 4 vertical edges.',
+  },
+];
 
-    useFrame((state, delta) => {
-        if (meshRef.current) {
-            meshRef.current.rotation.y += delta * 0.5;
-            meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
-        }
-    });
-
-    let geometry;
-    switch (data.geometry) {
-        case 'box': geometry = new THREE.BoxGeometry(2.5, 2.5, 2.5); break;
-        case 'sphere': geometry = new THREE.SphereGeometry(1.8, 32, 32); break;
-        case 'cone': geometry = new THREE.ConeGeometry(1.8, 3.5, 32); break;
-        case 'cylinder': geometry = new THREE.CylinderGeometry(1.5, 1.5, 3.5, 32); break;
-        case 'pyramid': geometry = new THREE.ConeGeometry(2, 3, 4); break;
-        case 'prism': geometry = new THREE.CylinderGeometry(1.5, 1.5, 3.5, 3); break;
-        default: geometry = new THREE.BoxGeometry(2.5, 2.5, 2.5);
-    }
-
-    return (
-        <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
-            <group>
-                <mesh ref={meshRef} geometry={geometry}>
-                    <meshStandardMaterial color={data.color} roughness={0.2} metalness={0.1} />
-                </mesh>
-                {/* Edges for non-smooth shapes */}
-                {data.geometry !== 'sphere' && data.geometry !== 'cone' && data.geometry !== 'cylinder' && (
-                    <lineSegments>
-                        <edgesGeometry args={[geometry]} />
-                        <lineBasicMaterial color="white" linewidth={2} />
-                    </lineSegments>
-                )}
-            </group>
-        </Float>
-    );
-};
-
-
-const Objects3D = () => {
-    const [mode, setMode] = useState<'learn' | 'practice'>('learn');
-
-    // Practice State
-    const [targetObject, setTargetObject] = useState<Object3DData>({ name: 'Cube', faces: 6, edges: 12, vertices: 8, color: '#6366f1', geometry: 'box' });
-    const [questionType, setQuestionType] = useState<'faces' | 'edges' | 'vertices'>('faces');
-    const [options, setOptions] = useState<number[]>([]);
-    const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
-    const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-    const [streak, setStreak] = useState(0);
-
-    // Learn State
-    const [learnIndex, setLearnIndex] = useState(0);
-
-    const allObjects: Object3DData[] = [
-        { name: 'Cube', faces: 6, edges: 12, vertices: 8, color: '#6366f1', geometry: 'box' },
-        { name: 'Triangular Prism', faces: 5, edges: 9, vertices: 6, color: '#10b981', geometry: 'prism' },
-        { name: 'Square Pyramid', faces: 5, edges: 8, vertices: 5, color: '#f59e0b', geometry: 'pyramid' },
-        { name: 'Sphere', faces: 1, edges: 0, vertices: 0, color: '#ef4444', geometry: 'sphere' },
-        { name: 'Cylinder', faces: 3, edges: 2, vertices: 0, color: '#8b5cf6', geometry: 'cylinder' },
-        { name: 'Cone', faces: 2, edges: 1, vertices: 1, color: '#06b6d4', geometry: 'cone' },
-    ];
-
-    const generateProblem = () => {
-        const target = allObjects[Math.floor(Math.random() * allObjects.length)];
-        setTargetObject(target);
-
-        const types: ('faces' | 'edges' | 'vertices')[] = ['faces', 'edges', 'vertices'];
-
-        const qType = types[Math.floor(Math.random() * types.length)];
-        setQuestionType(qType);
-
-        // Generate options
-        const correct = target[qType];
-        const opts = new Set<number>();
-        opts.add(correct);
-
-        while (opts.size < 4) {
-            const random = Math.floor(Math.random() * 12);
-            if (random !== correct) {
-                opts.add(random);
-            }
-        }
-
-        setOptions(Array.from(opts).sort((a, b) => a - b));
-        setSelectedAnswer(null);
-        setIsCorrect(null);
-    };
-
-    useEffect(() => {
-        generateProblem();
-    }, []);
-
-    const handleSelect = (answer: number) => {
-        if (selectedAnswer !== null) return;
-
-        setSelectedAnswer(answer);
-
-        const correct = targetObject[questionType];
-        if (answer === correct) {
-            setIsCorrect(true);
-            setStreak(s => s + 1);
-            triggerConfetti();
-        } else {
-            setIsCorrect(false);
-            setStreak(0);
-        }
-    };
-
-    const getQuestionText = () => {
-        if (questionType === 'faces') return `How many faces does a ${targetObject.name} have?`;
-        if (questionType === 'edges') return `How many edges does a ${targetObject.name} have?`;
-        return `How many vertices does a ${targetObject.name} have?`;
-    };
-
-    const LearnContent = () => {
-        const currentObj = allObjects[learnIndex];
-
-        return (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <Card className="h-[400px] lg:h-[500px] overflow-hidden relative bg-slate-900 border-slate-800">
-                    <div className="absolute top-4 left-4 z-10 bg-black/30 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/10">
-                        Drag to rotate
-                    </div>
-                    <Canvas shadows dpr={[1, 2]}>
-                        <PerspectiveCamera makeDefault position={[0, 0, 6]} />
-                        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
-                        <ambientLight intensity={0.5} />
-                        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
-                        <pointLight position={[-10, -10, -10]} intensity={0.5} />
-                        <Environment preset="city" />
-
-                        <ShapeMesh data={currentObj} />
-                    </Canvas>
-                </Card>
-
-                <Card className="p-8 space-y-6 flex flex-col justify-center">
-                    <div>
-                        <h2 className="text-3xl font-bold text-slate-800 mb-2">{currentObj.name}</h2>
-                        <p className="text-slate-500">Let's examine its properties.</p>
-                    </div>
-
-                    <div className="space-y-4">
-                        <div className="bg-indigo-50 p-4 rounded-xl flex justify-between items-center">
-                            <span className="font-bold text-indigo-900">Faces</span>
-                            <span className="text-2xl font-black text-indigo-600">{currentObj.faces}</span>
-                        </div>
-                        <div className="bg-emerald-50 p-4 rounded-xl flex justify-between items-center">
-                            <span className="font-bold text-emerald-900">Edges</span>
-                            <span className="text-2xl font-black text-emerald-600">{currentObj.edges}</span>
-                        </div>
-                        <div className="bg-amber-50 p-4 rounded-xl flex justify-between items-center">
-                            <span className="font-bold text-amber-900">Vertices</span>
-                            <span className="text-2xl font-black text-amber-600">{currentObj.vertices}</span>
-                        </div>
-                    </div>
-
-                    <div className="flex justify-between pt-8 border-t border-slate-100 mt-auto">
-                        <Button
-                            variant="secondary"
-                            disabled={learnIndex === 0}
-                            onClick={() => setLearnIndex(prev => prev - 1)}
-                        >
-                            Previous
-                        </Button>
-                        <span className="text-sm font-bold text-slate-400 self-center">
-                            {learnIndex + 1} / {allObjects.length}
-                        </span>
-                        <Button
-                            onClick={() => {
-                                if (learnIndex < allObjects.length - 1) {
-                                    setLearnIndex(prev => prev + 1);
-                                } else {
-                                    setMode('practice');
-                                }
-                            }}
-                        >
-                            {learnIndex === allObjects.length - 1 ? "Start Practice" : "Next Object"}
-                        </Button>
-                    </div>
-                </Card>
-            </div>
-        );
-    };
-
-    return (
-        <TopicContainer
-            title="3D Objects"
-            subtitle="Explore 3D shapes and their properties"
-            onModeChange={setMode}
-        >
-            {mode === 'learn' ? (
-                <LearnContent />
-            ) : (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {/* 3D Viewport */}
-                    <Card className="h-[400px] lg:h-[500px] overflow-hidden relative bg-slate-900 border-slate-800">
-                        <div className="absolute top-4 left-4 z-10 bg-black/30 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold border border-white/10">
-                            Drag to rotate 3D model
-                        </div>
-                        <Canvas shadows dpr={[1, 2]}>
-                            <PerspectiveCamera makeDefault position={[0, 0, 6]} />
-                            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
-                            <ambientLight intensity={0.5} />
-                            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
-                            <pointLight position={[-10, -10, -10]} intensity={0.5} />
-                            <Environment preset="city" />
-
-                            <ShapeMesh data={targetObject} />
-                        </Canvas>
-                    </Card>
-
-                    {/* Question & Options */}
-                    <div className="space-y-6">
-                        <div className="flex justify-end">
-                            <Streak count={streak} />
-                        </div>
-
-                        <Card className="p-6 text-center space-y-6">
-                            <div className="inline-block px-4 py-2 bg-indigo-50 text-indigo-700 rounded-lg font-bold text-sm uppercase tracking-wider">
-                                {targetObject.name}
-                            </div>
-
-                            <h3 className="text-2xl font-bold text-slate-800">
-                                {getQuestionText()}
-                            </h3>
-
-                            <div className="grid grid-cols-2 gap-4">
-                                {options.map((opt) => {
-                                    let variant: 'primary' | 'secondary' | 'outline' | 'success' | 'danger' | 'ghost' = 'outline';
-
-                                    if (selectedAnswer !== null) {
-                                        const correct = targetObject[questionType];
-                                        if (opt === correct) {
-                                            variant = 'success';
-                                        } else if (opt === selectedAnswer) {
-                                            variant = 'danger';
-                                        } else {
-                                            variant = 'ghost';
-                                        }
-                                    }
-
-                                    return (
-                                        <Button
-                                            key={opt}
-                                            onClick={() => handleSelect(opt)}
-                                            disabled={selectedAnswer !== null}
-                                            variant={variant}
-                                            className={cn(
-                                                "h-16 text-2xl font-bold",
-                                                selectedAnswer === null && "hover:border-indigo-400 hover:bg-indigo-50"
-                                            )}
-                                        >
-                                            {opt}
-                                        </Button>
-                                    );
-                                })}
-                            </div>
-                        </Card>
-
-                        <div className="h-24">
-                            <Feedback
-                                isCorrect={isCorrect}
-                                correctMessage={`Correct! A ${targetObject.name} has ${targetObject[questionType]} ${questionType}.`}
-                                incorrectMessage={`Not quite. A ${targetObject.name} has ${targetObject[questionType]} ${questionType}.`}
-                                onNext={generateProblem}
-                            />
-                        </div>
-
-                        <Card className="p-4 bg-indigo-50 border-indigo-100">
-                            <h4 className="font-bold text-indigo-900 mb-2 flex items-center gap-2">
-                                <span className="text-xl">💡</span> Quick Guide
-                            </h4>
-                            <ul className="text-sm text-indigo-800 space-y-1 ml-6 list-disc">
-                                <li><strong>Faces:</strong> The flat surfaces of the shape.</li>
-                                <li><strong>Edges:</strong> The lines where two faces meet.</li>
-                                <li><strong>Vertices:</strong> The corners where edges meet.</li>
-                            </ul>
-                        </Card>
-                    </div>
-                </div>
-            )}
-        </TopicContainer>
-    );
-};
+const Objects3D = () => (
+  <CapsSubjectTopic
+    title="3D Objects"
+    subtitle="Explore 3D shapes and their properties"
+    learnSteps={learnSteps}
+    task="gr6-objects-3d-t1"
+    bank={bank}
+    apiPath="/api/caps/grade6"
+  />
+);
 
 export default Objects3D;
