@@ -41,7 +41,7 @@
     "type": "svg",
     "path": "curriculum/grade11/math/term1/analytical-geometry/diagram.svg",
     "alt": "Cartesian plane with two intersecting lines and labelled inclination angle",
-    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a Cartesian coordinate plane with two straight lines: one with a positive gradient and one with a negative gradient intersecting at a point, with the inclination angle θ clearly labelled at the x-axis."
+    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a Cartesian coordinate plane with two straight lines: one with a positive gradient and one with a negative gradient intersecting at a point, with a small arc at the x-axis marking the angle of inclination."
   },
   {
     "grade": "grade11",

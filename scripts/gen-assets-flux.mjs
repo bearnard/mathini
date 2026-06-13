@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 /**
- * Generate image assets with FLUX.2 (Klein 9B) served locally by lemonade, then
- * write them into public/<entry.path>.
+ * Generate image assets with a local lemonade image model (FLUX.2 Klein by
+ * default, or e.g. --model Qwen-Image-2512-GGUF), then write them into
+ * public/<entry.path>. Tuning params (steps/cfg/flow-shift/sampler) default
+ * to the model's own image_defaults on the server.
  *
  * Sibling of generate-assets.mjs (same manifest fragments, same --grade/--subject/…
  * filters, same skip-existing + --dry-run behaviour). FLUX takes a plain-text
@@ -29,7 +31,17 @@ function audienceFor(grade) {
   return `a Grade ${n} learner (about ${n + 5} years old)`;
 }
 
-function styleSuffix(grade) {
+function styleSuffix(grade, hasNegative) {
+  // With a negative prompt, keep the positive side minimal: enumerating
+  // unwanted things in the positive prompt (e.g. the anatomy sentence below)
+  // verifiably makes negation-weak models like Qwen-Image RENDER them.
+  // The unwanted-thing vocabulary belongs in --negative only.
+  if (hasNegative) {
+    return (
+      'Flat, modern style; clean plain/white background; bright colours; bold clean shapes; ' +
+      'strong contrast; one clear subject; purely pictorial with no text anywhere.'
+    );
+  }
   return (
     `Flat, modern, age-appropriate educational illustration for ${audienceFor(grade)}; clean plain/white background; ` +
     'bright colours; bold clean shapes; strong contrast; one clear subject; ' +
@@ -38,6 +50,28 @@ function styleSuffix(grade) {
     'fingers each; no extra, missing, duplicated or distorted limbs, hands or fingers; clean, simple poses.'
   );
 }
+
+// Manifest prompts open with boilerplate like "Clear educational SVG diagram
+// for Grade 11 learners showing …" — Qwen-Image reads that as a poster brief
+// and typesets the topic as a title. In negative mode, rewrite the opener to
+// a wordless framing (the audience/age context is re-added by styleSuffix).
+function neutralizeTitleBait(prompt) {
+  // `… depicting "Topic Name": rest` — the quoted title gets typeset verbatim
+  // by Qwen-Image. Drop it; the description after the colon carries the content.
+  const depicting = /^\s*an?\s+clear\s+educational\s+illustration\s+depicting\s+"[^"]*"\s*:?\s*/i;
+  if (depicting.test(prompt)) return prompt.replace(depicting, 'Wordless pictorial illustration: ');
+  const opener = /^\s*(?:create\s+a\s+)?clear[^.]*?educational\s+(?:svg\s+diagram|illustration)[^.]*?/i;
+  const withVerb = new RegExp(opener.source + String.raw`\b(?:showing|of|about)\s+`, 'i');
+  if (withVerb.test(prompt)) return prompt.replace(withVerb, 'Wordless pictorial illustration: ');
+  const bare = new RegExp(opener.source + String.raw`\.\s*`, 'i');
+  if (bare.test(prompt)) return prompt.replace(bare, 'Wordless pictorial illustration. ');
+  return prompt;
+}
+
+// Used for `--negative auto`.
+const NEGATIVE_AUTO =
+  'text, words, letters, numbers, labels, captions, title, heading, typography, font, ' +
+  'watermark, signature, photo, photorealistic, extra limbs, extra fingers, deformed hands, distorted anatomy';
 
 const FILTER_FIELDS = ['grade', 'subject', 'term', 'topic', 'section'];
 
@@ -57,10 +91,21 @@ const { values } = parseArgs({
     limit: { type: 'string' },
     lemonade: { type: 'string', default: 'http://localhost:13305' },
     model: { type: 'string', default: 'Flux-2-Klein-9B-GGUF' },
-    width: { type: 'string', default: '768' },
-    height: { type: 'string', default: '768' },
-    steps: { type: 'string', default: '6' },
-    cfg: { type: 'string', default: '1.0' },
+    // 512 is plenty (the learn UI caps images at 288px tall) and generates
+    // ~2.5x faster than the previous 768 default.
+    width: { type: 'string', default: '512' },
+    height: { type: 'string', default: '512' },
+    // steps/cfg/flow-shift/sampler are only sent when given, so each model's
+    // own image_defaults apply (Flux: 4 steps cfg 1.0; Qwen-Image: 20 steps
+    // cfg 2.5 euler flow_shift 3.0). Pass --steps 6 to restore the old Flux
+    // behaviour.
+    steps: { type: 'string' },
+    cfg: { type: 'string' },
+    'flow-shift': { type: 'string' },
+    sampler: { type: 'string' },
+    // 'auto' uses the built-in NEGATIVE_AUTO list. When set, the anatomy/no-text
+    // constraints move out of the positive prompt (better for Qwen-Image).
+    negative: { type: 'string' },
     help: { type: 'boolean', default: false },
   },
   allowPositionals: false,
@@ -68,15 +113,19 @@ const { values } = parseArgs({
 
 if (values.help) {
   console.log(
-    'Usage: node scripts/gen-assets-flux.mjs [--grade grade6] [--subject xho] [--term term1] [--topic …] [--section diagram] [--force] [--dry-run] [--limit N] [--width 1024] [--height 1024] [--steps 8] [--cfg 1.0] [--lemonade http://localhost:13305] [--model Flux-2-Klein-9B-GGUF]',
+    'Usage: node scripts/gen-assets-flux.mjs [--grade grade6] [--subject xho] [--term term1] [--topic …] [--section diagram] [--force] [--dry-run] [--limit N] [--width 1024] [--height 1024] [--steps N] [--cfg N] [--flow-shift N] [--sampler euler] [--lemonade http://localhost:13305] [--model Qwen-Image-2512-GGUF]\n' +
+      'steps/cfg/flow-shift/sampler default to the model\'s own image_defaults on the lemonade server.',
   );
   process.exit(0);
 }
 
 const WIDTH = parseInt(values.width, 10) || 1024;
 const HEIGHT = parseInt(values.height, 10) || 1024;
-const STEPS = parseInt(values.steps, 10) || 8;
-const CFG = parseFloat(values.cfg) || 1.0;
+const STEPS = values.steps !== undefined ? parseInt(values.steps, 10) : undefined;
+const CFG = values.cfg !== undefined ? parseFloat(values.cfg) : undefined;
+const FLOW_SHIFT = values['flow-shift'] !== undefined ? parseFloat(values['flow-shift']) : undefined;
+const SAMPLER = values.sampler;
+const NEGATIVE = values.negative === 'auto' ? NEGATIVE_AUTO : values.negative;
 
 main().catch((error) => {
   console.error('\n❌ Failed:', error.message ?? error);
@@ -119,13 +168,19 @@ async function main() {
     return;
   }
 
-  console.log(`\nGenerating ${todo.length} image(s) with ${values.model} via lemonade (${WIDTH}x${HEIGHT}, ${STEPS} steps)…\n`);
+  const tuning = [
+    STEPS !== undefined ? `${STEPS} steps` : 'model-default steps',
+    CFG !== undefined ? `cfg ${CFG}` : null,
+    SAMPLER ?? null,
+  ].filter(Boolean).join(', ');
+  console.log(`\nGenerating ${todo.length} image(s) with ${values.model} via lemonade (${WIDTH}x${HEIGHT}, ${tuning})…\n`);
   let generated = 0;
   const failures = [];
   for (const { entry, outputPath } of todo) {
     try {
       const t0 = Date.now();
-      const png = await generateImage(`${entry.prompt.trim()}\n\n${styleSuffix(entry.grade)}`);
+      const basePrompt = NEGATIVE !== undefined ? neutralizeTitleBait(entry.prompt.trim()) : entry.prompt.trim();
+      const png = await generateImage(`${basePrompt}\n\n${styleSuffix(entry.grade, NEGATIVE !== undefined)}`);
       await mkdir(path.dirname(outputPath), { recursive: true });
       await convert(png, outputPath);
       generated += 1;
@@ -145,19 +200,25 @@ async function main() {
 }
 
 async function generateImage(prompt) {
+  const body = {
+    model: values.model,
+    prompt,
+    n: 1,
+    size: `${WIDTH}x${HEIGHT}`,
+    width: WIDTH,
+    height: HEIGHT,
+  };
+  // Omitted params fall back to the model's image_defaults server-side.
+  if (STEPS !== undefined) body.steps = STEPS;
+  if (CFG !== undefined) body.cfg_scale = CFG;
+  if (FLOW_SHIFT !== undefined) body.flow_shift = FLOW_SHIFT;
+  if (SAMPLER !== undefined) body.sampling_method = SAMPLER;
+  if (NEGATIVE !== undefined) body.negative_prompt = NEGATIVE;
+  if (process.env.PRINT_BODY) { console.log(JSON.stringify(body, null, 2)); process.exit(0); }
   const res = await fetch(`${values.lemonade}/v1/images/generations`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: 'Bearer lemonade' },
-    body: JSON.stringify({
-      model: values.model,
-      prompt,
-      n: 1,
-      size: `${WIDTH}x${HEIGHT}`,
-      width: WIDTH,
-      height: HEIGHT,
-      steps: STEPS,
-      cfg_scale: CFG,
-    }),
+    body: JSON.stringify(body),
   });
   const text = await res.text();
   let json;

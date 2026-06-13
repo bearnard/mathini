@@ -19,7 +19,7 @@
     "type": "ai",
     "path": "curriculum/grade11/acc/term3/projected-financial-statements/diagram.webp",
     "alt": "Grade 11 learners comparing budgeted versus actual results showing favourable and unfavourable variances",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing budget vs actual comparison. Display two side-by-side columns labelled 'Budget' and 'Actual' for Sales, Cost of Sales, and Net Profit. Show a third column 'Variance' with green upward arrows for favourable variances and red downward arrows for unfavourable variances. Use clean white background, simple flat design, and minimal text labels."
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing budget vs actual comparison. Display two side-by-side columns visually distinguished 'Budget' and 'Actual' for Sales, Cost of Sales, and Net Profit. Show a third column 'Variance' with green upward arrows for favourable variances and red downward arrows for unfavourable variances. Use clean white background, simple flat design, and minimal text labels."
   },
   {
     "grade": "grade11",

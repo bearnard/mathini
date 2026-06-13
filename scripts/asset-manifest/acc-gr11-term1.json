@@ -19,7 +19,7 @@
     "type": "ai",
     "path": "curriculum/grade11/acc/term1/fixed-assets-depreciation/diagram.webp",
     "alt": "Grade 11 learners comparing straight-line and diminishing balance depreciation methods with a bar chart showing annual depreciation over 5 years",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners comparing two depreciation methods. Show two bar charts side by side: one labelled 'Straight-Line' with equal bars each year, and one labelled 'Diminishing Balance' with decreasing bars each year. Use blue for straight-line and green for diminishing balance, clean white background, simple flat style, and labelled axes showing 'Year' and 'Depreciation Amount'."
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners comparing two depreciation methods. Show two bar charts side by side: one visually distinguished 'Straight-Line' with equal bars each year, and one visually distinguished 'Diminishing Balance' with decreasing bars each year. Use blue for straight-line and green for diminishing balance, clean white background, simple flat style, and visually distinguished axes showing 'Year' and 'Depreciation Amount'."
   },
   {
     "grade": "grade11",

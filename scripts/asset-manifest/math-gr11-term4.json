@@ -8,7 +8,7 @@
     "type": "svg",
     "path": "curriculum/grade11/math/term4/statistics/diagram.svg",
     "alt": "histogram with overlaid frequency polygon and ogive showing data distribution",
-    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a histogram with five bars of varying heights, a frequency polygon connecting the bar midpoints with a dashed line, and a smooth ogive (cumulative frequency curve) rising from left to right. Axes are labelled."
+    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a histogram with five bars of varying heights, a frequency polygon connecting the bar midpoints with a dashed line, and a smooth ogive (cumulative frequency curve) rising from left to right. Axes are visually distinguished."
   },
   {
     "grade": "grade11",

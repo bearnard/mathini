@@ -8,7 +8,7 @@
     "type": "svg",
     "path": "curriculum/grade11/math/term2/functions/diagram.svg",
     "alt": "transformed parabola and hyperbola graphs with labelled key features",
-    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a parabola with labelled turning point and axis of symmetry, and a hyperbola with labelled asymptotes, both on the same Cartesian plane."
+    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a parabola with a marked turning point and a dashed axis of symmetry, and a hyperbola with visually distinguished asymptotes, both on the same Cartesian plane."
   },
   {
     "grade": "grade11",
@@ -19,7 +19,7 @@
     "type": "svg",
     "path": "curriculum/grade11/math/term2/trigonometry/diagram.svg",
     "alt": "unit circle showing angles in all four quadrants with CAST rule labels",
-    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a unit circle divided into four quadrants with labelled reference angles at 30°, 45°, 60° positions and the CAST (All, Sin, Tan, Cos) positive signs labelled in each quadrant."
+    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a unit circle divided into four quadrants with marked reference angles at 30°, 45°, 60° positions and the CAST (All, Sin, Tan, Cos) positive signs visually distinguished in each quadrant."
   },
   {
     "grade": "grade11",

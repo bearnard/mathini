@@ -30,7 +30,7 @@
     "type": "svg",
     "path": "curriculum/grade11/math/term3/trig-sine-cosine-rule/diagram.svg",
     "alt": "non-right-angled triangle with labelled sides a, b, c and angles A, B, C",
-    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a non-right-angled triangle with vertices A, B, C and opposite sides labelled a, b, c. Each angle and side is clearly labelled to illustrate the sine rule and cosine rule setup."
+    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a non-right-angled triangle with its three vertices and opposite sides distinguished by colour. Each angle and side is clearly visually distinguished to illustrate the sine rule and cosine rule setup."
   },
   {
     "grade": "grade11",

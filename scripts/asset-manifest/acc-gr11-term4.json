@@ -8,7 +8,7 @@
     "type": "ai",
     "path": "curriculum/grade11/acc/term4/vat-calculations-recording/diagram.webp",
     "alt": "Grade 11 learners understanding the flow of VAT showing input VAT on purchases, output VAT on sales, and net VAT payable to SARS",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing the VAT flow. Display three sections: a supplier sending an invoice to the business with 'Input VAT' labelled in blue; the business sending an invoice to a customer with 'Output VAT' labelled in green; and an arrow from the business to a SARS building showing 'Net VAT Payable (Output − Input)' in orange. Use clean white background, simple flat design, and minimal text labels including the 15% rate."
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing the VAT flow. Display three sections: a supplier sending an invoice to the business with 'Input VAT' visually distinguished in blue; the business sending an invoice to a customer with 'Output VAT' visually distinguished in green; and an arrow from the business to a SARS building showing 'Net VAT Payable (Output − Input)' in orange. Use clean white background, simple flat design, and minimal text labels including the 15% rate."
   },
   {
     "grade": "grade11",

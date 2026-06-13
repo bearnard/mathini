@@ -8,7 +8,7 @@
     "type": "ai",
     "path": "curriculum/grade9/ns/term1/cells-tissues-organisation/diagram.webp",
     "alt": "Grade 9 learners observing plant and animal cells under a microscope and labeling organelles",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing a student looking through a microscope at plant and animal cell diagrams, with labels for nucleus, mitochondria, chloroplast, and cell wall. Use bright simple colours, a clean white background, and no text except labels."
+    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing a student looking through a microscope at plant and animal cell diagrams, visually distinguished for nucleus, mitochondria, chloroplast, and cell wall. Use bright simple colours, a clean white background, and no text except labels."
   },
   {
     "grade": "grade9",
