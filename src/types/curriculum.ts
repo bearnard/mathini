@@ -1,30 +1,35 @@
-import React from 'react';
+export type SubjectType = 'core' | 'emerging' | 'language';
 
-export interface Topic {
-    id: string;
-    title: string;
-    description?: string;
-    component: React.ComponentType;
-}
-
-export interface Term {
-    id: number;
-    title: string;
-    topics: Topic[];
+export interface Assessment {
+  name: string;
+  weight: number;
+  description?: string;
 }
 
 export interface Subject {
-    id: string;
-    title: string;
-    terms: Term[];
+  id: string;
+  name: string;
+  type: SubjectType;
+  description: string;
+  sbaWeight: number;
+  examWeight: number;
+  terms: TermData[];
 }
 
-export interface Grade {
-    id: number;
-    title: string;
-    subjects: Subject[];
+export interface TermData {
+  number: number;
+  name: string;
+  startDate: string;
+  endDate: string;
+  days: number;
+  holidays: string[];
+  topics: string[];
+  assessments: Assessment[];
 }
 
-export interface Curriculum {
-    grades: Grade[];
+export interface CurriculumData {
+  school: string;
+  grade: number;
+  year: string;
+  subjects: Subject[];
 }
