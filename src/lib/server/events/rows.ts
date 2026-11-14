@@ -1,6 +1,6 @@
 import type { CleanEvent } from './validate';
 import type { Location } from './location';
-import { EMPTY_LOCATION, reduceLocationForDnt } from './location';
+import { EMPTY_LOCATION, reduceLocationForDnt, reduceLocationToRegion } from './location';
 import type { ParsedUa } from './ua';
 
 export const INSERT_EVENT_SQL = `INSERT INTO events
@@ -8,24 +8,30 @@ export const INSERT_EVENT_SQL = `INSERT INTO events
    country, region, region_code, city, timezone, lat, lon, device, browser, os, referrer, meta)
   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
+/**
+ * How much may be stored for this request. It can only ever REDUCE the data:
+ *   full    signed in WITH parent/guardian consent: student id and full location
+ *   region  anonymous, or signed in without consent: no student id, no city/coordinates
+ *   country Do Not Track: no student id, country only
+ */
+export type PrivacyLevel = 'full' | 'region' | 'country';
+
 export interface RowContext {
   /** Server clock, ms epoch. The client never supplies a timestamp. */
   now: number;
-  /** From the verified session cookie only; never from the request body. */
+  /** From the verified session cookie only; never from the request body. Ignored unless privacy is 'full'. */
   studentId: string | null;
   location: Location | null;
   ua: ParsedUa;
-  dnt: boolean;
+  privacy: PrivacyLevel;
 }
 
-/**
- * Bind values for INSERT_EVENT_SQL, one array per event.
- * Do Not Track can only reduce what is stored: student id, region, city and
- * coordinates are dropped and only the country is kept.
- */
+/** Bind values for INSERT_EVENT_SQL, one array per event. */
 export function buildEventRows(events: readonly CleanEvent[], ctx: RowContext): (string | number | null)[][] {
-  const loc = ctx.dnt ? reduceLocationForDnt(ctx.location ?? EMPTY_LOCATION) : (ctx.location ?? EMPTY_LOCATION);
-  const studentId = ctx.dnt ? null : ctx.studentId;
+  const full = ctx.location ?? EMPTY_LOCATION;
+  const loc =
+    ctx.privacy === 'full' ? full : ctx.privacy === 'region' ? reduceLocationToRegion(full) : reduceLocationForDnt(full);
+  const studentId = ctx.privacy === 'full' ? ctx.studentId : null;
   return events.map((e) => [
     ctx.now,
     e.type,

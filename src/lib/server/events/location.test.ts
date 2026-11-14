@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { locationFromCf, reduceLocationForDnt, round1 } from './location';
+import { locationFromCf, reduceLocationForDnt, reduceLocationToRegion, round1 } from './location';
 
 const CF = { country: 'za', region: 'Gauteng', regionCode: 'GT', city: 'Johannesburg', timezone: 'Africa/Johannesburg', latitude: '-26.20227', longitude: '28.04363' };
 
@@ -41,4 +41,8 @@ test('Do Not Track keeps the country only', () => {
   const r = reduceLocationForDnt(locationFromCf(CF));
   assert.equal(r.country, 'ZA');
   assert.ok(Object.entries(r).every(([k, v]) => k === 'country' || v === null));
+});
+test('region reduction keeps country, province and timezone and drops city and coordinates', () => {
+  const r = reduceLocationToRegion(locationFromCf(CF));
+  assert.deepEqual(r, { country: 'ZA', region: 'Gauteng', region_code: 'GT', city: null, timezone: 'Africa/Johannesburg', lat: null, lon: null });
 });

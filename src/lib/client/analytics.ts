@@ -5,15 +5,13 @@
 // One line per call site:  track('topic_open', { topic: id });
 
 import { createTracker, type EventType, type TrackProps, type Tracker } from './analyticsCore';
+import { CONSENT_VERSION } from '../privacyNotice';
 
 export type { EventType, TrackProps } from './analyticsCore';
 
-/**
- * Version of the privacy notice shown at sign-up (see lib/privacyNotice.ts).
- * Sent in meta on `signup`, so we can tell later which notice a learner agreed
- * to. Bump it whenever the notice text changes.
- */
-export const CONSENT_VERSION = 'privacy-2026-11-14';
+// Version of the privacy notice the learner agreed to. Defined next to the notice
+// text in lib/privacyNotice.ts; re-exported here because `signup` events carry it in meta.
+export { CONSENT_VERSION };
 
 const ENDPOINT = '/api/events';
 

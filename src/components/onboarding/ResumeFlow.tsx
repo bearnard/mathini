@@ -32,7 +32,7 @@ export default function ResumeFlow({ onDone }: { onDone: () => void }) {
         throw new Error(body.error ?? 'Login failed');
       }
 
-      const data = (await res.json()) as { studentId: string; displayName: string; avatar?: string; grade: number };
+      const data = (await res.json()) as { studentId: string; displayName: string; avatar?: string; grade: number; consented?: boolean };
       setStudent({
         id: data.studentId,
         displayName: data.displayName,
@@ -40,6 +40,7 @@ export default function ResumeFlow({ onDone }: { onDone: () => void }) {
         grade: data.grade,
         xp: 0,
         xpByScope: {},
+        consented: data.consented !== false,
       });
       track('login', { grade: data.grade });
       onDone();

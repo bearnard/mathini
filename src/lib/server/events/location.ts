@@ -65,3 +65,17 @@ export function locationFromCf(cf: CfLike | null | undefined): Location {
 export function reduceLocationForDnt(loc: Location): Location {
   return { ...EMPTY_LOCATION, country: loc.country };
 }
+
+/**
+ * No parent/guardian consent (or anonymous): keep the country and province only.
+ * City and coordinates are dropped.
+ */
+export function reduceLocationToRegion(loc: Location): Location {
+  return {
+    ...EMPTY_LOCATION,
+    country: loc.country,
+    region: loc.region,
+    region_code: loc.region_code,
+    timezone: loc.timezone,
+  };
+}

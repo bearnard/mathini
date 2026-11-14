@@ -1,7 +1,8 @@
 import { isBot, parseUserAgent } from './ua';
 import { locationFromCf, type CfLike } from './location';
 import { MAX_BODY_BYTES, validateBatch } from './validate';
-import { buildEventRows, INSERT_EVENT_SQL } from './rows';
+import { buildEventRows, INSERT_EVENT_SQL, type PrivacyLevel } from './rows';
+import type { StudentConsent } from '../consent';
 import type { RateLimiter } from './ratelimit';
 import { purgeOldEvents, shouldPurge } from './retention';
 
@@ -30,6 +31,8 @@ export interface EventsDeps {
   now: number;
   /** Returns the student id for a valid session token, else null. */
   verifySession: (token: string | undefined) => Promise<string | null>;
+  /** One cheap lookup per batch (only when the cookie is valid): does the learner exist, and have their parents agreed? */
+  lookupConsent: (studentId: string) => Promise<StudentConsent>;
   rateLimiter: RateLimiter;
   /** Run background work after the response (ctx.waitUntil). Omit if unavailable. */
   waitUntil?: (p: Promise<unknown>) => void;
@@ -70,11 +73,24 @@ export async function handleEvents(req: EventsRequest, deps: EventsDeps): Promis
     const key = batch.dnt ? `s:${batch.events[0].sessionId}` : `d:${batch.events[0].deviceId}`;
     if (!deps.rateLimiter.allow(key, batch.events.length, deps.now)) return done(0, 'rate-limited');
 
+    // Privacy level, from most to least data. Anything that goes wrong falls back to the reduced level.
+    //   Do Not Track                          -> country only
+    //   signed in AND parent consent on file  -> full (student id, city, coordinates)
+    //   anonymous / no consent / unknown      -> province only, no student id
+    let privacy: PrivacyLevel = batch.dnt ? 'country' : 'region';
     let studentId: string | null = null;
     if (!batch.dnt) {
       try {
-        studentId = await deps.verifySession(req.sessionCookie);
+        const id = await deps.verifySession(req.sessionCookie);
+        if (id) {
+          const c = await deps.lookupConsent(id);
+          if (c.exists && c.consented) {
+            privacy = 'full';
+            studentId = id;
+          }
+        }
       } catch {
+        privacy = 'region';
         studentId = null;
       }
     }
@@ -84,7 +100,7 @@ export async function handleEvents(req: EventsRequest, deps: EventsDeps): Promis
       studentId,
       location: locationFromCf(deps.cf),
       ua: parseUserAgent(req.userAgent),
-      dnt: batch.dnt,
+      privacy,
     });
     const stmts = rows.map((r) => deps.db.prepare(INSERT_EVENT_SQL).bind(...r)) as never[];
     await deps.db.batch(stmts);

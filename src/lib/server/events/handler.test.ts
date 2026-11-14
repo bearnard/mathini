@@ -20,7 +20,8 @@ function setup(over: Partial<EventsDeps> = {}) {
     db: db as never,
     cf: { country: 'ZA', region: 'Gauteng', regionCode: 'GT', city: 'Cape Town', timezone: 'Africa/Johannesburg', latitude: '-33.9249', longitude: '18.4241' },
     now: 1_700_000_000_000,
-    verifySession: async (t) => (t === 'good-cookie' ? 'stu-1' : null),
+    verifySession: async (t) => (t === 'good-cookie' ? 'stu-1' : t === 'no-consent-cookie' ? 'stu-2' : t === 'ghost-cookie' ? 'stu-ghost' : null),
+    lookupConsent: async (id) => (id === 'stu-1' ? { exists: true, consented: true } : id === 'stu-2' ? { exists: true, consented: false } : { exists: false, consented: false }),
     rateLimiter: createRateLimiter(300, 3600_000),
     waitUntil: () => { waited++; },
     random: () => 0.99,
@@ -67,7 +68,7 @@ test('a throwing session check does not lose the event', async () => {
 });
 test('client-supplied location and timestamp are ignored', async () => {
   const s = setup();
-  await handleEvents(req({ events: [ev({ ts: 1, city: 'Mars', country: 'XX', lat: 99, lon: 99 })] }), s.deps);
+  await handleEvents(req({ events: [ev({ ts: 1, city: 'Mars', country: 'XX', lat: 99, lon: 99 })] }, { sessionCookie: 'good-cookie' }), s.deps);
   assert.equal(s.inserted[0][0], 1_700_000_000_000);
   assert.equal(s.inserted[0][9], 'ZA');
   assert.equal(s.inserted[0][12], 'Cape Town');
@@ -156,4 +157,66 @@ test('no IP-like or UA data is bound anywhere in the row', async () => {
   const flat = JSON.stringify(s.inserted[0]);
   assert.ok(!flat.includes('Mozilla'));
   assert.ok(!/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/.test(flat));
+});
+
+// ---- Parent/guardian consent rules (ADR 0002 addendum) ----
+const FULL_CF = { country: 'ZA', region: 'Western Cape', regionCode: 'WC', city: 'Cape Town', timezone: 'Africa/Johannesburg', latitude: '-33.9249', longitude: '18.4241' };
+// column order: 4 student_id, 9 country, 10 region, 11 region_code, 12 city, 13 timezone, 14 lat, 15 lon
+
+test('signed in WITH consent: full row (student, country, region, city, coordinates)', async () => {
+  const s = setup({ cf: FULL_CF });
+  await handleEvents(req({ events: [ev()] }, { sessionCookie: 'good-cookie' }), s.deps);
+  assert.deepEqual([s.inserted[0][4], s.inserted[0][9], s.inserted[0][10], s.inserted[0][12], s.inserted[0][14], s.inserted[0][15]], ['stu-1', 'ZA', 'Western Cape', 'Cape Town', -33.9, 18.4]);
+});
+test('signed in WITHOUT consent: no student id, province kept, city and coordinates NOT stored', async () => {
+  const s = setup({ cf: FULL_CF });
+  const r = await handleEvents(req({ events: [ev()] }, { sessionCookie: 'no-consent-cookie' }), s.deps);
+  assert.equal(r.stored, 1);
+  const row = s.inserted[0];
+  assert.equal(row[4], null);
+  assert.equal(row[9], 'ZA');
+  assert.equal(row[10], 'Western Cape');
+  assert.equal(row[11], 'WC');
+  assert.equal(row[12], null);
+  assert.equal(row[14], null);
+  assert.equal(row[15], null);
+});
+test('anonymous: no student id, province kept, no city or coordinates', async () => {
+  const s = setup({ cf: FULL_CF });
+  await handleEvents(req({ events: [ev()] }), s.deps);
+  const row = s.inserted[0];
+  assert.deepEqual([row[4], row[9], row[10], row[12], row[14], row[15]], [null, 'ZA', 'Western Cape', null, null, null]);
+});
+test('a valid cookie for a learner that no longer exists is treated as anonymous', async () => {
+  const s = setup({ cf: FULL_CF });
+  await handleEvents(req({ events: [ev()] }, { sessionCookie: 'ghost-cookie' }), s.deps);
+  assert.deepEqual([s.inserted[0][4], s.inserted[0][12]], [null, null]);
+});
+test('if the consent lookup fails, fall back to the reduced level (never to full)', async () => {
+  const s = setup({ cf: FULL_CF, lookupConsent: async () => { throw new Error('D1 down'); } });
+  const r = await handleEvents(req({ events: [ev()] }, { sessionCookie: 'good-cookie' }), s.deps);
+  assert.equal(r.stored, 1);
+  assert.deepEqual([s.inserted[0][4], s.inserted[0][10], s.inserted[0][12], s.inserted[0][14]], [null, 'Western Cape', null, null]);
+});
+test('exactly one consent lookup per batch, and none without a valid cookie or under Do Not Track', async () => {
+  let lookups = 0;
+  const counting = async (id: string) => { lookups++; return { exists: true, consented: id === 'stu-1' }; };
+  const s = setup({ lookupConsent: counting });
+  await handleEvents(req({ events: [ev(), ev(), ev(), ev()] }, { sessionCookie: 'good-cookie' }), s.deps);
+  assert.equal(lookups, 1);
+  await handleEvents(req({ events: [ev({ device_id: 'dev-other-1' })] }), s.deps); // anonymous
+  await handleEvents(req({ events: [ev({ device_id: 'dev-other-2' })] }, { sessionCookie: 'forged.value' }), s.deps); // invalid cookie
+  await handleEvents(req({ dnt: true, events: [ev({ device_id: 'dev-other-3' })] }, { sessionCookie: 'good-cookie' }), s.deps); // DNT
+  assert.equal(lookups, 1);
+});
+test('Do Not Track still wins over consent: country only', async () => {
+  const s = setup({ cf: FULL_CF });
+  await handleEvents(req({ dnt: true, events: [ev()] }, { sessionCookie: 'good-cookie' }), s.deps);
+  const row = s.inserted[0];
+  assert.deepEqual([row[4], row[9], row[10], row[12], row[14]], [null, 'ZA', null, null, null]);
+});
+test('a client cannot claim consent in the body', async () => {
+  const s = setup({ cf: FULL_CF });
+  await handleEvents(req({ events: [ev({ consent: true, parent_consent_at: 1, parentConsent: true, privacy: 'full' })] }, { sessionCookie: 'no-consent-cookie' }), s.deps);
+  assert.deepEqual([s.inserted[0][4], s.inserted[0][12]], [null, null]);
 });

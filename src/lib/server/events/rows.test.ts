@@ -14,21 +14,27 @@ test('the INSERT has one placeholder per column', () => {
   assert.equal(cols, 21);
 });
 test('a normal event gets server-side ts, student, location and device', () => {
-  const [row] = buildEventRows([event], { now: 12345, studentId: 'stu-1', location: loc, ua, dnt: false });
+  const [row] = buildEventRows([event], { now: 12345, studentId: 'stu-1', location: loc, ua, privacy: 'full' });
   assert.equal(row.length, 21);
   assert.deepEqual(row, [12345, 'topic_open', 'dev-12345678', 'ses-12345678', 'stu-1', 6, 'nst', 'nst-solar-system', '/app', 'ZA', 'Gauteng', 'GT', 'Pretoria', 'Africa/Johannesburg', -25.7, 28.2, 'mobile', 'Chrome', 'Android', 'google.com', '{"a":1}']);
 });
-test('anonymous visitors have a null student id', () => {
-  const [row] = buildEventRows([event], { now: 1, studentId: null, location: loc, ua, dnt: false });
-  assert.equal(row[4], null);
+test('a student id passed with a non-full level is never stored', () => {
+  for (const privacy of ['region', 'country'] as const) {
+    const [row] = buildEventRows([event], { now: 1, studentId: 'stu-1', location: loc, ua, privacy });
+    assert.equal(row[4], null, privacy);
+  }
+});
+test('region level (anonymous or no consent): keeps country, province and timezone; drops city and coordinates', () => {
+  const [row] = buildEventRows([event], { now: 1, studentId: null, location: loc, ua, privacy: 'region' });
+  assert.deepEqual(row.slice(9, 16), ['ZA', 'Gauteng', 'GT', null, 'Africa/Johannesburg', null, null]);
 });
 test('Do Not Track nulls student, region, city, timezone and coordinates; keeps country', () => {
-  const [row] = buildEventRows([event], { now: 1, studentId: 'stu-1', location: loc, ua, dnt: true });
+  const [row] = buildEventRows([event], { now: 1, studentId: 'stu-1', location: loc, ua, privacy: 'country' });
   assert.equal(row[4], null);
   assert.equal(row[9], 'ZA');
   assert.deepEqual(row.slice(10, 16), [null, null, null, null, null, null]);
 });
 test('missing location (local dev) stores nulls', () => {
-  const [row] = buildEventRows([event], { now: 1, studentId: null, location: null, ua, dnt: false });
+  const [row] = buildEventRows([event], { now: 1, studentId: null, location: null, ua, privacy: 'full' });
   assert.deepEqual(row.slice(9, 16), [null, null, null, null, null, null, null]);
 });

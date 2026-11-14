@@ -11,7 +11,7 @@ import { onboardingSchema } from '../../lib/client/onboardingSchema';
 import type { OnboardingOutput } from '../../lib/client/onboardingSchema';
 import { useStudent } from '../../lib/client/StudentContext';
 import { track, CONSENT_VERSION } from '../../lib/client/analytics';
-import { PRIVACY_LINE } from '../../lib/privacyNotice';
+import { PRIVACY_LINE, CONSENT_CHECKBOX_LABEL } from '../../lib/privacyNotice';
 
 const GRADES = Array.from({ length: 8 }, (_, i) => ({
   value: i + 5,
@@ -39,6 +39,7 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
     avatar: '/avatars/avatar-1.webp',
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [parentConsent, setParentConsent] = useState(false);
 
   const startTracked = useRef(false);
   useEffect(() => {
@@ -73,6 +74,12 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
       return;
     }
 
+    // The parent/guardian box is required (the server also rejects sign-up without it).
+    if (!parentConsent) {
+      setErrors({ parentConsent: 'Please ask a parent or guardian, then tick the box to continue.' });
+      return;
+    }
+
     const data = result.data as OnboardingOutput;
     setLoading(true);
 
@@ -80,7 +87,7 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
       const res = await fetch('/api/students', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, avatar: form.avatar }),
+        body: JSON.stringify({ ...data, avatar: form.avatar, parentConsent: true }),
       });
 
       if (!res.ok) {
@@ -108,6 +115,7 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
       grade: Number(form.grade),
       xp: 0,
       xpByScope: {},
+      consented: true,
     });
     setStep(2);
     // Small delay so the animation plays before calling onDone
@@ -192,6 +200,25 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
                 Read more
               </a>
             </p>
+
+            <div>
+              <label className="flex items-start gap-3 text-sm text-slate-700">
+                <input
+                  type="checkbox"
+                  checked={parentConsent}
+                  onChange={(e) => setParentConsent(e.target.checked)}
+                  className="mt-1 h-5 w-5 shrink-0"
+                  required
+                />
+                <span>
+                  {CONSENT_CHECKBOX_LABEL}{' '}
+                  <a href="/privacy" target="_blank" rel="noopener" className="underline">
+                    Privacy
+                  </a>
+                </span>
+              </label>
+              {errors.parentConsent && <p className="mt-1 text-sm text-red-600">{errors.parentConsent}</p>}
+            </div>
 
             <Button type="submit" className="w-full" isLoading={loading}>
               Create Account

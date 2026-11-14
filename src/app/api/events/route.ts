@@ -3,6 +3,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { handleEvents } from '../../../lib/server/events/handler';
 import { createRateLimiter } from '../../../lib/server/events/ratelimit';
 import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
+import { lookupStudentConsent } from '../../../lib/server/consent';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,6 +31,7 @@ export async function POST(req: NextRequest) {
         cf: cf as never,
         now: Date.now(),
         verifySession: (token) => verifySession(token, env.SESSION_SECRET),
+        lookupConsent: (id) => lookupStudentConsent(env.DB as never, id),
         rateLimiter,
         waitUntil: ctx?.waitUntil ? (p) => ctx.waitUntil(p) : undefined,
       },
