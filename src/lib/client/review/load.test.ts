@@ -6,12 +6,13 @@ import type { TodayPayload } from './resolve';
 
 const c = (task: string, prompt: string) => ({ qkey: makeQkey(task, prompt), task, subject: 'nst', section: 's' });
 const payload = (cands: ReturnType<typeof c>[]): TodayPayload => ({ dueCount: cands.length, candidates: cands, pool: {} });
-const item = (prompt: string, kind?: string) => ({ prompt, options: ['a', 'b'], answer: 'a', kind });
+import type { ReviewBankItem } from './types';
+const item = (prompt: string, kind?: ReviewBankItem['kind'], over: Partial<ReviewBankItem> = {}): ReviewBankItem => ({ prompt, options: ['a', 'b'], answer: 'a', kind, ...over });
 function deps(over: Partial<LoadDeps> & { p?: TodayPayload | null } = {}) {
   const retired: string[][] = [], logs: string[] = [];
   const d: LoadDeps = {
     fetchToday: async () => (over.p === undefined ? payload([]) : over.p),
-    loaders: async () => ({ t: async () => [item('Q1?'), item('Q2?', 'order')] }),
+    loaders: async () => ({ t: async () => [item('Q1?'), item('Q2?', 'order', { options: ['x', 'y'], answer: 'x|y' }), item('Q3?', 'order', { answer: 'nope' })] }),
     retire: (q) => retired.push(q),
     log: (m) => logs.push(m),
     ...over,
@@ -19,10 +20,10 @@ function deps(over: Partial<LoadDeps> & { p?: TodayPayload | null } = {}) {
   return { d, retired, logs };
 }
 
-test('only questions that can really be shown are returned (count is honest)', async () => {
-  const { d } = deps({ p: payload([c('t', 'Q1?'), c('t', 'Q2?')]) });
+test('the count is honest: valid mcq and order items count, a malformed one does not', async () => {
+  const { d } = deps({ p: payload([c('t', 'Q1?'), c('t', 'Q2?'), c('t', 'Q3?')]) });
   const r = await loadReview(d, 10);
-  assert.deepEqual(r!.map((q) => q.prompt), ['Q1?']); // the 'order' kind is not shown, so it is not counted
+  assert.deepEqual(r!.map((q) => q.item.prompt), ['Q1?', 'Q2?']);
 });
 test('nothing due gives an empty list, and does not touch the banks', async () => {
   let touched = false;

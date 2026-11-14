@@ -1,13 +1,12 @@
 'use client';
 
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import type { Curriculum, Grade, Subject, Term, Topic } from './types/curriculum';
 import CurriculumSelector from './components/CurriculumSelector';
 import OnboardingGate from './components/onboarding/OnboardingGate';
 import ConsentGate from './components/onboarding/ConsentGate';
 import LeaderboardView from './components/leaderboard/LeaderboardView';
 import TodaysReviewCard from './components/review/TodaysReviewCard';
-import ReviewScreen from './components/review/ReviewScreen';
 import { useReviewPreview } from './components/review/useTodayReview';
 import AppHeader from './components/layout/AppHeader';
 import TopicHeader from './components/layout/TopicHeader';
@@ -25,6 +24,9 @@ import { grade12 } from './curriculum/grade12';
 const curriculumData: Curriculum = {
   grades: [grade5, grade6, grade7, grade8, grade9, grade10, grade11, grade12],
 };
+
+// Kept out of the home path: pulls in the order/label/diagram question components only when opened.
+const ReviewScreen = lazy(() => import('./components/review/ReviewScreen'));
 
 const Spinner = () => (
   <span className="h-10 w-10 animate-spin rounded-full border-4 border-brand-blue/30 border-t-brand-blue" />
@@ -125,7 +127,15 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
       ) : view === 'leaderboard' ? (
         <LeaderboardView onBack={() => setView('home')} onRefresh={refreshStudent} />
       ) : view === 'review' ? (
-        <ReviewScreen initialQuestions={reviewQuestions} onBack={() => setView('home')} />
+        <Suspense
+          fallback={
+            <div className="flex items-center justify-center p-16">
+              <Spinner />
+            </div>
+          }
+        >
+          <ReviewScreen initialQuestions={reviewQuestions} onBack={() => setView('home')} />
+        </Suspense>
       ) : (
         <>
         {reviewQuestions !== null && !selectedSubject && (
