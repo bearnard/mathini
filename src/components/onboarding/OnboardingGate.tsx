@@ -10,10 +10,11 @@ import ResumeFlow from './ResumeFlow';
 interface OnboardingGateProps {
   isAnonymous: boolean;
   onDone: () => void;
+  initialChoice?: 'register' | 'resume';
 }
 
-export default function OnboardingGate({ isAnonymous, onDone }: OnboardingGateProps) {
-  const [choice, setChoice] = useState<'register' | 'resume' | null>(null);
+export default function OnboardingGate({ isAnonymous, onDone, initialChoice }: OnboardingGateProps) {
+  const [choice, setChoice] = useState<'register' | 'resume' | null>(initialChoice ?? null);
 
   if (!isAnonymous || choice) {
     return (

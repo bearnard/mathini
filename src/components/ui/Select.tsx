@@ -22,7 +22,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           ref={ref}
           className={cn(
             'block w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-base text-slate-900',
-            'focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:border-indigo-500',
+            'focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2 focus:border-brand-blue',
             'appearance-none cursor-pointer',
             'transition-colors',
             error && 'border-red-400 focus:ring-red-400',

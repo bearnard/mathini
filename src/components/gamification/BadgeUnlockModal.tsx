@@ -81,7 +81,7 @@ export default function BadgeUnlockModal({ badges, onDismiss }: BadgeUnlockModal
             </p>
           )}
 
-          <p className="text-xs font-bold text-indigo-500 uppercase tracking-widest">
+          <p className="text-xs font-bold text-brand-orange uppercase tracking-widest">
             Badge Unlocked!
           </p>
 
@@ -92,7 +92,7 @@ export default function BadgeUnlockModal({ badges, onDismiss }: BadgeUnlockModal
               <img
                 src={`/badges/${id}.webp`}
                 alt={meta.title}
-                className="w-24 h-24 rounded-full object-cover ring-4 ring-indigo-100"
+                className="w-24 h-24 rounded-full object-cover ring-4 ring-brand-yellow/40"
                 onError={() => setImgError(true)}
               />
             )}
@@ -101,8 +101,9 @@ export default function BadgeUnlockModal({ badges, onDismiss }: BadgeUnlockModal
           <h2 className="text-2xl font-bold text-slate-800">{meta.title}</h2>
 
           <button
+            type="button"
             onClick={handleNext}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-colors"
+            className="w-full min-h-11 bg-brand-orange hover:bg-orange-600 text-white font-semibold py-3 rounded-xl transition-colors"
           >
             {isLast ? 'Keep going!' : 'Next →'}
           </button>

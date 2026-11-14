@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+/* Explicit :root fallbacks so brand colors exist even if @theme is stale in dev. */
+:root {
+  --color-brand-orange: #f68535;
+  --color-brand-blue: #3285bc;
+  --color-brand-green: #60a763;
+  --color-brand-coral: #f97665;
+  --color-brand-yellow: #fac446;
+}
+
+@theme {
+  --color-brand-orange: #f68535;
+  --color-brand-blue: #3285bc;
+  --color-brand-green: #60a763;
+  --color-brand-coral: #f97665;
+  --color-brand-yellow: #fac446;
+}
+
+@layer base {
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+}
+
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}

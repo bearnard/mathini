@@ -164,7 +164,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
           <div className="flex items-center gap-4">
             <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
               <div
-                className="h-full bg-indigo-500 rounded-full transition-all duration-300"
+                className="h-full bg-brand-orange rounded-full transition-all duration-300"
                 style={{ width: `${((index + 1) / Math.max(total, 1)) * 100}%` }}
               />
             </div>
@@ -177,7 +177,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
           <Card className="p-8 space-y-8">
             {!current || loading ? (
               <div className="flex flex-col items-center justify-center py-12 gap-4 text-slate-400">
-                <span className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-200 border-t-indigo-600" />
+                <span className="h-8 w-8 animate-spin rounded-full border-4 border-brand-blue/30 border-t-brand-blue" />
                 <p className="font-medium">Loading questions…</p>
               </div>
             ) : (
@@ -203,7 +203,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
                         onClick={() => handleSelect(option)}
                         disabled={selected !== null}
                         variant={variant}
-                        className="text-lg py-6"
+                        className="w-full text-lg py-6"
                       >
                         <MathText>{option}</MathText>
                       </Button>

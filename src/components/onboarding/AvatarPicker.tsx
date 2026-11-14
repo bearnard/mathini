@@ -29,7 +29,7 @@ export default function AvatarPicker({ value, onChange }: AvatarPickerProps) {
             className={[
               'rounded-full focus:outline-none transition-transform hover:scale-110',
               value === path
-                ? 'ring-2 ring-indigo-500 ring-offset-2 scale-110'
+                ? 'ring-2 ring-brand-blue ring-offset-2 scale-110'
                 : 'ring-2 ring-transparent',
             ].join(' ')}
           >

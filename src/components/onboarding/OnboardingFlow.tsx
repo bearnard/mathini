@@ -199,11 +199,11 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
               Write this down — you&apos;ll need it to log in on another device or browser.
             </p>
 
-            <div className="bg-indigo-50 rounded-xl p-6 space-y-3">
+            <div className="bg-brand-blue/10 rounded-xl p-6 space-y-3">
               <p className="text-sm text-slate-500 uppercase tracking-wider font-bold">
                 Login Code
               </p>
-              <p className="text-3xl font-mono font-bold text-indigo-700 tracking-wider">
+              <p className="text-3xl font-mono font-bold text-brand-blue tracking-wider">
                 {result.loginCode}
               </p>
               <p className="text-sm text-slate-500">PIN: {result.pin}</p>

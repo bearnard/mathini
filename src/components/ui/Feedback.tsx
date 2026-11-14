@@ -26,19 +26,19 @@ const Feedback = ({
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 20, scale: 0.95 }}
                     className={`p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg border-2 ${isCorrect
-                            ? 'bg-emerald-50 border-emerald-100'
-                            : 'bg-red-50 border-red-100'
+                            ? 'bg-brand-green/15 border-brand-green/30'
+                            : 'bg-brand-coral/15 border-brand-coral/30'
                         }`}
                 >
                     <div className="flex items-center gap-4 text-center md:text-left">
-                        <div className={`p-3 rounded-full ${isCorrect ? 'bg-emerald-100 text-emerald-600' : 'bg-red-100 text-red-600'}`}>
+                        <div className={`p-3 rounded-full ${isCorrect ? 'bg-brand-green/20 text-brand-green' : 'bg-brand-coral/20 text-brand-coral'}`}>
                             {isCorrect ? <CheckCircle2 className="w-8 h-8" /> : <XCircle className="w-8 h-8" />}
                         </div>
                         <div>
-                            <h3 className={`font-bold text-lg ${isCorrect ? 'text-emerald-900' : 'text-red-900'}`}>
+                            <h3 className={`font-bold text-lg ${isCorrect ? 'text-green-900' : 'text-red-900'}`}>
                                 {isCorrect ? "Great Job!" : "Oops!"}
                             </h3>
-                            <p className={`font-medium ${isCorrect ? 'text-emerald-700' : 'text-red-700'}`}>
+                            <p className={`font-medium ${isCorrect ? 'text-green-800' : 'text-red-800'}`}>
                                 {isCorrect ? correctMessage : incorrectMessage}
                             </p>
                         </div>

@@ -72,14 +72,15 @@ export default function LeaderboardView({
   return (
     <div className="max-w-2xl mx-auto p-4 space-y-4">
       <button
+        type="button"
         onClick={onBack}
-        className="flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700 transition-colors"
+        className="flex min-h-11 items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-700"
       >
         ← Back
       </button>
 
       <div className="flex items-center gap-3">
-        <Trophy className="w-7 h-7 text-amber-500" />
+        <Trophy className="w-7 h-7 text-brand-yellow" />
         <h1 className="text-2xl font-bold text-slate-800">Leaderboard</h1>
       </div>
 
@@ -87,12 +88,13 @@ export default function LeaderboardView({
       <div className="flex flex-wrap gap-2">
         {scopes.map((s) => (
           <button
+            type="button"
             key={s.key}
             onClick={() => setScope(s.key)}
             className={cn(
-              'px-4 py-2 rounded-full text-sm font-medium transition-colors',
+              'min-h-11 px-4 py-2 rounded-full text-sm font-medium transition-colors',
               scope === s.key
-                ? 'bg-indigo-600 text-white shadow-md'
+                ? 'bg-brand-blue text-white shadow-md'
                 : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50',
             )}
           >
@@ -148,7 +150,7 @@ export default function LeaderboardView({
       {/* Leaderboard table */}
       {loading ? (
         <div className="flex justify-center py-12">
-          <span className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-200 border-t-indigo-600" />
+          <span className="h-8 w-8 animate-spin rounded-full border-4 border-brand-blue/30 border-t-brand-blue" />
         </div>
       ) : (
         <div className="space-y-2">
@@ -165,7 +167,7 @@ export default function LeaderboardView({
                 className={cn(
                   'flex items-center gap-3 px-4 py-3 rounded-xl transition-colors',
                   isCurrentStudent
-                    ? 'bg-indigo-50 border-2 border-indigo-300'
+                    ? 'bg-brand-yellow/20 ring-1 ring-brand-yellow/50 border border-brand-yellow/40'
                     : entry.rank === 1
                       ? 'bg-amber-50 border border-amber-200 hover:bg-amber-100'
                       : entry.rank === 2
@@ -194,14 +196,14 @@ export default function LeaderboardView({
                   </span>
                 </div>
                 {isCurrentStudent && (
-                  <span className="text-xs font-bold text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded-full">
+                  <span className="text-xs font-bold text-amber-800 bg-brand-yellow/40 px-2 py-0.5 rounded-full">
                     You
                   </span>
                 )}
 
                 {/* XP */}
                 <div className="text-right">
-                  <div className="font-bold text-indigo-600">{entry.xp} XP</div>
+                  <div className="font-bold text-brand-blue">{entry.xp} XP</div>
                   <div className="text-xs text-slate-400">
                     {entry.correctCount}/{entry.totalCount}
                   </div>

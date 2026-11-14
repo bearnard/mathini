@@ -12,7 +12,7 @@ interface PageLayoutProps {
 
 const PageLayout = ({ children, title, subtitle, className, icon }: PageLayoutProps) => {
     return (
-        <div className="min-h-screen bg-slate-50 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-50 via-slate-50 to-slate-50 p-4 md:p-8 pb-24">
+        <div className="min-h-screen bg-slate-50 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-blue/10 via-slate-50 to-slate-50 p-4 md:p-8 pb-24">
             <div className={cn("max-w-4xl mx-auto", className)}>
                 {(title || subtitle) && (
                     <motion.div
@@ -21,7 +21,7 @@ const PageLayout = ({ children, title, subtitle, className, icon }: PageLayoutPr
                         className="text-center mb-8 md:mb-12"
                     >
                         {icon && (
-                            <div className="inline-flex p-3 rounded-2xl bg-white shadow-sm border border-slate-100 mb-4 text-indigo-600">
+                            <div className="inline-flex p-3 rounded-2xl bg-white shadow-sm border border-slate-100 mb-4 text-brand-blue">
                                 {icon}
                             </div>
                         )}
