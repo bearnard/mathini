@@ -13,13 +13,15 @@ const SOFT = '#cbd5e1';
 const frame = 'mx-auto block w-full rounded-2xl';
 const style = (maxWidth = '34rem') => ({ background: INK, fontFamily: 'inherit', maxWidth }) as const;
 
-/** The share of a balanced plate for each food group. Rough, for the picture only. */
+/** The widely taught healthy plate: half vegetables and fruit, a quarter starch, a quarter protein. */
 export const PLATE = [
-  { name: 'Vegetables and fruit', job: 'vitamins, minerals, fibre', share: 35, color: '#4ade80' },
-  { name: 'Carbohydrates', job: 'energy', share: 30, color: '#fbbf24' },
+  { name: 'Vegetables and fruit', job: 'vitamins, minerals, fibre', share: 50, color: '#4ade80' },
+  { name: 'Carbohydrates', job: 'energy', share: 25, color: '#fbbf24' },
   { name: 'Proteins', job: 'growth and repair', share: 25, color: '#fb7185' },
-  { name: 'Fats (a little)', job: 'store energy', share: 10, color: '#a78bfa' },
 ] as const;
+
+/** Fats and oils are a small extra beside the plate, not a part of it. */
+export const PLATE_EXTRA = { name: 'Fats and oils', job: 'a little, to store energy', color: '#a78bfa' } as const;
 
 const polar = (cx: number, cy: number, r: number, deg: number) => {
   const a = (deg * Math.PI) / 180;
@@ -193,16 +195,21 @@ export const NutrientPlate = () => {
   return (
     <svg viewBox="0 0 172 80" role="img" aria-labelledby="pla-t pla-d" className={frame} style={style()}>
       <title id="pla-t">A balanced plate</title>
-      <desc id="pla-d">A plate split into four food groups: {PLATE.map((p) => `${p.name} for ${p.job}`).join(', ')}.</desc>
+      <desc id="pla-d">A plate with half vegetables and fruit, a quarter carbohydrates and a quarter proteins. {PLATE_EXTRA.name}, {PLATE_EXTRA.job}, sit beside the plate as a small extra.</desc>
       <circle cx={cx} cy={cy} r={36} fill="#e2e8f0" />
       {ws.map((w, i) => (
         <path key={PLATE[i].name} d={w.d} fill={PLATE[i].color} stroke="#e2e8f0" strokeWidth={1.2} />
       ))}
-      {PLATE.map((p, i) => {
-        const y = 14 + i * 16;
+      {[...PLATE, PLATE_EXTRA].map((p, i) => {
+        const y = 13 + i * 17;
+        const extra = i === PLATE.length;
         return (
           <g key={p.name}>
-            <circle cx={84} cy={y} r={3} fill={p.color} />
+            {extra ? (
+              <circle cx={84} cy={y} r={2.6} fill={p.color} stroke="#e2e8f0" strokeWidth={0.8} />
+            ) : (
+              <circle cx={84} cy={y} r={3} fill={p.color} />
+            )}
             <text x={91} y={y - 0.6} fontSize={6.4} fontWeight={800} fill="#e2e8f0">{p.name}</text>
             <text x={91} y={y + 6.4} fontSize={5.6} fontWeight={700} fill={SOFT}>{p.job}</text>
           </g>
