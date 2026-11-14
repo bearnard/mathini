@@ -1,28 +1,17 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import { CompassRose, DirectionMap } from '@/components/diagrams/Compass';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Maps help us find direction',
-    image: {
-      src: '/curriculum/grade6/geo/term1/map-skills/diagram.svg',
-      alt: 'compass rose showing eight directions',
-    },
     content: (
       <div className="space-y-4 text-center">
+        <CompassRose />
         <p className="text-lg text-slate-600">
           A <strong>map</strong> is a drawing of a place from above. A <strong>compass rose</strong>
           shows directions so we can describe where places are and how to move between them.
         </p>
-        <div className="bg-sky-50 p-6 rounded-xl inline-flex flex-wrap items-center justify-center gap-3 text-xl font-bold">
-          <span>North</span>
-          <span className="text-slate-400">•</span>
-          <span>South</span>
-          <span className="text-slate-400">•</span>
-          <span>East</span>
-          <span className="text-slate-400">•</span>
-          <span>West</span>
-        </div>
       </div>
     ),
   },
@@ -30,6 +19,7 @@ const learnSteps: LearnStep[] = [
     title: 'Cardinal and intermediate directions',
     content: (
       <div className="space-y-4 text-center">
+        <DirectionMap />
         <p className="text-lg text-slate-600">
           <strong>Cardinal directions</strong> are north, south, east, and west. Directions halfway
           between them are <strong>intermediate directions</strong>, such as north-east and south-west.
