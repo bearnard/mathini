@@ -5,7 +5,8 @@ import type { DiagramProps, Hotspot } from '../types';
  * viewBox is 400 x 300, so a hotspot at x% / y% sits at (4x, 3y) in the drawing.
  * The circuit is inset so the 44px hotspot markers (which sit outside the parts) never cover a symbol,
  * even when the box is only ~290px wide on a phone.
- * It draws no text, so it never gives away the labels. `showLabels` is accepted for the DiagramProps contract.
+ * With showLabels=false (the label question) it draws no text, so it never gives away the labels. With showLabels=true
+ * (the explain memo) it names the four parts.
  */
 export const circuitPartsHotspots: Hotspot[] = [
   { id: 'cell', x: 7, y: 52 },
@@ -16,7 +17,7 @@ export const circuitPartsHotspots: Hotspot[] = [
 
 const ink = '#334155';
 
-const CircuitPartsDiagram = (_props: DiagramProps) => (
+const CircuitPartsDiagram = ({ showLabels }: DiagramProps) => (
   <svg viewBox="0 0 400 300" className="block h-auto w-full" role="img" aria-label="A simple circuit with four numbered parts" xmlns="http://www.w3.org/2000/svg">
     {/* leader lines from each marker to its part */}
     <g stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="3 3" fill="none">
@@ -33,14 +34,22 @@ const CircuitPartsDiagram = (_props: DiagramProps) => (
       {/* cell: long thin line = positive, short thick line = negative */}
       <path d="M 80 145 H 120" strokeWidth="3" />
       <path d="M 88 165 H 112" strokeWidth="7" />
-      {/* switch (open): two terminals and a raised blade */}
+      {/* switch: two terminals and a blade. Open (raised) in the label question; closed in the labelled memo reference,\n          because that picture is shown as the model of a COMPLETE circuit. */}
       <circle cx="170" cy="90" r="4" fill={ink} />
       <circle cx="230" cy="90" r="4" fill={ink} />
-      <path d="M 170 90 L 222 66" />
+      <path d={showLabels ? 'M 170 90 L 230 90' : 'M 170 90 L 222 66'} />
       {/* bulb: circle with a cross */}
       <circle cx="300" cy="155" r="22" fill="#fef9c3" />
       <path d="M 284 139 L 316 171 M 316 139 L 284 171" strokeWidth="3" />
     </g>
+    {showLabels && (
+      <g fill={ink} fontSize="17" fontWeight="700" fontFamily="system-ui, sans-serif">
+        <text x="70" y="160" textAnchor="end">Cell</text>
+        <text x="200" y="52" textAnchor="middle">Switch</text>
+        <text x="340" y="160" textAnchor="start">Bulb</text>
+        <text x="200" y="250" textAnchor="middle">Wires</text>
+      </g>
+    )}
   </svg>
 );
 

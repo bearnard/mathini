@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type NstItemKind = 'mcq' | 'order' | 'label';
+export type NstItemKind = 'mcq' | 'order' | 'label' | 'explain';
 
 /** A numbered tap target on a label diagram. x and y are percentages (0-100) of the diagram box. */
 export interface Hotspot {
@@ -12,7 +12,7 @@ export interface Hotspot {
 
 /** What a diagram component receives so it can draw itself inside the label question. */
 export interface DiagramProps {
-  /** Hide any text that would give the answers away. LabelQuestion always passes false. */
+  /** Hide any text that would give the answers away. LabelQuestion passes false; the explain memo passes true. */
   showLabels: boolean;
 }
 
@@ -26,6 +26,7 @@ export interface NstItem {
   /**
    * mcq: the choices. order: the steps (any order; they are shuffled for display).
    * label: the label choices for the hotspots (may include extra wrong labels).
+   * explain: the memo MARK POINTS, one mark each, in memo order (never shuffled).
    */
   options: string[];
   /**
@@ -36,10 +37,20 @@ export interface NstItem {
   explanation?: string;
   /** label only: the picture, as an image path ... */
   image?: { src: string; alt: string };
-  /** label only: ... or a React SVG component. One of image/Diagram is required. */
+  /**
+   * label: ... or a React SVG component. One of image/Diagram is required.
+   * explain: an optional reference diagram shown in the memo, drawn with showLabels=true.
+   */
   Diagram?: React.ComponentType<DiagramProps>;
   /** label only: where the numbered hotspots sit, in percent of the diagram box. */
   hotspots?: Hotspot[];
+  /**
+   * explain only: the marks the question is worth. Defaults to the number of mark points, and must equal it
+   * (one mark per point), so a 3-mark answer lists exactly 3 points.
+   */
+  marks?: number;
+  /** explain only: the learner answers on paper (e.g. "draw a circuit"), so no typing box is shown. */
+  paper?: boolean;
 }
 
 export interface LearnStep {

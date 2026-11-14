@@ -99,6 +99,8 @@ export const bank: NstItem[] = [
   { prompt: 'Why is Neptune much colder than Earth?', options: ['It is very far from the Sun', 'It is covered in thick ice only', 'It has no gravity to hold in heat', 'It is facing away from the Sun'], answer: 'It is very far from the Sun', explanation: 'Planets far from the Sun get little heat and light.' },
   { prompt: 'Which planet has the longest year?', options: ['Neptune', 'Mars', 'Jupiter', 'Venus'], answer: 'Neptune', explanation: 'The farther a planet is from the Sun, the longer its orbit takes.' },
   { prompt: 'Pluto is best described as a...', options: ['dwarf planet', 'star', 'moon of Neptune', 'gas giant'], answer: 'dwarf planet', explanation: 'Pluto is classified as a dwarf planet.' },
+  { section: 'orbits', prompt: 'Seen from above the Sun’s north pole, in which direction do all the planets orbit the Sun?', options: ['Anticlockwise', 'Clockwise', 'Some clockwise and some anticlockwise', 'It depends on how far the planet is from the Sun'], answer: 'Anticlockwise', explanation: 'All the planets orbit the Sun in the same direction, which is anticlockwise when seen from above the Sun’s north pole.' },
+
 ];
 
 const SolarSystem = () => (
