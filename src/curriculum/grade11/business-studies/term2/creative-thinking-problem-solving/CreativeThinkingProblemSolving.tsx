@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { PROBLEM_SOLVING_STEPS } from '../../../../../components/diagrams/business/steps';
 
 const learnSteps: LearnStep[] = [
   {
@@ -33,17 +35,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           Businesses follow a structured <strong>problem-solving cycle</strong> to move from identifying a problem to implementing a solution.
         </p>
-        <div className="bg-slate-50 p-5 rounded-xl text-left">
-          <ol className="list-decimal list-inside space-y-2 text-slate-700">
-            <li><strong>Identify and define</strong> the problem clearly</li>
-            <li><strong>Gather information</strong> relevant to the problem</li>
-            <li><strong>Analyse</strong> the information and causes</li>
-            <li><strong>Generate solutions</strong> (use brainstorming, mind mapping, etc.)</li>
-            <li><strong>Select</strong> the best solution</li>
-            <li><strong>Implement</strong> the chosen solution</li>
-            <li><strong>Evaluate</strong> whether the solution worked</li>
-          </ol>
-        </div>
+        <NumberedSteps steps={PROBLEM_SOLVING_STEPS} tone="teal" loop label="The problem-solving cycle" />
       </div>
     ),
   },

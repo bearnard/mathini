@@ -1,4 +1,5 @@
-import { VAT_RATE, netVat, rand, vatInclusive, vatOnExclusive, vatPortion } from './vat';
+import { VAT_RATE, netVat, vatInclusive, vatOnExclusive, vatPortion } from './vat';
+import { rand } from './rand';
 import { r3 } from '../round';
 
 /**

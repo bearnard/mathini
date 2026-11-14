@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { DIMINISHING_EXAMPLE, STRAIGHT_LINE_EXAMPLE, chargeCaption, diminishing, rand, straightLine } from './depreciation';
+import { DIMINISHING_EXAMPLE, STRAIGHT_LINE_EXAMPLE, chargeCaption, diminishing, straightLine } from './depreciation';
+import { rand } from './rand';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const lesson = fs.readFileSync(path.join(here, '../../../curriculum/grade11/accounting/term1/fixed-assets-depreciation/FixedAssetsDepreciation.tsx'), 'utf8');

@@ -1,5 +1,6 @@
 import { axisMax } from '../maths/mathsHelpers';
-import { chargeCaption, rand } from './depreciation';
+import { chargeCaption } from './depreciation';
+import { rand } from './rand';
 import type { Schedule } from './depreciation';
 import { r3 } from '../round';
 

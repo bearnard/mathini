@@ -30,11 +30,3 @@ export const netVat = (output: number, input: number): { amount: number; directi
   amount: Math.abs(output - input),
   direction: output >= input ? 'payable' : 'refund',
 });
-
-/** Rand as the lesson writes it: "R12 000" (a space between thousands), cents only when needed. */
-export const rand = (n: number): string => {
-  const whole = Math.trunc(Math.abs(n));
-  const cents = Math.round((Math.abs(n) - whole) * 100);
-  const grouped = String(whole).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-  return `${n < 0 ? '-' : ''}R${grouped}${cents ? `,${String(cents).padStart(2, '0')}` : ''}`;
-};
