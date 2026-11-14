@@ -63,12 +63,6 @@ const bank: AfrikaansItem[] = [
     explanation: "This is the correct answer.",
   },
   {
-    prompt: "What supports learning?",
-    options: ["Repetition", "Breaks", "Guessing", "Skipping"],
-    answer: "Repetition",
-    explanation: "Repetition strengthens understanding.",
-  },
-  {
     prompt: "Why is this important?",
     options: ["For exams", "For communication", "For grades", "For all of the above"],
     answer: "For all of the above",

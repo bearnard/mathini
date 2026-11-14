@@ -205,5 +205,5 @@ once stable question IDs exist.
 - Grade 9 Technology, "What is IDMEC in the context of accessible design?": not a recognised accessibility term; the key looks
   invented. Replace with "What is universal design?" (or drop it).
 - Grade 9 (several subjects): stems that are truncated fragments ("A scale is...", "Alignment in dance means...").
-- Grade 9 Afrikaans: "What supports learning?" (Repetition / Breaks / Guessing / Skipping) is repeated in 12 topic banks, another
-  placeholder like the one deleted in the commit "delete the 12 identical placeholder items". Not Afrikaans content.
+- Grade 9 Afrikaans: the 12 identical placeholders ("How should you approach this skill?" and "What supports learning?") were
+  deleted outright (not Afrikaans content; nothing depended on them).
