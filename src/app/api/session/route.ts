@@ -33,9 +33,9 @@ export async function POST(req: NextRequest) {
     const db = env.DB;
 
     const student = await db
-      .prepare('SELECT id, pin_hash, pin_salt, display_name, grade, avatar FROM students WHERE login_code = ?')
+      .prepare('SELECT id, pin_hash, pin_salt, display_name, grade, avatar, parent_consent_at FROM students WHERE login_code = ?')
       .bind(loginCode)
-      .first<{ id: string; pin_hash: string; pin_salt: string; display_name: string; grade: number; avatar: string }>();
+      .first<{ id: string; pin_hash: string; pin_salt: string; display_name: string; grade: number; avatar: string; parent_consent_at: number | null }>();
 
     if (!student) {
       incrementRateLimit(limitKey);
@@ -64,6 +64,7 @@ export async function POST(req: NextRequest) {
       displayName: student.display_name,
       grade: student.grade,
       avatar: student.avatar,
+      consented: student.parent_consent_at != null,
     });
     response.cookies.set(SESSION_COOKIE_NAME, token, {
       httpOnly: true,
@@ -88,9 +89,9 @@ export async function GET(req: NextRequest) {
 
   const db = env.DB;
   const student = await db
-    .prepare('SELECT id, display_name, avatar, grade, xp FROM students LEFT JOIN student_xp ON students.id = student_xp.student_id AND student_xp.scope = ? WHERE students.id = ?')
+    .prepare('SELECT id, display_name, avatar, grade, xp, parent_consent_at FROM students LEFT JOIN student_xp ON students.id = student_xp.student_id AND student_xp.scope = ? WHERE students.id = ?')
     .bind('overall', session)
-    .first<{ id: string; display_name: string; avatar: string; grade: number; xp: number }>();
+    .first<{ id: string; display_name: string; avatar: string; grade: number; xp: number; parent_consent_at: number | null }>();
 
   if (!student) {
     return NextResponse.json({ error: 'Student not found' }, { status: 404 });
@@ -102,6 +103,7 @@ export async function GET(req: NextRequest) {
     avatar: student.avatar,
     grade: student.grade,
     xp: student.xp || 0,
+    consented: student.parent_consent_at != null,
   });
 }
 

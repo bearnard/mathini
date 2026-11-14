@@ -2,22 +2,19 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { hashPin, generateLoginCode, generatePin } from '../../../lib/server/identity';
 import { signSession, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from '../../../lib/server/session';
+import { parseRegistration } from '../../../lib/server/consent';
+import { CONSENT_VERSION } from '../../../lib/privacyNotice';
 
 export const dynamic = 'force-dynamic';
 
 export async function POST(req: NextRequest) {
   try {
-    const body = (await req.json()) as { realName?: string; displayName?: string; school?: string; age?: number; grade?: number; avatar?: string };
-    const realName = (body.realName ?? '').toString().trim();
-    const displayName = (body.displayName ?? '').toString().trim();
-    const school = (body.school ?? '').toString().trim();
-    const age = Number(body.age);
-    const grade = Number(body.grade);
-    const avatar = (body.avatar ?? '/avatars/avatar-1.webp')?.toString() ?? '/avatars/avatar-1.webp';
-
-    if (!realName || !displayName || !school || !Number.isInteger(grade) || grade < 5 || grade > 12) {
-      return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
+    const parsed = parseRegistration(await req.json().catch(() => null));
+    // Rejected unless a parent/guardian agreement came with the request (not just a UI check).
+    if (!parsed.ok) {
+      return NextResponse.json({ error: parsed.error }, { status: 400 });
     }
+    const { realName, displayName, school, age, grade, avatar } = parsed.value;
 
     const { env } = getCloudflareContext();
     const db = env.DB;
@@ -43,10 +40,10 @@ export async function POST(req: NextRequest) {
     // Insert student
     await db
       .prepare(
-        `INSERT INTO students (id, login_code, pin_hash, pin_salt, display_name, avatar, real_name, school, age, grade, created_at, last_seen_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO students (id, login_code, pin_hash, pin_salt, display_name, avatar, real_name, school, age, grade, created_at, last_seen_at, parent_consent_at, consent_version)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       )
-      .bind(studentId, loginCode, pinHash, salt, displayName, avatar, realName, school, age || null, grade, now, now)
+      .bind(studentId, loginCode, pinHash, salt, displayName, avatar, realName, school, age, grade, now, now, now, CONSENT_VERSION)
       .run();
 
     // Seed overall XP row

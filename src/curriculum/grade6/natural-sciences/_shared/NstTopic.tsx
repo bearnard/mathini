@@ -8,6 +8,8 @@ import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
 import { NstItem, LearnStep } from './types';
 import { useNstItems } from './useNstItems';
+import { track } from '../../../../lib/client/analytics';
+import { usePracticeTracking } from '../../../../lib/client/usePracticeTracking';
 
 interface NstTopicProps {
   title: string;
@@ -28,6 +30,7 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
   const [selected, setSelected] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [streak, setStreak] = useState(0);
+  usePracticeTracking({ active: mode === 'practice', done, isCorrect, ctx: { grade: 6, subject: 'nst', topic: task } });
 
   const handleSelect = (option: string) => {
     if (selected !== null || !current) {
@@ -101,6 +104,7 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
                 if (learnStep < learnSteps.length - 1) {
                   setLearnStep((p) => p + 1);
                 } else {
+                  track('learn_complete', { grade: 6, subject: 'nst', topic: task });
                   setMode('practice');
                 }
               }}

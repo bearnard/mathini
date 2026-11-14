@@ -16,6 +16,8 @@ export interface Student {
   grade: number;
   xp: number;
   xpByScope: Record<string, number>;
+  /** A parent/guardian has agreed to activity and approximate-location recording. */
+  consented: boolean;
 }
 
 interface StudentContextValue {
@@ -38,7 +40,7 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     try {
       const res = await fetch('/api/session');
       if (!res.ok) return null;
-      const data = (await res.json()) as { studentId: string; displayName: string; avatar?: string; grade: number; xp?: number; xpByScope?: Record<string, number> };
+      const data = (await res.json()) as { studentId: string; displayName: string; avatar?: string; grade: number; xp?: number; xpByScope?: Record<string, number>; consented?: boolean };
       return {
         id: data.studentId,
         displayName: data.displayName,
@@ -46,6 +48,8 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         grade: data.grade,
         xp: data.xp ?? 0,
         xpByScope: data.xpByScope ?? {},
+        // Only an explicit `false` from the server triggers the one-time prompt.
+        consented: data.consented !== false,
       };
     } catch {
       return null;

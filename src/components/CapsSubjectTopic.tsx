@@ -13,6 +13,8 @@ import MathText from './subjects/MathText';
 import { useStudent } from '../lib/client/StudentContext';
 import { aggregateResultsBySection, pickWeakSections } from '../lib/client/revision';
 import BadgeUnlockModal from './gamification/BadgeUnlockModal';
+import { track } from '../lib/client/analytics';
+import { usePracticeTracking } from '../lib/client/usePracticeTracking';
 
 export interface LearnStep {
   title: string;
@@ -54,6 +56,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [streak, setStreak] = useState(0);
   const [pendingBadges, setPendingBadges] = useState<string[]>([]);
+  usePracticeTracking({ active: mode === 'practice', done, isCorrect, ctx: { grade, subject: apiPath?.split('/').filter(Boolean).pop(), topic: task ?? title } });
 
   // Track per-question results for section aggregation
   const resultsRef = useRef<{ section?: string; correct: boolean }[]>([]);
@@ -189,6 +192,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
                 if (learnStep < learnSteps.length - 1) {
                   setLearnStep((p) => p + 1);
                 } else {
+                  track('learn_complete', { grade, subject: apiPath?.split('/').filter(Boolean).pop(), topic: task ?? title });
                   setMode('practice');
                 }
               }}

@@ -8,6 +8,8 @@ import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
 import { AfrikaansItem, LearnStep } from './types';
 import { useAfrikaansItems } from './useAfrikaansItems';
+import { track } from '../../../../lib/client/analytics';
+import { usePracticeTracking } from '../../../../lib/client/usePracticeTracking';
 import SpeakButton from './SpeakButton';
 
 interface AfrikaansTopicProps {
@@ -38,6 +40,7 @@ const AfrikaansTopic = ({
   const [selected, setSelected] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [streak, setStreak] = useState(0);
+  usePracticeTracking({ active: mode === 'practice', done, isCorrect, ctx: { grade: 6, subject: 'afr', topic: task } });
 
   const handleSelect = (option: string) => {
     if (selected !== null || !current) {
@@ -103,6 +106,7 @@ const AfrikaansTopic = ({
                 if (learnStep < learnSteps.length - 1) {
                   setLearnStep((p) => p + 1);
                 } else {
+                  track('learn_complete', { grade: 6, subject: 'afr', topic: task });
                   setMode('practice');
                 }
               }}

@@ -1,13 +1,15 @@
 'use client';
 
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import type { Curriculum, Grade, Subject, Term, Topic } from './types/curriculum';
 import CurriculumSelector from './components/CurriculumSelector';
 import OnboardingGate from './components/onboarding/OnboardingGate';
+import ConsentGate from './components/onboarding/ConsentGate';
 import LeaderboardView from './components/leaderboard/LeaderboardView';
 import AppHeader from './components/layout/AppHeader';
 import TopicHeader from './components/layout/TopicHeader';
 import { StudentProvider, useStudent } from './lib/client/StudentContext';
+import { track } from './lib/client/analytics';
 import { grade5 } from './curriculum/grade5';
 import { grade6 } from './curriculum/grade6';
 import { grade7 } from './curriculum/grade7';
@@ -32,6 +34,10 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
   const [selectedTerm, setSelectedTerm] = useState<Term | null>(null);
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
   const [view, setView] = useState<'home' | 'leaderboard'>('home');
+
+  useEffect(() => {
+    if (selectedTopic) track('topic_open', { grade: selectedGrade?.id, subject: selectedSubject?.id, topic: selectedTopic.id });
+  }, [selectedTopic]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleBackStep = () => {
     if (selectedTopic) {
@@ -79,6 +85,7 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
 
   return (
     <div className="min-h-screen bg-slate-50 pb-safe font-sans text-slate-900 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-blue/10 via-slate-50 to-slate-50">
+      <ConsentGate />
       {!selectedTopic && (
         <AppHeader
           student={student}

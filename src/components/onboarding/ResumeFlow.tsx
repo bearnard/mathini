@@ -6,6 +6,7 @@ import Card from '../ui/Card';
 import Button from '../ui/Button';
 import Input from '../ui/Input';
 import { useStudent } from '../../lib/client/StudentContext';
+import { track } from '../../lib/client/analytics';
 
 export default function ResumeFlow({ onDone }: { onDone: () => void }) {
   const { setStudent } = useStudent();
@@ -31,7 +32,7 @@ export default function ResumeFlow({ onDone }: { onDone: () => void }) {
         throw new Error(body.error ?? 'Login failed');
       }
 
-      const data = (await res.json()) as { studentId: string; displayName: string; avatar?: string; grade: number };
+      const data = (await res.json()) as { studentId: string; displayName: string; avatar?: string; grade: number; consented?: boolean };
       setStudent({
         id: data.studentId,
         displayName: data.displayName,
@@ -39,7 +40,9 @@ export default function ResumeFlow({ onDone }: { onDone: () => void }) {
         grade: data.grade,
         xp: 0,
         xpByScope: {},
+        consented: data.consented !== false,
       });
+      track('login', { grade: data.grade });
       onDone();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed');

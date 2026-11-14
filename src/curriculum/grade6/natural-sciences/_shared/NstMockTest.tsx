@@ -35,9 +35,12 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
   const [firstAttempt, setFirstAttempt] = useState<boolean[]>([]);
   const [reaskFixed, setReaskFixed] = useState(0);
   const finished = useRef(false);
+  const startedFor = useRef<MockItem[] | null>(null);
 
   // Analytics hook point: one call when a test begins.
   useEffect(() => {
+    if (startedFor.current === questions) return; // once per test (StrictMode replays effects in dev)
+    startedFor.current = questions;
     onStart({ title, questionCount: questions.length });
   }, [questions]);
 

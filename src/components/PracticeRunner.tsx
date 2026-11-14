@@ -12,6 +12,7 @@ import MathText from './subjects/MathText';
 import { useStudent } from '../lib/client/StudentContext';
 import { aggregateResultsBySection, pickWeakSections } from '../lib/client/revision';
 import BadgeUnlockModal from './gamification/BadgeUnlockModal';
+import { usePracticeTracking } from '../lib/client/usePracticeTracking';
 
 export interface PracticeRunnerProps {
   /** Static question bank (used as fallback or sole source in static mode). */
@@ -40,6 +41,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [streak, setStreak] = useState(0);
   const [pendingBadges, setPendingBadges] = useState<string[]>([]);
+  usePracticeTracking({ active: true, done, isCorrect, ctx: { subject: taskToSubject(apiPath), topic: task } });
 
   // Track per-question results for section aggregation
   const resultsRef = useRef<{ section?: string; correct: boolean }[]>([]);
