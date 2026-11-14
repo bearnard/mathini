@@ -14,6 +14,13 @@ declare global {
     CRON_SECRET?: string;
     // Session signing secret (set via `wrangler secret put SESSION_SECRET`)
     SESSION_SECRET: string;
+    // Admin console (ADR 0002). All three must be set or /admin and /api/admin return 403.
+    //   ACCESS_TEAM_DOMAIN  e.g. myteam.cloudflareaccess.com
+    //   ACCESS_AUD          the Access application's Audience (AUD) tag
+    //   ADMIN_EMAILS        comma-separated list of allowed admin emails
+    ACCESS_TEAM_DOMAIN?: string;
+    ACCESS_AUD?: string;
+    ADMIN_EMAILS?: string;
   }
 }
 

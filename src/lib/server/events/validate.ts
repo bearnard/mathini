@@ -118,6 +118,9 @@ export function validateBatch(body: unknown): CleanBatch | null {
     // Under Do Not Track the device id is a constant, never a per-device value.
     const deviceId = dnt ? 'dnt' : typeof e.device_id === 'string' && ID_RE.test(e.device_id) ? e.device_id : null;
     if (!sessionId || !deviceId) continue;
+    const path = cleanPath(e.path);
+    // The admin area is never recorded (the owner is not a visitor).
+    if (path !== null && (path === '/admin' || path.startsWith('/admin/'))) continue;
     events.push({
       type: e.type as EventType,
       deviceId,
@@ -125,7 +128,7 @@ export function validateBatch(body: unknown): CleanBatch | null {
       grade: cleanGrade(e.grade),
       subject: text(e.subject, 64),
       topic: text(e.topic, 64),
-      path: cleanPath(e.path),
+      path,
       referrer: cleanReferrerHost(e.referrer),
       meta: cleanMeta(e.meta),
     });

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createTracker, MAX_BATCH, MAX_QUEUE, SESSION_IDLE_MS, FLUSH_INTERVAL_MS, DEVICE_KEY, type TrackerDeps, type WireEvent, type KeyValueStore } from './analyticsCore';
+import { isTrackablePath, createTracker, MAX_BATCH, MAX_QUEUE, SESSION_IDLE_MS, FLUSH_INTERVAL_MS, DEVICE_KEY, type TrackerDeps, type WireEvent, type KeyValueStore } from './analyticsCore';
 
 function memStore(): KeyValueStore & { data: Map<string, string> } {
   const data = new Map<string, string>();
@@ -164,4 +164,9 @@ test('props pass through but identity fields are the tracker\'s own', () => {
   assert.equal(e.type, 'practice_finish');
   assert.deepEqual(e.meta, { score: 7, total: 10, ms: 5000 });
   assert.match(e.device_id, /^id-/);
+});
+
+test('the admin area and API paths are never tracked as page views', () => {
+  for (const p of ['/admin', '/admin/', '/admin/learners/abc', '/admin?x=1', '/api/events', '/api']) assert.equal(isTrackablePath(p), false, p);
+  for (const p of ['/', '/app', '/privacy', '/grade-6/natural-sciences-technology', '/administration', '/adminx', '/apiary', '', null, undefined]) assert.equal(isTrackablePath(p as string), true, String(p));
 });
