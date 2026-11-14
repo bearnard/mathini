@@ -29,6 +29,11 @@ import { getSections } from "../src/lib/server/caps/sections";
 import { acceptItems } from "../src/lib/shared/questionQuality";
 import { specsFromSlugs } from "../src/lib/server/caps/seedSlugs";
 import { numericOkFor } from "../src/lib/server/topUp";
+import {
+  AuthAbort, AuthError, HttpError, RunStats, createAuthGuard, isAuthStatus, parseOauthToken, processTaskItems, retryTransient, taskOutcome,
+} from "../src/lib/server/seedRuntime";
+import { execFileSync } from "node:child_process";
+import os from "node:os";
 
 // ── Config ─────────────────────────────────────────────────────────────────
 
@@ -281,125 +286,118 @@ const emptyBatches = (): TaskBatches =>
  */
 async function generateTasks(
   specs: TaskSpec[],
-  retries = 5
 ): Promise<Record<string, TaskBatches>> {
   const prompt = buildTaskPrompt(specs, ITEMS_PER_BATCH);
 
-  for (let attempt = 0; attempt <= retries; attempt++) {
-    await genLimiter.throttle();
-    const res = await fetch(
-      `${GEMINI_BASE}/${GEN_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: {
-            responseMimeType: "application/json",
-            temperature: 0.9,
-          },
-        }),
-      }
-    );
-
-    if (res.status === 429) {
-      if (attempt === retries) throw new Error("Rate limit: max retries hit");
-      const waitMs = genLimiter.fullWindowReset();
-      console.log(`  ⏳ 429 — waiting ${Math.ceil(waitMs / 1000)}s until gen quota resets...`);
-      await sleep(waitMs);
-      continue;
-    }
-
-    if (!res.ok) {
-      throw new Error(`Gemini generation error: ${res.status} ${await res.text()}`);
-    }
-
-    const data = (await res.json()) as {
-      candidates?: { content?: { parts?: { text?: string }[] } }[];
-    };
-    const raw = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
-    const text = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```\s*$/, "").trim();
-
-    let parsed: Record<string, Partial<TaskBatches>>;
-    try {
-      parsed = JSON.parse(text);
-    } catch {
-      console.warn(`  ⚠️  JSON parse failed — skipping batch of ${specs.length} tasks`);
-      return Object.fromEntries(specs.map((s) => [s.slug, emptyBatches()]));
-    }
-
-    const validate = (items: unknown): GeneratedItem[] =>
-      (Array.isArray(items) ? items : []).filter(
-        (it) =>
-          it &&
-          typeof it.prompt === "string" &&
-          it.prompt.length > 10 &&
-          Array.isArray(it.options) &&
-          it.options.length === 4 &&
-          it.options.every((o: unknown) => typeof o === "string") &&
-          typeof it.answer === "string" &&
-          it.options.includes(it.answer)
+  // 429 / 5xx (the Gemini "503 high demand" spikes) / network errors are retried with exponential backoff and jitter, at most 4 attempts.
+  // genLimiter.throttle() runs before EVERY attempt, so the free-tier RPM and daily budget are respected; a 429 also waits for the limiter's
+  // full window. Out of attempts -> throws, and the caller marks the batch's tasks failed so a later run retries them.
+  const data = await retryTransient(
+    async () => {
+      await genLimiter.throttle();
+      const res = await fetch(
+        `${GEMINI_BASE}/${GEN_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              responseMimeType: "application/json",
+              temperature: 0.9,
+            },
+          }),
+        }
       );
+      if (res.status === 429) throw new HttpError(429, "Gemini rate limit", genLimiter.fullWindowReset());
+      if (!res.ok) throw new HttpError(res.status, `Gemini generation: ${await res.text()}`);
+      return (await res.json()) as { candidates?: { content?: { parts?: { text?: string }[] } }[] };
+    },
+    {
+      tries: 4,
+      baseMs: 15_000,
+      maxMs: 120_000,
+      jitter: 0.3,
+      onRetry: (attempt, waitMs, e) =>
+        console.log(`\n  ⏳ Gemini ${e instanceof HttpError ? e.status : "network error"}: attempt ${attempt}/4 failed — waiting ${Math.ceil(waitMs / 1000)}s...`),
+    },
+  );
 
-    return Object.fromEntries(
-      specs.map((s) => {
-        const t = parsed[s.slug] ?? {};
-        return [s.slug, {
-          definitions:    validate(t.definitions),
-          calculations:   validate(t.calculations),
-          application:    validate(t.application),
-          misconceptions: validate(t.misconceptions),
-        }];
-      })
-    );
+  const raw = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+  const text = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```\s*$/, "").trim();
+
+  let parsed: Record<string, Partial<TaskBatches>>;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    console.warn(`  ⚠️  JSON parse failed — skipping batch of ${specs.length} tasks`);
+    return Object.fromEntries(specs.map((s) => [s.slug, emptyBatches()]));
   }
 
-  return Object.fromEntries(specs.map((s) => [s.slug, emptyBatches()]));
+  const validate = (items: unknown): GeneratedItem[] =>
+    (Array.isArray(items) ? items : []).filter(
+      (it) =>
+        it &&
+        typeof it.prompt === "string" &&
+        it.prompt.length > 10 &&
+        Array.isArray(it.options) &&
+        it.options.length === 4 &&
+        it.options.every((o: unknown) => typeof o === "string") &&
+        typeof it.answer === "string" &&
+        it.options.includes(it.answer)
+    );
+
+  return Object.fromEntries(
+    specs.map((s) => {
+      const t = parsed[s.slug] ?? {};
+      return [s.slug, {
+        definitions:    validate(t.definitions),
+        calculations:   validate(t.calculations),
+        application:    validate(t.application),
+        misconceptions: validate(t.misconceptions),
+      }];
+    })
+  );
 }
 
 // ── Gemini batch embedding ───────────────────────────────────────────────────
 
 /** Embeds multiple texts in a single batchEmbedContents request. */
-async function embedBatch(texts: string[], retries = 5): Promise<Embedding[]> {
+async function embedBatch(texts: string[]): Promise<Embedding[]> {
   if (texts.length === 0) return [];
 
-  for (let attempt = 0; attempt <= retries; attempt++) {
-    await embedLimiter.throttle();
-    const res = await fetch(
-      `${GEMINI_BASE}/${EMBED_MODEL}:batchEmbedContents?key=${GEMINI_API_KEY}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          requests: texts.map((text) => ({
-            model: `models/${EMBED_MODEL}`,
-            content: { parts: [{ text }] },
-            outputDimensionality: EMBED_DIMS,
-          })),
-        }),
-      }
-    );
-
-    if (res.status === 429) {
-      if (attempt === retries) throw new Error("Embed rate limit: max retries hit");
-      const waitMs = embedLimiter.fullWindowReset();
-      console.log(`  ⏳ 429 — waiting ${Math.ceil(waitMs / 1000)}s until embed quota resets...`);
-      await sleep(waitMs);
-      continue;
-    }
-
-    if (!res.ok) {
-      throw new Error(`Embed error: ${res.status} ${await res.text()}`);
-    }
-
-    const data = (await res.json()) as { embeddings: { values: number[] }[] };
-    return data.embeddings.map((e) => e.values);
-  }
-
-  throw new Error("Embed batch failed after all retries");
+  return retryTransient(
+    async () => {
+      await embedLimiter.throttle();
+      const res = await fetch(
+        `${GEMINI_BASE}/${EMBED_MODEL}:batchEmbedContents?key=${GEMINI_API_KEY}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            requests: texts.map((text) => ({
+              model: `models/${EMBED_MODEL}`,
+              content: { parts: [{ text }] },
+              outputDimensionality: EMBED_DIMS,
+            })),
+          }),
+        }
+      );
+      if (res.status === 429) throw new HttpError(429, "Embed rate limit", embedLimiter.fullWindowReset());
+      if (!res.ok) throw new HttpError(res.status, `Embed: ${await res.text()}`);
+      const data = (await res.json()) as { embeddings: { values: number[] }[] };
+      return data.embeddings.map((e) => e.values);
+    },
+    {
+      tries: 5,
+      baseMs: 10_000,
+      maxMs: 120_000,
+      jitter: 0.3,
+      onRetry: (attempt, waitMs, e) =>
+        console.log(`\n  ⏳ embed ${e instanceof HttpError ? e.status : "network error"}: attempt ${attempt}/5 failed — waiting ${Math.ceil(waitMs / 1000)}s...`),
+    },
+  );
 }
-
-// ── Local (Ollama) generation ────────────────────────────────────────────────
 
 async function generateTasksLocal(
   specs: TaskSpec[],
@@ -532,10 +530,40 @@ function cosine(a: Embedding, b: Embedding): number {
 // ── Vectorize (Cloudflare REST API) ─────────────────────────────────────────
 
 const CF_BASE = `https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}`;
-const CF_HEADERS = {
-  Authorization: `Bearer ${CF_API_TOKEN}`,
-  "Content-Type": "application/json",
-};
+
+// Cloudflare auth. scripts/load-secrets.sh exports CF_TOKEN_SOURCE=wrangler-oauth when the token is wrangler's OAuth token. That token EXPIRES
+// (about an hour), so it is re-read from wrangler's config on every refresh and refreshed (`wrangler whoami` does it) before the run, every
+// 30 minutes, and on the first 401/403. A token the user supplied themselves (CF_API_TOKEN) cannot be refreshed: a 401/403 then aborts the run.
+const TOKEN_REFRESHABLE = process.env.CF_TOKEN_SOURCE === "wrangler-oauth";
+function readCfToken(): string {
+  if (!TOKEN_REFRESHABLE) return CF_API_TOKEN as string;
+  const cfg = path.join(process.env.WRANGLER_HOME ?? path.join(os.homedir(), ".config", ".wrangler"), "config", "default.toml");
+  try {
+    return parseOauthToken(fs.readFileSync(cfg, "utf8")) ?? (CF_API_TOKEN as string);
+  } catch {
+    return CF_API_TOKEN as string;
+  }
+}
+async function refreshCfToken(): Promise<boolean> {
+  if (!TOKEN_REFRESHABLE) return false;
+  try {
+    execFileSync("npx", ["wrangler", "whoami"], { stdio: "ignore", timeout: 90_000 });
+    return true;
+  } catch {
+    return false;
+  }
+}
+const authGuard = createAuthGuard({ readToken: readCfToken, refresh: refreshCfToken, maxAgeMs: 30 * 60_000, log: (m) => console.log(`  🔑 ${m}`) });
+const runStats = new RunStats();
+
+/** One Cloudflare REST call with the current token. 401/403 -> AuthError (the guard refreshes once, then aborts); other failures -> HttpError. */
+async function cf(url: string, init: { method: string; headers?: Record<string, string>; body: string }): Promise<Response> {
+  return authGuard.call(async (token) => {
+    const res = await fetch(url, { ...init, headers: { "Content-Type": "application/json", ...(init.headers ?? {}), Authorization: `Bearer ${token}` } });
+    if (isAuthStatus(res.status)) throw new AuthError(res.status, await res.text());
+    return res;
+  });
+}
 
 async function vectorizeQuery(
   embedding: Embedding,
@@ -543,26 +571,16 @@ async function vectorizeQuery(
   index: string,
   topK = 3
 ): Promise<{ id: string; score: number }[]> {
-  const res = await fetch(
-    `${CF_BASE}/vectorize/v2/indexes/${index}/query`,
-    {
-      method: "POST",
-      headers: CF_HEADERS,
-      body: JSON.stringify({
-        vector: embedding,
-        topK,
-        filter: { task: taskFilter },
-        returnMetadata: "none",
-        returnValues: false,
-      }),
-    }
-  );
+  const res = await cf(`${CF_BASE}/vectorize/v2/indexes/${index}/query`, {
+    method: "POST",
+    body: JSON.stringify({ vector: embedding, topK, filter: { task: taskFilter }, returnMetadata: "none", returnValues: false }),
+  });
 
   if (!res.ok) {
     const err = await res.text();
     // Empty index returns 400 "no vectors" on first insert — treat as no matches
     if (res.status === 400 && err.includes("no vectors")) return [];
-    throw new Error(`Vectorize query error: ${res.status} ${err}`);
+    throw new HttpError(res.status, `Vectorize query: ${err}`);
   }
 
   const data = (await res.json()) as {
@@ -577,18 +595,12 @@ async function vectorizeUpsert(
   task: string,
   index: string
 ): Promise<void> {
-  const res = await fetch(
-    `${CF_BASE}/vectorize/v2/indexes/${index}/upsert`,
-    {
-      method: "POST",
-      headers: { ...CF_HEADERS, "Content-Type": "application/x-ndjson" },
-      body: JSON.stringify({ id, values: embedding, metadata: { task } }) + "\n",
-    }
-  );
-
-  if (!res.ok) {
-    throw new Error(`Vectorize upsert error: ${res.status} ${await res.text()}`);
-  }
+  const res = await cf(`${CF_BASE}/vectorize/v2/indexes/${index}/upsert`, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-ndjson" },
+    body: JSON.stringify({ id, values: embedding, metadata: { task } }) + "\n",
+  });
+  if (!res.ok) throw new HttpError(res.status, `Vectorize upsert: ${await res.text()}`);
 }
 
 // ── D1 (Cloudflare REST API) ─────────────────────────────────────────────────
@@ -597,43 +609,32 @@ async function d1Insert(
   item: GeneratedItem & { task: string; vectorId: string; section?: string; quality_score?: number; quality_flags?: string[] },
 ): Promise<void> {
   const section = item.section ?? "general";
-  const res = await fetch(
-    `${CF_BASE}/d1/database/${D1_DATABASE_ID}/query`,
-    {
-      method: "POST",
-      headers: CF_HEADERS,
-      body: JSON.stringify({
-        sql: `INSERT OR IGNORE INTO item_cache
-              (task, prompt, options, answer, explanation, created_at, vector_id, section, quality_score, quality_flags)
-              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        params: [
-          item.task,
-          item.prompt,
-          JSON.stringify(item.options),
-          item.answer,
-          item.explanation,
-          Date.now(),
-          item.vectorId,
-          section,
-          item.quality_score ?? null,
-          JSON.stringify(item.quality_flags ?? []),
-        ],
-      }),
-    }
-  );
-
-  if (!res.ok) {
-    throw new Error(`D1 insert error: ${res.status} ${await res.text()}`);
-  }
+  const res = await cf(`${CF_BASE}/d1/database/${D1_DATABASE_ID}/query`, {
+    method: "POST",
+    body: JSON.stringify({
+      sql: `INSERT OR IGNORE INTO item_cache
+            (task, prompt, options, answer, explanation, created_at, vector_id, section, quality_score, quality_flags)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      params: [
+        item.task,
+        item.prompt,
+        JSON.stringify(item.options),
+        item.answer,
+        item.explanation,
+        Date.now(),
+        item.vectorId,
+        section,
+        item.quality_score ?? null,
+        JSON.stringify(item.quality_flags ?? []),
+      ],
+    }),
+  });
+  if (!res.ok) throw new HttpError(res.status, `D1 insert: ${await res.text()}`);
 }
 
 async function d1Query<T>(sql: string, params: unknown[] = []): Promise<T[]> {
-  const res = await fetch(`${CF_BASE}/d1/database/${D1_DATABASE_ID}/query`, {
-    method: "POST",
-    headers: CF_HEADERS,
-    body: JSON.stringify({ sql, params }),
-  });
-  if (!res.ok) throw new Error(`D1 query error: ${res.status} ${await res.text()}`);
+  const res = await cf(`${CF_BASE}/d1/database/${D1_DATABASE_ID}/query`, { method: "POST", body: JSON.stringify({ sql, params }) });
+  if (!res.ok) throw new HttpError(res.status, `D1 query: ${await res.text()}`);
   const data = (await res.json()) as { result: { results: T[] }[] };
   return data.result?.[0]?.results ?? [];
 }
@@ -843,6 +844,12 @@ async function main() {
   const progress = loadProgress(PROGRESS_FILE);
   const doneSet  = new Set(progress.done);
 
+  // PREFLIGHT, before any generation quota is spent: refresh the Cloudflare token, then prove it works with one cheap D1 query.
+  // If it does not, this throws AuthAbort and the run ends here with a clear message (see the catch at the bottom).
+  if (TOKEN_REFRESHABLE) await authGuard.ensureFresh();
+  await d1Query("SELECT 1 AS ok");
+  console.log("  🔑 Cloudflare authorisation checked (D1 reachable)");
+
   // an explicit --slugs list is always (re)seeded, even if the progress file says it was done (that is the point after a purge)
   const remaining = forcedSlugs ? specs : specs.filter((s) => !doneSet.has(s.slug));
   if (progress.failed.length > 0) {
@@ -884,10 +891,13 @@ async function main() {
       if (err instanceof DailyQuotaError) {
         console.log(`\n⛔ ${err.message}`);
         console.log(`   Progress saved — ${progress.done.length}/${specs.length} tasks complete.\n`);
+        console.log(runStats.render({ totalInserted: progress.totalInserted, done: progress.done.length, failed: progress.failed.length }) + "\n");
         return;
       }
-      console.log(` ⚠️  failed: ${err} — skipping batch`);
+      console.log(` ⚠️  failed after retries: ${err} — marking these tasks for a later run`);
       debugLog(`batch=${chunk.map((s) => s.slug).join(",")} generation failed: ${err instanceof Error ? err.stack ?? err.message : err}`);
+      for (const spec of chunk) if (!progress.failed.includes(spec.slug)) progress.failed.push(spec.slug);
+      saveProgress(progress, PROGRESS_FILE);
       continue;
     }
 
@@ -900,6 +910,9 @@ async function main() {
       // Quality gate (ADR 0003 section 1a): rejected questions are NEVER stored. Accepted ones carry their score and flags.
       const { accepted: allItems, rejected: qualityRejected } = acceptItems(generated, { numericOk: numericOkFor(taskKey, spec.code) });
       console.log(`\n  [${taskKey}] got ${generated.length} items, ${qualityRejected.length} rejected by the quality validator`);
+      const taskStats = runStats.for(taskKey);
+      taskStats.generated += generated.length;
+      taskStats.rejected += qualityRejected.length;
 
       if (allItems.length === 0) {
         // Generation returned nothing — don't mark done, let it retry next run
@@ -921,79 +934,48 @@ async function main() {
         continue;
       }
 
-      const taskEmbeddings: Embedding[] = [];
-      let taskInserted = 0;
-      let taskDeduped  = 0;
-      let taskErrored  = 0;
-
       // Determine sections for this task (empty = use 'general' for all)
       const taskSections = getSections(taskKey) ?? [];
       // If the task has sections, cycle through them; otherwise all 'general'
       const assignSection = (idx: number): string =>
         taskSections.length > 0 ? taskSections[idx % taskSections.length].slug : "general";
 
-      for (let j = 0; j < allItems.length; j++) {
-        const item = allItems[j];
-        const emb  = embeddings[j];
-
-        if (taskEmbeddings.some((e) => cosine(emb, e) >= SIMILARITY_THRESHOLD)) {
-          taskDeduped++;
-          process.stdout.write(".");
-          continue;
-        }
-
-        try {
-          const matches = await vectorizeQuery(emb, taskKey, VECTORIZE_INDEX);
-          if (matches.some((m) => m.score >= SIMILARITY_THRESHOLD)) {
-            taskDeduped++;
-            process.stdout.write(".");
-            continue;
-          }
-        } catch (err) {
-          console.warn(`    ⚠️  Vectorize query failed: ${err} — inserting anyway`);
-        }
-
-        const vid = vectorId(taskKey, item.prompt);
-        try {
-          // D1 first — INSERT OR IGNORE is idempotent on retry.
-          // If D1 succeeds but Vectorize fails, the next run re-generates the
-          // question and INSERT OR IGNORE silently skips the D1 duplicate.
-          await d1Insert({ ...item, task: taskKey, vectorId: vid, section: assignSection(j) });
-          await vectorizeUpsert(vid, emb, taskKey, VECTORIZE_INDEX);
-          taskEmbeddings.push(emb);
-          taskInserted++;
-          progress.totalInserted++;
-          process.stdout.write("+");
-        } catch (err) {
-          taskErrored++;
-          console.warn(`\n    ⚠️  insert failed: ${err}`);
-        }
-      }
+      // Dedup + insert (src/lib/server/seedRuntime.ts, unit-tested with fakes). An AuthAbort propagates out of here and ends the run; a failed
+      // duplicate check never becomes an insert (the row is counted as not checked and retried on a later run).
+      const before = taskStats.inserted;
+      const stopped = await processTaskItems(
+        taskKey,
+        allItems,
+        embeddings,
+        {
+          vectorQuery: (emb, task) => vectorizeQuery(emb, task, VECTORIZE_INDEX),
+          vectorUpsert: (id, emb, task) => vectorizeUpsert(id, emb, task, VECTORIZE_INDEX),
+          d1Insert: (row) => d1Insert(row),
+          vectorId,
+          cosine,
+          log: (m) => console.warn(m),
+          dot: (c) => process.stdout.write(c),
+        },
+        taskStats,
+        { similarity: SIMILARITY_THRESHOLD, sectionFor: assignSection },
+      );
+      progress.totalInserted += taskStats.inserted - before;
 
       process.stdout.write("\n");
-      console.log(`  [${taskKey}] +${taskInserted} inserted, ${taskDeduped} deduped, ${taskErrored} errors`);
+      console.log(`  [${taskKey}] +${taskStats.inserted} inserted, ${taskStats.deduped} deduped, ${taskStats.notChecked} not checked, ${taskStats.errors} errors${stopped ? `, STOPPED (${stopped})` : ""}`);
 
-      const successfullyHandled = taskInserted + taskDeduped;
-      if (successfullyHandled > 0 && taskErrored === 0) {
-        // All items accounted for cleanly
+      if (taskOutcome(taskStats, stopped) === "done") {
         progress.done.push(taskKey);
         progress.failed = progress.failed.filter((k) => k !== taskKey);
-      } else if (taskErrored > 0 && taskInserted === 0) {
-        // Nothing made it in — mark failed so it retries
+      } else {
         if (!progress.failed.includes(taskKey)) progress.failed.push(taskKey);
-        console.warn(`  ⚠️  [${taskKey}] all inserts failed — will retry next run`);
-      } else if (taskInserted > 0) {
-        // Partial success — mark done to avoid re-generating, errors were non-fatal
-        progress.done.push(taskKey);
-        progress.failed = progress.failed.filter((k) => k !== taskKey);
+        console.warn(`  ⚠️  [${taskKey}] not complete — will retry next run`);
       }
       saveProgress(progress, PROGRESS_FILE);
     }
   }
 
-  console.log(
-    `\n🎉 Seed complete! ${progress.totalInserted} total questions inserted across ${progress.done.length} tasks.`
-  );
+  console.log("\n" + runStats.render({ totalInserted: progress.totalInserted, done: progress.done.length, failed: progress.failed.length }));
   if (progress.failed.length > 0) {
     console.log(`   ⚠️  ${progress.failed.length} tasks need retry: ${progress.failed.join(", ")}`);
   }
@@ -1001,6 +983,12 @@ async function main() {
 }
 
 main().catch((err) => {
+  if (err instanceof AuthAbort) {
+    console.error(`\n⛔ ${err.message}`);
+    console.error("\n" + runStats.render());
+    process.exit(3);
+  }
   console.error("\n❌ Seed failed:", err);
+  console.error("\n" + runStats.render());
   process.exit(1);
 });

@@ -137,6 +137,22 @@ Check: `SELECT task, COUNT(*) AS servable FROM item_cache WHERE task IN (<slugs>
 every refilled row has a score (`quality_score IS NOT NULL`) because the seed script scores at insert. While a purged pool is empty, learners get the
 curated bank (the five hooks fall back to it), so run steps 2 and 3 in the same sitting. `--slugs` may re-run safely (INSERT OR IGNORE; Vectorize dedup).
 
+### The seed script is now safe to leave running (fix/seed-robust, after refill run 1 failed on 2026-11-14)
+
+`scripts/seed-questions.ts` (via `scripts/seed.sh`, which sources `scripts/load-secrets.sh`) now:
+- **Auth:** refreshes the wrangler OAuth token before reading it (`wrangler whoami`), before the run, every 30 minutes, and on the first 401/403 (re-reads
+  the config, retries once). A cheap D1 `SELECT 1` runs BEFORE any Gemini quota is spent. Still unauthorised, or a token you exported yourself
+  (`CF_API_TOKEN`, not refreshable) -> **abort with exit code 3** and a clear message; nothing is inserted after an auth failure.
+- **Gemini:** retries 429 / 5xx / network errors up to 4 times (embeddings 5) with exponential backoff and jitter (15s, 30s, 60s +/-30%), the RPM limiter
+  still runs before every attempt and a 429 waits the full window. Out of attempts -> the batch's tasks are marked failed for a later run.
+- **Summary:** per task and grand total for THIS run only (generated, validator-rejected, deduped, not checked, inserted, errors); the progress-file
+  totals are printed on a separate line labelled "NOT this run".
+- **Dedup:** a Vectorize query that fails (not auth) is retried, then the row is SKIPPED and counted "not checked", never inserted. Why not fall back to the
+  near-duplicate text check against D1? It only sees reworded copies by word overlap, not paraphrases, so it would quietly weaken the duplicate guarantee,
+  which is what hid this failure; rows are cheap to regenerate, a polluted pool and index are not. Three unchecked rows in a row stop the task (Vectorize is
+  down), five insert errors in a row stop it too; stopped tasks are marked failed for the next run.
+Not verified here: that `wrangler whoami` refreshes a really expired token (it is wrangler's documented behaviour; the code treats a failed refresh as an abort).
+
 ### Rollback
 
 Re-deploy the previous build (`wrangler rollback`). The migration is additive and can stay: old code ignores the columns. To undo a backfill:
