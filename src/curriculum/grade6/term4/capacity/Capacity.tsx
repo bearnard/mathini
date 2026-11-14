@@ -31,13 +31,13 @@ const learnSteps: LearnStep[] = [
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">We measure capacity in millilitres, litres and kilolitres.</p>
                 <div className="grid grid-cols-3 gap-2 text-center max-w-lg mx-auto">
-                    <div className="bg-amber-100 p-2 rounded-t-lg text-amber-800 font-bold text-xs uppercase">ml</div>
-                    <div className="bg-indigo-100 p-2 rounded-t-lg text-indigo-800 font-bold text-xs uppercase">l</div>
-                    <div className="bg-emerald-100 p-2 rounded-t-lg text-emerald-800 font-bold text-xs uppercase">kl</div>
+                    <div className="bg-amber-100 p-2 rounded-t-lg text-amber-800 font-bold text-sm">ml</div>
+                    <div className="bg-indigo-100 p-2 rounded-t-lg text-indigo-800 font-bold text-sm">l</div>
+                    <div className="bg-emerald-100 p-2 rounded-t-lg text-emerald-800 font-bold text-sm">kl</div>
 
-                    <div className="bg-amber-50 p-4 rounded-b-lg text-xl font-bold text-amber-900">medicine spoon</div>
-                    <div className="bg-indigo-50 p-4 rounded-b-lg text-xl font-bold text-indigo-900">milk bottle</div>
-                    <div className="bg-emerald-50 p-4 rounded-b-lg text-xl font-bold text-emerald-900">water tank</div>
+                    <div className="min-w-0 break-words bg-amber-50 px-2 py-3 md:p-4 rounded-b-lg text-sm sm:text-base md:text-lg font-bold text-amber-900">medicine spoon</div>
+                    <div className="min-w-0 break-words bg-indigo-50 px-2 py-3 md:p-4 rounded-b-lg text-sm sm:text-base md:text-lg font-bold text-indigo-900">milk bottle</div>
+                    <div className="min-w-0 break-words bg-emerald-50 px-2 py-3 md:p-4 rounded-b-lg text-sm sm:text-base md:text-lg font-bold text-emerald-900">water tank</div>
                 </div>
                 <MeasureLadder kind="capacity" />
                 <div className="flex flex-wrap justify-center gap-2 text-sm font-bold">
