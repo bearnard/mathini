@@ -1,12 +1,14 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import { DissolvingSteps, SoluteSolvent } from '@/components/diagrams/Dissolving';
+import FairTest from '@/components/diagrams/FairTest';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Solutions are special mixtures',
-    image: { src: '/curriculum/grade6/nst/term2/solutions-dissolving/diagram.svg', alt: 'sugar dissolving in water diagram' },
     content: (
       <div className="space-y-4 text-center">
+        <DissolvingSteps />
         <p className="text-lg text-slate-600">
           A <strong>solution</strong> is a special mixture where one substance dissolves evenly in another. Sugar water is a solution made from sugar and water.
         </p>
@@ -17,6 +19,7 @@ const learnSteps: LearnStep[] = [
     title: 'Solute and solvent',
     content: (
       <div className="space-y-4 text-center">
+        <SoluteSolvent />
         <p className="text-lg text-slate-600">
           The <strong>solute</strong> is the substance that dissolves, such as sugar or salt. The <strong>solvent</strong> is the substance that does the dissolving, often water.
         </p>
@@ -27,6 +30,7 @@ const learnSteps: LearnStep[] = [
     title: 'Changing how fast solids dissolve',
     content: (
       <div className="space-y-4 text-center">
+        <FairTest />
         <p className="text-lg text-slate-600">
           Stirring, heating the solvent, and using smaller pieces can make a solute <strong>dissolve</strong> faster. Evaporation can recover the solute from a solution.
         </p>
