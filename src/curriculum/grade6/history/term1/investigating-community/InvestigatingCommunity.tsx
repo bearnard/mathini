@@ -74,7 +74,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'What does a local history project investigate?', options: ['The history of a community', 'Only the history of planets', 'Only future weather', 'The rules of multiplication'], answer: 'The history of a community', explanation: 'Local history focuses on the people, places, and events in a community.' },
   { prompt: 'Who could you interview for a local history project?', options: ['An elder who remembers community events', 'A calculator', 'A closed door', 'A blank poster'], answer: 'An elder who remembers community events', explanation: 'Elders and community members can share useful oral evidence.' },
   { prompt: 'What should you do before recording an interview?', options: ['Ask permission politely', 'Hide the recorder', 'Interrupt every answer', 'Change the person’s words'], answer: 'Ask permission politely', explanation: 'Respect and permission are important when interviewing people.' },

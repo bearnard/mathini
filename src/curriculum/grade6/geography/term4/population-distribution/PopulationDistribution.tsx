@@ -89,7 +89,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'What does population distribution describe?', options: ['How people are spread over an area', 'How rivers flow to the sea', 'How mountains are formed', 'How weather changes each day'], answer: 'How people are spread over an area', explanation: 'Population distribution shows where people live and how closely they are grouped.' },
   { prompt: 'What does a densely populated area have?', options: ['Many people living close together', 'No people at all', 'Only farms and no towns', 'Very few houses spread far apart'], answer: 'Many people living close together', explanation: 'Dense population means many people live in a relatively small area.' },
   { prompt: 'What does a sparsely populated area have?', options: ['Few people spread over a large area', 'Tall buildings on every street', 'Many factories in one place', 'Crowded trains all day'], answer: 'Few people spread over a large area', explanation: 'Sparse population means there are not many people for the size of the area.' },

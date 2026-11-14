@@ -57,7 +57,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'What is a grid reference used for?', options: ['Finding a place on a map grid', 'Measuring temperature', 'Naming oceans only', 'Showing the age of rocks'], answer: 'Finding a place on a map grid', explanation: 'A grid reference points you to a particular square on a map.' },
   { prompt: 'What do map grid lines usually form?', options: ['Rows and columns', 'Clouds and rain', 'Food chains', 'Only circles'], answer: 'Rows and columns', explanation: 'Rows and columns divide the map into easy-to-find squares.' },
   { prompt: 'In a simple letter-number grid, what could B3 mean?', options: ['Column B and row 3', 'Three kilometres north', 'The third compass point', 'A line of longitude only'], answer: 'Column B and row 3', explanation: 'The letter and number work together to identify one grid square.' },

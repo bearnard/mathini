@@ -55,7 +55,7 @@ const learnSteps: LearnStep[] = [
     }
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'What is the mode of 3, 5, 5, 7, 9?',
         options: ['3', '5', '7', '9'],

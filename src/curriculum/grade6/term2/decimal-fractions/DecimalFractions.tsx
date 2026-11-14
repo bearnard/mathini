@@ -53,7 +53,7 @@ const learnSteps: LearnStep[] = [
     }
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'Write 3/10 as a decimal.',
         options: ['0.03', '0.3', '3.0', '30'],

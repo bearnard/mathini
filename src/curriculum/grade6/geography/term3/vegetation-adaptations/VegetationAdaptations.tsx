@@ -107,7 +107,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'What is an adaptation?', options: ['A feature or behaviour that helps survival', 'A daily weather report', 'A map symbol for rainfall', 'A type of mountain rock'], answer: 'A feature or behaviour that helps survival', explanation: 'Adaptations help living things survive in their environments.' },
   { prompt: 'How do cactus spines help the plant?', options: ['They reduce water loss and protect the plant', 'They collect snow all year', 'They make the plant need more water', 'They turn the cactus into an animal'], answer: 'They reduce water loss and protect the plant', explanation: 'Spines lose less water than leaves and can stop animals from eating the cactus.' },
   { prompt: 'Why do many desert plants have thick stems?', options: ['To store water', 'To breathe underwater', 'To melt ice', 'To block all sunlight'], answer: 'To store water', explanation: 'Stored water helps desert plants survive long dry periods.' },

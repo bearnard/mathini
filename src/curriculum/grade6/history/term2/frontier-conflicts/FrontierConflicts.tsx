@@ -78,7 +78,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'What happened as the Cape Colony expanded east?', options: ['Settlers came into closer contact with Xhosa communities', 'The Cape moved to Europe', 'All farms disappeared', 'The sea route to India closed forever'], answer: 'Settlers came into closer contact with Xhosa communities', explanation: 'Eastward expansion increased contact and tension on the frontier.' },
   { prompt: 'The frontier wars were mainly between which groups?', options: ['Settlers and the Xhosa', 'Romans and Vikings', 'Aztecs and Incas', 'British and Australians'], answer: 'Settlers and the Xhosa', explanation: 'The Cape frontier wars mainly involved settlers and Xhosa communities.' },
   { prompt: 'Which was a major cause of frontier conflict?', options: ['Competition for land, water, and cattle', 'Competition for snowfields', 'A shortage of computers', 'Arguments about space travel'], answer: 'Competition for land, water, and cattle', explanation: 'These resources were essential for farming and herding.' },

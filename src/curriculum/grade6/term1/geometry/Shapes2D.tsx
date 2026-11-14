@@ -36,7 +36,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'How many sides does a hexagon have?',
     options: ['5', '6', '7', '8'],

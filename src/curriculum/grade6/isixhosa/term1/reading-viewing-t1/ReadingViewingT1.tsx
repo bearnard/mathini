@@ -149,7 +149,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which text type is usually written as short speaker turns?',
     options: ['Dialogue', 'Label', 'List', 'Paragraph title only'],

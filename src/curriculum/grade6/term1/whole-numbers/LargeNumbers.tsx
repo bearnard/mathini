@@ -40,7 +40,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'What is the value of the 5 in 345 678 912?',
     options: ['5 000 000', '50 000', '5 000', '500 000'],

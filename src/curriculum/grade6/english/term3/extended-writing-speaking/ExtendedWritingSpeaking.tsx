@@ -93,7 +93,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'What should you think about before planning an oral or written response?',
     options: [

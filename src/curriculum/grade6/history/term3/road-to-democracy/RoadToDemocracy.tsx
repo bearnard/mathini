@@ -75,7 +75,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'What was apartheid?', options: ['A system of unfair separation and unequal rights', 'A type of free and fair election', 'A public holiday in April', 'A level of local government'], answer: 'A system of unfair separation and unequal rights', explanation: 'Apartheid separated people by race and denied equal rights to the majority.' },
   { prompt: 'How did apartheid affect voting?', options: ['Most South Africans were not allowed to vote', 'Every child had two votes', 'All adults voted equally', 'Only tourists voted'], answer: 'Most South Africans were not allowed to vote', explanation: 'The majority of South Africans were excluded from national elections under apartheid.' },
   { prompt: 'What were many South Africans working towards before 1994?', options: ['A democracy with equal voting rights', 'A country with no schools', 'A government with no laws', 'A system where only one town voted'], answer: 'A democracy with equal voting rights', explanation: 'People struggled for a fair democracy where adult citizens could vote equally.' },

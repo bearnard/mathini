@@ -85,7 +85,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'Why was the Cape important to European powers?', options: ['It was a useful stop on the sea route to India and the East', 'It had the largest gold mines in the world', 'It was the capital city of Britain', 'It was the only place where ships could be built'], answer: 'It was a useful stop on the sea route to India and the East', explanation: 'Ships used the Cape for supplies and repairs on long voyages.' },
   { prompt: 'From whom did Britain first take the Cape in 1795?', options: ['The Dutch', 'The Portuguese', 'The French', 'The Spanish'], answer: 'The Dutch', explanation: 'The Cape had been under Dutch control before the British occupation of 1795.' },
   { prompt: 'In which year did Britain first take the Cape?', options: ['1795', '1652', '1806', '1834'], answer: '1795', explanation: 'Britain first occupied the Cape in 1795.' },

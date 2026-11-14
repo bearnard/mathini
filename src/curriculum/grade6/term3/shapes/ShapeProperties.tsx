@@ -70,7 +70,7 @@ const learnSteps: LearnStep[] = [
     },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'How many sides does a pentagon have?',
         options: ['4', '5', '6', '8'],

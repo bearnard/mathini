@@ -51,7 +51,7 @@ const learnSteps: LearnStep[] = [
     },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'Volume is...',
         options: ['the area of its faces', 'the distance around it', 'the amount of space a 3D object takes up', 'its total surface area'],

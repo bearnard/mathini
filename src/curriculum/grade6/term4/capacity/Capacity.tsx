@@ -68,7 +68,7 @@ const learnSteps: LearnStep[] = [
     }
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'How many millilitres are in 1 litre?',
         options: ['100 ml', '1 000 ml', '10 000 ml', '500 ml'],

@@ -83,7 +83,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'What does migration mean?', options: ['Moving from one place to another to live', 'Measuring rainfall each day', 'Drawing borders on a map', 'Growing crops on a farm'], answer: 'Moving from one place to another to live', explanation: 'Migration is the movement of people to live in a new place for a time or permanently.' },
   { prompt: 'What is a push factor?', options: ['A problem that makes people want to leave', 'A feature that attracts tourists only', 'A map key symbol', 'A type of settlement pattern'], answer: 'A problem that makes people want to leave', explanation: 'Push factors push people away from their current home area.' },
   { prompt: 'What is a pull factor?', options: ['Something that attracts people to a place', 'A storm that destroys crops', 'A border line between provinces', 'A rule for reading scale'], answer: 'Something that attracts people to a place', explanation: 'Pull factors pull or attract people toward a new place.' },

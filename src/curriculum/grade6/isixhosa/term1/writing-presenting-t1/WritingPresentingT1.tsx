@@ -150,7 +150,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which sentence is a correct simple personal sentence?',
     options: ['Ndingu Litha.', 'ndingu litha', 'Ndingu Litha', 'ndingu Litha.'],

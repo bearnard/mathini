@@ -77,7 +77,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   { prompt: "What does 'Hallo' mean in English?", options: ['Hello', 'Goodbye', 'Please', 'Book'], answer: 'Hello', explanation: "'Hallo' is the Afrikaans greeting for 'Hello'." },
   { prompt: "Choose the Afrikaans word for 'Good morning'.", options: ['Goeiemôre', 'Goeienaand', 'Totsiens', 'Dankie'], answer: 'Goeiemôre', explanation: "'Goeiemôre' means 'Good morning'." },
   { prompt: "What does 'Goeienaand' mean?", options: ['Good evening', 'Good morning', 'Goodbye', 'Thank you'], answer: 'Good evening', explanation: "'Goeienaand' is used in the evening." },

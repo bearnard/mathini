@@ -64,7 +64,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   {
     prompt: 'Lena het Saterdag biblioteek toe gegaan. Sy het ’n boek oor diere geleen. Watter boek het Lena geleen?',
     options: ['’n boek oor diere', '’n boek oor motors', '’n boek oor sport', '’n boek oor kos'],

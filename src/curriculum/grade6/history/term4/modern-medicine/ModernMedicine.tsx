@@ -79,7 +79,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'What do X-rays help doctors do?', options: ['See inside the body', 'Make bread rise faster', 'Grow plants without water', 'Turn germs into rocks'], answer: 'See inside the body', explanation: 'X-rays can show bones and other structures inside the body.' },
   { prompt: 'What are antibiotics used for?', options: ['Treating many bacterial infections', 'Repairing broken windows', 'Predicting the weather', 'Replacing all surgery'], answer: 'Treating many bacterial infections', explanation: 'Antibiotics can kill or stop many bacteria, but they do not treat every illness.' },
   { prompt: 'Which antibiotic became one of the first widely used antibiotics?', options: ['Penicillin', 'Vitamin C', 'Salt water', 'Sugar syrup'], answer: 'Penicillin', explanation: 'Penicillin was a breakthrough antibiotic that saved many lives.' },

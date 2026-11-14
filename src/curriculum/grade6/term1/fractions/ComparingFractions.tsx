@@ -43,7 +43,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which fraction is greater: 3/5 or 3/8?',
     options: ['3/5', '3/8', 'They are equal', 'Cannot tell'],

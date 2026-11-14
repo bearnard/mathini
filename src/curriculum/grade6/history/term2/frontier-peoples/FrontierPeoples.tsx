@@ -79,7 +79,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'Which groups lived in or near the eastern frontier?', options: ['Khoikhoi/San, Xhosa, Dutch/Boers, and British', 'Romans, Vikings, Aztecs, and Incas', 'Only British soldiers', 'Only Dutch sailors'], answer: 'Khoikhoi/San, Xhosa, Dutch/Boers, and British', explanation: 'The frontier was home to different African and settler communities.' },
   { prompt: 'What resources did frontier groups often compete for?', options: ['Land, water, and cattle grazing', 'Snow, oil, and polar bears', 'Factories, airports, and computers', 'Gold medals, ships, and silk'], answer: 'Land, water, and cattle grazing', explanation: 'Farming and herding depended on access to land, water, and grazing.' },
   { prompt: 'Who were the Xhosa?', options: ['An African farming and cattle-keeping people on the eastern frontier', 'A group of European kings', 'A company that owned all ships', 'A mountain range in Europe'], answer: 'An African farming and cattle-keeping people on the eastern frontier', explanation: 'Xhosa communities lived in the eastern parts of southern Africa and kept cattle and farmed.' },

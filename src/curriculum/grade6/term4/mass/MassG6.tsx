@@ -73,7 +73,7 @@ const learnSteps: LearnStep[] = [
     }
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'How many grams are in 1 kilogram?',
         options: ['100 g', '1 000 g', '10 000 g', '100 000 g'],

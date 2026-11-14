@@ -106,7 +106,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'Where are tropical rainforests usually found?', options: ['Near the Equator', 'Only at the poles', 'On every mountain top', 'Deep under the ocean'], answer: 'Near the Equator', explanation: 'Rainforests are common in hot, wet tropical regions near the Equator.' },
   { prompt: 'Which words best describe a tropical rainforest climate?', options: ['Hot and wet', 'Cold and dry', 'Mild and snowy', 'Windy and icy'], answer: 'Hot and wet', explanation: 'Rainforests receive high rainfall and warm temperatures.' },
   { prompt: 'Why do rainforests have dense vegetation?', options: ['Warmth and heavy rainfall support plant growth', 'No animals live there', 'The soil is always frozen', 'Rain never falls there'], answer: 'Warmth and heavy rainfall support plant growth', explanation: 'Plants grow quickly when there is enough warmth, water, and light.' },

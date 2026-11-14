@@ -154,7 +154,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'What is the best way to begin retelling a folktale?',
     options: [

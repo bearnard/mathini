@@ -76,7 +76,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'What is a historical source?', options: ['Something that gives information about the past', 'A machine that predicts the future', 'A type of cloud', 'A maths answer sheet'], answer: 'Something that gives information about the past', explanation: 'Sources are clues historians use to investigate the past.' },
   { prompt: 'Which is a written source?', options: ['A letter', 'A clay pot', 'A song recording', 'A painted portrait'], answer: 'A letter', explanation: 'Letters, diaries, newspapers, and reports are written sources.' },
   { prompt: 'Which is a visual source?', options: ['A photograph', 'An interview memory', 'A school bell', 'A spoken story'], answer: 'A photograph', explanation: 'Photographs, drawings, paintings, and maps can be visual sources.' },

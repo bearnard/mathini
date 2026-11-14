@@ -58,7 +58,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'What are latitude and longitude used for?', options: ['Locating places on Earth', 'Measuring rainfall', 'Showing food chains', 'Counting road signs'], answer: 'Locating places on Earth', explanation: 'The lines form a grid that helps us find exact positions.' },
   { prompt: 'Which line is 0° latitude?', options: ['Equator', 'Prime Meridian', 'Tropic of Capricorn', 'International Date Line'], answer: 'Equator', explanation: 'The Equator is the main latitude line at 0°.' },
   { prompt: 'The Equator divides Earth into which two hemispheres?', options: ['Northern and Southern', 'Eastern and Western', 'Land and Ocean', 'Day and Night'], answer: 'Northern and Southern', explanation: 'Places north of the Equator are in the Northern Hemisphere; places south are in the Southern Hemisphere.' },

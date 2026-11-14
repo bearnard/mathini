@@ -67,7 +67,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   {
     prompt: 'Ek lees ___ ek skryf. (and)',
     options: ['en', 'maar', 'want', 'of'],

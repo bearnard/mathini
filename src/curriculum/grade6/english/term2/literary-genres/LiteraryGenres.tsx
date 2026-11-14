@@ -102,7 +102,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which genre is usually written in lines and may use rhyme or rhythm?',
     options: ['Poetry', 'Play', 'Novel', 'Diary'],

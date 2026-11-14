@@ -35,7 +35,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'What is the solute in sugar water?', options: ['Sugar', 'Water', 'Glass', 'Spoon'], answer: 'Sugar', explanation: 'The solute is the substance that dissolves.' },
   { prompt: 'What is the solvent in salt water?', options: ['Water', 'Salt', 'Sand', 'Air'], answer: 'Water', explanation: 'Water is the solvent because it dissolves the salt.' },
   { prompt: 'What is a solution?', options: ['A mixture where a solute dissolves in a solvent', 'A mixture of only large stones', 'A solid that cannot change', 'A magnet and iron only'], answer: 'A mixture where a solute dissolves in a solvent', explanation: 'A solution forms when a substance dissolves evenly in another.' },

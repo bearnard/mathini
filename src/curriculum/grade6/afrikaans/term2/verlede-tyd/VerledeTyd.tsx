@@ -68,7 +68,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   {
     prompt: "Past tense of 'Ek speel' is ...",
     options: ['Ek het gespeel', 'Ek speel', 'Ek sal speel', 'Ek gespeel'],

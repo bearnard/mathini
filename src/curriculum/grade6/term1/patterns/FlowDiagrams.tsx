@@ -49,7 +49,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'If the rule is × 4 and the input is 6, what is the output?',
     options: ['10', '20', '24', '28'],

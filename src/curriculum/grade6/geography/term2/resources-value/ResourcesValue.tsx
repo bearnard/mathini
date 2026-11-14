@@ -83,7 +83,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'What is a natural resource?', options: ['Something from nature that people use', 'A rule written in a textbook', 'A shop where goods are sold', 'A road sign in a town'], answer: 'Something from nature that people use', explanation: 'Natural resources come from the environment and are useful to people.' },
   { prompt: 'Which group lists only natural resources?', options: ['Water, soil, forests, and minerals', 'Taxis, schools, shops, and banks', 'Books, desks, pencils, and rulers', 'Factories, roads, bridges, and cars'], answer: 'Water, soil, forests, and minerals', explanation: 'Water, soil, forests, and minerals all come from nature.' },
   { prompt: 'Why can a resource become more valuable?', options: ['Many people need it and it is scarce', 'Nobody can use it for anything', 'It is always thrown away', 'It has no demand at all'], answer: 'Many people need it and it is scarce', explanation: 'High demand and scarcity can increase the value of a resource.' },

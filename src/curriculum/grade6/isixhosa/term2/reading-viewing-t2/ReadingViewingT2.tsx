@@ -115,7 +115,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'What does the main idea of a short story tell you?',
     options: ['What the story is mostly about', 'The colour of the cover only', 'How many desks are in class', 'The writer’s favourite food'],

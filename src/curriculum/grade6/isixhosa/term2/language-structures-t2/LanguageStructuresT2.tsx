@@ -115,7 +115,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which question word asks “who?” in isiXhosa?',
     options: ['Ngubani?', 'Phi?', 'Nini?', 'Kutheni?'],

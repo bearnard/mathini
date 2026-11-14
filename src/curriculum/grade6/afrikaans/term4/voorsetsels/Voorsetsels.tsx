@@ -70,7 +70,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   {
     prompt: 'Die boek lê ___ die tafel. (on)',
     options: ['op', 'onder', 'in', 'agter'],

@@ -68,7 +68,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   {
     prompt: "'n Advertensie sê: 'Vars brood — net R10!' Wat word verkoop?",
     options: ['brood', 'melk', 'koek', 'sap'],
