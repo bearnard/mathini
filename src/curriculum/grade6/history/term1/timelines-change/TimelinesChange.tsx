@@ -69,6 +69,9 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-orange-50 p-4"><strong>BC</strong><br />before AD 1</div>
           <div className="rounded-xl bg-indigo-50 p-4"><strong>AD</strong><br />after AD 1</div>
         </div>
+        <p className="rounded-xl bg-slate-50 p-4 font-semibold text-slate-700">
+          You will also see <strong>BCE</strong> (= BC) and <strong>CE</strong> (= AD). They mean the same thing.
+        </p>
       </div>
     ),
   },
