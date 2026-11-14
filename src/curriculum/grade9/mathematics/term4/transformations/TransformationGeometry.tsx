@@ -43,8 +43,8 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'Which transformation preserves the size and shape of a figure?',
-    options: ['Enlargement only', 'Translation, reflection, and rotation', 'All transformations', 'Rotation only'],
-    answer: 'Translation, reflection, and rotation',
+    options: ['Enlargement and reflection only', 'Translation, reflection and rotation', 'Translation and enlargement only', 'Rotation and enlargement only'],
+    answer: 'Translation, reflection and rotation',
     explanation: 'These rigid transformations preserve size and shape; enlargement changes size.',
   },
   {

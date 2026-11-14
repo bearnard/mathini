@@ -81,26 +81,26 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What do contour lines on a topographic map represent?',
-    options: ['Political boundaries', 'Points at the same elevation above sea level', 'Rivers and water bodies', 'Roads and settlements'],
-    answer: 'Points at the same elevation above sea level',
+    options: ['Lines that mark the boundaries between provinces', 'Points that lie at the same height above sea level', 'Lines that trace the paths of rivers and streams', 'Lines that join the roads and settlements of an area'],
+    answer: 'Points that lie at the same height above sea level',
     explanation: 'Contour lines connect locations at equal elevation, showing the terrain\'s shape and relief.',
   },
   {
     prompt: 'What do closely spaced contour lines indicate?',
-    options: ['Flat, level land', 'A steep slope (hill or mountain)', 'Water bodies', 'Desert regions'],
-    answer: 'A steep slope (hill or mountain)',
+    options: ['Flat and level land, such as a wide plain', 'A steep slope, such as a hill or mountain', 'A large water body, such as a lake or a dam', 'A dry desert region with little relief at all'],
+    answer: 'A steep slope, such as a hill or mountain',
     explanation: 'Close contour lines mean elevation changes rapidly over a short distance, indicating steepness.',
   },
   {
     prompt: 'What do widely spaced contour lines indicate?',
-    options: ['High mountains', 'Steep terrain', 'A gentle slope or nearly flat land', 'Water bodies'],
+    options: ['A high mountain with a sharp peak', 'Very steep terrain, such as a cliff face', 'A gentle slope or nearly flat land', 'A deep water body, such as a lake or the sea'],
     answer: 'A gentle slope or nearly flat land',
     explanation: 'Wide spacing means elevation changes slowly, indicating gentle or flat terrain.',
   },
   {
     prompt: 'What is a contour interval?',
-    options: ['The distance between map locations', 'The difference in elevation between consecutive contour lines', 'The width of a river', 'The length of a road'],
-    answer: 'The difference in elevation between consecutive contour lines',
+    options: ['The distance on the ground between two map locations', 'The difference in height between neighbouring contour lines', 'The width of a river measured across its channel', 'The length of a road shown between two towns'],
+    answer: 'The difference in height between neighbouring contour lines',
     explanation: 'The contour interval (e.g. 50 m or 100 m) helps you read elevations from the map.',
   },
   {
@@ -117,20 +117,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How would you identify a ridge on a contour map?',
-    options: ['V-shaped lines pointing uphill', 'Concentric circles', 'U-shaped lines with elevation rising toward the middle', 'Parallel lines'],
-    answer: 'U-shaped lines with elevation rising toward the middle',
+    options: ['V-shaped lines that point uphill, along a stream', 'Closed circles, with the highest point at the middle', 'U-shaped lines pointing downhill, with height rising inwards', 'Straight parallel lines spaced evenly down a slope'],
+    answer: 'U-shaped lines pointing downhill, with height rising inwards',
     explanation: 'Ridges appear as U-shaped contours with the highest elevation in the centre.',
   },
   {
     prompt: 'What is a depression on a topographic map?',
-    options: ['A high mountain peak', 'An area of low elevation surrounded by higher ground', 'A plateau region', 'A flat river delta'],
-    answer: 'An area of low elevation surrounded by higher ground',
+    options: ['A high mountain peak with steep sides all round', 'An area of low ground that is surrounded by higher ground', 'A flat plateau region with a high, level top', 'A flat river delta that lies close to the sea'],
+    answer: 'An area of low ground that is surrounded by higher ground',
     explanation: 'Depressions are basins or hollow areas shown by concentric contour lines with the lowest point in the centre.',
   },
   {
     prompt: 'Why is reading contour lines important for planning settlements?',
-    options: ['To identify beautiful views', 'To determine slope steepness for building safety and drainage', 'To find water sources only', 'To locate gold deposits'],
-    answer: 'To determine slope steepness for building safety and drainage',
+    options: ['To find the places with the best views of the area', 'To judge how steep the slope is for safe building and drainage', 'To find the water sources that can be used by a town', 'To find the places where gold may lie underground'],
+    answer: 'To judge how steep the slope is for safe building and drainage',
     explanation: 'Steep slopes are unsuitable for building; gentle slopes allow better drainage and safer construction.',
   },
   {

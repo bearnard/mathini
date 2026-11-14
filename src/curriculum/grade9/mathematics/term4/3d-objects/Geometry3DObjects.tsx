@@ -73,7 +73,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'A cylinder has:',
-    options: ['1 curved face', '2 circular faces and 1 curved surface', '3 faces total', 'No faces'],
+    options: ['1 circular face and 2 curved surfaces', '2 circular faces and 1 curved surface', '3 flat faces and no curved surface', '2 circular faces and 2 curved surfaces'],
     answer: '2 circular faces and 1 curved surface',
     explanation: 'A cylinder has 2 circular bases and 1 curved lateral surface.',
   },

@@ -44,14 +44,14 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is electrical current?',
-    options: ['the flow of electric charge through a conductor', 'a type of water flow', 'a cold sensation', 'a weather condition'],
-    answer: 'the flow of electric charge through a conductor',
+    options: ['the flow of electric charge round a circuit', 'the push that moves charge round a circuit', 'the opposition to the flow of charge', 'the amount of energy a battery can store'],
+    answer: 'the flow of electric charge round a circuit',
     explanation: 'Current is measured in Amperes (A) and represents how many charges pass a point per second.',
   },
   {
     prompt: 'What is voltage?',
-    options: ['the potential difference that drives current through a circuit', 'the size of a wire', 'a type of battery only', 'the colour of electricity'],
-    answer: 'the potential difference that drives current through a circuit',
+    options: ['the push (potential difference) that drives the current', 'the flow of charge past a point each second', 'the opposition that a component gives to the current', 'the heat given off by a wire when it is on'],
+    answer: 'the push (potential difference) that drives the current',
     explanation: 'Voltage (measured in Volts) is the "push" that makes current flow from positive to negative.',
   },
   {
@@ -62,14 +62,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is Ohm\'s law?',
-    options: ['V = IR (voltage equals current times resistance)', 'V = I + R', 'V = I / R', 'V = I × R × L'],
-    answer: 'V = IR (voltage equals current times resistance)',
+    options: ['V = I × R (voltage equals current times resistance)', 'V = I ÷ R (voltage equals current divided by resistance)', 'V = I + R (voltage equals current plus resistance)', 'V = R ÷ I (voltage equals resistance divided by current)'],
+    answer: 'V = I × R (voltage equals current times resistance)',
     explanation: 'Ohm\'s law relates the three fundamental electrical quantities.',
   },
   {
     prompt: 'In a series circuit, what happens to current?',
-    options: ['current is the same at all points in the circuit', 'current varies at each component', 'current increases', 'current decreases gradually'],
-    answer: 'current is the same at all points in the circuit',
+    options: ['the current is the same at every point in the circuit', 'the current is shared between the branches', 'the current gets bigger after each component', 'the current is used up by the first component'],
+    answer: 'the current is the same at every point in the circuit',
     explanation: 'Series circuits have only one path, so current does not vary.',
   },
   {
@@ -80,8 +80,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does a resistor colour code system allow you to determine?',
-    options: ['the resistance value of a resistor without measuring it', 'the temperature of a resistor', 'the age of the resistor', 'the power output'],
-    answer: 'the resistance value of a resistor without measuring it',
+    options: ['the resistance of a resistor without having to measure it', 'the power rating of a resistor in watts only', 'the voltage that the resistor must be given', 'the maximum current it can carry before it burns'],
+    answer: 'the resistance of a resistor without having to measure it',
     explanation: 'Coloured bands on resistors encode their resistance in a standardized way.',
   },
   {

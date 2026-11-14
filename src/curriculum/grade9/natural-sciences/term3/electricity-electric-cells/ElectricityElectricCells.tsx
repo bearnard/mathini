@@ -77,8 +77,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does a power source do in a circuit?',
-    options: ['Stops the current', 'Provides energy to push current', 'Creates resistance', 'Slows electrons'],
-    answer: 'Provides energy to push current',
+    options: ['Stops the current when the switch is closed', 'Gives the energy that pushes the current round', 'Adds resistance to slow the current down', 'Slows the electrons to save the energy'],
+    answer: 'Gives the energy that pushes the current round',
     explanation: 'A power source (cell or battery) pushes electrons around the circuit.',
   },
   {
@@ -89,8 +89,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is an advantage of a parallel circuit?',
-    options: ['Uses less energy', 'Brighter bulbs', 'If one path breaks, others still work', 'Easier to build'],
-    answer: 'If one path breaks, others still work',
+    options: ['It uses less energy than a series circuit does', 'The bulbs always shine brighter than in a series circuit', 'If one path breaks, the other paths still work', 'It needs fewer wires than a series circuit does'],
+    answer: 'If one path breaks, the other paths still work',
     explanation: 'In parallel circuits, each component has its own path.',
   },
   {
@@ -101,13 +101,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is resistance?',
-    options: ['The power source', 'Opposition to current flow', 'A switch', 'A type of wire'],
-    answer: 'Opposition to current flow',
+    options: ['The part that gives the circuit its energy', 'The opposition to the flow of current', 'The part that opens and closes the circuit', 'The metal that joins the parts of the circuit'],
+    answer: 'The opposition to the flow of current',
     explanation: 'Resistance opposes and reduces the flow of current in a circuit.',
   },
   {
     prompt: 'Which factor increases the resistance of a wire?',
-    options: ['Making it thicker', 'Making it shorter', 'Making it longer and thinner', 'Adding current'],
+    options: ['Making it thicker and shorter', 'Making it shorter but of the same thickness', 'Making it longer and thinner', 'Making it of a thicker and more costly metal'],
     answer: 'Making it longer and thinner',
     explanation: 'Longer wires and thinner wires have more resistance.',
   },

@@ -85,14 +85,14 @@ const learnSteps: LearnStep[] = [
 ];
 
 const bank: HisItem[] = [
-  { prompt: 'Where was Nelson Mandela imprisoned?', options: ['Robben Island and other prisons', 'Johannesburg', 'Cape Town', 'Durban'], answer: 'Robben Island and other prisons', explanation: 'Mandela spent most of his 27 years in prison on Robben Island in harsh conditions.' },
-  { prompt: 'How long was Nelson Mandela in prison?', options: ['27 years (1962–1990)', '10 years', '15 years', '30 years'], answer: '27 years (1962–1990)', explanation: 'Mandela\'s imprisonment lasted from his arrest in 1962 until his release on February 11, 1990.' },
+  { prompt: 'Where was Nelson Mandela imprisoned?', options: ['Robben Island and other prisons', 'Johannesburg Central Prison only', 'Cape Town Castle for the whole time', 'Durban Prison for the whole time'], answer: 'Robben Island and other prisons', explanation: 'Mandela spent most of his 27 years in prison on Robben Island in harsh conditions.' },
+  { prompt: 'How long was Nelson Mandela in prison?', options: ['27 years (1962–1990)', '10 years (1962–1972)', '15 years (1962–1977)', '30 years (1960–1990)'], answer: '27 years (1962–1990)', explanation: 'Mandela\'s imprisonment lasted from his arrest in 1962 until his release on February 11, 1990.' },
   { prompt: 'When did the government unban the ANC?', options: ['February 2, 1990', 'December 1989', 'March 1990', 'August 1990'], answer: 'February 2, 1990', explanation: 'President de Klerk announced the unbanning of the ANC on February 2, 1990.' },
   { prompt: 'Who announced the unbanning of the ANC?', options: ['President F. W. de Klerk', 'Nelson Mandela', 'The government cabinet', 'International pressure'], answer: 'President F. W. de Klerk', explanation: 'De Klerk made the dramatic announcement to unban the ANC and begin negotiations.' },
   { prompt: 'When was Nelson Mandela released from prison?', options: ['February 11, 1990', 'December 1989', 'March 1990', 'June 1990'], answer: 'February 11, 1990', explanation: 'Mandela walked free on February 11, 1990, after 27 years of imprisonment.' },
   { prompt: 'How old was Mandela when he was released?', options: ['71', '60', '50', '80'], answer: '71', explanation: 'Mandela was 71 years old when released but remained a powerful leader.' },
   { prompt: 'What was Mandela\'s message after his release?', options: ['Reconciliation rather than revenge', 'Violence against white people', 'Isolation from the world', 'Continued armed struggle'], answer: 'Reconciliation rather than revenge', explanation: 'Despite 27 years of suffering, Mandela called for unity and healing.' },
-  { prompt: 'What happened after Mandela\'s release?', options: ['Multi-party negotiations began to end apartheid and create democracy', 'Apartheid continued unchanged', 'Immediate violence erupted', 'No change occurred'], answer: 'Multi-party negotiations began to end apartheid and create democracy', explanation: 'Mandela led negotiations with the government and other organizations to transition to democracy.' },
+  { prompt: 'What happened after Mandela\'s release?', options: ['Multi-party talks began to end apartheid and build a democracy', 'Apartheid carried on unchanged for years', 'Violence broke out at once across the country', 'Nothing changed in the way the country was run'], answer: 'Multi-party talks began to end apartheid and build a democracy', explanation: 'Mandela led negotiations with the government and other organizations to transition to democracy.' },
 ];
 
 const MandelaReleaseUnbanning = () => (

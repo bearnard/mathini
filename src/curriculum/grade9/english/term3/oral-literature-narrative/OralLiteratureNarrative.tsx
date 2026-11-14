@@ -63,8 +63,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is a characteristic of oral literature?',
-    options: ['repetition and formulaic phrases help listeners remember', 'it requires written text only', 'it avoids any patterns', 'it is always humorous'],
-    answer: 'repetition and formulaic phrases help listeners remember',
+    options: ['repetition and set phrases help listeners remember', 'it needs a written text to be passed on', 'it avoids patterns, as these bore the audience', 'it is always funny, as it is made to entertain'],
+    answer: 'repetition and set phrases help listeners remember',
     explanation: 'Oral traditions use memorable patterns to preserve stories across generations.',
   },
   {
@@ -81,20 +81,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What should an effective interview include?',
-    options: ['focused questions, active listening, and follow-up prompts', 'only yes-or-no questions', 'no interaction with the respondent', 'predetermined answers that don\'t adapt'],
-    answer: 'focused questions, active listening, and follow-up prompts',
+    options: ['focused questions, careful listening and follow-up prompts', 'only yes-or-no questions that are fast to answer', 'a list of questions read out with no interaction', 'answers prepared that do not change with the replies'],
+    answer: 'focused questions, careful listening and follow-up prompts',
     explanation: 'Good interviews gather detailed, relevant information through responsive questioning.',
   },
   {
     prompt: 'How does sequencing help in oral responses?',
-    options: ['It signals the order of ideas and helps listeners follow the logic.', 'It confuses listeners deliberately.', 'It eliminates the need for examples.', 'It makes speech shorter only.'],
-    answer: 'It signals the order of ideas and helps listeners follow the logic.',
+    options: ['It shows the order of ideas and helps listeners follow.', 'It confuses listeners so that they pay attention.', 'It removes the need to give any examples.', 'It makes the talk shorter and more exciting.'],
+    answer: 'It shows the order of ideas and helps listeners follow.',
     explanation: 'Clear sequencing (First, Next, Finally) structures information for comprehension.',
   },
   {
     prompt: 'What is a myth in oral traditions?',
-    options: ['a story explaining natural phenomena or origins with a cultural purpose', 'always a false or untrue story', 'a short joke', 'a modern invented tale'],
-    answer: 'a story explaining natural phenomena or origins with a cultural purpose',
+    options: ['a story that explains natural events or origins', 'any story that is untrue or has been made up', 'a short joke that is told at a gathering of friends', "a modern tale that is invented for a children's book"],
+    answer: 'a story that explains natural events or origins',
     explanation: 'Myths serve important cultural and explanatory functions in societies.',
   },
   {
@@ -105,8 +105,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why are gesture and expression important in oral literature?',
-    options: ['They enhance meaning and engage listeners emotionally.', 'They distract from the message.', 'They are unnecessary in all contexts.', 'They replace the need for words.'],
-    answer: 'They enhance meaning and engage listeners emotionally.',
+    options: ['They add meaning and engage listeners emotionally.', 'They distract listeners from the message of the story.', 'They matter only in written forms of literature.', 'They take the place of the words of a story.'],
+    answer: 'They add meaning and engage listeners emotionally.',
     explanation: 'Non-verbal communication strengthens the impact of oral delivery.',
   },
 ];

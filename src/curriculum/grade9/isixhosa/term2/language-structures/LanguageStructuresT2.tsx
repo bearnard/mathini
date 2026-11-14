@@ -45,8 +45,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Connectors or linking words help to...',
-    options: ['join ideas and show relationships between sentences', 'confuse readers', 'make sentences shorter', 'replace nouns'],
-    answer: 'join ideas and show relationships between sentences',
+    options: ['join ideas and show how sentences relate', 'confuse readers about the order of ideas', 'make sentences shorter and more abrupt', 'take the place of nouns in a sentence'],
+    answer: 'join ideas and show how sentences relate',
     explanation: 'Connectors create flow and clarify how ideas relate logically.',
   },
   {
@@ -63,20 +63,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Pronouns replace...',
-    options: ['nouns to avoid repetition', 'verbs only', 'adjectives always', 'nothing at all'],
-    answer: 'nouns to avoid repetition',
+    options: ['nouns, to avoid repeating them', 'verbs, to avoid repeating them', 'adjectives, to avoid repeating them', 'adverbs, to avoid repeating them'],
+    answer: 'nouns, to avoid repeating them',
     explanation: 'Pronouns like he, she, it, and they make writing less repetitive.',
   },
   {
     prompt: 'A question tag is...',
-    options: ['a short question added to the end of a statement', 'a label on a product', 'a type of punctuation mark', 'a noun'],
+    options: ['a short question added to the end of a statement', 'a label that is stuck onto a product', 'a mark of punctuation that ends a question', 'a noun that names a thing in a sentence'],
     answer: 'a short question added to the end of a statement',
     explanation: 'Question tags invite confirmation or agreement in conversation.',
   },
   {
     prompt: 'In isiXhosa, subject-verb concord means...',
-    options: ['the subject and verb must agree in form and class', 'words can be in any order', 'verbs ignore subjects', 'grammar rules do not apply'],
-    answer: 'the subject and verb must agree in form and class',
+    options: ['the subject and the verb must agree in form and class', 'words can be placed in any order in a sentence', 'verbs take no notice of their subjects', 'the rules of grammar do not apply to speech'],
+    answer: 'the subject and the verb must agree in form and class',
     explanation: 'Concord ensures grammatical agreement and clarity in sentences.',
   },
   {
@@ -87,7 +87,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Pronoun agreement means...',
-    options: ['pronouns refer clearly and correctly to their nouns', 'pronouns are random', 'pronouns do not matter', 'any pronoun works everywhere'],
+    options: ['pronouns refer clearly and correctly to their nouns', 'pronouns are chosen by chance in a sentence', 'pronouns do not matter in writing', 'any pronoun can be used in any place'],
     answer: 'pronouns refer clearly and correctly to their nouns',
     explanation: 'Clear pronoun reference prevents confusion and improves readability.',
   },

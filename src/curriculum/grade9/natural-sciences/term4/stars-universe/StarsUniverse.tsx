@@ -67,8 +67,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is a star?',
-    options: ['A cold rock', 'A huge ball of hot gas that produces light and heat', 'A planet', 'A satellite'],
-    answer: 'A huge ball of hot gas that produces light and heat',
+    options: ['A cold ball of rock that circles the Sun', 'A huge ball of hot gas that gives off light and heat', 'A large planet that gives off light from the Sun', 'A small moon that circles a planet and reflects light'],
+    answer: 'A huge ball of hot gas that gives off light and heat',
     explanation: 'Stars generate light and heat through nuclear fusion in their cores.',
   },
   {
@@ -91,20 +91,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In what stage is our Sun?',
-    options: ['Birth', 'Main sequence (middle age)', 'Red giant', 'Dying'],
+    options: ['Birth, as a new star in a cloud of gas', 'Main sequence (middle age)', 'Red giant, as the hydrogen is about to run out', 'Dying, as a white dwarf that is slowly cooling'],
     answer: 'Main sequence (middle age)',
     explanation: 'The Sun is about halfway through its 10-billion-year main sequence stage.',
   },
   {
     prompt: 'What happens to a star after the main sequence?',
-    options: ['It disappears', 'It becomes brighter', 'It expands (red giant), then contracts', 'It stays the same forever'],
-    answer: 'It expands (red giant), then contracts',
+    options: ['It disappears at once with no remains left behind', 'It gets much brighter and then explodes', 'It swells into a red giant, then shrinks', 'It stays the same size for all of time'],
+    answer: 'It swells into a red giant, then shrinks',
     explanation: 'Stars eventually expand and cool (red giant), then collapse to white dwarf.',
   },
   {
     prompt: 'What is a galaxy?',
-    options: ['A star', 'A planet', 'A group of billions of stars held by gravity', 'A comet'],
-    answer: 'A group of billions of stars held by gravity',
+    options: ['A single star with planets that circle it', 'A large planet with many moons that circle it', 'A huge group of billions of stars held by gravity', 'A ball of ice and dust that circles the Sun'],
+    answer: 'A huge group of billions of stars held by gravity',
     explanation: 'Galaxies are vast collections of stars, gas, and dust held together by gravity.',
   },
   {
@@ -115,8 +115,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why does light from distant stars take so long to reach Earth?',
-    options: ['Stars are dim', 'Space is curved', 'Stars are extremely far away; light travels at a finite speed', 'Light is slow'],
-    answer: 'Stars are extremely far away; light travels at a finite speed',
+    options: ['The stars are dim and their light is very weak', 'Space is curved, so the light has to go round', 'The stars are very far away and light has a set speed', 'Light is slow, as it moves slower than sound'],
+    answer: 'The stars are very far away and light has a set speed',
     explanation: 'Even at 300,000 km/s, light takes years to travel between stars.',
   },
   {

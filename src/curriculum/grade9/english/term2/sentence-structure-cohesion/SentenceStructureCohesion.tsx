@@ -44,8 +44,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is a simple sentence?',
-    options: ['one independent clause with subject and verb', 'always very short', 'contains only nouns', 'requires no punctuation'],
-    answer: 'one independent clause with subject and verb',
+    options: ['one independent clause with a subject and a verb', 'a sentence that is always very short', 'a sentence that has two or more clauses joined', 'a sentence that is made of nouns and adjectives'],
+    answer: 'one independent clause with a subject and a verb',
     explanation: 'Simple sentences express one complete thought.',
   },
   {
@@ -56,14 +56,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A complex sentence contains...',
-    options: ['one independent clause and one or more dependent clauses', 'only independent clauses', 'no verbs', 'only questions'],
+    options: ['one independent clause and one or more dependent clauses', 'two independent clauses joined by "and"', 'a single clause with a subject and a verb', 'a question that has a subject but no verb'],
     answer: 'one independent clause and one or more dependent clauses',
     explanation: 'Complex sentences show relationships between ideas of different importance.',
   },
   {
     prompt: 'What does pronoun reference mean?',
-    options: ['the relationship between a pronoun and the noun it replaces', 'using only nouns in writing', 'avoiding pronouns completely', 'repeating nouns constantly'],
-    answer: 'the relationship between a pronoun and the noun it replaces',
+    options: ['the link between a pronoun and the noun it replaces', 'the use of nouns only, with no pronouns at all', 'the choice to avoid pronouns in formal writing', 'the repeating of the same noun in each sentence'],
+    answer: 'the link between a pronoun and the noun it replaces',
     explanation: 'Clear pronoun reference prevents confusion about who or what is being discussed.',
   },
   {
@@ -74,8 +74,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the role of a preposition?',
-    options: ['to show relationships between words in time, space, or direction', 'to describe adjectives', 'to replace verbs', 'to connect only sentences'],
-    answer: 'to show relationships between words in time, space, or direction',
+    options: ['to show how words relate in time, space or direction', 'to describe a noun by giving more detail about it', 'to replace a verb in a long sentence', 'to join two clauses in a compound sentence'],
+    answer: 'to show how words relate in time, space or direction',
     explanation: 'Prepositions locate and relate elements in a sentence.',
   },
   {
@@ -86,8 +86,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How does sentence combining improve writing?',
-    options: ['It shows relationships between ideas and improves flow.', 'It makes writing longer only.', 'It removes all meaning.', 'It has no effect on readability.'],
-    answer: 'It shows relationships between ideas and improves flow.',
+    options: ['It shows how ideas relate and improves the flow.', 'It makes the writing longer and more detailed.', 'It cuts out the meaning of the shorter sentences.', 'It has no effect on how easily the text is read.'],
+    answer: 'It shows how ideas relate and improves the flow.',
     explanation: 'Combining sentences creates more sophisticated, connected writing.',
   },
 ];

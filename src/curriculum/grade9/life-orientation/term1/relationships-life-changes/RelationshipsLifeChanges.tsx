@@ -64,32 +64,32 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why are emotions important?',
-    options: ['They are not important', 'They are signs of weakness', 'They help you understand yourself and connect with others', 'Only sadness matters'],
+    options: ['They show weakness, so they should be hidden', 'They matter little, as thoughts are more important', 'They help you understand yourself and connect with others', 'They matter only when they are sad ones'],
     answer: 'They help you understand yourself and connect with others',
     explanation: 'Emotions are natural and help you communicate and understand yourself.',
   },
   {
     prompt: 'What is a boundary?',
-    options: ['A wall to keep people away', 'A limit you set to protect your wellbeing', 'Something you cannot change', 'A sign of being unfriendly'],
+    options: ['A wall that is built to keep other people away', 'A limit you set to protect your wellbeing', 'A rule that other people set and that cannot be changed', 'A sign that a person is unfriendly and does not like company'],
     answer: 'A limit you set to protect your wellbeing',
     explanation: 'Boundaries are necessary to protect your physical, emotional, and mental wellbeing.',
   },
   {
     prompt: 'What changes happen during adolescence?',
-    options: ['Only physical changes', 'Physical, emotional, and social changes', 'No real changes', 'Only social changes'],
-    answer: 'Physical, emotional, and social changes',
+    options: ['Physical changes only, such as growth in height', 'Physical, emotional and social changes', 'Emotional changes only, such as mood swings', 'Social changes only, such as new friends and interests'],
+    answer: 'Physical, emotional and social changes',
     explanation: 'Adolescence involves changes in your body, emotions, and relationships.',
   },
   {
     prompt: 'What does good communication involve?',
-    options: ['Always agreeing with others', 'Listening and being honest about your feelings', 'Keeping everything inside', 'Only talking about good things'],
-    answer: 'Listening and being honest about your feelings',
+    options: ['Always agreeing with others so there are no arguments', 'Listening and being honest about how you feel', 'Keeping all your feelings inside to avoid conflict', 'Talking only about the good things that happen to you'],
+    answer: 'Listening and being honest about how you feel',
     explanation: 'Good communication means both speaking honestly and listening to others.',
   },
   {
     prompt: 'How can you handle peer pressure?',
-    options: ['Always do what peers want', 'Understand your values and say no if something feels wrong', 'Avoid all friends', 'Never speak up'],
-    answer: 'Understand your values and say no if something feels wrong',
+    options: ['Do whatever your friends want so that they like you', 'Know your values and say no when something feels wrong', 'Avoid all of your friends so that you stay out of trouble', 'Stay quiet and go along, even if you are unhappy'],
+    answer: 'Know your values and say no when something feels wrong',
     explanation: 'Knowing your values helps you make good choices, even under peer pressure.',
   },
   {
@@ -100,8 +100,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How can family relationships change during adolescence?',
-    options: ['They stay exactly the same', 'You may want more independence while still needing support', 'They never matter', 'You should avoid your family'],
-    answer: 'You may want more independence while still needing support',
+    options: ['They stay exactly the same as they were in childhood', 'You may want more freedom but still need support', 'They stop mattering as friends become more important', 'You should keep away from your family completely'],
+    answer: 'You may want more freedom but still need support',
     explanation: 'During adolescence, you develop independence while family remains important.',
   },
   {
@@ -112,8 +112,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is conflict resolution?',
-    options: ['Always giving in', 'Working together to solve disagreements respectfully', 'Avoiding all conflict', 'Getting someone in trouble'],
-    answer: 'Working together to solve disagreements respectfully',
+    options: ['Always giving in so that the other person is happy', 'Working together to settle disagreements with respect', 'Avoiding all conflict so that no one is upset', 'Getting the other person into trouble with an adult'],
+    answer: 'Working together to settle disagreements with respect',
     explanation: 'Conflict resolution involves finding solutions that respect both people.',
   },
 ];

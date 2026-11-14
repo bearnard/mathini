@@ -60,7 +60,7 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is rhyme scheme?',
-    options: ['the pattern of rhyming words in a poem', 'the rhythm of speech only', 'the size of the font', 'a type of dance'],
+    options: ['the pattern of rhyming words in a poem', 'the rhythm of the syllables in a line of verse', 'the number of lines in each verse of a poem', 'the way that a poem is set out on a page'],
     answer: 'the pattern of rhyming words in a poem',
     explanation: 'Rhyme scheme shows which lines end with similar sounds.',
   },
@@ -72,38 +72,38 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does imagery in poetry help a reader do?',
-    options: ['visualize scenes using sensory details', 'avoid reading actively', 'ignore the poet\'s message', 'understand mathematics'],
-    answer: 'visualize scenes using sensory details',
+    options: ['picture scenes by using sensory details', 'follow the rhyme of the poem by ear', 'identify the number of syllables in each line', 'work out the rules of grammar in each line'],
+    answer: 'picture scenes by using sensory details',
     explanation: 'Imagery appeals to the senses and creates vivid mental pictures.',
   },
   {
     prompt: 'In drama, characterisation is developed through...',
-    options: ['dialogue, actions, and what other characters say', 'stage directions only', 'the audience\'s mood', 'random plot points'],
-    answer: 'dialogue, actions, and what other characters say',
+    options: ['dialogue, actions and what other characters say', 'stage directions about the set and lighting only', 'the mood of the audience as the play goes on', 'the number of scenes and acts in the play'],
+    answer: 'dialogue, actions and what other characters say',
     explanation: 'Multiple elements combine to show what a character is like.',
   },
   {
     prompt: 'What is a theme in literature?',
-    options: ['the central idea or message in the work', 'the title of the book', 'the longest line', 'only the funny parts'],
-    answer: 'the central idea or message in the work',
+    options: ['the central idea or message of the work', 'the title that the author gave to the work', 'the longest line or passage in the work', 'the funniest part of the work'],
+    answer: 'the central idea or message of the work',
     explanation: 'Theme is the underlying meaning that connects plot and character.',
   },
   {
     prompt: 'When analysing a poem, which is most important?',
-    options: ['using quotations to support your interpretation', 'guessing the poet\'s name', 'counting the lines only', 'ignoring word choice'],
+    options: ['using quotations to support your interpretation', 'naming the poet and the year of publication', 'counting the lines and the verses in the poem', 'retelling the poem in your own words'],
     answer: 'using quotations to support your interpretation',
     explanation: 'Evidence from the text makes your analysis credible.',
   },
   {
     prompt: 'What does tone in poetry refer to?',
-    options: ['the attitude or feeling conveyed by the speaker', 'the volume of reading aloud', 'only the rhyming words', 'the page colour'],
-    answer: 'the attitude or feeling conveyed by the speaker',
+    options: ['the attitude or feeling that the speaker conveys', 'the volume at which a poem is read aloud', 'the rhyming words found at the line ends', 'the colour of the paper that it is printed on'],
+    answer: 'the attitude or feeling that the speaker conveys',
     explanation: 'Tone shows the speaker\'s perspective and emotional stance.',
   },
   {
     prompt: 'A scene analysis in drama should identify...',
-    options: ['character conflicts, dialogue, and how the scene advances the plot', 'only funny moments', 'mistakes in spelling', 'audience member names'],
-    answer: 'character conflicts, dialogue, and how the scene advances the plot',
+    options: ['character conflicts, dialogue and how the scene moves the plot on', 'the funniest moments in the scene and nothing else', 'the spelling mistakes that the playwright made', 'the names of the actors who performed the scene'],
+    answer: 'character conflicts, dialogue and how the scene moves the plot on',
     explanation: 'Scene analysis connects dramatic elements to overall meaning.',
   },
 ];

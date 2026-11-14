@@ -79,8 +79,8 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'Which is equivalent to 2⁴?',
-    options: ['4²', '2 × 4', '16', 'All of the above'],
-    answer: 'All of the above',
+    options: ['8', '6', '32', '16'],
+    answer: '16',
     explanation: '2⁴ = 16 = 4², confirming the equivalence.',
   },
 ];

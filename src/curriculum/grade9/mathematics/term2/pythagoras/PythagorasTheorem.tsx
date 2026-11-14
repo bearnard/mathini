@@ -79,7 +79,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'What does the hypotenuse represent?',
-    options: ['The shortest side', 'A leg', 'The longest side opposite the right angle', 'Any side'],
+    options: ['The shortest side, next to the right angle', 'One of the two legs that meet at the right angle', 'The longest side opposite the right angle', 'The side opposite the smallest angle'],
     answer: 'The longest side opposite the right angle',
     explanation: 'The hypotenuse (c) is always opposite the right angle and is the longest side.',
   },

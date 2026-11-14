@@ -50,14 +50,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the main purpose of a descriptive essay?',
-    options: ['to create a vivid picture through sensory details', 'to prove a mathematical equation', 'to list prices', 'to avoid detail'],
+    options: ['to create a vivid picture through sensory details', 'to prove a point by using evidence and facts', 'to list the prices of items in a shop', 'to tell a story that follows a plot in order'],
     answer: 'to create a vivid picture through sensory details',
     explanation: 'Descriptive essays use rich language to help readers visualize scenes or subjects.',
   },
   {
     prompt: 'A reflective essay typically...',
-    options: ['explores the writer\'s thoughts and feelings about an experience', 'tells a simple story without reflection', 'provides a recipe', 'avoids personal opinions'],
-    answer: 'explores the writer\'s thoughts and feelings about an experience',
+    options: ["explores the writer's thoughts and feelings about an experience", 'tells a story of events with no thoughts about them', 'gives step-by-step instructions on how to do something', 'presents facts about a topic in an impersonal tone'],
+    answer: "explores the writer's thoughts and feelings about an experience",
     explanation: 'Reflective essays show the writer\'s perspective and emotional response to events.',
   },
   {
@@ -68,26 +68,26 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What should a poster for a school event include?',
-    options: ['a clear heading, key dates, and a call to action', 'only a picture without text', 'no colour', 'a long paragraph of explanation'],
-    answer: 'a clear heading, key dates, and a call to action',
+    options: ['a clear heading, key dates and a call to action', 'a picture and a very long paragraph of text', 'a clever slogan but no date or venue', 'the names of all the school staff members'],
+    answer: 'a clear heading, key dates and a call to action',
     explanation: 'Effective posters communicate quickly and motivate action from the reader.',
   },
   {
     prompt: 'Why is audience awareness important in transactional writing?',
-    options: ['Different audiences require different tone, format, and detail.', 'All audiences are identical.', 'Audience doesn\'t matter.', 'Only children need audience focus.'],
-    answer: 'Different audiences require different tone, format, and detail.',
+    options: ['Different audiences need a different tone, format and detail.', 'All audiences read in the same way, so one style fits all.', 'Audience matters in speeches and not in written texts.', 'Only young children need a writer to think of them.'],
+    answer: 'Different audiences need a different tone, format and detail.',
     explanation: 'Purpose and audience shape all choices in transactional writing.',
   },
   {
     prompt: 'An argumentative essay aims to...',
-    options: ['present a viewpoint and support it with evidence', 'tell a fictional story only', 'list facts without interpretation', 'confuse the reader'],
+    options: ['present a viewpoint and support it with evidence', 'tell a made-up story that has a clear plot', 'list facts about a topic without taking a side', 'describe a scene using the five senses'],
     answer: 'present a viewpoint and support it with evidence',
     explanation: 'Argumentative essays state a position and justify it with reasons and examples.',
   },
   {
     prompt: 'Which revision technique best improves essay clarity?',
-    options: ['reading aloud and checking if ideas flow logically', 'never rereading your work', 'only checking spelling', 'changing every sentence randomly'],
-    answer: 'reading aloud and checking if ideas flow logically',
+    options: ['reading aloud and checking that ideas flow logically', 'reading your first draft once and handing it in', 'checking only the spelling in your final copy', 'replacing long words with simple words in every line'],
+    answer: 'reading aloud and checking that ideas flow logically',
     explanation: 'Careful review helps identify gaps in logic and awkward phrasing.',
   },
 ];

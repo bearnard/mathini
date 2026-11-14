@@ -59,8 +59,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What format feature is required in a formal letter?',
-    options: ['sender\'s address, date, and recipient\'s address at the top', 'no spacing or indentation', 'only a first name', 'informal salutation'],
-    answer: 'sender\'s address, date, and recipient\'s address at the top',
+    options: ["sender's address, date and recipient's address at the top", 'no spacing or indentation anywhere on the page', "the writer's first name at the top of the page", 'an informal greeting such as "Hey there"'],
+    answer: "sender's address, date and recipient's address at the top",
     explanation: 'Formal layout shows professionalism and follows convention.',
   },
   {
@@ -71,26 +71,26 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What common editing error should you check in timed writing?',
-    options: ['tense consistency and subject-verb agreement', 'never check your work', 'make random changes', 'ignore all grammar'],
+    options: ['tense consistency and subject-verb agreement', 'whether the paper has neat margins on each page', 'whether the title is underlined in the right colour', 'the length of each paragraph in the answer'],
     answer: 'tense consistency and subject-verb agreement',
     explanation: 'These errors frequently affect clarity and appear in rushed writing.',
   },
   {
     prompt: 'How can you manage time across multiple exam sections?',
-    options: ['allocate time proportionally to question marks; skip if running late', 'spend all time on one section', 'never track time', 'finish quickly regardless of quality'],
-    answer: 'allocate time proportionally to question marks; skip if running late',
+    options: ['give time to each section by its marks; move on if running late', 'spend all of your time on the first section', 'keep no track of time and trust your pace', 'finish each section fast whatever the quality is'],
+    answer: 'give time to each section by its marks; move on if running late',
     explanation: 'Strategic time use ensures you attempt all sections.',
   },
   {
     prompt: 'Which proofreading technique is most effective under time pressure?',
-    options: ['read your work aloud to catch errors quickly', 'don\'t proofread at all', 'change every sentence randomly', 'only check the first line'],
-    answer: 'read your work aloud to catch errors quickly',
+    options: ['read your work aloud under your breath to catch errors fast', 'skip proofreading, since there is no time for it', 'swap the long words for short ones in every line', 'check only the first line of each paragraph'],
+    answer: 'read your work aloud under your breath to catch errors fast',
     explanation: 'Reading aloud helps you hear awkward phrasing and errors faster.',
   },
   {
     prompt: 'What editing priority should you follow?',
-    options: ['major errors (spelling, grammar, sense) before minor (style)', 'ignore all errors', 'only fix the last sentence', 'focus on word count only'],
-    answer: 'major errors (spelling, grammar, sense) before minor (style)',
+    options: ['major errors (spelling, grammar, sense) before minor ones (style)', 'minor style points before any major error is fixed', 'only the last sentence of the whole answer', 'the word count and not the mistakes in the text'],
+    answer: 'major errors (spelling, grammar, sense) before minor ones (style)',
     explanation: 'Prioritizing ensures your time corrects the most important mistakes.',
   },
 ];

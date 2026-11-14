@@ -62,7 +62,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'An advertisement targeting teenagers would most likely use...',
-    options: ['bright colours, informal language, and relatable imagery', 'only formal terminology', 'black and white images only', 'complex legal jargon'],
+    options: ['bright colours, informal language, and relatable imagery', 'formal vocabulary and long technical terms', 'muted colours and dense paragraphs of text', 'legal wording and a serious, official tone'],
     answer: 'bright colours, informal language, and relatable imagery',
     explanation: 'Visual and verbal choices match the interests and communication style of the target audience.',
   },
@@ -74,20 +74,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which visual choice would make a poster about luxury goods more appealing?',
-    options: ['elegant design, high-quality imagery, and sophisticated colours', 'cartoon drawings and bright primary colours', 'plain text only', 'small, hard-to-read fonts'],
+    options: ['elegant design, high-quality imagery, and sophisticated colours', 'cartoon drawings and bright primary colours throughout', 'plain text in a crowded and busy layout', 'a cheap-looking design with low-quality photographs'],
     answer: 'elegant design, high-quality imagery, and sophisticated colours',
     explanation: 'Visual design must match the product image and appeal to the target market.',
   },
   {
     prompt: 'How does tone affect a reader\'s response to an advertisement?',
-    options: ['Tone creates an attitude or feeling that influences whether readers engage.', 'Tone has no effect on reader response.', 'Tone only refers to volume in videos.', 'Tone replaces the need for visuals.'],
-    answer: 'Tone creates an attitude or feeling that influences whether readers engage.',
+    options: ['Tone sets an attitude that shapes whether readers engage.', 'Tone only affects the headline and not the reader.', 'Tone matters in videos, where it means volume.', 'Tone matters less than the size of the print.'],
+    answer: 'Tone sets an attitude that shapes whether readers engage.',
     explanation: 'Tone shapes how a message is received and whether it resonates with the audience.',
   },
   {
     prompt: 'Which statement shows analysis of persuasive technique?',
-    options: ['The ad uses bright colours and a famous celebrity to make the product seem desirable.', 'The ad has a picture in it.', 'The ad is printed on paper.', 'The ad uses English words.'],
-    answer: 'The ad uses bright colours and a famous celebrity to make the product seem desirable.',
+    options: ['The ad uses a famous celebrity to make the product seem desirable.', 'The ad has a picture of the product printed in it, on glossy paper.', 'The ad is written in English for local readers to read.', 'The ad is printed in a magazine that many people buy.'],
+    answer: 'The ad uses a famous celebrity to make the product seem desirable.',
     explanation: 'Effective analysis connects specific techniques to their persuasive effect.',
   },
 ];

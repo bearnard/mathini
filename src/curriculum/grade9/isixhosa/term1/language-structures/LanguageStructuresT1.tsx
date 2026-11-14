@@ -45,14 +45,14 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'The simple present tense is used for...',
-    options: ['habitual actions and general truths', 'past events', 'future plans', 'imaginary situations'],
+    options: ['habitual actions and general truths', 'events that finished in the past', 'plans that will happen in the future', 'situations that are only imagined'],
     answer: 'habitual actions and general truths',
     explanation: 'Present tense describes what happens regularly or what is generally true.',
   },
   {
     prompt: 'Concord in isiXhosa means...',
-    options: ['agreement between words in a phrase', 'a contract', 'a musical note', 'a type of noun'],
-    answer: 'agreement between words in a phrase',
+    options: ['agreement between the words in a phrase', 'a written deal between two people', 'the pitch that a note has in a song', 'a class of noun that takes a prefix'],
+    answer: 'agreement between the words in a phrase',
     explanation: 'Concord ensures that adjectives, pronouns, and verbs match their nouns.',
   },
   {
@@ -63,14 +63,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Indirect speech is used when you...',
-    options: ['report what someone said without using their exact words', 'copy their exact words', 'make up their words', 'ignore their meaning'],
-    answer: 'report what someone said without using their exact words',
+    options: ['report what was said without using the exact words', "copy the speaker's exact words in quotation marks", 'invent words that the speaker never said', 'change the meaning of what the speaker said'],
+    answer: 'report what was said without using the exact words',
     explanation: 'Indirect speech summarizes meaning while adjusting tense and pronouns.',
   },
   {
     prompt: 'An idiomatic phrase is...',
-    options: ['a phrase whose meaning is not literal but cultural or conventional', 'a medical condition', 'a type of verb', 'always technical'],
-    answer: 'a phrase whose meaning is not literal but cultural or conventional',
+    options: ['a phrase whose meaning is cultural, not literal', 'a phrase that is used only by doctors', 'a phrase made up of a verb and a noun', 'a phrase whose words mean just what they say'],
+    answer: 'a phrase whose meaning is cultural, not literal',
     explanation: 'Idioms cannot be understood by translating words literally; they require cultural knowledge.',
   },
   {
@@ -87,7 +87,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When converting direct speech to indirect speech, you usually...',
-    options: ['adjust tenses and pronouns to fit the reporting context', 'keep everything identical', 'change the meaning', 'remove important details'],
+    options: ['adjust tenses and pronouns to fit the reporting context', 'keep every word exactly the same as the speaker said', 'change the meaning so that it sounds more polite', 'leave out the details that seem less important'],
     answer: 'adjust tenses and pronouns to fit the reporting context',
     explanation: 'Tense and pronoun shifts make indirect speech coherent within the new context.',
   },

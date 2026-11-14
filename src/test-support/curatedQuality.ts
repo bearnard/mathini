@@ -8,6 +8,7 @@ export type Counts = Record<string, Record<string, number>>;
 export const scopeOf = (q: CuratedQuestion): string => {
   if (q.grade === 6 && q.subject === 'natural-sciences') return 'g6-natural-sciences';
   if (q.grade === 6 && (q.subject === 'history' || q.subject === 'geography')) return 'g6-history-geography';
+  if (q.grade >= 7 && q.grade <= 12) return `g${q.grade}`; // one scope per grade, so a repaired grade can be held at zero
   return 'other';
 };
 

@@ -19,7 +19,7 @@ test('the extractor finds the curated banks of every grade 6-12', () => {
   assert.ok(checked > 6000, `${checked} curated MCQs`);
 });
 
-for (const scope of ['g6-natural-sciences', 'g6-history-geography', 'other']) {
+for (const scope of ['g6-natural-sciences', 'g6-history-geography', 'g7', 'g8', 'g9', 'g10', 'g11', 'g12', 'other']) {
   test(`curated banks (${scope}): no reject-level count is above its baseline`, () => {
     const now = counts[scope] ?? {};
     const was = baseline.counts[scope] ?? {};
@@ -33,6 +33,14 @@ test('Grade 6 Natural Sciences (the bank written to the ADR 0001 rules) has no d
   const now = counts['g6-natural-sciences'] ?? {};
   for (const code of Object.keys(now)) assert.equal(code, 'length_tell_strong', `unexpected ${code} in the Grade 6 NST bank`);
 });
+
+// Grades whose curated banks have been repaired at the source (options and answers only; prompts untouched). They stay at ZERO.
+const HELD_AT_ZERO = ['g9'];
+for (const scope of HELD_AT_ZERO) {
+  test(`curated banks (${scope}) have no reject-level defect at all`, () => {
+    assert.deepEqual(counts[scope] ?? {}, {});
+  });
+}
 
 test('the baseline file is not stale-high by more than a few: lower it when you fix questions', () => {
   let slack = 0;

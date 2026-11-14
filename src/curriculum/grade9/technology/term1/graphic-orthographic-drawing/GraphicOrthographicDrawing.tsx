@@ -56,25 +56,25 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the purpose of a scale on a technical drawing?',
-    options: ['to show the relationship between drawing size and actual size', 'to make the drawing look pretty', 'to confuse the viewer', 'to indicate materials'],
+    options: ['to show the relationship between drawing size and actual size', 'to show which materials the parts are made from', 'to show how thick each line must be drawn', 'to show the order in which parts are assembled'],
     answer: 'to show the relationship between drawing size and actual size',
     explanation: 'Scale ensures that models and components can be manufactured accurately based on the drawing.',
   },
   {
     prompt: 'Which line type is used for construction guides in technical drawing?',
-    options: ['construction lines (light, thin)', 'solid thick lines', 'dashed lines', 'dimension lines'],
+    options: ['construction lines (light, thin)', 'dimension lines (thin, with arrowheads)', 'hidden lines (short, thin dashes)', 'outlines (continuous thick lines)'],
     answer: 'construction lines (light, thin)',
     explanation: 'Light construction lines help create accurate drawings and are often erased or not reproduced in final prints.',
   },
   {
     prompt: 'How many standard views make up a complete orthographic projection?',
-    options: ['front, top, and side (3 main views)', 'only 2 views', '5 or 6 views always', 'just 1 view'],
-    answer: 'front, top, and side (3 main views)',
+    options: ['front, top and side (3 views)', 'front and back only (2 views)', 'top and bottom only (2 views)', 'six views, one for each face'],
+    answer: 'front, top and side (3 views)',
     explanation: 'The three main orthographic views provide sufficient information to understand most 3D objects.',
   },
   {
     prompt: 'What is the advantage of orthographic drawing over perspective drawing for technical use?',
-    options: ['it preserves true dimensions and allows accurate measurement', 'it is faster to draw', 'it looks more artistic', 'it requires fewer lines'],
+    options: ['it preserves true dimensions and allows accurate measurement', 'it shows the object as the eye sees it', 'it needs only a single vanishing point', 'it shows depth with lines that meet far away'],
     answer: 'it preserves true dimensions and allows accurate measurement',
     explanation: 'Orthographic projection maintains scale and proportions, making it essential for engineering and manufacturing.',
   },
@@ -86,8 +86,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is dimension awareness important in technical drawing?',
-    options: ['so that builders and manufacturers can construct the design accurately', 'dimensions are purely decorative', 'to make the drawing look professional', 'dimensions do not affect quality'],
-    answer: 'so that builders and manufacturers can construct the design accurately',
+    options: ['so builders can make the design to the right size', 'so the drawing fits on the page neatly', 'so every drawing is done in the same colours', 'so the drawing can be copied by hand quickly'],
+    answer: 'so builders can make the design to the right size',
     explanation: 'Clear, accurate dimensions are essential for precise manufacturing and assembly.',
   },
 ];

@@ -72,8 +72,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is an atom?',
-    options: ['A type of molecule', 'The smallest particle of matter', 'A type of compound', 'A gas particle'],
-    answer: 'The smallest particle of matter',
+    options: ['A particle made of two or more molecules joined', 'The smallest particle of an element', 'A particle made of different compounds joined', 'A gas particle that is found only in air'],
+    answer: 'The smallest particle of an element',
     explanation: 'An atom is the smallest unit of an element and contains a nucleus and electrons.',
   },
   {
@@ -90,20 +90,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is an element?',
-    options: ['Any material', 'A pure substance with one type of atom', 'A mixture of gases', 'A compound'],
-    answer: 'A pure substance with one type of atom',
+    options: ['Any material that is found in nature, such as a rock', 'A pure substance made of one type of atom', 'A mixture of gases, such as the air around us', 'A pure substance made of two kinds of atoms bonded'],
+    answer: 'A pure substance made of one type of atom',
     explanation: 'An element contains only atoms of one type, like pure oxygen or pure carbon.',
   },
   {
     prompt: 'What is a compound?',
-    options: ['A single element', 'Two or more elements chemically bonded', 'A mixture', 'Pure water'],
-    answer: 'Two or more elements chemically bonded',
+    options: ['A single element made of one kind of atom only', 'Two or more elements joined by chemical bonds', 'A mixture of substances that is easy to separate again', 'A pure substance that has only one kind of atom in it'],
+    answer: 'Two or more elements joined by chemical bonds',
     explanation: 'A compound forms when elements bond together chemically, like water (H₂O).',
   },
   {
     prompt: 'What is the difference between a mixture and a compound?',
-    options: ['No difference', 'In mixtures, substances are not chemically bonded', 'Compounds are not pure', 'Mixtures are elements'],
-    answer: 'In mixtures, substances are not chemically bonded',
+    options: ['In a mixture, the substances are chemically bonded', 'In a mixture, the substances are not chemically bonded', 'A compound is not pure, but a mixture is a pure substance', 'A mixture is made of one type of atom, like an element'],
+    answer: 'In a mixture, the substances are not chemically bonded',
     explanation: 'In a mixture (like salt water), particles are mixed but not chemically joined.',
   },
   {
