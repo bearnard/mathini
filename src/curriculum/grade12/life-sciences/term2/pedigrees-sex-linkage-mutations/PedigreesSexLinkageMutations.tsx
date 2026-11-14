@@ -9,7 +9,6 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ls/term2/pedigrees-sex-linkage-mutations/diagram.webp", alt: "Basic pedigree conventions" },
     title: 'Pedigrees show inheritance across generations',
     content: (
       <div className="space-y-6 text-left">

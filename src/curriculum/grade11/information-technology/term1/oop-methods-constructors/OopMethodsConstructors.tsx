@@ -4,7 +4,6 @@ import type { ITItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/it/term1/oop-methods-constructors/diagram.webp", alt: "OOP: Methods and Constructors" },
     title: 'Constructors: initialising objects',
     content: (
       <div className="space-y-4 text-center">

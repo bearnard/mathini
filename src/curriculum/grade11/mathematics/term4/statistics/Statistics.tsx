@@ -5,7 +5,6 @@ import FunctionGraph from '../../../../../components/subjects/FunctionGraph';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/math/term4/statistics/diagram.webp", alt: "Statistics" },
     title: 'Read the Distribution First',
     content: (
       <div className="space-y-4 text-center">

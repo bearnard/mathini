@@ -4,7 +4,6 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps = [
   {
-    image: { src: "/curriculum/grade12/geo/term3/economic-sectors-and-employment/diagram.webp", alt: "Economic Sectors and Employment" },
     title: "The four main economic sectors",
     content: (
       <div className="space-y-4 text-left">

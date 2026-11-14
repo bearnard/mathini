@@ -8,7 +8,6 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ls/term3/human-evolution/diagram.webp", alt: "Common ancestry in primates" },
     title: 'Humans share ancestry with other primates',
     content: (
       <div className="space-y-6 text-left">

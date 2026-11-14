@@ -8,7 +8,6 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ls/term2/nervous-system-sense-organs/diagram.webp", alt: "Organisation of the nervous system" },
     title: 'The nervous system coordinates rapid responses',
     content: (
       <div className="space-y-6 text-left">

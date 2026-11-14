@@ -3,7 +3,6 @@ import type { LearnStep } from '@/components/CapsSubjectTopic';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/lo/term3/ideologies-media-and-citizenship/diagram.webp", alt: "Ideologies, Media and Citizenship" },
     title: 'What Ideology Means',
     content: (
       <div className="space-y-4 text-left">

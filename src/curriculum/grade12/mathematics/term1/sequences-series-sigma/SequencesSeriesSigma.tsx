@@ -5,7 +5,6 @@ import Formula from '@/components/subjects/Formula';
 
   const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/math/term1/sequences-series-sigma/diagram.webp", alt: "Sequences, Series and Sigma Notation" },
     title: 'Arithmetic sequences and the nth term',
     content: (
       <>

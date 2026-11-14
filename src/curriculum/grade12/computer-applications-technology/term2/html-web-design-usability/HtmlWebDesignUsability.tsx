@@ -3,7 +3,6 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/cat/term2/html-web-design-usability/diagram.webp", alt: "HTML, Web Design and Usability" },
     title: "HTML structure and common tags",
     content: (
       <div className="space-y-4 text-left">

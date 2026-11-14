@@ -13,7 +13,6 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/econ/term1/public-sector/diagram.webp", alt: "The Public Sector" },
     title: 'Why the public sector exists',
     content: (
       <div className="space-y-6">

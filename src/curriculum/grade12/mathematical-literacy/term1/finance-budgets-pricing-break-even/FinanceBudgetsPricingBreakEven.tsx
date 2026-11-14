@@ -7,7 +7,6 @@ import BudgetPlanner from '@/components/subjects/BudgetPlanner';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ml/term1/finance-budgets-pricing-break-even/diagram.webp", alt: "Finance: Budgets, Pricing and Break-even" },
     title: 'Use budgets to track surplus and shortfall',
     content: (
       <div className="space-y-4 text-left">

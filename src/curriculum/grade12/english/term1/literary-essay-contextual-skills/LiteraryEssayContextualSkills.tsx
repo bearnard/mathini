@@ -3,7 +3,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps = [
   {
-    image: { src: "/curriculum/grade12/eng/term1/literary-essay-contextual-skills/diagram.webp", alt: "From \\" },
     title: "Planning a literary essay",
     content: (
       <div className="space-y-4 text-left">

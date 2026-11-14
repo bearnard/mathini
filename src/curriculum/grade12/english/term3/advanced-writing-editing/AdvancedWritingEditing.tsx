@@ -2,7 +2,6 @@ import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 
 const learnSteps = [
   {
-    image: { src: "/curriculum/grade12/eng/term3/advanced-writing-editing/diagram.webp", alt: "Advanced Writing and Editing" },
     title: "Strengthening cohesion between sentences and paragraphs",
     content: (
       <div className="space-y-4 text-left">

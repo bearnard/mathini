@@ -5,7 +5,6 @@ import type { PSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/ps/term1/work-energy/diagram.webp", alt: "Work, Energy and Power" },
     title: 'Work Done by a Force',
     content: (
       <div className="space-y-4 text-center">

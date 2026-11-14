@@ -7,7 +7,6 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
 
   const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/math/term1/trigonometry-identities-equations/diagram.webp", alt: "Trigonometry: Identities and Equations" },
     title: 'Compound-angle identities',
     content: (
       <>

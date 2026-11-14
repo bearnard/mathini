@@ -6,7 +6,6 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 
   const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/math/term2/polynomial-functions/diagram.webp", alt: "Polynomial Functions" },
     title: 'Remainder theorem and factor theorem',
     content: (
       <>

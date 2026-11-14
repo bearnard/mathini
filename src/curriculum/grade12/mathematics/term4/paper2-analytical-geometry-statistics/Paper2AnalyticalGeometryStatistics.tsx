@@ -6,7 +6,6 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 
   const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/math/term4/paper2-analytical-geometry-statistics/diagram.webp", alt: "Paper 2 Analytical Geometry and Statistics Revision" },
     title: 'Coordinate methods you must recall quickly',
     content: (
       <>

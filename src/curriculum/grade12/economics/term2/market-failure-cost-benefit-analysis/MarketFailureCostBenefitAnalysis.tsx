@@ -13,7 +13,6 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/econ/term2/market-failure-cost-benefit-analysis/diagram.webp", alt: "Market Failure and Cost-Benefit Analysis" },
     title: 'What market failure means',
     content: (
       <div className="space-y-6">

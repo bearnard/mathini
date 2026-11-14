@@ -5,7 +5,6 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/bus/term3/environmental-social-responsibility/diagram.webp", alt: "SWOT Analysis: Sustainability Programme" },
     title: 'Environmental issues affect business',
     content: (
       <div className="space-y-6">

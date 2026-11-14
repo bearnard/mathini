@@ -4,7 +4,6 @@ import ClimateGraph from '@/components/subjects/ClimateGraph';
 
 const learnSteps = [
   {
-    image: { src: "/curriculum/grade12/geo/term1/local-climates/diagram.webp", alt: "Local Climates" },
     title: "Why valleys have special climates",
     content: (
       <div className="space-y-4 text-left">

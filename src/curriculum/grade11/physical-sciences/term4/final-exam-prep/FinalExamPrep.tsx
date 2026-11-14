@@ -4,7 +4,6 @@ import type { PSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/ps/term4/final-exam-prep/diagram.webp", alt: "Final Examination Preparation" },
     title: 'Paper 1 — Physics Exam Structure',
     content: (
       <div className="space-y-4 text-center">

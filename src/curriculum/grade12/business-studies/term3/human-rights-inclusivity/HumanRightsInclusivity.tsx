@@ -5,7 +5,6 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/bus/term3/human-rights-inclusivity/diagram.webp", alt: "SWOT Analysis: Inclusive Workplace Strategy" },
     title: 'Human rights matter in business',
     content: (
       <div className="space-y-6">

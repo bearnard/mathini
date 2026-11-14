@@ -9,7 +9,6 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ls/term1/dna-protein-synthesis/diagram.webp", alt: "Organisation of genetic material" },
     title: 'DNA stores coded biological information',
     content: (
       <div className="space-y-6 text-left">

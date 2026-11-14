@@ -3,7 +3,6 @@ import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/his/term1/independence-in-congo-and-tanzania/diagram.webp", alt: "Independence in Congo and Tanzania" },
     title: 'Key Events — Timeline',
     content: (
       <div className="space-y-4">

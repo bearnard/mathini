@@ -2,7 +2,6 @@ import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 
 const learnSteps = [
   {
-    image: { src: "/curriculum/grade12/eng/term3/oral-trial-preparation/diagram.webp", alt: "Oral Completion and Trial Preparation" },
     title: "Completing the oral portfolio carefully",
     content: (
       <div className="space-y-4 text-left">

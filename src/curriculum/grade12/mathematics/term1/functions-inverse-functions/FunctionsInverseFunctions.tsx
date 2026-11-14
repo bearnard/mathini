@@ -6,7 +6,6 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 
   const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/math/term1/functions-inverse-functions/diagram.webp", alt: "Functions and Inverse Functions" },
     title: 'What makes a relation a function?',
     content: (
       <>

@@ -3,7 +3,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps = [
   {
-    image: { src: "/curriculum/grade12/eng/term4/literature-consolidation/diagram.webp", alt: "From \\" },
     title: "Condensing literature notes effectively",
     content: (
       <div className="space-y-4 text-left">

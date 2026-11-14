@@ -4,7 +4,6 @@ import type { PSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/ps/term4/physics-consolidation/diagram.webp", alt: "Physics Consolidation" },
     title: 'Mechanics Review — Vectors, Forces and Motion',
     content: (
       <div className="space-y-4 text-center">

@@ -4,7 +4,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/xho/term4/language-structures/diagram.webp", alt: "Language Structures" },
     title: 'isiXhosa concord revision: noun classes and agreement',
     content: (
       <div className="space-y-4 text-center">

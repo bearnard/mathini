@@ -3,7 +3,6 @@ import type { LSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/ls/term4/human-impact-environment/diagram.webp", alt: "Human Impact on the Environment" },
     title: 'Climate Change and the Greenhouse Effect',
     content: (
       <div className="space-y-4 text-center">

@@ -3,7 +3,6 @@ import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/his/term1/black-consciousness-movement/diagram.webp", alt: "Black Consciousness Movement" },
     title: 'Key Events — Timeline',
     content: (
       <div className="space-y-4">

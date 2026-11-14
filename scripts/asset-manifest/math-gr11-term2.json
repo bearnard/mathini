@@ -20,27 +20,5 @@
     "path": "curriculum/grade11/math/term2/trigonometry/diagram.svg",
     "alt": "unit circle showing angles in all four quadrants with CAST rule labels",
     "prompt": "Clear educational SVG diagram for Grade 11 learners showing a unit circle divided into four quadrants with marked reference angles at 30\u00b0, 45\u00b0, 60\u00b0 positions and the CAST (All, Sin, Tan, Cos) positive signs visually distinguished in each quadrant."
-  },
-  {
-    "grade": "grade11",
-    "subject": "math",
-    "term": "term2",
-    "topic": "trigonometry",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/math/term2/trigonometry/diagram.webp",
-    "alt": "Trigonometry",
-    "prompt": "A clear educational illustration depicting \"Trigonometry\": Identities, reduction formulae and general solutions."
-  },
-  {
-    "grade": "grade11",
-    "subject": "math",
-    "term": "term2",
-    "topic": "functions",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/math/term2/functions/diagram.webp",
-    "alt": "Functions",
-    "prompt": "A clear educational illustration depicting \"Functions\": Parameters, graph transformations and average gradient."
   }
 ]

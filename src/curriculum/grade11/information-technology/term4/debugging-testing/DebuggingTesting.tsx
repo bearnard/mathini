@@ -3,7 +3,6 @@ import type { ITItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/it/term4/debugging-testing/diagram.webp", alt: "Debugging and Testing" },
     title: 'Types of programming errors',
     content: (
       <div className="space-y-4 text-center">

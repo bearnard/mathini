@@ -6,7 +6,6 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ml/term1/data-handling/diagram.webp", alt: "Data Handling" },
     title: 'Read data displays carefully',
     content: (
       <div className="space-y-4 text-left">

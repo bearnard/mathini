@@ -3,7 +3,6 @@ import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/his/term2/mass-democratic-movement-and-cosatu/diagram.webp", alt: "Mass Democratic Movement and COSATU" },
     title: 'Key Events — Timeline',
     content: (
       <div className="space-y-4">

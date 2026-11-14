@@ -4,7 +4,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/xho/term2/writing-presenting/diagram.webp", alt: "Writing & Presenting" },
     title: 'Formal letter: format and tone',
     content: (
       <div className="space-y-4 text-center">

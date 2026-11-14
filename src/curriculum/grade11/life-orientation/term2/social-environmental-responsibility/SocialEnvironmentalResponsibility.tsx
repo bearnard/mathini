@@ -3,7 +3,6 @@ import type { LearnStep } from '@/components/CapsSubjectTopic';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/lo/term2/social-environmental-responsibility/diagram.webp", alt: "Social and Environmental Responsibility" },
     title: 'Environmental Justice and Sustainability',
     content: (
       <div className="space-y-4 text-center">

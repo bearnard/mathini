@@ -8,7 +8,6 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ls/term2/endocrine-homeostasis-plant-responses/diagram.webp", alt: "Major endocrine control points" },
     title: 'Hormones coordinate slower but longer-lasting responses',
     content: (
       <div className="space-y-6 text-left">

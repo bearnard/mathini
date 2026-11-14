@@ -8,7 +8,6 @@ const WaveInterference = dynamic(() => import('@/components/subjects/PhysicsSim/
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ps/term2/doppler-effect-applications/diagram.webp", alt: "Doppler Effect and Applications" },
     title: 'Observed frequency changes with relative motion',
     content: (
       <div className="space-y-4 text-left">

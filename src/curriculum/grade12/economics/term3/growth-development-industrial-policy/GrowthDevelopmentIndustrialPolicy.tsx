@@ -13,7 +13,6 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/econ/term3/growth-development-industrial-policy/diagram.webp", alt: "Growth, Development and Industrial Policy" },
     title: 'Growth versus development',
     content: (
       <div className="space-y-6">

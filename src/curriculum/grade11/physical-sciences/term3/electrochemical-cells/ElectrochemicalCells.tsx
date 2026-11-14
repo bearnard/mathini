@@ -5,7 +5,6 @@ import type { PSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/ps/term3/electrochemical-cells/diagram.webp", alt: "Electrochemical Cells" },
     title: 'Galvanic Cells',
     content: (
       <div className="space-y-4 text-center">

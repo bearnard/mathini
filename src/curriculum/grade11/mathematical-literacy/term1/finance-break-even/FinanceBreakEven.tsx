@@ -6,7 +6,6 @@ import BudgetPlanner from '@/components/subjects/BudgetPlanner';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/ml/term1/finance-break-even/diagram.webp", alt: "Finance: Budgets and Break-even" },
     title: 'Income and expenditure statements',
     content: (
       <div className="space-y-4 text-center">

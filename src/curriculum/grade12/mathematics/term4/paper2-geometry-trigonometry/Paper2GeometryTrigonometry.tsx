@@ -7,7 +7,6 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
 
   const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/math/term4/paper2-geometry-trigonometry/diagram.webp", alt: "Paper 2 Geometry and Trigonometry Revision" },
     title: 'Proof structure matters',
     content: (
       <>

@@ -6,7 +6,6 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 
   const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/math/term3/statistics-regression-correlation/diagram.webp", alt: "Statistics: Regression and Correlation" },
     title: 'Reading scatter plots and correlation',
     content: (
       <>

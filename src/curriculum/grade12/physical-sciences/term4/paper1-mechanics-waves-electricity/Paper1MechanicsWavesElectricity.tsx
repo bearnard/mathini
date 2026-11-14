@@ -6,7 +6,6 @@ import WaveInterference from '@/components/subjects/PhysicsSim/WaveInterference'
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ps/term4/paper1-mechanics-waves-electricity/diagram.webp", alt: "Paper 1 Mechanics, Waves and Electricity Revision" },
     title: 'Start by identifying the big Paper 1 idea',
     content: (
       <div className="space-y-4 text-left">
