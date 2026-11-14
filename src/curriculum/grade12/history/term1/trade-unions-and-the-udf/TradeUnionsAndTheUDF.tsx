@@ -79,14 +79,14 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: "Why were the Durban strikes of 1973 historically important?",
-    options: ["They showed that organised workers could challenge apartheid employers and the state", "They created the first democratic parliament", "They ended all racial laws immediately", "They brought independence to Namibia"],
-    answer: "They showed that organised workers could challenge apartheid employers and the state",
+    options: ['They showed organised workers could challenge the state', 'They created the first democratic parliament', 'They ended all of the racial laws at once', 'They brought independence to Namibia'],
+    answer: 'They showed organised workers could challenge the state',
     explanation: "The strikes revealed the political importance of worker action in apartheid South Africa.",
   },
   {
     prompt: "What is a trade union?",
-    options: ["A business owned by the government", "An organisation that represents workers' interests", "A court that judges labour disputes", "A group of school principals"],
-    answer: "An organisation that represents workers' interests",
+    options: ['A business that is owned by the government', 'An organisation that represents the interests of workers', 'A court that judges disputes in the workplace', 'A group made up of school principals'],
+    answer: 'An organisation that represents the interests of workers',
     explanation: "Trade unions organise workers to fight for wages, conditions, and rights.",
   },
   {
@@ -109,8 +109,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why did the UDF oppose the tricameral parliament?",
-    options: ["It gave power to workers only", "It still excluded the African majority from national political power", "It abolished local government", "It made South Africa a republic"],
-    answer: "It still excluded the African majority from national political power",
+    options: ['It gave power to the workers and no one else', 'It still shut the African majority out of national power', 'It did away with local government', 'It turned South Africa into a republic'],
+    answer: 'It still shut the African majority out of national power',
     explanation: "The tricameral system created separate chambers for whites, Coloureds, and Indians, but Africans were left out entirely.",
   },
   {

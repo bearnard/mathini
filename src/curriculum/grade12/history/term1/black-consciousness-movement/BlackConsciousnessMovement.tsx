@@ -97,8 +97,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why did Black Consciousness criticise white liberal control of anti-apartheid politics?",
-    options: ["It believed apartheid could be improved", "It insisted oppressed people had to lead their own struggle", "It rejected all cooperation with churches", "It wanted to end student politics"],
-    answer: "It insisted oppressed people had to lead their own struggle",
+    options: ['It believed that apartheid could be improved', 'It insisted oppressed people must lead their own struggle', 'It rejected all cooperation with the churches', 'It wanted to bring student politics to an end'],
+    answer: 'It insisted oppressed people must lead their own struggle',
     explanation: "Black Consciousness promoted black self-definition and leadership instead of paternalism.",
   },
   {
@@ -109,8 +109,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why did the apartheid state see Black Consciousness as a threat?",
-    options: ["It supported homeland independence", "It rebuilt confidence and internal resistance among black South Africans", "It called for cooperation with the secret police", "It wanted to protect white supremacy"],
-    answer: "It rebuilt confidence and internal resistance among black South Africans",
+    options: ['It supported the independence of the homelands', 'It rebuilt confidence and resistance within black communities', 'It called for cooperation with the security police', 'It aimed to protect white supremacy'],
+    answer: 'It rebuilt confidence and resistance within black communities',
     explanation: "The movement challenged apartheid ideologically and helped create a new generation of activists.",
   },
   {

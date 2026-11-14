@@ -61,7 +61,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which paragraph topic sentence is strongest?",
-    options: ["This paragraph is about many things", "The character's silence reveals both fear and resistance", "I am now writing my second paragraph", "The extract is interesting to read"],
+    options: ['This paragraph is about many different things', "The character's silence reveals both fear and resistance", 'I am now writing the second paragraph of my essay', 'The extract is interesting and enjoyable to read'],
     answer: "The character's silence reveals both fear and resistance",
     explanation: "A strong topic sentence makes a clear analytical claim that can be supported with evidence.",
   },
@@ -85,20 +85,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which sentence best links evidence to analysis?",
-    options: ["The quotation is there.", "This phrase suggests the character feels trapped, which strengthens the theme of control.", "I have finished my quotation.", "The line comes from Act 2."],
-    answer: "This phrase suggests the character feels trapped, which strengthens the theme of control.",
+    options: ['The quotation is placed in the middle of my paragraph.', 'This phrase suggests the character feels trapped, which fits the theme.', 'I have now finished writing out my quotation here.', 'The line comes from the second act of the play.'],
+    answer: 'This phrase suggests the character feels trapped, which fits the theme.',
     explanation: "Analysis explains what the quoted words reveal and why they matter to the argument.",
   },
   {
     prompt: "What is the difference between a literary essay and a contextual response?",
-    options: ["A literary essay uses the whole text while a contextual response starts from a set extract", "A contextual response never uses evidence", "A literary essay is shorter than one sentence", "There is no difference"],
-    answer: "A literary essay uses the whole text while a contextual response starts from a set extract",
+    options: ['Literary essays use the whole text; contextual ones use an extract', 'A contextual response never uses any evidence at all', 'A literary essay is shorter than one single sentence', 'There is no difference at all between the two kinds'],
+    answer: 'Literary essays use the whole text; contextual ones use an extract',
     explanation: "Essays address a broader whole-text question, while contextual responses are anchored in a specific extract.",
   },
   {
     prompt: "Which answer would likely earn more credit?",
-    options: ["A paragraph with plot summary only", "A paragraph that makes a claim, quotes briefly and explains the effect", "A paragraph with no references to the text", "A paragraph written as bullet points only"],
-    answer: "A paragraph that makes a claim, quotes briefly and explains the effect",
+    options: ['A paragraph that has a plot summary and nothing else', 'A paragraph with a claim, a brief quote and an explanation', 'A paragraph with no references to the text at all', 'A paragraph that is written as bullet points only'],
+    answer: 'A paragraph with a claim, a brief quote and an explanation',
     explanation: "Examiners reward analytical paragraphs that combine argument, evidence and explanation.",
   },
 ];

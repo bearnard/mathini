@@ -101,13 +101,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "The quaternary sector is mainly associated with:",
-    options: [
-      "Subsistence farming",
-      "Information and knowledge-based services",
-      "Heavy extraction only",
-      "Road construction only",
-    ],
-    answer: "Information and knowledge-based services",
+    options: ['Subsistence farming on small plots', 'Information and knowledge-based services', 'Heavy extraction and nothing else', 'Road construction and nothing else'],
+    answer: 'Information and knowledge-based services',
     explanation: "Research, data, technology and high-level information work are part of the quaternary sector.",
   },
   {

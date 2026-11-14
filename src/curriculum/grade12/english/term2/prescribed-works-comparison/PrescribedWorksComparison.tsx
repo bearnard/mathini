@@ -55,14 +55,14 @@ const learnSteps = [
 const bank: CapsItem[] = [
   {
     prompt: "What makes a comparative paragraph effective?",
-    options: ["It discusses only one text in detail", "It keeps both texts linked through one clear point of comparison", "It avoids evidence from the texts", "It replaces analysis with summary"],
-    answer: "It keeps both texts linked through one clear point of comparison",
+    options: ['It discusses only one of the texts in detail', 'It links both texts through one clear point of comparison', 'It avoids evidence from either one of the texts', 'It replaces analysis of the texts with a summary'],
+    answer: 'It links both texts through one clear point of comparison',
     explanation: "A strong comparative paragraph develops one idea across both texts rather than separating them completely.",
   },
   {
     prompt: "Which statement best compares theme across genres?",
-    options: ["Themes can appear only in novels", "The same theme may be presented differently in drama, prose and poetry", "Poetry has no theme because it is shorter", "Drama uses theme but novels do not"],
-    answer: "The same theme may be presented differently in drama, prose and poetry",
+    options: ['Themes can appear in novels and nowhere else', 'One theme may appear differently in drama, prose and poetry', 'Poetry has no theme because it is so much shorter', 'Drama uses theme but novels never do so at all'],
+    answer: 'One theme may appear differently in drama, prose and poetry',
     explanation: "Themes can cross genres, but the techniques used to express them differ.",
   },
   {
@@ -97,8 +97,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which response sounds most analytical?",
-    options: ["Both texts are nice to read.", "Both texts portray isolation, but the poem uses compressed imagery while the novel develops it through character experience.", "There are two texts.", "Text A is longer than Text B."],
-    answer: "Both texts portray isolation, but the poem uses compressed imagery while the novel develops it through character experience.",
+    options: ['Both of the texts are nice and easy to read.', 'Both show isolation; the poem compresses it into imagery.', 'There are two texts in this question to read.', 'Text A is much longer than Text B is.'],
+    answer: 'Both show isolation; the poem compresses it into imagery.',
     explanation: "This response compares a theme and explains how each genre presents it differently.",
   },
 ];

@@ -73,8 +73,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why is naming a device alone not enough?",
-    options: ["Because devices are not examined", "Because you must explain its effect on meaning or tone", "Because only rhyme matters", "Because poems have no message"],
-    answer: "Because you must explain its effect on meaning or tone",
+    options: ['Devices are not examined in the paper', 'You must explain its effect on meaning or tone', 'Only rhyme matters in a poem', 'Poems do not have a message'],
+    answer: 'You must explain its effect on meaning or tone',
     explanation: "CAPS poetry answers need explanation of how a device contributes to the poem.",
   },
   {

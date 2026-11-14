@@ -39,8 +39,8 @@ const learnSteps = [
 const bank: CapsItem[] = [
   {
     prompt: "What does cohesion in writing refer to?",
-    options: ["Only spelling accuracy", "The smooth connection of ideas across a text", "The length of each paragraph", "Whether the title is underlined"],
-    answer: "The smooth connection of ideas across a text",
+    options: ['Spelling accuracy and nothing else', 'The smooth link between ideas across a text', 'The length of each of the paragraphs', 'Whether the title has been underlined'],
+    answer: 'The smooth link between ideas across a text',
     explanation: "Cohesion is about how sentences and paragraphs connect logically and clearly.",
   },
   {
@@ -63,8 +63,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "A pronoun-reference problem happens when...",
-    options: ["A noun is described clearly", "It is unclear what a pronoun refers to", "A speech uses a greeting", "A poem has stanzas"],
-    answer: "It is unclear what a pronoun refers to",
+    options: ['A noun is described in a clear way', 'It is unclear what a pronoun refers to', 'A speech begins with a greeting', 'A poem is divided into stanzas'],
+    answer: 'It is unclear what a pronoun refers to',
     explanation: "Pronoun-reference errors confuse the reader because the antecedent is unclear.",
   },
   {
@@ -75,14 +75,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What is a useful proofreading method?",
-    options: ["Check everything at once randomly", "Read specifically for one type of error at a time", "Skip the final reread", "Only look at the first paragraph"],
-    answer: "Read specifically for one type of error at a time",
+    options: ['Check everything at the same time in one pass', 'Read for one type of error at a time', 'Skip the final reread of the work', 'Look only at the first paragraph of the text'],
+    answer: 'Read for one type of error at a time',
     explanation: "Targeted proofreading helps you catch more errors than an unfocused scan.",
   },
   {
     prompt: "Which sentence sounds most appropriately formal?",
-    options: ["Your rule is super unfair.", "I respectfully request that the policy be reviewed.", "This thing is bad vibes.", "Guys, please fix it now."],
-    answer: "I respectfully request that the policy be reviewed.",
+    options: ['Your rule is super unfair, you know.', 'I respectfully request that the policy be reviewed.', 'This thing is bad vibes, to be honest.', 'Guys, please fix it now, thanks.'],
+    answer: 'I respectfully request that the policy be reviewed.',
     explanation: "This sentence uses measured, formal wording appropriate for formal writing.",
   },
 ];

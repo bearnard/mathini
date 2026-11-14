@@ -39,20 +39,20 @@ const learnSteps = [
 const bank: CapsItem[] = [
   {
     prompt: "What is the best reason to do timed practice before mid-year exams?",
-    options: ["To make your handwriting untidy", "To learn pacing and identify time-management problems", "To avoid studying content", "To replace all revision notes"],
-    answer: "To learn pacing and identify time-management problems",
+    options: ['To make your handwriting untidy', 'To learn pacing and spot time-management problems', 'To avoid studying the content', 'To take the place of all your revision notes'],
+    answer: 'To learn pacing and spot time-management problems',
     explanation: "Timed practice helps you see whether you can complete tasks accurately within exam limits.",
   },
   {
     prompt: "Which revision method best supports Paper 2?",
-    options: ["Only memorising chapter numbers", "Using themes, quotations and character links", "Ignoring contextual questions", "Studying summary technique only"],
-    answer: "Using themes, quotations and character links",
+    options: ['Memorising chapter numbers and nothing else', 'Using themes, quotations and character links', 'Ignoring the contextual questions', 'Studying summary technique and nothing else'],
+    answer: 'Using themes, quotations and character links',
     explanation: "Paper 2 revision works best when learners connect themes, evidence and character analysis.",
   },
   {
     prompt: "Why should your revision plan rotate across all papers?",
-    options: ["Because one paper determines the mark alone", "Because Grade 12 English HL assesses different skills across three papers", "Because Paper 3 is never written", "Because literature cannot be revised"],
-    answer: "Because Grade 12 English HL assesses different skills across three papers",
+    options: ['One paper decides the whole mark on its own', 'Grade 12 HL tests different skills across three papers', 'Paper 3 is never written in the final exam', 'Literature cannot be revised at any stage'],
+    answer: 'Grade 12 HL tests different skills across three papers',
     explanation: "A rotating plan keeps all paper demands active instead of neglecting one area.",
   },
   {

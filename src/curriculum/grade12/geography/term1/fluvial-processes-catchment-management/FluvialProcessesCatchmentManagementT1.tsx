@@ -78,13 +78,8 @@ const learnSteps = [
 const bank: CapsItem[] = [
   {
     prompt: "What is a watershed?",
-    options: [
-      "The lowest point of a river valley",
-      "The boundary separating one drainage basin from another",
-      "A place where a river enters the sea",
-      "A floodplain next to a river",
-    ],
-    answer: "The boundary separating one drainage basin from another",
+    options: ['The lowest point in the valley of a river', 'The boundary between one drainage basin and another', 'A place where a river flows into the sea', 'A floodplain that lies next to a river'],
+    answer: 'The boundary between one drainage basin and another',
     explanation: "A watershed is the high ground that marks the edge of a drainage basin.",
   },
   {
@@ -133,13 +128,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why are wetlands important in a catchment?",
-    options: [
-      "They always increase erosion",
-      "They store water, filter pollutants and reduce flood peaks",
-      "They prevent all evaporation",
-      "They make rivers flow uphill",
-    ],
-    answer: "They store water, filter pollutants and reduce flood peaks",
+    options: ['They always increase the erosion of the land', 'They store water, filter pollutants and lower flood peaks', 'They stop all evaporation from the catchment', 'They make the rivers flow uphill'],
+    answer: 'They store water, filter pollutants and lower flood peaks',
     explanation: "Wetlands slow runoff, trap sediment and help clean and store water.",
   },
   {

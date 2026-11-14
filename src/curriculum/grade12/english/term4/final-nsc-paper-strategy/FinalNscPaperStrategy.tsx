@@ -57,8 +57,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "If a question is phrased differently from what you expected, what should you do first?",
-    options: ["Panic and skip the paper", "Read carefully and adapt your prepared skills to the task", "Write the answer you memorised anyway", "Stop using evidence"],
-    answer: "Read carefully and adapt your prepared skills to the task",
+    options: ['Panic and skip the whole paper at once', 'Read carefully and adapt your prepared skills', 'Write the answer that you memorised anyway', 'Stop using evidence in any of your answers'],
+    answer: 'Read carefully and adapt your prepared skills',
     explanation: "Careful reading and flexible thinking help you respond to the actual question set.",
   },
   {
@@ -81,8 +81,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which statement shows adaptability?",
-    options: ["I will answer every question the same way.", "I can adjust my approach once I understand the instruction and text.", "I do not need to read the question carefully.", "I will ignore unfamiliar wording."],
-    answer: "I can adjust my approach once I understand the instruction and text.",
+    options: ['I will answer every question in the same way.', 'I can adjust my approach once I understand the task and text.', 'I do not need to read the question carefully.', 'I will ignore any wording that is unfamiliar.'],
+    answer: 'I can adjust my approach once I understand the task and text.',
     explanation: "Adaptability means using your skills flexibly to meet the actual task.",
   },
 ];

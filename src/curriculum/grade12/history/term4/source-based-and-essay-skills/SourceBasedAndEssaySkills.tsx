@@ -83,8 +83,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why is the purpose of a source important?",
-    options: ["It helps explain why the source was created and how it might shape the message", "It tells you the source is always neutral", "It replaces the need for own knowledge", "It proves the source is false"],
-    answer: "It helps explain why the source was created and how it might shape the message",
+    options: ['It helps explain why it was made and how it shapes the message', 'It tells you that the source is always neutral', 'It takes the place of your own knowledge', 'It proves that the source is false'],
+    answer: 'It helps explain why it was made and how it shapes the message',
     explanation: "Purpose can influence tone, selection of facts, and persuasive language in a source.",
   },
   {
@@ -95,8 +95,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which statement about bias is most accurate?",
-    options: ["A biased source is always useless", "Bias must be explained in relation to perspective and context", "Only written sources can be biased", "Bias means the source has no author"],
-    answer: "Bias must be explained in relation to perspective and context",
+    options: ['A biased source is always useless to a historian', 'Bias must be explained by perspective and context', 'Only written sources can ever be biased', 'Bias means that the source has no named author'],
+    answer: 'Bias must be explained by perspective and context',
     explanation: "A source can still be useful if you identify whose viewpoint it represents and why.",
   },
   {
@@ -107,8 +107,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why is chronology important in History writing?",
-    options: ["It shows how events unfolded over time and helps explain cause and consequence", "It allows you to ignore dates completely", "It replaces all source analysis", "It means every essay must start in 1948"],
-    answer: "It shows how events unfolded over time and helps explain cause and consequence",
+    options: ['It shows how events unfolded and explains cause and effect', 'It allows you to ignore dates completely', 'It takes the place of all source analysis', 'It means that every essay must start in 1948'],
+    answer: 'It shows how events unfolded and explains cause and effect',
     explanation: "Chronology helps you show sequence, turning points, and the relationship between causes and outcomes.",
   },
   {

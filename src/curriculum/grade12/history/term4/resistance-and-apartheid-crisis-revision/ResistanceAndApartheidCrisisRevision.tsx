@@ -84,26 +84,26 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why is the Soweto Uprising often seen as a turning point?",
-    options: ["It revived internal resistance and drew global attention to apartheid", "It ended sanctions", "It established the homelands", "It created the 1996 Constitution"],
-    answer: "It revived internal resistance and drew global attention to apartheid",
+    options: ['It revived resistance and drew global attention', 'It brought all of the sanctions to an end', 'It set up the homelands in the country', 'It created the Constitution of the year 1996'],
+    answer: 'It revived resistance and drew global attention',
     explanation: "Soweto re-energised the struggle and became an international symbol of apartheid brutality.",
   },
   {
     prompt: "How did trade unions contribute to the anti-apartheid struggle?",
-    options: ["By using strikes and stayaways to disrupt the economy", "By defending pass laws", "By creating the tricameral parliament", "By ending all civic protest"],
-    answer: "By using strikes and stayaways to disrupt the economy",
+    options: ['By using strikes and stayaways to disrupt the economy', 'By defending the pass laws', 'By creating the tricameral parliament', 'By bringing all civic protest to an end'],
+    answer: 'By using strikes and stayaways to disrupt the economy',
     explanation: "Worker action put pressure on employers and the state through economic disruption.",
   },
   {
     prompt: "What was the main reason the UDF opposed the tricameral parliament?",
-    options: ["It excluded the African majority from real national power", "It created too much democracy", "It gave power to liberation movements", "It united all races equally"],
-    answer: "It excluded the African majority from real national power",
+    options: ['It shut the African majority out of real national power', 'It created too much democracy', 'It gave power to the liberation movements', 'It united all of the races on equal terms'],
+    answer: 'It shut the African majority out of real national power',
     explanation: "The UDF rejected reforms that tried to save apartheid without majority rule.",
   },
   {
     prompt: "Why are the states of emergency important in revision of the 1980s?",
-    options: ["They show that the apartheid state relied heavily on repression", "They ended all opposition permanently", "They were part of the 1917 Russian Revolution", "They legalised the ANC in 1985"],
-    answer: "They show that the apartheid state relied heavily on repression",
+    options: ['They show that the state relied heavily on repression', 'They ended all opposition for good', 'They were part of the Russian Revolution of 1917', 'They made the ANC legal in 1985'],
+    answer: 'They show that the state relied heavily on repression',
     explanation: "Emergency rule highlighted the coercive character of the regime during its crisis.",
   },
   {
@@ -120,8 +120,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What best explains the crisis of apartheid?",
-    options: ["Internal resistance and external pressure combined to make the system unsustainable", "The state solved all demands through reform", "Only one event caused the entire crisis", "The African majority accepted exclusion from politics"],
-    answer: "Internal resistance and external pressure combined to make the system unsustainable",
+    options: ['Internal resistance and outside pressure made it unsustainable', 'The state met all demands through reform', 'A single event caused the whole crisis', 'The African majority accepted exclusion from politics'],
+    answer: 'Internal resistance and outside pressure made it unsustainable',
     explanation: "The crisis deepened because pressure came from many fronts at once.",
   },
 ];

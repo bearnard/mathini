@@ -89,8 +89,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What happened on 2 February 1990?",
-    options: ["The first democratic election was held", "De Klerk announced the unbanning of liberation movements", "The TRC began hearings", "The Sharpeville massacre took place"],
-    answer: "De Klerk announced the unbanning of liberation movements",
+    options: ['The first democratic election was held that day', 'De Klerk announced the unbanning of liberation groups', 'The TRC began to hold its first hearings', 'The Sharpeville massacre took place that day'],
+    answer: 'De Klerk announced the unbanning of liberation groups',
     explanation: "His parliamentary speech opened the way to formal negotiation.",
   },
   {

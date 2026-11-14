@@ -84,8 +84,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What was a central dispute during CODESA?",
-    options: ["Whether South Africa should return to colonial rule", "How to balance majority rule with power-sharing and minority protections", "Whether to abolish all elections forever", "How to divide South Africa into foreign colonies"],
-    answer: "How to balance majority rule with power-sharing and minority protections",
+    options: ['Whether South Africa should return to colonial rule', 'How to balance majority rule with power-sharing and protections', 'Whether all elections should be abolished for ever', 'How to split South Africa into foreign colonies'],
+    answer: 'How to balance majority rule with power-sharing and protections',
     explanation: "The ANC and National Party disagreed sharply over constitutional power during the transition.",
   },
   {
@@ -96,8 +96,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why did negotiations resume after breakdowns?",
-    options: ["Because all violence had ended", "Because compromise was still preferable to prolonged conflict and instability", "Because apartheid had become popular again", "Because the UN forced a constitution on South Africa"],
-    answer: "Because compromise was still preferable to prolonged conflict and instability",
+    options: ['All of the violence had come to an end', 'Compromise was still better than long conflict', 'Apartheid had become popular once again', 'The UN forced a constitution on South Africa'],
+    answer: 'Compromise was still better than long conflict',
     explanation: "Neither side could secure a stable future without a negotiated settlement.",
   },
   {

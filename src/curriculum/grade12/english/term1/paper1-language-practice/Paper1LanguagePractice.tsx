@@ -57,8 +57,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What should you identify first in an advertisement question?",
-    options: ["The poet's rhyme scheme", "The target audience and persuasive purpose", "The length of the exam", "The novel's narrator"],
-    answer: "The target audience and persuasive purpose",
+    options: ['The rhyme scheme that the poet used', 'The target audience and persuasive purpose', 'The length of the exam in minutes', 'The narrator of the novel you studied'],
+    answer: 'The target audience and persuasive purpose',
     explanation: "Advertisements are designed to persuade a specific audience for a specific purpose.",
   },
   {
@@ -81,8 +81,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why is oral preparation relevant to Paper 1 routines in Term 1?",
-    options: ["Because listening and speaking strengthen language awareness and response skills", "Because Paper 1 has no reading at all", "Because oral tasks replace essays completely", "Because visual literacy is removed in Grade 12"],
-    answer: "Because listening and speaking strengthen language awareness and response skills",
+    options: ['Listening and speaking build language awareness and response skills', 'Paper 1 has no reading component in it at all', 'Oral tasks replace the essays in the paper entirely', 'Visual literacy is removed from the paper in Grade 12'],
+    answer: 'Listening and speaking build language awareness and response skills',
     explanation: "Listening and speaking practice sharpen vocabulary, interpretation and confidence across language tasks.",
   },
 ];

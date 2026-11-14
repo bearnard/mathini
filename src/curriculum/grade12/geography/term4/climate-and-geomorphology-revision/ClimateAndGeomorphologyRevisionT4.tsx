@@ -140,13 +140,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What is a key revision strategy for mapwork questions?",
-    options: [
-      "Ignore the map evidence",
-      "Use map evidence to justify each answer",
-      "Only memorise definitions",
-      "Avoid using direction terms",
-    ],
-    answer: "Use map evidence to justify each answer",
+    options: ['Ignore the map evidence in the answers', 'Use map evidence to justify each answer', 'Memorise definitions and nothing else', 'Avoid the use of direction terms'],
+    answer: 'Use map evidence to justify each answer',
     explanation: "Mapwork answers are stronger when they refer directly to what is visible on the map or diagram.",
   },
   {

@@ -83,8 +83,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which groups were often in violent conflict during the transition?",
-    options: ["ANC-aligned supporters and Inkatha supporters", "British and Belgian troops", "Teachers and doctors", "The TRC and the IEC"],
-    answer: "ANC-aligned supporters and Inkatha supporters",
+    options: ['ANC-aligned supporters and Inkatha supporters', 'British and Belgian troops in the region', 'Teachers and doctors in the townships', 'The TRC and the IEC in the elections'],
+    answer: 'ANC-aligned supporters and Inkatha supporters',
     explanation: "Much of the violence involved conflict between ANC and Inkatha-aligned forces.",
   },
   {
@@ -95,14 +95,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What happened at Boipatong in 1992?",
-    options: ["A massacre intensified mistrust and disrupted negotiations", "The final constitution was signed", "The first democratic election was held", "Mandela was released from prison"],
-    answer: "A massacre intensified mistrust and disrupted negotiations",
+    options: ['A massacre that deepened mistrust and stalled talks', 'The final constitution was signed there that year', 'The first democratic election was held there', 'Mandela was set free from prison that year'],
+    answer: 'A massacre that deepened mistrust and stalled talks',
     explanation: "The Boipatong massacre was a major turning point that led the ANC to suspend talks temporarily.",
   },
   {
     prompt: "Why was the Bisho massacre historically significant?",
-    options: ["It showed the danger of homeland resistance to democratic change", "It ended all homeland politics peacefully", "It took place during the 1976 uprising", "It established the TRC"],
-    answer: "It showed the danger of homeland resistance to democratic change",
+    options: ['It showed the danger of homeland resistance to democratic change', 'It ended all of homeland politics in peace', 'It took place during the uprising of 1976', 'It set up the Truth and Reconciliation Commission'],
+    answer: 'It showed the danger of homeland resistance to democratic change',
     explanation: "The killings at Bisho highlighted how homeland rulers and security forces could obstruct the transition.",
   },
   {

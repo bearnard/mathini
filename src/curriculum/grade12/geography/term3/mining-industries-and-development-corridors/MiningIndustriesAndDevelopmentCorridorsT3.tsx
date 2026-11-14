@@ -92,24 +92,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why do many industries locate near transport routes?",
-    options: [
-      "To increase costs",
-      "To move inputs and goods efficiently",
-      "To avoid all labour",
-      "To create watersheds",
-    ],
-    answer: "To move inputs and goods efficiently",
+    options: ['To make their costs higher', 'To move inputs and goods efficiently', 'To avoid the need for any labour', 'To create new watersheds'],
+    answer: 'To move inputs and goods efficiently',
     explanation: "Good transport links reduce costs and improve access to markets and suppliers.",
   },
   {
     prompt: "Which factor is important when locating a steel plant?",
-    options: [
-      "Access to energy and raw materials",
-      "Distance from all roads",
-      "No water supply",
-      "Only cool local climates",
-    ],
-    answer: "Access to energy and raw materials",
+    options: ['Access to energy and raw materials', 'Distance away from all of the roads', 'A site with no supply of water', 'Cool local climates and nothing else'],
+    answer: 'Access to energy and raw materials',
     explanation: "Heavy industry needs reliable power, bulk raw materials and strong transport connections.",
   },
   {
@@ -125,13 +115,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "A development corridor mainly focuses investment along a:",
-    options: [
-      "Single mountain summit",
-      "Strategic route with growth potential",
-      "Random river meander",
-      "Remote frost pocket",
-    ],
-    answer: "Strategic route with growth potential",
+    options: ['A single mountain summit', 'A strategic route with growth potential', 'A meander in a river bend', 'A remote frost pocket in the hills'],
+    answer: 'A strategic route with growth potential',
     explanation: "Corridors connect important nodes such as ports, roads and industrial areas to drive growth.",
   },
   {

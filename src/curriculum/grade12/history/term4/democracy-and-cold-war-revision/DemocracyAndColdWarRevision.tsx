@@ -80,8 +80,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: "Why is the Congo often used as a Cold War case study in African history?",
-    options: ["Because foreign intervention intensified its post-independence crisis", "Because it avoided all outside influence", "Because it had no mineral wealth", "Because it never became independent"],
-    answer: "Because foreign intervention intensified its post-independence crisis",
+    options: ['Foreign intervention deepened its post-independence crisis', 'It avoided all outside influence during that time', 'It had no mineral wealth of any kind in the country', 'It never became an independent state'],
+    answer: 'Foreign intervention deepened its post-independence crisis',
     explanation: "The Congo Crisis became deeply entangled with Cold War rivalry and outside interests.",
   },
   {
@@ -92,14 +92,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "How did the end of the Cold War affect apartheid South Africa?",
-    options: ["It weakened the regime's anti-communist justification and encouraged negotiation", "It strengthened the case for permanent white rule", "It created the Bantu Education system", "It stopped all internal resistance"],
-    answer: "It weakened the regime's anti-communist justification and encouraged negotiation",
+    options: ['It weakened the anti-communist excuse and encouraged talks', 'It strengthened the case for permanent white rule', 'It created the system of Bantu Education', 'It stopped all internal resistance'],
+    answer: 'It weakened the anti-communist excuse and encouraged talks',
     explanation: "Global change made apartheid harder to defend and political settlement more likely.",
   },
   {
     prompt: "Which event publicly opened the road to negotiations in 1990?",
-    options: ["The 2 February speech unbanning liberation movements", "The Sharpeville massacre", "The formation of SASO", "The Bisho massacre"],
-    answer: "The 2 February speech unbanning liberation movements",
+    options: ['The 2 February 1990 speech unbanning liberation movements', 'The Sharpeville massacre of the year 1960', 'The formation of SASO at the university in 1968', 'The Bisho massacre of the year 1992'],
+    answer: 'The 2 February 1990 speech unbanning liberation movements',
     explanation: "De Klerk's speech and the unbanning announcements made formal negotiations possible.",
   },
   {
@@ -110,20 +110,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What gave the new South African order democratic legitimacy in 1994?",
-    options: ["A universal election in which all races could vote", "The continuation of homeland rule", "A white-only referendum", "Military takeover by the UN"],
-    answer: "A universal election in which all races could vote",
+    options: ['A universal election in which all races could vote', 'The continuation of rule in the homelands', 'A referendum for whites only', 'A takeover of the country by the UN military'],
+    answer: 'A universal election in which all races could vote',
     explanation: "The 1994 election established the authority of a democratic government based on universal suffrage.",
   },
   {
     prompt: "What was one key aim of the TRC?",
-    options: ["To investigate human rights abuses and promote reconciliation", "To return South Africa to apartheid", "To organise the 1976 school protests", "To defend the homelands"],
-    answer: "To investigate human rights abuses and promote reconciliation",
+    options: ['To investigate abuses of rights and promote reconciliation', 'To return South Africa to the system of apartheid', 'To organise the school protests of 1976', 'To defend the system of the homelands'],
+    answer: 'To investigate abuses of rights and promote reconciliation',
     explanation: "The TRC sought truth about the past while supporting a peaceful democratic future.",
   },
   {
     prompt: "What should a strong revision answer about the transition always do?",
-    options: ["Link South African events to broader African and global contexts where relevant", "Ignore all chronology", "Treat every event as isolated and unrelated", "Avoid giving any judgement"],
-    answer: "Link South African events to broader African and global contexts where relevant",
+    options: ['Link South African events to wider African and world contexts', 'Ignore all chronology in the answer that you give', 'Treat every event as separate and unrelated', 'Avoid giving any kind of judgement at all'],
+    answer: 'Link South African events to wider African and world contexts',
     explanation: "Grade 12 History expects learners to connect local transitions to wider Cold War and African developments.",
   },
 ];

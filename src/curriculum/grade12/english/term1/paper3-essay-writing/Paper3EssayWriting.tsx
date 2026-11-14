@@ -75,8 +75,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What is the best final step after drafting an essay?",
-    options: ["Hand it in without rereading", "Check content, coherence, grammar and punctuation", "Remove all paragraph breaks", "Add a different topic"],
-    answer: "Check content, coherence, grammar and punctuation",
+    options: ['Hand it in without rereading it', 'Check content, coherence, grammar and punctuation', 'Remove all of the paragraph breaks', 'Add a different topic to the end of it'],
+    answer: 'Check content, coherence, grammar and punctuation',
     explanation: "Editing after drafting helps improve both technical accuracy and overall clarity.",
   },
   {

@@ -136,24 +136,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which infrastructure improvement would most directly help a remote rural settlement?",
-    options: [
-      "More congestion charges",
-      "Reliable roads and internet connectivity",
-      "Less access to water",
-      "A smaller clinic",
-    ],
-    answer: "Reliable roads and internet connectivity",
+    options: ['More congestion charges for drivers', 'Reliable roads and internet connectivity', 'Less access to a supply of water', 'A smaller clinic for the settlement'],
+    answer: 'Reliable roads and internet connectivity',
     explanation: "Transport and digital access improve service delivery, market access and economic opportunity.",
   },
   {
     prompt: "Land degradation in rural areas can be reduced by:",
-    options: [
-      "Overgrazing more intensely",
-      "Land-care and soil conservation practices",
-      "Removing all vegetation",
-      "Expanding erosion gullies",
-    ],
-    answer: "Land-care and soil conservation practices",
+    options: ['Overgrazing more intensely than before', 'Land-care and soil conservation practices', 'Removing all of the vegetation', 'Allowing erosion gullies to expand'],
+    answer: 'Land-care and soil conservation practices',
     explanation: "Conservation methods protect soil, improve productivity and support long-term rural livelihoods.",
   },
 ];

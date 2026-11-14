@@ -70,24 +70,14 @@ const learnSteps = [
 const bank: CapsItem[] = [
   {
     prompt: "What does site mean in settlement geography?",
-    options: [
-      "The exact piece of land on which a settlement is built",
-      "The region a settlement trades with",
-      "The number of services in a town",
-      "The migration path into a city",
-    ],
-    answer: "The exact piece of land on which a settlement is built",
+    options: ['The exact piece of land on which a settlement is built', 'The region with which a settlement trades', 'The number of services that a town offers', 'The path by which migrants move into a city'],
+    answer: 'The exact piece of land on which a settlement is built',
     explanation: "Site focuses on the physical characteristics of the land occupied by the settlement.",
   },
   {
     prompt: "Situation refers to a settlement’s:",
-    options: [
-      "Soil colour only",
-      "Relative location in relation to routes, markets and other places",
-      "House style",
-      "Average annual rainfall only",
-    ],
-    answer: "Relative location in relation to routes, markets and other places",
+    options: ['The colour of the soil in the area only', 'Its position relative to routes, markets and places', 'The style of the houses in the town only', 'The average rainfall of the area only'],
+    answer: 'Its position relative to routes, markets and places',
     explanation: "Situation describes the settlement’s position relative to surrounding features and connections.",
   },
   {
@@ -136,13 +126,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why might a town develop at a transport junction?",
-    options: [
-      "Because the site is always mountainous",
-      "Because its situation improves trade and accessibility",
-      "Because no people can move away",
-      "Because it avoids all pollution",
-    ],
-    answer: "Because its situation improves trade and accessibility",
+    options: ['The site is always mountainous', 'Its situation improves trade and accessibility', 'No people are able to move away from it', 'It avoids all of the pollution'],
+    answer: 'Its situation improves trade and accessibility',
     explanation: "A good transport situation connects people, goods and services efficiently.",
   },
   {

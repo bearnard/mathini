@@ -68,24 +68,14 @@ const learnSteps = [
 const bank: CapsItem[] = [
   {
     prompt: "Urbanisation means:",
-    options: [
-      "Cities shrinking in size",
-      "An increasing proportion of people living in urban areas",
-      "Only the growth of villages",
-      "The movement of factories to farms",
-    ],
-    answer: "An increasing proportion of people living in urban areas",
+    options: ['Cities that are shrinking in size', 'A growing share of people living in urban areas', 'The growth of villages and nothing else', 'The movement of factories out to farms'],
+    answer: 'A growing share of people living in urban areas',
     explanation: "Urbanisation refers to the rising share of the population that lives in towns and cities.",
   },
   {
     prompt: "Why do informal settlements often develop?",
-    options: [
-      "There is always excess formal housing",
-      "Affordable formal housing is limited for many newcomers",
-      "All migrants prefer farming land",
-      "The CBD has too much open space",
-    ],
-    answer: "Affordable formal housing is limited for many newcomers",
+    options: ['There is always a surplus of formal housing', 'Affordable formal housing is scarce for many newcomers', 'All migrants prefer to live on farmland', 'The CBD has too much open space'],
+    answer: 'Affordable formal housing is scarce for many newcomers',
     explanation: "When city growth is faster than housing delivery, people may occupy land informally.",
   },
   {
@@ -112,13 +102,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What is one benefit of improving public transport in cities?",
-    options: [
-      "Longer travel times",
-      "Reduced congestion and better access to jobs",
-      "More urban sprawl automatically",
-      "Less need for planning",
-    ],
-    answer: "Reduced congestion and better access to jobs",
+    options: ['Longer travel times for commuters', 'Less congestion and better access to jobs', 'More urban sprawl, automatically', 'Less need for planning in the city'],
+    answer: 'Less congestion and better access to jobs',
     explanation: "Good public transport can connect residents to opportunities while reducing traffic pressure.",
   },
   {
@@ -145,13 +130,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why is upgrading informal settlements often preferred to forced removal?",
-    options: [
-      "It improves living conditions without destroying existing social networks",
-      "It guarantees no future migration",
-      "It removes the need for water supply",
-      "It prevents all unemployment",
-    ],
-    answer: "It improves living conditions without destroying existing social networks",
+    options: ['It improves living conditions and keeps social networks', 'It guarantees that no one will move in again', 'It removes the need for a supply of water', 'It prevents all unemployment in the city'],
+    answer: 'It improves living conditions and keeps social networks',
     explanation: "Upgrading can add services and safety while allowing residents to remain connected to jobs and community support.",
   },
 ];

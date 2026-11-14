@@ -77,8 +77,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: "What did the 1983 tricameral parliament create?",
-    options: ["A single non-racial parliament for all adults", "Separate parliamentary chambers for whites, Coloureds, and Indians", "A workers' republic led by trade unions", "An elected African majority government"],
-    answer: "Separate parliamentary chambers for whites, Coloureds, and Indians",
+    options: ['A single non-racial parliament for all adults', 'Separate chambers for whites, Coloureds and Indians', "A workers' republic led by trade unions", 'An elected government with an African majority'],
+    answer: 'Separate chambers for whites, Coloureds and Indians',
     explanation: "The tricameral system created separate racial chambers and still excluded Africans.",
   },
   {
@@ -89,8 +89,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why did P.W. Botha introduce reforms in the 1980s?",
-    options: ["Because apartheid had no opposition at all", "To adapt apartheid under growing internal and external pressure", "To create immediate majority rule", "To remove the security forces from politics"],
-    answer: "To adapt apartheid under growing internal and external pressure",
+    options: ['Because apartheid had no opposition at all', 'To adapt apartheid under pressure from inside and abroad', 'To create majority rule at once', 'To take the security forces out of politics'],
+    answer: 'To adapt apartheid under pressure from inside and abroad',
     explanation: "Botha hoped limited reform would preserve white control while reducing opposition.",
   },
   {
