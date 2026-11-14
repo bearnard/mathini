@@ -1,4 +1,5 @@
 import type { SubjectConfig } from './types';
+import { withQualityRules } from './qualityRules';
 import { acc } from './acc';
 import { bus } from './bus';
 import { ca } from './ca';
@@ -21,7 +22,10 @@ import { ps } from './ps';
 import { xho } from './xho';
 import { grade6 } from './grade6';
 
-export const registry: Record<string, SubjectConfig> = {
+/** Every subject preamble ends with the shared quality rules (ADR 0003 section 1a). */
+const withRules = (cfg: SubjectConfig): SubjectConfig => ({ ...cfg, getPreamble: (grade: number) => withQualityRules(cfg.getPreamble(grade)) });
+
+const raw: Record<string, SubjectConfig> = {
   acc,
   grade6,
   bus,
@@ -44,3 +48,5 @@ export const registry: Record<string, SubjectConfig> = {
   tech,
   xho,
 };
+
+export const registry: Record<string, SubjectConfig> = Object.fromEntries(Object.entries(raw).map(([code, cfg]) => [code, withRules(cfg)]));
