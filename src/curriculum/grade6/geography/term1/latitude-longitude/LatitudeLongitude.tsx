@@ -1,26 +1,17 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import { LatLongGlobe, LatLongGrid } from '@/components/diagrams/LatLong';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Imaginary lines help us locate places',
-    image: {
-      src: '/curriculum/grade6/geo/term1/latitude-longitude/diagram.svg',
-      alt: 'globe with latitude and longitude lines labelled',
-    },
     content: (
       <div className="space-y-4 text-center">
+        <LatLongGlobe />
         <p className="text-lg text-slate-600">
           Geographers use imaginary lines called <strong>latitude</strong> and <strong>longitude</strong>
           to locate places on Earth. Together, the lines make a grid on maps and globes.
         </p>
-        <div className="bg-blue-50 p-6 rounded-xl inline-flex flex-wrap items-center justify-center gap-3 text-xl font-bold">
-          <span>latitude</span>
-          <span className="text-slate-400">+</span>
-          <span>longitude</span>
-          <span className="text-slate-400">=</span>
-          <span>global position</span>
-        </div>
       </div>
     ),
   },
@@ -28,6 +19,7 @@ const learnSteps: LearnStep[] = [
     title: 'Latitude lines run east-west',
     content: (
       <div className="space-y-4 text-center">
+        <LatLongGrid />
         <p className="text-lg text-slate-600">
           Lines of <strong>latitude</strong> run around Earth from east to west. The
           <strong> Equator</strong> is 0° latitude and divides Earth into the Northern and Southern
