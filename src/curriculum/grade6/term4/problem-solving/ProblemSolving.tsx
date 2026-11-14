@@ -1,5 +1,16 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import BarModel from '../../../../components/diagrams/maths/BarModel';
+import { changeOf, formatRand } from '../../../../components/diagrams/maths/mathsHelpers';
+
+// One shopping problem used on all three slides. Every amount is whole cents and the
+// arithmetic lines below are built from these numbers, not typed.
+const PAID = 5000;
+const PARTS = [
+    { name: 'book', cents: 1850 },
+    { name: 'pen', cents: 1200 },
+];
+const SUM = changeOf(PAID, PARTS.map((p) => p.cents));
 
 const learnSteps: LearnStep[] = [
     {
@@ -7,6 +18,10 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Word problems often hide the maths inside a story. Read the whole question first.</p>
+                <p className="mx-auto max-w-md rounded-xl bg-slate-50 p-5 text-left text-slate-700 leading-relaxed">
+                    Thandi buys a book for <mark className="rounded bg-amber-200 px-1 font-bold">{formatRand(PARTS[0].cents)}</mark> and a pen for <mark className="rounded bg-amber-200 px-1 font-bold">{formatRand(PARTS[1].cents)}</mark>. She pays with <mark className="rounded bg-amber-200 px-1 font-bold">{formatRand(PAID)}</mark>. <mark className="rounded bg-rose-200 px-1 font-bold">How much change does she get?</mark>
+                </p>
+                <p className="text-sm text-slate-500"><span className="rounded bg-amber-200 px-1 font-bold">given numbers</span> <span className="rounded bg-rose-200 px-1 font-bold">what to find</span></p>
                 <div className="bg-slate-50 p-6 rounded-xl inline-block text-left space-y-3">
                     <p className="font-bold text-slate-800">Ask yourself:</p>
                     <p className="text-slate-500">What numbers are given?</p>
@@ -21,6 +36,8 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Most Grade 6 problems need more than one operation. Decide the order before you calculate.</p>
+                <BarModel paid={PAID} parts={PARTS} unknown="change" />
+                <p className="text-sm text-slate-500">Draw the bar: the whole, the parts you know, and the part you must find.</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-2xl mx-auto">
                     <div className="bg-indigo-50 p-4 rounded-xl text-indigo-800 font-bold">1. Total</div>
                     <div className="bg-emerald-50 p-4 rounded-xl text-emerald-800 font-bold">2. Share or Compare</div>
@@ -35,10 +52,11 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Write each step clearly, then check whether your answer is reasonable.</p>
+                <BarModel paid={PAID} parts={PARTS} unknown="change" solved />
                 <div className="bg-slate-50 p-6 rounded-xl inline-block space-y-2">
-                    <p className="text-slate-500">R18.50 + R12.00 = <strong>R30.50</strong></p>
-                    <p className="text-slate-500">R50.00 - R30.50 = <strong>R19.50 change</strong></p>
-                    <p className="text-indigo-600 font-bold">Check: R30.50 + R19.50 = R50.00</p>
+                    <p className="text-slate-500">{formatRand(PARTS[0].cents)} + {formatRand(PARTS[1].cents)} = <strong>{formatRand(SUM.spent)}</strong></p>
+                    <p className="text-slate-500">{formatRand(PAID)} - {formatRand(SUM.spent)} = <strong>{formatRand(SUM.change)} change</strong></p>
+                    <p className="text-indigo-600 font-bold">Check: {formatRand(SUM.spent)} + {formatRand(SUM.change)} = {formatRand(SUM.spent + SUM.change)}</p>
                 </div>
             </div>
         )

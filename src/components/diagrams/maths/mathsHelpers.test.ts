@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  LADDERS, convert, countOn, elapsedMinutes, formatDuration, formatNumber, fromMinutes, handAngles, stats, stepFactors, to24, toMinutes, workedExample,
+  LADDERS, changeOf, convert, countOn, formatRand, prismMeasures, rectMeasures, elapsedMinutes, formatDuration, formatNumber, fromMinutes, handAngles, stats, stepFactors, to24, toMinutes, workedExample,
 } from './mathsHelpers';
 
 test('handAngles: 3:00 has the minute hand on 12 and the hour hand on 3', () => {
@@ -138,4 +138,35 @@ test('workedExample reads as the lessons do', () => {
   assert.equal(workedExample('mass', 2, 'kg', 'g'), '2 kg = 2 000 g');
   assert.equal(workedExample('length', 3500, 'm', 'km'), '3 500 m = 3,5 km');
   assert.equal(workedExample('capacity', 4, 'l', 'ml'), '4 l = 4 000 ml');
+});
+
+test('rectMeasures: the lesson shapes and the 6 by 4 picture', () => {
+  assert.deepEqual(rectMeasures(6, 4), { perimeter: 20, area: 24 });
+  assert.deepEqual(rectMeasures(6, 6), { perimeter: 24, area: 36 }); // the square on the lesson
+  assert.deepEqual(rectMeasures(8, 5), { perimeter: 26, area: 40 }); // the rectangle on the lesson (perimeter 26)
+  assert.deepEqual(rectMeasures(1, 1), { perimeter: 4, area: 1 });
+});
+
+test('prismMeasures: the lesson example 4 x 3 x 2 is 24 cm3 and 12 cubes per layer', () => {
+  assert.deepEqual(prismMeasures(4, 3, 2), { volume: 24, perLayer: 12 });
+  assert.deepEqual(prismMeasures(4, 3, 1), { volume: 12, perLayer: 12 }); // the "12 cubic units" model
+  assert.deepEqual(prismMeasures(1, 1, 1), { volume: 1, perLayer: 1 });
+});
+
+test('formatRand: decimal comma, cents always two digits, thousands grouped', () => {
+  assert.equal(formatRand(1850), 'R18,50');
+  assert.equal(formatRand(1200), 'R12,00');
+  assert.equal(formatRand(5000), 'R50,00');
+  assert.equal(formatRand(5), 'R0,05');
+  assert.equal(formatRand(123456), 'R1\u00A0234,56');
+  assert.equal(formatRand(-150), '-R1,50');
+});
+
+test('changeOf: the lesson shopping example in cents', () => {
+  const r = changeOf(5000, [1850, 1200]);
+  assert.equal(r.spent, 3050);
+  assert.equal(r.change, 1950);
+  assert.equal(formatRand(r.spent), 'R30,50');
+  assert.equal(formatRand(r.change), 'R19,50');
+  assert.equal(r.spent + r.change, 5000); // the check step: R30,50 + R19,50 = R50,00
 });
