@@ -40,6 +40,7 @@ test('the run-on is fixed with a conjunction and the fixed sentence is the bank 
 test('the single-clause examples are the bank ones, and every kind has its own colour', () => {
   for (const e of [EXAMPLES.phrase, EXAMPLES.independent, EXAMPLES.dependent]) assert.ok(lesson.includes(e.text));
   assert.equal(new Set(Object.values(KIND_COLOR)).size, 4);
-  for (const c of CONJUNCTIONS.slice(2)) assert.ok(lesson.includes(c));
-  assert.ok(lesson.includes('and, but, because, although'));
+  // the joining words drawn as pills are the ones the lesson names (the bank: "although, because, and when")
+  assert.deepEqual([...CONJUNCTIONS], ['and', 'but', 'because', 'although']);
+  assert.ok(lesson.includes('although, because'));
 });
