@@ -11,8 +11,9 @@ const read = (rel: string) => fs.readFileSync(path.join(root, rel), 'utf8');
 const SHELLS = [
   // NST generalised handleSelect into handleResult(correct) so order and label items record the same way as mcq.
   { file: 'curriculum/grade6/natural-sciences/_shared/NstTopic.tsx', subject: 'nst', handler: /const handleResult = /, call: /recordAttempt\(correct, current\.section, current\.id, current\.prompt\)/ },
-  { file: 'curriculum/grade6/geography/_shared/GeoTopic.tsx', subject: 'geo' },
-  { file: 'curriculum/grade6/history/_shared/HisTopic.tsx', subject: 'his' },
+  // History and Geography share the same handleResult (order and label items too).
+  { file: 'curriculum/grade6/geography/_shared/GeoTopic.tsx', subject: 'geo', handler: /const handleResult = /, call: /recordAttempt\(correct, current\.section, current\.id, current\.prompt\)/ },
+  { file: 'curriculum/grade6/history/_shared/HisTopic.tsx', subject: 'his', handler: /const handleResult = /, call: /recordAttempt\(correct, current\.section, current\.id, current\.prompt\)/ },
   { file: 'curriculum/grade6/afrikaans/_shared/AfrikaansTopic.tsx', subject: 'afr' },
 ];
 const block = (src: string, start: RegExp): string => {

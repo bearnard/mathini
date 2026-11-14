@@ -1,17 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { HisItem } from './types';
-
-function shuffle<T>(arr: T[]): T[] {
-  const copy = [...arr];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
+import { prepareItems, withCuratedExtras } from '../../natural-sciences/_shared/itemKinds';
 
 function prepare(items: HisItem[]): HisItem[] {
-  return shuffle(items).map((it) => ({ ...it, options: shuffle(it.options) }));
+  return prepareItems(items);
 }
 
 /**
@@ -32,7 +24,7 @@ export function useHisItems(task: string, bank: HisItem[]) {
       if (res.ok) {
         const data = (await res.json()) as { items?: HisItem[] };
         if (data.items && data.items.length >= 1) {
-          setQueue(prepare(data.items));
+          setQueue(prepare(withCuratedExtras(data.items, bank)));
           setIndex(0);
           setLoading(false);
           return;

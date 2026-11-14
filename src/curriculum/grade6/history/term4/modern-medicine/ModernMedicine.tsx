@@ -89,6 +89,7 @@ export const bank: HisItem[] = [
   { prompt: 'Which item is a modern medical tool?', options: ['Stethoscope', 'Stone spear', 'Clay cooking pot', 'Sailing compass'], answer: 'Stethoscope', explanation: 'A stethoscope helps health workers listen to sounds in the body.' },
   { prompt: 'Why should antibiotics be used carefully?', options: ['They should be taken only when needed and prescribed', 'They are sweets for daily snacks', 'They cure every disease immediately', 'They replace clean water'], answer: 'They should be taken only when needed and prescribed', explanation: 'Careful use helps antibiotics remain effective and keeps patients safer.' },
   { prompt: 'Which group lists modern medical breakthroughs?', options: ['Penicillin, X-rays, and heart transplant surgery', 'Stone axes, cave paintings, and pottery', 'Sailing ships, spices, and gold coins', 'Rain clouds, rivers, and mountains'], answer: 'Penicillin, X-rays, and heart transplant surgery', explanation: 'These are examples of important developments in modern medicine.' },
+  { kind: 'order', section: 'chronology', prompt: 'Put these events about modern medicine in order, earliest first.', options: ['X-rays discovered', 'Penicillin found', 'Penicillin used widely', 'First heart transplant'], answer: 'X-rays discovered|Penicillin found|Penicillin used widely|First heart transplant', explanation: 'The dates are 1895, 1928, 1943 and 1967.' },
 ];
 
 const ModernMedicine = () => (

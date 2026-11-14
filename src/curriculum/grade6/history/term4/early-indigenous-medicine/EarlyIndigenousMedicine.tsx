@@ -91,6 +91,7 @@ export const bank: HisItem[] = [
   { prompt: 'Which pair correctly names two South African traditional healers?', options: ['Inyanga and sangoma', 'Astronaut and pilot', 'Miner and sailor', 'Judge and banker'], answer: 'Inyanga and sangoma', explanation: 'Inyanga and sangoma are examples of traditional healers in South Africa.' },
   { prompt: 'What is a natural remedy?', options: ['A treatment made from natural materials', 'A map of railway stations', 'A machine for counting money', 'A type of modern television'], answer: 'A treatment made from natural materials', explanation: 'Natural remedies may use plants, herbs, roots, or bark.' },
   { prompt: 'What helped early communities build medical knowledge?', options: ['Observation, practice, and teaching', 'Only random luck every time', 'Refusing to learn from elders', 'Throwing away all plant knowledge'], answer: 'Observation, practice, and teaching', explanation: 'Knowledge grew through careful observation, practice, and learning from others.' },
+  { kind: 'order', section: 'chronology', prompt: 'Put these events about indigenous healing in South Africa in order, earliest first.', options: ['Plant remedies used widely', 'Cape records indigenous healing', 'Healer training continues', 'Traditional healing recognised'], answer: 'Plant remedies used widely|Cape records indigenous healing|Healer training continues|Traditional healing recognised', explanation: 'The dates are Long before 1652, 1652, 1800s and 2007.' },
 ];
 
 const EarlyIndigenousMedicine = () => (

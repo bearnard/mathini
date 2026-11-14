@@ -85,6 +85,7 @@ export const bank: HisItem[] = [
   { prompt: 'Why is the Constitution important for democracy?', options: ['It sets rules that protect people and limit government power', 'It lets leaders ignore citizens', 'It cancels all elections', 'It gives rights to only one group'], answer: 'It sets rules that protect people and limit government power', explanation: 'The Constitution helps keep government fair and protects people’s rights.' },
   { prompt: 'What should citizens do with other people’s rights?', options: ['Respect them', 'Hide them', 'Trade them for money', 'Ignore them completely'], answer: 'Respect them', explanation: 'Rights work best when everyone respects the rights of others.' },
   { prompt: 'Which set lists examples of rights?', options: ['Education, safety, and freedom', 'Thunder, rain, and wind', 'Gold, coal, and diamonds', 'Triangles, squares, and circles'], answer: 'Education, safety, and freedom', explanation: 'Education, safety, and freedom are examples of rights protected in South Africa.' },
+  { kind: 'order', section: 'chronology', prompt: 'Put these events about the South African Constitution in order, earliest first.', options: ['Apartheid starts', 'Freedom Charter adopted', 'Interim Constitution approved', 'South Africans vote equally', 'Final Constitution takes effect'], answer: 'Apartheid starts|Freedom Charter adopted|Interim Constitution approved|South Africans vote equally|Final Constitution takes effect', explanation: 'The dates are 1948, 1955, 1993, 1994 and 1997.' },
 ];
 
 const ConstitutionBillRights = () => (

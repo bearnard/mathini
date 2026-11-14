@@ -84,6 +84,7 @@ export const bank: HisItem[] = [
   { prompt: 'What does AD mean on many timelines?', options: ['Years after AD 1', 'All dates before history', 'A decade of animals', 'Another diary'], answer: 'Years after AD 1', explanation: 'AD is used for years after AD 1 on many timelines.' },
   { prompt: 'Which BC date is further back in the past?', options: ['500 BC', '200 BC', '50 BC', '1 BC'], answer: '500 BC', explanation: 'In BC dates, bigger numbers are earlier and further from AD 1.' },
   { prompt: 'Why are timelines useful in history?', options: ['They show order and change over time', 'They replace all sources', 'They make dates unnecessary', 'They only show weather patterns'], answer: 'They show order and change over time', explanation: 'Timelines help us compare events and notice change.' },
+  { kind: 'order', section: 'chronology', prompt: 'Put these events about calendars and dating in order, earliest first.', options: ['Julian calendar begins', 'AD dating proposed', 'Gregorian calendar introduced', 'Radiocarbon dating improves timelines'], answer: 'Julian calendar begins|AD dating proposed|Gregorian calendar introduced|Radiocarbon dating improves timelines', explanation: 'The dates are 45 BCE, 525 CE, 1582 and 1949.' },
 ];
 
 const TimelinesChange = () => (
