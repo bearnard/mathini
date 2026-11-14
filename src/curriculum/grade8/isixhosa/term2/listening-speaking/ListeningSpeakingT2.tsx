@@ -69,7 +69,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which phrase is most suitable in a polite service encounter?',
-    options: ['Nceda undincede ngale nto.', 'Andinamdla.', 'Yenza ngoku!', 'Sukundithetha.'],
+    options: ['Nceda undincede ngale nto.', 'Andinamdla kwaphela, hamba.', 'Ndiyakuxelela, yenza ngoku!', 'Hayi, andifuni nokuthetha nawe.'],
     answer: 'Nceda undincede ngale nto.',
     explanation: 'Polite requests improve communication in transactions.',
   },
@@ -81,13 +81,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'If a speaker gives too much detail, your summary should...',
-    options: ['select the most important ideas', 'repeat all examples', 'add new facts', 'rewrite the question'],
-    answer: 'select the most important ideas',
+    options: ['pick out the most important ideas only', 'repeat all of the examples that were given', 'add new facts that were not in the talk', 'rewrite the question that was asked'],
+    answer: 'pick out the most important ideas only',
     explanation: 'Effective summaries filter information.',
   },
   {
     prompt: 'Strong speaking fluency means you can...',
-    options: ['express ideas smoothly and clearly', 'use no pauses at all', 'avoid all eye contact', 'ignore the audience'],
+    options: ['express ideas smoothly and clearly', 'speak with no pauses of any kind', 'avoid all eye contact with the audience', 'ignore the audience while you speak'],
     answer: 'express ideas smoothly and clearly',
     explanation: 'Fluency combines clarity, pace, and confident delivery.',
   },

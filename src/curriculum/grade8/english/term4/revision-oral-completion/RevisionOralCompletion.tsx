@@ -68,7 +68,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'An oral reflection response should include...',
-    options: ['clear points with examples from studied texts', 'single-word answers only', 'no preparation or structure', 'unrelated jokes only'],
+    options: ['clear points with examples from studied texts', 'single-word answers and nothing more', 'no preparation and no structure', 'jokes that have no link to the text'],
     answer: 'clear points with examples from studied texts',
     explanation: 'Evidence-based oral responses show understanding and organisation.',
   },
@@ -80,14 +80,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which habit improves timed revision practice?',
-    options: ['setting short task deadlines and checking answers', 'reading without any time awareness', 'skipping instruction words', 'using only guesswork'],
+    options: ['setting short task deadlines and checking answers', 'reading without any sense of the time', 'skipping the command words in the questions', 'using guesswork and nothing else'],
     answer: 'setting short task deadlines and checking answers',
     explanation: 'Time-managed practice builds exam readiness.',
   },
   {
     prompt: 'What should you do before submitting an answer script?',
-    options: ['review instructions and check completeness', 'leave questions blank intentionally', 'remove all punctuation', 'change all final answers randomly'],
-    answer: 'review instructions and check completeness',
+    options: ['review the instructions and check completeness', 'leave some questions blank on purpose', 'remove all of the punctuation', 'change all the final answers at the last moment'],
+    answer: 'review the instructions and check completeness',
     explanation: 'Final checks catch omissions and instruction errors.',
   },
 ];

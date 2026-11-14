@@ -50,8 +50,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Character evidence is found in...',
-    options: ['actions and dialogue in the text', 'the file name only', 'random guesses', 'the paper size'],
-    answer: 'actions and dialogue in the text',
+    options: ['the actions and dialogue in the text', 'the file name of the text and nothing else', 'wild guesses about what the character is like', 'the size of the paper the text is printed on'],
+    answer: 'the actions and dialogue in the text',
     explanation: 'What characters do and say shows who they are.',
   },
   {
@@ -80,14 +80,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which question checks character development?',
-    options: ['How does the character change by the end?', 'How many pages are printed?', 'What is the paper weight?', 'Who stapled the text?'],
+    options: ['How does the character change by the end?', 'How many pages are printed in the book?', 'What is the weight of the paper of the book?', 'Who stapled the pages of the text together?'],
     answer: 'How does the character change by the end?',
     explanation: 'Character development focuses on growth or change.',
   },
   {
     prompt: 'A strong comprehension response should include...',
-    options: ['an answer plus supporting detail', 'only a yes or no', 'no reference to text', 'a copied question only'],
-    answer: 'an answer plus supporting detail',
+    options: ['an answer plus supporting detail from the text', 'only a yes or a no without any reason', 'no reference to the text at all', 'a copy of the question and nothing more'],
+    answer: 'an answer plus supporting detail from the text',
     explanation: 'Support makes responses clearer and more accurate.',
   },
 ];

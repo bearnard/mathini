@@ -51,13 +51,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A system with sensor -> controller -> buzzer is best described as...',
-    options: [
-      'Input-process-output control system',
-      'Only a frame structure',
-      'Only a chemical process',
-      'Only a decorative model',
-    ],
-    answer: 'Input-process-output control system',
+    options: ['An input-process-output control system', 'A frame structure and nothing else', 'A chemical process and nothing else', 'A decorative model and nothing else'],
+    answer: 'An input-process-output control system',
     explanation: 'Sensors provide input, controllers process, and buzzers give output.',
   },
   {
@@ -68,7 +63,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When revising mixed-system diagrams, first identify...',
-    options: ['What each part does in the system', 'Only the drawing style', 'Only component colours', 'Only page number'],
+    options: ['What each part does in the system', 'The style in which it is drawn', 'The colours of the components', 'The page number of the diagram'],
     answer: 'What each part does in the system',
     explanation: 'Function-based reading helps connect components to system purpose.',
   },

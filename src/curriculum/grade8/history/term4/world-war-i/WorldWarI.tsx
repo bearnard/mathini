@@ -49,13 +49,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In this topic, nationalism refers to:',
-    options: [
-      'Strong loyalty to a nation that can increase rivalry with others',
-      'A world government with no borders',
-      'A farming method used in trenches',
-      'A policy of ending all newspapers',
-    ],
-    answer: 'Strong loyalty to a nation that can increase rivalry with others',
+    options: ['Strong loyalty to a nation that can raise rivalry', 'A world government that has no borders at all', 'A farming method that was used in the trenches', 'A policy of ending the printing of newspapers'],
+    answer: 'Strong loyalty to a nation that can raise rivalry',
     explanation: 'Nationalism can unite people internally but also intensify international tensions.',
   },
   {
@@ -71,35 +66,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What best describes trench warfare on the Western Front?',
-    options: [
-      'Soldiers fought from long defensive ditches with harsh living conditions',
-      'Most battles happened only at sea',
-      'Armies fought mainly with bows and spears',
-      'Troops avoided defensive positions',
-    ],
-    answer: 'Soldiers fought from long defensive ditches with harsh living conditions',
+    options: ['Soldiers fought from long ditches in harsh conditions', 'Most of the battles took place at sea only', 'Armies fought mainly with bows and spears', 'Troops avoided all kinds of defensive positions'],
+    answer: 'Soldiers fought from long ditches in harsh conditions',
     explanation: 'Trenches were defensive systems marked by mud, danger, and long stalemates.',
   },
   {
     prompt: 'What was a main purpose of wartime propaganda?',
-    options: [
-      'To influence public opinion and support for the war effort',
-      'To record weather patterns for farming',
-      'To publish neutral exam timetables',
-      'To map tectonic plate movement',
-    ],
-    answer: 'To influence public opinion and support for the war effort',
+    options: ['To sway public opinion and support for the war effort', 'To record the weather patterns for farming', 'To publish neutral timetables for exams', 'To map the movement of tectonic plates'],
+    answer: 'To sway public opinion and support for the war effort',
     explanation: 'Governments used propaganda posters and media to shape attitudes and behaviour.',
   },
   {
     prompt: 'Which statement about women in World War I is most accurate?',
-    options: [
-      'Many women took on factory, transport, and nursing roles',
-      'Women were banned from all wartime work',
-      'Women only worked as military generals',
-      'Women replaced all soldiers in trenches',
-    ],
-    answer: 'Many women took on factory, transport, and nursing roles',
+    options: ['Many women took up factory, transport and nursing work', 'Women were banned from all war work', 'Women served only as generals of armies', 'Women took the place of all of the soldiers in the trenches'],
+    answer: 'Many women took up factory, transport and nursing work',
     explanation: 'Women contributed widely to industry, healthcare, and support services.',
   },
   {

@@ -66,7 +66,7 @@ const bank: CapsItem[] = [
     prompt: 'Which expression equals -6?',
     options: ['2 - 8', '-2 - 8', '8 - 2', '-2 + 8'],
     answer: '2 - 8',
-    explanation: '2 - 8 = -6.',
+    explanation: 'Start at 2 and subtract 8: 2 - 8 = -6, so this expression equals -6.',
   },
 ];
 

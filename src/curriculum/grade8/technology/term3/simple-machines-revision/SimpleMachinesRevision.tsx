@@ -51,19 +51,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Force multiplication means...',
-    options: [
-      'A machine produces a larger output force than input force',
-      'Energy is created without input',
-      'The load always becomes lighter',
-      'There is no movement in the system',
-    ],
-    answer: 'A machine produces a larger output force than input force',
+    options: ['A machine gives a larger output force than input force', 'Energy is made from nothing without any input', 'The load always becomes lighter in weight', 'There is no movement in the system at all'],
+    answer: 'A machine gives a larger output force than input force',
     explanation: 'Mechanical systems can increase output force by trading speed or distance.',
   },
   {
     prompt: 'Why does a longer lever arm often need less effort?',
-    options: ['It increases turning effect (moment)', 'It removes the fulcrum', 'It doubles gravity', 'It cancels all friction'],
-    answer: 'It increases turning effect (moment)',
+    options: ['It increases the turning effect (moment)', 'It takes away the fulcrum of the lever', 'It doubles the pull of gravity on the load', 'It cancels out all of the friction'],
+    answer: 'It increases the turning effect (moment)',
     explanation: 'Greater distance from the fulcrum gives more turning effect for the same force.',
   },
   {

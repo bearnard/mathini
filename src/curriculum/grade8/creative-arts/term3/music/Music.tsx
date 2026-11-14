@@ -34,7 +34,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'An ostinato is...',
-    options: ['A repeated rhythmic or melodic pattern', 'A very loud ending chord', 'A random set of notes', 'A stage movement'],
+    options: ['A repeated rhythmic or melodic pattern', 'A very loud chord at the end of a piece', 'A set of notes with no pattern to them', 'A movement that is done on the stage'],
     answer: 'A repeated rhythmic or melodic pattern',
     explanation: 'Ostinatos repeat to provide structure and unity.',
   },
@@ -46,7 +46,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Listening analysis helps learners to...',
-    options: ['Identify form and structure in examples', 'Ignore section changes', 'Avoid reflection', 'Replace rehearsal'],
+    options: ['Identify form and structure in examples', 'Ignore the changes between sections', 'Avoid any reflection on the music', 'Take the place of the rehearsal time'],
     answer: 'Identify form and structure in examples',
     explanation: 'Analysing recordings improves recognition of musical form.',
   },
@@ -64,7 +64,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Peer feedback is most useful when it is...',
-    options: ['Specific and linked to the music heard', 'Only praise with no detail', 'Given before listening', 'Based on unrelated topics'],
+    options: ['Specific and linked to the music heard', 'Praise only, with no detail given', 'Given before the piece has been heard', 'Based on topics that are not related to the piece'],
     answer: 'Specific and linked to the music heard',
     explanation: 'Focused feedback supports practical composition improvements.',
   },

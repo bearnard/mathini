@@ -68,7 +68,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A stereotype is best defined as...',
-    options: ['an oversimplified belief about a group', 'a checked factual statistic', 'a formal letter greeting', 'a neutral text summary'],
+    options: ['an oversimplified belief about a group', 'a checked factual statistic about a group', 'a formal greeting at the start of a letter', 'a neutral summary of what a text says'],
     answer: 'an oversimplified belief about a group',
     explanation: 'Stereotypes reduce people to unfair generalisations.',
   },
@@ -86,7 +86,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which edit improves fairness most?',
-    options: ['Replace a stereotype with specific evidence-based wording.', 'Add more emotional adjectives.', 'Use only exclamation marks.', 'Remove all verbs from the sentence.'],
+    options: ['Replace a stereotype with specific evidence-based wording.', 'Add more emotional adjectives to the sentence.', 'Use only exclamation marks to make a point.', 'Remove all of the verbs from the sentence.'],
     answer: 'Replace a stereotype with specific evidence-based wording.',
     explanation: 'Precise, evidence-based language supports accurate and respectful communication.',
   },

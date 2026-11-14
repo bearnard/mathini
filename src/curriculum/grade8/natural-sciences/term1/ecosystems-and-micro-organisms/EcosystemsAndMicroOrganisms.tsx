@@ -29,7 +29,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the role of decomposers in an ecosystem?',
-    options: ['They break down dead material and recycle nutrients', 'They produce food from sunlight', 'They only hunt herbivores', 'They remove all oxygen from soil'],
+    options: ['They break down dead material and recycle nutrients', 'They make food from sunlight in their leaves', 'They hunt the herbivores in the ecosystem', 'They remove all of the oxygen from the soil'],
     answer: 'They break down dead material and recycle nutrients',
     explanation: 'Decomposers return nutrients to the soil and support nutrient cycles.',
   },

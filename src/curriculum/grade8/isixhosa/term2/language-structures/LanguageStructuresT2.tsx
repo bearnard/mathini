@@ -49,8 +49,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Direct speech keeps...',
-    options: ['the speaker’s exact words', 'only a summary', 'no punctuation', 'a changed topic'],
-    answer: 'the speaker’s exact words',
+    options: ["the speaker's exact words, in quotation marks", 'only a summary of what the speaker said', 'no punctuation at all in the sentence', 'a changed topic that suits the writer'],
+    answer: "the speaker's exact words, in quotation marks",
     explanation: 'Direct speech reports words exactly as spoken.',
   },
   {

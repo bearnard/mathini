@@ -46,13 +46,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A net is...',
-    options: ['a 2D pattern that folds into a 3D object', 'a graph of data', 'a measurement tool', 'a line of symmetry'],
+    options: ['a 2D pattern that folds into a 3D object', 'a graph that shows a set of data', 'a tool that is used for measuring', 'a line along which a shape is symmetrical'],
     answer: 'a 2D pattern that folds into a 3D object',
     explanation: 'Nets represent surfaces before folding.',
   },
   {
     prompt: 'A cylinder has...',
-    options: ['2 circular faces and 1 curved surface', '6 square faces', 'only triangular faces', '8 vertices'],
+    options: ['2 circular faces and 1 curved surface', '6 square faces and no curved surface', 'only triangular faces, with no circles', '8 vertices, one at each corner'],
     answer: '2 circular faces and 1 curved surface',
     explanation: 'That is the standard structure of a cylinder.',
   },

@@ -28,13 +28,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A shell structure is best described as...',
-    options: [
-      'A hollow outer surface that encloses space',
-      'A solid block with no cavity',
-      'A circuit component for safety',
-      'A rotating mechanical part',
-    ],
-    answer: 'A hollow outer surface that encloses space',
+    options: ['A hollow outer surface that encloses a space', 'A solid block with no hollow inside', 'A circuit part that is used for safety', 'A part that rotates inside a machine'],
+    answer: 'A hollow outer surface that encloses a space',
     explanation: 'Shell structures gain strength from their curved or folded skin.',
   },
   {

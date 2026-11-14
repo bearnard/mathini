@@ -55,24 +55,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does active recall mean?',
-    options: [
-      'Testing yourself without looking at notes first',
-      'Reading notes passively once',
-      'Studying only the night before',
-      'Skipping practice questions',
-    ],
+    options: ['Testing yourself without looking at notes first', 'Reading your notes once without testing yourself', 'Studying only on the night before', 'Skipping the practice questions'],
     answer: 'Testing yourself without looking at notes first',
     explanation: 'Active recall strengthens long-term memory retrieval.',
   },
   {
     prompt: 'Which strategy helps manage exam stress?',
-    options: [
-      'Sleep well, breathe calmly, and follow your plan',
-      'Cram all night with no breaks',
-      'Avoid asking any questions',
-      'Assume failure before trying',
-    ],
-    answer: 'Sleep well, breathe calmly, and follow your plan',
+    options: ['Sleep well, breathe calmly and follow your plan', 'Cram all night without any breaks', 'Avoid asking any questions of others', 'Assume that you will fail before you try'],
+    answer: 'Sleep well, breathe calmly and follow your plan',
     explanation: 'Healthy routines and calm strategies improve focus.',
   },
   {
@@ -110,13 +100,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What should a learner do if they feel unprepared?',
-    options: [
-      'Start with a simple catch-up plan and seek support',
-      'Give up and avoid school',
-      'Hide concerns and do nothing',
-      'Copy from classmates',
-    ],
-    answer: 'Start with a simple catch-up plan and seek support',
+    options: ['Make a simple catch-up plan and ask for help', 'Give up and stay away from school', 'Hide your worries and do nothing about them', 'Copy the work of your classmates'],
+    answer: 'Make a simple catch-up plan and ask for help',
     explanation: 'Support plus structured action restores progress.',
   },
 ];

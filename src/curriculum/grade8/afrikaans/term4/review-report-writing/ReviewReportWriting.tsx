@@ -65,7 +65,7 @@ const learnSteps: LearnStep[] = [
 const bank: AfrikaansItem[] = [
   {
     prompt: "Wat is die hoofdoel van 'n verslag?",
-    options: ['Om feite duidelik te rapporteer', "Om 'n gedig te skryf", 'Om grappies te vertel', 'Om dialoog te oefen'],
+    options: ['Om feite duidelik te rapporteer', "Om 'n gedig te skryf oor 'n onderwerp", 'Om grappies te vertel aan die klas', 'Om dialoog tussen karakters te oefen'],
     answer: 'Om feite duidelik te rapporteer',
     explanation: 'Reports focus on objective information.',
   },
@@ -77,7 +77,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Kies die sterkste slot vir 'n resensie.",
-    options: ['Ek beveel hierdie teks aan vir leerders wat avontuur geniet.', 'Die boek het papier.', 'Daar is baie letters.', 'Ek weet nie.'],
+    options: ['Ek beveel hierdie teks aan vir leerders wat avontuur geniet.', "Die boek het papier en 'n harde omslag.", 'Daar is baie letters in die titel van die boek.', 'Ek weet nie wat om hieroor te sê nie.'],
     answer: 'Ek beveel hierdie teks aan vir leerders wat avontuur geniet.',
     explanation: 'A review closing should include recommendation.',
   },
@@ -89,8 +89,8 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Watter sin pas by formele verslagskryf?",
-    options: ['Die vergadering het om 14:00 begin en 45 minute geduur.', 'Dit was super cool en weird!', 'Ons het net gechill.', 'Dis mos obvious wat gebeur het.'],
-    answer: 'Die vergadering het om 14:00 begin en 45 minute geduur.',
+    options: ['Die vergadering het om 14:00 begin.', 'Dit was super cool en weird vir almal!', 'Ons het net gechill en gepraat vandag.', 'Dis mos obvious wat daar gebeur het.'],
+    answer: 'Die vergadering het om 14:00 begin.',
     explanation: 'Formal reports use precise objective wording.',
   },
   {
@@ -107,7 +107,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Kies die beste redigeringsfokus vir term 4 skryfwerk.",
-    options: ['Kontroleer formaat, taal en inhoudsrelevansie', 'Verander net letterkleur', 'Voeg willekeurige feite by', 'Skrap alle hoofletters'],
+    options: ['Kontroleer formaat, taal en inhoudsrelevansie', 'Verander net die kleur van die letters', 'Voeg nuwe feite by wat nie met die onderwerp verband hou nie', 'Skrap al die hoofletters in die teks'],
     answer: 'Kontroleer formaat, taal en inhoudsrelevansie',
     explanation: 'Final edits should align structure and language to purpose.',
   },

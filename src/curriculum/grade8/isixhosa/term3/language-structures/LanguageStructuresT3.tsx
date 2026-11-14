@@ -44,8 +44,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'An adverb usually describes...',
-    options: ['how, when, or where an action happens', 'a person only', 'a concrete object only', 'a punctuation mark'],
-    answer: 'how, when, or where an action happens',
+    options: ['how, when or where an action happens', 'a person and nothing else', 'a concrete object and nothing else', 'a punctuation mark in the sentence'],
+    answer: 'how, when or where an action happens',
     explanation: 'Adverbs add information about actions.',
   },
   {

@@ -55,12 +55,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is coordination in PE?',
-    options: [
-      'Using body parts together smoothly and accurately',
-      'Running without any control',
-      'Competing without rules',
-      'Avoiding skill practice',
-    ],
+    options: ['Using body parts together smoothly and accurately', 'Running about with no control at all', 'Competing without any rules to follow', 'Avoiding practice of the skills'],
     answer: 'Using body parts together smoothly and accurately',
     explanation: 'Coordination supports balanced and effective movement.',
   },
@@ -99,23 +94,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is fair play important in PE?',
-    options: [
-      'It builds respect, trust, and positive participation',
-      'It helps one side win unfairly',
-      'It allows rude behaviour',
-      'It means rules can be ignored',
-    ],
-    answer: 'It builds respect, trust, and positive participation',
+    options: ['It builds respect, trust and positive participation', 'It helps one side win in an unfair way', 'It makes rude behaviour acceptable', 'It means that the rules can be ignored'],
+    answer: 'It builds respect, trust and positive participation',
     explanation: 'Fair play is central to healthy competitive activity.',
   },
   {
     prompt: 'Which reflection question helps PE improvement?',
-    options: [
-      'Which skill improved and what should I practise next?',
-      'Who can I blame for every mistake?',
-      'How can I avoid effort next lesson?',
-      'How can I skip safety rules?',
-    ],
+    options: ['Which skill improved and what should I practise next?', 'Who can I blame for each of my mistakes?', 'How can I avoid putting in effort next lesson?', 'How can I get out of the safety rules?'],
     answer: 'Which skill improved and what should I practise next?',
     explanation: 'Reflection supports goal-directed skill development.',
   },

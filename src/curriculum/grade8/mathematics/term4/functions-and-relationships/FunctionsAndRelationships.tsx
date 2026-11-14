@@ -54,7 +54,7 @@ const bank: CapsItem[] = [
     prompt: 'What is the output if input is 0 in y = 4x + 1?',
     options: ['1', '0', '4', '5'],
     answer: '1',
-    explanation: '4(0) + 1 = 1.',
+    explanation: 'Substitute the input 0: y = 4(0) + 1 = 0 + 1 = 1.',
   },
   {
     prompt: 'Which table shows a constant relationship?',

@@ -107,7 +107,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Kies die beste eerste stap met 'n onbekende gedig.",
-    options: ['Lees dit stadig van begin tot einde', 'Skryf antwoorde dadelik', 'Raai al die antwoorde', 'Begin by die laaste vraag'],
+    options: ['Lees dit stadig van begin tot einde', 'Skryf die antwoorde dadelik neer sonder lees', 'Raai al die antwoorde na die titel', 'Begin by die laaste vraag en werk terug'],
     answer: 'Lees dit stadig van begin tot einde',
     explanation: 'A full read builds understanding before analysis.',
   },

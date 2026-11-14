@@ -45,8 +45,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'A prepared speech should include...',
-    options: ['an organised introduction, body, and ending', 'random points only', 'no planning', 'one repeated line'],
-    answer: 'an organised introduction, body, and ending',
+    options: ['an organised introduction, body and ending', 'points in any order that come to mind', 'no planning of the parts of the speech', 'one line that is repeated again and again'],
+    answer: 'an organised introduction, body and ending',
     explanation: 'A clear structure helps listeners follow your ideas.',
   },
   {

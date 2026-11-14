@@ -24,7 +24,7 @@ const bank: CapsItem[] = [
     prompt: 'What is 3/4 as a decimal?',
     options: ['0.75', '0.34', '0.8', '0.7'],
     answer: '0.75',
-    explanation: '3 ÷ 4 = 0.75.',
+    explanation: 'Divide the numerator by the denominator: 3 ÷ 4 = 0.75.',
   },
   {
     prompt: 'Write 0.6 as a simplified fraction.',

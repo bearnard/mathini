@@ -107,7 +107,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Waarom is taalkonsolidasie belangrik voor die eindeksamen?",
-    options: ['Dit versterk kernreëls en verminder slordige foute', 'Dit vervang alle leeswerk', 'Dit fokus net op een vraagtipe', 'Dit maak redigering onnodig'],
+    options: ['Dit versterk kernreëls en verminder slordige foute', 'Dit vervang alle leeswerk vir die eksamen', 'Dit fokus net op een vraagtipe in die toets', 'Dit maak redigering onnodig vir die leerder'],
     answer: 'Dit versterk kernreëls en verminder slordige foute',
     explanation: 'Consolidation improves accuracy across mixed tasks.',
   },

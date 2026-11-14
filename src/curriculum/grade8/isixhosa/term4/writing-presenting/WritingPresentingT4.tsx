@@ -43,26 +43,26 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'In summary writing, the first step is to...',
-    options: ['identify key ideas in the source', 'copy every sentence', 'add personal stories', 'change the topic'],
-    answer: 'identify key ideas in the source',
+    options: ['find the key ideas in the source', 'copy every one of the sentences', 'add personal stories of your own', 'change the topic of the source'],
+    answer: 'find the key ideas in the source',
     explanation: 'Summaries begin by selecting main points.',
   },
   {
     prompt: 'A report should primarily be...',
-    options: ['clear, factual, and organised', 'purely imaginative', 'written as a poem', 'without sections'],
-    answer: 'clear, factual, and organised',
+    options: ['clear, factual and well organised', 'purely imaginative and made up', 'written in the form of a poem', 'set out without any sections'],
+    answer: 'clear, factual and well organised',
     explanation: 'Reports communicate information accurately and logically.',
   },
   {
     prompt: 'A review becomes stronger when it...',
-    options: ['includes judgment with reasons', 'lists random words', 'avoids any opinion', 'ignores the text'],
-    answer: 'includes judgment with reasons',
+    options: ['includes a judgment and reasons for it', 'lists words that have no link to the text', 'avoids giving any opinion', 'ignores the text that is reviewed'],
+    answer: 'includes a judgment and reasons for it',
     explanation: 'Reviews evaluate and justify viewpoints.',
   },
   {
     prompt: 'Proofreading mainly checks...',
-    options: ['grammar, spelling, and punctuation', 'desk arrangement', 'paper thickness', 'font popularity'],
-    answer: 'grammar, spelling, and punctuation',
+    options: ['grammar, spelling and punctuation', 'the arrangement of the desks', 'the thickness of the paper', 'how popular the font is'],
+    answer: 'grammar, spelling and punctuation',
     explanation: 'Proofreading improves technical accuracy.',
   },
   {

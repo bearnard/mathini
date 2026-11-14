@@ -77,7 +77,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Wat is die beste beskrywing van 'n eerste konsep?",
-    options: ['Werkweergawe wat later verbeter word', 'Finale foutlose teks', "Slegs 'n titel", 'Mondelinge aanbieding'],
+    options: ['Werkweergawe wat later verbeter word', 'Die finale teks sonder enige foute', "Slegs 'n titel vir die opstel", "'n Mondelinge aanbieding voor die klas"],
     answer: 'Werkweergawe wat later verbeter word',
     explanation: 'A draft is not the final submission.',
   },
@@ -89,14 +89,14 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Watter praktyk wys goeie tydsbestuur?",
-    options: ['Stel klein sperdatums vir elke deel', 'Wag tot die laaste dag', 'Skryf sonder plan', 'Dien halfklaar werk in'],
+    options: ['Stel klein sperdatums vir elke deel', 'Wag tot die laaste dag voor die sperdatum', "Skryf sonder 'n plan of volgorde", 'Dien halfklaar werk in om tyd te spaar'],
     answer: 'Stel klein sperdatums vir elke deel',
     explanation: 'Milestones keep progress on track.',
   },
   {
     prompt: "Waarom is die rubriek belangrik?",
-    options: ['Dit wys presies hoe werk geassesseer word', 'Dit vervang die onderwerp', 'Dit is net vir onderwysers', 'Dit maak taalreëls onnodig'],
-    answer: 'Dit wys presies hoe werk geassesseer word',
+    options: ['Dit wys presies hoe die werk geassesseer word', 'Dit vervang die onderwerp van die opdrag', 'Dit is net bedoel vir die onderwysers', 'Dit maak die taalreëls onnodig'],
+    answer: 'Dit wys presies hoe die werk geassesseer word',
     explanation: 'Rubrics guide quality and focus.',
   },
   {
@@ -107,7 +107,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Watter sin wys gepaste refleksie ná die projek?",
-    options: ['Ek het my tweede konsep verbeter ná terugvoer.', 'Ek het niks geleer nie.', 'Ek het net die titel verander.', 'Ek het die vraag nie gelees nie.'],
+    options: ['Ek het my tweede konsep verbeter ná terugvoer.', 'Ek het niks geleer nie en dit was nutteloos.', 'Ek het net die titel van die opstel verander.', 'Ek het die vraag nie mooi gelees nie.'],
     answer: 'Ek het my tweede konsep verbeter ná terugvoer.',
     explanation: 'Reflection should show growth and improvement.',
   },

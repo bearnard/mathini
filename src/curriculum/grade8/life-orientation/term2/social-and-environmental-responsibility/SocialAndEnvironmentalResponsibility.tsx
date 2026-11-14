@@ -43,24 +43,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is water conservation important?',
-    options: [
-      'It protects limited water resources for everyone',
-      'It only matters during sports day',
-      'It is unnecessary in communities',
-      'It means avoiding all hygiene',
-    ],
+    options: ['It protects limited water resources for everyone', 'It matters only on the day of the sports day', 'It is not needed in communities', 'It means that people avoid washing'],
     answer: 'It protects limited water resources for everyone',
     explanation: 'Saving water supports health, sanitation, and long-term sustainability.',
   },
   {
     prompt: 'What is environmental health?',
-    options: [
-      'How surroundings affect human wellbeing',
-      'A list of exam rules',
-      'A type of smartphone app',
-      'A weather forecast only',
-    ],
-    answer: 'How surroundings affect human wellbeing',
+    options: ['How our surroundings affect human wellbeing', 'A list of the rules for an exam', 'A type of app for a smartphone', 'A forecast of the weather and nothing more'],
+    answer: 'How our surroundings affect human wellbeing',
     explanation: 'Clean air, water, and spaces directly influence health outcomes.',
   },
   {
@@ -76,23 +66,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which option is an example of conservation?',
-    options: [
-      'Protecting natural resources through responsible use',
-      'Using resources as fast as possible',
-      'Destroying trees for convenience',
-      'Wasting electricity deliberately',
-    ],
+    options: ['Protecting natural resources through responsible use', 'Using up resources as fast as possible', 'Cutting down trees for convenience', 'Wasting electricity on purpose'],
     answer: 'Protecting natural resources through responsible use',
     explanation: 'Conservation balances present needs with future needs.',
   },
   {
     prompt: 'How can learners contribute to cleaner shared spaces?',
-    options: [
-      'Join clean-up activities and avoid littering',
-      'Leave rubbish for someone else',
-      'Damage public facilities',
-      'Block reporting of problems',
-    ],
+    options: ['Join clean-up activities and avoid littering', 'Leave the rubbish for someone else to clear', 'Damage the public facilities', 'Stop others from reporting problems'],
     answer: 'Join clean-up activities and avoid littering',
     explanation: 'Participation and accountability improve community spaces.',
   },
@@ -109,13 +89,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What should learners do when they see illegal dumping?',
-    options: [
-      'Report it through the correct school or community channel',
-      'Ignore it every time',
-      'Dump more waste nearby',
-      'Confront people aggressively',
-    ],
-    answer: 'Report it through the correct school or community channel',
+    options: ['Report it through the right school or community channel', 'Ignore it every time that you see it', 'Dump more waste close by', 'Confront the people in an aggressive way'],
+    answer: 'Report it through the right school or community channel',
     explanation: 'Reporting helps authorities respond safely and effectively.',
   },
 ];

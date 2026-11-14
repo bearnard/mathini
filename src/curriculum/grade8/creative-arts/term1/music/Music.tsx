@@ -22,13 +22,13 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is the beat in music?',
-    options: ['The steady pulse you can count', 'The melody lyrics', 'A silent pause only', 'The final note only'],
-    answer: 'The steady pulse you can count',
+    options: ['The steady pulse that you can count', 'The words of the melody that is sung', 'A silent pause between two phrases', 'The final note that ends a piece'],
+    answer: 'The steady pulse that you can count',
     explanation: 'Beat is the regular pulse that helps performers stay together.',
   },
   {
     prompt: 'Rhythm is best described as...',
-    options: ['Patterns of long and short sounds', 'Volume level only', 'Instrument shape', 'Audience movement'],
+    options: ['Patterns of long and short sounds', 'The loudness level of the music played', 'The shape of the instruments in the band', 'The way that the audience moves to the music'],
     answer: 'Patterns of long and short sounds',
     explanation: 'Rhythm is how note lengths are arranged in time.',
   },

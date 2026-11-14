@@ -22,19 +22,19 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Symbolism in art means...',
-    options: ['Using images to represent deeper ideas', 'Copying photos exactly', 'Only mixing paint colours', 'Removing all subject matter'],
-    answer: 'Using images to represent deeper ideas',
+    options: ['Using images to stand for deeper ideas', 'Copying photographs exactly as they are', 'Mixing paint colours and nothing else', 'Leaving out all subject matter'],
+    answer: 'Using images to stand for deeper ideas',
     explanation: 'Symbols carry meaning beyond their literal appearance.',
   },
   {
     prompt: 'Visual literacy is the ability to...',
-    options: ['Read and interpret visual messages', 'Sing in harmony', 'Do stage blocking', 'Write scientific reports'],
+    options: ['Read and interpret visual messages', 'Sing in harmony with other learners', 'Plan the stage blocking of a scene', 'Write reports about science experiments'],
     answer: 'Read and interpret visual messages',
     explanation: 'Visual literacy helps learners explain what artworks communicate.',
   },
   {
     prompt: 'Mixed media artwork uses...',
-    options: ['More than one material or technique', 'Only graphite pencil', 'Only one colour', 'Only digital text'],
+    options: ['More than one material or technique', 'Graphite pencil and nothing else', 'One colour and nothing else', 'Digital text and nothing else'],
     answer: 'More than one material or technique',
     explanation: 'Mixed media combines materials like paint, paper, and found textures.',
   },
@@ -58,8 +58,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Artist research is useful because it helps learners...',
-    options: ['Understand style, techniques, and meaning', 'Avoid looking at artworks', 'Replace practical tasks', 'Skip visual analysis'],
-    answer: 'Understand style, techniques, and meaning',
+    options: ['Understand style, techniques and meaning', 'Avoid looking at any real artworks', 'Take the place of the practical tasks', 'Skip the visual analysis of a work'],
+    answer: 'Understand style, techniques and meaning',
     explanation: 'Research strengthens interpretation and creative decision-making.',
   },
   {

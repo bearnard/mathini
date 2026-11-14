@@ -53,8 +53,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Compared with planets, comets usually...',
-    options: ['have icy material and highly elliptical orbits', 'are always larger and hotter', 'do not orbit the Sun', 'are made only of metal'],
-    answer: 'have icy material and highly elliptical orbits',
+    options: ['have icy material and very elliptical orbits', 'are always larger and hotter than the planets', 'do not orbit the Sun at all', 'are made only of metal and rock'],
+    answer: 'have icy material and very elliptical orbits',
     explanation: 'Comets are icy bodies with elongated paths around the Sun.',
   },
   {

@@ -54,7 +54,7 @@ const bank: CapsItem[] = [
     prompt: 'If y = x + 5, what is y when x = -2?',
     options: ['3', '-7', '-3', '7'],
     answer: '3',
-    explanation: '-2 + 5 = 3.',
+    explanation: 'Substitute x = -2: y = -2 + 5 = 3.',
   },
   {
     prompt: 'Which sequence is geometric?',

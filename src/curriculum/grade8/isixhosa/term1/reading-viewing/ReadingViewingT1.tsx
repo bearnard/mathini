@@ -80,13 +80,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A supporting detail in comprehension is...',
-    options: ['evidence that backs the main idea', 'the title font style', 'a random opinion only', 'the page number'],
-    answer: 'evidence that backs the main idea',
+    options: ['evidence that backs up the main idea', 'the font style that is used for the title', 'an opinion that has no link to the text', 'the page number at the bottom of the page'],
+    answer: 'evidence that backs up the main idea',
     explanation: 'Supporting details provide proof from the text.',
   },
   {
     prompt: 'The best way to answer a text-based question is to...',
-    options: ['refer to evidence from the passage', 'guess without reading', 'copy any option quickly', 'skip the question'],
+    options: ['refer to evidence from the passage', 'guess the answer without reading the passage', 'copy any option that you see quickly', 'skip the question and move on to the next'],
     answer: 'refer to evidence from the passage',
     explanation: 'Evidence-based answers are more accurate and reliable.',
   },

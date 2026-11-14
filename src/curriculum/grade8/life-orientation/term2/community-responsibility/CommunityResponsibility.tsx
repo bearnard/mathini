@@ -44,24 +44,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which action shows empathy in community life?',
-    options: [
-      'Listening to others and offering practical support',
-      'Mocking people in difficulty',
-      'Spreading harmful rumours',
-      'Refusing to cooperate',
-    ],
-    answer: 'Listening to others and offering practical support',
+    options: ['Listening to others and offering practical help', 'Mocking people who are in difficulty', 'Spreading harmful rumours about them', 'Refusing to cooperate with the group'],
+    answer: 'Listening to others and offering practical help',
     explanation: 'Empathy helps people feel seen and supported.',
   },
   {
     prompt: 'A streetlight near school is broken. What is the best response?',
-    options: [
-      'Report it through the proper school or municipal channel',
-      'Ignore it for months',
-      'Damage more infrastructure',
-      'Post jokes about it only',
-    ],
-    answer: 'Report it through the proper school or municipal channel',
+    options: ['Report it through the school or municipal channel', 'Ignore it for several months', 'Damage more of the public infrastructure', 'Post jokes about it and do nothing more'],
+    answer: 'Report it through the school or municipal channel',
     explanation: 'Reporting channels help fix safety and service issues.',
   },
   {
@@ -77,34 +67,19 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which option is a positive volunteering activity for learners?',
-    options: [
-      'Helping with a supervised clean-up or reading club',
-      'Skipping classes to roam around',
-      'Writing graffiti on public walls',
-      'Taking supplies meant for others',
-    ],
-    answer: 'Helping with a supervised clean-up or reading club',
+    options: ['Helping at a supervised clean-up or reading club', 'Skipping classes to wander around town', 'Writing graffiti on the public walls', 'Taking supplies that were meant for others'],
+    answer: 'Helping at a supervised clean-up or reading club',
     explanation: 'Volunteering builds responsibility and social connection.',
   },
   {
     prompt: 'How can learners protect shared spaces?',
-    options: [
-      'Use facilities respectfully and report damage',
-      'Treat equipment carelessly',
-      'Leave litter in classrooms',
-      'Ignore broken items',
-    ],
-    answer: 'Use facilities respectfully and report damage',
+    options: ['Use facilities with respect and report damage', 'Treat the equipment in a careless way', 'Leave litter lying in the classrooms', 'Ignore items that are broken or unsafe'],
+    answer: 'Use facilities with respect and report damage',
     explanation: 'Shared spaces stay functional when everyone takes ownership.',
   },
   {
     prompt: 'What is a key benefit of community participation?',
-    options: [
-      'It builds belonging and problem-solving skills',
-      'It always gives money rewards',
-      'It removes the need for teamwork',
-      'It guarantees no disagreements',
-    ],
+    options: ['It builds belonging and problem-solving skills', 'It always brings a reward in money', 'It removes the need for any teamwork', 'It guarantees that there will be no disagreements'],
     answer: 'It builds belonging and problem-solving skills',
     explanation: 'Participation strengthens social bonds and active citizenship.',
   },

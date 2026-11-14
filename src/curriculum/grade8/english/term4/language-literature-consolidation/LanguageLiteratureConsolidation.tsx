@@ -74,8 +74,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Literature response questions often ask learners to...',
-    options: ['explain ideas like theme using textual support', 'count punctuation marks only', 'rewrite the title page', 'identify publication logos only'],
-    answer: 'explain ideas like theme using textual support',
+    options: ['explain ideas such as theme using textual support', 'count the punctuation marks in a passage only', 'rewrite the title page of the book', "identify the publisher's logos only"],
+    answer: 'explain ideas such as theme using textual support',
     explanation: 'Literature responses require interpretation and evidence.',
   },
   {

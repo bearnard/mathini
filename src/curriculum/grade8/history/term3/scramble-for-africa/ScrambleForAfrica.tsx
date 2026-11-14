@@ -64,13 +64,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In this context, colonisation means:',
-    options: [
-      'A foreign power taking political and economic control over another region',
-      'Local communities choosing their own leaders',
-      'Farmers moving to cities for work',
-      'Countries trading goods at fair prices',
-    ],
-    answer: 'A foreign power taking political and economic control over another region',
+    options: ['A foreign power taking political and economic control of a region', 'Local communities choosing their own leaders', 'Farmers moving to the cities to look for work', 'Countries trading goods with one another at fair prices'],
+    answer: 'A foreign power taking political and economic control of a region',
     explanation: 'Colonisation involves external control over land, people, and resources.',
   },
   {
@@ -81,13 +76,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is British imperialism in the context of this topic?',
-    options: [
-      'Britain expanding its political and economic influence over territories',
-      'Britain ending all overseas trade',
-      'Britain giving equal voting rights across Africa',
-      'Britain refusing to build any ports',
-    ],
-    answer: 'Britain expanding its political and economic influence over territories',
+    options: ['Britain widening its political and economic influence over lands', 'Britain ending all of its trade overseas', 'Britain giving equal voting rights across Africa', 'Britain refusing to build any ports'],
+    answer: 'Britain widening its political and economic influence over lands',
     explanation: 'Imperialism refers to expanding control and influence beyond a country’s borders.',
   },
   {
@@ -103,24 +93,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'One long-term consequence of the Scramble for Africa was that:',
-    options: [
-      'Many borders were drawn without considering local communities',
-      'All African territories became one country',
-      'European powers stopped competing globally',
-      'Traditional economies disappeared overnight',
-    ],
-    answer: 'Many borders were drawn without considering local communities',
+    options: ['Many borders were drawn with no regard for local communities', 'All of the African territories became one country', 'The European powers stopped competing around the world', 'Traditional economies disappeared overnight'],
+    answer: 'Many borders were drawn with no regard for local communities',
     explanation: 'Colonial borders often ignored existing languages, cultures, and political systems.',
   },
   {
     prompt: 'When analysing a source about empire, which question best checks for bias?',
-    options: [
-      'Who created the source and what viewpoint are they promoting?',
-      'What colour is the paper used for printing?',
-      'How long is the source in pages only?',
-      'Was the source stored in a museum recently?',
-    ],
-    answer: 'Who created the source and what viewpoint are they promoting?',
+    options: ['Who made the source and what view are they promoting?', 'What colour is the paper that was used to print it?', 'How many pages long is the source, in pages only?', 'Was the source put in a museum recently?'],
+    answer: 'Who made the source and what view are they promoting?',
     explanation: 'Identifying creator and perspective helps learners assess bias and reliability.',
   },
   {

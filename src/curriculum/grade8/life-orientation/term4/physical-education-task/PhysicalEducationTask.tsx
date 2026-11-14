@@ -32,13 +32,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Why is participation tracking useful in PET?',
-    options: [
-      'It shows progress and areas for improvement',
-      'It replaces practical activity',
-      'It is only for top athletes',
-      'It removes the need for goals',
-    ],
-    answer: 'It shows progress and areas for improvement',
+    options: ['It shows progress and where to improve', 'It takes the place of the practical activity', 'It is meant for top athletes only', 'It removes the need for setting goals'],
+    answer: 'It shows progress and where to improve',
     explanation: 'Tracking gives evidence of consistency and development.',
   },
   {
@@ -54,12 +49,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a good post-game reflection question?',
-    options: [
-      'What went well, and what should I improve next time?',
-      'Who can I blame for every error?',
-      'How can I avoid teamwork?',
-      'How can I skip all rules?',
-    ],
+    options: ['What went well, and what should I improve next time?', 'Who can I blame for each of the errors?', 'How can I stay out of the team?', 'How can I get round all of the rules?'],
     answer: 'What went well, and what should I improve next time?',
     explanation: 'Reflection supports skill development and personal accountability.',
   },
@@ -76,13 +66,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How can learners apply strategy during games?',
-    options: [
-      'Communicate roles and adapt to play situations',
-      'Play without any plan',
-      'Ignore teammates and spacing',
-      'Refuse tactical feedback',
-    ],
-    answer: 'Communicate roles and adapt to play situations',
+    options: ['Share roles and adapt to what happens in play', 'Play without any plan', 'Ignore your teammates and the spacing', 'Refuse to take tactical feedback'],
+    answer: 'Share roles and adapt to what happens in play',
     explanation: 'Simple strategy improves teamwork and decision-making.',
   },
   {
@@ -98,24 +83,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a healthy reason to join recreational activity?',
-    options: [
-      'To improve wellbeing, enjoyment, and social connection',
-      'To humiliate other learners',
-      'To avoid all effort',
-      'To break rules for attention',
-    ],
-    answer: 'To improve wellbeing, enjoyment, and social connection',
+    options: ['To improve wellbeing, enjoyment and social connection', 'To humiliate other learners', 'To avoid putting in any effort', 'To break the rules in order to get attention'],
+    answer: 'To improve wellbeing, enjoyment and social connection',
     explanation: 'Recreation supports physical and emotional health.',
   },
   {
     prompt: 'Which end-of-year PET goal is most useful?',
-    options: [
-      'Set one realistic fitness and one teamwork target for next term',
-      'Set no goals at all',
-      'Copy someone else goals without thought',
-      'Choose goals that are impossible to measure',
-    ],
-    answer: 'Set one realistic fitness and one teamwork target for next term',
+    options: ['Set one fitness and one teamwork target for next term', 'Set no goals for the year', "Copy another person's goals without thought", 'Choose goals that cannot be measured'],
+    answer: 'Set one fitness and one teamwork target for next term',
     explanation: 'Specific future goals keep progress moving forward.',
   },
 ];

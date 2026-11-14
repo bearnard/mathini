@@ -70,8 +70,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is "enterprise" as a factor of production?',
-    options: ['The land the business uses', 'The buildings and machinery', 'The ability to organize and take risks', 'The money invested'],
-    answer: 'The ability to organize and take risks',
+    options: ['The land that the business uses', 'The buildings and machinery of the business', 'The ability to organise and take risks', 'The money that has been invested in it'],
+    answer: 'The ability to organise and take risks',
     explanation: 'Enterprise (entrepreneurship) is the skill, initiative, and willingness to take risks in combining other factors of production.',
   },
   {
@@ -82,20 +82,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the purpose of posting journal entries to the general ledger?',
-    options: ['To create invoices', 'To summarize account activity in one place', 'To calculate taxes', 'To replace journals'],
-    answer: 'To summarize account activity in one place',
+    options: ['To create invoices for the customers', 'To summarise account activity in one place', 'To calculate the taxes that are due', 'To take the place of the journals'],
+    answer: 'To summarise account activity in one place',
     explanation: 'Posting transfers journal data to ledger accounts so all transactions for each account are organized and easy to track.',
   },
   {
     prompt: 'An entrepreneur starting a business must have:',
-    options: ['Only money', 'Land but no labour', 'An idea and willingness to take risks', 'Government permission only'],
+    options: ['Money and nothing else', 'Land but no labour to work it', 'An idea and willingness to take risks', 'Permission from the government only'],
     answer: 'An idea and willingness to take risks',
     explanation: 'Entrepreneurship requires identifying opportunities, creating plans, and taking risks—more important than capital alone.',
   },
   {
     prompt: 'Why is the accounting cycle important for small businesses?',
-    options: ['To avoid paying taxes', 'To organize transactions, ensure accuracy, and prepare reliable financial reports', 'To hide financial information', 'It is not important'],
-    answer: 'To organize transactions, ensure accuracy, and prepare reliable financial reports',
+    options: ['To avoid paying the taxes that are due', 'To organise transactions and prepare reliable reports', 'To hide financial information from the owners', 'The cycle is not important for small firms'],
+    answer: 'To organise transactions and prepare reliable reports',
     explanation: 'Following the accounting cycle ensures businesses have accurate records for decision-making, tax compliance, and creditor communication.',
   },
 ];

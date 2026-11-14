@@ -65,13 +65,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A learner has many tasks due. What should they do first?',
-    options: [
-      'Prioritise tasks by deadline and importance',
-      'Start with random tasks only',
-      'Wait until the last night',
-      'Ignore difficult subjects',
-    ],
-    answer: 'Prioritise tasks by deadline and importance',
+    options: ['Rank tasks by deadline and importance', 'Start with whichever tasks you feel like doing', 'Wait until the last night before they are due', 'Leave the difficult subjects for much later'],
+    answer: 'Rank tasks by deadline and importance',
     explanation: 'Prioritising helps learners complete work efficiently.',
   },
   {
@@ -87,13 +82,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which strategy is best when a topic feels difficult?',
-    options: [
-      'Break it into smaller steps and ask for help when needed',
-      'Avoid the topic forever',
-      'Copy answers without understanding',
-      'Give up immediately',
-    ],
-    answer: 'Break it into smaller steps and ask for help when needed',
+    options: ['Split it into small steps and ask for help when needed', 'Avoid the topic for the rest of the year', 'Copy the answers without understanding them', 'Give up on the topic straight away'],
+    answer: 'Split it into small steps and ask for help when needed',
     explanation: 'Small steps and support improve understanding and confidence.',
   },
   {
@@ -109,13 +99,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which choice supports healthier study balance?',
-    options: [
-      'Including rest, sleep, and revision in your weekly plan',
-      'Studying all night every night',
-      'Skipping meals to save time',
-      'Removing all breaks from your day',
-    ],
-    answer: 'Including rest, sleep, and revision in your weekly plan',
+    options: ['Putting rest, sleep and revision in your weekly plan', 'Studying all night, every night, to get ahead', 'Skipping meals in order to save study time', 'Removing all of the breaks from your day'],
+    answer: 'Putting rest, sleep and revision in your weekly plan',
     explanation: 'Balanced routines protect wellbeing and improve performance.',
   },
 ];

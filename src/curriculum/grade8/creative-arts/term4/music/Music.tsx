@@ -22,13 +22,13 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Aural recall means...',
-    options: ['Remembering and identifying sounds by listening', 'Reading only visual art notes', 'Dancing without music', 'Choosing costume colours'],
-    answer: 'Remembering and identifying sounds by listening',
+    options: ['Remembering and naming sounds by listening', 'Reading notes on visual art and nothing else', 'Dancing without any music', 'Choosing the colours of costumes'],
+    answer: 'Remembering and naming sounds by listening',
     explanation: 'Aural tasks assess what learners hear and remember.',
   },
   {
     prompt: 'Genre comparison in music focuses on...',
-    options: ['Differences and similarities in style features', 'Only volume levels', 'Only classroom seating', 'Only instrument prices'],
+    options: ['Differences and similarities in style features', 'The volume levels of the pieces', 'The seating plan of the classroom', 'The prices of the instruments'],
     answer: 'Differences and similarities in style features',
     explanation: 'Genre analysis considers rhythm, instrumentation, and context.',
   },
@@ -40,8 +40,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Performance revision is most effective when learners...',
-    options: ['Target difficult sections repeatedly', 'Play only easy sections once', 'Avoid feedback completely', 'Change tempo randomly'],
-    answer: 'Target difficult sections repeatedly',
+    options: ['Work on the difficult sections again and again', 'Play only the easy sections one time', 'Avoid feedback from anyone', 'Change the tempo whenever you feel like it'],
+    answer: 'Work on the difficult sections again and again',
     explanation: 'Focused practice improves weak spots in prepared pieces.',
   },
   {
@@ -52,8 +52,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'To keep tempo steady in rehearsal, learners can...',
-    options: ['Count beats or use a pulse cue', 'Speed up each phrase', 'Ignore the group leader', 'Pause at random places'],
-    answer: 'Count beats or use a pulse cue',
+    options: ['Count the beats or use a pulse cue', 'Speed up at the start of each phrase', 'Ignore the leader of the group', 'Pause for a while after each phrase'],
+    answer: 'Count the beats or use a pulse cue',
     explanation: 'Pulse awareness keeps group timing consistent.',
   },
   {
@@ -64,7 +64,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'After a performance, self-evaluation should include...',
-    options: ['One success and one improvement goal', 'Only audience size', 'Only stage colour', 'No mention of technique'],
+    options: ['One success and one improvement goal', 'The audience size and nothing else', 'The colour of the stage and nothing else', 'A remark that leaves out any technique'],
     answer: 'One success and one improvement goal',
     explanation: 'Practical reflection helps guide future practice.',
   },

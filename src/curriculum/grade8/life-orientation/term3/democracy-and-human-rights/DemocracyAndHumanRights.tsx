@@ -33,13 +33,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is a human right?',
-    options: [
-      'A basic freedom and protection every person should have',
-      'A reward only for top learners',
-      'A school uniform rule only',
-      'A privilege for one group only',
-    ],
-    answer: 'A basic freedom and protection every person should have',
+    options: ['A basic freedom and protection that every person should have', 'A reward that only the top learners receive', 'A rule about the school uniform and nothing else', 'A privilege that is meant for one group only'],
+    answer: 'A basic freedom and protection that every person should have',
     explanation: 'Human rights apply to all people and protect dignity.',
   },
   {
@@ -88,34 +83,19 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which behaviour reflects democratic participation?',
-    options: [
-      'Listening to different views and discussing respectfully',
-      'Shouting down everyone else',
-      'Refusing all group decisions',
-      'Using threats to win debates',
-    ],
-    answer: 'Listening to different views and discussing respectfully',
+    options: ['Listening to different views with respect', 'Shouting down everyone else in the group', 'Refusing to accept any of the group decisions', 'Using threats in order to win the debate'],
+    answer: 'Listening to different views with respect',
     explanation: 'Democracy depends on respectful dialogue and inclusion.',
   },
   {
     prompt: 'What is the role of constitutional rights in South Africa?',
-    options: [
-      'They provide a framework for protecting people and justice',
-      'They apply only in sports',
-      'They are optional suggestions only',
-      'They protect one language group only',
-    ],
-    answer: 'They provide a framework for protecting people and justice',
+    options: ['They give a framework for protecting people and justice', 'They apply in sport and nowhere else', 'They are optional suggestions for citizens', 'They protect one language group only'],
+    answer: 'They give a framework for protecting people and justice',
     explanation: 'Constitutional rights guide lawful and fair treatment.',
   },
   {
     prompt: 'How can learners help protect rights daily?',
-    options: [
-      'Use respectful language and challenge unfair behaviour',
-      'Ignore bullying and exclusion',
-      'Mock classmates publicly',
-      'Break rules when convenient',
-    ],
+    options: ['Use respectful language and challenge unfair behaviour', 'Ignore the bullying and the exclusion', 'Mock classmates in front of others', 'Break the rules whenever it is convenient'],
     answer: 'Use respectful language and challenge unfair behaviour',
     explanation: 'Everyday actions can strengthen or weaken rights culture.',
   },
