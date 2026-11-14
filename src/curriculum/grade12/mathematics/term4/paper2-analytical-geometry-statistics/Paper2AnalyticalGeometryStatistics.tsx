@@ -27,7 +27,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
           control.
         </p>
         <Formula block>{String.raw`(x-a)^2 + (y-b)^2 = r^2,\quad m_1m_2 = -1`}</Formula>
-        <FunctionGraph
+        <FunctionGraph equalAxes
           curves={[
             {
               fn: (x: number) => (Math.abs(x) <= 4 ? Math.sqrt(16 - x ** 2) : NaN),

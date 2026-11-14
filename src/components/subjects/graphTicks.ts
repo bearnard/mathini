@@ -46,3 +46,17 @@ export const withRoomForLabels = (range: [number, number], fraction: number): [n
 
 /** An axis label without floating-point noise: 0.6000000000000001 shows as 0.6. */
 export const formatTick = (n: number): string => String(Math.round(n * 1e6) / 1e6);
+
+/** The library pads the requested range by half a unit on every side. */
+const VIEW_PADDING = 0.5;
+
+/**
+ * How many units each axis actually shows when one unit must be the same length on both axes:
+ * the scale is set by whichever axis is tighter, and the other axis shows more than was asked.
+ */
+export const displayedSpans = (xRange: [number, number], yRange: [number, number], width: number, height: number): { x: number; y: number } => {
+  const xSpan = Math.abs(xRange[1] - xRange[0]) + 2 * VIEW_PADDING;
+  const ySpan = Math.abs(yRange[1] - yRange[0]) + 2 * VIEW_PADDING;
+  const scale = Math.min(width / xSpan, height / ySpan); // pixels per unit
+  return { x: width / scale, y: height / scale };
+};

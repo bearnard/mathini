@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { axisStep, formatTick, looksLikeDegrees, niceStep, withRoomForLabels } from './graphTicks';
+import { axisStep, displayedSpans, formatTick, looksLikeDegrees, niceStep, withRoomForLabels } from './graphTicks';
 
 test('nice steps are 1, 2 or 5 times a power of ten and give 4 to 10 intervals', () => {
   for (const span of [1, 3, 6, 8, 10, 11, 13, 19, 80, 130, 260, 300, 12.56]) {
@@ -52,4 +52,20 @@ test('tick labels carry no floating-point noise', () => {
   assert.equal(formatTick(45), '45');
   assert.equal(formatTick(-6.28), '-6.28');
   assert.equal(formatTick(1.5), '1.5');
+});
+
+test('with equal axes a wide box shows far more x than was asked, and the grid step must follow what is shown', () => {
+  const wide = displayedSpans([-4, 4], [-6, 6], 828, 300); // the perpendicular-lines slide on a desktop
+  assert.ok(Math.abs(wide.y - 13) < 1e-9, 'y is the tight axis: 12 + 1 padding');
+  assert.ok(wide.x > 35 && wide.x < 37, `x shows about 36 units, not 8 (${wide.x})`);
+  assert.equal(niceStep(wide.x), 5); // about 7 intervals, not 36 crowded labels
+  assert.equal(niceStep(wide.y), 2);
+  const phone = displayedSpans([-4, 4], [-6, 6], 180, 300); // a very narrow box
+  assert.ok(phone.x < phone.y, 'on a narrow box x is the tight axis');
+  assert.ok(Math.abs(phone.x - 9) < 1e-9);
+});
+
+test('a box with the same shape as the ranges shows exactly the padded ranges', () => {
+  const s = displayedSpans([0, 10], [0, 10], 400, 400);
+  assert.ok(Math.abs(s.x - 11) < 1e-9 && Math.abs(s.y - 11) < 1e-9);
 });
