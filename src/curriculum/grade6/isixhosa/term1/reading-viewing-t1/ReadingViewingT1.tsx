@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Read short texts and picture clues',
-    image: {
-      src: '/curriculum/grade6/xho/term1/reading-viewing-t1/diagram.webp',
-      alt: 'Grade 6 learner reading a short dialogue and matching it to classroom pictures',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

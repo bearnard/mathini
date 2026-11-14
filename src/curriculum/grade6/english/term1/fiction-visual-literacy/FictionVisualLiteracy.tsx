@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Stories and visuals both send meaning',
-    image: {
-      src: '/curriculum/grade6/eng/term1/fiction-visual-literacy/diagram.webp',
-      alt: 'learner reading a story while studying a colourful advertisement poster',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

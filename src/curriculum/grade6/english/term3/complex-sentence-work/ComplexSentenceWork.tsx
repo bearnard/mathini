@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Phrases and clauses do different jobs',
-    image: {
-      src: '/curriculum/grade6/eng/term3/complex-sentence-work/diagram.webp',
-      alt: 'colourful sentence strips showing phrases and clauses joining together',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

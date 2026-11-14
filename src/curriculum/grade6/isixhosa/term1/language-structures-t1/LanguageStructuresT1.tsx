@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Use personal pronouns and subject concords',
-    image: {
-      src: '/curriculum/grade6/xho/term1/language-structures-t1/diagram.webp',
-      alt: 'Grade 6 learners practising isiXhosa pronouns and sentence patterns on classroom cards',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

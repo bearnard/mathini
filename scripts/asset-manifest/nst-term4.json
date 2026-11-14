@@ -25,17 +25,6 @@
     "grade": "grade6",
     "subject": "nst",
     "term": "term4",
-    "topic": "day-night-seasons",
-    "section": "diagram",
-    "type": "svg",
-    "path": "curriculum/grade6/nst/term4/day-night-seasons/diagram.svg",
-    "alt": "Tilted Earth showing day side, night side and Sun rays",
-    "svgSource": "scripts/svg-src/grade6/nst/term4/day-night-seasons/diagram.svg"
-  },
-  {
-    "grade": "grade6",
-    "subject": "nst",
-    "term": "term4",
     "topic": "space-exploration",
     "section": "diagram",
     "type": "ai",

@@ -14,33 +14,11 @@
     "grade": "grade6",
     "subject": "xho",
     "term": "term1",
-    "topic": "reading-viewing-t1",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/xho/term1/reading-viewing-t1/diagram.webp",
-    "alt": "Grade 6 learner reading a short dialogue and matching it to classroom pictures",
-    "prompt": "Friendly educational illustration for Grade 6 isiXhosa SAL showing a learner reading a short dialogue card and matching words to simple classroom pictures, flat style, clean background, no text labels."
-  },
-  {
-    "grade": "grade6",
-    "subject": "xho",
-    "term": "term1",
     "topic": "writing-presenting-t1",
     "section": "diagram",
     "type": "ai",
     "path": "curriculum/grade6/xho/term1/writing-presenting-t1/diagram.webp",
     "alt": "Grade 6 learner writing short isiXhosa sentences about personal details and family",
     "prompt": "Friendly educational illustration for Grade 6 isiXhosa SAL showing a learner writing short personal and family sentences at a desk, neat notebook, bright simple colours, clean background, no text labels."
-  },
-  {
-    "grade": "grade6",
-    "subject": "xho",
-    "term": "term1",
-    "topic": "language-structures-t1",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/xho/term1/language-structures-t1/diagram.webp",
-    "alt": "Grade 6 learners practising isiXhosa pronouns and sentence patterns on classroom cards",
-    "prompt": "Friendly educational illustration for Grade 6 isiXhosa SAL showing learners using sentence cards to practise pronouns, concords, and punctuation in class, flat style, clean background, no text labels."
   }
 ]

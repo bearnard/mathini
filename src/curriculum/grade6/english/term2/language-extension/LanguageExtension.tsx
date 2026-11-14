@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Grow your vocabulary with word relationships',
-    image: {
-      src: '/curriculum/grade6/eng/term2/language-extension/diagram.webp',
-      alt: 'colourful word cards showing synonyms antonyms and idioms',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

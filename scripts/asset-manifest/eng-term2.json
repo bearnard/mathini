@@ -9,27 +9,5 @@
     "path": "curriculum/grade6/eng/term2/literary-genres/diagram.webp",
     "alt": "books, a stage and poetry pages showing different literary genres",
     "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a novel book, a small theatre stage, and poetry pages grouped together to represent literary genres in rotation. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real, identifiable named people."
-  },
-  {
-    "grade": "grade6",
-    "subject": "eng",
-    "term": "term2",
-    "topic": "creative-transactional-writing",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/eng/term2/creative-transactional-writing/diagram.webp",
-    "alt": "learner planning a poem, dialogue, script, and short message in a notebook",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a generic learner planning different kinds of writing in one notebook, including a poem, a dialogue script, and a short message represented visually without any words. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real, identifiable named people."
-  },
-  {
-    "grade": "grade6",
-    "subject": "eng",
-    "term": "term2",
-    "topic": "language-extension",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/eng/term2/language-extension/diagram.webp",
-    "alt": "colourful word cards, punctuation marks, and tense arrows for language practice",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing colourful word cards, simple punctuation symbols, and arrows suggesting past, present, and future language practice. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real, identifiable named people."
   }
 ]

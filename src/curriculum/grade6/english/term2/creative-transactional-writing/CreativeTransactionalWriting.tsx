@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Different text types have different jobs',
-    image: {
-      src: '/curriculum/grade6/eng/term2/creative-transactional-writing/diagram.webp',
-      alt: 'learner planning a poem, dialogue, script, and short message in a notebook',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">
