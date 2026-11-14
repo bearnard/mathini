@@ -131,3 +131,35 @@ test('the full scoreRows applies the rule too (a later full backfill stays consi
   assert.equal(scoreRows([r])[0].score, 0);
   assert.ok(scoreRows([r], { decimalRule: false })[0].score >= 80);
 });
+
+// ── retired questions (moderation) must never be rescored ───────────────────────────────────────────────────────────────────────
+
+test('rows of a RETIRED question get no update: a full backfill must not overwrite quality_score 0 and serve it again', () => {
+  const rows = [good(1), good(2), good(3)];
+  const all = scoreRows(rows);
+  assert.deepEqual(all.map((s) => s.id), [1, 2, 3]);
+  const skipped = scoreRows(rows, { retiredIds: new Set([2]) });
+  assert.deepEqual(skipped.map((s) => s.id), [1, 3]);
+  const sql = updateSql(skipped).join('\n');
+  assert.ok(!/WHERE id = 2;/.test(sql), 'no UPDATE for the retired row');
+  assert.ok(/WHERE id = 1;/.test(sql) && /WHERE id = 3;/.test(sql));
+});
+
+test('retired rows still count as existing questions for the near-duplicate check of the others', () => {
+  const a = row(1, 't', 'What is the capital city of the country called France in Europe?', ['Paris', 'Rome', 'Madrid', 'Berlin'], 'Paris');
+  const b = row(2, 't', 'What is the capital city of the country called France in Europe?', ['Paris', 'Rome', 'Madrid', 'Berlin'], 'Paris');
+  const res = scoreRows([a, b], { retiredIds: new Set([1]) });
+  assert.deepEqual(res.map((s) => s.id), [2]);
+  assert.ok(res[0].flags.includes('near_duplicate'), 'the later copy is still judged against the retired original');
+});
+
+test('a retired row is skipped by the decimal-comma targeted backfill too', async () => {
+  const { targetedDecimalUpdates } = await import('./qualityBackfill');
+  const taskCode = Object.keys((await import('./caps/taskIndex.generated')).TASK_INDEX).find((t) => /^gr6-decimal/.test(t));
+  assert.ok(taskCode, 'a Grade 6 decimal task exists in the index');
+  const r = (id: number) => ({ id, task: taskCode!, prompt: `What is 1.${id} + 0.5 when you add them together?`, options: JSON.stringify(['1.5', '2.0', '0.5', '3.1']), answer: '2.0', explanation: 'Add the tenths and then the ones.', quality_score: 90 });
+  const all = targetedDecimalUpdates([r(1), r(2)]).updates.map((u) => u.id);
+  assert.deepEqual(all, [1, 2]);
+  const some = targetedDecimalUpdates([r(1), r(2)], new Set([2])).updates.map((u) => u.id);
+  assert.deepEqual(some, [1]);
+});

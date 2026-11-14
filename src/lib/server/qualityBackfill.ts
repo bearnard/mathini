@@ -24,6 +24,13 @@ export interface Scored {
 export interface ScoreOptions {
   /** Apply the decimal-comma format rule (caps/formatPolicy.ts). Default true; false reproduces the scores from before the rule existed. */
   decimalRule?: boolean;
+  /**
+   * item_cache ids whose question is RETIRED (questions.status = 'retired', joined by questions.legacy_item_id). Moderation stores
+   * quality_score = 0 on those rows and keeps the previous score in question_moderation.detail so a reinstate restores it; a backfill
+   * that rescored them by id would overwrite the 0 and silently serve a retired question again. They still take part in the near-duplicate
+   * judgement (they were real questions) but get NO update.
+   */
+  retiredIds?: ReadonlySet<number>;
 }
 
 export function scoreRows(rows: readonly BackfillRow[], opts: ScoreOptions = {}): Scored[] {
@@ -44,7 +51,8 @@ export function scoreRows(rows: readonly BackfillRow[], opts: ScoreOptions = {})
       out.push({ id: r.id, score: res.score, flags: flagsOf(res) });
     }
   }
-  return out.sort((a, b) => a.id - b.id);
+  const skip = opts.retiredIds;
+  return out.filter((s) => !skip?.has(s.id)).sort((a, b) => a.id - b.id);
 }
 
 /** UPDATE statements, one per row, in files of at most `perFile` statements (D1 accepts large files, but small ones are easy to retry). */
@@ -102,16 +110,16 @@ const band = (score: number | null | undefined) => (score === null || score === 
  * UPDATEs only for rows that contain a decimal point in a task the rule covers AND whose stored score changes. The stored score is
  * the row's quality_score if given, else what the validator gave BEFORE the rule (the same number the production backfill stored).
  */
-export function targetedDecimalUpdates(rows: readonly StoredRow[]): { updates: Scored[]; report: DecimalReportRow[] } {
-  const after = new Map(scoreRows(rows).map((s) => [s.id, s]));
-  const before = new Map(scoreRows(rows, { decimalRule: false }).map((s) => [s.id, s]));
+export function targetedDecimalUpdates(rows: readonly StoredRow[], retiredIds?: ReadonlySet<number>): { updates: Scored[]; report: DecimalReportRow[] } {
+  const after = new Map(scoreRows(rows, { retiredIds }).map((s) => [s.id, s]));
+  const before = new Map(scoreRows(rows, { decimalRule: false, retiredIds }).map((s) => [s.id, s]));
   const updates: Scored[] = [];
   const groups = new Map<string, DecimalReportRow>();
   for (const r of rows) {
     const code = TASK_INDEX[r.task]?.[0];
     const grade = TASK_INDEX[r.task]?.[1];
     const policy = code ? decimalPolicyFor(r.task, code) : undefined;
-    if (!policy || grade === undefined || !hasDecimalPoint(r)) continue;
+    if (retiredIds?.has(r.id) || !policy || grade === undefined || !hasDecimalPoint(r)) continue;
     const key = `${grade}|${policy}`;
     const g = groups.get(key) ?? { grade, policy, affected: 0, changed: 0, transitions: {}, tasks: {} };
     groups.set(key, g);

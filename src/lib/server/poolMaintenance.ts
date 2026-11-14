@@ -22,6 +22,8 @@ export interface PoolPlan {
   rowsBefore: number;
   deleteIds: number[];
   deleteVectorIds: string[];
+  /** Retired rows (moderation) that were NOT deleted: reinstating a question needs its row, and a retired row is never served anyway. */
+  skippedRetired: number;
   rowsAfter: number;
   /** Rows the pool can still serve (score NULL or above 0). */
   servableAfter: number;
@@ -35,6 +37,8 @@ export interface PlanOptions {
   rows: PoolRowLite[];
   /** Specific item_cache ids to delete (hard-error-ids.txt, defect-row-ids.txt). */
   ids?: number[];
+  /** item_cache ids whose question is retired (questions.status = 'retired', via questions.legacy_item_id): never deleted. */
+  retiredIds?: ReadonlySet<number>;
   target?: number;
 }
 
@@ -75,7 +79,8 @@ export function planMaintenance(opts: PlanOptions): PoolPlan[] {
   for (const task of [...tasks].sort()) {
     const rows = byTask.get(task) ?? [];
     const action = actionOf.get(task);
-    const doomed = rows.filter((r) => (action === 'purge' ? true : idSet.has(r.id) || (action === 'fix' && r.quality_score === 0)));
+    const retired = rows.filter((r) => opts.retiredIds?.has(r.id));
+    const doomed = rows.filter((r) => !opts.retiredIds?.has(r.id) && (action === 'purge' ? true : idSet.has(r.id) || (action === 'fix' && r.quality_score === 0)));
     const doomedIds = new Set(doomed.map((r) => r.id));
     const left = rows.filter((r) => !doomedIds.has(r.id));
     const servable = left.filter((r) => r.quality_score === null || r.quality_score > 0).length;
@@ -85,6 +90,7 @@ export function planMaintenance(opts: PlanOptions): PoolPlan[] {
       rowsBefore: rows.length,
       deleteIds: doomed.map((r) => r.id).sort((a, b) => a - b),
       deleteVectorIds: doomed.map((r) => r.vector_id).filter((v): v is string => !!v),
+      skippedRetired: retired.length,
       rowsAfter: left.length,
       servableAfter: servable,
       toGenerate: Math.max(0, target - servable),

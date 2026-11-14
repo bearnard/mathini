@@ -8,12 +8,13 @@
  *   --apply --remote --confirm-prod=<database id>   run them against PRODUCTION (the owner runs this, never an agent)
  *   --only decimal-point   TARGETED: UPDATEs only for rows that contain a decimal point in a maths-type task the decimal-comma rule covers
  *                          (Grade 6 maths = reject, maths/ML of Grades 7-12 = warn) and whose score changes; prints counts per grade first.
+ * RETIRED questions (questions.status = 'retired', via questions.legacy_item_id) are never rescored: moderation keeps their score at 0.
  * Idempotent: every statement is an UPDATE by id, so running it twice is harmless; rows inserted later are scored at insert time.
  */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { argValue, chunk, DATABASE_ID, DATABASE_NAME, selectRows, wrangler } from './_wrangler';
+import { argValue, chunk, DATABASE_ID, DATABASE_NAME, retiredItemIds, selectRows, wrangler } from './_wrangler';
 import { decideMode } from '../src/lib/server/poolMaintenance';
 import { bandCounts, scoreRows, targetedDecimalUpdates, updateSql, type StoredRow } from '../src/lib/server/qualityBackfill';
 
@@ -29,10 +30,12 @@ const only = argValue(argv, '--only');
 if (only && only !== 'decimal-point') { console.error(`error: --only must be "decimal-point", got "${only}"`); process.exit(2); }
 // quality_score is read when the source has it (production/local D1); an exported file without it falls back to the pre-rule score.
 const rows = selectRows<StoredRow>(source.startsWith('file:') ? 'SELECT id, task, prompt, options, answer, explanation FROM item_cache ORDER BY id' : 'SELECT id, task, prompt, options, answer, explanation, quality_score FROM item_cache ORDER BY id', source, persistTo);
-let scored = scoreRows(rows);
+const retiredIds = retiredItemIds(source, persistTo);
+if (retiredIds.size) console.log(`skipping ${retiredIds.size} retired question(s): their quality_score stays 0 (moderation)`);
+let scored = scoreRows(rows, { retiredIds });
 let bands = bandCounts(scored);
 if (only === 'decimal-point') {
-  const { updates, report } = targetedDecimalUpdates(rows);
+  const { updates, report } = targetedDecimalUpdates(rows, retiredIds);
   console.log('\nDECIMAL-COMMA RULE: rows with a decimal point in a covered maths task');
   console.log('grade  policy   rows  score changes  (before -> after)');
   for (const g of report) console.log(`${String(g.grade).padEnd(6)} ${g.policy.padEnd(7)} ${String(g.affected).padStart(5)} ${String(g.changed).padStart(8)}      ${Object.entries(g.transitions).map(([k, v]) => `${v} ${k}`).join('; ') || 'none'}`);

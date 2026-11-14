@@ -34,3 +34,18 @@ export function selectRows<T>(sql: string, source: string, persistTo?: string): 
 export function chunk<T>(a: T[], n: number): T[][] {
   return Array.from({ length: Math.ceil(a.length / n) }, (_, i) => a.slice(i * n, (i + 1) * n));
 }
+
+/**
+ * item_cache ids whose question is RETIRED by moderation (questions.status = 'retired', joined by questions.legacy_item_id). The quality
+ * backfill and the pool purge must leave those rows alone: moderation stores quality_score = 0 on them and keeps the old score for a reinstate.
+ * An exported FILE source has no questions table, so nothing is skipped there (a warning says so).
+ */
+export function retiredItemIds(source: string, persistTo?: string): Set<number> {
+  if (source.startsWith('file:')) { console.warn('warning: --source file:... has no questions table, so retired questions cannot be skipped'); return new Set(); }
+  try {
+    return new Set(selectRows<{ id: number }>("SELECT legacy_item_id AS id FROM questions WHERE status = 'retired' AND legacy_item_id IS NOT NULL", source, persistTo).map((r) => r.id));
+  } catch (e) {
+    console.warn(`warning: could not read retired questions (is migration 0008 applied?): ${(e as Error).message.split('\n')[0]}`);
+    return new Set();
+  }
+}
