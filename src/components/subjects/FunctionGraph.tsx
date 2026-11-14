@@ -2,6 +2,7 @@
 
 import { Mafs, Coordinates, Plot, Theme, useMovablePoint } from 'mafs';
 import 'mafs/core.css';
+import { axisStep, formatTick, withRoomForLabels } from './graphTicks';
 
 export interface CurveConfig {
   fn: (x: number) => number;
@@ -39,11 +40,19 @@ const FunctionGraph = ({
   return (
     <div className={`rounded-xl overflow-hidden border border-slate-200 ${className ?? ''}`}>
       <Mafs
-        viewBox={{ x: xRange, y: yRange }}
+        viewBox={{ x: withRoomForLabels(xRange, 0.06), y: withRoomForLabels(yRange, 0.12) }}
         height={height}
         pan={false}
+        // Honour the ranges the lesson asks for. Mafs keeps a 1:1 aspect ratio by default, which
+        // widens the view far beyond xRange when the two ranges differ (for example 0-8 by 0-80):
+        // hundreds of tick labels, an unreadable graph, the curve a thin line.
+        preserveAspectRatio={false}
       >
-        <Coordinates.Cartesian />
+        {/* about 4 to 10 grid lines and labels per axis, not one per unit (360 labels on a 0-360 axis) */}
+        <Coordinates.Cartesian
+          xAxis={{ lines: axisStep(xRange), labels: formatTick }}
+          yAxis={{ lines: axisStep(yRange), labels: formatTick }}
+        />
         {curves.map((c, i) => (
           <Plot.OfX
             key={i}
