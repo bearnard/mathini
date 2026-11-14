@@ -6,10 +6,6 @@ import DataChart from '@/components/subjects/DataChart';
 const learnSteps: LearnStep[] = [
   {
     title: 'Resources help people meet needs',
-    image: {
-      src: '/curriculum/grade6/geo/term2/resources-value/diagram.webp',
-      alt: 'natural resources including a mine forest farm water and solar energy',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

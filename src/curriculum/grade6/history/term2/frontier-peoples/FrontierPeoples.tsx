@@ -21,10 +21,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Many peoples lived near the frontier',
-    image: {
-      src: '/curriculum/grade6/his/term2/frontier-peoples/diagram.webp',
-      alt: 'different groups of people with cattle on open grassland frontier',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

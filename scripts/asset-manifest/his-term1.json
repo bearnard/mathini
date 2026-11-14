@@ -3,34 +3,12 @@
     "grade": "grade6",
     "subject": "his",
     "term": "term1",
-    "topic": "what-is-history",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/his/term1/what-is-history/diagram.webp",
-    "alt": "learners exploring old photographs and books to discover the past",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing generic children looking at old photographs and books, discovering the past together. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real, identifiable, named historical or living people."
-  },
-  {
-    "grade": "grade6",
-    "subject": "his",
-    "term": "term1",
     "topic": "historical-sources",
     "section": "diagram",
     "type": "svg",
     "path": "curriculum/grade6/his/term1/historical-sources/diagram.svg",
     "alt": "icons showing written visual oral and object historical sources",
     "svgSource": "scripts/svg-src/grade6/his/term1/historical-sources/diagram.svg"
-  },
-  {
-    "grade": "grade6",
-    "subject": "his",
-    "term": "term1",
-    "topic": "investigating-community",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/his/term1/investigating-community/diagram.webp",
-    "alt": "child interviewing an elder to learn about local history",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a generic child respectfully interviewing a generic elder about local history, with a notebook and simple museum or archive items nearby. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real, identifiable, named historical or living people."
   },
   {
     "grade": "grade6",

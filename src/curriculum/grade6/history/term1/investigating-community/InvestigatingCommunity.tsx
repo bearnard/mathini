@@ -21,10 +21,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Local history starts with questions',
-    image: {
-      src: '/curriculum/grade6/his/term1/investigating-community/diagram.webp',
-      alt: 'child interviewing an elder to learn about local history',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

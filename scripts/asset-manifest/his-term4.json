@@ -3,44 +3,11 @@
     "grade": "grade6",
     "subject": "his",
     "term": "term4",
-    "topic": "early-indigenous-medicine",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/his/term4/early-indigenous-medicine/diagram.webp",
-    "alt": "traditional healer with baskets of herbs and medicinal plants",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a respectful generic traditional healer with baskets of herbs and medicinal plants, representing indigenous healing knowledge without depicting a real identifiable person. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  },
-  {
-    "grade": "grade6",
-    "subject": "his",
-    "term": "term4",
-    "topic": "ancient-medicine",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/his/term4/ancient-medicine/diagram.webp",
-    "alt": "ancient healer with simple tools and herbs",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a generic ancient physician or healer with simple old tools and herbs inspired by ancient Egypt and Greece, without depicting a real identifiable named person. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  },
-  {
-    "grade": "grade6",
-    "subject": "his",
-    "term": "term4",
     "topic": "european-medicine",
     "section": "diagram",
     "type": "svg",
     "path": "curriculum/grade6/his/term4/european-medicine/diagram.svg",
     "alt": "timeline of hospitals germ theory hygiene and vaccines",
     "svgSource": "scripts/svg-src/grade6/his/term4/european-medicine/diagram.svg"
-  },
-  {
-    "grade": "grade6",
-    "subject": "his",
-    "term": "term4",
-    "topic": "modern-medicine",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/his/term4/modern-medicine/diagram.webp",
-    "alt": "modern hospital scene with medical equipment",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a modern hospital scene with friendly medical equipment such as a stethoscope, X-ray image, and medicines, without depicting real identifiable named people. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
   }
 ]

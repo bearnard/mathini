@@ -21,10 +21,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Medicine in ancient societies',
-    image: {
-      src: '/curriculum/grade6/his/term4/ancient-medicine/diagram.webp',
-      alt: 'ancient healer with simple tools and herbs',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

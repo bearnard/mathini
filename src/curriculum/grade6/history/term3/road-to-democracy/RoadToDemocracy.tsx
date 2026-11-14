@@ -22,10 +22,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Apartheid blocked democracy',
-    image: {
-      src: '/curriculum/grade6/his/term3/road-to-democracy/diagram.webp',
-      alt: 'long hopeful queue of diverse South African people waiting to vote',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -6,10 +6,6 @@ import DataChart from '@/components/subjects/DataChart';
 const learnSteps: LearnStep[] = [
   {
     title: 'Migration changes places and people',
-    image: {
-      src: '/curriculum/grade6/geo/term4/migration-impact/diagram.webp',
-      alt: 'family with suitcases arriving in a busy city',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

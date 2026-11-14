@@ -57,7 +57,7 @@ const WrapTick = ({ x = 0, y = 0, payload, width = 0, visibleTicksCount = 1, rot
   if (rotate && slot - 4 < String(payload?.value ?? '').length * 0.58 * 12) {
     return (
       <g transform={`translate(${x},${y})`}>
-        <text transform="rotate(-90)" x={-6} y={4} textAnchor="end" fill="#666" fontSize={12}>
+        <text transform="rotate(-90)" x={-6} y={4} textAnchor="end" fill="#666" fontSize={10}>
           {String(payload?.value ?? '')}
         </text>
       </g>

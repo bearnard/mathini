@@ -6,10 +6,6 @@ import DataChart from '@/components/subjects/DataChart';
 const learnSteps: LearnStep[] = [
   {
     title: 'Fair trade helps producers',
-    image: {
-      src: '/curriculum/grade6/geo/term2/fair-trade/diagram.webp',
-      alt: 'South African farmer at a market stall with fresh produce',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

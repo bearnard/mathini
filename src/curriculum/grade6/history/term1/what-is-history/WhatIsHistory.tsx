@@ -21,10 +21,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'History is the study of the past',
-    image: {
-      src: '/curriculum/grade6/his/term1/what-is-history/diagram.webp',
-      alt: 'learners exploring old photographs and books to discover the past',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

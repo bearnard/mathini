@@ -21,10 +21,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Healing knowledge from long ago',
-    image: {
-      src: '/curriculum/grade6/his/term4/early-indigenous-medicine/diagram.webp',
-      alt: 'traditional healer with baskets of herbs and medicinal plants',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

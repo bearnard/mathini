@@ -6,10 +6,6 @@ import ClimateGraph from '@/components/subjects/ClimateGraph';
 const learnSteps: LearnStep[] = [
   {
     title: 'Adaptations help living things survive',
-    image: {
-      src: '/curriculum/grade6/geo/term3/vegetation-adaptations/diagram.webp',
-      alt: 'desert cactus and adapted animal illustration',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

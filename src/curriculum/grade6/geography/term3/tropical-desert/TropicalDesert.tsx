@@ -6,10 +6,6 @@ import ClimateGraph from '@/components/subjects/ClimateGraph';
 const learnSteps: LearnStep[] = [
   {
     title: 'Tropical rainforests are hot and wet',
-    image: {
-      src: '/curriculum/grade6/geo/term3/tropical-desert/diagram.webp',
-      alt: 'tropical rainforest beside hot desert illustration',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
