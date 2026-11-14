@@ -1,0 +1,166 @@
+/* Admin console tokens (ADR 0002). Light by default; dark follows the OS unless the viewer
+   picked a theme with the toggle (data-theme on the .admin-root element). Chart colours are the validated
+   categorical slots 1-3 (see the dataviz palette): a dark step is selected, not auto-flipped. */
+.admin-root {
+  color-scheme: light;
+  --bg: #f4f3ef;
+  --surface-1: #fcfcfb;
+  --surface-2: #f0efec;
+  --border: #e2e0da;
+  --grid: #ebe9e3;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #6e6c67;
+  --accent: #2a78d6;
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --ramp-track: #cde2fb;
+  --ramp-fill: #2a78d6;
+  --focus: #2a78d6;
+  /* One-hue sequential ramp (blue 100..700) for heatmaps and the map; zero is its own neutral. */
+  --heat-empty: #ebe9e3;
+  --heat-1: #cde2fb;
+  --heat-2: #9ec5f4;
+  --heat-3: #6da7ec;
+  --heat-4: #3987e5;
+  --heat-5: #256abf;
+  --heat-6: #184f95;
+  --heat-7: #0d366b;
+  --bubble: #eb6834;
+  --funnel-1: #86b6ef;
+  --funnel-2: #5598e7;
+  --funnel-3: #2a78d6;
+  --funnel-4: #1c5cab;
+  --funnel-5: #104281;
+}
+@media (prefers-color-scheme: dark) {
+  .admin-root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #121211;
+    --surface-1: #1a1a19;
+    --surface-2: #232321;
+    --border: #2e2d2a;
+    --grid: #2a2926;
+    --text-primary: #f0efec;
+    --text-secondary: #c3c2b7;
+    --text-muted: #9a998f;
+    --accent: #3987e5;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --ramp-track: #0d366b;
+    --ramp-fill: #3987e5;
+    --focus: #3987e5;
+    --heat-empty: #262624;
+    --heat-1: #12335f;
+    --heat-2: #184f95;
+    --heat-3: #256abf;
+    --heat-4: #3987e5;
+    --heat-5: #6da7ec;
+    --heat-6: #9ec5f4;
+    --heat-7: #cde2fb;
+    --bubble: #d95926;
+    --funnel-1: #184f95;
+    --funnel-2: #256abf;
+    --funnel-3: #3987e5;
+    --funnel-4: #6da7ec;
+    --funnel-5: #9ec5f4;
+  }
+}
+.admin-root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #121211;
+  --surface-1: #1a1a19;
+  --surface-2: #232321;
+  --border: #2e2d2a;
+  --grid: #2a2926;
+  --text-primary: #f0efec;
+  --text-secondary: #c3c2b7;
+  --text-muted: #9a998f;
+  --accent: #3987e5;
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --ramp-track: #0d366b;
+  --ramp-fill: #3987e5;
+  --focus: #3987e5;
+  --heat-empty: #262624;
+  --heat-1: #12335f;
+  --heat-2: #184f95;
+  --heat-3: #256abf;
+  --heat-4: #3987e5;
+  --heat-5: #6da7ec;
+  --heat-6: #9ec5f4;
+  --heat-7: #cde2fb;
+  --bubble: #d95926;
+  --funnel-1: #184f95;
+  --funnel-2: #256abf;
+  --funnel-3: #3987e5;
+  --funnel-4: #6da7ec;
+  --funnel-5: #9ec5f4;
+}
+
+.admin-root {
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+.admin-root *:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.admin-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.admin-muted { color: var(--text-muted); }
+.admin-secondary { color: var(--text-secondary); }
+.admin-btn {
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-1);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.admin-btn:hover { border-color: var(--text-muted); color: var(--text-primary); }
+.admin-btn[aria-pressed='true'] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.admin-input {
+  min-height: 36px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-1);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+.admin-tiles { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 900px) { .admin-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.admin-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.admin-table th, .admin-table td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--grid); }
+.admin-table th:first-child, .admin-table td:first-child { text-align: left; }
+.admin-table td > div:first-child { overflow-wrap: anywhere; }
+@media (max-width: 600px) { .admin-table th, .admin-table td { padding: 8px 5px; font-size: 13px; } }
+.admin-table th { color: var(--text-secondary); font-weight: 600; position: sticky; top: 0; background: var(--surface-1); }
+.admin-btn-danger {
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid #d03b3b;
+  background: #d03b3b;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.admin-btn-danger:disabled { opacity: 0.45; cursor: not-allowed; }
+.admin-link { color: var(--accent); font-weight: 600; text-decoration: none; }
+.admin-link:hover { text-decoration: underline; }
+.admin-th-sort { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; font-weight: 600; }
+.admin-th-sort:hover { color: var(--text-primary); }

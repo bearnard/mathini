@@ -74,3 +74,14 @@ test('control characters are stripped', () => {
   const b = validateBatch({ events: [ev({ topic: 'a\u0000b\nc' })] });
   assert.equal(b?.events[0].topic, 'abc');
 });
+
+test('events for the admin area are dropped by the server too', () => {
+  const b = validateBatch({ events: [ev({ path: '/admin' }), ev({ path: '/admin/learners/1?x=2' }), ev({ path: '/administration' }), ev({ path: '/app' })] });
+  assert.deepEqual(b?.events.map((e) => e.path), ['/administration', '/app']);
+});
+test('admin_delete is a server-only type: the client allowlist rejects it', () => {
+  const b = validateBatch({ events: [ev({ type: 'admin_delete' }), ev({ type: 'page_view' })] });
+  assert.equal(b?.events.length, 1);
+  assert.equal(b?.events[0].type, 'page_view');
+  assert.ok(!(EVENT_TYPES as readonly string[]).includes('admin_delete'));
+});

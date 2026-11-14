@@ -182,3 +182,50 @@ Gates for each phase:
 4. Copy the **Application Audience (AUD) tag** and your **team domain**
    (`<team>.cloudflareaccess.com`) and give them to Claude. They become `ACCESS_AUD` and
    `ACCESS_TEAM_DOMAIN`.
+
+## Implementation notes and consequences found during the build
+
+Added while building P1-P3, so the next reader does not rediscover them.
+
+**Consent changes what the data can show (decided by the owner during P1).** Activity is linked to a
+learner, and a city and coordinates are stored, only when a parent or guardian has agreed (migration
+`0004_parent_consent.sql`). Anonymous visitors and learners without agreement keep country and province
+only; Do Not Track keeps the country only. So the map shades provinces from all traffic, but city bubbles
+and per-learner places come only from consenting learners. The dashboard says so on screen, and shows a
+consent-coverage figure.
+
+**Topic ids are not consistent across event types.** `topic_open` carries the curriculum topic id
+(for example `nst-electric-circuits`, subject `nst`), while `learn_complete` and `practice_*` carry the task
+slug (`electric-circuits`; Grade 6 maths `gr6-large-numbers-t1`) and, for topics served by
+`CapsSubjectTopic`, a subject code taken from the API path (`grade6`, `eng`, `math`). Per-topic statistics
+therefore use task slugs only (`attempts.task`, `events.topic` on practice and learn events), never
+`topic_open`. Readable names come from a generated lookup, `topicNames.generated.ts`
+(`scripts/build-topic-names.mjs`, with a test that fails when it is stale). Cleaning this up properly would
+mean one topic key on every event.
+
+**Recorded answers do not cover everything.** Only `CapsSubjectTopic`, `PracticeRunner` and Grade 5's custom
+components write to `attempts`. The Grade 6 Natural Sciences, Geography, History and Afrikaans shells did not
+(an owner decision to change that was made during P3; see the separate `feat/g6-shell-attempts` work). Until it
+ships and has history, the dashboard keeps two sources apart and never adds them: recorded answers
+(`attempts`) and finished practice runs (`practice_finish` events, which cover every shell).
+
+**Filters only see tagged activity.** A grade or subject filter keeps events that carry that grade or subject
+(topic opens, practice, answers). Page views and visit starts carry neither, so they drop out of visitor,
+location and visit counts while a filter is on. The funnel ignores both filters for that reason.
+
+**Retention.** The weekly cron trigger in `wrangler.jsonc` has no `scheduled` handler (OpenNext exports
+`fetch` only), so it does nothing. Events older than 400 days are purged opportunistically from
+`/api/events` (about one request in 200, in the background, bounded to 500 rows).
+
+**Deleting a learner.** `POST /api/admin/learners/:id/delete` needs the Access assertion, the
+`X-Admin-Action: delete` header, a same-origin `Origin` and the exact nickname. It removes the learner and
+the rows linked to them (answers, XP, badges, events with their `student_id`) in one batch and writes one
+`admin_delete` event holding row counts, the admin's email and the time, with no name, nickname or id.
+`admin_delete` is server-only: `/api/events` rejects it from clients and the dashboard ignores it. Events
+recorded while the same device was anonymous are not linked to the person and stay. Responses that hold one
+learner's data are never cached, and a delete clears the 60 s answer cache.
+
+**Real names.** The learners list, the detail response and the default CSV never contain real name, school,
+age, login code or PIN. Real name, school and age come from a separate endpoint, requested only when the admin
+clicks "Show private details"; the CSV includes real name and school only when "include real names" is
+ticked, and its file name then says `PERSONAL-DATA`.

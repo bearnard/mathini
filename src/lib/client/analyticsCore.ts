@@ -51,6 +51,12 @@ export interface TrackerDeps {
   clearTimer: (handle: unknown) => void;
 }
 
+/** The admin area is never tracked: the owner looking at the dashboard is not a visitor. */
+export function isTrackablePath(pathname: string | null | undefined): boolean {
+  const p = (pathname ?? '').split(/[?#]/)[0];
+  return !(p === '/admin' || p.startsWith('/admin/') || p === '/api' || p.startsWith('/api/'));
+}
+
 export const FLUSH_INTERVAL_MS = 10_000;
 export const MAX_BATCH = 20;
 export const MAX_QUEUE = 200;
