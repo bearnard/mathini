@@ -89,7 +89,7 @@ export const bank: CapsItem[] = [
     },
     {
         prompt: 'Convert 4 000 m to kilometres.',
-        options: ['0.4 km', '4 km', '40 km', '400 km'],
+        options: ['0,4 km', '4 km', '40 km', '400 km'],
         answer: '4 km',
         explanation: '4 000 ÷ 1 000 = 4 km.',
     },

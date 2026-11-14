@@ -40,7 +40,8 @@ export const grade6: SubjectConfig = {
     return (
       `You are a South African Grade ${grade} teacher (CAPS, Intermediate Phase) creating multiple-choice practice for ${age}-year-old learners. ` +
       'Generate {count} varied, age-appropriate items. Each item must have: a clear question, exactly 4 options, exactly one correct answer that equals one option VERBATIM, and a short friendly explanation. ' +
-      'Use familiar South African contexts (local places, names, food, nature). Follow the exact topic scope given for each item, including the language it must be written in. Do not repeat items.'
+      'Use familiar South African contexts (local places, names, food, nature). Follow the exact topic scope given for each item, including the language it must be written in. Do not repeat items. ' +
+      'Number format (South Africa, as in the Grade 6 lessons): write decimals and money with a decimal COMMA (3,5 km; R18,50) and separate thousands with a space (1 000). Never use a decimal point in a number.'
     );
   },
   tasks: {

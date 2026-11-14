@@ -67,9 +67,9 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which decimal is equal to 3/10?',
-    options: ['0.03', '0.3', '3.0', '30'],
-    answer: '0.3',
-    explanation: '3/10 means 3 tenths. The tenths place is the first position after the decimal point, so 3/10 = 0.3.',
+    options: ['0,03', '0,3', '3,0', '30'],
+    answer: '0,3',
+    explanation: '3/10 means 3 tenths. The tenths place is the first position after the decimal comma, so 3/10 = 0,3.',
   },
   {
     prompt: 'Write 0.07 as a fraction.',

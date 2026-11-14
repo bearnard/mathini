@@ -72,7 +72,7 @@ export const bank: CapsItem[] = [
     prompt: 'Order from smallest to largest: 1/2, 1/4, 3/4',
     options: ['1/4, 1/2, 3/4', '3/4, 1/2, 1/4', '1/2, 1/4, 3/4', '1/4, 3/4, 1/2'],
     answer: '1/4, 1/2, 3/4',
-    explanation: '1/4 = 0.25, 1/2 = 0.5, 3/4 = 0.75, so the correct order smallest to largest is 1/4, 1/2, 3/4.',
+    explanation: '1/4 = 0,25 and 1/2 = 0,5 and 3/4 = 0,75, so the correct order from smallest to largest is 1/4, 1/2, 3/4.',
   },
   {
     prompt: 'Which sign makes this true? 4/5 ___ 3/4',

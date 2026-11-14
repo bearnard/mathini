@@ -56,15 +56,15 @@ const learnSteps: LearnStep[] = [
 export const bank: CapsItem[] = [
     {
         prompt: 'Write 3/10 as a decimal.',
-        options: ['0.03', '0.3', '3.0', '30'],
-        answer: '0.3',
-        explanation: '3/10 means 3 tenths. The tenths digit goes one place after the decimal point, so 3/10 = 0.3.'
+        options: ['0,03', '0,3', '3,0', '30'],
+        answer: '0,3',
+        explanation: '3/10 means 3 tenths. The tenths digit goes one place after the decimal comma, so 3/10 = 0,3.'
     },
     {
         prompt: 'Write 7/100 as a decimal.',
-        options: ['0.7', '0.07', '7.0', '0.007'],
-        answer: '0.07',
-        explanation: '7/100 means 7 hundredths. The hundredths digit goes two places after the decimal point, so 7/100 = 0.07.'
+        options: ['0,7', '0,07', '7,0', '0,007'],
+        answer: '0,07',
+        explanation: '7/100 means 7 hundredths. The hundredths digit goes two places after the decimal comma, so 7/100 = 0,07.'
     },
     {
         prompt: 'What is 0.4 + 0.3?',

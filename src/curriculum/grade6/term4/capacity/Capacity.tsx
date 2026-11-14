@@ -74,9 +74,9 @@ export const bank: CapsItem[] = [
     },
     {
         prompt: 'Convert 750 ml to litres.',
-        options: ['0.075 l', '0.75 l', '7.5 l', '75 l'],
-        answer: '0.75 l',
-        explanation: '750 ÷ 1 000 = 0.75 l.'
+        options: ['0,075 l', '0,75 l', '7,5 l', '75 l'],
+        answer: '0,75 l',
+        explanation: '750 ÷ 1 000 = 0,75 l.'
     },
     {
         prompt: 'A bottle holds 500 ml. How many bottles are needed to fill a 2-litre container?',

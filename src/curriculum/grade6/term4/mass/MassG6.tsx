@@ -97,9 +97,9 @@ export const bank: CapsItem[] = [
     },
     {
         prompt: 'Convert 500 g to kilograms.',
-        options: ['0.05 kg', '0.5 kg', '5 kg', '50 kg'],
-        answer: '0.5 kg',
-        explanation: '500 ÷ 1 000 = 0.5 kg.'
+        options: ['0,05 kg', '0,5 kg', '5 kg', '50 kg'],
+        answer: '0,5 kg',
+        explanation: '500 ÷ 1 000 = 0,5 kg.'
     },
     {
         prompt: 'Which unit is best for measuring the mass of a car?',
