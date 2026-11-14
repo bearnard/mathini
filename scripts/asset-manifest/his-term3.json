@@ -3,28 +3,6 @@
     "grade": "grade6",
     "subject": "his",
     "term": "term3",
-    "topic": "what-is-democracy",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/his/term3/what-is-democracy/diagram.webp",
-    "alt": "person placing a ballot paper into a ballot box at a voting station",
-    "prompt": "Single-subject flat friendly educational illustration for Grade 6 of a generic person placing a ballot paper into a ballot box at a voting station, simple bright shapes, clean white background, civic and hopeful mood, no text, words, numbers, or labels in the image, do not depict real or identifiable named people."
-  },
-  {
-    "grade": "grade6",
-    "subject": "his",
-    "term": "term3",
-    "topic": "road-to-democracy",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/his/term3/road-to-democracy/diagram.webp",
-    "alt": "long hopeful queue of diverse South African people waiting to vote",
-    "prompt": "Single-subject flat friendly educational illustration for Grade 6 of a long hopeful queue of diverse generic South African people waiting to vote, simple bright shapes, clean white background, warm inclusive civic mood, no text, words, numbers, or labels in the image, do not depict Nelson Mandela or any real identifiable named person."
-  },
-  {
-    "grade": "grade6",
-    "subject": "his",
-    "term": "term3",
     "topic": "constitution-bill-rights",
     "section": "diagram",
     "type": "svg",

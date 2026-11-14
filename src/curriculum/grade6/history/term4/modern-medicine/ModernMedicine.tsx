@@ -21,10 +21,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Modern tools help doctors diagnose',
-    image: {
-      src: '/curriculum/grade6/his/term4/modern-medicine/diagram.webp',
-      alt: 'modern hospital scene with medical equipment',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -21,10 +21,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Democracy means people have a voice',
-    image: {
-      src: '/curriculum/grade6/his/term3/what-is-democracy/diagram.webp',
-      alt: 'person placing a ballot paper into a ballot box at a voting station',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

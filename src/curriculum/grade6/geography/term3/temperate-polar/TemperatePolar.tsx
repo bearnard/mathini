@@ -6,10 +6,6 @@ import ClimateGraph from '@/components/subjects/ClimateGraph';
 const learnSteps: LearnStep[] = [
   {
     title: 'Temperate climates are moderate',
-    image: {
-      src: '/curriculum/grade6/geo/term3/temperate-polar/diagram.webp',
-      alt: 'temperate landscape beside snowy polar area illustration',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -22,10 +22,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Why the Cape was important',
-    image: {
-      src: '/curriculum/grade6/his/term2/british-take-cape/diagram.webp',
-      alt: 'old sailing ships in Table Bay below a flat-topped mountain',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -20,16 +20,5 @@
     "path": "curriculum/grade6/geo/term4/migration-push-pull/diagram.svg",
     "alt": "push and pull factors moving people toward a city",
     "svgSource": "scripts/svg-src/grade6/geo/term4/migration-push-pull/diagram.svg"
-  },
-  {
-    "grade": "grade6",
-    "subject": "geo",
-    "term": "term4",
-    "topic": "migration-impact",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/geo/term4/migration-impact/diagram.webp",
-    "alt": "family with suitcases arriving in a busy city",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a family with suitcases arriving in a busy city. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
   }
 ]
