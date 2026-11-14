@@ -311,7 +311,7 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is an IP address used for?',
-    options: ['Identifying users', 'Identifying devices on a network', 'Storing passwords', 'Running programs'],
+    options: ['Identifying the users of the network', 'Identifying devices on a network', 'Storing the passwords of the users', 'Running programs on the network'],
     answer: 'Identifying devices on a network',
     explanation: 'An IP address uniquely identifies a device on a network for communication.',
   },

@@ -179,8 +179,8 @@ const learnSteps: LearnStep[] = [
 const bank: PhysicalSciencesItem[] = [
   {
     prompt: 'What is the difference between a scalar and a vector?',
-    options: ['Scalars have direction', 'Vectors have no direction', 'Scalars have only magnitude, vectors have magnitude and direction', 'They are the same'],
-    answer: 'Scalars have only magnitude, vectors have magnitude and direction',
+    options: ['Scalars have direction and vectors do not', 'Vectors have no direction, only size', 'Scalars have magnitude only; vectors also have direction', 'They are the same kind of quantity'],
+    answer: 'Scalars have magnitude only; vectors also have direction',
     explanation: 'Speed is scalar, velocity is vector. Temperature is scalar, force is vector.',
   },
   {

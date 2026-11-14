@@ -115,7 +115,7 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'In a client-server network, the server mainly:',
-    options: ['A. Provides shared services to clients', 'B. Replaces all cables', 'C. Is only used for games', 'D. Cannot store files'],
+    options: ['A. Provides shared services to clients', 'B. Replaces all of the cables in the network', 'C. Is used only to play games on', 'D. Cannot store files for the users'],
     answer: 'A. Provides shared services to clients',
     explanation: 'Servers store data, manage users and provide services to connected client computers.',
   },

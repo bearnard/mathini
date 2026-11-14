@@ -249,7 +249,7 @@ end.`} />
 const bank: ITItem[] = [
   {
     prompt: 'What is a variable in programming?',
-    options: ['A constant value', 'A named storage location for data', 'A function', 'A control structure'],
+    options: ['A constant value that never changes', 'A named storage location for data', 'A function that carries out a task', 'A control structure that makes decisions'],
     answer: 'A named storage location for data',
     explanation: 'A variable is a named location that stores data which can change during program execution.',
   },

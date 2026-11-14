@@ -89,7 +89,7 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Development differs from growth because development focuses more on:',
-    options: ['A. Human wellbeing and living standards', 'B. Gold mining only', 'C. Exchange rates only', 'D. Import taxes only'],
+    options: ['A. Human wellbeing and living standards', 'B. Gold mining and nothing else', 'C. Exchange rates and nothing else', 'D. Import taxes and nothing else'],
     answer: 'A. Human wellbeing and living standards',
     explanation: 'Development includes quality-of-life indicators such as health, education and income access.',
   },
@@ -101,7 +101,7 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Structural change means:',
-    options: ['A. The economy never changes', 'B. The composition of sectors and jobs changes over time', 'C. Taxes are removed forever', 'D. Only prices increase'],
+    options: ['A. The economy never changes over the years', 'B. The composition of sectors and jobs changes over time', 'C. Taxes are taken away for ever', 'D. Only prices increase'],
     answer: 'B. The composition of sectors and jobs changes over time',
     explanation: 'Structural change refers to shifts in how an economy is organised across sectors and employment patterns.',
   },

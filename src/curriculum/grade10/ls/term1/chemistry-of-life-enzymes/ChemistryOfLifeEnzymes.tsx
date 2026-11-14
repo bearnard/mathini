@@ -143,8 +143,8 @@ const learnSteps: LearnStep[] = [
 const bank: LifeSciencesItem[] = [
   {
     prompt: 'What is the primary role of enzymes in cells?',
-    options: ['Store energy', 'Catalyze chemical reactions', 'Provide structure', 'Produce heat'],
-    answer: 'Catalyze chemical reactions',
+    options: ['Store energy for the cell to use later', 'Speed up (catalyse) chemical reactions in cells', 'Give structure and support to the cell', 'Make heat that the body needs'],
+    answer: 'Speed up (catalyse) chemical reactions in cells',
     explanation: 'Enzymes speed up biochemical reactions by lowering activation energy.',
   },
   {

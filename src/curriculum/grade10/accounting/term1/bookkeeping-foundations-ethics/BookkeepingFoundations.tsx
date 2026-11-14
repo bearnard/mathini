@@ -161,7 +161,7 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Which principle is being followed when an accountant refuses to alter a receipt to hide theft?',
-    options: ['Materiality', 'Objectivity and honesty', 'Liquidity', 'Depreciation'],
+    options: ['Materiality, which is about the size of an amount', 'Objectivity and honesty', 'Liquidity, which is about paying debts on time', 'Depreciation, which is about the wear of assets'],
     answer: 'Objectivity and honesty',
     explanation: 'Ethical accounting requires truthful records even when there is pressure to do otherwise.',
   },

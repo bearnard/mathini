@@ -149,8 +149,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Depreciation is recorded to:',
-    options: ['Increase profit', 'Reduce the carrying value of a non-current asset over time', 'Increase drawings', 'Remove creditors'],
-    answer: 'Reduce the carrying value of a non-current asset over time',
+    options: ['Raise the profit of the business for the year', 'Reduce the carrying value of an asset over time', 'Raise the drawings of the owner for the year', 'Remove the creditors from the books'],
+    answer: 'Reduce the carrying value of an asset over time',
     explanation: 'Depreciation allocates the cost of the asset across the periods that use it.',
   },
   {

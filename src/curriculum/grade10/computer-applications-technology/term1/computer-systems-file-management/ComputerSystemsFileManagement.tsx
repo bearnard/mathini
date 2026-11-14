@@ -115,7 +115,7 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'Why are backups important?',
-    options: ['A. They protect data if files are lost or damaged', 'B. They make folders unnecessary', 'C. They remove the need to save', 'D. They only help when printing'],
+    options: ['A. They protect data if files are lost or damaged', 'B. They make folders unnecessary on a computer', 'C. They remove the need to save a file', 'D. They help only when something is printed'],
     answer: 'A. They protect data if files are lost or damaged',
     explanation: 'Backups provide a second copy in case the original data is deleted, corrupted or stolen.',
   },

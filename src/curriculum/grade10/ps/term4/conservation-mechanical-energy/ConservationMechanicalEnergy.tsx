@@ -170,8 +170,8 @@ const learnSteps: LearnStep[] = [
 const bank: PhysicalSciencesItem[] = [
   {
     prompt: 'What does the law of conservation of mechanical energy state?',
-    options: ['Energy can be created', 'Total mechanical energy remains constant in absence of friction', 'Energy always increases', 'All energy becomes heat'],
-    answer: 'Total mechanical energy remains constant in absence of friction',
+    options: ['Energy can be made from nothing by a machine', 'Total mechanical energy stays constant without friction', 'Energy always increases in a closed system', 'All of the energy ends up as heat in the end'],
+    answer: 'Total mechanical energy stays constant without friction',
     explanation: 'PE + KE = constant (when no non-conservative forces act)',
   },
   {

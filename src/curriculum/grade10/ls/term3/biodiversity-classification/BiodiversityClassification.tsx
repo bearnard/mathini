@@ -168,8 +168,8 @@ const bank: LifeSciencesItem[] = [
   },
   {
     prompt: 'What is biodiversity?',
-    options: ['The study of organisms', 'Genetic variety within and between species', 'The extinction of species', 'Migration patterns'],
-    answer: 'Genetic variety within and between species',
+    options: ['The study of all living organisms', 'The genetic variety within and between species', 'The extinction of species over time', 'The migration patterns of animals'],
+    answer: 'The genetic variety within and between species',
     explanation: 'Biodiversity refers to the range of genetic and species diversity.',
   },
   {

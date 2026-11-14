@@ -123,7 +123,7 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'Why is pseudocode useful?',
-    options: ['A. It helps plan program logic clearly', 'B. It replaces all testing', 'C. It works only online', 'D. It is a type of hardware'],
+    options: ['A. It helps plan program logic clearly', 'B. It replaces all of the testing of a program', 'C. It works only when you are online', 'D. It is a type of computer hardware'],
     answer: 'A. It helps plan program logic clearly',
     explanation: 'Pseudocode makes the logic of a solution easier to understand before implementation.',
   },

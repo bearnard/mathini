@@ -118,8 +118,8 @@ const learnSteps: LearnStep[] = [
 const bank: LifeSciencesItem[] = [
   {
     prompt: 'What is the primary function of the cell membrane?',
-    options: ['Energy production', 'Control transport and protect', 'Photosynthesis', 'DNA storage'],
-    answer: 'Control transport and protect',
+    options: ['Makes energy for the cell in the form of ATP', 'Controls what enters and leaves, and protects the cell', 'Carries out photosynthesis in sunlight', 'Stores the DNA of the cell in its nucleus'],
+    answer: 'Controls what enters and leaves, and protects the cell',
     explanation: 'The cell membrane regulates what enters and exits the cell.',
   },
   {

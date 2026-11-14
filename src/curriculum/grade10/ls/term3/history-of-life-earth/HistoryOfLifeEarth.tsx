@@ -180,8 +180,8 @@ const bank: LifeSciencesItem[] = [
   },
   {
     prompt: 'What process did cyanobacteria introduce that changed Earth\'s atmosphere?',
-    options: ['Cellular respiration', 'Photosynthesis producing oxygen', 'Nitrogen fixation', 'Decomposition'],
-    answer: 'Photosynthesis producing oxygen',
+    options: ['Cellular respiration, which used up oxygen', 'Photosynthesis, which released oxygen', 'Nitrogen fixation in the soil', 'Decomposition of dead organisms'],
+    answer: 'Photosynthesis, which released oxygen',
     explanation: 'Cyanobacteria produced oxygen through photosynthesis, gradually oxygenating the atmosphere.',
   },
 ];

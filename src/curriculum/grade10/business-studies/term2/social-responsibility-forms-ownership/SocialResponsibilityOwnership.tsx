@@ -84,7 +84,7 @@ const learnSteps: LearnStep[] = [
 const bank: BusinessStudiesItem[] = [
   {
     prompt: 'What does unlimited liability mean?',
-    options: ['A. Owners can lose personal assets for business debts', 'B. The government owns the business', 'C. Shares are sold publicly', 'D. There is no need for records'],
+    options: ['A. Owners can lose personal assets for business debts', 'B. The government owns the business and its debts', 'C. Its shares are sold to the public on an exchange', 'D. There is no need to keep any records'],
     answer: 'A. Owners can lose personal assets for business debts',
     explanation: 'With unlimited liability, the owner is personally responsible for business debts.',
   },
@@ -96,7 +96,7 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Ethical behaviour in business includes:',
-    options: ['A. False advertising', 'B. Fair treatment of customers', 'C. Hiding defects', 'D. Ignoring the law'],
+    options: ['A. False advertising to win more customers', 'B. Fair treatment of customers', 'C. Hiding defects from the customers', 'D. Ignoring the law when it is inconvenient'],
     answer: 'B. Fair treatment of customers',
     explanation: 'Ethics includes honesty, fairness and respect for all stakeholders.',
   },

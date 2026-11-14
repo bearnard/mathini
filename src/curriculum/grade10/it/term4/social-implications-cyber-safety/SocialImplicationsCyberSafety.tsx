@@ -313,20 +313,20 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is phishing?',
-    options: ['A type of fish', 'Fraudulent attempt to obtain sensitive information by disguising as trustworthy', 'A programming language', 'A network protocol'],
-    answer: 'Fraudulent attempt to obtain sensitive information by disguising as trustworthy',
+    options: ['A type of fish that lives in a river bed', 'A trick to steal private data by posing as a trusted party', 'A programming language that is used for web pages', 'A network protocol for sending large files'],
+    answer: 'A trick to steal private data by posing as a trusted party',
     explanation: 'Phishing uses fake emails or websites to trick people into revealing passwords, credit cards, or personal data.',
   },
   {
     prompt: 'What does the POPI Act in South Africa protect?',
-    options: ['Computer hardware', 'Personal information of individuals', 'Software licenses', 'Internet speeds'],
+    options: ['Computer hardware that is owned by firms', 'Personal information of individuals', 'Software licences that are sold to users', 'Internet speeds that are sold by providers'],
     answer: 'Personal information of individuals',
     explanation: 'The Protection of Personal Information Act regulates how organizations process and protect personal data.',
   },
   {
     prompt: 'What is two-factor authentication (2FA)?',
-    options: ['Using two passwords', 'Security requiring password AND second verification method', 'Logging in twice', 'Two different user accounts'],
-    answer: 'Security requiring password AND second verification method',
+    options: ['Using two passwords at the same time', 'A login needing a password AND a second check', 'Logging in twice in a row each time', 'Having two separate user accounts'],
+    answer: 'A login needing a password AND a second check',
     explanation: '2FA adds extra security by requiring both something you know (password) and something you have (phone/token).',
   },
 ];

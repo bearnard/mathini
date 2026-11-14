@@ -122,8 +122,8 @@ const bank: LifeSciencesItem[] = [
   },
   {
     prompt: 'What causes normal cells to become cancerous?',
-    options: ['Lack of oxygen', 'Mutations in genes controlling cell division', 'Too much water', 'Cold temperatures'],
-    answer: 'Mutations in genes controlling cell division',
+    options: ['A lack of oxygen in the surrounding air', 'Mutations in the genes that control cell division', 'Too much water in the diet of the person', 'Cold temperatures for a long time'],
+    answer: 'Mutations in the genes that control cell division',
     explanation: 'Cancer results from mutations that disrupt normal cell cycle controls.',
   },
   {

@@ -104,7 +104,7 @@ const bank: MathematicalLiteracyItem[] = [
   },
   {
     prompt: 'A parking garage charges R10 for the first hour and R5 for each additional hour. What is the cost for 4 hours?',
-    options: ['R20', 'R25', 'R30', 'R25'],
+    options: ['R20', 'R25', 'R30', 'R40'],
     answer: 'R25',
     explanation: 'Cost = R10 + (3 additional hours × R5) = R10 + R15 = R25',
   },
