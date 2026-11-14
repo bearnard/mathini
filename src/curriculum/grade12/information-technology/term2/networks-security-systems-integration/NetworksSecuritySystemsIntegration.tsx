@@ -8,7 +8,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/it/term2/networks-security-systems-integration/diagram.webp", alt: "Networks, Security and Systems Integration" },
     title: 'Network structure and communication paths',
     content: (
       <div className="space-y-6">

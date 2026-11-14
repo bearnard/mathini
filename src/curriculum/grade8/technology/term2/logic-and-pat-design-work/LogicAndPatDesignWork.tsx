@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Apply logic and control ideas in PAT design',
-    image: {
-      src: '/curriculum/grade8/tech/term2/logic-and-pat-design-work/diagram.webp',
-      alt: 'Grade 8 learners using truth tables and control-system sketches for panic-button design',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

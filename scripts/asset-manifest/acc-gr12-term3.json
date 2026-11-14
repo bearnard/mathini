@@ -3,28 +3,6 @@
     "grade": "grade12",
     "subject": "acc",
     "term": "term3",
-    "topic": "vat-concepts-control",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade12/acc/term3/vat-concepts-control/diagram.webp",
-    "alt": "VAT Control",
-    "prompt": "A clear educational illustration depicting \"VAT Control\": Input VAT, output VAT, VAT-inclusive calculations and SARS compliance."
-  },
-  {
-    "grade": "grade12",
-    "subject": "acc",
-    "term": "term3",
-    "topic": "trial-exam-revision",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade12/acc/term3/trial-exam-revision/diagram.webp",
-    "alt": "Integrated Revision Snapshot",
-    "prompt": "A clear educational illustration depicting \"Integrated Revision Snapshot\": Integrating company reporting, controls, VAT and budgeting for full-paper practice."
-  },
-  {
-    "grade": "grade12",
-    "subject": "acc",
-    "term": "term3",
     "topic": "budgeting-projected-income",
     "section": "diagram",
     "type": "ai",

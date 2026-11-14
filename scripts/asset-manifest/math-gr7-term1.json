@@ -3,17 +3,6 @@
     "grade": "grade7",
     "subject": "math",
     "term": "term1",
-    "topic": "whole-numbers",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/math/term1/whole-numbers/diagram.webp",
-    "alt": "Grade 7 learners solving factor, multiple, ratio, and rate problems with whole numbers",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners solving whole-number tasks with factors, multiples, ratio, and rate in a classroom. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade7",
-    "subject": "math",
-    "term": "term1",
     "topic": "construction-of-geometric-figures",
     "section": "diagram",
     "type": "ai",

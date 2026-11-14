@@ -14,7 +14,6 @@ const issueTrendData = [
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/econ/term4/current-economic-issues/diagram.webp", alt: "Cost-push Inflation Shock" },
     title: 'Current SA Economic Challenges',
     content: (
       <div className="space-y-6">

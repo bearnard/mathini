@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Identify energy forms and transfer pathways',
-    image: {
-      src: '/curriculum/grade8/ns/term4/forms-and-transfer-of-energy/diagram.webp',
-      alt: 'Grade 8 learners tracing energy transfers and comparing conduction convection and radiation',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

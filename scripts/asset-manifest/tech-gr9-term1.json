@@ -1,13 +1,1 @@
-[
-  {
-    "grade": "grade9",
-    "subject": "tech",
-    "term": "term1",
-    "topic": "structures-accessible-design",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade9/technology/term1/structures-accessible-design/image1.jpg",
-    "alt": "learner analyzing forces acting on a structure including static and dynamic forces, bending and torsion",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner analyzing a bridge or building structure with visual indicators for static forces (weight, pressure) and dynamic forces (wind arrows, vibration). Include visual cues for bending and torsion effects, material properties, and accessible design features like a wheelchair ramp and handrails. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  }
-]
+[]

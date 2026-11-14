@@ -3,17 +3,6 @@
     "grade": "grade12",
     "subject": "acc",
     "term": "term2",
-    "topic": "manufacturing-cost-statements",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade12/acc/term2/manufacturing-cost-statements/diagram.webp",
-    "alt": "Production Cost Statement",
-    "prompt": "A clear educational illustration depicting \"Production Cost Statement\": Prime cost, factory overheads and the cost of producing finished goods."
-  },
-  {
-    "grade": "grade12",
-    "subject": "acc",
-    "term": "term2",
     "topic": "inventory-valuation-control",
     "section": "diagram",
     "type": "ai",

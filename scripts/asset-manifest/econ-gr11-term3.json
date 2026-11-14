@@ -31,16 +31,5 @@
     "path": "curriculum/grade11/econ/term3/micro-lending/diagram.webp",
     "alt": "Market for Small Business Credit",
     "prompt": "A clear educational illustration depicting \"Market for Small Business Credit\": Small loans, financial access and consumer protection in South Africa."
-  },
-  {
-    "grade": "grade11",
-    "subject": "econ",
-    "term": "term3",
-    "topic": "developing-economies-poverty",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/econ/term3/developing-economies-poverty/diagram.webp",
-    "alt": "Developing Economies and Poverty",
-    "prompt": "A clear educational illustration depicting \"Developing Economies and Poverty\": Characteristics, measurement and responses to poverty in South Africa."
   }
 ]

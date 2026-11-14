@@ -24,10 +24,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'A global war with local South African links',
-    image: {
-      src: '/curriculum/grade8/his/term4/world-war-i/diagram.webp',
-      alt: 'Grade 8 learners studying trench warfare, wartime propaganda, and South African participation in World War I',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

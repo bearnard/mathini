@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Build safe circuits and compare layouts',
-    image: {
-      src: '/curriculum/grade8/tech/term2/electrical-systems-and-circuit-safety/diagram.webp',
-      alt: 'Grade 8 learners building series and parallel circuits with safety devices',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

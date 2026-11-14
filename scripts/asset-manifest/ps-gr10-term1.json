@@ -3,17 +3,6 @@
     "grade": "grade10",
     "subject": "ps",
     "term": "term1",
-    "topic": "waves-sound-light",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade10/ps/term1/waves-sound-light/diagram.webp",
-    "alt": "Waves, Sound and Light",
-    "prompt": "A clear educational illustration depicting \"Waves, Sound and Light\": Wave phenomena and optical principles."
-  },
-  {
-    "grade": "grade10",
-    "subject": "ps",
-    "term": "term1",
     "topic": "electrostatics-electric-circuits",
     "section": "diagram",
     "type": "ai",

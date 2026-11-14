@@ -3,17 +3,6 @@
     "grade": "grade10",
     "subject": "acc",
     "term": "term3",
-    "topic": "analysis-interpretation",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade10/acc/term3/analysis-interpretation/diagram.webp",
-    "alt": "Statement of Comprehensive Income Extract",
-    "prompt": "A clear educational illustration depicting \"Statement of Comprehensive Income Extract\": Using income statement and balance sheet figures to judge profitability, liquidity and overall performance."
-  },
-  {
-    "grade": "grade10",
-    "subject": "acc",
-    "term": "term3",
     "topic": "adjustments-financial-statements",
     "section": "diagram",
     "type": "ai",

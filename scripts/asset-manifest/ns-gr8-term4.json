@@ -9,16 +9,5 @@
     "path": "curriculum/grade8/ns/term4/forces-motion-and-measurement/diagram.webp",
     "alt": "Grade 8 learners measuring motion and identifying friction gravity magnetic and electrostatic forces",
     "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners timing motion, measuring distance, and exploring friction, gravity, magnetic force, and electrostatic force in everyday investigations. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade8",
-    "subject": "ns",
-    "term": "term4",
-    "topic": "forms-and-transfer-of-energy",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/ns/term4/forms-and-transfer-of-energy/diagram.webp",
-    "alt": "Grade 8 learners tracing forms of energy and heat transfer pathways",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners tracing energy changes between heat, light, sound, chemical, electrical, and mechanical forms with conduction, convection, and radiation examples. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
   }
 ]

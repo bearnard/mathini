@@ -31,16 +31,5 @@
     "path": "curriculum/grade11/geo/term4/greener-economies/diagram.webp",
     "alt": "Greener Economies",
     "prompt": "A clear educational illustration depicting \"Greener Economies\": Circular economy, carbon footprint, climate agreements and GIS in sustainability."
-  },
-  {
-    "grade": "grade11",
-    "subject": "geo",
-    "term": "term4",
-    "topic": "energy-resources",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/geo/term4/energy-resources/diagram.webp",
-    "alt": "Energy Resources",
-    "prompt": "A clear educational illustration depicting \"Energy Resources\": Conventional and renewable energy, South Africa."
   }
 ]

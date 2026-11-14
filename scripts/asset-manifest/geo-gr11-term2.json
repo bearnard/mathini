@@ -31,16 +31,5 @@
     "path": "curriculum/grade11/geo/term2/igneous-landforms/diagram.webp",
     "alt": "Massive Igneous Landforms",
     "prompt": "A clear educational illustration depicting \"Massive Igneous Landforms\": Intrusive bodies, dolerite koppies, inselbergs and South African examples."
-  },
-  {
-    "grade": "grade11",
-    "subject": "geo",
-    "term": "term2",
-    "topic": "geomorphology-mapwork",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/geo/term2/geomorphology-mapwork/diagram.webp",
-    "alt": "Geomorphology and Topographic Mapwork",
-    "prompt": "A clear educational illustration depicting \"Geomorphology and Topographic Mapwork\": Reading 1:50 000 maps, slope types, cross-sections and landform identification."
   }
 ]

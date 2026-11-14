@@ -30,10 +30,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Entrepreneurship and factors of production',
-    image: {
-      src: '/curriculum/grade8/economic-management-sciences/term2/financial-literacy-entrepreneurship/image3.jpg',
-      alt: 'Grade 8 learners exploring entrepreneurship and identifying the four factors of production',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

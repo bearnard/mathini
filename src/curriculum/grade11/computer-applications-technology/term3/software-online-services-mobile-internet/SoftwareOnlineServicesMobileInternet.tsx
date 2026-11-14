@@ -3,7 +3,6 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/cat/term3/software-online-services-mobile-internet/diagram.webp", alt: "Software, Online Services and Mobile Internet" },
     title: 'Categories of application software',
     content: (
       <div className="space-y-4 text-center">

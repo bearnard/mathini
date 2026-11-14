@@ -14,17 +14,6 @@
     "grade": "grade7",
     "subject": "math",
     "term": "term3",
-    "topic": "graphs",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/math/term3/graphs/diagram.webp",
-    "alt": "Grade 7 learners plotting coordinates and reading line graph relationships",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners plotting ordered pairs on coordinate grids and interpreting simple line graphs from tables. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade7",
-    "subject": "math",
-    "term": "term3",
     "topic": "transformation-geometry-and-3d-objects",
     "section": "diagram",
     "type": "ai",

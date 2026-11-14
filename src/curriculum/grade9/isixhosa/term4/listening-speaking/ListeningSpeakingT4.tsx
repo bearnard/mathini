@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Revision of speeches, listening practice, oral feedback, and fluency consolidation',
-    image: {
-      src: '/curriculum/grade9/isixhosa/term4/listening-speaking/image1.jpg',
-      alt: 'Grade 9 isiXhosa FAL learners revising speeches and practising fluent, confident oral delivery',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

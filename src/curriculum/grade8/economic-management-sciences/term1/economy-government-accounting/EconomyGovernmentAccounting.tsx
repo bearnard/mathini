@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Government, budgets, and economic foundations',
-    image: {
-      src: '/curriculum/grade8/economic-management-sciences/term1/economy-government-accounting/image1.jpg',
-      alt: 'Grade 8 learners exploring government structures and national budgets in South Africa',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
@@ -19,10 +15,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Accounting concepts and source documents',
-    image: {
-      src: '/curriculum/grade8/economic-management-sciences/term1/economy-government-accounting/image2.jpg',
-      alt: 'Grade 8 learners recording transactions using accounting source documents and journals',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

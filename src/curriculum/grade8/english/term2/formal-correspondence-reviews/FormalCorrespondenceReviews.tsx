@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Choose correct correspondence format',
-    image: {
-      src: '/curriculum/grade8/eng/term2/formal-correspondence-reviews/diagram.webp',
-      alt: 'learner drafting a formal letter email and review with correct structure',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -3,17 +3,6 @@
     "grade": "grade7",
     "subject": "math",
     "term": "term2",
-    "topic": "common-fractions",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/math/term2/common-fractions/diagram.webp",
-    "alt": "Grade 7 learners comparing and calculating common fractions and mixed numbers",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners comparing equivalent fractions and solving addition and subtraction fraction problems in class. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade7",
-    "subject": "math",
-    "term": "term2",
     "topic": "area-and-perimeter-of-2d-shapes",
     "section": "diagram",
     "type": "ai",

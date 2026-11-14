@@ -5,7 +5,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/acc/term1/bank-creditors-reconciliations/diagram.webp", alt: "Bank Account (Cashbook adjustments)" },
     title: 'Why do the bank statement and cashbook differ?',
     content: (
       <div className="space-y-4 text-center">

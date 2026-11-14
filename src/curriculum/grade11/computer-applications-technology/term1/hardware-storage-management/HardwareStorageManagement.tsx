@@ -3,7 +3,6 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/cat/term1/hardware-storage-management/diagram.webp", alt: "Hardware and Storage Management" },
     title: 'Storage types: primary vs secondary',
     content: (
       <div className="space-y-4 text-center">

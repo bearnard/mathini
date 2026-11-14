@@ -3,7 +3,6 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/cat/term2/spreadsheets-if-logic-databases/diagram.webp", alt: "Spreadsheets: IF Logic and Databases" },
     title: 'IF function and logical operators',
     content: (
       <div className="space-y-4 text-center">

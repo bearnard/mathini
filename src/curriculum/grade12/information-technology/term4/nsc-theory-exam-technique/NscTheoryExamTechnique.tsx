@@ -8,7 +8,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/it/term4/nsc-theory-exam-technique/diagram.webp", alt: "NSC Theory Exam Technique" },
     title: 'Revising the full theory syllabus',
     content: (
       <div className="space-y-6">
