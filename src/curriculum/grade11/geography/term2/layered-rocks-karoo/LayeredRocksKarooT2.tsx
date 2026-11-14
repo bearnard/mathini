@@ -111,7 +111,7 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What process converts loose sediments into sedimentary rock?',
-    options: ['Crystallisation', 'Lithification (compaction and cementation)', 'Metamorphism', 'Exfoliation'],
+    options: ['Crystallisation of molten rock as it cools', 'Lithification (compaction and cementation)', 'Metamorphism by heat and pressure underground', 'Exfoliation of rock in layers at the surface'],
     answer: 'Lithification (compaction and cementation)',
     explanation: 'Lithification involves the compaction of sediments under pressure and the cementation of particles by minerals to form solid rock.',
   },
@@ -123,19 +123,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the dominant rock type in the Karoo Supergroup?',
-    options: ['Granite and basalt', 'Quartzite and marble', 'Shale, mudstone, and sandstone', 'Limestone and chalk'],
-    answer: 'Shale, mudstone, and sandstone',
+    options: ['Granite and basalt, which are igneous rocks', 'Quartzite and marble, which are metamorphic rocks', 'Shale, mudstone and sandstone', 'Limestone and chalk, which form in warm seas'],
+    answer: 'Shale, mudstone and sandstone',
     explanation: 'The Karoo Supergroup is predominantly made up of shale, mudstone, and sandstone, with some coal seams in the Ecca Group.',
   },
   {
     prompt: 'How does a cuesta differ from a hogback?',
-    options: [
-      'A cuesta has vertical strata; a hogback has horizontal strata',
-      'A cuesta has gently tilted strata with an asymmetric profile; a hogback has steeply tilted strata with equal sides',
-      'They are identical landforms',
-      'A cuesta is made of igneous rock; a hogback is sedimentary',
-    ],
-    answer: 'A cuesta has gently tilted strata with an asymmetric profile; a hogback has steeply tilted strata with equal sides',
+    options: ['A cuesta has vertical strata and a hogback has flat strata', 'A cuesta has gently tilted strata; a hogback has steeply tilted strata', 'The two are one landform that has two different names', 'A cuesta is igneous and a hogback is sedimentary rock'],
+    answer: 'A cuesta has gently tilted strata; a hogback has steeply tilted strata',
     explanation: 'Cuestas (tilt < 35°) have one gentle slope and one steep face; hogbacks (tilt > 35°) have equally steep sides.',
   },
   {
@@ -158,35 +153,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'On a topographic map, a cuesta would be identified by:',
-    options: [
-      'Equally close contours on both sides of a ridge',
-      'Closely spaced contours on one side and widely spaced contours on the other',
-      'Circular isolated contours on a plain',
-      'A V-shape pointing upstream',
-    ],
-    answer: 'Closely spaced contours on one side and widely spaced contours on the other',
+    options: ['Equally close contours on both sides of a ridge', 'Close contours on one side, widely spaced contours on the other', 'Circular, isolated contours that lie on a flat plain', 'A V-shape that points upstream along a river valley'],
+    answer: 'Close contours on one side, widely spaced contours on the other',
     explanation: 'The steep scarp of a cuesta shows as tightly packed contours; the gentle dip slope shows as widely spaced contours.',
   },
   {
     prompt: 'Dolerite koppies in the Karoo form because:',
-    options: [
-      'Dolerite is softer than the surrounding shale',
-      'Dolerite is more resistant than the surrounding sedimentary rock and remains as isolated hills',
-      'They are formed by river erosion',
-      'They are ancient volcanoes',
-    ],
-    answer: 'Dolerite is more resistant than the surrounding sedimentary rock and remains as isolated hills',
+    options: ['Dolerite is softer than the shale that surrounds it', 'Dolerite is harder than the rock around it, so it is left as hills', 'They were formed by the erosion of large rivers', 'They are the remains of ancient active volcanoes'],
+    answer: 'Dolerite is harder than the rock around it, so it is left as hills',
     explanation: 'When softer shale erodes away, the harder dolerite sills and dykes remain as koppies (isolated hills) on the Karoo plains.',
   },
   {
     prompt: 'What makes the Karoo Supergroup internationally important to palaeontologists?',
-    options: [
-      'It contains the world\'s oldest gold deposits',
-      'It preserves world-famous Permian reptile and therapsid fossils',
-      'It has active volcanoes',
-      'It contains the oldest known dinosaur eggs',
-    ],
-    answer: 'It preserves world-famous Permian reptile and therapsid fossils',
+    options: ['It holds the oldest gold deposits in the world', 'It preserves famous Permian reptile and therapsid fossils', 'It has active volcanoes that scientists study', 'It holds the oldest known dinosaur eggs'],
+    answer: 'It preserves famous Permian reptile and therapsid fossils',
     explanation: 'The Karoo\'s fine-grained shale and mudstone preserved an exceptional fossil record of early land vertebrates from the Permian period.',
   },
 ];

@@ -103,8 +103,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What is the purpose of the alt attribute in an <img> tag?',
-    options: ['Sets the image size', 'Provides alternative text for screen readers and when the image fails to load', 'Links the image to another page', 'Changes the image format'],
-    answer: 'Provides alternative text for screen readers and when the image fails to load',
+    options: ['It sets the width and height of the image', 'It gives alternative text for screen readers and failed images', 'It links the image to another page on the site', 'It changes the file format of the image'],
+    answer: 'It gives alternative text for screen readers and failed images',
     explanation: 'The alt attribute improves accessibility (read by screen readers) and displays descriptive text if the image cannot be shown.',
   },
   {
@@ -115,8 +115,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What does the <!DOCTYPE html> declaration do at the top of an HTML file?',
-    options: ['Adds the page title', 'Tells the browser this is an HTML5 document', 'Links a CSS stylesheet', 'Creates the page heading'],
-    answer: 'Tells the browser this is an HTML5 document',
+    options: ['Adds the title of the page to the browser tab', 'Tells the browser that this is an HTML5 document', 'Links a CSS stylesheet to the page', 'Creates the main heading that shows on the page'],
+    answer: 'Tells the browser that this is an HTML5 document',
     explanation: '<!DOCTYPE html> is not an HTML tag — it is a declaration that instructs the browser to render the page in HTML5 standards mode.',
   },
   {
@@ -133,8 +133,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What is the difference between <ul> and <ol> in HTML?',
-    options: ['<ul> creates a table; <ol> creates a list', '<ul> creates an unordered (bulleted) list; <ol> creates an ordered (numbered) list', 'They are identical', '<ul> is for images; <ol> is for text'],
-    answer: '<ul> creates an unordered (bulleted) list; <ol> creates an ordered (numbered) list',
+    options: ['<ul> makes a table; <ol> makes a list of links', '<ul> makes a bulleted list; <ol> makes a numbered list', 'They are identical and make the same list', '<ul> is meant for images and <ol> is meant for text'],
+    answer: '<ul> makes a bulleted list; <ol> makes a numbered list',
     explanation: 'ul = unordered list (bullets), ol = ordered list (numbers or letters). Both use <li> for individual items.',
   },
   {

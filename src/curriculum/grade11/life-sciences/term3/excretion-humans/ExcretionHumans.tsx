@@ -132,8 +132,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'During ultrafiltration, which substances are forced into the Bowman\'s capsule?',
-    options: ['Only urea', 'Small molecules: water, glucose, salts, and urea', 'Proteins and red blood cells', 'Only water and urea'],
-    answer: 'Small molecules: water, glucose, salts, and urea',
+    options: ['Only urea, which is the waste product', 'Small molecules: water, glucose, salts and urea', 'Proteins and red blood cells from the blood', 'Only water and urea, with no glucose or salts'],
+    answer: 'Small molecules: water, glucose, salts and urea',
     explanation: 'High glomerular blood pressure forces small molecules through the capillary walls; large molecules such as plasma proteins and blood cells are too large and remain in the blood.',
   },
   {
@@ -144,20 +144,20 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'What does the presence of glucose in urine (glycosuria) most likely indicate?',
-    options: ['Normal kidney function', 'Elevated blood glucose, possibly diabetes mellitus', 'Successful kidney transplant', 'Excess protein intake'],
-    answer: 'Elevated blood glucose, possibly diabetes mellitus',
+    options: ['Normal kidney function in a healthy person', 'High blood glucose, possibly diabetes mellitus', 'A successful kidney transplant in a patient', 'A diet that is too rich in protein'],
+    answer: 'High blood glucose, possibly diabetes mellitus',
     explanation: 'When blood glucose exceeds the renal threshold (~10 mmol/L), the proximal tubule transport proteins are saturated and glucose cannot be fully reabsorbed, so it appears in urine.',
   },
   {
     prompt: 'Which part of the nephron is primarily responsible for the selective reabsorption of glucose?',
-    options: ['Bowman\'s capsule', 'Collecting duct', 'Proximal convoluted tubule', 'Loop of Henle'],
-    answer: 'Proximal convoluted tubule',
+    options: ["The Bowman's capsule around the glomerulus", 'The collecting duct that leads to the ureter', 'The proximal convoluted tubule', 'The loop of Henle that dips into the medulla'],
+    answer: 'The proximal convoluted tubule',
     explanation: 'The proximal convoluted tubule reabsorbs all glucose, amino acids, and large amounts of water and salts by active transport and osmosis immediately after filtration.',
   },
   {
     prompt: 'What is the main purpose of haemodialysis?',
-    options: ['To transplant a healthy kidney', 'To artificially filter blood and remove urea when kidneys fail', 'To increase urine production', 'To control blood pressure only'],
-    answer: 'To artificially filter blood and remove urea when kidneys fail',
+    options: ['To put a healthy kidney into the patient', 'To filter blood artificially and remove urea when kidneys fail', 'To raise the amount of urine that is made', 'To control the blood pressure of the patient only'],
+    answer: 'To filter blood artificially and remove urea when kidneys fail',
     explanation: 'A dialysis machine mimics kidney function by passing blood over a semipermeable membrane that allows urea and excess ions to diffuse out into dialysis fluid.',
   },
   {
@@ -168,13 +168,13 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'What is the primary function of the loop of Henle?',
-    options: ['Ultrafiltration of blood under pressure', 'Creating an osmotic concentration gradient in the medulla to enable water reabsorption', 'Secreting urea into the tubule', 'Producing the hormone ADH'],
-    answer: 'Creating an osmotic concentration gradient in the medulla to enable water reabsorption',
+    options: ['Ultrafiltration of the blood under pressure', 'Building a concentration gradient in the medulla', 'Secreting urea into the tubule of the nephron', 'Making the hormone ADH for the body'],
+    answer: 'Building a concentration gradient in the medulla',
     explanation: 'The descending and ascending limbs of the loop of Henle work as a countercurrent multiplier, building a high salt concentration in the medulla that draws water out of the collecting duct by osmosis.',
   },
   {
     prompt: 'Which hormone increases the permeability of the collecting duct to water, producing concentrated urine?',
-    options: ['Insulin', 'ADH (anti-diuretic hormone)', 'Glucagon', 'Adrenaline'],
+    options: ['Insulin, which lowers the level of blood glucose', 'ADH (anti-diuretic hormone)', 'Glucagon, which raises the level of blood glucose', 'Adrenaline, which prepares the body for action'],
     answer: 'ADH (anti-diuretic hormone)',
     explanation: 'ADH (vasopressin), released by the pituitary gland when blood is too concentrated, inserts water channels (aquaporins) into the collecting duct wall, allowing more water to be reabsorbed.',
   },

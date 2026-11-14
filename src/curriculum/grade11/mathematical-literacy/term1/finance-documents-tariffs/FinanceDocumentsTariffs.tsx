@@ -133,7 +133,7 @@ const bank: MLItem[] = [
   },
   {
     prompt: 'A water bill shows: Fixed charge R75 + R9,50 per kℓ for 12 kℓ used. What is the total bill?',
-    options: ['R189', 'R189,00', 'R114', 'R189,00'],
+    options: ['R189', 'R114', 'R85,50', 'R1 014'],
     answer: 'R189',
     explanation: 'Total = R75 + (R9,50 × 12) = R75 + R114 = R189.',
   },

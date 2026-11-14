@@ -165,24 +165,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why does deforestation increase the risk of mass movement?',
-    options: [
-      'Trees absorb too much water, making the soil dry',
-      'Tree roots bind the soil; removal reduces cohesion, increasing instability',
-      'Deforestation increases albedo',
-      'Trees slow down wind erosion only',
-    ],
-    answer: 'Tree roots bind the soil; removal reduces cohesion, increasing instability',
+    options: ['Trees take in too much water and leave the soil dry', 'Roots bind the soil; removing them lowers cohesion and raises risk', 'Deforestation raises albedo and dries out the slope', 'Trees slow wind erosion only, not mass movement'],
+    answer: 'Roots bind the soil; removing them lowers cohesion and raises risk',
     explanation: 'Tree roots hold soil particles together. Without them, slopes become more susceptible to water-induced mass movement.',
   },
   {
     prompt: 'A mudflow differs from a landslide because a mudflow:',
-    options: [
-      'Moves more slowly',
-      'Involves dry rock only',
-      'Is saturated with water and flows rapidly like a liquid',
-      'Occurs only on gentle slopes',
-    ],
-    answer: 'Is saturated with water and flows rapidly like a liquid',
+    options: ['It moves more slowly than a landslide does', 'It involves dry rock and no water at all', 'It is saturated with water and flows fast like a liquid', 'It occurs only on gentle slopes'],
+    answer: 'It is saturated with water and flows fast like a liquid',
     explanation: 'Mudflows occur when loose, fine-grained material becomes saturated, losing its internal friction and flowing rapidly.',
   },
   {
@@ -204,13 +194,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which method is used to prevent mass movement on road cuttings?',
-    options: [
-      'Painting the slope surface',
-      'Installing retaining walls and drainage channels',
-      'Increasing the slope angle',
-      'Removing all vegetation',
-    ],
-    answer: 'Installing retaining walls and drainage channels',
+    options: ['Painting the slope surface with a sealant', 'Retaining walls and drainage channels', 'Increasing the angle of the slope', 'Removing all the plants from the slope'],
+    answer: 'Retaining walls and drainage channels',
     explanation: 'Retaining walls support the slope material; drainage channels remove excess water that could saturate and destabilize the slope.',
   },
   {

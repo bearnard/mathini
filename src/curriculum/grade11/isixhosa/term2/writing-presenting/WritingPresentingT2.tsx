@@ -150,19 +150,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In a formal isiXhosa letter, which greeting is most appropriate?',
-    options: ['Enkosi Mnumzana/Nkosikazi', 'Molo mnganam', 'Sawubona', 'Hei wena'],
-    answer: 'Enkosi Mnumzana/Nkosikazi',
+    options: ['Mnumzana/Nkosikazi', 'Molo mnganam', 'Sawubona', 'Hei wena'],
+    answer: 'Mnumzana/Nkosikazi',
     explanation: '"Enkosi Mnumzana/Nkosikazi" is the formal respectful greeting; informal greetings are not suitable in formal correspondence.',
   },
   {
     prompt: 'What is the purpose of numbered subheadings in a report?',
-    options: [
-      'To organise information clearly and allow readers to navigate sections easily',
-      'To make the report look longer',
-      'To replace the need for a conclusion',
-      'To substitute for full paragraphs',
-    ],
-    answer: 'To organise information clearly and allow readers to navigate sections easily',
+    options: ['To organise information so readers find sections easily', 'To make the report look longer on the page', 'To take the place of a conclusion', 'To stand in for full paragraphs of text'],
+    answer: 'To organise information so readers find sections easily',
     explanation: 'Numbered subheadings are a standard report convention that aids clarity and professional presentation.',
   },
   {
@@ -173,35 +168,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a "rhetorical question" in a speech?',
-    options: [
-      'A question asked for effect, not expecting a direct answer, to make the audience reflect',
-      'A question asked to test the audience\'s knowledge',
-      'A question that must be answered in writing',
-      'A question asked only in a debate',
-    ],
-    answer: 'A question asked for effect, not expecting a direct answer, to make the audience reflect',
+    options: ['A question asked for effect, with no answer expected', 'A question asked to test what the audience knows', 'A question that must be answered in writing', 'A question that is asked in a debate only'],
+    answer: 'A question asked for effect, with no answer expected',
     explanation: 'Rhetorical questions engage the audience emotionally and intellectually without requiring a spoken reply.',
   },
   {
     prompt: 'A formal email differs from an informal email mainly in:',
-    options: [
-      'Its register, greeting, and professional closing',
-      'The number of attached files',
-      'The email address used',
-      'The font size chosen',
-    ],
-    answer: 'Its register, greeting, and professional closing',
+    options: ['Its register, greeting and professional closing', 'The number of files attached to it', 'The email address that is used', 'The size of the font that is chosen'],
+    answer: 'Its register, greeting and professional closing',
     explanation: 'Formal emails use professional greetings, complete sentences, and formal closings — unlike casual personal emails.',
   },
   {
     prompt: 'Which element is unique to a formal letter and NOT typically in an email?',
-    options: [
-      'The sender\'s address and recipient\'s address at the top of the page',
-      'A subject line',
-      'A closing signature',
-      'Paragraphed body text',
-    ],
-    answer: 'The sender\'s address and recipient\'s address at the top of the page',
+    options: ["Sender's and recipient's addresses at the top of the page", 'A subject line that sums up the message', 'A closing signature below the body of the text', 'Body text that is set out in separate paragraphs'],
+    answer: "Sender's and recipient's addresses at the top of the page",
     explanation: 'Traditional formal letters include postal addresses on the page; emails have To/CC fields instead.',
   },
 ];

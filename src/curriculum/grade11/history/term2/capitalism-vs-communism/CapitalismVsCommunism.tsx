@@ -150,13 +150,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How did the New Deal represent a "middle path" between capitalism and communism?',
-    options: [
-      'It kept private ownership but introduced state intervention, welfare, and market regulation',
-      'It abolished private property but allowed some free market trade',
-      'It adopted central planning but allowed some political freedom',
-      'It removed the profit motive but kept the stock market',
-    ],
-    answer: 'It kept private ownership but introduced state intervention, welfare, and market regulation',
+    options: ['It kept private ownership but added state action, welfare and regulation', 'It abolished private property but allowed some free trade', 'It adopted central planning but allowed political freedom', 'It removed the profit motive but kept the stock market'],
+    answer: 'It kept private ownership but added state action, welfare and regulation',
     explanation: 'The New Deal reformed capitalism rather than replacing it — a pragmatic response to the Depression\'s failures.',
   },
   {
@@ -183,24 +178,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A 1930s Soviet poster shows American workers starving outside closed factories with the caption "This is capitalism". Which statement about this source is most accurate?',
-    options: [
-      'It is communist propaganda using the Depression to discredit capitalism — not an objective analysis',
-      'It is an unbiased statistical source about US unemployment levels',
-      'It is American government propaganda about communism',
-      'It is a neutral historical document with no ideological perspective',
-    ],
-    answer: 'It is communist propaganda using the Depression to discredit capitalism — not an objective analysis',
+    options: ['Communist propaganda using the Depression to discredit capitalism', 'An unbiased statistical source on US unemployment', 'American government propaganda about communism', 'A neutral historical document with no ideological view'],
+    answer: 'Communist propaganda using the Depression to discredit capitalism',
     explanation: 'Identifying the ideological origin and purpose of sources is a core CAPS History skill — sources produced by a state are never neutral.',
   },
   {
     prompt: 'Which statement correctly contrasts the US and USSR economic systems in the 1930s?',
-    options: [
-      'The USA maintained capitalism with state intervention (New Deal); the USSR used central state planning (Five-Year Plans)',
-      'Both the USA and USSR used free market capitalism in the 1930s',
-      'The USA nationalised all industry; the USSR introduced a free market',
-      'Both systems failed completely and were replaced by fascism',
-    ],
-    answer: 'The USA maintained capitalism with state intervention (New Deal); the USSR used central state planning (Five-Year Plans)',
+    options: ['The USA kept capitalism with state aid; the USSR used central planning', 'Both countries used free market capitalism in the 1930s', 'The USA nationalised all industry and the USSR freed the market', 'Both systems failed and were replaced by fascism'],
+    answer: 'The USA kept capitalism with state aid; the USSR used central planning',
     explanation: 'The 1930s represented a critical test of two competing economic models during the global Depression.',
   },
 ];

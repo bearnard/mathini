@@ -138,41 +138,26 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which organisation promotes free trade and resolves trade disputes between member countries?',
-    options: ['UNICEF', 'UNDP', 'WTO (World Trade Organization)', 'NATO'],
-    answer: 'WTO (World Trade Organization)',
+    options: ['UNICEF, which helps children', 'UNDP, which promotes human development', 'The WTO (World Trade Organization)', 'NATO, which is a military alliance'],
+    answer: 'The WTO (World Trade Organization)',
     explanation: 'The WTO\'s core functions are to facilitate trade negotiations, administer trade agreements, and settle disputes between member countries.',
   },
   {
     prompt: 'Globalisation is best described as:',
-    options: [
-      'The spread of democracy around the world',
-      'The increasing integration of the world\'s economies, cultures, and populations',
-      'The process of urbanisation worldwide',
-      'The expansion of internet access',
-    ],
-    answer: 'The increasing integration of the world\'s economies, cultures, and populations',
+    options: ['The spread of democracy to countries around the world', "The growing links between the world's economies, cultures and people", 'The growth of towns and cities across the world', 'The wider spread of internet access around the world'],
+    answer: "The growing links between the world's economies, cultures and people",
     explanation: 'Globalisation involves the interconnection of markets, cultures, and peoples through trade, technology, and communication.',
   },
   {
     prompt: 'A transnational corporation (TNC) is a company that:',
-    options: [
-      'Only sells goods internationally',
-      'Has headquarters in a developing country',
-      'Operates production and business activities in multiple countries',
-      'Is owned by a government',
-    ],
-    answer: 'Operates production and business activities in multiple countries',
+    options: ['Sells goods to other countries and does nothing more', 'Has its headquarters in a developing country', 'Runs production and business in several countries', 'Is owned and run by a government'],
+    answer: 'Runs production and business in several countries',
     explanation: 'TNCs like Toyota, Shell, and Nestlé have subsidiaries and operations across the globe, controlling international supply chains.',
   },
   {
     prompt: 'Brain drain affects developing countries by:',
-    options: [
-      'Reducing innovation in developed countries',
-      'Causing skilled professionals to emigrate, leaving shortages in key sectors',
-      'Increasing the number of unskilled workers',
-      'Improving local wages',
-    ],
-    answer: 'Causing skilled professionals to emigrate, leaving shortages in key sectors',
+    options: ['Lower innovation in the richer countries', 'Skilled people emigrate, leaving shortages in key sectors', 'More unskilled workers in the richer countries', 'Higher wages in the home country'],
+    answer: 'Skilled people emigrate, leaving shortages in key sectors',
     explanation: 'When doctors, engineers, and teachers emigrate to higher-paying jobs in developed countries, developing countries lose the talent they need most.',
   },
   {
@@ -188,13 +173,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Fair trade certification aims to:',
-    options: [
-      'Remove all trade barriers between developing nations',
-      'Ensure producers in developing countries receive fair minimum prices and better working conditions',
-      'Subsidise food imports for poor countries',
-      'Eliminate all tariffs on agricultural goods',
-    ],
-    answer: 'Ensure producers in developing countries receive fair minimum prices and better working conditions',
+    options: ['It removes all trade barriers between developing nations', 'Producers in developing countries get fair minimum prices and conditions', 'It subsidises food imports for poor countries', 'It removes all tariffs on farm goods in every country'],
+    answer: 'Producers in developing countries get fair minimum prices and conditions',
     explanation: 'Fair trade guarantees minimum prices, community development premiums, and ethical standards to small-scale producers in developing countries.',
   },
   {
@@ -210,13 +190,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which of the following is a CONCERN about the activities of transnational corporations in developing countries?',
-    options: [
-      'They create too many jobs',
-      'They transfer too much technology',
-      'Profits are often repatriated to the home country rather than reinvested locally',
-      'They reduce competition',
-    ],
-    answer: 'Profits are often repatriated to the home country rather than reinvested locally',
+    options: ['They create too many jobs for local people', 'They pass on too much technology to local firms', 'Profits often go to the home country, not reinvested locally', 'They lower the competition between local firms'],
+    answer: 'Profits often go to the home country, not reinvested locally',
     explanation: 'TNCs may exploit cheap labour and natural resources while sending profits back to their home countries, limiting the development benefit for host nations.',
   },
 ];

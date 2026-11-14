@@ -112,13 +112,8 @@ const learnSteps: LearnStep[] = [
 const bank: BusinessStudiesItem[] = [
   {
     prompt: 'What is the PRIMARY purpose of an induction programme?',
-    options: [
-      'To assess whether the employee deserves a salary increase',
-      'To help a new employee settle in, understand the organisation and become productive quickly',
-      'To evaluate the employee\'s performance after 6 months',
-      'To train the employee for promotion',
-    ],
-    answer: 'To help a new employee settle in, understand the organisation and become productive quickly',
+    options: ['To judge if the employee deserves a salary increase', 'To help a new employee settle in and become productive soon', "To assess the employee's work after six months", 'To train the employee for a promotion'],
+    answer: 'To help a new employee settle in and become productive soon',
     explanation: 'Induction introduces new staff to the workplace culture, procedures, colleagues and role-specific requirements so they feel welcome and can contribute sooner.',
   },
   {
@@ -164,24 +159,14 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Why do businesses offer benefits such as pension funds and medical aid rather than simply paying a higher salary?',
-    options: [
-      'Benefits are not taxable for the business',
-      'They attract and retain employees by providing long-term financial security and wellbeing',
-      'It is illegal to pay high salaries in South Africa',
-      'Benefits are cheaper than salary increases',
-    ],
-    answer: 'They attract and retain employees by providing long-term financial security and wellbeing',
+    options: ['Benefits are not taxable for the business', 'They attract and keep staff by giving long-term security', 'It is illegal to pay high salaries in South Africa', 'Benefits always cost less than salary increases'],
+    answer: 'They attract and keep staff by giving long-term security',
     explanation: 'Benefits like retirement savings and healthcare address employees\' long-term needs, increasing loyalty and reducing staff turnover beyond what salary alone achieves.',
   },
   {
     prompt: 'A market salary survey compares a business\'s pay rates to those of similar roles in the industry. The PURPOSE of this exercise is to:',
-    options: [
-      'Identify which employees to retrench',
-      'Ensure the business\'s salaries are competitive to attract and retain talent',
-      'Set the National Minimum Wage',
-      'Determine the induction programme',
-    ],
-    answer: 'Ensure the business\'s salaries are competitive to attract and retain talent',
+    options: ['Identify which of the employees to retrench', 'Make sure pay is competitive to attract and keep talent', 'Set the National Minimum Wage for the country', 'Decide on the content of the induction programme'],
+    answer: 'Make sure pay is competitive to attract and keep talent',
     explanation: 'Salary surveys help businesses benchmark their pay against market rates — underpaying leads to high staff turnover while overpaying increases costs unnecessarily.',
   },
 ];

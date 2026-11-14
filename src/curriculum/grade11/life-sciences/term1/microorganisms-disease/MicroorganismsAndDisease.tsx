@@ -147,7 +147,7 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'Which micro-organism causes malaria?',
-    options: ['A virus', 'A bacterium', 'A protist (Plasmodium)', 'A fungus'],
+    options: ['A virus, such as the one that causes flu', 'A bacterium, such as the one that causes TB', 'A protist (Plasmodium)', 'A fungus, such as the one that causes ringworm'],
     answer: 'A protist (Plasmodium)',
     explanation: 'Plasmodium is a protist transmitted by the female Anopheles mosquito, causing malaria.',
   },
@@ -159,13 +159,13 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'The fungus Penicillium is important in medicine because it:',
-    options: ['Causes tuberculosis', 'Produces the antibiotic penicillin', 'Transmits HIV', 'Fixes nitrogen'],
-    answer: 'Produces the antibiotic penicillin',
+    options: ['It causes the disease called tuberculosis', 'It makes the antibiotic penicillin', 'It spreads HIV from person to person', 'It fixes nitrogen from the air in the soil'],
+    answer: 'It makes the antibiotic penicillin',
     explanation: 'Alexander Fleming discovered that Penicillium moulds produce penicillin, the first antibiotic used to treat bacterial infections.',
   },
   {
     prompt: 'Tuberculosis (TB) is transmitted mainly by:',
-    options: ['Contaminated water', 'Airborne respiratory droplets', 'Mosquito bites', 'Direct skin contact'],
+    options: ['Contaminated drinking water from a river', 'Airborne respiratory droplets', 'Bites from infected mosquitoes', 'Direct skin contact with a sick person'],
     answer: 'Airborne respiratory droplets',
     explanation: 'Mycobacterium tuberculosis spreads when an infected person coughs or sneezes, releasing droplets that are inhaled.',
   },
@@ -177,8 +177,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'A vaccination works by:',
-    options: ['Killing all pathogens immediately', 'Stimulating the immune system to produce memory cells', 'Providing direct antibiotic action', 'Reducing fever only'],
-    answer: 'Stimulating the immune system to produce memory cells',
+    options: ['Killing all of the pathogens in the body at once', 'Stimulating the immune system to make memory cells', 'Giving a direct antibiotic action against the germ', 'Lowering a fever and doing nothing more'],
+    answer: 'Stimulating the immune system to make memory cells',
     explanation: 'Vaccines introduce antigens that trigger immune memory, enabling a rapid and powerful response to future infection by the same pathogen.',
   },
   {

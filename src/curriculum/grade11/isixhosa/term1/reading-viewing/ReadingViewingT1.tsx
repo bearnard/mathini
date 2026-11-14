@@ -121,13 +121,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which of the following best describes the "theme" of a text?',
-    options: [
-      'The central message or idea explored throughout the text',
-      'The name of the main character',
-      'A description of the setting',
-      'The title of the book',
-    ],
-    answer: 'The central message or idea explored throughout the text',
+    options: ['The central message or idea explored through the text', 'The name of the main character in the text', 'A description of the setting of the text', 'The title that is printed on the book'],
+    answer: 'The central message or idea explored through the text',
     explanation: 'Theme is the underlying idea — it is not the plot (what happens) but the meaning behind what happens.',
   },
   {
@@ -154,35 +149,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When analysing a media text, what does "purpose" refer to?',
-    options: [
-      'The reason or goal the text was created for (inform, persuade, entertain, sell)',
-      'The physical size of the advertisement',
-      'The name of the photographer',
-      'The number of words on the page',
-    ],
-    answer: 'The reason or goal the text was created for (inform, persuade, entertain, sell)',
+    options: ['The goal the text was made for (inform, persuade, sell)', 'The physical size of the advertisement in print', 'The name of the photographer of the picture', 'The number of words that are printed on the page'],
+    answer: 'The goal the text was made for (inform, persuade, sell)',
     explanation: 'Every media text is created with a purpose — identifying it helps you understand the choices the creator made.',
   },
   {
     prompt: 'How should you support a theme statement in an essay answer?',
-    options: [
-      'Quote or paraphrase evidence directly from the text and explain the link',
-      'Give your personal opinion only',
-      'Describe the setting of the story',
-      'Name as many characters as possible',
-    ],
-    answer: 'Quote or paraphrase evidence directly from the text and explain the link',
+    options: ['Quote or paraphrase the text and explain the link', 'Give your personal opinion on the topic only', 'Describe the setting of the story at length', 'Name as many of the characters as you can'],
+    answer: 'Quote or paraphrase the text and explain the link',
     explanation: 'CAPS literature questions require evidence-based responses — claim + quotation + explanation.',
   },
   {
     prompt: 'What does "visual literacy" involve when reading a media text?',
-    options: [
-      'Interpreting how images, layout, and design elements create meaning',
-      'Reading only the written words aloud',
-      'Counting the number of pictures',
-      'Identifying the font size only',
-    ],
-    answer: 'Interpreting how images, layout, and design elements create meaning',
+    options: ['Reading how images, layout and design create meaning', 'Reading the written words aloud and nothing else', 'Counting the number of pictures on the page', 'Naming the size of the font and nothing else'],
+    answer: 'Reading how images, layout and design create meaning',
     explanation: 'Visual literacy includes understanding how colour, composition, image choice, and layout work together to convey a message.',
   },
   {
@@ -198,13 +178,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which question best tests understanding of "tone" in a poem?',
-    options: [
-      'How does the poet\'s word choice reflect a critical or admiring attitude?',
-      'How many lines are in each stanza?',
-      'What is the name of the poet?',
-      'Does the poem rhyme?',
-    ],
-    answer: 'How does the poet\'s word choice reflect a critical or admiring attitude?',
+    options: ["How does the poet's word choice show attitude?", 'How many lines does each stanza of the poem have?', 'What is the name of the poet who wrote the poem?', 'Does the poem have a rhyme scheme of any kind?'],
+    answer: "How does the poet's word choice show attitude?",
     explanation: 'Tone is about emotional attitude; analysing word choice reveals whether the poet views the subject positively, negatively, or with ambiguity.',
   },
 ];

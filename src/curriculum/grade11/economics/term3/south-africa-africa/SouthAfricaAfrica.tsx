@@ -99,8 +99,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'SADC\'s Free Trade Area, launched in 2008, aims to:',
-    options: ['Impose uniform tariffs on non-SADC imports', 'Allow goods to trade freely among member states with reduced tariffs', 'Create a single SADC currency', 'Ban imports from outside Africa'],
-    answer: 'Allow goods to trade freely among member states with reduced tariffs',
+    options: ['Charge the same tariffs on imports from outside SADC', 'Let goods trade freely among members with lower tariffs', 'Create a single currency for all SADC members', 'Ban all imports that come from outside Africa'],
+    answer: 'Let goods trade freely among members with lower tariffs',
     explanation: 'The SADC Free Trade Area reduces intra-regional tariffs to promote trade and economic integration among member countries.',
   },
   {
@@ -111,14 +111,14 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'The key principle that distinguishes NEPAD from earlier development frameworks is:',
-    options: ['Heavy reliance on Western donor funding', 'African ownership — "African solutions to African problems"', 'Imposed governance standards from the IMF', 'Exclusion of South Africa from leadership'],
-    answer: 'African ownership — "African solutions to African problems"',
+    options: ['Heavy reliance on funding from Western donors', 'African ownership: "African solutions to African problems"', 'Governance standards imposed by the IMF', 'The exclusion of South Africa from leadership'],
+    answer: 'African ownership: "African solutions to African problems"',
     explanation: 'NEPAD\'s defining feature is that African leaders take ownership of the continent\'s development agenda rather than depending on external prescriptions.',
   },
   {
     prompt: 'The APRM (African Peer Review Mechanism) under NEPAD is used to:',
-    options: ['Set interest rates across African countries', 'Allow African countries to voluntarily review each other\'s governance and policies', 'Coordinate military operations', 'Distribute World Bank loans to member states'],
-    answer: "Allow African countries to voluntarily review each other's governance and policies",
+    options: ['Set the interest rates for all African countries', "Let African states voluntarily review each other's governance", 'Coordinate military operations across the continent', 'Hand out World Bank loans to the member states'],
+    answer: "Let African states voluntarily review each other's governance",
     explanation: 'The APRM is a voluntary accountability tool where member countries accept peer review of their political and economic governance by other African nations.',
   },
   {
@@ -129,8 +129,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: "South Africa's dominance in SADC (over 50% of the group's GDP) can cause challenges because:",
-    options: ["It means SA's exports are too cheap for neighbours", 'Smaller SADC members may become economically dependent on SA, limiting balanced regional development', "SA's rand becomes the SADC reserve currency", 'Other SADC members must adopt SA trade laws'],
-    answer: 'Smaller SADC members may become economically dependent on SA, limiting balanced regional development',
+    options: ["SA's exports become too cheap for its neighbours", 'Smaller members may come to depend on SA, limiting balanced growth', 'The rand becomes the reserve currency of SADC', 'Other members must adopt the trade laws of SA'],
+    answer: 'Smaller members may come to depend on SA, limiting balanced growth',
     explanation: "SA's economic dominance can create unequal relationships within SADC, where smaller economies depend heavily on SA trade and investment.",
   },
   {
@@ -147,8 +147,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Regional economic integration benefits developing African countries primarily through:',
-    options: ['Reduced political sovereignty', 'Access to larger combined markets, economies of scale and shared infrastructure investment', 'More foreign debt obligations', 'Dependence on IMF conditionality'],
-    answer: 'Access to larger combined markets, economies of scale and shared infrastructure investment',
+    options: ['A loss of political sovereignty for members', 'Bigger markets, economies of scale and shared infrastructure', 'More foreign debt for the member countries', 'Reliance on the conditions that the IMF sets'],
+    answer: 'Bigger markets, economies of scale and shared infrastructure',
     explanation: 'Integration expands market size, reduces trade costs, and allows pooling of resources for infrastructure — key development benefits for smaller African economies.',
   },
 ];

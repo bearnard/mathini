@@ -103,7 +103,7 @@ const learnSteps: LearnStep[] = [
 const bank: ITItem[] = [
   {
     prompt: 'Which component of the CPU performs arithmetic calculations and logical comparisons?',
-    options: ['Control Unit', 'Program Counter', 'Arithmetic Logic Unit (ALU)', 'Cache memory'],
+    options: ['The Control Unit, which directs the other parts', 'The Program Counter, which holds the next address', 'Arithmetic Logic Unit (ALU)', 'The cache memory, which stores copies of data'],
     answer: 'Arithmetic Logic Unit (ALU)',
     explanation: 'The ALU handles all maths operations and logical comparisons (e.g. AND, OR, greater than).',
   },
@@ -126,24 +126,14 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'Why is the address bus described as unidirectional?',
-    options: [
-      'Data flows both ways on it',
-      'Only the CPU sends addresses to memory, not the other way round',
-      'It only carries control signals',
-      'It connects only input devices',
-    ],
-    answer: 'Only the CPU sends addresses to memory, not the other way round',
+    options: ['Data flows in both directions along the bus', 'Only the CPU sends addresses to memory, never the reverse', 'It carries control signals and nothing else', 'It connects the input devices only'],
+    answer: 'Only the CPU sends addresses to memory, never the reverse',
     explanation: 'The CPU specifies which memory location to access; memory does not send addresses back to the CPU.',
   },
   {
     prompt: 'What is the correct order of the fetch–decode–execute cycle?',
-    options: [
-      'Execute → Fetch → Decode',
-      'Decode → Execute → Fetch',
-      'Fetch → Decode → Execute',
-      'Fetch → Execute → Decode',
-    ],
-    answer: 'Fetch → Decode → Execute',
+    options: ['Execute, then fetch, then decode', 'Decode, then execute, then fetch', 'Fetch, then decode, then execute', 'Fetch, then execute, then decode'],
+    answer: 'Fetch, then decode, then execute',
     explanation: 'The CPU first fetches the instruction from RAM, decodes it to understand what to do, then executes the operation.',
   },
   {

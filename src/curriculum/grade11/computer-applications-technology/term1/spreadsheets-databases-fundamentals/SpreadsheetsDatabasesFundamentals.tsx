@@ -131,8 +131,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'In a database, a FIELD is best described as:',
-    options: ['A single entry in the table', 'A category of data (column) that stores one type of information per record', 'The entire collection of tables', 'A question asked of the database'],
-    answer: 'A category of data (column) that stores one type of information per record',
+    options: ['A single entry in a table, which is a whole record', 'A category of data (a column) holding one type of information', 'The entire collection of tables in a database', 'A question that you ask a database to answer'],
+    answer: 'A category of data (a column) holding one type of information',
     explanation: 'A field (column) defines one attribute — for example, the "Surname" field holds the last name of every person in the table.',
   },
   {
@@ -143,20 +143,20 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What is the purpose of a DATABASE QUERY?',
-    options: ['To create a new table', 'To extract and display specific records that meet set criteria', 'To format data for printing', 'To sort records by primary key only'],
-    answer: 'To extract and display specific records that meet set criteria',
+    options: ['To create a brand new table in the database', 'To pull out and show records that meet set criteria', 'To format the data for printing on paper', 'To sort the records by the primary key only'],
+    answer: 'To pull out and show records that meet set criteria',
     explanation: 'A query filters the database and returns only the records matching the specified criteria (e.g. all learners in Grade 11).',
   },
   {
     prompt: 'A spreadsheet has exam marks in B2:B31 (30 learners). Which formula gives the class average?',
-    options: ['=SUM(B2:B31)/30', '=AVERAGE(B2:B31)', '=COUNT(B2:B31)', 'Both =SUM(B2:B31)/30 and =AVERAGE(B2:B31)'],
-    answer: 'Both =SUM(B2:B31)/30 and =AVERAGE(B2:B31)',
+    options: ['=SUM(B2:B31)', '=COUNT(B2:B31)', '=MAX(B2:B31)', '=AVERAGE(B2:B31)'],
+    answer: '=AVERAGE(B2:B31)',
     explanation: 'Both formulas produce the same result: AVERAGE divides the sum by the count automatically.',
   },
   {
     prompt: 'In a relational database, a FOREIGN KEY is used to:',
-    options: ['Generate automatic reports', 'Link records in one table to related records in another table', 'Encrypt the database', 'Delete duplicate records'],
-    answer: 'Link records in one table to related records in another table',
+    options: ['Generate automatic reports from the tables', 'Link records in one table to related records in another', 'Encrypt the database so no one can read it', 'Delete the duplicate records in a table'],
+    answer: 'Link records in one table to related records in another',
     explanation: 'A foreign key in one table references the primary key in another table, establishing a relationship between the two tables.',
   },
   {

@@ -179,13 +179,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What type of error is present in: "Abantwana uyagijima endleleni."?',
-    options: [
-      'Concord error — "uyagijima" uses the u- prefix but "abantwana" requires ba-',
-      'Tense error — wrong tense for the action',
-      'Punctuation error — missing full stop',
-      'Vocabulary error — wrong word for "children"',
-    ],
-    answer: 'Concord error — "uyagijima" uses the u- prefix but "abantwana" requires ba-',
+    options: ['Concord error: "uyagijima" has u- but "abantwana" needs ba-', 'Tense error: the wrong tense for the action', 'Punctuation error: a full stop is missing', 'Vocabulary error: the wrong word for "children"'],
+    answer: 'Concord error: "uyagijima" has u- but "abantwana" needs ba-',
     explanation: '"Abantwana" (children, aba- class) requires the ba- concord: "Abantwana bayagijima."',
   },
   {

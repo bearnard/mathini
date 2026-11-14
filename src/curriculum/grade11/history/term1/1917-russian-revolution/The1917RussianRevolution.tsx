@@ -101,12 +101,7 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What was the immediate trigger of the February Revolution 1917?',
-    options: [
-      'Women workers in Petrograd striking for bread, joined by soldiers',
-      'A Bolshevik uprising planned by Lenin',
-      'The German army invading Petrograd',
-      'The assassination of a government minister',
-    ],
+    options: ['Women workers in Petrograd striking for bread, joined by soldiers', 'A Bolshevik uprising that Lenin had planned in advance', 'The German army invading the city of Petrograd', 'The murder of a minister in the government'],
     answer: 'Women workers in Petrograd striking for bread, joined by soldiers',
     explanation: 'Bread shortages sparked strikes that spread rapidly when soldiers refused orders to suppress protesters.',
   },
@@ -123,13 +118,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What were Lenin\'s April Theses?',
-    options: [
-      'A programme demanding an end to the war, land to peasants, and all power to the Soviets',
-      'A peace treaty with Germany',
-      'A plan to share power with the Provisional Government',
-      'A call for elections to a constituent assembly only',
-    ],
-    answer: 'A programme demanding an end to the war, land to peasants, and all power to the Soviets',
+    options: ['A plan to end the war, give land to peasants and power to the Soviets', 'A peace treaty that was signed with Germany', 'A plan to share power with the Provisional Government', 'A call for elections to a constituent assembly only'],
+    answer: 'A plan to end the war, give land to peasants and power to the Soviets',
     explanation: 'The April Theses set the Bolshevik agenda and won mass support with its clear, popular demands.',
   },
   {
@@ -174,13 +164,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why did Germany arrange for Lenin to travel to Russia in the "sealed train"?',
-    options: [
-      'Germany hoped Lenin would cause revolution and take Russia out of the war',
-      'Germany wanted to support the Provisional Government',
-      'Germany feared a Bolshevik alliance with Britain',
-      'Germany planned to arrest Lenin on arrival',
-    ],
-    answer: 'Germany hoped Lenin would cause revolution and take Russia out of the war',
+    options: ['Germany hoped he would cause revolution and end the war', 'Germany wished to support the Provisional Government', 'Germany feared a Bolshevik alliance with Britain', 'Germany planned to arrest Lenin on his arrival'],
+    answer: 'Germany hoped he would cause revolution and end the war',
     explanation: 'Germany calculated that a Bolshevik revolution would end Russia\'s military involvement, freeing German troops for the Western Front.',
   },
 ];

@@ -185,13 +185,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How should you handle a word you do not know in an unseen comprehension passage?',
-    options: [
-      'Use context clues (surrounding words and sentences) to infer its likely meaning',
-      'Leave the question blank',
-      'Translate the word directly into English',
-      'Assume it means the opposite of the previous word',
-    ],
-    answer: 'Use context clues (surrounding words and sentences) to infer its likely meaning',
+    options: ['Use context clues to infer its likely meaning', 'Leave the question blank and move on', 'Translate the word directly into English', 'Assume it means the opposite of the word before it'],
+    answer: 'Use context clues to infer its likely meaning',
     explanation: 'Context clues — definition, example, contrast, and general sense — help you infer meaning even for unfamiliar vocabulary.',
   },
   {
@@ -207,13 +202,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In a summary, why must you keep to the required number of points?',
-    options: [
-      'Marks are awarded per relevant point — including more points does not earn extra marks and may confuse',
-      'The question is only asking for a count of sentences',
-      'Longer summaries always earn higher marks',
-      'The marker ignores any points beyond the first one',
-    ],
-    answer: 'Marks are awarded per relevant point — including more points does not earn extra marks and may confuse',
+    options: ['Marks go per relevant point; extra points earn nothing and confuse', 'The question is only asking for a count of sentences', 'Longer summaries always earn higher marks', 'The marker ignores any points beyond the first one'],
+    answer: 'Marks go per relevant point; extra points earn nothing and confuse',
     explanation: 'In CAPS, summary marks are allocated per point — adding extra points wastes time and can introduce incorrect information.',
   },
   {

@@ -133,8 +133,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'If the SARB increases the repo rate, the expected effect on inflation is:',
-    options: ['Inflation increases because borrowing is cheaper', 'No effect on inflation', 'Inflation decreases because higher rates reduce borrowing and spending', 'Inflation increases because money supply rises'],
-    answer: 'Inflation decreases because higher rates reduce borrowing and spending',
+    options: ['Inflation rises, because borrowing becomes cheaper', 'Inflation is not affected by the repo rate', 'Inflation falls, as higher rates reduce borrowing and spending', 'Inflation rises, because the money supply grows'],
+    answer: 'Inflation falls, as higher rates reduce borrowing and spending',
     explanation: 'Higher repo rate → higher prime rate → dearer credit → less borrowing and spending → lower demand → inflation pressure falls.',
   },
   {
@@ -145,20 +145,20 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Fractional reserve banking means commercial banks:',
-    options: ['Hold 100% of deposits in reserve', 'Cannot grant any loans', 'Lend out most deposits and keep only a fraction as reserves, creating credit', 'Are owned by the SARB'],
-    answer: 'Lend out most deposits and keep only a fraction as reserves, creating credit',
+    options: ['Hold all of their deposits as cash reserves', 'Cannot make any loans to their customers', 'Lend out most deposits and keep a fraction as reserves', 'Are owned and run by the SARB'],
+    answer: 'Lend out most deposits and keep a fraction as reserves',
     explanation: 'Banks keep a fraction of deposits as required reserves and lend the rest, effectively creating new money in the economy.',
   },
   {
     prompt: 'The SARB acts as "lender of last resort" by:',
-    options: ['Providing mortgages to poor households', 'Selling government bonds to commercial banks', 'Providing emergency liquidity to commercial banks to prevent systemic collapse', 'Setting interest rates for the entire economy'],
-    answer: 'Providing emergency liquidity to commercial banks to prevent systemic collapse',
+    options: ['Providing home loans to poor households', 'Selling government bonds to the commercial banks', 'Providing emergency liquidity to banks to prevent a collapse', 'Setting the interest rates for the whole economy'],
+    answer: 'Providing emergency liquidity to banks to prevent a collapse',
     explanation: 'As lender of last resort, the SARB stands ready to provide liquidity to solvent banks that face short-term cash crises, preventing bank runs.',
   },
   {
     prompt: 'During a recession, the SARB would most likely:',
-    options: ['Increase the repo rate to cool the economy', 'Keep the repo rate unchanged indefinitely', 'Decrease the repo rate to stimulate borrowing and economic activity', 'Raise the inflation target band'],
-    answer: 'Decrease the repo rate to stimulate borrowing and economic activity',
+    options: ['Raise the repo rate to cool the economy down', 'Keep the repo rate unchanged for an unlimited time', 'Cut the repo rate to stimulate borrowing and activity', 'Raise the band of the inflation target'],
+    answer: 'Cut the repo rate to stimulate borrowing and activity',
     explanation: 'An expansionary monetary policy (lower repo rate) makes credit cheaper, encouraging borrowing, investment and spending to revive a recessionary economy.',
   },
 ];

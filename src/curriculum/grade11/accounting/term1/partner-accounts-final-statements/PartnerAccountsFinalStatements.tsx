@@ -149,24 +149,14 @@ const learnSteps: LearnStep[] = [
 const bank: AccountingItem[] = [
   {
     prompt: 'The appropriation account is used to:',
-    options: [
-      'Record sales and purchases',
-      'Show how the net profit is distributed among partners',
-      'Calculate gross profit',
-      'Record bank transactions',
-    ],
-    answer: 'Show how the net profit is distributed among partners',
+    options: ['Record the sales and the purchases', 'Show how the net profit is shared among the partners', 'Work out the gross profit of the partnership', 'Record the transactions made with the bank'],
+    answer: 'Show how the net profit is shared among the partners',
     explanation: 'The appropriation account distributes net profit by allocating interest, salaries, and the remaining share to each partner.',
   },
   {
     prompt: 'In the appropriation account, interest on drawings is:',
-    options: [
-      'Subtracted from net profit',
-      'Added to net profit to increase the amount available for distribution',
-      'Recorded as an expense in the income statement',
-      'Ignored if partners are equal',
-    ],
-    answer: 'Added to net profit to increase the amount available for distribution',
+    options: ['Subtracted from net profit before the sharing', 'Added to net profit, raising the amount to be shared', 'Shown as an expense in the income statement', 'Ignored when the partners share profits equally'],
+    answer: 'Added to net profit, raising the amount to be shared',
     explanation: 'Interest on drawings is charged to partners (reducing their share) but adds to the pool, so it is added to profit in the appropriation account.',
   },
   {
@@ -177,13 +167,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'The capital account of a partner normally changes when:',
-    options: [
-      'The partner receives a salary allowance',
-      'The partner makes drawings',
-      'The partner contributes additional permanent capital or permanently withdraws capital',
-      'Profit is distributed at year-end',
-    ],
-    answer: 'The partner contributes additional permanent capital or permanently withdraws capital',
+    options: ['The partner receives a salary allowance', 'The partner makes drawings during the year', 'The partner adds or permanently removes capital', 'The profit is shared at the end of the year'],
+    answer: 'The partner adds or permanently removes capital',
     explanation: 'Capital accounts are fixed accounts — they change only when the permanent capital investment itself changes.',
   },
   {
@@ -233,13 +218,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'In the accounting equation for a partnership, equity includes:',
-    options: [
-      'Only the capital accounts of partners',
-      'Only the current accounts of partners',
-      'Both the capital accounts and current accounts of all partners',
-      'Loans from partners only',
-    ],
-    answer: 'Both the capital accounts and current accounts of all partners',
+    options: ['Only the capital accounts of the partners', 'Only the current accounts of the partners', 'Both the capital and current accounts of all partners', 'Only the loans that the partners have made'],
+    answer: 'Both the capital and current accounts of all partners',
     explanation: 'Equity for a partnership comprises each partner\'s capital account plus their current account balance.',
   },
 ];

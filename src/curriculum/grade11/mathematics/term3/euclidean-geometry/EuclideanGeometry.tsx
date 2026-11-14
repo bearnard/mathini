@@ -77,13 +77,13 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'A tangent to a circle is perpendicular to:',
-    options: ['Any chord', 'The diameter', 'The radius at the point of tangency', 'Another tangent'],
+    options: ['Any chord of the circle', 'The diameter of the circle', 'The radius at the point of tangency', 'Another tangent to the circle'],
     answer: 'The radius at the point of tangency',
     explanation: 'The tangent and radius at the point of contact are always perpendicular (90°) to each other.',
   },
   {
     prompt: 'The tangent-chord angle theorem states that this angle equals:',
-    options: ['The central angle', 'The inscribed angle in the alternate segment', 'Half the arc it cuts off', 'The angle in the same segment'],
+    options: ['The central angle on the same chord', 'The inscribed angle in the alternate segment', 'Double the angle in the alternate segment', 'The angle in the same segment'],
     answer: 'The inscribed angle in the alternate segment',
     explanation: 'This is the Tangent-Chord (Alternate Segment) Theorem.',
   },

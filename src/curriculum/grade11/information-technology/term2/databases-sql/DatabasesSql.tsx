@@ -155,13 +155,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is a foreign key?',
-    options: [
-      'A key imported from another database system',
-      'A field in one table that references the primary key of another table',
-      'A secondary unique identifier in the same table',
-      'A key that is kept secret for security purposes',
-    ],
-    answer: 'A field in one table that references the primary key of another table',
+    options: ['A key imported from another database system', 'A field that refers to the primary key of another table', 'A second unique identifier in the same table', 'A key that is kept secret for security reasons'],
+    answer: 'A field that refers to the primary key of another table',
     explanation: 'Foreign keys create relationships (links) between tables, enforcing referential integrity.',
   },
   {

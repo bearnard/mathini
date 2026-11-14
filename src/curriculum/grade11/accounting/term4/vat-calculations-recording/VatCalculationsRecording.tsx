@@ -110,13 +110,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Output VAT refers to:',
-    options: [
-      'VAT paid to suppliers',
-      'VAT collected by the business from its customers on sales',
-      'VAT refunded by SARS',
-      'VAT paid on imported goods only',
-    ],
-    answer: 'VAT collected by the business from its customers on sales',
+    options: ['VAT that the business pays to its suppliers', 'VAT that the business collects from customers on its sales', 'VAT that is refunded to the business by SARS', 'VAT that is paid on imported goods only'],
+    answer: 'VAT that the business collects from customers on its sales',
     explanation: 'Output VAT is collected on behalf of SARS when the business sells goods or services to customers.',
   },
   {
@@ -172,13 +167,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Zero-rated supplies are VAT transactions where:',
-    options: [
-      'No VAT registration is needed',
-      'VAT is charged at 0% — the transaction is still subject to VAT law but the rate is 0%',
-      'Input VAT cannot be claimed',
-      'The business is exempt from all tax obligations',
-    ],
-    answer: 'VAT is charged at 0% — the transaction is still subject to VAT law but the rate is 0%',
+    options: ['No VAT registration is needed for the supplier', 'VAT is charged at 0%, but the transaction is still under VAT law', 'Input VAT cannot be claimed on the purchases', 'The business is exempt from all tax duties'],
+    answer: 'VAT is charged at 0%, but the transaction is still under VAT law',
     explanation: 'Zero-rated items (e.g., basic foodstuffs) are taxed at 0%. The business can still claim input VAT on related purchases.',
   },
 ];

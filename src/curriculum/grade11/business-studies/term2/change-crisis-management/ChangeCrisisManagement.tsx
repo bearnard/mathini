@@ -113,25 +113,25 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Which of the following is NOT a recommended strategy for managing workplace stress?',
-    options: ['Regular exercise', 'Time management', 'Ignoring the problem and working longer hours', 'Employee Assistance Programmes'],
+    options: ['Taking regular exercise', 'Using good time management', 'Ignoring the problem and working longer hours', 'Using Employee Assistance Programmes'],
     answer: 'Ignoring the problem and working longer hours',
     explanation: 'Ignoring stress and overworking makes it worse. Effective strategies include healthy habits, support programmes, and open communication.',
   },
   {
     prompt: 'An employee resists a new digital system because they fear losing their job to automation. This resistance is caused by:',
-    options: ['Lack of trust in colleagues', 'Fear of the unknown and job insecurity', 'The change being too quick', 'Excessive communication'],
+    options: ['A lack of trust in their colleagues', 'Fear of the unknown and job insecurity', 'The change being introduced too quickly', 'Too much communication from management'],
     answer: 'Fear of the unknown and job insecurity',
     explanation: 'Employees often resist change when they fear the impact on their role or job security — a common psychological barrier to change.',
   },
   {
     prompt: 'A factory fire breaks out. The manager calls the crisis team, issues a statement to staff, and contacts the insurance company. Which crisis management step is this?',
-    options: ['Identify the crisis', 'Activate the crisis team and communicate', 'Contain the damage only', 'Review and learn'],
+    options: ['Identify the crisis', 'Activate the crisis team and communicate', 'Contain the damage and do nothing more', 'Review the crisis and learn from it'],
     answer: 'Activate the crisis team and communicate',
     explanation: 'Activating the crisis management team and communicating with stakeholders (staff, insurers) are core crisis response steps following initial identification.',
   },
   {
     prompt: 'Which term describes programmes offered by employers to support employees dealing with personal or work-related stress?',
-    options: ['Performance management', 'Employee Assistance Programmes (EAPs)', 'Job enrichment', 'Succession planning'],
+    options: ['Performance management systems', 'Employee Assistance Programmes (EAPs)', 'Job enrichment schemes', 'Succession planning programmes'],
     answer: 'Employee Assistance Programmes (EAPs)',
     explanation: 'EAPs provide confidential counselling and support services to help employees cope with stress, mental health challenges, and personal issues.',
   },
@@ -149,13 +149,8 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'After a crisis is resolved, why is the "review and learn" step important?',
-    options: [
-      'To decide whether to close the business',
-      'To update the crisis plan and prevent the same crisis from recurring',
-      'To punish employees who caused the crisis',
-      'To communicate only with shareholders',
-    ],
-    answer: 'To update the crisis plan and prevent the same crisis from recurring',
+    options: ['To decide whether or not to close the business', 'To update the crisis plan and stop the crisis recurring', 'To punish the employees who caused the crisis', 'To report to the shareholders and no one else'],
+    answer: 'To update the crisis plan and stop the crisis recurring',
     explanation: 'Reviewing lessons learnt allows the business to improve its crisis management plan so future crises are handled more effectively.',
   },
 ];

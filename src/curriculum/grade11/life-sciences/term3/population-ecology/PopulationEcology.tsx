@@ -125,8 +125,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'In a predator–prey relationship, what typically happens to predator numbers when prey numbers fall sharply?',
-    options: ['Predator numbers increase rapidly', 'Predator numbers also decline due to food shortage', 'Predator numbers stay constant', 'Prey numbers increase further'],
-    answer: 'Predator numbers also decline due to food shortage',
+    options: ['Predator numbers rise quickly with less competition', 'Predator numbers also fall because of a food shortage', 'Predator numbers stay constant, whatever the prey do', 'Prey numbers rise even further at the same time'],
+    answer: 'Predator numbers also fall because of a food shortage',
     explanation: 'When prey is scarce, predators face starvation and their reproduction declines, so predator numbers follow prey numbers with a slight time lag — producing cyclical fluctuations.',
   },
   {

@@ -74,8 +74,8 @@ const bank: MLItem[] = [
   },
   {
     prompt: 'PAYE is deducted monthly from an employee\'s salary so that they:',
-    options: ['Do not have to pay tax at all', 'Pay their annual income tax in monthly instalments', 'Contribute to UIF', 'Receive a tax rebate immediately'],
-    answer: 'Pay their annual income tax in monthly instalments',
+    options: ['Do not have to pay any tax at all', 'Pay yearly income tax in monthly instalments', 'Pay into the UIF fund and nothing else', 'Receive a tax rebate straight away'],
+    answer: 'Pay yearly income tax in monthly instalments',
     explanation: 'PAYE allows tax to be collected throughout the year rather than in one lump sum at year-end.',
   },
 ];

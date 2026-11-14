@@ -120,13 +120,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is procedural decomposition?',
-    options: [
-      'Converting a program into machine code',
-      'Breaking a large problem into smaller subproblems solved by separate subroutines',
-      'A method of sorting data',
-      'Removing unused variables from code',
-    ],
-    answer: 'Breaking a large problem into smaller subproblems solved by separate subroutines',
+    options: ['Converting a program into machine code before it runs', 'Splitting a big problem into smaller subroutines', 'A way of sorting the data that is in a list', 'Removing the unused variables from the program code'],
+    answer: 'Splitting a big problem into smaller subroutines',
     explanation: 'Procedural decomposition (top-down design) improves readability, reuse, and testing by isolating concerns.',
   },
   {

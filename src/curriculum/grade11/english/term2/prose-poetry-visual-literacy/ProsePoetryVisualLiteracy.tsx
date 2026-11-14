@@ -111,46 +111,26 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is the purpose of a visual literacy question in English HL?',
-    options: [
-      'To test whether you can draw well',
-      'To assess your ability to interpret meaning in images, layout, and design elements',
-      'To test how many photographs you can identify',
-      'To test your ability to describe colours accurately',
-    ],
-    answer: 'To assess your ability to interpret meaning in images, layout, and design elements',
+    options: ['To test whether you are able to draw well by hand', 'To assess how well you read meaning in images and design', 'To test how many photographs you can name', 'To test how accurately you can name the colours'],
+    answer: 'To assess how well you read meaning in images and design',
     explanation: 'Visual literacy requires you to "read" images critically — analysing how composition, colour, and gaze create meaning.',
   },
   {
     prompt: 'When analysing an unseen poem, what should you identify first?',
-    options: [
-      'The rhyme scheme only',
-      'The number of syllables per line',
-      'The subject, tone, and any immediately striking devices',
-      'Whether you like or dislike the poem',
-    ],
-    answer: 'The subject, tone, and any immediately striking devices',
+    options: ['The rhyme scheme and nothing else in the poem', 'The number of syllables found in each line', 'The subject, tone and any striking devices', 'Whether you like or dislike the poem as a reader'],
+    answer: 'The subject, tone and any striking devices',
     explanation: 'First read establishes what the poem is about and how the speaker feels. Devices support your interpretation.',
   },
   {
     prompt: 'What does "visual composition" refer to in an image?',
-    options: [
-      'The title written below an image',
-      'The arrangement and placement of visual elements within the frame to create meaning',
-      'The background music in a video',
-      'The number of people in a photograph',
-    ],
-    answer: 'The arrangement and placement of visual elements within the frame to create meaning',
+    options: ['The title that is written below the image', 'How the visual elements are arranged in the frame to create meaning', 'The music that plays in the background of a video', 'The number of people who appear in a photograph'],
+    answer: 'How the visual elements are arranged in the frame to create meaning',
     explanation: 'Composition includes what is foregrounded, how space is used, and how placement guides the viewer\'s eye and conveys importance.',
   },
   {
     prompt: 'What is a caption in visual literacy?',
-    options: [
-      'The main image in an advertisement',
-      'A short explanatory text accompanying an image that guides interpretation',
-      'The price label on a product',
-      'The colour scheme of a poster',
-    ],
-    answer: 'A short explanatory text accompanying an image that guides interpretation',
+    options: ['The main image that fills an advertisement', 'A short text beside an image that guides how it is read', 'The price label that is attached to a product', 'The colour scheme that is used on a poster'],
+    answer: 'A short text beside an image that guides how it is read',
     explanation: 'Captions frame how viewers read images — they can reinforce, extend, or even contradict what the image shows.',
   },
   {
@@ -166,13 +146,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the difference between a "seen" and "unseen" text?',
-    options: [
-      '"Seen" is in colour; "unseen" is in black and white',
-      '"Seen" has been studied and prepared; "unseen" is encountered for the first time in the exam',
-      '"Seen" texts are always prose; "unseen" texts are always poetry',
-      'There is no difference — the terms mean the same thing',
-    ],
-    answer: '"Seen" has been studied and prepared; "unseen" is encountered for the first time in the exam',
+    options: ['"Seen" texts are in colour and "unseen" are in black and white', '"Seen" has been studied; "unseen" is met for the first time in the exam', '"Seen" texts are always prose and "unseen" always poetry', 'The two terms mean exactly the same thing'],
+    answer: '"Seen" has been studied; "unseen" is met for the first time in the exam',
     explanation: 'Seen texts allow you to apply prior knowledge. Unseen texts test your general analytical skills.',
   },
   {
@@ -188,35 +163,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In a comparative response, what does the phrase "Both texts suggest…" signal?',
-    options: [
-      'That you are about to discuss only one text',
-      'A similarity in theme, tone, or technique between the two texts',
-      'That neither text is relevant to the question',
-      'That you are restating the question',
-    ],
-    answer: 'A similarity in theme, tone, or technique between the two texts',
+    options: ['That you are about to discuss one text only', 'A similarity in theme, tone or technique between the two texts', 'That neither text is relevant to the question', 'That you are restating the question in other words'],
+    answer: 'A similarity in theme, tone or technique between the two texts',
     explanation: '"Both texts suggest…" introduces a point of similarity, which must then be supported with evidence from each text.',
   },
   {
     prompt: 'What is a graphical feature?',
-    options: [
-      'A plot summary of a novel',
-      'A visual element such as a graph, table, diagram, or infographic used to present information',
-      'A type of poetic device',
-      'A paragraph that uses sensory language',
-    ],
-    answer: 'A visual element such as a graph, table, diagram, or infographic used to present information',
+    options: ['A plot summary of the novel that you studied in class', 'A visual element such as a graph, table or infographic', 'A type of poetic device that a poet may choose to use', 'A paragraph that is rich in sensory language and detail'],
+    answer: 'A visual element such as a graph, table or infographic',
     explanation: 'Graphical features organise and present data visually. You may be asked to interpret what they show and how they support the text.',
   },
   {
     prompt: 'How does colour choice affect meaning in an advertisement?',
-    options: [
-      'Colour choice has no effect on meaning in advertisements',
-      'Colours carry cultural and emotional connotations that influence the audience\'s response to the product or message',
-      'Only the background colour matters — other colours are irrelevant',
-      'Colour is used only to fill space in advertisements',
-    ],
-    answer: 'Colours carry cultural and emotional connotations that influence the audience\'s response to the product or message',
+    options: ['Colour choice has no effect on the meaning of an advert', 'Colours carry cultural and emotional associations that sway the audience', 'Only the background colour counts; others do not matter', 'Colour is used only to fill up space on the page'],
+    answer: 'Colours carry cultural and emotional associations that sway the audience',
     explanation: 'Red can signal urgency or passion; blue suggests trust or calm; green evokes nature or health. Advertisers use colour deliberately.',
   },
 ];

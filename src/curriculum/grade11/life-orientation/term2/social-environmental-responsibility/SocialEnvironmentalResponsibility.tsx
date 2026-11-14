@@ -108,13 +108,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'The Brundtland Commission definition of sustainability means:',
-    options: [
-      'Using all available resources now for economic growth',
-      'Meeting present needs without compromising future generations\' ability to meet their own needs',
-      'Only protecting nature and ignoring human needs',
-      'Sustainability is a concern only for wealthy nations',
-    ],
-    answer: 'Meeting present needs without compromising future generations\' ability to meet their own needs',
+    options: ['Using all available resources now to boost growth', 'Meeting present needs without harming the needs of future generations', 'Protecting nature and ignoring human needs', 'Sustainability is a concern only for wealthy nations'],
+    answer: 'Meeting present needs without harming the needs of future generations',
     explanation: 'The 1987 Brundtland Commission defined sustainable development in terms of intergenerational responsibility.',
   },
   {
@@ -125,19 +120,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is "social justice"?',
-    options: [
-      'Enforcing harsh legal penalties',
-      'All people having equal rights and opportunities free from discrimination',
-      'Benefiting only the majority group in society',
-      'Social justice only applies to economic issues',
-    ],
-    answer: 'All people having equal rights and opportunities free from discrimination',
+    options: ['Enforcing harsh legal penalties on all offenders', 'Equal rights and chances for all, free of discrimination', 'Benefiting only the majority group in a society', 'Applying to economic matters and to nothing else'],
+    answer: 'Equal rights and chances for all, free of discrimination',
     explanation: 'Social justice means ensuring equitable access to rights, resources, and opportunities for all people.',
   },
   {
     prompt: 'A township community lives next to a factory that dumps waste illegally. Which concept best describes this situation?',
-    options: ['Sustainability', 'Environmental justice violation', 'Carbon footprint', 'Biodiversity loss'],
-    answer: 'Environmental justice violation',
+    options: ['Sustainability, since resources are being used', 'A violation of environmental justice', 'A carbon footprint, since waste is being made', 'Biodiversity loss, since wildlife has been affected'],
+    answer: 'A violation of environmental justice',
     explanation: 'Placing environmental burdens (like industrial waste) disproportionately on marginalised communities violates environmental justice principles.',
   },
   {
@@ -159,35 +149,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When analysing a social or environmental challenge, why is it important to ask "who is most affected?"',
-    options: [
-      'It is not important — challenges affect everyone equally',
-      'To ensure that the most vulnerable and marginalised groups receive appropriate attention and support',
-      'To decide who is to blame',
-      'It is only relevant for legal cases',
-    ],
-    answer: 'To ensure that the most vulnerable and marginalised groups receive appropriate attention and support',
+    options: ['It is not important, as challenges affect all people equally', 'To make sure the most vulnerable groups get attention and support', 'To decide who is to blame for the problem', 'It is relevant in legal cases and nowhere else'],
+    answer: 'To make sure the most vulnerable groups get attention and support',
     explanation: 'Identifying who bears the greatest burden ensures responses are fair, rights-based, and prioritise justice.',
   },
   {
     prompt: 'Which of the following is a collective civic action to address an environmental problem?',
-    options: [
-      'Recycling your own household waste',
-      'Organising a community campaign and petitioning local government to address illegal dumping',
-      'Planting a tree in your garden',
-      'Turning off lights when leaving a room',
-    ],
-    answer: 'Organising a community campaign and petitioning local government to address illegal dumping',
+    options: ['Recycling your own household waste in your own home', 'Organising a campaign and petitioning the council about dumping', 'Planting a tree in your own garden at home', 'Switching off the lights when you leave a room'],
+    answer: 'Organising a campaign and petitioning the council about dumping',
     explanation: 'Collective civic action amplifies the impact of individual efforts and holds authorities accountable.',
   },
   {
     prompt: 'South Africa\'s water scarcity is an example of an environmental challenge linked to:',
-    options: [
-      'Environmental justice, climate vulnerability, and resource distribution',
-      'Only climate change',
-      'Only population growth',
-      'Government incompetence alone',
-    ],
-    answer: 'Environmental justice, climate vulnerability, and resource distribution',
+    options: ['Environmental justice, climate vulnerability and distribution', 'Climate change and nothing else at all', 'Population growth and nothing else at all', 'Government incompetence and nothing else at all'],
+    answer: 'Environmental justice, climate vulnerability and distribution',
     explanation: 'Water scarcity in South Africa intersects with climate change, inequality, and unjust distribution of water resources.',
   },
 ];

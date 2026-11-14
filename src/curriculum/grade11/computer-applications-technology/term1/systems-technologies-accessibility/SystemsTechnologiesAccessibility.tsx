@@ -114,7 +114,7 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'A visually impaired learner needs to hear what is displayed on screen. Which accessibility feature is most suitable?',
-    options: ['Screen magnifier', 'High-contrast theme', 'Screen reader (text-to-speech)', 'On-screen keyboard'],
+    options: ['Screen magnifier that enlarges the display', 'High-contrast theme with strong colours', 'Screen reader (text-to-speech)', 'On-screen keyboard for typing without keys'],
     answer: 'Screen reader (text-to-speech)',
     explanation: 'A screen reader converts on-screen text and interface elements to speech, enabling blind or visually impaired users to operate a computer.',
   },
@@ -126,8 +126,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What is the main advantage of an SSD over a traditional HDD?',
-    options: ['Lower cost per GB', 'Greater storage capacity', 'Faster data access speeds and no moving parts', 'Works without electricity'],
-    answer: 'Faster data access speeds and no moving parts',
+    options: ['A lower cost for each gigabyte stored', 'A greater storage capacity than an HDD', 'Faster data access and no moving parts', 'It works without electricity from a plug'],
+    answer: 'Faster data access and no moving parts',
     explanation: 'SSDs use flash memory, giving significantly faster read/write speeds and greater shock resistance compared to spinning hard drives.',
   },
   {
@@ -144,7 +144,7 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'A school laptop is stolen. Which physical security measure would have helped identify the device?',
-    options: ['Disk defragmentation', 'Asset tagging with a barcode or engraving', 'Installing antivirus software', 'Using a screen saver'],
+    options: ['Disk defragmentation to speed up the drive', 'Asset tagging with a barcode or engraving', 'Installing antivirus software on the laptop', 'Using a screen saver while it is not in use'],
     answer: 'Asset tagging with a barcode or engraving',
     explanation: 'Asset tagging marks devices with a unique identifier, making stolen hardware easier to identify and return.',
   },
@@ -156,13 +156,13 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What does the term "ergonomics" mean in the context of computer hardware?',
-    options: ['The speed of the processor', 'Designing equipment for safe, comfortable, and efficient human use', 'The amount of storage available', 'The cost of hardware components'],
-    answer: 'Designing equipment for safe, comfortable, and efficient human use',
+    options: ['The speed at which the processor of a computer runs', 'Designing equipment for safe, comfortable and efficient human use', 'The amount of storage that a computer has available', 'The cost of the hardware parts of the computer'],
+    answer: 'Designing equipment for safe, comfortable and efficient human use',
     explanation: 'Ergonomics applies principles of human physiology to hardware design (e.g. adjustable chairs, wrist rests) to reduce strain and injury.',
   },
   {
     prompt: 'Which output device would be most appropriate for a user who is hearing impaired and needs to receive computer audio as text?',
-    options: ['Loudspeaker', 'Subwoofer', 'Braille embosser', 'Closed-caption display or subtitles'],
+    options: ['A loudspeaker that plays the sound louder', 'A subwoofer that boosts the bass sounds', 'A Braille embosser that prints in raised dots', 'Closed-caption display or subtitles'],
     answer: 'Closed-caption display or subtitles',
     explanation: 'Closed captions convert audio (speech, sound effects) into on-screen text, making audio content accessible to deaf or hard-of-hearing users.',
   },

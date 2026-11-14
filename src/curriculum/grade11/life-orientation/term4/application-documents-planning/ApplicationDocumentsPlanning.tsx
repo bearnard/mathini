@@ -81,13 +81,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is the main purpose of an application letter?',
-    options: [
-      'To entertain the reader',
-      'To introduce yourself professionally and explain your suitability',
-      'To replace a CV completely',
-      'To list exam rules',
-    ],
-    answer: 'To introduce yourself professionally and explain your suitability',
+    options: ['To entertain the reader with a story of your life', 'To introduce yourself well and explain your suitability', 'To take the place of a CV completely', 'To list the rules of the exams that you wrote'],
+    answer: 'To introduce yourself well and explain your suitability',
     explanation: 'An application letter explains why you are applying and why you fit the opportunity.',
   },
   {
@@ -98,13 +93,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does a CV mainly do?',
-    options: [
-      'Summarises your qualifications, skills, and experience',
-      'Reports classroom gossip',
-      'Gives legal advice',
-      'Replaces an interview in every case',
-    ],
-    answer: 'Summarises your qualifications, skills, and experience',
+    options: ['Summarises your qualifications, skills and experience', 'Reports the gossip that goes round in a classroom', 'Gives legal advice to the person who reads it', 'Takes the place of an interview in every case'],
+    answer: 'Summarises your qualifications, skills and experience',
     explanation: 'A CV presents relevant information about you for study or work opportunities.',
   },
   {
@@ -115,36 +105,26 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Who would be the most suitable reference for a Grade 11 learner?',
-    options: ['A stranger online', 'A teacher who knows the learner\'s work', 'A celebrity', 'Any random person'],
-    answer: 'A teacher who knows the learner\'s work',
+    options: ['A stranger whom the learner met online', "A teacher who knows the learner's work", 'A celebrity whom the learner admires', 'A person who has never met the learner'],
+    answer: "A teacher who knows the learner's work",
     explanation: 'A good reference should know your work ethic, character, or achievements.',
   },
   {
     prompt: 'What is the purpose of a portfolio?',
-    options: [
-      'To hide your achievements',
-      'To provide evidence of your work, skills, or accomplishments',
-      'To replace all references',
-      'To avoid preparing for interviews',
-    ],
-    answer: 'To provide evidence of your work, skills, or accomplishments',
+    options: ['To hide your achievements from other people', 'To give evidence of your work, skills or achievements', 'To take the place of all references', 'To avoid having to prepare for interviews'],
+    answer: 'To give evidence of your work, skills or achievements',
     explanation: 'A portfolio gives concrete proof of your abilities and achievements.',
   },
   {
     prompt: 'Which interview behaviour is most professional?',
-    options: ['Arriving late without explanation', 'Researching the opportunity and preparing answers', 'Interrupting the interviewer', 'Using your phone during questions'],
-    answer: 'Researching the opportunity and preparing answers',
+    options: ['Arriving late and giving no explanation', 'Researching the opportunity and preparing your answers', 'Interrupting the interviewer as they speak', 'Using your phone while questions are asked'],
+    answer: 'Researching the opportunity and preparing your answers',
     explanation: 'Preparation shows seriousness, interest, and professionalism.',
   },
   {
     prompt: 'Why is honesty important in application documents?',
-    options: [
-      'Because false information can damage trust and lead to rejection',
-      'Because honesty only matters in interviews',
-      'Because nobody checks CVs',
-      'Because exaggeration is expected',
-    ],
-    answer: 'Because false information can damage trust and lead to rejection',
+    options: ['False information can damage trust and lead to rejection', 'Honesty matters in interviews and not in documents', 'Nobody ever checks the facts that are in a CV', 'Some exaggeration is expected from all applicants'],
+    answer: 'False information can damage trust and lead to rejection',
     explanation: 'Application documents must be truthful and accurate to maintain credibility.',
   },
 ];

@@ -115,13 +115,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Which three parts make up the structure of a prepared speech in isiXhosa?',
-    options: [
-      'Intshayelelo (introduction), umzimba (body), isiphetho (conclusion)',
-      'Umbuzo, impendulo, isicatshulwa',
-      'Igatya, intetho, isivumelwano',
-      'Umdlalo, imvumi, ingoma',
-    ],
-    answer: 'Intshayelelo (introduction), umzimba (body), isiphetho (conclusion)',
+    options: ['Intshayelelo, umzimba, isiphetho', 'Umbuzo, impendulo, isicatshulwa', 'Igatya, intetho, isivumelwano', 'Umdlalo, imvumi, ingoma'],
+    answer: 'Intshayelelo, umzimba, isiphetho',
     explanation: 'These three sections structure every prepared speech — from establishing context to delivering a memorable closing.',
   },
   {
@@ -148,13 +143,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In reading fluency, why is it important to pause at punctuation marks?',
-    options: [
-      'Punctuation signals meaning breaks — pausing helps the listener comprehend sentence structure',
-      'To give the listener time to write down every word',
-      'To demonstrate that you are reading slowly',
-      'Punctuation marks are silent in isiXhosa reading',
-    ],
-    answer: 'Punctuation signals meaning breaks — pausing helps the listener comprehend sentence structure',
+    options: ['Punctuation signals meaning breaks; pausing helps the listener', 'To give the listener time to write down every word', 'To show that you are reading slowly on purpose', 'Punctuation marks are silent in isiXhosa reading'],
+    answer: 'Punctuation signals meaning breaks; pausing helps the listener',
     explanation: 'Reading through punctuation creates a continuous rush of sound that obscures meaning; pausing at marks aids understanding.',
   },
   {
@@ -170,13 +160,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is self-evaluation after an oral presentation valuable?',
-    options: [
-      'It helps identify specific weaknesses to improve before the next performance',
-      'It replaces the need for teacher feedback',
-      'It gives you a grade before the teacher marks',
-      'It is only required for written tasks, not oral ones',
-    ],
-    answer: 'It helps identify specific weaknesses to improve before the next performance',
+    options: ['It shows specific weaknesses to improve before the next time', 'It takes the place of teacher feedback', 'It gives you a grade before the teacher marks', 'It is only required for written tasks, not oral ones'],
+    answer: 'It shows specific weaknesses to improve before the next time',
     explanation: 'Reflective self-evaluation is a metacognitive skill that promotes targeted improvement in oral performance.',
   },
   {
@@ -192,13 +177,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which delivery feature shows audience awareness during a speech?',
-    options: [
-      'Maintaining consistent eye contact with different parts of the audience',
-      'Looking only at the ceiling while speaking',
-      'Reading every word from a script',
-      'Standing completely still with no movement',
-    ],
-    answer: 'Maintaining consistent eye contact with different parts of the audience',
+    options: ['Steady eye contact with different parts of the audience', 'Looking only at the ceiling while you are speaking', 'Reading every word from a script in front of you', 'Standing completely still with no movement at all'],
+    answer: 'Steady eye contact with different parts of the audience',
     explanation: 'Scanning the audience with eye contact creates connection, signals confidence, and holds audience attention.',
   },
 ];

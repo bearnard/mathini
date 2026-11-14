@@ -124,8 +124,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What is the advantage of exporting data as a CSV file?',
-    options: ['CSV files preserve all formatting', 'CSV is a universal plain-text format that can be imported by most applications', 'CSV files are encrypted by default', 'CSV files include embedded charts'],
-    answer: 'CSV is a universal plain-text format that can be imported by most applications',
+    options: ['CSV files keep all of the formatting of a sheet', 'CSV is a plain-text format that most apps can import', 'CSV files are encrypted by default', 'CSV files carry embedded charts and images'],
+    answer: 'CSV is a plain-text format that most apps can import',
     explanation: 'CSV stores data as plain text with commas separating values, making it readable by spreadsheets, databases, and programming languages.',
   },
   {

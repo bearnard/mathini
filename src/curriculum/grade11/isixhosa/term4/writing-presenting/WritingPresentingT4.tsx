@@ -143,13 +143,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which element must always appear at the TOP RIGHT of a formal letter?',
-    options: [
-      'The sender\'s address and the date',
-      'The subject line',
-      'The recipient\'s address',
-      'The formal closing',
-    ],
-    answer: 'The sender\'s address and the date',
+    options: ["The sender's address and the date", 'The subject line of the letter', "The recipient's address in full", 'The formal closing of the letter'],
+    answer: "The sender's address and the date",
     explanation: 'Convention places the sender\'s address and date at the top right — a format marker that earns layout marks.',
   },
   {
@@ -165,13 +160,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the FIRST proofreading check you should make?',
-    options: [
-      'Concord — does every verb agree with its subject noun class?',
-      'The number of words in the essay',
-      'Whether the essay has enough paragraphs',
-      'The introduction only',
-    ],
-    answer: 'Concord — does every verb agree with its subject noun class?',
+    options: ['Concord: does each verb agree with its subject noun class?', 'The number of words that are in the essay', 'Whether the essay has enough paragraphs in it', 'The introduction of the essay and nothing else'],
+    answer: 'Concord: does each verb agree with its subject noun class?',
     explanation: 'Concord errors are among the most common and most penalised in isiXhosa writing — check this first.',
   },
   {
@@ -187,24 +177,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why should you avoid using exactly the same words as the source when writing a summary?',
-    options: [
-      'CAPS summary tasks require you to demonstrate comprehension by paraphrasing — copying shows no understanding',
-      'The original words are always too long',
-      'Copying is only penalised in creative writing',
-      'The marker cannot read the original text during marking',
-    ],
-    answer: 'CAPS summary tasks require you to demonstrate comprehension by paraphrasing — copying shows no understanding',
+    options: ['CAPS tasks need your own words to show comprehension; copying does not', 'The original words are always too long', 'Copying is only penalised in creative writing', 'The marker cannot read the original text while marking'],
+    answer: 'CAPS tasks need your own words to show comprehension; copying does not',
     explanation: 'Paraphrasing proves you understood the text; verbatim copying only proves you can copy.',
   },
   {
     prompt: 'In an exam essay, why is consistent tense important?',
-    options: [
-      'Tense shifts confuse the reader and indicate poor language control',
-      'Varying tense randomly improves style',
-      'Only the first paragraph needs a consistent tense',
-      'Tense does not affect the mark in isiXhosa essays',
-    ],
-    answer: 'Tense shifts confuse the reader and indicate poor language control',
+    options: ['Tense shifts confuse the reader and show weak language control', 'Changing the tense without a pattern improves style', 'Only the first paragraph needs a consistent tense', 'Tense does not affect the mark in isiXhosa essays'],
+    answer: 'Tense shifts confuse the reader and show weak language control',
     explanation: 'Consistency in tense is a language control criterion in CAPS writing rubrics — unintended shifts lose marks.',
   },
   {

@@ -131,68 +131,38 @@ const learnSteps: LearnStep[] = [
 const bank: AccountingItem[] = [
   {
     prompt: 'When interpreting a financial ratio, you should:',
-    options: [
-      'Only state the number and move on',
-      'State the ratio, explain its meaning, and comment on whether it is favourable with supporting evidence',
-      'Always compare to a company in another industry',
-      'Ignore changes of less than 5%',
-    ],
-    answer: 'State the ratio, explain its meaning, and comment on whether it is favourable with supporting evidence',
+    options: ['Only state the number and move on to the next', 'State it, explain it and say if it is favourable', 'Always compare it to a firm in another industry', 'Ignore any change that is less than 5%'],
+    answer: 'State it, explain it and say if it is favourable',
     explanation: 'A good interpretation includes the value, a benchmark or comparison, and a reasoned comment about what the figure means for the business.',
   },
   {
     prompt: 'A partnership\'s current ratio fell from 2.4:1 to 1.1:1. This indicates:',
-    options: [
-      'The business has improved its ability to pay short-term debts',
-      'Liquidity has deteriorated significantly and the business may struggle to meet current obligations',
-      'The business has too many long-term assets',
-      'Net profit has increased',
-    ],
-    answer: 'Liquidity has deteriorated significantly and the business may struggle to meet current obligations',
+    options: ['The business can now pay its short-term debts more easily', 'Liquidity has fallen sharply and bills may be hard to pay', 'The business has too many long-term assets', 'Net profit has risen sharply'],
+    answer: 'Liquidity has fallen sharply and bills may be hard to pay',
     explanation: 'A drop to 1.1:1 means only R1.10 of current assets for every R1.00 of current liabilities — well below the 2:1 benchmark, indicating a liquidity risk.',
   },
   {
     prompt: 'Partner A\'s return on equity is 8% while the bank offers 7% interest. What can you conclude?',
-    options: [
-      'Partner A should immediately withdraw all capital',
-      'Partner A is earning a slightly better return than the bank, which is a positive result',
-      'The partnership should be dissolved',
-      'Partner A\'s capital is too high',
-    ],
-    answer: 'Partner A is earning a slightly better return than the bank, which is a positive result',
+    options: ['Partner A should withdraw all of the capital at once', 'Partner A earns slightly more than the bank, a good sign', 'The partnership should be dissolved at once', "Partner A's capital is far too high for the firm"],
+    answer: 'Partner A earns slightly more than the bank, a good sign',
     explanation: 'A return above the bank rate suggests the investment in the partnership is worthwhile, though the margin is narrow and should be monitored.',
   },
   {
     prompt: 'A rising gross profit percentage from 35% to 42% over two years suggests:',
-    options: [
-      'The cost of sales is increasing faster than sales',
-      'Operating expenses are too high',
-      'The business is managing its cost of sales better relative to selling price',
-      'The business has a liquidity problem',
-    ],
-    answer: 'The business is managing its cost of sales better relative to selling price',
+    options: ['The cost of sales is rising faster than sales', 'The operating expenses are far too high', 'The business is controlling its cost of sales better', 'The business has a serious liquidity problem'],
+    answer: 'The business is controlling its cost of sales better',
     explanation: 'A higher gross profit % means more of each rand of sales is retained after cost of sales — this is a favourable trend.',
   },
   {
     prompt: 'A partner\'s current account shows a debit balance. What does this mean?',
-    options: [
-      'The partner has extra funds owed by the business',
-      'The partner has drawn more than their allocated share and owes the partnership',
-      'The partnership made a loss',
-      'The partner\'s capital has increased',
-    ],
-    answer: 'The partner has drawn more than their allocated share and owes the partnership',
+    options: ['The partner is owed extra funds by the business', 'The partner has drawn more than their share and owes the firm', 'The partnership has made a loss', 'The capital of the partner has increased'],
+    answer: 'The partner has drawn more than their share and owes the firm',
     explanation: 'A debit balance in a current account indicates the partner\'s drawings exceeded their earned income — they effectively owe the business.',
   },
   {
     prompt: 'The debt-to-equity ratio increased from 0.5:1 to 1.8:1 over one year. A suitable recommendation is:',
-    options: [
-      'Borrow more money to expand the business',
-      'Reduce borrowings and aim to repay liabilities to bring the ratio down to a safer level',
-      'Increase partner drawings',
-      'No action needed as it is still below 2:1',
-    ],
-    answer: 'Reduce borrowings and aim to repay liabilities to bring the ratio down to a safer level',
+    options: ['Borrow more money to expand the business', 'Cut borrowings and repay debts to bring the ratio down', 'Raise the drawings of the partners', 'No action is needed as it is still below 2:1'],
+    answer: 'Cut borrowings and repay debts to bring the ratio down',
     explanation: 'A sharp rise in debt-to-equity increases financial risk. Reducing debt restores confidence for creditors and lowers interest costs.',
   },
   {
@@ -214,13 +184,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Partner B contributed more capital than Partner A but both partners earn the same ROE. What can you conclude?',
-    options: [
-      'Partner A is the better investor',
-      'Both partners are generating the same relative return per rand invested, which is equitable',
-      'Partner B is being disadvantaged',
-      'Partner A should contribute more capital',
-    ],
-    answer: 'Both partners are generating the same relative return per rand invested, which is equitable',
+    options: ['Partner A is the better investor of the two', 'Both earn the same return per rand invested, which is fair', 'Partner B is being treated unfairly', 'Partner A should put in more capital'],
+    answer: 'Both earn the same return per rand invested, which is fair',
     explanation: 'Equal ROE means both partners earn the same percentage return on their respective investments — this is fair regardless of capital amount.',
   },
   {

@@ -96,13 +96,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is an inference in reading comprehension?',
-    options: [
-      'A direct quotation from the text',
-      'A conclusion drawn from clues in the text rather than explicitly stated information',
-      'A summary of every paragraph in the text',
-      'A criticism of the author\'s writing style',
-    ],
-    answer: 'A conclusion drawn from clues in the text rather than explicitly stated information',
+    options: ['A word-for-word quotation taken from the text', 'A conclusion drawn from clues, not directly stated', 'A short summary of each paragraph of the text', 'A criticism of the style that the author uses'],
+    answer: 'A conclusion drawn from clues, not directly stated',
     explanation: 'Inference requires you to "read between the lines" — using evidence and logic to reach a conclusion the text implies but does not state.',
   },
   {
@@ -118,35 +113,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the purpose of a listening comprehension task in English HL?',
-    options: [
-      'To test whether you can write a long essay quickly',
-      'To assess your ability to understand spoken language, recall key information, and respond to questions',
-      'To evaluate your ability to memorise literature quotations',
-      'To test your spelling of difficult words',
-    ],
-    answer: 'To assess your ability to understand spoken language, recall key information, and respond to questions',
+    options: ['To test whether you can write a long essay quickly', 'To assess how well you understand and recall spoken language', 'To check that you can memorise quotations from books', 'To test your spelling of difficult words in a dictation'],
+    answer: 'To assess how well you understand and recall spoken language',
     explanation: 'Listening comprehension develops and assesses oral reception skills — a core part of the CAPS language programme.',
   },
   {
     prompt: 'What does "editing" focus on in the writing process?',
-    options: [
-      'Choosing your essay topic',
-      'Correcting grammar, spelling, punctuation, and sentence structure',
-      'Adding more paragraphs to reach the word count',
-      'Changing the entire structure of the essay',
-    ],
-    answer: 'Correcting grammar, spelling, punctuation, and sentence structure',
+    options: ['Choosing the topic of your essay before you write', 'Correcting grammar, spelling, punctuation and sentence structure', 'Adding extra paragraphs to reach the word count', 'Changing the whole structure of the essay at the end'],
+    answer: 'Correcting grammar, spelling, punctuation and sentence structure',
     explanation: 'Editing is the final refinement step — it focuses on correctness at the sentence level, not content restructuring (which is revision).',
   },
   {
     prompt: 'What is reported (indirect) speech?',
-    options: [
-      'Quoting someone\'s exact words inside inverted commas',
-      'Telling what someone said without using their exact words, shifting pronouns and tense accordingly',
-      'Describing what someone looks like while they are speaking',
-      'Writing a speech to be delivered in front of an audience',
-    ],
-    answer: 'Telling what someone said without using their exact words, shifting pronouns and tense accordingly',
+    options: ['Quoting the exact words of a speaker inside quotation marks', 'Telling what was said without the exact words, shifting tense and pronouns', "Describing the speaker's looks while that person is talking", 'Writing a speech to be given to an audience in a hall'],
+    answer: 'Telling what was said without the exact words, shifting tense and pronouns',
     explanation: 'Direct: She said, "I am tired." Indirect: She said that she was tired. Note the tense shift and pronoun change.',
   },
   {

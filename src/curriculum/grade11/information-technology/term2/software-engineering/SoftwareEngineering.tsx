@@ -122,13 +122,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What does "low coupling" mean in modular software design?',
-    options: [
-      'Modules are tightly dependent on each other',
-      'Modules are largely independent and changes in one do not force changes in others',
-      'The software has very few modules',
-      'All modules share the same variables',
-    ],
-    answer: 'Modules are largely independent and changes in one do not force changes in others',
+    options: ['Modules depend tightly on each other', 'Modules are largely independent, so a change in one needs none in others', 'The software has only a very small number of modules', 'All of the modules share the same variables'],
+    answer: 'Modules are largely independent, so a change in one needs none in others',
     explanation: 'Low coupling reduces the ripple effect of changes and makes the system easier to maintain.',
   },
   {
@@ -150,13 +145,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is the main purpose of a requirements specification document?',
-    options: [
-      'To list all bugs found during testing',
-      'To define what the software must do before development begins',
-      'To describe the programming language to use',
-      'To document the final user manual',
-    ],
-    answer: 'To define what the software must do before development begins',
+    options: ['To list all of the bugs found during testing', 'To state what the software must do before development starts', 'To describe the programming language to be used', 'To hold the final version of the user manual'],
+    answer: 'To state what the software must do before development starts',
     explanation: 'The requirements specification captures client needs as measurable, testable requirements guiding the entire SDLC.',
   },
   {
@@ -178,13 +168,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is the benefit of using version control (e.g. Git) during software development?',
-    options: [
-      'It automatically fixes bugs',
-      'It tracks all changes to code, allowing rollbacks and team collaboration',
-      'It compiles code faster',
-      'It replaces the need for documentation',
-    ],
-    answer: 'It tracks all changes to code, allowing rollbacks and team collaboration',
+    options: ['It automatically fixes the bugs in the code', 'It tracks all code changes, allowing rollbacks and teamwork', 'It makes the code compile much faster', 'It replaces the need for any documentation'],
+    answer: 'It tracks all code changes, allowing rollbacks and teamwork',
     explanation: 'Version control records a full history of code changes. Teams can collaborate, compare versions, and revert mistakes.',
   },
   {

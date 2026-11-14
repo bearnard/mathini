@@ -147,13 +147,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'At the break-even point, a business:',
-    options: [
-      'Makes its maximum profit',
-      'Earns a profit equal to its fixed costs',
-      'Earns neither a profit nor a loss — total revenue equals total costs',
-      'Has zero variable costs',
-    ],
-    answer: 'Earns neither a profit nor a loss — total revenue equals total costs',
+    options: ['Makes its maximum profit for the period', 'Earns a profit that equals its fixed costs', 'Earns neither profit nor loss: revenue equals total costs', 'Has no variable costs at all'],
+    answer: 'Earns neither profit nor loss: revenue equals total costs',
     explanation: 'Break-even is the exact point where all costs are covered by revenue — the business makes zero profit.',
   },
   {

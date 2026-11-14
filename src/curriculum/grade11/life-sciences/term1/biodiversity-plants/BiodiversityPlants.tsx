@@ -132,8 +132,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'What is the main reproductive advantage seeds have over spores?',
-    options: ['Seeds are smaller and lighter', 'Seeds contain an embryo with a food store and a protective coat', 'Seeds require more water to germinate', 'Seeds are only dispersed by wind'],
-    answer: 'Seeds contain an embryo with a food store and a protective coat',
+    options: ['Seeds are smaller and lighter than spores are', 'Seeds hold an embryo with a food store and a protective coat', 'Seeds need more water than spores in order to germinate', 'Seeds are dispersed by wind and by nothing else'],
+    answer: 'Seeds hold an embryo with a food store and a protective coat',
     explanation: 'A seed nourishes and protects the developing plant embryo, giving it a far higher survival rate than a single-celled spore with no food reserve.',
   },
   {
@@ -174,8 +174,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'Why are bryophytes restricted to moist habitats?',
-    options: ['They need very bright sunlight', 'They require liquid water for sperm to swim to the egg during fertilisation', 'They can only absorb nutrients dissolved in water', 'They cannot tolerate any temperature variation'],
-    answer: 'They require liquid water for sperm to swim to the egg during fertilisation',
+    options: ['They need very bright direct sunlight to grow', 'They need liquid water for sperm to swim to the egg', 'They can only take in nutrients that are dissolved in water', 'They cannot tolerate any change in temperature'],
+    answer: 'They need liquid water for sperm to swim to the egg',
     explanation: 'Bryophytes produce flagellate sperm that must swim through a film of water to reach the egg, so they are entirely dependent on moist conditions for sexual reproduction.',
   },
 ];

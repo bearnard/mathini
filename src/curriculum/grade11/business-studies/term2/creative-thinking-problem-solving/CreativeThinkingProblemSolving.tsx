@@ -95,8 +95,8 @@ const learnSteps: LearnStep[] = [
 const bank: BusinessStudiesItem[] = [
   {
     prompt: 'During a brainstorming session, the rule is that no idea should be:',
-    options: ['Written down', 'Shared with others', 'Criticised or dismissed immediately', 'Related to the topic'],
-    answer: 'Criticised or dismissed immediately',
+    options: ['Written down on the board', 'Shared with the other members', 'Criticised or dismissed straight away', 'Related to the topic being discussed'],
+    answer: 'Criticised or dismissed straight away',
     explanation: 'Brainstorming works by generating as many ideas as possible without judgment — criticism blocks creativity and discourages participation.',
   },
   {

@@ -114,13 +114,8 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Which statement BEST describes the difference between quality control and quality assurance?',
-    options: [
-      'Quality control is proactive; quality assurance is reactive',
-      'Quality control checks the final product; quality assurance monitors the entire process',
-      'Quality assurance is only used in manufacturing',
-      'They are the same thing',
-    ],
-    answer: 'Quality control checks the final product; quality assurance monitors the entire process',
+    options: ['Quality control is proactive; quality assurance is reactive', 'Control checks the final product; assurance monitors the whole process', 'Quality assurance is used only in manufacturing firms', 'The two terms mean exactly the same thing'],
+    answer: 'Control checks the final product; assurance monitors the whole process',
     explanation: 'Quality control (QC) inspects outputs after production; quality assurance (QA) builds quality into every step of the process to prevent defects.',
   },
   {

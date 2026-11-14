@@ -125,13 +125,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does "perspective" refer to when analysing a novel?',
-    options: [
-      'The point of view from which the story is told and how it shapes meaning',
-      'The physical setting of the story',
-      'The length of the chapters',
-      'The font used in the printed edition',
-    ],
-    answer: 'The point of view from which the story is told and how it shapes meaning',
+    options: ['The point of view of the telling, and how it shapes meaning', 'The physical setting in which the story takes place', 'The length of the chapters of the novel', 'The font that is used in the printed edition'],
+    answer: 'The point of view of the telling, and how it shapes meaning',
     explanation: 'Perspective (narrative voice) determines what readers know and feel — different narrators create different interpretations.',
   },
   {
@@ -147,13 +142,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In visual literacy, what do connotations of colour help you analyse?',
-    options: [
-      'The emotional and cultural meanings a designer intends to convey',
-      'The exact brightness of the image',
-      'The printing cost of the document',
-      'Whether the text is fiction or non-fiction',
-    ],
-    answer: 'The emotional and cultural meanings a designer intends to convey',
+    options: ['The emotional and cultural meanings that a designer intends', 'The exact brightness of the image on the page', 'The printing cost of the document', 'Whether the text is fiction or non-fiction'],
+    answer: 'The emotional and cultural meanings that a designer intends',
     explanation: 'Colour choice is deliberate: designers use colours to trigger emotional associations and guide the viewer\'s response.',
   },
   {

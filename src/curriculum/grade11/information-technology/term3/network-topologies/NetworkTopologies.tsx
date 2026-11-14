@@ -120,13 +120,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is the main advantage of a full mesh topology?',
-    options: [
-      'It is the cheapest topology to install',
-      'It requires the fewest cables',
-      'It provides high redundancy — multiple paths exist between any two nodes',
-      'It is the easiest to configure',
-    ],
-    answer: 'It provides high redundancy — multiple paths exist between any two nodes',
+    options: ['It is the cheapest topology to install', 'It needs the fewest cables of any topology', 'High redundancy: many paths exist between any two nodes', 'It is the easiest topology to configure'],
+    answer: 'High redundancy: many paths exist between any two nodes',
     explanation: 'Full mesh offers maximum fault tolerance; if any link fails, data is rerouted via an alternative path.',
   },
   {
@@ -165,13 +160,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'A hybrid topology combines which of the following?',
-    options: [
-      'Only bus and ring topologies',
-      'Two or more different topology types to balance cost and reliability',
-      'Only wired and wireless connections',
-      'LAN and WAN networks only',
-    ],
-    answer: 'Two or more different topology types to balance cost and reliability',
+    options: ['Bus and ring topologies and nothing else', 'Two or more topology types, to balance cost and reliability', 'Wired and wireless connections and nothing else', 'LAN and WAN networks and nothing else'],
+    answer: 'Two or more topology types, to balance cost and reliability',
     explanation: 'A hybrid topology (e.g. star-bus) mixes topologies to gain the benefits of each while managing costs.',
   },
   {

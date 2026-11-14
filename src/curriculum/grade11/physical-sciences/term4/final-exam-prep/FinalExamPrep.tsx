@@ -114,18 +114,13 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'How should you always present a calculation in the exam?',
-    options: [
-      'Only write the final answer',
-      'Write formula → substitute → calculate → state answer with units',
-      'Write only the formula and the answer',
-      'Draw a diagram only',
-    ],
-    answer: 'Write formula → substitute → calculate → state answer with units',
+    options: ['Write only the final answer in the space', 'Formula, substitution, calculation, answer with units', 'Write only the formula and then the answer', 'Draw only a diagram of the situation'],
+    answer: 'Formula, substitution, calculation, answer with units',
     explanation: 'Showing all working (formula, substitution, calculation, final answer with units) allows for method marks even if the final answer is wrong.',
   },
   {
     prompt: 'In a physics exam, you calculate a velocity of −15 m/s. This means:',
-    options: ['The answer is wrong', 'The speed is negative', 'The object moves in the chosen negative direction', 'The object is stationary'],
+    options: ['The answer is wrong, as speed cannot be negative', 'The speed of the object is negative', 'The object moves in the chosen negative direction', 'The object is at rest at that moment'],
     answer: 'The object moves in the chosen negative direction',
     explanation: 'Negative velocity means the object moves in the direction defined as negative (e.g., downward if upward is positive). The speed is still 15 m/s.',
   },
@@ -137,13 +132,8 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'A kinetic energy calculation gives KE = −200 J. What should you conclude?',
-    options: [
-      'The object is moving backward',
-      'The answer is correct',
-      'An error was made — kinetic energy cannot be negative',
-      'The object is decelerating',
-    ],
-    answer: 'An error was made — kinetic energy cannot be negative',
+    options: ['The object is moving backward', 'The answer is correct and must be left as it is', 'An error was made: kinetic energy cannot be negative', 'The object is slowing down'],
+    answer: 'An error was made: kinetic energy cannot be negative',
     explanation: 'KE = ½mv² is always ≥ 0 because it involves v². A negative result indicates a calculation error — recheck your working.',
   },
   {
@@ -154,13 +144,8 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'In an exam, you are unsure of a question. The best approach is to:',
-    options: [
-      'Skip the question entirely',
-      'Write something — partial marks are awarded for correct steps even if the answer is wrong',
-      'Guess and move on without showing working',
-      'Leave it blank and return only at the very end',
-    ],
-    answer: 'Write something — partial marks are awarded for correct steps even if the answer is wrong',
+    options: ['Skip the question completely', 'Write something: partial marks are given for correct steps', 'Guess and move on without showing any working', 'Leave it blank and return to it right at the end'],
+    answer: 'Write something: partial marks are given for correct steps',
     explanation: 'In structured questions, method marks are awarded for correct steps. Never leave a blank — write the formula, attempt substitution, and show your reasoning.',
   },
 ];

@@ -115,35 +115,20 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'A green economy is BEST described as one that:',
-    options: [
-      'Focuses only on agriculture and farming',
-      'Results in improved wellbeing and equity while reducing environmental risks',
-      'Bans all fossil fuel use immediately',
-      'Is managed exclusively by governments',
-    ],
-    answer: 'Results in improved wellbeing and equity while reducing environmental risks',
+    options: ['One that focuses on farming and agriculture only', 'One that improves wellbeing and equity while lowering environmental risk', 'One that bans all fossil fuel use straight away', 'One that is run by the government and by no one else'],
+    answer: 'One that improves wellbeing and equity while lowering environmental risk',
     explanation: 'A green economy balances economic growth, social equity, and environmental sustainability — not a no-growth or no-industry model.',
   },
   {
     prompt: 'The circular economy differs from the linear economy because it:',
-    options: [
-      'Produces more waste',
-      'Designs out waste by keeping materials in use through reuse, repair, and recycling',
-      'Only uses renewable materials',
-      'Relies entirely on government subsidies',
-    ],
-    answer: 'Designs out waste by keeping materials in use through reuse, repair, and recycling',
+    options: ['It produces more waste than the linear economy does', 'It designs out waste by keeping materials in use through reuse', 'It uses only renewable materials in every product', 'It relies entirely on subsidies from the state'],
+    answer: 'It designs out waste by keeping materials in use through reuse',
     explanation: 'In a circular economy, products and materials are kept in use for as long as possible, eliminating the "take-make-dispose" linear model.',
   },
   {
     prompt: 'What does a carbon footprint measure?',
-    options: [
-      'The physical footprint area of a carbon factory',
-      'Total greenhouse gas emissions caused by a person, organisation, or country',
-      'The amount of carbon stored in forests',
-      'The depth of a country\'s coal mines',
-    ],
-    answer: 'Total greenhouse gas emissions caused by a person, organisation, or country',
+    options: ['The ground area that is taken up by a carbon factory', 'The total greenhouse gases caused by a person, firm or country', 'The amount of carbon that is stored in the forests', 'The depth of the coal mines that a country has'],
+    answer: 'The total greenhouse gases caused by a person, firm or country',
     explanation: 'A carbon footprint quantifies all direct and indirect GHG emissions (measured in CO₂ equivalents) attributable to an entity\'s activities.',
   },
   {
@@ -154,46 +139,26 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a Nationally Determined Contribution (NDC)?',
-    options: [
-      'A country\'s national budget for development projects',
-      'A country\'s self-set emissions reduction targets submitted under the Paris Agreement',
-      'International aid contributions to climate funds',
-      'Carbon credits traded on the stock exchange',
-    ],
-    answer: 'A country\'s self-set emissions reduction targets submitted under the Paris Agreement',
+    options: ["A country's national budget for development projects", "A country's own emissions targets, set under the Paris Agreement", 'Aid that rich countries give to climate funds', 'Carbon credits that are traded on the stock exchange'],
+    answer: "A country's own emissions targets, set under the Paris Agreement",
     explanation: 'Each Paris Agreement signatory submits NDCs detailing how it will reduce emissions and adapt to climate change, updated every five years.',
   },
   {
     prompt: 'South Africa\'s carbon tax (introduced 2019) is designed to:',
-    options: [
-      'Fund road construction',
-      'Penalise companies for emitting greenhouse gases above a threshold, incentivising emission reductions',
-      'Replace income tax for businesses',
-      'Fund renewable energy directly',
-    ],
-    answer: 'Penalise companies for emitting greenhouse gases above a threshold, incentivising emission reductions',
+    options: ['To pay for the building of roads', 'To charge firms that emit above a limit and so cut emissions', 'To replace the income tax that businesses pay', 'To fund renewable energy projects directly'],
+    answer: 'To charge firms that emit above a limit and so cut emissions',
     explanation: 'The carbon tax puts a price on emissions. Companies that emit above their allowance pay a tax per tonne of CO₂, creating a financial incentive to reduce emissions.',
   },
   {
     prompt: 'Green Star SA certification is associated with:',
-    options: [
-      'Eco-friendly product packaging',
-      'Buildings meeting environmental standards for energy, water, and materials',
-      'Renewable energy power stations',
-      'Sustainable fishing certification',
-    ],
-    answer: 'Buildings meeting environmental standards for energy, water, and materials',
+    options: ['Eco-friendly packaging that is used on products', 'Buildings that meet standards for energy, water and materials', 'Power stations that run on renewable energy', 'Fishing that meets sustainable standards'],
+    answer: 'Buildings that meet standards for energy, water and materials',
     explanation: 'Green Star SA is a building rating tool developed by the Green Building Council of South Africa to certify environmentally sustainable buildings.',
   },
   {
     prompt: 'How can GIS assist in planning renewable energy installations?',
-    options: [
-      'It controls the output of solar panels',
-      'It identifies optimal locations based on solar irradiation, wind speeds, land use, and grid proximity',
-      'It manufactures wind turbines',
-      'It measures the carbon content of air',
-    ],
-    answer: 'It identifies optimal locations based on solar irradiation, wind speeds, land use, and grid proximity',
+    options: ['It controls how much power the solar panels give', 'It finds the best sites using sunlight, wind and grid access', 'It builds the wind turbines in a large factory', 'It measures the carbon content of the air'],
+    answer: 'It finds the best sites using sunlight, wind and grid access',
     explanation: 'GIS overlays multiple spatial datasets to identify the best locations for solar farms or wind turbines, considering resource availability and land suitability.',
   },
   {
@@ -204,13 +169,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Extended Producer Responsibility (EPR) in South Africa requires:',
-    options: [
-      'Consumers to pay a deposit on all packaging',
-      'Producers to manage the end-of-life disposal of their products\' packaging and waste',
-      'Government to fund all recycling programmes',
-      'Retailers to reduce prices of green products',
-    ],
-    answer: 'Producers to manage the end-of-life disposal of their products\' packaging and waste',
+    options: ['Shoppers to pay a deposit on all packaging', "Producers to manage disposal of their products' packaging and waste", 'The state to fund all of the recycling programmes', 'Retailers to cut the prices of green products'],
+    answer: "Producers to manage disposal of their products' packaging and waste",
     explanation: 'EPR regulations shift the responsibility for managing product waste from municipalities to producers, incentivising sustainable design and recycling.',
   },
 ];

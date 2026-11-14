@@ -107,8 +107,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: "SA's SARB sets the repo rate primarily to:",
-    options: ['Fix the exchange rate', 'Control the money supply and keep inflation within the 3–6% target band', 'Set wages for public sector workers', 'Determine government borrowing levels'],
-    answer: 'Control the money supply and keep inflation within the 3–6% target band',
+    options: ['Fix the exchange rate of the rand', 'Control the money supply and keep inflation in the 3-6% band', 'Set the wages of workers in the public sector', 'Decide how much the government may borrow'],
+    answer: 'Control the money supply and keep inflation in the 3-6% band',
     explanation: 'The repo rate is the SARB\'s primary monetary policy tool — raising it reduces borrowing and spending to control inflation.',
   },
   {
@@ -119,25 +119,25 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'NEPAD\'s African Peer Review Mechanism (APRM) promotes:',
-    options: ['Trade protectionism among SADC states', 'Voluntary mutual accountability and good governance among African countries', 'IMF structural adjustment programmes for Africa', 'A single African currency'],
-    answer: 'Voluntary mutual accountability and good governance among African countries',
+    options: ['Trade protectionism among the SADC states', 'Voluntary mutual accountability and good governance in Africa', 'IMF structural adjustment programmes for Africa', 'A single currency for the whole of Africa'],
+    answer: 'Voluntary mutual accountability and good governance in Africa',
     explanation: 'The APRM allows African states to voluntarily review each other\'s governance — an "African solutions" approach to accountability.',
   },
   {
     prompt: 'If demand is elastic (PED > 1), a price increase will cause total revenue to:',
-    options: ['Increase significantly', 'Remain unchanged', 'Decrease — because quantity falls more than proportionally to the price rise', 'Double'],
-    answer: 'Decrease — because quantity falls more than proportionally to the price rise',
+    options: ['Rise by a large amount, since the price is higher', 'Stay the same as before the price change', 'Fall, as quantity drops more than price rises', 'Double in size, since the price has risen'],
+    answer: 'Fall, as quantity drops more than price rises',
     explanation: 'Elastic demand means consumers are price-sensitive. A price rise causes a larger proportional fall in quantity, reducing total revenue.',
   },
   {
     prompt: 'AGOA (Africa Growth and Opportunity Act) gives SA:',
-    options: ['Military assistance from the USA', 'Preferential tariff-free access to US markets for SA goods', 'Development loans from the US government', 'Exclusive mining rights in Africa'],
-    answer: 'Preferential tariff-free access to US markets for SA goods',
+    options: ['Military aid from the USA', 'Duty-free access to US markets for SA goods', 'Development loans from the US government', 'Exclusive mining rights in Africa'],
+    answer: 'Duty-free access to US markets for SA goods',
     explanation: 'AGOA enables SA (and other qualifying African countries) to export goods to the US without paying tariffs, boosting manufactured exports.',
   },
   {
     prompt: "SA's carbon tax (2019) is a policy tool to address:",
-    options: ['Income inequality', 'Unemployment', 'Greenhouse gas emissions and climate change', 'Land reform'],
+    options: ['Income inequality in the country', 'Unemployment among young people', 'Greenhouse gas emissions and climate change', 'Land reform and ownership'],
     answer: 'Greenhouse gas emissions and climate change',
     explanation: 'SA\'s carbon tax puts a price on carbon emissions, creating a financial incentive for firms to invest in cleaner technology and reduce pollution.',
   },

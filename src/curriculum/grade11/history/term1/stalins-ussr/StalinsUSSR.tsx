@@ -113,24 +113,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Who were the kulaks?',
-    options: [
-      'Wealthier peasants who owned more land and livestock',
-      'Bolshevik factory managers',
-      'Members of the tsarist secret police',
-      'Red Army officers',
-    ],
+    options: ['Wealthier peasants who owned more land and livestock', 'Bolshevik managers who ran the large factories', 'Members of the secret police of the tsar', 'Officers who served in the Red Army'],
     answer: 'Wealthier peasants who owned more land and livestock',
     explanation: 'Stalin targeted kulaks as class enemies during collectivisation — they were arrested, deported, or killed.',
   },
   {
     prompt: 'What was the Holodomor?',
-    options: [
-      'A devastating famine in Ukraine caused by Soviet collectivisation policies',
-      'A Ukrainian word for a Five-Year Plan',
-      'The name of a Gulag camp in Siberia',
-      'A battle during the Russian Civil War',
-    ],
-    answer: 'A devastating famine in Ukraine caused by Soviet collectivisation policies',
+    options: ['A deadly famine in Ukraine caused by Soviet collectivisation', 'A Ukrainian word for a Five-Year Plan of the state', 'The name of a Gulag labour camp in Siberia', 'A battle that was fought in the Russian Civil War'],
+    answer: 'A deadly famine in Ukraine caused by Soviet collectivisation',
     explanation: 'The Holodomor (1932–33) killed millions of Ukrainians as grain was seized from starving peasants to meet state quotas.',
   },
   {
@@ -146,13 +136,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What were the show trials of 1936–38?',
-    options: [
-      'Staged trials where prominent Bolsheviks were forced to confess and were then executed',
-      'Public elections to choose a new Communist Party leader',
-      'Military court hearings for German spies',
-      'Fair trials that exposed genuine government corruption',
-    ],
-    answer: 'Staged trials where prominent Bolsheviks were forced to confess and were then executed',
+    options: ['Staged trials where leading Bolsheviks confessed and were executed', 'Public elections to choose a new Party leader', 'Military court hearings that tried German spies', 'Fair trials that exposed real corruption in government'],
+    answer: 'Staged trials where leading Bolsheviks confessed and were executed',
     explanation: 'Show trials were propaganda events used by Stalin to eliminate rivals like Zinoviev and Bukharin under false charges.',
   },
   {
@@ -168,35 +153,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why did peasants slaughter their livestock during collectivisation?',
-    options: [
-      'They preferred to destroy animals rather than surrender them to collective farms',
-      'The state ordered all animals killed to prevent disease',
-      'There was no food to feed the animals',
-      'It was a religious tradition',
-    ],
-    answer: 'They preferred to destroy animals rather than surrender them to collective farms',
+    options: ['They preferred to destroy animals than hand them to collective farms', 'The state ordered all animals killed to stop disease', 'There was no food left with which to feed the animals', 'It was an old religious tradition among peasants'],
+    answer: 'They preferred to destroy animals than hand them to collective farms',
     explanation: 'Peasant resistance included destroying livestock, which contributed to famine and the collapse of agricultural output.',
   },
   {
     prompt: 'How did Stalin gain power after Lenin\'s death?',
-    options: [
-      'He used his role as Party General Secretary to place loyal supporters in key posts and isolate rivals',
-      'He won a democratic election within the Communist Party',
-      'He staged a military coup against the Politburo',
-      'He was appointed directly by Lenin in his will',
-    ],
-    answer: 'He used his role as Party General Secretary to place loyal supporters in key posts and isolate rivals',
+    options: ['As General Secretary he placed loyal allies in key posts and isolated rivals', 'He won a democratic election within the Communist Party', 'He staged a military coup against the Politburo', 'Lenin appointed him directly as successor in his will'],
+    answer: 'As General Secretary he placed loyal allies in key posts and isolated rivals',
     explanation: 'Stalin\'s control of the party machinery allowed him to outmanoeuvre rivals like Trotsky, Zinoviev, and Bukharin by 1928.',
   },
   {
     prompt: 'Which of the following is a valid criticism of the Five-Year Plans?',
-    options: [
-      'Workers faced brutal conditions, consumer goods were neglected, and living standards remained poor',
-      'No industrial growth was achieved at all',
-      'The Plans only benefited the kulak class',
-      'Stalin refused to build any factories outside Moscow',
-    ],
-    answer: 'Workers faced brutal conditions, consumer goods were neglected, and living standards remained poor',
+    options: ['Harsh conditions for workers and neglect of consumer goods', 'No industrial growth was achieved by the plans at all', 'The plans benefited only the class of the kulaks', 'Stalin refused to build factories outside of Moscow'],
+    answer: 'Harsh conditions for workers and neglect of consumer goods',
     explanation: 'Industrial targets were met at enormous human cost, with ordinary workers bearing the burden of rapid industrialisation.',
   },
 ];

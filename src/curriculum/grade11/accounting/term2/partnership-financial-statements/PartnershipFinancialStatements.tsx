@@ -146,41 +146,26 @@ const learnSteps: LearnStep[] = [
 const bank: AccountingItem[] = [
   {
     prompt: 'In a partnership income statement, partner salary allowances are:',
-    options: [
-      'Listed under operating expenses',
-      'Recorded only in the appropriation account, not in the income statement',
-      'Included in cost of sales',
-      'Shown as a liability on the balance sheet',
-    ],
-    answer: 'Recorded only in the appropriation account, not in the income statement',
+    options: ['Listed under the operating expenses of the firm', 'Shown in the appropriation account, not the income statement', 'Included in the cost of sales of the firm', 'Shown as a liability on the balance sheet'],
+    answer: 'Shown in the appropriation account, not the income statement',
     explanation: 'Salary allowances are profit distributions, not business expenses, so they belong in the appropriation account after net profit is calculated.',
   },
   {
     prompt: 'The equity section of a partnership balance sheet includes:',
-    options: [
-      'Only the capital accounts of partners',
-      'Both the capital accounts and current accounts of all partners',
-      'Loans from partners and bank overdrafts',
-      'Only retained earnings',
-    ],
-    answer: 'Both the capital accounts and current accounts of all partners',
+    options: ['Only the capital accounts of the partners', 'Both the capital and current accounts of all partners', 'Loans from partners and bank overdrafts', 'Only the retained earnings of the business'],
+    answer: 'Both the capital and current accounts of all partners',
     explanation: 'Equity = sum of all partners\' capital accounts + all partners\' current accounts.',
   },
   {
     prompt: 'On the balance sheet, non-current assets are shown at:',
-    options: [
-      'Original cost price',
-      'Market value',
-      'Cost less accumulated depreciation (carrying value)',
-      'Residual value only',
-    ],
+    options: ['The original cost price of each asset', 'The market value of each asset', 'Cost less accumulated depreciation (carrying value)', 'The residual value of each asset only'],
     answer: 'Cost less accumulated depreciation (carrying value)',
     explanation: 'GAAP requires assets to be stated at carrying value (cost − accumulated depreciation) on the balance sheet.',
   },
   {
     prompt: 'Which document is the starting point for preparing partnership financial statements?',
-    options: ['The cash budget', 'The pre-adjustment trial balance and list of adjustments', 'The bank reconciliation', 'The fixed asset register only'],
-    answer: 'The pre-adjustment trial balance and list of adjustments',
+    options: ['The cash budget for the following year', 'The pre-adjustment trial balance and adjustments', 'The bank reconciliation of the business', 'The fixed asset register on its own'],
+    answer: 'The pre-adjustment trial balance and adjustments',
     explanation: 'Financial statements are prepared from the trial balance after all year-end adjustments have been identified and processed.',
   },
   {
@@ -196,13 +181,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Where does depreciation for the year appear in the financial statements?',
-    options: [
-      'As income in the income statement',
-      'As an operating expense in the income statement and reduces asset carrying value on the balance sheet',
-      'Only on the balance sheet',
-      'In the appropriation account',
-    ],
-    answer: 'As an operating expense in the income statement and reduces asset carrying value on the balance sheet',
+    options: ['Income that is shown in the income statement', 'An operating expense that also lowers carrying value', 'On the balance sheet only, as a liability', 'In the appropriation account of the partners'],
+    answer: 'An operating expense that also lowers carrying value',
     explanation: 'Depreciation is an expense that reduces profit and simultaneously reduces the carrying value of the asset on the balance sheet.',
   },
   {
@@ -219,8 +199,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Which of the following would NOT appear in the income statement of a partnership?',
-    options: ['Depreciation expense', 'Partner A\'s interest on capital', 'Bad debts expense', 'Rent expense'],
-    answer: 'Partner A\'s interest on capital',
+    options: ['Depreciation expense for the year', "Partner A's interest on capital", 'Bad debts expense for the year', 'Rent expense for the year'],
+    answer: "Partner A's interest on capital",
     explanation: 'Interest on capital is a profit distribution recorded in the appropriation account, not an income statement expense.',
   },
   {

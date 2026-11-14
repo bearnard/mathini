@@ -108,13 +108,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is the difference between HTTP and HTTPS?',
-    options: [
-      'HTTPS is faster than HTTP',
-      'HTTPS encrypts data in transit using TLS, making communication secure',
-      'HTTP is only used on mobile devices',
-      'HTTPS can only be used on local networks',
-    ],
-    answer: 'HTTPS encrypts data in transit using TLS, making communication secure',
+    options: ['HTTPS is much faster than HTTP on any network', 'HTTPS encrypts data in transit using TLS, so it is secure', 'HTTP is used only on mobile devices', 'HTTPS can be used on local networks only'],
+    answer: 'HTTPS encrypts data in transit using TLS, so it is secure',
     explanation: 'HTTPS adds a TLS encryption layer to HTTP, protecting data (e.g. passwords, credit card numbers) from interception.',
   },
   {
@@ -125,13 +120,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is the main advantage of fibre optic cable over twisted pair (Ethernet) cable?',
-    options: [
-      'It is cheaper to install',
-      'It transmits data as light pulses, enabling much higher speeds and immunity to electromagnetic interference',
-      'It supports wireless connections',
-      'It only works over short distances',
-    ],
-    answer: 'It transmits data as light pulses, enabling much higher speeds and immunity to electromagnetic interference',
+    options: ['It is cheaper to install than Ethernet cable', 'It sends data as light, giving high speed and no interference', 'It supports wireless connections between devices', 'It works only over very short distances'],
+    answer: 'It sends data as light, giving high speed and no interference',
     explanation: 'Fibre uses light, not electrical signals, so it achieves speeds of 10+ Gbps and is unaffected by electrical noise.',
   },
   {
@@ -148,13 +138,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What does a router do in a network?',
-    options: [
-      'Connects devices within the same LAN',
-      'Forwards data packets between different networks using IP addresses',
-      'Amplifies the Wi-Fi signal in a building',
-      'Assigns MAC addresses to devices',
-    ],
-    answer: 'Forwards data packets between different networks using IP addresses',
+    options: ['Connects devices that are within the same LAN', 'Forwards data packets between networks using IP addresses', 'Boosts the Wi-Fi signal in a building', 'Assigns MAC addresses to the devices on a network'],
+    answer: 'Forwards data packets between networks using IP addresses',
     explanation: 'A router operates at the network layer, directing packets between networks (e.g. your LAN to the internet).',
   },
   {
@@ -165,13 +150,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'Why is wireless communication generally considered less secure than wired communication?',
-    options: [
-      'Wireless signals travel slower than wired signals',
-      'Wireless signals travel through the air and can be intercepted by anyone within range',
-      'Wireless networks do not support encryption',
-      'Wired networks automatically encrypt all data',
-    ],
-    answer: 'Wireless signals travel through the air and can be intercepted by anyone within range',
+    options: ['Wireless signals travel slower than wired signals', 'Wireless signals travel through the air and can be intercepted', 'Wireless networks do not support any encryption', 'Wired networks automatically encrypt all of their data'],
+    answer: 'Wireless signals travel through the air and can be intercepted',
     explanation: 'Radio waves can be captured by unintended receivers. Encryption (WPA3) mitigates this risk but must be configured.',
   },
 ];

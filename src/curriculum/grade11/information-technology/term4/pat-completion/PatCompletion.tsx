@@ -114,13 +114,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What should a test plan record for each test case?',
-    options: [
-      'Only the input values used',
-      'The test number, input, expected output, actual output, and pass/fail result',
-      'Only whether the test passed or failed',
-      'The programmer\'s comments about the test',
-    ],
-    answer: 'The test number, input, expected output, actual output, and pass/fail result',
+    options: ['Only the input values that were used in the test', 'Test number, input, expected output, actual output, result', 'Only whether the test passed or failed overall', "The programmer's comments on how the test went"],
+    answer: 'Test number, input, expected output, actual output, result',
     explanation: 'A formal test plan documents each test fully so that results can be verified and repeated.',
   },
   {
@@ -131,35 +126,20 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'A form shows the error message "Exception: System.FormatException" when invalid data is entered. How could this be improved?',
-    options: [
-      'Remove all validation from the form',
-      'Replace the raw error with a friendly, user-readable message like "Please enter a number"',
-      'Disable the input field',
-      'Only allow the program to be used by developers',
-    ],
-    answer: 'Replace the raw error with a friendly, user-readable message like "Please enter a number"',
+    options: ['Remove all of the validation from the form', 'Replace the raw error with a friendly message', 'Disable the input field that is on the form', 'Let only the developers of the program use it'],
+    answer: 'Replace the raw error with a friendly message',
     explanation: 'Good UI design shows clear, helpful error messages — not internal exception details that confuse non-technical users.',
   },
   {
     prompt: 'Why is it important to include screenshots as testing evidence in the PAT?',
-    options: [
-      'Screenshots increase the file size of the submission',
-      'They provide visual proof that specific tests were run and show actual outputs',
-      'They are required for marks only in Phase 1',
-      'Screenshots replace the need for a test plan',
-    ],
-    answer: 'They provide visual proof that specific tests were run and show actual outputs',
+    options: ['Screenshots increase the file size of the submission', 'They give visual proof that tests were run and show real outputs', 'They are needed for marks in Phase 1 only', 'Screenshots replace the need for a test plan'],
+    answer: 'They give visual proof that tests were run and show real outputs',
     explanation: 'Screenshots confirm that tests were actually executed and allow the moderator to verify claimed results.',
   },
   {
     prompt: 'Technical documentation in the PAT is primarily written for:',
-    options: [
-      'The end user who will operate the system',
-      'A developer who might need to understand, maintain or extend the system',
-      'The school principal',
-      'The Department of Basic Education',
-    ],
-    answer: 'A developer who might need to understand, maintain or extend the system',
+    options: ['The end user who will operate the system', 'A developer who may need to maintain or extend the system', 'The school principal who checks the project', 'The Department of Basic Education'],
+    answer: 'A developer who may need to maintain or extend the system',
     explanation: 'Technical docs (class diagrams, data dictionaries, module descriptions) target developers — not everyday users.',
   },
 ];

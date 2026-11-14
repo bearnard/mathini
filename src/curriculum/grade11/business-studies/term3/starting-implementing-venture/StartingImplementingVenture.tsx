@@ -104,13 +104,8 @@ const learnSteps: LearnStep[] = [
 const bank: BusinessStudiesItem[] = [
   {
     prompt: 'An action plan differs from a business plan because an action plan:',
-    options: [
-      'Provides a financial forecast only',
-      'Converts planned goals into specific tasks with deadlines and responsible persons',
-      'Is written only for investors',
-      'Replaces the need for a business plan',
-    ],
-    answer: 'Converts planned goals into specific tasks with deadlines and responsible persons',
+    options: ['Gives a financial forecast and nothing else', 'Turns goals into tasks with deadlines and responsible people', 'Is written for the investors only', 'Takes the place of a business plan'],
+    answer: 'Turns goals into tasks with deadlines and responsible people',
     explanation: 'An action plan breaks down the business plan into operational tasks — it assigns who does what, by when, and with what resources.',
   },
   {
@@ -139,13 +134,8 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Why must entrepreneurs choose a form of ownership BEFORE registering their business?',
-    options: [
-      'It determines the marketing mix',
-      'The registration process and legal requirements differ depending on the ownership form',
-      'It determines the salary of employees',
-      'Banks only lend to specific ownership forms',
-    ],
-    answer: 'The registration process and legal requirements differ depending on the ownership form',
+    options: ['It decides the marketing mix of the business', 'Registration steps and legal rules differ by form', 'It decides the salary of each employee', 'Banks lend to only one form of ownership'],
+    answer: 'Registration steps and legal rules differ by form',
     explanation: 'A sole proprietor, Pty Ltd, and co-operative each have different registration requirements with CIPC and different legal obligations under SA law.',
   },
   {
@@ -156,13 +146,8 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'What is the purpose of including a "success indicator" in an action plan?',
-    options: [
-      'To set employee salaries',
-      'To measure whether each task has been completed successfully',
-      'To replace the financial plan',
-      'To describe the marketing strategy',
-    ],
-    answer: 'To measure whether each task has been completed successfully',
+    options: ['To set the salaries of the employees', 'To measure whether each task was completed successfully', 'To take the place of the financial plan', 'To describe the marketing strategy of the firm'],
+    answer: 'To measure whether each task was completed successfully',
     explanation: 'Success indicators define what "done" looks like for each task, allowing the entrepreneur to objectively assess whether the action plan is being achieved.',
   },
 ];

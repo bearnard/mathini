@@ -158,8 +158,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'What is "oxygen debt" after intense exercise?',
-    options: ['The amount of O₂ inhaled per breath', 'The extra oxygen needed to oxidise accumulated lactic acid back to pyruvate', 'A deficiency of ATP in the cell', 'CO₂ produced during the Krebs cycle'],
-    answer: 'The extra oxygen needed to oxidise accumulated lactic acid back to pyruvate',
+    options: ['The amount of oxygen that is breathed in per breath', 'The extra oxygen needed to turn lactic acid back to pyruvate', 'A shortage of ATP inside the cells of the muscle', 'The CO₂ made during the Krebs cycle in the cell'],
+    answer: 'The extra oxygen needed to turn lactic acid back to pyruvate',
     explanation: 'After anaerobic activity, the body continues breathing heavily to supply oxygen that converts lactic acid back to pyruvate, which is then fully oxidised or used to regenerate glucose.',
   },
   {
@@ -170,8 +170,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'Why is anaerobic respiration considered less efficient than aerobic respiration?',
-    options: ['It requires oxygen', 'Glucose is only partially broken down, producing only 2 ATP instead of ~36–38', 'It occurs only in yeast cells', 'It produces more water per glucose'],
-    answer: 'Glucose is only partially broken down, producing only 2 ATP instead of ~36–38',
+    options: ['It needs oxygen, which is in short supply', 'Glucose is only partly broken down, giving just 2 ATP, not ~36–38', 'It occurs in yeast cells and in no other cells', 'It makes more water per glucose than aerobic does'],
+    answer: 'Glucose is only partly broken down, giving just 2 ATP, not ~36–38',
     explanation: 'Anaerobic pathways do not fully oxidise glucose, leaving much chemical energy locked in lactic acid (animals) or ethanol (yeast), so far less ATP is released.',
   },
 ];

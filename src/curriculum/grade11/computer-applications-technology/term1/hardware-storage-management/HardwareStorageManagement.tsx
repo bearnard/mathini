@@ -95,7 +95,7 @@ const learnSteps: LearnStep[] = [
 const bank: CATItem[] = [
   {
     prompt: 'Which type of storage retains data when the computer is switched off?',
-    options: ['RAM', 'Cache memory', 'Non-volatile (secondary) storage', 'CPU registers'],
+    options: ['RAM, the main working memory of the computer', 'Cache memory that sits next to the processor', 'Non-volatile (secondary) storage', 'CPU registers inside the processor itself'],
     answer: 'Non-volatile (secondary) storage',
     explanation: 'Non-volatile storage (HDD, SSD, USB flash) retains data without power, unlike RAM which is volatile.',
   },
@@ -107,8 +107,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What is the main disadvantage of cloud storage compared to local storage?',
-    options: ['It costs more to buy', 'It requires an internet connection to access files', 'Files cannot be shared with others', 'It has less total capacity'],
-    answer: 'It requires an internet connection to access files',
+    options: ['It always costs more to buy than local storage', 'It needs an internet connection to open the files', 'Files stored in the cloud cannot be shared', 'It has less total capacity than a local drive'],
+    answer: 'It needs an internet connection to open the files',
     explanation: 'Cloud storage depends on internet connectivity. Without a connection, you cannot access your files.',
   },
   {
@@ -125,14 +125,14 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What does ROM contain in a computer?',
-    options: ['The operating system files', 'The user\'s documents', 'Firmware instructions needed to start the computer (BIOS/UEFI)', 'Currently running application data'],
-    answer: 'Firmware instructions needed to start the computer (BIOS/UEFI)',
+    options: ['The operating system files of the computer', 'The documents that the user has saved', 'The firmware needed to start the computer (BIOS/UEFI)', 'The data of the applications that are running now'],
+    answer: 'The firmware needed to start the computer (BIOS/UEFI)',
     explanation: 'ROM (Read-Only Memory) stores the BIOS or UEFI firmware, which initialises hardware during startup. It is non-volatile and cannot be easily changed.',
   },
   {
     prompt: 'According to the 3-2-1 backup rule, how should backups be stored?',
-    options: ['3 copies, all on the same drive', '3 copies on 2 different media types, with 1 copy off-site', '3 copies all in the cloud', '1 copy on a USB drive only'],
-    answer: '3 copies on 2 different media types, with 1 copy off-site',
+    options: ['3 copies, all of them kept on the same drive', '3 copies on 2 types of media, with 1 copy kept off-site', '3 copies, all of them kept in the cloud', '1 copy kept on a USB drive and no other copy'],
+    answer: '3 copies on 2 types of media, with 1 copy kept off-site',
     explanation: 'The 3-2-1 rule: 3 total copies, on 2 different media (e.g. HDD + USB), with at least 1 copy stored off-site (e.g. cloud) to protect against local disasters.',
   },
   {
@@ -149,8 +149,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'A learner copies files to a USB flash drive rather than emailing them. What is a risk of this method?',
-    options: ['Files may lose formatting', 'The USB drive could be lost, stolen, or infected with malware', 'The files will be deleted automatically', 'Email is slower than USB transfer'],
-    answer: 'The USB drive could be lost, stolen, or infected with malware',
+    options: ['The files may lose their formatting on the drive', 'The USB drive could be lost, stolen or infected with malware', 'The files will be deleted automatically from the drive', 'Email is slower than a USB drive for sending files'],
+    answer: 'The USB drive could be lost, stolen or infected with malware',
     explanation: 'Removable media can physically be lost or stolen, and can spread malware when plugged into different machines.',
   },
 ];

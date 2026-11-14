@@ -117,13 +117,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does consent mean in the context of sexual activity?',
-    options: [
-      'Doing what your partner expects of you',
-      'Silence when asked',
-      'Freely and voluntarily agreeing without pressure, threats, or manipulation',
-      'Only giving permission once',
-    ],
-    answer: 'Freely and voluntarily agreeing without pressure, threats, or manipulation',
+    options: ['Doing what your partner expects of you', 'Staying silent when you are asked a question', 'Freely agreeing, with no pressure, threats or manipulation', 'Giving permission once, which then lasts for ever'],
+    answer: 'Freely agreeing, with no pressure, threats or manipulation',
     explanation: 'Consent must be freely given, reversible, informed, and enthusiastic.',
   },
   {
@@ -140,13 +135,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A person says "yes" only because they fear the consequences of saying "no". Is this valid consent?',
-    options: [
-      'Yes, because they still said yes',
-      'No, because consent given under fear or coercion is not freely given',
-      'Yes, if the relationship has been long-term',
-      'It depends on the situation',
-    ],
-    answer: 'No, because consent given under fear or coercion is not freely given',
+    options: ['Yes, because the person still said the word yes', 'No, because consent given out of fear is not freely given', 'Yes, if the relationship has lasted a long time', 'It depends on the situation and on the people involved'],
+    answer: 'No, because consent given out of fear is not freely given',
     explanation: 'True consent must be freely given without any pressure, threats, or fear of consequences.',
   },
   {
@@ -168,23 +158,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which behaviour indicates an unhealthy relationship dynamic?',
-    options: [
-      'Discussing boundaries openly',
-      'One partner checking the other\'s phone and messages without permission',
-      'Spending time with separate friend groups',
-      'Disagreeing but resolving conflict respectfully',
-    ],
-    answer: 'One partner checking the other\'s phone and messages without permission',
+    options: ['Talking openly about boundaries in the relationship', "One partner checking the other's phone without permission", 'Spending time with separate groups of friends', 'Disagreeing but settling the conflict with respect'],
+    answer: "One partner checking the other's phone without permission",
     explanation: 'Invading privacy is a controlling behaviour and a sign of an unhealthy, potentially abusive relationship.',
   },
   {
     prompt: 'Free HIV testing is available in South Africa at:',
-    options: [
-      'Only private hospitals',
-      'Public health clinics across the country',
-      'Only schools',
-      'Only major cities',
-    ],
+    options: ['Private hospitals only, for a fee', 'Public health clinics across the country', 'School campuses only, on set days', 'Major cities only, at large hospitals'],
     answer: 'Public health clinics across the country',
     explanation: 'South Africa offers free HIV testing and ARV treatment at public clinics nationwide.',
   },

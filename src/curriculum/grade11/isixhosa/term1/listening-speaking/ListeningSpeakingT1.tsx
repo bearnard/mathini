@@ -139,12 +139,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the main purpose of the introduction (intshayelelo) of a speech?',
-    options: [
-      'Greet the audience and state the topic clearly',
-      'Summarise all the main points',
-      'Present detailed evidence',
-      'End with a memorable statement',
-    ],
+    options: ['Greet the audience and state the topic clearly', 'Summarise all of the main points of the talk', 'Present the detailed evidence for each claim', 'End with a memorable closing statement'],
     answer: 'Greet the audience and state the topic clearly',
     explanation: 'The introduction establishes context, captures attention, and signals the direction of the speech.',
   },
@@ -172,13 +167,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does "inference" mean in listening comprehension?',
-    options: [
-      'Deducing meaning that is not directly stated, using context clues',
-      'Writing down every single word spoken',
-      'Answering only factual questions',
-      'Asking the speaker to repeat themselves',
-    ],
-    answer: 'Deducing meaning that is not directly stated, using context clues',
+    options: ['Working out unstated meaning from context clues', 'Writing down every single word that is spoken', 'Answering only the factual questions asked', 'Asking the speaker to repeat what was said'],
+    answer: 'Working out unstated meaning from context clues',
     explanation: 'Inference means using what IS said to work out what is implied — a higher-order listening skill assessed in CAPS.',
   },
   {
@@ -205,13 +195,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When listening for attitude in a spoken text, what should you pay attention to?',
-    options: [
-      'Tone of voice, word choice, and emphasis',
-      'Only the facts mentioned',
-      'Background noise',
-      'The length of each sentence',
-    ],
-    answer: 'Tone of voice, word choice, and emphasis',
+    options: ['Tone of voice, word choice and emphasis', 'Only the facts that the speaker mentions', 'The background noise in the room', 'The length of each sentence that is spoken'],
+    answer: 'Tone of voice, word choice and emphasis',
     explanation: 'Attitude is conveyed through how something is said (tone, stress) and which words the speaker chooses.',
   },
   {

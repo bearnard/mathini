@@ -109,8 +109,8 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'Compared to the nominal rate, the effective annual rate is always:',
-    options: ['Equal to the nominal rate', 'Less than the nominal rate', 'Greater than the nominal rate when compounding is more than once a year', 'Half the nominal rate'],
-    answer: 'Greater than the nominal rate when compounding is more than once a year',
+    options: ['Equal to the nominal rate in every case', 'Less than the nominal rate in every case', 'Greater than the nominal rate if compounded more than yearly', 'Exactly half of the nominal rate in every case'],
+    answer: 'Greater than the nominal rate if compounded more than yearly',
     explanation: 'Each compounding period adds to the base, so EAR > nominal rate when m > 1.',
   },
   {

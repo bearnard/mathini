@@ -129,7 +129,7 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'On a velocity-time graph for a ball thrown upward (upward positive), the gradient of the line represents:',
-    options: ['The displacement', 'The initial velocity', 'Gravitational acceleration (−9.8 m/s²)', 'The time of flight'],
+    options: ['The displacement of the ball in the air', 'The initial velocity of the ball', 'Gravitational acceleration (−9.8 m/s²)', 'The time of flight of the ball'],
     answer: 'Gravitational acceleration (−9.8 m/s²)',
     explanation: 'The slope of a v-t graph is acceleration. For a projectile, a = −g = −9.8 m/s² (negative because downward when upward is positive).',
   },

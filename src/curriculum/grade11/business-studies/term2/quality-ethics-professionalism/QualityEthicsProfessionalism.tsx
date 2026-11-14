@@ -135,13 +135,8 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Which of the following BEST describes a Code of Ethics in a business?',
-    options: [
-      'A law passed by Parliament',
-      'A written document outlining the standards of ethical and professional conduct expected from all employees',
-      'A financial reporting standard',
-      'A customer complaint procedure',
-    ],
-    answer: 'A written document outlining the standards of ethical and professional conduct expected from all employees',
+    options: ['A law that has been passed by Parliament', 'A written set of standards of ethical conduct for all staff', 'A financial reporting standard for firms', 'A procedure for dealing with customer complaints'],
+    answer: 'A written set of standards of ethical conduct for all staff',
     explanation: 'A Code of Ethics is an internal business document that guides employees\' behaviour and decision-making in line with the company\'s values.',
   },
   {

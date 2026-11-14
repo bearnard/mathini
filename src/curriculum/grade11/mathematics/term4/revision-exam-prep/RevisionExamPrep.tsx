@@ -78,7 +78,7 @@ const learnSteps: LearnStep[] = [
 const bank: MathematicsItem[] = [
   {
     prompt: 'The tangent-chord theorem states that the angle between a tangent and chord equals:',
-    options: ['Half the arc it cuts off', 'The central angle', 'The inscribed angle in the alternate segment', 'The angle in the same segment'],
+    options: ['Double the angle in the alternate segment', 'The central angle on the same chord', 'The inscribed angle in the alternate segment', 'The angle in the same segment'],
     answer: 'The inscribed angle in the alternate segment',
     explanation: 'This is the Tangent-Chord (Alternate Segment) Theorem — a key circle theorem.',
   },

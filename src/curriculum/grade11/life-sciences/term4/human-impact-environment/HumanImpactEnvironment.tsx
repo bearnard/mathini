@@ -119,14 +119,14 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'Ozone depletion in the stratosphere is primarily caused by which class of compounds?',
-    options: ['Carbon dioxide', 'Methane', 'Chlorofluorocarbons (CFCs)', 'Sulphur dioxide'],
+    options: ['Carbon dioxide from the burning of fuels', 'Methane from cattle and from wetlands', 'Chlorofluorocarbons (CFCs)', 'Sulphur dioxide from the burning of coal'],
     answer: 'Chlorofluorocarbons (CFCs)',
     explanation: 'CFCs, once widely used in refrigerants and aerosols, release chlorine atoms in the stratosphere that catalytically destroy ozone (O₃), thinning the ozone layer.',
   },
   {
     prompt: 'Eutrophication in freshwater systems is caused by excess:',
-    options: ['Carbon dioxide and methane', 'Nitrates and phosphates from agricultural run-off', 'Heavy metals from mining', 'Chlorine from water treatment'],
-    answer: 'Nitrates and phosphates from agricultural run-off',
+    options: ['Carbon dioxide and methane from the air', 'Nitrates and phosphates from farm run-off', 'Heavy metals that wash out of the mines', 'Chlorine from the treatment of tap water'],
+    answer: 'Nitrates and phosphates from farm run-off',
     explanation: 'Nutrient overloading triggers explosive algal growth (algal blooms). When the algae die and decompose, bacteria consume oxygen, creating dead zones that suffocate aquatic life.',
   },
   {
@@ -142,8 +142,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'Habitat fragmentation threatens biodiversity mainly because it:',
-    options: ['Increases food supply for animals', 'Isolates populations, reducing gene flow and increasing extinction risk', 'Speeds up ecological succession', 'Improves water quality'],
-    answer: 'Isolates populations, reducing gene flow and increasing extinction risk',
+    options: ['It increases the supply of food for animals', 'It isolates populations, cutting gene flow', 'It speeds up the process of succession', 'It improves the quality of the water in rivers'],
+    answer: 'It isolates populations, cutting gene flow',
     explanation: 'Small, isolated populations suffer from inbreeding, loss of genetic diversity, and inability to recover from local disasters, making species far more vulnerable to extinction.',
   },
   {
@@ -154,26 +154,26 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'Which human activity is the single greatest driver of global biodiversity loss?',
-    options: ['Climate change', 'Invasive species', 'Habitat destruction (deforestation and land conversion)', 'Pollution'],
+    options: ['Climate change that warms the planet', 'Invasive species that are brought in from other places', 'Habitat destruction (deforestation and land conversion)', 'Pollution of the air, soil and water'],
     answer: 'Habitat destruction (deforestation and land conversion)',
     explanation: 'Converting natural habitats to farmland, urban areas, and plantations eliminates the living space of native species and is the primary cause of population declines and extinctions globally.',
   },
   {
     prompt: 'What is the relationship between microplastics and food chains?',
-    options: ['Microplastics increase nutrient levels', 'Microplastics accumulate (biomagnify) in organisms at higher trophic levels', 'Microplastics decompose rapidly and are harmless', 'Microplastics only affect terrestrial organisms'],
-    answer: 'Microplastics accumulate (biomagnify) in organisms at higher trophic levels',
+    options: ['Microplastics add nutrients to the food chain', 'Microplastics build up in organisms higher in the food chain', 'Microplastics break down fast and are harmless', 'Microplastics affect land organisms and no sea life'],
+    answer: 'Microplastics build up in organisms higher in the food chain',
     explanation: 'Small animals ingest microplastics, which are not metabolised; as they pass up the food chain the concentration increases (biomagnification), posing toxicity risks to top predators including humans.',
   },
   {
     prompt: 'How does deforestation contribute to climate change?',
-    options: ['It cools the atmosphere by removing plants', 'It releases stored carbon as CO₂ and reduces the capacity to absorb CO₂', 'It increases soil moisture globally', 'It has no effect on atmospheric CO₂'],
-    answer: 'It releases stored carbon as CO₂ and reduces the capacity to absorb CO₂',
+    options: ['It cools the air by removing the plants', 'It releases stored carbon as CO₂ and cuts CO₂ absorption', 'It increases soil moisture across the whole world', 'It has no effect on the CO₂ that is in the air'],
+    answer: 'It releases stored carbon as CO₂ and cuts CO₂ absorption',
     explanation: 'Trees store large quantities of carbon. When forests are burned or cleared, this carbon is released as CO₂, and the lost trees can no longer absorb atmospheric CO₂ through photosynthesis.',
   },
   {
     prompt: 'Which strategy best addresses long-term food security while protecting biodiversity?',
-    options: ['Expanding monoculture farming to all available land', 'Sustainable agriculture with crop rotation, water management, and biodiversity preservation', 'Converting all remaining forests to farmland', 'Using only chemical pesticides to maximise yield'],
-    answer: 'Sustainable agriculture with crop rotation, water management, and biodiversity preservation',
+    options: ['Expanding monoculture farming to all available land', 'Sustainable farming with crop rotation and water management', 'Turning all remaining forests into farmland', 'Using chemical pesticides alone to raise yields'],
+    answer: 'Sustainable farming with crop rotation and water management',
     explanation: 'Sustainable agriculture maintains soil health, water quality, and ecological balance, ensuring food production capacity for future generations without permanently degrading natural systems.',
   },
 ];

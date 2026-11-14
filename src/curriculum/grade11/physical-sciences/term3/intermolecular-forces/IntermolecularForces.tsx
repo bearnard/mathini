@@ -131,8 +131,8 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'Why does oil not dissolve in water?',
-    options: ['Oil molecules are too large', 'Oil is non-polar; water is polar — incompatible IMF types', 'Oil molecules are too light', 'Water has too high a boiling point'],
-    answer: 'Oil is non-polar; water is polar — incompatible IMF types',
+    options: ['Oil molecules are too large to fit between water molecules', 'Oil is non-polar and water is polar, so their forces do not match', 'Oil molecules are too light to sink into the water', 'Water has too high a boiling point to mix with oil'],
+    answer: 'Oil is non-polar and water is polar, so their forces do not match',
     explanation: '"Like dissolves like." Oil (non-polar, London forces) and water (polar, H-bonding) cannot form compatible interactions, so oil does not dissolve.',
   },
   {

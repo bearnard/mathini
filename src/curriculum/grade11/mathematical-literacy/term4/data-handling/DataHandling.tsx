@@ -44,8 +44,8 @@ const bank: MLItem[] = [
   },
   {
     prompt: 'A bar graph\'s y-axis starts at 900 instead of 0. What is the effect?',
-    options: ['The graph is more accurate', 'Differences between bars appear larger than they really are', 'The graph is easier to read', 'There is no effect'],
-    answer: 'Differences between bars appear larger than they really are',
+    options: ['The graph becomes more accurate overall', 'Differences between bars look larger than they are', 'The graph becomes much easier to read', 'There is no effect on how the graph looks'],
+    answer: 'Differences between bars look larger than they are',
     explanation: 'A truncated axis (not starting at 0) exaggerates differences and can mislead the reader.',
   },
   {
@@ -68,8 +68,8 @@ const bank: MLItem[] = [
   },
   {
     prompt: 'A data set has mean = 20, median = 15 and mode = 12. What does a mean larger than the median suggest?',
-    options: ['The data is symmetrical', 'The data is skewed to the right with some high values pulling the mean up', 'The data contains no outliers', 'All three measures are wrong'],
-    answer: 'The data is skewed to the right with some high values pulling the mean up',
+    options: ['The data is perfectly symmetrical', 'Skewed right; high values pull the mean up', 'The data contains no outliers at all', 'All three of the measures are wrong'],
+    answer: 'Skewed right; high values pull the mean up',
     explanation: 'When mean > median, there are high outliers that pull the mean upward, resulting in a right-skewed distribution.',
   },
 ];

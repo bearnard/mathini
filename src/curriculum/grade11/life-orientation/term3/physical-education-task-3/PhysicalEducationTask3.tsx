@@ -91,12 +91,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is pacing important in athletics?',
-    options: [
-      'It helps an athlete manage energy across the event',
-      'It replaces the need for training',
-      'It only matters in field events',
-      'It guarantees a first-place finish',
-    ],
+    options: ['It helps an athlete manage energy across the event', 'It takes the place of training for the event', 'It matters in field events and nowhere else', 'It guarantees a first-place finish in a race'],
     answer: 'It helps an athlete manage energy across the event',
     explanation: 'Good pacing prevents early exhaustion and supports consistent performance.',
   },
@@ -113,13 +108,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What makes leadership in physical education inclusive?',
-    options: [
-      'Focusing only on winning',
-      'Ensuring that learners of different abilities can participate meaningfully',
-      'Allowing the same few learners to dominate',
-      'Using punishment as the main motivator',
-    ],
-    answer: 'Ensuring that learners of different abilities can participate meaningfully',
+    options: ['Focusing on winning and nothing else', 'Making sure learners of all abilities can take part meaningfully', 'Letting the same few learners dominate every game', 'Using punishment as the main way to motivate'],
+    answer: 'Making sure learners of all abilities can take part meaningfully',
     explanation: 'Inclusive leadership adapts and supports activities so everyone can take part.',
   },
   {
@@ -141,13 +131,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which action best reflects safe practice in athletics?',
-    options: [
-      'Skipping warm-ups to save time',
-      'Checking the field, equipment, and instructions before starting',
-      'Copying advanced drills without supervision',
-      'Training through pain without telling anyone',
-    ],
-    answer: 'Checking the field, equipment, and instructions before starting',
+    options: ['Skipping the warm-up in order to save some time', 'Checking the field, equipment and instructions first', 'Copying advanced drills without any supervision', 'Training through pain without telling anyone about it'],
+    answer: 'Checking the field, equipment and instructions first',
     explanation: 'Safe practice includes preparation, supervision, and awareness of the training environment.',
   },
   {

@@ -118,8 +118,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'Which feature of the alveolus most effectively increases the rate of gas exchange?',
-    options: ['Thick muscular wall', 'Small surface area', 'One-cell-thick moist wall with a dense capillary network', 'Dry inner surface coated with mucus'],
-    answer: 'One-cell-thick moist wall with a dense capillary network',
+    options: ['A thick muscular wall around each alveolus', 'A small surface area for each alveolus', 'A wall one cell thick, moist, with many capillaries', 'A dry inner surface that is coated with mucus'],
+    answer: 'A wall one cell thick, moist, with many capillaries',
     explanation: 'A thin, moist wall minimises the diffusion distance; abundant capillaries continuously remove O₂ and supply CO₂, maintaining steep concentration gradients.',
   },
   {

@@ -91,24 +91,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a workplace norm?',
-    options: [
-      'A random personal opinion',
-      'An expected pattern of professional behaviour in the workplace',
-      'A type of law made by a school',
-      'A business loan',
-    ],
-    answer: 'An expected pattern of professional behaviour in the workplace',
+    options: ['A personal opinion that a worker may hold', 'An expected pattern of professional behaviour at work', 'A kind of law that a school has made', 'A business loan that a worker takes out'],
+    answer: 'An expected pattern of professional behaviour at work',
     explanation: 'Workplace norms include expected behaviours such as punctuality, respect, and cooperation.',
   },
   {
     prompt: 'Which statement best describes the South African labour market?',
-    options: [
-      'It has no unemployment challenges',
-      'It is shaped by unemployment, inequality, and changing skills demands',
-      'Everyone automatically gets work after school',
-      'Qualifications do not matter',
-    ],
-    answer: 'It is shaped by unemployment, inequality, and changing skills demands',
+    options: ['It has no problems with unemployment today', 'It is shaped by unemployment, inequality and changing skills demand', 'Everyone gets work automatically after school', 'Qualifications make no difference to getting work'],
+    answer: 'It is shaped by unemployment, inequality and changing skills demand',
     explanation: 'LO learners need to understand the realities and pressures of the labour market.',
   },
   {
@@ -124,12 +114,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why can entrepreneurship be important in South Africa?',
-    options: [
-      'It removes the need for any education',
-      'It can create opportunities and jobs by solving real problems',
-      'It guarantees instant success',
-      'It only matters in large cities',
-    ],
+    options: ['It removes the need for any kind of education', 'It can create opportunities and jobs by solving real problems', 'It guarantees instant success for the owner', 'It matters in large cities and nowhere else'],
     answer: 'It can create opportunities and jobs by solving real problems',
     explanation: 'Entrepreneurship can respond creatively to social and economic needs.',
   },
@@ -147,13 +132,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which example best shows opportunity spotting?',
-    options: [
-      'Ignoring a need in the community',
-      'Noticing demand for affordable school lunch packs and planning a small business',
-      'Waiting for perfect conditions forever',
-      'Copying a rumour from social media',
-    ],
-    answer: 'Noticing demand for affordable school lunch packs and planning a small business',
+    options: ['Ignoring a need that exists in the community', 'Noticing demand for cheap lunch packs and planning a small business', 'Waiting for perfect conditions to come along', 'Copying a rumour that goes round on social media'],
+    answer: 'Noticing demand for cheap lunch packs and planning a small business',
     explanation: 'Entrepreneurs identify unmet needs and turn them into practical opportunities.',
   },
 ];

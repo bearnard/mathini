@@ -121,8 +121,8 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'Why do airbags reduce injury in a car crash?',
-    options: ['They increase the force of impact', 'They increase the time of impact, reducing the force', 'They decrease the momentum change', 'They eliminate momentum change'],
-    answer: 'They increase the time of impact, reducing the force',
+    options: ['They increase the force of the impact', 'They lengthen the impact time, so the force is less', 'They lower the change in momentum', 'They remove the change in momentum entirely'],
+    answer: 'They lengthen the impact time, so the force is less',
     explanation: 'Since J = FΔt = Δp (constant), increasing Δt reduces F. Airbags spread the stopping force over a longer time.',
   },
   {
@@ -139,7 +139,7 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'What are the units of impulse?',
-    options: ['kg·m/s² (N/s)', 'N·s (equivalent to kg·m/s)', 'J·s', 'kg/m·s'],
+    options: ['kg·m/s² (which is the same as N)', 'N·s (equivalent to kg·m/s)', "J·s, the unit of Planck's constant", 'kg/m·s, the unit of viscosity'],
     answer: 'N·s (equivalent to kg·m/s)',
     explanation: 'Impulse = FΔt has units of N·s. Since 1 N = 1 kg·m/s², we get N·s = kg·m/s, the same as momentum.',
   },

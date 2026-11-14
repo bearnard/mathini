@@ -132,8 +132,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Why does the government impose high taxes on alcohol and tobacco?',
-    options: ['Because demand is elastic and revenue is maximised', 'Because demand is inelastic and significant revenue is raised without large falls in consumption', 'To make these goods cheaper', 'Because they are public goods'],
-    answer: 'Because demand is inelastic and significant revenue is raised without large falls in consumption',
+    options: ['Demand is elastic, so revenue is maximised', 'Demand is inelastic, so revenue rises with little fall in use', 'To make these goods cheaper for the consumers', 'Because they are public goods that all can use'],
+    answer: 'Demand is inelastic, so revenue rises with little fall in use',
     explanation: 'Sin taxes exploit inelastic demand — consumers keep buying despite price rises, generating tax revenue.',
   },
   {
@@ -144,8 +144,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Which factor makes PES more elastic over time?',
-    options: ['Fixed land supply', 'Longer time period allowing producers to adjust capacity', 'Rising input costs', 'Seasonal production constraints'],
-    answer: 'Longer time period allowing producers to adjust capacity',
+    options: ['The supply of land is fixed in the long run', 'A longer period lets producers adjust their capacity', 'Rising costs of inputs for the producers', 'Seasonal limits on production in some sectors'],
+    answer: 'A longer period lets producers adjust their capacity',
     explanation: 'In the long run, firms can build new factories, hire more workers and find new suppliers — increasing supply responsiveness.',
   },
   {
@@ -156,8 +156,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Over the long run, demand for petrol becomes more elastic because:',
-    options: ['Petrol is a public good', 'Consumers can find alternatives such as electric vehicles and public transport', 'The price of petrol falls', 'Petrol has no substitutes'],
-    answer: 'Consumers can find alternatives such as electric vehicles and public transport',
+    options: ['Petrol is a public good that all people share', 'Consumers can find alternatives such as electric cars and trains', 'The price of petrol falls in the long run', 'Petrol has no substitutes, so people keep buying it'],
+    answer: 'Consumers can find alternatives such as electric cars and trains',
     explanation: 'Given time, consumers adapt by switching to substitute modes of transport, increasing the elasticity of demand for petrol.',
   },
 ];

@@ -121,8 +121,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'During normal conditions in the Pacific, which direction do the SE trade winds push warm surface water?',
-    options: ['East toward South America', 'West toward Australia and Indonesia', 'North toward the Arctic', 'South toward Antarctica'],
-    answer: 'West toward Australia and Indonesia',
+    options: ['East, toward South America and Chile', 'West, toward Australia and Indonesia', 'North, toward the Arctic and Greenland', 'South, toward Antarctica and the polar seas'],
+    answer: 'West, toward Australia and Indonesia',
     explanation: 'Strong SE trade winds normally pile warm water in the western Pacific, allowing cold upwelling on the eastern side.',
   },
   {
@@ -173,24 +173,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A major El Niño event in 2015–2016 had which effect on southern Africa?',
-    options: [
-      'Record flooding in all provinces',
-      'The wettest season on record',
-      'Severe drought affecting food security for millions',
-      'No significant impact',
-    ],
-    answer: 'Severe drought affecting food security for millions',
+    options: ['Record flooding in all of the provinces', 'The wettest rainy season on record', 'Severe drought, hitting food security for millions', 'No significant effect on southern Africa'],
+    answer: 'Severe drought, hitting food security for millions',
     explanation: 'The 2015–2016 El Niño was one of the strongest on record and caused widespread drought across southern Africa.',
   },
   {
     prompt: 'How do ENSO forecasts benefit farmers in South Africa?',
-    options: [
-      'They predict exact rainfall totals',
-      'They allow advance planning for drought or flood risk, improving food security',
-      'They eliminate the need for irrigation',
-      'They control rainfall directly',
-    ],
-    answer: 'They allow advance planning for drought or flood risk, improving food security',
+    options: ['They predict the exact rainfall for each single farm', 'They allow early planning for drought or flood, helping food security', 'They remove the need for any kind of irrigation', 'They allow farmers to control the rainfall directly'],
+    answer: 'They allow early planning for drought or flood, helping food security',
     explanation: 'Seasonal ENSO forecasts help farmers and water managers prepare months in advance for likely drought or flood conditions.',
   },
 ];

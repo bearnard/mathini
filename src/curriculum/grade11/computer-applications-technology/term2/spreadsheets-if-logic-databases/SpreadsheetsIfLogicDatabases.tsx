@@ -151,8 +151,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'A query is set up to find all orders with a quantity greater than 10 AND a price less than R50. Which records are returned?',
-    options: ['All orders with quantity > 10', 'All orders with price < R50', 'Only orders where BOTH conditions are true simultaneously', 'Orders where either condition is true'],
-    answer: 'Only orders where BOTH conditions are true simultaneously',
+    options: ['All orders with a quantity greater than 10', 'All orders with a price of less than R50', 'Only orders where BOTH conditions are true together', 'Orders where either one of the conditions is true'],
+    answer: 'Only orders where BOTH conditions are true together',
     explanation: 'When two criteria are in the SAME row of the query design grid, they are treated as AND — both must be true for a record to be included.',
   },
 ];

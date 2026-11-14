@@ -127,35 +127,20 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is a "thesis statement" in an argumentative essay?',
-    options: [
-      'A clear sentence in the introduction that states the writer\'s position on the topic',
-      'A summary of all three body paragraphs',
-      'The final sentence of the conclusion',
-      'A quotation from a famous author',
-    ],
-    answer: 'A clear sentence in the introduction that states the writer\'s position on the topic',
+    options: ['A clear sentence in the introduction stating your position', 'A summary of all three of the body paragraphs', 'The final sentence that closes the conclusion', 'A quotation from a famous author about the topic'],
+    answer: 'A clear sentence in the introduction stating your position',
     explanation: 'The thesis statement is the backbone of an argumentative essay — it tells the reader exactly what position the writer will defend.',
   },
   {
     prompt: 'What is the purpose of a "counter-argument" paragraph in an argumentative essay?',
-    options: [
-      'To acknowledge and then refute the opposing view, strengthening the writer\'s position',
-      'To change the writer\'s mind and support the other side',
-      'To summarise the essay without taking a side',
-      'To introduce the topic for the first time',
-    ],
-    answer: 'To acknowledge and then refute the opposing view, strengthening the writer\'s position',
+    options: ['To acknowledge and refute the opposing view, strengthening your case', "To change the writer's mind and back the other side", 'To summarise the essay without taking a side', 'To introduce the topic for the first time'],
+    answer: 'To acknowledge and refute the opposing view, strengthening your case',
     explanation: 'A well-handled counter-argument shows intellectual honesty and strengthens the overall argument by pre-empting objections.',
   },
   {
     prompt: 'What is the key difference between an argumentative and a discursive essay?',
-    options: [
-      'An argumentative essay takes one clear side; a discursive essay explores both sides fairly',
-      'A discursive essay is always longer than an argumentative essay',
-      'An argumentative essay uses no evidence',
-      'A discursive essay must have more than five paragraphs',
-    ],
-    answer: 'An argumentative essay takes one clear side; a discursive essay explores both sides fairly',
+    options: ['An argumentative essay takes one side; a discursive essay weighs both', 'A discursive essay is always longer than an argumentative one', 'An argumentative essay uses no evidence', 'A discursive essay needs more than five paragraphs'],
+    answer: 'An argumentative essay takes one side; a discursive essay weighs both',
     explanation: 'Purpose differs: argumentative essays persuade; discursive essays inform by presenting a balanced exploration of the topic.',
   },
   {
@@ -172,25 +157,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which element of an argumentative essay body paragraph provides support for the claim?',
-    options: ['Evidence (facts, quotations, statistics, or examples)', 'The thesis statement', 'The conclusion sentence', 'The counter-argument'],
-    answer: 'Evidence (facts, quotations, statistics, or examples)',
+    options: ['Evidence (facts, quotations, statistics or examples)', 'The thesis statement of the whole essay', 'The concluding sentence of the paragraph', 'The counter-argument of the opposing side'],
+    answer: 'Evidence (facts, quotations, statistics or examples)',
     explanation: 'Evidence gives credibility to a claim — without it, a point is merely an assertion.',
   },
   {
     prompt: 'What does a byline in a newspaper article indicate?',
-    options: ['The name of the author who wrote the article', 'The date of publication', 'The headline of the article', 'The section of the newspaper'],
+    options: ['The name of the author who wrote the article', 'The date on which the article was published', 'The headline that is printed above the article', 'The section of the newspaper it appears in'],
     answer: 'The name of the author who wrote the article',
     explanation: 'A byline credits the journalist or writer — it appears just below the headline.',
   },
   {
     prompt: 'Which presentation skill creates the strongest connection between speaker and audience?',
-    options: [
-      'Maintaining eye contact and speaking at an appropriate pace',
-      'Reading every word directly from notes',
-      'Facing the projector screen throughout',
-      'Speaking as quickly as possible',
-    ],
-    answer: 'Maintaining eye contact and speaking at an appropriate pace',
+    options: ['Keeping eye contact and speaking at a suitable pace', 'Reading every word straight from your notes', 'Facing the projector screen throughout the talk', 'Speaking as quickly as you possibly can'],
+    answer: 'Keeping eye contact and speaking at a suitable pace',
     explanation: 'Eye contact builds rapport and shows confidence; pacing allows the audience to absorb the message.',
   },
 ];

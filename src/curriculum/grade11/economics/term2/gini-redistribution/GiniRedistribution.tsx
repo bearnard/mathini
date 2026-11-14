@@ -140,26 +140,26 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Progressive taxation contributes to income redistribution by:',
-    options: ['Applying the same tax rate to all income earners', 'Taxing higher earners at higher rates, raising revenue for social spending', 'Exempting corporations from tax', 'Reducing VAT for luxury goods'],
-    answer: 'Taxing higher earners at higher rates, raising revenue for social spending',
+    options: ['Applying the same tax rate to all income earners', 'Taxing higher earners at higher rates to fund social spending', 'Exempting corporations from paying any tax', 'Reducing VAT on luxury goods bought by the rich'],
+    answer: 'Taxing higher earners at higher rates to fund social spending',
     explanation: 'Progressive taxes take a larger percentage from higher incomes, reducing post-tax inequality and funding government services.',
   },
   {
     prompt: "SA's Child Support Grant and Old Age Pension are examples of:",
-    options: ['Corporate subsidies', 'Social grants that directly raise the income of the poorest households', 'BEE policies', 'Infrastructure investment'],
-    answer: 'Social grants that directly raise the income of the poorest households',
+    options: ['Subsidies that are paid to large corporations', 'Social grants that directly raise the income of poor households', 'B-BBEE policies that change who owns firms', 'Investment in infrastructure such as roads and dams'],
+    answer: 'Social grants that directly raise the income of poor households',
     explanation: 'Social grants transfer income to vulnerable households — over 18 million SA citizens receive some form of social grant.',
   },
   {
     prompt: 'Which historical cause MOST explains South Africa\'s extreme income inequality?',
-    options: ['Poor natural resources', 'Apartheid policies that denied black South Africans access to education, skilled jobs and land', 'Low levels of foreign investment', 'Currency instability'],
-    answer: 'Apartheid policies that denied black South Africans access to education, skilled jobs and land',
+    options: ['Poor natural resources compared with other nations', 'Apartheid, which denied black people education, skills and land', 'Low levels of foreign investment in the country', 'Instability of the value of the currency over time'],
+    answer: 'Apartheid, which denied black people education, skills and land',
     explanation: 'Apartheid systematically excluded the majority from economic opportunity, creating structural inequality that persists decades later.',
   },
   {
     prompt: 'B-BBEE (Broad-Based Black Economic Empowerment) aims to:',
-    options: ['Reduce the corporate tax rate', 'Increase black economic ownership, management and employment opportunities', 'Nationalise all large companies', 'Restrict imports to protect local industry'],
-    answer: 'Increase black economic ownership, management and employment opportunities',
+    options: ['Reduce the rate of corporate tax paid by firms', 'Increase black ownership, management and employment opportunities', 'Nationalise all of the large companies in the country', 'Restrict imports in order to protect local industry'],
+    answer: 'Increase black ownership, management and employment opportunities',
     explanation: 'B-BBEE is a policy framework designed to redress apartheid economic exclusion by transforming ownership and management of SA businesses.',
   },
   {
@@ -170,8 +170,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Despite redistribution policies, SA\'s Gini has not fallen significantly. The BEST explanation is:',
-    options: ['Social grants are too generous', 'Structural factors (skills gap, unemployment, asset inequality) are deeply entrenched', 'Taxes are too low on the poor', 'The Lorenz curve is perfectly equal'],
-    answer: 'Structural factors (skills gap, unemployment, asset inequality) are deeply entrenched',
+    options: ['Social grants are far too generous to the poor', 'Structural problems (skills, jobs, assets) are entrenched', 'Taxes on the poor are far too low in the country', 'The Lorenz curve is now perfectly equal for all'],
+    answer: 'Structural problems (skills, jobs, assets) are entrenched',
     explanation: 'Redistribution addresses symptoms but not underlying structural causes — without addressing skills, employment and asset inequality, the Gini remains high.',
   },
 ];

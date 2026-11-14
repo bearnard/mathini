@@ -131,13 +131,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a "rebuttal" in a debate?',
-    options: [
-      'A direct challenge to a specific argument made by the opposing team',
-      'The opening statement of the debate',
-      'A summary of all your own arguments',
-      'The vote at the end of the debate',
-    ],
-    answer: 'A direct challenge to a specific argument made by the opposing team',
+    options: ['A direct challenge to a specific point made by the other team', 'The opening statement of the debate', 'A summary of all of your own arguments', 'The vote that is taken at the end of the debate'],
+    answer: 'A direct challenge to a specific point made by the other team',
     explanation: 'A rebuttal dismantles the opponent\'s specific claim with counter-evidence — it is distinct from presenting new points.',
   },
   {
@@ -153,35 +148,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which language feature characterises academic register in a seminar?',
-    options: [
-      'Formal vocabulary, complete sentences, and hedging language',
-      'Slang and contractions',
-      'Short, incomplete phrases',
-      'Speaking only in isiXhosa idioms',
-    ],
-    answer: 'Formal vocabulary, complete sentences, and hedging language',
+    options: ['Formal vocabulary, complete sentences and hedging language', 'Slang and contractions in every sentence', 'Short, incomplete phrases without any verbs', 'Speaking in isiXhosa idioms and nothing else'],
+    answer: 'Formal vocabulary, complete sentences and hedging language',
     explanation: 'Academic register uses precise language, complete grammatical structures, and hedging to convey appropriately tentative claims.',
   },
   {
     prompt: 'What does "hedging language" do in academic discussion?',
-    options: [
-      'Expresses a claim with appropriate tentativeness (e.g. "It could be argued that…")',
-      'Makes a claim sound more aggressive',
-      'Contradicts the main argument',
-      'Avoids using any evidence',
-    ],
-    answer: 'Expresses a claim with appropriate tentativeness (e.g. "It could be argued that…")',
+    options: ['States a claim with care (e.g. "It could be argued that…")', 'Makes a claim sound more forceful and aggressive', 'Contradicts the main argument of the speaker', 'Avoids using any evidence in a discussion'],
+    answer: 'States a claim with care (e.g. "It could be argued that…")',
     explanation: 'Hedging acknowledges uncertainty or the possibility of other views — it is a hallmark of academic honesty.',
   },
   {
     prompt: 'When giving an oral response to a literary text, which step should come AFTER stating your interpretation?',
-    options: [
-      'Quote directly from the text to support your interpretation',
-      'Summarise the entire plot',
-      'Describe the setting in detail',
-      'Mention the author\'s biography',
-    ],
-    answer: 'Quote directly from the text to support your interpretation',
+    options: ['Quote from the text to support your interpretation', 'Summarise the whole plot of the text', 'Describe the setting of the text in detail', 'Mention the biography of the author'],
+    answer: 'Quote from the text to support your interpretation',
     explanation: 'The P–E–E approach requires: Point (interpretation) → Evidence (quotation) → Explanation (significance).',
   },
   {
@@ -208,13 +188,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What structured approach is recommended for an oral response to a social issue?',
-    options: [
-      'State the problem → explain causes → describe impact → propose a solution',
-      'Read a poem → sing a song → leave the room',
-      'List random facts → apologise → sit down',
-      'Agree with everyone → summarise → change the topic',
-    ],
-    answer: 'State the problem → explain causes → describe impact → propose a solution',
+    options: ['State the problem, give causes, describe impact, propose a solution', 'Read a poem, sing a song and leave the room', 'List facts, apologise and then sit down', 'Agree with everyone, summarise and change the topic'],
+    answer: 'State the problem, give causes, describe impact, propose a solution',
     explanation: 'This four-part structure ensures a logical, complete oral response that demonstrates analytical thinking.',
   },
 ];

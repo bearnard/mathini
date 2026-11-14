@@ -116,14 +116,14 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What does the colspan="2" attribute do in an HTML table cell?',
-    options: ['Adds 2 rows below the cell', 'Makes the cell span across 2 columns horizontally', 'Changes the cell colour', 'Adds 2 pixels of padding'],
-    answer: 'Makes the cell span across 2 columns horizontally',
+    options: ['Adds 2 rows below the cell in the table', 'Makes the cell span 2 columns across the row', 'Changes the colour of the cell to a darker shade', 'Adds 2 pixels of padding around the cell text'],
+    answer: 'Makes the cell span 2 columns across the row',
     explanation: 'colspan merges a cell across the specified number of columns. rowspan does the same vertically.',
   },
   {
     prompt: 'In a mail merge, what is the purpose of merge fields like «First Name»?',
-    options: ['They permanently change the document template', 'They are placeholders replaced by individual data from the data source for each recipient', 'They apply formatting to the whole document', 'They link the document to a specific printer'],
-    answer: 'They are placeholders replaced by individual data from the data source for each recipient',
+    options: ['They permanently change the document template', "Placeholders replaced by each recipient's data from the data source", 'They apply the same formatting to the whole document', 'They link the document to one particular printer'],
+    answer: "Placeholders replaced by each recipient's data from the data source",
     explanation: 'Merge fields are replaced with the corresponding value from each record in the data source when the merge is completed.',
   },
   {

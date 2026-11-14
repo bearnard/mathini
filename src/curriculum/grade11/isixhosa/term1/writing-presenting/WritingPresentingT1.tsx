@@ -138,24 +138,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the main purpose of a reflective essay?',
-    options: [
-      'To explore personal thoughts, feelings, and lessons learnt from an experience',
-      'To argue for one side of a debate',
-      'To provide factual information about a topic',
-      'To describe a place using sensory detail only',
-    ],
-    answer: 'To explore personal thoughts, feelings, and lessons learnt from an experience',
+    options: ['To explore your thoughts and lessons from an experience', 'To argue for one side of a debate in an essay', 'To give factual information about a topic', 'To describe a place using sensory detail only'],
+    answer: 'To explore your thoughts and lessons from an experience',
     explanation: 'Reflection goes beyond description — it involves introspection and showing growth or insight.',
   },
   {
     prompt: 'Which type of language is essential in a descriptive essay?',
-    options: [
-      'Sensory and figurative language that creates vivid images',
-      'Technical jargon and statistics',
-      'Bullet points and numbered lists',
-      'Very short, factual sentences only',
-    ],
-    answer: 'Sensory and figurative language that creates vivid images',
+    options: ['Sensory and figurative language that creates images', 'Technical jargon and statistics about a place', 'Bullet points and numbered lists of details', 'Very short, factual sentences and nothing else'],
+    answer: 'Sensory and figurative language that creates images',
     explanation: 'Descriptive writing appeals to the senses and uses devices like simile and metaphor to create a vivid experience for the reader.',
   },
   {
@@ -188,24 +178,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why should a descriptive essay avoid vague words like "nice" or "good"?',
-    options: [
-      'They create weak, imprecise images; stronger vocabulary makes writing more powerful',
-      'They are grammatically incorrect in isiXhosa',
-      'Markers penalise the use of English words',
-      'They are only appropriate in formal letters',
-    ],
-    answer: 'They create weak, imprecise images; stronger vocabulary makes writing more powerful',
+    options: ['They give weak, vague images; stronger words add power', 'They are grammatically wrong in the isiXhosa language', 'Markers penalise the use of any English words', 'They are only fitting in formal letters to people'],
+    answer: 'They give weak, vague images; stronger words add power',
     explanation: 'Precise vocabulary — e.g. "gleaming" instead of "nice" — is a key criterion in writing assessments.',
   },
   {
     prompt: 'In the writing process, what happens during the "revise and edit" stage?',
-    options: [
-      'You check content, improve language, and correct grammar and punctuation',
-      'You generate ideas without filtering',
-      'You write the first complete version of the text',
-      'You choose the topic',
-    ],
-    answer: 'You check content, improve language, and correct grammar and punctuation',
+    options: ['You check content, improve language and fix grammar', 'You generate ideas without any filtering', 'You write the first complete version of the text', 'You choose the topic that you will write on'],
+    answer: 'You check content, improve language and fix grammar',
     explanation: 'Revision and editing are distinct from drafting — here you polish the text for accuracy, clarity, and effect.',
   },
 ];

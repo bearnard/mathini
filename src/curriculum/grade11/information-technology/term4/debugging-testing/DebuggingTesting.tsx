@@ -136,13 +136,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is the purpose of a breakpoint in an IDE debugger?',
-    options: [
-      'To cause the program to crash intentionally',
-      'To pause program execution at a specific line so variables can be inspected',
-      'To delete a section of code temporarily',
-      'To speed up program execution',
-    ],
-    answer: 'To pause program execution at a specific line so variables can be inspected',
+    options: ['To make the program crash on purpose', 'To pause the program at a line so you can inspect variables', 'To delete a section of the code for a while', 'To speed up the execution of the program'],
+    answer: 'To pause the program at a line so you can inspect variables',
     explanation: 'Breakpoints tell the debugger to stop execution at that line, allowing the developer to examine variable states.',
   },
   {
@@ -153,13 +148,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'Why is "rubber-duck debugging" an effective technique?',
-    options: [
-      'The rubber duck provides AI-generated feedback',
-      'Explaining code aloud forces structured thinking and often reveals the mistake',
-      'It speeds up the compiler',
-      'It only works for syntax errors',
-    ],
-    answer: 'Explaining code aloud forces structured thinking and often reveals the mistake',
+    options: ['The rubber duck gives AI-made feedback on the code', 'Explaining code aloud forces clear thinking and exposes mistakes', 'It speeds up the compiler when it builds the code', 'It works for syntax errors and for no other errors'],
+    answer: 'Explaining code aloud forces clear thinking and exposes mistakes',
     explanation: 'Articulating logic out loud engages different mental processes — you often spot an error the moment you try to explain it.',
   },
   {
@@ -181,13 +171,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'When should a developer add print() statements for debugging?',
-    options: [
-      'Only in the final version of a program',
-      'Temporarily during debugging to inspect variable values; they should be removed afterwards',
-      'At the start of every function permanently',
-      'Only when the program produces a syntax error',
-    ],
-    answer: 'Temporarily during debugging to inspect variable values; they should be removed afterwards',
+    options: ['Only in the final version of a program', 'Temporarily, to inspect variables, then remove them afterwards', 'At the start of every function, kept for good', 'Only when the program shows a syntax error'],
+    answer: 'Temporarily, to inspect variables, then remove them afterwards',
     explanation: 'Debug print() calls are temporary diagnostic tools — they should be cleaned up before final submission.',
   },
   {

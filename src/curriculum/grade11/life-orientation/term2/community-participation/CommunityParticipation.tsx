@@ -109,13 +109,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Which of the following best describes "community participation"?',
-    options: [
-      'Paying taxes to the government',
-      'Actively contributing to community wellbeing without expecting financial reward',
-      'Only joining political parties',
-      'Watching community events',
-    ],
-    answer: 'Actively contributing to community wellbeing without expecting financial reward',
+    options: ['Paying your taxes to the government every year', 'Contributing to community wellbeing without expecting payment', 'Joining political parties and nothing else', 'Watching the events that happen in a community'],
+    answer: 'Contributing to community wellbeing without expecting payment',
     explanation: 'Community participation involves voluntary engagement to address real community needs and contribute to the common good.',
   },
   {
@@ -148,24 +143,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a "stakeholder" in a community project?',
-    options: [
-      'Only the project leader',
-      'Any person or group who will be involved in or affected by the project',
-      'Only the people who donate money',
-      'A government official',
-    ],
-    answer: 'Any person or group who will be involved in or affected by the project',
+    options: ['Only the leader who runs the project', 'Any person or group involved in or affected by the project', 'Only the people who give money to the project', 'An official who works for the government'],
+    answer: 'Any person or group involved in or affected by the project',
     explanation: 'Identifying all stakeholders ensures the project is relevant, inclusive, and sustainable.',
   },
   {
     prompt: 'What is an NGO?',
-    options: [
-      'A government department',
-      'A profit-making company',
-      'A non-governmental organisation that addresses social needs without a profit motive',
-      'A national sports governing body',
-    ],
-    answer: 'A non-governmental organisation that addresses social needs without a profit motive',
+    options: ['A department that belongs to the national government', 'A company that is run mainly to make a profit', 'A non-governmental body that meets social needs, not for profit', 'A national body that governs a particular sport'],
+    answer: 'A non-governmental body that meets social needs, not for profit',
     explanation: 'NGOs form a key part of civil society, providing services and advocacy that complement government work.',
   },
   {
@@ -176,35 +161,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is collaboration with existing support services important in community projects?',
-    options: [
-      'It means you don\'t have to do any work yourself',
-      'It provides shared resources, expertise, and a broader reach for greater impact',
-      'It guarantees government funding',
-      'Collaboration is generally not useful',
-    ],
-    answer: 'It provides shared resources, expertise, and a broader reach for greater impact',
+    options: ['It means that you need not do any work yourself', 'It brings shared resources, expertise and a wider reach', 'It guarantees that the government will fund you', 'Working with other groups is generally not useful'],
+    answer: 'It brings shared resources, expertise and a wider reach',
     explanation: 'Partnerships amplify the effectiveness of community projects beyond what any single person or group can achieve alone.',
   },
   {
     prompt: 'A school group organises a food drive for a local informal settlement. This is an example of:',
-    options: [
-      'Political activism',
-      'Community participation and social responsibility',
-      'Charity that creates dependence',
-      'A commercially motivated activity',
-    ],
+    options: ['Political activism against the government', 'Community participation and social responsibility', 'Charity that makes people dependent on others', 'A business activity that is run for profit'],
     answer: 'Community participation and social responsibility',
     explanation: 'Organising a food drive demonstrates active engagement in addressing community needs — a core form of community participation.',
   },
   {
     prompt: 'Why should a community project be evaluated after completion?',
-    options: [
-      'Evaluation is only needed if the project fails',
-      'To determine whether goals were met and to learn lessons for future projects',
-      'To publicise the project on social media',
-      'Evaluation is optional and rarely useful',
-    ],
-    answer: 'To determine whether goals were met and to learn lessons for future projects',
+    options: ['Evaluation is needed only if the project has failed', 'To see if goals were met and learn lessons for future projects', 'To advertise the project on social media', 'Evaluation is optional and rarely of any use'],
+    answer: 'To see if goals were met and learn lessons for future projects',
     explanation: 'Evaluation provides evidence of impact, guides improvement, and promotes accountability to the community served.',
   },
 ];

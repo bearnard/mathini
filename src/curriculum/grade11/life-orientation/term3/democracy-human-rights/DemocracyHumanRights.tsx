@@ -96,13 +96,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is the main purpose of the South African Bill of Rights?',
-    options: [
-      'To list school rules',
-      'To protect the dignity, equality, and freedom of everyone',
-      'To explain how taxes are collected',
-      'To describe only political rights',
-    ],
-    answer: 'To protect the dignity, equality, and freedom of everyone',
+    options: ['To list the rules that apply in a school', 'To protect the dignity, equality and freedom of everyone', 'To explain how taxes are collected from people', 'To describe the political rights of citizens only'],
+    answer: 'To protect the dignity, equality and freedom of everyone',
     explanation: 'The Bill of Rights protects fundamental rights and limits unfair treatment or abuse of power.',
   },
   {
@@ -141,24 +136,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the goal of social justice?',
-    options: [
-      'To punish all people who make mistakes',
-      'To promote fairness, equity, and equal access to opportunities',
-      'To give one group more rights than another',
-      'To replace the Constitution',
-    ],
-    answer: 'To promote fairness, equity, and equal access to opportunities',
+    options: ['To punish all of the people who make mistakes', 'To promote fairness, equity and equal access to opportunities', 'To give one group more rights than another group', 'To replace the Constitution with a new law'],
+    answer: 'To promote fairness, equity and equal access to opportunities',
     explanation: 'Social justice focuses on fairness and removing barriers that create inequality.',
   },
   {
     prompt: 'Which action is an example of advocacy?',
-    options: [
-      'Ignoring unfair treatment because it is common',
-      'Starting a petition and reporting a rights violation to the proper authority',
-      'Using violence to force change',
-      'Sharing a rumour without checking facts',
-    ],
-    answer: 'Starting a petition and reporting a rights violation to the proper authority',
+    options: ['Ignoring unfair treatment because it is so common', 'Starting a petition and reporting a rights violation', 'Using violence to force the changes that you want', 'Sharing a rumour without first checking the facts'],
+    answer: 'Starting a petition and reporting a rights violation',
     explanation: 'Advocacy uses lawful, evidence-based action to challenge injustice and promote change.',
   },
   {

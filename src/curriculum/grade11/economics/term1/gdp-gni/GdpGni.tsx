@@ -156,8 +156,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Why is real GDP more useful than nominal GDP for comparing growth over time?',
-    options: ['Real GDP includes more sectors', 'Real GDP is adjusted for inflation, showing true output changes', 'Nominal GDP uses a base year', 'Real GDP equals GNI'],
-    answer: 'Real GDP is adjusted for inflation, showing true output changes',
+    options: ['Real GDP includes more sectors of the economy than nominal GDP', 'Real GDP is adjusted for inflation, so it shows true output change', 'Nominal GDP uses a base year and real GDP does not', 'Real GDP is the same as gross national income (GNI)'],
+    answer: 'Real GDP is adjusted for inflation, so it shows true output change',
     explanation: 'Adjusting for inflation allows comparison of actual volumes of output, not just price increases.',
   },
   {
@@ -174,8 +174,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Why are intermediate goods excluded from GDP calculations?',
-    options: ['They are too small to measure', 'To avoid double-counting value already included in final goods', 'They are produced by government', 'Intermediate goods have no market price'],
-    answer: 'To avoid double-counting value already included in final goods',
+    options: ['They are too small for statisticians to measure', 'To avoid double-counting value already in the final goods', 'They are produced by the government and not by firms', 'Intermediate goods have no market price at all'],
+    answer: 'To avoid double-counting value already in the final goods',
     explanation: 'Including intermediate goods would count the same value multiple times as goods move through production stages.',
   },
   {
@@ -192,8 +192,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'A major limitation of using GDP per capita to measure well-being is that it:',
-    options: ['Ignores government output', 'Does not adjust for inflation', 'Hides income inequality within the country', 'Counts exports twice'],
-    answer: 'Hides income inequality within the country',
+    options: ['It ignores the output of the government sector', 'It is not adjusted for inflation in any way', 'It hides income inequality within the country', 'It counts exports twice in the national accounts'],
+    answer: 'It hides income inequality within the country',
     explanation: 'GDP per capita is an average — in a highly unequal country like SA it masks extreme gaps between rich and poor.',
   },
 ];

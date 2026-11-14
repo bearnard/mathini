@@ -112,13 +112,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What was the main aim of liberation movements in Africa?',
-    options: [
-      'To end colonialism, minority rule, or apartheid and achieve self-government',
-      'To restore European empire after World War II',
-      'To defend racial segregation as permanent',
-      'To avoid all political participation',
-    ],
-    answer: 'To end colonialism, minority rule, or apartheid and achieve self-government',
+    options: ['To end colonialism, minority rule or apartheid and win self-rule', 'To restore European empire after World War II', 'To defend racial segregation as a permanent system', 'To avoid taking part in politics of any kind'],
+    answer: 'To end colonialism, minority rule or apartheid and win self-rule',
     explanation: 'Liberation movements were anti-colonial and anti-racist struggles for political freedom and dignity.',
   },
   {
@@ -134,13 +129,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why did the ANC change its strategy in the early 1960s?',
-    options: [
-      'Because state repression and bans convinced many activists that peaceful protest alone was not enough',
-      'Because apartheid had already ended',
-      'Because Britain asked the ANC to start a war in Europe',
-      'Because the ANC rejected mass support',
-    ],
-    answer: 'Because state repression and bans convinced many activists that peaceful protest alone was not enough',
+    options: ['Repression and bans showed that peaceful protest was not enough', 'Apartheid had already come to an end by that time', 'Britain asked the ANC to start a war in Europe', 'The ANC rejected the support of the masses'],
+    answer: 'Repression and bans showed that peaceful protest was not enough',
     explanation: 'Sharpeville and the banning of organisations pushed the liberation struggle into a new phase.',
   },
   {
@@ -173,13 +163,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is nation-building?',
-    options: [
-      'The process of creating a stable, united, and functioning state after liberation or independence',
-      'The creation of colonial borders by European powers',
-      'A military plan for occupying neighbouring countries',
-      'The denial of citizenship to most of the population',
-    ],
-    answer: 'The process of creating a stable, united, and functioning state after liberation or independence',
+    options: ['Creating a stable, united and working state after liberation', 'The drawing of colonial borders by European powers', 'A military plan to occupy neighbouring countries', 'The denial of citizenship to most of the people'],
+    answer: 'Creating a stable, united and working state after liberation',
     explanation: 'Liberation must be followed by institutions, development, and social reconciliation.',
   },
   {

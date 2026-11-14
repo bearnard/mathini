@@ -56,8 +56,8 @@ const bank: MLItem[] = [
   },
   {
     prompt: 'What does a floor plan show?',
-    options: ['The side view of a building', 'A top-view drawing showing room layout and dimensions', 'The front elevation of a house', 'A 3D model of a building'],
-    answer: 'A top-view drawing showing room layout and dimensions',
+    options: ['The side view of a whole building', 'A top view of room layout and sizes', 'The front elevation of a house', 'A 3D model of the building'],
+    answer: 'A top view of room layout and sizes',
     explanation: 'A floor plan is a top-down (plan) view showing rooms, doors, windows and dimensions.',
   },
   {

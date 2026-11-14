@@ -119,13 +119,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does ideology refer to in media studies?',
-    options: [
-      'A type of printing machine',
-      'A set of beliefs and values that shapes interpretation',
-      'A law passed by Parliament',
-      'A random social media trend',
-    ],
-    answer: 'A set of beliefs and values that shapes interpretation',
+    options: ['A kind of printing machine used in newsrooms', 'A set of beliefs and values that shapes how we interpret', 'A law that has been passed by Parliament', 'A passing trend that goes viral on social media'],
+    answer: 'A set of beliefs and values that shapes how we interpret',
     explanation: 'Ideology can influence how issues are framed and which perspectives are highlighted.',
   },
   {
@@ -141,13 +136,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is it important to distinguish fact from opinion in civic discussions?',
-    options: [
-      'Because opinions are always false',
-      'Because evidence-based discussion depends on knowing what can be verified',
-      'Because facts are only important in science',
-      'Because opinions are illegal in democracy',
-    ],
-    answer: 'Because evidence-based discussion depends on knowing what can be verified',
+    options: ['Because opinions are always false and facts are true', 'Because evidence-based debate depends on what can be verified', 'Because facts matter in science and nowhere else', 'Because opinions are illegal in a democracy'],
+    answer: 'Because evidence-based debate depends on what can be verified',
     explanation: 'Democratic debate is stronger when claims are supported by verifiable facts.',
   },
   {

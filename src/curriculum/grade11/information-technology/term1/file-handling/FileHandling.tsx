@@ -93,13 +93,8 @@ f.close()`} />
 const bank: ITItem[] = [
   {
     prompt: 'What is the main difference between a text file and a binary file?',
-    options: [
-      'Text files are larger than binary files',
-      'Text files store human-readable characters; binary files store raw machine-format bytes',
-      'Binary files can only store numbers',
-      'Text files require special software to open',
-    ],
-    answer: 'Text files store human-readable characters; binary files store raw machine-format bytes',
+    options: ['Text files are always larger than binary files', 'Text files hold readable characters; binary files hold raw bytes', 'Binary files can only store numbers', 'Text files need special software to open them'],
+    answer: 'Text files hold readable characters; binary files hold raw bytes',
     explanation: 'Text files (e.g. .txt, .csv) are readable in any text editor. Binary files store data in byte format and are not human-readable.',
   },
   {
@@ -121,13 +116,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'Why is it important to close a file after processing it?',
-    options: [
-      'It speeds up the program',
-      'It deletes temporary data from RAM',
-      'It releases the file resource and ensures all data is flushed to disk',
-      'It converts the file to binary format',
-    ],
-    answer: 'It releases the file resource and ensures all data is flushed to disk',
+    options: ['It makes the program run noticeably faster', 'It clears temporary data out of the RAM', 'It frees the file and flushes all data to disk', 'It converts the file to a binary format'],
+    answer: 'It frees the file and flushes all data to disk',
     explanation: 'Not closing a file can cause data loss (buffered data not written) and may lock the file from other processes.',
   },
   {
@@ -138,13 +128,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'A program reads a text file line by line and strips whitespace. What does the .strip() method do?',
-    options: [
-      'Removes all letters from the line',
-      'Removes leading and trailing whitespace and newline characters',
-      'Splits the line into a list',
-      'Converts the line to uppercase',
-    ],
-    answer: 'Removes leading and trailing whitespace and newline characters',
+    options: ['Removes all of the letters from the line of text', 'Removes leading and trailing whitespace and newlines', 'Splits the line into a list of separate words', 'Converts the whole line of text to uppercase'],
+    answer: 'Removes leading and trailing whitespace and newlines',
     explanation: '.strip() removes whitespace (spaces, tabs, \\n) from both ends of a string — essential when reading file lines.',
   },
   {

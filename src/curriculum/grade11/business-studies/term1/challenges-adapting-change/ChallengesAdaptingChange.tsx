@@ -106,18 +106,13 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'How does high unemployment in South Africa negatively affect businesses?',
-    options: [
-      'It increases consumer spending',
-      'It reduces the number of skilled workers and lowers consumer purchasing power',
-      'It lowers production costs permanently',
-      'It creates a larger customer base',
-    ],
-    answer: 'It reduces the number of skilled workers and lowers consumer purchasing power',
+    options: ['It increases the spending of consumers', 'It reduces skilled workers and lowers buying power', 'It lowers production costs for good', 'It creates a bigger customer base for firms'],
+    answer: 'It reduces skilled workers and lowers buying power',
     explanation: 'High unemployment means fewer people with income to spend, and a shortage of skilled labour makes it harder and costlier to find qualified employees.',
   },
   {
     prompt: 'A retail store starts selling online to reach more customers during load-shedding. This adaptation is BEST described as:',
-    options: ['Reactive cost-cutting', 'Proactive diversification', 'Reactive innovation', 'Proactive diversification or innovation'],
+    options: ['Reactive cost-cutting by the firm', 'Reactive downsizing of the number of staff', 'Proactive training of the staff', 'Proactive diversification or innovation'],
     answer: 'Proactive diversification or innovation',
     explanation: 'Expanding to online sales uses innovation and diversification to reach new channels, and can be proactive if done before significant sales losses occur.',
   },
@@ -147,7 +142,7 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Lebo\'s clothing factory trains its machinists to use new digital sewing machines. Which adaptation strategy is this?',
-    options: ['Diversification', 'Cost-cutting', 'Staff training / upskilling', 'Collaboration'],
+    options: ['Diversification into a new product line', 'Cost-cutting on the use of materials', 'Staff training / upskilling', 'Collaboration with another firm'],
     answer: 'Staff training / upskilling',
     explanation: 'Investing in employee training to match new technology is an upskilling strategy that helps the business adapt to technological change.',
   },
