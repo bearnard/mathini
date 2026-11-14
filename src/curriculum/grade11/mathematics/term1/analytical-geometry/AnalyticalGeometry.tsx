@@ -13,7 +13,7 @@ const learnSteps: LearnStep[] = [
           <Formula block>{String.raw`y = mx + c`}</Formula>
           <Formula block>{String.raw`y - y_1 = m(x - x_1)`}</Formula>
         </div>
-        <FunctionGraph
+        <FunctionGraph equalAxes
           curves={[
             { fn: (x: number) => 0.75 * x + 1, label: 'y = 0.75x + 1', color: '#6366f1' },
           ]}
@@ -39,7 +39,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Parallel lines share the same gradient, while perpendicular lines have gradients whose product is <Formula>{String.raw`-1`}</Formula>.</p>
         <Formula block>{String.raw`m_1 = m_2 \quad \text{or} \quad m_1m_2 = -1`}</Formula>
-        <FunctionGraph
+        <FunctionGraph equalAxes
           curves={[
             { fn: (x: number) => 0.5 * x + 1, label: 'parallel 1', color: '#06b6d4' },
             { fn: (x: number) => 0.5 * x - 2, label: 'parallel 2', color: '#14b8a6' },
