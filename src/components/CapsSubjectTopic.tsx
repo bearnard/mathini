@@ -16,6 +16,7 @@ import { aggregateResultsBySection, pickWeakSections } from '../lib/client/revis
 import BadgeUnlockModal from './gamification/BadgeUnlockModal';
 import { track } from '../lib/client/analytics';
 import { usePracticeTracking } from '../lib/client/usePracticeTracking';
+import ReportProblem from './items/ReportProblem';
 
 export interface LearnStep {
   title: string;
@@ -288,6 +289,8 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
                   </>
                 )}
               </Card>
+
+              {current && !loading && <ReportProblem key={current.prompt} task={task} prompt={current.prompt} itemId={current.id} />}
 
               <div className="min-h-24">
                 <Feedback

@@ -14,6 +14,7 @@ import { shuffleOptions } from '../../curriculum/grade6/natural-sciences/_shared
 import { useStudent } from '../../lib/client/StudentContext';
 import type { ReviewQuestion } from '../../lib/client/review/resolve';
 import { loadTodaysReview } from '../../lib/client/review/browserLoad';
+import ReportProblem from '../items/ReportProblem';
 
 type Phase = 'loading' | 'error' | 'empty' | 'running' | 'done';
 
@@ -114,6 +115,8 @@ export default function ReviewScreen({ onBack, initialQuestions }: { onBack: () 
             <p className="text-center text-lg font-bold text-slate-800 md:text-2xl">{current.item.prompt}</p>
             <NstQuestionBody item={current.item} questionKey={`${index}:${current.qkey}`} selected={selected} onResult={handleResult} />
           </Card>
+
+          <ReportProblem key={`${index}:${current.qkey}`} task={current.task} prompt={current.item.prompt} itemId={current.itemId} />
 
           <div className="min-h-24">
             <Feedback

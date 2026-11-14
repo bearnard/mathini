@@ -13,6 +13,7 @@ import { track } from '../../../../lib/client/analytics';
 import { usePracticeTracking } from '../../../../lib/client/usePracticeTracking';
 import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
 import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
+import ReportProblem from '../../../../components/items/ReportProblem';
 
 interface NstTopicProps {
   title: string;
@@ -169,6 +170,8 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
                   </>
                 )}
               </Card>
+
+              {current && !loading && <ReportProblem key={current.prompt} task={task} prompt={current.prompt} itemId={current.id} />}
 
               <div className="min-h-24">
                 <Feedback

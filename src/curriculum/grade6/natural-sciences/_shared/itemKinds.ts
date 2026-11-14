@@ -1,6 +1,7 @@
 // Pure helpers for the NST item kinds. No React, no browser APIs, so they can be imported from anywhere
 // (the practice shell, the mock test, and the spaced-review runner).
 import type { Hotspot, NstItem, NstItemKind } from './types';
+import { dropRetired } from '../../../../lib/client/retired';
 
 export const KIND_SEPARATOR = '|';
 
@@ -169,7 +170,7 @@ export function shuffleOptions(item: NstItem, rng: Rng = Math.random): string[] 
 
 /** Drops items that cannot be played (unknown kinds fall back to mcq when valid), then shuffles items and options. */
 export function prepareItems(items: readonly NstItem[], rng: Rng = Math.random): NstItem[] {
-  const playable = items.map(normaliseItem).filter((it): it is NstItem => it !== null);
+  const playable = dropRetired(items).map(normaliseItem).filter((it): it is NstItem => it !== null);
   return shuffleWith(playable, rng).map((it) => ({ ...it, options: shuffleOptions(it, rng) }));
 }
 

@@ -1,14 +1,18 @@
 import type { NstItem } from './types';
 import { kindOf, marksOf, normaliseItem, shuffleOptions } from './itemKinds';
+import { dropRetired } from '../../../../lib/client/retired';
 
 export interface TopicBank {
   /** Human-readable topic name, used for the per-topic score breakdown. */
   topic: string;
+  /** The topic's task slug, so a question can be reported. */
+  task?: string;
   items: NstItem[];
 }
 
 export interface MockItem extends NstItem {
   topic: string;
+  task?: string;
 }
 
 export interface MockTestOptions {
@@ -50,9 +54,10 @@ export function buildMockTest(
   // Items that cannot be played are dropped; unknown kinds fall back to mcq when valid.
   const entries = groups
     .map((g) => {
-      const playable = g.items.map(normaliseItem).filter((it): it is NstItem => it !== null);
+      const playable = dropRetired(g.items).map(normaliseItem).filter((it): it is NstItem => it !== null);
       return {
         topic: g.topic,
+        task: g.task,
         explain: shuffle(playable.filter((it) => kindOf(it) === 'explain'), rng),
         items: shuffle(playable.filter((it) => kindOf(it) !== 'explain'), rng),
         taken: 0,
@@ -83,7 +88,7 @@ export function buildMockTest(
       const item = entries[i].explain.shift();
       if (!item || seenPrompts.has(item.prompt)) continue;
       seenPrompts.add(item.prompt);
-      picked.push({ ...item, topic: entries[i].topic });
+      picked.push({ ...item, topic: entries[i].topic, task: entries[i].task });
       quota[i] = Math.max(0, quota[i] - 1);
       explainLeft -= 1;
       progressed = true;
@@ -105,7 +110,7 @@ export function buildMockTest(
         recallPicked += 1;
       }
       seenPrompts.add(item.prompt);
-      picked.push({ ...item, topic: pool.topic });
+      picked.push({ ...item, topic: pool.topic, task: pool.task });
       n -= 1;
     }
     return n;
