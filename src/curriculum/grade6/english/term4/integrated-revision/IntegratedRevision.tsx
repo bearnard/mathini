@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Revise the clues for each genre',
-    image: {
-      src: '/curriculum/grade6/eng/term4/integrated-revision/diagram.webp',
-      alt: 'revision board showing poetry, fiction, media texts, and listening notes',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

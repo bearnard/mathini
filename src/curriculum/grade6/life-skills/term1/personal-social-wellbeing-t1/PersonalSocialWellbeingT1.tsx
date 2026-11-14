@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'A healthy self-image starts with knowing yourself',
-    image: {
-      src: '/curriculum/grade6/lsk/term1/personal-social-wellbeing-t1/diagram.webp',
-      alt: 'friendly group of Grade 6 learners sitting in a discussion circle and listening to one another',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

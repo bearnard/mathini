@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Warm up and move safely before activity',
-    image: {
-      src: '/curriculum/grade6/lsk/term1/physical-education-t1/diagram.webp',
-      alt: 'Grade 6 learners doing balance and coordination activities in a physical education class',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

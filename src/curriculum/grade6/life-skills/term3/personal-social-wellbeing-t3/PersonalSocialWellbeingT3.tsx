@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Respecting diversity in our communities',
-    image: {
-      src: '/curriculum/grade6/lsk/term3/personal-social-wellbeing-t3/diagram.webp',
-      alt: 'learners from different backgrounds sharing ideas respectfully in a community circle',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

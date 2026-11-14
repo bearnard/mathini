@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Process writing works step by step',
-    image: {
-      src: '/curriculum/grade6/eng/term1/process-writing-grammar/diagram.webp',
-      alt: 'learner planning drafting and editing a piece of writing at a desk',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

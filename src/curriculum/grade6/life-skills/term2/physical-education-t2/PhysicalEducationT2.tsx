@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Use passing and movement in invasion games',
-    image: {
-      src: '/curriculum/grade6/lsk/term2/physical-education-t2/diagram.webp',
-      alt: 'learners passing a ball around cones during a small-sided invasion game',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

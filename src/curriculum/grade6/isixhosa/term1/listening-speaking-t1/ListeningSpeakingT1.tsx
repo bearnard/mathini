@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Use greetings and introductions confidently',
-    image: {
-      src: '/curriculum/grade6/xho/term1/listening-speaking-t1/diagram.webp',
-      alt: 'Grade 6 learners greeting each other and introducing themselves in class',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

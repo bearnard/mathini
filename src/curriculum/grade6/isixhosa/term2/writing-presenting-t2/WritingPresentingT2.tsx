@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Write short functional texts for real situations',
-    image: {
-      src: '/curriculum/grade6/xho/term2/writing-presenting-t2/diagram.webp',
-      alt: 'learner drafting diary lines a shopping list and a short message',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

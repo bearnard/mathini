@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'How media texts explain current issues',
-    image: {
-      src: '/curriculum/grade6/eng/term1/current-issues-media/diagram.webp',
-      alt: 'learner comparing a newspaper article and radio report about a community issue',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">
