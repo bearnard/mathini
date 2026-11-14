@@ -25,8 +25,9 @@ export function shuffle<T>(arr: readonly T[], rng: Rng = Math.random): T[] {
  * Builds a mixed test of `count` items, spread as evenly as possible across the
  * topic banks (e.g. 20 items over 5 topics = 4 each; over 4 topics = 5 each).
  * Any remainder goes to randomly chosen topics. If a bank is too small, the
- * shortfall is topped up from the other banks. Items never repeat, question
- * order is shuffled, and each item's options are shuffled.
+ * shortfall is topped up from the other banks. Items never repeat, and neither
+ * does a question (the same prompt in two topic banks is asked only once).
+ * Question order is shuffled, and each item's options are shuffled.
  */
 export function buildMockTest(groups: readonly TopicBank[], count = 20, rng: Rng = Math.random): MockItem[] {
   const usable = groups.filter((g) => g.items.length > 0);
@@ -48,11 +49,15 @@ export function buildMockTest(groups: readonly TopicBank[], count = 20, rng: Rng
     });
 
   const picked: MockItem[] = [];
+  const seenPrompts = new Set<string>();
   const take = (poolIndex: number, n: number) => {
     const pool = pools[poolIndex];
     while (n > 0 && pool.taken < pool.items.length) {
-      picked.push({ ...pool.items[pool.taken], topic: pool.topic });
+      const item = pool.items[pool.taken];
       pool.taken += 1;
+      if (seenPrompts.has(item.prompt)) continue; // already asked from another topic
+      seenPrompts.add(item.prompt);
+      picked.push({ ...item, topic: pool.topic });
       n -= 1;
     }
     return n;

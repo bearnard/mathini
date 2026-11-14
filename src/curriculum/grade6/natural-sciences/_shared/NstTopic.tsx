@@ -10,6 +10,8 @@ import { NstItem, LearnStep } from './types';
 import { useNstItems } from './useNstItems';
 import { track } from '../../../../lib/client/analytics';
 import { usePracticeTracking } from '../../../../lib/client/usePracticeTracking';
+import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
+import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
 
 interface NstTopicProps {
   title: string;
@@ -31,12 +33,15 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [streak, setStreak] = useState(0);
   usePracticeTracking({ active: mode === 'practice', done, isCorrect, ctx: { grade: 6, subject: 'nst', topic: task } });
+  // Signed-in learners' answers are recorded (XP, badges, leaderboards). Subject code matches the leaderboard filter.
+  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'nst');
 
   const handleSelect = (option: string) => {
     if (selected !== null || !current) {
       return;
     }
     setSelected(option);
+    recordAttempt(option === current.answer, current.section, current.id);
     if (option === current.answer) {
       setIsCorrect(true);
       setStreak((s) => s + 1);
@@ -57,6 +62,7 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
     setSelected(null);
     setIsCorrect(null);
     setStreak(0);
+    resetStreak();
     reset();
   };
 
@@ -205,6 +211,7 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
           )}
         </>
       )}
+      <BadgeUnlockModal badges={pendingBadges} onDismiss={clearBadges} />
     </TopicContainer>
   );
 };

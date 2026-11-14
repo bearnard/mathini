@@ -6,6 +6,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import FilterBar from './FilterBar';
 import { formatDay, formatInt, formatPercent } from './format';
 import { plural } from './names';
+import { shellRecordingNote } from './coverage';
 import { useAdminData } from './useAdminData';
 import type { LearnerSort, LearnersData } from '../../lib/server/admin/learners';
 
@@ -74,7 +75,7 @@ export default function LearnersPage() {
   }, [apiQs, withNames]);
 
   const state = useAdminData<LearnersData>('/api/admin/learners', apiQs);
-  const overview = useAdminData<{ options: { subjects: string[] } }>('/api/admin/overview', filterQs.toString());
+  const overview = useAdminData<{ options: { subjects: string[] }; recordedSince: string | null }>('/api/admin/overview', filterQs.toString());
   const subjects = overview.status === 'ok' ? overview.data.options.subjects : [];
 
   const detailQs = filterQs.toString();
@@ -172,7 +173,7 @@ export default function LearnersPage() {
               </table>
             </div>
             <p className="admin-muted" style={{ fontSize: 12, marginTop: 8, lineHeight: 1.5 }}>
-              “Last city” is only recorded for learners whose parent agreed. Questions and accuracy count recorded answers; Grade 6 Natural Sciences, Geography, History and Afrikaans do not record answers.
+              “Last city” is only recorded for learners whose parent agreed. Questions and accuracy count recorded answers. {shellRecordingNote(overview.status === 'ok' ? overview.data.recordedSince : null)}
             </p>
           </>
         )}

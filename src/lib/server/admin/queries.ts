@@ -11,6 +11,9 @@ import { dateRange, previousPeriod, SAST_OFFSET_MS, type Filters } from './filte
 const DAY_BUCKET = (col: string) => `strftime('%Y-%m-%d', ${col} / 1000 + ${SAST_OFFSET_MS / 1000}, 'unixepoch')`;
 const MAX_SESSION_MS = 2 * 60 * 60 * 1000;
 
+/** Subject codes of the Grade 6 topic shells that began recording answers later than other subjects. */
+export const SHELL_SUBJECT_CODES = ['nst', 'geo', 'his', 'afr'] as const;
+
 interface Where {
   sql: string;
   params: Param[];
@@ -210,6 +213,11 @@ export interface Overview {
   consent: { learners: number; consented: number };
   /** SAST date of the first recorded event, or null. */
   eventsSince: string | null;
+  /**
+   * SAST date of the first recorded ANSWER for Grade 6 Natural Sciences, Geography, History or Afrikaans
+   * (these started recording later than other subjects), or null when none has been recorded yet.
+   */
+  recordedSince: string | null;
   generatedAt: number;
 }
 
@@ -218,7 +226,7 @@ const rel = (cur: number | null, prev: number | null): number | null =>
 
 export async function overview(db: AdminDb, f: Filters, now: number = Date.now()): Promise<Overview> {
   const pf = previousPeriod(f);
-  const [cur, prev, series, consent, first, subjects] = await Promise.all([
+  const [cur, prev, series, consent, first, subjects, shells] = await Promise.all([
     periodTotals(db, f),
     periodTotals(db, pf),
     dailySeries(db, f),
@@ -228,6 +236,7 @@ export async function overview(db: AdminDb, f: Filters, now: number = Date.now()
       `SELECT subject FROM attempts WHERE subject IS NOT NULL
        UNION SELECT subject FROM events WHERE subject IS NOT NULL AND type != 'admin_delete' ORDER BY subject`,
     ),
+    db.all<{ t: number | null }>(`SELECT MIN(created_at) AS t FROM attempts WHERE grade = 6 AND subject IN (${SHELL_SUBJECT_CODES.map(() => '?').join(',')})`, [...SHELL_SUBJECT_CODES]),
   ]);
 
   const acc = (t: PeriodTotals) => (t.questions > 0 ? t.correct / t.questions : null);
@@ -244,6 +253,7 @@ export async function overview(db: AdminDb, f: Filters, now: number = Date.now()
   });
 
   const firstTs = first[0]?.first_ts;
+  const shellTs = shells[0]?.t;
   return {
     range: { from: f.fromDate, to: f.toDate, days: f.days, previousFrom: pf.fromDate, previousTo: pf.toDate },
     tiles: {
@@ -262,6 +272,7 @@ export async function overview(db: AdminDb, f: Filters, now: number = Date.now()
     options: { subjects: subjects.map((s) => s.subject) },
     consent: { learners: num(consent[0]?.total), consented: num(consent[0]?.consented) },
     eventsSince: firstTs === null || firstTs === undefined ? null : new Date(num(firstTs) + SAST_OFFSET_MS).toISOString().slice(0, 10),
+    recordedSince: shellTs === null || shellTs === undefined ? null : new Date(num(shellTs) + SAST_OFFSET_MS).toISOString().slice(0, 10),
     generatedAt: now,
   };
 }

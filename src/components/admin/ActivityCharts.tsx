@@ -41,7 +41,7 @@ const PANELS: Panel[] = [
   { key: 'visitors', label: 'Visitors', unit: 'unique devices', one: 'unique device', color: 'var(--series-1)', kind: 'area', note: 'Unique devices per day (Do Not Track visits excluded)' },
   { key: 'learners', label: 'Active learners', unit: 'learners', one: 'learner', color: 'var(--series-2)', kind: 'area', note: 'Signed-in learners with any activity that day' },
   { key: 'runs', label: 'Practice runs', unit: 'finished runs', one: 'finished run', color: 'var(--series-3)', kind: 'area', note: 'Finished practice runs, all topics (from practice events)' },
-  { key: 'questions', label: 'Questions answered', unit: 'answers', one: 'answer', color: 'var(--text-secondary)', kind: 'area', note: 'Answers recorded for signed-in learners (not recorded for Grade 6 Natural Sciences, Geography, History and Afrikaans)' },
+  { key: 'questions', label: 'Questions answered', unit: 'answers', one: 'answer', color: 'var(--text-secondary)', kind: 'area', note: 'Answers recorded for signed-in learners' },
   { key: 'signups', label: 'New sign-ups', unit: 'learners', one: 'learner', color: 'var(--text-secondary)', kind: 'bar', note: 'Learners who created an account that day' },
 ];
 
@@ -74,7 +74,7 @@ function TodayDot({ cx, cy, index, last, color }: { cx?: number; cy?: number; in
 }
 
 /** Daily activity as small multiples with a shared crosshair (syncId), plus a table view. */
-export default function ActivityCharts({ days, partialDate }: { days: Day[]; partialDate: string | null }) {
+export default function ActivityCharts({ days, partialDate, recordingNote = '' }: { days: Day[]; partialDate: string | null; recordingNote?: string }) {
   const [view, setView] = useState<'chart' | 'table'>('chart');
   const tickEvery = Math.max(1, Math.ceil(days.length / 8));
   // A day still in progress (today) is drawn separately: the solid line stops at the last complete
@@ -138,7 +138,7 @@ export default function ActivityCharts({ days, partialDate }: { days: Day[]; par
                   <span aria-hidden style={{ display: 'inline-block', width: 12, height: 3, borderRadius: 2, background: p.color }} />
                   <h3 style={{ fontSize: 14, fontWeight: 700 }}>{p.label}</h3>
                   <span className="admin-muted" style={{ fontSize: 12 }}>
-                    {p.key === 'visitors' || p.key === 'learners' ? p.note : `${formatInt(total)} in this period · ${p.note}`}
+                    {p.key === 'visitors' || p.key === 'learners' ? p.note : `${formatInt(total)} in this period · ${p.note}${p.key === 'questions' && recordingNote ? `. ${recordingNote}` : ''}`}
                   </span>
                 </div>
                 <div style={{ height: last ? 132 : 96 }}>
