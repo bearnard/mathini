@@ -23,8 +23,8 @@
     <rect x="175" y="0" width="175" height="70" rx="24" fill="#fed7aa"/>
     <path d="M175 0 H326 A24 24 0 0 1 350 24 V70 H175 Z" fill="#fed7aa"/>
     <line x1="175" y1="0" x2="175" y2="364" stroke="#cbd5e1" stroke-width="5"/>
-    <text x="87" y="45" text-anchor="middle" font-size="24" font-weight="700" fill="#166534">Rights</text>
-    <text x="262" y="45" text-anchor="middle" font-size="24" font-weight="700" fill="#9a3412">Responsibilities</text>
+    <text x="87" y="45" text-anchor="middle" font-size="22" font-weight="700" fill="#166534">Rights</text>
+    <text x="262" y="45" text-anchor="middle" font-size="19" font-weight="700" fill="#9a3412">Responsibilities</text>
     <text x="28" y="118" font-size="22" fill="#166534">✓ Education</text>
     <text x="28" y="166" font-size="22" fill="#166534">✓ Safety</text>
     <text x="28" y="214" font-size="22" fill="#166534">✓ Freedom</text>

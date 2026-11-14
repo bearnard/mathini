@@ -2,11 +2,11 @@
   <title id="title">Imports and exports</title>
   <desc id="desc">Two arrows between a country and the world showing imports coming in and exports going out.</desc>
   <defs>
-    <marker id="arrow-blue" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="strokeWidth">
-      <path d="M2 2 L12 7 L2 12 Z" fill="#2563eb" />
+    <marker id="arrow-blue" markerWidth="50" markerHeight="50" refX="34" refY="24" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M6 6 L40 24 L6 42 Z" fill="#2563eb" />
     </marker>
-    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="strokeWidth">
-      <path d="M2 2 L12 7 L2 12 Z" fill="#059669" />
+    <marker id="arrow-green" markerWidth="50" markerHeight="50" refX="34" refY="24" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M6 6 L40 24 L6 42 Z" fill="#059669" />
     </marker>
   </defs>
   <rect width="900" height="520" rx="34" fill="#f8fafc" />
@@ -20,8 +20,8 @@
   <rect x="642" y="232" width="26" height="38" fill="#fff7ed" />
   <text x="655" y="354" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" fill="#92400e">Country</text>
   <path d="M320 190 C405 120 500 118 585 177" fill="none" stroke="#2563eb" stroke-width="16" stroke-linecap="round" marker-end="url(#arrow-blue)" />
-  <text x="450" y="100" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" fill="#2563eb">Imports</text>
-  <text x="450" y="136" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" fill="#475569">goods coming in</text>
+  <text x="450" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" fill="#2563eb">Imports</text>
+  <text x="450" y="102" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" fill="#475569">goods coming in</text>
   <path d="M585 315 C500 395 405 396 315 320" fill="none" stroke="#059669" stroke-width="16" stroke-linecap="round" marker-end="url(#arrow-green)" />
   <text x="450" y="426" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" fill="#059669">Exports</text>
   <text x="450" y="462" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" fill="#475569">goods going out</text>
