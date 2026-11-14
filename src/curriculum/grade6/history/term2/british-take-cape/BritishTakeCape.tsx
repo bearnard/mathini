@@ -95,6 +95,7 @@ export const bank: HisItem[] = [
   { prompt: 'Why did ships stop at the Cape?', options: ['To get fresh water, food, and repairs', 'To cross a desert by camel', 'To mine diamonds on every voyage', 'To avoid all ocean travel'], answer: 'To get fresh water, food, and repairs', explanation: 'The Cape was a refreshment station for ships on long journeys.' },
   { prompt: 'Which statement is most accurate about British rule at the Cape?', options: ['It brought new laws, officials, and settlers', 'It ended all conflict immediately', 'It removed the need for sea travel', 'It made everyone equal overnight'], answer: 'It brought new laws, officials, and settlers', explanation: 'British control changed government and society, but problems and inequalities continued.' },
   { prompt: 'What mountain is closely linked with Table Bay and Cape Town?', options: ['Table Mountain', 'Mount Everest', 'Kilimanjaro', 'Drakensberg only'], answer: 'Table Mountain', explanation: 'Table Mountain is the flat-topped mountain overlooking Table Bay.' },
+  { kind: 'order', section: 'chronology', prompt: 'Put these events about the Cape changing hands in order, earliest first.', options: ['Dias rounds the Cape', 'Dutch station founded', 'Britain first occupies Cape', 'Britain wins again', 'Slavery is abolished'], answer: 'Dias rounds the Cape|Dutch station founded|Britain first occupies Cape|Britain wins again|Slavery is abolished', explanation: 'The dates are 1488, 1652, 1795, 1806 and 1834.' },
 ];
 
 const BritishTakeCape = () => (

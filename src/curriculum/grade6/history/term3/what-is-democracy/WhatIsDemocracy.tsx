@@ -84,6 +84,7 @@ export const bank: HisItem[] = [
   { prompt: 'What public holiday remembers 27 April 1994?', options: ['Freedom Day', 'Heritage Day', 'Youth Day', 'Workers’ Day'], answer: 'Freedom Day', explanation: 'Freedom Day celebrates South Africa’s first democratic election.' },
   { prompt: 'Who became South Africa’s first democratically elected President?', options: ['Nelson Mandela', 'Desmond Tutu', 'Oliver Tambo', 'Walter Sisulu'], answer: 'Nelson Mandela', explanation: 'Nelson Mandela became President after the 1994 democratic election.' },
   { prompt: 'Why is voting important in a democracy?', options: ['It gives citizens a say in government', 'It replaces all laws', 'It stops people from having rights', 'It means leaders never change'], answer: 'It gives citizens a say in government', explanation: 'Voting is one way citizens help choose the people who govern.' },
+  { kind: 'order', section: 'chronology', prompt: 'Put these events about democracy and human rights in order, earliest first.', options: ['Athenian reforms widen participation', 'Magna Carta limits kings', 'Human rights declared', 'South Africa votes freely'], answer: 'Athenian reforms widen participation|Magna Carta limits kings|Human rights declared|South Africa votes freely', explanation: 'The dates are 508/507 BCE, 1215, 1948 and 27 Apr 1994.' },
 ];
 
 const WhatIsDemocracy = () => (

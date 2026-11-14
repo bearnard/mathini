@@ -84,6 +84,7 @@ export const bank: HisItem[] = [
   { prompt: 'Which level of government works in a province?', options: ['Provincial government', 'International government', 'Only family government', 'No government at all'], answer: 'Provincial government', explanation: 'Provincial government serves one of South Africa’s provinces.' },
   { prompt: 'What is another name for local government?', options: ['Municipal government', 'National Parliament', 'The Bill of Rights', 'Freedom Day'], answer: 'Municipal government', explanation: 'Local government is also called municipal government.' },
   { prompt: 'If people have freedom, what responsibility goes with it?', options: ['Respecting other people’s freedom', 'Forcing everyone to agree', 'Ignoring safety rules', 'Taking away elections'], answer: 'Respecting other people’s freedom', explanation: 'Your freedom must be balanced with respect for other people’s rights.' },
+  { kind: 'order', section: 'chronology', prompt: 'Put these events about citizenship and government in South Africa in order, earliest first.', options: ['Apartheid limits citizenship', 'Equal national vote', 'Constitution defines government spheres', 'New municipalities begin'], answer: 'Apartheid limits citizenship|Equal national vote|Constitution defines government spheres|New municipalities begin', explanation: 'The dates are 1948, 1994, 1996 and 2000.' },
 ];
 
 const RightsResponsibilities = () => (

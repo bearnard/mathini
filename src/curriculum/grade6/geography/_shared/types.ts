@@ -1,14 +1,8 @@
 import React from 'react';
+import type { NstItem } from '../../natural-sciences/_shared/types';
 
-export interface GeoItem {
-  /** Question-pool id and section, present on items served from the pool (not on the curated banks). */
-  id?: number;
-  section?: string;
-  prompt: string;
-  options: string[];
-  answer: string;
-  explanation?: string;
-}
+/** Same shape as the Natural Sciences item: mcq by default, optionally 'order' or 'label' (see natural-sciences/_shared/types). */
+export type GeoItem = NstItem;
 
 export interface LearnStep {
   title: string;

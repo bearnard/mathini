@@ -65,6 +65,7 @@ export const bank: GeoItem[] = [
   { prompt: 'Which tool could you use with a bar scale to measure straight map distance?', options: ['Ruler', 'Thermometer', 'Clock', 'Magnet'], answer: 'Ruler', explanation: 'A ruler can measure the distance on the map before comparing it with the scale.' },
   { prompt: 'A town map showing individual streets is most likely what kind of map?', options: ['Large-scale map', 'Small-scale map', 'World map', 'Ocean-only map'], answer: 'Large-scale map', explanation: 'Town maps show a smaller area with useful detail such as streets.' },
   { prompt: 'Which statement is true about scale?', options: ['The same scale must be used carefully for all measurements on that map', 'Scale only shows direction', 'Scale makes north point south', 'Scale is another word for weather'], answer: 'The same scale must be used carefully for all measurements on that map', explanation: 'Use the map’s own scale when converting its distances.' },
+  { kind: 'order', section: 'measuring-distance', prompt: 'Put the steps for finding a real distance from a map in order.', options: ['Measure the map distance', 'Compare it with the scale bar', 'Estimate the real distance'], answer: 'Measure the map distance|Compare it with the scale bar|Estimate the real distance', explanation: 'Measure the route on the map, compare it with the bar scale, then estimate the real distance in kilometres.' },
 ];
 
 const MapScale = () => (

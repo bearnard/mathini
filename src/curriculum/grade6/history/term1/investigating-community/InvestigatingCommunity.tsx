@@ -84,6 +84,7 @@ export const bank: HisItem[] = [
   { prompt: 'Why should you take notes during an interview?', options: ['To remember important details accurately', 'To make the interview shorter without listening', 'To hide the source from others', 'To change the story completely'], answer: 'To remember important details accurately', explanation: 'Notes help you check names, dates, places, and main ideas later.' },
   { prompt: 'Which source could show how a street looked long ago?', options: ['An old photograph of the street', 'A new empty envelope', 'A fresh glass of water', 'A shoe bought today'], answer: 'An old photograph of the street', explanation: 'Old photographs are visual evidence of places and changes.' },
   { prompt: 'Why compare interview evidence with other sources?', options: ['To check and add to the information', 'To prove all memories are useless', 'To remove dates from the project', 'To avoid learning from objects'], answer: 'To check and add to the information', explanation: 'Comparing sources can confirm details and show different points of view.' },
+  { kind: 'order', section: 'chronology', prompt: 'Put these events about recording community history in order, earliest first.', options: ['Public museums open', 'Photography records communities', 'Recorded interviews spread', 'District Six Museum opens'], answer: 'Public museums open|Photography records communities|Recorded interviews spread|District Six Museum opens', explanation: 'The dates are 1683, 1839, 1948 and 1994.' },
 ];
 
 const InvestigatingCommunity = () => (

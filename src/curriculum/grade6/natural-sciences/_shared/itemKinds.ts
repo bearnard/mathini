@@ -130,3 +130,17 @@ export function shuffleOptions(item: NstItem, rng: Rng = Math.random): string[] 
   }
   return shuffled;
 }
+
+/** Drops items that cannot be played (unknown kinds fall back to mcq when valid), then shuffles items and options. */
+export function prepareItems(items: readonly NstItem[], rng: Rng = Math.random): NstItem[] {
+  const playable = items.map(normaliseItem).filter((it): it is NstItem => it !== null);
+  return shuffleWith(playable, rng).map((it) => ({ ...it, options: shuffleOptions(it, rng) }));
+}
+
+/**
+ * D1 rows carry no `kind` (they are all mcq), so on their own they would hide the curated order/label
+ * items. Add those from the bank to every batch that comes from D1.
+ */
+export function withCuratedExtras(fetched: readonly NstItem[], bank: readonly NstItem[]): NstItem[] {
+  return [...fetched, ...bank.filter((it) => kindOf(it) !== 'mcq')];
+}

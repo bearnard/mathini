@@ -86,6 +86,7 @@ export const bank: HisItem[] = [
   { prompt: 'What is a secondary source?', options: ['A source made later using other evidence', 'An object buried underground', 'A person who saw the event directly', 'A letter written during the event'], answer: 'A source made later using other evidence', explanation: 'Textbooks and documentaries often explain the past using primary sources.' },
   { prompt: 'Why should we ask who made a source?', options: ['To understand its point of view and purpose', 'To make the source older', 'To turn it into an artefact', 'To remove all information from it'], answer: 'To understand its point of view and purpose', explanation: 'Knowing the creator helps us judge how useful and reliable a source may be.' },
   { prompt: 'Which pair is correctly matched?', options: ['Diary — written source', 'Pot — oral source', 'Interview — visual source', 'Photograph — object source'], answer: 'Diary — written source', explanation: 'A diary is a written record, often made close to the time being studied.' },
+  { kind: 'order', section: 'chronology', prompt: 'Put these events about how historical sources developed in order, earliest first.', options: ['Writing begins in Mesopotamia', 'Herodotus uses many sources', 'Printing multiplies records', 'Photography becomes evidence'], answer: 'Writing begins in Mesopotamia|Herodotus uses many sources|Printing multiplies records|Photography becomes evidence', explanation: 'The dates are c. 3200 BCE, c. 440 BCE, c. 1450 and 1839.' },
 ];
 
 const HistoricalSources = () => (
