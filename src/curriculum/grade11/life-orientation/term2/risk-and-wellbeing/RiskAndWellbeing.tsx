@@ -122,23 +122,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is "trauma"?',
-    options: [
-      'A physical injury only',
-      'An emotional response to a deeply distressing or disturbing event',
-      'Feeling sad after watching a movie',
-      'Normal everyday stress',
-    ],
-    answer: 'An emotional response to a deeply distressing or disturbing event',
+    options: ['A physical injury, such as a broken bone', 'An emotional response to a deeply distressing event', 'Feeling sad after watching a sad film', 'The normal stress of everyday school life'],
+    answer: 'An emotional response to a deeply distressing event',
     explanation: 'Trauma results from events that overwhelm a person\'s ability to cope — such as violence, loss, or abuse.',
   },
   {
     prompt: 'Using alcohol or drugs to cope with emotional pain is an example of:',
-    options: [
-      'A healthy coping strategy',
-      'An unhealthy coping strategy that worsens the underlying problem',
-      'Medical treatment',
-      'A protective factor',
-    ],
+    options: ['A healthy coping strategy that eases the pain', 'An unhealthy coping strategy that worsens the underlying problem', 'A form of medical treatment for emotional pain', 'A protective factor that guards against harm'],
     answer: 'An unhealthy coping strategy that worsens the underlying problem',
     explanation: 'Substance use as a coping mechanism provides temporary relief but deepens trauma and creates additional problems like addiction.',
   },
@@ -166,13 +156,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which of the following is a healthy coping strategy for dealing with trauma?',
-    options: [
-      'Isolating yourself and avoiding all social contact',
-      'Talking to a trusted adult or counsellor and maintaining a daily routine',
-      'Using substances to numb the pain',
-      'Ignoring all feelings about the traumatic event',
-    ],
-    answer: 'Talking to a trusted adult or counsellor and maintaining a daily routine',
+    options: ['Isolating yourself and avoiding all social contact', 'Talking to a trusted adult or counsellor and keeping a routine', 'Using substances to numb the pain for a while', 'Ignoring every feeling about the traumatic event'],
+    answer: 'Talking to a trusted adult or counsellor and keeping a routine',
     explanation: 'Healthy coping strategies address the root cause of distress and build resilience without creating further harm.',
   },
   {
@@ -183,24 +168,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is early intervention important when someone is showing signs of substance abuse?',
-    options: [
-      'It is not important — the person will stop on their own',
-      'Early intervention leads to better recovery outcomes and prevents the problem from worsening',
-      'It should only happen after the person asks for help themselves',
-      'Intervention is only helpful for adults, not adolescents',
-    ],
-    answer: 'Early intervention leads to better recovery outcomes and prevents the problem from worsening',
+    options: ['It is not important, as the person will stop alone', 'It improves recovery and stops the problem getting worse', 'It should happen only after the person asks for help', 'Intervention helps adults and does not help adolescents'],
+    answer: 'It improves recovery and stops the problem getting worse',
     explanation: 'Identifying and addressing substance abuse early reduces harm and significantly improves the chances of full recovery.',
   },
   {
     prompt: 'Which of the following is a consequence of long-term substance abuse?',
-    options: [
-      'Improved academic performance',
-      'Stronger relationships with family',
-      'Addiction, health problems, and school or work failure',
-      'Increased financial security',
-    ],
-    answer: 'Addiction, health problems, and school or work failure',
+    options: ['Improved academic performance at school', 'Stronger relationships with family members', 'Addiction, health problems and failure at school or work', 'Greater financial security in later life'],
+    answer: 'Addiction, health problems and failure at school or work',
     explanation: 'Chronic substance abuse causes physical harm (brain, liver), damages relationships, and impairs academic and occupational functioning.',
   },
 ];

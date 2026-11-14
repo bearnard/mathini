@@ -117,13 +117,8 @@ const learnSteps: LearnStep[] = [
 const bank: CATItem[] = [
   {
     prompt: 'What is the difference between a switch and a hub in a network?',
-    options: [
-      'A hub is faster than a switch',
-      'A switch sends data only to the intended device; a hub broadcasts data to all devices',
-      'A switch requires Wi-Fi; a hub uses cables',
-      'There is no difference',
-    ],
-    answer: 'A switch sends data only to the intended device; a hub broadcasts data to all devices',
+    options: ['A hub is faster than a switch on a network', 'A switch sends data to the intended device; a hub broadcasts to all', 'A switch needs Wi-Fi and a hub needs cables', 'There is no difference between a switch and a hub'],
+    answer: 'A switch sends data to the intended device; a hub broadcasts to all',
     explanation: 'Switches are "intelligent" — they learn MAC addresses and direct traffic only to the correct port. Hubs broadcast to all, wasting bandwidth.',
   },
   {
@@ -145,13 +140,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'A school implements a BYOD policy. Which is the MOST significant security risk?',
-    options: [
-      'Learners will use too much internet data',
-      'Personal devices may carry malware that infects the school network',
-      'Devices will be too slow for school tasks',
-      'Learners will not want to bring their devices',
-    ],
-    answer: 'Personal devices may carry malware that infects the school network',
+    options: ['Learners will use too much internet data', 'Personal devices may carry malware that infects the network', 'The devices will be too slow for school tasks', 'Learners will not want to bring their own devices'],
+    answer: 'Personal devices may carry malware that infects the network',
     explanation: 'Unmanaged personal devices may not have updated antivirus or OS patches, making them potential vectors for malware on the school network.',
   },
   {
@@ -174,8 +164,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'An IoT example in a South African home would be:',
-    options: ['A desktop computer connected via Ethernet', 'A smart electricity meter that reports usage to the utility provider via the internet', 'A wired telephone', 'A printed textbook'],
-    answer: 'A smart electricity meter that reports usage to the utility provider via the internet',
+    options: ['A desktop computer that is connected by Ethernet', 'A smart meter that reports usage to the utility over the internet', 'A wired telephone that is fixed to a wall', 'A printed textbook that is kept in a classroom'],
+    answer: 'A smart meter that reports usage to the utility over the internet',
     explanation: 'IoT devices are everyday objects connected to the internet — smart meters, smart lights, and fitness bands are common examples.',
   },
   {

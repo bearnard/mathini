@@ -117,26 +117,26 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'A student applies "Heading 1" style to all chapter titles in their report. What additional benefit does this provide?',
-    options: ['Changes the paper size', 'Allows automatic generation of a Table of Contents', 'Converts text to uppercase', 'Inserts page breaks automatically'],
-    answer: 'Allows automatic generation of a Table of Contents',
+    options: ['It changes the paper size of the document', 'It lets the software build a Table of Contents automatically', 'It converts all of the text to uppercase', 'It inserts page breaks in the document by itself'],
+    answer: 'It lets the software build a Table of Contents automatically',
     explanation: 'Word processors use heading styles to detect document structure and build an automatic Table of Contents.',
   },
   {
     prompt: 'In a mail merge, what is the "data source"?',
-    options: ['The finished printed letters', 'A file (spreadsheet or database) containing the variable information like names and addresses', 'The main document template', 'The merge fields inserted into the document'],
-    answer: 'A file (spreadsheet or database) containing the variable information like names and addresses',
+    options: ['The finished printed letters that are sent out', 'A file (spreadsheet or database) holding the names and addresses', 'The main document template that has the text', 'The merge fields that are placed inside the document'],
+    answer: 'A file (spreadsheet or database) holding the names and addresses',
     explanation: 'The data source supplies the unique values (names, addresses, etc.) that replace merge fields in each copy of the merged document.',
   },
   {
     prompt: 'Which feature would you use to show "Page 3 of 10" at the bottom of every page?',
-    options: ['Watermark', 'Section break', 'Footer with page number field', 'Drop cap'],
-    answer: 'Footer with page number field',
+    options: ['A watermark placed behind the text', 'A section break between two parts of the file', 'Footer with a page number field', 'A drop cap at the start of a paragraph'],
+    answer: 'Footer with a page number field',
     explanation: 'A footer containing a page-number field and a total-pages field automatically displays the current and total page count on every page.',
   },
   {
     prompt: 'What does a watermark do in a word-processed document?',
-    options: ['Adds a border around the page', 'Places a faint background image or text (e.g. DRAFT) behind the document content', 'Encrypts the document', 'Adds a table of contents'],
-    answer: 'Places a faint background image or text (e.g. DRAFT) behind the document content',
+    options: ['Adds a border around each page of the document', 'Puts faint text or an image (e.g. DRAFT) behind content', 'Encrypts the document so it cannot be opened', 'Adds a table of contents at the start of the file'],
+    answer: 'Puts faint text or an image (e.g. DRAFT) behind content',
     explanation: 'Watermarks appear as semi-transparent text or images behind the main content to indicate document status.',
   },
   {
@@ -153,8 +153,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'Find and Replace in a word processor is most useful for:',
-    options: ['Changing all occurrences of a word throughout a long document at once', 'Checking grammar', 'Inserting images', 'Formatting tables'],
-    answer: 'Changing all occurrences of a word throughout a long document at once',
+    options: ['Changing every use of a word in a long document at once', 'Checking the grammar of the whole document', 'Inserting images into the pages of a document', 'Formatting the tables that are in a document'],
+    answer: 'Changing every use of a word in a long document at once',
     explanation: 'Find and Replace locates every instance of a search term and swaps it with the replacement, saving time in long documents.',
   },
 ];

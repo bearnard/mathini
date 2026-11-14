@@ -144,13 +144,8 @@ const learnSteps: LearnStep[] = [
 const bank: AccountingItem[] = [
   {
     prompt: 'A projected statement of comprehensive income is used to:',
-    options: [
-      'Record actual transactions for the current year',
-      'Estimate future revenue, costs, and profit based on stated assumptions',
-      'Reconcile the bank statement',
-      'Calculate depreciation on fixed assets',
-    ],
-    answer: 'Estimate future revenue, costs, and profit based on stated assumptions',
+    options: ['Record the actual transactions of the current year', 'Estimate future revenue, costs and profit from stated assumptions', 'Reconcile the bank statement of the business', 'Work out the depreciation on the fixed assets'],
+    answer: 'Estimate future revenue, costs and profit from stated assumptions',
     explanation: 'A projected income statement is a planning tool that helps partners understand expected profitability before the period begins.',
   },
   {
@@ -167,13 +162,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Which of the following is a budget assumption?',
-    options: [
-      'Actual sales of R350 000 were achieved',
-      'All expenses will increase by 5% compared to the current year',
-      'The bank reconciliation has been completed',
-      'Partner A received a salary of R20 000',
-    ],
-    answer: 'All expenses will increase by 5% compared to the current year',
+    options: ['Actual sales of R350 000 were achieved', 'All expenses will rise by 5% on the current year', 'The bank reconciliation has been completed', 'Partner A received a salary of R20 000'],
+    answer: 'All expenses will rise by 5% on the current year',
     explanation: 'A budget assumption is a stated prediction about how a figure will behave in the future — used to calculate projected amounts.',
   },
   {
@@ -212,24 +202,14 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'What happens to the projected gross profit percentage if selling price increases but cost of sales stays the same?',
-    options: [
-      'It decreases because more tax is due',
-      'It increases because revenue rises while the cost base stays the same',
-      'It stays the same',
-      'It decreases because expenses increase',
-    ],
-    answer: 'It increases because revenue rises while the cost base stays the same',
+    options: ['It falls, because more tax is due on the sales', 'It rises, as revenue goes up while the cost base stays the same', 'It stays the same, as the cost of sales did not change', 'It falls, because the expenses of the firm increase'],
+    answer: 'It rises, as revenue goes up while the cost base stays the same',
     explanation: 'If the selling price rises with no change in cost of sales per unit, gross profit per unit increases — improving the gross profit %.',
   },
   {
     prompt: 'Why is it important to clearly state the assumptions used in a projected income statement?',
-    options: [
-      'To make the statement longer',
-      'So that users can assess the reliability of the projections and understand what conditions they depend on',
-      'Because assumptions are the same as actual results',
-      'To comply with the bank reconciliation requirement',
-    ],
-    answer: 'So that users can assess the reliability of the projections and understand what conditions they depend on',
+    options: ['To make the statement longer than before', 'So users can judge how reliable the projections are', 'Because assumptions are the same as actual results', 'To meet the requirement for a bank reconciliation'],
+    answer: 'So users can judge how reliable the projections are',
     explanation: 'Stating assumptions allows readers to evaluate how realistic the projections are and what would happen if conditions change.',
   },
 ];

@@ -135,13 +135,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a "subordinate clause" (igatya elincedisayo)?',
-    options: [
-      'A clause that cannot stand alone and depends on the main clause for meaning',
-      'A clause that can stand alone as a complete sentence',
-      'A clause that only contains a verb',
-      'A clause that begins a new paragraph',
-    ],
-    answer: 'A clause that cannot stand alone and depends on the main clause for meaning',
+    options: ['A clause that cannot stand alone and depends on the main clause', 'A clause that can stand alone as a full sentence', 'A clause that contains only a verb', 'A clause that starts a new paragraph'],
+    answer: 'A clause that cannot stand alone and depends on the main clause',
     explanation: 'Subordinate clauses add conditions, reasons, or circumstances — they are dependent on the main clause.',
   },
   {
@@ -163,24 +158,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the "connotation" of a word?',
-    options: [
-      'The emotional associations and implied meanings a word carries beyond its literal definition',
-      'The exact dictionary definition of the word',
-      'The word\'s grammatical function (noun, verb, etc.)',
-      'The spelling of the word in another language',
-    ],
-    answer: 'The emotional associations and implied meanings a word carries beyond its literal definition',
+    options: ['The emotional associations a word carries beyond its literal meaning', 'The exact dictionary definition of the word', 'The grammatical function of the word (noun, verb)', 'The spelling of the word in another language'],
+    answer: 'The emotional associations a word carries beyond its literal meaning',
     explanation: 'Connotation captures the cultural and emotional baggage of a word — important for style choices in formal writing.',
   },
   {
     prompt: 'Why is sentence variety important in Grade 11 writing?',
-    options: [
-      'It creates rhythm, maintains reader interest, and demonstrates linguistic sophistication',
-      'It is required to make every sentence exactly the same length',
-      'It allows the writer to avoid using any punctuation',
-      'It is only relevant in poetry, not prose',
-    ],
-    answer: 'It creates rhythm, maintains reader interest, and demonstrates linguistic sophistication',
+    options: ['It creates rhythm, keeps interest and shows language skill', 'It is required to make every sentence the same length', 'It lets the writer avoid using punctuation', 'It is only relevant in poetry and not in prose'],
+    answer: 'It creates rhythm, keeps interest and shows language skill',
     explanation: 'Varied sentence structures — simple, compound, complex — are a key criterion in CAPS writing rubrics.',
   },
   {
@@ -196,24 +181,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which strategy best helps with vocabulary refinement in an essay?',
-    options: [
-      'Choosing synonyms whose connotation matches the intended tone and audience',
-      'Using the same word repeatedly for emphasis',
-      'Replacing all verbs with nouns for variety',
-      'Avoiding any figurative language in the essay',
-    ],
-    answer: 'Choosing synonyms whose connotation matches the intended tone and audience',
+    options: ['Choosing synonyms whose connotation fits the tone and audience', 'Using the same word again and again for emphasis', 'Replacing all of the verbs with nouns for variety', 'Avoiding all figurative language in the essay'],
+    answer: 'Choosing synonyms whose connotation fits the tone and audience',
     explanation: 'Word choice is about appropriateness — the right synonym carries the right emotional weight and register for the context.',
   },
   {
     prompt: 'What does editing for "clarity" mean?',
-    options: [
-      'Reworking sentences so ideas are expressed precisely and without ambiguity',
-      'Making every sentence longer and more complex',
-      'Adding as many adjectives as possible',
-      'Removing all subordinate clauses from the text',
-    ],
-    answer: 'Reworking sentences so ideas are expressed precisely and without ambiguity',
+    options: ['Reworking sentences to say ideas precisely, with no ambiguity', 'Making every sentence longer and more complex', 'Adding as many adjectives as you possibly can', 'Removing all of the subordinate clauses in the text'],
+    answer: 'Reworking sentences to say ideas precisely, with no ambiguity',
     explanation: 'Clear writing communicates ideas efficiently — ambiguity and wordiness obscure meaning and lose marks.',
   },
 ];

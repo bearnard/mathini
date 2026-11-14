@@ -116,7 +116,7 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Which feature allows a company to continue operating even after its original owner passes away?',
-    options: ['Limited liability', 'Separate legal entity', 'Perpetual succession (continuity)', 'Listed status'],
+    options: ['Limited liability for the owners', 'Separate legal entity status', 'Perpetual succession (continuity)', 'Listed status on the stock exchange'],
     answer: 'Perpetual succession (continuity)',
     explanation: 'Companies have perpetual succession — the business continues to exist regardless of changes in ownership or the death of shareholders.',
   },

@@ -116,24 +116,14 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is the key feature that distinguishes a discursive essay from an argumentative one?',
-    options: [
-      'A discursive essay is always shorter',
-      'A discursive essay presents and weighs both sides of an issue fairly, without taking a strong one-sided stance',
-      'A discursive essay must include a personal anecdote',
-      'A discursive essay avoids evidence entirely',
-    ],
-    answer: 'A discursive essay presents and weighs both sides of an issue fairly, without taking a strong one-sided stance',
+    options: ['A discursive essay is always shorter than other essays', 'A discursive essay weighs both sides fairly, with no one-sided stance', 'A discursive essay must include a personal anecdote', 'A discursive essay leaves out evidence completely'],
+    answer: 'A discursive essay weighs both sides fairly, with no one-sided stance',
     explanation: 'Unlike argumentative essays that defend one position, discursive essays explore the issue from multiple angles and reach a measured conclusion.',
   },
   {
     prompt: 'How does a formal report differ from a magazine article?',
-    options: [
-      'A report is informal; a magazine article is always formal',
-      'A report follows a structured format with purpose, findings, and recommendations in an objective register; a magazine article is more accessible and engaging',
-      'They are identical in format and purpose',
-      'A report is always shorter than a magazine article',
-    ],
-    answer: 'A report follows a structured format with purpose, findings, and recommendations in an objective register; a magazine article is more accessible and engaging',
+    options: ['A report is informal, while a magazine article is always formal', 'A report is structured and objective; a magazine article is engaging', 'The two are identical in format and in purpose', 'A report is always shorter than a magazine article'],
+    answer: 'A report is structured and objective; a magazine article is engaging',
     explanation: 'A formal report is analytical and objective; a magazine article is informative or entertaining and uses a semi-formal register.',
   },
   {
@@ -171,35 +161,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a reflective essay primarily about?',
-    options: [
-      'Reflecting light waves in a physics experiment',
-      'Exploring the writer\'s personal thoughts, feelings, and growth in response to an experience or idea',
-      'Comparing two different texts on the same topic',
-      'Arguing that the reader should change their behaviour',
-    ],
-    answer: 'Exploring the writer\'s personal thoughts, feelings, and growth in response to an experience or idea',
+    options: ['Reflecting light waves in a science experiment', 'Exploring your thoughts, feelings and growth in response to an experience', 'Comparing two different texts on the same topic', 'Arguing that the reader should change their behaviour'],
+    answer: 'Exploring your thoughts, feelings and growth in response to an experience',
     explanation: 'Reflective essays blend narration with introspection — what happened, what it felt like, and what insight the writer gained.',
   },
   {
     prompt: 'Which feature most clearly identifies a magazine article as different from a formal report?',
-    options: [
-      'The use of headings and subheadings',
-      'An engaging headline, semi-formal register, and a journalistic style intended to entertain or inform a broad audience',
-      'A conclusion with formal recommendations',
-      'The absence of any personal voice',
-    ],
-    answer: 'An engaging headline, semi-formal register, and a journalistic style intended to entertain or inform a broad audience',
+    options: ['The use of headings and subheadings in the text', 'An engaging headline, semi-formal register and a journalistic style', 'A conclusion that gives formal recommendations', 'The absence of any personal voice from the writer'],
+    answer: 'An engaging headline, semi-formal register and a journalistic style',
     explanation: 'Magazine articles use accessible language, eye-catching headlines, and a voice that engages the reader — unlike the objective tone of a formal report.',
   },
   {
     prompt: 'What is a review?',
-    options: [
-      'A factual report presenting survey data',
-      'A balanced evaluation of a text, film, or performance that describes, analyses, and recommends',
-      'A personal letter to a friend about a movie',
-      'An agenda for an upcoming arts event',
-    ],
-    answer: 'A balanced evaluation of a text, film, or performance that describes, analyses, and recommends',
+    options: ['A factual report that presents the data of a survey', 'A balanced evaluation that describes, analyses and recommends', 'A personal letter to a friend about a film seen', 'An agenda for an arts event that will take place soon'],
+    answer: 'A balanced evaluation that describes, analyses and recommends',
     explanation: 'A review includes brief description, evaluative commentary using criteria, and a recommendation to a specific audience.',
   },
   {
@@ -215,13 +190,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How do you correctly open a formal report?',
-    options: [
-      '"Dear Report" followed by a greeting',
-      'A title, then an introduction that states the purpose and scope of the report',
-      'A quotation from a famous author',
-      'A personal anecdote about why the topic matters to you',
-    ],
-    answer: 'A title, then an introduction that states the purpose and scope of the report',
+    options: ['"Dear Report" followed by a friendly greeting', 'A title, then an introduction that states the purpose and scope', 'A quotation from a famous author about the topic', 'A personal story about why the topic matters to you'],
+    answer: 'A title, then an introduction that states the purpose and scope',
     explanation: 'A formal report begins with a title (identifying the subject) and an introduction that tells the reader what the report covers and why it was written.',
   },
 ];

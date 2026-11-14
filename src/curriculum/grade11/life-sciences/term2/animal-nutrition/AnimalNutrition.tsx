@@ -107,7 +107,7 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'What is the role of bile in the digestion of fats?',
-    options: ['It digests proteins into amino acids', 'It emulsifies large fat globules into smaller droplets', 'It converts glucose to glycogen', 'It absorbs water in the colon'],
+    options: ['It digests proteins into amino acids', 'It emulsifies large fat globules into smaller droplets', 'It converts glucose into glycogen in the liver', 'It absorbs water from the colon of the gut'],
     answer: 'It emulsifies large fat globules into smaller droplets',
     explanation: 'Bile (produced by the liver, stored in the gall bladder) has no enzymes but breaks fat into smaller droplets, vastly increasing the surface area available to lipase.',
   },
@@ -137,8 +137,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'What is assimilation in the context of nutrition?',
-    options: ['Breaking down food into smaller molecules', 'Absorbing nutrients through the gut wall', 'Using absorbed nutrients within body cells for growth, energy, and repair', 'Excreting undigested material as faeces'],
-    answer: 'Using absorbed nutrients within body cells for growth, energy, and repair',
+    options: ['Breaking food down into smaller molecules', 'Absorbing nutrients through the wall of the gut', 'Using absorbed nutrients in cells for growth, energy and repair', 'Passing undigested material out as faeces'],
+    answer: 'Using absorbed nutrients in cells for growth, energy and repair',
     explanation: 'Assimilation is the final stage of nutrition, where absorbed nutrients are incorporated into cellular structures or metabolised for energy.',
   },
   {

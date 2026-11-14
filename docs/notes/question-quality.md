@@ -193,3 +193,17 @@ missing), and **the curated banks of grades 7-12 largely duplicate the AI pool**
 source, fixes both. `src/curatedBanks.quality.test.ts` is a ratchet: a reject-level count may only go down (fix questions, then run
 `node --import tsx scripts/curated-quality-baseline.ts`). Editing only a question's options/answer keeps its qkey (the key is task + prompt), so
 review schedules survive such fixes; changing a prompt does not.
+
+## Curated banks, Grades 7-12: needs prompt change (after stable IDs)
+
+The Grades 7-12 curated bank repair (branch `fix/curated-g7-12`) changes options, answers and (rarely) explanations only, because a
+prompt edit changes the qkey and orphans spaced-review schedules. These items cannot be fixed without a prompt change; revisit them
+once stable question IDs exist.
+
+- Grade 9 Geography, "What percentage of South African development involves healthcare?": the key lists healthcare programmes and
+  gives no percentage. The prompt needs to ask "What does healthcare in development include?".
+- Grade 9 Technology, "What is IDMEC in the context of accessible design?": not a recognised accessibility term; the key looks
+  invented. Replace with "What is universal design?" (or drop it).
+- Grade 9 (several subjects): stems that are truncated fragments ("A scale is...", "Alignment in dance means...").
+- Grade 9 Afrikaans: the 12 identical placeholders ("How should you approach this skill?" and "What supports learning?") were
+  deleted outright (not Afrikaans content; nothing depended on them).

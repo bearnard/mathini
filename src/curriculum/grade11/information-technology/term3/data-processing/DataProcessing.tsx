@@ -116,13 +116,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What does the "finally" block in a try-except structure do?',
-    options: [
-      'Only runs if no exception occurs',
-      'Only runs if an exception occurs',
-      'Always runs regardless of whether an exception occurred',
-      'Raises a new exception',
-    ],
-    answer: 'Always runs regardless of whether an exception occurred',
+    options: ['Runs only if no exception occurs', 'Runs only if an exception has occurred', 'Always runs, whether or not an exception occurred', 'Raises a brand new exception when it is reached'],
+    answer: 'Always runs, whether or not an exception occurred',
     explanation: 'The finally block is used for cleanup code (e.g. closing files) that must execute no matter what.',
   },
   {
@@ -151,13 +146,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'A program reads integers from a file but the file contains a blank line. What is the safest approach?',
-    options: [
-      'Assume the file is always correct',
-      'Use exception handling (try-except) to catch conversion errors on each line',
-      'Open the file in binary mode',
-      'Only read the first 10 lines',
-    ],
-    answer: 'Use exception handling (try-except) to catch conversion errors on each line',
+    options: ['Assume that the file is always correct', 'Use try-except to catch conversion errors on each line', 'Open the file in binary mode instead', 'Read only the first ten lines of the file'],
+    answer: 'Use try-except to catch conversion errors on each line',
     explanation: 'Wrapping the int() conversion in a try-except prevents a crash when a blank or non-numeric line is encountered.',
   },
   {

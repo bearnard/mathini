@@ -74,8 +74,8 @@ const bank: MLItem[] = [
   },
   {
     prompt: 'The difference between a savings account and a fixed deposit is:',
-    options: ['A fixed deposit has no interest', 'A savings account locks money in for a period', 'A fixed deposit locks money in for a set period, usually at a higher rate', 'They are the same product'],
-    answer: 'A fixed deposit locks money in for a set period, usually at a higher rate',
+    options: ['A fixed deposit earns no interest at all', 'A savings account locks money in for a term', 'A fixed deposit locks money in for a set term', 'The two are the same kind of product'],
+    answer: 'A fixed deposit locks money in for a set term',
     explanation: 'Fixed deposits are locked for a specific term (e.g., 12 months) and offer higher interest than regular savings accounts.',
   },
 ];

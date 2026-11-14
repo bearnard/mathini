@@ -96,24 +96,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a key difference between a university and a learnership?',
-    options: [
-      'A learnership combines structured training with workplace experience',
-      'A university never requires entry marks',
-      'A learnership cannot lead to any qualification',
-      'A university is only for sport',
-    ],
-    answer: 'A learnership combines structured training with workplace experience',
+    options: ['A learnership combines training with workplace experience', 'A university never asks for entry marks from learners', 'A learnership cannot lead to any qualification at all', 'A university is meant for people who play sport only'],
+    answer: 'A learnership combines training with workplace experience',
     explanation: 'Learnerships are work-based training programmes linked to formal skills development.',
   },
   {
     prompt: 'Why is it important to match your strengths and interests to a career field?',
-    options: [
-      'Because friends should choose for you',
-      'Because it helps you make realistic and meaningful career choices',
-      'Because marks never matter',
-      'Because all careers require the same abilities',
-    ],
-    answer: 'Because it helps you make realistic and meaningful career choices',
+    options: ['Your friends should choose your career for you', 'It helps you make realistic and meaningful career choices', 'Your marks never matter in choosing a career', 'All careers need exactly the same abilities'],
+    answer: 'It helps you make realistic and meaningful career choices',
     explanation: 'Career planning is stronger when it connects personal strengths, interests, and opportunities.',
   },
   {
@@ -124,24 +114,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does NSFAS mainly do?',
-    options: [
-      'Runs private companies',
-      'Funds qualifying students at public universities and TVET colleges',
-      'Chooses careers for learners',
-      'Provides sports coaching only',
-    ],
-    answer: 'Funds qualifying students at public universities and TVET colleges',
+    options: ['Runs private companies that employ the graduates', 'Funds qualifying students at public universities and colleges', 'Chooses the careers for learners who leave school', 'Provides sports coaching in the poorer schools'],
+    answer: 'Funds qualifying students at public universities and colleges',
     explanation: 'NSFAS is a major South African financial aid source for qualifying students.',
   },
   {
     prompt: 'A bursary is best described as:',
-    options: [
-      'A fine for failing a subject',
-      'Financial support for study, often linked to criteria or service obligations',
-      'A type of school timetable',
-      'A compulsory tax',
-    ],
-    answer: 'Financial support for study, often linked to criteria or service obligations',
+    options: ['A fine that is charged for failing a subject', 'Financial help for study, often tied to criteria or service', 'A kind of school timetable for a term', 'A tax that all families have to pay each year'],
+    answer: 'Financial help for study, often tied to criteria or service',
     explanation: 'Bursaries help cover study costs and may have academic or contractual conditions.',
   },
   {
@@ -152,13 +132,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why should a learner compare more than one post-school pathway?',
-    options: [
-      'To delay decision-making forever',
-      'To weigh costs, requirements, and opportunities before choosing',
-      'Because all pathways are exactly the same',
-      'To avoid doing any research',
-    ],
-    answer: 'To weigh costs, requirements, and opportunities before choosing',
+    options: ['To put off making any decision for as long as possible', 'To weigh costs, entry rules and chances before choosing', 'Because all of the pathways are exactly the same', 'To avoid having to do any research of their own'],
+    answer: 'To weigh costs, entry rules and chances before choosing',
     explanation: 'Comparing pathways helps learners make informed, flexible career decisions.',
   },
 ];

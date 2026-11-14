@@ -104,13 +104,8 @@ cursor.execute(sql, (name,))`}</pre>
 const bank: ITItem[] = [
   {
     prompt: 'Why are parameterised queries safer than building SQL by string concatenation?',
-    options: [
-      'They execute faster than concatenated queries',
-      'They prevent SQL injection by treating user input as data, not executable code',
-      'They allow multiple queries to run simultaneously',
-      'They automatically validate all data types',
-    ],
-    answer: 'They prevent SQL injection by treating user input as data, not executable code',
+    options: ['They run faster than concatenated queries do', 'They stop SQL injection by treating input as data, not code', 'They let several queries run at the same time', 'They check all of the data types automatically'],
+    answer: 'They stop SQL injection by treating input as data, not code',
     explanation: 'Parameterised queries pass user input separately; the database driver ensures it cannot be interpreted as SQL commands.',
   },
   {
@@ -132,13 +127,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is SQL injection?',
-    options: [
-      'Adding a new column to a database table',
-      'An attack where malicious SQL code is inserted via user input to manipulate the database',
-      'A method of speeding up database queries',
-      'A technique for importing data from CSV files',
-    ],
-    answer: 'An attack where malicious SQL code is inserted via user input to manipulate the database',
+    options: ['Adding a new column to a database table', 'An attack that slips malicious SQL in through user input', 'A way of making database queries faster', 'A technique for importing data from CSV files'],
+    answer: 'An attack that slips malicious SQL in through user input',
     explanation: 'SQL injection exploits unsafe query construction to execute unintended database commands — e.g. bypassing login or deleting data.',
   },
   {
@@ -161,13 +151,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'In 1st Normal Form (1NF), which rule must be followed?',
-    options: [
-      'Every table must have a composite key',
-      'Each column must hold a single, atomic (indivisible) value with no repeating groups',
-      'All foreign keys must be removed',
-      'Each table can have at most three columns',
-    ],
-    answer: 'Each column must hold a single, atomic (indivisible) value with no repeating groups',
+    options: ['Every table must have a composite key', 'Each column holds one atomic value, with no repeating groups', 'All of the foreign keys must be removed', 'Each table can have three columns at the most'],
+    answer: 'Each column holds one atomic value, with no repeating groups',
     explanation: '1NF requires atomic values — no lists or multiple values in one cell, and no duplicate rows.',
   },
   {

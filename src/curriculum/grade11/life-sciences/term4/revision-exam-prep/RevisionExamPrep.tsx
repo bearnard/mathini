@@ -111,7 +111,7 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'A student tests a leaf for starch and finds a blue-black colour after adding iodine. What does this confirm?',
-    options: ['Cellular respiration occurred', 'Photosynthesis occurred and glucose was stored as starch', 'The leaf was not destarched', 'CO₂ was released'],
+    options: ['Cellular respiration took place in the leaf', 'Photosynthesis occurred and glucose was stored as starch', 'The leaf had not been destarched beforehand', 'CO₂ was given off by the leaf in the light'],
     answer: 'Photosynthesis occurred and glucose was stored as starch',
     explanation: 'Iodine turns blue-black in the presence of starch. Since starch is the storage product of photosynthesis, its presence confirms that the leaf was photosynthesising.',
   },
@@ -123,14 +123,14 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'In an S-shaped population growth curve, the population levels off because:',
-    options: ['Immigration stops completely', 'Resources become limiting and growth is checked by carrying capacity', 'All predators are removed', 'Temperature drops'],
-    answer: 'Resources become limiting and growth is checked by carrying capacity',
+    options: ['Immigration into the area stops completely', 'Resources run short and carrying capacity limits growth', 'All of the predators have been removed', 'The temperature of the area drops sharply'],
+    answer: 'Resources run short and carrying capacity limits growth',
     explanation: 'As population density rises, competition for food, space, and other resources intensifies. Birth rates fall and death rates increase until the population stabilises at the carrying capacity (K).',
   },
   {
     prompt: 'Gas exchange in the alveoli relies on diffusion. Which condition maintains the steepest concentration gradients?',
-    options: ['Slow blood flow and infrequent ventilation', 'Continuous ventilation and constant blood flow through capillaries', 'A thick alveolar wall', 'Dry alveolar surface'],
-    answer: 'Continuous ventilation and constant blood flow through capillaries',
+    options: ['Slow blood flow and infrequent breathing in the lung', 'Steady breathing and constant capillary blood flow', 'A thick alveolar wall in the lung tissue', 'A dry surface inside each of the alveoli'],
+    answer: 'Steady breathing and constant capillary blood flow',
     explanation: 'Ventilation replenishes O₂ and removes CO₂ from alveolar air; blood flow carries O₂ away and delivers CO₂ to the alveolus — together they maintain the gradients that drive diffusion.',
   },
   {
@@ -147,14 +147,14 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'When drawing a biological diagram in an exam, labels should be indicated by:',
-    options: ['Arrows drawn at an angle', 'Horizontal lines touching the structure and ending at a label', 'Coloured pencil marks', 'Circling the structure'],
+    options: ['Arrows that are drawn at an angle across the diagram', 'Horizontal lines touching the structure and ending at a label', 'Marks made with a coloured pencil on the structure', 'A circle that is drawn round the structure itself'],
     answer: 'Horizontal lines touching the structure and ending at a label',
     explanation: 'CAPS biological drawings require neat, horizontal label lines (not diagonal arrows) that clearly point to the relevant structure to earn presentation marks.',
   },
   {
     prompt: 'A question asks you to "evaluate" a proposed solution to water pollution. What must your answer include?',
-    options: ['Only advantages of the solution', 'Only a list of facts about water pollution', 'A balanced discussion of advantages and disadvantages, supported by evidence', 'A biological drawing of water pollution'],
-    answer: 'A balanced discussion of advantages and disadvantages, supported by evidence',
+    options: ['Only the advantages of the solution that is proposed', 'Only a list of facts about water pollution', 'A balanced look at pros and cons, with evidence', 'A biological drawing that shows water pollution'],
+    answer: 'A balanced look at pros and cons, with evidence',
     explanation: 'An "evaluate" response requires a judgement supported by evidence — considering both the merits and limitations of the proposal to arrive at a reasoned conclusion.',
   },
 ];

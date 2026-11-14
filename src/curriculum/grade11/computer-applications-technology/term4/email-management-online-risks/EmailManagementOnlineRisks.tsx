@@ -111,20 +111,20 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What is a distribution list in an email client?',
-    options: ['A list of unread emails', 'A saved group of email addresses that can be emailed with a single address/name', 'A history of emails sent to a person', 'A report of spam blocked this week'],
-    answer: 'A saved group of email addresses that can be emailed with a single address/name',
+    options: ['A list of the emails that you have not yet read', 'A saved group of email addresses used by sending to one name', 'A history of the emails sent to one person', 'A report of the spam that was blocked this week'],
+    answer: 'A saved group of email addresses used by sending to one name',
     explanation: 'A distribution list (contact group) lets you send one email to a group name, and all members of the group receive the message.',
   },
   {
     prompt: 'Ransomware attacks a school\'s network and encrypts all files. What is the BEST prior safeguard that would have minimised data loss?',
-    options: ['Installing a web browser', 'Regular, tested backups stored off-site or in the cloud', 'Using a distribution list for emails', 'Enabling BCC on all outgoing emails'],
-    answer: 'Regular, tested backups stored off-site or in the cloud',
+    options: ['Installing a new web browser on each computer', 'Regular, tested backups kept off-site or in the cloud', 'Using a distribution list for the staff emails', 'Turning on BCC for all of the outgoing emails'],
+    answer: 'Regular, tested backups kept off-site or in the cloud',
     explanation: 'Ransomware is best countered with current backups. If files are encrypted, you can restore from a clean backup without paying the ransom.',
   },
   {
     prompt: 'What is the key difference between IMAP and POP3?',
-    options: ['IMAP is faster than POP3', 'IMAP keeps emails on the server (sync across devices); POP3 downloads emails to one device and removes them from the server', 'POP3 is only for smartphones', 'There is no practical difference'],
-    answer: 'IMAP keeps emails on the server (sync across devices); POP3 downloads emails to one device and removes them from the server',
+    options: ['IMAP is faster than POP3 on any network', 'IMAP keeps mail on the server; POP3 downloads it and removes it', 'POP3 is meant for smartphones and nothing else', 'The two have no practical difference between them'],
+    answer: 'IMAP keeps mail on the server; POP3 downloads it and removes it',
     explanation: 'IMAP synchronises email across all devices (phone, laptop, tablet). POP3 downloads to one device, making emails inaccessible from others.',
   },
   {
@@ -141,14 +141,14 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What is the main advantage of using webmail over an email client application?',
-    options: ['Webmail works without internet', 'Webmail can be accessed from any device with a browser without installing software', 'Webmail is more secure than a client', 'Webmail stores emails locally for offline access'],
-    answer: 'Webmail can be accessed from any device with a browser without installing software',
+    options: ['Webmail works without an internet connection', 'Webmail works on any device with a browser, with no install', 'Webmail is more secure than any email client', 'Webmail stores all the emails on the local device'],
+    answer: 'Webmail works on any device with a browser, with no install',
     explanation: 'Webmail requires only a browser and internet connection — you can check your email from any computer, phone, or tablet.',
   },
   {
     prompt: 'A VPN is recommended when using public Wi-Fi because it:',
-    options: ['Increases Wi-Fi speed', 'Makes downloads free of charge', 'Encrypts your internet traffic and hides your IP address from attackers', 'Blocks all advertisements'],
-    answer: 'Encrypts your internet traffic and hides your IP address from attackers',
+    options: ['It increases the speed of the Wi-Fi network', 'It makes the downloads that you do free of charge', 'It encrypts your traffic and hides your IP address from attackers', 'It blocks all of the advertisements on web pages'],
+    answer: 'It encrypts your traffic and hides your IP address from attackers',
     explanation: 'VPNs encrypt the data tunnel between your device and the VPN server, protecting your information from man-in-the-middle attacks on public networks.',
   },
   {
@@ -159,8 +159,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'How does ransomware typically reach a victim\'s device?',
-    options: ['Via physical USB drives only', 'Through malicious email attachments, infected downloads, or compromised websites', 'By accessing the device\'s camera', 'Through Bluetooth only'],
-    answer: 'Through malicious email attachments, infected downloads, or compromised websites',
+    options: ['Through physical USB drives and nothing else', 'Bad email attachments, infected downloads or hacked sites', 'By getting into the camera of the device', 'Through Bluetooth connections and nothing else'],
+    answer: 'Bad email attachments, infected downloads or hacked sites',
     explanation: 'Ransomware is commonly delivered via phishing emails with infected attachments, drive-by downloads, or malicious links — making email vigilance critical.',
   },
 ];

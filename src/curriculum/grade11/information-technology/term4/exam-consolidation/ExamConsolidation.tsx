@@ -125,13 +125,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'A program opens "records.txt" in write mode, then immediately closes it. What is the state of the file?',
-    options: [
-      'Unchanged — nothing was written',
-      'The file is empty — all previous content was erased when opened in write mode',
-      'The file is deleted from the system',
-      'The file is locked and cannot be opened again',
-    ],
-    answer: 'The file is empty — all previous content was erased when opened in write mode',
+    options: ['Unchanged, as nothing was written to it', 'Empty: opening in write mode erased all of the old content', 'Deleted from the system after it was closed', 'Locked, so that it cannot be opened again'],
+    answer: 'Empty: opening in write mode erased all of the old content',
     explanation: 'Opening in write ("w") mode truncates (empties) the file immediately, even before any write() calls.',
   },
   {
@@ -147,7 +142,7 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'Which POPIA principle requires a company to tell individuals why their data is being collected?',
-    options: ['Data minimisation', 'Security safeguards', 'Lawful purpose / purpose specification', 'Data subject rights'],
+    options: ['Data minimisation, which limits what is collected', 'Security safeguards, which protect the data', 'Lawful purpose / purpose specification', 'Data subject rights, which let people see their data'],
     answer: 'Lawful purpose / purpose specification',
     explanation: 'Organisations must specify the purpose for collecting personal information and only use it for that stated purpose.',
   },

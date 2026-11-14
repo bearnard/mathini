@@ -96,13 +96,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What makes a constructor different from a regular method?',
-    options: [
-      'It has a return type of integer',
-      'It can only be called once per program',
-      'It has the same name as the class and has no return type',
-      'It must be declared private',
-    ],
-    answer: 'It has the same name as the class and has no return type',
+    options: ['It has a return type of integer', 'It can be called only once in a program', 'It has the same name as the class and no return type', 'It must always be declared as private'],
+    answer: 'It has the same name as the class and no return type',
     explanation: 'Constructors are named identically to their class and declare no return type (not even void).',
   },
   {
@@ -135,13 +130,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'A setter method for age contains: "if a >= 0 then age := a". Why is this check included?',
-    options: [
-      'To speed up the program',
-      'To validate input and prevent an invalid negative age being stored',
-      'To ensure the getter works correctly',
-      'To satisfy the compiler',
-    ],
-    answer: 'To validate input and prevent an invalid negative age being stored',
+    options: ['To speed up the running of the program', 'To validate input and stop a negative age being stored', 'To make sure that the getter works properly', 'To satisfy the compiler that checks the code'],
+    answer: 'To validate input and stop a negative age being stored',
     explanation: 'Setters often include validation logic to protect the object\'s internal state from invalid data.',
   },
   {

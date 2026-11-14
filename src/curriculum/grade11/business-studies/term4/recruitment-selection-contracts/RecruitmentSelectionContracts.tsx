@@ -102,24 +102,14 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Which of the following is a DISADVANTAGE of internal recruitment?',
-    options: [
-      'Expensive advertising costs',
-      'Cultural fit is uncertain',
-      'It limits the pool to existing staff and creates another vacancy',
-      'Training time is very long',
-    ],
-    answer: 'It limits the pool to existing staff and creates another vacancy',
+    options: ['The cost of expensive advertising for the post', 'The cultural fit of the person is uncertain', 'It limits the pool to staff and leaves a vacancy', 'The training time that is needed is very long'],
+    answer: 'It limits the pool to staff and leaves a vacancy',
     explanation: 'Internal recruitment restricts the talent pool to current employees and often creates a lower-level vacancy that also needs to be filled.',
   },
   {
     prompt: 'What is the purpose of checking references during the selection process?',
-    options: [
-      'To determine the salary',
-      'To verify a candidate\'s qualifications and work history',
-      'To conduct a psychometric test',
-      'To negotiate the contract terms',
-    ],
-    answer: 'To verify a candidate\'s qualifications and work history',
+    options: ['To decide the salary that will be offered', "To verify a candidate's qualifications and work history", 'To carry out a psychometric test on the candidate', 'To negotiate the terms of the contract'],
+    answer: "To verify a candidate's qualifications and work history",
     explanation: 'Reference checks confirm that the candidate\'s claimed qualifications and previous work experience are accurate and genuine.',
   },
   {
@@ -130,41 +120,26 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Which South African law sets the MINIMUM standards for working hours, overtime, and annual leave?',
-    options: ['Labour Relations Act', 'Employment Equity Act', 'Basic Conditions of Employment Act', 'Skills Development Act'],
-    answer: 'Basic Conditions of Employment Act',
+    options: ['The Labour Relations Act, on unions and strikes', 'The Employment Equity Act, on fair treatment', 'The Basic Conditions of Employment Act', 'The Skills Development Act, on training'],
+    answer: 'The Basic Conditions of Employment Act',
     explanation: 'The BCEA establishes minimum employment conditions including working hours (max 45 per week), leave entitlements, and overtime pay rules.',
   },
   {
     prompt: 'Shortlisting candidates means:',
-    options: [
-      'Advertising the job to all candidates',
-      'Selecting only those who meet minimum requirements for further consideration',
-      'Making the final appointment',
-      'Conducting reference checks',
-    ],
-    answer: 'Selecting only those who meet minimum requirements for further consideration',
+    options: ['Advertising the job to all of the candidates', 'Picking those who meet the minimum requirements', 'Making the final appointment to the post', 'Carrying out the reference checks on a person'],
+    answer: 'Picking those who meet the minimum requirements',
     explanation: 'Shortlisting filters the applications down to candidates who meet the essential criteria, making the interview and selection process manageable.',
   },
   {
     prompt: 'The Employment Equity Act PRIMARILY aims to:',
-    options: [
-      'Set minimum wages for all workers',
-      'Regulate trade unions and strikes',
-      'Promote diversity and eliminate unfair discrimination in the workplace',
-      'Define working hours and leave',
-    ],
-    answer: 'Promote diversity and eliminate unfair discrimination in the workplace',
+    options: ['Set minimum wages for all of the workers', 'Regulate the trade unions and their strikes', 'Promote diversity and end unfair discrimination at work', 'Define the working hours and the leave'],
+    answer: 'Promote diversity and end unfair discrimination at work',
     explanation: 'The EEA requires employers to implement affirmative action measures and prohibits discrimination on grounds of race, gender, disability and other listed characteristics.',
   },
   {
     prompt: 'A part-time cashier works 20 hours a week. Under the BCEA, she is entitled to:',
-    options: [
-      'No leave benefits',
-      'Full-time benefits only',
-      'Proportional leave and other benefits relative to her working hours',
-      'Benefits only after 5 years of service',
-    ],
-    answer: 'Proportional leave and other benefits relative to her working hours',
+    options: ['No leave benefits, as she is a part-time worker', 'Full-time benefits only, whatever her hours', 'Leave and other benefits in proportion to her hours', 'Benefits only after five years of service'],
+    answer: 'Leave and other benefits in proportion to her hours',
     explanation: 'Part-time employees are entitled to the same rights as full-time workers but on a proportional basis — fewer hours means proportionally fewer leave days.',
   },
   {

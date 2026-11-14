@@ -135,13 +135,8 @@ const learnSteps: LearnStep[] = [
 const bank: AccountingItem[] = [
   {
     prompt: 'A partnership is best defined as:',
-    options: [
-      'A business owned and run by one person',
-      'A company listed on the stock exchange',
-      'A business owned by two or more people who share profits, losses, and management',
-      'A non-profit organisation',
-    ],
-    answer: 'A business owned by two or more people who share profits, losses, and management',
+    options: ['A business owned and run by a single person', 'A company that is listed on the stock exchange', 'Two or more owners who share profit, loss and management', 'A non-profit organisation that serves a community'],
+    answer: 'Two or more owners who share profit, loss and management',
     explanation: 'A partnership combines the resources and skills of multiple owners who share in the outcomes of the business.',
   },
   {
@@ -152,13 +147,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Interest on capital is best described as:',
-    options: [
-      'A penalty for late capital contributions',
-      'A reward given to a partner for keeping their capital invested in the business',
-      'A charge imposed on partners who withdraw funds',
-      'A tax paid by the partnership to SARS',
-    ],
-    answer: 'A reward given to a partner for keeping their capital invested in the business',
+    options: ['A penalty for paying capital in late', 'A reward to a partner for keeping capital invested', 'A charge on partners who withdraw funds', 'A tax that the partnership pays to SARS'],
+    answer: 'A reward to a partner for keeping capital invested',
     explanation: 'Interest on capital compensates partners for the opportunity cost of leaving their funds in the partnership.',
   },
   {
@@ -169,24 +159,14 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'A salary allowance in a partnership is:',
-    options: [
-      'An expense recorded in the income statement',
-      'Part of the profit distribution to an active partner, recorded in the appropriation account',
-      'Money paid to employees of the partnership',
-      'A loan from the partner to the business',
-    ],
-    answer: 'Part of the profit distribution to an active partner, recorded in the appropriation account',
+    options: ['An expense that is shown in the income statement', 'Part of the profit shared with an active partner', 'Money that is paid to the employees of the firm', 'A loan that the partner has made to the business'],
+    answer: 'Part of the profit shared with an active partner',
     explanation: 'Unlike employee salaries, partner salary allowances are distributions of profit, not expenses — they appear in the appropriation account.',
   },
   {
     prompt: 'In the appropriation account, interest on drawings is:',
-    options: [
-      'Added to net profit before distribution',
-      'Deducted from the partner\'s salary allowance',
-      'Added to net profit as it is a charge against the partner, increasing distributable profit',
-      'Ignored if below R500',
-    ],
-    answer: 'Added to net profit as it is a charge against the partner, increasing distributable profit',
+    options: ['Deducted from net profit before the profit is shared', "Deducted from the partner's salary allowance", 'Added to net profit, as it is a charge on the partner', 'Ignored when the amount is below R500'],
+    answer: 'Added to net profit, as it is a charge on the partner',
     explanation: 'Interest on drawings reduces what a partner receives but increases the pool available for distribution, so it is added back to profit in the appropriation account.',
   },
   {
@@ -203,13 +183,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'One advantage of a partnership over a sole trader is:',
-    options: [
-      'Partners have unlimited liability',
-      'The business has a separate legal identity',
-      'More capital and diverse skills can be contributed by multiple owners',
-      'Partnerships pay no income tax',
-    ],
-    answer: 'More capital and diverse skills can be contributed by multiple owners',
+    options: ['Partners have unlimited liability for debts', 'The business has a separate legal identity', 'More capital and varied skills from several owners', 'Partnerships pay no income tax at all'],
+    answer: 'More capital and varied skills from several owners',
     explanation: 'Partnerships can pool resources and skills, giving them greater capacity than a sole trader.',
   },
   {

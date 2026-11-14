@@ -158,7 +158,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'The Human Development Index (HDI) is published by which organisation?',
-    options: ['World Bank', 'WTO', 'UNDP (United Nations Development Programme)', 'African Union'],
+    options: ['The World Bank, from its offices in Washington', 'The WTO, the body that governs world trade', 'UNDP (United Nations Development Programme)', 'The African Union, from its base in Addis Ababa'],
     answer: 'UNDP (United Nations Development Programme)',
     explanation: 'The UNDP has published the Human Development Report and HDI rankings annually since 1990.',
   },
@@ -175,24 +175,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A high infant mortality rate (IMR) in a country most likely indicates:',
-    options: [
-      'A large population',
-      'High economic growth',
-      'Poor healthcare and high levels of poverty',
-      'A hot climate',
-    ],
-    answer: 'Poor healthcare and high levels of poverty',
+    options: ['A large population in the country', 'Rapid growth in the economy of the country', 'Poor healthcare and a high level of poverty', 'A hot climate in most parts of the country'],
+    answer: 'Poor healthcare and a high level of poverty',
     explanation: 'High IMR reflects inadequate healthcare, malnutrition, poor sanitation, and poverty — hallmarks of low human development.',
   },
   {
     prompt: 'GDP per capita is a better measure of living standards than total GDP because:',
-    options: [
-      'It measures happiness directly',
-      'It accounts for the size of the population, allowing fairer comparisons',
-      'It includes income earned abroad',
-      'It measures income distribution',
-    ],
-    answer: 'It accounts for the size of the population, allowing fairer comparisons',
+    options: ['It measures the happiness of the people directly', 'It accounts for population size, so comparisons are fairer', 'It includes the income that people earn abroad', 'It measures how income is shared between people'],
+    answer: 'It accounts for population size, so comparisons are fairer',
     explanation: 'Dividing GDP by population gives an average income figure that allows meaningful comparisons between countries of different sizes.',
   },
   {
@@ -203,13 +193,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the development gap?',
-    options: [
-      'The gap between agricultural and industrial production',
-      'The difference in living standards between more developed and less developed countries',
-      'The time gap between development projects',
-      'The difference in GDP between cities and rural areas',
-    ],
-    answer: 'The difference in living standards between more developed and less developed countries',
+    options: ['The gap between farming output and industrial output', 'The difference in living standards between richer and poorer countries', 'The time gap between two development projects', 'The difference in GDP between cities and the countryside'],
+    answer: 'The difference in living standards between richer and poorer countries',
     explanation: 'The development gap reflects inequalities in income, health, education, and access to services between the Global North and Global South.',
   },
   {
@@ -220,13 +205,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which of the following best explains why colonialism contributes to the development gap today?',
-    options: [
-      'Colonial powers built excellent infrastructure in all colonies',
-      'Colonialism extracted resources and wealth, stunting industrial and economic development in colonised countries',
-      'Colonial education systems improved literacy rates',
-      'Colonial powers introduced modern technology universally',
-    ],
-    answer: 'Colonialism extracted resources and wealth, stunting industrial and economic development in colonised countries',
+    options: ['Colonial powers built excellent infrastructure in all colonies', 'Colonialism took out resources and wealth, stunting colonised economies', 'Colonial schools raised literacy rates across the colonies', 'Colonial powers brought modern technology to every colony'],
+    answer: 'Colonialism took out resources and wealth, stunting colonised economies',
     explanation: 'Colonial extraction of resources and labor left many post-colonial nations without capital, industrial capacity, or strong institutions for development.',
   },
   {

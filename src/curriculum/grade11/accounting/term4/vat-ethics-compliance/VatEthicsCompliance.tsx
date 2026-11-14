@@ -122,24 +122,14 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Charging customers VAT while not being registered as a VAT vendor is:',
-    options: [
-      'Acceptable if the business intends to register',
-      'Unethical and illegal — the business has no right to collect VAT on behalf of SARS',
-      'Allowed for the first year of trading',
-      'Only penalised if SARS detects it',
-    ],
-    answer: 'Unethical and illegal — the business has no right to collect VAT on behalf of SARS',
+    options: ['Acceptable if the business plans to register', 'Unethical and illegal; no right to collect VAT for SARS', 'Allowed during the first year of trading', 'Penalised only if SARS happens to detect it'],
+    answer: 'Unethical and illegal; no right to collect VAT for SARS',
     explanation: 'Only registered vendors may charge VAT. Collecting VAT without being registered is fraud.',
   },
   {
     prompt: 'Claiming input VAT on personal grocery purchases is an example of:',
-    options: [
-      'Acceptable tax planning',
-      'A VAT refund claim',
-      'Fraudulent inflation of input VAT — only business-related input VAT can be claimed',
-      'Zero-rated VAT treatment',
-    ],
-    answer: 'Fraudulent inflation of input VAT — only business-related input VAT can be claimed',
+    options: ['Acceptable tax planning for the owner of a firm', 'A normal VAT refund claim made to SARS', 'Fraudulent inflation of input VAT; only business VAT counts', 'Zero-rated VAT treatment of a purchase'],
+    answer: 'Fraudulent inflation of input VAT; only business VAT counts',
     explanation: 'Input VAT may only be claimed on goods and services used for business purposes. Personal expenses are excluded.',
   },
   {
@@ -155,13 +145,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Why is hiding cash sales to reduce output VAT unethical?',
-    options: [
-      'It is only unethical if the amounts are large',
-      'It deprives government of revenue needed for public services and shifts the tax burden onto honest taxpayers',
-      'It is unethical only if competitors do not do the same',
-      'It is not unethical if the business is struggling financially',
-    ],
-    answer: 'It deprives government of revenue needed for public services and shifts the tax burden onto honest taxpayers',
+    options: ['It is only unethical if the amounts are large', 'It denies government revenue and shifts the tax burden to honest payers', 'It is unethical only if rivals do not do the same', 'It is not unethical when the business is struggling'],
+    answer: 'It denies government revenue and shifts the tax burden to honest payers',
     explanation: 'VAT fraud reduces funding for education, healthcare, and infrastructure, and is fundamentally dishonest regardless of the business\'s financial situation.',
   },
   {

@@ -108,13 +108,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Why did decolonisation accelerate after World War II?',
-    options: [
-      'European powers were weakened and anti-colonial nationalism had grown stronger',
-      'Colonial subjects stopped demanding independence',
-      'The war made empire more profitable and stable',
-      'Only one African colony wanted self-rule',
-    ],
-    answer: 'European powers were weakened and anti-colonial nationalism had grown stronger',
+    options: ['European powers were weakened and anti-colonial nationalism grew', 'Colonial subjects stopped demanding independence', 'The war made empire more profitable and stable', 'Only one African colony wanted self-rule'],
+    answer: 'European powers were weakened and anti-colonial nationalism grew',
     explanation: 'Post-war conditions made it far harder for imperial states to maintain colonial control.',
   },
   {
@@ -147,35 +142,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why was Ghana\'s independence historically important?',
-    options: [
-      'It inspired other African nationalist movements and showed colonial rule could be defeated',
-      'It ended colonial rule across the continent immediately',
-      'It created the Mau Mau uprising',
-      'It was the first independence movement led by Europe',
-    ],
-    answer: 'It inspired other African nationalist movements and showed colonial rule could be defeated',
+    options: ['It inspired other nationalist movements and showed colonial rule could fall', 'It ended colonial rule across the continent at once', 'It created the Mau Mau uprising in Kenya', 'It was the first independence movement led by Europeans'],
+    answer: 'It inspired other nationalist movements and showed colonial rule could fall',
     explanation: 'Ghana became a symbol of possibility for anti-colonial movements elsewhere in Africa.',
   },
   {
     prompt: 'What was the Mau Mau uprising?',
-    options: [
-      'An anti-colonial revolt in Kenya against British rule and settler domination',
-      'A peace conference held in Algeria',
-      'A Pan-African congress in Ghana',
-      'A French plan for gradual reform in West Africa',
-    ],
-    answer: 'An anti-colonial revolt in Kenya against British rule and settler domination',
+    options: ['An anti-colonial revolt in Kenya against British rule', 'A peace conference that was held in Algeria', 'A Pan-African congress that was held in Ghana', 'A French plan for gradual reform in West Africa'],
+    answer: 'An anti-colonial revolt in Kenya against British rule',
     explanation: 'The Mau Mau revolt grew from land loss, repression, and resentment of colonial inequality.',
   },
   {
     prompt: 'What best describes the Algerian War of Independence?',
-    options: [
-      'A violent anti-colonial war against French rule from 1954 to 1962',
-      'A peaceful negotiation with no conflict',
-      'A campaign led by Britain in East Africa',
-      'A civil war unrelated to colonialism',
-    ],
-    answer: 'A violent anti-colonial war against French rule from 1954 to 1962',
+    options: ['A violent anti-colonial war against France from 1954 to 1962', 'A peaceful negotiation with no fighting at all', 'A campaign that Britain led in East Africa', 'A civil war that had no link to colonialism'],
+    answer: 'A violent anti-colonial war against France from 1954 to 1962',
     explanation: 'The Algerian struggle showed that decolonisation could be extremely violent and prolonged.',
   },
   {

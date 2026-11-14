@@ -96,12 +96,7 @@ const learnSteps: LearnStep[] = [
 const bank: ITItem[] = [
   {
     prompt: 'What is a class in object-oriented programming?',
-    options: [
-      'A running program in memory',
-      'A blueprint that defines the attributes and methods of objects',
-      'A variable that stores multiple values',
-      'A type of loop structure',
-    ],
+    options: ['A running program that is held in memory', 'A blueprint that defines the attributes and methods of objects', 'A variable that stores several values at once', 'A type of loop structure in a program'],
     answer: 'A blueprint that defines the attributes and methods of objects',
     explanation: 'A class is a template; objects are the actual instances created from that template.',
   },
@@ -165,7 +160,7 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'Which of the following is an example of an OBJECT (not a class)?',
-    options: ['Car', 'Student', 'myStudent (a specific student record in memory)', 'Animal'],
+    options: ['Car (the general design of all cars)', 'Student (the general design of all students)', 'myStudent (a specific student record in memory)', 'Animal (the general design of all animals)'],
     answer: 'myStudent (a specific student record in memory)',
     explanation: 'Car, Student, and Animal are class names (blueprints). myStudent is an instance — a specific object.',
   },

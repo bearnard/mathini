@@ -75,7 +75,7 @@ const learnSteps: LearnStep[] = [
 const bank: MathematicsItem[] = [
   {
     prompt: 'Two events A and B are independent if:',
-    options: ['P(A) = P(B)', 'P(A or B) = 1', 'P(A and B) = P(A) × P(B)', 'P(A and B) = 0'],
+    options: ['P(A and B) = P(A) + P(B)', 'P(A or B) = P(A) × P(B)', 'P(A and B) = P(A) × P(B)', 'P(A given B) = P(B given A)'],
     answer: 'P(A and B) = P(A) × P(B)',
     explanation: 'Independence is defined by the multiplication rule: P(A and B) = P(A) × P(B).',
   },

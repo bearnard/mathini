@@ -63,18 +63,6 @@ const bank: AfrikaansItem[] = [
     explanation: "This is the correct answer.",
   },
   {
-    prompt: "How should you approach this skill?",
-    options: ['Carefully, step by step', 'Quickly, without checking', 'By guessing the answers', 'By copying from a friend'],
-    answer: 'Carefully, step by step',
-    explanation: "Careful practice builds strong skills.",
-  },
-  {
-    prompt: "What supports learning?",
-    options: ["Repetition", "Breaks", "Guessing", "Skipping"],
-    answer: "Repetition",
-    explanation: "Repetition strengthens understanding.",
-  },
-  {
     prompt: "Why is this important?",
     options: ["For exams", "For communication", "For grades", "For all of the above"],
     answer: "For all of the above",

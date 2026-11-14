@@ -1,17 +1,10 @@
 {
-  "checked": 6655,
+  "checked": 6631,
   "counts": {
     "g10": {
       "duplicate_options": 2,
       "filler_distractor": 1,
       "length_tell_strong": 65
-    },
-    "g11": {
-      "duplicate_options": 1,
-      "filler_distractor": 2,
-      "key_in_prompt": 1,
-      "key_not_in_options": 1,
-      "length_tell_strong": 701
     },
     "g12": {
       "filler_distractor": 1,

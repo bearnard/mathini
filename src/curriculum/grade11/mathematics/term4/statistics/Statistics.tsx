@@ -87,7 +87,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'An outlier is a data value that:',
-    options: ['Equals the mean', 'Is less than the median', 'Lies far from the rest of the data', 'Appears more than once'],
+    options: ['Equals the mean of the data', 'Is less than the median of the data', 'Lies far from the rest of the data', 'Appears more than once in the data'],
     answer: 'Lies far from the rest of the data',
     explanation: 'Outliers are unusually high or low values that stand apart from the bulk of the data.',
   },

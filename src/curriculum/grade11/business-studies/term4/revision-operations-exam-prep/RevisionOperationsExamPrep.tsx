@@ -109,7 +109,7 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'A business\'s marketing team runs a "2-for-1" promotion. The operations team was not informed and runs out of stock. This illustrates:',
-    options: ['A quality control failure', 'Poor coordination between marketing and operations', 'An HR problem', 'A PESTLE challenge'],
+    options: ['A failure of quality control', 'Poor coordination between marketing and operations', 'A problem in the human resources function', 'A challenge from the PESTLE factors'],
     answer: 'Poor coordination between marketing and operations',
     explanation: 'Marketing promotions create demand that operations must fulfil — failure to coordinate leads to stockouts and customer dissatisfaction.',
   },

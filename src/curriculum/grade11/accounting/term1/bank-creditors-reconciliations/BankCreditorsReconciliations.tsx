@@ -136,13 +136,8 @@ const learnSteps: LearnStep[] = [
 const bank: AccountingItem[] = [
   {
     prompt: 'What is the main purpose of a bank reconciliation?',
-    options: [
-      'To update the bank statement',
-      'To confirm that differences between the cashbook and bank statement are known and explained',
-      'To calculate profit for the period',
-      'To prepare the statement of financial position',
-    ],
-    answer: 'To confirm that differences between the cashbook and bank statement are known and explained',
+    options: ['To bring the bank statement up to date for the month', 'To confirm differences between cashbook and bank statement are explained', 'To calculate the profit for the period', 'To prepare the statement of financial position'],
+    answer: 'To confirm differences between cashbook and bank statement are explained',
     explanation: 'A bank reconciliation identifies timing differences and errors so management can trust the cashbook balance.',
   },
   {
@@ -182,13 +177,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'What is the purpose of a creditors reconciliation?',
-    options: [
-      'To confirm the balance owed to a supplier by comparing the supplier\'s statement with the creditors ledger',
-      'To reconcile cash received from customers',
-      'To calculate the gross profit for the period',
-      'To update the debtors control account',
-    ],
-    answer: 'To confirm the balance owed to a supplier by comparing the supplier\'s statement with the creditors ledger',
+    options: ['To confirm what is owed to a supplier against its statement', 'To reconcile the cash received from customers', 'To calculate the gross profit for the period', 'To update the debtors control account for the period'],
+    answer: 'To confirm what is owed to a supplier against its statement',
     explanation: 'Creditors reconciliation ensures that what the supplier claims you owe matches what your own records show.',
   },
   {

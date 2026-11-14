@@ -130,20 +130,20 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What is social engineering in cybersecurity?',
-    options: ['Building social media platforms', 'Manipulating people psychologically to reveal confidential information', 'Programming social apps', 'Networking with professional contacts online'],
-    answer: 'Manipulating people psychologically to reveal confidential information',
+    options: ['Building social media platforms for the public', 'Manipulating people to reveal confidential information', 'Programming social apps for smartphones', 'Networking online with professional contacts'],
+    answer: 'Manipulating people to reveal confidential information',
     explanation: 'Social engineering exploits human trust rather than technical vulnerabilities — attackers pretend to be IT support, colleagues, or authority figures.',
   },
   {
     prompt: 'According to South Africa\'s POPIA, an organisation that collects personal data must:',
-    options: ['Share it freely with other companies', 'Sell it to marketers', 'Collect only necessary data, protect it, and inform users how it will be used', 'Store it indefinitely without restriction'],
-    answer: 'Collect only necessary data, protect it, and inform users how it will be used',
+    options: ['Share it freely with any other company that asks', 'Sell it to marketers who want contact details', 'Collect only needed data, protect it and say how it is used', 'Store it for ever without any limits being set'],
+    answer: 'Collect only needed data, protect it and say how it is used',
     explanation: 'POPIA (Protection of Personal Information Act) requires organisations to process personal data lawfully, minimally, and transparently.',
   },
   {
     prompt: 'Two-factor authentication (2FA) improves security by:',
-    options: ['Requiring two usernames', 'Asking for a password twice', 'Requiring a second verification step (e.g. SMS code) beyond the password', 'Blocking all login attempts'],
-    answer: 'Requiring a second verification step (e.g. SMS code) beyond the password',
+    options: ['Requiring two usernames for the same account', 'Asking for the same password twice at login', 'Requiring a second step (e.g. an SMS code) after the password', 'Blocking every login attempt after midnight'],
+    answer: 'Requiring a second step (e.g. an SMS code) after the password',
     explanation: '2FA means even if someone steals your password, they cannot log in without also having the second factor (phone, authenticator app, fingerprint).',
   },
   {
@@ -154,20 +154,20 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'A website charges users R50 to access study notes but the site has no visible author, no date, and many pop-up ads. What should a learner conclude?',
-    options: ['The site is reliable because it charges a fee', 'The site should be treated with caution — it lacks credibility indicators', 'The fee proves the content is accurate', 'Pop-up ads mean the site is popular'],
-    answer: 'The site should be treated with caution — it lacks credibility indicators',
+    options: ['The site is reliable because it charges a fee', 'Treat it with caution, as it lacks signs of credibility', 'The fee proves that the content is accurate', 'Pop-up ads mean that the site is a popular one'],
+    answer: 'Treat it with caution, as it lacks signs of credibility',
     explanation: 'Credible websites have named authors, recent dates, and reputable domains. Missing these indicators (plus intrusive ads) suggest low reliability.',
   },
   {
     prompt: 'What is the main risk of using cryptocurrency for transactions in South Africa?',
-    options: ['It is illegal in South Africa', 'High price volatility and the prevalence of investment scams', 'It can only be used internationally', 'It requires a special computer to spend'],
-    answer: 'High price volatility and the prevalence of investment scams',
+    options: ['It is illegal to use in South Africa', 'High price swings and many investment scams', 'It can be used for international deals only', 'It needs a special computer in order to spend it'],
+    answer: 'High price swings and many investment scams',
     explanation: 'Cryptocurrency values fluctuate wildly, and scam schemes ("get rich quick") target inexperienced users.',
   },
   {
     prompt: 'What is the purpose of cookies on a website?',
-    options: ['To protect the website from hackers', 'To store small pieces of data on the user\'s device (e.g. login status, preferences, browsing behaviour)', 'To display images faster', 'To enable HTTPS encryption'],
-    answer: 'To store small pieces of data on the user\'s device (e.g. login status, preferences, browsing behaviour)',
+    options: ['To protect a website from the attacks of hackers', 'To store small bits of data on your device, like login status', 'To make the images of a site display faster', 'To switch on HTTPS encryption for a website'],
+    answer: 'To store small bits of data on your device, like login status',
     explanation: 'Cookies allow websites to remember users (session cookies) or track long-term behaviour (persistent cookies) for personalisation and analytics.',
   },
 ];

@@ -123,24 +123,14 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is the "climax" of a drama?',
-    options: [
-      'The turning point of highest tension where the conflict reaches its peak',
-      'The opening scene that introduces the characters',
-      'The final scene after all problems are resolved',
-      'A stage direction about lighting',
-    ],
-    answer: 'The turning point of highest tension where the conflict reaches its peak',
+    options: ['The turning point of highest tension, where conflict peaks', 'The opening scene that introduces the characters', 'The final scene after all problems are resolved', 'A stage direction about the lighting'],
+    answer: 'The turning point of highest tension, where conflict peaks',
     explanation: 'The climax is the dramatic high point — events leading to the resolution pivot around this moment of maximum tension.',
   },
   {
     prompt: 'What do stage directions reveal in a drama text?',
-    options: [
-      'Character movement, tone, and mood beyond what dialogue alone conveys',
-      'Only the name of the playwright',
-      'The date when the play was written',
-      'The number of acts and scenes',
-    ],
-    answer: 'Character movement, tone, and mood beyond what dialogue alone conveys',
+    options: ['Movement, tone and mood beyond what the dialogue shows', 'Only the name of the playwright', 'The date on which the play was written', 'The number of acts and scenes in the play'],
+    answer: 'Movement, tone and mood beyond what the dialogue shows',
     explanation: 'Stage directions are the playwright\'s instructions to performers and readers — they add crucial layers of meaning.',
   },
   {
@@ -157,24 +147,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A first-person narrator is best described as:',
-    options: [
-      'Intimate and subjective, with access only to their own thoughts and feelings',
-      'All-knowing, with access to every character\'s mind',
-      'Completely objective and factual',
-      'Always unreliable and dishonest',
-    ],
-    answer: 'Intimate and subjective, with access only to their own thoughts and feelings',
+    options: ['Intimate and subjective, seeing only their own thoughts and feelings', 'All-knowing, with access to the mind of every character', 'Completely objective and factual in all things', 'Always unreliable and dishonest with the reader'],
+    answer: 'Intimate and subjective, seeing only their own thoughts and feelings',
     explanation: 'First-person narration creates closeness with the reader but limits the perspective to what the narrator experiences.',
   },
   {
     prompt: 'What does "irony" create in a short story?',
-    options: [
-      'A gap between what is expected or said and what actually happens — used for humour or critique',
-      'A repetition of the main theme three times',
-      'An exact description of the setting',
-      'A comparison between two characters',
-    ],
-    answer: 'A gap between what is expected or said and what actually happens — used for humour or critique',
+    options: ['A gap between what is expected and what happens', 'A repetition of the main theme three times', 'An exact description of the setting of the story', 'A comparison between two of the characters'],
+    answer: 'A gap between what is expected and what happens',
     explanation: 'Irony exploits the contrast between appearance and reality — it can be satirical, tragic, or comic.',
   },
   {

@@ -115,13 +115,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What was Hoover\'s "rugged individualism" belief?',
-    options: [
-      'That Americans should overcome hardship without government handouts, and the economy would recover naturally',
-      'That the government should directly employ all unemployed workers',
-      'That the USA should adopt communism to end the Depression',
-      'That military spending would revive the economy',
-    ],
-    answer: 'That Americans should overcome hardship without government handouts, and the economy would recover naturally',
+    options: ['Hardship should be overcome without handouts; the economy would recover', 'The government should employ all of the jobless directly', 'The USA should adopt communism to end the Depression', 'Military spending would bring the economy back to life'],
+    answer: 'Hardship should be overcome without handouts; the economy would recover',
     explanation: 'Hoover\'s belief in minimal government intervention meant he failed to provide adequate relief during the Depression.',
   },
   {
@@ -137,13 +132,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What did the CCC (Civilian Conservation Corps) do?',
-    options: [
-      'Employed young men in environmental projects — planting forests, building parks and conservation works',
-      'Regulated commercial banking and insured deposits',
-      'Built hydroelectric dams in the Tennessee Valley',
-      'Managed agricultural subsidies for farmers',
-    ],
-    answer: 'Employed young men in environmental projects — planting forests, building parks and conservation works',
+    options: ['Employed young men on conservation work such as planting forests', 'Regulated commercial banking and insured the deposits', 'Built hydroelectric dams in the Tennessee Valley', 'Managed the farm subsidies that were paid to farmers'],
+    answer: 'Employed young men on conservation work such as planting forests',
     explanation: 'The CCC gave employment to millions of young men and left a lasting legacy of conservation infrastructure.',
   },
   {
@@ -159,57 +149,32 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When was the Social Security Act passed, and what did it create?',
-    options: [
-      '1935 — it created unemployment insurance and old-age pensions for the first time in the USA',
-      '1929 — it provided emergency relief immediately after the Crash',
-      '1932 — it nationalised the steel industry',
-      '1940 — it extended the New Deal to cover World War II costs',
-    ],
-    answer: '1935 — it created unemployment insurance and old-age pensions for the first time in the USA',
+    options: ['1935: it created unemployment insurance and old-age pensions in the USA', '1929: it gave emergency relief just after the Crash', '1932: it nationalised the steel industry of the country', '1940: it extended the New Deal to cover the costs of war'],
+    answer: '1935: it created unemployment insurance and old-age pensions in the USA',
     explanation: 'The Social Security Act was a landmark reform — America\'s first welfare safety net — though it excluded many workers.',
   },
   {
     prompt: 'Why did right-wing critics oppose the New Deal?',
-    options: [
-      'They believed it gave the government too much power over the economy and undermined capitalism',
-      'They argued it spent too little money and did not go far enough',
-      'They wanted the government to nationalise all industries',
-      'They felt it was unfair to farmers but generous to factory workers',
-    ],
-    answer: 'They believed it gave the government too much power over the economy and undermined capitalism',
+    options: ['They felt it gave the state too much power and undermined capitalism', 'They argued it spent too little and did not go far enough', 'They wanted the state to nationalise all of the industries', 'They felt it was unfair to farmers but kind to factory workers'],
+    answer: 'They felt it gave the state too much power and undermined capitalism',
     explanation: 'Business leaders and conservative politicians feared the New Deal was a step towards socialism and challenged it in the Supreme Court.',
   },
   {
     prompt: 'Why did left-wing critics argue the New Deal did not go far enough?',
-    options: [
-      'Many programmes excluded African Americans; the Social Security Act omitted domestic and agricultural workers',
-      'The New Deal nationalised industries too aggressively',
-      'FDR spent too much on the military at the expense of social programmes',
-      'The New Deal abolished all private businesses',
-    ],
-    answer: 'Many programmes excluded African Americans; the Social Security Act omitted domestic and agricultural workers',
+    options: ['Many programmes excluded Black Americans and farm workers', 'The New Deal nationalised industries far too aggressively', 'FDR spent too much on the military at the cost of welfare', 'The New Deal abolished all of the private businesses'],
+    answer: 'Many programmes excluded Black Americans and farm workers',
     explanation: 'Racial exclusions in New Deal programmes meant African Americans benefited far less — a major limitation of the reforms.',
   },
   {
     prompt: 'What was the Tennessee Valley Authority (TVA)?',
-    options: [
-      'A government agency that built dams and power stations, providing electricity and jobs in a poor rural region',
-      'A relief fund for unemployed coal miners',
-      'A scheme to relocate Dust Bowl farmers to the Tennessee Valley',
-      'A private company that managed river transport',
-    ],
-    answer: 'A government agency that built dams and power stations, providing electricity and jobs in a poor rural region',
+    options: ['A state agency that built dams and power stations, giving power and jobs', 'A relief fund that was set up for unemployed coal miners', 'A plan to move Dust Bowl farmers to the Tennessee Valley', 'A private company that ran river transport in the region'],
+    answer: 'A state agency that built dams and power stations, giving power and jobs',
     explanation: 'The TVA was a major example of state-led economic development — transforming a poverty-stricken region through infrastructure investment.',
   },
   {
     prompt: 'Why is the New Deal historically significant for capitalism?',
-    options: [
-      'It showed that capitalist governments could intervene to manage the economy and provide welfare without becoming communist',
-      'It proved that capitalism works best with no government involvement',
-      'It replaced capitalism with a communist economic system in the USA',
-      'It ended the stock market and replaced it with state planning',
-    ],
-    answer: 'It showed that capitalist governments could intervene to manage the economy and provide welfare without becoming communist',
+    options: ['It showed capitalist states could manage the economy and give welfare', 'It proved that capitalism works best with no state role', 'It replaced capitalism with a communist system in the USA', 'It ended the stock market and replaced it with planning'],
+    answer: 'It showed capitalist states could manage the economy and give welfare',
     explanation: 'The New Deal permanently changed the relationship between government and economy in the USA — proving that state intervention and capitalism could coexist.',
   },
 ];

@@ -109,13 +109,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What was Jim Crow?',
-    options: [
-      'A system of racial segregation and disenfranchisement in the USA, especially in the South',
-      'A campaign to end segregation in South Africa',
-      'A legal code that guaranteed equal education for all',
-      'A political party in the United States',
-    ],
-    answer: 'A system of racial segregation and disenfranchisement in the USA, especially in the South',
+    options: ['A system of racial segregation and disenfranchisement in the USA', 'A campaign to end segregation in South Africa', 'A legal code that gave equal education to all', 'A political party in the United States of America'],
+    answer: 'A system of racial segregation and disenfranchisement in the USA',
     explanation: 'Jim Crow laws enforced white supremacy by separating Black and white Americans and limiting Black voting rights.',
   },
   {
@@ -164,13 +159,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is the Bantu Education Act significant?',
-    options: [
-      'It provided an inferior education designed to keep Black South Africans in subordinate roles',
-      'It created university scholarships for all racial groups',
-      'It ended racial discrimination in schools',
-      'It introduced free and equal education across South Africa',
-    ],
-    answer: 'It provided an inferior education designed to keep Black South Africans in subordinate roles',
+    options: ['It gave an inferior education to keep Black South Africans subordinate', 'It created university scholarships for all race groups', 'It ended racial discrimination in schools', 'It brought in free and equal education for everyone'],
+    answer: 'It gave an inferior education to keep Black South Africans subordinate',
     explanation: 'Apartheid education aimed to limit opportunity and maintain racial hierarchy.',
   },
   {
@@ -186,13 +176,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is one important difference between the two systems?',
-    options: [
-      'Apartheid was a more centralised national system with stronger control over movement and residence',
-      'Jim Crow relied on no legal enforcement at all',
-      'Apartheid did not classify people by race',
-      'Jim Crow was based on equality under the law',
-    ],
-    answer: 'Apartheid was a more centralised national system with stronger control over movement and residence',
+    options: ['Apartheid was more centralised, with tighter control of movement', 'Jim Crow relied on no legal enforcement of any kind', 'Apartheid did not classify people by their race', 'Jim Crow was based on equality under the law'],
+    answer: 'Apartheid was more centralised, with tighter control of movement',
     explanation: 'Although both were oppressive, apartheid developed a particularly detailed and nationwide legal structure.',
   },
 ];

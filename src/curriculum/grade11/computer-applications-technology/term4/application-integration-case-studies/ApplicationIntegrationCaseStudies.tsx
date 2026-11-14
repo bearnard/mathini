@@ -126,8 +126,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'The digital divide in South Africa refers to:',
-    options: ['The gap between PC users and Mac users', 'Inequality in access to computers and internet due to cost, location, and education', 'The difference between 4G and 5G networks', 'The split between online and offline gaming'],
-    answer: 'Inequality in access to computers and internet due to cost, location, and education',
+    options: ['The gap between users of PCs and users of Macs', 'Unequal access to computers and the internet due to cost and place', 'The difference in speed between 4G and 5G networks', 'The split between online and offline gaming'],
+    answer: 'Unequal access to computers and the internet due to cost and place',
     explanation: 'South Africa\'s digital divide is characterised by unequal access to technology between urban/rural areas and different socioeconomic groups.',
   },
   {
@@ -138,14 +138,14 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'E-waste should be disposed of by:',
-    options: ['Throwing it in a regular dustbin', 'Burying it in the garden', 'Taking it to a certified e-waste recycling centre', 'Burning it to recover metal'],
+    options: ['Throwing it away in a regular dustbin', 'Burying it in the garden behind the house', 'Taking it to a certified e-waste recycling centre', 'Burning it to recover the metal that is inside'],
     answer: 'Taking it to a certified e-waste recycling centre',
     explanation: 'Electronic devices contain hazardous materials. Certified recycling centres process them safely, extracting reusable materials and disposing of toxins correctly.',
   },
   {
     prompt: 'An exam question says "Evaluate the use of cloud storage for a small business." What should the answer include?',
-    options: ['Only the advantages of cloud storage', 'Only the definition of cloud storage', 'Both advantages and disadvantages, and a justified recommendation or conclusion', 'A list of all cloud storage providers'],
-    answer: 'Both advantages and disadvantages, and a justified recommendation or conclusion',
+    options: ['Only the advantages of using cloud storage', 'Only the definition of what cloud storage is', 'Advantages and disadvantages, plus a justified conclusion', 'A list of all of the cloud storage providers'],
+    answer: 'Advantages and disadvantages, plus a justified conclusion',
     explanation: '"Evaluate" requires weighing up both sides and providing a reasoned judgement — not a one-sided list.',
   },
   {
@@ -162,8 +162,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'When troubleshooting a slow computer, which step should be done FIRST?',
-    options: ['Replace the hard drive', 'Buy a new computer', 'Run an antivirus scan and check Task Manager for resource-heavy processes', 'Reinstall the operating system'],
-    answer: 'Run an antivirus scan and check Task Manager for resource-heavy processes',
+    options: ['Replace the hard drive with a new one', 'Buy a brand new computer to replace the old one', 'Run an antivirus scan and check Task Manager for heavy processes', 'Reinstall the operating system from scratch'],
+    answer: 'Run an antivirus scan and check Task Manager for heavy processes',
     explanation: 'Start with the simplest, non-destructive steps: malware and unnecessary processes are common causes of slowdown and can be resolved without hardware changes.',
   },
   {
@@ -174,8 +174,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'An exam question asks you to "Compare" wired and wireless networks. Your answer should:',
-    options: ['Define only wired networks', 'List advantages of wireless networks only', 'Identify similarities AND differences between the two network types', 'Describe how to set up a Wi-Fi router'],
-    answer: 'Identify similarities AND differences between the two network types',
+    options: ['Define wired networks and leave out wireless ones', 'List the advantages of wireless networks only', 'Identify similarities AND differences between the two', 'Describe how to set up a Wi-Fi router at home'],
+    answer: 'Identify similarities AND differences between the two',
     explanation: '"Compare" requires addressing both similarities and differences. A good compare answer is structured (e.g. in a table or using both/while/whereas language).',
   },
 ];

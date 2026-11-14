@@ -103,35 +103,20 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Which of the following best describes a "life role"?',
-    options: [
-      'A part you play in a school drama',
-      'A set of responsibilities and behaviours expected of you in a particular context',
-      'A career you choose after school',
-      'A subject you study at school',
-    ],
-    answer: 'A set of responsibilities and behaviours expected of you in a particular context',
+    options: ['A part that you act in a school drama production', 'The responsibilities and behaviours expected of you in a context', 'A career that you choose to follow after school', 'A subject that you study in the senior phase'],
+    answer: 'The responsibilities and behaviours expected of you in a context',
     explanation: 'Life roles are the various positions we occupy — student, sibling, community member — each carrying its own responsibilities.',
   },
   {
     prompt: 'What is "purpose" in the context of personal development?',
-    options: [
-      'Earning the most money possible',
-      'A sense that your actions matter and contribute to something beyond yourself',
-      'Following rules set by adults',
-      'Completing school work on time',
-    ],
-    answer: 'A sense that your actions matter and contribute to something beyond yourself',
+    options: ['Earning as much money as you possibly can', 'A sense that your actions matter beyond yourself', 'Following the rules that adults have set for you', 'Handing in your school work on time each week'],
+    answer: 'A sense that your actions matter beyond yourself',
     explanation: 'Purpose gives meaning to your efforts and guides long-term motivation.',
   },
   {
     prompt: 'How do values function in decision-making?',
-    options: [
-      'They slow down decision-making',
-      'They act as an internal compass, guiding choices based on what is important and right',
-      'They are only relevant in religious contexts',
-      'They force you to agree with others',
-    ],
-    answer: 'They act as an internal compass, guiding choices based on what is important and right',
+    options: ['They slow down decision-making in every case', 'They act as an inner compass that guides choices on what matters', 'They are only of use in religious settings', 'They force you to agree with the people around you'],
+    answer: 'They act as an inner compass that guides choices on what matters',
     explanation: 'Values are deep beliefs that shape how we judge situations and choose between options.',
   },
   {
@@ -142,13 +127,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does self-management primarily involve?',
-    options: [
-      'Managing other people\'s behaviour',
-      'Regulating your own behaviour, emotions, and time across your roles',
-      'Following a strict schedule set by teachers',
-      'Avoiding all risk and challenge',
-    ],
-    answer: 'Regulating your own behaviour, emotions, and time across your roles',
+    options: ['Managing the behaviour of the people around you', 'Regulating your own behaviour, emotions and time in your roles', 'Keeping to a strict timetable that teachers set', 'Avoiding all risks and challenges in your life'],
+    answer: 'Regulating your own behaviour, emotions and time in your roles',
     explanation: 'Self-management is the capacity to govern yourself — your time, emotions, and actions — to fulfil your responsibilities.',
   },
   {
@@ -181,19 +161,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When your actions consistently align with your values, you are most likely to experience:',
-    options: ['Moral discomfort', 'Boredom', 'Integrity and a sense of meaning', 'Peer pressure'],
+    options: ['Moral discomfort and a sense of guilt', 'Boredom and a loss of interest in goals', 'Integrity and a sense of meaning', 'Peer pressure from the people around you'],
     answer: 'Integrity and a sense of meaning',
     explanation: 'Living according to your values produces a sense of wholeness, integrity, and meaningful purpose.',
   },
   {
     prompt: 'Which of the following is an example of the accountability component of self-management?',
-    options: [
-      'Blaming a friend when a project fails',
-      'Taking ownership of a poor test result and deciding how to improve',
-      'Avoiding tasks you find difficult',
-      'Asking a parent to solve problems for you',
-    ],
-    answer: 'Taking ownership of a poor test result and deciding how to improve',
+    options: ['Blaming a friend when a group project fails', 'Owning a poor test result and deciding how to improve', 'Avoiding the tasks that you find difficult', 'Asking a parent to solve your problems for you'],
+    answer: 'Owning a poor test result and deciding how to improve',
     explanation: 'Accountability means owning your actions and consequences rather than deflecting responsibility.',
   },
 ];

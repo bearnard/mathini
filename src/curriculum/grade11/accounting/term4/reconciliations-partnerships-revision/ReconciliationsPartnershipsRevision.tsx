@@ -200,13 +200,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Equity in a partnership balance sheet includes:',
-    options: [
-      'Only creditors and bank balances',
-      'Both partners\' capital accounts and current accounts',
-      'Only the capital accounts of partners',
-      'Net profit of the current year only',
-    ],
-    answer: 'Both partners\' capital accounts and current accounts',
+    options: ['Only the creditors and the bank balances', "Both partners' capital accounts and current accounts", 'Only the capital accounts of the partners', 'Only the net profit of the current year'],
+    answer: "Both partners' capital accounts and current accounts",
     explanation: 'Total equity for a partnership = sum of all capital accounts + sum of all current accounts.',
   },
   {
@@ -217,7 +212,7 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Non-current assets on the balance sheet are shown at:',
-    options: ['Original cost', 'Market value', 'Cost minus accumulated depreciation', 'Replacement cost'],
+    options: ['The original cost of the asset', 'The market value of the asset', 'Cost minus accumulated depreciation', 'The replacement cost of the asset'],
     answer: 'Cost minus accumulated depreciation',
     explanation: 'Non-current assets are reported at carrying value = cost − accumulated depreciation.',
   },

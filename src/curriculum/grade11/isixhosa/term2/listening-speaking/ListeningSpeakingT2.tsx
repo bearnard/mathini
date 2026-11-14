@@ -128,13 +128,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the role of the chairperson in a panel discussion?',
-    options: [
-      'Manage time, introduce speakers, and ensure orderly debate',
-      'Present the most persuasive argument',
-      'Ask all the audience questions',
-      'Read out the conclusion at the end',
-    ],
-    answer: 'Manage time, introduce speakers, and ensure orderly debate',
+    options: ['Manage time, introduce speakers and keep the debate orderly', 'Present the most persuasive argument of all', 'Ask all of the questions from the audience', 'Read out the conclusion at the end of the talk'],
+    answer: 'Manage time, introduce speakers and keep the debate orderly',
     explanation: 'The chairperson is the neutral facilitator who keeps the discussion organised and fair.',
   },
   {

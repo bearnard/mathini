@@ -157,8 +157,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'What is a distinguishing feature of annelids (earthworms, leeches)?',
-    options: ['Radial symmetry', 'Exoskeleton', 'Segmented body with a true coelom', 'Water vascular system'],
-    answer: 'Segmented body with a true coelom',
+    options: ['Radial symmetry around a central body axis', 'A hard exoskeleton made of chitin', 'A segmented body with a true coelom', 'A water vascular system with tube feet'],
+    answer: 'A segmented body with a true coelom',
     explanation: 'Annelids have a body divided into repeated ring-like segments and a fluid-filled body cavity (true coelom) that allows organ development and movement.',
   },
   {
@@ -175,8 +175,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'Sponges (Porifera) are unique among animals because they:',
-    options: ['Have radial symmetry', 'Lack true tissues, organs, and body symmetry', 'Are the only filter feeders', 'Reproduce only sexually'],
-    answer: 'Lack true tissues, organs, and body symmetry',
+    options: ['They have radial symmetry like jellyfish do', 'They lack true tissues, organs and body symmetry', 'They are the only animals that filter feed', 'They reproduce by sexual reproduction only'],
+    answer: 'They lack true tissues, organs and body symmetry',
     explanation: 'Sponges are the simplest animals — their cells are loosely organised with no true tissues or organs, and they show no body symmetry.',
   },
   {

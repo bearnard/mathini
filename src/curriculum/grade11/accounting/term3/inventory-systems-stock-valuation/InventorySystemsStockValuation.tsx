@@ -227,24 +227,14 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Why is it important for a business to disclose its inventory valuation method in the notes?',
-    options: [
-      'It is required by law',
-      'Different methods produce different profit figures, so users need to know which method was used to make meaningful comparisons',
-      'It helps calculate VAT',
-      'It determines the bank reconciliation outcome',
-    ],
-    answer: 'Different methods produce different profit figures, so users need to know which method was used to make meaningful comparisons',
+    options: ['It is required by law in every case', 'Different methods give different profits, so users need to know', 'It is needed to work out the VAT', 'It decides the outcome of the bank reconciliation'],
+    answer: 'Different methods give different profits, so users need to know',
     explanation: 'Transparency about the chosen method allows comparisons between periods and between businesses to be meaningful.',
   },
   {
     prompt: 'Under the perpetual system, cost of sales is recorded:',
-    options: [
-      'Only at year-end after a physical count',
-      'At the time of each sale using the appropriate cost of the units sold',
-      'Only when suppliers are paid',
-      'At the time of purchase',
-    ],
-    answer: 'At the time of each sale using the appropriate cost of the units sold',
+    options: ['Only at the year end after a physical count', 'At the time of each sale, at the cost of the units sold', 'Only when the suppliers have been paid', 'At the time of the purchase of the goods'],
+    answer: 'At the time of each sale, at the cost of the units sold',
     explanation: 'The perpetual system records cost of sales with each sale, keeping the inventory account and cost of sales current at all times.',
   },
   {

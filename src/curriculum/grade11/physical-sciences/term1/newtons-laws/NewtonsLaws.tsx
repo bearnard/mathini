@@ -122,8 +122,8 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'What is inertia?',
-    options: ['The force of gravity on an object', 'The tendency of an object to resist changes in its state of motion', 'The net force on a moving object', 'The acceleration due to gravity'],
-    answer: 'The tendency of an object to resist changes in its state of motion',
+    options: ['The force of gravity that acts on an object', 'The tendency of an object to resist changes in its motion', 'The net force that acts on a moving object', 'The acceleration of a falling object due to gravity'],
+    answer: 'The tendency of an object to resist changes in its motion',
     explanation: 'Inertia is the property of matter that causes objects to resist changes in their velocity. It is directly proportional to mass.',
   },
   {

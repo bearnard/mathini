@@ -152,13 +152,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When drawing a topographic cross-section, what determines the shape of the profile?',
-    options: [
-      'The colour of the map',
-      'The horizontal positions and elevations of contour lines crossed by the section line',
-      'The scale of the graph paper',
-      'The direction the section line faces',
-    ],
-    answer: 'The horizontal positions and elevations of contour lines crossed by the section line',
+    options: ['The colour that has been used to print the map', 'The positions and heights of the contours that the line crosses', 'The scale of the graph paper that is being used', 'The compass direction in which the section line faces'],
+    answer: 'The positions and heights of the contours that the line crosses',
     explanation: 'Each contour crossing provides a data point (horizontal distance, elevation) that is plotted to build the profile.',
   },
   {
@@ -175,13 +170,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Vertical exaggeration on a cross-section means:',
-    options: [
-      'The horizontal scale is made larger than in reality',
-      'The vertical scale is exaggerated relative to the horizontal scale to make relief features visible',
-      'The map is drawn larger than reality',
-      'The section covers a greater area than shown',
-    ],
-    answer: 'The vertical scale is exaggerated relative to the horizontal scale to make relief features visible',
+    options: ['The horizontal scale is made larger than the real one', 'The vertical scale is made larger than the horizontal, to show relief', 'The whole map is drawn larger than the real land', 'The section covers a larger area than the map shows'],
+    answer: 'The vertical scale is made larger than the horizontal, to show relief',
     explanation: 'Without vertical exaggeration, subtle height differences would be invisible. Stating the VE (e.g., ×5) is required when drawing cross-sections.',
   },
 ];

@@ -101,13 +101,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is the main purpose of a contextual question in a literature exam?',
-    options: [
-      'To test how many chapters you have memorised',
-      'To assess your ability to analyse a given extract using evidence and literary terms',
-      'To summarise the entire novel in your own words',
-      'To rewrite the extract in a different style',
-    ],
-    answer: 'To assess your ability to analyse a given extract using evidence and literary terms',
+    options: ['To test how many chapters of a book you have memorised', 'To assess how well you analyse an extract using evidence and terms', 'To summarise the whole novel in your own words', 'To rewrite the given extract in a different style'],
+    answer: 'To assess how well you analyse an extract using evidence and terms',
     explanation: 'Contextual questions require you to engage closely with the provided extract, quote from it, and explain how literary devices create meaning.',
   },
   {
@@ -118,13 +113,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does "tone" refer to when analysing a poem?',
-    options: [
-      'The rhyme scheme of the poem',
-      'The number of syllables per line',
-      'The speaker\'s attitude or emotional stance toward the subject',
-      'The title of the poem',
-    ],
-    answer: 'The speaker\'s attitude or emotional stance toward the subject',
+    options: ['The rhyme scheme that the poet uses in each stanza', 'The number of syllables that are found in each line', "The speaker's attitude or emotional stance towards the subject", 'The title that the poet has given to the poem'],
+    answer: "The speaker's attitude or emotional stance towards the subject",
     explanation: 'Tone reflects how the speaker feels — mournful, hopeful, sarcastic, defiant — and is identified through word choice and imagery.',
   },
   {
@@ -135,13 +125,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is alliteration?',
-    options: [
-      'The repetition of vowel sounds within words',
-      'The repetition of consonant sounds at the beginning of nearby words',
-      'A comparison using "like" or "as"',
-      'A reference to a well-known event or text',
-    ],
-    answer: 'The repetition of consonant sounds at the beginning of nearby words',
+    options: ['Repeating vowel sounds within words in a line', 'Repeating consonant sounds at the start of nearby words', 'Comparing two things with the words "like" or "as"', 'Referring to a well-known event or text in a poem'],
+    answer: 'Repeating consonant sounds at the start of nearby words',
     explanation: 'Alliteration (e.g., "Peter Piper picked") creates rhythm and draws attention to key words or ideas.',
   },
   {
@@ -168,13 +153,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does "connotation" mean in literary analysis?',
-    options: [
-      'The dictionary definition of a word',
-      'The emotional or cultural associations a word carries beyond its literal meaning',
-      'The spelling of a word',
-      'The number of times a word appears in a text',
-    ],
-    answer: 'The emotional or cultural associations a word carries beyond its literal meaning',
+    options: ['The dictionary definition that a word is given', 'The emotional or cultural associations a word carries', 'The way that a word is spelt in different texts', 'The number of times a word is used in a text'],
+    answer: 'The emotional or cultural associations a word carries',
     explanation: 'For example, "home" denotes a building but connotes warmth, safety, and belonging. Writers choose words for their connotations.',
   },
   {
@@ -185,13 +165,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How does folklore typically differ from a contemporary novel?',
-    options: [
-      'Folklore has complex sentence structures; novels use simple ones',
-      'Folklore relies on oral tradition and often carries cultural or moral lessons, while novels are written narratives with developed characters',
-      'Novels are always shorter than folklore texts',
-      'Folklore is always written in verse',
-    ],
-    answer: 'Folklore relies on oral tradition and often carries cultural or moral lessons, while novels are written narratives with developed characters',
+    options: ['Folklore has complex sentences, while novels use simple ones', 'Folklore comes from oral tradition and carries cultural lessons; novels are written', 'Novels are always shorter than folklore texts are', 'Folklore is always written in verse, while novels are in prose'],
+    answer: 'Folklore comes from oral tradition and carries cultural lessons; novels are written',
     explanation: 'Folklore conventions include stock characters, repetition, moral endings, and community values — different from the psychological depth found in modern novels.',
   },
 ];

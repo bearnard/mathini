@@ -114,8 +114,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What is a deepfake?',
-    options: ['A type of ransomware', 'AI-generated fake video or audio that makes someone appear to say or do something they did not', 'A secure backup of important files', 'A method of encrypting data'],
-    answer: 'AI-generated fake video or audio that makes someone appear to say or do something they did not',
+    options: ['A type of ransomware that locks all your files', 'AI-made fake video or audio of people saying false things', 'A secure backup of your most important files', 'A method of encrypting data before it is sent'],
+    answer: 'AI-made fake video or audio of people saying false things',
     explanation: 'Deepfakes use AI (GANs) to create convincing but fabricated media, posing serious risks for misinformation and reputation damage.',
   },
   {
@@ -126,14 +126,14 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'Which PAT phase 3 document section explains what the data means and identifies patterns?',
-    options: ['Cover page', 'Table of contents', 'Analysis / Interpretation section', 'Bibliography'],
+    options: ['The cover page of the PAT report', 'The table of contents at the front', 'Analysis / Interpretation section', 'The bibliography at the end of the report'],
     answer: 'Analysis / Interpretation section',
     explanation: 'The analysis section interprets the charts and data — it explains trends, comparisons, and what the findings mean in context of the research question.',
   },
   {
     prompt: 'A learner uses ChatGPT to write their entire PAT report and submits it as their own. This is a concern because:',
-    options: ['ChatGPT is too expensive for learners', 'It constitutes academic dishonesty (plagiarism) and does not demonstrate the learner\'s own understanding', 'ChatGPT cannot write reports', 'The teacher will not notice'],
-    answer: 'It constitutes academic dishonesty (plagiarism) and does not demonstrate the learner\'s own understanding',
+    options: ['ChatGPT costs too much for most learners to use', 'It is plagiarism and shows none of their own learning', 'ChatGPT is not able to write a report at all', 'The teacher will not notice that it was used'],
+    answer: 'It is plagiarism and shows none of their own learning',
     explanation: 'Submitting AI-generated work as one\'s own is considered academic dishonesty. The PAT assesses the learner\'s personal research and analytical skills.',
   },
   {
@@ -150,20 +150,20 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'Facial recognition technology raises which major ethical concern?',
-    options: ['It uses too much battery power', 'It raises privacy concerns, potential for mass surveillance, and risks of bias in identification', 'It is too expensive to develop', 'It can only work indoors'],
-    answer: 'It raises privacy concerns, potential for mass surveillance, and risks of bias in identification',
+    options: ['It drains too much battery power from devices', 'Privacy loss, mass surveillance and bias in identifying people', 'It is too costly for firms to develop', 'It can only work indoors in good lighting'],
+    answer: 'Privacy loss, mass surveillance and bias in identifying people',
     explanation: 'Facial recognition can identify people without consent, enable mass surveillance, and has shown biases against certain ethnic groups in studies.',
   },
   {
     prompt: 'After restoring files from a backup post-ransomware attack, what is the next critical step?',
-    options: ['Delete the backup files', 'Patch the vulnerability that allowed the ransomware to enter', 'Send the ransom note back', 'Format the backup drive'],
-    answer: 'Patch the vulnerability that allowed the ransomware to enter',
+    options: ['Delete all of the backup files that were used', 'Patch the weakness that let the ransomware in', 'Send the ransom note back to the attackers', 'Format the backup drive straight away'],
+    answer: 'Patch the weakness that let the ransomware in',
     explanation: 'If the security gap that allowed the attack is not fixed, the system will be reinfected. Patching the vulnerability is essential before reconnecting to the network.',
   },
   {
     prompt: 'For a PAT chart to be effective, it MUST include:',
-    options: ['Only the raw numbers', 'A chart title, labelled axes (where applicable), and a legend (where needed)', 'The learner\'s name embedded in the chart', 'At least 500 data points'],
-    answer: 'A chart title, labelled axes (where applicable), and a legend (where needed)',
+    options: ['Only the raw numbers, with no title or labels', 'A title, labelled axes (if relevant) and a legend if needed', "The learner's name placed inside the chart itself", 'At least 500 data points in the data set used'],
+    answer: 'A title, labelled axes (if relevant) and a legend if needed',
     explanation: 'A well-designed chart requires a descriptive title, labelled axes with units, and a legend if multiple data series are shown — otherwise the reader cannot interpret it.',
   },
 ];

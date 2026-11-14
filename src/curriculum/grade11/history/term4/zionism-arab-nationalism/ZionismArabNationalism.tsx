@@ -104,13 +104,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What was Zionism?',
-    options: [
-      'A nationalist movement calling for a Jewish homeland in Palestine',
-      'An Arab movement to unite the Ottoman Empire',
-      'A British policy to end all nationalism',
-      'A socialist campaign in the Soviet Union',
-    ],
-    answer: 'A nationalist movement calling for a Jewish homeland in Palestine',
+    options: ['A nationalist movement for a Jewish homeland in Palestine', 'An Arab movement to unite the Ottoman Empire', 'A British policy to end all forms of nationalism', 'A socialist campaign that was run in the Soviet Union'],
+    answer: 'A nationalist movement for a Jewish homeland in Palestine',
     explanation: 'Zionism grew in response to anti-Semitism and the desire for Jewish self-determination.',
   },
   {
@@ -121,57 +116,32 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What did the Balfour Declaration of 1917 support?',
-    options: [
-      'The establishment of a national home for the Jewish people in Palestine',
-      'Immediate Palestinian independence under Arab rule',
-      'The end of British influence in the Middle East',
-      'The abolition of nationalism in Europe',
-    ],
-    answer: 'The establishment of a national home for the Jewish people in Palestine',
+    options: ['A national home for the Jewish people in Palestine', 'Immediate Palestinian independence under Arab rule', 'The end of British influence in the Middle East', 'The abolition of nationalism across Europe'],
+    answer: 'A national home for the Jewish people in Palestine',
     explanation: 'Britain backed a Jewish national home while also ruling a region with an existing Arab population.',
   },
   {
     prompt: 'Why did Arab nationalism matter in Palestine?',
-    options: [
-      'Palestinian Arabs had their own claims to land, political rights, and self-determination',
-      'Arab nationalism rejected any attachment to territory',
-      'It supported British control over Palestine permanently',
-      'It developed only after 1948 with no earlier roots',
-    ],
-    answer: 'Palestinian Arabs had their own claims to land, political rights, and self-determination',
+    options: ['Palestinian Arabs had their own claims to land and self-rule', 'Arab nationalism rejected any tie to a territory', 'It backed British control of Palestine for good', 'It began only after 1948 and had no earlier roots'],
+    answer: 'Palestinian Arabs had their own claims to land and self-rule',
     explanation: 'Conflict grew because two national movements claimed the same land.',
   },
   {
     prompt: 'What happened in 1948?',
-    options: [
-      'The state of Israel was declared and war broke out with neighbouring Arab states',
-      'The Ottoman Empire regained control of Palestine',
-      'Britain withdrew and peace was immediately established',
-      'The Balfour Declaration was cancelled before any conflict',
-    ],
-    answer: 'The state of Israel was declared and war broke out with neighbouring Arab states',
+    options: ['Israel was declared and war broke out with neighbouring Arab states', 'The Ottoman Empire regained control of Palestine', 'Britain withdrew and peace was made at once', 'The Balfour Declaration was cancelled before any conflict'],
+    answer: 'Israel was declared and war broke out with neighbouring Arab states',
     explanation: '1948 was a turning point that reshaped the region and the experiences of both Israelis and Palestinians.',
   },
   {
     prompt: 'What is the Nakba?',
-    options: [
-      'The Palestinian experience of dispossession and refugee flight during the 1948 war',
-      'The Israeli name for independence day',
-      'A British military operation in Egypt',
-      'The name of a Zionist newspaper',
-    ],
-    answer: 'The Palestinian experience of dispossession and refugee flight during the 1948 war',
+    options: ['The Palestinian loss of land and flight as refugees in 1948', 'The Israeli name for its independence day', 'A British military operation that was run in Egypt', 'The name of a Zionist newspaper of that period'],
+    answer: 'The Palestinian loss of land and flight as refugees in 1948',
     explanation: 'Nakba means "catastrophe" and refers to mass displacement and the loss of homes and communities.',
   },
   {
     prompt: 'Why is the Palestinian refugee crisis historically important?',
-    options: [
-      'It became a long-term regional and human rights issue that remains unresolved',
-      'It ended within weeks and had no lasting impact',
-      'It affected only Europe and not the Middle East',
-      'It was unrelated to war or nationalism',
-    ],
-    answer: 'It became a long-term regional and human rights issue that remains unresolved',
+    options: ['It became a lasting regional and human rights issue, unresolved', 'It ended within weeks with no lasting effect', 'It affected Europe and not the Middle East', 'It had no link to war or to nationalism of any kind'],
+    answer: 'It became a lasting regional and human rights issue, unresolved',
     explanation: 'The displacement of Palestinians shaped later politics, identity, and conflict across the Middle East.',
   },
   {

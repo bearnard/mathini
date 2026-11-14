@@ -129,13 +129,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What did the Nuremberg Laws of 1935 do?',
-    options: [
-      'They removed Jewish citizenship and banned marriage between Jews and "Aryans"',
-      'They ended discrimination against Jewish Germans',
-      'They created the United Nations',
-      'They gave Jewish people equal civil rights',
-    ],
-    answer: 'They removed Jewish citizenship and banned marriage between Jews and "Aryans"',
+    options: ['They removed Jewish citizenship and banned marriage with "Aryans"', 'They ended the discrimination against Jewish Germans', 'They set up the United Nations after the war', 'They gave Jewish people equal civil rights'],
+    answer: 'They removed Jewish citizenship and banned marriage with "Aryans"',
     explanation: 'The Nuremberg Laws turned Nazi racism into official German law.',
   },
   {
@@ -151,13 +146,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does the term Holocaust refer to?',
-    options: [
-      'The systematic murder of six million Jews and millions of other victims by Nazi Germany and its collaborators',
-      'Germany\'s economic crisis after World War I',
-      'The Allied bombing of German cities',
-      'Only the fighting on the Eastern Front',
-    ],
-    answer: 'The systematic murder of six million Jews and millions of other victims by Nazi Germany and its collaborators',
+    options: ['The systematic murder of six million Jews and others by the Nazis', 'The economic crisis in Germany after World War I', 'The bombing of German cities by the Allied air forces', 'The fighting on the Eastern Front and nothing more'],
+    answer: 'The systematic murder of six million Jews and others by the Nazis',
     explanation: 'The Holocaust was genocide carried out through ghettos, shootings, camps, and death camps.',
   },
   {
@@ -173,24 +163,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why were the Nuremberg Trials historically important?',
-    options: [
-      'They held Nazi leaders accountable and helped define crimes against humanity',
-      'They restored Hitler to power in Germany',
-      'They abolished all international law',
-      'They focused only on economic crimes',
-    ],
-    answer: 'They held Nazi leaders accountable and helped define crimes against humanity',
+    options: ['They held Nazi leaders to account and defined crimes against humanity', 'They restored Hitler to power in Germany', 'They abolished all international law after the war', 'They dealt with economic crimes and nothing else'],
+    answer: 'They held Nazi leaders to account and defined crimes against humanity',
     explanation: 'The trials established that individuals and governments could be judged for mass atrocities.',
   },
   {
     prompt: 'How did the Holocaust influence later human rights law?',
-    options: [
-      'It encouraged the development of international protections such as the Genocide Convention',
-      'It ended all debate about international justice',
-      'It led states to reject universal human rights',
-      'It had no influence outside Germany',
-    ],
-    answer: 'It encouraged the development of international protections such as the Genocide Convention',
+    options: ['It encouraged protections such as the Genocide Convention', 'It ended all debate about international justice', 'It led states to reject universal human rights', 'It had no influence outside of the country of Germany'],
+    answer: 'It encouraged protections such as the Genocide Convention',
     explanation: 'The scale of Nazi crimes pushed the world toward stronger legal definitions of genocide and human rights.',
   },
 ];

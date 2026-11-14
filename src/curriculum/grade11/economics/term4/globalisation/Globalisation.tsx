@@ -107,38 +107,38 @@ const learnSteps: LearnStep[] = [
 const bank: EconomicsItem[] = [
   {
     prompt: 'Globalisation is BEST described as:',
-    options: ['The process of countries becoming more economically isolated', 'The increasing integration of the world\'s economies through trade, investment, technology and migration', 'Only the movement of people between countries', 'The establishment of a single world government'],
-    answer: "The increasing integration of the world's economies through trade, investment, technology and migration",
+    options: ['The process of countries becoming more isolated', 'Growing links between economies through trade and investment', 'The movement of people between countries only', 'The setting up of a single world government'],
+    answer: 'Growing links between economies through trade and investment',
     explanation: 'Globalisation is a multi-dimensional process integrating national economies through trade flows, capital movements, technology sharing and migration.',
   },
   {
     prompt: 'The WTO (World Trade Organisation) promotes globalisation mainly through:',
-    options: ['Setting global minimum wages', 'Reducing trade barriers and providing a rules-based framework for international trade', 'Providing loans to developing countries', 'Controlling global currency exchange rates'],
-    answer: 'Reducing trade barriers and providing a rules-based framework for international trade',
+    options: ['Setting a global minimum wage for all workers', 'Lowering trade barriers within a rules-based framework', 'Providing loans to developing countries', 'Controlling the exchange rates of the world'],
+    answer: 'Lowering trade barriers within a rules-based framework',
     explanation: 'The WTO negotiates tariff reductions and enforces trade rules to promote freer international trade among its 164 member countries.',
   },
   {
     prompt: 'AGOA (Africa Growth and Opportunity Act) benefits SA by:',
-    options: ['Providing US military aid to SA', 'Giving SA preferential tariff-free access to US markets for manufactured goods', 'Funding SA\'s National Development Plan', 'Creating a currency union between SA and the USA'],
-    answer: 'Giving SA preferential tariff-free access to US markets for manufactured goods',
+    options: ['Providing US military aid to SA', 'Giving SA duty-free access to US markets for manufactured goods', 'Funding the National Development Plan of SA', 'Creating a currency union between SA and the USA'],
+    answer: 'Giving SA duty-free access to US markets for manufactured goods',
     explanation: 'AGOA allows SA to export textiles, motor vehicles and other goods to the US duty-free, boosting SA exports and job creation.',
   },
   {
     prompt: 'The North-South divide refers to:',
-    options: ['Regional disparities within South Africa', 'The development gap between wealthy Northern nations and poorer Southern developing countries', 'Political differences between SADC member states', 'Geographic differences in climate and agriculture'],
-    answer: 'The development gap between wealthy Northern nations and poorer Southern developing countries',
+    options: ['Regional gaps within South Africa itself', 'The development gap between rich North and poorer South', 'Political differences among the SADC member states', 'Differences in climate and farming between regions'],
+    answer: 'The development gap between rich North and poorer South',
     explanation: 'The North-South divide describes the persistent wealth, technology and power gap between developed (North) and developing (South) nations.',
   },
   {
     prompt: "Developing countries' 'unfavourable terms of trade' means they:",
-    options: ['Pay higher tariffs than developed countries', 'Export raw materials cheaply and import expensive manufactured goods, getting less per unit of exports over time', 'Cannot join the WTO', 'Have stronger currencies than developed nations'],
-    answer: 'Export raw materials cheaply and import expensive manufactured goods, getting less per unit of exports over time',
+    options: ['They pay higher tariffs than the developed countries do', 'They export cheap raw materials and import costly manufactured goods', 'They are not allowed to join the WTO', 'They have stronger currencies than developed nations'],
+    answer: 'They export cheap raw materials and import costly manufactured goods',
     explanation: 'Declining terms of trade is a persistent problem for commodity exporters — raw material prices fall relative to manufactured goods over time.',
   },
   {
     prompt: 'Brain drain refers to:',
-    options: ['Importing skilled workers from abroad', 'The emigration of skilled and educated workers to higher-income countries', 'Poor education systems in developing countries', 'Over-investment in higher education'],
-    answer: 'The emigration of skilled and educated workers to higher-income countries',
+    options: ['Importing skilled workers from abroad', 'Skilled, educated workers emigrating to higher-income countries', 'Weak education systems in developing countries', 'Too much investment in higher education'],
+    answer: 'Skilled, educated workers emigrating to higher-income countries',
     explanation: 'Brain drain describes the loss of skilled professionals (doctors, engineers, IT specialists) who emigrate for better opportunities — a significant issue for SA.',
   },
   {
@@ -149,7 +149,7 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Which institution provides an alternative development finance option to the World Bank for BRICS nations?',
-    options: ['The IMF', 'The WTO', 'The New Development Bank (NDB)', 'AGOA'],
+    options: ['The IMF, which is based in Washington', 'The WTO, which governs trade rules', 'The New Development Bank (NDB)', 'AGOA, a trade agreement with the USA'],
     answer: 'The New Development Bank (NDB)',
     explanation: 'The New Development Bank was established by BRICS countries to finance infrastructure and sustainable development as an alternative to Western-dominated institutions.',
   },
@@ -161,8 +161,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'A major criticism of globalisation for developing countries is that it:',
-    options: ['Reduces consumer choice', 'Can undermine local industries through competition from cheaper imported goods', 'Prevents all forms of foreign investment', 'Always raises living standards immediately'],
-    answer: 'Can undermine local industries through competition from cheaper imported goods',
+    options: ['It reduces the choice that consumers have', 'It can undermine local industries through cheaper imports', 'It prevents all forms of foreign investment', 'It always raises living standards at once'],
+    answer: 'It can undermine local industries through cheaper imports',
     explanation: 'Cheaper imports from highly efficient global producers can destroy local industries and jobs, particularly in manufacturing sectors of developing countries.',
   },
 ];

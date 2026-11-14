@@ -127,13 +127,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does editing for "coherence" involve?',
-    options: [
-      'Only checking spelling errors',
-      'Ensuring the flow of ideas is logical, with clear transitions between sentences and paragraphs',
-      'Rewriting the entire essay from scratch',
-      'Adding more quotations to strengthen arguments',
-    ],
-    answer: 'Ensuring the flow of ideas is logical, with clear transitions between sentences and paragraphs',
+    options: ['Checking the spelling errors and nothing else', 'Making the ideas flow logically, with clear links between sentences', 'Rewriting the whole essay from the start', 'Adding more quotations to strengthen the arguments'],
+    answer: 'Making the ideas flow logically, with clear links between sentences',
     explanation: 'Coherence refers to the logical connection of ideas. A coherent text flows smoothly with clear links between points.',
   },
   {
@@ -149,24 +144,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the function of a relative clause?',
-    options: [
-      'To join two independent sentences with a comma',
-      'To provide additional information about a noun using words like "who", "which", or "that"',
-      'To convert active voice into passive voice',
-      'To introduce a list of items',
-    ],
-    answer: 'To provide additional information about a noun using words like "who", "which", or "that"',
+    options: ['To join two independent sentences with a comma only', 'To add information about a noun with "who", "which" or "that"', 'To change a sentence from active to passive voice', 'To introduce a list of items in the middle of a sentence'],
+    answer: 'To add information about a noun with "who", "which" or "that"',
     explanation: 'Relative clauses modify a noun: "The teacher who marked the papers…" The relative pronoun "who" introduces the clause.',
   },
   {
     prompt: 'What is a complex sentence?',
-    options: [
-      'A sentence that is very long and difficult to understand',
-      'A sentence containing an independent clause and at least one dependent (subordinate) clause',
-      'Two simple sentences joined by "and" or "but"',
-      'A sentence with more than twenty words',
-    ],
-    answer: 'A sentence containing an independent clause and at least one dependent (subordinate) clause',
+    options: ['A sentence that is very long and hard to follow', 'A sentence with an independent clause and a dependent clause', 'Two simple sentences joined by "and" or "but"', 'A sentence with more than twenty words in it'],
+    answer: 'A sentence with an independent clause and a dependent clause',
     explanation: 'Example: "Although it was raining, the match continued." "Although it was raining" is the dependent clause; "the match continued" is the independent clause.',
   },
   {
@@ -201,13 +186,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which punctuation mark correctly introduces a direct quotation within a sentence?',
-    options: [
-      'A semicolon (;)',
-      'A colon (:) or a comma (,) depending on the structure',
-      'An ellipsis (…)',
-      'A hyphen (—)',
-    ],
-    answer: 'A colon (:) or a comma (,) depending on the structure',
+    options: ['A semicolon (;), whatever the structure is', 'A colon (:) or a comma (,), depending on the structure', 'An ellipsis (…), whatever the structure is', 'A hyphen (—), whatever the structure is'],
+    answer: 'A colon (:) or a comma (,), depending on the structure',
     explanation: 'Use a colon after a complete introductory clause: "She announced: \'We have won.\'" Use a comma after a verb of saying: "She said, \'We have won.\'"',
   },
   {

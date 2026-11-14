@@ -137,24 +137,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the main environmental disadvantage of burning coal for electricity?',
-    options: [
-      'Coal is too expensive',
-      'It emits large amounts of CO₂ and other pollutants, contributing to climate change and air pollution',
-      'Coal power stations use too much water',
-      'Coal is unreliable as a fuel',
-    ],
-    answer: 'It emits large amounts of CO₂ and other pollutants, contributing to climate change and air pollution',
+    options: ['Coal is too costly to buy for power stations', 'It emits a lot of CO₂ and pollutants, driving climate change', 'Coal power stations use far too much water', 'Coal is an unreliable fuel for making power'],
+    answer: 'It emits a lot of CO₂ and pollutants, driving climate change',
     explanation: 'Coal combustion is the largest source of CO₂ emissions and also releases SO₂, NOₓ, and particulates that cause acid rain and health problems.',
   },
   {
     prompt: 'What is "load shedding" in the South African context?',
-    options: [
-      'The process of distributing electricity to rural areas',
-      'Deliberate, scheduled power cuts to prevent total grid collapse when supply cannot meet demand',
-      'Installing new electrical infrastructure',
-      'Reducing the load on transmission lines in winter',
-    ],
-    answer: 'Deliberate, scheduled power cuts to prevent total grid collapse when supply cannot meet demand',
+    options: ['Sending electricity out to rural areas that lack power', 'Planned power cuts to stop the grid collapsing when supply is short', 'Putting up new electrical lines and poles in towns', 'Lowering the load on the power lines during winter'],
+    answer: 'Planned power cuts to stop the grid collapsing when supply is short',
     explanation: 'Eskom implements load shedding (rotational power cuts) when available generating capacity falls short of national electricity demand.',
   },
   {
@@ -165,24 +155,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'South Africa has excellent potential for solar energy primarily because:',
-    options: [
-      'It has no coal reserves',
-      'It has high solar irradiation levels, especially in the Northern Cape',
-      'Solar panels are cheap in South Africa',
-      'It is close to the equator',
-    ],
-    answer: 'It has high solar irradiation levels, especially in the Northern Cape',
+    options: ['It has no coal reserves that can be used', 'It has high solar irradiation, especially in the Northern Cape', 'Solar panels are cheap to make in South Africa', 'It lies close to the equator'],
+    answer: 'It has high solar irradiation, especially in the Northern Cape',
     explanation: 'South Africa receives some of the highest levels of solar irradiation in the world, making it ideal for both PV and concentrated solar power (CSP) projects.',
   },
   {
     prompt: 'A main DISADVANTAGE of wind energy is that it:',
-    options: [
-      'Produces greenhouse gases',
-      'Is intermittent — it only generates when wind speeds are sufficient',
-      'Requires radioactive materials',
-      'Produces harmful waste products',
-    ],
-    answer: 'Is intermittent — it only generates when wind speeds are sufficient',
+    options: ['It gives off a large amount of greenhouse gas', 'It is intermittent: it makes power only when the wind is strong enough', 'It needs radioactive materials to run turbines', 'It makes harmful waste products that must be stored'],
+    answer: 'It is intermittent: it makes power only when the wind is strong enough',
     explanation: 'Wind turbines cannot generate electricity when wind speeds are too low or too high, requiring backup power or storage solutions.',
   },
   {
@@ -198,24 +178,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'The REIPPPP was designed to:',
-    options: [
-      'Build new coal power stations',
-      'Procure renewable energy from independent private power producers to diversify South Africa\'s energy mix',
-      'Nationalise South Africa\'s electricity grid',
-      'Expand nuclear power generation',
-    ],
-    answer: 'Procure renewable energy from independent private power producers to diversify South Africa\'s energy mix',
+    options: ['To build new coal-fired power stations in the north', 'To buy renewable power from private producers and widen the energy mix', 'To make the state the full owner of the electricity grid', 'To expand the generation of nuclear power in the Cape'],
+    answer: 'To buy renewable power from private producers and widen the energy mix',
     explanation: 'The Renewable Energy Independent Power Producer Procurement Programme has successfully brought solar, wind, and other renewable capacity online through competitive bidding since 2011.',
   },
   {
     prompt: 'Biomass energy is considered potentially carbon-neutral because:',
-    options: [
-      'It produces no CO₂ when burned',
-      'Plants absorb CO₂ as they grow, offsetting the emissions released when they are burned',
-      'It is too expensive to burn',
-      'Biomass is a fossil fuel',
-    ],
-    answer: 'Plants absorb CO₂ as they grow, offsetting the emissions released when they are burned',
+    options: ['It gives off no CO₂ at all when it is burned', 'Plants absorb CO₂ as they grow, offsetting the CO₂ released when burned', 'It is too costly to burn, so it is hardly ever used', 'Biomass is a fossil fuel that formed long ago'],
+    answer: 'Plants absorb CO₂ as they grow, offsetting the CO₂ released when burned',
     explanation: 'When biomass is sustainably managed, the CO₂ released during burning is reabsorbed by new plant growth, making it approximately carbon-neutral.',
   },
 ];

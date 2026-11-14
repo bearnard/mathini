@@ -127,13 +127,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What event on 22 January 1905 triggered the 1905 Revolution?',
-    options: [
-      'Bloody Sunday — troops fired on peaceful marchers near the Winter Palace',
-      'The assassination of the Tsar',
-      'Russia\'s victory in the Russo-Japanese War',
-      'The Bolshevik October Revolution',
-    ],
-    answer: 'Bloody Sunday — troops fired on peaceful marchers near the Winter Palace',
+    options: ['Bloody Sunday: troops fired on peaceful marchers at the Winter Palace', 'The murder of the Tsar by a group of revolutionaries', "Russia's victory in the war with Japan", 'The Bolshevik seizure of power in October'],
+    answer: 'Bloody Sunday: troops fired on peaceful marchers at the Winter Palace',
     explanation: 'Hundreds of workers marching peacefully were shot by tsarist soldiers, sparking nationwide rebellion.',
   },
   {
@@ -155,13 +150,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why did the October Manifesto fail to solve Russia\'s problems?',
-    options: [
-      'Nicholas II later undermined the Duma\'s powers and left root causes unresolved',
-      'The Duma was given too much power',
-      'Workers refused all reforms',
-      'The manifesto was never published',
-    ],
-    answer: 'Nicholas II later undermined the Duma\'s powers and left root causes unresolved',
+    options: ['Nicholas II later weakened the Duma and left causes unsolved', 'The Duma was given far too much power to rule the land', 'Workers refused to accept any of the reforms offered', 'The manifesto was never published in the country'],
+    answer: 'Nicholas II later weakened the Duma and left causes unsolved',
     explanation: 'Nicholas stripped the Duma of power and continued repression, meaning the 1905 Revolution was only a temporary setback.',
   },
   {
@@ -183,13 +173,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the significance of the 1905 Revolution for later events?',
-    options: [
-      'It revealed deep structural problems that remained unresolved and would lead to 1917',
-      'It fully satisfied the demands of workers and peasants',
-      'It led to the immediate end of tsarist rule',
-      'It brought communism to Russia',
-    ],
-    answer: 'It revealed deep structural problems that remained unresolved and would lead to 1917',
+    options: ['It showed deep problems that stayed unsolved and led to 1917', 'It fully satisfied the demands of workers and peasants', 'It brought the end of tsarist rule at once', 'It brought communism to Russia within a year'],
+    answer: 'It showed deep problems that stayed unsolved and led to 1917',
     explanation: 'Lenin called 1905 a "dress rehearsal" — the tsarist regime survived but its fundamental weaknesses were exposed.',
   },
 ];

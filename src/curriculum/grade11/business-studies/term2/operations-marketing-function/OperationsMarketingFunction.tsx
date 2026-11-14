@@ -130,13 +130,13 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'An operations manager notices that marketing has launched a major sale but the warehouse does not have enough stock. This shows a breakdown in:',
-    options: ['The HR function', 'The link between marketing and operations', 'The financial function', 'The public relations function'],
+    options: ['The HR function of the business', 'The link between marketing and operations', 'The financial function of the business', 'The public relations function of the business'],
     answer: 'The link between marketing and operations',
     explanation: 'Marketing creates demand through promotions, but operations must ensure sufficient stock and capacity to fulfil that demand — poor coordination leads to stockouts.',
   },
   {
     prompt: 'A receipt given to a customer after a haircut is an example of which P?',
-    options: ['Product', 'People', 'Process', 'Physical evidence'],
+    options: ['Product, the haircut itself', 'People, the hairdresser who did the cut', 'Process, the steps that were followed', 'Physical evidence'],
     answer: 'Physical evidence',
     explanation: 'Physical evidence includes tangible items that prove a service was delivered — a receipt, certificate or branded packaging are all examples.',
   },
@@ -148,13 +148,8 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Which of the following BEST describes the purpose of the operations function?',
-    options: [
-      'To advertise products to consumers',
-      'To transform inputs into finished products or services',
-      'To recruit and train new staff',
-      'To manage investor relations',
-    ],
-    answer: 'To transform inputs into finished products or services',
+    options: ['To advertise the products to consumers', 'To turn inputs into finished goods or services', 'To recruit and train the new staff', 'To manage the relations with investors'],
+    answer: 'To turn inputs into finished goods or services',
     explanation: 'The operations (production) function is responsible for the input-process-output model — converting raw materials and resources into goods or services.',
   },
 ];

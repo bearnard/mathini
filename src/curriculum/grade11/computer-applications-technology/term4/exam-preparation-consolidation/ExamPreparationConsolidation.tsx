@@ -108,8 +108,8 @@ const learnSteps: LearnStep[] = [
 const bank: CATItem[] = [
   {
     prompt: 'A spreadsheet formula =SUMIF(C2:C31,"Gauteng",D2:D31) will:',
-    options: ['Count learners from Gauteng', 'Add values in D2:D31 only where C2:C31 equals "Gauteng"', 'Find the highest value from Gauteng', 'List all Gauteng entries'],
-    answer: 'Add values in D2:D31 only where C2:C31 equals "Gauteng"',
+    options: ['Count the learners who come from Gauteng', 'Add D2:D31 values only where C2:C31 equals "Gauteng"', 'Find the highest value that is from Gauteng', 'List all of the entries that are from Gauteng'],
+    answer: 'Add D2:D31 values only where C2:C31 equals "Gauteng"',
     explanation: 'SUMIF(range, criteria, sum_range) adds values in the sum_range only for rows where the range meets the criteria.',
   },
   {

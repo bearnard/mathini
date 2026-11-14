@@ -109,46 +109,26 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is the function of an essay outline (plan)?',
-    options: [
-      'It replaces the need to write the essay itself',
-      'It organises your ideas before writing, ensuring a logical structure and preventing you from going off-topic',
-      'It is submitted to the examiner instead of the final essay',
-      'It is used only in narrative essays',
-    ],
-    answer: 'It organises your ideas before writing, ensuring a logical structure and preventing you from going off-topic',
+    options: ['It takes the place of writing the essay itself', 'It organises your ideas and keeps the essay logical and on topic', 'It is handed in to the examiner instead of the essay', 'It is used in narrative essays and in no other kind'],
+    answer: 'It organises your ideas and keeps the essay logical and on topic',
     explanation: 'A plan, even a brief one, improves coherence and development — two of the highest-weighted criteria in the writing rubric.',
   },
   {
     prompt: 'What is the correct structure for a formal letter?',
-    options: [
-      'Greeting → body → farewell (no addresses needed)',
-      'Sender\'s address → date → recipient\'s address → salutation → body paragraphs → sign-off → signature',
-      'Title → numbered points → recommendation',
-      'Headline → subheading → body → caption',
-    ],
-    answer: 'Sender\'s address → date → recipient\'s address → salutation → body paragraphs → sign-off → signature',
+    options: ['Greeting, body and farewell, with no addresses needed', "Sender's address, date, recipient, salutation, body, sign-off, signature", 'Title, numbered points and a recommendation', 'Headline, subheading, body and a caption'],
+    answer: "Sender's address, date, recipient, salutation, body, sign-off, signature",
     explanation: 'A formal letter follows a strict layout. Missing format elements (addresses, date, sign-off) will lose marks in transactional writing.',
   },
   {
     prompt: 'What does "coherence" mean in an essay?',
-    options: [
-      'Using as many long words as possible',
-      'The logical flow of ideas and clear connections between sentences and paragraphs',
-      'Writing more than the required word count',
-      'Making sure every paragraph is the same length',
-    ],
-    answer: 'The logical flow of ideas and clear connections between sentences and paragraphs',
+    options: ['Using as many long words as you can', 'The logical flow of ideas and clear links between sentences', 'Writing more than the required word count', 'Making every paragraph exactly the same length'],
+    answer: 'The logical flow of ideas and clear links between sentences',
     explanation: 'A coherent essay is easy to follow. Ideas progress logically with transitions that signal relationships between points.',
   },
   {
     prompt: 'How many paragraphs should a standard Grade 11 exam essay typically have?',
-    options: [
-      'Exactly two: introduction and conclusion',
-      'As many as possible — more paragraphs mean higher marks',
-      'An introduction, three or four body paragraphs, and a conclusion (five to six paragraphs total)',
-      'One long unbroken paragraph is best to show sustained thought',
-    ],
-    answer: 'An introduction, three or four body paragraphs, and a conclusion (five to six paragraphs total)',
+    options: ['Exactly two paragraphs: an introduction and a conclusion', 'As many as you can, since more paragraphs earn more marks', 'An introduction, three or four body paragraphs and a conclusion', 'One long paragraph, to show that you can sustain thought'],
+    answer: 'An introduction, three or four body paragraphs and a conclusion',
     explanation: 'A well-structured essay typically has 5–6 paragraphs. Each body paragraph develops one main point fully.',
   },
   {
@@ -164,35 +144,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the difference between proofreading and editing?',
-    options: [
-      'They are identical processes',
-      'Proofreading focuses on surface errors (spelling, grammar, punctuation); editing involves improving content, structure, and clarity at a deeper level',
-      'Proofreading is done before drafting; editing is done while drafting',
-      'Editing is only for novels; proofreading is only for essays',
-    ],
-    answer: 'Proofreading focuses on surface errors (spelling, grammar, punctuation); editing involves improving content, structure, and clarity at a deeper level',
+    options: ['The two are identical processes', 'Proofreading fixes surface errors; editing improves content and structure', 'Proofreading is done before drafting and editing during it', 'Editing is for novels and proofreading is for essays'],
+    answer: 'Proofreading fixes surface errors; editing improves content and structure',
     explanation: 'Editing is deeper revision of content and argument. Proofreading is the final surface-level check. Both are important before submitting written work.',
   },
   {
     prompt: 'What is the correct salutation in a formal letter to an unknown person?',
-    options: [
-      '"Dear Friend,"',
-      '"To Whom It May Concern," or "Dear Sir/Madam,"',
-      '"Hey there,"',
-      '"Good day [first name],"',
-    ],
+    options: ['"Dear Friend," followed by the message', '"To Whom It May Concern," or "Dear Sir/Madam,"', '"Hey there," followed by the message', '"Good day [first name]," followed by the message'],
     answer: '"To Whom It May Concern," or "Dear Sir/Madam,"',
     explanation: 'When you do not know the recipient\'s name, use "Dear Sir/Madam" or "To Whom It May Concern". Both require "Yours faithfully" as the sign-off.',
   },
   {
     prompt: 'What is a transition sentence?',
-    options: [
-      'The first sentence of an essay',
-      'A sentence that connects one paragraph to the next, linking the previous point to the upcoming one',
-      'Any sentence that includes a conjunction',
-      'A sentence written in the passive voice to add variety',
-    ],
-    answer: 'A sentence that connects one paragraph to the next, linking the previous point to the upcoming one',
+    options: ['The first sentence of the whole essay', 'A sentence that links one paragraph to the next', 'Any sentence that contains a conjunction', 'A sentence in the passive voice used for variety'],
+    answer: 'A sentence that links one paragraph to the next',
     explanation: 'Transition sentences improve coherence. They might signal addition ("Furthermore…"), contrast ("However…"), or consequence ("As a result…").',
   },
   {
@@ -208,13 +173,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is an evaluative statement in an essay?',
-    options: [
-      'A statement that lists facts without any interpretation',
-      'A statement that expresses a judgment or assessment — weighing the significance of evidence or making a conclusion',
-      'A quotation copied directly from the text',
-      'A statement about the author\'s personal life',
-    ],
-    answer: 'A statement that expresses a judgment or assessment — weighing the significance of evidence or making a conclusion',
+    options: ['A statement that lists facts with no interpretation', 'A statement that gives a judgment, weighing the evidence', 'A quotation that is copied straight from the text', 'A statement about the personal life of the author'],
+    answer: 'A statement that gives a judgment, weighing the evidence',
     explanation: 'Evaluative statements move beyond description to interpretation and judgment — essential for higher-order analytical marks.',
   },
 ];

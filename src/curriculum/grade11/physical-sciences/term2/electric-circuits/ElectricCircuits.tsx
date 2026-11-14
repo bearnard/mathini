@@ -121,7 +121,7 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'In a parallel circuit, the voltage across each branch is:',
-    options: ['Divided equally', 'Zero in all branches', 'The same as the source voltage', 'Added together'],
+    options: ['Divided equally between the branches', 'Zero in all of the branches', 'The same as the source voltage', 'Added together from branch to branch'],
     answer: 'The same as the source voltage',
     explanation: 'In a parallel circuit, all branches are connected between the same two nodes, so each branch has the same potential difference as the source.',
   },

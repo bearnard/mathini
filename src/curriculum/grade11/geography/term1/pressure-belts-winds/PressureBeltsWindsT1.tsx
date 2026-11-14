@@ -119,30 +119,20 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Which pressure belt is found at the equator (0°)?',
-    options: ['Subtropical high pressure', 'Sub-polar low pressure', 'Inter-Tropical Convergence Zone (low pressure)', 'Polar high pressure'],
-    answer: 'Inter-Tropical Convergence Zone (low pressure)',
+    options: ['The subtropical belt of high pressure', 'The sub-polar belt of low pressure', 'The Inter-Tropical Convergence Zone (low pressure)', 'The polar belt of high pressure'],
+    answer: 'The Inter-Tropical Convergence Zone (low pressure)',
     explanation: 'The ITCZ is a belt of intense low pressure at the equator where trade winds converge, causing heavy rainfall.',
   },
   {
     prompt: 'Why is the Sahara Desert located at approximately 30° N?',
-    options: [
-      'It is far from the ocean',
-      'It lies under the subtropical high-pressure belt where dry descending air suppresses rainfall',
-      'It is in the path of the westerlies',
-      'Cold ocean currents cool the air',
-    ],
-    answer: 'It lies under the subtropical high-pressure belt where dry descending air suppresses rainfall',
+    options: ['It is far from the ocean, so no moist air reaches it', 'It lies under the subtropical high, where dry sinking air stops rain', 'It lies in the path of the wet westerly winds', 'Cold ocean currents cool the air above it and stop rain'],
+    answer: 'It lies under the subtropical high, where dry sinking air stops rain',
     explanation: 'Descending air at ~30° N is warmed and dried, preventing condensation and rainfall — creating desert conditions.',
   },
   {
     prompt: 'What are trade winds?',
-    options: [
-      'Winds that only blow over ocean trade routes',
-      'Persistent winds blowing from subtropical high pressure toward the ITCZ',
-      'Winds from the westerlies belt',
-      'Seasonal reversal winds near monsoon regions',
-    ],
-    answer: 'Persistent winds blowing from subtropical high pressure toward the ITCZ',
+    options: ['Winds that blow only along the ocean trade routes', 'Steady winds that blow from the subtropical highs toward the ITCZ', 'Winds that blow in the westerlies belt', 'Winds that reverse in direction with the seasons'],
+    answer: 'Steady winds that blow from the subtropical highs toward the ITCZ',
     explanation: 'Trade winds blow from the subtropical highs toward the equatorial low; they are deflected by the Coriolis effect.',
   },
   {
@@ -177,13 +167,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What causes a monsoon?',
-    options: [
-      'Permanent trade winds',
-      'Seasonal reversal of wind direction due to differential heating of land and sea',
-      'The Coriolis effect alone',
-      'El Niño events',
-    ],
-    answer: 'Seasonal reversal of wind direction due to differential heating of land and sea',
+    options: ['Permanent trade winds that always blow in one direction', 'A seasonal wind reversal from unequal heating of land and sea', 'The Coriolis effect acting on its own in the tropics', 'El Niño events that occur every few years'],
+    answer: 'A seasonal wind reversal from unequal heating of land and sea',
     explanation: 'Land heats and cools faster than the sea. Seasonal temperature contrasts reverse the pressure gradient, reversing wind direction.',
   },
   {

@@ -107,8 +107,8 @@ const learnSteps: LearnStep[] = [
 const bank: EconomicsItem[] = [
   {
     prompt: 'Which of the following BEST characterises a developing economy?',
-    options: ['High GDP per capita and strong institutions', 'Low GDP per capita, high population growth and dependence on primary commodities', 'Advanced technology and low unemployment', 'Highly diversified industrial base'],
-    answer: 'Low GDP per capita, high population growth and dependence on primary commodities',
+    options: ['High GDP per capita and strong institutions', 'Low GDP per capita, fast population growth, primary exports', 'Advanced technology and low unemployment', 'A highly diversified industrial base'],
+    answer: 'Low GDP per capita, fast population growth, primary exports',
     explanation: 'Developing economies typically have low incomes, rapid population growth, and rely heavily on raw material exports.',
   },
   {
@@ -131,26 +131,26 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'The "poverty cycle" or "poverty trap" refers to:',
-    options: ['Government reducing poverty grants annually', 'How poverty in one generation leads to poor education and low income in the next', 'The business cycle during recessions', 'Seasonal fluctuations in agricultural income'],
-    answer: 'How poverty in one generation leads to poor education and low income in the next',
+    options: ['The government cutting poverty grants each year', 'Poverty in one generation causes poor schooling in the next', 'The business cycle during a period of recession', 'Seasonal swings in the income from agriculture'],
+    answer: 'Poverty in one generation causes poor schooling in the next',
     explanation: 'Poor children attend underfunded schools, get lower qualifications, earn less, and their children face the same cycle — a trap that is hard to escape.',
   },
   {
     prompt: "SA's EPWP (Expanded Public Works Programme) aims to:",
-    options: ['Attract foreign investment to SA', 'Create temporary employment while building public infrastructure and delivering services', 'Privatise state-owned enterprises', 'Reduce social grant expenditure'],
-    answer: 'Create temporary employment while building public infrastructure and delivering services',
+    options: ['Attract foreign investment into South Africa', 'Create temporary jobs while building public assets', 'Privatise the state-owned enterprises', 'Cut the amount spent on social grants each year'],
+    answer: 'Create temporary jobs while building public assets',
     explanation: 'The EPWP addresses short-term unemployment by paying people to build roads, plant trees and deliver community services.',
   },
   {
     prompt: 'Free basic electricity (50 kWh) provided to indigent households is an example of:',
-    options: ['A merit good subsidy', 'A social grant', 'A free basic service aimed at reducing energy poverty', 'A demerit good tax'],
-    answer: 'A free basic service aimed at reducing energy poverty',
+    options: ['A subsidy on a merit good for all households', 'A social grant that is paid in cash each month', 'A free basic service aimed at lowering energy poverty', 'A tax that is placed on a demerit good'],
+    answer: 'A free basic service aimed at lowering energy poverty',
     explanation: 'Free basic electricity provides a minimum amount of energy to the poorest households, reducing their energy costs.',
   },
   {
     prompt: 'Which apartheid policy MOST directly caused SA\'s current educational inequality?',
-    options: ['Sanctions by the international community', 'Bantu Education — deliberately inferior schooling for black learners', 'The Homelands policy only', 'Import substitution industrialisation'],
-    answer: 'Bantu Education — deliberately inferior schooling for black learners',
+    options: ['Sanctions by the international community of nations', 'Bantu Education, inferior schooling for black learners', 'The homelands policy and nothing else besides it', 'Import-substitution industrialisation after the war'],
+    answer: 'Bantu Education, inferior schooling for black learners',
     explanation: 'Bantu Education (1953) provided deliberately inferior schooling to black learners, creating a skills and opportunity gap that persists today.',
   },
   {
@@ -161,8 +161,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'NSFAS (National Student Financial Aid Scheme) addresses poverty by:',
-    options: ['Providing housing for the homeless', 'Funding tertiary education for students from low-income households', 'Creating government jobs', 'Subsidising food prices'],
-    answer: 'Funding tertiary education for students from low-income households',
+    options: ['Providing housing for the homeless poor', 'Funding tertiary study for poor students', 'Creating new jobs in the government', 'Subsidising the price of food in shops'],
+    answer: 'Funding tertiary study for poor students',
     explanation: 'NSFAS provides bursaries and loans for university and TVET studies, helping break the poverty cycle through education.',
   },
 ];

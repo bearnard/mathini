@@ -129,24 +129,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does the overload principle in fitness training mean?',
-    options: [
-      'Training until you are completely exhausted',
-      'Gradually increasing the frequency, intensity, or duration of exercise to improve fitness',
-      'Always exercising at the same level to maintain consistency',
-      'Only training when you feel energetic',
-    ],
-    answer: 'Gradually increasing the frequency, intensity, or duration of exercise to improve fitness',
+    options: ['Training until you are completely worn out each time', 'Gradually raising the frequency, intensity or length of exercise', 'Always training at the same level to stay consistent', 'Training only on days when you feel full of energy'],
+    answer: 'Gradually raising the frequency, intensity or length of exercise',
     explanation: 'The overload principle states that the body adapts to exercise demands only when those demands are progressively increased.',
   },
   {
     prompt: 'How does regular physical activity benefit mental health?',
-    options: [
-      'It has no effect on mental health',
-      'It reduces anxiety, releases endorphins, and improves mood and concentration',
-      'It increases stress levels',
-      'It only benefits the body, not the mind',
-    ],
-    answer: 'It reduces anxiety, releases endorphins, and improves mood and concentration',
+    options: ['It has no effect on mental health at all', 'It lowers anxiety, releases endorphins and lifts mood and focus', 'It raises stress levels in most people', 'It benefits the body only and does not help the mind'],
+    answer: 'It lowers anxiety, releases endorphins and lifts mood and focus',
     explanation: 'Exercise triggers endorphin release and reduces stress hormones, improving mood, focus, and emotional wellbeing.',
   },
   {
@@ -174,24 +164,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is self-discipline important in maintaining a personal activity programme?',
-    options: [
-      'It is not important if you have a coach',
-      'It ensures you continue training even when motivation dips, building lasting habits',
-      'It only matters during competition',
-      'It means you never need rest days',
-    ],
-    answer: 'It ensures you continue training even when motivation dips, building lasting habits',
+    options: ['It is not important if you already have a coach', 'It keeps you training when motivation dips and builds habits', 'It matters only during the competition season', 'It means that you never need to take any rest days'],
+    answer: 'It keeps you training when motivation dips and builds habits',
     explanation: 'Self-discipline helps turn physical activity from a short-term effort into a sustainable lifestyle habit.',
   },
   {
     prompt: 'A cool-down after exercise mainly helps by:',
-    options: [
-      'Burning extra calories',
-      'Gradually lowering heart rate and reducing muscle soreness through static stretches',
-      'Building more muscle immediately after exercise',
-      'Increasing body temperature',
-    ],
-    answer: 'Gradually lowering heart rate and reducing muscle soreness through static stretches',
+    options: ['Burning extra calories straight after the session', 'Slowly lowering heart rate and easing soreness with static stretches', 'Building more muscle straight after the exercise', 'Raising your body temperature after the exercise'],
+    answer: 'Slowly lowering heart rate and easing soreness with static stretches',
     explanation: 'A proper cool-down eases the transition from vigorous exercise to rest, reducing soreness and aiding recovery.',
   },
 ];

@@ -130,12 +130,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What organisation was founded in South Africa in 1912?',
-    options: [
-      'The South African Native National Congress, later the ANC',
-      'The National Party',
-      'The Pan-African Congress of 1945',
-      'The United Nations',
-    ],
+    options: ['The South African Native National Congress, later the ANC', 'The National Party that later ruled apartheid South Africa', 'The Pan-African Congress that met in 1945', 'The United Nations, set up after the war'],
     answer: 'The South African Native National Congress, later the ANC',
     explanation: 'The ANC became one of the most important African nationalist organisations in southern Africa.',
   },
@@ -152,46 +147,26 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is Pan-Africanism?',
-    options: [
-      'The idea that people of African descent share common struggles and should unite against racism and colonialism',
-      'A policy of dividing Africa into smaller colonies',
-      'A German theory of racial hierarchy',
-      'A British plan for indirect rule',
-    ],
-    answer: 'The idea that people of African descent share common struggles and should unite against racism and colonialism',
+    options: ['The idea that African peoples share struggles and should unite', 'A policy of dividing Africa into smaller colonies', 'A German theory of a racial hierarchy of peoples', 'A British plan for rule through local chiefs'],
+    answer: 'The idea that African peoples share struggles and should unite',
     explanation: 'Pan-Africanism connected African and diaspora struggles across national borders.',
   },
   {
     prompt: 'Which leaders are closely associated with Pan-Africanism in this topic?',
-    options: [
-      'W. E. B. Du Bois and Marcus Garvey',
-      'Hitler and Mussolini',
-      'Rhodes and Chamberlain',
-      'Stalin and Trotsky',
-    ],
+    options: ['W. E. B. Du Bois and Marcus Garvey', 'Hitler and Mussolini, the fascist leaders', 'Rhodes and Chamberlain, the British imperialists', 'Stalin and Trotsky, the Soviet leaders'],
     answer: 'W. E. B. Du Bois and Marcus Garvey',
     explanation: 'Both men were major voices in developing Pan-African thought and activism.',
   },
   {
     prompt: 'Why is the Manchester Pan-African Congress of 1945 important?',
-    options: [
-      'It demanded an end to colonial rule and influenced future independence leaders',
-      'It created the apartheid state in South Africa',
-      'It defended European empire after World War II',
-      'It was a military alliance against the Soviet Union',
-    ],
-    answer: 'It demanded an end to colonial rule and influenced future independence leaders',
+    options: ['It demanded an end to colonial rule and inspired future leaders', 'It set up the apartheid state in South Africa', 'It defended European empire after World War II', 'It was a military alliance against the Soviet Union'],
+    answer: 'It demanded an end to colonial rule and inspired future leaders',
     explanation: 'Manchester gave sharper political direction to Pan-African demands for self-government.',
   },
   {
     prompt: 'How did World War II strengthen African nationalism?',
-    options: [
-      'It weakened European powers and raised African expectations of freedom and self-government',
-      'It ended all nationalist activity for decades',
-      'It gave colonies full equality immediately',
-      'It proved that empire was stronger than ever',
-    ],
-    answer: 'It weakened European powers and raised African expectations of freedom and self-government',
+    options: ['It weakened Europe and raised African hopes of self-rule', 'It ended all nationalist activity for decades', 'It gave the colonies full equality at once', 'It proved that empire was stronger than ever before'],
+    answer: 'It weakened Europe and raised African hopes of self-rule',
     explanation: 'After 1945, many Africans believed the language of freedom should apply to them as well.',
   },
 ];

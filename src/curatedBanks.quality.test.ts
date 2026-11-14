@@ -35,7 +35,7 @@ test('Grade 6 Natural Sciences (the bank written to the ADR 0001 rules) has no d
 });
 
 // Grades whose curated banks have been repaired at the source (options and answers only; prompts untouched). They stay at ZERO.
-const HELD_AT_ZERO = ['g9'];
+const HELD_AT_ZERO = ['g9', 'g11'];
 for (const scope of HELD_AT_ZERO) {
   test(`curated banks (${scope}) have no reject-level defect at all`, () => {
     assert.deepEqual(counts[scope] ?? {}, {});

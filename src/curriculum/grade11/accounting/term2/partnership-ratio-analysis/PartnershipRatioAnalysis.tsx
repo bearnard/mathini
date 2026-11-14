@@ -151,35 +151,20 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Why is inventory excluded from the acid-test (quick) ratio?',
-    options: [
-      'Inventory is not owned by the partnership',
-      'Inventory cannot be converted to cash quickly enough to pay urgent debts',
-      'Inventory is a non-current asset',
-      'Inventory has no value',
-    ],
-    answer: 'Inventory cannot be converted to cash quickly enough to pay urgent debts',
+    options: ['The inventory is not owned by the partnership', 'It cannot be turned into cash fast enough for urgent debts', 'Inventory is a non-current asset of the firm', 'Inventory has no value in the books of the firm'],
+    answer: 'It cannot be turned into cash fast enough for urgent debts',
     explanation: 'Inventory must be sold before it becomes cash. The acid-test ratio focuses on truly liquid assets.',
   },
   {
     prompt: 'A current ratio of 1.2:1 suggests the partnership:',
-    options: [
-      'Has excellent liquidity with far more assets than liabilities',
-      'Has slightly more current assets than current liabilities but may struggle to pay debts comfortably',
-      'Is insolvent',
-      'Has no short-term debts',
-    ],
-    answer: 'Has slightly more current assets than current liabilities but may struggle to pay debts comfortably',
+    options: ['Has excellent liquidity, with far more assets than liabilities', 'Has slightly more current assets than liabilities, but is tight', 'Is insolvent and cannot pay any debts', 'Has no short-term debts to pay at all'],
+    answer: 'Has slightly more current assets than liabilities, but is tight',
     explanation: 'A ratio below the benchmark of 2:1 indicates limited liquidity — the business has only R1.20 of current assets for every R1.00 of current liabilities.',
   },
   {
     prompt: 'Return on equity (ROE) measures:',
-    options: [
-      'The gross profit earned on sales',
-      'The percentage return earned on the owners\' total investment in the business',
-      'How quickly debtors pay their accounts',
-      'The percentage of assets financed by debt',
-    ],
-    answer: 'The percentage return earned on the owners\' total investment in the business',
+    options: ['The gross profit earned on the sales', "The return earned on the owners' total investment", 'How quickly the debtors pay their accounts', 'The share of assets that is financed by debt'],
+    answer: "The return earned on the owners' total investment",
     explanation: 'ROE = (Net profit ÷ Average equity) × 100. It shows how effectively partners\' capital is generating profit.',
   },
   {
@@ -212,13 +197,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'A net profit percentage has decreased from 18% to 12% compared to last year. This could be caused by:',
-    options: [
-      'A decrease in operating expenses',
-      'An increase in sales revenue',
-      'An increase in operating expenses relative to sales',
-      'A decrease in cost of sales',
-    ],
-    answer: 'An increase in operating expenses relative to sales',
+    options: ['A fall in the operating expenses of the firm', 'A rise in the sales revenue of the firm', 'A rise in operating expenses relative to sales', 'A fall in the cost of sales of the firm'],
+    answer: 'A rise in operating expenses relative to sales',
     explanation: 'A falling net profit % indicates that expenses are growing faster than revenue, squeezing the profit margin.',
   },
   {

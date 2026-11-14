@@ -134,8 +134,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What is the main benefit of responsive web design?',
-    options: ['Websites load faster on fibre connections only', 'The layout adapts to different screen sizes so content displays correctly on phones, tablets, and desktops', 'It makes websites work offline', 'It prevents hackers from accessing the site'],
-    answer: 'The layout adapts to different screen sizes so content displays correctly on phones, tablets, and desktops',
+    options: ['Websites load faster, but only on fibre connections', 'The layout adapts to screen size, so content fits phones and desktops', 'It lets websites work without an internet connection', 'It stops hackers from getting into the site'],
+    answer: 'The layout adapts to screen size, so content fits phones and desktops',
     explanation: 'Responsive design uses CSS media queries to rearrange content for the screen width, improving usability on all devices.',
   },
   {
@@ -152,8 +152,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'In South Africa, why is mobile internet particularly important?',
-    options: ['Mobile internet is faster than fibre', 'Most South Africans access the internet primarily via smartphones', 'Computers are cheaper than smartphones in SA', 'Wi-Fi is illegal in rural areas'],
-    answer: 'Most South Africans access the internet primarily via smartphones',
+    options: ['Mobile internet is faster than fibre in all areas', 'Most South Africans get online mainly through smartphones', 'Computers are cheaper than smartphones in SA', 'Wi-Fi is not allowed in the rural areas of the country'],
+    answer: 'Most South Africans get online mainly through smartphones',
     explanation: 'South Africa has high smartphone penetration but lower computer ownership. Mobile data (4G/5G) is the primary internet access method for many people.',
   },
   {
@@ -170,8 +170,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What is the key difference between freeware and open source software?',
-    options: ['Freeware is paid; open source is free', 'Open source provides access to the source code and allows modification; freeware is free to use but source code is not available', 'They are identical', 'Open source must be paid for after 30 days'],
-    answer: 'Open source provides access to the source code and allows modification; freeware is free to use but source code is not available',
+    options: ['Freeware must be paid for and open source is free', 'Open source shares its code and allows changes; freeware does not', 'The two terms mean exactly the same thing', 'Open source has to be paid for after 30 days of use'],
+    answer: 'Open source shares its code and allows changes; freeware does not',
     explanation: 'Freeware has no cost but is closed source. Open source allows users to view, modify, and redistribute the source code.',
   },
 ];

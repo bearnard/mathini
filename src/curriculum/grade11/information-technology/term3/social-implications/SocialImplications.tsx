@@ -125,13 +125,8 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'Ransomware attacks a computer by:',
-    options: [
-      'Deleting the operating system files',
-      'Encrypting the victim\'s files and demanding payment for the decryption key',
-      'Redirecting web traffic to fake websites',
-      'Sending spam emails from the victim\'s account',
-    ],
-    answer: 'Encrypting the victim\'s files and demanding payment for the decryption key',
+    options: ['Deleting the operating system files of the victim', "Encrypting the victim's files and demanding payment for the key", 'Redirecting web traffic to fake websites', 'Sending spam emails from the account of the victim'],
+    answer: "Encrypting the victim's files and demanding payment for the key",
     explanation: 'Ransomware locks files with encryption and demands a ransom (usually cryptocurrency) to restore access.',
   },
   {
@@ -142,24 +137,14 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is two-factor authentication (2FA)?',
-    options: [
-      'Using two different passwords for the same account',
-      'A login process requiring two separate forms of verification (e.g. password + OTP)',
-      'Encrypting data twice before storing it',
-      'A firewall that checks data twice',
-    ],
-    answer: 'A login process requiring two separate forms of verification (e.g. password + OTP)',
+    options: ['Using two different passwords on the same account', 'A login needing two forms of proof (e.g. password and OTP)', 'Encrypting the data twice before it is stored', 'A firewall that checks the data twice'],
+    answer: 'A login needing two forms of proof (e.g. password and OTP)',
     explanation: '2FA combines something you know (password) with something you have (OTP/authenticator app) or something you are (biometrics).',
   },
   {
     prompt: 'What is the digital divide?',
-    options: [
-      'The difference between IPv4 and IPv6',
-      'The gap between people who have access to technology and those who do not',
-      'The split between public and private IP addresses',
-      'The separation of hardware and software components',
-    ],
-    answer: 'The gap between people who have access to technology and those who do not',
+    options: ['The difference between IPv4 and IPv6 addresses', 'The gap between people with access to technology and those without', 'The split between public and private IP addresses', 'The separation of the hardware from the software'],
+    answer: 'The gap between people with access to technology and those without',
     explanation: 'The digital divide reflects inequalities in technology access, often linked to income, geography, and education levels.',
   },
   {
@@ -170,24 +155,14 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'What is the primary function of a firewall?',
-    options: [
-      'To back up files automatically',
-      'To monitor and filter incoming and outgoing network traffic based on security rules',
-      'To encrypt stored data',
-      'To detect and remove viruses',
-    ],
-    answer: 'To monitor and filter incoming and outgoing network traffic based on security rules',
+    options: ['To back up the files of the system automatically', 'To monitor and filter network traffic using security rules', 'To encrypt the data that is stored on a disk', 'To find and remove viruses from the computer'],
+    answer: 'To monitor and filter network traffic using security rules',
     explanation: 'A firewall acts as a barrier, allowing legitimate traffic and blocking suspicious or unauthorised connections.',
   },
   {
     prompt: 'Identity theft in a cyber context means:',
-    options: [
-      'Changing someone\'s username on a social media platform',
-      'Stealing someone\'s personal information to impersonate them for financial or criminal purposes',
-      'Creating a fake online profile for entertainment',
-      'Using someone else\'s computer without permission',
-    ],
-    answer: 'Stealing someone\'s personal information to impersonate them for financial or criminal purposes',
+    options: ['Changing the username of a person on social media', 'Stealing personal details to pretend to be someone, for gain', 'Making a fake online profile just for entertainment', "Using someone else's computer without permission"],
+    answer: 'Stealing personal details to pretend to be someone, for gain',
     explanation: 'Cybercriminals use stolen personal data (ID numbers, banking details) to take out loans, make purchases, or commit crimes in the victim\'s name.',
   },
   {

@@ -112,14 +112,14 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'What product of photosynthesis is detected by the iodine starch test?',
-    options: ['Oxygen', 'Carbon dioxide', 'Glucose stored as starch', 'Water'],
+    options: ['Oxygen released through the stomata', 'Carbon dioxide taken in by the leaf', 'Glucose stored as starch', 'Water taken up through the roots'],
     answer: 'Glucose stored as starch',
     explanation: 'Plants rapidly convert glucose into insoluble starch for storage; iodine turns blue-black in the presence of starch, confirming photosynthesis occurred.',
   },
   {
     prompt: 'Why must a leaf be destarched before a photosynthesis experiment?',
-    options: ['To remove water from the leaf', 'To remove pre-existing starch so only newly made starch is detected', 'To increase the rate of photosynthesis', 'To make the iodine solution more effective'],
-    answer: 'To remove pre-existing starch so only newly made starch is detected',
+    options: ['To remove the water that is in the leaf', 'To remove old starch so only newly made starch shows', 'To raise the rate of photosynthesis in the leaf', 'To make the iodine solution work more strongly'],
+    answer: 'To remove old starch so only newly made starch shows',
     explanation: 'Destarching in darkness ensures that any starch detected at the end of the experiment was produced during the experiment, not stored beforehand.',
   },
   {
@@ -147,8 +147,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'Why is ethanol used during the starch test procedure?',
-    options: ['To add starch to the leaf', 'To remove green chlorophyll so the iodine colour change is visible', 'To kill bacteria on the leaf', 'To speed up photosynthesis for the test'],
-    answer: 'To remove green chlorophyll so the iodine colour change is visible',
+    options: ['To add starch to the leaf for the test', 'To remove green chlorophyll so the iodine colour shows', 'To kill the bacteria that are on the leaf', 'To speed up photosynthesis during the test'],
+    answer: 'To remove green chlorophyll so the iodine colour shows',
     explanation: 'Boiling the leaf in ethanol decolorises it (removes the green chlorophyll), making the blue-black colour of iodine easy to see against the pale background.',
   },
 ];

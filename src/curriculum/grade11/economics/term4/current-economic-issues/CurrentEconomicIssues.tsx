@@ -96,8 +96,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Load-shedding affects SA\'s economy primarily by:',
-    options: ['Reducing import costs', 'Cutting production hours for firms and increasing costs through diesel generators', 'Raising the rand exchange rate', 'Increasing agricultural output'],
-    answer: 'Cutting production hours for firms and increasing costs through diesel generators',
+    options: ['Lowering the cost of imports that firms buy', 'Cutting production hours and raising diesel costs', 'Raising the exchange rate value of the rand', 'Increasing the output of the farming sector'],
+    answer: 'Cutting production hours and raising diesel costs',
     explanation: 'Load-shedding forces businesses to stop production during blackouts and invest in costly backup power — estimated to cost 1–2% of GDP annually.',
   },
   {
@@ -132,14 +132,14 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'In a structured essay response, after defining a concept you should:',
-    options: ['Write only theoretical definitions', 'Provide a South African example and evaluate the concept\'s relevance or impact', 'Simply repeat the question', 'List only advantages without evaluation'],
-    answer: "Provide a South African example and evaluate the concept's relevance or impact",
+    options: ['Write only the theory behind the definition', 'Give a South African example and judge its impact', 'Simply repeat the question in your own words', 'List the advantages only, with no evaluation'],
+    answer: 'Give a South African example and judge its impact',
     explanation: 'High marks come from concept definition + SA-specific evidence + evaluation — mere definitions earn few marks in FET Economics essays.',
   },
   {
     prompt: 'SARB\'s inflation target of 3–6% helps the economy by:',
-    options: ['Guaranteeing full employment', 'Providing price stability which reduces uncertainty for businesses and consumers making decisions', 'Fixing the exchange rate', 'Eliminating the need for interest rate changes'],
-    answer: 'Providing price stability which reduces uncertainty for businesses and consumers making decisions',
+    options: ['Guaranteeing full employment for all workers', 'Price stability, which reduces uncertainty for firms and consumers', 'Fixing the exchange rate of the rand', 'Removing the need for any change in interest rates'],
+    answer: 'Price stability, which reduces uncertainty for firms and consumers',
     explanation: 'Price stability (low, stable inflation) reduces economic uncertainty, supports investment planning and protects consumers\' purchasing power.',
   },
   {

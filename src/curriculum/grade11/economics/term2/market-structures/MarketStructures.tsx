@@ -114,8 +114,8 @@ const learnSteps: LearnStep[] = [
 const bank: EconomicsItem[] = [
   {
     prompt: 'In perfect competition, firms are described as "price takers" because:',
-    options: ['They set prices above competitors', 'They must accept the market price determined by supply and demand', 'They collude to fix prices', 'Government sets their prices'],
-    answer: 'They must accept the market price determined by supply and demand',
+    options: ['They set prices above those of their competitors', 'They must accept the market price set by supply and demand', 'They collude with each other to fix the prices', 'The government sets the prices that they charge'],
+    answer: 'They must accept the market price set by supply and demand',
     explanation: 'In perfect competition, no single firm is large enough to influence the market price — each firm takes the prevailing market price.',
   },
   {
@@ -144,8 +144,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Marginal Cost (MC) is defined as:',
-    options: ['Total cost ÷ output', 'The change in total cost from producing one additional unit', 'Fixed cost per unit', 'Total variable cost ÷ output'],
-    answer: 'The change in total cost from producing one additional unit',
+    options: ['Total cost divided by the total output made', 'The change in total cost from making one extra unit', 'The fixed cost that is spread over each unit', 'Total variable cost divided by the output made'],
+    answer: 'The change in total cost from making one extra unit',
     explanation: 'MC measures the additional cost of producing one more unit of output — crucial for profit maximisation decisions.',
   },
   {
@@ -156,8 +156,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'A monopoly can earn supernormal profits in the long run because:',
-    options: ['It has a perfectly elastic demand curve', 'High barriers to entry prevent competitors from entering the market', 'Government subsidises it', 'It produces in perfect competition'],
-    answer: 'High barriers to entry prevent competitors from entering the market',
+    options: ['It faces a perfectly elastic demand curve', 'High barriers to entry keep competitors out of the market', 'The government subsidises it with public money', 'It produces under conditions of perfect competition'],
+    answer: 'High barriers to entry keep competitors out of the market',
     explanation: 'Barriers to entry (patents, scale, legal rights) protect the monopoly from competition, allowing sustained supernormal profits.',
   },
   {

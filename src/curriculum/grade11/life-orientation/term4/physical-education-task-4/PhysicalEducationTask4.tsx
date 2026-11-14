@@ -85,13 +85,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Why is fitness reflection useful at the end of the year?',
-    options: [
-      'It helps learners recognise progress and identify areas for improvement',
-      'It replaces all physical activity',
-      'It only matters for top athletes',
-      'It is only about marks',
-    ],
-    answer: 'It helps learners recognise progress and identify areas for improvement',
+    options: ['It helps learners see their progress and where to improve', 'It takes the place of all physical activity', 'It matters only for the top athletes', 'It is only a matter of the marks given'],
+    answer: 'It helps learners see their progress and where to improve',
     explanation: 'Reflection makes growth visible and supports future planning.',
   },
   {
@@ -113,13 +108,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which goal is the best example of a SMART physical activity goal?',
-    options: [
-      'I will exercise more sometime',
-      'I will walk for 30 minutes after school on Mondays, Wednesdays, and Fridays for six weeks',
-      'I will become the fittest person in the country',
-      'I will think about joining a team next year',
-    ],
-    answer: 'I will walk for 30 minutes after school on Mondays, Wednesdays, and Fridays for six weeks',
+    options: ['I will try to exercise more at some time soon', 'I will walk for 30 minutes on Mon, Wed and Fri for six weeks', 'I will become the fittest person in the country', 'I will think about joining a sports team next year'],
+    answer: 'I will walk for 30 minutes on Mon, Wed and Fri for six weeks',
     explanation: 'The goal is specific, measurable, realistic, and time-bound.',
   },
   {
@@ -135,13 +125,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which factor could be a barrier to regular participation in physical activity?',
-    options: ['Good time management', 'Strong motivation', 'Unsafe environments or lack of transport', 'Supportive friends'],
-    answer: 'Unsafe environments or lack of transport',
+    options: ['Good time management skills', 'Strong motivation to keep going', 'Unsafe surroundings or a lack of transport', 'Friends who support and encourage you'],
+    answer: 'Unsafe surroundings or a lack of transport',
     explanation: 'Barriers can reduce participation and should be identified when planning future activity.',
   },
   {
     prompt: 'What kind of evidence can show fitness progress?',
-    options: ['Participation records and personal reflections', 'Rumours from friends', 'Only expensive equipment', 'Social media likes'],
+    options: ['Participation records and personal reflections', 'Rumours that are passed on by friends', 'Costly equipment that you have bought', 'Likes that you collect on social media'],
     answer: 'Participation records and personal reflections',
     explanation: 'Progress can be tracked through records, observations, and reflective notes.',
   },

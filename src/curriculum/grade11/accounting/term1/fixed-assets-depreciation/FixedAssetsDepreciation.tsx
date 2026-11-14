@@ -158,13 +158,8 @@ const learnSteps: LearnStep[] = [
 const bank: AccountingItem[] = [
   {
     prompt: 'What is the main purpose of maintaining a fixed asset register?',
-    options: [
-      'To calculate the business\'s gross profit',
-      'To provide a detailed record of each asset including cost, depreciation, and carrying value',
-      'To record daily cash transactions',
-      'To track amounts owed by debtors',
-    ],
-    answer: 'To provide a detailed record of each asset including cost, depreciation, and carrying value',
+    options: ['To work out the gross profit of the business', 'A detailed record of each asset: cost, depreciation, carrying value', 'To record the daily cash transactions of the business', 'To track the amounts owed by the debtors'],
+    answer: 'A detailed record of each asset: cost, depreciation, carrying value',
     explanation: 'The fixed asset register supports internal control and provides the detail needed for balance sheet figures.',
   },
   {
@@ -226,24 +221,14 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Which internal control helps prevent theft of fixed assets?',
-    options: [
-      'Preparing a bank reconciliation monthly',
-      'Tagging all assets with unique identification numbers and conducting regular physical verifications',
-      'Issuing invoices to customers promptly',
-      'Reconciling the debtors control account',
-    ],
-    answer: 'Tagging all assets with unique identification numbers and conducting regular physical verifications',
+    options: ['Preparing a bank reconciliation every month', 'Tagging assets with unique numbers and checking them physically', 'Issuing invoices to the customers without delay', 'Reconciling the debtors control account every month'],
+    answer: 'Tagging assets with unique numbers and checking them physically',
     explanation: 'Asset tagging and physical counts ensure every asset on the register actually exists and is on the premises.',
   },
   {
     prompt: 'Why must the fixed asset register be reconciled to the general ledger?',
-    options: [
-      'To calculate the net profit for the year',
-      'To ensure the detailed register agrees with the control account balances in the ledger',
-      'To prepare the cashbook',
-      'To identify outstanding deposits',
-    ],
-    answer: 'To ensure the detailed register agrees with the control account balances in the ledger',
+    options: ['To work out the net profit for the year', 'To make sure the register agrees with the ledger control account', 'To prepare the cashbook of the business', 'To find the outstanding deposits on the statement'],
+    answer: 'To make sure the register agrees with the ledger control account',
     explanation: 'Reconciling the register to the ledger detects errors or omissions and ensures the balance sheet is accurate.',
   },
 ];

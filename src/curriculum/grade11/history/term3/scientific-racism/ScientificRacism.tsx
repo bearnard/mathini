@@ -122,24 +122,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How did 18th- and 19th-century racial classification support empire?',
-    options: [
-      'It portrayed colonised peoples as inferior and Europeans as fit to rule them',
-      'It proved that colonial subjects should govern Europe',
-      'It encouraged equal citizenship in colonies',
-      'It rejected all links between race and power',
-    ],
-    answer: 'It portrayed colonised peoples as inferior and Europeans as fit to rule them',
+    options: ['It portrayed colonised peoples as inferior and Europeans as fit to rule', 'It proved that colonial subjects should rule Europe', 'It encouraged equal citizenship in the colonies', 'It rejected any link between race and power'],
+    answer: 'It portrayed colonised peoples as inferior and Europeans as fit to rule',
     explanation: 'Pseudo-scientific hierarchies helped imperial states present domination as natural and justified.',
   },
   {
     prompt: 'What was Social Darwinism?',
-    options: [
-      'The false application of natural selection to human societies and races',
-      'Darwin\'s original theory about plants and animals',
-      'A movement for racial equality based on biology',
-      'A campaign to abolish imperialism in Africa',
-    ],
-    answer: 'The false application of natural selection to human societies and races',
+    options: ['The false use of natural selection on human societies and races', "Darwin's first theory about plants and animals", 'A movement for racial equality that was based on biology', 'A campaign to abolish imperialism in Africa'],
+    answer: 'The false use of natural selection on human societies and races',
     explanation: 'Social Darwinists misused Darwinian language to argue that some societies and races were naturally more advanced.',
   },
   {
@@ -155,24 +145,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What did the eugenics movement aim to do?',
-    options: [
-      'Control reproduction by promoting the so-called fit and restricting the so-called unfit',
-      'End all racial classification in modern states',
-      'Expand democracy to colonised peoples',
-      'Protect workers from industrial exploitation only',
-    ],
-    answer: 'Control reproduction by promoting the so-called fit and restricting the so-called unfit',
+    options: ['Control reproduction by backing the "fit" and curbing the "unfit"', 'End all racial classification in modern states', 'Extend democracy to the peoples of the colonies', 'Protect workers from industrial exploitation only'],
+    answer: 'Control reproduction by backing the "fit" and curbing the "unfit"',
     explanation: 'Eugenics treated prejudice as science and targeted vulnerable people for exclusion or sterilisation.',
   },
   {
     prompt: 'What was forced sterilisation?',
-    options: [
-      'A policy that prevented people from having children without their full consent',
-      'A law that forced people to move into segregated areas',
-      'A military policy used during world wars',
-      'A programme that rewarded large families',
-    ],
-    answer: 'A policy that prevented people from having children without their full consent',
+    options: ['A policy that stopped people having children without full consent', 'A law that forced people into segregated areas', 'A military policy that was used in the world wars', 'A programme that rewarded families who had many children'],
+    answer: 'A policy that stopped people having children without full consent',
     explanation: 'Forced sterilisation violated human rights and was justified through eugenic ideas in several countries.',
   },
   {
@@ -188,13 +168,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A source describes Africans as "childlike peoples needing European control". How should a historian read it?',
-    options: [
-      'As a biased source that reveals racist assumptions used to justify domination',
-      'As neutral scientific evidence about human ability',
-      'As proof that colonialism improved equality',
-      'As a source with no political purpose',
-    ],
-    answer: 'As a biased source that reveals racist assumptions used to justify domination',
+    options: ['As a biased source showing racist ideas used to justify rule', 'As neutral scientific evidence about human ability', 'As proof that colonialism improved equality', 'As a source that has no political purpose'],
+    answer: 'As a biased source showing racist ideas used to justify rule',
     explanation: 'CAPS History expects learners to identify loaded language, assumptions, and the political use of such ideas.',
   },
 ];

@@ -122,13 +122,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How does a CV differ from a covering letter?',
-    options: [
-      'A CV is a story; a covering letter lists facts',
-      'A CV summarises your qualifications and experience; a covering letter motivates your application for a specific post',
-      'They are the same document formatted differently',
-      'A covering letter is always longer than a CV',
-    ],
-    answer: 'A CV summarises your qualifications and experience; a covering letter motivates your application for a specific post',
+    options: ['A CV tells a story, while a covering letter lists facts', 'A CV lists qualifications and experience; a letter motivates', 'The two are the same document with a different layout', 'A covering letter is always longer than a CV is'],
+    answer: 'A CV lists qualifications and experience; a letter motivates',
     explanation: 'The CV is a factual record of your background. The covering letter is persuasive writing tailored to the specific job.',
   },
   {
@@ -139,35 +134,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the key difference between an argumentative and a discursive essay?',
-    options: [
-      'An argumentative essay has more paragraphs',
-      'A discursive essay is always shorter',
-      'An argumentative essay takes one clear position; a discursive essay explores multiple sides fairly',
-      'A discursive essay does not require evidence',
-    ],
-    answer: 'An argumentative essay takes one clear position; a discursive essay explores multiple sides fairly',
+    options: ['An argumentative essay has more paragraphs than a discursive one', 'A discursive essay is always shorter than an argumentative one', 'Argumentative takes one clear side; discursive weighs several sides fairly', 'A discursive essay does not need to give evidence'],
+    answer: 'Argumentative takes one clear side; discursive weighs several sides fairly',
     explanation: 'In an argumentative essay you persuade. In a discursive essay you explore and balance perspectives.',
   },
   {
     prompt: 'What does the introduction of a narrative essay typically establish?',
-    options: [
-      'The word count of the essay',
-      'The dictionary definitions of key terms',
-      'Setting, tone, and the beginning of the conflict or situation',
-      'A list of all the characters in the story',
-    ],
-    answer: 'Setting, tone, and the beginning of the conflict or situation',
+    options: ['The word count that the essay is expected to reach', 'The dictionary meanings of the key terms in the title', 'The setting, the tone and the start of the conflict', 'A list of all the characters who appear in the story'],
+    answer: 'The setting, the tone and the start of the conflict',
     explanation: 'A strong narrative introduction immerses the reader immediately by establishing where, when, and the mood of the piece.',
   },
   {
     prompt: 'What is a reflective essay?',
-    options: [
-      'An essay that argues for a specific political viewpoint',
-      'An essay that describes a scientific process',
-      'A personal piece that explores the writer\'s thoughts, feelings, and insights about an experience',
-      'An essay that compares two novels',
-    ],
-    answer: 'A personal piece that explores the writer\'s thoughts, feelings, and insights about an experience',
+    options: ['An essay that argues for a particular political view', 'An essay that describes how a scientific process works', 'A personal piece on your thoughts, feelings and insights about an event', 'An essay that compares two novels by one author'],
+    answer: 'A personal piece on your thoughts, feelings and insights about an event',
     explanation: 'Reflective essays combine narration with introspection — what happened, how you felt, and what you learned from it.',
   },
   {
@@ -194,13 +174,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In an argumentative essay, what is the role of a counter-argument?',
-    options: [
-      'To show you agree with the opposing side',
-      'To lengthen the essay',
-      'To acknowledge the opposing view and then refute it, strengthening your own argument',
-      'To confuse the reader so your position seems better',
-    ],
-    answer: 'To acknowledge the opposing view and then refute it, strengthening your own argument',
+    options: ['To show that you agree with the opposing side in the end', 'To lengthen the essay so that it reaches the word count', 'To acknowledge the opposing view, then refute it to strengthen your case', 'To confuse the reader so that your view seems better'],
+    answer: 'To acknowledge the opposing view, then refute it to strengthen your case',
     explanation: 'Addressing counter-arguments shows critical thinking and makes your argument more persuasive by anticipating and dismissing objections.',
   },
   {

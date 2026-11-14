@@ -118,8 +118,8 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'In the context of 4IR, what does "machine learning" mean?',
-    options: ['Teaching humans to use machines', 'Systems that improve automatically from experience/data without being explicitly reprogrammed', 'Repairing broken machines', 'Designing factory machines'],
-    answer: 'Systems that improve automatically from experience/data without being explicitly reprogrammed',
+    options: ['Teaching people how to use the machines', 'Systems that improve from data without reprogramming', 'Repairing machines that have broken down', 'Designing the machines that are used in factories'],
+    answer: 'Systems that improve from data without reprogramming',
     explanation: 'Machine learning is a subset of AI where algorithms learn patterns from data to make predictions or decisions.',
   },
   {
@@ -130,7 +130,7 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'Blockchain technology is best described as:',
-    options: ['A type of social network', 'A decentralised, tamper-resistant record-keeping system', 'A cloud-based word processor', 'An antivirus programme'],
+    options: ['A type of social network for sharing posts', 'A decentralised, tamper-resistant record-keeping system', 'A cloud-based word processor for documents', 'An antivirus programme that removes viruses'],
     answer: 'A decentralised, tamper-resistant record-keeping system',
     explanation: 'Blockchain stores data in linked, cryptographically secured blocks distributed across many nodes, making records extremely difficult to alter.',
   },
@@ -148,14 +148,14 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What characterises the Fifth Industrial Revolution (5IR) compared to 4IR?',
-    options: ['5IR focuses purely on robotics replacing humans', '5IR emphasises human-machine collaboration and sustainability alongside advanced technology', '5IR has not started yet', '5IR only affects manufacturing industries'],
-    answer: '5IR emphasises human-machine collaboration and sustainability alongside advanced technology',
+    options: ['5IR is about robots replacing humans entirely', '5IR stresses human-machine teamwork and sustainability', '5IR has not yet started anywhere in the world', '5IR affects the manufacturing industry only'],
+    answer: '5IR stresses human-machine teamwork and sustainability',
     explanation: '5IR builds on 4IR technologies but focuses on humans working together with smart machines, with greater emphasis on sustainability and human wellbeing.',
   },
   {
     prompt: 'Why is checking data quality important in the PAT processing phase?',
-    options: ['To make the report look longer', 'Inaccurate or incomplete data leads to incorrect conclusions and an unreliable PAT', 'The examiner requires a minimum number of data points', 'Data quality is only important for large companies'],
-    answer: 'Inaccurate or incomplete data leads to incorrect conclusions and an unreliable PAT',
+    options: ['To make the report look longer than it is', 'Poor or missing data leads to wrong conclusions and a weak PAT', 'The examiner requires a minimum number of data points', 'Data quality matters only for large companies'],
+    answer: 'Poor or missing data leads to wrong conclusions and a weak PAT',
     explanation: 'Data quality (accuracy, completeness, consistency) directly affects the validity of analysis and conclusions drawn in the PAT.',
   },
   {

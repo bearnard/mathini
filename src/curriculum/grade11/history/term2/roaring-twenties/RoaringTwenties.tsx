@@ -122,13 +122,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is consumerism?',
-    options: [
-      'A culture of buying goods — often on credit — as a lifestyle and economic driver',
-      'A communist economic system',
-      'A government policy of taxing luxury goods',
-      'The process of manufacturing goods in factories',
-    ],
-    answer: 'A culture of buying goods — often on credit — as a lifestyle and economic driver',
+    options: ['A culture of buying goods, often on credit, as a way of life', 'A communist economic system run by the state', 'A government policy of taxing luxury goods', 'The making of goods in factories on a large scale'],
+    answer: 'A culture of buying goods, often on credit, as a way of life',
     explanation: 'The 1920s consumer revolution saw Americans buying cars, radios, and fridges on hire purchase, driving the economic boom.',
   },
   {
@@ -139,35 +134,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What was Prohibition (1920–1933)?',
-    options: [
-      'A constitutional ban on alcohol that created organised crime and bootlegging',
-      'A law prohibiting strikes by workers',
-      'A trade tariff preventing European imports',
-      'A ban on immigration from Eastern Europe',
-    ],
-    answer: 'A constitutional ban on alcohol that created organised crime and bootlegging',
+    options: ['A constitutional ban on alcohol that fuelled organised crime', 'A law that banned strikes by workers', 'A trade tariff that stopped European imports', 'A ban on immigration from Eastern Europe'],
+    answer: 'A constitutional ban on alcohol that fuelled organised crime',
     explanation: 'Prohibition created a black market; gangsters like Al Capone grew rich and powerful supplying illegal alcohol.',
   },
   {
     prompt: 'Why did ordinary Americans invest heavily in the stock market in the 1920s?',
-    options: [
-      'Share prices rose steadily, making speculation seem like guaranteed profit, often with borrowed money',
-      'The government required all citizens to own shares',
-      'Companies paid workers in shares instead of wages',
-      'Banks refused to hold cash savings',
-    ],
-    answer: 'Share prices rose steadily, making speculation seem like guaranteed profit, often with borrowed money',
+    options: ['Share prices kept rising, so buying looked a sure win, often on credit', 'The government required each citizen to own some shares', 'Firms paid their workers in shares in place of wages', 'Banks refused to hold any cash savings for people'],
+    answer: 'Share prices kept rising, so buying looked a sure win, often on credit',
     explanation: 'Easy credit and rising share prices encouraged dangerous speculation that would contribute to the 1929 Crash.',
   },
   {
     prompt: 'What were "flappers" in 1920s America?',
-    options: [
-      'Young women who challenged traditional gender norms through fashion, music, and independence',
-      'Female factory workers in Ford\'s assembly plants',
-      'Members of the Ku Klux Klan',
-      'Women who campaigned for Prohibition',
-    ],
-    answer: 'Young women who challenged traditional gender norms through fashion, music, and independence',
+    options: ['Young women who broke gender norms in fashion and music', "Female factory workers on Ford's assembly lines", 'Women who were members of the Ku Klux Klan', 'Women who campaigned for the cause of Prohibition'],
+    answer: 'Young women who broke gender norms in fashion and music',
     explanation: 'Flappers symbolised the social change of the 1920s — shorter skirts, jazz dancing, and visible independence for women.',
   },
   {
@@ -178,24 +158,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How did the Roaring Twenties prosperity contribute to the eventual crash of 1929?',
-    options: [
-      'Excessive credit, over-production, and stock market speculation created an unsustainable bubble',
-      'Too many workers were paid too much, causing inflation',
-      'The USA spent too much on foreign aid to Europe',
-      'The government raised taxes too high, destroying businesses',
-    ],
-    answer: 'Excessive credit, over-production, and stock market speculation created an unsustainable bubble',
+    options: ['Too much credit, over-production and speculation made a bubble', 'Too many workers were paid too much, causing inflation', 'The USA spent too much on aid to the countries of Europe', 'The government raised taxes so high that firms collapsed'],
+    answer: 'Too much credit, over-production and speculation made a bubble',
     explanation: 'The prosperity of the 1920s was built on fragile foundations — cheap credit, speculation, and over-production — setting the stage for the Great Crash.',
   },
   {
     prompt: 'What does a historian mean when describing the Roaring Twenties as a period of "contradictions"?',
-    options: [
-      'Great prosperity for many existed alongside racism, rural poverty, and inequality for others',
-      'The economy grew and shrank every year alternately',
-      'Americans supported both capitalism and communism',
-      'The government expanded and cut spending simultaneously',
-    ],
-    answer: 'Great prosperity for many existed alongside racism, rural poverty, and inequality for others',
+    options: ['Great wealth for many existed alongside racism and rural poverty', 'The economy grew and then shrank every second year', 'Americans backed both capitalism and communism at once', 'The government raised and cut spending at the same time'],
+    answer: 'Great wealth for many existed alongside racism and rural poverty',
     explanation: 'CAPS emphasises that historical periods are complex — the 1920s boom co-existed with the KKK, Jim Crow, and rural suffering.',
   },
 ];

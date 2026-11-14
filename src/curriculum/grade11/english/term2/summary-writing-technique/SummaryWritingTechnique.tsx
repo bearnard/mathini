@@ -106,24 +106,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How many points are typically required in a CAPS Grade 11 summary task?',
-    options: [
-      'Always exactly 5 points',
-      'As many as possible — there is no limit',
-      'It is specified in the question — follow the exact instruction (e.g., "7 points")',
-      'A minimum of 10 and a maximum of 15',
-    ],
-    answer: 'It is specified in the question — follow the exact instruction (e.g., "7 points")',
+    options: ['Always exactly five points, whatever the question says', 'As many as you can, since there is no limit', 'It is set in the question; follow the instruction (e.g. "7 points")', 'A minimum of ten and a maximum of fifteen points'],
+    answer: 'It is set in the question; follow the instruction (e.g. "7 points")',
     explanation: 'The question tells you exactly how many points are required. Including too few loses marks; you receive marks per valid point identified.',
   },
   {
     prompt: 'What does "own words" mean in a summary instruction?',
-    options: [
-      'You must invent completely new facts not in the passage',
-      'You must rewrite the original text using synonyms and different sentence structures, not copy it',
-      'You should write in your home language',
-      'You should only use words from a dictionary',
-    ],
-    answer: 'You must rewrite the original text using synonyms and different sentence structures, not copy it',
+    options: ['Invent new facts that are not in the passage', 'Rewrite the text with synonyms and new structures, not copy it', 'Write the summary in your home language', 'Use only words that are found in a dictionary'],
+    answer: 'Rewrite the text with synonyms and new structures, not copy it',
     explanation: 'Paraphrasing means expressing the same idea using different vocabulary and sentence construction — not lifting words directly from the text.',
   },
   {
@@ -161,35 +151,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a topic sentence?',
-    options: [
-      'The final sentence in a paragraph',
-      'The sentence in a paragraph that states the main idea, usually appearing first',
-      'Any sentence that contains a verb',
-      'A sentence that always starts with "In conclusion"',
-    ],
-    answer: 'The sentence in a paragraph that states the main idea, usually appearing first',
+    options: ['The last sentence in a paragraph', "The sentence that states the paragraph's main idea, often first", 'Any sentence that has a verb in it', 'A sentence that always starts with "In conclusion"'],
+    answer: "The sentence that states the paragraph's main idea, often first",
     explanation: 'In summary tasks, the topic sentence is often the most important sentence because it states the key point of the paragraph.',
   },
   {
     prompt: 'What is the difference between summarising and paraphrasing?',
-    options: [
-      'They are exactly the same process',
-      'Summarising condenses a longer text to its main ideas; paraphrasing restates a specific passage in different words without necessarily shortening it significantly',
-      'Paraphrasing always makes the text longer',
-      'Summarising uses quotation marks; paraphrasing does not',
-    ],
-    answer: 'Summarising condenses a longer text to its main ideas; paraphrasing restates a specific passage in different words without necessarily shortening it significantly',
+    options: ['The two are exactly the same process', 'Summarising condenses a text; paraphrasing restates a passage in other words', 'Paraphrasing always makes the text longer', 'Summarising uses quotation marks and paraphrasing does not'],
+    answer: 'Summarising condenses a text; paraphrasing restates a passage in other words',
     explanation: 'You may paraphrase a single sentence (same length, different words). A summary always significantly reduces the length by omitting detail.',
   },
   {
     prompt: 'How do you identify main ideas in a passage?',
-    options: [
-      'Look for the longest sentences in each paragraph',
-      'Look for topic sentences and ideas that are developed throughout the paragraph, not just mentioned once',
-      'Select any sentences with statistics or numbers',
-      'Choose sentences with the most complex vocabulary',
-    ],
-    answer: 'Look for topic sentences and ideas that are developed throughout the paragraph, not just mentioned once',
+    options: ['Look for the longest sentences in each paragraph', 'Look for topic sentences and ideas developed through a paragraph', 'Pick any sentences that have numbers or statistics', 'Choose the sentences with the hardest vocabulary'],
+    answer: 'Look for topic sentences and ideas developed through a paragraph',
     explanation: 'Main ideas are developed and supported within the paragraph. A single passing mention is usually supporting detail.',
   },
   {

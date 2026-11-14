@@ -157,23 +157,18 @@ const bank: CapsItem[] = [
   {
     prompt: 'What is "tied aid"?',
     options: [
-      'Aid given with no conditions attached',
+      'Aid given with no conditions about how it is spent',
       'Aid that must be spent on goods or services from the donor country',
-      'Aid provided during conflict situations',
-      'Aid channelled through NGOs',
+      'Aid that is provided only during conflict or war',
+      'Aid that is channelled through NGOs and charities',
     ],
-    answer: 'Aid must be spent on goods or services from the donor country',
+    answer: 'Aid that must be spent on goods or services from the donor country',
     explanation: 'Tied aid reduces its development impact because the recipient must buy from the donor, often at higher cost than local alternatives.',
   },
   {
     prompt: 'Aid dependency is problematic because:',
-    options: [
-      'It always leads to economic growth',
-      'It may prevent countries from developing self-sufficient economies and strong domestic institutions',
-      'It reduces corruption in government',
-      'It strengthens local currencies',
-    ],
-    answer: 'It may prevent countries from developing self-sufficient economies and strong domestic institutions',
+    options: ['It always leads to strong and steady economic growth', 'It may stop countries building self-reliant economies and strong institutions', 'It lowers corruption in the government of a country', 'It strengthens the local currency of the receiving country'],
+    answer: 'It may stop countries building self-reliant economies and strong institutions',
     explanation: 'Long-term reliance on aid can undermine local entrepreneurship, government accountability, and the development of tax systems.',
   },
   {
@@ -207,13 +202,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is educating girls considered one of the highest-return investments in development?',
-    options: [
-      'It reduces military spending',
-      'Educated women have fewer children, earn more, and invest more in their families, multiplying development benefits',
-      'It increases tourism revenues',
-      'It reduces the need for foreign aid',
-    ],
-    answer: 'Educated women have fewer children, earn more, and invest more in their families, multiplying development benefits',
+    options: ['It cuts the military spending of the country', 'Educated women have fewer children, earn more and invest in families', 'It raises the income that a country gets from tourism', 'It removes the need for any foreign aid altogether'],
+    answer: 'Educated women have fewer children, earn more and invest in families',
     explanation: 'Girls\' education lowers fertility rates, improves child health and nutrition, increases household income, and boosts economic productivity.',
   },
   {

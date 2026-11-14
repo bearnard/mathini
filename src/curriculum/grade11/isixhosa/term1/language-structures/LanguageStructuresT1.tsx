@@ -176,13 +176,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which error does "concord" correction address?',
-    options: [
-      'Mismatch between the subject noun class and the verb prefix',
-      'Incorrect use of question marks',
-      'Using too many adjectives',
-      'Writing in the wrong tense',
-    ],
-    answer: 'Mismatch between the subject noun class and the verb prefix',
+    options: ['A mismatch between the subject noun class and the verb prefix', 'Wrong use of the question mark in a sentence', 'Too many adjectives in a descriptive text', 'Writing in the wrong tense for the event'],
+    answer: 'A mismatch between the subject noun class and the verb prefix',
     explanation: 'Concord (isivumelwano) requires the verb prefix to match the noun class of the subject.',
   },
   {
@@ -209,13 +204,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which action is part of the EDITING stage of writing?',
-    options: [
-      'Correcting grammar, punctuation, and concord errors in a completed draft',
-      'Generating as many ideas as possible',
-      'Writing the first version of the text freely',
-      'Choosing the topic and audience',
-    ],
-    answer: 'Correcting grammar, punctuation, and concord errors in a completed draft',
+    options: ['Fixing grammar, punctuation and concord in a finished draft', 'Generating as many ideas as you can at the start', 'Writing the first version of the text freely', 'Choosing the topic and the audience for the text'],
+    answer: 'Fixing grammar, punctuation and concord in a finished draft',
     explanation: 'Editing focuses on accuracy and correctness — it takes place after the content has been drafted.',
   },
 ];

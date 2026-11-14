@@ -114,7 +114,7 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'In which direction do electric field lines point around a positive point charge?',
-    options: ['Toward the charge', 'Randomly', 'Away from the charge', 'Parallel to the charge'],
+    options: ['Toward the charge', 'Around the charge in closed circles', 'Away from the charge', 'Parallel to the line that joins two charges'],
     answer: 'Away from the charge',
     explanation: 'Electric field lines around a positive charge radiate outward (away), in the direction a positive test charge would move.',
   },
@@ -132,7 +132,7 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'What is the SI unit of electric field strength?',
-    options: ['Coulomb (C)', 'Newton per coulomb (N/C)', 'Volt (V)', 'Ampere (A)'],
+    options: ['Coulomb (C), the unit of charge', 'Newton per coulomb (N/C)', 'Volt (V), the unit of potential difference', 'Ampere (A), the unit of current'],
     answer: 'Newton per coulomb (N/C)',
     explanation: 'E = F/q, so the unit is N/C. This is equivalent to V/m (volts per metre).',
   },

@@ -141,13 +141,8 @@ const learnSteps: LearnStep[] = [
 const bank: AccountingItem[] = [
   {
     prompt: 'The primary purpose of a cash budget is to:',
-    options: [
-      'Calculate the net profit for the year',
-      'Plan and forecast cash receipts and payments to manage future liquidity',
-      'Determine the tax payable to SARS',
-      'Prepare the statement of financial position',
-    ],
-    answer: 'Plan and forecast cash receipts and payments to manage future liquidity',
+    options: ['Calculate the net profit for the year', 'Forecast cash receipts and payments to manage liquidity', 'Work out the tax that is payable to SARS', 'Prepare the statement of financial position'],
+    answer: 'Forecast cash receipts and payments to manage liquidity',
     explanation: 'A cash budget helps management anticipate cash shortfalls or surpluses so they can take action before problems arise.',
   },
   {
@@ -181,13 +176,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'A projected closing bank balance of −R15 000 in the cash budget means:',
-    options: [
-      'The business will earn R15 000 profit',
-      'The business will have a cash surplus of R15 000',
-      'The business is projected to have a cash shortfall (overdraft) of R15 000',
-      'The business has paid all its creditors',
-    ],
-    answer: 'The business is projected to have a cash shortfall (overdraft) of R15 000',
+    options: ['The business will earn a profit of R15 000', 'The business will have a cash surplus of R15 000', 'A projected cash shortfall (overdraft) of R15 000', 'The business has paid all of its creditors'],
+    answer: 'A projected cash shortfall (overdraft) of R15 000',
     explanation: 'A negative closing balance means projected payments exceed projected receipts — the business will need external funding or cost cuts.',
   },
   {
@@ -209,24 +199,14 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'A cash budget shows a large surplus in November. Management should:',
-    options: [
-      'Ignore it as it will automatically be used',
-      'Consider investing the surplus to earn returns or reducing expensive debt',
-      'Increase expenses immediately',
-      'Close the business for the month',
-    ],
-    answer: 'Consider investing the surplus to earn returns or reducing expensive debt',
+    options: ['Ignore it, as it will be used up automatically', 'Consider investing the surplus or paying off costly debt', 'Raise the expenses at once to use it up', 'Close the business for the rest of the month'],
+    answer: 'Consider investing the surplus or paying off costly debt',
     explanation: 'Idle cash earns nothing — management should plan to invest surplus funds productively or pay off high-interest debt.',
   },
   {
     prompt: 'Why is it important to distinguish between cash sales and credit sales in a cash budget?',
-    options: [
-      'Credit sales are never collected',
-      'Cash sales provide immediate cash inflow while credit sales result in delayed cash collections from debtors',
-      'Cash sales are excluded from the income statement',
-      'They are the same for cash budget purposes',
-    ],
-    answer: 'Cash sales provide immediate cash inflow while credit sales result in delayed cash collections from debtors',
+    options: ['Credit sales are never collected from debtors', 'Cash sales bring cash at once; credit sales are collected later', 'Cash sales are left out of the income statement', 'The two are the same for a cash budget'],
+    answer: 'Cash sales bring cash at once; credit sales are collected later',
     explanation: 'Timing of cash inflows differs — cash sales enter the budget in the month of sale, while credit sales appear based on the debtors collection schedule.',
   },
 ];

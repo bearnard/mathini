@@ -92,13 +92,8 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'Why does propan-1-ol (C₃H₇OH) have a higher boiling point than propane (C₃H₈)?',
-    options: [
-      'Propan-1-ol has a larger molar mass',
-      'Propan-1-ol forms hydrogen bonds due to the –OH group; propane only has London forces',
-      'Propane is non-polar',
-      'Propan-1-ol has stronger covalent bonds',
-    ],
-    answer: 'Propan-1-ol forms hydrogen bonds due to the –OH group; propane only has London forces',
+    options: ['Propan-1-ol has a larger molar mass than propane', 'Propan-1-ol has hydrogen bonds; propane has London forces only', 'Propane is a polar molecule, and the alcohol is not', 'Propan-1-ol has stronger covalent bonds in it'],
+    answer: 'Propan-1-ol has hydrogen bonds; propane has London forces only',
     explanation: 'The –OH group enables H-bonding in propan-1-ol, which is much stronger than the London forces in propane, resulting in a much higher boiling point.',
   },
   {
@@ -133,8 +128,8 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'HF has a higher boiling point than HCl despite having a lower molar mass. This is because:',
-    options: ['HF is ionic', 'HF has stronger London forces', 'HF forms hydrogen bonds; HCl only has dipole-dipole forces', 'HCl is non-polar'],
-    answer: 'HF forms hydrogen bonds; HCl only has dipole-dipole forces',
+    options: ['HF is an ionic compound, and HCl is not', 'HF has stronger London forces than HCl has', 'HF has hydrogen bonds; HCl has dipole-dipole forces', 'HCl is a non-polar molecule, and HF is polar'],
+    answer: 'HF has hydrogen bonds; HCl has dipole-dipole forces',
     explanation: 'HF has H bonded to F, enabling H-bonding (the strongest IMF). HCl\'s H is bonded to Cl, which cannot form H-bonds, so it only has dipole-dipole forces.',
   },
 ];

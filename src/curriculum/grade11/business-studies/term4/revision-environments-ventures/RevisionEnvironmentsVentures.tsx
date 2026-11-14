@@ -128,13 +128,8 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'In an exam question asking you to COMPARE two forms of ownership, you should:',
-    options: [
-      'Only describe one form in detail',
-      'Define both forms without linking them',
-      'Show the similarities AND differences between the two forms',
-      'List advantages only',
-    ],
-    answer: 'Show the similarities AND differences between the two forms',
+    options: ['Describe one form only, and in some detail', 'Define both forms without linking the two', 'Show similarities AND differences between the two', 'List the advantages of each form and nothing more'],
+    answer: 'Show similarities AND differences between the two',
     explanation: 'The action verb "compare" requires you to identify both what the two things have in common and how they differ — structured point-by-point comparison earns most marks.',
   },
   {

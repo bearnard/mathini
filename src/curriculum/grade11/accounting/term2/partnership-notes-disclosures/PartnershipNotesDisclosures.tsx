@@ -136,13 +136,8 @@ const learnSteps: LearnStep[] = [
 const bank: AccountingItem[] = [
   {
     prompt: 'Notes to the financial statements are primarily used to:',
-    options: [
-      'Replace the income statement',
-      'Provide detail and explanation behind the summary figures in the main statements',
-      'Calculate tax payable',
-      'Record daily transactions',
-    ],
-    answer: 'Provide detail and explanation behind the summary figures in the main statements',
+    options: ['Take the place of the income statement', 'Give detail and explanation behind the summary figures', 'Work out the tax that is payable', 'Record the daily transactions of the business'],
+    answer: 'Give detail and explanation behind the summary figures',
     explanation: 'Notes disclose the breakdown of figures, accounting policies, and other information required for a fair presentation.',
   },
   {
@@ -153,12 +148,7 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'The partner capital account note starts with:',
-    options: [
-      'The closing balance at year-end',
-      'The opening capital balance at the start of the year',
-      'The net profit for the year',
-      'The drawings made during the year',
-    ],
+    options: ['The closing balance at the end of the year', 'The opening capital balance at the start of the year', 'The net profit for the year', 'The drawings made during the year'],
     answer: 'The opening capital balance at the start of the year',
     explanation: 'The capital account note reconciles from opening balance to closing balance by showing additions and withdrawals of permanent capital.',
   },
@@ -193,13 +183,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'The fixed asset schedule note discloses:',
-    options: [
-      'Current account movements only',
-      'The cost, accumulated depreciation, and carrying value of each class of asset',
-      'Profit and loss sharing ratios',
-      'Bank charges for the year',
-    ],
-    answer: 'The cost, accumulated depreciation, and carrying value of each class of asset',
+    options: ['Current account movements of the partners only', 'Cost, accumulated depreciation and carrying value per class', 'The profit and loss sharing ratios of the partners', 'The bank charges that were paid for the year'],
+    answer: 'Cost, accumulated depreciation and carrying value per class',
     explanation: 'The fixed asset schedule supports the balance sheet figure by showing opening cost, additions, disposals, and depreciation for each asset class.',
   },
   {
@@ -215,13 +200,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'What is the purpose of disclosing accounting policies in the notes?',
-    options: [
-      'To calculate partner salaries',
-      'To inform users which methods and assumptions were used in preparing the statements',
-      'To reconcile the bank account',
-      'To list all assets owned',
-    ],
-    answer: 'To inform users which methods and assumptions were used in preparing the statements',
+    options: ['To work out the salaries of the partners', 'To tell users which methods and assumptions were used', 'To reconcile the bank account of the firm', 'To list all of the assets that are owned'],
+    answer: 'To tell users which methods and assumptions were used',
     explanation: 'Disclosing accounting policies (e.g., depreciation method, stock valuation) allows users to understand and compare financial statements.',
   },
 ];

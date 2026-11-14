@@ -96,24 +96,14 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is the primary purpose of a literary essay?',
-    options: [
-      'To retell the story of a prescribed text in detail',
-      'To argue and defend an interpretation of a text using evidence and literary analysis',
-      'To summarise the plot in chronological order',
-      'To compare two different novels from the same era',
-    ],
-    answer: 'To argue and defend an interpretation of a text using evidence and literary analysis',
+    options: ['To retell the story of the set text in detail', 'To argue and defend an interpretation using evidence', 'To summarise the plot in the order of the events', 'To compare two novels from the same period of time'],
+    answer: 'To argue and defend an interpretation using evidence',
     explanation: 'A literary essay takes a position (thesis) and defends it through analysis — it is not a summary or retelling.',
   },
   {
     prompt: 'What should the introduction of a literary essay contain?',
-    options: [
-      'A long summary of every event in the text',
-      'A greeting to the examiner and your name',
-      'A hook, brief context about the text, and a clear thesis statement',
-      'Three quotations without any explanation',
-    ],
-    answer: 'A hook, brief context about the text, and a clear thesis statement',
+    options: ['A long summary of every event in the whole text', 'A greeting to the examiner and your own name', 'A hook, brief context and a clear thesis statement', 'Three quotations that are given with no explanation'],
+    answer: 'A hook, brief context and a clear thesis statement',
     explanation: 'The introduction orientates the reader, provides minimal context, and states your argument clearly in the thesis — which guides the entire essay.',
   },
   {
@@ -129,46 +119,26 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What distinguishes an interview from an essay?',
-    options: [
-      'Interviews are always longer than essays',
-      'An interview uses a question-and-answer format between two identified parties; an essay uses continuous prose',
-      'Interviews are written in verse; essays are in prose',
-      'Essays are only written in formal English; interviews can be in any language',
-    ],
-    answer: 'An interview uses a question-and-answer format between two identified parties; an essay uses continuous prose',
+    options: ['Interviews are always longer than essays', 'An interview is a question-and-answer format; an essay is continuous prose', 'Interviews are written in verse and essays in prose', 'Essays are in formal English; interviews may use any language'],
+    answer: 'An interview is a question-and-answer format; an essay is continuous prose',
     explanation: 'The interview format requires clear labelling of speakers ("Interviewer:" and the subject\'s name) and purposeful questions and answers.',
   },
   {
     prompt: 'What is a formal report?',
-    options: [
-      'An informal account of a meeting written in diary style',
-      'A structured document presenting findings, analysis, and recommendations in an objective register',
-      'A creative piece describing an imaginary event',
-      'A covering letter accompanying a CV',
-    ],
-    answer: 'A structured document presenting findings, analysis, and recommendations in an objective register',
+    options: ['An informal account of a meeting, written in diary style', 'A structured document of findings, analysis and recommendations', 'A creative piece about an imaginary event or place', 'A covering letter that is sent with a CV for a job'],
+    answer: 'A structured document of findings, analysis and recommendations',
     explanation: 'A formal report has a fixed structure: title, purpose/introduction, findings, conclusion, and recommendation — written objectively.',
   },
   {
     prompt: 'In a literary essay, what is the function of textual evidence (quotations)?',
-    options: [
-      'To increase the length of the essay',
-      'To prove that you have memorised the text',
-      'To support and illustrate your analytical points, making your argument credible',
-      'To replace the need for any analysis',
-    ],
-    answer: 'To support and illustrate your analytical points, making your argument credible',
+    options: ['To make the essay longer than the word count', 'To show the examiner that you memorised the text', 'To support your points and make the argument credible', 'To take the place of any analysis in the essay'],
+    answer: 'To support your points and make the argument credible',
     explanation: 'Evidence without analysis is not enough — you must quote AND explain how the quotation supports your point.',
   },
   {
     prompt: 'What is the correct register for a formal interview transcript in English HL?',
-    options: [
-      'Casual and conversational, with slang to seem approachable',
-      'Formal and professional throughout, with purposeful questions and well-structured responses',
-      'Poetic and literary, with rhetorical questions throughout',
-      'Emotional and personal, ignoring grammar conventions',
-    ],
-    answer: 'Formal and professional throughout, with purposeful questions and well-structured responses',
+    options: ['Casual and chatty, with slang to seem approachable', 'Formal and professional, with purposeful questions and replies', 'Poetic and literary, with rhetorical questions throughout', 'Emotional and personal, with no care for grammar rules'],
+    answer: 'Formal and professional, with purposeful questions and replies',
     explanation: 'A formal interview transcript uses standard formal English with no filler, contractions, or slang — it reflects a professional context.',
   },
   {
@@ -195,13 +165,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What distinguishes a review from a summary?',
-    options: [
-      'A review is shorter and uses simpler language',
-      'A review evaluates strengths, weaknesses, and suitability for an audience; a summary only describes the content',
-      'A summary includes the reviewer\'s personal rating; a review does not',
-      'There is no meaningful difference between the two',
-    ],
-    answer: 'A review evaluates strengths, weaknesses, and suitability for an audience; a summary only describes the content',
+    options: ['A review is shorter and uses simpler language', 'A review evaluates strengths and weaknesses; a summary only describes', "A summary gives the reviewer's personal rating and a review does not", 'The two have no meaningful difference between them'],
+    answer: 'A review evaluates strengths and weaknesses; a summary only describes',
     explanation: 'Reviews go beyond description to offer critical assessment — this is the defining feature that separates a review from a mere summary.',
   },
 ];
