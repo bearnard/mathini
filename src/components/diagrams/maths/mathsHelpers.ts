@@ -154,3 +154,34 @@ export const formatNumber = (n: number): string => {
 /** "2 kg = 2 000 g" built from the conversion function. */
 export const workedExample = (kind: LadderKind, value: number, from: string, to: string): string =>
   `${formatNumber(value)} ${from} = ${formatNumber(convert(kind, value, from, to))} ${to}`;
+
+/* ---------------- Area, perimeter, volume ---------------- */
+
+/** Perimeter (cm) and area (cm2) of a rectangle with whole-number sides. */
+export const rectMeasures = (length: number, breadth: number): { perimeter: number; area: number } => ({
+  perimeter: 2 * (length + breadth),
+  area: length * breadth,
+});
+
+/** Volume (cm3) of a rectangular prism, and how many unit cubes make up one layer. */
+export const prismMeasures = (length: number, breadth: number, height: number): { volume: number; perLayer: number } => ({
+  volume: length * breadth * height,
+  perLayer: length * breadth,
+});
+
+/* ---------------- Money (whole cents, so there is no floating-point error) ---------------- */
+
+/** 1850 cents to "R18,50" (South African style: decimal comma; thousands grouped by a space). */
+export const formatRand = (cents: number): string => {
+  const neg = cents < 0;
+  const abs = Math.abs(Math.round(cents));
+  const rands = Math.floor(abs / 100);
+  const c = String(abs % 100).padStart(2, '0');
+  return `${neg ? '-' : ''}R${String(rands).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00A0')},${c}`;
+};
+
+/** Total, the sum of the parts, and what is left (the change). All in cents. */
+export const changeOf = (paid: number, parts: number[]): { spent: number; change: number } => {
+  const spent = parts.reduce((a, b) => a + b, 0);
+  return { spent, change: paid - spent };
+};

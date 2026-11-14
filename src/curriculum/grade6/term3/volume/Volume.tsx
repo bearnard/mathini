@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import CubeStack from '../../../../components/diagrams/maths/CubeStack';
 
 const learnSteps: LearnStep[] = [
     {
@@ -7,12 +8,8 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Volume tells us how much <strong>space</strong> a solid object takes up.</p>
-                <div className="bg-slate-50 p-6 rounded-xl inline-block">
-                    <div className="grid grid-cols-4 gap-2 mb-4">
-                        {Array.from({ length: 12 }, (_, i) => (
-                            <div key={i} className="h-8 w-8 rounded-lg border border-indigo-300 bg-indigo-100 shadow-sm" />
-                        ))}
-                    </div>
+                <CubeStack length={4} breadth={3} height={1} showCount />
+                <div className="bg-slate-50 p-4 rounded-xl inline-block">
                     <p className="text-slate-500">Count the unit cubes to find the volume.</p>
                     <p className="text-slate-500">This model has <strong>12 cubic units</strong>.</p>
                 </div>
@@ -24,14 +21,8 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">A cube that is 1 cm long, 1 cm wide and 1 cm high has a volume of <strong>1 cm³</strong>.</p>
-                <div className="flex justify-center">
-                    <div className="relative h-28 w-28 rounded-2xl border-4 border-emerald-300 bg-emerald-100 shadow-xl">
-                        <span className="absolute -bottom-8 left-8 text-sm font-bold text-emerald-700">1 cm</span>
-                        <span className="absolute -right-10 top-12 text-sm font-bold text-emerald-700">1 cm</span>
-                        <span className="absolute left-9 top-9 text-lg font-bold text-emerald-800">1 cm³</span>
-                    </div>
-                </div>
-                <p className="text-slate-500 text-sm mt-10">We use cubic units such as cm³ because volume fills three dimensions.</p>
+                <CubeStack length={1} breadth={1} height={1} showDims caption="1 cm³" />
+                <p className="text-slate-500 text-sm">We use cubic units such as cm³ because volume fills three dimensions.</p>
             </div>
         ),
     },
@@ -40,6 +31,7 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">For a rectangular prism, multiply the three dimensions.</p>
+                <CubeStack length={4} breadth={3} height={2} showDims showSum />
                 <div className="bg-indigo-50 p-6 rounded-xl max-w-md mx-auto">
                     <p className="text-xl font-bold text-indigo-900 mb-4">Volume = length × breadth × height</p>
                     <p className="text-slate-600">Example: 4 cm × 3 cm × 2 cm</p>
