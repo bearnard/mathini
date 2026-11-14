@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Reading folktales, posters, poems, and short factual texts',
-    image: {
-      src: '/curriculum/grade6/xho/term3/reading-viewing-t3/diagram.webp',
-      alt: 'learners reading a folktale, poster, and short factual text with visual cues',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

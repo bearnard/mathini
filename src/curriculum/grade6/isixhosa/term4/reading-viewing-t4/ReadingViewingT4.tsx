@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Read mixed texts for key ideas',
-    image: {
-      src: '/curriculum/grade6/xho/term4/reading-viewing-t4/diagram.webp',
-      alt: 'learner reading a notice, short story, and comprehension passage together',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

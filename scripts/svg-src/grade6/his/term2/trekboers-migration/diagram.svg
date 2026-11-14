@@ -2,8 +2,8 @@
   <title id="title">Trekboer migration inland from the Cape</title>
   <desc id="desc">A simple colourful map with arrows showing Trekboer wagons and cattle moving inland from the Cape.</desc>
   <defs>
-    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M2 2 L10 6 L2 10 Z" fill="#16a34a" />
+    <marker id="arrow" markerWidth="44" markerHeight="44" refX="30" refY="22" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M6 6 L36 22 L6 38 Z" fill="#16a34a" />
     </marker>
     <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
       <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.16" />

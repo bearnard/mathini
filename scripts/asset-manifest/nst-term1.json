@@ -3,34 +3,12 @@
     "grade": "grade6",
     "subject": "nst",
     "term": "term1",
-    "topic": "photosynthesis",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/nst/term1/photosynthesis/diagram.webp",
-    "alt": "green plant using sunlight to make food",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a green plant using sunlight, water from soil, and carbon dioxide from air to make food and release oxygen. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  },
-  {
-    "grade": "grade6",
-    "subject": "nst",
-    "term": "term1",
     "topic": "nutrients",
     "section": "diagram",
     "type": "ai",
     "path": "curriculum/grade6/nst/term1/nutrients/diagram.webp",
     "alt": "balanced plate with different healthy foods",
     "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a balanced plate with healthy foods from different nutrient groups, including grains, beans or eggs, fruit, vegetables, nuts, and a glass of water. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  },
-  {
-    "grade": "grade6",
-    "subject": "nst",
-    "term": "term1",
-    "topic": "food-chains",
-    "section": "diagram",
-    "type": "svg",
-    "path": "curriculum/grade6/nst/term1/food-chains/diagram.svg",
-    "alt": "grass to springbok to lion food chain diagram",
-    "svgSource": "scripts/svg-src/grade6/nst/term1/food-chains/diagram.svg"
   },
   {
     "grade": "grade6",

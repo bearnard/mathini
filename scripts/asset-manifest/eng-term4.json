@@ -20,16 +20,5 @@
     "path": "curriculum/grade6/eng/term4/exam-writing-practice/diagram.webp",
     "alt": "learner planning an essay and transactional writing task with a checklist and timer",
     "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a generic learner planning an essay and a transactional writing task with a checklist, notebook, and timer nearby. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image. Do not depict a real identifiable person."
-  },
-  {
-    "grade": "grade6",
-    "subject": "eng",
-    "term": "term4",
-    "topic": "language-consolidation",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/eng/term4/language-consolidation/diagram.webp",
-    "alt": "grammar revision chart showing parts of speech, tenses, punctuation, and spelling",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a colourful grammar revision chart with symbols for parts of speech, verb tenses, punctuation, and spelling practice. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real identifiable people."
   }
 ]

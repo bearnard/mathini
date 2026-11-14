@@ -14,33 +14,11 @@
     "grade": "grade6",
     "subject": "xho",
     "term": "term2",
-    "topic": "reading-viewing-t2",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/xho/term2/reading-viewing-t2/diagram.webp",
-    "alt": "learner reading a short story menu advertisement and timetable",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a learner reading everyday isiXhosa texts: a simple story page, a menu card, an advertisement poster, and a timetable sheet represented visually without words. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real, identifiable named people."
-  },
-  {
-    "grade": "grade6",
-    "subject": "xho",
-    "term": "term2",
     "topic": "writing-presenting-t2",
     "section": "diagram",
     "type": "ai",
     "path": "curriculum/grade6/xho/term2/writing-presenting-t2/diagram.webp",
     "alt": "learner writing diary lines a shopping list and a short message in a notebook",
     "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a learner preparing short isiXhosa functional texts in one notebook: diary lines, a shopping list, simple instructions, and a message represented visually without words. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real, identifiable named people."
-  },
-  {
-    "grade": "grade6",
-    "subject": "xho",
-    "term": "term2",
-    "topic": "language-structures-t2",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/xho/term2/language-structures-t2/diagram.webp",
-    "alt": "colourful language cards showing question forms negatives adjectives possessives and tense",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing colourful language cards and grammar symbols representing isiXhosa question forms, negatives, adjectives, possessives, and present versus past tense, with no readable text. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real, identifiable named people."
   }
 ]

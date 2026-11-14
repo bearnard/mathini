@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Build questions clearly in isiXhosa',
-    image: {
-      src: '/curriculum/grade6/xho/term2/language-structures-t2/diagram.webp',
-      alt: 'word cards showing question forms negatives adjectives possessives and tense',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

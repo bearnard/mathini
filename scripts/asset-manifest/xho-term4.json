@@ -14,33 +14,11 @@
     "grade": "grade6",
     "subject": "xho",
     "term": "term4",
-    "topic": "reading-viewing-t4",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/xho/term4/reading-viewing-t4/diagram.webp",
-    "alt": "learner comparing a notice, short story page, and comprehension passage with key details highlighted",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a generic learner comparing a notice, a short story page, and a revision comprehension passage with highlighted key ideas. Use bright colours, clean shapes, a white background, and no text, words, numbers, or labels in the image. Do not depict real identifiable people."
-  },
-  {
-    "grade": "grade6",
-    "subject": "xho",
-    "term": "term4",
     "topic": "writing-presenting-t4",
     "section": "diagram",
     "type": "ai",
     "path": "curriculum/grade6/xho/term4/writing-presenting-t4/diagram.webp",
     "alt": "learner drafting a paragraph, writing a short message, and using a picture prompt checklist",
     "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a generic learner drafting a short paragraph, writing a message, and using a picture prompt checklist on a desk. Use simple bright classroom colours, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real identifiable people."
-  },
-  {
-    "grade": "grade6",
-    "subject": "xho",
-    "term": "term4",
-    "topic": "language-structures-t4",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade6/xho/term4/language-structures-t4/diagram.webp",
-    "alt": "colourful grammar board with pronoun cards, tense arrows, punctuation marks, and spelling checks",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a colourful grammar revision board with visual icons for pronouns, verb tense shifts, punctuation, and spelling checks. Use bright but balanced classroom colours, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real identifiable people."
   }
 ]

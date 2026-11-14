@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Revise pronouns and concords',
-    image: {
-      src: '/curriculum/grade6/xho/term4/language-structures-t4/diagram.webp',
-      alt: 'grammar revision board showing pronouns, concords, punctuation, and tense examples',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Future tense, conjunctions, and connectors',
-    image: {
-      src: '/curriculum/grade6/xho/term3/language-structures-t3/diagram.webp',
-      alt: 'learner combining sentence strips with future tense and connectors in isiXhosa SAL',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">
