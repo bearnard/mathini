@@ -1,28 +1,17 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import PhotosynthesisDiagram from '@/components/diagrams/Photosynthesis';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Plants make their own food',
-    image: {
-      src: '/curriculum/grade6/nst/term1/photosynthesis/diagram.webp',
-      alt: 'green plant using sunlight to make food',
-    },
     content: (
       <div className="space-y-4 text-center">
+        <PhotosynthesisDiagram />
         <p className="text-lg text-slate-600">
           <strong>Photosynthesis</strong> is how green plants make their own food. A plant uses
           <strong> sunlight</strong>, <strong>water</strong> from the soil, and <strong>carbon dioxide</strong> from the air.
         </p>
-        <div className="bg-emerald-50 p-6 rounded-xl inline-flex flex-wrap items-center justify-center gap-3 text-xl font-bold text-slate-700">
-          <span>sunlight</span>
-          <span className="text-slate-400">+</span>
-          <span>water</span>
-          <span className="text-slate-400">+</span>
-          <span>carbon dioxide</span>
-          <span className="text-slate-400">→</span>
-          <span className="text-emerald-700">food</span>
-        </div>
       </div>
     ),
   },

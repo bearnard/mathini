@@ -1,26 +1,17 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import { FoodChain, FoodWeb } from '@/components/diagrams/FoodChains';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Energy moves through food chains',
-    image: {
-      src: '/curriculum/grade6/nst/term1/food-chains/diagram.svg',
-      alt: 'grass to springbok to lion food chain diagram',
-    },
     content: (
       <div className="space-y-4 text-center">
+        <FoodChain />
         <p className="text-lg text-slate-600">
           A <strong>food chain</strong> shows how energy moves from one living thing to another.
           The <strong>arrows point to the eater</strong>, because energy moves into the animal that eats.
         </p>
-        <div className="bg-emerald-50 p-6 rounded-xl inline-flex flex-wrap items-center justify-center gap-3 text-xl font-bold">
-          <span>grass</span>
-          <span className="text-slate-400">→</span>
-          <span>springbok</span>
-          <span className="text-slate-400">→</span>
-          <span>lion</span>
-        </div>
       </div>
     ),
   },
@@ -45,13 +36,14 @@ const learnSteps: LearnStep[] = [
     title: 'Food webs are many connected chains',
     content: (
       <div className="space-y-4 text-center">
+        <FoodWeb />
         <p className="text-lg text-slate-600">
           A <strong>food web</strong> is made of many linked food chains. Animals can be
           <strong> herbivores</strong> that eat plants, <strong>carnivores</strong> that eat animals, or
           <strong> omnivores</strong> that eat both plants and animals.
         </p>
         <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-green-50 p-4"><strong>Herbivore</strong><br />springbok</div>
+          <div className="rounded-xl bg-amber-50 p-4"><strong>Herbivore</strong><br />springbok</div>
           <div className="rounded-xl bg-red-50 p-4"><strong>Carnivore</strong><br />lion</div>
           <div className="rounded-xl bg-purple-50 p-4"><strong>Omnivore</strong><br />baboon</div>
         </div>
