@@ -1,13 +1,6 @@
 {
   "checked": 6655,
   "counts": {
-    "g6-history-geography": {
-      "filler_distractor": 4,
-      "length_tell_strong": 45
-    },
-    "g6-natural-sciences": {
-      "length_tell_strong": 8
-    },
     "other": {
       "duplicate_options": 5,
       "explanation_missing": 17,

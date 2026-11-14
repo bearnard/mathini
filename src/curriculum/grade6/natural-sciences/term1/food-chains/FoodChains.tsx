@@ -53,7 +53,7 @@ const learnSteps: LearnStep[] = [
 ];
 
 export const bank: NstItem[] = [
-  { prompt: 'What does a food chain show?', options: ['How energy moves between living things', 'How clouds make rain', 'How rocks are mined', 'How planets move'], answer: 'How energy moves between living things', explanation: 'Food chains show feeding relationships and energy flow.' },
+  { prompt: 'What does a food chain show?', options: ['How energy moves between living things', 'How water moves between clouds and rivers', 'How nutrients are mixed into the soil', 'How animals move from place to place'], answer: 'How energy moves between living things', explanation: 'Food chains show feeding relationships and energy flow.' },
   { prompt: 'In a food chain, what does the arrow point to?', options: ['The eater', 'The Sun only', 'The smallest organism', 'The oldest animal'], answer: 'The eater', explanation: 'Arrows point in the direction energy moves, toward the eater.' },
   { prompt: 'Which living thing is a producer?', options: ['Grass', 'Lion', 'Hyena', 'Eagle'], answer: 'Grass', explanation: 'Grass is a plant that makes its own food by photosynthesis.' },
   { prompt: 'Which animal is a herbivore?', options: ['Springbok', 'Lion', 'Leopard', 'Wild dog'], answer: 'Springbok', explanation: 'Springbok eat plants, so they are herbivores.' },
