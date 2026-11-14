@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { TenseCheck, TenseTimeline, WordRoles } from '@/components/diagrams/english/TenseDiagrams';
 
 const learnSteps: LearnStep[] = [
   {
@@ -11,9 +12,8 @@ const learnSteps: LearnStep[] = [
           speech</strong>, <strong>tense</strong>, <strong>speech forms</strong>, <strong>punctuation</strong>, and
           <strong> spelling</strong>.
         </p>
-        <div className="grid gap-3 md:grid-cols-5">
-          <div className="rounded-xl bg-sky-50 p-4 text-slate-700"><strong>Nouns</strong><br />name people, places, things</div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-slate-700"><strong>Verbs</strong><br />show action or state</div>
+        <WordRoles />
+        <div className="grid gap-3 md:grid-cols-3">
           <div className="rounded-xl bg-amber-50 p-4 text-slate-700"><strong>Tenses</strong><br />show time</div>
           <div className="rounded-xl bg-violet-50 p-4 text-slate-700"><strong>Punctuation</strong><br />guide the reader</div>
           <div className="rounded-xl bg-rose-50 p-4 text-slate-700"><strong>Spelling</strong><br />build accuracy</div>
@@ -29,11 +29,9 @@ const learnSteps: LearnStep[] = [
           Grammar questions often test whether your verb tense stays consistent and whether you can change from direct
           speech to indirect speech without losing meaning.
         </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-cyan-50 p-4 text-slate-700"><strong>Present</strong><br />She writes neatly.</div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-slate-700"><strong>Past</strong><br />She wrote neatly.</div>
-          <div className="rounded-xl bg-lime-50 p-4 text-slate-700"><strong>Reported speech</strong><br />He said that she wrote neatly.</div>
-        </div>
+        <TenseTimeline verb="write" plural={false} tenses={['past', 'present']} before="She" after="neatly." />
+        <TenseCheck which="revised" />
+        <div className="rounded-xl bg-lime-50 p-4 text-slate-700"><strong>Reported speech</strong><br />He said that she wrote neatly.</div>
       </div>
     ),
   },

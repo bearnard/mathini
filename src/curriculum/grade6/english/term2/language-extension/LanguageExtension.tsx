@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { TenseCheck, TenseTimeline } from '@/components/diagrams/english/TenseDiagrams';
 
 const learnSteps: LearnStep[] = [
   {
@@ -36,20 +37,8 @@ const learnSteps: LearnStep[] = [
           Writers must keep the <strong>tense</strong> clear. If you start in the past, do not jump
           into the present by mistake. Accurate tense helps the reader follow time and action.
         </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-violet-50 p-4">
-            <p className="font-bold text-violet-700">Past</p>
-            <p className="text-slate-600">already happened</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4">
-            <p className="font-bold text-cyan-700">Present</p>
-            <p className="text-slate-600">happening now</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4">
-            <p className="font-bold text-lime-700">Future</p>
-            <p className="text-slate-600">will happen later</p>
-          </div>
-        </div>
+        <TenseTimeline verb="walk" plural tenses={['past', 'present', 'future']} before="We" after="to school." />
+        <TenseCheck which="lebo" />
       </div>
     ),
   },
