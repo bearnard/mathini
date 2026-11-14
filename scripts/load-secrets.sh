@@ -42,18 +42,29 @@ else
 fi
 
 # ── CF_API_TOKEN from wrangler OAuth token ────────────────────────────────────
+# The OAuth token EXPIRES (about an hour). So (1) it is REFRESHED before it is read (`wrangler whoami` makes an authenticated call, which
+# refreshes an expired token and rewrites the config), and (2) CF_TOKEN_SOURCE=wrangler-oauth tells scripts/seed-questions.ts that the token
+# is refreshable: it re-reads the config and runs the refresh again every 30 minutes and on the first 401/403 (src/lib/server/seedRuntime.ts).
+# A CF_API_TOKEN you export yourself is used as is (CF_TOKEN_SOURCE=env): it cannot be refreshed, so a 401/403 aborts the run.
+# WRANGLER_REFRESH_CMD overrides the refresh command (tests).
 if [[ -z "${CF_API_TOKEN:-}" ]]; then
   WRANGLER_CONFIG="${WRANGLER_HOME:-$HOME/.config/.wrangler}/config/default.toml"
+  echo "  refreshing the wrangler OAuth token..."
+  if ! (cd "$PROJECT_DIR" && bash -c "${WRANGLER_REFRESH_CMD:-npx wrangler whoami}" >/dev/null 2>&1); then
+    echo "  ! could not refresh the wrangler token (run: npx wrangler login). Continuing with whatever is in the config." >&2
+  fi
   if [[ -f "$WRANGLER_CONFIG" ]]; then
     CF_API_TOKEN=$(grep -E '^oauth_token' "$WRANGLER_CONFIG" | sed 's/oauth_token = "\(.*\)"/\1/')
     export CF_API_TOKEN
-    echo "✓ CF_API_TOKEN loaded from wrangler OAuth token (~/.config/.wrangler/config/default.toml)"
+    export CF_TOKEN_SOURCE=wrangler-oauth
+    echo "✓ CF_API_TOKEN loaded from the (refreshed) wrangler OAuth token (~/.config/.wrangler/config/default.toml)"
   else
     echo "  Run: npx wrangler login" >&2
     _fail "✗ CF_API_TOKEN not set and wrangler config not found at $WRANGLER_CONFIG"
   fi
 else
-  echo "✓ CF_API_TOKEN from environment"
+  export CF_TOKEN_SOURCE="${CF_TOKEN_SOURCE:-env}"
+  echo "✓ CF_API_TOKEN from environment (not refreshable: a 401/403 aborts the run)"
 fi
 
 # ── run_tsx <script.ts> [args…] — run with nvm node (linuxbrew node lacks libllhttp)
