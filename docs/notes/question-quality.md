@@ -32,7 +32,7 @@ Strong length tell = the key is at least 1.4x the next longest option and at lea
 
 ## Production runbook (the owner runs these; agents never do)
 
-Order matters: **migration first** (the new code reads the new columns), then **backfill**, then **deploy**. The old code ignores the new columns, so the
+Order matters (apply migrations with `d1 execute --file`, never `d1 migrations apply`, see step 1): **migration first** (the new code reads the new columns), then **backfill**, then **deploy**. The old code ignores the new columns, so the
 migration alone changes nothing for learners.
 
 ```bash
@@ -43,8 +43,10 @@ DB=46f7b6a0-c555-4168-ae45-681dba2ceec2
 npx wrangler d1 export preppals --remote --output ~/Source/private/mathini/backups/preppals_before_0007_$(date +%F).sql
 
 # 1. migration 0007 (additive: two columns, an index, and a small pool_tasks table seeded from the tasks that have rows)
-npx wrangler d1 migrations list preppals --remote            # expect only 0007 pending
-npx wrangler d1 migrations apply preppals --remote
+#    Production has NO d1_migrations table (every migration so far was applied by hand), so do NOT use `wrangler d1 migrations apply`:
+#    it would try to replay 0001-0006 and fail part-way. Apply the one file directly. It is NOT idempotent (ALTER TABLE ADD COLUMN),
+#    so run it exactly once; if it errors part-way, look at what exists (pragma_table_info) before retrying.
+npx wrangler d1 execute preppals --remote --file migrations/0007_item_quality.sql
 ```
 Check after step 1 (all three should look like this):
 ```bash
@@ -108,6 +110,32 @@ Refill: for pools purged to zero, `npx tsx scripts/seed-questions.ts --grade <N>
 `npx tsx scripts/seed-questions.ts --grade <N>` regenerates them, now through the quality gate (needs `GEMINI_API_KEY`, `CF_ACCOUNT_ID`, `CF_API_TOKEN`;
 migration 0007 must already be applied or its INSERT fails). Partly pruned pools are refilled by the weekly job or the manual route.
 Deleting an item_cache row leaves its learners' review schedules pointing at a question that no longer exists; the review screen retires those on its own.
+
+### Grade 6 purge + refill plan (reviewed and run by the owner)
+
+Artifacts in `audit/g6-pools/`: `plan.txt` (per pool: rows, delete, left, servable, vectors, generate), `plan/plan.json`, `g6-triage.csv`,
+`g6-rejected-ids.txt`, `refill-purge-slugs.txt`, `refill-fix-slugs.txt`. The dry run below produced them from the audit export scored with the same
+validator the production backfill used (so it excludes the 52 deleted hard-error rows). Vector ids in that plan are the deterministic recipe
+(`base64url("task|prompt").slice(0,64)`); the exact counts come from running the same dry run with `--source remote` (read only).
+
+```bash
+cd ~/Source/private/mathini/mathini && A=~/Source/private/mathini/audit/g6-pools
+# 1. exact numbers from production (SELECT only, changes nothing)
+node --import tsx scripts/pool-maintenance.ts --triage $A/g6-triage.csv --actions purge,fix --ids $A/g6-rejected-ids.txt \
+     --source remote --target 50 --out ~/Source/private/mathini/backups/g6-pools
+# 2. apply: backup JSON first (aborts if it fails), delete, enable the pools in pool_tasks, delete their Vectorize vectors
+node --import tsx scripts/pool-maintenance.ts --triage $A/g6-triage.csv --actions purge,fix --ids $A/g6-rejected-ids.txt \
+     --source remote --target 50 --out ~/Source/private/mathini/backups/g6-pools --apply --remote --confirm-prod=46f7b6a0-c555-4168-ae45-681dba2ceec2
+# 3. refill through the quality gate. Needs GEMINI_API_KEY, CF_ACCOUNT_ID, CF_API_TOKEN. --slugs names the pools explicitly (the seed script's
+#    component scan cannot see the Grade 6 History/Geography/NST shells), so nothing else is seeded.
+export GEMINI_API_KEY=... CF_ACCOUNT_ID=... CF_API_TOKEN=...
+npx tsx scripts/seed-questions.ts --grade 6 --slugs "$(cat $A/refill-purge-slugs.txt)"   # the 8 emptied pools, 400 questions
+npx tsx scripts/seed-questions.ts --grade 6 --slugs "$(cat $A/refill-fix-slugs.txt)"     # 62 pools short by 15 or more, about 1,540 questions
+# 4. the other 44 pools are short by fewer than 15 (about 430 questions): the weekly job or GET /api/cron/top-up?secret=...&maxOps=900&maxAccepted=400 (paid plan)
+```
+Check: `SELECT task, COUNT(*) AS servable FROM item_cache WHERE task IN (<slugs>) AND (quality_score IS NULL OR quality_score > 0) GROUP BY task`;
+every refilled row has a score (`quality_score IS NOT NULL`) because the seed script scores at insert. While a purged pool is empty, learners get the
+curated bank (the five hooks fall back to it), so run steps 2 and 3 in the same sitting. `--slugs` may re-run safely (INSERT OR IGNORE; Vectorize dedup).
 
 ### Rollback
 

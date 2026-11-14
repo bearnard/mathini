@@ -27,6 +27,7 @@ import { Agent as UndiciAgent } from "undici";
 import { registry } from "../src/lib/server/caps/registry";
 import { getSections } from "../src/lib/server/caps/sections";
 import { acceptItems } from "../src/lib/shared/questionQuality";
+import { specsFromSlugs } from "../src/lib/server/caps/seedSlugs";
 import { numericOkFor } from "../src/lib/server/topUp";
 
 // ── Config ─────────────────────────────────────────────────────────────────
@@ -829,7 +830,10 @@ async function main() {
     if (embedUsed > 0) { embedLimiter.preSeedDaily(embedUsed); console.log(`ℹ️  Pre-seeded embed quota: ${embedUsed}/${EMBED_RPD} used today`); }
   }
 
-  const specs = await getPoolTasks();
+  // --slugs a,b,c: seed exactly these pools, resolved through the task index (works for the Grade 6 shell topics the component scan cannot see).
+  const slugsIdx = args.indexOf("--slugs");
+  const forcedSlugs = slugsIdx !== -1 ? args[slugsIdx + 1] ?? "" : "";
+  const specs = forcedSlugs ? specsFromSlugs(forcedSlugs, GRADE) : await getPoolTasks();
   if (specs.length === 0) {
     console.warn(`\n⚠️  No pool-mode tasks found for grade ${GRADE} (glob: ${CURRICULUM_GLOB}). Nothing to seed.\n`);
     return;
@@ -839,7 +843,8 @@ async function main() {
   const progress = loadProgress(PROGRESS_FILE);
   const doneSet  = new Set(progress.done);
 
-  const remaining = specs.filter((s) => !doneSet.has(s.slug));
+  // an explicit --slugs list is always (re)seeded, even if the progress file says it was done (that is the point after a purge)
+  const remaining = forcedSlugs ? specs : specs.filter((s) => !doneSet.has(s.slug));
   if (progress.failed.length > 0) {
     console.log(`   ⚠️  ${progress.failed.length} previously failed tasks will be retried: ${progress.failed.join(", ")}`);
   }

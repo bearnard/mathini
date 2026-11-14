@@ -44,7 +44,7 @@ export const bank: NstItem[] = [
   { prompt: 'Which statement about air is correct?', options: ['Air is a mixture of gases', 'Air is only water', 'Air is a single solid', 'Air is not matter'], answer: 'Air is a mixture of gases', explanation: 'Air contains gases such as nitrogen, oxygen, and carbon dioxide.' },
   { prompt: 'Which is NOT a good example of a mixture?', options: ['Pure distilled water', 'Trail mix', 'Muddy water', 'Breakfast cereal'], answer: 'Pure distilled water', explanation: 'Pure distilled water has only one substance.' },
   { prompt: 'What happens to the sand in sand mixed with sugar?', options: ['It keeps its properties', 'It becomes sugar', 'It disappears forever', 'It becomes a gas'], answer: 'It keeps its properties', explanation: 'Materials in a mixture keep many of their own properties.' },
-  { prompt: 'Why are mixtures often separable?', options: ['The materials are not chemically joined', 'They are always hot', 'They have no mass', 'They are always transparent'], answer: 'The materials are not chemically joined', explanation: 'Because the parts are not joined chemically, physical methods can separate them.' },
+  { prompt: 'Why are mixtures often separable?', options: ['The materials are not chemically joined', 'The materials change into new substances', 'The materials are different colours', 'The materials weigh exactly the same'], answer: 'The materials are not chemically joined', explanation: 'Because the parts are not joined chemically, physical methods can separate them.' },
 ];
 
 const Mixtures = () => (

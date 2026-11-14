@@ -76,7 +76,7 @@ const learnSteps: LearnStep[] = [
 
 export const bank: HisItem[] = [
   { prompt: 'What does chronological order mean?', options: ['Events arranged from earliest to latest', 'Events arranged from tallest to shortest', 'Events arranged by favourite colour', 'Events arranged with no dates'], answer: 'Events arranged from earliest to latest', explanation: 'Chronological order follows time order.' },
-  { prompt: 'What is a timeline?', options: ['A diagram that shows events in time order', 'A list of food groups', 'A map showing rainfall only', 'A tool for measuring mass'], answer: 'A diagram that shows events in time order', explanation: 'Timelines help us see when events happened.' },
+  { prompt: 'What is a timeline?', options: ['A diagram that shows events in time order', 'A list of events sorted by their importance', 'A map that shows where events happened', 'A chart that compares two sources side by side'], answer: 'A diagram that shows events in time order', explanation: 'Timelines help us see when events happened.' },
   { prompt: 'How many years are in a decade?', options: ['10 years', '5 years', '50 years', '100 years'], answer: '10 years', explanation: 'A decade is a period of ten years.' },
   { prompt: 'How many years are in a century?', options: ['100 years', '10 years', '12 years', '1 000 years'], answer: '100 years', explanation: 'A century is a period of one hundred years.' },
   { prompt: 'Which date comes first in chronological order?', options: ['1905', '1910', '1948', '2001'], answer: '1905', explanation: 'When all dates are AD years, the smaller year happened earlier.' },
