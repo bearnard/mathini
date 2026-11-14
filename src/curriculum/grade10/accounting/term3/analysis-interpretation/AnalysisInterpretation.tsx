@@ -139,8 +139,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Liquidity refers to the business’s ability to:',
-    options: ['Earn a gross profit', 'Pay short-term debts when due', 'Buy fixed assets', 'Increase capital'],
-    answer: 'Pay short-term debts when due',
+    options: ['Earn a gross profit on the goods that it sells', 'Pay its short-term debts when they fall due', 'Buy fixed assets for use in the business', 'Raise the capital that the owner has put in'],
+    answer: 'Pay its short-term debts when they fall due',
     explanation: 'Liquidity is about having enough short-term resources to settle current liabilities.',
   },
   {
@@ -151,14 +151,14 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'A gross profit percentage of 40% means that:',
-    options: ['40% of every rand of sales is left after cost of sales', 'The business made a 40% net profit', 'Expenses are 40% of liabilities', 'Debtors pay within 40 days'],
+    options: ['40% of every rand of sales is left after cost of sales', 'The business made a net profit of 40% on sales', 'The expenses are 40% of the liabilities', 'The debtors pay their accounts within 40 days'],
     answer: '40% of every rand of sales is left after cost of sales',
     explanation: 'Gross profit percentage shows how much of sales remains after covering the cost of stock sold.',
   },
   {
     prompt: 'Which statement is the best example of sound interpretation?',
-    options: ['Profit is nice', 'Sales are bigger', 'Net profit rose from R84 000 to R102 000 because sales increased while cost of sales was controlled', 'There are many assets'],
-    answer: 'Net profit rose from R84 000 to R102 000 because sales increased while cost of sales was controlled',
+    options: ['Profit is good and we hope it will keep growing', 'Sales are bigger than they were last year', 'Net profit rose from R84 000 to R102 000 as sales grew', 'There are many assets on the balance sheet'],
+    answer: 'Net profit rose from R84 000 to R102 000 as sales grew',
     explanation: 'A strong interpretation uses figures and explains the cause of the change.',
   },
   {

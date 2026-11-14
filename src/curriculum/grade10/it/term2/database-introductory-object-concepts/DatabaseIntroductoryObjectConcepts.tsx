@@ -308,20 +308,20 @@ VALUES ('Mandla', 'Dlamini', 10);`} />
 const bank: ITItem[] = [
   {
     prompt: 'What is a database table?',
-    options: ['A furniture item', 'An organized collection of related data in rows and columns', 'A worksheet', 'A program'],
-    answer: 'An organized collection of related data in rows and columns',
+    options: ['A piece of furniture used in a computer lab', 'An organised collection of related data in rows and columns', 'A worksheet that holds formulas for sums', 'A program that runs on a computer'],
+    answer: 'An organised collection of related data in rows and columns',
     explanation: 'A database table is a structured collection of data organized in rows (records) and columns (fields).',
   },
   {
     prompt: 'In object-oriented programming, what is an object?',
-    options: ['A variable', 'An instance of a class with data and methods', 'A function', 'A comment'],
+    options: ['A variable that stores a single value', 'An instance of a class with data and methods', 'A function that returns a value', 'A comment that explains the code'],
     answer: 'An instance of a class with data and methods',
     explanation: 'An object is a concrete instance of a class that contains data (attributes) and behaviors (methods).',
   },
   {
     prompt: 'What does a primary key do in a database table?',
-    options: ['Locks the database', 'Uniquely identifies each record', 'Sorts the records', 'Encrypts the data'],
-    answer: 'Uniquely identifies each record',
+    options: ['Locks the database so no one can use it', 'Uniquely identifies each record in the table', 'Sorts all of the records in the table', 'Encrypts all of the data in the table'],
+    answer: 'Uniquely identifies each record in the table',
     explanation: 'A primary key is a unique identifier for each record in a table, ensuring no duplicates.',
   },
   {

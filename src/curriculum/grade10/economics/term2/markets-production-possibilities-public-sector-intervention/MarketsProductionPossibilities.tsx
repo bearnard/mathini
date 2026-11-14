@@ -86,7 +86,7 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'A point inside the production possibility curve shows:',
-    options: ['A. Efficiency', 'B. Inefficiency or underuse of resources', 'C. Impossible production', 'D. Full employment'],
+    options: ['A. Efficiency in the use of all resources', 'B. Inefficiency or underuse of resources', 'C. A level of production that is impossible', 'D. Full employment of the workers'],
     answer: 'B. Inefficiency or underuse of resources',
     explanation: 'Points inside the curve indicate that not all resources are being used effectively.',
   },

@@ -142,7 +142,7 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'A projected closing bank balance that is negative indicates:',
-    options: ['High profitability', 'A possible cash shortfall or overdraft', 'No liabilities', 'Too much inventory'],
+    options: ['High profitability for the period', 'A possible cash shortfall or overdraft', 'No liabilities in the business', 'Too much inventory in the stores'],
     answer: 'A possible cash shortfall or overdraft',
     explanation: 'A negative closing balance means expected cash payments exceed expected cash receipts and opening cash.',
   },
@@ -166,8 +166,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Why is budgeting useful before an examination?',
-    options: ['It removes the need for studying journals', 'It helps link calculations, presentation and interpretation across topics', 'It only tests ethics', 'It replaces bookkeeping'],
-    answer: 'It helps link calculations, presentation and interpretation across topics',
+    options: ['It removes the need to study the journals', 'It helps link calculations, presentation and interpretation', 'It tests ethics and nothing else in the exam', 'It takes the place of bookkeeping practice'],
+    answer: 'It helps link calculations, presentation and interpretation',
     explanation: 'Budgeting draws together cash flow, profitability and ledger thinking, making it a good consolidation topic.',
   },
   {
@@ -178,7 +178,7 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Good exam technique in accounting includes:',
-    options: ['Ignoring headings to save time', 'Showing workings clearly and using correct labels', 'Leaving out totals', 'Writing comments without figures'],
+    options: ['Ignoring the headings to save some time', 'Showing workings clearly and using correct labels', 'Leaving out the totals in the statements', 'Writing comments with no figures to support them'],
     answer: 'Showing workings clearly and using correct labels',
     explanation: 'CAPS marking often awards method and presentation marks, so layout and workings matter.',
   },

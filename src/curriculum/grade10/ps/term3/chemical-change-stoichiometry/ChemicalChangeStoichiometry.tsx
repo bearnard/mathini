@@ -162,7 +162,7 @@ const bank: PhysicalSciencesItem[] = [
   },
   {
     prompt: 'What is stoichiometry?',
-    options: ['Study of shapes', 'Study of motion', 'Quantitative study of reactants and products', 'Study of energy'],
+    options: ['Study of the shapes of molecules', 'Study of the motion of objects', 'Quantitative study of reactants and products', 'Study of the energy in a system'],
     answer: 'Quantitative study of reactants and products',
     explanation: 'Stoichiometry deals with mole ratios and mass calculations in reactions.',
   },

@@ -88,7 +88,7 @@ const learnSteps: LearnStep[] = [
 const bank: EconomicsItem[] = [
   {
     prompt: 'What causes scarcity?',
-    options: ['A. Unlimited resources', 'B. Limited resources and unlimited wants', 'C. Too many factories only', 'D. Low taxes only'],
+    options: ['A. Unlimited resources and limited wants', 'B. Limited resources and unlimited wants', 'C. Too many factories and nothing else', 'D. Low taxes and nothing else'],
     answer: 'B. Limited resources and unlimited wants',
     explanation: 'Scarcity exists because available resources are not enough to satisfy all wants.',
   },
@@ -112,7 +112,7 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'GDP measures the value of:',
-    options: ['A. Imported second-hand goods only', 'B. Final goods and services produced in the economy', 'C. Household savings only', 'D. All unpaid work only'],
+    options: ['A. Imported second-hand goods and nothing else', 'B. Final goods and services produced in the economy', 'C. The savings of households only', 'D. All of the unpaid work in a home only'],
     answer: 'B. Final goods and services produced in the economy',
     explanation: 'GDP is a measure of production in an economy over a period of time.',
   },

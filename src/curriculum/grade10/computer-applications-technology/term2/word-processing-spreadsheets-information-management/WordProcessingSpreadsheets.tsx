@@ -81,7 +81,7 @@ const learnSteps: LearnStep[] = [
 const bank: CATItem[] = [
   {
     prompt: 'What is the main purpose of mail merge?',
-    options: ['A. To create personalised documents automatically', 'B. To speed up the internet', 'C. To replace charts', 'D. To delete duplicate files'],
+    options: ['A. To create personalised documents automatically', 'B. To speed up the internet connection', 'C. To take the place of charts', 'D. To delete duplicate files from a folder'],
     answer: 'A. To create personalised documents automatically',
     explanation: 'Mail merge combines a main document with a data list so each output can contain different names or details.',
   },

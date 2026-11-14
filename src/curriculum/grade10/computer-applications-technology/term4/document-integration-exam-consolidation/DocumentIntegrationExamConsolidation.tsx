@@ -90,7 +90,7 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What should a learner do before starting an exam-based practical task?',
-    options: ['A. Read all instructions carefully', 'B. Print immediately', 'C. Skip the folder setup', 'D. Rename every file randomly'],
+    options: ['A. Read all instructions carefully', 'B. Print the paper straight away', 'C. Skip the setting up of the folder', 'D. Rename every file you have so far'],
     answer: 'A. Read all instructions carefully',
     explanation: 'Careful reading helps avoid missing marks or making preventable mistakes later.',
   },
@@ -102,7 +102,7 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'Which final check is most important before submission?',
-    options: ['A. Data accuracy and formatting consistency', 'B. Number of open windows', 'C. The colour of the mouse', 'D. The brand of the device'],
+    options: ['A. Data accuracy and formatting consistency', 'B. The number of windows that are open', 'C. The colour of the computer mouse', 'D. The brand name of the device'],
     answer: 'A. Data accuracy and formatting consistency',
     explanation: 'Both correct information and professional presentation are essential in integrated CAT tasks.',
   },

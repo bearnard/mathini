@@ -135,13 +135,13 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'Closing work in progress is deducted in the cost of production statement because it:',
-    options: ['Belongs to the next period’s incomplete production', 'Is a cash receipt', 'Represents drawings', 'Is a liability'],
-    answer: 'Belongs to the next period’s incomplete production',
+    options: ["It belongs to the next period's unfinished production", 'It is a cash receipt of the period', 'It stands for the drawings of the owner', 'It is a liability of the business'],
+    answer: "It belongs to the next period's unfinished production",
     explanation: 'Only the cost of goods completed this period should remain in cost of production.',
   },
   {
     prompt: 'Which item is most likely to be direct labour?',
-    options: ['Factory supervisor salary', 'Salary of the machinist sewing school shirts', 'Office cleaner wages', 'Marketing manager salary'],
+    options: ['Salary of the factory supervisor', 'Salary of the machinist sewing school shirts', 'Wages of the office cleaner', 'Salary of the marketing manager'],
     answer: 'Salary of the machinist sewing school shirts',
     explanation: 'Direct labour is paid to workers directly involved in making the product.',
   },

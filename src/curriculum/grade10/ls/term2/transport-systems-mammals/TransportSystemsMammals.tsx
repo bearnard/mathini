@@ -190,8 +190,8 @@ const bank: LifeSciencesItem[] = [
   },
   {
     prompt: 'What is the primary function of the kidneys?',
-    options: ['Produce hormones', 'Filter blood and remove waste', 'Store urine', 'Digest food'],
-    answer: 'Filter blood and remove waste',
+    options: ['Make hormones for the body', 'Filter the blood and remove waste', 'Store the urine until it is passed', 'Digest the food that we eat'],
+    answer: 'Filter the blood and remove waste',
     explanation: 'Kidneys filter metabolic wastes from blood and produce urine.',
   },
   {

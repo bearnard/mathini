@@ -92,7 +92,7 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'The command word recommend means you should:',
-    options: ['A. Name only', 'B. Provide a practical suggestion', 'C. Draw a graph', 'D. List unrelated facts'],
+    options: ['A. Name the item and give no more detail', 'B. Provide a practical suggestion', 'C. Draw a graph of the data given', 'D. List facts that have no link to the question'],
     answer: 'B. Provide a practical suggestion',
     explanation: 'Recommend asks for a suitable action that addresses the problem and is usually justified.',
   },
@@ -104,7 +104,7 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'A strong business studies paragraph should include:',
-    options: ['A. Only a heading', 'B. Theory linked to the case study', 'C. No explanation', 'D. No business terms'],
+    options: ['A. A heading and nothing else under it', 'B. Theory linked to the case study', 'C. No explanation of the points made', 'D. No business terms from the work covered'],
     answer: 'B. Theory linked to the case study',
     explanation: 'Business Studies answers score better when subject knowledge is applied directly to the scenario.',
   },

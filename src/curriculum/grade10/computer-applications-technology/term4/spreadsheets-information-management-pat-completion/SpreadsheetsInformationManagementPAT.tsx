@@ -81,7 +81,7 @@ const learnSteps: LearnStep[] = [
 const bank: CATItem[] = [
   {
     prompt: 'What is the main purpose of an absolute cell reference such as $F$1?',
-    options: ['A. To keep the reference fixed when copying formulas', 'B. To delete the formula', 'C. To sort the data automatically', 'D. To insert a chart'],
+    options: ['A. To keep the reference fixed when copying formulas', 'B. To delete the formula from the cell', 'C. To sort the data in the sheet automatically', 'D. To insert a chart into the worksheet'],
     answer: 'A. To keep the reference fixed when copying formulas',
     explanation: 'Absolute references stay constant, which is useful when a formula must always use the same cell.',
   },
@@ -105,7 +105,7 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'A query is used to:',
-    options: ['A. Retrieve selected information from structured data', 'B. Colour the document', 'C. Rename the monitor', 'D. Replace the operating system'],
+    options: ['A. Retrieve selected information from structured data', 'B. Colour the text of the document', 'C. Rename the monitor on the desk', 'D. Replace the operating system of the computer'],
     answer: 'A. Retrieve selected information from structured data',
     explanation: 'Queries allow users to extract only the information they need from a larger data set.',
   },

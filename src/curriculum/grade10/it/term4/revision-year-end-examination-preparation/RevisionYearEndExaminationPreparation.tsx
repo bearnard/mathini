@@ -369,14 +369,14 @@ WHERE Grade = 10;`} />
 const bank: ITItem[] = [
   {
     prompt: 'What are the main phases of systems development?',
-    options: ['Analysis and Deployment', 'Planning, Analysis, Design, Implementation, Testing, Deployment', 'Coding and Testing', 'Design and Review'],
+    options: ['Analysis and Deployment, with nothing in between', 'Planning, Analysis, Design, Implementation, Testing, Deployment', 'Coding and Testing, with nothing else', 'Design and Review, with nothing else'],
     answer: 'Planning, Analysis, Design, Implementation, Testing, Deployment',
     explanation: 'The SDLC involves systematic phases from planning through deployment.',
   },
   {
     prompt: 'Which best describes algorithm efficiency?',
-    options: ['How fast computers run', 'How well an algorithm uses resources', 'How new the algorithm is', 'How easy to memorize'],
-    answer: 'How well an algorithm uses resources',
+    options: ['How fast the computers of a school run', 'How well an algorithm uses time and memory', 'How new the algorithm is', 'How easy the algorithm is to memorise'],
+    answer: 'How well an algorithm uses time and memory',
     explanation: 'Algorithm efficiency relates to time and space complexity.',
   },
   {

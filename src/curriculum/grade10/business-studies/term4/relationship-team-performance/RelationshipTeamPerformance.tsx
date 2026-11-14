@@ -90,7 +90,7 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Conflict should be managed by:',
-    options: ['A. Attacking the person', 'B. Ignoring the problem forever', 'C. Focusing on the issue and finding a solution', 'D. Refusing to listen'],
+    options: ['A. Attacking the person who disagrees', 'B. Ignoring the problem for ever', 'C. Focusing on the issue and finding a solution', 'D. Refusing to listen to the other side'],
     answer: 'C. Focusing on the issue and finding a solution',
     explanation: 'Constructive conflict management deals with the problem respectfully and seeks agreement.',
   },
@@ -102,7 +102,7 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Which is a sign of poor workplace relationships?',
-    options: ['A. Mutual respect', 'B. Frequent misunderstandings', 'C. Helpful feedback', 'D. Team support'],
+    options: ['A. Mutual respect between the colleagues', 'B. Frequent misunderstandings', 'C. Helpful feedback that is given in time', 'D. Support within the team that works together'],
     answer: 'B. Frequent misunderstandings',
     explanation: 'Misunderstandings often show weak communication and damaged relationships.',
   },

@@ -162,8 +162,8 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'A payslip mainly helps an employee to see:',
-    options: ['Only sales for the month', 'How gross pay, deductions and net pay were calculated', 'The cost of trading stock', 'The bank reconciliation'],
-    answer: 'How gross pay, deductions and net pay were calculated',
+    options: ['The sales that were made during the month', 'How gross pay, deductions and net pay were worked out', 'The cost of the trading stock that was bought', 'The bank reconciliation of the business'],
+    answer: 'How gross pay, deductions and net pay were worked out',
     explanation: 'The payslip summarises the payroll calculation for the employee.',
   },
 ];

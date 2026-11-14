@@ -92,7 +92,7 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Why is timely information important?',
-    options: ['A. It is always free', 'B. It reflects the current situation', 'C. It removes all risk', 'D. It replaces planning'],
+    options: ['A. It is always free of charge to obtain', 'B. It reflects the current situation', 'C. It removes all of the risk in decisions', 'D. It replaces the need for planning'],
     answer: 'B. It reflects the current situation',
     explanation: 'Information must be recent enough to support current decisions.',
   },
@@ -110,7 +110,7 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Which statement best describes planning?',
-    options: ['A. Guessing the future', 'B. Deciding in advance what must be done and how', 'C. Waiting for problems to happen', 'D. Avoiding all records'],
+    options: ['A. Guessing what will happen in the future', 'B. Deciding in advance what must be done and how', 'C. Waiting for problems to happen before acting', 'D. Avoiding all of the records of the business'],
     answer: 'B. Deciding in advance what must be done and how',
     explanation: 'Planning involves setting goals, allocating resources and organising tasks before action is taken.',
   },

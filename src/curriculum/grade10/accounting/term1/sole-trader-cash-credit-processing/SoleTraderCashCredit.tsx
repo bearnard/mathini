@@ -123,7 +123,7 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'The purpose of a control account is to:',
-    options: ['Replace the subsidiary ledger completely', 'Summarise the total owed by a group such as debtors or creditors', 'Record only cash transactions', 'Show the owner’s drawings'],
+    options: ['Replace the subsidiary ledger completely, so it can be closed', 'Summarise the total owed by a group such as debtors or creditors', 'Record the cash transactions of the business only', 'Show the drawings of the owner during the year'],
     answer: 'Summarise the total owed by a group such as debtors or creditors',
     explanation: 'Control accounts summarise the totals while the subsidiary ledger contains the detailed individual accounts.',
   },
@@ -135,19 +135,19 @@ const bank: AccountingItem[] = [
   },
   {
     prompt: 'The trial balance is prepared mainly to:',
-    options: ['Calculate VAT', 'Check that debit balances equal credit balances', 'Replace the ledger', 'Record source documents'],
+    options: ['Calculate the VAT that is owed to SARS', 'Check that debit balances equal credit balances', 'Take the place of the general ledger', 'Record the source documents of the business'],
     answer: 'Check that debit balances equal credit balances',
     explanation: 'The trial balance is a test of arithmetic accuracy after posting.',
   },
   {
     prompt: 'Which document usually supports a payment made by EFT or cheque?',
-    options: ['Invoice', 'Receipt', 'Credit note', 'Cheque counterfoil or EFT proof'],
+    options: ['An invoice that the supplier issued', 'A receipt that the supplier issued', 'A credit note that the supplier issued', 'Cheque counterfoil or EFT proof'],
     answer: 'Cheque counterfoil or EFT proof',
     explanation: 'The payment advice, EFT proof or cheque counterfoil is evidence of the payment made.',
   },
   {
     prompt: 'If the total of debtors balances does not match Debtors Control, the business should:',
-    options: ['Ignore the difference', 'Prepare a debtors reconciliation to find the error', 'Delete the control account', 'Change the capital account'],
+    options: ['Ignore the difference and carry on', 'Prepare a debtors reconciliation to find the error', 'Delete the control account and start again', 'Change the capital account to make it balance'],
     answer: 'Prepare a debtors reconciliation to find the error',
     explanation: 'A reconciliation helps identify omissions, duplicated postings or entries recorded in the wrong account.',
   },

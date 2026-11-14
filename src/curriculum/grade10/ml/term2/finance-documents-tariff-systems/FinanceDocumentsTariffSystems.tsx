@@ -147,7 +147,7 @@ const bank: MathematicalLiteracyItem[] = [
   },
   {
     prompt: 'Electricity costs R2.80 per kWh. If a household uses 450 kWh in a month, what is the usage cost?',
-    options: ['R1260', 'R1125', 'R1400', 'R1260'],
+    options: ['R1260', 'R1125', 'R1400', 'R1620'],
     answer: 'R1260',
     explanation: 'Cost = 450 × R2.80 = R1260',
   },

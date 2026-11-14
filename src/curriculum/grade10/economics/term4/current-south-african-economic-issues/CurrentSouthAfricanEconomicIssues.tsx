@@ -95,7 +95,7 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'Inflation means:',
-    options: ['A. A fall in all prices forever', 'B. A sustained rise in the general price level', 'C. Zero unemployment', 'D. More exports only'],
+    options: ['A. A fall in all of the prices for ever', 'B. A sustained rise in the general price level', 'C. Zero unemployment in the economy', 'D. More exports and nothing else'],
     answer: 'B. A sustained rise in the general price level',
     explanation: 'Inflation refers to the overall increase in prices over time.',
   },

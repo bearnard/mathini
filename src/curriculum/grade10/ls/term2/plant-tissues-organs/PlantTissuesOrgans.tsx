@@ -192,8 +192,8 @@ const learnSteps: LearnStep[] = [
 const bank: LifeSciencesItem[] = [
   {
     prompt: 'What is the primary role of phloem in plants?',
-    options: ['Water absorption', 'Transport of sugars and nutrients', 'Gas exchange', 'Photosynthesis'],
-    answer: 'Transport of sugars and nutrients',
+    options: ['Takes up water from the soil', 'Moves sugars and nutrients around the plant', 'Exchanges gases through the leaf', 'Carries out photosynthesis in the leaf'],
+    answer: 'Moves sugars and nutrients around the plant',
     explanation: 'Phloem tissues transport sugars produced in leaves to other plant parts.',
   },
   {

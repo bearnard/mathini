@@ -229,8 +229,8 @@ const learnSteps: LearnStep[] = [
 const bank: LifeSciencesItem[] = [
   {
     prompt: 'What is homeostasis?',
-    options: ['Growth of organisms', 'Maintenance of stable internal environment', 'Evolution of species', 'Reproduction'],
-    answer: 'Maintenance of stable internal environment',
+    options: ['The growth of an organism over time', 'Keeping a stable internal environment', 'The evolution of species over time', 'The reproduction of organisms'],
+    answer: 'Keeping a stable internal environment',
     explanation: 'Homeostasis is the body\'s ability to maintain relatively constant conditions.',
   },
   {

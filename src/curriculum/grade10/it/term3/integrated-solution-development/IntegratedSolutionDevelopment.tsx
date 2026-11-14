@@ -347,14 +347,14 @@ end;`} />
 const bank: ITItem[] = [
   {
     prompt: 'What is the first phase of the systems development lifecycle?',
-    options: ['Testing', 'Planning and Analysis', 'Coding', 'Deployment'],
+    options: ['Testing of the finished system', 'Planning and Analysis', 'Coding of the program for the system', 'Deployment of the system to the users'],
     answer: 'Planning and Analysis',
     explanation: 'The first phase involves understanding requirements and planning the system design.',
   },
   {
     prompt: 'What does integration testing do?',
-    options: ['Tests individual units', 'Tests interaction between components', 'Tests performance', 'Tests documentation'],
-    answer: 'Tests interaction between components',
+    options: ['Tests the individual units of code alone', 'Tests how the components work together', 'Tests the performance of the whole system', 'Tests the documentation that comes with it'],
+    answer: 'Tests how the components work together',
     explanation: 'Integration testing verifies that different modules work together correctly.',
   },
   {
