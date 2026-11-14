@@ -85,7 +85,10 @@ export default async function HomePage() {
 
       <footer className="border-t border-slate-200 bg-white py-8">
         <div className="mx-auto max-w-5xl px-4 text-center text-sm text-slate-500">
-          PrepPals — interactive CAPS practice.
+          PrepPals — interactive CAPS practice. ·{' '}
+          <Link href="/privacy" className="underline hover:text-slate-700">
+            Privacy
+          </Link>
         </div>
       </footer>
     </div>

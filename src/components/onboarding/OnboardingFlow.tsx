@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
@@ -10,6 +10,8 @@ import AvatarPicker from './AvatarPicker';
 import { onboardingSchema } from '../../lib/client/onboardingSchema';
 import type { OnboardingOutput } from '../../lib/client/onboardingSchema';
 import { useStudent } from '../../lib/client/StudentContext';
+import { track, CONSENT_VERSION } from '../../lib/client/analytics';
+import { PRIVACY_LINE } from '../../lib/privacyNotice';
 
 const GRADES = Array.from({ length: 8 }, (_, i) => ({
   value: i + 5,
@@ -37,6 +39,13 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
     avatar: '/avatars/avatar-1.webp',
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const startTracked = useRef(false);
+  useEffect(() => {
+    if (startTracked.current) return; // React StrictMode replays effects in dev
+    startTracked.current = true;
+    track('onboarding_start');
+  }, []);
 
   const update = (field: string, value: string) =>
     setForm((f) => ({ ...f, [field]: value }));
@@ -81,6 +90,7 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
 
       const json = (await res.json()) as { loginCode: string; pin: string; studentId: string };
       setResult({ loginCode: json.loginCode, pin: json.pin, studentId: json.studentId });
+      track('signup', { grade: data.grade, meta: { consent_version: CONSENT_VERSION } });
       setStep(1);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Registration failed');
@@ -175,6 +185,13 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
             {error && (
               <div className="text-red-600 text-sm text-center">{error}</div>
             )}
+
+            <p className="text-xs text-slate-500 text-center">
+              {PRIVACY_LINE}{' '}
+              <a href="/privacy" target="_blank" rel="noopener" className="underline">
+                Read more
+              </a>
+            </p>
 
             <Button type="submit" className="w-full" isLoading={loading}>
               Create Account

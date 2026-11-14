@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '../lib/seo/site';
+import PageViewTracker from '../components/analytics/PageViewTracker';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -44,7 +45,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <PageViewTracker />
+        {children}
+      </body>
     </html>
   );
 }

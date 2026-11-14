@@ -6,6 +6,7 @@ import Card from '../ui/Card';
 import Button from '../ui/Button';
 import Input from '../ui/Input';
 import { useStudent } from '../../lib/client/StudentContext';
+import { track } from '../../lib/client/analytics';
 
 export default function ResumeFlow({ onDone }: { onDone: () => void }) {
   const { setStudent } = useStudent();
@@ -40,6 +41,7 @@ export default function ResumeFlow({ onDone }: { onDone: () => void }) {
         xp: 0,
         xpByScope: {},
       });
+      track('login', { grade: data.grade });
       onDone();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed');
