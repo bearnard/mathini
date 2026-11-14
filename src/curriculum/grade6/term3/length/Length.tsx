@@ -82,14 +82,14 @@ export const bank: CapsItem[] = [
         explanation: '1 km = 1 000 m.',
     },
     {
-        prompt: 'Convert 3.5 m to centimetres.',
-        options: ['35 cm', '350 cm', '3 500 cm', '3.5 cm'],
+        prompt: 'Convert 3,5 m to centimetres.',
+        options: ['35 cm', '350 cm', '3 500 cm', '3,5 cm'],
         answer: '350 cm',
-        explanation: '3.5 × 100 = 350 cm.',
+        explanation: '3,5 × 100 = 350 cm.',
     },
     {
         prompt: 'Convert 4 000 m to kilometres.',
-        options: ['0.4 km', '4 km', '40 km', '400 km'],
+        options: ['0,4 km', '4 km', '40 km', '400 km'],
         answer: '4 km',
         explanation: '4 000 ÷ 1 000 = 4 km.',
     },
@@ -106,10 +106,10 @@ export const bank: CapsItem[] = [
         explanation: '1 cm = 10 mm.',
     },
     {
-        prompt: 'A road is 2.5 km long. How many metres is that?',
-        options: ['250 m', '2 500 m', '25 000 m', '0.25 m'],
+        prompt: 'A road is 2,5 km long. How many metres is that?',
+        options: ['250 m', '2 500 m', '25 000 m', '0,25 m'],
         answer: '2 500 m',
-        explanation: '2.5 × 1 000 = 2 500 m.',
+        explanation: '2,5 × 1 000 = 2 500 m.',
     },
 ];
 

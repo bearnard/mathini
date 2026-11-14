@@ -92,7 +92,7 @@ export const bank: CapsItem[] = [
         prompt: 'Tickets cost R35 each. A family of 4 adults and 2 children buys tickets. Adults pay full price; children pay half. What is the total cost?',
         options: ['R140', 'R175', 'R210', 'R245'],
         answer: 'R175',
-        explanation: '4 × R35 = R140 for adults; 2 × R17.50 = R35 for children; R140 + R35 = R175.'
+        explanation: '4 × R35 = R140 for adults; 2 × R17,50 = R35 for children; R140 + R35 = R175.'
     },
     {
         prompt: 'What is the FIRST step when solving a word problem?',
