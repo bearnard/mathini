@@ -1,12 +1,13 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import { DissolvingSteps, SoluteSolvent } from '@/components/diagrams/Dissolving';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Solutions are special mixtures',
-    image: { src: '/curriculum/grade6/nst/term2/solutions-dissolving/diagram.svg', alt: 'sugar dissolving in water diagram' },
     content: (
       <div className="space-y-4 text-center">
+        <DissolvingSteps />
         <p className="text-lg text-slate-600">
           A <strong>solution</strong> is a special mixture where one substance dissolves evenly in another. Sugar water is a solution made from sugar and water.
         </p>
@@ -17,6 +18,7 @@ const learnSteps: LearnStep[] = [
     title: 'Solute and solvent',
     content: (
       <div className="space-y-4 text-center">
+        <SoluteSolvent />
         <p className="text-lg text-slate-600">
           The <strong>solute</strong> is the substance that dissolves, such as sugar or salt. The <strong>solvent</strong> is the substance that does the dissolving, often water.
         </p>
