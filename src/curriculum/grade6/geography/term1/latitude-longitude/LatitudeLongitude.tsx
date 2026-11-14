@@ -1,6 +1,6 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
-import { LatLongGlobe, LatLongGrid } from '@/components/diagrams/LatLong';
+import { LatLongGlobe, LatLongGrid, LATLONG_HOTSPOTS } from '@/components/diagrams/LatLong';
 
 const learnSteps: LearnStep[] = [
   {
@@ -60,6 +60,8 @@ export const bank: GeoItem[] = [
   { prompt: 'A place south of the Equator is in which hemisphere?', options: ['Southern Hemisphere', 'Northern Hemisphere', 'Eastern Hemisphere', 'Western Hemisphere'], answer: 'Southern Hemisphere', explanation: 'South of the Equator means in the Southern Hemisphere.' },
   { prompt: 'What symbol is commonly used with latitude and longitude numbers?', options: ['Degrees (°)', 'Kilograms (kg)', 'Litres (L)', 'Rand (R)'], answer: 'Degrees (°)', explanation: 'Latitude and longitude are measured in degrees.' },
   { prompt: 'Which pair gives a more exact position on a map or globe?', options: ['Latitude and longitude', 'Colour and shape', 'Weather and climate', 'Plants and animals'], answer: 'Latitude and longitude', explanation: 'A latitude-longitude pair gives a location on the global grid.' },
+  { kind: 'label', section: 'equator-prime-meridian', prompt: 'Label the Equator, the Prime Meridian and the North Pole on this globe.', Diagram: LatLongGlobe, hotspots: LATLONG_HOTSPOTS.filter((h) => h.id !== 'south-pole').map(({ id, x, y }) => ({ id, x, y })), options: ['Equator', 'Prime Meridian', 'North Pole', 'South Pole', 'Hemisphere'], answer: 'equator=Equator|prime-meridian=Prime Meridian|north-pole=North Pole', explanation: 'The Equator is 0° latitude and runs east-west. The Prime Meridian is 0° longitude and runs from pole to pole. The North Pole is where the lines of longitude meet at the top.' },
+
 ];
 
 const LatitudeLongitude = () => (
