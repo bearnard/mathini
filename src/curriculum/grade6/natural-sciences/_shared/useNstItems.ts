@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { NstItem } from './types';
+import { kindOf, normaliseItem, shuffleOptions } from './itemKinds';
 
 function shuffle<T>(arr: T[]): T[] {
   const copy = [...arr];
@@ -10,8 +11,18 @@ function shuffle<T>(arr: T[]): T[] {
   return copy;
 }
 
+/** Drops items that cannot be played (unknown kinds fall back to mcq when valid), then shuffles. */
 function prepare(items: NstItem[]): NstItem[] {
-  return shuffle(items).map((it) => ({ ...it, options: shuffle(it.options) }));
+  const playable = items.map(normaliseItem).filter((it): it is NstItem => it !== null);
+  return shuffle(playable).map((it) => ({ ...it, options: shuffleOptions(it) }));
+}
+
+/**
+ * D1 rows carry no `kind` (they are all mcq), so on their own they would hide the curated order/label
+ * items. Add those from the bank to every batch that comes from D1.
+ */
+export function withCuratedExtras(fetched: NstItem[], bank: NstItem[]): NstItem[] {
+  return [...fetched, ...bank.filter((it) => kindOf(it) !== 'mcq')];
 }
 
 /**
@@ -32,7 +43,7 @@ export function useNstItems(task: string, bank: NstItem[]) {
       if (res.ok) {
         const data = (await res.json()) as { items?: NstItem[] };
         if (data.items && data.items.length >= 1) {
-          setQueue(prepare(data.items));
+          setQueue(prepare(withCuratedExtras(data.items, bank)));
           setIndex(0);
           setLoading(false);
           return;

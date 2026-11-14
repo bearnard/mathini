@@ -1,4 +1,5 @@
 import type { NstItem } from './types';
+import { kindOf, normaliseItem, shuffleOptions } from './itemKinds';
 
 export interface TopicBank {
   /** Human-readable topic name, used for the per-topic score breakdown. */
@@ -30,7 +31,12 @@ export function shuffle<T>(arr: readonly T[], rng: Rng = Math.random): T[] {
  * Question order is shuffled, and each item's options are shuffled.
  */
 export function buildMockTest(groups: readonly TopicBank[], count = 20, rng: Rng = Math.random): MockItem[] {
-  const usable = groups.filter((g) => g.items.length > 0);
+  // Items that cannot be played are dropped; unknown kinds fall back to mcq when valid.
+  const clean = groups.map((g) => ({
+    ...g,
+    items: g.items.map(normaliseItem).filter((it): it is NstItem => it !== null),
+  }));
+  const usable = clean.filter((g) => g.items.length > 0);
   if (usable.length === 0 || count <= 0) return [];
 
   const pools = usable.map((g) => ({
@@ -48,6 +54,9 @@ export function buildMockTest(groups: readonly TopicBank[], count = 20, rng: Rng
       quota[i] += 1;
     });
 
+  // Order and label items take longer, so a test never holds more than ~15% of them (3 in 20).
+  const maxRecall = Math.max(1, Math.round(count * 0.15));
+  let recallPicked = 0;
   const picked: MockItem[] = [];
   const seenPrompts = new Set<string>();
   const take = (poolIndex: number, n: number) => {
@@ -56,6 +65,10 @@ export function buildMockTest(groups: readonly TopicBank[], count = 20, rng: Rng
       const item = pool.items[pool.taken];
       pool.taken += 1;
       if (seenPrompts.has(item.prompt)) continue; // already asked from another topic
+      if (kindOf(item) !== 'mcq') {
+        if (recallPicked >= maxRecall) continue;
+        recallPicked += 1;
+      }
       seenPrompts.add(item.prompt);
       picked.push({ ...item, topic: pool.topic });
       n -= 1;
@@ -81,7 +94,7 @@ export function buildMockTest(groups: readonly TopicBank[], count = 20, rng: Rng
     if (!progressed) break;
   }
 
-  return shuffle(picked, rng).map((it) => ({ ...it, options: shuffle(it.options, rng) }));
+  return shuffle(picked, rng).map((it) => ({ ...it, options: shuffleOptions(it, rng) }));
 }
 
 export interface TopicScore {

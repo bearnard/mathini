@@ -139,3 +139,58 @@ test('when every bank is the same ten questions the test is as long as the uniqu
   assert.equal(items.length, 10);
   assert.equal(new Set(items.map((i) => i.prompt)).size, 10);
 });
+
+// ---- order and label items in mock tests ----
+
+function recallGroup(topic: string, mcq: number, order: number): TopicBank {
+  const base = makeGroup(topic, mcq);
+  const orders = Array.from({ length: order }, (_, i) => ({
+    kind: 'order' as const,
+    prompt: `Put the ${topic} steps ${i} in order`,
+    options: ['one', 'two', 'three'],
+    answer: 'one|two|three',
+  }));
+  return { topic, items: [...base.items, ...orders] };
+}
+
+test('a mock test holds at most 3 order/label items per 20, however many the banks have', () => {
+  const groups = [recallGroup('A', 6, 6), recallGroup('B', 6, 6), recallGroup('C', 6, 6), recallGroup('D', 6, 6)];
+  for (let seed = 1; seed <= 40; seed++) {
+    const test20 = buildMockTest(groups, 20, mulberry32(seed));
+    assert.equal(test20.length, 20);
+    const recall = test20.filter((i) => i.kind === 'order').length;
+    assert.ok(recall <= 3, `seed ${seed}: ${recall} order items`);
+  }
+});
+
+test('mock test: order options are never shown already in the right sequence', () => {
+  const groups = [recallGroup('A', 0, 3)];
+  for (let seed = 1; seed <= 60; seed++) {
+    for (const it of buildMockTest(groups, 3, mulberry32(seed))) {
+      assert.notDeepEqual(it.options, ['one', 'two', 'three']);
+    }
+  }
+});
+
+test('mock test: unplayable items are dropped and unknown kinds fall back to mcq', () => {
+  const groups: TopicBank[] = [{
+    topic: 'A',
+    items: [
+      { prompt: 'ok', options: ['x', 'y'], answer: 'x' },
+      { prompt: 'future kind, valid as mcq', options: ['x', 'y'], answer: 'x', kind: 'sorting' as never },
+      { prompt: 'broken order', kind: 'order', options: ['x', 'y'], answer: 'x|z' },
+      { prompt: 'broken label', kind: 'label', options: ['x'], answer: 'h=x' },
+    ],
+  }];
+  const built = buildMockTest(groups, 10, mulberry32(1));
+  assert.deepEqual(built.map((i) => i.prompt).sort(), ['future kind, valid as mcq', 'ok']);
+  assert.ok(built.every((i) => (i.kind ?? 'mcq') === 'mcq'));
+});
+
+test('scoring and the re-ask round only need a fully-right boolean per question, whatever the kind', () => {
+  const items = buildMockTest([recallGroup('A', 2, 2), recallGroup('B', 2, 2)], 8, mulberry32(7));
+  const firstAttempt = items.map((it) => it.kind !== 'order'); // all order items wrong
+  const scores = scoreByTopic(items, firstAttempt);
+  assert.equal(scores.reduce((n, s) => n + s.total, 0), items.length);
+  assert.equal(scores.reduce((n, s) => n + s.correct, 0), items.filter((i) => i.kind !== 'order').length);
+});
