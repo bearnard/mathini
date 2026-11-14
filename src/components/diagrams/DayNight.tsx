@@ -69,6 +69,7 @@ const DayNight = ({ className }: DayNightProps) => (
     <circle cx={CX} cy={CY + R} r={1.6} fill="#fb7185" stroke="#0f172a" strokeWidth={0.4} />
     <text x={CX} y={CY - R - 3.5} textAnchor="middle" fontSize={4} fill="#fde68a" fontWeight={700}>Sunrise</text>
     <text x={CX} y={CY + R + 7} textAnchor="middle" fontSize={4} fill="#fecdd3" fontWeight={700}>Sunset</text>
+    <text x={50} y={78} textAnchor="middle" fontSize={3.4} fill="#94a3b8">Looking down on the North Pole</text>
   </svg>
 );
 
