@@ -17,6 +17,8 @@ interface SubmitBody {
   qkey?: string;
   /** question_versions.id the learner was shown, when the client knows it (checked against the question server-side). */
   questionVersionId?: number;
+  /** Multiple-choice only: the option text the learner tapped (<= 200 chars). */
+  chosen?: string;
   section?: string;
   isCorrect: boolean;
   streak: number;
@@ -75,24 +77,29 @@ export async function POST(req: NextRequest) {
       console.error('Question identity lookup failed:', e);
     }
 
-    // Insert attempt. The version column only exists once 0008 is applied; it is written only when a version was found,
-    // which can only happen when the tables (and so the column) exist.
-    if (questionVersionId !== null) {
-      await db
-        .prepare(
-          `INSERT INTO attempts (student_id, task, item_id, section, grade, subject, topic, is_correct, xp_awarded, streak_at, created_at, qkey, question_version_id)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        )
-        .bind(studentId, task, itemId || null, section || 'general', parsed.grade, subject, parsed.topic, isCorrect ? 1 : 0, xpAwarded, streak, now, qkey, questionVersionId)
-        .run();
-    } else {
-      await db
-        .prepare(
-          `INSERT INTO attempts (student_id, task, item_id, section, grade, subject, topic, is_correct, xp_awarded, streak_at, created_at, qkey)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        )
-        .bind(studentId, task, itemId || null, section || 'general', parsed.grade, subject, parsed.topic, isCorrect ? 1 : 0, xpAwarded, streak, now, qkey)
-        .run();
+    // Insert attempt. question_version_id (0008) and chosen (0010) are only written when there is a value, and if a column does
+    // not exist yet (migration not applied) the plain insert below still stores the attempt: an answer is never lost.
+    const chosen = typeof body.chosen === 'string' ? body.chosen.trim().slice(0, 200) || null : null;
+    const baseCols = ['student_id', 'task', 'item_id', 'section', 'grade', 'subject', 'topic', 'is_correct', 'xp_awarded', 'streak_at', 'created_at', 'qkey'];
+    const baseVals: (string | number | null)[] = [studentId, task, itemId || null, section || 'general', parsed.grade, subject, parsed.topic, isCorrect ? 1 : 0, xpAwarded, streak, now, qkey];
+    const cols = [...baseCols];
+    const vals = [...baseVals];
+    if (questionVersionId !== null) { cols.push('question_version_id'); vals.push(questionVersionId); }
+    if (chosen !== null) { cols.push('chosen'); vals.push(chosen); }
+    const insert = (c: string[], v: (string | number | null)[]) =>
+      db.prepare(`INSERT INTO attempts (${c.join(', ')}) VALUES (${c.map(() => '?').join(', ')})`).bind(...v).run();
+    // Fall back in stages: everything, then without `chosen` (0010 missing: keep the version), then the plain row.
+    const attempts: [string[], (string | number | null)[]][] = [[cols, vals]];
+    if (chosen !== null && questionVersionId !== null) attempts.push([[...baseCols, 'question_version_id'], [...baseVals, questionVersionId]]);
+    if (cols.length > baseCols.length) attempts.push([baseCols, baseVals]);
+    for (let i = 0; i < attempts.length; i++) {
+      try {
+        await insert(attempts[i][0], attempts[i][1]);
+        break;
+      } catch (e) {
+        if (i === attempts.length - 1) throw e;
+        console.error('Attempt insert with identity columns failed, retrying with fewer:', e);
+      }
     }
 
     // Spaced review schedule (Grade 6, answers with a qkey). Must never fail the attempt.

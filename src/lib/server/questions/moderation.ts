@@ -8,9 +8,13 @@
 import type { AdminDb, Param, Statement } from '../admin/db';
 import { REPORT_REASONS, type ReportReason } from '../../shared/questionReport';
 import { promptKey } from '../../shared/retiredKey';
+import type { FlagKind } from '../../shared/itemAnalysis';
 
 const num = (v: unknown): number => (typeof v === 'number' ? v : Number(v) || 0);
 export const MAX_QUEUE_GROUPS = 50;
+// D1 allows 100 bound parameters per query: reported + flagged question ids together stay under it.
+const MAX_REPORT_GROUPS = 45;
+const MAX_FLAG_GROUPS = 45;
 export const MAX_NOTES_PER_QUESTION = 20;
 export const MAX_REASON_LENGTH = 300;
 
@@ -24,6 +28,14 @@ export interface QueueVersion {
   source: string;
 }
 
+export interface QueueFlag {
+  kind: FlagKind;
+  value: number;
+  n: number;
+  detail: Record<string, unknown> | null;
+  computedAt: number;
+}
+
 export interface QueueItem {
   questionId: string;
   task: string;
@@ -33,6 +45,8 @@ export interface QueueItem {
   reports: number;
   reasons: Record<ReportReason, number>;
   notes: { reason: ReportReason; note: string; at: number }[];
+  /** Item-analysis findings on the current version (ADR 0003 section 5). A question can be here with no learner report. */
+  flags: QueueFlag[];
   latestAt: number;
   /** The question's current version; null when the question is not registered in D1. */
   current: QueueVersion | null;
@@ -46,17 +60,30 @@ function parseOptions(s: unknown): string[] {
 }
 
 export async function reportQueue(db: AdminDb): Promise<QueueItem[]> {
-  const groups = await db.all<{ question_id: string; task: string; reports: number; reporters: number; latest: number }>(
-    `SELECT question_id, MIN(task) AS task, COUNT(*) AS reports, COUNT(DISTINCT student_id) AS reporters, MAX(created_at) AS latest
-     FROM question_reports WHERE status = 'open' GROUP BY question_id
-     ORDER BY reporters DESC, latest DESC LIMIT ?`,
-    [MAX_QUEUE_GROUPS],
-  );
+  const [reportGroups, flagGroups] = await Promise.all([
+    db.all<{ question_id: string; task: string; reports: number; reporters: number; latest: number }>(
+      `SELECT question_id, MIN(task) AS task, COUNT(*) AS reports, COUNT(DISTINCT student_id) AS reporters, MAX(created_at) AS latest
+       FROM question_reports WHERE status = 'open' GROUP BY question_id
+       ORDER BY reporters DESC, latest DESC LIMIT ?`,
+      [MAX_REPORT_GROUPS],
+    ),
+    db.all<{ question_id: string; task: string; latest: number }>(
+      `SELECT f.question_id, q.task AS task, MAX(f.computed_at) AS latest FROM question_flags f JOIN questions q ON q.id = f.question_id
+       WHERE f.status = 'open' GROUP BY f.question_id ORDER BY MAX(f.n) DESC LIMIT ?`,
+      [MAX_FLAG_GROUPS],
+    ),
+  ]);
+  const groupMap = new Map<string, { question_id: string; task: string; reports: number; reporters: number; latest: number }>();
+  for (const g of reportGroups) groupMap.set(g.question_id, g);
+  for (const g of flagGroups) {
+    if (!groupMap.has(g.question_id)) groupMap.set(g.question_id, { question_id: g.question_id, task: g.task, reports: 0, reporters: 0, latest: g.latest });
+  }
+  const groups = [...groupMap.values()];
   if (groups.length === 0) return [];
   const ids = groups.map((g) => g.question_id);
   const ph = ids.map(() => '?').join(',');
 
-  const [reasonRows, noteRows, qRows, statRows, snapRows] = await Promise.all([
+  const [reasonRows, noteRows, qRows, statRows, snapRows, flagRows] = await Promise.all([
     db.all<{ question_id: string; reason: string; n: number }>(`SELECT question_id, reason, COUNT(*) AS n FROM question_reports WHERE status = 'open' AND question_id IN (${ph}) GROUP BY question_id, reason`, ids),
     db.all<{ question_id: string; reason: string; note: string; created_at: number }>(`SELECT question_id, reason, note, created_at FROM question_reports WHERE status = 'open' AND note IS NOT NULL AND question_id IN (${ph}) ORDER BY created_at DESC`, ids),
     db.all<Record<string, unknown>>(
@@ -64,6 +91,7 @@ export async function reportQueue(db: AdminDb): Promise<QueueItem[]> {
        FROM questions q LEFT JOIN question_versions v ON v.id = q.current_version_id WHERE q.id IN (${ph})`, ids),
     db.all<{ qkey: string; answers: number; correct: number }>(`SELECT qkey, COUNT(*) AS answers, SUM(is_correct) AS correct FROM attempts WHERE qkey IN (${ph}) GROUP BY qkey`, ids),
     db.all<{ question_id: string; prompt_snapshot: string }>(`SELECT question_id, prompt_snapshot FROM question_reports WHERE status = 'open' AND prompt_snapshot IS NOT NULL AND question_id IN (${ph}) ORDER BY created_at DESC`, ids),
+    db.all<{ question_id: string; kind: string; value: number; n: number; detail: string | null; computed_at: number }>(`SELECT question_id, kind, value, n, detail, computed_at FROM question_flags WHERE status = 'open' AND question_id IN (${ph}) ORDER BY id`, ids),
   ]);
 
   const reasons = new Map<string, Record<ReportReason, number>>();
@@ -77,6 +105,14 @@ export async function reportQueue(db: AdminDb): Promise<QueueItem[]> {
     const l = notes.get(r.question_id) ?? [];
     if (l.length < MAX_NOTES_PER_QUESTION) l.push({ reason: r.reason as ReportReason, note: String(r.note), at: num(r.created_at) });
     notes.set(r.question_id, l);
+  }
+  const flags = new Map<string, QueueFlag[]>();
+  for (const r of flagRows) {
+    let detail: Record<string, unknown> | null = null;
+    try { detail = r.detail ? (JSON.parse(r.detail) as Record<string, unknown>) : null; } catch { /* no detail */ }
+    const l = flags.get(r.question_id) ?? [];
+    l.push({ kind: r.kind as FlagKind, value: num(r.value), n: num(r.n), detail, computedAt: num(r.computed_at) });
+    flags.set(r.question_id, l);
   }
   const qs = new Map(qRows.map((r) => [String(r.id), r]));
   const stats = new Map(statRows.map((r) => [r.qkey, r]));
@@ -93,13 +129,13 @@ export async function reportQueue(db: AdminDb): Promise<QueueItem[]> {
       status: q ? (q.status === 'retired' ? 'retired' : 'active') : 'unregistered',
       reporters: num(g.reporters), reports: num(g.reports),
       reasons: reasons.get(g.question_id) ?? (Object.fromEntries(REPORT_REASONS.map((x) => [x, 0])) as Record<ReportReason, number>),
-      notes: notes.get(g.question_id) ?? [], latestAt: num(g.latest),
+      notes: notes.get(g.question_id) ?? [], flags: flags.get(g.question_id) ?? [], latestAt: num(g.latest),
       current: q && q.vid != null ? { versionId: num(q.vid), versionNo: num(q.version_no), prompt: String(q.prompt), options: parseOptions(q.options), answer: String(q.answer), explanation: String(q.explanation ?? ''), source: String(q.author ?? '') } : null,
       promptSnapshot: q ? null : snaps.get(g.question_id) ?? null,
       stats: { answers, correct, pctCorrect: answers > 0 ? Math.round((correct / answers) * 100) : null },
     };
   });
-  return items.sort((a, b) => b.reporters - a.reporters || b.stats.answers - a.stats.answers || b.latestAt - a.latestAt);
+  return items.sort((a, b) => b.reporters - a.reporters || b.stats.answers - a.stats.answers || b.latestAt - a.latestAt).slice(0, MAX_QUEUE_GROUPS);
 }
 
 export type ModerationResult = { ok: true } | { ok: false; status: 400 | 404 | 409; error: string };
@@ -121,11 +157,15 @@ export async function dismissQuestion(db: AdminDb, questionId: string, reason: u
   const why = cleanReason(reason);
   if (!QID.test(questionId)) return { ok: false, status: 404, error: 'Not found' };
   if (!why) return { ok: false, status: 400, error: 'Give a reason (3-300 characters)' };
-  const open = await db.all<{ n: number }>(`SELECT COUNT(*) AS n FROM question_reports WHERE question_id = ? AND status = 'open'`, [questionId]);
-  if (num(open[0]?.n) === 0) return { ok: false, status: 404, error: 'No open reports for this question' };
+  const open = await db.all<{ n: number }>(
+    `SELECT (SELECT COUNT(*) FROM question_reports WHERE question_id = ? AND status = 'open') + (SELECT COUNT(*) FROM question_flags WHERE question_id = ? AND status = 'open') AS n`,
+    [questionId, questionId],
+  );
+  if (num(open[0]?.n) === 0) return { ok: false, status: 404, error: 'Nothing open for this question' };
   const cur = await db.all<{ c: number | null }>('SELECT current_version_id AS c FROM questions WHERE id = ?', [questionId]);
   await db.batch([
     { sql: `UPDATE question_reports SET status = 'dismissed', resolved_at = ? WHERE question_id = ? AND status = 'open'`, params: [now, questionId] },
+    { sql: `UPDATE question_flags SET status = 'dismissed' WHERE question_id = ? AND status = 'open'`, params: [questionId] },
     audit(questionId, 'dismiss', why, adminEmail, cur[0]?.c ?? null, null, now),
   ]);
   return { ok: true };
@@ -157,6 +197,7 @@ export async function retireQuestion(db: AdminDb, questionId: string, reason: un
   }
   statements.push(
     { sql: `UPDATE question_reports SET status = 'actioned', resolved_at = ? WHERE question_id = ? AND status = 'open'`, params: [now, questionId] },
+    { sql: `UPDATE question_flags SET status = 'resolved' WHERE question_id = ? AND status = 'open'`, params: [questionId] },
     audit(questionId, 'retire', why, adminEmail, q.current_version_id, detail, now),
   );
   await db.batch(statements);

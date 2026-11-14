@@ -12,6 +12,8 @@ export interface AttemptBody {
   itemId?: number;
   /** Stable question identity (see lib/shared/qkey). Sent when the prompt is known. */
   qkey?: string;
+  /** Multiple-choice only: the option the learner tapped (item analysis). */
+  chosen?: string;
 }
 
 export interface AttemptResponse {
@@ -30,7 +32,7 @@ export interface RecorderDeps {
 }
 
 export interface AttemptRecorder {
-  record(isCorrect: boolean, section?: string, itemId?: number, prompt?: string): void;
+  record(isCorrect: boolean, section?: string, itemId?: number, prompt?: string, chosen?: string): void;
   /** Start a fresh streak (e.g. "Practice again"). */
   resetStreak(): void;
   streak(): number;
@@ -39,7 +41,7 @@ export interface AttemptRecorder {
 export function createAttemptRecorder(task: string, subject: string, deps: RecorderDeps): AttemptRecorder {
   let streak = 0;
   return {
-    record(isCorrect, section, itemId, prompt) {
+    record(isCorrect, section, itemId, prompt, chosen) {
       try {
         // The streak counts for everyone; only signed-in learners are recorded.
         streak = isCorrect ? streak + 1 : 0;
@@ -47,6 +49,7 @@ export function createAttemptRecorder(task: string, subject: string, deps: Recor
         const body: AttemptBody = { task, subject, section: section || 'general', isCorrect, streak };
         if (typeof itemId === 'number' && Number.isInteger(itemId) && itemId > 0) body.itemId = itemId;
         if (typeof prompt === 'string' && prompt.trim()) body.qkey = makeQkey(task, prompt);
+        if (typeof chosen === 'string' && chosen) body.chosen = chosen.slice(0, 200);
         void deps
           .post(body)
           .then((data) => {

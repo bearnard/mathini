@@ -4,7 +4,7 @@
 // CapsSubjectTopic/PracticeRunner: Grade 5's custom components and the Grade 6
 // Natural Sciences, Geography, History and Afrikaans topic shells.
 //
-// Call recordAttempt(isCorrect, section?, itemId?, prompt?) at the moment an answer is checked.
+// Call recordAttempt(isCorrect, section?, itemId?, prompt?, chosen?) at the moment an answer is checked.
 // Each attempt is POSTed to /api/attempts immediately (signed-in learners only); newly earned
 // badges accumulate in pendingBadges for BadgeUnlockModal. Call resetStreak() when a
 // practice run starts over.
@@ -43,7 +43,7 @@ export function useAttemptRecorder(task: string, subject: string) {
     [task, subject],
   );
 
-  const recordAttempt = useCallback((isCorrect: boolean, section?: string, itemId?: number, prompt?: string) => recorder.record(isCorrect, section, itemId, prompt), [recorder]);
+  const recordAttempt = useCallback((isCorrect: boolean, section?: string, itemId?: number, prompt?: string, chosen?: string) => recorder.record(isCorrect, section, itemId, prompt, chosen), [recorder]);
   const resetStreak = useCallback(() => recorder.resetStreak(), [recorder]);
   const clearBadges = useCallback(() => setPendingBadges([]), []);
 

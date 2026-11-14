@@ -61,7 +61,7 @@ export default function ReviewScreen({ onBack, initialQuestions }: { onBack: () 
     void fetch('/api/attempts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ task: current.task, subject: current.subject, section: current.section, itemId: current.itemId, qkey: current.qkey, isCorrect: ok, streak: streakRef.current }),
+      body: JSON.stringify({ task: current.task, subject: current.subject, section: current.section, itemId: current.itemId, qkey: current.qkey, isCorrect: ok, streak: streakRef.current, chosen }),
     })
       .then((r) => (r.ok ? (r.json() as Promise<{ newBadges?: string[] }>) : null))
       .then((d) => {
