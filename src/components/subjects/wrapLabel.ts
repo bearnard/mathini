@@ -40,16 +40,60 @@ export const wrapLabel = (label: string, slot: number, base = 12, min = 10): Wra
   return { lines, fontSize };
 };
 
-/** From this many categories the labels no longer fit side by side, so they are turned on end. */
+/** From this many categories the labels are treated as dense: the axis is sized for labels turned on end. */
 export const DENSE_FROM = 7;
 export const isDense = (labels: readonly string[]): boolean => labels.length >= DENSE_FROM;
 
-/** Height to give the x axis so the labels have room: wrapped rows, or the length of a label turned on end. */
-export const axisHeight = (labels: readonly string[], base = 12): number => {
-  if (isDense(labels)) {
+/** Font size of a label turned on end. */
+export const ROTATED_FONT = 10;
+
+/** Measured average glyph width of the page font as a fraction of the font size (22 real labels: 0.42 to 0.57). */
+const MEASURED_W = 0.5;
+
+let canvas: CanvasRenderingContext2D | null | undefined;
+
+/** Text width in px: measured in the browser, estimated (MEASURED_W) where there is no canvas (tests, server). */
+export const textWidth = (text: string, px: number): number => {
+  if (typeof document !== 'undefined') {
+    try {
+      canvas ??= document.createElement('canvas').getContext('2d');
+      if (canvas) {
+        canvas.font = `${px}px Helvetica, Arial, sans-serif`;
+        return canvas.measureText(text).width * 1.04;
+      }
+    } catch {
+      /* fall through to the estimate */
+    }
+  }
+  return text.length * MEASURED_W * px;
+};
+
+/** Width of the widest single word of a label (a wrapped label is as wide as its longest word). */
+export const labelWidth = (label: string, px = ROTATED_FONT): number => Math.max(1, ...labelTokens(label).map((t) => textWidth(t, px)));
+
+/** Font size for a label turned on end: 10 px, a little smaller when the slots are very narrow (never below 8). */
+export const rotatedFont = (slot: number): number => Math.max(8, Math.min(ROTATED_FONT, Math.floor((slot - 0.5) / 1.15)));
+
+/**
+ * Would two neighbouring labels collide in slots this wide? Decided once for the whole axis, so
+ * labels never mix flat and turned on end. A word too wide for its slot cannot be saved by
+ * wrapping ("Entrepreneurship" in four slots, six income bands, twelve months on a two-axis chart).
+ */
+export const needsRotationAt = (labels: readonly string[], slot: number): boolean =>
+  labels.some((l, i) => i + 1 < labels.length && (labelWidth(l) + labelWidth(labels[i + 1])) / 2 + 4 > slot);
+
+/** The plot width a phone leaves for the categories, after the y axis(es) and margins. */
+export const PHONE_PLOT = { single: 220, dual: 140 } as const;
+
+/** Height to give the x axis: room for labels turned on end if a phone would need that, else the wrapped rows. */
+export const axisHeight = (labels: readonly string[], plot: number = PHONE_PLOT.single, base = 12): number => {
+  if (labels.length > 1 && (isDense(labels) || needsRotationAt(labels, plot / labels.length))) {
     const longest = Math.max(...labels.map((l) => l.length));
-    return Math.min(90, Math.round(14 + longest * CHAR_W * base));
+    return Math.min(110, Math.round(14 + longest * MEASURED_W * ROTATED_FONT * 1.1));
   }
   const rows = Math.min(MAX_LINES, Math.max(1, ...labels.map((l) => labelTokens(l).length)));
   return 18 + rows * (base + 1);
 };
+
+/** Room at one end of a line or area chart so the first or last label is not cut off. */
+export const edgePadding = (label: string, base = 12): number => Math.min(60, Math.ceil((label.length * CHAR_W * base) / 2) + 4);

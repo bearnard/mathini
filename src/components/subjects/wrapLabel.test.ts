@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { DENSE_FROM, axisHeight, isDense, labelTokens, wrapLabel } from './wrapLabel';
+import { DENSE_FROM, axisHeight, edgePadding, isDense, labelTokens, needsRotationAt, rotatedFont, textWidth, wrapLabel } from './wrapLabel';
 
 test('tokens break at spaces and after hyphens, keeping the hyphen', () => {
   assert.deepEqual(labelTokens('KwaZulu-Natal'), ['KwaZulu-', 'Natal']);
@@ -41,11 +41,52 @@ test('the axis is tall enough for the wrapped labels: one row for short labels, 
   assert.equal(axisHeight(['a b c d e f']), 57);
 });
 
-test('twelve categories are dense: labels turn on end and the axis is as tall as the longest label', () => {
+test('rotation is decided from neighbours colliding in their slots: Entrepreneurship, cities and income bands rotate, ordinary labels wrap', () => {
+  const slot = (labels: string[]) => 220 / labels.length;
+  const factors = ['Land', 'Labour', 'Capital', 'Entrepreneurship'];
+  const cities = ['Johannesburg', 'Cape Town', 'Ekurhuleni', 'eThekwini', 'Tshwane'];
+  const bands = ['R0–237.9k', 'R237.9–370.5k', 'R370.5–512.8k', 'R512.8–673k', 'R673–857.9k', 'R857.9k+'];
+  assert.equal(needsRotationAt(factors, slot(factors)), true);
+  assert.equal(needsRotationAt(bands, slot(bands)), true);
+  assert.equal(needsRotationAt(['Jobs', 'Family', 'Education', 'Housing', 'Safety'], 220 / 5), false);
+  assert.equal(needsRotationAt(['Northern Cape', 'KwaZulu-Natal', 'Gauteng', 'Limpopo'], 220 / 4), false);
+  assert.equal(needsRotationAt(['Coal', 'Platinum', 'Gold', 'Iron ore'], 220 / 4), false);
+  assert.equal(needsRotationAt(['One'], 20), false);
+  assert.equal(needsRotationAt(cities, slot(cities)), true);
+});
+
+test('twelve months: flat where they fit (wide chart), turned on end where they do not (two-axis phone chart)', () => {
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  assert.equal(needsRotationAt(months, 300 / 12), false);
+  assert.equal(needsRotationAt(months, 136 / 12), true);
   assert.equal(isDense(months), true);
   assert.equal(isDense(months.slice(0, DENSE_FROM - 1)), false);
-  assert.equal(axisHeight(months), 14 + Math.round(3 * 0.58 * 12));
-  assert.ok(axisHeight(['September', ...months.slice(0, 7)]) > axisHeight(months));
-  assert.ok(axisHeight(Array(8).fill('x'.repeat(40))) <= 90);
+});
+
+test('a rotated axis is as tall as its longest label, capped; short labels keep the wrapped height', () => {
+  const factors = ['Land', 'Labour', 'Capital', 'Entrepreneurship'];
+  assert.equal(axisHeight(factors), Math.round(14 + 16 * 0.5 * 10 * 1.1));
+  assert.ok(axisHeight(['x'.repeat(60), 'y', 'z', 'w']) <= 110);
+  assert.equal(axisHeight(['Jobs', 'Family', 'Education', 'Housing', 'Safety']), 31);
+  assert.equal(axisHeight(['Jan', 'Feb']), 31);
+  assert.equal(axisHeight(['Northern Cape', 'Gauteng']), 44);
+  assert.equal(axisHeight(['a b c d e f']), 57);
+  assert.equal(axisHeight([]), 31);
+});
+
+test('edge padding fits half the label, within limits: "2023" about 18, "100 tosses" about 39, never above 60', () => {
+  assert.equal(edgePadding('2023'), 18);
+  assert.equal(edgePadding('100 tosses'), 39);
+  assert.equal(edgePadding('x'.repeat(100)), 60);
+});
+
+test('rotated font: 10 px normally, smaller only when the slot is very narrow, never below 8', () => {
+  assert.equal(rotatedFont(30), 10);
+  assert.equal(rotatedFont(14.6), 10);
+  assert.equal(rotatedFont(11.3), 9);
+  assert.equal(rotatedFont(5), 8);
+});
+
+test('without a browser, text width is the estimate (no canvas in tests)', () => {
+  assert.equal(textWidth('Education', 10), 45);
 });
