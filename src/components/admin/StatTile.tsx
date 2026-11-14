@@ -12,6 +12,8 @@ interface Props {
   deltaContext: string;
   spark?: (number | null)[];
   sparkColor?: string;
+  /** The last spark value is a day still in progress (draw it dashed). */
+  sparkPartial?: boolean;
   /** Plain-language definition shown behind the (i) button. */
   help: ReactNode;
   /** Optional extra line (e.g. Do Not Track visits). */
@@ -21,7 +23,7 @@ interface Props {
 const ARROW = { up: '▲', down: '▼', flat: '▬', none: '' } as const;
 
 /** One headline number with its change vs the previous period and a sparkline. */
-export default function StatTile({ label, value, delta, deltaContext, spark, sparkColor, help, footnote }: Props) {
+export default function StatTile({ label, value, delta, deltaContext, spark, sparkColor, sparkPartial, help, footnote }: Props) {
   const [open, setOpen] = useState(false);
   const id = useId();
   return (
@@ -48,7 +50,7 @@ export default function StatTile({ label, value, delta, deltaContext, spark, spa
         </span>{' '}
         {deltaContext}
       </div>
-      {spark && <Sparkline values={spark} color={sparkColor} />}
+      {spark && <Sparkline values={spark} color={sparkColor} partialLast={sparkPartial} />}
       {footnote && <div className="admin-muted" style={{ fontSize: 12 }}>{footnote}</div>}
       {open && (
         <p id={id} className="admin-secondary" style={{ fontSize: 12, lineHeight: 1.45, borderTop: '1px solid var(--grid)', paddingTop: 8 }}>

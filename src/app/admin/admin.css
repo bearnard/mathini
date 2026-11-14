@@ -18,6 +18,16 @@
   --ramp-track: #cde2fb;
   --ramp-fill: #2a78d6;
   --focus: #2a78d6;
+  /* One-hue sequential ramp (blue 100..700) for heatmaps and the map; zero is its own neutral. */
+  --heat-empty: #ebe9e3;
+  --heat-1: #cde2fb;
+  --heat-2: #9ec5f4;
+  --heat-3: #6da7ec;
+  --heat-4: #3987e5;
+  --heat-5: #256abf;
+  --heat-6: #184f95;
+  --heat-7: #0d366b;
+  --bubble: #eb6834;
 }
 @media (prefers-color-scheme: dark) {
   .admin-root:not([data-theme='light']) {
@@ -37,6 +47,15 @@
     --ramp-track: #0d366b;
     --ramp-fill: #3987e5;
     --focus: #3987e5;
+    --heat-empty: #262624;
+    --heat-1: #12335f;
+    --heat-2: #184f95;
+    --heat-3: #256abf;
+    --heat-4: #3987e5;
+    --heat-5: #6da7ec;
+    --heat-6: #9ec5f4;
+    --heat-7: #cde2fb;
+    --bubble: #d95926;
   }
 }
 .admin-root[data-theme='dark'] {
@@ -56,6 +75,15 @@
   --ramp-track: #0d366b;
   --ramp-fill: #3987e5;
   --focus: #3987e5;
+  --heat-empty: #262624;
+  --heat-1: #12335f;
+  --heat-2: #184f95;
+  --heat-3: #256abf;
+  --heat-4: #3987e5;
+  --heat-5: #6da7ec;
+  --heat-6: #9ec5f4;
+  --heat-7: #cde2fb;
+  --bubble: #d95926;
 }
 
 .admin-root {
@@ -102,4 +130,6 @@
 .admin-table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .admin-table th, .admin-table td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--grid); }
 .admin-table th:first-child, .admin-table td:first-child { text-align: left; }
+.admin-table td > div:first-child { overflow-wrap: anywhere; }
+@media (max-width: 600px) { .admin-table th, .admin-table td { padding: 8px 5px; font-size: 13px; } }
 .admin-table th { color: var(--text-secondary); font-weight: 600; position: sticky; top: 0; background: var(--surface-1); }

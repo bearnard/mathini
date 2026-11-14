@@ -54,3 +54,33 @@ export function longDate(iso: string): string {
   const [y] = iso.split('-').map(Number);
   return `${shortDate(iso)} ${y}`;
 }
+
+const regionNames = (() => {
+  try {
+    return new Intl.DisplayNames(['en-ZA'], { type: 'region' });
+  } catch {
+    return null;
+  }
+})();
+/** "GB" -> "United Kingdom"; null -> "Unknown". */
+export function countryName(code: string | null | undefined): string {
+  if (!code) return 'Unknown';
+  try {
+    return regionNames?.of(code) ?? code;
+  } catch {
+    return code;
+  }
+}
+
+export const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as const;
+export const WEEKDAYS_LONG = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] as const;
+/** 16 -> "16:00–17:00". */
+export function hourRange(h: number): string {
+  const p = (n: number) => String(n % 24).padStart(2, '0');
+  return `${p(h)}:00–${p(h + 1)}:00`;
+}
+
+/** Today's date in South Africa (SAST, UTC+2): "2026-11-14". */
+export function todaySast(now: number = Date.now()): string {
+  return new Date(now + 2 * 3_600_000).toISOString().slice(0, 10);
+}

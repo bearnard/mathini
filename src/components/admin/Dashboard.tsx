@@ -1,11 +1,14 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import FilterBar from './FilterBar';
 import StatTile from './StatTile';
 import ActivityCharts, { type Day } from './ActivityCharts';
-import { formatDelta, formatDuration, formatInt, formatPercent, formatPoints, longDate, shortDate } from './format';
+import WhereCard from './WhereCard';
+import WhenCard from './WhenCard';
+import { useAdminData } from './useAdminData';
+import { formatDelta, formatDuration, formatInt, formatPercent, formatPoints, longDate, shortDate, todaySast } from './format';
 
 interface Tile {
   value: number | null;
@@ -28,27 +31,6 @@ interface OverviewData {
   options: { subjects: string[] };
   consent: { learners: number; consented: number };
   eventsSince: string | null;
-}
-
-type State<T> = { status: 'loading' } | { status: 'error'; code: number } | { status: 'ok'; data: T };
-
-function useAdminData<T>(path: string, qs: string): State<T> {
-  const [state, setState] = useState<State<T>>({ status: 'loading' });
-  useEffect(() => {
-    const ctrl = new AbortController();
-    setState((s) => (s.status === 'ok' ? s : { status: 'loading' }));
-    fetch(`${path}${qs ? `?${qs}` : ''}`, { signal: ctrl.signal, cache: 'no-store' })
-      .then(async (res) => {
-        if (!res.ok) throw Object.assign(new Error('bad'), { code: res.status });
-        setState({ status: 'ok', data: (await res.json()) as T });
-      })
-      .catch((e: { name?: string; code?: number }) => {
-        if (e.name === 'AbortError') return;
-        setState({ status: 'error', code: e.code ?? 0 });
-      });
-    return () => ctrl.abort();
-  }, [path, qs]);
-  return state;
 }
 
 export default function Dashboard() {
@@ -76,6 +58,11 @@ export default function Dashboard() {
       </header>
 
       <FilterBar subjects={subjects} />
+      {(sp.get('grade') || sp.get('subject')) && (
+        <p className="admin-muted" role="note" style={{ fontSize: 12, marginTop: -6, lineHeight: 1.5 }}>
+          Grade and subject filters count only activity that is tagged with them: topic opens, practice and recorded answers. General visits and page views carry no grade or subject, so they drop out of visitor, location and visit counts while a filter is on. Practice runs and answers filter fully.
+        </p>
+      )}
 
       {overview.status === 'error' ? (
         <div className="admin-card" role="alert" style={{ padding: 20 }}>
@@ -88,16 +75,20 @@ export default function Dashboard() {
       )}
 
       {series.status === 'ok' ? (
-        <ActivityCharts days={series.data.days} />
+        <ActivityCharts days={series.data.days} partialDate={todaySast()} />
       ) : series.status === 'error' ? null : (
         <div className="admin-card" style={{ padding: 20 }} aria-busy="true">Loading the charts…</div>
       )}
+
+      <WhereCard qs={qs} />
+      <WhenCard qs={qs} />
     </main>
   );
 }
 
 function Overview({ data }: { data: OverviewData }) {
   const t = data.tiles;
+  const partial = data.range.to === todaySast();
   const ctx = `vs ${shortDate(data.range.previousFrom)} – ${shortDate(data.range.previousTo)}`;
   const coverage = data.consent.learners > 0 ? data.consent.consented / data.consent.learners : 0;
   const attemptsHelp =
@@ -112,6 +103,7 @@ function Overview({ data }: { data: OverviewData }) {
           delta={formatDelta(t.visitors.value, t.visitors.prev, t.visitors.delta)}
           deltaContext={ctx}
           spark={t.visitors.spark}
+          sparkPartial={partial}
           sparkColor="var(--series-1)"
           footnote={t.visitors.dntSessions > 0 ? `+ ${formatInt(t.visitors.dntSessions)} private (Do Not Track) visits` : undefined}
           help="Unique devices that visited. A device is a random id kept in the browser, so one person on two devices counts twice. Do Not Track visits have no device id and are counted separately, by visit."
@@ -122,6 +114,7 @@ function Overview({ data }: { data: OverviewData }) {
           delta={formatDelta(t.learners.value, t.learners.prev, t.learners.delta)}
           deltaContext={ctx}
           spark={t.learners.spark}
+          sparkPartial={partial}
           sparkColor="var(--series-2)"
           help="Signed-in learners with any recorded activity in the period. Activity is only linked to a learner when a parent or guardian has agreed."
         />
@@ -131,6 +124,7 @@ function Overview({ data }: { data: OverviewData }) {
           delta={formatDelta(t.signups.value, t.signups.prev, t.signups.delta)}
           deltaContext={ctx}
           spark={t.signups.spark}
+          sparkPartial={partial}
           sparkColor="var(--text-secondary)"
           help="Accounts created in the period (from the learner records, so it includes sign-ups before tracking began). The subject filter does not apply."
         />
@@ -140,6 +134,7 @@ function Overview({ data }: { data: OverviewData }) {
           delta={formatDelta(t.questions.value, t.questions.prev, t.questions.delta)}
           deltaContext={ctx}
           spark={t.questions.spark}
+          sparkPartial={partial}
           sparkColor="var(--text-secondary)"
           help={attemptsHelp}
         />
@@ -149,6 +144,7 @@ function Overview({ data }: { data: OverviewData }) {
           delta={formatPoints(t.accuracy.deltaPoints)}
           deltaContext={ctx}
           spark={t.accuracy.spark}
+          sparkPartial={partial}
           sparkColor="var(--text-secondary)"
           help={`Share of recorded answers that were correct. ${attemptsHelp}`}
         />
@@ -158,6 +154,7 @@ function Overview({ data }: { data: OverviewData }) {
           delta={formatDelta(t.runs.value, t.runs.prev, t.runs.delta)}
           deltaContext={ctx}
           spark={t.runs.spark}
+          sparkPartial={partial}
           sparkColor="var(--series-3)"
           help="Finished practice runs across ALL topics (a run is one pass through a question set). Counted from usage events, so it also covers anonymous visitors and the Grade 6 subjects that do not record answers. Data starts when tracking started."
         />

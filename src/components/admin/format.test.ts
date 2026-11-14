@@ -38,3 +38,22 @@ test('dates', () => {
   assert.equal(shortDate('2026-11-04'), '4 Nov');
   assert.equal(longDate('2026-01-31'), '31 Jan 2026');
 });
+
+import { countryName, hourRange, todaySast, WEEKDAYS } from './format';
+test('country names, with a dash-free fallback for unknown', () => {
+  assert.equal(countryName('GB'), 'United Kingdom');
+  assert.equal(countryName('ZA'), 'South Africa');
+  assert.equal(countryName(null), 'Unknown');
+  assert.equal(countryName(''), 'Unknown');
+  assert.equal(countryName('ZZZ-not-a-code'), 'ZZZ-not-a-code');
+});
+test('hour ranges and weekday labels', () => {
+  assert.equal(hourRange(16), '16:00–17:00');
+  assert.equal(hourRange(23), '23:00–00:00');
+  assert.equal(hourRange(0), '00:00–01:00');
+  assert.deepEqual([...WEEKDAYS], ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']);
+});
+test("today's date is the SAST date, even when UTC is still yesterday", () => {
+  assert.equal(todaySast(Date.UTC(2026, 10, 14, 10, 0)), '2026-11-14');
+  assert.equal(todaySast(Date.UTC(2026, 10, 14, 22, 30)), '2026-11-15');
+});

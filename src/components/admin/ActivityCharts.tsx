@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { formatInt, longDate, shortDate } from './format';
 
 export interface Day {
@@ -45,27 +45,46 @@ const PANELS: Panel[] = [
 
 interface TipProps {
   active?: boolean;
-  payload?: { value?: number }[];
+  payload?: { value?: number | null }[];
   label?: string;
   panel: Panel;
+  /** The date still in progress (today), if the range includes it. */
+  partialDate: string | null;
 }
-function Tip({ active, payload, label, panel }: TipProps) {
-  if (!active || !payload?.length || !label) return null;
+function Tip({ active, payload, label, panel, partialDate }: TipProps) {
+  const entry = payload?.find((e) => e.value !== null && e.value !== undefined);
+  if (!active || !entry || !label) return null;
   return (
     <div className="admin-card" style={{ padding: '8px 10px', fontSize: 13, boxShadow: '0 4px 14px rgba(0,0,0,.15)' }}>
-      <div className="admin-secondary" style={{ fontWeight: 600 }}>{longDate(label)}</div>
+      <div className="admin-secondary" style={{ fontWeight: 600 }}>{longDate(label)}{label === partialDate ? ' (so far)' : ''}</div>
       <div>
         <span aria-hidden style={{ display: 'inline-block', width: 10, height: 10, borderRadius: 5, background: panel.color, marginRight: 6 }} />
-        <strong style={{ fontVariantNumeric: 'tabular-nums' }}>{formatInt(payload[0].value)}</strong> <span className="admin-muted">{panel.unit}</span>
+        <strong style={{ fontVariantNumeric: 'tabular-nums' }}>{formatInt(entry.value)}</strong> <span className="admin-muted">{panel.unit}</span>
       </div>
     </div>
   );
 }
 
+/** Hollow marker for today's point (drawn only for the last data point). */
+function TodayDot({ cx, cy, index, last, color }: { cx?: number; cy?: number; index?: number; last: number; color: string }) {
+  if (cx === undefined || cy === undefined || index !== last) return <g />;
+  return <circle cx={cx} cy={cy} r={4.5} fill="var(--surface-1)" stroke={color} strokeWidth={2} />;
+}
+
 /** Daily activity as small multiples with a shared crosshair (syncId), plus a table view. */
-export default function ActivityCharts({ days }: { days: Day[] }) {
+export default function ActivityCharts({ days, partialDate }: { days: Day[]; partialDate: string | null }) {
   const [view, setView] = useState<'chart' | 'table'>('chart');
   const tickEvery = Math.max(1, Math.ceil(days.length / 8));
+  // A day still in progress (today) is drawn separately: the solid line stops at the last complete
+  // day, and a dashed segment with a hollow marker leads to today, so a part-day never reads as a crash.
+  const partial = partialDate !== null && days.length > 1 && days[days.length - 1].date === partialDate;
+  const lastIdx = days.length - 1;
+  const dataFor = (key: keyof Day) =>
+    days.map((d, i) => ({
+      date: d.date,
+      v: partial && i === lastIdx ? null : (d[key] as number),
+      live: partial && i >= lastIdx - 1 ? (d[key] as number) : null,
+    }));
   const axisFor = (key: keyof Day) => {
     const top = niceMax(Math.max(0, ...days.map((d) => d[key] as number)));
     // Counts only: never show a half-step like 2.5.
@@ -123,20 +142,27 @@ export default function ActivityCharts({ days }: { days: Day[] }) {
                 <div style={{ height: last ? 132 : 96 }}>
                   <ResponsiveContainer width="100%" height="100%">
                     {p.kind === 'bar' ? (
-                      <BarChart data={days} syncId="activity" margin={{ top: 6, right: 8, bottom: last ? 0 : 8, left: 0 }}>
+                      <BarChart data={dataFor(p.key).map((d, i) => ({ ...d, v: d.v ?? d.live ?? 0, isToday: partial && i === lastIdx }))} syncId="activity" margin={{ top: 6, right: 8, bottom: last ? 0 : 8, left: 0 }}>
                         <CartesianGrid vertical={false} stroke="var(--grid)" />
                         <XAxis dataKey="date" hide={!last} tickFormatter={shortDate} interval={tickEvery - 1} tick={{ fill: 'var(--text-muted)', fontSize: 11 }} tickLine={false} axisLine={{ stroke: 'var(--grid)' }} />
                         <YAxis width={34} allowDecimals={false} {...axisFor(p.key)} tick={{ fill: 'var(--text-muted)', fontSize: 11 }} tickLine={false} axisLine={false} />
-                        <Tooltip content={<Tip panel={p} />} cursor={{ stroke: 'var(--text-muted)', strokeWidth: 1 }} isAnimationActive={false} />
-                        <Bar dataKey={p.key} fill={p.color} maxBarSize={20} radius={[4, 4, 0, 0]} isAnimationActive={false} />
+                        <Tooltip content={<Tip panel={p} partialDate={partial ? partialDate : null} />} cursor={{ stroke: 'var(--text-muted)', strokeWidth: 1 }} isAnimationActive={false} />
+                        <Bar dataKey="v" fill={p.color} maxBarSize={20} radius={[4, 4, 0, 0]} isAnimationActive={false}>
+                          {dataFor(p.key).map((d, i) => (
+                            <Cell key={d.date} fillOpacity={partial && i === lastIdx ? 0.4 : 1} />
+                          ))}
+                        </Bar>
                       </BarChart>
                     ) : (
-                      <AreaChart data={days} syncId="activity" margin={{ top: 6, right: 8, bottom: last ? 0 : 8, left: 0 }}>
+                      <AreaChart data={dataFor(p.key)} syncId="activity" margin={{ top: 6, right: 8, bottom: last ? 0 : 8, left: 0 }}>
                         <CartesianGrid vertical={false} stroke="var(--grid)" />
                         <XAxis dataKey="date" hide={!last} tickFormatter={shortDate} interval={tickEvery - 1} tick={{ fill: 'var(--text-muted)', fontSize: 11 }} tickLine={false} axisLine={{ stroke: 'var(--grid)' }} />
                         <YAxis width={34} allowDecimals={false} {...axisFor(p.key)} tick={{ fill: 'var(--text-muted)', fontSize: 11 }} tickLine={false} axisLine={false} />
-                        <Tooltip content={<Tip panel={p} />} cursor={{ stroke: 'var(--text-muted)', strokeWidth: 1 }} isAnimationActive={false} />
-                        <Area type="monotone" dataKey={p.key} stroke={p.color} strokeWidth={2} fill={p.color} fillOpacity={0.1} dot={false} activeDot={{ r: 4, stroke: 'var(--surface-1)', strokeWidth: 2, fill: p.color }} isAnimationActive={false} />
+                        <Tooltip content={<Tip panel={p} partialDate={partial ? partialDate : null} />} cursor={{ stroke: 'var(--text-muted)', strokeWidth: 1 }} isAnimationActive={false} />
+                        <Area type="linear" dataKey="v" stroke={p.color} strokeWidth={2} strokeLinejoin="round" fill={p.color} fillOpacity={0.1} dot={false} activeDot={{ r: 4, stroke: 'var(--surface-1)', strokeWidth: 2, fill: p.color }} isAnimationActive={false} connectNulls={false} />
+                        {partial && (
+                          <Line type="linear" dataKey="live" stroke={p.color} strokeWidth={2} strokeDasharray="4 4" dot={(props: { cx?: number; cy?: number; index?: number; key?: React.Key | null }) => <TodayDot key={props.key ?? props.index} cx={props.cx} cy={props.cy} index={props.index} last={lastIdx} color={p.color} />} activeDot={false} isAnimationActive={false} connectNulls={false} />
+                        )}
                       </AreaChart>
                     )}
                   </ResponsiveContainer>

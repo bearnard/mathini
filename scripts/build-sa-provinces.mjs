@@ -1,0 +1,149 @@
+#!/usr/bin/env node
+// Builds src/components/admin/saProvinces.ts: simplified South African province outlines as
+// SVG path data, plus the projection used to place cities on the same map.
+//
+// Source data: Natural Earth, "Admin 1 - States, Provinces" (ne_10m_admin_1_states_provinces),
+// PUBLIC DOMAIN. https://www.naturalearthdata.com/  (terms: https://www.naturalearthdata.com/about/terms-of-use/)
+// Download it once OUTSIDE the repo, then:
+//
+//   node scripts/build-sa-provinces.mjs /path/to/ne_10m_admin_1_states_provinces.geojson
+//
+// No dependencies. Only the simplified output is committed, never the source file.
+
+import fs from 'node:fs';
+import path from 'node:path';
+
+const input = process.argv[2];
+if (!input) {
+  console.error('Usage: node scripts/build-sa-provinces.mjs <ne_10m_admin_1_states_provinces.geojson>');
+  process.exit(2);
+}
+
+const WIDTH = 600;
+const TOLERANCE_DEG = 0.03; // Douglas-Peucker tolerance (about 3 km): plenty for a 600 px map
+const MIN_RING_AREA_DEG2 = 0.08; // drops tiny islands so they do not stretch the map
+// Province id <- Natural Earth name. ids are stable, lowercase slugs.
+const IDS = {
+  'Eastern Cape': 'eastern-cape',
+  'Free State': 'free-state',
+  Gauteng: 'gauteng',
+  'KwaZulu-Natal': 'kwazulu-natal',
+  Limpopo: 'limpopo',
+  Mpumalanga: 'mpumalanga',
+  'North West': 'north-west',
+  'Northern Cape': 'northern-cape',
+  'Western Cape': 'western-cape',
+};
+
+const gj = JSON.parse(fs.readFileSync(input, 'utf8'));
+const feats = gj.features.filter((f) => f.properties.adm0_a3 === 'ZAF');
+if (feats.length !== 9) throw new Error(`Expected 9 South African provinces, found ${feats.length}`);
+
+const ringArea = (r) => {
+  let a = 0;
+  for (let i = 0; i < r.length - 1; i++) a += r[i][0] * r[i + 1][1] - r[i + 1][0] * r[i][1];
+  return Math.abs(a / 2);
+};
+
+// Douglas-Peucker on an open polyline (iterative, to avoid deep recursion on long rings).
+function dp(pts, tol) {
+  const keep = new Uint8Array(pts.length);
+  keep[0] = keep[pts.length - 1] = 1;
+  const stack = [[0, pts.length - 1]];
+  while (stack.length) {
+    const [s, e] = stack.pop();
+    let maxD = 0, idx = -1;
+    const [x1, y1] = pts[s], [x2, y2] = pts[e];
+    const dx = x2 - x1, dy = y2 - y1, len2 = dx * dx + dy * dy;
+    for (let i = s + 1; i < e; i++) {
+      const [px, py] = pts[i];
+      let d;
+      if (len2 === 0) d = Math.hypot(px - x1, py - y1);
+      else {
+        const t = Math.max(0, Math.min(1, ((px - x1) * dx + (py - y1) * dy) / len2));
+        d = Math.hypot(px - (x1 + t * dx), py - (y1 + t * dy));
+      }
+      if (d > maxD) { maxD = d; idx = i; }
+    }
+    if (maxD > tol && idx !== -1) {
+      keep[idx] = 1;
+      stack.push([s, idx], [idx, e]);
+    }
+  }
+  return pts.filter((_, i) => keep[i]);
+}
+
+const collect = (f) => (f.geometry.type === 'MultiPolygon' ? f.geometry.coordinates : [f.geometry.coordinates]);
+const rings = {};
+for (const f of feats) {
+  const name = f.properties.name;
+  if (!IDS[name]) throw new Error(`Unexpected province name: ${name}`);
+  rings[name] = [];
+  for (const poly of collect(f)) {
+    const outer = poly[0];
+    if (ringArea(outer) < MIN_RING_AREA_DEG2) continue;
+    // simplify the closed ring as an open polyline split at the start point, then close it
+    const simp = dp(outer.slice(0, -1).concat([outer[0]]), TOLERANCE_DEG);
+    if (simp.length >= 4) rings[name].push(simp);
+    for (const hole of poly.slice(1)) {
+      if (ringArea(hole) < MIN_RING_AREA_DEG2) continue; // enclaves such as Lesotho are drawn as holes
+      const h = dp(hole.slice(0, -1).concat([hole[0]]), TOLERANCE_DEG);
+      if (h.length >= 4) rings[name].push(h);
+    }
+  }
+}
+
+// Equirectangular projection scaled by cos(mid-latitude); y grows downwards.
+const all = Object.values(rings).flat(2);
+const lons = all.map((p) => p[0]), lats = all.map((p) => p[1]);
+const lonMin = Math.min(...lons), lonMax = Math.max(...lons), latMin = Math.min(...lats), latMax = Math.max(...lats);
+const kx = Math.cos((((latMin + latMax) / 2) * Math.PI) / 180);
+const scale = WIDTH / ((lonMax - lonMin) * kx);
+const HEIGHT = Math.round((latMax - latMin) * scale);
+const proj = ([lon, lat]) => [(lon - lonMin) * kx * scale, (latMax - lat) * scale];
+const r1 = (n) => Math.round(n * 10) / 10;
+
+const provinces = Object.keys(IDS).sort().map((name) => {
+  const rs = rings[name].map((r) => r.map(proj));
+  const d = rs.map((r) => 'M' + r.map(([x, y]) => `${r1(x)} ${r1(y)}`).join('L') + 'Z').join('');
+  // label anchor: centroid of the largest outer ring
+  const big = rs.slice().sort((a, b) => ringArea(b) - ringArea(a))[0];
+  let cx = 0, cy = 0, a2 = 0;
+  for (let i = 0; i < big.length - 1; i++) {
+    const cr = big[i][0] * big[i + 1][1] - big[i + 1][0] * big[i][1];
+    a2 += cr; cx += (big[i][0] + big[i + 1][0]) * cr; cy += (big[i][1] + big[i + 1][1]) * cr;
+  }
+  return { id: IDS[name], name, path: d, cx: r1(cx / (3 * a2)), cy: r1(cy / (3 * a2)) };
+});
+
+const out = `// GENERATED by scripts/build-sa-provinces.mjs. Do not edit by hand.
+//
+// South African province outlines, simplified (Douglas-Peucker, ~3 km) from Natural Earth
+// "Admin 1 - States, Provinces" (ne_10m_admin_1_states_provinces). Natural Earth is PUBLIC DOMAIN:
+// https://www.naturalearthdata.com/about/terms-of-use/  (credit: Made with Natural Earth.)
+
+export const SA_VIEWBOX = { width: ${WIDTH}, height: ${HEIGHT} } as const;
+
+/** Projection parameters: equirectangular, longitude scaled by cos(mid-latitude). */
+export const SA_PROJECTION = { lonMin: ${r1(lonMin * 1000) / 1000}, latMax: ${r1(latMax * 1000) / 1000}, kx: ${Math.round(kx * 1e6) / 1e6}, scale: ${Math.round(scale * 1e4) / 1e4} } as const;
+
+/** Places a latitude/longitude on the map (SVG user units, y down). */
+export function projectSA(lat: number, lon: number): { x: number; y: number } {
+  return { x: (lon - SA_PROJECTION.lonMin) * SA_PROJECTION.kx * SA_PROJECTION.scale, y: (SA_PROJECTION.latMax - lat) * SA_PROJECTION.scale };
+}
+
+export interface SaProvince {
+  id: string;
+  name: string;
+  /** SVG path data in SA_VIEWBOX units. */
+  path: string;
+  /** Label anchor. */
+  cx: number;
+  cy: number;
+}
+
+export const SA_PROVINCES: readonly SaProvince[] = ${JSON.stringify(provinces, null, 2)};
+`;
+const target = path.join(path.resolve(import.meta.dirname, '..'), 'src', 'components', 'admin', 'saProvinces.ts');
+fs.writeFileSync(target, out);
+console.log(`Wrote ${path.relative(process.cwd(), target)}: ${provinces.length} provinces, ${(out.length / 1024).toFixed(1)} KB, viewBox ${WIDTH}x${HEIGHT}, ${all.length} points kept.`);
