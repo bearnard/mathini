@@ -1,15 +1,13 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import { NutrientPlate } from '@/components/diagrams/EcoMixtures';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Food gives your body what it needs',
-    image: {
-      src: '/curriculum/grade6/nst/term1/nutrients/diagram.webp',
-      alt: 'balanced plate with different healthy foods',
-    },
     content: (
       <div className="space-y-4 text-center">
+        <NutrientPlate />
         <p className="text-lg text-slate-600">
           <strong>Nutrients</strong> are useful substances in food. They help your body get
           <strong> energy</strong>, grow, repair itself, and stay healthy.
