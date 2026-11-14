@@ -227,18 +227,18 @@ const MoonDual = ({ className }: { className?: string }) => {
         <button
           type="button"
           onClick={() => goTo(index - 1)}
-          aria-label="Previous phase"
-          className="min-h-[44px] rounded-xl border-2 border-slate-300 bg-white px-4 font-bold text-slate-700 hover:bg-slate-50"
+          aria-label="Move the Moon back one phase"
+          className="min-h-[44px] rounded-lg border-2 border-indigo-400 bg-indigo-50 px-3 text-sm font-bold text-indigo-700 hover:bg-indigo-100"
         >
-          Previous
+          <svg aria-hidden="true" viewBox="0 0 10 10" className="mr-1.5 inline-block h-3 w-3"><path d="M8 1 L2 5 L8 9Z" fill="currentColor" /></svg>Move Moon back
         </button>
         <button
           type="button"
           onClick={() => goTo(index + 1)}
-          aria-label="Next phase"
-          className="min-h-[44px] rounded-xl border-2 border-slate-300 bg-white px-4 font-bold text-slate-700 hover:bg-slate-50"
+          aria-label="Move the Moon on one phase"
+          className="min-h-[44px] rounded-lg border-2 border-indigo-400 bg-indigo-50 px-3 text-sm font-bold text-indigo-700 hover:bg-indigo-100"
         >
-          Next
+          Move Moon on<svg aria-hidden="true" viewBox="0 0 10 10" className="ml-1.5 inline-block h-3 w-3"><path d="M2 1 L8 5 L2 9Z" fill="currentColor" /></svg>
         </button>
         {prompt && !answered && (
           <button
