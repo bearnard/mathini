@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Theme and mood grow from story details',
-    image: {
-      src: '/curriculum/grade6/eng/term3/deeper-literature-response/diagram.webp',
-      alt: 'learner reading a novel and noting theme, mood, and character clues',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

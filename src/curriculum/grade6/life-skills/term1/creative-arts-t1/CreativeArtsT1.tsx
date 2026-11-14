@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Lines, shapes, and colours build visual art',
-    image: {
-      src: '/curriculum/grade6/lsk/term1/creative-arts-t1/diagram.webp',
-      alt: 'Grade 6 learners creating colourful line and shape artwork together',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Talk about your daily routine and school day',
-    image: {
-      src: '/curriculum/grade6/xho/term2/listening-speaking-t2/diagram.webp',
-      alt: 'learners discussing morning school routine food shopping and directions',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

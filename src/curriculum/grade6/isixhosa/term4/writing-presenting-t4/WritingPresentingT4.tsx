@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Write connected paragraphs',
-    image: {
-      src: '/curriculum/grade6/xho/term4/writing-presenting-t4/diagram.webp',
-      alt: 'learner planning and writing a short personal paragraph from picture prompts',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

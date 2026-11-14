@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Listening and speaking about familiar Term 3 themes',
-    image: {
-      src: '/curriculum/grade6/xho/term3/listening-speaking-t3/diagram.webp',
-      alt: 'learners discussing weather, transport, and animals in an isiXhosa SAL class',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

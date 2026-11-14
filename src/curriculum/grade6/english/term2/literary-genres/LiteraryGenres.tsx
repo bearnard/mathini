@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Genres help us read in different ways',
-    image: {
-      src: '/curriculum/grade6/eng/term2/literary-genres/diagram.webp',
-      alt: 'books, a stage and poetry pages showing different literary genres',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">

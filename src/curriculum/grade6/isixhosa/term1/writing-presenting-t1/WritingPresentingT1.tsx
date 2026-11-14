@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Write simple sentences about yourself',
-    image: {
-      src: '/curriculum/grade6/xho/term1/writing-presenting-t1/diagram.webp',
-      alt: 'Grade 6 learner writing short isiXhosa sentences about personal details and family',
-    },
     content: (
       <div className="space-y-5 text-center">
         <p className="text-lg text-slate-600">
