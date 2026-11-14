@@ -1,5 +1,6 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import ToyCircuits from '@/components/diagrams/ToyCircuits';
 
 const learnSteps: LearnStep[] = [
   {
@@ -30,6 +31,17 @@ const learnSteps: LearnStep[] = [
           Chemical energy (cell) → electrical energy (wires) → light and heat (bulb)
         </div>
         <p className="text-slate-500">A bulb also gets warm, so some of the energy becomes <strong>heat</strong>. That is why a bulb that has been on for a while can be too hot to touch.</p>
+      </div>
+    ),
+  },
+  {
+    title: 'Circuits in toys and models',
+    content: (
+      <div className="space-y-4 text-center">
+        <ToyCircuits />
+        <p className="text-lg text-slate-600">
+          The same circuit can do different jobs. A <strong>bulb</strong> gives light, a <strong>motor</strong> makes things move and a <strong>buzzer</strong> makes a sound.
+        </p>
       </div>
     ),
   },

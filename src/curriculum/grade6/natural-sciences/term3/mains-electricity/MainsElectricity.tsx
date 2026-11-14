@@ -36,7 +36,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          <strong>Non-renewable</strong> sources (coal, oil, gas) will run out because they take millions of years to form.
+          <strong>Non-renewable</strong> sources are the <strong>fossil fuels</strong>: coal, oil and gas. They formed over millions of years from ancient plants and animals, so they will run out.
         </p>
         <p className="rounded-xl bg-emerald-50 p-5 font-semibold text-emerald-800">
           <strong>Renewable</strong> sources (sun, wind, moving water) are replaced naturally and will not run out.
