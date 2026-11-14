@@ -134,7 +134,7 @@ const MoonPhases = ({ showLabels = true, className }: MoonPhasesProps) => {
       role="img"
       aria-labelledby="moon-phases-title moon-phases-desc"
       className={`mx-auto block aspect-square w-full max-w-md rounded-2xl ${className ?? ''}`}
-      style={{ background: '#0f172a' }}
+      style={{ background: '#0f172a', fontFamily: 'inherit', maxWidth: '28rem' }}
     >
       <title id="moon-phases-title">{title}</title>
       <desc id="moon-phases-desc">{desc}</desc>
