@@ -1,17 +1,15 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
 import ClimateGraph from '@/components/subjects/ClimateGraph';
+import { ClimateZones } from '@/components/diagrams/geo/ClimateZones';
 
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Climate zones follow latitude',
-    image: {
-      src: '/curriculum/grade6/geo/term3/climate-regions/diagram.svg',
-      alt: 'climate belts from equator to poles diagram',
-    },
     content: (
       <div className="space-y-4 text-center">
+        <ClimateZones />
         <p className="text-lg text-slate-600">
           A <strong>climate region</strong> is an area with similar temperature and rainfall over a long time.
           Climate belts often follow <strong>latitude</strong>: hot near the Equator and colder towards the poles.
