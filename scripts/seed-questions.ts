@@ -29,6 +29,7 @@ import { getSections } from "../src/lib/server/caps/sections";
 import { acceptItems } from "../src/lib/shared/questionQuality";
 import { specsFromSlugs } from "../src/lib/server/caps/seedSlugs";
 import { numericOkFor } from "../src/lib/server/topUp";
+import { decimalPolicyFor } from "../src/lib/server/caps/formatPolicy";
 import {
   AuthAbort, AuthError, HttpError, RunStats, createAuthGuard, isAuthStatus, parseOauthToken, processTaskItems, retryTransient, taskOutcome,
 } from "../src/lib/server/seedRuntime";
@@ -908,7 +909,7 @@ async function main() {
         batches[t].map((item) => ({ ...item, batchType: t }))
       );
       // Quality gate (ADR 0003 section 1a): rejected questions are NEVER stored. Accepted ones carry their score and flags.
-      const { accepted: allItems, rejected: qualityRejected } = acceptItems(generated, { numericOk: numericOkFor(taskKey, spec.code) });
+      const { accepted: allItems, rejected: qualityRejected } = acceptItems(generated, { numericOk: numericOkFor(taskKey, spec.code), decimalComma: decimalPolicyFor(taskKey, spec.code) });
       console.log(`\n  [${taskKey}] got ${generated.length} items, ${qualityRejected.length} rejected by the quality validator`);
       const taskStats = runStats.for(taskKey);
       taskStats.generated += generated.length;

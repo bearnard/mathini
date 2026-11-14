@@ -65,3 +65,69 @@ test('single quotes in flags or text cannot break the SQL', () => {
   const sql = updateSql([{ id: 1, score: 0, flags: ["it's"] }])[0];
   assert.match(sql, /'\["it''s"\]'/);
 });
+
+// ---- targeted decimal-comma backfill ----
+import { hasDecimalPoint, targetedDecimalUpdates, type StoredRow } from './qualityBackfill';
+import { TASK_INDEX } from './caps/taskIndex.generated';
+
+const dr = (id: number, task: string, prompt: string, options: string[], answer: string, explanation = 'This explains why the answer is right.', quality_score?: number | null): StoredRow => ({ id, task, prompt, options: JSON.stringify(options), answer, explanation, quality_score });
+const POINT_Q = (id: number, task: string, quality_score?: number | null) => dr(id, task, `What is ${id}.5 + 1.5 in this question number ${id}?`, [`${id + 2},0`, `${id + 1},5`, `${id + 3},5`, `${id + 9},0`], `${id + 2},0`, 'Add the tenths and then the ones.', quality_score);
+
+test('hasDecimalPoint: digit.digit in the prompt, an option, the answer or the explanation; not sentence ends or commas', () => {
+  assert.equal(hasDecimalPoint(POINT_Q(1, 'gr6-length-t3')), true);
+  assert.equal(hasDecimalPoint(dr(2, 'gr6-length-t3', 'Convert 3,5 m to cm.', ['350 cm', '35 cm'], '350 cm')), false);
+  assert.equal(hasDecimalPoint(dr(3, 'gr6-length-t3', 'x?', ['a', '0.5 kg'], 'a')), true);
+  assert.equal(hasDecimalPoint(dr(4, 'gr6-length-t3', 'Sam has R5. 3 more.', ['R8', 'R2'], 'R8', 'R5 + R3. Done.')), false);
+});
+
+test('targeted backfill: Grade 6 maths rows with a point are rejected, other grades only warned, uncovered subjects untouched', () => {
+  const g6 = 'gr6-decimal-fractions-t2', g7 = 'gr7-decimal-fractions-t2';
+  assert.ok(TASK_INDEX[g6] && TASK_INDEX[g7] && TASK_INDEX['current-issues-media']);
+  const rows: StoredRow[] = [
+    POINT_Q(10, g6), POINT_Q(11, g7),
+    dr(12, g6, 'Convert 3,5 m to centimetres in this very question?', ['350 cm', '35 cm', '3 500 cm', '3,5 cm'], '350 cm'),   // comma already: untouched
+    POINT_Q(13, 'current-issues-media'),                                                                                      // Grade 6 English: not a maths task
+    POINT_Q(14, 'gr10-database-introductory-object-concepts-t2'),                                                            // IT: excluded
+  ];
+  const { updates, report } = targetedDecimalUpdates(rows);
+  assert.deepEqual(updates.map((u) => u.id), [10, 11], 'only the two covered rows with a point');
+  assert.equal(updates.find((u) => u.id === 10)!.score, 0);
+  assert.ok(updates.find((u) => u.id === 10)!.flags.includes('decimal_point'));
+  const warn = updates.find((u) => u.id === 11)!;
+  assert.ok(warn.score > 0 && warn.score < 80, 'warn: still served, after clean rows');
+  assert.deepEqual(report.map((r) => [r.grade, r.policy, r.affected, r.changed]), [[6, 'reject', 1, 1], [7, 'warn', 1, 1]]);
+  assert.deepEqual(report[0].transitions, { 'clean -> rejected': 1 });
+  assert.deepEqual(report[1].transitions, { 'clean -> warn': 1 });
+});
+
+test('targeted backfill: uses the STORED score when present; rows whose score would not change are not rewritten', () => {
+  const g6 = 'gr6-length-t3';
+  const alreadyRejected = POINT_Q(20, g6, 0);            // stored 0, new 0: no change
+  const stale = POINT_Q(21, g6, 95);                      // stored 95, new 0: change
+  const { updates, report } = targetedDecimalUpdates([alreadyRejected, stale]);
+  assert.deepEqual(updates.map((u) => u.id), [21]);
+  assert.equal(report[0].affected, 2);
+  assert.equal(report[0].changed, 1);
+});
+
+test('targeted backfill: the generated SQL, applied to a real item_cache, changes ONLY those rows, and a second run has nothing left to do', async () => {
+  const t = await openPoolDb();
+  if (!t) return;
+  const rows: StoredRow[] = [POINT_Q(30, 'gr6-length-t3'), POINT_Q(31, 'gr8-common-and-decimal-fractions-t3'), good(32, 'gr6-length-t3')];
+  const ins = t.raw.prepare('INSERT INTO item_cache (id, task, prompt, options, answer, explanation, created_at, quality_score) VALUES (?,?,?,?,?,?,1,?)');
+  for (const r of rows) ins.run(r.id, r.task, r.prompt, r.options, r.answer, r.explanation, 95);
+  const { updates } = targetedDecimalUpdates(rows.map((r) => ({ ...r, quality_score: 95 })));
+  assert.deepEqual(updates.map((u) => u.id), [30, 31]);
+  for (const f of updateSql(updates)) t.raw.exec(f);
+  const out = (t.raw.prepare('SELECT id, quality_score AS s FROM item_cache ORDER BY id').all() as { id: number; s: number }[]).map((r) => ({ ...r }));
+  assert.deepEqual(out.map((r) => r.s > 0 && r.s < 80 ? 'warn' : r.s === 0 ? 'rejected' : 'clean'), ['rejected', 'warn', 'clean']);
+  // second run: the stored scores now match, so no update is produced
+  const stored = (t.raw.prepare('SELECT id, task, prompt, options, answer, explanation, quality_score FROM item_cache ORDER BY id').all() as unknown as StoredRow[]).map((r) => ({ ...r }));
+  assert.deepEqual(targetedDecimalUpdates(stored).updates, []);
+});
+
+test('the full scoreRows applies the rule too (a later full backfill stays consistent), and decimalRule:false reproduces the old scores', () => {
+  const r = POINT_Q(40, 'gr6-length-t3');
+  assert.equal(scoreRows([r])[0].score, 0);
+  assert.ok(scoreRows([r], { decimalRule: false })[0].score >= 80);
+});
