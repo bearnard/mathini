@@ -12,6 +12,9 @@ interface ClimateGraphProps {
   station: string;
   data: MonthlyData[];
   className?: string;
+  /** Fix the axes (same values on two graphs = fair comparison). */
+  rainDomain?: [number, number];
+  tempDomain?: [number, number];
 }
 
 /**
@@ -26,7 +29,7 @@ interface ClimateGraphProps {
  *     ]}
  *   />
  */
-const ClimateGraph = ({ station, data, className }: ClimateGraphProps) => {
+const ClimateGraph = ({ station, data, className, rainDomain, tempDomain }: ClimateGraphProps) => {
   return (
     <div className={`rounded-xl border border-slate-200 overflow-hidden ${className ?? ''}`}>
       <div className="bg-sky-700 text-white px-4 py-2 font-semibold text-sm">{station} — Climatograph</div>
@@ -36,6 +39,8 @@ const ClimateGraph = ({ station, data, className }: ClimateGraphProps) => {
           xKey="month"
           type="climate"
           height={250}
+          rainDomain={rainDomain}
+          tempDomain={tempDomain}
           series={[
             { key: 'rainfall', label: 'Rainfall (mm)', type: 'bar', color: '#38bdf8' },
             { key: 'temp', label: 'Temperature (°C)', type: 'line', color: '#ef4444' },
