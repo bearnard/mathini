@@ -1,5 +1,6 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import MoonPhases from '@/components/diagrams/MoonPhases';
 
 const learnSteps: LearnStep[] = [
   {
@@ -63,17 +64,10 @@ const learnSteps: LearnStep[] = [
     title: 'The 8 phases in order',
     content: (
       <div className="space-y-4 text-center">
-        <div className="bg-slate-50 p-6 rounded-xl inline-grid gap-1 text-left text-slate-700">
-          <span>1. <strong>New Moon</strong> (we cannot see it)</span>
-          <span>2. <strong>Waxing Crescent</strong></span>
-          <span>3. <strong>First Quarter</strong> (half lit)</span>
-          <span>4. <strong>Waxing Gibbous</strong></span>
-          <span>5. <strong>Full Moon</strong> (whole face lit)</span>
-          <span>6. <strong>Waning Gibbous</strong></span>
-          <span>7. <strong>Last Quarter</strong> (also called Third Quarter) (half lit)</span>
-          <span>8. <strong>Waning Crescent</strong></span>
-        </div>
-        <p className="text-slate-500">Then it starts again at New Moon.</p>
+        <MoonPhases />
+        <p className="rounded-xl bg-indigo-50 p-4 font-semibold text-indigo-700">
+          In South Africa the <strong>waxing</strong> Moon is lit on the <strong>left</strong>. The <strong>waning</strong> Moon is lit on the <strong>right</strong>.
+        </p>
       </div>
     ),
   },

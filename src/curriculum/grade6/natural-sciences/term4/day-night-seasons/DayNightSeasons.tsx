@@ -1,12 +1,13 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import DayNight from '@/components/diagrams/DayNight';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Day and night',
-    image: { src: '/curriculum/grade6/nst/term4/day-night-seasons/diagram.svg', alt: 'Sun rays lighting one side of tilted Earth' },
     content: (
       <div className="space-y-4 text-center">
+        <DayNight />
         <p className="text-lg text-slate-600">
           <strong>Day and night</strong> happen because Earth <strong>rotates</strong> (spins) on its axis. The side facing the Sun has day. The side turned away has night.
         </p>

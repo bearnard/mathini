@@ -1,6 +1,6 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
-import Timeline from '@/components/subjects/Timeline';
+import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
+        <ScaleTimeline
           events={[
             {"date": "1948", "title": "Apartheid government elected", "description": "The National Party won the election and began formal apartheid. Most South Africans were denied equal rights and voting power."},
             {"date": "1955", "title": "Freedom Charter demands rights", "description": "The Congress of the People adopted the Freedom Charter at Kliptown. It called for equal rights, democracy, and a fairer South Africa."},
