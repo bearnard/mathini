@@ -53,7 +53,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which fraction is equivalent to 1/2?',
     options: ['2/4', '3/5', '1/4', '2/3'],

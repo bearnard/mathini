@@ -55,7 +55,7 @@ const learnSteps: LearnStep[] = [
     }
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'Tom has 24 apples. He gives some away and has 9 left. Which number sentence shows this?',
         options: ['24 + n = 9', '24 − n = 9', 'n − 24 = 9', '24 × n = 9'],

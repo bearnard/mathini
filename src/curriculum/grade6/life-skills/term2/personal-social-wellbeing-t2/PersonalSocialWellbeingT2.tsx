@@ -96,7 +96,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which action shows a healthy friendship?',
     options: ['Listening respectfully when a friend speaks', 'Laughing when a friend is upset', 'Sharing secrets without permission', 'Pressuring a friend to break a rule'],

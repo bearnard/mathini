@@ -64,7 +64,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   {
     prompt: 'Which sentence has the correct Afrikaans word order?',
     options: ['Ek speel vandag buite', 'Ek vandag speel buite', 'Speel ek vandag buite', 'Vandag ek speel buite'],

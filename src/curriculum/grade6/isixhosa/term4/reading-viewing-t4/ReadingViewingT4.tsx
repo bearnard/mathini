@@ -152,7 +152,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'What is the main purpose of a notice?',
     options: ['To give important information quickly', 'To tell a long fantasy story', 'To describe only one character', 'To test multiplication tables'],

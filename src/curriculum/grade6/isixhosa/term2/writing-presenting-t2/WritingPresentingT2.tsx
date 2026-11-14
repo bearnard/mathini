@@ -114,7 +114,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which feature belongs in a diary line?',
     options: ['A date and a short personal note', 'A list of exam formulas', 'Only a drawing with no words', 'A full newspaper article'],

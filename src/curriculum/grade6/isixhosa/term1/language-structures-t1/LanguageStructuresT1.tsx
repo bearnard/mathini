@@ -153,7 +153,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which option is a personal pronoun?',
     options: ['mna', 'isikolo', 'itafile', 'incwadi'],

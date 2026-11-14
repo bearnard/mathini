@@ -74,7 +74,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'Which remedies did ancient healers often use?', options: ['Herbs and simple tools', 'Laser scanners only', 'Robots and computers', 'Plastic credit cards'], answer: 'Herbs and simple tools', explanation: 'Ancient healers often used herbs, bandages, simple tools, and observation.' },
   { prompt: 'Why did ancient people sometimes blame bad air for disease?', options: ['They did not yet know about germs', 'They had already seen bacteria with microscopes', 'They knew all diseases came from X-rays', 'They had modern antibiotics'], answer: 'They did not yet know about germs', explanation: 'Before germ theory, people used other explanations such as bad air.' },
   { prompt: 'What did some ancient people believe could cause sickness?', options: ['Angry gods or spirits', 'Mobile phone signals', 'Television cameras', 'Electric trains'], answer: 'Angry gods or spirits', explanation: 'Some ancient societies used spiritual explanations for illness.' },

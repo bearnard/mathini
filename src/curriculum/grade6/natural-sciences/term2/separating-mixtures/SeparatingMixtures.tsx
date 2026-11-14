@@ -35,7 +35,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'Which method separates sand from water best?', options: ['Filtration', 'Evaporation', 'Magnetism', 'Hand-sorting'], answer: 'Filtration', explanation: 'Filter paper traps the insoluble sand while water passes through.' },
   { prompt: 'Which method can recover salt from salt water?', options: ['Evaporation', 'Sieving', 'Magnetism', 'Hand-sorting'], answer: 'Evaporation', explanation: 'Water evaporates and leaves the dissolved salt behind.' },
   { prompt: 'Which method removes iron filings from sand?', options: ['Using a magnet', 'Evaporation', 'Filtration only', 'Freezing'], answer: 'Using a magnet', explanation: 'Iron filings are magnetic and are attracted to a magnet.' },

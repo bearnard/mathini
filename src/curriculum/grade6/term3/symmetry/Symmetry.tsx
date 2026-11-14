@@ -56,7 +56,7 @@ const learnSteps: LearnStep[] = [
     },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'A line of symmetry divides a shape into...',
         options: ['two equal areas', 'two mirror-image halves', 'four equal parts', 'two different halves'],

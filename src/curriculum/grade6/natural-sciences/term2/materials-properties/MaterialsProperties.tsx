@@ -35,7 +35,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'Which property means a material does not let water pass through easily?', options: ['Waterproof', 'Transparent', 'Flexible', 'Magnetic'], answer: 'Waterproof', explanation: 'Waterproof materials resist water passing through them.' },
   { prompt: 'Why is glass useful for windows?', options: ['It is transparent', 'It is soft', 'It dissolves in water', 'It is magnetic'], answer: 'It is transparent', explanation: 'Transparent materials let light pass through so we can see through them.' },
   { prompt: 'Which material is usually best for the outside of a tyre?', options: ['Rubber', 'Glass', 'Paper', 'Clay'], answer: 'Rubber', explanation: 'Rubber is flexible and gives good grip on the road.' },

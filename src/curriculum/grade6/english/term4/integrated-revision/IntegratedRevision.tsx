@@ -59,7 +59,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which feature would most likely show that a text is a poem?',
     options: ['Stanzas and repeated lines', 'A price list and barcode', 'A map key and compass', 'A recipe with ingredients'],

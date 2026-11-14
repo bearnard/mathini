@@ -133,7 +133,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Why do we warm up before the main PE activity?',
     options: [

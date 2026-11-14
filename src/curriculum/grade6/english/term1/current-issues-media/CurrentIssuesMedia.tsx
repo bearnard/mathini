@@ -139,7 +139,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which media text would you usually read in paragraphs under a headline?',
     options: ['Newspaper article', 'Radio report', 'Television remote', 'Poetry notebook'],

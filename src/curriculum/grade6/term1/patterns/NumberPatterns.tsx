@@ -48,7 +48,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'What is the rule for 2, 4, 6, 8, ...?',
     options: ['Add 2', 'Multiply by 2', 'Add 4', 'Subtract 2'],

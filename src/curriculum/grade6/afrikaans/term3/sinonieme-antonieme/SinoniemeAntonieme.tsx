@@ -64,7 +64,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   {
     prompt: "Choose a synonym for 'bly' (happy).",
     options: ['gelukkig', 'hartseer', 'kwaad', 'moeg'],

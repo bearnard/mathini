@@ -63,7 +63,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'Which nutrient group is the main source of quick energy?', options: ['Carbohydrates', 'Proteins', 'Minerals', 'Water'], answer: 'Carbohydrates', explanation: 'Carbohydrates such as bread and maize meal give the body energy.' },
   { prompt: 'Which nutrients help your body grow and repair muscles?', options: ['Proteins', 'Fibre', 'Vitamins', 'Water'], answer: 'Proteins', explanation: 'Proteins are needed for growth and repair of body tissues.' },
   { prompt: 'Which nutrient can store energy and help protect organs?', options: ['Fats', 'Minerals', 'Fibre', 'Oxygen'], answer: 'Fats', explanation: 'Fats store energy and help protect the body, but should be eaten in healthy amounts.' },

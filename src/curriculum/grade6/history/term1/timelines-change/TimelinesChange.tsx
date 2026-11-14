@@ -74,7 +74,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'What does chronological order mean?', options: ['Events arranged from earliest to latest', 'Events arranged from tallest to shortest', 'Events arranged by favourite colour', 'Events arranged with no dates'], answer: 'Events arranged from earliest to latest', explanation: 'Chronological order follows time order.' },
   { prompt: 'What is a timeline?', options: ['A diagram that shows events in time order', 'A list of food groups', 'A map showing rainfall only', 'A tool for measuring mass'], answer: 'A diagram that shows events in time order', explanation: 'Timelines help us see when events happened.' },
   { prompt: 'How many years are in a decade?', options: ['10 years', '5 years', '50 years', '100 years'], answer: '10 years', explanation: 'A decade is a period of ten years.' },

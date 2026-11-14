@@ -84,7 +84,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'Which good is a well-known South African export?', options: ['Gold', 'Snowmobiles', 'Maple syrup', 'Polar bear skins'], answer: 'Gold', explanation: 'South Africa has mined and exported minerals such as gold.' },
   { prompt: 'Which pair lists examples of South African agricultural exports?', options: ['Fruit and wine', 'Oil and phones', 'Snow and ice', 'Satellites and rockets'], answer: 'Fruit and wine', explanation: 'Fruit and wine come from farming and processing in South Africa.' },
   { prompt: 'Why does South Africa import some goods?', options: ['It does not produce enough of every product it needs', 'It is not allowed to export anything', 'It has no farms or factories at all', 'Imports are always free'], answer: 'It does not produce enough of every product it needs', explanation: 'Countries import goods that are needed, scarce, or cheaper to get from elsewhere.' },

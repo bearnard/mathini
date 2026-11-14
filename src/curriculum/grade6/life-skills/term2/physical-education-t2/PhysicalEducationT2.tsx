@@ -95,7 +95,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'What is the main aim in an invasion game?',
     options: ['Move into space and try to score', 'Stand still and wait', 'Keep the ball only for yourself', 'Ignore the other team completely'],

@@ -1,6 +1,8 @@
 // Core of useAttemptRecorder, with its dependencies injected so it can be unit-tested.
 // It never throws: recording an answer must never break practice.
 
+import { makeQkey } from '../shared/qkey';
+
 export interface AttemptBody {
   task: string;
   subject: string;
@@ -8,6 +10,8 @@ export interface AttemptBody {
   isCorrect: boolean;
   streak: number;
   itemId?: number;
+  /** Stable question identity (see lib/shared/qkey). Sent when the prompt is known. */
+  qkey?: string;
 }
 
 export interface AttemptResponse {
@@ -26,7 +30,7 @@ export interface RecorderDeps {
 }
 
 export interface AttemptRecorder {
-  record(isCorrect: boolean, section?: string, itemId?: number): void;
+  record(isCorrect: boolean, section?: string, itemId?: number, prompt?: string): void;
   /** Start a fresh streak (e.g. "Practice again"). */
   resetStreak(): void;
   streak(): number;
@@ -35,13 +39,14 @@ export interface AttemptRecorder {
 export function createAttemptRecorder(task: string, subject: string, deps: RecorderDeps): AttemptRecorder {
   let streak = 0;
   return {
-    record(isCorrect, section, itemId) {
+    record(isCorrect, section, itemId, prompt) {
       try {
         // The streak counts for everyone; only signed-in learners are recorded.
         streak = isCorrect ? streak + 1 : 0;
         if (!deps.signedIn()) return;
         const body: AttemptBody = { task, subject, section: section || 'general', isCorrect, streak };
         if (typeof itemId === 'number' && Number.isInteger(itemId) && itemId > 0) body.itemId = itemId;
+        if (typeof prompt === 'string' && prompt.trim()) body.qkey = makeQkey(task, prompt);
         void deps
           .post(body)
           .then((data) => {

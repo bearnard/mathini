@@ -57,7 +57,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'What is the best first step before writing under exam conditions?',
     options: ['Plan your ideas and structure quickly', 'Write the conclusion first without reading the task', 'Use every minute on one sentence', 'Skip the question and choose your own topic'],

@@ -84,7 +84,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'What is trade?', options: ['Buying and selling goods or services', 'Only growing food at home', 'Drawing maps of rivers', 'Counting the population'], answer: 'Buying and selling goods or services', explanation: 'Trade means buying and selling goods or services between people, businesses, or countries.' },
   { prompt: 'What is an import?', options: ['A good brought into a country', 'A good sent out of a country', 'A tax paid at school', 'A resource left unused'], answer: 'A good brought into a country', explanation: 'Imports come into a country from another country.' },
   { prompt: 'What is an export?', options: ['A good sent out of a country', 'A good brought into a country', 'A shop that only sells bread', 'A river used for transport'], answer: 'A good sent out of a country', explanation: 'Exports leave a country to be sold in other countries.' },

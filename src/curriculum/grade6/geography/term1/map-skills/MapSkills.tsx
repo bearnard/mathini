@@ -58,7 +58,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'What does a compass rose show on a map?', options: ['Directions', 'Rainfall', 'Population', 'Height of buildings'], answer: 'Directions', explanation: 'A compass rose helps us find north, south, east, west, and other directions.' },
   { prompt: 'Which set lists the four cardinal directions?', options: ['North, South, East, West', 'North-east, North-west, South-east, South-west', 'Up, Down, Left, Right', 'Near, Far, High, Low'], answer: 'North, South, East, West', explanation: 'The cardinal directions are north, south, east, and west.' },
   { prompt: 'Which direction is halfway between north and east?', options: ['North-east', 'North-west', 'South-east', 'South-west'], answer: 'North-east', explanation: 'North-east lies between north and east on a compass rose.' },

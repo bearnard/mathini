@@ -65,7 +65,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   {
     prompt: "Choose the adjective in: ''n groot huis'.",
     options: ['groot', 'huis', "'n", 'bou'],

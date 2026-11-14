@@ -24,6 +24,7 @@ function seed(t: TestDb) {
   for (let i = 0; i < 4; i++) insertAttempt(t, { student: 'b', ts: at(2), correct: i < 1, topic: 'cells', subject: 'nst', grade: 7 });
   t.exec(`INSERT INTO student_xp (student_id, scope, xp, correct_count, total_count, updated_at) VALUES ('a','overall',250,6,8,1), ('b','overall',40,1,4,1)`);
   t.exec(`INSERT INTO student_badges (student_id, badge_id, earned_at) VALUES ('a','first-correct',1), ('a','streak-3',2), ('b','first-correct',3)`);
+  for (const [stu, k] of [['a', 'k1'], ['a', 'k2'], ['a', 'k3'], ['b', 'k1']]) t.exec(`INSERT INTO review_items (student_id, qkey, task, subject, box, due_day, created_at, updated_at) VALUES (?, ?, 't', 'nst', 1, 1, 1, 1)`, [stu, k]);
   insertEvent(t, { ts: at(1), device: 'da', session: 'sa', student: 'a', city: 'Pretoria', region: 'Gauteng', country: 'ZA', lat: -25.7, lon: 28.2 });
   insertEvent(t, { ts: at(0, -10), device: 'da', session: 'sa2', student: 'a', city: 'Cape Town', region: 'Western Cape', country: 'ZA', lat: -33.9, lon: 18.4 });
   insertEvent(t, { ts: at(1), device: 'db', session: 'sb', student: null, region: 'Gauteng', country: 'ZA' });
@@ -273,14 +274,15 @@ test('delete: removes the learner and everything linked to them, leaves everyone
     seed(t);
     insertEvent(t, { ts: at(3), device: 'da', session: 'before-signup', student: null }); // same device while anonymous
     const r = await deleteLearner(t.db, 'a', 'lion_alice', 'owner@example.com', NOW);
-    assert.deepEqual(r, { ok: true, deleted: { attempts: 8, events: 2, xp: 1, badges: 2 } });
+    assert.deepEqual(r, { ok: true, deleted: { attempts: 8, events: 2, xp: 1, badges: 2, reviews: 3 } });
     assert.equal(await one(t, `SELECT COUNT(*) AS n FROM students WHERE id = 'a'`), 0);
-    for (const tbl of ['attempts', 'student_xp', 'student_badges', 'events']) assert.equal(await one(t, `SELECT COUNT(*) AS n FROM ${tbl} WHERE student_id = 'a'`), 0, tbl);
+    for (const tbl of ['attempts', 'student_xp', 'student_badges', 'events', 'review_items']) assert.equal(await one(t, `SELECT COUNT(*) AS n FROM ${tbl} WHERE student_id = 'a'`), 0, tbl);
     // others untouched
     assert.equal(await one(t, `SELECT COUNT(*) AS n FROM students`), 2);
     assert.equal(await one(t, `SELECT COUNT(*) AS n FROM attempts WHERE student_id = 'b'`), 4);
     assert.equal(await one(t, `SELECT COUNT(*) AS n FROM student_xp WHERE student_id = 'b'`), 1);
     assert.equal(await one(t, `SELECT COUNT(*) AS n FROM student_badges WHERE student_id = 'b'`), 1);
+    assert.equal(await one(t, `SELECT COUNT(*) AS n FROM review_items WHERE student_id = 'b'`), 1);
     // anonymous events of that device stay (they are not linked to the person)
     assert.equal(await one(t, `SELECT COUNT(*) AS n FROM events WHERE session_id = 'before-signup'`), 1);
   });
@@ -293,7 +295,7 @@ test('delete: one audit row (counts, admin email, time) with NO name, nickname o
     assert.equal(rows.length, 1);
     const a = rows[0];
     assert.deepEqual([a.device_id, a.session_id, a.student_id, a.ts], ['admin', 'admin', null, NOW]);
-    assert.deepEqual(JSON.parse(a.meta as string), { rows: { students: 1, attempts: 8, events: 2, xp: 1, badges: 2 }, by: 'owner@example.com', at: NOW });
+    assert.deepEqual(JSON.parse(a.meta as string), { rows: { students: 1, attempts: 8, events: 2, xp: 1, badges: 2, reviews: 3 }, by: 'owner@example.com', at: NOW });
     const text = JSON.stringify(a);
     for (const secret of ['lion_alice', 'Real a', 'Secret Primary', '"a"', 'TEST-a']) assert.ok(!text.includes(secret), secret);
     for (const col of ['city', 'country', 'lat', 'lon']) assert.equal(a[col], null);
@@ -308,6 +310,7 @@ test('delete is all-or-nothing: if any step fails, nothing is deleted and no aud
     assert.equal(await one(t, `SELECT COUNT(*) AS n FROM attempts WHERE student_id = 'a'`), 8);
     assert.equal(await one(t, `SELECT COUNT(*) AS n FROM events WHERE student_id = 'a'`), 2);
     assert.equal(await one(t, `SELECT COUNT(*) AS n FROM student_badges WHERE student_id = 'a'`), 2);
+    assert.equal(await one(t, `SELECT COUNT(*) AS n FROM review_items WHERE student_id = 'a'`), 3);
     assert.equal(await one(t, `SELECT COUNT(*) AS n FROM events WHERE type = 'admin_delete'`), 0);
   });
 });

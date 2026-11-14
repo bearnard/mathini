@@ -55,7 +55,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'What does map scale show?', options: ['How map distance compares with real distance', 'Which way is north', 'How much rain fell', 'Where the Equator is'], answer: 'How map distance compares with real distance', explanation: 'Scale changes map measurements into real-world distances.' },
   { prompt: 'What is a line scale also called?', options: ['Bar scale', 'Compass rose', 'Grid reference', 'Hemisphere line'], answer: 'Bar scale', explanation: 'A line scale is often drawn as a bar divided into equal distances.' },
   { prompt: 'If one section of a bar scale represents 1 km, what do three sections represent?', options: ['3 km', '1 km', '4 m', '30 cm'], answer: '3 km', explanation: 'Three equal 1 km sections add up to 3 km.' },

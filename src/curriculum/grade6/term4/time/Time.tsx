@@ -76,7 +76,7 @@ const learnSteps: LearnStep[] = [
     }
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'What is 3:00 pm in 24-hour time?',
         options: ['03:00', '13:00', '15:00', '30:00'],

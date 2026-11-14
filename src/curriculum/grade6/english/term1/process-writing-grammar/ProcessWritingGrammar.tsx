@@ -151,7 +151,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'What should you do first in the process writing cycle?',
     options: ['Plan your ideas', 'Print the final copy', 'Ignore the topic', 'Add random sentences'],

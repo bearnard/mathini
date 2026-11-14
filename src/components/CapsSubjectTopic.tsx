@@ -1,3 +1,4 @@
+import { makeQkey } from '../lib/shared/qkey';
 import { useState, useRef, useCallback, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { triggerConfetti } from '../lib/confetti';
@@ -59,7 +60,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
   usePracticeTracking({ active: mode === 'practice', done, isCorrect, ctx: { grade, subject: apiPath?.split('/').filter(Boolean).pop(), topic: task ?? title } });
 
   // Track per-question results for section aggregation
-  const resultsRef = useRef<{ section?: string; correct: boolean }[]>([]);
+  const resultsRef = useRef<{ section?: string; correct: boolean; qkey?: string }[]>([]);
   const hasSubmitted = useRef(false);
 
   const handleSelect = (option: string) => {
@@ -72,7 +73,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
     setStreak((s) => (correct ? s + 1 : 0));
 
     // Record result for section aggregation
-    resultsRef.current.push({ section: current.section, correct });
+    resultsRef.current.push({ section: current.section, correct, qkey: task ? makeQkey(task, current.prompt) : undefined });
 
     if (correct) {
       triggerConfetti();
@@ -98,6 +99,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
           subject: taskToSubject(apiPath),
           section: r.section,
           isCorrect: r.correct,
+          qkey: r.qkey,
           streak: 0,
         }),
       })

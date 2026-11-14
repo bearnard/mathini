@@ -72,7 +72,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   { prompt: "What is the plural of 'hond' (dog)?", options: ['honde', 'honds', 'honne', 'hondes'], answer: 'honde', explanation: "Most Afrikaans nouns like 'hond' add -e: hond → honde." },
   { prompt: "What is the plural of 'kat' (cat)?", options: ['katte', 'kats', 'kate', 'katers'], answer: 'katte', explanation: "'Kat' has a short vowel, so the consonant doubles: kat → katte." },
   { prompt: "What is the plural of 'boek' (book)?", options: ['boeke', 'boeks', 'boekke', 'boeken'], answer: 'boeke', explanation: "'Boek' takes -e in the plural: boek → boeke." },

@@ -41,7 +41,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which of these numbers is prime?',
     options: ['7', '9', '15', '21'],

@@ -28,6 +28,8 @@ export async function openTestDb(): Promise<TestDb | null> {
   raw.exec(m2);
   raw.exec(mig('0003_events.sql'));
   raw.exec(mig('0004_parent_consent.sql'));
+  raw.exec(mig('0005_attempts_qkey.sql'));
+  raw.exec(mig('0006_review_items.sql'));
 
   const run = (sql: string, params: Param[] = []) => raw.prepare(sql).run(...params);
   const db: AdminDb = {

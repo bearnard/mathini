@@ -81,7 +81,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'What did many people long ago use to treat sickness?', options: ['Plants, herbs, and natural remedies', 'Electric machines only', 'Plastic tablets made in factories', 'Space satellites'], answer: 'Plants, herbs, and natural remedies', explanation: 'Many early remedies came from plants, herbs, roots, bark, and other natural materials.' },
   { prompt: 'What is an inyanga often known for in South Africa?', options: ['Using knowledge of medicinal plants', 'Building stone castles', 'Sailing across oceans', 'Printing modern newspapers'], answer: 'Using knowledge of medicinal plants', explanation: 'An inyanga is often a herbalist who uses indigenous knowledge of plants.' },
   { prompt: 'What is a sangoma often connected with?', options: ['Divination and spiritual healing', 'Repairing motor cars', 'Making computer games', 'Flying aircraft'], answer: 'Divination and spiritual healing', explanation: 'A sangoma is often a diviner and spiritual healer in South African traditions.' },

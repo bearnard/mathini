@@ -96,7 +96,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'What does texture describe in an artwork?',
     options: ['How a surface feels or looks', 'How many pages a book has', 'How loudly someone sings', 'How fast a runner moves'],

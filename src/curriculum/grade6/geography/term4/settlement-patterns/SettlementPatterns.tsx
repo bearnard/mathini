@@ -88,7 +88,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'What is a settlement?', options: ['A place where people live', 'A type of rainfall', 'A line of latitude', 'A tool for measuring wind'], answer: 'A place where people live', explanation: 'Settlements are places such as villages, towns, cities, and farms where people live.' },
   { prompt: 'Which is an example of an urban settlement?', options: ['A city', 'A cattle farm', 'An isolated farmhouse', 'A small fishing hut'], answer: 'A city', explanation: 'Cities and towns are urban settlements.' },
   { prompt: 'Which is an example of a rural settlement?', options: ['A farming village', 'A city centre', 'A large shopping mall district', 'A busy industrial city'], answer: 'A farming village', explanation: 'Rural settlements are often villages, farms, or small communities in the countryside.' },

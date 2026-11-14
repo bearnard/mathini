@@ -67,7 +67,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   {
     prompt: "Kies die Afrikaans vir 'window'.",
     options: ['venster', 'deur', 'tafel', 'stoel'],

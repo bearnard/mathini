@@ -70,7 +70,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'What is photosynthesis?', options: ['Plants making their own food', 'Animals finding shelter', 'Water freezing into ice', 'Soil turning into rock'], answer: 'Plants making their own food', explanation: 'Photosynthesis is the process plants use to make food.' },
   { prompt: 'Which three things does a plant need for photosynthesis?', options: ['Sunlight, water, and carbon dioxide', 'Moonlight, sand, and oxygen', 'Sugar, salt, and air', 'Meat, water, and sunlight'], answer: 'Sunlight, water, and carbon dioxide', explanation: 'Plants use sunlight, water, and carbon dioxide to make glucose.' },
   { prompt: 'What green substance in leaves traps light energy?', options: ['Chlorophyll', 'Glucose', 'Oxygen', 'Fibre'], answer: 'Chlorophyll', explanation: 'Chlorophyll is the green substance that absorbs light.' },

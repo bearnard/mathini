@@ -88,7 +88,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'Which words best describe many temperate climates?', options: ['Moderate temperatures with seasons', 'Always extremely hot and wet', 'Permanent ice all year everywhere', 'No rain in any month'], answer: 'Moderate temperatures with seasons', explanation: 'Temperate climates are between tropical heat and polar cold.' },
   { prompt: 'What is a Mediterranean climate known for?', options: ['Hot dry summers and mild wet winters', 'Cold dry summers and icy winters', 'Rainforest rain every day', 'No seasonal changes at all'], answer: 'Hot dry summers and mild wet winters', explanation: 'Mediterranean climates have summer drought and winter rainfall.' },
   { prompt: 'Which South African region has a Mediterranean climate?', options: ['The Western Cape', 'The Kalahari only', 'The Drakensberg peaks only', 'The Limpopo Valley only'], answer: 'The Western Cape', explanation: 'The Western Cape has hot dry summers and mild wet winters.' },

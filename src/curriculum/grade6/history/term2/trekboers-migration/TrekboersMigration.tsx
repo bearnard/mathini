@@ -80,7 +80,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'Who were the Trekboers?', options: ['Dutch-descended semi-nomadic farmers', 'British kings living in castles', 'Xhosa chiefs only', 'Sailors who never left the coast'], answer: 'Dutch-descended semi-nomadic farmers', explanation: 'Trekboers were mostly Dutch-descended farmers who moved with livestock.' },
   { prompt: 'Why did many Trekboers move inland?', options: ['To find grazing and water for livestock', 'To search for snow and penguins', 'To build airports', 'To sail directly to India'], answer: 'To find grazing and water for livestock', explanation: 'Their cattle and sheep needed pasture and water.' },
   { prompt: 'What does semi-nomadic mean in this topic?', options: ['Moving from place to place but not all the time', 'Living permanently in one city apartment', 'Travelling only by ship', 'Never owning animals'], answer: 'Moving from place to place but not all the time', explanation: 'Trekboers shifted their grazing areas when they needed new pasture.' },

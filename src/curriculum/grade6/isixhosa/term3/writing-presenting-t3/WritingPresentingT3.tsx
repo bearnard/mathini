@@ -151,7 +151,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which detail must appear in a formal invitation?',
     options: ['Date, time, and venue', 'Only a drawing', 'Only one greeting word', 'A random number'],

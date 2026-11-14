@@ -117,7 +117,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which isiXhosa word means morning?',
     options: ['Kusasa', 'Ebusuku', 'Izolo', 'Ngoku'],
