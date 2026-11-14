@@ -1,19 +1,31 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { TodayPayload } from '../../lib/client/review/resolve';
+import { loadTodaysReview } from '../../lib/client/review/browserLoad';
+import type { ReviewQuestion } from '../../lib/client/review/resolve';
 
-/** How many questions are due today for the signed-in Grade 6 learner. null = unknown/none (show nothing). */
-export function useDueCount(enabled: boolean, refreshKey: unknown = 0): number | null {
-  const [count, setCount] = useState<number | null>(null);
+/**
+ * Questions ready to show today, for the home-screen card. Starts only once the browser is idle after the
+ * home screen has rendered, and yields null (no card) when nothing can be shown or loading fails.
+ */
+export function useReviewPreview(enabled: boolean, refreshKey: unknown = 0): ReviewQuestion[] | null {
+  const [questions, setQuestions] = useState<ReviewQuestion[] | null>(null);
   useEffect(() => {
-    if (!enabled) { setCount(null); return; }
+    if (!enabled) { setQuestions(null); return; }
     let cancelled = false;
-    fetch('/api/review/today')
-      .then((r) => (r.ok ? (r.json() as Promise<TodayPayload>) : null))
-      .then((d) => { if (!cancelled) setCount(d && d.dueCount > 0 ? d.dueCount : null); })
-      .catch(() => { if (!cancelled) setCount(null); });
-    return () => { cancelled = true; };
+    const start = () => {
+      void loadTodaysReview().then((q) => { if (!cancelled) setQuestions(q && q.length > 0 ? q : null); });
+    };
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void };
+    let idle: number | undefined;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    if (w.requestIdleCallback) idle = w.requestIdleCallback(start, { timeout: 2000 });
+    else timer = setTimeout(start, 500);
+    return () => {
+      cancelled = true;
+      if (idle !== undefined) w.cancelIdleCallback?.(idle);
+      if (timer) clearTimeout(timer);
+    };
   }, [enabled, refreshKey]);
-  return count;
+  return questions;
 }
