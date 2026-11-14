@@ -1,12 +1,13 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import { PotMaterials, PropertyIcons } from '@/components/diagrams/Materials';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Materials have different properties',
-    image: { src: '/curriculum/grade6/nst/term2/materials-properties/diagram.webp', alt: 'objects made from different materials' },
     content: (
       <div className="space-y-4 text-center">
+        <PropertyIcons />
         <p className="text-lg text-slate-600">
           A <strong>material</strong> is what an object is made from. Materials can be strong, hard, flexible, waterproof, transparent, or good at conducting heat and electricity.
         </p>
@@ -27,6 +28,7 @@ const learnSteps: LearnStep[] = [
     title: 'Conductors and insulators',
     content: (
       <div className="space-y-4 text-center">
+        <PotMaterials />
         <p className="text-lg text-slate-600">
           Metals usually <strong>conduct</strong> heat and electricity, so they are useful in pots and wires. Plastic and wood are often insulators, so they help keep hands safe from heat.
         </p>

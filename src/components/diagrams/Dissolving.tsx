@@ -94,8 +94,8 @@ export const DissolvingSteps = ({ className }: DiagramProps) => {
         <circle key={i} cx={131 + dx} cy={22 + dy} r={1.6} fill={SOLUTE} />
       ))}
 
-      <text x={20} y={60} textAnchor="middle" fontSize={5} fill="#fbcfe8" fontWeight={800}>Sugar</text>
-      <text x={118} y={60} textAnchor="middle" fontSize={5} fill="#fbcfe8" fontWeight={800}>Still there</text>
+      <text x={20} y={60} textAnchor="middle" fontSize={6.4} fill="#fbcfe8" fontWeight={800}>Sugar</text>
+      <text x={118} y={60} textAnchor="middle" fontSize={6.4} fill="#fbcfe8" fontWeight={800}>Still there</text>
     </svg>
   );
 };
@@ -119,13 +119,13 @@ export const SoluteSolvent = ({ className }: DiagramProps) => (
         <rect key={i} x={dx - 1.8} y={dy - 1.8} width={3.6} height={3.6} fill="#fdf2f8" stroke={SOLUTE} strokeWidth={0.6} transform={`rotate(${i * 21} ${dx} ${dy})`} />
       ))}
     </g>
-    <text x={20} y={57} textAnchor="middle" fontSize={5} fill="#fbcfe8" fontWeight={800}>Solute</text>
+    <text x={20} y={57} textAnchor="middle" fontSize={6.4} fill="#fbcfe8" fontWeight={800}>Solute</text>
 
     <text x={39} y={31} textAnchor="middle" fontSize={11} fill="#cbd5e1" fontWeight={800}>+</text>
 
     {/* solvent: plain water */}
     <Beaker x={62} y={10} />
-    <text x={62} y={57} textAnchor="middle" fontSize={5} fill="#7dd3fc" fontWeight={800}>Solvent</text>
+    <text x={62} y={57} textAnchor="middle" fontSize={6.4} fill="#7dd3fc" fontWeight={800}>Solvent</text>
 
     <text x={84} y={31} textAnchor="middle" fontSize={11} fill="#cbd5e1" fontWeight={800}>=</text>
 
@@ -135,6 +135,6 @@ export const SoluteSolvent = ({ className }: DiagramProps) => (
         <circle key={i} cx={p.x} cy={p.y} r={0.9} fill={SOLUTE} />
       ))}
     </Beaker>
-    <text x={106} y={57} textAnchor="middle" fontSize={5} fill="#f8fafc" fontWeight={800}>Solution</text>
+    <text x={106} y={57} textAnchor="middle" fontSize={6.4} fill="#f8fafc" fontWeight={800}>Solution</text>
   </svg>
 );

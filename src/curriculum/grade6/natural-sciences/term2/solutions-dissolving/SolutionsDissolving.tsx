@@ -1,6 +1,7 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
 import { DissolvingSteps, SoluteSolvent } from '@/components/diagrams/Dissolving';
+import FairTest from '@/components/diagrams/FairTest';
 
 const learnSteps: LearnStep[] = [
   {
@@ -29,6 +30,7 @@ const learnSteps: LearnStep[] = [
     title: 'Changing how fast solids dissolve',
     content: (
       <div className="space-y-4 text-center">
+        <FairTest />
         <p className="text-lg text-slate-600">
           Stirring, heating the solvent, and using smaller pieces can make a solute <strong>dissolve</strong> faster. Evaporation can recover the solute from a solution.
         </p>
