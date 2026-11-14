@@ -1,6 +1,6 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
-import Timeline from '@/components/subjects/Timeline';
+import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
+        <ScaleTimeline
           events={[
             {"date": "1895", "title": "X-rays discovered", "description": "Wilhelm Röntgen discovered X-rays in 1895. Doctors could suddenly look inside the body without cutting it open."},
             {"date": "1928", "title": "Penicillin found", "description": "Alexander Fleming discovered penicillin from a mould. It became one of the first important antibiotics."},

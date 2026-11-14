@@ -1,6 +1,6 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
-import Timeline from '@/components/subjects/Timeline';
+import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
+        <ScaleTimeline
           events={[
             {"date": "1779", "title": "First frontier war begins", "description": "The first major frontier war broke out between settlers and Xhosa groups on the eastern frontier. Competition over land, cattle, and grazing helped cause the conflict."},
             {"date": "1811–1812", "title": "Fourth war clears Zuurveld", "description": "British-led forces drove many Xhosa west of the Fish River from the Zuurveld. This showed how colonial power increased pressure on African communities."},

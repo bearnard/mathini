@@ -1,6 +1,6 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
-import Timeline from '@/components/subjects/Timeline';
+import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
+        <ScaleTimeline
           events={[
             {"date": "1652", "title": "Cape settlement begins", "description": "The Dutch established a refreshment station at the Cape. Over time, some settlers became livestock farmers who wanted more grazing land."},
             {"date": "1702", "title": "Farmers move beyond limits", "description": "Dutch free burghers were allowed to move beyond earlier settlement limits. This encouraged more semi-nomadic stock farmers to travel inland."},

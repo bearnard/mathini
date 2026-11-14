@@ -1,6 +1,6 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
-import Timeline from '@/components/subjects/Timeline';
+import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
+        <ScaleTimeline
           events={[
             {"date": "45 BCE", "title": "Julian calendar begins", "description": "Julius Caesar introduced the Julian calendar in Rome. It helped organise dates more clearly across years."},
             {"date": "525 CE", "title": "AD dating proposed", "description": "Dionysius Exiguus helped popularise numbering years from AD 1. This became important for timelines using BC and AD."},

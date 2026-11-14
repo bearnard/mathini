@@ -1,6 +1,6 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
-import Timeline from '@/components/subjects/Timeline';
+import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
+        <ScaleTimeline
           events={[
             {"date": "c. 2600 BCE", "title": "Imhotep heals in Egypt", "description": "Imhotep became famous in ancient Egypt for knowledge linked to healing and learning. He represents some of the earliest recorded medical practice."},
             {"date": "c. 1550 BCE", "title": "Ebers Papyrus compiled", "description": "Ancient Egyptians recorded treatments and remedies in the Ebers Papyrus. It shows the use of plants, observation, and practical care."},
