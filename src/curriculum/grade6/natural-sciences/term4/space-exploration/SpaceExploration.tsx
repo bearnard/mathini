@@ -96,7 +96,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'What does an optical telescope collect?', options: ['Visible light', 'Radio waves', 'Sound waves', 'Heat from the ground'], answer: 'Visible light', explanation: 'Optical telescopes use mirrors or lenses to collect visible light.' },
   { prompt: 'What does a radio telescope collect?', options: ['Radio waves from space', 'Radio programmes from stations', 'Visible light from stars', 'Sound from space'], answer: 'Radio waves from space', explanation: 'Radio telescopes use big dishes to collect radio waves given off by objects in space.' },
   { prompt: 'Which telescope can still work in the daytime or through cloud?', options: ['A radio telescope', 'An optical telescope', 'Both, but only in summer', 'Neither of them can'], answer: 'A radio telescope', explanation: 'Radio waves pass through clouds and are not blocked by daylight.' },

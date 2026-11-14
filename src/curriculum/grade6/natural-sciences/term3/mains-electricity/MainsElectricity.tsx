@@ -84,7 +84,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'Where is most of South Africa’s mains electricity made?', options: ['In power stations', 'In the electricity meter at each house', 'In the plugs on the wall', 'In the pylons along the road'], answer: 'In power stations', explanation: 'Pylons and meters only carry or measure electricity. Power stations make it.' },
   { prompt: 'Which sequence shows how a coal power station makes electricity?', options: ['Coal burns, water boils, steam turns a turbine, generator makes electricity', 'Coal burns, steam is cooled, water turns a generator, turbine makes electricity', 'Coal is crushed, wind blows the turbine, then the generator makes steam', 'Coal heats the pylons, pylons turn the generator, then the turbine makes heat'], answer: 'Coal burns, water boils, steam turns a turbine, generator makes electricity', explanation: 'Heat makes steam, steam spins the turbine, and the turbine drives the generator.' },
   { prompt: 'What does the steam do in a power station?', options: ['Spins the turbine', 'Cools the coal down', 'Carries electricity along the wires', 'Fills the generator with electrons'], answer: 'Spins the turbine', explanation: 'Moving steam pushes against the turbine blades and makes them turn.' },

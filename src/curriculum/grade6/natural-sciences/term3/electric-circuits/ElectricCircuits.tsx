@@ -94,7 +94,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'What supplies the energy in a simple electric circuit?', options: ['A cell or battery', 'The connecting wires', 'The bulb', 'The switch'], answer: 'A cell or battery', explanation: 'Wires, switches and bulbs do not make energy. They carry it, control it or change it.' },
   { prompt: 'What does the bulb do with the electrical energy?', options: ['Changes it into light and heat', 'Stores it so it can be used later', 'Makes more of it for the cell', 'Sends it back to the cell again'], answer: 'Changes it into light and heat', explanation: 'The bulb changes electrical energy into light (and some heat).' },
   { prompt: 'What energy changes happen in a torch?', options: ['Chemical to electrical to light and heat', 'Light to electrical to chemical to heat', 'Heat to chemical to light and sound', 'Electrical to chemical to light and sound'], answer: 'Chemical to electrical to light and heat', explanation: 'The cell stores chemical energy, which becomes electrical energy in the wires and light and heat in the bulb.' },

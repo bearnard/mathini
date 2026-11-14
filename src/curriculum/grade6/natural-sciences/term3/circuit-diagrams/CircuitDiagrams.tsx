@@ -78,7 +78,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'Why do scientists use circuit diagrams instead of pictures of real parts?', options: ['Symbols are quick to draw and everyone can read them', 'Symbols are the only way to make a circuit actually work', 'Pictures of real parts use up much more electricity', 'Circuits only work if they have been drawn on paper first'], answer: 'Symbols are quick to draw and everyone can read them', explanation: 'Standard symbols are fast and clear, and are read the same way everywhere.' },
   { prompt: 'Which description matches the symbol for a single cell?', options: ['One long thin line and one short thick line', 'Two thin lines that are exactly the same length', 'A circle with a cross inside it, joined to wires', 'A zig-zag line with sharp corners in the middle'], answer: 'One long thin line and one short thick line', explanation: 'A cell has a long line and a short, thick line.' },
   { prompt: 'What does a battery symbol show?', options: ['Two or more cells joined together', 'One very large cell all on its own', 'A cell with a small bulb attached to it', 'A single cell and a closed switch together'], answer: 'Two or more cells joined together', explanation: 'A battery is made of two or more cells.' },
