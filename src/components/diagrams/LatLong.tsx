@@ -137,13 +137,13 @@ export const LatLongGrid = ({ className }: DiagramProps) => {
       </desc>
       <defs>
         <marker id="ll-arrow" markerWidth={3.4} markerHeight={3.4} refX={1.7} refY={1.7} orient="auto-start-reverse">
-          <path d="M0,0 L3.4,1.7 L0,3.4Z" fill={LAT} />
+          <path d="M0,0 L3.4,1.7 L0,3.4Z" fill={GOLD} />
         </marker>
         <marker id="ll-south" markerWidth={3.4} markerHeight={3.4} refX={1.7} refY={1.7} orient="auto">
           <path d="M0,0 L3.4,1.7 L0,3.4Z" fill="#e2e8f0" />
         </marker>
         <marker id="ll-east" markerWidth={3.4} markerHeight={3.4} refX={1.7} refY={1.7} orient="auto">
-          <path d="M0,0 L3.4,1.7 L0,3.4Z" fill={LON} />
+          <path d="M0,0 L3.4,1.7 L0,3.4Z" fill={GOLD} />
         </marker>
       </defs>
 
@@ -156,19 +156,19 @@ export const LatLongGrid = ({ className }: DiagramProps) => {
       ))}
 
       {/* Johannesburg's own two lines: the latitude line runs east-west */}
-      <line x1={X0 + 3} x2={right - 3} y1={cy} y2={cy} stroke={LAT} strokeWidth={1.4} markerStart="url(#ll-arrow)" markerEnd="url(#ll-arrow)" />
-      <line x1={cx} x2={cx} y1={Y0} y2={bottom} stroke={LON} strokeWidth={1.4} />
+      <line x1={X0 + 3} x2={right - 3} y1={cy} y2={cy} stroke={GOLD} strokeWidth={1.2} strokeDasharray="2.4 1.6" markerStart="url(#ll-arrow)" markerEnd="url(#ll-arrow)" />
+      <line x1={cx} x2={cx} y1={Y0} y2={bottom} stroke={GOLD} strokeWidth={1.2} strokeDasharray="2.4 1.6" />
       <circle cx={cx} cy={cy} r={2.6} fill={GOLD} stroke="#0f172a" strokeWidth={0.7} />
       <text x={cx - 4} y={cy - 4} textAnchor="end" fontSize={4} fill={GOLD} fontWeight={800}>{CITY.name}</text>
 
       {/* the numbers are measured from the Equator (south, down the side) and from the Prime Meridian (east, along the bottom) */}
       <path d={`M${X0 - 14} ${Y0 + 1.5} L${X0 - 14} ${cy - 1}`} stroke="#e2e8f0" strokeWidth={1} markerEnd="url(#ll-south)" />
-      <text textAnchor="end" fontSize={4} fill={LAT} fontWeight={800}>
+      <text textAnchor="end" fontSize={4} fill={GOLD} fontWeight={800}>
         <tspan x={X0 - 17} y={(Y0 + cy) / 2 - 1.4} fontSize={3.2} fill="#94a3b8" fontWeight={600}>about</tspan>
-        <tspan x={X0 - 17} dy={4.6}>26°S</tspan>
+        <tspan x={X0 - 17} dy={4.6} fill={GOLD}>26°S</tspan>
       </text>
-      <path d={`M${X0 + 1.5} ${bottom + 4.5} L${cx - 1} ${bottom + 4.5}`} stroke={LON} strokeWidth={1} markerEnd="url(#ll-east)" />
-      <text textAnchor="middle" fontSize={4} fill={LON} fontWeight={800}>
+      <path d={`M${X0 + 1.5} ${bottom + 4.5} L${cx - 1} ${bottom + 4.5}`} stroke={GOLD} strokeWidth={1} markerEnd="url(#ll-east)" />
+      <text textAnchor="middle" fontSize={4} fill={GOLD} fontWeight={800}>
         <tspan x={(X0 + cx) / 2} y={bottom + 10.5} fontSize={3.2} fill="#94a3b8" fontWeight={600}>about</tspan>
         <tspan x={(X0 + cx) / 2} dy={4.4}>28°E</tspan>
       </text>
