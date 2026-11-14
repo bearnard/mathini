@@ -1,5 +1,7 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import { COMPASS_HOTSPOTS } from '@/components/diagrams/Compass';
+import { radialHotspots } from '../../../natural-sciences/_shared/diagrams/radialHotspots';
 import { CompassRose, DirectionMap } from '@/components/diagrams/Compass';
 
 const learnSteps: LearnStep[] = [
@@ -58,6 +60,8 @@ export const bank: GeoItem[] = [
   { prompt: 'Which intermediate direction is between south and west?', options: ['South-west', 'South-east', 'North-west', 'North-east'], answer: 'South-west', explanation: 'South-west is halfway between south and west.' },
   { prompt: 'On most maps, which direction is usually at the top?', options: ['North', 'South', 'East', 'West'], answer: 'North', explanation: 'Most maps place north at the top unless a compass rose shows otherwise.' },
   { prompt: 'Which tool would best help you describe that a clinic is north-west of a park?', options: ['Compass rose', 'Bar graph', 'Thermometer', 'Rain gauge'], answer: 'Compass rose', explanation: 'A compass rose gives the directions used to describe locations.' },
+  { kind: 'label', section: 'compass-directions', prompt: 'Label four directions on this compass rose.', Diagram: CompassRose, hotspots: radialHotspots(COMPASS_HOTSPOTS, ['ne', 'e', 'sw', 'w'], 12), options: ['North-east', 'East', 'South-west', 'West', 'South-east', 'North-west'], answer: 'ne=North-east|e=East|sw=South-west|w=West', explanation: 'East and west are cardinal directions. North-east and south-west are intermediate directions, halfway between two cardinal ones.' },
+
 ];
 
 const MapSkills = () => (

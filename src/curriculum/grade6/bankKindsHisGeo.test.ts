@@ -67,6 +67,10 @@ for (const subject of subjects) {
         const where = `${path.basename(file)} "${item.prompt}"`;
         assert.ok(item.explanation, `${where}: needs an explanation`);
         assert.ok(item.section, `${where}: needs a section tag`);
+        if (kindOf(item) === 'label') {
+          assert.ok((item.hotspots?.length ?? 0) >= 3, `${where}: at least 3 hotspots`);
+          assert.ok(item.options.length > (item.hotspots?.length ?? 0), `${where}: add at least one extra wrong label`);
+        }
         if (kindOf(item) === 'order') {
           assert.ok(item.options.length >= 3 && item.options.length <= 5, `${where}: 3-5 steps`);
           assert.match(item.prompt, /order/i, `${where}: the prompt must say it is an ordering question`);
