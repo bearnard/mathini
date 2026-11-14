@@ -166,3 +166,56 @@ test('optionNumber reads numeric options and nothing else', () => {
   assert.equal(optionNumber('Three'), null);
   assert.equal(optionNumber('2, 6, 18, 54'), null);
 });
+
+// ---- decimal comma (South African format) ----
+import { decimalPointsIn } from './questionQuality';
+
+const dq = (prompt: string, options: string[], answer: string, explanation = 'The explanation says why this is right.') => q(prompt, options, answer, explanation);
+
+test('decimal_point: a decimal point in the prompt, options, answer or explanation is rejected where the policy is reject', () => {
+  const inPrompt = dq('What is 0.4 + 0.3?', ['0,07', '0,7', '7', '0,12'], '0,7', 'Add the tenths: 4 + 3 = 7 tenths.');
+  const inOption = dq('Convert 750 ml to litres.', ['0,075 l', '0.75 l', '7,5 l', '75 l'], '0.75 l', 'Divide by 1 000.');
+  const inExplanation = dq('Convert 500 g to kilograms.', ['0,05 kg', '0,5 kg', '5 kg', '50 kg'], '0,5 kg', '500 / 1 000 = 0.5 kg.');
+  const money = dq('A pen costs R18 and a ruler R12. How much in total?', ['R30', 'R6', 'R216', 'R3'], 'R30', 'R18 + R12 = R30, not R30.50 or R18.50.');
+  for (const x of [inPrompt, inOption, inExplanation, money]) {
+    const r = checkQuestion(x, { decimalComma: 'reject' });
+    assert.equal(r.ok, false, x.prompt);
+    const d = r.reasons.find((y) => y.code === 'decimal_point');
+    assert.equal(d?.severity, 'reject');
+    assert.match(d?.detail ?? '', /comma \(3,5 km; R18,50\) and times with a colon \(14:30\)/);
+  }
+  assert.match(checkQuestion(inOption, { decimalComma: 'reject' }).reasons.find((y) => y.code === 'decimal_point')?.detail ?? '', /0\.75/);
+});
+
+test('decimal_point: severity follows the policy: warn lowers the score but keeps the question; unset is not checked at all', () => {
+  const x = dq('What is 1.3 + 0.7?', ['1,0', '1,37', '2,0', '20'], '2,0', 'The tenths add up to 10.');
+  const w = checkQuestion(x, { decimalComma: 'warn' });
+  assert.equal(w.ok, true);
+  assert.equal(w.reasons.find((y) => y.code === 'decimal_point')?.severity, 'warn');
+  assert.ok(w.score > 0 && w.score < SCORE_CLEAN);
+  assert.equal(checkQuestion(x, {}).reasons.some((y) => y.code === 'decimal_point'), false, 'no policy: not checked (IT/CAT code, sciences, languages...)');
+  assert.equal(checkQuestion(x).ok, true);
+});
+
+test('decimal_point: times written 14.30 are flagged too (CAPS writes 14:30)', () => {
+  const x = dq('A bus leaves at 14.30 and the trip takes 45 minutes. When does it arrive?', ['15:15', '14:75', '15:30', '16:15'], '15:15', 'Add 45 minutes to 14:30.');
+  assert.equal(checkQuestion(x, { decimalComma: 'reject' }).ok, false);
+  assert.deepEqual(decimalPointsIn('leaves at 14.30 and arrives 15.15'), ['14.30', '15.15']);
+});
+
+test('decimal_point: NOT flagged: comma decimals, colon times, thousands with a space, plain integers, sentence ends and list numbers', () => {
+  const fine = [
+    dq('Convert 3,5 m to centimetres.', ['35 cm', '350 cm', '3 500 cm', '3,5 cm'], '350 cm', '3,5 x 100 = 350 cm.'),
+    dq('A bus leaves at 14:30 for 45 minutes. When does it arrive?', ['15:15', '14:75', '15:30', '16:15'], '15:15', 'Add 45 minutes to 14:30.'),
+    dq('A school has 1 250 learners. How many are 1 000 or more short of 2 000?', ['750', '1 250', '250', '2 000'], '750', '2 000 - 1 250 = 750.'),
+    dq('Sam has R5. 3 more rand arrive. How much now?', ['R8', 'R2', 'R15', 'R53'], 'R8', 'R5 + R3 = R8. The sentence ends with a full stop.'),
+    dq('What is 12 + 7? Choose 1. one of the options.', ['19', '5', '84', '127'], '19', 'The sum of 12 and 7 is 19.'),
+  ];
+  for (const x of fine) assert.equal(checkQuestion(x, { decimalComma: 'reject' }).reasons.some((y) => y.code === 'decimal_point'), false, x.prompt);
+});
+
+test('decimal_point: version numbers and IP addresses are only a problem if the policy is set, and the policy is never set for IT/CAT (formatPolicy)', () => {
+  const x = dq('Which address is a valid private IPv4 address?', ['192.168.1.10', '300.1.1.1', '192.168.1', '192,168,1,10'], '192.168.1.10', 'Private ranges include 192.168.x.x.');
+  assert.equal(checkQuestion(x, {}).reasons.some((y) => y.code === 'decimal_point'), false);
+  assert.ok(decimalPointsIn('192.168.1.10').length === 1, 'the matcher sees one dotted number');
+});

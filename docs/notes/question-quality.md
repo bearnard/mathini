@@ -153,6 +153,33 @@ curated bank (the five hooks fall back to it), so run steps 2 and 3 in the same 
   down), five insert errors in a row stop it too; stopped tasks are marked failed for the next run.
 Not verified here: that `wrangler whoami` refreshes a really expired token (it is wrangler's documented behaviour; the code treats a failed refresh as an abort).
 
+### The decimal-comma rule (maths-type pools)
+
+South African CAPS writes decimals with a comma (3,5 km; R18,50) and times with a colon (14:30). `questionQuality` has a `decimal_point` reason
+(a digit, a full stop, a digit anywhere in the prompt, options, answer or explanation; times like 14.30 are caught the same way). Whether it applies, and how
+hard, is decided by `src/lib/server/caps/formatPolicy.ts`, never by the validator itself:
+
+| Where | Policy |
+|---|---|
+| Grade 6 maths tasks (`gr6-*`, code grade6) | **reject**: never stored, never served (the Grade 6 lessons and banks are converted) |
+| Maths and Mathematical Literacy of Grades 7-12 (codes math, ml) | **warn**: served after clean rows (their lessons are not converted yet; hiding them would gut those pools) |
+| IT, CAT (code, versions, IP addresses), sciences (LaTeX), accounting, languages, Grade 6 non-maths | not checked |
+
+The same policy runs at insert time (top-up/scheduled, seed script) and in the backfill. The generators are told the same thing: the Grade 6 preamble requires
+the comma, a space for thousands and a colon for times. Grades 7-12 are NOT told (their maths is LaTeX, where `$3,5$` renders with a stray space).
+
+Targeted backfill (touches only the rows the rule can change; re-scores each with the FULL validator so nothing else shifts):
+```bash
+# dry run: reads production (SELECT only), prints counts per grade first, writes ONE SQL file, changes nothing
+node --import tsx scripts/backfill-quality.ts --only decimal-point --source remote --out ~/Source/private/mathini/backups/decimal-rule
+# apply (the owner)
+node --import tsx scripts/backfill-quality.ts --only decimal-point --source remote --out ~/Source/private/mathini/backups/decimal-rule \
+     --apply --remote --confirm-prod=46f7b6a0-c555-4168-ae45-681dba2ceec2
+```
+Check after: `SELECT COUNT(*) FROM item_cache WHERE task LIKE 'gr6-%' AND (quality_score IS NULL OR quality_score > 0) AND (prompt GLOB '*[0-9].[0-9]*' OR options GLOB '*[0-9].[0-9]*' OR answer GLOB '*[0-9].[0-9]*' OR explanation GLOB '*[0-9].[0-9]*')` should be 0.
+After applying, refill the two emptied Grade 6 decimal pools right away (`seed.sh --grade 6 --slugs gr6-decimal-fractions-t2,gr6-decimal-place-value-t1`); until then learners
+get the few remaining pool rows plus the curated bank.
+
 ### Rollback
 
 Re-deploy the previous build (`wrangler rollback`). The migration is additive and can stay: old code ignores the columns. To undo a backfill:

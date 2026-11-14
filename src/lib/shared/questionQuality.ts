@@ -37,6 +37,7 @@ export type ReasonCode =
   | 'off_topic_numeric'
   | 'place_boilerplate'
   | 'misconception_frame'
+  | 'decimal_point'
   | 'all_none_of_the_above'
   | 'explanation_skips_key';
 
@@ -53,11 +54,19 @@ export interface QuestionLike {
   explanation?: string | null;
 }
 
+export type DecimalPolicy = 'reject' | 'warn';
+
 export interface QualityContext {
   /** Prompts already in the same task, for the near-duplicate check. */
   existingPrompts?: readonly string[];
   /** False for subjects that are not about calculation (so a numeric word problem is flagged). Default true. */
   numericOk?: boolean;
+  /**
+   * South African CAPS writes decimals with a COMMA (3,5 km; R18,50) and times with a colon (14:30). Set for maths-type tasks only (see
+   * caps/formatPolicy.ts): 'reject' where the whole grade is already converted (Grade 6), 'warn' where it is not yet. Unset = not checked
+   * (IT/CAT code, versions, IP addresses, other subjects).
+   */
+  decimalComma?: DecimalPolicy;
 }
 
 export interface QualityResult {
@@ -79,6 +88,7 @@ export const WARN_WEIGHTS: Record<string, number> = {
   misconception_frame: 15,
   all_none_of_the_above: 25,
   explanation_skips_key: 25,
+  decimal_point: 25,
 };
 
 /** Key >= this many times the next longest option AND this many characters longer = a strong length tell (reject). */
@@ -138,6 +148,14 @@ const SCRATCHPAD_RE = new RegExp(
   ].join('|'),
   'i',
 );
+
+/** A digit, a full stop, a digit: "3.5", "R18.50", "14.30". Spaces and sentence ends ("R5. 3 more") do not match. */
+export const DECIMAL_POINT_RE = /(?<=\d)\.(?=\d)/;
+
+/** The decimal-point numbers in a text, e.g. ["3.5", "R18.50"], for the message. */
+export function decimalPointsIn(text: string): string[] {
+  return [...text.matchAll(/\d+(?:\.\d+)+/g)].map((m) => m[0]);
+}
 
 /** Lower-case alphanumerics and single spaces. */
 export function simplify(s: string): string {
@@ -289,6 +307,13 @@ export function checkQuestion(q: QuestionLike, ctx: QualityContext = {}): Qualit
   // topic drift
   if (ctx.numericOk === false && /\d/.test(prompt) && NUMERIC_PROBLEM_RE.test(prompt)) {
     add('off_topic_numeric', 'warn', 'a numeric word problem in a subject that is not about calculation');
+  }
+  if (ctx.decimalComma) {
+    const found = [prompt, ...options, answer, expl].flatMap(decimalPointsIn);
+    if (found.length) {
+      const shown = [...new Set(found)].slice(0, 3).join(', ');
+      add('decimal_point', ctx.decimalComma, `decimal point in ${shown}: write decimals and money with a comma (3,5 km; R18,50) and times with a colon (14:30)`);
+    }
   }
   if (PLACE_RE.test(prompt)) add('place_boilerplate', 'warn', 'wrapped in a South African place name (invented-premise risk)');
   if (MISCONCEPTION_RE.test(prompt)) add('misconception_frame', 'warn', 'uses the "a student says / which is the misconception" frame');

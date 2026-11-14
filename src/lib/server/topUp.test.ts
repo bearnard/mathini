@@ -163,3 +163,28 @@ test('semantic duplicates are dropped when an embedder and vector index are supp
   assert.ok((t.raw.prepare('SELECT COUNT(*) AS n FROM item_cache WHERE vector_id IS NOT NULL').get() as { n: number }).n >= 1);
   assert.ok((s.rejectedByReason.semantic_duplicate ?? 0) >= 1);
 });
+
+test('a Grade 6 maths question with a decimal point is rejected at insert; the same question in a Grade 7 maths pool is stored with a lower score', async () => {
+  const withPoint = (n: number): GeneratedItem => ({
+    prompt: `A rope is ${n}.5 metres long and a second rope is 1.5 metres long. How long are they together in total?`,
+    options: [`${n + 2},0 m`, `${n + 1},5 m`, `${n + 3},5 m`, `${n + 9},0 m`],
+    answer: `${n + 2},0 m`,
+    explanation: `Add ${n},5 and 1,5 to get ${n + 2},0 metres.`,
+  });
+  const t6 = await fixture({ 'gr6-length-t3': { rows: 0, target: 2 } });
+  if (!t6) return;
+  let first = true;
+  const s6 = await runTopUp({ db: t6.db, generate: async () => { if (first) { first = false; return [withPoint(3), withPoint(4)]; } return cleanBatch(); } }, limits());
+  assert.ok((s6.rejectedByReason.decimal_point ?? 0) >= 2, JSON.stringify(s6.rejectedByReason));
+  assert.equal(s6.accepted, 2);
+  const stored6 = (t6.raw.prepare("SELECT prompt FROM item_cache WHERE task='gr6-length-t3'").all() as { prompt: string }[]).map((r) => r.prompt);
+  assert.ok(stored6.every((p) => !/\d\.\d/.test(p)), 'no decimal-point question was stored for Grade 6 maths');
+
+  const t7 = await fixture({ 'gr7-decimal-fractions-t2': { rows: 0, target: 2 } });
+  if (!t7) return;
+  let once = true;
+  const s7 = await runTopUp({ db: t7.db, generate: async () => { if (once) { once = false; return [withPoint(3), withPoint(4)]; } return []; } }, limits());
+  assert.equal(s7.accepted, 2);
+  const rows7 = t7.raw.prepare("SELECT quality_score AS q, quality_flags AS f FROM item_cache WHERE task='gr7-decimal-fractions-t2'").all() as { q: number; f: string }[];
+  for (const r of rows7) { assert.ok(r.q > 0 && r.q < 80); assert.ok(JSON.parse(r.f).includes('decimal_point')); }
+});

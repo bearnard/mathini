@@ -72,3 +72,8 @@ test('load-secrets.sh: a token you supply yourself is used as is and marked NOT 
   const failed = sourceLoader({ WRANGLER_HOME: dir, WRANGLER_REFRESH_CMD: 'false', GEMINI_API_KEY: 'g', CF_ACCOUNT_ID: 'a' });
   assert.match(failed.stdout, /token=STILL\.THERE source=wrangler-oauth/);
 });
+
+test('the seed script applies the decimal-comma format policy at insert (Grade 6 maths rejects a decimal point)', () => {
+  assert.match(seed, /decimalPolicyFor\(taskKey, spec\.code\)/);
+  assert.match(seed, /decimalComma: decimalPolicyFor/);
+});
