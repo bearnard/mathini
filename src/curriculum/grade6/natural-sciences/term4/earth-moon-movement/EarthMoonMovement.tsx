@@ -3,6 +3,7 @@ import { NstItem, LearnStep } from '../../_shared/types';
 import { moonLabelHotspots } from '../../_shared/diagrams/moonLabel';
 import MoonPhases from '@/components/diagrams/MoonPhases';
 import MoonStepper from '@/components/diagrams/MoonStepper';
+import MoonDual from '@/components/diagrams/moon3d/MoonDual';
 
 const learnSteps: LearnStep[] = [
   {
@@ -70,6 +71,14 @@ const learnSteps: LearnStep[] = [
         <p className="rounded-xl bg-indigo-50 p-4 font-semibold text-indigo-700">
           In South Africa the <strong>waxing</strong> Moon is lit on the <strong>left</strong>. The <strong>waning</strong> Moon is lit on the <strong>right</strong>.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: 'Where is the Moon?',
+    content: (
+      <div className="space-y-4 text-center">
+        <MoonDual />
       </div>
     ),
   },
