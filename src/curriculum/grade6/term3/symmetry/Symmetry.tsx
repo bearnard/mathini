@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import { HeartFold, ReflectionGrid, SymmetryLines } from '../../../../components/diagrams/maths/Symmetry';
 
 const learnSteps: LearnStep[] = [
     {
@@ -7,10 +8,7 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">A shape has <strong>line symmetry</strong> if one half is a mirror image of the other half.</p>
-                <div className="relative bg-slate-50 p-6 rounded-xl inline-flex items-center justify-center min-w-56">
-                    <div className="text-7xl font-bold text-indigo-600">♡</div>
-                    <div className="absolute top-4 bottom-4 w-1 bg-indigo-400 rounded-full border border-indigo-200 border-dashed" />
-                </div>
+                <HeartFold />
                 <p className="text-slate-500">The dashed line shows where the heart can fold exactly in half.</p>
             </div>
         ),
@@ -20,23 +18,7 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Some shapes have more than one line of symmetry. Count every different fold line that matches both sides.</p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-                    <div className="bg-indigo-50 p-5 rounded-xl">
-                        <div className="text-6xl text-indigo-600 mb-2">□</div>
-                        <p className="font-bold text-indigo-900">Square</p>
-                        <p className="text-indigo-700">4 lines</p>
-                    </div>
-                    <div className="bg-emerald-50 p-5 rounded-xl">
-                        <div className="text-6xl text-emerald-600 mb-2">▭</div>
-                        <p className="font-bold text-emerald-900">Rectangle</p>
-                        <p className="text-emerald-700">2 lines</p>
-                    </div>
-                    <div className="bg-amber-50 p-5 rounded-xl">
-                        <div className="text-6xl text-amber-600 mb-2">△</div>
-                        <p className="font-bold text-amber-900">Equilateral triangle</p>
-                        <p className="text-amber-700">3 lines</p>
-                    </div>
-                </div>
+                <SymmetryLines />
             </div>
         ),
     },
@@ -45,11 +27,7 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">A <strong>reflection</strong> is a mirror image. It flips a shape over a mirror line without changing its size.</p>
-                <div className="flex items-center justify-center gap-6 bg-slate-50 p-6 rounded-xl max-w-lg mx-auto">
-                    <div className="text-6xl">🦋</div>
-                    <div className="h-24 w-1 bg-slate-300 rounded-full" />
-                    <div className="text-6xl scale-x-[-1]">🦋</div>
-                </div>
+                <ReflectionGrid />
                 <p className="text-slate-500">The reflected image is the same distance from the mirror line on the opposite side.</p>
             </div>
         ),

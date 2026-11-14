@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  LADDERS, addSameDenominator, changeOf, compareFractions, convert, countOn, decimalComma, equivalent, hcf, hundredthsGrid, simplify, formatRand, prismMeasures, rectMeasures, elapsedMinutes, formatDuration, formatNumber, fromMinutes, handAngles, stats, stepFactors, to24, toMinutes, workedExample,
+  LADDERS, SOLIDS, SYMMETRY_LINES, addSameDenominator, reflectX, regularPolygon, changeOf, compareFractions, convert, countOn, decimalComma, equivalent, hcf, hundredthsGrid, simplify, formatRand, prismMeasures, rectMeasures, elapsedMinutes, formatDuration, formatNumber, fromMinutes, handAngles, stats, stepFactors, to24, toMinutes, workedExample,
 } from './mathsHelpers';
 
 test('handAngles: 3:00 has the minute hand on 12 and the hour hand on 3', () => {
@@ -217,4 +217,39 @@ test('decimalComma', () => {
   assert.equal(decimalComma(0.3, 1), '0,3');
   assert.equal(decimalComma(0.07), '0,07');
   assert.equal(decimalComma(0.45 + 0.3), '0,75');
+});
+
+test('SOLIDS: the counts the Grade 6 lessons give', () => {
+  assert.deepEqual(SOLIDS.cube, { faces: 6, edges: 12, vertices: 8, flat: true });
+  assert.deepEqual(SOLIDS['rectangular prism'], { faces: 6, edges: 12, vertices: 8, flat: true });
+  assert.deepEqual(SOLIDS['square pyramid'], { faces: 5, edges: 8, vertices: 5, flat: true });
+  assert.deepEqual(SOLIDS.cylinder, { faces: 3, edges: 2, vertices: 0, flat: false });
+  assert.deepEqual(SOLIDS.cone, { faces: 2, edges: 1, vertices: 1, flat: false });
+  assert.deepEqual(SOLIDS.sphere, { faces: 1, edges: 0, vertices: 0, flat: false });
+});
+
+test('SOLIDS: every flat solid passes the teacher-level check F + V - E = 2 (not shown to learners)', () => {
+  for (const [name, f] of Object.entries(SOLIDS)) {
+    if (f.flat) assert.equal(f.faces + f.vertices - f.edges, 2, name);
+  }
+});
+
+test('regularPolygon: right number of corners, first at the top, all on the circle', () => {
+  for (const n of [3, 4, 5, 6, 8]) {
+    const pts = regularPolygon(n, 50, 50, 20);
+    assert.equal(pts.length, n);
+    assert.deepEqual(pts[0], { x: 50, y: 30 });
+    for (const p of pts) assert.ok(Math.abs(Math.hypot(p.x - 50, p.y - 50) - 20) < 0.01, `${n}-gon`);
+  }
+});
+
+test('SYMMETRY_LINES: square 4, rectangle 2, equilateral triangle 3', () => {
+  assert.deepEqual({ ...SYMMETRY_LINES }, { square: 4, rectangle: 2, 'equilateral triangle': 3 });
+});
+
+test('reflectX: same distance on the other side, and reflecting twice returns the point', () => {
+  assert.equal(reflectX(3, 5), 7);
+  assert.equal(reflectX(8, 5), 2);
+  assert.equal(reflectX(5, 5), 5); // a point on the mirror stays put
+  for (const x of [0, 1.5, 4, 9]) assert.equal(reflectX(reflectX(x, 5), 5), x);
 });

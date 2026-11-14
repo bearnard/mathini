@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import PolygonRow from '../../../../components/diagrams/maths/Polygons';
 
 const learnSteps: LearnStep[] = [
   {
@@ -7,14 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6 text-center">
         <p className="text-lg text-slate-600">A <strong>2D shape</strong> is flat. Count its <strong>sides</strong> to name it.</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto">
-          {[['Triangle', 3], ['Quadrilateral', 4], ['Pentagon', 5], ['Hexagon', 6]].map(([name, sides]) => (
-            <div key={name} className="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
-              <p className="font-bold text-slate-800">{name}</p>
-              <p className="text-sm text-slate-500">{sides} sides</p>
-            </div>
-          ))}
-        </div>
+        <PolygonRow shapes={[{ name: 'Triangle', sides: 3 }, { name: 'Quadrilateral', sides: 4 }, { name: 'Pentagon', sides: 5 }, { name: 'Hexagon', sides: 6 }]} />
       </div>
     ),
   },
@@ -23,14 +17,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6 text-center">
         <p className="text-lg text-slate-600">Shapes with straight sides are called <strong>polygons</strong>.</p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-2xl mx-auto">
-          {[['Octagon', 8], ['Circle', 0], ['Rectangle', 4]].map(([name, sides]) => (
-            <div key={name} className="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
-              <p className="font-bold text-slate-800">{name}</p>
-              <p className="text-sm text-slate-500">{(sides as number) > 0 ? `${sides} sides` : 'No straight sides'}</p>
-            </div>
-          ))}
-        </div>
+        <PolygonRow shapes={[{ name: 'Octagon', sides: 8 }, { name: 'Rectangle', sides: 4, rect: true }, { name: 'Circle', sides: 0 }]} />
       </div>
     ),
   },

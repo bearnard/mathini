@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import SolidsRow from '../../../../components/diagrams/maths/Solids';
 
 const learnSteps: LearnStep[] = [
   {
@@ -7,23 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6 text-center">
         <p className="text-lg text-slate-600">A 3D object has <strong>faces</strong> (flat sides), <strong>edges</strong> (where faces meet) and <strong>vertices</strong> (corners).</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-          <div className="bg-amber-50 p-5 rounded-xl border border-amber-100">
-            <div className="text-5xl mb-3">🎲</div>
-            <p className="font-bold text-slate-800">Cube</p>
-            <p className="text-sm text-slate-500">6 faces, 12 edges, 8 vertices</p>
-          </div>
-          <div className="bg-sky-50 p-5 rounded-xl border border-sky-100">
-            <div className="text-5xl mb-3">🥫</div>
-            <p className="font-bold text-slate-800">Cylinder</p>
-            <p className="text-sm text-slate-500">3 faces, 2 edges, 0 vertices</p>
-          </div>
-          <div className="bg-fuchsia-50 p-5 rounded-xl border border-fuchsia-100">
-            <div className="text-5xl mb-3">🔶</div>
-            <p className="font-bold text-slate-800">Square Pyramid</p>
-            <p className="text-sm text-slate-500">5 faces, 8 edges, 5 vertices</p>
-          </div>
-        </div>
+        <SolidsRow names={['cube', 'cylinder', 'square pyramid']} />
       </div>
     ),
   },
@@ -32,23 +17,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6 text-center">
         <p className="text-lg text-slate-600">Different 3D objects have different numbers of faces, edges, and vertices.</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-          <div className="bg-rose-50 p-5 rounded-xl border border-rose-100">
-            <div className="text-5xl mb-3">🍦</div>
-            <p className="font-bold text-slate-800">Cone</p>
-            <p className="text-sm text-slate-500">2 faces, 1 edge, 1 vertex</p>
-          </div>
-          <div className="bg-emerald-50 p-5 rounded-xl border border-emerald-100">
-            <div className="text-5xl mb-3">⚽</div>
-            <p className="font-bold text-slate-800">Sphere</p>
-            <p className="text-sm text-slate-500">1 face, 0 edges, 0 vertices</p>
-          </div>
-          <div className="bg-indigo-50 p-5 rounded-xl border border-indigo-100">
-            <div className="text-5xl mb-3">📦</div>
-            <p className="font-bold text-slate-800">Rectangular Prism</p>
-            <p className="text-sm text-slate-500">6 faces, 12 edges, 8 vertices</p>
-          </div>
-        </div>
+        <SolidsRow names={['cone', 'sphere', 'rectangular prism']} />
       </div>
     ),
   },
