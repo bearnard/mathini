@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { SELECTION_STEPS } from '../../../../../components/diagrams/business/steps';
 
 const learnSteps: LearnStep[] = [
   {
@@ -33,17 +35,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           Selection is the process of choosing the <strong>best candidate</strong> from those who applied.
         </p>
-        <div className="bg-slate-50 p-5 rounded-xl text-left">
-          <p className="font-bold text-slate-800 mb-2">Selection steps:</p>
-          <ol className="list-decimal list-inside text-slate-700 space-y-1">
-            <li>Receive and sort applications</li>
-            <li>Shortlist candidates who meet the minimum requirements</li>
-            <li>Conduct tests (aptitude, psychometric, practical)</li>
-            <li>Interview shortlisted candidates</li>
-            <li>Check references and verify qualifications</li>
-            <li>Appoint the most suitable candidate</li>
-          </ol>
-        </div>
+        <NumberedSteps steps={SELECTION_STEPS} tone="violet" heading="Selection steps:" label="Selection steps" />
       </div>
     ),
   },

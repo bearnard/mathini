@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { CRISIS_STEPS } from '../../../../../components/diagrams/business/steps';
 
 const learnSteps: LearnStep[] = [
   {
@@ -82,16 +84,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           A <strong>crisis</strong> is an unexpected, urgent event that threatens the business. Crisis management follows a structured response.
         </p>
-        <div className="bg-amber-50 p-5 rounded-xl text-left">
-          <p className="font-bold text-amber-800 mb-2">Crisis management steps:</p>
-          <ol className="list-decimal list-inside space-y-1 text-slate-700">
-            <li><strong>Identify</strong> the crisis and assess the scale of the damage</li>
-            <li><strong>Activate</strong> the crisis management team and plan</li>
-            <li><strong>Communicate</strong> honestly with stakeholders (staff, customers, media)</li>
-            <li><strong>Contain</strong> the damage and restore operations</li>
-            <li><strong>Review and learn</strong> — update the crisis plan based on lessons learnt</li>
-          </ol>
-        </div>
+        <NumberedSteps steps={CRISIS_STEPS} tone="amber" heading="Crisis management steps:" label="Crisis management steps" />
       </div>
     ),
   },

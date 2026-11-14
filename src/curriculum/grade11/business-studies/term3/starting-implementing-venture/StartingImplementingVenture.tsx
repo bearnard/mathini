@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { START_UP_STEPS } from '../../../../../components/diagrams/business/steps';
 
 const learnSteps: LearnStep[] = [
   {
@@ -29,25 +31,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           Launching a venture involves a logical sequence of <strong>start-up steps</strong>.
         </p>
-        <div className="grid gap-2 md:grid-cols-2 text-left text-sm">
-          {[
-            { n: '1', step: 'Identify a viable opportunity', desc: 'Confirm market need through research.' },
-            { n: '2', step: 'Write a business plan', desc: 'Detail the vision, financials and operations.' },
-            { n: '3', step: 'Choose a form of ownership', desc: 'Decide on sole proprietor, Pty Ltd, co-op, etc.' },
-            { n: '4', step: 'Register the business', desc: 'Register with CIPC, SARS, and relevant councils.' },
-            { n: '5', step: 'Secure funding', desc: 'Apply for loans, grants or attract investors.' },
-            { n: '6', step: 'Set up operations', desc: 'Rent premises, buy equipment, hire staff.' },
-            { n: '7', step: 'Launch and market', desc: 'Open officially, run promotions, serve customers.' },
-          ].map(({ n, step, desc }) => (
-            <div key={n} className="rounded-xl bg-slate-100 p-3 flex gap-2">
-              <span className="text-blue-600 font-bold text-lg">{n}.</span>
-              <div>
-                <strong className="text-slate-700">{step}</strong>
-                <p className="text-slate-600">{desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <NumberedSteps steps={START_UP_STEPS} tone="blue" label="Key steps to start a business" />
       </div>
     ),
   },
