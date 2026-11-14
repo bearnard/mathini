@@ -8,6 +8,7 @@ import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
 import { NstItem, LearnStep } from './types';
 import { useNstItems } from './useNstItems';
+import NstQuestionBody, { incorrectMessageFor } from './NstQuestionBody';
 import { track } from '../../../../lib/client/analytics';
 import { usePracticeTracking } from '../../../../lib/client/usePracticeTracking';
 import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
@@ -36,13 +37,14 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
   // Signed-in learners' answers are recorded (XP, badges, leaderboards). Subject code matches the leaderboard filter.
   const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'nst');
 
-  const handleSelect = (option: string) => {
-    if (selected !== null || !current) {
+  // One result per question for every item kind. Correct = fully right (the whole sequence, every label).
+  const handleResult = (correct: boolean, chosen?: string) => {
+    if (isCorrect !== null || !current) {
       return;
     }
-    setSelected(option);
-    recordAttempt(option === current.answer, current.section, current.id);
-    if (option === current.answer) {
+    if (chosen !== undefined) setSelected(chosen);
+    recordAttempt(correct, current.section, current.id, current.prompt);
+    if (correct) {
       setIsCorrect(true);
       setStreak((s) => s + 1);
       triggerConfetti();
@@ -163,30 +165,7 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
                       {current.prompt}
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {current.options.map((option, idx) => {
-                        let variant: 'outline' | 'success' | 'danger' = 'outline';
-                        if (selected !== null) {
-                          if (option === current.answer) {
-                            variant = 'success';
-                          } else if (option === selected) {
-                            variant = 'danger';
-                          }
-                        }
-
-                        return (
-                          <Button
-                            key={idx}
-                            onClick={() => handleSelect(option)}
-                            disabled={selected !== null}
-                            variant={variant}
-                            className="text-lg py-6"
-                          >
-                            {option}
-                          </Button>
-                        );
-                      })}
-                    </div>
+                    <NstQuestionBody item={current} questionKey={`${index}:${current.prompt}`} selected={selected} onResult={handleResult} />
                   </>
                 )}
               </Card>
@@ -197,13 +176,7 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
                   correctMessage={
                     current?.explanation ? `Correct! ${current.explanation}` : 'Correct! Well done!'
                   }
-                  incorrectMessage={
-                    current
-                      ? `Not quite. The answer is "${current.answer}".${
-                          current.explanation ? ` ${current.explanation}` : ''
-                        }`
-                      : 'Not quite.'
-                  }
+                  incorrectMessage={incorrectMessageFor(current)}
                   onNext={handleNext}
                 />
               </div>

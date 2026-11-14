@@ -6,6 +6,7 @@ import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
 import { buildMockTest, scoreByTopic, topicsToRevise, type MockItem, type TopicBank } from './mockTest';
 import { onFinish, onStart } from './mockTestEvents';
+import NstQuestionBody, { incorrectMessageFor } from './NstQuestionBody';
 
 interface NstMockTestProps {
   title: string;
@@ -59,10 +60,10 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
     onFinish({ title, score, total: questions.length, byTopic, reaskFixed, reaskTotal });
   }, [phase]);
 
-  const handleSelect = (option: string) => {
-    if (selected !== null || !current) return;
-    const correct = option === current.answer;
-    setSelected(option);
+  // One result per question for every item kind; correct = fully right.
+  const handleResult = (correct: boolean, chosen?: string) => {
+    if (isCorrect !== null || !current) return;
+    if (chosen !== undefined) setSelected(chosen);
     setIsCorrect(correct);
     setStreak((s) => (correct ? s + 1 : 0));
     if (correct) triggerConfetti();
@@ -214,26 +215,12 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
             <>
               <p className="text-sm font-medium text-slate-400 text-center">{current.topic}</p>
               <p className="text-xl md:text-2xl font-bold text-slate-800 text-center">{current.prompt}</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {current.options.map((option, idx) => {
-                  let variant: 'outline' | 'success' | 'danger' = 'outline';
-                  if (selected !== null) {
-                    if (option === current.answer) variant = 'success';
-                    else if (option === selected) variant = 'danger';
-                  }
-                  return (
-                    <Button
-                      key={idx}
-                      onClick={() => handleSelect(option)}
-                      disabled={selected !== null}
-                      variant={variant}
-                      className="text-lg py-6"
-                    >
-                      {option}
-                    </Button>
-                  );
-                })}
-              </div>
+              <NstQuestionBody
+                item={current}
+                questionKey={`${phase}:${index}:${current.prompt}`}
+                selected={selected}
+                onResult={handleResult}
+              />
             </>
           )}
         </Card>
@@ -242,11 +229,7 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
           <Feedback
             isCorrect={isCorrect}
             correctMessage={current?.explanation ? `Correct! ${current.explanation}` : 'Correct! Well done!'}
-            incorrectMessage={
-              current
-                ? `Not quite. The answer is "${current.answer}".${current.explanation ? ` ${current.explanation}` : ''}`
-                : 'Not quite.'
-            }
+            incorrectMessage={incorrectMessageFor(current)}
             onNext={handleNext}
             actionLabel={isLastQuestion ? 'See results' : 'Next'}
           />

@@ -9,10 +9,11 @@ import path from 'node:path';
 const root = path.join(process.cwd(), 'src');
 const read = (rel: string) => fs.readFileSync(path.join(root, rel), 'utf8');
 const SHELLS = [
-  { file: 'curriculum/grade6/natural-sciences/_shared/NstTopic.tsx', subject: 'nst', prompt: false },
-  { file: 'curriculum/grade6/geography/_shared/GeoTopic.tsx', subject: 'geo', prompt: true },
-  { file: 'curriculum/grade6/history/_shared/HisTopic.tsx', subject: 'his', prompt: true },
-  { file: 'curriculum/grade6/afrikaans/_shared/AfrikaansTopic.tsx', subject: 'afr', prompt: true },
+  // NST generalised handleSelect into handleResult(correct) so order and label items record the same way as mcq.
+  { file: 'curriculum/grade6/natural-sciences/_shared/NstTopic.tsx', subject: 'nst', handler: /const handleResult = /, call: /recordAttempt\(correct, current\.section, current\.id, current\.prompt\)/ },
+  { file: 'curriculum/grade6/geography/_shared/GeoTopic.tsx', subject: 'geo' },
+  { file: 'curriculum/grade6/history/_shared/HisTopic.tsx', subject: 'his' },
+  { file: 'curriculum/grade6/afrikaans/_shared/AfrikaansTopic.tsx', subject: 'afr' },
 ];
 const block = (src: string, start: RegExp): string => {
   const m = start.exec(src);
@@ -22,17 +23,17 @@ const block = (src: string, start: RegExp): string => {
   return src.slice(from, end);
 };
 
-// `prompt: false` for NstTopic only until mathini-graeme adds the 4th arg in their NstTopic rewrite; then flip it to true.
-for (const { file, subject, prompt } of SHELLS) {
-  test(`${path.basename(file)} records answers with subject "${subject}"`, () => {
+for (const { file, subject, handler, call } of SHELLS as { file: string; subject: string; handler?: RegExp; call?: RegExp }[]) {
+  test(`${path.basename(file)} records answers with subject "${subject}" and the prompt`, () => {
     const src = read(file);
     assert.ok(src.includes(`useAttemptRecorder(task, '${subject}')`), 'uses the recorder with its own subject code and its task');
-    assert.match(block(src, /const handleSelect = /), prompt
-      ? /recordAttempt\(option === current\.answer, current\.section, current\.id, current\.prompt\)/
-      : /recordAttempt\(option === current\.answer, current\.section, current\.id(, current\.prompt)?\)/);
+    assert.match(
+      block(src, handler ?? /const handleSelect = /),
+      call ?? /recordAttempt\(option === current\.answer, current\.section, current\.id, current\.prompt\)/,
+    );
     assert.match(block(src, /const handleReset = /), /resetStreak\(\)/);
     assert.match(src, /<BadgeUnlockModal badges=\{pendingBadges\} onDismiss=\{clearBadges\} \/>/);
-    // recorded exactly once per answer: only handleSelect calls it
+    // recorded exactly once per answer: only the answer handler calls it
     assert.equal((src.match(/recordAttempt\(/g) ?? []).length, 1);
   });
   test(`${path.basename(file)}: the recorder subject matches the practice-tracking subject`, () => {

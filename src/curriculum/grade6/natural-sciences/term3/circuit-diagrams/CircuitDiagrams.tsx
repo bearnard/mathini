@@ -1,5 +1,6 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import CircuitPartsDiagram, { circuitPartsHotspots } from '../../_shared/diagrams/CircuitPartsDiagram';
 
 const learnSteps: LearnStep[] = [
   {
@@ -93,6 +94,7 @@ export const bank: NstItem[] = [
   { prompt: 'Which is the best way to draw the wires in a circuit diagram?', options: ['Straight lines with a ruler, in a complete loop', 'Curly lines so that the parts look like real wires', 'Lines drawn straight through the middle of each symbol', 'Short lines with small gaps left between the parts'], answer: 'Straight lines with a ruler, in a complete loop', explanation: 'Neat, straight, joined wires make a diagram easy to read.' },
   { prompt: 'Why is it better to draw a circuit diagram before building a circuit?', options: ['You can check the plan first', 'The diagram itself supplies energy to the circuit', 'It stops the cell from going flat too quickly', 'It makes the bulbs in the circuit much brighter'], answer: 'You can check the plan first', explanation: 'Planning on paper helps you find mistakes early.' },
   { prompt: 'Zinhle draws a circuit with a battery of two cells and one lamp. How would she draw the battery?', options: ['Two cell symbols joined side by side', 'One cell symbol drawn twice as thick', 'A cell symbol with two lamp symbols', 'One long line with no short line'], answer: 'Two cell symbols joined side by side', explanation: 'A battery symbol is two or more cell symbols together.' },
+  { kind: 'label', section: 'circuit-parts', prompt: 'Label the parts of this simple circuit.', Diagram: CircuitPartsDiagram, hotspots: circuitPartsHotspots, options: ['Cell', 'Switch', 'Bulb', 'Connecting wire', 'Buzzer'], answer: 'cell=Cell|switch=Switch|bulb=Bulb|wire=Connecting wire', explanation: 'The cell is the energy source, the switch opens and closes the circuit, the bulb is the output, and the wires join them.' },
 ];
 
 const CircuitDiagrams = () => (

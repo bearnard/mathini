@@ -1,5 +1,6 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import { moonLabelHotspots } from '../../_shared/diagrams/moonLabel';
 import MoonPhases from '@/components/diagrams/MoonPhases';
 
 const learnSteps: LearnStep[] = [
@@ -103,6 +104,9 @@ export const bank: NstItem[] = [
   { prompt: 'What does waning mean?', options: ['The lit part is getting smaller', 'The lit part is getting bigger', 'The Moon is moving faster', 'The Moon is getting closer to Earth'], answer: 'The lit part is getting smaller', explanation: 'Waxing means growing. Waning means shrinking.' },
   { prompt: 'What does a gibbous Moon look like?', options: ['More than half lit', 'Less than half lit', 'Exactly half lit', 'Not lit at all'], answer: 'More than half lit', explanation: 'Gibbous is between the quarter and the full moon. Crescent is less than half.' },
   { prompt: 'A learner says: \u201cThe Moon has phases because Earth\u2019s shadow covers it.\u201d What is wrong with this?', options: ['Where the Moon is in its orbit', 'Earth is too small to make any shadow in space', 'The shadow is made by the Sun, not by Earth itself', 'Shadows only ever fall on the Moon in summer'], answer: 'Where the Moon is in its orbit', explanation: 'Earth\u2019s shadow causes a lunar eclipse, which is rare. Phases happen every month.' },
+  { kind: 'order', section: 'moon-phases', prompt: 'Put the eight phases of the Moon in order, starting at New Moon.', options: ['New Moon', 'Waxing Crescent', 'First Quarter', 'Waxing Gibbous', 'Full Moon', 'Waning Gibbous', 'Last Quarter', 'Waning Crescent'], answer: 'New Moon|Waxing Crescent|First Quarter|Waxing Gibbous|Full Moon|Waning Gibbous|Last Quarter|Waning Crescent', explanation: 'The lit part grows (waxing) to Full Moon, then shrinks (waning) back to New Moon. The cycle takes about 29 days.' },
+  { kind: 'order', section: 'day-night', prompt: 'Put these events of one day in order, as Earth turns.', options: ['The Sun appears in the east at sunrise', 'The Sun is highest in the sky at midday', 'The Sun disappears in the west at sunset', 'It is dark where you live'], answer: 'The Sun appears in the east at sunrise|The Sun is highest in the sky at midday|The Sun disappears in the west at sunset|It is dark where you live', explanation: 'Earth spins towards the east, so the Sun seems to rise in the east, cross the sky and set in the west.' },
+  { kind: 'label', section: 'moon-phases', prompt: 'Label four of the Moon phases in this diagram, as seen from South Africa.', Diagram: MoonPhases, hotspots: moonLabelHotspots(['new-moon', 'first-quarter', 'full-moon', 'last-quarter']), options: ['New Moon', 'First Quarter', 'Full Moon', 'Last Quarter', 'Waxing Crescent', 'Waning Gibbous'], answer: 'new-moon=New Moon|first-quarter=First Quarter|full-moon=Full Moon|last-quarter=Last Quarter', explanation: 'At New Moon we see none of the lit side and at Full Moon all of it. From South Africa the left half is lit at First Quarter and the right half at Last Quarter.' },
 ];
 
 const EarthMoonMovement = () => (
