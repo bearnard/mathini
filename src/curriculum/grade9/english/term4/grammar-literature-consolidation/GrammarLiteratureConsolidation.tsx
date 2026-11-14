@@ -47,32 +47,32 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'How does punctuation affect the meaning of a literary passage?',
-    options: ['punctuation creates rhythm, emphasis, and clarifies meaning', 'it has no effect on meaning', 'it is only decorative', 'it always distracts from literature'],
-    answer: 'punctuation creates rhythm, emphasis, and clarifies meaning',
+    options: ['it creates rhythm and emphasis and makes the meaning clear', 'it has no effect on the meaning of a passage', 'it is only there to make the page look neat', 'it always distracts the reader from the passage'],
+    answer: 'it creates rhythm and emphasis and makes the meaning clear',
     explanation: 'Careful punctuation shapes how readers experience a text emotionally and intellectually.',
   },
   {
     prompt: 'A character\'s dialogue often reveals...',
-    options: ['personality, education level, and emotional state', 'nothing about the character', 'only what the narrator says', 'the author\'s spelling mistakes'],
-    answer: 'personality, education level, and emotional state',
+    options: ['personality, level of education and emotional state', 'nothing about the character, only the plot', 'only what the narrator wants us to think', 'the spelling mistakes that the author made'],
+    answer: 'personality, level of education and emotional state',
     explanation: 'Word choices and speech patterns characterize individuals in literature.',
   },
   {
     prompt: 'What is a recurring theme in literature?',
-    options: ['a central idea explored across multiple texts or within a single text', 'a plot element that only happens once', 'the title of a book', 'minor background detail'],
-    answer: 'a central idea explored across multiple texts or within a single text',
+    options: ['a central idea explored in one text or across several', 'a plot event that takes place a single time', 'the title of a book or of a chapter', 'a minor detail in the background of a scene'],
+    answer: 'a central idea explored in one text or across several',
     explanation: 'Recognizing themes helps you understand deeper meaning.',
   },
   {
     prompt: 'When a writer uses active voice in a literary passage, the effect is usually...',
-    options: ['direct, powerful, and places emphasis on the character\'s action', 'always passive and indirect', 'confusing and unclear', 'boring without variation'],
-    answer: 'direct, powerful, and places emphasis on the character\'s action',
+    options: ["direct and powerful, stressing the character's action", 'indirect and passive, hiding who acted', 'confusing and hard for the reader to follow', 'dull, with no variety in the sentences'],
+    answer: "direct and powerful, stressing the character's action",
     explanation: 'Voice choice shapes how readers perceive character agency and event impact.',
   },
   {
     prompt: 'What does context-based vocabulary mean?',
-    options: ['understanding a word\'s meaning from the surrounding text', 'memorizing dictionary definitions only', 'ignoring how words are used', 'guessing wildly'],
-    answer: 'understanding a word\'s meaning from the surrounding text',
+    options: ["working out a word's meaning from the text around it", 'memorising the dictionary meanings of the words', 'ignoring the way that words are used in a text', 'looking up each word in a dictionary as you read'],
+    answer: "working out a word's meaning from the text around it",
     explanation: 'Context clues help you infer meaning from surrounding words and ideas.',
   },
   {
@@ -83,14 +83,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When answering an integrated MCQ, you should...',
-    options: ['identify the language feature and explain its literary effect', 'choose randomly', 'ignore the literary context', 'only name the grammar term'],
-    answer: 'identify the language feature and explain its literary effect',
+    options: ['name the language feature and explain its effect in the text', 'pick the answer that sounds the most like a literary one', 'ignore the literary context and answer from grammar', 'name the grammar term and say nothing about its effect'],
+    answer: 'name the language feature and explain its effect in the text',
     explanation: 'Integration requires connecting both language knowledge and literary analysis.',
   },
   {
     prompt: 'Which answer best demonstrates consolidation of language and literature?',
-    options: ['The writer uses short sentences to create urgency and match the character\'s panic.', 'Short sentences are used here.', 'Sentences are important in writing.', 'The passage has many sentences.'],
-    answer: 'The writer uses short sentences to create urgency and match the character\'s panic.',
+    options: ["Short sentences create urgency and match the character's panic.", 'Short sentences are used in this part of the passage.', 'Sentences are an important part of all good writing.', 'The passage has many sentences of varying length.'],
+    answer: "Short sentences create urgency and match the character's panic.",
     explanation: 'Strong consolidation connects technique, effect, and textual purpose.',
   },
 ];

@@ -45,38 +45,38 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Tense consistency within a paragraph means...',
-    options: ['maintaining the same tense unless the meaning requires a shift', 'randomly changing tenses', 'using only past tense', 'avoiding all tenses'],
-    answer: 'maintaining the same tense unless the meaning requires a shift',
+    options: ['keeping to the same tense unless the meaning needs a change', 'changing tenses whenever you start a new sentence', 'using only the past tense in every paragraph', 'leaving out verb tenses so that the text is brief'],
+    answer: 'keeping to the same tense unless the meaning needs a change',
     explanation: 'Tense consistency helps readers follow events clearly.',
   },
   {
     prompt: 'Common sentence errors include...',
-    options: ['run-ons, fragments, and subject-verb disagreement', 'using periods', 'using commas correctly', 'clear organization'],
-    answer: 'run-ons, fragments, and subject-verb disagreement',
+    options: ['run-ons, fragments and subject-verb disagreement', 'using full stops to end each of the sentences', 'using commas in the right places in a text', 'organising the ideas in a clear order for readers'],
+    answer: 'run-ons, fragments and subject-verb disagreement',
     explanation: 'Recognizing these errors helps you avoid them in your writing.',
   },
   {
     prompt: 'Punctuation serves to...',
-    options: ['clarify meaning and separate ideas for the reader', 'decorate writing', 'slow readers down', 'make writing harder'],
+    options: ['clarify meaning and separate ideas for the reader', 'decorate the writing so that it looks neat', 'slow the reader down on every line', 'make the writing harder to read'],
     answer: 'clarify meaning and separate ideas for the reader',
     explanation: 'Correct punctuation is essential for clear communication.',
   },
   {
     prompt: 'Subject-verb agreement means...',
-    options: ['the subject and verb must match in number (singular or plural)', 'subjects can ignore verbs', 'verbs never change form', 'plurality does not matter'],
-    answer: 'the subject and verb must match in number (singular or plural)',
+    options: ['the subject and verb match in number, singular or plural', 'subjects may disagree with their verbs', 'verbs keep the same form for any subject', 'singular and plural forms are not important'],
+    answer: 'the subject and verb match in number, singular or plural',
     explanation: 'Agreement is fundamental to grammatically correct sentences.',
   },
   {
     prompt: 'A run-on sentence occurs when...',
-    options: ['two independent clauses are joined without proper punctuation or conjunctions', 'a sentence is very long', 'there are too many adjectives', 'someone talks too much'],
-    answer: 'two independent clauses are joined without proper punctuation or conjunctions',
+    options: ['two independent clauses run together without correct links', 'a sentence is very long and has many details', 'a sentence has too many adjectives in it', 'a speaker talks for too long at one time'],
+    answer: 'two independent clauses run together without correct links',
     explanation: 'Run-ons confuse readers; fix them by separating or joining correctly.',
   },
   {
     prompt: 'A sentence fragment is...',
-    options: ['an incomplete sentence lacking a subject or main verb', 'a very short sentence', 'a sentence with few words', 'a creative choice'],
-    answer: 'an incomplete sentence lacking a subject or main verb',
+    options: ['an incomplete sentence with no subject or main verb', 'a very short sentence of two or three words', 'a sentence with few words in it', 'a creative choice that is correct in essays'],
+    answer: 'an incomplete sentence with no subject or main verb',
     explanation: 'Fragments are errors unless used deliberately for stylistic effect.',
   },
   {
@@ -87,8 +87,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When correcting grammar in your own writing, look for...',
-    options: ['tense errors, agreement problems, and punctuation mistakes', 'only capital letters', 'only long words', 'nothing in particular'],
-    answer: 'tense errors, agreement problems, and punctuation mistakes',
+    options: ['tense errors, agreement problems and punctuation mistakes', 'only the capital letters at the start of sentences', 'only the long words in each sentence', 'things that have gone wrong, wherever they are'],
+    answer: 'tense errors, agreement problems and punctuation mistakes',
     explanation: 'Systematic checking catches the most common and impactful errors.',
   },
 ];

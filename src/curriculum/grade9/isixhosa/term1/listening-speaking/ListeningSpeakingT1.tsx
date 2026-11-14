@@ -45,19 +45,19 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'A short speech should be structured with...',
-    options: ['introduction, body, conclusion', 'random ideas', 'only jokes', 'no clear order'],
-    answer: 'introduction, body, conclusion',
+    options: ['introduction, body and conclusion', 'a joke, a story and a song', 'facts, figures and a quotation only', 'a list of points with no order to them'],
+    answer: 'introduction, body and conclusion',
     explanation: 'Clear structure helps listeners follow your message and retain key points.',
   },
   {
     prompt: 'In a critical discussion, you should...',
-    options: ['listen, think, then respond thoughtfully', 'interrupt immediately', 'dismiss all other views', 'speak without evidence'],
-    answer: 'listen, think, then respond thoughtfully',
+    options: ['listen, think, then respond with care', 'interrupt at once to make your point first', 'dismiss the views of everyone who disagrees', 'speak with strong feeling but give no evidence'],
+    answer: 'listen, think, then respond with care',
     explanation: 'Critical thinking requires you to consider and engage with different perspectives carefully.',
   },
   {
     prompt: 'Which question is best for an interview about daily life?',
-    options: ['Ngubani wena?', 'Wenza ntoni emva kwesikolo?', 'Uyabona?', 'Thula!'],
+    options: ['Ngubani igama lakho?', 'Wenza ntoni emva kwesikolo?', 'Uneminyaka emingaphi?', 'Uphuma phi?'],
     answer: 'Wenza ntoni emva kwesikolo?',
     explanation: 'Open-ended questions invite detailed responses about personal experiences.',
   },
@@ -69,20 +69,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A fluent speaker...',
-    options: ['speaks smoothly without long pauses', 'speaks very quickly', 'whispers quietly', 'mumbles words'],
+    options: ['speaks smoothly without long pauses', 'speaks very fast so as to save time', 'speaks very softly so that no one hears', 'speaks so that the words run together'],
     answer: 'speaks smoothly without long pauses',
     explanation: 'Fluency means speaking with natural rhythm and confidence, not just speed.',
   },
   {
     prompt: 'In an interview, if you do not understand a question, you should...',
-    options: ['ask the speaker to repeat or clarify', 'guess an answer', 'stay silent', 'change the topic'],
-    answer: 'ask the speaker to repeat or clarify',
+    options: ['ask the speaker to repeat or explain it', 'guess an answer and hope that it fits', 'stay silent and wait for the next question', 'change the topic to one you know well'],
+    answer: 'ask the speaker to repeat or explain it',
     explanation: 'Seeking clarification shows engagement and ensures you answer the right question.',
   },
   {
     prompt: 'Which listening strategy helps you follow a complex message?',
-    options: ['take notes on key words and ideas', 'hope to remember it all', 'ignore unfamiliar words', 'doodle instead'],
-    answer: 'take notes on key words and ideas',
+    options: ['take notes of the key words and ideas', 'hope that you will remember all of it', 'skip the words that you do not know', 'draw pictures instead of writing anything down'],
+    answer: 'take notes of the key words and ideas',
     explanation: 'Note-taking keeps you active and helps you remember important information.',
   },
   {

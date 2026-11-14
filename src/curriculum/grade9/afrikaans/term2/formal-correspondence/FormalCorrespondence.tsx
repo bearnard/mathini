@@ -64,8 +64,8 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "How should you approach this skill?",
-    options: ["Carefully", "Quickly", "Slowly", "Randomly"],
-    answer: "Carefully",
+    options: ['Carefully, step by step', 'Quickly, without checking', 'By guessing the answers', 'By copying from a friend'],
+    answer: 'Carefully, step by step',
     explanation: "Careful practice builds strong skills.",
   },
   {

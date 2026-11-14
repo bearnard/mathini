@@ -44,25 +44,25 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'The theme of a story is...',
-    options: ['the main message or universal idea', 'the title of the book', 'the setting location', 'the character names'],
-    answer: 'the main message or universal idea',
+    options: ['the main message or big idea', 'the title that the author chose for the book', 'the place where the story is set', 'the names of the people in the story'],
+    answer: 'the main message or big idea',
     explanation: 'Theme is the underlying idea that gives meaning to the entire story.',
   },
   {
     prompt: 'To find the theme, you should...',
-    options: ['look for patterns and repeated ideas', 'skim only the first page', 'ignore character actions', 'guess randomly'],
-    answer: 'look for patterns and repeated ideas',
+    options: ['look for patterns and ideas that repeat', 'read the first page and skip the rest', 'pay no attention to what the characters do', 'pick a theme from the title alone'],
+    answer: 'look for patterns and ideas that repeat',
     explanation: 'Themes emerge through repeated imagery, character choices, and plot events.',
   },
   {
     prompt: 'Tone in a story refers to...',
-    options: ['the author\'s attitude toward the subject', 'how loud characters speak', 'the number of pages', 'the font size'],
-    answer: 'the author\'s attitude toward the subject',
+    options: ["the author's attitude to the subject", 'how loudly the characters speak in a scene', 'how many pages the story runs to', 'the size of the print used in the book'],
+    answer: "the author's attitude to the subject",
     explanation: 'Tone is the emotional quality created by word choice and narrative perspective.',
   },
   {
     prompt: 'Supporting evidence for a theme comes from...',
-    options: ['specific quotes or descriptions from the text', 'what you wish the story said', 'the book cover', 'other people\'s opinions'],
+    options: ['specific quotes or descriptions from the text', 'what you wish that the story said', 'the picture on the front cover of the book', 'the opinions that other people hold about it'],
     answer: 'specific quotes or descriptions from the text',
     explanation: 'Evidence proves your interpretation and makes your analysis credible.',
   },
@@ -80,14 +80,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Poetry often uses imagery to...',
-    options: ['create vivid pictures in the reader\'s mind', 'confuse the reader', 'avoid meaning', 'list random facts'],
-    answer: 'create vivid pictures in the reader\'s mind',
+    options: ["create vivid pictures in the reader's mind", 'make the poem harder for readers to follow', 'hide the meaning of the poem from the reader', 'give a list of facts about the topic'],
+    answer: "create vivid pictures in the reader's mind",
     explanation: 'Imagery appeals to the senses and makes abstract ideas concrete and memorable.',
   },
   {
     prompt: 'Setting in a story helps readers...',
-    options: ['understand the context and atmosphere', 'skip important parts', 'ignore characters', 'finish quickly'],
-    answer: 'understand the context and atmosphere',
+    options: ['understand the context and the atmosphere', 'skip parts of the story that seem dull', 'pay no heed to the people in the story', 'finish reading the story more quickly'],
+    answer: 'understand the context and the atmosphere',
     explanation: 'Setting shapes character behaviour and influences the mood of the narrative.',
   },
 ];

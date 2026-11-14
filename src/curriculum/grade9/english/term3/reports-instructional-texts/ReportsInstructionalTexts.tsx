@@ -51,20 +51,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which feature is essential in a report?',
-    options: ['clear headings and logical organization', 'creative storytelling', 'emotional language', 'no structure needed'],
-    answer: 'clear headings and logical organization',
+    options: ['clear headings and a logical organisation', 'a storyline that builds to a surprising ending', 'emotional language that moves the reader', 'a flexible structure that suits each writer'],
+    answer: 'clear headings and a logical organisation',
     explanation: 'Structure helps readers find and understand information quickly.',
   },
   {
     prompt: 'What should instructions include?',
-    options: ['numbered steps, imperative verbs, and clear language', 'only nouns and adjectives', 'no verb forms', 'random ordering'],
-    answer: 'numbered steps, imperative verbs, and clear language',
+    options: ['numbered steps, command verbs and clear language', 'descriptive nouns and adjectives and few verbs', 'long sentences that explain each step in depth', 'steps in any order that the writer likes'],
+    answer: 'numbered steps, command verbs and clear language',
     explanation: 'Effective instructions guide readers through sequential actions.',
   },
   {
     prompt: 'An imperative verb in an instruction is used to...',
-    options: ['give a command or tell someone to do something', 'ask a question', 'describe the past', 'express doubt'],
-    answer: 'give a command or tell someone to do something',
+    options: ['give a command or tell someone what to do', 'ask a question about the next step', 'describe an action that happened in the past', 'express doubt about how to do a step'],
+    answer: 'give a command or tell someone what to do',
     explanation: 'Imperative mood gives direct instructions: "Open the box." "Mix well."',
   },
   {
@@ -81,14 +81,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What makes instructions easy to follow?',
-    options: ['logical sequence, one action per step, and clear language', 'combining multiple actions in one step', 'using complex technical terms only', 'no numbering or organization'],
-    answer: 'logical sequence, one action per step, and clear language',
+    options: ['a logical order, one action per step and clear language', 'several actions combined in a single step', 'technical terms that only experts understand', 'steps with no numbers or order given to them'],
+    answer: 'a logical order, one action per step and clear language',
     explanation: 'Clear structure allows readers to complete tasks successfully.',
   },
   {
     prompt: 'Why is audience awareness important in functional writing?',
-    options: ['Different audiences need different detail levels and vocabulary.', 'All audiences are identical in need.', 'Audience doesn\'t affect writing choices.', 'Only experts matter as audiences.'],
-    answer: 'Different audiences need different detail levels and vocabulary.',
+    options: ['Different audiences need different levels of detail and vocabulary.', 'All audiences have the same needs, so one text suits all.', 'The audience has no effect on the writing choices made.', 'Only experts count as an audience for functional writing.'],
+    answer: 'Different audiences need different levels of detail and vocabulary.',
     explanation: 'Purpose and audience shape all functional writing decisions.',
   },
 ];

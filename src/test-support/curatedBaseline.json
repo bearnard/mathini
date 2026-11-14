@@ -1,14 +1,40 @@
 {
   "checked": 6655,
   "counts": {
-    "other": {
-      "duplicate_options": 5,
-      "explanation_missing": 17,
-      "filler_distractor": 51,
-      "key_in_prompt": 8,
+    "g10": {
+      "duplicate_options": 2,
+      "filler_distractor": 1,
+      "length_tell_strong": 65
+    },
+    "g11": {
+      "duplicate_options": 1,
+      "filler_distractor": 2,
+      "key_in_prompt": 1,
       "key_not_in_options": 1,
-      "length_tell_strong": 2123,
-      "near_duplicate": 7
+      "length_tell_strong": 701
+    },
+    "g12": {
+      "filler_distractor": 1,
+      "length_tell_strong": 110
+    },
+    "g7": {
+      "explanation_missing": 6,
+      "filler_distractor": 2,
+      "length_tell_strong": 121
+    },
+    "g8": {
+      "explanation_missing": 5,
+      "filler_distractor": 8,
+      "length_tell_strong": 259,
+      "near_duplicate": 2
+    },
+    "other": {
+      "duplicate_options": 1,
+      "explanation_missing": 5,
+      "filler_distractor": 5,
+      "key_in_prompt": 7,
+      "length_tell_strong": 44,
+      "near_duplicate": 5
     }
   }
 }

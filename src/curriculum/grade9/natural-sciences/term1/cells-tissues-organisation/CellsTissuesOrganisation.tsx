@@ -95,8 +95,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a tissue?',
-    options: ['A single cell', 'Similar cells working together', 'An organ', 'A body system'],
-    answer: 'Similar cells working together',
+    options: ['A single cell that has its own nucleus', 'A group of similar cells working together', 'A group of different organs working together', 'A group of organs that form one body system'],
+    answer: 'A group of similar cells working together',
     explanation: 'A tissue is a group of similar cells that perform the same function.',
   },
   {

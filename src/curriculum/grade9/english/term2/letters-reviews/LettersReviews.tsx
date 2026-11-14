@@ -45,8 +45,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Which is a feature of a formal letter?',
-    options: ['sender\'s address, date, recipient\'s address, proper salutation', 'no date needed', 'only first names', 'casual greetings like "Hi"'],
-    answer: 'sender\'s address, date, recipient\'s address, proper salutation',
+    options: ["sender's address, date, recipient's address and a proper greeting", 'the date at the end and a first-name greeting', 'a slogan at the top and a friendly closing line', 'a casual greeting such as "Hi" and no addresses'],
+    answer: "sender's address, date, recipient's address and a proper greeting",
     explanation: 'Formal letters follow strict formatting conventions to show respect and professionalism.',
   },
   {
@@ -63,19 +63,19 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is register in writing?',
-    options: ['the level of formality appropriate to the situation and audience', 'the book title', 'a list of names', 'the page number'],
-    answer: 'the level of formality appropriate to the situation and audience',
+    options: ['the level of formality that suits the situation and audience', 'the number of words used in a piece of writing', 'the choice between prose and verse in a text', 'the order in which paragraphs are arranged'],
+    answer: 'the level of formality that suits the situation and audience',
     explanation: 'Register helps match your language choices to context and reader.',
   },
   {
     prompt: 'A review should include...',
-    options: ['what is being reviewed, evaluation criteria, and recommendation', 'only positive comments', 'no specific examples', 'personal gossip'],
-    answer: 'what is being reviewed, evaluation criteria, and recommendation',
+    options: ['what is reviewed, criteria for judging it and a recommendation', 'only positive comments about what is being reviewed', 'a retelling of the whole plot or the contents of it', 'personal opinions about the people who made it'],
+    answer: 'what is reviewed, criteria for judging it and a recommendation',
     explanation: 'Structured reviews help readers make informed decisions.',
   },
   {
     prompt: 'Which statement shows an effective review criterion?',
-    options: ['The service was quick and accurate compared to competitors.', 'I liked it.', 'It exists.', 'It is a product.'],
+    options: ['The service was quick and accurate compared to competitors.', 'I liked it a lot and I would use it again.', 'It was nice and I think that others will like it.', 'It is a product that many people use every day.'],
     answer: 'The service was quick and accurate compared to competitors.',
     explanation: 'Specific criteria help readers understand the review\'s basis.',
   },
@@ -87,8 +87,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is register important in a letter to a teacher?',
-    options: ['It shows respect and professionalism in an educational relationship.', 'Teachers don\'t care about tone.', 'Casual language is always appropriate.', 'Letters to teachers need no planning.'],
-    answer: 'It shows respect and professionalism in an educational relationship.',
+    options: ['It shows respect and professionalism in a school relationship.', 'Teachers do not mind the tone that a learner uses.', 'A casual tone suits a teacher who is friendly.', 'A letter to a teacher needs no planning of its parts.'],
+    answer: 'It shows respect and professionalism in a school relationship.',
     explanation: 'Register acknowledges the nature and power dynamic of the relationship.',
   },
 ];

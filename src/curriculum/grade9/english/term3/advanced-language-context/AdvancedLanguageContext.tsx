@@ -52,8 +52,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why might a writer choose passive voice?',
-    options: ['to emphasize the action rather than who performs it', 'to make writing longer only', 'to avoid meaning', 'to confuse readers'],
-    answer: 'to emphasize the action rather than who performs it',
+    options: ['to stress the action rather than who does it', 'to make the sentence longer and more formal', 'to hide the meaning of the action performed', 'to make the sentence a question for readers'],
+    answer: 'to stress the action rather than who does it',
     explanation: 'Passive voice shifts focus to the action or recipient instead of the subject.',
   },
   {
@@ -64,8 +64,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What happens to the verb in reported speech?',
-    options: ['the tense often shifts to match the reporting verb', 'it stays exactly the same always', 'the verb disappears', 'it becomes a noun'],
-    answer: 'the tense often shifts to match the reporting verb',
+    options: ['the tense often shifts back to fit the reporting verb', "it stays exactly as it was in the speaker's words", 'it is dropped and replaced by a noun', 'it moves forward into the future tense'],
+    answer: 'the tense often shifts back to fit the reporting verb',
     explanation: 'Reported speech typically backshifts tense: "I will come" → "She said she would come."',
   },
   {
@@ -82,13 +82,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What effect does hyperbole create?',
-    options: ['extreme exaggeration for emphasis or humour', 'complete accuracy only', 'boredom and passivity', 'confusion without effect'],
+    options: ['extreme exaggeration for emphasis or humour', 'a plain statement that is exact and accurate', 'a comparison that uses the words "like" or "as"', 'a gentle understatement that plays down a fact'],
     answer: 'extreme exaggeration for emphasis or humour',
     explanation: 'Hyperbole overstates for dramatic impact or comic effect.',
   },
   {
     prompt: 'Identify the complex sentence pattern that shows cause and effect:',
-    options: ['Because it rained, the match was postponed.', 'The match was postponed.', 'It rained.', 'The match is fun.'],
+    options: ['Because it rained, the match was postponed.', 'The match was postponed and it rained.', 'It rained, and the match was a good one.', 'The match was postponed. It was raining.'],
     answer: 'Because it rained, the match was postponed.',
     explanation: 'The subordinate clause (Because...) explains why the main action occurred.',
   },

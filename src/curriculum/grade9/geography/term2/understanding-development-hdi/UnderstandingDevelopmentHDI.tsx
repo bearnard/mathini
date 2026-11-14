@@ -118,14 +118,14 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What does development typically include?',
-    options: ['Only economic growth', 'Improvements in health, education, income, and living conditions', 'Population size only', 'Land area'],
-    answer: 'Improvements in health, education, income, and living conditions',
+    options: ['Economic growth and no other changes', 'Better health, education, income and living conditions', 'A larger population in a country or region', 'A larger area of land that a country controls'],
+    answer: 'Better health, education, income and living conditions',
     explanation: 'Development is multidimensional, covering social, economic, and environmental wellbeing.',
   },
   {
     prompt: 'What is the Human Development Index (HDI)?',
-    options: ['A measure of GDP only', 'A measure comparing life expectancy, education, and income across countries', 'The population of a country', 'The number of cities'],
-    answer: 'A measure comparing life expectancy, education, and income across countries',
+    options: ['A measure of the GDP of a country and nothing else', 'A measure that compares life expectancy, education and income', 'A count of the people who live in a country', 'A count of the cities found in each country'],
+    answer: 'A measure that compares life expectancy, education and income',
     explanation: 'The HDI combines three key indicators to provide a holistic view of human development.',
   },
   {
@@ -142,20 +142,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which region typically has the highest HDI scores?',
-    options: ['Sub-Saharan Africa', 'Northern Europe and developed countries', 'South Asia', 'Middle East'],
-    answer: 'Northern Europe and developed countries',
+    options: ['Sub-Saharan Africa, with its many small economies', 'Northern Europe and other developed regions', 'South Asia, with its very large population', 'The Middle East, with its oil wealth'],
+    answer: 'Northern Europe and other developed regions',
     explanation: 'Scandinavian countries, Australia, Canada, and other developed nations have the highest HDI rankings.',
   },
   {
     prompt: 'What does high life expectancy in the HDI indicate?',
-    options: ['Economic wealth only', 'Good healthcare and living conditions', 'Population size', 'Land area'],
+    options: ['Great wealth, with no link to health', 'Good healthcare and living conditions', 'A large population in the country', 'A large land area in the country'],
     answer: 'Good healthcare and living conditions',
     explanation: 'Life expectancy reflects the health status and quality of healthcare available to people.',
   },
   {
     prompt: 'Why might a country have unequal development between regions?',
-    options: ['All countries develop uniformly', 'Differences in resources, infrastructure, education access, and economic opportunities', 'It\'s impossible to vary', 'Only historical reasons'],
-    answer: 'Differences in resources, infrastructure, education access, and economic opportunities',
+    options: ['All countries develop evenly, so it does not happen', 'Differences in resources, infrastructure, schooling and economic chances', 'It cannot happen, as regions share their resources', 'It happens for historical reasons only, and no other'],
+    answer: 'Differences in resources, infrastructure, schooling and economic chances',
     explanation: 'Rural areas, remote regions, and areas with fewer resources often lag behind urban centres.',
   },
   {
@@ -166,14 +166,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does a low life expectancy in the HDI suggest?',
-    options: ['Good healthcare', 'High income', 'Health challenges, disease, and poor living conditions', 'Better education'],
-    answer: 'Health challenges, disease, and poor living conditions',
+    options: ['Good healthcare for all the people', 'A high income for most of the people', 'Health problems, disease and poor living conditions', 'Better education than other countries have'],
+    answer: 'Health problems, disease and poor living conditions',
     explanation: 'Low life expectancy indicates health crises, disease burden, and inadequate healthcare.',
   },
   {
     prompt: 'How can education improvement contribute to development?',
-    options: ['It doesn\'t help', 'Skills, employment opportunities, and higher incomes improve', 'Only in cities', 'Only for girls'],
-    answer: 'Skills, employment opportunities, and higher incomes improve',
+    options: ['It does not help, since jobs do not need skills', 'Skills, jobs and higher incomes all rise', 'It helps only people who live in towns', 'It helps only girls, who find jobs more easily'],
+    answer: 'Skills, jobs and higher incomes all rise',
     explanation: 'Education increases employability, earning potential, and informed decision-making.',
   },
 ];

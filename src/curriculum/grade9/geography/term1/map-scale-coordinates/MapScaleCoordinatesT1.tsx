@@ -102,8 +102,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What does map scale show?',
-    options: ['The height of mountains', 'The relationship between distances on the map and real-world distances', 'The age of the map', 'The number of settlements'],
-    answer: 'The relationship between distances on the map and real-world distances',
+    options: ['The height of the mountains shown on the map', 'How distances on the map relate to real distances', 'The age of the map and the date it was made', 'The number of settlements shown on the map'],
+    answer: 'How distances on the map relate to real distances',
     explanation: 'Map scale converts map measurements into real-world distances.',
   },
   {
@@ -120,8 +120,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a linear or bar scale?',
-    options: ['A fraction like 1:50,000', 'A line marked with actual distances (e.g. 0—1—2 km)', 'A description in words', 'The compass rose on a map'],
-    answer: 'A line marked with actual distances (e.g. 0—1—2 km)',
+    options: ['A fraction written as a ratio, such as 1:50 000', 'A line marked with real distances, such as 0—1—2 km', 'A sentence in words, such as "one cm to one km"', 'The compass rose that shows direction on a map'],
+    answer: 'A line marked with real distances, such as 0—1—2 km',
     explanation: 'A bar scale allows you to measure distances directly by comparing distances on the map to the marked scale.',
   },
   {
@@ -132,20 +132,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What are latitude lines?',
-    options: ['Lines running north-south', 'Lines running east-west and measured from the Equator', 'Contour lines on a topographic map', 'Roads on a road map'],
-    answer: 'Lines running east-west and measured from the Equator',
+    options: ['Lines that run north-south and are measured from the Prime Meridian', 'Lines that run east-west and are measured from the Equator', 'Lines that join places of equal height on a topographic map', 'Lines that show the roads on a road map'],
+    answer: 'Lines that run east-west and are measured from the Equator',
     explanation: 'Latitude lines are horizontal; the Equator is 0°, and lines extend to 90° north and south at the poles.',
   },
   {
     prompt: 'What are longitude lines?',
-    options: ['Horizontal lines', 'Vertical lines running north-south, measured from the Prime Meridian', 'Contour lines', 'River systems'],
-    answer: 'Vertical lines running north-south, measured from the Prime Meridian',
+    options: ['Lines that run east-west, measured from the Equator', 'Lines that run north-south, measured from the Prime Meridian', 'Lines that join points at the same height above sea level', 'Lines that show the course of river systems'],
+    answer: 'Lines that run north-south, measured from the Prime Meridian',
     explanation: 'Longitude lines run north-south; the Prime Meridian (0°) passes through Greenwich, UK.',
   },
   {
     prompt: 'What do grid references do on a topographic map?',
-    options: ['Show elevation only', 'Provide a way to locate places precisely', 'Indicate water bodies', 'Display settlements only'],
-    answer: 'Provide a way to locate places precisely',
+    options: ['They show the height of the land and nothing more', 'They give a way to find places exactly on a map', 'They mark all the water bodies on the map', 'They show the settlements and nothing more'],
+    answer: 'They give a way to find places exactly on a map',
     explanation: 'Grid references use the intersection of grid lines to pinpoint exact locations on maps.',
   },
   {

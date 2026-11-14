@@ -72,8 +72,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is the main role of the digestive system?',
-    options: ['Absorb oxygen', 'Break down food into nutrients', 'Transport blood', 'Remove waste'],
-    answer: 'Break down food into nutrients',
+    options: ['Take in oxygen from the air we breathe in', 'Break food down into small nutrients', 'Carry the blood to every part of the body', 'Remove liquid and solid waste from the blood'],
+    answer: 'Break food down into small nutrients',
     explanation: 'The digestive system breaks down food so the body can absorb and use nutrients.',
   },
   {
@@ -96,8 +96,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is homeostasis?',
-    options: ['A type of food', 'Movement of muscles', 'When the body maintains stable conditions', 'A digestive organ'],
-    answer: 'When the body maintains stable conditions',
+    options: ['The way that food is changed into energy in cells', 'The way that muscles move the bones of the body', 'The body keeping its inside conditions stable', 'The way that waste is moved out of the large intestine'],
+    answer: 'The body keeping its inside conditions stable',
     explanation: 'Homeostasis is the body\'s ability to keep internal conditions stable, like temperature.',
   },
   {
@@ -108,8 +108,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the relationship between the digestive and circulatory systems?',
-    options: ['They are separate', 'Digestive breaks food down; circulatory transports nutrients', 'Circulatory makes food', 'They have no connection'],
-    answer: 'Digestive breaks food down; circulatory transports nutrients',
+    options: ['The two systems are separate and never share a task', 'The digestive system breaks food down; the blood carries the nutrients', 'The blood system makes the food, which the gut then breaks down', 'The gut takes oxygen from food and sends it to the heart'],
+    answer: 'The digestive system breaks food down; the blood carries the nutrients',
     explanation: 'The digestive system breaks down food, and the circulatory system carries nutrients to cells.',
   },
   {
@@ -120,14 +120,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does the reproductive system do?',
-    options: ['Digest food', 'Produce sex cells for reproduction', 'Filter blood', 'Control heart rate'],
-    answer: 'Produce sex cells for reproduction',
+    options: ['Digest food and take in the nutrients from it', 'Make the sex cells needed to form a new life', 'Filter the blood and remove waste from it', 'Control the heart rate and the pace of breathing'],
+    answer: 'Make the sex cells needed to form a new life',
     explanation: 'The reproductive system produces sex cells needed for making new humans.',
   },
   {
     prompt: 'How do the respiratory and circulatory systems work together?',
-    options: ['They don\'t interact', 'Respiratory gets oxygen; circulatory carries it to cells', 'Circulatory provides oxygen to lungs', 'No connection exists'],
-    answer: 'Respiratory gets oxygen; circulatory carries it to cells',
+    options: ['The two systems do not work together in the body', 'The lungs take in oxygen; the blood carries it to cells', 'The blood gives oxygen to the lungs, which pass it to cells', 'The heart takes oxygen from the air and sends it to the lungs'],
+    answer: 'The lungs take in oxygen; the blood carries it to cells',
     explanation: 'Lungs absorb oxygen which blood then carries to all body cells through circulation.',
   },
 ];

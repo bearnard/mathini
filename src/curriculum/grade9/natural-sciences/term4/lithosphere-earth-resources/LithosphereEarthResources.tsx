@@ -69,8 +69,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is a mineral?',
-    options: ['A type of rock', 'A natural, crystalline solid', 'A fossil fuel', 'A metal only'],
-    answer: 'A natural, crystalline solid',
+    options: ['A type of rock that is made of several minerals', 'A natural solid with a crystal structure', 'A fuel made from the remains of old plants', 'A shiny metal that can be dug from the ground only'],
+    answer: 'A natural solid with a crystal structure',
     explanation: 'Minerals are naturally occurring, crystalline solid substances.',
   },
   {
@@ -87,8 +87,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What are tectonic plates?',
-    options: ['Layers of rock', 'Sections of the crust that move', 'Minerals', 'Fossils'],
-    answer: 'Sections of the crust that move',
+    options: ['Layers of rock that lie flat under the soil', 'Large sections of the crust that slowly move', 'Minerals that form crystals in the rocks of the crust', 'Fossils that are found in the layers of rock'],
+    answer: 'Large sections of the crust that slowly move',
     explanation: 'Tectonic plates are large sections of the lithosphere that move slowly.',
   },
   {
@@ -99,20 +99,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is mining?',
-    options: ['Finding water', 'Extracting minerals and fossil fuels', 'Planting crops', 'Building roads'],
-    answer: 'Extracting minerals and fossil fuels',
+    options: ['Finding water from deep below the ground', 'Taking minerals and fuels out of the ground', 'Planting crops on soil that is rich in minerals', 'Building roads across the hills and valleys'],
+    answer: 'Taking minerals and fuels out of the ground',
     explanation: 'Mining is the industrial process of removing valuable materials from the Earth.',
   },
   {
     prompt: 'What are fossil fuels?',
-    options: ['Only coal', 'Non-renewable energy sources from ancient organisms', 'Renewable', 'Minerals'],
-    answer: 'Non-renewable energy sources from ancient organisms',
+    options: ['Coal only, because oil and gas are made in a lab', 'Non-renewable fuels that came from ancient life', 'Fuels that renew themselves in a few years', 'Minerals that are mined and used to make metals'],
+    answer: 'Non-renewable fuels that came from ancient life',
     explanation: 'Fossil fuels include coal, oil, and gas formed from ancient life.',
   },
   {
     prompt: 'Why are fossil fuels non-renewable?',
-    options: ['They replenish quickly', 'They are infinite', 'They take millions of years to form; we use them faster than they form', 'They are renewable'],
-    answer: 'They take millions of years to form; we use them faster than they form',
+    options: ['They refill themselves within a few years of being used', 'They are in endless supply, so they can never run out', 'They take millions of years to form and we use them faster', 'They are renewable, so they come back each year'],
+    answer: 'They take millions of years to form and we use them faster',
     explanation: 'Fossil fuels form over geological time scales much slower than we consume them.',
   },
   {
@@ -123,8 +123,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is an environmental impact of mining?',
-    options: ['No impact', 'Only positive impacts', 'Can cause pollution, habitat destruction, and water contamination', 'Always beneficial'],
-    answer: 'Can cause pollution, habitat destruction, and water contamination',
+    options: ['It has no effect, because mines are far from towns', 'It brings only good effects, such as jobs and wealth', 'It can cause pollution, loss of habitat and dirty water', 'It is always good, since the land is replanted later'],
+    answer: 'It can cause pollution, loss of habitat and dirty water',
     explanation: 'Mining has significant environmental costs despite its economic benefits.',
   },
 ];

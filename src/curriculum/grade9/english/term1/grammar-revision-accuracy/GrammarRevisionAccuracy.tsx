@@ -86,7 +86,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which spelling is correct?',
-    options: ['occured', 'occurred', 'ocured', 'occured'],
+    options: ['occured', 'occurred', 'ocurred', 'ocured'],
     answer: 'occurred',
     explanation: '"Occurred" is the correct past tense of "occur" with doubled consonant.',
   },

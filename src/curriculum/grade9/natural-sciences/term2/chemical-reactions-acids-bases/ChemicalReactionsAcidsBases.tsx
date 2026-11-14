@@ -75,8 +75,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which is a sign that a chemical reaction has occurred?',
-    options: ['Water appears', 'Mixing substances', 'Adding heat', 'A colour change or gas forms'],
-    answer: 'A colour change or gas forms',
+    options: ['Water vapour forms on the cold glass of a jar', 'Two clear liquids are mixed and stay clear and unchanged', 'A substance is heated and then it melts', 'A colour change or a gas given off'],
+    answer: 'A colour change or a gas given off',
     explanation: 'Signs include colour change, gas bubbles, temperature change, or solid forming.',
   },
   {
@@ -87,8 +87,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is pH?',
-    options: ['The speed of reaction', 'A measure of acidity or basicity', 'A type of salt', 'The colour of a liquid'],
-    answer: 'A measure of acidity or basicity',
+    options: ['A scale that measures how fast a reaction takes place', 'A scale that measures how acidic or basic a thing is', 'A scale that tells which salt is in a solution', 'A scale that shows the colour of a liquid'],
+    answer: 'A scale that measures how acidic or basic a thing is',
     explanation: 'pH measures how acidic (pH < 7) or basic (pH > 7) a substance is.',
   },
   {
@@ -99,20 +99,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a base?',
-    options: ['An acid', 'A substance that feels slippery and tastes bitter', 'Always a gas', 'Only salt water'],
+    options: ['A substance that tastes sour and turns litmus red', 'A substance that feels slippery and tastes bitter', 'A substance that is always found as a gas in the air', 'A substance that is found only in salt water'],
     answer: 'A substance that feels slippery and tastes bitter',
     explanation: 'Bases are alkaline substances that feel slippery and turn litmus blue.',
   },
   {
     prompt: 'What happens when an acid and base react?',
-    options: ['Nothing happens', 'The acid is destroyed', 'They neutralise each other, forming salt and water', 'The base evaporates'],
-    answer: 'They neutralise each other, forming salt and water',
+    options: ['They stop reacting and no new substance forms', 'The acid is used up and a base is left over', 'They neutralise each other, forming a salt and water', 'The base burns away and the acid turns to a gas'],
+    answer: 'They neutralise each other, forming a salt and water',
     explanation: 'Neutralisation: Acid + Base → Salt + Water',
   },
   {
     prompt: 'What is the law of conservation of mass in chemical reactions?',
-    options: ['Matter is created', 'Mass of reactants equals mass of products', 'Energy is conserved', 'Only gases form'],
-    answer: 'Mass of reactants equals mass of products',
+    options: ['Matter is made from nothing during a reaction', 'The mass of the reactants equals the mass of the products', 'Only the energy in a reaction is kept the same', 'The mass of the products is always less than the reactants'],
+    answer: 'The mass of the reactants equals the mass of the products',
     explanation: 'No mass is lost or gained in a chemical reaction.',
   },
   {

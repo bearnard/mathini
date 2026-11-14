@@ -73,8 +73,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is conduction?',
-    options: ['Heat moving by fluids', 'Heat traveling through a material', 'Heat traveling as waves', 'Temperature measurement'],
-    answer: 'Heat traveling through a material',
+    options: ['Heat moving through a gas or a liquid as it flows', 'Heat moving through a solid from particle to particle', 'Heat moving through space as waves of energy', 'Heat being measured with a thermometer in a liquid'],
+    answer: 'Heat moving through a solid from particle to particle',
     explanation: 'Conduction is heat transfer through a solid without the material moving.',
   },
   {
@@ -115,8 +115,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why do we use insulation in buildings?',
-    options: ['To let heat escape', 'To keep heat in during winter and out during summer', 'To change colour', 'For decoration'],
-    answer: 'To keep heat in during winter and out during summer',
+    options: ['To let heat escape in winter so the house feels cooler', 'To keep heat in during winter and out in summer', 'To change the colour of the walls of the building', 'To make the walls of the house look neater'],
+    answer: 'To keep heat in during winter and out in summer',
     explanation: 'Insulation saves energy by reducing heat transfer through walls and roofs.',
   },
   {
@@ -127,8 +127,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the difference between heat and temperature?',
-    options: ['No difference', 'Heat is total energy; temperature is a measure of particle motion', 'Heat is cold', 'Temperature is faster'],
-    answer: 'Heat is total energy; temperature is a measure of particle motion',
+    options: ['Heat is the same as temperature, but with a different unit', 'Heat is total energy; temperature shows how fast the particles move', 'Heat is how cold a thing is; temperature is how hot it is', 'Temperature is the total energy; heat is how fast particles move'],
+    answer: 'Heat is total energy; temperature shows how fast the particles move',
     explanation: 'Heat is energy transfer; temperature measures how energetic particles are.',
   },
 ];

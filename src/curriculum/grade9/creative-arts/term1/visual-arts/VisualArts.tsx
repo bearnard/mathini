@@ -27,8 +27,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Proportion in drawing refers to...',
-    options: ['The relationship of sizes between different parts', 'How dark the pencil is', 'The paper size used', 'The artist\'s name'],
-    answer: 'The relationship of sizes between different parts',
+    options: ['How the sizes of the parts relate to each other', 'How dark the pencil is that the artist uses', 'The size of the paper on which the work is drawn', 'The name that the artist signs on the work'],
+    answer: 'How the sizes of the parts relate to each other',
     explanation: 'Accurate proportion ensures body parts, objects, or architectural elements relate correctly in size.',
   },
   {
@@ -39,20 +39,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Two-point perspective is often used for drawing...',
-    options: ['Buildings and street scenes viewed at an angle', 'Objects straight ahead', 'Flat patterns only', 'Portraits exclusively'],
-    answer: 'Buildings and street scenes viewed at an angle',
+    options: ['Buildings and street scenes seen from a corner', 'Objects that face straight ahead of the viewer', 'Flat patterns that have no depth in them', 'Portraits of faces seen from the front only'],
+    answer: 'Buildings and street scenes seen from a corner',
     explanation: 'Two-point perspective shows corner views of buildings and scenes effectively.',
   },
   {
     prompt: 'Value in art means...',
-    options: ['The lightness or darkness of a tone', 'The cost of materials', 'The age of the artwork', 'The artist\'s worth'],
-    answer: 'The lightness or darkness of a tone',
+    options: ['How light or dark a tone is', 'How much the materials cost to buy', 'How old the work of art is', "How much the artist's work is worth"],
+    answer: 'How light or dark a tone is',
     explanation: 'Value range from light to dark creates volume and visual interest in drawings.',
   },
   {
     prompt: 'A grid method helps artists to...',
-    options: ['Scale and transfer designs accurately', 'Erase mistakes quickly', 'Buy expensive paper', 'Learn to paint faster'],
-    answer: 'Scale and transfer designs accurately',
+    options: ['Enlarge and copy a design accurately', 'Rub out mistakes more quickly', 'Choose the best paper to buy', 'Paint a picture in less time'],
+    answer: 'Enlarge and copy a design accurately',
     explanation: 'Grid drawing translates reference images to larger or smaller artworks with correct proportions.',
   },
   {
@@ -63,8 +63,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Atmospheric perspective creates depth by...',
-    options: ['Making distant objects less distinct and hazier', 'Drawing them larger', 'Using thick outlines', 'Adding bright colours'],
-    answer: 'Making distant objects less distinct and hazier',
+    options: ['Making distant objects fainter and hazier', 'Drawing distant objects larger than near ones', 'Using thick dark outlines for far objects', 'Adding bright colours to the far objects'],
+    answer: 'Making distant objects fainter and hazier',
     explanation: 'Objects farther away appear hazier, smaller, and less detailed due to atmospheric conditions.',
   },
 ];

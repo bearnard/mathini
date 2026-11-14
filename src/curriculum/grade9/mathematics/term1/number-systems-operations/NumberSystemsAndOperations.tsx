@@ -57,7 +57,7 @@ const bank: MathematicsItem[] = [
     prompt: 'Convert 3/8 to a decimal.',
     options: ['0.325', '0.375', '0.385', '0.425'],
     answer: '0.375',
-    explanation: '3 ÷ 8 = 0.375.',
+    explanation: '3 ÷ 8 = 0.375, because dividing 3 by 8 gives 375 thousandths.',
   },
   {
     prompt: 'Which is the correct classification for -7?',

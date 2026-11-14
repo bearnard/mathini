@@ -119,8 +119,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is land-use interpretation?',
-    options: ['Drawing maps by hand', 'Analyzing and identifying how land is being used in an area', 'Measuring altitude', 'Counting buildings'],
-    answer: 'Analyzing and identifying how land is being used in an area',
+    options: ['Drawing maps by hand from field measurements', 'Studying and naming how land is used in an area', 'Measuring the height of land above sea level', 'Counting the buildings in each street of a town'],
+    answer: 'Studying and naming how land is used in an area',
     explanation: 'Land-use interpretation involves classifying areas as residential, agricultural, industrial, etc.',
   },
   {
@@ -131,20 +131,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What do bright green areas on a land-use map usually indicate?',
-    options: ['Urban settlement', 'Agricultural land or natural vegetation', 'Water bodies', 'Industrial zones'],
-    answer: 'Agricultural land or natural vegetation',
+    options: ['Urban settlement, with houses and shops', 'Farmland or natural vegetation', 'Water bodies, such as dams and lakes', 'Industrial zones, with factories and storage yards'],
+    answer: 'Farmland or natural vegetation',
     explanation: 'Green represents vegetation coverage, including farmland and forests.',
   },
   {
     prompt: 'How would industrial areas typically appear on an orthophoto?',
-    options: ['As circular green areas', 'As lines and roads', 'As grey areas with larger buildings and infrastructure', 'As blue lines'],
-    answer: 'As grey areas with larger buildings and infrastructure',
+    options: ['As circular green areas, watered by pivots', 'As thin lines and roads without any buildings', 'As grey areas with large buildings and infrastructure', 'As blue lines that follow a river course'],
+    answer: 'As grey areas with large buildings and infrastructure',
     explanation: 'Industrial zones appear as grey structures with factories, warehouses, and transport links.',
   },
   {
     prompt: 'Why is understanding land-use important for urban planning?',
-    options: ['It shows only historical information', 'It helps identify where development is occurring and plan future growth sustainably', 'It measures rainfall', 'It determines weather patterns'],
-    answer: 'It helps identify where development is occurring and plan future growth sustainably',
+    options: ['It gives only historical information about the area', 'It shows where growth is taking place, so future growth can be planned', 'It records the rainfall that falls on each area', 'It decides the weather patterns of the region'],
+    answer: 'It shows where growth is taking place, so future growth can be planned',
     explanation: 'Land-use analysis guides decisions about housing, infrastructure, industry, and conservation.',
   },
   {
@@ -155,8 +155,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How can you tell the difference between a forest and farmland on an orthophoto?',
-    options: ['They are identical', 'Forests appear more uniform and darker; farmland may show field patterns and lighter areas', 'Only by using a legend', 'They are the same colour'],
-    answer: 'Forests appear more uniform and darker; farmland may show field patterns and lighter areas',
+    options: ['They look identical, so only a legend can tell them apart', 'Forests look darker and more even; farmland shows fields and paler areas', 'They are the same colour on every orthophoto', 'Forests show straight field edges; farmland looks uneven'],
+    answer: 'Forests look darker and more even; farmland shows fields and paler areas',
     explanation: 'Orthophotos reveal visual differences: forests are dense and uniform, farms show field boundaries and patterns.',
   },
   {
@@ -173,8 +173,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How does land-use interpretation help with studying environmental issues?',
-    options: ['It only measures height', 'It identifies where human activity is impacting the environment and where protection is needed', 'It shows only roads', 'It measures temperature'],
-    answer: 'It identifies where human activity is impacting the environment and where protection is needed',
+    options: ['It records the height of the land and nothing else', 'It shows where people harm the environment and where protection is needed', 'It shows only the roads and rail lines of an area', 'It records the temperature of an area through the year'],
+    answer: 'It shows where people harm the environment and where protection is needed',
     explanation: 'Understanding land-use reveals environmental pressures and guides conservation efforts.',
   },
 ];

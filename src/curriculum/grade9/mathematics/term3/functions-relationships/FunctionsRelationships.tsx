@@ -43,7 +43,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'Which description matches the relationship y = 5x?',
-    options: ['y increases by 5 for each increase of 1 in x', 'y stays constant', 'y decreases', 'y is always 5'],
+    options: ['y increases by 5 for each increase of 1 in x', 'y increases by 1 for each increase of 5 in x', 'y stays constant whatever the value of x', 'y is always equal to 5 for every value of x'],
     answer: 'y increases by 5 for each increase of 1 in x',
     explanation: 'The coefficient 5 means y changes 5 times as much as x.',
   },
@@ -55,7 +55,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'What does the y-intercept represent in the equation y = mx + b?',
-    options: ['The slope', 'Where the line crosses the y-axis', 'The maximum value', 'Where x = 0'],
+    options: ['The steepness (slope) of the line', 'Where the line crosses the y-axis', 'Where the line crosses the x-axis', 'The highest value that y can reach'],
     answer: 'Where the line crosses the y-axis',
     explanation: 'When x = 0, y = b, so b is the y-intercept.',
   },
@@ -67,7 +67,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'If a linear relationship has a slope of -3, what does this mean?',
-    options: ['y increases by 3', 'y decreases by 3 for each increase of 1 in x', 'y stays the same', 'x decreases'],
+    options: ['y increases by 3 for each increase of 1 in x', 'y decreases by 3 for each increase of 1 in x', 'y decreases by 1 for each increase of 3 in x', 'x decreases by 3 for each increase of 1 in y'],
     answer: 'y decreases by 3 for each increase of 1 in x',
     explanation: 'A negative slope indicates a decreasing relationship.',
   },
