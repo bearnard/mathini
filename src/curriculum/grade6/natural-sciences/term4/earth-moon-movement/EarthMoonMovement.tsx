@@ -3,14 +3,16 @@ import { NstItem, LearnStep } from '../../_shared/types';
 import { moonLabelHotspots } from '../../_shared/diagrams/moonLabel';
 import MoonPhases from '@/components/diagrams/MoonPhases';
 import MoonStepper from '@/components/diagrams/MoonStepper';
+import DayNight from '@/components/diagrams/DayNight';
+import { EarthOrbit, MoonOrbit } from '@/components/diagrams/EarthMotion';
 import MoonDual from '@/components/diagrams/moon3d/MoonDual';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Earth rotates',
-    image: { src: '/curriculum/grade6/nst/term4/earth-moon-movement/diagram.svg', alt: 'Earth rotating, revolving around the Sun, and the Moon orbiting Earth' },
     content: (
       <div className="space-y-4 text-center">
+        <DayNight />
         <p className="text-lg text-slate-600">
           Earth <strong>rotates</strong> (spins) on its axis once every 24 hours. This gives us <strong>day and night</strong>.
         </p>
@@ -25,6 +27,7 @@ const learnSteps: LearnStep[] = [
     title: 'Earth revolves',
     content: (
       <div className="space-y-4 text-center">
+        <EarthOrbit />
         <p className="text-lg text-slate-600">
           Earth <strong>revolves</strong> (orbits) around the Sun. One full orbit is one <strong>year</strong>.
         </p>
@@ -39,6 +42,7 @@ const learnSteps: LearnStep[] = [
     title: 'The Moon orbits Earth',
     content: (
       <div className="space-y-4 text-center">
+        <MoonOrbit />
         <p className="text-lg text-slate-600">
           The <strong>Moon</strong> is Earth&apos;s natural satellite. It orbits Earth in about a <strong>month</strong>.
         </p>

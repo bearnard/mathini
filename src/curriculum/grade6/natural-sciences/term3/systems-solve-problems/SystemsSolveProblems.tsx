@@ -1,5 +1,6 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import { DesignCycle, InputProcessOutput } from '@/components/diagrams/DesignCycle';
 
 const learnSteps: LearnStep[] = [
   {
@@ -9,9 +10,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           A <strong>system</strong> is a group of parts that work together to do a job. Many systems have an <strong>input</strong>, a <strong>process</strong> and an <strong>output</strong>.
         </p>
-        <div className="rounded-xl bg-slate-50 p-5 font-semibold text-slate-700">
-          Input (switch pressed) → Process (current flows along wires) → Output (bulb lights)
-        </div>
+        <InputProcessOutput />
         <p className="text-slate-500">A torch, a doorbell and a school bell are all systems that use an electric circuit.</p>
       </div>
     ),
@@ -20,13 +19,14 @@ const learnSteps: LearnStep[] = [
     title: 'The design process',
     content: (
       <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Technologists solve problems in steps:</p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-grid gap-2 text-left text-slate-700">
-          <span><strong>1. Investigate:</strong> find out about the problem and the need</span>
+        <p className="text-lg text-slate-600">Technologists solve problems in steps, and go round again if the test shows a fault.</p>
+        <DesignCycle />
+        <div className="inline-grid gap-1 text-left text-sm text-slate-600">
+          <span><strong>1. Investigate:</strong> find out about the problem</span>
           <span><strong>2. Design:</strong> plan and draw solutions</span>
           <span><strong>3. Make:</strong> build the best solution</span>
           <span><strong>4. Evaluate:</strong> test it. Does it solve the problem?</span>
-          <span><strong>5. Communicate:</strong> show and explain the solution</span>
+          <span><strong>5. Communicate:</strong> show and explain it</span>
         </div>
       </div>
     ),
