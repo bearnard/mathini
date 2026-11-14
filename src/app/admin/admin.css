@@ -28,6 +28,11 @@
   --heat-6: #184f95;
   --heat-7: #0d366b;
   --bubble: #eb6834;
+  --funnel-1: #86b6ef;
+  --funnel-2: #5598e7;
+  --funnel-3: #2a78d6;
+  --funnel-4: #1c5cab;
+  --funnel-5: #104281;
 }
 @media (prefers-color-scheme: dark) {
   .admin-root:not([data-theme='light']) {
@@ -56,6 +61,11 @@
     --heat-6: #9ec5f4;
     --heat-7: #cde2fb;
     --bubble: #d95926;
+    --funnel-1: #184f95;
+    --funnel-2: #256abf;
+    --funnel-3: #3987e5;
+    --funnel-4: #6da7ec;
+    --funnel-5: #9ec5f4;
   }
 }
 .admin-root[data-theme='dark'] {
@@ -84,6 +94,11 @@
   --heat-6: #9ec5f4;
   --heat-7: #cde2fb;
   --bubble: #d95926;
+  --funnel-1: #184f95;
+  --funnel-2: #256abf;
+  --funnel-3: #3987e5;
+  --funnel-4: #6da7ec;
+  --funnel-5: #9ec5f4;
 }
 
 .admin-root {

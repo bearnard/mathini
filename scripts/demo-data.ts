@@ -252,7 +252,9 @@ export function buildDemoSql(opts: DemoOptions = {}): { sql: string; stats: Demo
             if (ok) sc++;
           }
           if (topic.rec) topicCounts.set(topic.slug, (topicCounts.get(topic.slug) ?? 0) + nQ);
-          pushEvent({ ...common, ts: t + 1500, type: 'practice_finish', grade, subject: topic.subject, topic: topic.slug, meta: { score: sc, total: nQ, ms: t + 1500 - startedAt } });
+          if (rnd() < 0.85) {
+            pushEvent({ ...common, ts: t + 1500, type: 'practice_finish', grade, subject: topic.subject, topic: topic.slug, meta: { score: sc, total: nQ, ms: t + 1500 - startedAt } });
+          } // else: the learner left before finishing the question set
           t += 1500;
         }
         // grade 6 NST learners sometimes take the Term 3/4 mock test in the last three weeks

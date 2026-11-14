@@ -57,3 +57,20 @@ test("today's date is the SAST date, even when UTC is still yesterday", () => {
   assert.equal(todaySast(Date.UTC(2026, 10, 14, 10, 0)), '2026-11-14');
   assert.equal(todaySast(Date.UTC(2026, 10, 14, 22, 30)), '2026-11-15');
 });
+
+import { topicLabel, subjectLabel } from './format';
+test('topic labels from task slugs', () => {
+  assert.equal(topicLabel('fractions-t2'), 'Fractions');
+  assert.equal(topicLabel('gr7-whole-numbers-t1'), 'Whole numbers');
+  assert.equal(topicLabel('electric-circuits'), 'Electric circuits');
+  assert.equal(topicLabel('nst-electric-circuits'), 'Nst electric circuits');
+  assert.equal(topicLabel(null), 'Unknown topic');
+  assert.equal(topicLabel(''), 'Unknown topic');
+  assert.equal(topicLabel('-t2'), '-t2');
+});
+test('subject labels fall back to the code', () => {
+  assert.equal(subjectLabel('nst'), 'Natural Sciences');
+  assert.equal(subjectLabel('grade6'), 'Grade 6 core');
+  assert.equal(subjectLabel('zzz'), 'zzz');
+  assert.equal(subjectLabel(null), 'Unknown subject');
+});

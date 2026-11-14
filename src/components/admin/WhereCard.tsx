@@ -24,6 +24,25 @@ interface GeoData {
 }
 
 const NAME = new Map(SA_PROVINCES.map((p) => [p.id, p.name]));
+
+/** Title = the most specific place we know; the muted line says what we do NOT know. */
+export function placeLines(r: { country: string | null; region: string | null; city: string | null; province: string | null }): { title: string; sub: string } {
+  const country = countryName(r.country);
+  const area = r.province ? (NAME.get(r.province) ?? r.region) : r.region;
+  if (r.city) return { title: r.city, sub: `${area ?? 'province not recorded'} · ${country}` };
+  if (area) return { title: area, sub: `city not recorded · ${country}` };
+  return { title: country, sub: r.country === 'ZA' ? 'province not recorded' : 'region not recorded' };
+}
+
+function PlaceCell({ row }: { row: Parameters<typeof placeLines>[0] }) {
+  const { title, sub } = placeLines(row);
+  return (
+    <>
+      <div style={{ fontWeight: 600 }}>{title}</div>
+      <div className="admin-muted" style={{ fontSize: 12 }}>{sub}</div>
+    </>
+  );
+}
 const TABLE_ROWS = 12;
 
 export default function WhereCard({ qs }: { qs: string }) {
@@ -152,10 +171,7 @@ function Body({ data, metric, active, setActive, showAll, setShowAll }: { data: 
               rows.map((r, i) => (
                 <tr key={`${r.country}-${r.region}-${r.city}-${i}`}>
                   <td style={{ textAlign: 'left' }}>
-                    <div className={r.city ? undefined : 'admin-secondary'} style={{ fontWeight: r.city ? 600 : 400 }}>{r.city ?? 'Province only'}</div>
-                    <div className="admin-muted" style={{ fontSize: 12 }}>
-                      {r.province ? NAME.get(r.province) : (r.region ?? 'no province recorded')} · {countryName(r.country)}
-                    </div>
+                    <PlaceCell row={r} />
                   </td>
                   <td style={{ fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap' }}>
                     {formatInt(r.visitors)}

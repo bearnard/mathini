@@ -7,6 +7,9 @@ import StatTile from './StatTile';
 import ActivityCharts, { type Day } from './ActivityCharts';
 import WhereCard from './WhereCard';
 import WhenCard from './WhenCard';
+import WhatCard from './WhatCard';
+import FunnelCard from './FunnelCard';
+import DevicesCard from './DevicesCard';
 import { useAdminData } from './useAdminData';
 import { formatDelta, formatDuration, formatInt, formatPercent, formatPoints, longDate, shortDate, todaySast } from './format';
 
@@ -82,6 +85,9 @@ export default function Dashboard() {
 
       <WhereCard qs={qs} />
       <WhenCard qs={qs} />
+      <WhatCard qs={qs} />
+      <FunnelCard qs={qs} />
+      <DevicesCard qs={qs} />
     </main>
   );
 }

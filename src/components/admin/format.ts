@@ -72,6 +72,23 @@ export function countryName(code: string | null | undefined): string {
   }
 }
 
+/** Task slug -> readable topic name: "fractions-t2" -> "Fractions", "gr7-whole-numbers-t1" -> "Whole numbers". */
+export function topicLabel(slug: string | null | undefined): string {
+  if (!slug) return 'Unknown topic';
+  const base = slug.replace(/^gr\d+-/, '').replace(/-t\d+$/, '').replace(/-/g, ' ').trim();
+  return base ? base[0].toUpperCase() + base.slice(1) : slug;
+}
+
+const SUBJECT_NAMES: Record<string, string> = {
+  nst: 'Natural Sciences', math: 'Maths', afr: 'Afrikaans', geo: 'Geography', his: 'History', eng: 'English', xho: 'isiXhosa',
+  lo: 'Life Orientation', ml: 'Maths Literacy', cat: 'CAT', bus: 'Business Studies', acc: 'Accounting', it: 'IT', grade6: 'Grade 6 core',
+};
+/** Subject code -> name when known, else the code itself. */
+export function subjectLabel(code: string | null | undefined): string {
+  if (!code) return 'Unknown subject';
+  return SUBJECT_NAMES[code] ?? code;
+}
+
 export const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as const;
 export const WEEKDAYS_LONG = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] as const;
 /** 16 -> "16:00–17:00". */
