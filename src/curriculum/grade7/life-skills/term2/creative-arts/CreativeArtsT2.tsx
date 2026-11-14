@@ -69,8 +69,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What should you decide first when planning a poster?',
-    options: ['The message and target audience', 'Only the paper size', 'Which desk to sit at', 'How quickly to finish'],
-    answer: 'The message and target audience',
+    options: ['The message and the target audience', 'The size of the paper and nothing else', 'Which desk you will sit at to work', 'How quickly you can finish the poster'],
+    answer: 'The message and the target audience',
     explanation: 'Clear purpose and audience guide all design choices.',
   },
   {
@@ -86,12 +86,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is characterisation in performance?',
-    options: [
-      'Showing who a character is through actions and voice',
-      'Standing still with no expression',
-      'Ignoring story context completely',
-      'Using one tone for every role',
-    ],
+    options: ['Showing who a character is through actions and voice', 'Standing still with no expression at all', 'Ignoring the context of the story completely', 'Using one tone of voice for every role'],
     answer: 'Showing who a character is through actions and voice',
     explanation: 'Characterisation makes characters believable to the audience.',
   },
@@ -125,13 +120,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which comment is a constructive peer critique?',
-    options: [
-      'Your message is clear; increase volume in the chorus',
-      'This is boring and useless',
-      'No one should ever try again',
-      'Only costumes matter in every task',
-    ],
-    answer: 'Your message is clear; increase volume in the chorus',
+    options: ['Your message is clear; raise the volume in the chorus', 'This is boring and useless to everyone', 'No one should ever try this again', 'Only the costumes matter in every task'],
+    answer: 'Your message is clear; raise the volume in the chorus',
     explanation: 'Constructive critique identifies strengths and practical improvements.',
   },
   {

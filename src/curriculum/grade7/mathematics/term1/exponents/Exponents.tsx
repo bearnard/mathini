@@ -48,13 +48,13 @@ const bank: CapsItem[] = [
     prompt: 'Which number is a perfect cube?',
     options: ['64', '48', '50', '72'],
     answer: '64',
-    explanation: '64 = 4³.',
+    explanation: '64 is a perfect cube because 4 × 4 × 4 = 64, so 64 = 4³.',
   },
   {
     prompt: 'What is 7²?',
     options: ['49', '14', '21', '64'],
     answer: '49',
-    explanation: '7 × 7 = 49.',
+    explanation: '7² means 7 × 7, which is 49.',
   },
   {
     prompt: 'Which expression is equivalent to 2³ × 2?',

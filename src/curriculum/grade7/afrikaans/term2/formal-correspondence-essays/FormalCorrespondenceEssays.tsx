@@ -84,13 +84,13 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Wat kom gewoonlik ná die groet in 'n formele brief?",
-    options: ['Die inhoud/paragrawe van die brief', 'Die slot onmiddellik', "Die titel van 'n gedig", 'Geen teks nie'],
-    answer: 'Die inhoud/paragrawe van die brief',
+    options: ['Die inhoud of paragrawe van die brief', 'Die slot van die brief dadelik', "Die titel van 'n gedig uit die klas", 'Daar volg geen teks na die groet nie'],
+    answer: 'Die inhoud of paragrawe van die brief',
     explanation: 'After greeting, you write the body of the letter.',
   },
   {
     prompt: "Watter is die beste opening vir 'n beskrywende opstel?",
-    options: ['Die oggendlug het vars geruik toe ons by die strand aankom.', 'Hierdie opstel het drie paragrawe.', 'Ek skryf nou net woorde.', 'Die papier is wit.'],
+    options: ['Die oggendlug het vars geruik toe ons by die strand aankom.', "Hierdie opstel het drie paragrawe en 'n slot.", 'Ek skryf nou net woorde neer vir die opstel.', 'Die papier waarop ek skryf is wit en skoon.'],
     answer: 'Die oggendlug het vars geruik toe ons by die strand aankom.',
     explanation: 'A descriptive opening creates a vivid scene.',
   },
@@ -102,13 +102,13 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Kies die beste slot vir 'n narratiewe opstel.",
-    options: ['Uiteindelik het ek besef hoe belangrik moed is.', 'My pen het opgehou werk.', 'Daar was baie letters.', 'Ek hou van koekies.'],
+    options: ['Uiteindelik het ek besef hoe belangrik moed is.', 'My pen het opgehou werk tydens die opstel.', 'Daar was baie letters op die bladsy.', 'Ek hou baie van koekies en tee saam.'],
     answer: 'Uiteindelik het ek besef hoe belangrik moed is.',
     explanation: 'A good conclusion reflects on the story meaning.',
   },
   {
     prompt: "Watter fout moet jy vermy in formele skryfwerk?",
-    options: ["Informele afkortings soos 'lol' en 'btw'", 'Korrekte leestekens', 'Duidelike paragrawe', 'Nette taalgebruik'],
+    options: ["Informele afkortings soos 'lol' en 'btw'", 'Korrekte leestekens in elke sin', 'Duidelike paragrawe met hoofgedagtes', 'Netjiese taalgebruik in die hele teks'],
     answer: "Informele afkortings soos 'lol' en 'btw'",
     explanation: 'Chat abbreviations are not suitable in formal writing.',
   },

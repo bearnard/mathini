@@ -99,13 +99,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does language in context mean?',
-    options: [
-      'applying grammar choices inside meaningful reading or writing',
-      'memorising grammar terms without use',
-      'copying one sentence many times',
-      'avoiding full paragraphs',
-    ],
-    answer: 'applying grammar choices inside meaningful reading or writing',
+    options: ['using grammar choices inside meaningful reading or writing', 'memorising grammar terms without using them', 'copying one sentence over and over again', 'avoiding the writing of full paragraphs'],
+    answer: 'using grammar choices inside meaningful reading or writing',
     explanation: 'Contextual language use connects rules to real communication.',
   },
   {

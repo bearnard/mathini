@@ -81,7 +81,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which title suits an instruction text?',
-    options: ['How to prepare for a class presentation', 'My favourite cloud', 'A very funny dream', 'Who am I?'],
+    options: ['How to prepare for a class presentation', 'My favourite cloud in the sky', 'A very funny dream that I once had', 'Who am I and where do I come from?'],
     answer: 'How to prepare for a class presentation',
     explanation: 'Instruction texts use practical action-focused titles.',
   },
@@ -93,7 +93,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which sentence is best for a school message?',
-    options: ['Nceda uzise incwadi yam ngomso, enkosi.', 'Yiza ngoku!', 'Andifuni mntu.', 'Mna ndiphumile nje.'],
+    options: ['Nceda uzise incwadi yam ngomso, enkosi.', 'Yiza ngoku, ndikuxelela!', 'Andifuni mntu apha ngomso.', 'Mna ndiphumile nje, hamba wena.'],
     answer: 'Nceda uzise incwadi yam ngomso, enkosi.',
     explanation: 'It is polite, specific, and suitable for school communication.',
   },

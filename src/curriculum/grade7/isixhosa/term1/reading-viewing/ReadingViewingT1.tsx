@@ -51,13 +51,13 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'In reading comprehension, what is a main idea?',
-    options: ['the most important message in the text', 'the first difficult word', 'the longest sentence', 'the title font'],
-    answer: 'the most important message in the text',
+    options: ['the most important message of the text', 'the first difficult word that you meet', 'the longest sentence in the passage', 'the font style of the title'],
+    answer: 'the most important message of the text',
     explanation: 'The main idea is what the text is mostly about.',
   },
   {
     prompt: 'Which text is most likely an advertisement?',
-    options: ['A poster saying “50% off school bags this Friday!”', 'A family tree', 'A dictionary page', 'A class register'],
+    options: ['A poster saying “50% off school bags this Friday!”', 'A family tree of the relatives of a family', 'A page from a dictionary of words', 'A class register with the names of learners'],
     answer: 'A poster saying “50% off school bags this Friday!”',
     explanation: 'Ads usually promote products, prices, or offers.',
   },
@@ -75,7 +75,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Visual literacy means you can...',
-    options: ['interpret meaning from pictures and layout', 'only decode long words', 'memorise the alphabet', 'write essays without planning'],
+    options: ['interpret meaning from pictures and layout', 'only decode the long words in a text', 'memorise the letters of the alphabet', 'write essays without any planning'],
     answer: 'interpret meaning from pictures and layout',
     explanation: 'Visual literacy involves understanding images and design clues.',
   },

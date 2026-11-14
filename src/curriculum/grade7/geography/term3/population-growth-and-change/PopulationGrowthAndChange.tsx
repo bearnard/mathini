@@ -50,12 +50,7 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What does birth rate describe?',
-    options: [
-      'The number of live births in a population over time',
-      'The number of people moving house',
-      'The average annual rainfall',
-      'The total number of schools',
-    ],
+    options: ['The number of live births in a population over time', 'The number of people who move to a new house', 'The average amount of rain that falls in a year', 'The total number of schools in a country'],
     answer: 'The number of live births in a population over time',
     explanation: 'Birth rate measures how many babies are born in a population.',
   },
@@ -78,13 +73,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Life expectancy means:',
-    options: [
-      'The average number of years a person is expected to live',
-      'How long people work each week',
-      'The age of school entry',
-      'The number of family members',
-    ],
-    answer: 'The average number of years a person is expected to live',
+    options: ['The average number of years a person may live', 'How long people work in each week', 'The age at which a child starts school', 'The number of members in a family'],
+    answer: 'The average number of years a person may live',
     explanation: 'Life expectancy is an average measure of expected lifespan.',
   },
   {

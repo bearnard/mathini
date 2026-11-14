@@ -80,7 +80,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which sentence is an assertive response?',
-    options: ['No thanks, that is not a safe choice for me', 'I will do anything you say', 'Move away, you are useless', 'I am too scared to answer'],
+    options: ['No thanks, that is not a safe choice for me', 'I will do anything that you say', 'Move away, you are useless to me', 'I am too scared to give an answer'],
     answer: 'No thanks, that is not a safe choice for me',
     explanation: 'Assertive communication is clear, respectful, and confident.',
   },
@@ -114,8 +114,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What should you do if you see cyberbullying?',
-    options: ['Save evidence and report it to a trusted adult', 'Forward it to classmates for fun', 'Reply with harsher insults', 'Pretend it is normal behaviour'],
-    answer: 'Save evidence and report it to a trusted adult',
+    options: ['Save the evidence and report it to a trusted adult', 'Forward it to the classmates for fun', 'Reply with harsher insults of your own', 'Pretend that it is normal behaviour'],
+    answer: 'Save the evidence and report it to a trusted adult',
     explanation: 'Reporting helps stop harm and keeps learners safer online.',
   },
   {

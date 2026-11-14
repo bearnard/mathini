@@ -64,7 +64,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which question fits an interview activity?',
-    options: ['Yintoni oyithandayo ngendawo ohlala kuyo?', 'Ngubani umbala?', 'Ngaphi uphawu lwebinzana?', 'Mingaphi iziphumlisi?'],
+    options: ['Yintoni oyithandayo ngendawo ohlala kuyo?', 'Ngubani umbala wakho owuthandayo?', 'Ngubani igama likamama wakho?', 'Uneminyaka emingaphi ngoku?'],
     answer: 'Yintoni oyithandayo ngendawo ohlala kuyo?',
     explanation: 'It is an open question suitable for oral interviewing.',
   },
@@ -82,13 +82,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does good listening during interviews include?',
-    options: ['waiting, then asking follow-up questions', 'interrupting every answer', 'changing topic constantly', 'ignoring responses'],
+    options: ['waiting, then asking follow-up questions', 'interrupting every answer that is given', 'changing the topic all the time', 'ignoring the responses of the speaker'],
     answer: 'waiting, then asking follow-up questions',
     explanation: 'Active listening improves interview quality.',
   },
   {
     prompt: 'Which sentence gives an environmental opinion with a reason?',
-    options: ['Ndicinga ukuba kufuneka sihlambe indawo yethu kuba icocekile iyanceda impilo.', 'Andikhathali ngendawo.', 'Akukho sizathu.', 'Andazi nto ngomhlaba.'],
+    options: ['Ndicinga ukuba kufuneka sihlambe indawo yethu kuba icocekile iyanceda impilo.', 'Andikhathali ngendawo yethu nokuba ingcolile kakhulu ngoku.', 'Akukho sizathu sokuhlamba indawo yethu kwaphela apha.', 'Andazi nto ngomhlaba, ke andinaluvo lunganto ngawo.'],
     answer: 'Ndicinga ukuba kufuneka sihlambe indawo yethu kuba icocekile iyanceda impilo.',
     explanation: 'It states an opinion and includes a reason.',
   },

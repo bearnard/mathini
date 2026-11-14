@@ -48,8 +48,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does the term “Middle Passage” refer to?',
-    options: ['The sea journey carrying enslaved Africans to the Americas', 'A mountain pass in Europe', 'A trade route inside Timbuktu', 'A railway line to Cape Town'],
-    answer: 'The sea journey carrying enslaved Africans to the Americas',
+    options: ['The sea voyage of enslaved Africans to the Americas', 'A mountain pass in the Alps of Europe', 'A trade route inside the city of Timbuktu', 'A railway line that ran out to Cape Town'],
+    answer: 'The sea voyage of enslaved Africans to the Americas',
     explanation: 'The Middle Passage was the Atlantic crossing under brutal conditions.',
   },
   {
@@ -60,8 +60,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which statement best describes resistance by enslaved people?',
-    options: ['Resistance happened in many forms, including revolt and everyday acts of defiance', 'There was never any resistance', 'Resistance only happened in Europe', 'Resistance meant agreeing with enslavement'],
-    answer: 'Resistance happened in many forms, including revolt and everyday acts of defiance',
+    options: ['Resistance took many forms, from revolt to everyday defiance', 'There was never any resistance at all', 'Resistance took place in Europe and nowhere else', 'Resistance meant agreeing to enslavement'],
+    answer: 'Resistance took many forms, from revolt to everyday defiance',
     explanation: 'Enslaved people resisted in different ways despite severe control and danger.',
   },
   {
@@ -78,14 +78,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which is a likely long-term impact of the transatlantic slave trade?',
-    options: ['Demographic and social disruption in African societies', 'Immediate equality across all colonies', 'No effect on Atlantic economies', 'The end of all global trade'],
-    answer: 'Demographic and social disruption in African societies',
+    options: ['Social and population disruption in African societies', 'Immediate equality in all of the colonies', 'No effect on the economies of the Atlantic', 'The end of all trade around the world'],
+    answer: 'Social and population disruption in African societies',
     explanation: 'Forced removal of millions of people had major long-term effects.',
   },
   {
     prompt: 'Which sentence correctly shows cause and consequence?',
-    options: ['Demand for plantation labour increased forced transportation across the Atlantic', 'Abolition caused the start of the trade', 'Resistance ended before the trade began', 'The trade began because railways expanded'],
-    answer: 'Demand for plantation labour increased forced transportation across the Atlantic',
+    options: ['Demand for plantation labour raised forced Atlantic transport', 'Abolition caused the start of the trade', 'Resistance ended before the trade had begun', 'The trade began because railways were expanding'],
+    answer: 'Demand for plantation labour raised forced Atlantic transport',
     explanation: 'Economic demand helped drive the expansion of forced labour systems.',
   },
 ];

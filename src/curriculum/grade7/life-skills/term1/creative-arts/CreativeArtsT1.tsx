@@ -115,18 +115,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How can a group keep steady timing?',
-    options: ['Follow shared cues and count beats together', 'Rush every section separately', 'Ignore the lead performer', 'Change tempo without agreement'],
+    options: ['Follow shared cues and count beats together', 'Rush through every section on your own', 'Ignore the lead performer in the group', 'Change the tempo without any agreement'],
     answer: 'Follow shared cues and count beats together',
     explanation: 'Shared counting and cues keep rhythm and movement aligned.',
   },
   {
     prompt: 'Which feedback is most useful after an improvisation task?',
-    options: [
-      'Your scene had clear characters; improve transitions',
-      'Everything was bad and pointless',
-      'No comment is ever needed',
-      'Only the costume matters',
-    ],
+    options: ['Your scene had clear characters; improve transitions', 'Everything was bad and pointless to watch', 'No comment is ever needed on a scene', 'Only the costume matters in an improvisation'],
     answer: 'Your scene had clear characters; improve transitions',
     explanation: 'Constructive feedback identifies strengths and realistic next steps.',
   },

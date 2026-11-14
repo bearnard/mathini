@@ -22,13 +22,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is the main purpose of a map scale?',
-    options: [
-      'To show the relationship between map distance and real distance',
-      'To show whether roads are safe',
-      'To show only north and south',
-      'To show population growth',
-    ],
-    answer: 'To show the relationship between map distance and real distance',
+    options: ['To show how map distance relates to real distance', 'To show whether the roads are safe to use', 'To show north and south and nothing more', 'To show how the population is growing'],
+    answer: 'To show how map distance relates to real distance',
     explanation: 'A map scale helps you convert measured map distance to real-world distance.',
   },
   {
@@ -39,12 +34,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does a sketch map usually show?',
-    options: [
-      'A simple drawing of key places and routes',
-      'Exact satellite measurements',
-      'Only oceans and continents',
-      'Only historical dates',
-    ],
+    options: ['A simple drawing of key places and routes', 'Exact measurements taken from satellites', 'Oceans and continents and nothing more', 'Historical dates and nothing more'],
     answer: 'A simple drawing of key places and routes',
     explanation: 'Sketch maps are simplified and highlight main features rather than exact detail.',
   },
@@ -84,13 +74,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is route finding in local area mapwork important?',
-    options: [
-      'It helps people navigate efficiently and safely',
-      'It replaces all map symbols',
-      'It makes scale unnecessary',
-      'It is only used in history',
-    ],
-    answer: 'It helps people navigate efficiently and safely',
+    options: ['It helps people find their way efficiently and safely', 'It takes the place of all map symbols', 'It makes the use of scale unnecessary', 'It is used in the study of history only'],
+    answer: 'It helps people find their way efficiently and safely',
     explanation: 'Route finding helps choose practical paths between places.',
   },
 ];

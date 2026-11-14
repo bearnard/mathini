@@ -59,12 +59,7 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is the main purpose of persuasive language in an advertisement?',
-    options: [
-      'to influence the audience to think or act',
-      'to list unrelated facts only',
-      'to describe weather patterns',
-      'to present a play script',
-    ],
+    options: ['to influence the audience to think or act', 'to list facts that are not related', 'to describe the weather patterns of a place', 'to present the script of a play'],
     answer: 'to influence the audience to think or act',
     explanation: 'Persuasive language aims to convince people.',
   },
@@ -81,24 +76,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which feature is most likely a slogan?',
-    options: [
-      'A short, catchy phrase that is easy to remember',
-      'A long paragraph with references',
-      'A table of exam marks',
-      'A chapter summary from a novel',
-    ],
+    options: ['A short, catchy phrase that is easy to remember', 'A long paragraph with many references', 'A table of the marks from an exam', 'A chapter summary from a novel'],
     answer: 'A short, catchy phrase that is easy to remember',
     explanation: 'Slogans are brief and memorable to support persuasion.',
   },
   {
     prompt: 'Why is layout important in a poster?',
-    options: [
-      'It guides the viewer eye to key information',
-      'It removes the need for images',
-      'It changes fiction into poetry',
-      'It only increases word count',
-    ],
-    answer: 'It guides the viewer eye to key information',
+    options: ["It guides the viewer's eye to the key information", 'It removes the need for any images', 'It changes a work of fiction into a poem', 'It only increases the word count'],
+    answer: "It guides the viewer's eye to the key information",
     explanation: 'Layout controls how quickly and clearly viewers process content.',
   },
   {
@@ -115,19 +100,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which question best checks audience and purpose?',
-    options: [
-      'Who is this text for, and what does it want them to do?',
-      'How many desks are in the classroom?',
-      'What is the weather this weekend?',
-      'Who printed the worksheet?',
-    ],
+    options: ['Who is this text for, and what does it want them to do?', 'How many desks are in the classroom?', 'What is the weather going to be this weekend?', 'Who printed the copies of the worksheet?'],
     answer: 'Who is this text for, and what does it want them to do?',
     explanation: 'Audience-purpose analysis asks exactly this.',
   },
   {
     prompt: 'A poster uses bright colours and a large image of sports shoes. The most likely target audience is...',
-    options: ['young people interested in sport', 'retired historians', 'marine biologists only', 'book publishers only'],
-    answer: 'young people interested in sport',
+    options: ['young people who are interested in sport', 'retired historians who study the past', 'marine biologists who study the sea', 'book publishers and no other readers'],
+    answer: 'young people who are interested in sport',
     explanation: 'Visual clues suggest the poster is aimed at youth sport consumers.',
   },
 ];

@@ -35,7 +35,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A pulley can be useful because it can...',
-    options: ['change the direction of a pulling force', 'remove gravity from a load', 'create energy from nothing', 'make all loads weightless'],
+    options: ['change the direction of a pulling force', 'take gravity away from a load', 'make energy out of nothing', 'make every load weightless'],
     answer: 'change the direction of a pulling force',
     explanation: 'A fixed pulley lets you pull down to lift a load up.',
   },

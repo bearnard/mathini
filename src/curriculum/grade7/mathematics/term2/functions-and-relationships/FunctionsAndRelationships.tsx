@@ -42,13 +42,13 @@ const bank: CapsItem[] = [
     prompt: 'If y = x − 2, what is y when x = 9?',
     options: ['7', '11', '18', '−7'],
     answer: '7',
-    explanation: '9 − 2 = 7.',
+    explanation: 'Substitute x = 9: y = 9 − 2 = 7.',
   },
   {
     prompt: 'If y = 4x and y = 20, what is x?',
     options: ['5', '4', '16', '80'],
     answer: '5',
-    explanation: '20 ÷ 4 = 5.',
+    explanation: 'Divide both sides by 4: x = 20 ÷ 4 = 5.',
   },
   {
     prompt: 'A flow diagram says “×2, then +3”. What is the output for input 6?',

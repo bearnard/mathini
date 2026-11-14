@@ -60,7 +60,7 @@ const bank: CapsItem[] = [
     prompt: 'The temperature changes from −3°C to 4°C. What is the increase?',
     options: ['7°C', '1°C', '−7°C', '−1°C'],
     answer: '7°C',
-    explanation: '4 − (−3) = 7.',
+    explanation: 'The increase is the final minus the start: 4 − (−3) = 4 + 3 = 7°C.',
   },
   {
     prompt: 'What is |−9|?',

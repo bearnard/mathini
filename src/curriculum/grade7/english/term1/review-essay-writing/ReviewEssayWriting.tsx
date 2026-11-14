@@ -83,24 +83,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A reflective essay mainly asks the writer to...',
-    options: [
-      'think about an experience and what was learned',
-      'copy a poem without changes',
-      'write stage directions only',
-      'list dictionary definitions',
-    ],
+    options: ['think about an experience and what was learned', 'copy out a poem without any changes', 'write only stage directions for a play', 'list the dictionary meanings of words'],
     answer: 'think about an experience and what was learned',
     explanation: 'Reflective writing explores personal insight and growth.',
   },
   {
     prompt: 'Which sentence is best for a conclusion in an essay?',
-    options: [
-      'In conclusion, this experience taught me to prepare and persevere.',
-      'First, I will start my introduction now.',
-      'Maybe this paragraph belongs somewhere else.',
-      'The page number is twelve.',
-    ],
-    answer: 'In conclusion, this experience taught me to prepare and persevere.',
+    options: ['In conclusion, this taught me to prepare and persevere.', 'First, I will start my introduction right now.', 'Maybe this paragraph belongs somewhere else.', 'The page number of this page is twelve.'],
+    answer: 'In conclusion, this taught me to prepare and persevere.',
     explanation: 'A conclusion wraps up key ideas and leaves a final thought.',
   },
   {

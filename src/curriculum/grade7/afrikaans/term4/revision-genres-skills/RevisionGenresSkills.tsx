@@ -77,8 +77,8 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Kies die beste opsomming van 'n teks.",
-    options: ['Kort weergawe van hoofidees in eie woorde', 'Elke detail woord vir woord', 'Slegs die titel', 'Nuwe storie sonder verband'],
-    answer: 'Kort weergawe van hoofidees in eie woorde',
+    options: ["'n Kort weergawe van die hoofidees in eie woorde", 'Elke detail woord vir woord herhaal', 'Slegs die titel van die teks', "'n Nuwe storie sonder enige verband"],
+    answer: "'n Kort weergawe van die hoofidees in eie woorde",
     explanation: 'A summary captures only key points concisely.',
   },
   {
@@ -89,13 +89,13 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "In 'n visuele teks-vraag, wat moet jy altyd oorweeg?",
-    options: ['Beeld, woordkeuse en teikengehoor', 'Net die bladsy nommer', 'Net die lettertipe', 'Slegs die datum'],
+    options: ['Beeld, woordkeuse en teikengehoor', 'Net die bladsynommer van die teks', 'Net die lettertipe van die teks', 'Slegs die datum van publikasie'],
     answer: 'Beeld, woordkeuse en teikengehoor',
     explanation: 'Visual and language cues carry the message.',
   },
   {
     prompt: "Watter strategie help met gemengde hersiening?",
-    options: ['Oefen verskillende vraagtipes in een sessie', 'Herhaal net een tipe vraag', 'Slaan moeilike vrae altyd oor', 'Moenie terugvoer gebruik nie'],
+    options: ['Oefen verskillende vraagtipes in een sessie', 'Herhaal net een tipe vraag keer op keer', 'Slaan die moeilike vrae altyd oor', 'Gebruik nooit terugvoer van die onderwyser nie'],
     answer: 'Oefen verskillende vraagtipes in een sessie',
     explanation: 'Mixed practice prepares you for integrated assessments.',
   },
@@ -107,7 +107,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Waarom is term 4-hersiening belangrik?",
-    options: ['Dit konsolideer al die jaar se vaardighede', 'Dit vervang alle assessering', 'Dit maak lees oorbodig', 'Dit fokus net op een onderwerp'],
+    options: ['Dit konsolideer al die jaar se vaardighede', 'Dit vervang alle assessering van die jaar', 'Dit maak leeswerk heeltemal oorbodig', 'Dit fokus net op een onderwerp van die jaar'],
     answer: 'Dit konsolideer al die jaar se vaardighede',
     explanation: 'Revision combines and strengthens prior learning.',
   },

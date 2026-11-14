@@ -54,19 +54,19 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Which sentence is a clear self-introduction?',
-    options: ['NdinguLitha, ndifunda eGrade 7.', 'Molweni kuphela.', 'Andazi.', 'Mamela nje.'],
+    options: ['NdinguLitha, ndifunda eGrade 7.', 'Andazi ukuba ndingubani.', 'Mamela nje, ungathethi.', 'Molweni kuphela, ndiyahamba.'],
     answer: 'NdinguLitha, ndifunda eGrade 7.',
     explanation: 'It gives a name and school context in a full sentence.',
   },
   {
     prompt: 'Which question politely asks about a hobby?',
-    options: ['Yeyiphi into othanda ukuyenza emva kwesikolo?', 'Nika impendulo ngoku!', 'Kutheni uthule?', 'Hamba ngoku.'],
+    options: ['Yeyiphi into othanda ukuyenza emva kwesikolo?', 'Nika impendulo ngoku, ndiyakuxelela!', 'Kutheni uthule kangaka namhlanje?', 'Hamba ngoku ungabuyi apha.'],
     answer: 'Yeyiphi into othanda ukuyenza emva kwesikolo?',
     explanation: 'It is a respectful information question about interests.',
   },
   {
     prompt: 'What is the best response to “Unjani namhlanje?”',
-    options: ['Ndiphilile, enkosi. Wena unjani?', 'Andifuni kuthetha.', 'Molo kuphela.', 'Andazi mna.'],
+    options: ['Ndiphilile, enkosi. Wena unjani?', 'Andifuni kuthetha nawe namhlanje.', 'Molo kuphela, ndiyahamba ngoku.', 'Andizi kuphendula umbuzo wakho.'],
     answer: 'Ndiphilile, enkosi. Wena unjani?',
     explanation: 'It answers politely and keeps the dialogue going.',
   },

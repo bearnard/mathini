@@ -53,7 +53,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'If a simple circuit does not work, first check whether the...',
-    options: ['switch is closed and the path is complete', 'battery label is colourful', 'wire colour matches the desk', 'circuit is drawn in pen only'],
+    options: ['switch is closed and the path is complete', 'battery label has a colourful design', 'wire colour matches the desk colour', 'circuit is drawn in pen and not in pencil'],
     answer: 'switch is closed and the path is complete',
     explanation: 'Current needs a complete closed path to flow.',
   },

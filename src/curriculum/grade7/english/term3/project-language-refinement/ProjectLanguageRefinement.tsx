@@ -105,13 +105,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is a revision checklist useful?',
-    options: [
-      'It helps you check grammar, punctuation, and organisation systematically',
-      'It guarantees marks without editing',
-      'It replaces teacher feedback completely',
-      'It shortens all writing tasks automatically',
-    ],
-    answer: 'It helps you check grammar, punctuation, and organisation systematically',
+    options: ['It helps you check grammar, punctuation and structure', 'It guarantees marks without any editing', 'It takes the place of teacher feedback', 'It shortens all of your writing tasks'],
+    answer: 'It helps you check grammar, punctuation and structure',
     explanation: 'Checklists support deliberate, complete editing.',
   },
   {

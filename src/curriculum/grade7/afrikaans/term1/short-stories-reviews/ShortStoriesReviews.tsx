@@ -94,13 +94,13 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Kies die beste openingsin vir 'n kort resensie.",
-    options: ['Ek het die storie geniet omdat dit spannend was.', "Die storie is in 'n boek.", 'Daar is letters op die bladsy.', 'Die skrywer gebruik ink.'],
+    options: ['Ek het die storie geniet omdat dit spannend was.', "Die storie is in 'n boek wat ek gelees het.", 'Daar is letters op elke bladsy van die boek.', 'Die skrywer het ink gebruik om dit te skryf.'],
     answer: 'Ek het die storie geniet omdat dit spannend was.',
     explanation: 'A review starts with a clear opinion.',
   },
   {
     prompt: "Watter opsie beskryf die konflik in 'n storie?",
-    options: ['Die probleem wat opgelos moet word', 'Die naam van die skrywer', 'Die lys van hoofstukke', 'Die datum van publikasie'],
+    options: ['Die probleem wat opgelos moet word', 'Die naam van die skrywer van die storie', 'Die lys van die hoofstukke in die boek', 'Die datum waarop die boek gepubliseer is'],
     answer: 'Die probleem wat opgelos moet word',
     explanation: 'Conflict is the problem or challenge in the story.',
   },
@@ -112,7 +112,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Watter sin is 'n gepaste afsluiting vir 'n resensie?",
-    options: ['Ek beveel hierdie storie vir Graad 7-leerders aan.', 'Daar is 43 bladsye.', 'My pen is blou.', "Ek sit by 'n tafel."],
+    options: ['Ek beveel hierdie storie vir Graad 7-leerders aan.', "Die boek het 43 bladsye en 'n harde omslag.", 'My pen is blou en dit werk nog goed.', "Ek sit by 'n tafel in die klaskamer."],
     answer: 'Ek beveel hierdie storie vir Graad 7-leerders aan.',
     explanation: 'A good closing sentence gives a final recommendation.',
   },
