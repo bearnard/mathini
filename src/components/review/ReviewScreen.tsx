@@ -10,8 +10,8 @@ import Streak from '../gamification/Streak';
 import BadgeUnlockModal from '../gamification/BadgeUnlockModal';
 import { triggerConfetti } from '../../lib/confetti';
 import { useStudent } from '../../lib/client/StudentContext';
-import { resolveCandidates, type ReviewQuestion, type TodayPayload } from '../../lib/client/review/resolve';
-import { REVIEW_SESSION_SIZE } from '../../lib/server/review/due';
+import type { ReviewQuestion } from '../../lib/client/review/resolve';
+import { loadTodaysReview } from '../../lib/client/review/browserLoad';
 
 function shuffle<T>(arr: T[]): T[] {
   const c = [...arr];
@@ -25,7 +25,7 @@ function shuffle<T>(arr: T[]): T[] {
 type Phase = 'loading' | 'error' | 'empty' | 'running' | 'done';
 
 /** "Today's review": questions the learner missed earlier, mixed across topics, with feedback and the usual XP. */
-export default function ReviewScreen({ onBack }: { onBack: () => void }) {
+export default function ReviewScreen({ onBack, initialQuestions }: { onBack: () => void; initialQuestions?: ReviewQuestion[] | null }) {
   const { refreshStudent } = useStudent();
   const [phase, setPhase] = useState<Phase>('loading');
   const [queue, setQueue] = useState<ReviewQuestion[]>([]);
@@ -40,25 +40,16 @@ export default function ReviewScreen({ onBack }: { onBack: () => void }) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      try {
-        const res = await fetch('/api/review/today');
-        if (!res.ok) throw new Error('bad status');
-        const payload = (await res.json()) as TodayPayload;
-        const { GRADE6_BANKS } = await import('../../curriculum/grade6/reviewBanks');
-        const { questions, gone } = await resolveCandidates(payload, GRADE6_BANKS, REVIEW_SESSION_SIZE);
-        if (gone.length > 0) {
-          void fetch('/api/review/retire', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ qkeys: gone }) }).catch(() => {});
-        }
-        if (cancelled) return;
-        if (questions.length === 0) { setPhase('empty'); return; }
-        setQueue(questions.map((q) => ({ ...q, options: shuffle(q.options) })));
-        setPhase('running');
-      } catch {
-        if (!cancelled) setPhase('error');
-      }
+      // The home card already resolved today's questions; otherwise (deep link, stale state) load them now.
+      const questions = initialQuestions && initialQuestions.length > 0 ? initialQuestions : await loadTodaysReview();
+      if (cancelled) return;
+      if (questions === null) { setPhase('error'); return; }
+      if (questions.length === 0) { setPhase('empty'); return; }
+      setQueue(questions.map((q) => ({ ...q, options: shuffle(q.options) })));
+      setPhase('running');
     })();
     return () => { cancelled = true; };
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const current = queue[index];
 
