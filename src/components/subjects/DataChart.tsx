@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import {
   BarChart,
   Bar,
@@ -15,7 +16,7 @@ import {
   Area,
   AreaChart,
 } from 'recharts';
-import { axisHeight, isDense, wrapLabel } from './wrapLabel';
+import { PHONE_PLOT, axisHeight, edgePadding, needsRotationAt, rotatedFont, wrapLabel } from './wrapLabel';
 
 export type ChartType = 'bar' | 'line' | 'area' | 'climate';
 
@@ -43,21 +44,21 @@ interface WrapTickProps {
   x?: number;
   y?: number;
   payload?: { value: string | number };
-  /** Many categories: turn the label on end instead of wrapping it. */
-  rotate?: boolean;
+  /** Every category label, so the whole axis is wrapped or turned on end together. */
+  labels?: string[];
   /** recharts passes the axis width and the number of ticks, so the slot width is width / count. */
   width?: number;
   visibleTicksCount?: number;
 }
 
 /** A category tick that wraps (and, if needed, shrinks a little) so every label shows on a phone. */
-const WrapTick = ({ x = 0, y = 0, payload, width = 0, visibleTicksCount = 1, rotate = false }: WrapTickProps) => {
+const WrapTick = ({ x = 0, y = 0, payload, width = 0, visibleTicksCount = 1, labels = [] }: WrapTickProps) => {
   const slot = width / Math.max(1, visibleTicksCount);
-  // many categories: turn the label on end, but only when it does not fit flat in its slot
-  if (rotate && slot - 4 < String(payload?.value ?? '').length * 0.58 * 12) {
+  // many categories, or a word too wide for its slot: turn the label on end, but only when it does not fit flat
+  if (needsRotationAt(labels, slot)) {
     return (
       <g transform={`translate(${x},${y})`}>
-        <text transform="rotate(-90)" x={-6} y={4} textAnchor="end" fill="#666" fontSize={10}>
+        <text transform="rotate(-90)" x={-6} y={4} textAnchor="end" fill="#666" fontSize={rotatedFont(slot)}>
           {String(payload?.value ?? '')}
         </text>
       </g>
@@ -96,14 +97,31 @@ const DataChart = ({
 }: DataChartProps) => {
   const colours = series.map((s, i) => s.color ?? COLOURS[i % COLOURS.length]);
   // every category label must show: interval 0, wrapped ticks, and an axis tall enough for them
+  // measure the box we are drawn in, so the axis height and the labels agree on how much room there is
+  const boxRef = useRef<HTMLDivElement>(null);
+  const [boxWidth, setBoxWidth] = useState(0);
+  useEffect(() => {
+    const el = boxRef.current;
+    if (!el || typeof ResizeObserver === 'undefined') return;
+    const update = () => setBoxWidth(el.clientWidth);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  const dual = type === 'climate';
+  const plot = boxWidth > 0 ? Math.max(60, boxWidth - (dual ? 100 : 70)) : dual ? PHONE_PLOT.dual : PHONE_PLOT.single;
+  const categoryLabels = data.map((d) => String(d[xKey]));
   const xAxisProps = {
     dataKey: xKey,
     interval: 0 as const,
-    tick: <WrapTick rotate={isDense(data.map((d) => String(d[xKey])))} />,
-    height: axisHeight(data.map((d) => String(d[xKey]))),
+    tick: <WrapTick labels={categoryLabels} />,
+    height: axisHeight(categoryLabels, plot),
   };
   // line and area charts put the first and last label on the very edge of the plot: leave room
-  const edgeRoom = { padding: { left: 8, right: 18 } };
+  const first = String(data[0]?.[xKey] ?? '');
+  const last = String(data[data.length - 1]?.[xKey] ?? '');
+  const edgeRoom = { padding: { left: Math.min(40, edgePadding(first)), right: edgePadding(last) } };
 
   const renderContent = () => {
     if (type === 'climate') {
@@ -171,7 +189,7 @@ const DataChart = ({
   };
 
   return (
-    <div className={`w-full ${className ?? ''}`}>
+    <div ref={boxRef} className={`w-full ${className ?? ''}`}>
       <ResponsiveContainer width="100%" height={height}>
         {renderContent()}
       </ResponsiveContainer>
