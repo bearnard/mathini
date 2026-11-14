@@ -85,7 +85,7 @@ export const bank: CapsItem[] = [
     },
     {
         prompt: 'How many kilograms are in 1 tonne?',
-        options: ['100 kg', '1 000 kg', '10 000 kg', '100 kg'],
+        options: ['100 kg', '1 000 kg', '10 000 kg', '10 kg'],
         answer: '1 000 kg',
         explanation: '1 tonne = 1 000 kilograms.'
     },

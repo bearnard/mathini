@@ -103,13 +103,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What makes a strong opening in an oral presentation?',
-    options: [
-      'A hook that grabs attention and introduces the topic',
-      'Reading the whole conclusion first',
-      'Speaking as softly as possible',
-      'Listing unrelated facts at random',
-    ],
-    answer: 'A hook that grabs attention and introduces the topic',
+    options: ['A hook that grabs attention and names the topic', 'Reading the whole conclusion first', 'Speaking as softly as you possibly can', 'Listing facts that have no link to each other'],
+    answer: 'A hook that grabs attention and names the topic',
     explanation: 'A strong opening helps the audience know what to expect and keeps them interested.',
   },
   {
@@ -125,12 +120,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which detail makes a book review stronger?',
-    options: [
-      'Specific reasons and examples from the book',
-      'A guess with no support',
-      'The reviewer\'s lunch menu',
-      'A copy of the back cover only',
-    ],
+    options: ['Specific reasons and examples from the book', 'A guess that has no support at all', 'The lunch menu of the reviewer', 'A copy of the back cover and nothing else'],
     answer: 'Specific reasons and examples from the book',
     explanation: 'Reviews need evidence from the text to support the opinion.',
   },
@@ -180,13 +170,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which sentence suits a formal review opening?',
-    options: [
-      'This book keeps the reader interested from the first page',
-      'Yo, this story is wild and stuff',
-      'I forgot what the book was about',
-      'There is no reason to explain my opinion',
-    ],
-    answer: 'This book keeps the reader interested from the first page',
+    options: ['This book keeps the reader interested from page one', 'Yo, this story is wild and stuff, right', 'I forgot what the book was about', 'There is no reason to explain my opinion'],
+    answer: 'This book keeps the reader interested from page one',
     explanation: 'A formal review opening uses clear, suitable language for the audience and purpose.',
   },
 ];

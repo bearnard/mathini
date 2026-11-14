@@ -147,13 +147,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which materials are useful for a simple 3D construction task?',
-    options: [
-      'Cardboard, glue, and recycled containers',
-      'Only water and sunlight',
-      'Loose sand with no support',
-      'Air with nothing to join it',
-    ],
-    answer: 'Cardboard, glue, and recycled containers',
+    options: ['Cardboard, glue and recycled boxes', 'Water and sunlight and nothing else', 'Loose sand with nothing to hold it', 'Air with no way to join it up'],
+    answer: 'Cardboard, glue and recycled boxes',
     explanation: 'Cardboard and recycled materials are practical for building stable school art models.',
   },
   {
@@ -169,24 +164,14 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What does texture describe in art?',
-    options: [
-      'How a surface looks or feels, such as rough or smooth',
-      'How quickly a runner finishes a race',
-      'How long a speech lasts',
-      'How many learners are absent',
-    ],
-    answer: 'How a surface looks or feels, such as rough or smooth',
+    options: ['How a surface feels, such as rough or smooth', 'How quickly a runner finishes a race', 'How long a speech lasts in minutes', 'How many learners are absent today'],
+    answer: 'How a surface feels, such as rough or smooth',
     explanation: 'Texture is an art element that describes the quality of a surface.',
   },
   {
     prompt: 'What does dance-drama integration mean?',
-    options: [
-      'Using movement and acting together to show an idea or story',
-      'Only standing still on stage',
-      'Building a model without any performance',
-      'Reading marks aloud without expression',
-    ],
-    answer: 'Using movement and acting together to show an idea or story',
+    options: ['Using movement and acting together to tell a story', 'Only standing still on the stage', 'Building a model without any performance', 'Reading marks aloud without any expression'],
+    answer: 'Using movement and acting together to tell a story',
     explanation: 'Dance-drama combines body movement, expression, and performance to communicate meaning.',
   },
   {
@@ -213,13 +198,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What could go into a Creative Arts portfolio?',
-    options: [
-      'Sketches, photos of work, and feedback notes',
-      'Only a lunch menu from home',
-      'A random sports score with no art evidence',
-      'Nothing at all from the project',
-    ],
-    answer: 'Sketches, photos of work, and feedback notes',
+    options: ['Sketches, photos of work and feedback notes', 'A lunch menu from home and nothing else', 'A sports score that has no art with it', 'A blank page from a book of the term'],
+    answer: 'Sketches, photos of work and feedback notes',
     explanation: 'A portfolio collects evidence of planning, making, presenting, and reflecting.',
   },
   {

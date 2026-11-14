@@ -184,12 +184,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which is most likely a factual text?',
-    options: [
-      'A short paragraph explaining how taxis follow routes',
-      'A story about a magic bird that talks',
-      'A poem made of rhyming lines only',
-      'A dialogue from a play script',
-    ],
+    options: ['A short paragraph explaining how taxis follow routes', 'A story about a bird that talks to a boy', 'A poem made of rhyming lines only', 'A dialogue from a play script'],
     answer: 'A short paragraph explaining how taxis follow routes',
     explanation: 'Factual texts provide real information and explanations.',
   },
@@ -212,13 +207,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which action best shows reading comprehension?',
-    options: [
-      'Answering what happened using details from the text',
-      'Choosing answers based on favourite colours',
-      'Copying one line without understanding it',
-      'Skipping the passage and answering randomly',
-    ],
-    answer: 'Answering what happened using details from the text',
+    options: ['Answering what happened with details from the text', 'Choosing answers by your favourite colours', 'Copying one line without understanding it', 'Skipping the passage and answering by guessing'],
+    answer: 'Answering what happened with details from the text',
     explanation: 'Comprehension means understanding and using relevant text evidence.',
   },
   {

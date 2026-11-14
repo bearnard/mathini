@@ -132,7 +132,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'An advertisement’s main purpose is usually to...',
-    options: ['persuade people to buy or use something', 'tell a full life story', 'list all grammar rules', 'show maths formulas'],
+    options: ['persuade people to buy or use something', 'tell a full life story in order', 'list all of the rules of grammar', 'show the formulas used in maths'],
     answer: 'persuade people to buy or use something',
     explanation: 'Adverts are designed to attract attention and persuade an audience.',
   },
@@ -144,8 +144,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What does scanning help you find quickly?',
-    options: ['Specific details like names, times, or prices', 'Only difficult spelling words', 'Every sentence from memory', 'The writer’s handwriting style'],
-    answer: 'Specific details like names, times, or prices',
+    options: ['Specific details like names, times or prices', 'Only the difficult spelling words', 'Every sentence of the text from memory', 'The writer’s style of handwriting'],
+    answer: 'Specific details like names, times or prices',
     explanation: 'Scanning is a fast reading strategy for key facts.',
   },
   {

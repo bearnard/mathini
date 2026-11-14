@@ -189,7 +189,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which action shows good turn-taking in a dialogue?',
-    options: ['Wait, then answer when it is your turn', 'Interrupt every sentence', 'Speak without listening', 'Change the topic each time'],
+    options: ['Wait, then answer when it is your turn', 'Interrupt each sentence that is said', 'Speak without listening to the others', 'Change the topic every single time'],
     answer: 'Wait, then answer when it is your turn',
     explanation: 'Turn-taking means listening and responding at the right time.',
   },

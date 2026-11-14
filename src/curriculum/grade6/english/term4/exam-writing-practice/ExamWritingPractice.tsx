@@ -92,8 +92,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'If the task asks you to write to a specific audience, what must you remember?',
-    options: ['Choose the tone and format that suit that reader', 'Use any style you want', 'Ignore who will read it', 'Write only single-word answers'],
-    answer: 'Choose the tone and format that suit that reader',
+    options: ['Choose the tone and format that suit the reader', 'Use any style that you feel like using', 'Ignore who will be reading your writing', 'Write one-word answers to every part'],
+    answer: 'Choose the tone and format that suit the reader',
     explanation: 'Audience affects word choice, tone, and the structure of the writing.',
   },
   {
@@ -104,8 +104,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the safest strategy if you feel under pressure in a writing exam?',
-    options: ['Follow your plan and tick off the checklist step by step', 'Rush so fast that you cannot reread', 'Change the topic halfway through', 'Leave out the ending to save time'],
-    answer: 'Follow your plan and tick off the checklist step by step',
+    options: ['Follow your plan and tick off your checklist', 'Rush so fast that you cannot reread', 'Change the topic of the essay halfway through', 'Leave out the ending to save some time'],
+    answer: 'Follow your plan and tick off your checklist',
     explanation: 'A calm routine helps you manage pressure and produce a complete response.',
   },
 ];

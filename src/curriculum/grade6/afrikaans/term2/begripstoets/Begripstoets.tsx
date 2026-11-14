@@ -67,14 +67,14 @@ const learnSteps: LearnStep[] = [
 export const bank: AfrikaansItem[] = [
   {
     prompt: 'Lena het Saterdag biblioteek toe gegaan. Sy het ’n boek oor diere geleen. Watter boek het Lena geleen?',
-    options: ['’n boek oor diere', '’n boek oor motors', '’n boek oor sport', '’n boek oor kos'],
-    answer: '’n boek oor diere',
+    options: ['’n Diereboek', '’n Motorboek', '’n Sportboek', '’n Kosboek'],
+    answer: '’n Diereboek',
     explanation: 'The passage says she borrowed a book about animals.',
   },
   {
     prompt: 'Thabo speel sokker na skool. Sy span oefen op die groot veld. Waar oefen die span?',
-    options: ['op die groot veld', 'in die klaskamer', 'by die winkel', 'in die kombuis'],
-    answer: 'op die groot veld',
+    options: ['Op die veld', 'In die klaskamer', 'By die winkel', 'In die kombuis'],
+    answer: 'Op die veld',
     explanation: 'The team practises on the big field.',
   },
   {
@@ -85,14 +85,14 @@ export const bank: AfrikaansItem[] = [
   },
   {
     prompt: 'Die bus kom om sewe-uur. Jan staan vroeg op sodat hy nie laat is nie. Hoe laat kom die bus?',
-    options: ['om sewe-uur', 'om agt-uur', 'om ses-uur', 'om tien-uur'],
-    answer: 'om sewe-uur',
+    options: ['Teen sewe-uur', 'Teen agt-uur', 'Teen ses-uur', 'Teen tien-uur'],
+    answer: 'Teen sewe-uur',
     explanation: 'The time given in the passage is seven o’clock.',
   },
   {
     prompt: 'Sara se kat slaap op die bank. Die kat is grys en baie rustig. Waar slaap die kat?',
-    options: ['op die bank', 'onder die bed', 'buite die huis', 'op die tafel'],
-    answer: 'op die bank',
+    options: ['Op die rusbank', 'Onder die bed', 'Buite die huis', 'Op die tafel'],
+    answer: 'Op die rusbank',
     explanation: 'The passage says the cat sleeps on the couch.',
   },
   {
@@ -115,8 +115,8 @@ export const bank: AfrikaansItem[] = [
   },
   {
     prompt: 'Die klas besoek die museum. Hulle leer van ou treine en foto’s. Waarheen gaan die klas?',
-    options: ['die museum', 'die strand', 'die park', 'die mark'],
-    answer: 'die museum',
+    options: ['Na ’n museum', 'Na die strand', 'Na die park', 'Na die mark'],
+    answer: 'Na ’n museum',
     explanation: 'The class visits the museum.',
   },
 ];

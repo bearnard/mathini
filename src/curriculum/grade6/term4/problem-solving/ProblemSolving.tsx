@@ -96,8 +96,8 @@ export const bank: CapsItem[] = [
     },
     {
         prompt: 'What is the FIRST step when solving a word problem?',
-        options: ['Write the answer', 'Draw a diagram immediately', 'Read the problem carefully to identify what is asked', 'Do the easiest calculation first'],
-        answer: 'Read the problem carefully to identify what is asked',
+        options: ['Write the answer straight away', 'Draw a diagram at once, before reading', 'Read the problem and find what is asked', 'Do the easiest calculation first'],
+        answer: 'Read the problem and find what is asked',
         explanation: 'Always read the whole problem first so you understand what is being asked before you start calculating.'
     }
 ];

@@ -129,24 +129,14 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which detail best shows character motivation?',
-    options: [
-      'A character practises every day because she wants to make the team',
-      'A character wears blue socks on Tuesday',
-      'A character sits near the window in class',
-      'A character owns a pencil and a ruler',
-    ],
-    answer: 'A character practises every day because she wants to make the team',
+    options: ['A character practises every day to make the team', 'A character wears blue socks on Tuesday', 'A character sits near the window in class', 'A character owns a pencil and a ruler'],
+    answer: 'A character practises every day to make the team',
     explanation: 'The action and the reason together show what motivates the character.',
   },
   {
     prompt: 'Which response uses textual support?',
-    options: [
-      'I think the hero is brave because he returns to help his friend in chapter 3',
-      'The hero is brave because I say so',
-      'The hero is brave and that is all',
-      'The hero is brave because brave is a nice word',
-    ],
-    answer: 'I think the hero is brave because he returns to help his friend in chapter 3',
+    options: ['The hero is brave because he helps his friend in chapter 3', 'The hero is brave because I say that he is', 'The hero is brave and that is all I can say', 'The hero is brave because brave is a nice word'],
+    answer: 'The hero is brave because he helps his friend in chapter 3',
     explanation: 'Textual support uses a clear detail from the text to prove an opinion.',
   },
   {
@@ -190,13 +180,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which sentence best states a theme?',
-    options: [
-      'Honesty builds trust even when telling the truth is difficult',
-      'The story has twelve pages and two pictures',
-      'The main character lives near a river',
-      'The book starts on a rainy morning',
-    ],
-    answer: 'Honesty builds trust even when telling the truth is difficult',
+    options: ['Honesty builds trust, even when the truth is hard', 'The story has twelve pages and two pictures', 'The main character lives near a river', 'The book starts on a rainy morning'],
+    answer: 'Honesty builds trust, even when the truth is hard',
     explanation: 'A theme statement gives a broad message that can apply beyond one event.',
   },
 ];

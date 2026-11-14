@@ -143,8 +143,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the best way to describe a character?',
-    options: ['By using what the character says, does, and feels', 'By looking only at the title', 'By skipping the dialogue', 'By choosing the longest answer'],
-    answer: 'By using what the character says, does, and feels',
+    options: ['By using what they say, do and feel', 'By looking only at the title of the book', 'By skipping all of the dialogue', 'By choosing the longest answer on the page'],
+    answer: 'By using what they say, do and feel',
     explanation: 'Character clues come from actions, words, thoughts, and feelings in the text.',
   },
   {

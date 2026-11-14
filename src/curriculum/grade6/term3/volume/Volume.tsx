@@ -46,7 +46,7 @@ const learnSteps: LearnStep[] = [
 export const bank: CapsItem[] = [
     {
         prompt: 'Volume is...',
-        options: ['the area of its faces', 'the distance around it', 'the amount of space a 3D object takes up', 'its total surface area'],
+        options: ['the area of all of its faces', 'the distance around the object', 'the amount of space a 3D object takes up', 'its total surface area in squares'],
         answer: 'the amount of space a 3D object takes up',
         explanation: 'Volume measures how much three-dimensional space a solid object occupies.',
     },
@@ -70,7 +70,7 @@ export const bank: CapsItem[] = [
     },
     {
         prompt: 'What unit do we use for volume?',
-        options: ['cm or m', 'cm² or m²', 'cm³ or m³ (cubic units)', 'just numbers'],
+        options: ['cm or m (length units)', 'cm² or m² (square units)', 'cm³ or m³ (cubic units)', 'just plain numbers'],
         answer: 'cm³ or m³ (cubic units)',
         explanation: 'Volume fills three dimensions, so we use cubic units such as cm³ or m³.',
     },

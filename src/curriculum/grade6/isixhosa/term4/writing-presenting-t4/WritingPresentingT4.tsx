@@ -180,7 +180,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the purpose of editing before presenting?',
-    options: ['To correct spelling and punctuation mistakes', 'To remove every full sentence', 'To change the topic completely', 'To shorten writing to one word'],
+    options: ['To correct spelling and punctuation mistakes', 'To take out every full sentence', 'To change the topic completely', 'To cut the writing down to one word'],
     answer: 'To correct spelling and punctuation mistakes',
     explanation: 'Editing improves accuracy and clarity in the final text.',
   },

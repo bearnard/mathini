@@ -135,13 +135,8 @@ const learnSteps: LearnStep[] = [
 export const bank: CapsItem[] = [
   {
     prompt: 'What does puberty mean?',
-    options: [
-      'A stage when a child grows and changes into adolescence',
-      'A way to measure the weather',
-      'A team game with a ball',
-      'A type of community building',
-    ],
-    answer: 'A stage when a child grows and changes into adolescence',
+    options: ['A stage when a child grows into an adolescent', 'A way to measure the weather', 'A team game that is played with a ball', 'A type of building for the community'],
+    answer: 'A stage when a child grows into an adolescent',
     explanation: 'Puberty is a stage of growing up when the body and emotions begin to change.',
   },
   {
@@ -179,13 +174,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What is stigma?',
-    options: [
-      'Treating someone unfairly because of an illness or difference',
-      'A warm-up activity before sport',
-      'A career plan written in a notebook',
-      'A type of healthy breakfast',
-    ],
-    answer: 'Treating someone unfairly because of an illness or difference',
+    options: ['Treating someone unfairly because of an illness', 'A warm-up activity before a sport', 'A career plan written in a notebook', 'A type of healthy breakfast'],
+    answer: 'Treating someone unfairly because of an illness',
     explanation: 'Stigma happens when people are judged, excluded, or teased instead of treated kindly and fairly.',
   },
   {
@@ -201,24 +191,14 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What is career awareness?',
-    options: [
-      'Learning about jobs and how your interests may connect to them',
-      'Choosing a game captain for one lesson only',
-      'Memorising every road sign in town',
-      'Skipping school subjects you find difficult',
-    ],
-    answer: 'Learning about jobs and how your interests may connect to them',
+    options: ['Learning about jobs and how they match your interests', 'Choosing a game captain for one lesson only', 'Memorising every road sign in town', 'Skipping school subjects that you find hard'],
+    answer: 'Learning about jobs and how they match your interests',
     explanation: 'Career awareness helps learners notice different jobs and think about future possibilities.',
   },
   {
     prompt: 'Which learner is linking a strength to a possible future career?',
-    options: [
-      'A learner who enjoys caring for people and wants to become a nurse',
-      'A learner who refuses to learn any new skill',
-      'A learner who never thinks about helping others',
-      'A learner who believes jobs do not need effort',
-    ],
-    answer: 'A learner who enjoys caring for people and wants to become a nurse',
+    options: ['A learner who likes caring for people and wants to be a nurse', 'A learner who refuses to learn any new skill', 'A learner who never thinks about helping others', 'A learner who dislikes all of the school subjects'],
+    answer: 'A learner who likes caring for people and wants to be a nurse',
     explanation: 'Career planning begins when learners connect what they enjoy and do well with community roles.',
   },
   {

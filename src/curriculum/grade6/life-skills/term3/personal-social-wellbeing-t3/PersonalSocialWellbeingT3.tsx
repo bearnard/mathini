@@ -153,13 +153,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which action shows respect for another person’s culture or religion?',
-    options: [
-      'Listening politely and asking respectful questions',
-      'Laughing at a person’s tradition',
-      'Calling their beliefs silly',
-      'Forcing them to copy you',
-    ],
-    answer: 'Listening politely and asking respectful questions',
+    options: ['Listening politely and asking questions', 'Laughing at a person’s tradition', 'Calling their beliefs silly', 'Forcing them to copy you'],
+    answer: 'Listening politely and asking questions',
     explanation: 'Respect means treating other people’s beliefs and customs with care and kindness.',
   },
   {

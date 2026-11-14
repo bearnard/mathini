@@ -161,8 +161,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'A caption is best described as…',
-    options: ['a short line describing a picture', 'a long speech', 'a maths formula', 'a random word list'],
-    answer: 'a short line describing a picture',
+    options: ['a short line that describes a picture', 'a long speech given to a class', 'a formula that is used in maths', 'a list of words in no order'],
+    answer: 'a short line that describes a picture',
     explanation: 'Captions briefly explain what is shown in an image.',
   },
   {
