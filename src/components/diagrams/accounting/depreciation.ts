@@ -8,6 +8,8 @@
 export const STRAIGHT_LINE_EXAMPLE = { cost: 45000, residual: 5000, years: 4 } as const;
 export const DIMINISHING_EXAMPLE = { opening: 40000, ratePercent: 20, years: 3 } as const;
 
+import { rand } from './rand';
+
 const toRand = (cents: number): number => Math.round(cents) / 100;
 
 export interface Schedule {
@@ -44,10 +46,3 @@ export const diminishing = (opening: number, ratePercent: number, years: number)
 /** "R10 000 every year" when the charges are all equal, else the list "R8 000, R6 400, R5 120". */
 export const chargeCaption = (charges: number[]): string =>
   charges.every((c) => c === charges[0]) ? `${rand(charges[0])} every year` : charges.map(rand).join(', ');
-
-/** Rand as the lesson writes it: "R10 000", cents only when needed. */
-export const rand = (n: number): string => {
-  const whole = Math.trunc(Math.abs(n));
-  const cents = Math.round((Math.abs(n) - whole) * 100);
-  return `R${String(whole).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}${cents ? `,${String(cents).padStart(2, '0')}` : ''}`;
-};
