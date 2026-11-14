@@ -75,7 +75,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'What is the Constitution?', options: ['The highest law of South Africa', 'A school timetable', 'A voting box', 'A sports rule book'], answer: 'The highest law of South Africa', explanation: 'The Constitution is the highest law and guides all other laws.' },
   { prompt: 'What must other laws in South Africa follow?', options: ['The Constitution', 'A classroom poster', 'A TV advert', 'A private diary'], answer: 'The Constitution', explanation: 'No law or government action may go against the Constitution.' },
   { prompt: 'What is the Bill of Rights?', options: ['The part of the Constitution that protects people’s rights', 'A list of shopping prices', 'A map of provinces', 'A set of sports teams'], answer: 'The part of the Constitution that protects people’s rights', explanation: 'The Bill of Rights lists and protects important rights for everyone.' },

@@ -65,7 +65,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   {
     prompt: 'Which greeting is best for a friendly letter to Sara?',
     options: ['Liewe Sara', 'Geagte Meneer', 'Aan wie dit mag aangaan', 'Beste hoof'],

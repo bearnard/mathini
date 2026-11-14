@@ -57,7 +57,7 @@ const learnSteps: LearnStep[] = [
     },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'The perimeter of a shape is...',
         options: ['the space inside it', 'the total length of its boundary', 'its height times its width', 'half its area'],

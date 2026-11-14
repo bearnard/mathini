@@ -84,7 +84,7 @@ const learnSteps: LearnStep[] = [
     }
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'What is the HCF of 8 and 12?',
         options: ['2', '3', '4', '6'],

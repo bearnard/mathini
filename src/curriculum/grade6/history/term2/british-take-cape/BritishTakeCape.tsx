@@ -1,6 +1,6 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
-import Timeline from '@/components/subjects/Timeline';
+import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
+        <ScaleTimeline
           events={[
             {"date": "1488", "title": "Dias rounds the Cape", "description": "Bartolomeu Dias sailed around the southern tip of Africa. His voyage showed that the Cape lay on an important sea route to the East."},
             {"date": "1652", "title": "Dutch station founded", "description": "Jan van Riebeeck established a Dutch refreshment station at the Cape. Ships could stop there for water, food, and repairs."},
@@ -85,7 +85,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'Why was the Cape important to European powers?', options: ['It was a useful stop on the sea route to India and the East', 'It had the largest gold mines in the world', 'It was the capital city of Britain', 'It was the only place where ships could be built'], answer: 'It was a useful stop on the sea route to India and the East', explanation: 'Ships used the Cape for supplies and repairs on long voyages.' },
   { prompt: 'From whom did Britain first take the Cape in 1795?', options: ['The Dutch', 'The Portuguese', 'The French', 'The Spanish'], answer: 'The Dutch', explanation: 'The Cape had been under Dutch control before the British occupation of 1795.' },
   { prompt: 'In which year did Britain first take the Cape?', options: ['1795', '1652', '1806', '1834'], answer: '1795', explanation: 'Britain first occupied the Cape in 1795.' },

@@ -66,7 +66,7 @@ const learnSteps: LearnStep[] = [
     },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'How many centimetres are in 1 metre?',
         options: ['10', '100', '1 000', '10 000'],

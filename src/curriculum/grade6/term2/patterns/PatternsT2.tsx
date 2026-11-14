@@ -60,7 +60,7 @@ const learnSteps: LearnStep[] = [
     }
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'What is the rule for the sequence 3, 6, 12, 24?',
         options: ['Add 3', 'Multiply by 2', 'Add 6', 'Multiply by 3'],

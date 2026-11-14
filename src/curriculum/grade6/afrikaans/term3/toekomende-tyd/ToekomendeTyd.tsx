@@ -64,7 +64,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   {
     prompt: "Choose the future tense of: 'Ek speel sokker.'",
     options: ['Ek sal sokker speel', 'Ek speel sal sokker', 'Sal ek sokker speel', 'Ek het sokker gespeel'],

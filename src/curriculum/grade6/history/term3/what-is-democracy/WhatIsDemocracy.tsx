@@ -74,7 +74,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'What does democracy mean?', options: ['Government by the people', 'Government by one king only', 'Government without elections', 'Government by soldiers only'], answer: 'Government by the people', explanation: 'In a democracy, people have a say in choosing their leaders.' },
   { prompt: 'Who votes in South African democratic elections?', options: ['Adult citizens', 'Only school principals', 'Only children', 'Only visitors from other countries'], answer: 'Adult citizens', explanation: 'Adult citizens have the right to vote in free and fair elections.' },
   { prompt: 'What does “one person, one vote” mean?', options: ['Each adult citizen has one equal vote', 'Some people get many votes', 'Only leaders may vote', 'Votes are counted by age'], answer: 'Each adult citizen has one equal vote', explanation: 'Democracy treats each adult citizen’s vote as equal.' },

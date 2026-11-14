@@ -154,7 +154,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which response best shows a feeling in isiXhosa?',
     options: ['Ndonwabile namhlanje.', 'Itafile iphantsi.', 'Le yipensile yam.', 'Incwadi ibomvu.'],

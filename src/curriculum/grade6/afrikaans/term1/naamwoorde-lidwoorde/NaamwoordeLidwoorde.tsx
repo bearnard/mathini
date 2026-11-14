@@ -73,7 +73,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   { prompt: "What is a 'selfstandige naamwoord'?", options: ['noun', 'verb', 'adjective', 'question'], answer: 'noun', explanation: "A 'selfstandige naamwoord' is a noun: a naming word." },
   { prompt: "Which word is a noun in Afrikaans?", options: ['kat', 'hardloop', 'mooi', 'en'], answer: 'kat', explanation: "'Kat' names an animal, so it is a noun." },
   { prompt: "Choose the Afrikaans article meaning 'the'.", options: ['die', "'n", 'is', 'en'], answer: 'die', explanation: "'Die' means 'the' in Afrikaans." },

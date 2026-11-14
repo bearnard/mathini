@@ -151,7 +151,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which text type often includes a moral lesson at the end?',
     options: ['Folktale', 'Bus timetable', 'Science diagram only', 'Calculator manual'],

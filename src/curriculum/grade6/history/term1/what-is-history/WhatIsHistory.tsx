@@ -75,7 +75,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'What is history?', options: ['The study of the past', 'The study of weather today', 'The study of plant roots', 'The study of sums only'], answer: 'The study of the past', explanation: 'History helps us learn about people, places, and events from the past.' },
   { prompt: 'Why do we study history?', options: ['To understand how life changed over time', 'To predict tomorrow’s exact temperature', 'To make all stories the same', 'To avoid using evidence'], answer: 'To understand how life changed over time', explanation: 'History helps us understand change and how the past affects today.' },
   { prompt: 'Which question would a historian ask?', options: ['Who was involved in this event?', 'How many sides does a triangle have?', 'What is the boiling point of water?', 'Which planet is closest to the Sun?'], answer: 'Who was involved in this event?', explanation: 'Historians ask questions about people, events, places, causes, and effects.' },

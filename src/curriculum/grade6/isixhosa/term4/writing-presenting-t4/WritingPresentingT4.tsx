@@ -151,7 +151,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'What should a personal paragraph begin with?',
     options: ['A clear topic sentence', 'A random punctuation mark', 'Only a greeting word', 'A list of unrelated numbers'],

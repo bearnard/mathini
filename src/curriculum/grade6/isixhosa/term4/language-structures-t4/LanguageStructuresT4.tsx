@@ -152,7 +152,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which word is a pronoun?',
     options: ['thina', 'isikolo', 'incwadi', 'itafile'],

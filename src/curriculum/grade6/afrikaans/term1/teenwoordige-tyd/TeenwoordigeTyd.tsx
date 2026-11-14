@@ -73,7 +73,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   { prompt: "Which sentence is in the present tense?", options: ['Ek speel.', 'Ek het gespeel.', 'Ek sal speel.', 'Ek wou speel.'], answer: 'Ek speel.', explanation: "'Ek speel' tells what is happening now or usually happens." },
   { prompt: "Choose the correct Afrikaans for 'You play.'", options: ['Jy speel.', 'Jy speels.', 'Jy gespeel.', 'Jy sal speel.'], answer: 'Jy speel.', explanation: "In the present tense, the verb stays 'speel': Jy speel." },
   { prompt: "Choose the correct Afrikaans for 'He plays.'", options: ['Hy speel.', 'Hy speels.', 'Hy gespeel.', 'Hy speel het.'], answer: 'Hy speel.', explanation: "Afrikaans does not add -s to the verb after 'Hy'." },

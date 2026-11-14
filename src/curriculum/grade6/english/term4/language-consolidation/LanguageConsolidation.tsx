@@ -60,7 +60,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which word is a noun in the sentence: “The teacher praised the class”?',
     options: ['teacher', 'praised', 'the', 'praised the'],

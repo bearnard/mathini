@@ -60,7 +60,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'What is an ecosystem?', options: ['Living things interacting with each other and non-living things', 'Only animals living in cages', 'A list of human-made buildings', 'Only rocks and water'], answer: 'Living things interacting with each other and non-living things', explanation: 'An ecosystem includes organisms and the non-living parts around them.' },
   { prompt: 'Which is a non-living part of an ecosystem?', options: ['Sunlight', 'Grass', 'Fungus', 'Springbok'], answer: 'Sunlight', explanation: 'Sunlight is non-living but important for ecosystems.' },
   { prompt: 'What is a habitat?', options: ['The natural home of an organism', 'A type of nutrient', 'A chain of planets', 'A machine for measuring rain'], answer: 'The natural home of an organism', explanation: 'A habitat is where an organism lives and gets what it needs.' },

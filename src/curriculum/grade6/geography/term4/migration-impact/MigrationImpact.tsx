@@ -82,7 +82,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'Who can be affected by migration?', options: ['Migrants and the places they leave and enter', 'Only mountains near cities', 'Only weather stations', 'No people or places at all'], answer: 'Migrants and the places they leave and enter', explanation: 'Migration affects people who move, home communities, and destination communities.' },
   { prompt: 'What is one positive impact migrants can bring to a new place?', options: ['Skills and new ideas', 'Less need for all services', 'No cultural exchange', 'Fewer workers in every job'], answer: 'Skills and new ideas', explanation: 'Migrants may bring useful skills, knowledge, and different experiences.' },
   { prompt: 'What may happen when many people move to a city quickly?', options: ['More housing and services may be needed', 'All roads become farms', 'Schools become unnecessary', 'Water demand always disappears'], answer: 'More housing and services may be needed', explanation: 'Growing populations need enough homes, water, transport, schools, and clinics.' },

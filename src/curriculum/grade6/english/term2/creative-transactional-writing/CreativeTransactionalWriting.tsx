@@ -90,7 +90,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'What is the main purpose of transactional writing?',
     options: ['To communicate clearly for a specific purpose', 'To hide the meaning of the writing', 'To copy random sentences only', 'To avoid thinking about the reader'],

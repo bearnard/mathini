@@ -54,7 +54,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'How many faces does a cube have?',
     options: ['4', '5', '6', '8'],

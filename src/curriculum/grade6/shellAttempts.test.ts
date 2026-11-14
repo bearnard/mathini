@@ -10,7 +10,7 @@ const root = path.join(process.cwd(), 'src');
 const read = (rel: string) => fs.readFileSync(path.join(root, rel), 'utf8');
 const SHELLS = [
   // NST generalised handleSelect into handleResult(correct) so order and label items record the same way as mcq.
-  { file: 'curriculum/grade6/natural-sciences/_shared/NstTopic.tsx', subject: 'nst', handler: /const handleResult = /, call: /recordAttempt\(correct, current\.section, current\.id\)/ },
+  { file: 'curriculum/grade6/natural-sciences/_shared/NstTopic.tsx', subject: 'nst', handler: /const handleResult = /, call: /recordAttempt\(correct, current\.section, current\.id, current\.prompt\)/ },
   { file: 'curriculum/grade6/geography/_shared/GeoTopic.tsx', subject: 'geo' },
   { file: 'curriculum/grade6/history/_shared/HisTopic.tsx', subject: 'his' },
   { file: 'curriculum/grade6/afrikaans/_shared/AfrikaansTopic.tsx', subject: 'afr' },
@@ -24,10 +24,13 @@ const block = (src: string, start: RegExp): string => {
 };
 
 for (const { file, subject, handler, call } of SHELLS as { file: string; subject: string; handler?: RegExp; call?: RegExp }[]) {
-  test(`${path.basename(file)} records answers with subject "${subject}"`, () => {
+  test(`${path.basename(file)} records answers with subject "${subject}" and the prompt`, () => {
     const src = read(file);
     assert.ok(src.includes(`useAttemptRecorder(task, '${subject}')`), 'uses the recorder with its own subject code and its task');
-    assert.match(block(src, handler ?? /const handleSelect = /), call ?? /recordAttempt\(option === current\.answer, current\.section, current\.id\)/);
+    assert.match(
+      block(src, handler ?? /const handleSelect = /),
+      call ?? /recordAttempt\(option === current\.answer, current\.section, current\.id, current\.prompt\)/,
+    );
     assert.match(block(src, /const handleReset = /), /resetStreak\(\)/);
     assert.match(src, /<BadgeUnlockModal badges=\{pendingBadges\} onDismiss=\{clearBadges\} \/>/);
     // recorded exactly once per answer: only the answer handler calls it

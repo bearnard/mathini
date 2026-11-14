@@ -35,7 +35,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'What is a mixture?', options: ['Two or more materials mixed together', 'A single pure material only', 'A material that cannot be separated', 'Only a liquid'], answer: 'Two or more materials mixed together', explanation: 'A mixture has two or more materials together.' },
   { prompt: 'Which is an example of a mixture?', options: ['Fruit salad', 'Pure copper only', 'One grain of salt', 'A single glass bead'], answer: 'Fruit salad', explanation: 'Fruit salad has different fruits mixed together.' },
   { prompt: 'In a mixture, the materials are usually...', options: ['not chemically joined', 'changed into new atoms', 'always impossible to see', 'always melted'], answer: 'not chemically joined', explanation: 'The parts of a mixture are together but not chemically joined.' },

@@ -33,6 +33,9 @@ interface DataChartProps {
   yLabel?: string;
   height?: number;
   className?: string;
+  /** climate only: fix the rainfall (left) and temperature (right) axes so two graphs can be compared fairly. */
+  rainDomain?: [number, number];
+  tempDomain?: [number, number];
 }
 
 const COLOURS = ['#6366f1', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4'];
@@ -49,6 +52,8 @@ const DataChart = ({
   yLabel,
   height = 280,
   className,
+  rainDomain,
+  tempDomain,
 }: DataChartProps) => {
   const colours = series.map((s, i) => s.color ?? COLOURS[i % COLOURS.length]);
 
@@ -58,8 +63,8 @@ const DataChart = ({
         <ComposedChart data={data}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
           <XAxis dataKey={xKey} tick={{ fontSize: 12 }} />
-          <YAxis yAxisId="left" tick={{ fontSize: 12 }} label={{ value: 'Rainfall (mm)', angle: -90, position: 'insideLeft', fontSize: 12 }} />
-          <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} label={{ value: 'Temp (°C)', angle: 90, position: 'insideRight', fontSize: 12 }} />
+          <YAxis yAxisId="left" domain={rainDomain} tick={{ fontSize: 12 }} label={{ value: 'Rainfall (mm)', angle: -90, position: 'insideLeft', fontSize: 12 }} />
+          <YAxis yAxisId="right" domain={tempDomain} orientation="right" tick={{ fontSize: 12 }} label={{ value: 'Temp (°C)', angle: 90, position: 'insideRight', fontSize: 12 }} />
           <Tooltip />
           <Legend />
           {series.map((s, i) =>

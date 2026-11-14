@@ -58,13 +58,15 @@ const learnSteps: LearnStep[] = [
     ),
   },
   {
-    title: 'Climate Data — Cairo vs Nairobi',
+    title: 'Climate Data — Cairo vs Manaus',
     content: (
       <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Cairo represents a hot desert climate with very little rain, while Nairobi shows a tropical highland climate with two rainy seasons and milder temperatures.</p>
+        <p className="text-lg text-slate-600">Cairo is a hot desert: almost no rain. Manaus, in the Amazon rainforest, is hot and wet all year.</p>
         <div className="grid gap-4 lg:grid-cols-2">
           <ClimateGraph
             station="Cairo"
+            rainDomain={[0, 350]}
+            tempDomain={[0, 35]}
             data={[
                       { month: 'Jan', rainfall: 5, temp: 14 },
                       { month: 'Feb', rainfall: 4, temp: 15 },
@@ -81,21 +83,31 @@ const learnSteps: LearnStep[] = [
                     ]}
           />
 
+          {/*
+            Manaus, Brazil (Amazon rainforest). Monthly mean temperature and precipitation,
+            INMET 1991-2020 normals, as tabulated at https://en.wikipedia.org/wiki/Manaus
+            (climate data table, "Source 1: INMET"). Not read from INMET directly. A second site
+            (climatsetvoyages.com, 1991-2020, no source named) differs slightly (e.g. Jan 285 mm vs 305.6),
+            so treat as approximate; the shape (wet all year, a drier Jun-Oct) agrees in both.
+            Same axis scale as Cairo so the bars compare fairly.
+          */}
           <ClimateGraph
-            station="Nairobi"
+            station="Manaus"
+            rainDomain={[0, 350]}
+            tempDomain={[0, 35]}
             data={[
-                      { month: 'Jan', rainfall: 38, temp: 24 },
-                      { month: 'Feb', rainfall: 64, temp: 25 },
-                      { month: 'Mar', rainfall: 79, temp: 24 },
-                      { month: 'Apr', rainfall: 211, temp: 23 },
-                      { month: 'May', rainfall: 158, temp: 22 },
-                      { month: 'Jun', rainfall: 46, temp: 21 },
-                      { month: 'Jul', rainfall: 15, temp: 21 },
-                      { month: 'Aug', rainfall: 23, temp: 21 },
-                      { month: 'Sep', rainfall: 26, temp: 22 },
-                      { month: 'Oct', rainfall: 53, temp: 23 },
-                      { month: 'Nov', rainfall: 109, temp: 22 },
-                      { month: 'Dec', rainfall: 86, temp: 23 },
+                      { month: 'Jan', rainfall: 306, temp: 26.6 },
+                      { month: 'Feb', rainfall: 297, temp: 26.6 },
+                      { month: 'Mar', rainfall: 321, temp: 26.6 },
+                      { month: 'Apr', rainfall: 331, temp: 26.7 },
+                      { month: 'May', rainfall: 233, temp: 27.0 },
+                      { month: 'Jun', rainfall: 117, temp: 27.3 },
+                      { month: 'Jul', rainfall: 67, temp: 27.5 },
+                      { month: 'Aug', rainfall: 56, temp: 28.2 },
+                      { month: 'Sep', rainfall: 79, temp: 28.6 },
+                      { month: 'Oct', rainfall: 114, temp: 28.5 },
+                      { month: 'Nov', rainfall: 188, temp: 28.0 },
+                      { month: 'Dec', rainfall: 254, temp: 27.2 },
                     ]}
           />
         </div>
@@ -106,7 +118,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'Where are tropical rainforests usually found?', options: ['Near the Equator', 'Only at the poles', 'On every mountain top', 'Deep under the ocean'], answer: 'Near the Equator', explanation: 'Rainforests are common in hot, wet tropical regions near the Equator.' },
   { prompt: 'Which words best describe a tropical rainforest climate?', options: ['Hot and wet', 'Cold and dry', 'Mild and snowy', 'Windy and icy'], answer: 'Hot and wet', explanation: 'Rainforests receive high rainfall and warm temperatures.' },
   { prompt: 'Why do rainforests have dense vegetation?', options: ['Warmth and heavy rainfall support plant growth', 'No animals live there', 'The soil is always frozen', 'Rain never falls there'], answer: 'Warmth and heavy rainfall support plant growth', explanation: 'Plants grow quickly when there is enough warmth, water, and light.' },

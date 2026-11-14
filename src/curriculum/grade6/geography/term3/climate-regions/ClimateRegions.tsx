@@ -110,7 +110,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'What is a climate region?', options: ['An area with similar temperature and rainfall over time', 'A short storm that lasts one afternoon', 'A line showing one river on a map', 'A place where all plants are identical'], answer: 'An area with similar temperature and rainfall over time', explanation: 'Climate describes the usual weather patterns of a place over many years.' },
   { prompt: 'Which climate belt is usually closest to the Equator?', options: ['Tropical', 'Polar', 'Mediterranean', 'Tundra'], answer: 'Tropical', explanation: 'Tropical regions near the Equator are generally hot throughout the year.' },
   { prompt: 'Which two measurements are most useful for describing climate?', options: ['Temperature and rainfall', 'Population and language', 'Roads and buildings', 'Minerals and factories'], answer: 'Temperature and rainfall', explanation: 'Average temperature and rainfall are key parts of climate.' },

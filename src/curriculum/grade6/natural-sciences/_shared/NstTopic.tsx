@@ -43,7 +43,7 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
       return;
     }
     if (chosen !== undefined) setSelected(chosen);
-    recordAttempt(correct, current.section, current.id);
+    recordAttempt(correct, current.section, current.id, current.prompt);
     if (correct) {
       setIsCorrect(true);
       setStreak((s) => s + 1);

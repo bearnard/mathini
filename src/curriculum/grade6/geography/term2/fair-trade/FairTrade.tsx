@@ -84,7 +84,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: GeoItem[] = [
+export const bank: GeoItem[] = [
   { prompt: 'What is fair trade?', options: ['Trade that gives producers fair pay and conditions', 'Trade where customers never pay', 'Trade that only happens at night', 'Trade without any transport'], answer: 'Trade that gives producers fair pay and conditions', explanation: 'Fair trade aims to treat producers and workers fairly.' },
   { prompt: 'Who is a producer in a trade chain?', options: ['A person who grows or makes goods', 'A person who only buys goods for home', 'A mapmaker drawing borders', 'A learner writing notes'], answer: 'A person who grows or makes goods', explanation: 'Producers create the goods that are later sold.' },
   { prompt: 'Which situation is most fair for a farmer?', options: ['Being paid a fair price for good produce', 'Working safely but receiving no payment', 'Selling crops for less than the cost to grow them', 'Having no choice but to waste all crops'], answer: 'Being paid a fair price for good produce', explanation: 'Fair payment helps farmers cover costs and support their families.' },

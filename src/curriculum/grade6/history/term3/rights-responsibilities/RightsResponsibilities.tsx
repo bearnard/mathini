@@ -74,7 +74,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'What do citizens have in a democracy?', options: ['Rights and responsibilities', 'Only responsibilities and no rights', 'Only rights and no duties', 'No say in government'], answer: 'Rights and responsibilities', explanation: 'Citizens have rights, and responsibilities to respect others and the law.' },
   { prompt: 'Which is an example of a right?', options: ['The right to education', 'The duty to litter', 'The job of ignoring laws', 'The power to bully others'], answer: 'The right to education', explanation: 'Education is one of the rights protected in South Africa.' },
   { prompt: 'Which is an example of a responsibility?', options: ['Respecting other people’s rights', 'Stopping others from speaking', 'Damaging public property', 'Refusing all school rules'], answer: 'Respecting other people’s rights', explanation: 'Responsibilities include treating others fairly and respecting their rights.' },

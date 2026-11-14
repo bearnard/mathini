@@ -52,7 +52,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'In 3.52, the digit 5 represents...',
     options: ['5 ones', '5 tenths', '5 hundredths', '50'],

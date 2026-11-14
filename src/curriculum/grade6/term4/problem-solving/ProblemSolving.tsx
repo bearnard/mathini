@@ -45,7 +45,7 @@ const learnSteps: LearnStep[] = [
     }
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
     {
         prompt: 'Sarah has 45 sweets. She shares them equally among 9 friends. How many does each friend get?',
         options: ['4', '5', '6', '9'],

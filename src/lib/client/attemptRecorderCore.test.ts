@@ -99,3 +99,12 @@ test('a synchronous throw from post is contained', () => {
   const rec = createAttemptRecorder('t', 's', { signedIn: () => true, post: () => { throw new Error('sync'); }, onBadges: () => {}, onRecorded: () => {} });
   assert.doesNotThrow(() => rec.record(false));
 });
+
+test('a known prompt adds a qkey; no prompt adds none', async () => {
+  const s = setup();
+  s.rec.record(true, 'a', undefined, 'What does the steam do in a power station?');
+  s.rec.record(true, 'a');
+  await flush();
+  assert.equal(s.posts[0].qkey, '60ab0be931f9');
+  assert.equal('qkey' in s.posts[1], false);
+});

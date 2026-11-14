@@ -6,6 +6,9 @@ import CurriculumSelector from './components/CurriculumSelector';
 import OnboardingGate from './components/onboarding/OnboardingGate';
 import ConsentGate from './components/onboarding/ConsentGate';
 import LeaderboardView from './components/leaderboard/LeaderboardView';
+import TodaysReviewCard from './components/review/TodaysReviewCard';
+import ReviewScreen from './components/review/ReviewScreen';
+import { useDueCount } from './components/review/useTodayReview';
 import AppHeader from './components/layout/AppHeader';
 import TopicHeader from './components/layout/TopicHeader';
 import { StudentProvider, useStudent } from './lib/client/StudentContext';
@@ -33,7 +36,9 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
   const [selectedTerm, setSelectedTerm] = useState<Term | null>(null);
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
-  const [view, setView] = useState<'home' | 'leaderboard'>('home');
+  const [view, setView] = useState<'home' | 'leaderboard' | 'review'>('home');
+  // Spaced review (Grade 6 learners only): shown on the grade and subject lists, hidden when nothing is due.
+  const dueCount = useDueCount(status === 'active' && student?.grade === 6 && view === 'home', view);
 
   useEffect(() => {
     if (selectedTopic) track('topic_open', { grade: selectedGrade?.id, subject: selectedSubject?.id, topic: selectedTopic.id });
@@ -119,7 +124,15 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
         </div>
       ) : view === 'leaderboard' ? (
         <LeaderboardView onBack={() => setView('home')} onRefresh={refreshStudent} />
+      ) : view === 'review' ? (
+        <ReviewScreen onBack={() => setView('home')} />
       ) : (
+        <>
+        {dueCount !== null && !selectedSubject && (
+          <div className="mx-auto max-w-5xl px-4 pt-4">
+            <TodaysReviewCard dueCount={dueCount} onStart={() => setView('review')} />
+          </div>
+        )}
         <CurriculumSelector
           curriculum={curriculumData}
           selectedGrade={selectedGrade}
@@ -135,6 +148,7 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
           studentGrade={student?.grade ?? null}
           displayName={student?.displayName}
         />
+        </>
       )}
     </div>
   );

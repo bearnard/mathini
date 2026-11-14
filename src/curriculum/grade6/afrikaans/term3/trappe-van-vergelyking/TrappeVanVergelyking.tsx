@@ -64,7 +64,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: AfrikaansItem[] = [
+export const bank: AfrikaansItem[] = [
   {
     prompt: "Comparative of 'mooi' (pretty)?",
     options: ['mooier', 'mooiste', 'mooi', 'meer mooi'],

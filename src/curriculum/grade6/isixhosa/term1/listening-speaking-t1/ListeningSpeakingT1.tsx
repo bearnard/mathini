@@ -154,7 +154,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: 'Which isiXhosa greeting is polite when speaking to more than one person?',
     options: ['Molweni', 'Ndingu', 'Enkosi kakhulu kakhulu', 'Iklasi'],

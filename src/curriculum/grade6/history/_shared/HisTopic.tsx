@@ -41,7 +41,7 @@ const HisTopic = ({ title, subtitle, learnSteps, task, bank }: HisTopicProps) =>
       return;
     }
     setSelected(option);
-    recordAttempt(option === current.answer, current.section, current.id);
+    recordAttempt(option === current.answer, current.section, current.id, current.prompt);
     if (option === current.answer) {
       setIsCorrect(true);
       setStreak((s) => s + 1);

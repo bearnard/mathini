@@ -75,7 +75,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: HisItem[] = [
+export const bank: HisItem[] = [
   { prompt: 'What was an important European-era place for caring for sick people?', options: ['Hospitals', 'Sports stadiums', 'Shopping malls', 'Airports'], answer: 'Hospitals', explanation: 'Hospitals became important places for care, learning, and treatment.' },
   { prompt: 'What does germ theory explain?', options: ['Germs can cause disease', 'All disease is caused by bad luck', 'Rivers always cure illness', 'Medicines are never useful'], answer: 'Germs can cause disease', explanation: 'Germ theory showed that tiny organisms can cause many diseases.' },
   { prompt: 'Why did hygiene become important in medicine?', options: ['Cleanliness helps stop germs spreading', 'Dirt always makes patients stronger', 'Doctors stopped seeing patients', 'Hospitals no longer needed water'], answer: 'Cleanliness helps stop germs spreading', explanation: 'Handwashing, clean water, and clean hospitals reduce the spread of germs.' },
