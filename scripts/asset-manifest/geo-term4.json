@@ -3,17 +3,6 @@
     "grade": "grade6",
     "subject": "geo",
     "term": "term4",
-    "topic": "population-distribution",
-    "section": "diagram",
-    "type": "svg",
-    "path": "curriculum/grade6/geo/term4/population-distribution/diagram.svg",
-    "alt": "map showing densely and sparsely populated areas with dots",
-    "svgSource": "scripts/svg-src/grade6/geo/term4/population-distribution/diagram.svg"
-  },
-  {
-    "grade": "grade6",
-    "subject": "geo",
-    "term": "term4",
     "topic": "settlement-patterns",
     "section": "diagram",
     "type": "svg",
