@@ -5,7 +5,6 @@ import type { MathematicalLiteracyItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/ml/term2/probability/diagram.webp", alt: "Probability" },
     title: 'Understanding Probability',
     content: (
       <div className="space-y-6">

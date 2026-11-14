@@ -1,13 +1,1 @@
-[
-  {
-    "grade": "grade8",
-    "subject": "geo",
-    "term": "term1",
-    "topic": "maps-globes-and-satellite-images",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/geo/term1/maps-globes-and-satellite-images/diagram.webp",
-    "alt": "Grade 8 learners comparing maps, globes, and satellite images to locate places and study patterns",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners using an atlas map, a globe, and a satellite image together to locate places, compare scale, and discuss weather and seasons. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  }
-]
+[]

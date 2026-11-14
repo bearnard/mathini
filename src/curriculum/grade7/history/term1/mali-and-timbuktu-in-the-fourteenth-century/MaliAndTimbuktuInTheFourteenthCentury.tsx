@@ -23,10 +23,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Mali grew through trade and leadership',
-    image: {
-      src: '/curriculum/grade7/his/term1/mali-and-timbuktu-in-the-fourteenth-century/diagram.webp',
-      alt: 'Grade 7 learners exploring trans-Saharan camel trade routes and the city of Timbuktu',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

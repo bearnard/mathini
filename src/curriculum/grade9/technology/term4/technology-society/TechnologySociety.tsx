@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Synthesize knowledge of integrated systems',
-    image: {
-      src: '/curriculum/grade9/technology/term4/technology-society/image1.jpg',
-      alt: 'learner analyzing how multiple technologies work together as integrated systems to solve societal problems',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

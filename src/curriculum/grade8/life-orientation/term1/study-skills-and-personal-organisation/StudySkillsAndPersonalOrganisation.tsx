@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Plan your study time',
-    image: {
-      src: '/curriculum/grade8/lo/term1/study-skills-and-personal-organisation/diagram.webp',
-      alt: 'grade 8 learner organising homework timetable and study materials',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

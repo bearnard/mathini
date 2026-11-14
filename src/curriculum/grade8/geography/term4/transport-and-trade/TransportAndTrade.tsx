@@ -6,10 +6,6 @@ import DataChart from '@/components/subjects/DataChart';
 const learnSteps: LearnStep[] = [
   {
     title: 'Analyse transport and trade systems',
-    image: {
-      src: '/curriculum/grade8/geo/term4/transport-and-trade/diagram.webp',
-      alt: 'Grade 8 learners exploring trade routes, transport modes, and South African harbour links',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

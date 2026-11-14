@@ -8,7 +8,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/cat/term3/application-development-web-basics/diagram.webp", alt: "Application Development and Web Basics" },
     title: 'Application development thinking',
     content: (
       <div className="space-y-6">

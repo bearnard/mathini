@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Protect people and the environment',
-    image: {
-      src: '/curriculum/grade8/lo/term2/social-and-environmental-responsibility/diagram.webp',
-      alt: 'grade 8 learners cleaning a shared space and sorting waste for recycling',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

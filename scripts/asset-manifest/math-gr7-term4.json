@@ -1,13 +1,1 @@
-[
-  {
-    "grade": "grade7",
-    "subject": "math",
-    "term": "term4",
-    "topic": "probability",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/math/term4/probability/diagram.webp",
-    "alt": "Grade 7 learners exploring chance with dice, coins, and outcome lists",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners doing simple probability experiments with coins and dice and listing outcomes from sample spaces. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  }
-]
+[]

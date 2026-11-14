@@ -6,10 +6,6 @@ import DataChart from '@/components/subjects/DataChart';
 const learnSteps: LearnStep[] = [
   {
     title: 'Natural resources and conservation in South Africa',
-    image: {
-      src: '/curriculum/grade7/geo/term4/natural-resources-and-conservation-in-south-africa/diagram.webp',
-      alt: 'Grade 7 learners exploring water, soil, marine resources, and conservation areas in South Africa',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

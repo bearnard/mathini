@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Use motion relationships and identify common forces',
-    image: {
-      src: '/curriculum/grade8/ns/term4/forces-motion-and-measurement/diagram.webp',
-      alt: 'Grade 8 learners measuring distance and time to calculate speed and identify different forces',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

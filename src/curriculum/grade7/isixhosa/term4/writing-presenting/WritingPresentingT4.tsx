@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Consolidate paragraph writing and short review formats',
-    image: {
-      src: '/curriculum/grade7/xho/term4/writing-presenting/diagram.webp',
-      alt: 'Grade 7 learner revising message writing and personal recount planning',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

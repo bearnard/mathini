@@ -5,7 +5,6 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/geo/term4/greener-economies/diagram.webp", alt: "Greener Economies" },
     title: 'The green economy',
     content: (
       <div className="space-y-4 text-center">

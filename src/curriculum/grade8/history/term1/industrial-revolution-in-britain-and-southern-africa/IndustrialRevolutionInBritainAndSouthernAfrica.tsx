@@ -23,10 +23,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Industrial change reshaped work and society',
-    image: {
-      src: '/curriculum/grade8/his/term1/industrial-revolution-in-britain-and-southern-africa/diagram.webp',
-      alt: 'Grade 8 learners comparing factories in Britain, growing towns, and early diamond mining in Kimberley',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

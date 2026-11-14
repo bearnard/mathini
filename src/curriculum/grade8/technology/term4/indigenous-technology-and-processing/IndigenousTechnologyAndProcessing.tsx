@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Compare indigenous and modern processing methods',
-    image: {
-      src: '/curriculum/grade8/tech/term4/indigenous-technology-and-processing/diagram.webp',
-      alt: 'Grade 8 learners comparing metal protection and food preservation methods',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

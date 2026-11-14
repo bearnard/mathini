@@ -4,7 +4,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/acc/term1/bookkeeping-foundations-ethics/diagram.webp", alt: "Bank Account" },
     title: 'The accounting equation in action',
     content: (
       <div className="space-y-6 text-center">

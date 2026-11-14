@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Measure 3D objects using nets, surface area, and volume',
-    image: {
-      src: '/curriculum/grade7/math/term2/surface-area-and-volume-of-3d-objects/diagram.webp',
-      alt: 'Grade 7 learners using nets and formulas for surface area and volume of prisms and cubes',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

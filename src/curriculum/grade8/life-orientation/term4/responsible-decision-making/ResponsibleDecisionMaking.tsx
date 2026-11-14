@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Make choices with consequences in mind',
-    image: {
-      src: '/curriculum/grade8/lo/term4/responsible-decision-making/diagram.webp',
-      alt: 'grade 8 learner weighing choices and consequences before making a decision',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

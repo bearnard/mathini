@@ -1,13 +1,1 @@
-[
-  {
-    "grade": "grade7",
-    "subject": "eng",
-    "term": "term2",
-    "topic": "formal-functional-writing",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/eng/term2/formal-functional-writing/diagram.webp",
-    "alt": "learner choosing between formal letter, email, dialogue and descriptive writing formats",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 7 learners showing a learner selecting writing formats for a formal letter, email, dialogue, and descriptive paragraph. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  }
-]
+[]

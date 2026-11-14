@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Recognise risk and choose safety',
-    image: {
-      src: '/curriculum/grade8/lo/term2/health-and-risk-behaviour/diagram.webp',
-      alt: 'grade 8 learner choosing safe responses to peer pressure and risk situations',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

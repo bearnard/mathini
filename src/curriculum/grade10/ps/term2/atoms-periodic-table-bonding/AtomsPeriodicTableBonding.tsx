@@ -4,7 +4,6 @@ import type { PhysicalSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/ps/term2/atoms-periodic-table-bonding/diagram.webp", alt: "Atoms, Periodic Table and Bonding" },
     title: 'Atomic Structure and Electron Configuration',
     content: (
       <div className="space-y-6">

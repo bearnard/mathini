@@ -6,10 +6,6 @@ import DataChart from '@/components/subjects/DataChart';
 const learnSteps: LearnStep[] = [
   {
     title: 'Population growth and change',
-    image: {
-      src: '/curriculum/grade7/geo/term3/population-growth-and-change/diagram.webp',
-      alt: 'Grade 7 learners interpreting population graphs for birth rate, death rate, life expectancy, and global change',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

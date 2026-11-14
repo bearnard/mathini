@@ -4,7 +4,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/eng/term1/literary-devices-theme/diagram.webp", alt: "From \\" },
     title: 'Common literary devices in FET texts',
     content: (
       <div className="space-y-4 text-center">

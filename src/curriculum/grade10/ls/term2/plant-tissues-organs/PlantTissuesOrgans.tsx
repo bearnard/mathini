@@ -4,7 +4,6 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/ls/term2/plant-tissues-organs/diagram.webp", alt: "Plant tissues and organs" },
     title: 'Plant Tissue Types',
     content: (
       <div className="space-y-6">

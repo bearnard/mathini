@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Recognise and extend numeric and geometric patterns',
-    image: {
-      src: '/curriculum/grade7/math/term3/numeric-and-geometric-patterns/diagram.webp',
-      alt: 'Grade 7 learners extending sequences and describing numeric and geometric pattern rules',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

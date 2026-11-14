@@ -17,10 +17,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Calculate and compare simple probabilities',
-    image: {
-      src: '/curriculum/grade8/math/term4/probability/diagram.webp',
-      alt: 'Grade 8 learners listing outcomes and calculating simple probabilities',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

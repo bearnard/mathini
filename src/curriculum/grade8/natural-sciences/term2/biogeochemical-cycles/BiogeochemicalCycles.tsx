@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Track matter through major Earth cycles',
-    image: {
-      src: '/curriculum/grade8/ns/term2/biogeochemical-cycles/diagram.webp',
-      alt: 'Grade 8 learners tracing water carbon and nitrogen cycles with decomposers in ecosystems',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

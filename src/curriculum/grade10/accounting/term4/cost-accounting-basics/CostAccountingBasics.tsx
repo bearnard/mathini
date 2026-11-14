@@ -5,7 +5,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/acc/term4/cost-accounting-basics/diagram.webp", alt: "Factory Overhead Control" },
     title: 'Understanding a manufacturing environment',
     content: (
       <div className="space-y-6 text-center">

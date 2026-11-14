@@ -3,7 +3,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/eng/term4/writing-consolidation/diagram.webp", alt: "Writing Consolidation" },
     title: 'Essay planning and structure revision',
     content: (
       <div className="space-y-4 text-center">

@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Use particle ideas and indicators to classify substances',
-    image: {
-      src: '/curriculum/grade7/nst/term2/matter-mixtures-acids-and-bases/diagram.webp',
-      alt: 'Grade 7 learners modelling particles, mixtures, and indicator tests for acids and bases',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

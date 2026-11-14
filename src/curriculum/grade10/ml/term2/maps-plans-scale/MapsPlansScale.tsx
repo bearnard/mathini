@@ -5,7 +5,6 @@ import type { MathematicalLiteracyItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/ml/term2/maps-plans-scale/diagram.webp", alt: "Maps, Plans and Scale" },
     title: 'Understanding Map Scales',
     content: (
       <div className="space-y-6">

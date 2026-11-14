@@ -4,7 +4,6 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/ls/term3/history-of-life-earth/diagram.webp", alt: "Evolution of Life on Earth" },
     title: 'Origins of Life',
     content: (
       <div className="space-y-6">

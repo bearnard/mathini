@@ -3,7 +3,6 @@ import type { LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/geo/term2/igneous-landforms/diagram.webp", alt: "Massive Igneous Landforms" },
     title: 'Intrusive vs extrusive igneous rock',
     content: (
       <div className="space-y-4 text-center">

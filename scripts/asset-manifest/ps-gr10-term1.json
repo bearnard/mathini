@@ -1,13 +1,1 @@
-[
-  {
-    "grade": "grade10",
-    "subject": "ps",
-    "term": "term1",
-    "topic": "electrostatics-electric-circuits",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade10/ps/term1/electrostatics-electric-circuits/diagram.webp",
-    "alt": "Electrostatics and Electric Circuits",
-    "prompt": "A clear educational illustration depicting \"Electrostatics and Electric Circuits\": Electric forces and current flow."
-  }
-]
+[]

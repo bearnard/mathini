@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Use mechanisms to change force and movement',
-    image: {
-      src: '/curriculum/grade7/nst/term3/mechanical-systems-and-control/diagram.webp',
-      alt: 'Grade 7 learners testing levers, gears, pulleys, and linkages in model systems',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -24,10 +24,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Frontier life involved conflict and cooperation',
-    image: {
-      src: '/curriculum/grade7/his/term4/conflict-and-cooperation-on-the-cape-frontiers/diagram.webp',
-      alt: 'Grade 7 learners studying Cape frontier interactions including trade, migration, and resistance',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

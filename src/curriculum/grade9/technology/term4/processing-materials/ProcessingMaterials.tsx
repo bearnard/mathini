@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Understand material processing and corrosion prevention',
-    image: {
-      src: '/curriculum/grade9/technology/term4/processing-materials/image1.jpg',
-      alt: 'learner comparing corrosion prevention methods including galvanising and electroplating on metal samples',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

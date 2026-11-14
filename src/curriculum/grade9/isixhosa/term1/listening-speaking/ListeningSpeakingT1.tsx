@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Speeches, discussions, and listening comprehension',
-    image: {
-      src: '/curriculum/grade9/isixhosa/term1/listening-speaking/image1.jpg',
-      alt: 'Grade 9 isiXhosa FAL learners presenting short speeches and engaging in critical discussions',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

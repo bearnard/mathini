@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Respect diversity and protect human rights',
-    image: {
-      src: '/curriculum/grade7/lsk/term3/personal-social-wellbeing/diagram.webp',
-      alt: 'Grade 7 learners discussing inclusion, rights, and career interests in class',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Cash payments journal and ledger management',
-    image: {
-      src: '/curriculum/grade8/economic-management-sciences/term3/cash-payments-business-ownership/image1.jpg',
-      alt: 'Grade 8 learners recording cash payments in journals and posting to ledger accounts',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

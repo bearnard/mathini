@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Distinguish area from perimeter',
-    image: {
-      src: '/curriculum/grade7/math/term2/area-and-perimeter-of-2d-shapes/diagram.webp',
-      alt: 'Grade 7 learners calculating area and perimeter of rectangles and composite 2D shapes',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

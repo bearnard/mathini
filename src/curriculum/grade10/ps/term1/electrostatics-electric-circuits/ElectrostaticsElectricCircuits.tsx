@@ -5,7 +5,6 @@ import type { PhysicalSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/ps/term1/electrostatics-electric-circuits/diagram.webp", alt: "Electrostatics and Electric Circuits" },
     title: 'Electrostatic Forces and Coulomb\'s Law',
     content: (
       <div className="space-y-6">

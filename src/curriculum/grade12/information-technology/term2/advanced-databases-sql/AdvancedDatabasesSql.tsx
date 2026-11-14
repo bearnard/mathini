@@ -8,7 +8,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/it/term2/advanced-databases-sql/diagram.webp", alt: "Advanced Databases and SQL" },
     title: 'Keys and table structure',
     content: (
       <div className="space-y-6">

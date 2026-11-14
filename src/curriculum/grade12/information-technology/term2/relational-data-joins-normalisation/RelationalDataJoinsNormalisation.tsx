@@ -8,7 +8,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/it/term2/relational-data-joins-normalisation/diagram.webp", alt: "Relational Data, Joins and Normalisation" },
     title: 'Understanding relationships',
     content: (
       <div className="space-y-6">

@@ -5,7 +5,6 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/bus/term1/quality-external-environments/diagram.webp", alt: "Quality and the External Environment" },
     title: 'Quality concepts in business',
     content: (
       <div className="space-y-6">

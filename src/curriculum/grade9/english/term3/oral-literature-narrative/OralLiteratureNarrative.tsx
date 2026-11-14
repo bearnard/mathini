@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Understand oral traditions and their features',
-    image: {
-      src: '/curriculum/grade9/english/term3/oral-literature-narrative/image1.jpg',
-      alt: 'learner presenting a folktale with gesture and expression for an audience',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

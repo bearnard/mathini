@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Use IDMEC to design stronger structures',
-    image: {
-      src: '/curriculum/grade7/nst/term1/design-process-and-structures/diagram.webp',
-      alt: 'Grade 7 learners applying the design process and testing frame, shell, and solid structures',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

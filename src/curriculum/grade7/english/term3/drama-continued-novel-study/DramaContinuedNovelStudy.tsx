@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Interpret drama and extended novel study',
-    image: {
-      src: '/curriculum/grade7/eng/term3/drama-continued-novel-study/diagram.webp',
-      alt: 'learners discussing a drama scene and novel chapter with dialogue and conflict notes',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Apply oral strategies in revision and exam-style contexts',
-    image: {
-      src: '/curriculum/grade8/xho/term4/listening-speaking/diagram.webp',
-      alt: 'Grade 8 learners revising oral fluency through listening quizzes and prepared responses',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

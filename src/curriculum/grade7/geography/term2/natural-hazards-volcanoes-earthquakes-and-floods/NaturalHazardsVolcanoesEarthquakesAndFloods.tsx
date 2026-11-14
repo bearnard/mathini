@@ -6,10 +6,6 @@ import DataChart from '@/components/subjects/DataChart';
 const learnSteps: LearnStep[] = [
   {
     title: 'Natural hazards: volcanoes, earthquakes, and floods',
-    image: {
-      src: '/curriculum/grade7/geo/term2/natural-hazards-volcanoes-earthquakes-and-floods/diagram.webp',
-      alt: 'Grade 7 learners comparing tectonic plate movement, volcano zones, earthquakes, and flood impacts on maps',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
