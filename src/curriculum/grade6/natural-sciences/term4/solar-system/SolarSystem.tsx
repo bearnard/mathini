@@ -1,5 +1,6 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import OrbitDirection from '@/components/diagrams/OrbitDirection';
 
 const learnSteps: LearnStep[] = [
   {
@@ -28,6 +29,17 @@ const learnSteps: LearnStep[] = [
           Make up a sentence to remember them, such as <em>My Very Eager Mother Just Served Us Noodles</em>.
         </p>
         <p className="text-slate-500">Mercury is closest to the Sun. Neptune is the farthest planet.</p>
+      </div>
+    ),
+  },
+  {
+    title: 'Which way do the planets go?',
+    content: (
+      <div className="space-y-4 text-center">
+        <OrbitDirection />
+        <p className="rounded-xl bg-sky-50 p-5 font-semibold text-sky-800">
+          All the planets orbit the Sun the <strong>same way</strong>: <strong>anticlockwise</strong>, as seen from above the North Pole. Earth spins the same way.
+        </p>
       </div>
     ),
   },

@@ -1,5 +1,6 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import PlanetNeeds from '@/components/diagrams/PlanetNeeds';
 
 const learnSteps: LearnStep[] = [
   {
@@ -77,6 +78,17 @@ const learnSteps: LearnStep[] = [
           A <strong>rover</strong> is a robot vehicle that drives over the surface. <strong>Curiosity</strong> and <strong>Perseverance</strong> are rovers on Mars.
         </p>
         <p className="text-slate-500">Rovers are controlled from Earth. They look for rocks, soil and signs that Mars once had water.</p>
+      </div>
+    ),
+  },
+  {
+    title: 'What humans need on a planet',
+    content: (
+      <div className="space-y-4 text-center">
+        <PlanetNeeds />
+        <p className="rounded-xl bg-amber-50 p-5 font-semibold text-amber-800">
+          Earth has everything we need. <strong>Mars</strong> is cold, has very thin air and no liquid water on its surface, so people could not live there without help.
+        </p>
       </div>
     ),
   },
