@@ -1,5 +1,6 @@
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { Mp3Encoder } from '@breezystack/lamejs';
+import { acceptItems } from '../shared/questionQuality';
 
 /**
  * Reads the Gemini API key from the server environment. In production the key
@@ -51,9 +52,13 @@ export interface GeneratedItem {
   explanation: string;
 }
 
-/** Calls Gemini to generate a batch of practice items as validated JSON. */
-export async function generateItems(prompt: string): Promise<GeneratedItem[]> {
-  const key = getGeminiKey();
+/**
+ * Calls Gemini to generate a batch of practice items as validated JSON. Pass `apiKey` when running outside a request
+ * (the scheduled handler has no request context for getGeminiKey to read from). This only checks the SHAPE; quality
+ * rules (length tell, scratchpad explanations, duplicates...) are applied by acceptItems before anything is stored.
+ */
+export async function generateItems(prompt: string, apiKey?: string): Promise<GeneratedItem[]> {
+  const key = apiKey ?? getGeminiKey();
   const res = await fetch(`${BASE}/gemini-3.5-flash:generateContent?key=${key}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -264,7 +269,10 @@ export async function putCachedAudio(text: string, mp3: Uint8Array): Promise<voi
   }
 }
 
-/** Persists generated items so they can serve as a server-side fallback pool. */
+/**
+ * Persists generated items so they can serve as a server-side fallback pool. Every item goes through the quality
+ * validator first: rejected items are never stored; accepted ones are stored with their quality score and flags.
+ */
 export async function persistItems(task: string, items: GeneratedItem[]): Promise<void> {
   const db = getDb();
   if (!db || items.length === 0) {
@@ -272,12 +280,15 @@ export async function persistItems(task: string, items: GeneratedItem[]): Promis
   }
 
   try {
+    const existing = await db.prepare('SELECT prompt FROM item_cache WHERE task = ?').bind(task).all<{ prompt: string }>();
+    const { accepted } = acceptItems(items, { existingPrompts: (existing.results ?? []).map((r) => r.prompt) });
+    if (accepted.length === 0) return;
     const now = Date.now();
     const stmt = db.prepare(
-      'INSERT INTO item_cache (task, prompt, options, answer, explanation, created_at, section) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      'INSERT OR IGNORE INTO item_cache (task, prompt, options, answer, explanation, created_at, section, quality_score, quality_flags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
     );
-    const batch = items.map((it) =>
-      stmt.bind(task, it.prompt, JSON.stringify(it.options), it.answer, it.explanation ?? '', now, 'general'),
+    const batch = accepted.map((it) =>
+      stmt.bind(task, it.prompt, JSON.stringify(it.options), it.answer, it.explanation ?? '', now, 'general', it.quality_score, JSON.stringify(it.quality_flags)),
     );
     await db.batch(batch);
   } catch {
@@ -295,7 +306,7 @@ export async function fallbackItems(task: string, count: number): Promise<Genera
   try {
     const res = await db
       .prepare(
-        'SELECT prompt, options, answer, explanation FROM item_cache WHERE task = ? ORDER BY RANDOM() LIMIT ?',
+        'SELECT prompt, options, answer, explanation FROM item_cache WHERE task = ? AND (quality_score IS NULL OR quality_score > 0) ORDER BY RANDOM() LIMIT ?',
       )
       .bind(task, count)
       .all<{ prompt: string; options: string; answer: string; explanation: string }>();

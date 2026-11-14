@@ -4,6 +4,7 @@
 //   curated static `bank` when the pool is empty (not yet seeded) or the fetch
 //   fails — so a topic always has practice items rather than an empty state.
 import { useState, useCallback, useEffect, useRef } from 'react';
+import { topUpFromBank, usableForTopUp } from '../shared/topUpFromBank';
 
 export interface CapsItem {
   id?: number;
@@ -33,15 +34,17 @@ function prepare(items: CapsItem[]): CapsItem[] {
 }
 
 /**
- * Picks the question set for pool mode: the fetched pool when it has any items,
- * otherwise the curated static `bank`. A null/undefined pool means the fetch
- * failed or returned no `items` field — both fall back to the bank.
+ * Picks the question set for pool mode: the fetched pool when it has enough items;
+ * a pool that runs short (purged, or rejected rows no longer served) is topped up
+ * from the curated static `bank` (topUpFromBank); an empty pool is the bank. A
+ * null/undefined pool means the fetch failed or returned no `items` field — both
+ * fall back to the bank.
  */
 export function selectQueue(
   pool: CapsItem[] | null | undefined,
   bank: CapsItem[],
 ): CapsItem[] {
-  return pool && pool.length > 0 ? pool : bank;
+  return pool && pool.length > 0 ? topUpFromBank(pool, bank, undefined, undefined, usableForTopUp) : bank;
 }
 
 /**

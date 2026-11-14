@@ -26,6 +26,8 @@ import { glob } from "glob";
 import { Agent as UndiciAgent } from "undici";
 import { registry } from "../src/lib/server/caps/registry";
 import { getSections } from "../src/lib/server/caps/sections";
+import { acceptItems } from "../src/lib/shared/questionQuality";
+import { numericOkFor } from "../src/lib/server/topUp";
 
 // ── Config ─────────────────────────────────────────────────────────────────
 
@@ -591,7 +593,7 @@ async function vectorizeUpsert(
 // ── D1 (Cloudflare REST API) ─────────────────────────────────────────────────
 
 async function d1Insert(
-  item: GeneratedItem & { task: string; vectorId: string; section?: string },
+  item: GeneratedItem & { task: string; vectorId: string; section?: string; quality_score?: number; quality_flags?: string[] },
 ): Promise<void> {
   const section = item.section ?? "general";
   const res = await fetch(
@@ -601,8 +603,8 @@ async function d1Insert(
       headers: CF_HEADERS,
       body: JSON.stringify({
         sql: `INSERT OR IGNORE INTO item_cache
-              (task, prompt, options, answer, explanation, created_at, vector_id, section)
-              VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+              (task, prompt, options, answer, explanation, created_at, vector_id, section, quality_score, quality_flags)
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         params: [
           item.task,
           item.prompt,
@@ -612,6 +614,8 @@ async function d1Insert(
           Date.now(),
           item.vectorId,
           section,
+          item.quality_score ?? null,
+          JSON.stringify(item.quality_flags ?? []),
         ],
       }),
     }
@@ -885,10 +889,12 @@ async function main() {
     for (const spec of chunk) {
       const taskKey = spec.slug;
       const batches = allBatches[taskKey];
-      const allItems = BATCH_TYPES.flatMap((t) =>
+      const generated = BATCH_TYPES.flatMap((t) =>
         batches[t].map((item) => ({ ...item, batchType: t }))
       );
-      console.log(`\n  [${taskKey}] got ${allItems.length} items`);
+      // Quality gate (ADR 0003 section 1a): rejected questions are NEVER stored. Accepted ones carry their score and flags.
+      const { accepted: allItems, rejected: qualityRejected } = acceptItems(generated, { numericOk: numericOkFor(taskKey, spec.code) });
+      console.log(`\n  [${taskKey}] got ${generated.length} items, ${qualityRejected.length} rejected by the quality validator`);
 
       if (allItems.length === 0) {
         // Generation returned nothing — don't mark done, let it retry next run

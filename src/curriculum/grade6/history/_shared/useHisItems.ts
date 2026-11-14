@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { HisItem } from './types';
 import { prepareItems, withCuratedExtras } from '../../natural-sciences/_shared/itemKinds';
+import { topUpFromBank, usableForTopUp } from '../../../../lib/shared/topUpFromBank';
 
 function prepare(items: HisItem[]): HisItem[] {
   return prepareItems(items);
@@ -24,7 +25,7 @@ export function useHisItems(task: string, bank: HisItem[]) {
       if (res.ok) {
         const data = (await res.json()) as { items?: HisItem[] };
         if (data.items && data.items.length >= 1) {
-          setQueue(prepare(withCuratedExtras(data.items, bank)));
+          setQueue(prepare(topUpFromBank(withCuratedExtras(data.items, bank), bank, undefined, undefined, usableForTopUp)));
           setIndex(0);
           setLoading(false);
           return;

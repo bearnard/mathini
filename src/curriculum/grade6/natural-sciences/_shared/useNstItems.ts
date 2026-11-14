@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { NstItem } from './types';
 import { kindOf, normaliseItem, shuffleOptions } from './itemKinds';
+import { topUpFromBank, usableForTopUp } from '../../../../lib/shared/topUpFromBank';
 
 function shuffle<T>(arr: T[]): T[] {
   const copy = [...arr];
@@ -43,7 +44,7 @@ export function useNstItems(task: string, bank: NstItem[]) {
       if (res.ok) {
         const data = (await res.json()) as { items?: NstItem[] };
         if (data.items && data.items.length >= 1) {
-          setQueue(prepare(withCuratedExtras(data.items, bank)));
+          setQueue(prepare(topUpFromBank(withCuratedExtras(data.items, bank), bank, undefined, undefined, usableForTopUp)));
           setIndex(0);
           setLoading(false);
           return;
