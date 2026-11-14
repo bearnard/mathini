@@ -1,7 +1,13 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import FinancialStatement from '../../../../../components/subjects/FinancialStatement';
 import TAccount from '../../../../../components/subjects/TAccount';
+import { CarryingValueSteps } from '../../../../../components/diagrams/accounting/CarryingValueSteps';
+import { DIMINISHING_EXAMPLE, STRAIGHT_LINE_EXAMPLE, diminishing, straightLine } from '../../../../../components/diagrams/accounting/depreciation';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+
+// Both pictures are computed from the lesson's own examples.
+const STRAIGHT_LINE = straightLine(STRAIGHT_LINE_EXAMPLE.cost, STRAIGHT_LINE_EXAMPLE.residual, STRAIGHT_LINE_EXAMPLE.years);
+const DIMINISHING = diminishing(DIMINISHING_EXAMPLE.opening, DIMINISHING_EXAMPLE.ratePercent, DIMINISHING_EXAMPLE.years);
 
 const learnSteps: LearnStep[] = [
   {
@@ -41,6 +47,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           Under the <strong>straight-line method</strong>, the same depreciation amount is charged every year over the asset's useful life.
         </p>
+        <CarryingValueSteps schedule={STRAIGHT_LINE} startLabel="Cost" />
         <FinancialStatement
           title="Equipment Depreciation Schedule"
           period="Straight-line over 4 years"
@@ -64,6 +71,7 @@ const learnSteps: LearnStep[] = [
               lines: [
                 { label: 'End of Year 1', amount: 35000 },
                 { label: 'End of Year 2', amount: 25000 },
+                { label: 'End of Year 3', amount: 15000 },
                 { label: 'End of Year 4', amount: 5000, isTotal: true },
               ],
             },
@@ -80,6 +88,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           Under the <strong>diminishing balance method</strong>, depreciation is calculated as a fixed percentage of the <em>carrying value</em> each year — so the amount decreases over time.
         </p>
+        <CarryingValueSteps schedule={DIMINISHING} startLabel="Start" />
         <FinancialStatement
           title="Diminishing Balance Example"
           period="20% per year on carrying value"
