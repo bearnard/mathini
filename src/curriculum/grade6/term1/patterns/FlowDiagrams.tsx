@@ -1,6 +1,6 @@
-import { ArrowRight } from 'lucide-react';
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import { FlowRows } from '../../../../components/diagrams/maths/PatternDiagrams';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,21 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6 text-center">
         <p className="text-lg text-slate-600">A flow diagram shows how numbers change when you apply a rule to them.</p>
-        <div className="flex justify-center items-center gap-4 bg-slate-50 p-8 rounded-xl">
-          <div className="flex flex-col items-center">
-            <span className="text-sm font-bold text-slate-400 mb-2">Input</span>
-            <div className="w-16 h-16 bg-white border-2 border-slate-200 rounded-xl flex items-center justify-center text-2xl font-bold text-slate-700">5</div>
-          </div>
-          <ArrowRight className="text-slate-300" />
-          <div className="bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold text-xl shadow-lg">
-            + 3
-          </div>
-          <ArrowRight className="text-slate-300" />
-          <div className="flex flex-col items-center">
-            <span className="text-sm font-bold text-slate-400 mb-2">Output</span>
-            <div className="w-16 h-16 bg-emerald-100 border-2 border-emerald-200 rounded-xl flex items-center justify-center text-2xl font-bold text-emerald-700">8</div>
-          </div>
-        </div>
+        <FlowRows rules={[{ op: '+', n: 3 }]} inputs={[5]} />
         <p className="text-slate-500">5 goes in, add 3, and 8 comes out!</p>
       </div>
     ),
@@ -32,18 +18,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6 text-center">
         <p className="text-lg text-slate-600">Think of it as a machine. The rule is what the machine does to every number.</p>
-        <div className="grid grid-cols-1 gap-4 max-w-sm mx-auto">
-          <div className="flex items-center justify-between bg-white p-4 rounded-xl border border-slate-200">
-            <span className="font-bold text-slate-600">Input: 2</span>
-            <span className="text-indigo-600 font-bold">× 2</span>
-            <span className="font-bold text-emerald-600">Output: 4</span>
-          </div>
-          <div className="flex items-center justify-between bg-white p-4 rounded-xl border border-slate-200">
-            <span className="font-bold text-slate-600">Input: 5</span>
-            <span className="text-indigo-600 font-bold">× 2</span>
-            <span className="font-bold text-emerald-600">Output: 10</span>
-          </div>
-        </div>
+        <FlowRows rules={[{ op: '×', n: 2 }]} inputs={[2, 5]} />
       </div>
     ),
   },

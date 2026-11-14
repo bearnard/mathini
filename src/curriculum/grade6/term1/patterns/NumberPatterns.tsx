@@ -1,6 +1,6 @@
-import { ArrowRight } from 'lucide-react';
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import { JumpLine } from '../../../../components/diagrams/maths/PatternDiagrams';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,15 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6 text-center">
         <p className="text-lg text-slate-600">A number pattern is a list of numbers that follow a <strong>rule</strong>.</p>
-        <div className="flex justify-center gap-4 items-center bg-indigo-50 p-6 rounded-xl">
-          <div className="text-3xl font-bold text-indigo-600">2</div>
-          <ArrowRight className="text-slate-300" />
-          <div className="text-3xl font-bold text-indigo-600">4</div>
-          <ArrowRight className="text-slate-300" />
-          <div className="text-3xl font-bold text-indigo-600">6</div>
-          <ArrowRight className="text-slate-300" />
-          <div className="text-3xl font-bold text-indigo-600">8</div>
-        </div>
+        <JumpLine start={2} rule={{ op: '+', n: 2 }} count={4} />
         <p className="text-slate-500">Can you guess the rule? It's <strong>Add 2</strong>!</p>
       </div>
     ),
@@ -26,22 +18,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6 text-center">
         <p className="text-lg text-slate-600">To find the rule, look at how to get from one number to the next.</p>
-        <div className="flex justify-center gap-8 items-center">
-          <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold text-slate-700">5</span>
-            <span className="text-sm text-emerald-500 font-bold mt-2">+5</span>
-          </div>
-          <ArrowRight className="text-slate-300" />
-          <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold text-slate-700">10</span>
-            <span className="text-sm text-emerald-500 font-bold mt-2">+5</span>
-          </div>
-          <ArrowRight className="text-slate-300" />
-          <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold text-slate-700">15</span>
-            <span className="text-sm text-emerald-500 font-bold mt-2">+5</span>
-          </div>
-        </div>
+        <JumpLine start={5} rule={{ op: '+', n: 5 }} count={3} />
         <p className="text-slate-500">Sometimes you add, subtract, or multiply.</p>
       </div>
     ),

@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import { BalanceScale } from '../../../../components/diagrams/maths/PatternDiagrams';
 
 const learnSteps: LearnStep[] = [
     {
@@ -11,6 +12,7 @@ const learnSteps: LearnStep[] = [
                     <p className="text-4xl font-mono font-bold text-indigo-600">7 + □ = 12</p>
                     <p className="text-slate-500">The box is an <strong>unknown</strong> number.</p>
                 </div>
+                <BalanceScale left={[7, 0]} unknown={1} right={[12]} />
             </div>
         )
     },
@@ -19,11 +21,7 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">The equals sign means <strong>both sides have the same value</strong>.</p>
-                <div className="grid grid-cols-3 gap-2 items-center max-w-lg mx-auto">
-                    <div className="bg-emerald-50 p-5 rounded-xl text-2xl font-mono font-bold text-emerald-700">8 + 4</div>
-                    <div className="text-3xl font-bold text-slate-400">=</div>
-                    <div className="bg-amber-50 p-5 rounded-xl text-2xl font-mono font-bold text-amber-700">12</div>
-                </div>
+                <BalanceScale left={[8, 4]} right={[12]} />
                 <p className="text-slate-500 text-sm mt-4">If one side is 12, the other side must also be 12.</p>
             </div>
         )
@@ -36,6 +34,7 @@ const learnSteps: LearnStep[] = [
                 <div className="bg-indigo-50 p-6 rounded-xl max-w-xl mx-auto space-y-4">
                     <p className="text-slate-700">Naledi has 9 marbles. She gets some more and now has 15.</p>
                     <p className="text-3xl font-mono font-bold text-indigo-700">9 + □ = 15</p>
+                    <BalanceScale left={[9, 0]} unknown={1} right={[15]} solved />
                     <p className="text-slate-500">The unknown is the number of marbles she got.</p>
                 </div>
             </div>

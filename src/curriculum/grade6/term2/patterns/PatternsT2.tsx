@@ -1,6 +1,6 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
-import { cn } from '../../../../lib/utils';
+import { ChainSteps, FlowRows, JumpLine } from '../../../../components/diagrams/maths/PatternDiagrams';
 
 const learnSteps: LearnStep[] = [
     {
@@ -8,15 +8,8 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">A pattern follows a <strong>rule</strong>. Look at how each number changes.</p>
-                <div className="bg-slate-50 p-6 rounded-xl inline-block">
-                    <div className="flex justify-center gap-3 text-3xl font-mono font-bold mb-3 text-indigo-600">
-                        <span>4</span>
-                        <span>9</span>
-                        <span>14</span>
-                        <span>19</span>
-                    </div>
-                    <p className="text-slate-500">Each term increases by <strong>5</strong>, so the rule is <strong>add 5</strong>.</p>
-                </div>
+                <JumpLine start={4} rule={{ op: '+', n: 5 }} count={4} />
+                <p className="text-slate-500">Each term increases by <strong>5</strong>, so the rule is <strong>add 5</strong>.</p>
             </div>
         )
     },
@@ -25,19 +18,7 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Once you know the rule, use it to find the next term.</p>
-                <div className="grid grid-cols-5 gap-2 max-w-xl mx-auto text-center">
-                    {['3', '6', '12', '24', '?'].map((term, index) => (
-                        <div
-                            key={term}
-                            className={cn(
-                                "p-4 rounded-xl text-2xl font-mono font-bold",
-                                index === 4 ? "bg-indigo-600 text-white" : "bg-indigo-50 text-indigo-900"
-                            )}
-                        >
-                            {term}
-                        </div>
-                    ))}
-                </div>
+                <ChainSteps start={3} rule={{ op: '×', n: 2 }} count={5} hideLast />
                 <p className="text-slate-500">The rule is <strong>multiply by 2</strong>, so the next term is <strong>48</strong>.</p>
             </div>
         )
@@ -47,13 +28,7 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">A flow diagram uses an input, applies a rule, and gives an output.</p>
-                <div className="flex flex-col md:flex-row items-center justify-center gap-3">
-                    <div className="bg-emerald-50 text-emerald-900 p-5 rounded-xl text-2xl font-bold">7</div>
-                    <div className="text-slate-400 font-bold">→</div>
-                    <div className="bg-slate-50 text-slate-800 p-5 rounded-xl text-2xl font-bold">×3 + 1</div>
-                    <div className="text-slate-400 font-bold">→</div>
-                    <div className="bg-amber-50 text-amber-900 p-5 rounded-xl text-2xl font-bold">22</div>
-                </div>
+                <FlowRows rules={[{ op: '×', n: 3 }, { op: '+', n: 1 }]} inputs={[7]} />
                 <p className="text-slate-500">Work in order: <strong>7 × 3 = 21</strong>, then <strong>21 + 1 = 22</strong>.</p>
             </div>
         )
