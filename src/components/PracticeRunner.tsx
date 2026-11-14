@@ -46,7 +46,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
   usePracticeTracking({ active: true, done, isCorrect, ctx: { subject: taskToSubject(apiPath), topic: task } });
 
   // Track per-question results for section aggregation
-  const resultsRef = useRef<{ section?: string; correct: boolean; qkey?: string }[]>([]);
+  const resultsRef = useRef<{ section?: string; correct: boolean; qkey?: string; chosen?: string }[]>([]);
   const hasSubmitted = useRef(false);
 
   const handleSelect = (option: string) => {
@@ -59,7 +59,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
     setStreak((s) => (correct ? s + 1 : 0));
 
     // Record result for section aggregation
-    resultsRef.current.push({ section: current.section, correct, qkey: task ? makeQkey(task, current.prompt) : undefined });
+    resultsRef.current.push({ section: current.section, correct, qkey: task ? makeQkey(task, current.prompt) : undefined, chosen: option });
 
     if (correct) {
       triggerConfetti();
@@ -110,6 +110,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
           section: r.section,
           isCorrect: r.correct,
           qkey: r.qkey,
+          chosen: r.chosen,
           streak: 0,
         }),
       })

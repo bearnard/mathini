@@ -52,7 +52,7 @@ const AfrikaansTopic = ({
       return;
     }
     setSelected(option);
-    recordAttempt(option === current.answer, current.section, current.id, current.prompt);
+    recordAttempt(option === current.answer, current.section, current.id, current.prompt, option);
     if (option === current.answer) {
       setIsCorrect(true);
       setStreak((s) => s + 1);

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { REPORT_REASON_LABELS, REPORT_REASONS } from '../../lib/shared/questionReport';
 import { formatInt } from './format';
 import { useAdminData } from './useAdminData';
-import type { QueueItem, RecentAction } from '../../lib/server/questions/moderation';
+import type { QueueFlag, QueueItem, RecentAction } from '../../lib/server/questions/moderation';
 
 interface Data { queue: QueueItem[]; recent: RecentAction[] }
 type Action = 'dismiss' | 'retire' | 'reinstate';
@@ -23,6 +23,16 @@ async function post(id: string, action: Action, reason: string): Promise<string 
     return body.error ?? 'That did not work';
   } catch {
     return 'That did not work';
+  }
+}
+
+function flagText(f: QueueFlag): string {
+  const d = f.detail ?? {};
+  switch (f.kind) {
+    case 'too_easy': return `Almost everyone gets it right (${Math.round(f.value * 100)}% over ${f.n} answers): possibly a giveaway.`;
+    case 'too_hard': return `Few learners get it right (${Math.round(f.value * 100)}% over ${f.n} answers): possibly a wrong key or not in the syllabus.`;
+    case 'negative_discrimination': return `Strong learners miss it more than weak ones (correlation ${f.value.toFixed(2)} over ${f.n} answers): possibly a wrong key.`;
+    case 'distractor': return `A wrong option, “${String(d.option ?? '')}”, was picked ${String(d.picks ?? '?')} times, more than the right one (${String(d.keyPicks ?? '?')}) out of ${f.n} answers.`;
   }
 }
 
@@ -47,10 +57,15 @@ function Card({ item, onDone }: { item: QueueItem; onDone: () => void }) {
   return (
     <article className="admin-card" style={{ padding: 16 }} aria-label={`Reported question in ${item.task}`}>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'baseline', justifyContent: 'space-between' }}>
-        <strong style={{ fontSize: 15 }}>{item.reporters} {item.reporters === 1 ? 'learner' : 'learners'} · {item.reports} {item.reports === 1 ? 'report' : 'reports'}</strong>
+        <strong style={{ fontSize: 15 }}>{item.reports === 0 ? 'Flagged by item analysis' : `${item.reporters} ${item.reporters === 1 ? 'learner' : 'learners'} · ${item.reports} ${item.reports === 1 ? 'report' : 'reports'}`}</strong>
         <span className="admin-muted" style={{ fontSize: 12 }}>{item.task} · latest {when(item.latestAt)}</span>
       </div>
       <Reasons item={item} />
+      {item.flags.length > 0 && (
+        <ul aria-label="Item analysis" style={{ margin: '8px 0 0', paddingLeft: 18, fontSize: 13, lineHeight: 1.5, listStyleType: 'disc' }}>
+          {item.flags.map((f) => <li key={f.kind} style={{ marginBottom: 4 }}>{flagText(f)}</li>)}
+        </ul>
+      )}
 
       {c ? (
         <div style={{ marginTop: 10 }}>
@@ -125,23 +140,49 @@ function Recent({ items, onDone }: { items: RecentAction[]; onDone: () => void }
   );
 }
 
+function RefreshFlags({ onDone }: { onDone: () => void }) {
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState('');
+  const run = async () => {
+    setBusy(true);
+    setMsg('');
+    try {
+      const res = await fetch('/api/admin/questions/flags/refresh', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Admin-Action': 'question-flags-refresh' }, body: '{}' });
+      const body = (await res.json().catch(() => ({}))) as { flags?: number; error?: string };
+      setMsg(res.ok ? `Done: ${body.flags ?? 0} open ${body.flags === 1 ? 'flag' : 'flags'}.` : body.error ?? 'That did not work');
+      if (res.ok) onDone();
+    } catch {
+      setMsg('That did not work');
+    }
+    setBusy(false);
+  };
+  return (
+    <div style={{ marginTop: 12, display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
+      <button type="button" className="admin-btn" disabled={busy} onClick={run}>{busy ? 'Working…' : 'Recompute item-analysis flags now'}</button>
+      <span className="admin-muted" style={{ fontSize: 12 }}>They are also recomputed every night. A question needs at least 30 answers.</span>
+      {msg && <span role="status" style={{ fontSize: 13 }}>{msg}</span>}
+    </div>
+  );
+}
+
 export default function QuestionsPage() {
   const [n, setN] = useState(0);
   const state = useAdminData<Data>('/api/admin/questions/reports', `v=${n}`);
   const refresh = () => setN((x) => x + 1);
   return (
     <main style={{ maxWidth: 900, margin: '0 auto', padding: '16px' }}>
-      <h1 style={{ fontSize: 22, fontWeight: 700 }}>Reported questions</h1>
+      <h1 style={{ fontSize: 22, fontWeight: 700 }}>Questions to review</h1>
       <p className="admin-muted" style={{ fontSize: 13, marginTop: 4, lineHeight: 1.5 }}>
-        Ranked by how many different learners reported the question, then by how many answers it has. Notes are written by children: read them here only, and do not copy them anywhere public.
+        Ranked by how many different learners reported the question, then by how many answers it has. Questions flagged only by the statistics (too easy, too hard, strong learners missing it, a wrong option beating the right one) are listed after the reported ones. Notes are written by children: read them here only, and do not copy them anywhere public.
         Retiring a question stops it being shown; learners already on the page see the change on their next visit.
       </p>
+      <RefreshFlags onDone={refresh} />
       {state.status === 'loading' && <p style={{ marginTop: 16 }}>Loading…</p>}
       {state.status === 'error' && <p role="alert" style={{ marginTop: 16 }}>Sorry, the reports could not be loaded.</p>}
       {state.status === 'ok' && (
         <>
           {state.data.queue.length === 0 ? (
-            <p className="admin-card" style={{ padding: 16, marginTop: 16 }}>No open reports. 🎉</p>
+            <p className="admin-card" style={{ padding: 16, marginTop: 16 }}>Nothing open. 🎉</p>
           ) : (
             <div style={{ display: 'grid', gap: 12, marginTop: 16 }}>
               {state.data.queue.map((q) => <Card key={q.questionId} item={q} onDone={refresh} />)}
