@@ -10,8 +10,8 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Factorise when possible, otherwise complete the square or use the quadratic formula.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`x^2 - 4x - 5 = 0 \\Rightarrow (x-5)(x+1)=0`}</Formula>
-          <Formula block>{String.raw`x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}{2a}`}</Formula>
+          <Formula block>{String.raw`x^2 - 4x - 5 = 0 \Rightarrow (x-5)(x+1)=0`}</Formula>
+          <Formula block>{String.raw`x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}`}</Formula>
         </div>
         <FunctionGraph
           curves={[
@@ -28,7 +28,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-violet-50 p-4">
             <h4 className="font-semibold text-violet-700">Roots from factors</h4>
-            <Formula block>{String.raw`x = 5 \\text{ or } x = -1`}</Formula>
+            <Formula block>{String.raw`x = 5 \text{ or } x = -1`}</Formula>
           </div>
         </div>
       </div>
@@ -39,8 +39,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Find the critical values first, then test intervals or read the graph above and below the <Formula>{String.raw`x`}</Formula>-axis.</p>
-        <Formula block>{String.raw`x^2 - x - 6 > 0 \\Rightarrow (x-3)(x+2) > 0`}</Formula>
-        <Formula block>{String.raw`x < -2 \\text{ or } x > 3`}</Formula>
+        <Formula block>{String.raw`x^2 - x - 6 > 0 \Rightarrow (x-3)(x+2) > 0`}</Formula>
+        <Formula block>{String.raw`x < -2 \text{ or } x > 3`}</Formula>
         <FunctionGraph
           curves={[
             { fn: (x: number) => x ** 2 - x - 6, label: 'y = x² - x - 6', color: '#14b8a6' },
@@ -50,7 +50,7 @@ const learnSteps: LearnStep[] = [
           yRange={[-8, 15]}
         />
         <div className="rounded-xl bg-cyan-50 p-4">
-          <p className="text-sm text-slate-600">Use open circles for strict inequalities like <Formula>{String.raw`&gt;`}</Formula> or <Formula>{String.raw`&lt;`}</Formula>, and closed circles for <Formula>{String.raw`\\ge`}</Formula> or <Formula>{String.raw`\\le`}</Formula>.</p>
+          <p className="text-sm text-slate-600">Use open circles for strict inequalities like <Formula>{String.raw`>`}</Formula> or <Formula>{String.raw`<`}</Formula>, and closed circles for <Formula>{String.raw`\ge`}</Formula> or <Formula>{String.raw`\le`}</Formula>.</p>
         </div>
       </div>
     ),
@@ -60,7 +60,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-slate-600">The discriminant tells you how many real roots a quadratic has before you solve it.</p>
-        <Formula block>{String.raw`\\Delta = b^2 - 4ac`}</Formula>
+        <Formula block>{String.raw`\Delta = b^2 - 4ac`}</Formula>
         <FunctionGraph
           curves={[
             { fn: (x: number) => x ** 2 - 1, label: 'Δ > 0', color: '#22c55e' },
@@ -73,15 +73,15 @@ const learnSteps: LearnStep[] = [
         />
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="rounded-xl bg-emerald-50 p-4">
-            <Formula block>{String.raw`\\Delta > 0`}</Formula>
+            <Formula block>{String.raw`\Delta > 0`}</Formula>
             <p className="text-sm text-slate-600">Two distinct real roots</p>
           </div>
           <div className="rounded-xl bg-sky-50 p-4">
-            <Formula block>{String.raw`\\Delta = 0`}</Formula>
+            <Formula block>{String.raw`\Delta = 0`}</Formula>
             <p className="text-sm text-slate-600">One repeated real root</p>
           </div>
           <div className="rounded-xl bg-orange-50 p-4">
-            <Formula block>{String.raw`\\Delta < 0`}</Formula>
+            <Formula block>{String.raw`\Delta < 0`}</Formula>
             <p className="text-sm text-slate-600">No real roots</p>
           </div>
         </div>

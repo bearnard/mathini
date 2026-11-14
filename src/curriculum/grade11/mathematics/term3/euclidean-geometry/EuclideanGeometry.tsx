@@ -10,8 +10,8 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Write the theorem you are using as you solve. This makes your reasoning clear and protects method marks.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`\\angle AOB = 2\\angle ACB`}</Formula>
-          <Formula block>{String.raw`\\angle \\text{in the same segment are equal}`}</Formula>
+          <Formula block>{String.raw`\angle AOB = 2\angle ACB`}</Formula>
+          <Formula block>{String.raw`\angle \text{in the same segment are equal}`}</Formula>
         </div>
         <FunctionGraph
           curves={[
@@ -28,7 +28,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-slate-600">When a quadrilateral is cyclic, opposite angles are supplementary. Use that result together with equal angles from the same segment.</p>
-        <Formula block>{String.raw`\\angle A + \\angle C = 180^\\circ`}</Formula>
+        <Formula block>{String.raw`\angle A + \angle C = 180^\circ`}</Formula>
         <FunctionGraph
           curves={[
             { fn: (x: number) => 180 - x, label: 'opposite angle pair', color: '#14b8a6' },
@@ -37,7 +37,7 @@ const learnSteps: LearnStep[] = [
           yRange={[0, 180]}
         />
         <div className="rounded-xl bg-cyan-50 p-4">
-          <p className="text-sm text-slate-600">If one opposite angle is <Formula>{String.raw`112^\\circ`}</Formula>, the other is <Formula>{String.raw`68^\\circ`}</Formula>.</p>
+          <p className="text-sm text-slate-600">If one opposite angle is <Formula>{String.raw`112^\circ`}</Formula>, the other is <Formula>{String.raw`68^\circ`}</Formula>.</p>
         </div>
       </div>
     ),
@@ -49,10 +49,10 @@ const learnSteps: LearnStep[] = [
         <p className="text-slate-600">A tangent creates right angles with the radius, and the angle between a tangent and chord equals the angle in the opposite segment.</p>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-amber-50 p-4">
-            <Formula block>{String.raw`PT \\perp OT`}</Formula>
+            <Formula block>{String.raw`PT \perp OT`}</Formula>
           </div>
           <div className="rounded-xl bg-rose-50 p-4">
-            <Formula block>{String.raw`\\angle \\text{between tangent and chord} = \\angle \\text{in opposite segment}`}</Formula>
+            <Formula block>{String.raw`\angle \text{between tangent and chord} = \angle \text{in opposite segment}`}</Formula>
           </div>
         </div>
         <p className="text-sm text-slate-600">Always give a reason beside each angle step, especially in multi-line proofs.</p>

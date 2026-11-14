@@ -12,8 +12,8 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Practical problems may involve perimeter, area, volume, mass, capacity or temperature. Before calculating, decide what the question is really asking for so that you choose the correct measurement tool.</p>
         <Formula block>{String.raw`P = 2(l + w)`}</Formula>
-        <Formula block>{String.raw`A = l \\times w`}</Formula>
-        <Formula block>{String.raw`V = l \\times w \\times h`}</Formula>
+        <Formula block>{String.raw`A = l \times w`}</Formula>
+        <Formula block>{String.raw`V = l \times w \times h`}</Formula>
       </div>
     ),
   },
@@ -33,7 +33,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Real-life measurement questions often mix units, such as centimetres with metres or litres with millilitres. Convert to one unit system before substituting values into a formula.</p>
-        <Formula block>{String.raw`1 \\text{ m}^2 = 10\\,000 \\text{ cm}^2, \\quad 1 \\text{ m}^3 = 1\\,000 \\text{ L}`}</Formula>
+        <Formula block>{String.raw`1 \text{ m}^2 = 10\,000 \text{ cm}^2, \quad 1 \text{ m}^3 = 1\,000 \text{ L}`}</Formula>
       </div>
     ),
   },
@@ -42,7 +42,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Perimeter, area and volume formulas are tools for solving everyday problems rather than abstract exercises. A rectangular garden, tiled floor or water tank all require the same mathematics in a practical setting.</p>
-        <Formula block>{String.raw`\\text{Paint needed} = \\frac{\\text{area to cover}{\\text{coverage per litre}`}</Formula>
+        <Formula block>{String.raw`\text{Paint needed} = \frac{\text{area to cover}}{\text{coverage per litre}}`}</Formula>
       </div>
     ),
   },

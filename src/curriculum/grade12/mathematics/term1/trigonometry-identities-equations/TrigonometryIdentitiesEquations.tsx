@@ -68,7 +68,7 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
       <>
         <p>
           Reduce the equation to a basic form such as <Formula>{String.raw`\sin x = \frac{1}{2}`}</Formula> or{' '}
-          <Formula>{String.raw`\cos x = \frac{\sqrt{2}{2}`}</Formula>, then use the CAST diagram and the given interval to
+          <Formula>{String.raw`\cos x = \frac{\sqrt{2}}{2}`}</Formula>, then use the CAST diagram and the given interval to
           list all solutions.
         </p>
       </>

@@ -10,8 +10,8 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Before calculating anything, inspect the table or graph to understand the centre, spread, and shape of the data.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`\\text{median} = \\text{middle value}`}</Formula>
-          <Formula block>{String.raw`\\text{IQR} = Q_3 - Q_1`}</Formula>
+          <Formula block>{String.raw`\text{median} = \text{middle value}`}</Formula>
+          <Formula block>{String.raw`\text{IQR} = Q_3 - Q_1`}</Formula>
         </div>
         <FunctionGraph
           curves={[
@@ -29,12 +29,12 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Use the table method to keep totals organised, especially when frequencies are involved.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`\\bar{x} = \\frac{\\sum x}{n}`}</Formula>
-          <Formula block>{String.raw`\\sigma^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n}`}</Formula>
-          <Formula block>{String.raw`\\sigma = \\sqrt{\\sigma^2}`}</Formula>
+          <Formula block>{String.raw`\bar{x} = \frac{\sum x}{n}`}</Formula>
+          <Formula block>{String.raw`\sigma^2 = \frac{\sum (x_i - \bar{x})^2}{n}`}</Formula>
+          <Formula block>{String.raw`\sigma = \sqrt{\sigma^2}`}</Formula>
         </div>
         <div className="rounded-xl bg-indigo-50 p-4">
-          <p className="text-sm text-slate-600">A larger value of <Formula>{String.raw`\\sigma`}</Formula> means the data points are more spread out from the mean.</p>
+          <p className="text-sm text-slate-600">A larger value of <Formula>{String.raw`\sigma`}</Formula> means the data points are more spread out from the mean.</p>
         </div>
       </div>
     ),
@@ -51,7 +51,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-cyan-50 p-4">
             <h4 className="font-semibold text-cyan-700">Spread</h4>
-            <p className="text-sm text-slate-600">Use <Formula>{String.raw`\\text{IQR}`}</Formula> or <Formula>{String.raw`\\sigma`}</Formula> to describe consistency.</p>
+            <p className="text-sm text-slate-600">Use <Formula>{String.raw`\text{IQR}`}</Formula> or <Formula>{String.raw`\sigma`}</Formula> to describe consistency.</p>
           </div>
         </div>
       </div>

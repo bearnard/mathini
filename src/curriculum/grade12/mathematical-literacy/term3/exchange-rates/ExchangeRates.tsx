@@ -19,8 +19,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">When converting from rand to a foreign currency, divide by the rand-per-unit rate if that rate is quoted per one foreign unit. When converting back to rand, multiply by the rate.</p>
-        <Formula block>{String.raw`\\text{Foreign currency} = \\frac{\\text{rand amount}{\\text{exchange rate}`}</Formula>
-        <Formula block>{String.raw`\\text{Rand amount} = \\text{foreign currency} \\times \\text{exchange rate}`}</Formula>
+        <Formula block>{String.raw`\text{Foreign currency} = \frac{\text{rand amount}}{\text{exchange rate}}`}</Formula>
+        <Formula block>{String.raw`\text{Rand amount} = \text{foreign currency} \times \text{exchange rate}`}</Formula>
         <DataChart
           type="bar"
           xKey="currency"
@@ -52,7 +52,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Exchange calculations may include commission or service fees. The final decision should consider the full cost, not only the exchange rate.</p>
-        <Formula block>{String.raw`\\text{Total paid} = \\text{converted amount in rand} + \\text{commission or fee}`}</Formula>
+        <Formula block>{String.raw`\text{Total paid} = \text{converted amount in rand} + \text{commission or fee}`}</Formula>
       </div>
     ),
   },

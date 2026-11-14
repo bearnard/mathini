@@ -11,7 +11,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-slate-600">Every constant in a function changes the graph in a predictable way, so link the equation to its translation, reflection, or stretch.</p>
         <div className="space-y-2">
           <Formula block>{String.raw`y = a(x-p)^2 + q`}</Formula>
-          <Formula block>{String.raw`y = \\frac{a}{x-p} + q`}</Formula>
+          <Formula block>{String.raw`y = \frac{a}{x-p} + q`}</Formula>
         </div>
         <FunctionGraph
           curves={[
@@ -68,8 +68,8 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Move comfortably between an equation, a table of values, and a sketch. Average gradient, period, intercepts, and asymptotes all come from the same representation.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`m_{AB} = \\frac{y_2 - y_1}{x_2 - x_1}`}</Formula>
-          <Formula block>{String.raw`y = a\\sin(bx + c) + d`}</Formula>
+          <Formula block>{String.raw`m_{AB} = \frac{y_2 - y_1}{x_2 - x_1}`}</Formula>
+          <Formula block>{String.raw`y = a\sin(bx + c) + d`}</Formula>
         </div>
         <FunctionGraph
           curves={[

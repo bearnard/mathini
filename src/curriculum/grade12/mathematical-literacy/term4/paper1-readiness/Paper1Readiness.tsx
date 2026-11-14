@@ -10,8 +10,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Paper 1 often includes documents such as payslips, bills, tables, adverts and bank information. The challenge is to read accurately before calculating, because the correct figure may be hidden in a label or note.</p>
-        <Formula block>{String.raw`\\text{Net salary} = \\text{gross salary} - \\text{deductions}`}</Formula>
-        <Formula block>{String.raw`\\text{VAT inclusive} = \\text{exclusive} \\times 1.15`}</Formula>
+        <Formula block>{String.raw`\text{Net salary} = \text{gross salary} - \text{deductions}`}</Formula>
+        <Formula block>{String.raw`\text{VAT inclusive} = \text{exclusive} \times 1.15`}</Formula>
       </div>
     ),
   },
@@ -20,8 +20,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Words such as total, increase, excluding VAT, average and compare signal different operations. In exam conditions, pause long enough to translate the wording into the correct calculation.</p>
-        <Formula block>{String.raw`\\text{Markup \\%} = \\frac{\\text{selling price} - \\text{cost price}{\\text{cost price} \\times 100`}</Formula>
-        <Formula block>{String.raw`\\text{New price after inflation} = \\text{current price} \\times (1 + \\text{rate})`}</Formula>
+        <Formula block>{String.raw`\text{Markup \%} = \frac{\text{selling price} - \text{cost price}}{\text{cost price}} \times 100`}</Formula>
+        <Formula block>{String.raw`\text{New price after inflation} = \text{current price} \times (1 + \text{rate})`}</Formula>
         <Formula block>{String.raw`I = P r n`}</Formula>
       </div>
     ),
@@ -31,8 +31,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Paper 1 answers should make sense in practical life. A net salary cannot be more than a gross salary and a bank fee comparison must reflect the customer’s actual usage pattern.</p>
-        <Formula block>{String.raw`\\text{Mean} = \\frac{\\text{sum of values}{\\text{number of values}`}</Formula>
-        <Formula block>{String.raw`\\text{Percentage} = \\frac{\\text{part}{\\text{whole} \\times 100`}</Formula>
+        <Formula block>{String.raw`\text{Mean} = \frac{\text{sum of values}}{\text{number of values}}`}</Formula>
+        <Formula block>{String.raw`\text{Percentage} = \frac{\text{part}}{\text{whole}} \times 100`}</Formula>
       </div>
     ),
   },

@@ -10,8 +10,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Taxation questions begin with income, then consider allowable deductions or exempt amounts before tax is calculated. Learners should distinguish between gross income, taxable income and the final amount paid after rebates.</p>
-        <Formula block>{String.raw`\\text{Taxable income} = \\text{gross income} - \\text{allowable deductions}`}</Formula>
-        <Formula block>{String.raw`\\text{Tax payable} = \\text{tax before rebate} - \\text{rebate}`}</Formula>
+        <Formula block>{String.raw`\text{Taxable income} = \text{gross income} - \text{allowable deductions}`}</Formula>
+        <Formula block>{String.raw`\text{Tax payable} = \text{tax before rebate} - \text{rebate}`}</Formula>
       </div>
     ),
   },
@@ -20,7 +20,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Progressive tax means different portions of income are taxed at different rates. Work through the lower bracket first and then tax only the part that falls into the higher bracket.</p>
-        <Formula block>{String.raw`\\text{Tax before rebate} = \\text{base tax} + (\\text{taxable income} - \\text{bracket threshold}) \\times \\text{rate}`}</Formula>
+        <Formula block>{String.raw`\text{Tax before rebate} = \text{base tax} + (\text{taxable income} - \text{bracket threshold}) \times \text{rate}`}</Formula>
         <DataChart
           type="bar"
           xKey="bracket"
@@ -44,7 +44,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">PAYE, UIF and other deductions reduce the amount that reaches the employee. In Mathematical Literacy, you may need to compare gross pay, tax, rebates and net pay on the same document.</p>
-        <Formula block>{String.raw`\\text{Net pay} = \\text{gross pay} - \\text{total deductions}`}</Formula>
+        <Formula block>{String.raw`\text{Net pay} = \text{gross pay} - \text{total deductions}`}</Formula>
         <p className="text-lg leading-8 text-slate-600">For 2025 the primary rebate is R17 235, with extra rebates of R9 444 for 65+ and R3 145 for 75+ taxpayers.</p>
       </div>
     ),

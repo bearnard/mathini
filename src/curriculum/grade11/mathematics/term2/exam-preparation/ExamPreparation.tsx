@@ -12,7 +12,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-indigo-50 p-4">
             <h4 className="font-semibold text-indigo-700">Quadratics</h4>
-            <Formula block>{String.raw`x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}{2a}`}</Formula>
+            <Formula block>{String.raw`x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}`}</Formula>
           </div>
           <div className="rounded-xl bg-violet-50 p-4">
             <h4 className="font-semibold text-violet-700">Turning point form</h4>
@@ -36,8 +36,8 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Solve trig equations from identities, special angles, and graph intersections. Always work in the correct interval.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`\\sin^2\\theta + \\cos^2\\theta = 1`}</Formula>
-          <Formula block>{String.raw`2\\sin\\theta = 1 \\Rightarrow \\sin\\theta = \\frac{1}{2}`}</Formula>
+          <Formula block>{String.raw`\sin^2\theta + \cos^2\theta = 1`}</Formula>
+          <Formula block>{String.raw`2\sin\theta = 1 \Rightarrow \sin\theta = \frac{1}{2}`}</Formula>
         </div>
         <FunctionGraph
           curves={[
@@ -59,7 +59,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="rounded-xl bg-emerald-50 p-4">
             <h4 className="font-semibold text-emerald-700">1. Identify</h4>
-            <p className="text-sm text-slate-600">Spot whether the question needs <Formula>{String.raw`\\Delta`}</Formula>, a graph, a trig identity, or a finance formula.</p>
+            <p className="text-sm text-slate-600">Spot whether the question needs <Formula>{String.raw`\Delta`}</Formula>, a graph, a trig identity, or a finance formula.</p>
           </div>
           <div className="rounded-xl bg-cyan-50 p-4">
             <h4 className="font-semibold text-cyan-700">2. Substitute</h4>

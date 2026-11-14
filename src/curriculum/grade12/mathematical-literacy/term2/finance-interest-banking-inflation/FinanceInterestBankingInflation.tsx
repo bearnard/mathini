@@ -13,7 +13,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg leading-8 text-slate-600">Simple interest grows only on the original principal, while compound interest grows on the principal plus earlier interest. In Mathematical Literacy you must recognise which growth pattern the financial product uses.</p>
         <Formula block>{String.raw`I = P r n`}</Formula>
         <Formula block>{String.raw`A = P(1+i)^n`}</Formula>
-        <Formula block>{String.raw`FV = PMT \\times \\frac{(1+i)^n - 1}{i}`}</Formula>
+        <Formula block>{String.raw`FV = PMT \times \frac{(1+i)^n - 1}{i}`}</Formula>
       </div>
     ),
   },
@@ -33,7 +33,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Banking questions are not only about interest earned. Monthly fees, transaction charges and withdrawal costs can change which account is better, so compare the full package instead of only one headline value.</p>
-        <Formula block>{String.raw`\\text{Total account cost} = \\text{monthly fees} + \\text{transaction fees} - \\text{interest earned}`}</Formula>
+        <Formula block>{String.raw`\text{Total account cost} = \text{monthly fees} + \text{transaction fees} - \text{interest earned}`}</Formula>
       </div>
     ),
   },
@@ -42,7 +42,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Inflation means general prices rise over time. When inflation is about 6% per year, the same amount of money buys fewer goods and services next year unless savings grow fast enough to keep up.</p>
-        <Formula block>{String.raw`\\text{New price after inflation} = \\text{current price} \\times (1 + \\text{inflation rate})`}</Formula>
+        <Formula block>{String.raw`\text{New price after inflation} = \text{current price} \times (1 + \text{inflation rate})`}</Formula>
         <DataChart
           type="line"
           xKey="year"

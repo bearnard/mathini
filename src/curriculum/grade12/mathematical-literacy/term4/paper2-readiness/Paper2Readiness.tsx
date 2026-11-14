@@ -10,9 +10,9 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Paper 2 often requires learners to move through several steps, such as reading a plan, converting scale and then making a decision. The key is to slow down and keep each stage clearly organised.</p>
-        <Formula block>{String.raw`\\text{Actual distance} = \\text{plan distance} \\times \\text{scale factor}`}</Formula>
-        <Formula block>{String.raw`A = l \\times w`}</Formula>
-        <Formula block>{String.raw`V = l \\times w \\times h`}</Formula>
+        <Formula block>{String.raw`\text{Actual distance} = \text{plan distance} \times \text{scale factor}`}</Formula>
+        <Formula block>{String.raw`A = l \times w`}</Formula>
+        <Formula block>{String.raw`V = l \times w \times h`}</Formula>
       </div>
     ),
   },
@@ -21,8 +21,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">In extended questions, the source is part of the mathematics. Learners should read legends, scales, symbols, dimensions and labels directly from the diagram instead of relying on memory.</p>
-        <Formula block>{String.raw`\\text{Plan distance} = \\frac{\\text{actual distance}{\\text{scale factor}`}</Formula>
-        <Formula block>{String.raw`t = \\frac{d}{v}`}</Formula>
+        <Formula block>{String.raw`\text{Plan distance} = \frac{\text{actual distance}}{\text{scale factor}}`}</Formula>
+        <Formula block>{String.raw`t = \frac{d}{v}`}</Formula>
       </div>
     ),
   },
@@ -31,8 +31,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Paper 2 is often integrated, which means a case study may ask for measurements, percentages and probability in the same setting. The best approach is to identify which formula belongs to each part before calculating.</p>
-        <Formula block>{String.raw`P(A) = \\frac{n(A)}{n(S)}`}</Formula>
-        <Formula block>{String.raw`\\text{Percentage change} = \\frac{\\text{new} - \\text{old}{\\text{old} \\times 100`}</Formula>
+        <Formula block>{String.raw`P(A) = \frac{n(A)}{n(S)}`}</Formula>
+        <Formula block>{String.raw`\text{Percentage change} = \frac{\text{new} - \text{old}}{\text{old}} \times 100`}</Formula>
       </div>
     ),
   },

@@ -10,7 +10,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Probability measures how likely an event is. An impossible event has probability 0, a certain event has probability 1 and all other events lie between these values.</p>
-        <Formula block>{String.raw`P(A) = \\frac{n(A)}{n(S)}`}</Formula>
+        <Formula block>{String.raw`P(A) = \frac{n(A)}{n(S)}`}</Formula>
         <Formula block>{String.raw`P(A') = 1 - P(A)`}</Formula>
       </div>
     ),
@@ -29,8 +29,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Theoretical probability is based on known possible outcomes, while experimental probability uses actual results from trials or observations. Both appear in CAPS questions and must be interpreted in context.</p>
-        <Formula block>{String.raw`P(A \\cup B) = P(A) + P(B) - P(A \\cap B)`}</Formula>
-        <Formula block>{String.raw`\\text{Experimental probability} = \\frac{\\text{number of successful trials}{\\text{total number of trials}`}</Formula>
+        <Formula block>{String.raw`P(A \cup B) = P(A) + P(B) - P(A \cap B)`}</Formula>
+        <Formula block>{String.raw`\text{Experimental probability} = \frac{\text{number of successful trials}}{\text{total number of trials}}`}</Formula>
       </div>
     ),
   },

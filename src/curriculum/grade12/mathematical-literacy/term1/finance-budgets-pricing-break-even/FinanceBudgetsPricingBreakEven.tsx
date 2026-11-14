@@ -11,7 +11,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">A budget compares expected income with expected spending. When income is greater than expenses there is a surplus, and when expenses are greater than income there is a shortfall.</p>
-        <Formula block>{String.raw`\\text{Surplus or shortfall} = \\text{income} - \\text{expenses}`}</Formula>
+        <Formula block>{String.raw`\text{Surplus or shortfall} = \text{income} - \text{expenses}`}</Formula>
         <p className="text-lg leading-8 text-slate-600">Write down each income source and each expense clearly so that you can judge whether the plan is realistic before making a financial decision.</p>
       </div>
     ),
@@ -32,8 +32,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Cost price is what the seller pays for an item. Selling price is what the customer pays. Markup is the amount or percentage added to cost price to cover expenses and profit.</p>
-        <Formula block>{String.raw`\\text{Markup} = \\text{selling price} - \\text{cost price}`}</Formula>
-        <Formula block>{String.raw`\\text{Markup \\%} = \\frac{\\text{markup}{\\text{cost price} \\times 100`}</Formula>
+        <Formula block>{String.raw`\text{Markup} = \text{selling price} - \text{cost price}`}</Formula>
+        <Formula block>{String.raw`\text{Markup \%} = \frac{\text{markup}}{\text{cost price}} \times 100`}</Formula>
       </div>
     ),
   },
@@ -42,8 +42,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Profit happens when income from sales is more than total costs. Loss happens when costs are greater than income. The break-even point is where total revenue and total cost are equal.</p>
-        <Formula block>{String.raw`\\text{Profit} = \\text{revenue} - \\text{total cost}`}</Formula>
-        <Formula block>{String.raw`\\text{Break-even units} = \\frac{\\text{fixed costs}{\\text{selling price per item} - \\text{variable cost per item}`}</Formula>
+        <Formula block>{String.raw`\text{Profit} = \text{revenue} - \text{total cost}`}</Formula>
+        <Formula block>{String.raw`\text{Break-even units} = \frac{\text{fixed costs}}{\text{selling price per item} - \text{variable cost per item}}`}</Formula>
         <DataChart
           type="line"
           xKey="units"

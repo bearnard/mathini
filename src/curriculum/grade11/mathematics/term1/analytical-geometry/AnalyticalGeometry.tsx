@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     title: 'Find the Equation of a Line',
     content: (
       <div className="space-y-4 text-center">
-        <p className="text-slate-600">A line is controlled by its gradient and intercept. Use <Formula>{String.raw`m = \\tan\\theta`}</Formula> for inclination and write the equation in a form that matches the information you are given.</p>
+        <p className="text-slate-600">A line is controlled by its gradient and intercept. Use <Formula>{String.raw`m = \tan\theta`}</Formula> for inclination and write the equation in a form that matches the information you are given.</p>
         <div className="space-y-2">
           <Formula block>{String.raw`y = mx + c`}</Formula>
           <Formula block>{String.raw`y - y_1 = m(x - x_1)`}</Formula>
@@ -23,7 +23,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-indigo-50 p-4">
             <h4 className="font-semibold text-indigo-700">From two points</h4>
-            <Formula block>{String.raw`m = \\frac{y_2 - y_1}{x_2 - x_1}`}</Formula>
+            <Formula block>{String.raw`m = \frac{y_2 - y_1}{x_2 - x_1}`}</Formula>
           </div>
           <div className="rounded-xl bg-violet-50 p-4">
             <h4 className="font-semibold text-violet-700">From a point and slope</h4>
@@ -38,7 +38,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Parallel lines share the same gradient, while perpendicular lines have gradients whose product is <Formula>{String.raw`-1`}</Formula>.</p>
-        <Formula block>{String.raw`m_1 = m_2 \\quad \\text{or} \\quad m_1m_2 = -1`}</Formula>
+        <Formula block>{String.raw`m_1 = m_2 \quad \text{or} \quad m_1m_2 = -1`}</Formula>
         <FunctionGraph
           curves={[
             { fn: (x: number) => 0.5 * x + 1, label: 'parallel 1', color: '#06b6d4' },
@@ -55,7 +55,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-amber-50 p-4">
             <h4 className="font-semibold text-amber-700">Perpendicular check</h4>
-            <p className="text-sm text-slate-600">If one slope is <Formula>{String.raw`\\frac{1}{2}`}</Formula>, the perpendicular slope is <Formula>{String.raw`-2`}</Formula>.</p>
+            <p className="text-sm text-slate-600">If one slope is <Formula>{String.raw`\frac{1}{2}`}</Formula>, the perpendicular slope is <Formula>{String.raw`-2`}</Formula>.</p>
           </div>
         </div>
       </div>
@@ -67,17 +67,17 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Coordinate geometry often asks you to find the midpoint of a segment or the distance between two points before solving a larger problem.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`M\\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)`}</Formula>
-          <Formula block>{String.raw`d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}`}</Formula>
+          <Formula block>{String.raw`M\left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)`}</Formula>
+          <Formula block>{String.raw`d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}`}</Formula>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-emerald-50 p-4">
             <h4 className="font-semibold text-emerald-700">Midpoint example</h4>
-            <Formula block>{String.raw`M = \\left(\\frac{2 + 8}{2}, \\frac{-1 + 5}{2}\\right) = (5, 2)`}</Formula>
+            <Formula block>{String.raw`M = \left(\frac{2 + 8}{2}, \frac{-1 + 5}{2}\right) = (5, 2)`}</Formula>
           </div>
           <div className="rounded-xl bg-rose-50 p-4">
             <h4 className="font-semibold text-rose-700">Distance example</h4>
-            <Formula block>{String.raw`d = \\sqrt{(8-2)^2 + (5-(-1))^2} = 6\\sqrt{2}`}</Formula>
+            <Formula block>{String.raw`d = \sqrt{(8-2)^2 + (5-(-1))^2} = 6\sqrt{2}`}</Formula>
           </div>
         </div>
       </div>

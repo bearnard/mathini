@@ -11,8 +11,8 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Use the sine rule when you have an angle-opposite side pair. Use the cosine rule for <Formula>{String.raw`SAS`}</Formula> or <Formula>{String.raw`SSS`}</Formula> cases.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C}`}</Formula>
-          <Formula block>{String.raw`c^2 = a^2 + b^2 - 2ab\\cos C`}</Formula>
+          <Formula block>{String.raw`\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}`}</Formula>
+          <Formula block>{String.raw`c^2 = a^2 + b^2 - 2ab\cos C`}</Formula>
         </div>
       </div>
     ),
@@ -25,11 +25,11 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-indigo-50 p-4">
             <h4 className="font-semibold text-indigo-700">Sine rule example</h4>
-            <Formula block>{String.raw`\\frac{8}{\\sin 40^\\circ} = \\frac{x}{\\sin 65^\\circ}`}</Formula>
+            <Formula block>{String.raw`\frac{8}{\sin 40^\circ} = \frac{x}{\sin 65^\circ}`}</Formula>
           </div>
           <div className="rounded-xl bg-violet-50 p-4">
             <h4 className="font-semibold text-violet-700">Cosine rule example</h4>
-            <Formula block>{String.raw`x^2 = 7^2 + 9^2 - 2(7)(9)\\cos 50^\\circ`}</Formula>
+            <Formula block>{String.raw`x^2 = 7^2 + 9^2 - 2(7)(9)\cos 50^\circ`}</Formula>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-slate-600">If two sides and the included angle are known, find the area directly before doing any extra work.</p>
-        <Formula block>{String.raw`\\text{Area} = \\frac{1}{2}ab\\sin C`}</Formula>
+        <Formula block>{String.raw`\text{Area} = \frac{1}{2}ab\sin C`}</Formula>
         <FunctionGraph
           curves={[
             { fn: (x: number) => 24 * Math.sin((x * Math.PI) / 180), label: 'Area for a=6, b=8', color: '#14b8a6' },
@@ -57,7 +57,7 @@ const learnSteps: LearnStep[] = [
           xRange={[0, 180]}
           yRange={[0, 26]}
         />
-        <p className="text-sm text-slate-600">The area is greatest when the included angle is close to <Formula>{String.raw`90^\\circ`}</Formula> because <Formula>{String.raw`\\sin 90^\\circ = 1`}</Formula>.</p>
+        <p className="text-sm text-slate-600">The area is greatest when the included angle is close to <Formula>{String.raw`90^\circ`}</Formula> because <Formula>{String.raw`\sin 90^\circ = 1`}</Formula>.</p>
       </div>
     ),
   },

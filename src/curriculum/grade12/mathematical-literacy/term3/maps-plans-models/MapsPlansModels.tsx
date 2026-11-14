@@ -10,7 +10,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Plans and models are reduced versions of real objects. A scale such as 1:50 or 1:200 means every measurement on the drawing or model must be matched to the same unit in reality.</p>
-        <Formula block>{String.raw`\\text{Actual size} = \\text{plan or model size} \\times \\text{scale factor}`}</Formula>
+        <Formula block>{String.raw`\text{Actual size} = \text{plan or model size} \times \text{scale factor}`}</Formula>
       </div>
     ),
   },
@@ -28,7 +28,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Floor plans include walls, doors, windows and room labels. Measure carefully, use the scale correctly and keep units consistent, because small errors on the plan can become large errors in reality.</p>
-        <Formula block>{String.raw`\\text{Plan size} = \\frac{\\text{actual size}{\\text{scale factor}`}</Formula>
+        <Formula block>{String.raw`\text{Plan size} = \frac{\text{actual size}}{\text{scale factor}}`}</Formula>
       </div>
     ),
   },

@@ -11,8 +11,8 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Start by listing outcomes with a table, tree, or sample space so that you do not miss possibilities.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`P(A) = \\frac{n(A)}{n(S)}`}</Formula>
-          <Formula block>{String.raw`P(A \\cap B) = P(A) \\cdot P(B) \\quad \\text{for independent events}`}</Formula>
+          <Formula block>{String.raw`P(A) = \frac{n(A)}{n(S)}`}</Formula>
+          <Formula block>{String.raw`P(A \cap B) = P(A) \cdot P(B) \quad \text{for independent events}`}</Formula>
         </div>
         <FunctionGraph
           curves={[
@@ -31,10 +31,10 @@ const learnSteps: LearnStep[] = [
         <p className="text-slate-600">Addition combines events, while multiplication handles successive or independent events.</p>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-indigo-50 p-4">
-            <Formula block>{String.raw`P(A \\cup B) = P(A) + P(B) - P(A \\cap B)`}</Formula>
+            <Formula block>{String.raw`P(A \cup B) = P(A) + P(B) - P(A \cap B)`}</Formula>
           </div>
           <div className="rounded-xl bg-violet-50 p-4">
-            <Formula block>{String.raw`P(A \\cap B) = P(A) \\cdot P(B)`}</Formula>
+            <Formula block>{String.raw`P(A \cap B) = P(A) \cdot P(B)`}</Formula>
           </div>
         </div>
         <p className="text-sm text-slate-600">Ask yourself whether the events can happen together. That decides whether you subtract the overlap.</p>
@@ -55,7 +55,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Probabilities must lie between <Formula>{String.raw`0`}</Formula> and <Formula>{String.raw`1`}</Formula>. Use complements to simplify “not” questions.</p>
-        <Formula block>{String.raw`P(A^{\\prime}) = 1 - P(A)`}</Formula>
+        <Formula block>{String.raw`P(A^{\prime}) = 1 - P(A)`}</Formula>
         <FunctionGraph
           curves={[
             { fn: (x: number) => 1 - x, label: 'P(A′) = 1 - P(A)', color: '#14b8a6' },
