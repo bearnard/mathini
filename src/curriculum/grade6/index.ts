@@ -389,6 +389,12 @@ export const grade6: Grade = {
                                     component: lazy(() => import('./natural-sciences/term3/circuit-diagrams/CircuitDiagrams'))
                                 },
                                 {
+                                    id: "nst-systems-solve-problems",
+                                    title: "Systems to Solve Problems",
+                                    description: "The design process and designing a circuit.",
+                                    component: lazy(() => import('./natural-sciences/term3/systems-solve-problems/SystemsSolveProblems'))
+                                },
+                                {
                                     id: "nst-mains-electricity",
                                     title: "Mains Electricity & Safety",
                                     description: "Where mains power comes from and staying safe.",

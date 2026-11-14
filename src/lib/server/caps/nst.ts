@@ -38,6 +38,8 @@ export const nst: SubjectConfig = {
       'Topic: Circuit diagrams and symbols. Cover the standard symbols for a cell, battery, bulb/lamp, switch (open/closed) and connecting wires, and reading a simple circuit diagram. Ask which symbol represents which component, or what a diagram shows.',
     'mains-electricity':
       'Topic: Mains electricity and safety. Cover how electricity reaches homes and schools (power station -> power lines -> home), that mains electricity is dangerous (much stronger than a cell), safety rules, and ways to save electricity. Ask about the path of electricity, safety, or saving energy.',
+    'systems-solve-problems':
+      'Topic: Systems to solve problems (Technology). Cover what a system is (input, process, output, e.g. torch, doorbell), the design process in order (investigate, design, make, evaluate, communicate), a design brief with specifications and constraints, designing a simple circuit (choosing cells, wires, switch, bulb or buzzer, using conductors for wires and insulators for covers), drawing a circuit diagram first, and testing and improving. Ask about the order of the steps, what a brief, specification or constraint is, which component or material suits a job, or how to fix a circuit that does not work.',
     'solar-system':
       'Topic: The Solar System. Cover the Sun as the central star, the eight planets in order (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune), dwarf planets, asteroids, meteors and comets, and that planets orbit the Sun. Ask about order, names or features of the Solar System.',
     'earth-moon-movement':
