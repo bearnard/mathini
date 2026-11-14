@@ -56,7 +56,30 @@ interface DiagramProps {
   className?: string;
 }
 
-export const LatLongGlobe = ({ className }: DiagramProps) => {
+export interface LatLongHotspot {
+  id: 'equator' | 'prime-meridian' | 'north-pole' | 'south-pole';
+  /** Centre, as a percentage (0-100) of the globe diagram box. */
+  x: number;
+  y: number;
+  r: number;
+}
+
+const pct = (n: number) => Math.round(n * 100) / 100;
+
+/**
+ * Tap targets for a label-the-globe question, in 0-100 % of the box. They sit ON the lines,
+ * away from where the lines cross. In this view we look down from 15 degrees north, so the
+ * South Pole is on the far side of the globe: its target is where the Prime Meridian meets the
+ * bottom edge, the way "S" is drawn at the bottom of the picture.
+ */
+export const LATLONG_HOTSPOTS: LatLongHotspot[] = [
+  { id: 'equator', x: pct(proj(0, 55).x), y: pct(proj(0, 55).y), r: 6 },
+  { id: 'prime-meridian', x: pct(proj(40, 0).x), y: pct(proj(40, 0).y), r: 6 },
+  { id: 'north-pole', x: pct(proj(90, 0).x), y: pct(proj(90, 0).y), r: 5 },
+  { id: 'south-pole', x: GX, y: pct(GY + GR - 1), r: 5 },
+];
+
+export const LatLongGlobe = ({ className, showLabels = true }: DiagramProps & { showLabels?: boolean }) => {
   const sa = proj(-26, 28);
   const origin = proj(0, 0);
   const north = proj(90, 0);
@@ -69,9 +92,11 @@ export const LatLongGlobe = ({ className }: DiagramProps) => {
       className={`mx-auto block aspect-square w-full rounded-2xl ${className ?? ''}`}
       style={{ background: '#0f172a', fontFamily: 'inherit', maxWidth: '28rem' }}
     >
-      <title id="ll-globe-title">A globe with the Equator and the Prime Meridian</title>
+      <title id="ll-globe-title">{showLabels ? 'A globe with the Equator and the Prime Meridian' : 'A globe with two lines and the poles to label'}</title>
       <desc id="ll-globe-desc">
-        A globe. The Equator is the line around the middle, 0 degrees latitude, and divides the north half from the south half. The Prime Meridian runs from the North Pole to the South Pole through Greenwich, 0 degrees longitude. A gold dot shows where South Africa is: south of the Equator and east of the Prime Meridian.
+        {showLabels
+          ? 'A globe. The Equator is the line around the middle, 0 degrees latitude, and divides the north half from the south half. The Prime Meridian runs from the North Pole to the South Pole through Greenwich, 0 degrees longitude. A gold dot shows where South Africa is: south of the Equator and east of the Prime Meridian.'
+          : 'A globe with one line around the middle, one line from top to bottom, and a gold dot.'}
       </desc>
       <circle cx={GX} cy={GY} r={GR} fill="#1e3a5f" />
       {/* southern half, a darker blue */}
@@ -98,15 +123,18 @@ export const LatLongGlobe = ({ className }: DiagramProps) => {
       {/* South Africa */}
       <circle cx={sa.x} cy={sa.y} r={2.4} fill={GOLD} stroke="#0f172a" strokeWidth={0.6} />
 
-      {/* labels */}
-      <text x={32} y={eqY + 7.5} textAnchor="middle" fontSize={4.2} fill={LAT} fontWeight={800}>Equator</text>
-      <text transform={`translate(${GX - 2.5} 33) rotate(-90)`} textAnchor="middle" fontSize={4} fill={LON} fontWeight={800}>Prime Meridian</text>
-      <g fontSize={5} fill="#e2e8f0" fontWeight={800} textAnchor="middle">
-        <text x={GX} y={8.5}>N</text>
-        <text x={GX} y={96}>S</text>
-        <text x={6} y={GY + 1.8}>W</text>
-        <text x={94} y={GY + 1.8}>E</text>
-      </g>
+      {showLabels && (
+        <>
+          <text x={32} y={eqY + 7.5} textAnchor="middle" fontSize={4.2} fill={LAT} fontWeight={800}>Equator</text>
+          <text transform={`translate(${GX - 2.5} 33) rotate(-90)`} textAnchor="middle" fontSize={4} fill={LON} fontWeight={800}>Prime Meridian</text>
+          <g fontSize={5} fill="#e2e8f0" fontWeight={800} textAnchor="middle">
+            <text x={GX} y={8.5}>N</text>
+            <text x={GX} y={96}>S</text>
+            <text x={6} y={GY + 1.8}>W</text>
+            <text x={94} y={GY + 1.8}>E</text>
+          </g>
+        </>
+      )}
     </svg>
   );
 };

@@ -34,6 +34,23 @@ const polar = (cx: number, cy: number, r: number, deg: number) => {
   return { x: cx + r * Math.sin(a), y: cy - r * Math.cos(a) };
 };
 
+export interface DiagramHotspot {
+  id: string;
+  /** Centre, as a percentage (0-100) of the diagram box. */
+  x: number;
+  y: number;
+  /** Radius of the tap target, as a percentage of the box width. */
+  r: number;
+}
+
+const r1 = (n: number) => Math.round(n * 100) / 100;
+
+/** The tip of each point of CompassRose (cx = cy = 50, viewBox 0 0 100 100). */
+export const COMPASS_HOTSPOTS: DiagramHotspot[] = POINTS.map((p) => {
+  const tip = polar(50, 50, p.long ? 30 : 24, p.deg);
+  return { id: p.name.toLowerCase(), x: r1(tip.x), y: r1(tip.y), r: 5 };
+});
+
 /** One kite-shaped point of the rose. */
 const Point = ({ cx, cy, deg, len, wide, fill }: { cx: number; cy: number; deg: number; len: number; wide: number; fill: string }) => {
   const tip = polar(cx, cy, len, deg);
@@ -73,7 +90,7 @@ const Rose = ({ cx, cy, scale = 1, highlight, labels = true }: { cx: number; cy:
   </g>
 );
 
-export const CompassRose = ({ className }: DiagramProps) => (
+export const CompassRose = ({ className, showLabels = true }: DiagramProps & { showLabels?: boolean }) => (
   <svg
     viewBox="0 0 100 100"
     role="img"
@@ -81,11 +98,13 @@ export const CompassRose = ({ className }: DiagramProps) => (
     className={`mx-auto block aspect-square w-full rounded-2xl ${className ?? ''}`}
     style={{ background: INK, fontFamily: 'inherit', maxWidth: '24rem' }}
   >
-    <title id="cmp-title">A compass rose with eight points</title>
+    <title id="cmp-title">{showLabels ? 'A compass rose with eight points' : 'A compass rose with eight points to label'}</title>
     <desc id="cmp-desc">
-      The four main directions are north at the top, east on the right, south at the bottom and west on the left. Halfway between them are north-east, south-east, south-west and north-west.
+      {showLabels
+        ? 'The four main directions are north at the top, east on the right, south at the bottom and west on the left. Halfway between them are north-east, south-east, south-west and north-west.'
+        : 'Four long points and four shorter points between them, around a circle.'}
     </desc>
-    <Rose cx={50} cy={50} />
+    <Rose cx={50} cy={50} labels={showLabels} />
   </svg>
 );
 
