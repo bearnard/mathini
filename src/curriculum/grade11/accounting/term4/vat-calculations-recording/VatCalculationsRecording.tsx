@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import TAccount from '../../../../../components/subjects/TAccount';
+import { VatFlow, VatPriceBar } from '../../../../../components/diagrams/accounting/VatDiagrams';
+import { PRICE_EXAMPLE, VAT_EXAMPLE } from '../../../../../components/diagrams/accounting/vat';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
@@ -10,6 +12,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           <strong>Value Added Tax (VAT)</strong> is an indirect tax levied by the South African government on the consumption of goods and services. The standard rate in South Africa is <strong>15%</strong>.
         </p>
+        <VatFlow input={VAT_EXAMPLE.input} output={VAT_EXAMPLE.output} />
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-blue-50 p-4">
             <strong className="text-blue-700">Input VAT</strong>
@@ -31,6 +34,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           Learners must be able to move between VAT-inclusive and VAT-exclusive prices.
         </p>
+        <VatPriceBar exclusive={PRICE_EXAMPLE.exclusive} />
         <div className="bg-slate-50 p-5 rounded-xl text-left space-y-3">
           <div>
             <p className="font-bold text-slate-700">Adding VAT (exclusive → inclusive):</p>
