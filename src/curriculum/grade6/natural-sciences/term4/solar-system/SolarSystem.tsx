@@ -101,6 +101,10 @@ export const bank: NstItem[] = [
   { prompt: 'Pluto is best described as a...', options: ['dwarf planet', 'star', 'moon of Neptune', 'gas giant'], answer: 'dwarf planet', explanation: 'Pluto is classified as a dwarf planet.' },
   { section: 'orbits', prompt: 'Seen from above the Sun’s north pole, in which direction do all the planets orbit the Sun?', options: ['Anticlockwise', 'Clockwise', 'Some clockwise and some anticlockwise', 'It depends on how far the planet is from the Sun'], answer: 'Anticlockwise', explanation: 'All the planets orbit the Sun in the same direction, which is anticlockwise when seen from above the Sun’s north pole.' },
 
+  { kind: 'explain', section: 'planet-facts', prompt: 'Describe one interesting fact about each of these planets: Earth, Jupiter and Mars.', options: ['A correct fact about Earth, for example it is the only planet we know has life', 'A correct fact about Jupiter, for example it is the largest planet or a gas giant', 'A correct fact about Mars, for example it is the red planet because its soil has rust'], answer: 'A correct fact about Earth, for example it is the only planet we know has life|A correct fact about Jupiter, for example it is the largest planet or a gas giant|A correct fact about Mars, for example it is the red planet because its soil has rust', explanation: 'Any correct fact from the lesson earns the mark. Each planet is worth one mark.' },
+  { kind: 'explain', section: 'sun', prompt: 'What is the Sun? Answer in your own words.', options: ['The Sun is a star that makes its own light and heat'], answer: 'The Sun is a star that makes its own light and heat', explanation: 'The planets do not make light. We see them because they reflect sunlight.' },
+  { kind: 'explain', section: 'asteroid-belt', prompt: 'What is the asteroid belt? Answer in your own words.', options: ['A band of rocky objects (asteroids) that lies between Mars and Jupiter'], answer: 'A band of rocky objects (asteroids) that lies between Mars and Jupiter', explanation: 'The asteroid belt separates the inner rocky planets from the outer gas giants.' },
+
 ];
 
 const SolarSystem = () => (

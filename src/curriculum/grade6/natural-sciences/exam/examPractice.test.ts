@@ -47,8 +47,8 @@ test('exam practice: marks are 1 each for auto-marked questions and the points f
     const written = test25.filter((i) => kindOf(i) === 'explain');
     const expected = 20 + written.reduce((n, i) => n + explainMarks(i), 0);
     assert.equal(totalMarks(test25), expected);
-    assert.ok(written.every((i) => marksOf(i) >= 2 && marksOf(i) <= 6));
-    assert.ok(totalMarks(test25) >= 30 && totalMarks(test25) <= 45, `total ${totalMarks(test25)}`);
+    assert.ok(written.every((i) => marksOf(i) >= 1 && marksOf(i) <= 6));
+    assert.ok(totalMarks(test25) >= 25 && totalMarks(test25) <= 45, `total ${totalMarks(test25)}`);
   }
 });
 

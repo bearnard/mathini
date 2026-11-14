@@ -48,7 +48,7 @@ for (const topic of topics) {
       if (kind === 'explain') {
         const where = `"${item.prompt}"`;
         const pts = explainPoints(item);
-        assert.ok(pts.length >= 2 && pts.length <= 6, `${where}: 2-6 mark points (one mark each)`);
+        assert.ok(pts.length >= 1 && pts.length <= 6, `${where}: 1-6 mark points (one mark each)`);
         assert.equal(explainMarks(item), pts.length, `${where}: marks must match the mark points`);
         assert.ok(item.explanation, `${where}: needs an explanation`);
         assert.ok(item.section, `${where}: needs a section tag`);
@@ -106,6 +106,9 @@ test('the exam-style written questions exist, with the marks of the sample paper
   assert.equal(marksFor(/two vehicles used for space exploration/), 4);
   assert.equal(marksFor(/new planet for people to live on/), 6);
   assert.equal(marksFor(/Draw a simple circuit diagram/), 5);
+  assert.equal(marksFor(/interesting fact about each/), 3);
+  assert.equal(marksFor(/What is the Sun\?/), 1);
+  assert.equal(marksFor(/What is the asteroid belt\?/), 1);
   const draw = all.find((i) => /Draw a simple circuit diagram/.test(i.prompt))!;
   assert.equal(draw.paper, true);
   assert.ok(draw.Diagram, 'the drawing question shows a labelled reference circuit in the memo');

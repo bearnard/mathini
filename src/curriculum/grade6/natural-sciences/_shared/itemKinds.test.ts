@@ -109,7 +109,10 @@ test('explain: itemProblem accepts good items and names the problem otherwise', 
   assert.equal(itemProblem(explain), null);
   assert.equal(itemProblem({ ...explain, marks: 3 }), null);
   assert.match(itemProblem({ ...explain, marks: 4 }) ?? '', /marks must equal/);
-  assert.match(itemProblem({ ...explain, options: ['only one'], answer: 'only one' }) ?? '', /at least two/);
+  // a one-mark written answer (e.g. "What is the Sun?") has a single mark point
+  assert.equal(itemProblem({ ...explain, options: ['A star'], answer: 'A star' }), null);
+  assert.equal(marksOf({ ...explain, options: ['A star'], answer: 'A star' }), 1);
+  assert.match(itemProblem({ ...explain, options: [''], answer: '' }) ?? '', /empty/);
   assert.match(itemProblem({ ...explain, options: ['a', 'a'], answer: 'a|a' }) ?? '', /repeat/);
   assert.match(itemProblem({ ...explain, options: ['a', 'b'], answer: 'a|c' }) ?? '', /same set/);
   assert.match(itemProblem({ ...explain, options: ['a', ' '], answer: 'a| ' }) ?? '', /empty/);

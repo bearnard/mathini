@@ -103,7 +103,7 @@ export function itemProblem(item: NstItem): string | null {
   }
   if (kind === 'explain') {
     const pts = explainPoints(item);
-    if (pts.length < 2) return 'explain needs at least two mark points';
+    if (pts.length < 1) return 'explain needs at least one mark point';
     if (pts.some((p) => p.trim() === '')) return 'explain has an empty mark point';
     if (new Set(pts).size !== pts.length) return 'explain mark points repeat';
     if (pts.length !== item.options.length || !pts.every((p) => item.options.includes(p))) {

@@ -37,7 +37,12 @@ const CircuitPartsDiagram = ({ showLabels }: DiagramProps) => (
       {/* switch: two terminals and a blade. Open (raised) in the label question; closed in the labelled memo reference,\n          because that picture is shown as the model of a COMPLETE circuit. */}
       <circle cx="170" cy="90" r="4" fill={ink} />
       <circle cx="230" cy="90" r="4" fill={ink} />
-      <path d={showLabels ? 'M 170 90 L 230 90' : 'M 170 90 L 222 66'} />
+      {showLabels ? (
+        // closed: the blade lies across both terminals. Drawn in a different colour so it reads as a switch, not more wire.
+        <path d="M 170 90 L 230 90" stroke="#f68535" strokeWidth="7" />
+      ) : (
+        <path d="M 170 90 L 222 66" />
+      )}
       {/* bulb: circle with a cross */}
       <circle cx="300" cy="155" r="22" fill="#fef9c3" />
       <path d="M 284 139 L 316 171 M 316 139 L 284 171" strokeWidth="3" />
@@ -45,7 +50,7 @@ const CircuitPartsDiagram = ({ showLabels }: DiagramProps) => (
     {showLabels && (
       <g fill={ink} fontSize="17" fontWeight="700" fontFamily="system-ui, sans-serif">
         <text x="70" y="160" textAnchor="end">Cell</text>
-        <text x="200" y="52" textAnchor="middle">Switch</text>
+        <text x="200" y="56" textAnchor="middle">Switch (closed)</text>
         <text x="340" y="160" textAnchor="start">Bulb</text>
         <text x="200" y="250" textAnchor="middle">Wires</text>
       </g>
