@@ -1,26 +1,17 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import GridRef from '@/components/diagrams/GridRef';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Grids help us find places quickly',
-    image: {
-      src: '/curriculum/grade6/geo/term1/locating-places/diagram.svg',
-      alt: 'simple map grid with letters and numbers for locating places',
-    },
     content: (
       <div className="space-y-4 text-center">
+        <GridRef />
         <p className="text-lg text-slate-600">
           A map grid divides a map into rows and columns. We use <strong>grid references</strong>
           to say which square contains a place, such as a school, clinic, river, or road.
         </p>
-        <div className="bg-violet-50 p-6 rounded-xl inline-flex flex-wrap items-center justify-center gap-3 text-xl font-bold">
-          <span>letter</span>
-          <span className="text-slate-400">+</span>
-          <span>number</span>
-          <span className="text-slate-400">=</span>
-          <span>grid square</span>
-        </div>
       </div>
     ),
   },
@@ -43,6 +34,7 @@ const learnSteps: LearnStep[] = [
     title: 'Use symbols and keys with grid references',
     content: (
       <div className="space-y-4 text-center">
+        <GridRef showKey />
         <p className="text-lg text-slate-600">
           Map symbols stand for real things. A <strong>key</strong> explains the symbols, and a grid
           reference tells us where to look. Together they make maps easier to read.
