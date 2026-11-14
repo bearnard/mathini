@@ -7,7 +7,31 @@ export const KIND_SEPARATOR = '|';
 export type Rng = () => number;
 
 export function kindOf(item: Pick<NstItem, 'kind'>): NstItemKind {
-  return item.kind === 'order' || item.kind === 'label' ? item.kind : 'mcq';
+  return item.kind === 'order' || item.kind === 'label' || item.kind === 'explain' ? item.kind : 'mcq';
+}
+
+/** The memo mark points of an explain item, in memo order. */
+export function explainPoints(item: Pick<NstItem, 'answer'>): string[] {
+  return item.answer.split(KIND_SEPARATOR);
+}
+
+/** The marks an explain item is worth (one per mark point). */
+export function explainMarks(item: Pick<NstItem, 'answer' | 'marks'>): number {
+  return item.marks ?? explainPoints(item).length;
+}
+
+/**
+ * Is a self-marked explain answer "correct" for recording (XP and the review schedule)? At least 70% of the marks,
+ * rounded up: that is every mark on a 2 or 3 mark answer, and one miss allowed from 4 marks up.
+ * Integer maths, so 10 marks needs exactly 7 (floating point would ask for 8).
+ */
+export function isExplainCorrect(got: number, total: number): boolean {
+  return total > 0 && got >= Math.ceil((total * 7) / 10);
+}
+
+/** Marks a question is worth in a scored test: 1 for mcq/order/label (all or nothing), the points for explain. */
+export function marksOf(item: NstItem): number {
+  return kindOf(item) === 'explain' ? explainMarks(item) : 1;
 }
 
 /** The correct sequence of an order item. */
@@ -77,6 +101,17 @@ export function itemProblem(item: NstItem): string | null {
     if (seq.some((s) => s.includes(KIND_SEPARATOR))) return 'order step contains the separator';
     return null;
   }
+  if (kind === 'explain') {
+    const pts = explainPoints(item);
+    if (pts.length < 1) return 'explain needs at least one mark point';
+    if (pts.some((p) => p.trim() === '')) return 'explain has an empty mark point';
+    if (new Set(pts).size !== pts.length) return 'explain mark points repeat';
+    if (pts.length !== item.options.length || !pts.every((p) => item.options.includes(p))) {
+      return 'explain answer is not the same set as the options (mark points)';
+    }
+    if (item.marks !== undefined && item.marks !== pts.length) return 'explain marks must equal the number of mark points';
+    return null;
+  }
   // label
   if (!item.image && !item.Diagram) return 'label needs an image or a Diagram';
   const spots: Hotspot[] = item.hotspots ?? [];
@@ -101,7 +136,7 @@ export function normaliseItem(item: NstItem): NstItem | null {
   try {
     if (!item || typeof item !== 'object') return null;
     const raw = (item as { kind?: unknown }).kind;
-    const known = raw === undefined || raw === 'mcq' || raw === 'order' || raw === 'label';
+    const known = raw === undefined || raw === 'mcq' || raw === 'order' || raw === 'label' || raw === 'explain';
     const candidate: NstItem = known ? item : { ...item, kind: 'mcq' };
     return itemProblem(candidate) === null ? candidate : null;
   } catch {
@@ -123,6 +158,7 @@ export function shuffleWith<T>(arr: readonly T[], rng: Rng = Math.random): T[] {
  * too, but never left in the correct sequence (that would give the answer away).
  */
 export function shuffleOptions(item: NstItem, rng: Rng = Math.random): string[] {
+  if (kindOf(item) === 'explain') return [...item.options]; // memo points keep the memo's order
   const shuffled = shuffleWith(item.options, rng);
   if (kindOf(item) === 'order' && shuffled.length > 1) {
     const want = orderSequence(item);

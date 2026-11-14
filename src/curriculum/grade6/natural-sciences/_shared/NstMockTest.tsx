@@ -4,7 +4,8 @@ import Card from '../../../../components/ui/Card';
 import Button from '../../../../components/ui/Button';
 import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
-import { buildMockTest, scoreByTopic, topicsToRevise, type MockItem, type TopicBank } from './mockTest';
+import { buildMockTest, marksGained, scoreByTopic, topicsToRevise, totalMarks, type MockItem, type TopicBank } from './mockTest';
+import { kindOf, marksOf } from './itemKinds';
 import { onFinish, onStart } from './mockTestEvents';
 import NstQuestionBody, { incorrectMessageFor } from './NstQuestionBody';
 
@@ -15,6 +16,11 @@ interface NstMockTestProps {
   groups: TopicBank[];
   /** Number of questions in the test. Default 20. */
   count?: number;
+  /**
+   * Self-marked explain questions to include (default 0). When there are any, the test is scored in MARKS out of a
+   * total, like an exam, and explain questions are not re-asked (their memo has just been shown).
+   */
+  explainCount?: number;
 }
 
 type Phase = 'round1' | 'reask' | 'results';
@@ -24,8 +30,8 @@ type Phase = 'round1' | 'reask' | 'results';
  * clean first-attempt score. Missed questions are then asked ONCE more (the
  * re-ask round). Nothing is sent to the server.
  */
-const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) => {
-  const [questions, setQuestions] = useState<MockItem[]>(() => buildMockTest(groups, count));
+const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0 }: NstMockTestProps) => {
+  const [questions, setQuestions] = useState<MockItem[]>(() => buildMockTest(groups, count, Math.random, { explain: explainCount }));
   const [phase, setPhase] = useState<Phase>('round1');
   const [queue, setQueue] = useState<MockItem[]>(questions);
   const [index, setIndex] = useState(0);
@@ -34,6 +40,8 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
   const [streak, setStreak] = useState(0);
   // First-attempt result for each question in `questions` (same order).
   const [firstAttempt, setFirstAttempt] = useState<boolean[]>([]);
+  // Marks gained on the first attempt (same order). Auto-marked questions are 0 or 1; explain items 0..their marks.
+  const [firstMarks, setFirstMarks] = useState<number[]>([]);
   const [reaskFixed, setReaskFixed] = useState(0);
   const finished = useRef(false);
   const startedFor = useRef<MockItem[] | null>(null);
@@ -47,21 +55,26 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
 
   const current = phase === 'results' ? undefined : queue[index];
   // The last question overall: end of the re-ask round, or end of round 1 with nothing missed.
-  const isLastQuestion = index + 1 >= queue.length && (phase === 'reask' || firstAttempt.every(Boolean));
+  // Missed auto-marked questions are asked once more. Explain items are not: the memo was just shown.
+  const missed = questions.filter((it, i) => firstAttempt[i] === false && kindOf(it) !== 'explain');
+  const isLastQuestion = index + 1 >= queue.length && (phase === 'reask' || missed.length === 0);
 
-  const byTopic = scoreByTopic(questions, firstAttempt);
-  const score = firstAttempt.filter(Boolean).length;
-  const reaskTotal = firstAttempt.filter((ok) => !ok).length;
+  // Exam mode: any explain item means the test is scored in marks out of a total.
+  const marksMode = questions.some((it) => kindOf(it) === 'explain');
+  const byTopic = scoreByTopic(questions, firstMarks);
+  const score = firstMarks.reduce((n, m) => n + m, 0);
+  const outOf = totalMarks(questions);
+  const reaskTotal = missed.length;
 
   useEffect(() => {
     if (phase !== 'results' || finished.current) return;
     finished.current = true;
     // Analytics hook point: one call when the results screen is shown.
-    onFinish({ title, score, total: questions.length, byTopic, reaskFixed, reaskTotal });
+    onFinish({ title, score, total: outOf, byTopic, reaskFixed, reaskTotal });
   }, [phase]);
 
   // One result per question for every item kind; correct = fully right.
-  const handleResult = (correct: boolean, chosen?: string) => {
+  const handleResult = (correct: boolean, chosen?: string, given?: { marks: number; of: number }) => {
     if (isCorrect !== null || !current) return;
     if (chosen !== undefined) setSelected(chosen);
     setIsCorrect(correct);
@@ -69,6 +82,7 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
     if (correct) triggerConfetti();
     if (phase === 'round1') {
       setFirstAttempt((prev) => [...prev, correct]);
+      setFirstMarks((prev) => [...prev, marksGained(current, given ? given.marks : correct)]);
     } else if (correct) {
       setReaskFixed((n) => n + 1);
     }
@@ -82,7 +96,6 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
       return;
     }
     if (phase === 'round1') {
-      const missed = questions.filter((_, i) => !firstAttempt[i]);
       if (missed.length > 0) {
         setQueue(missed);
         setIndex(0);
@@ -94,7 +107,7 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
   };
 
   const handleNewTest = () => {
-    const fresh = buildMockTest(groups, count);
+    const fresh = buildMockTest(groups, count, Math.random, { explain: explainCount });
     finished.current = false;
     setQuestions(fresh);
     setQueue(fresh);
@@ -104,6 +117,7 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
     setIsCorrect(null);
     setStreak(0);
     setFirstAttempt([]);
+    setFirstMarks([]);
     setReaskFixed(0);
   };
 
@@ -124,7 +138,7 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
   }
 
   if (phase === 'results') {
-    const percent = Math.round((score / questions.length) * 100);
+    const percent = Math.round((score / Math.max(outOf, 1)) * 100);
     const revise = topicsToRevise(byTopic);
     const message =
       percent >= 80
@@ -139,11 +153,12 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
           <div className="text-center space-y-2">
             <div className="text-5xl">{percent >= 60 ? '🎉' : '💪'}</div>
             <h2 className="text-2xl font-bold text-slate-800">
-              You scored {score} / {questions.length} ({percent}%)
+              You scored {score} / {outOf}{marksMode ? ' marks' : ''} ({percent}%)
             </h2>
             <p className="text-slate-600">{message}</p>
             <p className="text-sm text-slate-500">
               This is your score on the first try of each question.
+              {marksMode && ' Written answers are marked by you, using the memo.'}
               {reaskTotal > 0 && ` In the second try you fixed ${reaskFixed} of ${reaskTotal} missed questions.`}
             </p>
           </div>
@@ -155,7 +170,7 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
                 <div className="flex justify-between text-sm text-slate-600">
                   <span>{row.topic}</span>
                   <span>
-                    {row.correct} / {row.total}
+                    {row.correct} / {row.total}{marksMode ? ' marks' : ''}
                   </span>
                 </div>
                 <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
@@ -213,7 +228,10 @@ const NstMockTest = ({ title, subtitle, groups, count = 20 }: NstMockTestProps) 
         <Card className="p-8 space-y-8">
           {current && (
             <>
-              <p className="text-sm font-medium text-slate-400 text-center">{current.topic}</p>
+              <p className="text-sm font-medium text-slate-400 text-center">
+                {current.topic}
+                {marksMode && ` · ${marksOf(current)} ${marksOf(current) === 1 ? 'mark' : 'marks'}`}
+              </p>
               <p className="text-xl md:text-2xl font-bold text-slate-800 text-center">{current.prompt}</p>
               <NstQuestionBody
                 item={current}

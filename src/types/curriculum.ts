@@ -21,6 +21,8 @@ export interface Term {
   id: number;
   title: string;
   topics: Topic[];
+  /** Shown in the term picker instead of the number (e.g. a star for a non-term group like "Exam practice"). */
+  badge?: string;
 }
 
 /** App navigation subject within a grade. */

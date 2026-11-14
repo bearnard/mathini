@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { itemProblem, kindOf } from './_shared/itemKinds';
+import { explainMarks, explainPoints, itemProblem, kindOf } from './_shared/itemKinds';
 import type { NstItem } from './_shared/types';
 
 // Checks every Grade 6 NST bank, with extra rules for the order and label items.
@@ -45,6 +45,17 @@ for (const topic of topics) {
         assert.ok(item.explanation, `"${item.prompt}": needs an explanation`);
         assert.ok(item.section, `"${item.prompt}": needs a section tag`);
       }
+      if (kind === 'explain') {
+        const where = `"${item.prompt}"`;
+        const pts = explainPoints(item);
+        assert.ok(pts.length >= 1 && pts.length <= 6, `${where}: 1-6 mark points (one mark each)`);
+        assert.equal(explainMarks(item), pts.length, `${where}: marks must match the mark points`);
+        assert.ok(item.explanation, `${where}: needs an explanation`);
+        assert.ok(item.section, `${where}: needs a section tag`);
+        assert.ok(pts.every((p) => p.length >= 12), `${where}: each mark point must be a full statement, not a word`);
+        assert.match(item.prompt, /^(Explain|Describe|What|Name|Draw|You are|Give|List)/, `${where}: starts like an exam question`);
+        if (item.paper) assert.ok(item.Diagram || item.image, `${where}: a paper question needs a reference diagram in the memo`);
+      }
       if (kind === 'label') {
         assert.ok(item.explanation, `"${item.prompt}": needs an explanation`);
         assert.ok(item.section, `"${item.prompt}": needs a section tag`);
@@ -75,4 +86,33 @@ test('the moon-phase order item lists all eight phases in the right order', asyn
   assert.deepEqual(item.answer.split('|'), [
     'New Moon', 'Waxing Crescent', 'First Quarter', 'Waxing Gibbous', 'Full Moon', 'Waning Gibbous', 'Last Quarter', 'Waning Crescent',
   ]);
+});
+
+test('the exam-style written questions exist, with the marks of the sample paper style', async () => {
+  const all: NstItem[] = [];
+  for (const t of topics) all.push(...(await loadBank(t)));
+  const marksFor = (re: RegExp) => {
+    const it = all.find((i) => kindOf(i) === 'explain' && re.test(i.prompt));
+    assert.ok(it, `missing explain item: ${re}`);
+    return explainMarks(it!);
+  };
+  assert.equal(marksFor(/insulators are important/), 2);
+  assert.equal(marksFor(/why a switch is an important/), 2);
+  assert.equal(marksFor(/illegal electrical connections are dangerous/), 2);
+  assert.equal(marksFor(/appliances cost more to use/), 3);
+  assert.equal(marksFor(/What are fossil fuels/), 3);
+  assert.equal(marksFor(/one way to save electricity/), 2);
+  assert.equal(marksFor(/why we can see the Moon/), 2);
+  assert.equal(marksFor(/two vehicles used for space exploration/), 4);
+  assert.equal(marksFor(/new planet for people to live on/), 6);
+  assert.equal(marksFor(/Draw a simple circuit diagram/), 5);
+  assert.equal(marksFor(/interesting fact about each/), 3);
+  assert.equal(marksFor(/What is the Sun\?/), 1);
+  assert.equal(marksFor(/What is the asteroid belt\?/), 1);
+  const draw = all.find((i) => /Draw a simple circuit diagram/.test(i.prompt))!;
+  assert.equal(draw.paper, true);
+  assert.ok(draw.Diagram, 'the drawing question shows a labelled reference circuit in the memo');
+  assert.ok(all.some((i) => i.prompt.startsWith('Why are electric circuits used in toys')), 'gap MCQ: toys and models');
+  assert.ok(all.some((i) => i.prompt.startsWith('Which group contains only fossil fuels')), 'gap MCQ: fossil fuels');
+  assert.ok(all.some((i) => /orbit the Sun\?$/.test(i.prompt) && i.answer === 'Anticlockwise'), 'gap MCQ: orbit direction');
 });

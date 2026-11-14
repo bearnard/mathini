@@ -1,5 +1,5 @@
 import type { NstItem } from './types';
-import { kindOf, normaliseItem, shuffleOptions } from './itemKinds';
+import { kindOf, marksOf, normaliseItem, shuffleOptions } from './itemKinds';
 
 export interface TopicBank {
   /** Human-readable topic name, used for the per-topic score breakdown. */
@@ -9,6 +9,14 @@ export interface TopicBank {
 
 export interface MockItem extends NstItem {
   topic: string;
+}
+
+export interface MockTestOptions {
+  /**
+   * How many self-marked explain items to include. Default 0: the term mock tests are quick and fully auto-marked,
+   * so explain items are left out. The exam practice test asks for some (each from a different topic where it can).
+   */
+  explain?: number;
 }
 
 export type Rng = () => number;
@@ -29,38 +37,65 @@ export function shuffle<T>(arr: readonly T[], rng: Rng = Math.random): T[] {
  * shortfall is topped up from the other banks. Items never repeat, and neither
  * does a question (the same prompt in two topic banks is asked only once).
  * Question order is shuffled, and each item's options are shuffled.
+ *
+ * Self-marked explain items are never drawn at random. `options.explain` asks for that many on purpose, each from
+ * a different topic where it can (they count towards that topic's share); the default is none.
  */
-export function buildMockTest(groups: readonly TopicBank[], count = 20, rng: Rng = Math.random): MockItem[] {
+export function buildMockTest(
+  groups: readonly TopicBank[],
+  count = 20,
+  rng: Rng = Math.random,
+  options: MockTestOptions = {},
+): MockItem[] {
   // Items that cannot be played are dropped; unknown kinds fall back to mcq when valid.
-  const clean = groups.map((g) => ({
-    ...g,
-    items: g.items.map(normaliseItem).filter((it): it is NstItem => it !== null),
-  }));
-  const usable = clean.filter((g) => g.items.length > 0);
-  if (usable.length === 0 || count <= 0) return [];
+  const entries = groups
+    .map((g) => {
+      const playable = g.items.map(normaliseItem).filter((it): it is NstItem => it !== null);
+      return {
+        topic: g.topic,
+        explain: shuffle(playable.filter((it) => kindOf(it) === 'explain'), rng),
+        items: shuffle(playable.filter((it) => kindOf(it) !== 'explain'), rng),
+        taken: 0,
+      };
+    })
+    .filter((e) => e.items.length > 0 || e.explain.length > 0);
+  if (entries.length === 0 || count <= 0) return [];
 
-  const pools = usable.map((g) => ({
-    topic: g.topic,
-    items: shuffle(g.items, rng),
-    taken: 0,
-  }));
-
-  const base = Math.floor(count / pools.length);
-  const extra = count % pools.length;
-  const quota = pools.map(() => base);
-  shuffle(pools.map((_, i) => i), rng)
+  const base = Math.floor(count / entries.length);
+  const extra = count % entries.length;
+  const quota = entries.map(() => base);
+  shuffle(entries.map((_, i) => i), rng)
     .slice(0, extra)
     .forEach((i) => {
       quota[i] += 1;
     });
 
-  // Order and label items take longer, so a test never holds more than ~15% of them (3 in 20).
-  const maxRecall = Math.max(1, Math.round(count * 0.15));
-  let recallPicked = 0;
   const picked: MockItem[] = [];
   const seenPrompts = new Set<string>();
+
+  // Explain items first: one per topic in a random topic order, going round again only if more are wanted.
+  let explainLeft = Math.max(0, Math.floor(options.explain ?? 0));
+  const explainOrder = shuffle(entries.map((_, i) => i), rng);
+  while (explainLeft > 0) {
+    let progressed = false;
+    for (const i of explainOrder) {
+      if (explainLeft === 0) break;
+      const item = entries[i].explain.shift();
+      if (!item || seenPrompts.has(item.prompt)) continue;
+      seenPrompts.add(item.prompt);
+      picked.push({ ...item, topic: entries[i].topic });
+      quota[i] = Math.max(0, quota[i] - 1);
+      explainLeft -= 1;
+      progressed = true;
+    }
+    if (!progressed) break;
+  }
+
+  // Order and label items take longer, so a test never holds more than ~15% of them (3 in 20, 4 in 25).
+  const maxRecall = Math.max(1, Math.round(count * 0.15));
+  let recallPicked = 0;
   const take = (poolIndex: number, n: number) => {
-    const pool = pools[poolIndex];
+    const pool = entries[poolIndex];
     while (n > 0 && pool.taken < pool.items.length) {
       const item = pool.items[pool.taken];
       pool.taken += 1;
@@ -77,14 +112,14 @@ export function buildMockTest(groups: readonly TopicBank[], count = 20, rng: Rng
   };
 
   let shortfall = 0;
-  pools.forEach((_, i) => {
+  entries.forEach((_, i) => {
     shortfall += take(i, quota[i]);
   });
 
   // Top up from whichever banks still have unused items, one at a time, round-robin.
   while (shortfall > 0) {
     let progressed = false;
-    for (let i = 0; i < pools.length && shortfall > 0; i++) {
+    for (let i = 0; i < entries.length && shortfall > 0; i++) {
       const left = take(i, 1);
       if (left === 0) {
         shortfall -= 1;
@@ -103,16 +138,31 @@ export interface TopicScore {
   correct: number;
 }
 
-/** First-attempt score per topic, in order of first appearance. */
-export function scoreByTopic(items: readonly MockItem[], firstAttempt: readonly boolean[]): TopicScore[] {
+/**
+ * First-attempt score per topic, in order of first appearance. `firstAttempt[i]` is true/false for an auto-marked
+ * question (worth marksOf(item): 1 for mcq, order and label) or the marks gained, for a self-marked explain item.
+ * With no explain items every question is worth 1, so `total` and `correct` count questions as before.
+ */
+export function scoreByTopic(items: readonly MockItem[], firstAttempt: readonly (boolean | number)[]): TopicScore[] {
   const map = new Map<string, TopicScore>();
   items.forEach((it, i) => {
     const row = map.get(it.topic) ?? { topic: it.topic, total: 0, correct: 0 };
-    row.total += 1;
-    if (firstAttempt[i]) row.correct += 1;
+    row.total += marksOf(it);
+    row.correct += marksGained(it, firstAttempt[i]);
     map.set(it.topic, row);
   });
   return Array.from(map.values());
+}
+
+/** Marks gained by one question: a boolean means all or nothing; a number is the marks given (capped to the question's marks). */
+export function marksGained(item: NstItem, result: boolean | number | undefined): number {
+  if (typeof result === 'number') return Math.max(0, Math.min(result, marksOf(item)));
+  return result ? marksOf(item) : 0;
+}
+
+/** Total marks a test is worth. */
+export function totalMarks(items: readonly NstItem[]): number {
+  return items.reduce((n, it) => n + marksOf(it), 0);
 }
 
 /** Topics below the pass mark, lowest score first. */

@@ -253,7 +253,7 @@ const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
                           {subject.title}
                         </h3>
                         <p className="text-sm font-medium text-slate-500">
-                          {subject.terms.length} terms
+                          {subject.terms.filter((t) => !t.badge).length} terms
                         </p>
                       </div>
                     </div>
@@ -311,12 +311,12 @@ const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
                   >
                     <div className="flex items-center gap-4">
                       <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue/10 text-xl font-bold text-brand-blue">
-                        {term.id}
+                        {term.badge ?? term.id}
                       </div>
                       <div>
                         <h3 className="text-lg font-bold text-slate-800">{term.title}</h3>
                         <p className="text-sm font-medium text-slate-500">
-                          {term.topics.length} topics
+                          {term.topics.length} {term.topics.length === 1 ? 'topic' : 'topics'}
                         </p>
                       </div>
                     </div>

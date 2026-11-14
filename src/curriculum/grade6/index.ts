@@ -307,6 +307,19 @@ export const grade6: Grade = {
                     title: "Natural Sciences & Technology",
                     terms: [
                         {
+                            id: 0,
+                            title: "Exam practice",
+                            badge: "★",
+                            topics: [
+                                {
+                                    id: "nst-exam-t3t4",
+                                    title: "Terms 3 & 4 Exam Practice",
+                                    description: "A year-end style paper on Terms 3 and 4, scored in marks, with written answers you mark yourself.",
+                                    component: lazy(() => import('./natural-sciences/exam/Terms34ExamPractice'))
+                                }
+                            ]
+                        },
+                        {
                             id: 1,
                             title: "Term 1",
                             topics: [

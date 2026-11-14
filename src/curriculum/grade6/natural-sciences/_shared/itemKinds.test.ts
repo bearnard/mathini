@@ -82,3 +82,47 @@ test('shuffleOptions never presents an order item already in the right sequence'
   // identity rng keeps the order, so the guard has to rotate it
   assert.notDeepEqual(shuffleOptions(order, () => 0.999999), ['a', 'b', 'c']);
 });
+
+// ---- explain (self-marked, memo style) ----
+import { explainMarks, explainPoints, isExplainCorrect, marksOf } from './itemKinds';
+
+const explain: NstItem = {
+  kind: 'explain', prompt: 'Explain x', options: ['point one', 'point two', 'point three'], answer: 'point one|point two|point three',
+};
+
+test('explain: points, marks and the 70% rule (integer maths, rounded up)', () => {
+  assert.deepEqual(explainPoints(explain), ['point one', 'point two', 'point three']);
+  assert.equal(explainMarks(explain), 3);
+  assert.equal(marksOf(explain), 3);
+  assert.equal(marksOf({ prompt: 'p', options: ['a', 'b'], answer: 'a' }), 1);
+  assert.equal(marksOf(order), 1);
+  assert.equal(marksOf(label), 1);
+  // total -> marks needed: 2->2, 3->3, 4->3, 5->4, 6->5, 7->5, 10->7 (10 would be 8 with floating point)
+  const need = (t: number) => { let g = 0; while (!isExplainCorrect(g, t)) g++; return g; };
+  assert.deepEqual([1, 2, 3, 4, 5, 6, 7, 10].map(need), [1, 2, 3, 3, 4, 5, 5, 7]);
+  assert.equal(isExplainCorrect(0, 0), false, 'a question with no marks is never correct');
+  assert.equal(isExplainCorrect(2, 3), false, '2 of 3 is below the bar');
+  assert.equal(isExplainCorrect(5, 6), true, 'one miss allowed on 6 marks');
+});
+
+test('explain: itemProblem accepts good items and names the problem otherwise', () => {
+  assert.equal(itemProblem(explain), null);
+  assert.equal(itemProblem({ ...explain, marks: 3 }), null);
+  assert.match(itemProblem({ ...explain, marks: 4 }) ?? '', /marks must equal/);
+  // a one-mark written answer (e.g. "What is the Sun?") has a single mark point
+  assert.equal(itemProblem({ ...explain, options: ['A star'], answer: 'A star' }), null);
+  assert.equal(marksOf({ ...explain, options: ['A star'], answer: 'A star' }), 1);
+  assert.match(itemProblem({ ...explain, options: [''], answer: '' }) ?? '', /empty/);
+  assert.match(itemProblem({ ...explain, options: ['a', 'a'], answer: 'a|a' }) ?? '', /repeat/);
+  assert.match(itemProblem({ ...explain, options: ['a', 'b'], answer: 'a|c' }) ?? '', /same set/);
+  assert.match(itemProblem({ ...explain, options: ['a', ' '], answer: 'a| ' }) ?? '', /empty/);
+});
+
+test('explain: an unknown kind is still skipped, a valid explain item is kept as is', () => {
+  assert.equal(normaliseItem(explain), explain);
+  assert.equal(normaliseItem({ ...explain, kind: 'essay' as never }), null, 'would not be valid mcq (answer not in options)');
+});
+
+test('explain: memo points keep the memo order when options are prepared for display', () => {
+  for (let i = 0; i < 50; i++) assert.deepEqual(shuffleOptions(explain), explain.options);
+});

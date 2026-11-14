@@ -1,7 +1,8 @@
 import Button from '../ui/Button';
 import OrderQuestion from './OrderQuestion';
 import LabelQuestion from './LabelQuestion';
-import { kindOf } from '../../curriculum/grade6/natural-sciences/_shared/itemKinds';
+import ExplainQuestion from './ExplainQuestion';
+import { explainPoints, kindOf } from '../../curriculum/grade6/natural-sciences/_shared/itemKinds';
 import type { NstItem } from '../../curriculum/grade6/natural-sciences/_shared/types';
 
 interface Props {
@@ -10,12 +11,15 @@ interface Props {
   questionKey: string | number;
   /** mcq only: the option tapped so far, or null. */
   selected: string | null;
-  /** Called once per question with whether it was fully right. For mcq, `chosen` is the option tapped. */
-  onResult: (correct: boolean, chosen?: string) => void;
+  /**
+   * Called once per question with whether it was fully right. For mcq, `chosen` is the option tapped.
+   * For a self-marked explain item, `score` is the marks the learner gave themselves (correct = at least 70%).
+   */
+  onResult: (correct: boolean, chosen?: string, score?: { marks: number; of: number }) => void;
 }
 
 /**
- * Renders the answer controls for any item kind (mcq, order, label). Shared by every Grade 6 shell
+ * Renders the answer controls for any item kind (mcq, order, label, explain). Shared by every Grade 6 shell
  * (Natural Sciences, History, Geography) and the NST mock tests. The prompt is shown by the caller's layout. */
 const QuestionBody = ({ item, questionKey, selected, onResult }: Props) => {
   const kind = kindOf(item);
@@ -27,6 +31,18 @@ const QuestionBody = ({ item, questionKey, selected, onResult }: Props) => {
         steps={item.options}
         answer={item.answer}
         onSubmit={(correct) => onResult(correct)}
+      />
+    );
+  }
+
+  if (kind === 'explain') {
+    return (
+      <ExplainQuestion
+        key={questionKey}
+        points={explainPoints(item)}
+        paper={item.paper}
+        Diagram={item.Diagram}
+        onSubmit={(correct, score) => onResult(correct, undefined, score)}
       />
     );
   }
@@ -78,5 +94,6 @@ export function incorrectMessageFor(item: NstItem | undefined): string {
   const why = item.explanation ? ` ${item.explanation}` : '';
   if (kind === 'order') return `Not quite. The right order is shown above.${why}`;
   if (kind === 'label') return `Not quite. The right labels are shown above.${why}`;
+  if (kind === 'explain') return `Not there yet. Read the memo points you missed above.${why}`;
   return `Not quite. The answer is "${item.answer}".${why}`;
 }
