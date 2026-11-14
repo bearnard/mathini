@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import MeasureLadder from '../../../../components/diagrams/maths/MeasureLadder';
+import { workedExample } from '../../../../components/diagrams/maths/mathsHelpers';
 
 const learnSteps: LearnStep[] = [
     {
@@ -33,10 +35,10 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Use these facts to change from one unit to another.</p>
-                <div className="bg-slate-50 p-6 rounded-xl inline-block space-y-3 text-left">
-                    <p className="text-slate-700"><strong>1 cm = 10 mm</strong></p>
-                    <p className="text-slate-700"><strong>1 m = 100 cm</strong></p>
-                    <p className="text-slate-700"><strong>1 km = 1 000 m</strong></p>
+                <MeasureLadder kind="length" />
+                <div className="flex flex-wrap justify-center gap-2 text-sm font-bold">
+                    <span className="rounded-lg bg-amber-50 px-3 py-1.5 text-amber-800">{workedExample('length', 3, 'm', 'cm')}</span>
+                    <span className="rounded-lg bg-sky-50 px-3 py-1.5 text-sky-800">{workedExample('length', 2000, 'm', 'km')}</span>
                 </div>
                 <p className="text-slate-500">To change to a smaller unit, multiply. To change to a larger unit, divide.</p>
             </div>

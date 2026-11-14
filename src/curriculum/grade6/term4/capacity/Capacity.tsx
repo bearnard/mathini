@@ -1,5 +1,8 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import MeasuringJug from '../../../../components/diagrams/maths/MeasuringJug';
+import MeasureLadder from '../../../../components/diagrams/maths/MeasureLadder';
+import { workedExample } from '../../../../components/diagrams/maths/mathsHelpers';
 
 const learnSteps: LearnStep[] = [
     {
@@ -36,7 +39,11 @@ const learnSteps: LearnStep[] = [
                     <div className="bg-indigo-50 p-4 rounded-b-lg text-xl font-bold text-indigo-900">milk bottle</div>
                     <div className="bg-emerald-50 p-4 rounded-b-lg text-xl font-bold text-emerald-900">water tank</div>
                 </div>
-                <p className="text-slate-500 text-sm mt-4">1 l = 1000 ml and 1 kl = 1000 l</p>
+                <MeasureLadder kind="capacity" />
+                <div className="flex flex-wrap justify-center gap-2 text-sm font-bold">
+                    <span className="rounded-lg bg-amber-50 px-3 py-1.5 text-amber-800">{workedExample('capacity', 4, 'l', 'ml')}</span>
+                    <span className="rounded-lg bg-sky-50 px-3 py-1.5 text-sky-800">{workedExample('capacity', 3000, 'ml', 'l')}</span>
+                </div>
             </div>
         )
     },
@@ -45,24 +52,8 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Check the size of each interval before reading the water level.</p>
-                <div className="bg-slate-50 p-6 rounded-xl inline-block">
-                    <div className="flex items-end gap-3 h-48">
-                        <div className="w-24 h-44 border-4 border-slate-300 rounded-b-2xl rounded-t-md relative overflow-hidden bg-white">
-                            <div className="absolute bottom-0 left-0 right-0 h-3/5 bg-cyan-200" />
-                            <div className="absolute top-3 left-2 right-2 border-t border-slate-400" />
-                            <div className="absolute top-12 left-2 right-2 border-t border-slate-400" />
-                            <div className="absolute top-24 left-2 right-2 border-t border-slate-400" />
-                            <div className="absolute top-36 left-2 right-2 border-t border-slate-400" />
-                        </div>
-                        <div className="space-y-4 text-left text-sm font-bold text-slate-600">
-                            <p>1000 ml</p>
-                            <p>750 ml</p>
-                            <p className="text-cyan-700">500 ml</p>
-                            <p>250 ml</p>
-                        </div>
-                    </div>
-                    <p className="text-slate-500 mt-4">This jug reads <strong>500 ml</strong>, which is half a litre.</p>
-                </div>
+                <MeasuringJug ml={500} />
+                <p className="text-slate-500">This jug reads <strong>500 ml</strong>, which is half a litre. Each mark is 250 ml.</p>
             </div>
         )
     }

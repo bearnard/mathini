@@ -1,6 +1,12 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
 import { cn } from '../../../../lib/utils';
+import DotStrip, { STRIP_COLORS } from '../../../../components/diagrams/maths/DotStrip';
+import { stats } from '../../../../components/diagrams/maths/mathsHelpers';
+
+// One small data set for all four measures. Every number below is computed, not typed.
+const STRIP_DATA = [1, 2, 2, 3, 5, 6, 9];
+const STRIP = stats(STRIP_DATA);
 
 const learnSteps: LearnStep[] = [
     {
@@ -26,6 +32,22 @@ const learnSteps: LearnStep[] = [
                     <p className="text-slate-500"><strong>Median:</strong> the middle value is <strong>8</strong>.</p>
                     <p className="text-slate-500"><strong>Range:</strong> 16 − 3 = <strong>13</strong>.</p>
                 </div>
+            </div>
+        )
+    },
+    {
+        title: 'All four on one strip',
+        content: (
+            <div className="space-y-6 text-center">
+                <p className="text-lg text-slate-600">Each dot is one value: <strong>{STRIP.sorted.join(', ')}</strong>.</p>
+                <DotStrip data={STRIP_DATA} />
+                <div className="flex flex-wrap justify-center gap-2 text-sm font-bold">
+                    <span className="rounded-lg px-3 py-1.5" style={{ background: STRIP_COLORS.mode + '33', color: '#92400e' }}>Mode = {STRIP.modes.join(' and ')}</span>
+                    <span className="rounded-lg px-3 py-1.5" style={{ background: STRIP_COLORS.median + '33', color: '#065f46' }}>Median = {STRIP.median}</span>
+                    <span className="rounded-lg px-3 py-1.5" style={{ background: STRIP_COLORS.mean + '33', color: '#9f1239' }}>Mean = {STRIP.mean}</span>
+                    <span className="rounded-lg px-3 py-1.5" style={{ background: STRIP_COLORS.range + '33', color: '#075985' }}>Range = {STRIP.range}</span>
+                </div>
+                <p className="text-slate-500 text-sm">Mode: the tallest stack. Median: the middle dot. Mean: where the strip would balance. Range: the span from the smallest to the largest ({STRIP.max} − {STRIP.min}).</p>
             </div>
         )
     },

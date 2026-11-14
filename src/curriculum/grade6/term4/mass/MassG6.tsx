@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import MeasureLadder from '../../../../components/diagrams/maths/MeasureLadder';
+import { workedExample } from '../../../../components/diagrams/maths/mathsHelpers';
 
 const learnSteps: LearnStep[] = [
     {
@@ -29,9 +31,10 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Use the conversion facts to move between units.</p>
-                <div className="bg-slate-50 p-6 rounded-xl inline-block space-y-3">
-                    <p className="text-2xl font-bold text-slate-800">1 kg = 1 000 g</p>
-                    <p className="text-2xl font-bold text-slate-800">1 t = 1 000 kg</p>
+                <MeasureLadder kind="mass" />
+                <div className="flex flex-wrap justify-center gap-2 text-sm font-bold">
+                    <span className="rounded-lg bg-amber-50 px-3 py-1.5 text-amber-800">{workedExample('mass', 2, 'kg', 'g')}</span>
+                    <span className="rounded-lg bg-sky-50 px-3 py-1.5 text-sky-800">{workedExample('mass', 3000, 'g', 'kg')}</span>
                 </div>
                 <p className="text-slate-500">Multiply by 1 000 to change to a smaller unit. Divide by 1 000 to change to a larger unit.</p>
             </div>
