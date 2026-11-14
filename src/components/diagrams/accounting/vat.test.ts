@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PRICE_EXAMPLE, VAT_EXAMPLE, netVat, rand, vatExclusive, vatInclusive, vatOnExclusive, vatPortion } from './vat';
+import { PRICE_EXAMPLE, VAT_EXAMPLE, netVat, vatExclusive, vatInclusive, vatOnExclusive, vatPortion } from './vat';
+import { rand } from './rand';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const lesson = fs.readFileSync(path.join(here, '../../../curriculum/grade11/accounting/term4/vat-calculations-recording/VatCalculationsRecording.tsx'), 'utf8');
