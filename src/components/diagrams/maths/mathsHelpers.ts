@@ -226,3 +226,42 @@ export const hundredthsGrid = (value: number): { tenths: number; hundredths: num
 
 /** Decimal comma, as the lessons and CAPS write it: 0.47 gives "0,47". */
 export const decimalComma = (value: number, places = 2): string => value.toFixed(places).replace('.', ',');
+
+/* ---------------- Shapes and symmetry ---------------- */
+
+export type SolidName = 'cube' | 'rectangular prism' | 'square pyramid' | 'cylinder' | 'cone' | 'sphere';
+
+export interface SolidFacts {
+  faces: number;
+  edges: number;
+  vertices: number;
+  /** True when every face is flat (a polyhedron). Curved solids count as the Grade 6 lesson counts them. */
+  flat: boolean;
+}
+
+/** Faces, edges and vertices exactly as the Grade 6 lessons give them. */
+export const SOLIDS: Record<SolidName, SolidFacts> = {
+  cube: { faces: 6, edges: 12, vertices: 8, flat: true },
+  'rectangular prism': { faces: 6, edges: 12, vertices: 8, flat: true },
+  'square pyramid': { faces: 5, edges: 8, vertices: 5, flat: true },
+  cylinder: { faces: 3, edges: 2, vertices: 0, flat: false },
+  cone: { faces: 2, edges: 1, vertices: 1, flat: false },
+  sphere: { faces: 1, edges: 0, vertices: 0, flat: false },
+};
+
+/** Corners of a regular polygon (rounded for hydration), the first corner at the top. */
+export const regularPolygon = (sides: number, cx: number, cy: number, r: number, startDeg = 0): { x: number; y: number }[] =>
+  Array.from({ length: sides }, (_, i) => {
+    const a = (startDeg * Math.PI) / 180 + (i * 2 * Math.PI) / sides;
+    return { x: Math.round((cx + r * Math.sin(a)) * 1000) / 1000, y: Math.round((cy - r * Math.cos(a)) * 1000) / 1000 };
+  });
+
+/** Lines of symmetry of common shapes. */
+export const SYMMETRY_LINES = {
+  square: 4,
+  rectangle: 2,
+  'equilateral triangle': 3,
+} as const;
+
+/** Reflect an x coordinate in a vertical mirror line at x = m (the same distance on the other side). */
+export const reflectX = (x: number, m: number): number => 2 * m - x;

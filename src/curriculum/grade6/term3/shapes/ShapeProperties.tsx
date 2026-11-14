@@ -1,5 +1,7 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import PolygonRow from '../../../../components/diagrams/maths/Polygons';
+import SolidsRow from '../../../../components/diagrams/maths/Solids';
 
 const shapeFacts = [
     { name: 'triangle', emoji: '🔺', properties: { sides: 3, angles: 3 } },
@@ -14,15 +16,7 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">A 2D shape is flat. Count its <strong>sides</strong> and <strong>angles</strong>.</p>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto">
-                    {shapeFacts.map(fact => (
-                        <div key={fact.name} className="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
-                            <div className="text-4xl mb-2">{fact.emoji}</div>
-                            <p className="font-bold text-slate-800 capitalize">{fact.name}</p>
-                            <p className="text-sm text-slate-500">{fact.properties.sides} sides</p>
-                        </div>
-                    ))}
-                </div>
+                <PolygonRow shapes={shapeFacts.map(f => ({ name: f.name.charAt(0).toUpperCase() + f.name.slice(1), sides: f.properties.sides }))} />
             </div>
         ),
     },
@@ -48,23 +42,7 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">A 3D object has <strong>faces</strong>, <strong>edges</strong> and <strong>vertices</strong>.</p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-                    <div className="bg-amber-50 p-5 rounded-xl border border-amber-100">
-                        <div className="text-5xl mb-3">🎲</div>
-                        <p className="font-bold text-slate-800">Cube</p>
-                        <p className="text-sm text-slate-500">6 faces, 12 edges, 8 vertices</p>
-                    </div>
-                    <div className="bg-sky-50 p-5 rounded-xl border border-sky-100">
-                        <div className="text-5xl mb-3">🥫</div>
-                        <p className="font-bold text-slate-800">Cylinder</p>
-                        <p className="text-sm text-slate-500">3 faces, 2 edges, 0 vertices</p>
-                    </div>
-                    <div className="bg-fuchsia-50 p-5 rounded-xl border border-fuchsia-100">
-                        <div className="text-5xl mb-3">🔶</div>
-                        <p className="font-bold text-slate-800">Square pyramid</p>
-                        <p className="text-sm text-slate-500">5 faces, 8 edges, 5 vertices</p>
-                    </div>
-                </div>
+                <SolidsRow names={['cube', 'cylinder', 'square pyramid']} />
             </div>
         ),
     },
