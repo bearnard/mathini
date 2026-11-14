@@ -1,6 +1,7 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
 import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
+import { FrontierMap } from '@/components/diagrams/history/FrontierMap';
 
 const learnSteps: LearnStep[] = [
   {
@@ -22,12 +23,9 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Who were the Trekboers?',
-    image: {
-      src: '/curriculum/grade6/his/term2/trekboers-migration/diagram.svg',
-      alt: 'map showing Trekboer wagons and cattle moving inland from the Cape',
-    },
     content: (
       <div className="space-y-4 text-center">
+        <FrontierMap variant="trek" />
         <p className="text-lg text-slate-600">
           <strong>Trekboers</strong> were Dutch-descended semi-nomadic farmers. Many moved inland
           from the Cape with their families, wagons, and livestock to find better
