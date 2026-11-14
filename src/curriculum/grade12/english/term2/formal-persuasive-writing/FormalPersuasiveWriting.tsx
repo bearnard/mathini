@@ -57,14 +57,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which feature is most appropriate in a speech?",
-    options: ["A direct address to the audience", "A bibliography", "Line numbers", "Footnotes only"],
-    answer: "A direct address to the audience",
+    options: ['A direct address to the audience', 'A bibliography at the end of the text', 'Line numbers beside each line', 'Footnotes at the foot of each page'],
+    answer: 'A direct address to the audience',
     explanation: "Speeches often address the audience directly to create engagement and clarity.",
   },
   {
     prompt: "What is the main purpose of a review?",
-    options: ["To retell the whole plot only", "To evaluate a text or performance for readers", "To submit a job application", "To summarise grammar rules"],
-    answer: "To evaluate a text or performance for readers",
+    options: ['To retell the whole plot and nothing else', 'To evaluate a text or performance for readers', 'To make a job application to an employer', 'To sum up the rules of grammar'],
+    answer: 'To evaluate a text or performance for readers',
     explanation: "A review judges quality and gives readers reasons for that judgement.",
   },
   {
@@ -75,14 +75,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which mistake would cost marks in a formal letter?",
-    options: ["Using paragraphs", "Leaving out the purpose of the letter", "Writing full sentences", "Using a clear conclusion"],
-    answer: "Leaving out the purpose of the letter",
+    options: ['Using paragraphs in the body of the letter', 'Leaving out the purpose of the letter', 'Writing in full sentences', 'Using a clear conclusion at the end'],
+    answer: 'Leaving out the purpose of the letter',
     explanation: "A formal letter should state its purpose clearly and follow expected conventions.",
   },
   {
     prompt: "What strengthens a persuasive paragraph most?",
-    options: ["An unsupported opinion only", "A reason supported by an example or explanation", "A random quotation from a poem", "A greeting line"],
-    answer: "A reason supported by an example or explanation",
+    options: ['An opinion with nothing to support it', 'A reason that is backed by an example or explanation', 'A quotation from a poem that has no link', 'A greeting line at the start'],
+    answer: 'A reason that is backed by an example or explanation',
     explanation: "Persuasion becomes convincing when claims are supported with reasons and evidence.",
   },
 ];

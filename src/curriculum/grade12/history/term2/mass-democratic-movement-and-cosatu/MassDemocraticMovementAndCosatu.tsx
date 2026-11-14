@@ -77,8 +77,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: "What does “Mass Democratic Movement” refer to in South African history?",
-    options: ["A broad alliance of internal anti-apartheid organisations", "A new homeland government", "The National Party's election campaign", "A military alliance with the USA"],
-    answer: "A broad alliance of internal anti-apartheid organisations",
+    options: ['A broad alliance of anti-apartheid groups inside the country', 'A new government for a homeland', 'The election campaign of the National Party', 'A military alliance with the USA'],
+    answer: 'A broad alliance of anti-apartheid groups inside the country',
     explanation: "The MDM described the network of unions, civics, churches, youth groups, and other organisations resisting apartheid.",
   },
   {
@@ -101,8 +101,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why did local issues such as rent become political under apartheid?",
-    options: ["Township life and local government were shaped by apartheid policies", "Rent had nothing to do with apartheid", "Only farmers cared about rent", "The United Nations set township rents directly"],
-    answer: "Township life and local government were shaped by apartheid policies",
+    options: ['Township life and local government were shaped by apartheid', 'Rent had nothing to do with apartheid', 'Only farmers cared about the rent that was charged', 'The United Nations set the rents in townships directly'],
+    answer: 'Township life and local government were shaped by apartheid',
     explanation: "Daily problems in transport, housing, and schools were tied directly to apartheid rule.",
   },
   {
@@ -113,14 +113,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "How did the MDM strengthen the broader liberation struggle?",
-    options: ["It showed strong internal resistance and increased pressure for negotiations", "It accepted permanent minority rule", "It cut ties with all democratic ideas", "It banned worker organisation"],
-    answer: "It showed strong internal resistance and increased pressure for negotiations",
+    options: ['It showed strong internal resistance and raised pressure', 'It accepted permanent rule by a minority', 'It cut its ties with all democratic ideas', 'It banned the organisation of the workers'],
+    answer: 'It showed strong internal resistance and raised pressure',
     explanation: "Mass internal action made it clear that apartheid could not regain long-term stability.",
   },
   {
     prompt: "Which statement best describes the MDM?",
-    options: ["It was only a student movement", "It connected workers, civics, youth, churches, and communities in common struggle", "It existed only outside South Africa", "It was led by the apartheid cabinet"],
-    answer: "It connected workers, civics, youth, churches, and communities in common struggle",
+    options: ['It was a movement of students only', 'It linked workers, civics, youth, churches and communities', 'It existed only outside South Africa', 'It was led by the cabinet of the apartheid state'],
+    answer: 'It linked workers, civics, youth, churches and communities',
     explanation: "Its strength came from linking many sectors of society in a shared democratic movement.",
   },
 ];

@@ -115,14 +115,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What was one major consequence of the Soweto Uprising?",
-    options: ["Large numbers of activists went into exile and joined liberation movements", "The homeland system was expanded successfully", "The tricameral parliament was accepted by students", "Apartheid was declared legal by the United Nations"],
-    answer: "Large numbers of activists went into exile and joined liberation movements",
+    options: ['Many activists went into exile and joined liberation movements', 'The homeland system was expanded with success', 'The tricameral parliament was accepted by students', 'Apartheid was declared legal by the United Nations'],
+    answer: 'Many activists went into exile and joined liberation movements',
     explanation: "The uprising pushed many young activists into exile, where some joined the ANC or PAC.",
   },
   {
     prompt: "Why is the Soweto Uprising historically important?",
-    options: ["It revived internal resistance and intensified international opposition to apartheid", "It marked the start of the Anglo-Boer War", "It ended all student protests in South Africa", "It created the Union of South Africa"],
-    answer: "It revived internal resistance and intensified international opposition to apartheid",
+    options: ['It revived internal resistance and raised world opposition to apartheid', 'It marked the start of the Anglo-Boer War', 'It put an end to all student protest in the country', 'It created the Union of South Africa'],
+    answer: 'It revived internal resistance and raised world opposition to apartheid',
     explanation: "Soweto showed that youth resistance could challenge apartheid and shift world opinion.",
   },
 ];

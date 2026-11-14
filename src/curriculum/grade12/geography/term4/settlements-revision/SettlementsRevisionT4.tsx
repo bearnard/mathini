@@ -114,13 +114,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Threshold population is needed to:",
-    options: [
-      "Support a service economically",
-      "Measure slope aspect",
-      "Identify a watershed",
-      "Locate a cold front",
-    ],
-    answer: "Support a service economically",
+    options: ['Support a service economically', 'Measure the aspect of a slope', 'Identify a watershed on a map', 'Locate the position of a cold front'],
+    answer: 'Support a service economically',
     explanation: "A service needs enough customers to remain viable, which is its threshold population.",
   },
   {
@@ -147,13 +142,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "In a mapwork answer, the best support for explaining settlement pattern is:",
-    options: [
-      "Guessing from memory",
-      "Evidence from roads, rivers and land use on the map",
-      "Ignoring the scale",
-      "Only using definitions",
-    ],
-    answer: "Evidence from roads, rivers and land use on the map",
+    options: ['Guessing the answer from your memory', 'Evidence from roads, rivers and land use on the map', 'Ignoring the scale of the map completely', 'Using definitions and nothing else at all'],
+    answer: 'Evidence from roads, rivers and land use on the map',
     explanation: "Settlement questions are strongest when linked directly to visible map evidence.",
   },
 ];

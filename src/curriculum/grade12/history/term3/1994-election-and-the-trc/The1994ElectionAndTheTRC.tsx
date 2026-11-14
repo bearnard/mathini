@@ -101,8 +101,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What was the purpose of the Government of National Unity?",
-    options: ["To help manage the transition and encourage political inclusion", "To restore homeland independence", "To return South Africa to one-party rule", "To abolish the Constitution"],
-    answer: "To help manage the transition and encourage political inclusion",
+    options: ['To help manage the transition and encourage inclusion', 'To bring back independence for the homelands', 'To return South Africa to one-party rule', 'To do away with the Constitution'],
+    answer: 'To help manage the transition and encourage inclusion',
     explanation: "The GNU aimed to stabilise the country during the early democratic period.",
   },
   {
@@ -119,8 +119,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why is the TRC still debated today?",
-    options: ["Because some people believe it promoted truth and reconciliation, while others think justice was incomplete", "Because it rewrote all South African languages", "Because it organised the 1976 student march", "Because it created the tricameral parliament"],
-    answer: "Because some people believe it promoted truth and reconciliation, while others think justice was incomplete",
+    options: ['Some say it brought reconciliation; others say justice fell short', 'Because it rewrote all of the South African languages', 'Because it organised the student march of 1976', 'Because it created the tricameral parliament'],
+    answer: 'Some say it brought reconciliation; others say justice fell short',
     explanation: "The TRC helped reveal abuses, but many people still debate whether accountability went far enough.",
   },
 ];

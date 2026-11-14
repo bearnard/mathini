@@ -103,13 +103,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why are ports important in development corridors?",
-    options: [
-      "They reduce all rainfall",
-      "They connect production areas to international trade routes",
-      "They replace all highways",
-      "They create anticyclones",
-    ],
-    answer: "They connect production areas to international trade routes",
+    options: ['They lower all of the rainfall in a region', 'They link production areas to world trade routes', 'They take the place of all of the highways', 'They create anticyclones over the coastline'],
+    answer: 'They link production areas to world trade routes',
     explanation: "Ports are major gateways for exports and imports, making them key nodes in corridor development.",
   },
   {
@@ -136,13 +131,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What should you do first when answering a graph interpretation question?",
-    options: [
-      "Ignore the title and axes",
-      "Identify the main pattern shown by the data",
-      "Write a long definition only",
-      "Guess the answer from memory",
-    ],
-    answer: "Identify the main pattern shown by the data",
+    options: ['Ignore the title and the axes', 'Identify the main pattern shown by the data', 'Write a long definition and nothing else', 'Guess the answer from memory'],
+    answer: 'Identify the main pattern shown by the data',
     explanation: "Start by reading the graph carefully and describing the dominant trend before explaining it.",
   },
   {

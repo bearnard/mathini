@@ -54,8 +54,8 @@ const learnSteps = [
 const bank: CapsItem[] = [
   {
     prompt: "What does synthesis mean in literature revision?",
-    options: ["Memorising page numbers only", "Bringing different pieces of evidence together into one argument", "Copying notes without understanding", "Avoiding comparison between ideas"],
-    answer: "Bringing different pieces of evidence together into one argument",
+    options: ['Memorising page numbers and nothing else', 'Bringing different evidence together into one argument', 'Copying notes without understanding them', 'Avoiding any comparison between ideas'],
+    answer: 'Bringing different evidence together into one argument',
     explanation: "Synthesis means combining evidence and insight into a coherent interpretation.",
   },
   {
@@ -66,20 +66,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why is a quick essay plan valuable in prelims?",
-    options: ["It wastes time and reduces marks", "It helps organise argument and evidence efficiently", "It replaces writing the essay", "It matters only in Paper 1"],
-    answer: "It helps organise argument and evidence efficiently",
+    options: ['It wastes time and lowers your marks', 'It helps organise argument and evidence efficiently', 'It takes the place of writing the essay', 'It matters in Paper 1 and nowhere else'],
+    answer: 'It helps organise argument and evidence efficiently',
     explanation: "Planning helps you structure the answer and choose evidence before drafting.",
   },
   {
     prompt: "What raises a contextual answer to a higher level?",
-    options: ["Ignoring the extract completely", "Linking the extract to whole-text themes and patterns", "Retelling the scene with no analysis", "Writing one-word answers"],
-    answer: "Linking the extract to whole-text themes and patterns",
+    options: ['Ignoring the extract completely', 'Linking the extract to whole-text themes and patterns', 'Retelling the scene with no analysis', 'Writing one-word answers to the questions'],
+    answer: 'Linking the extract to whole-text themes and patterns',
     explanation: "High-level answers move from the extract to larger meaning in the text.",
   },
   {
     prompt: "Which is the strongest theme-based note?",
-    options: ["Power \u2014 Act 1 only", "Power: revealed through dialogue, control and ironic reversals across the text", "Power is a word", "Theme unknown"],
-    answer: "Power: revealed through dialogue, control and ironic reversals across the text",
+    options: ['Power, in the first act of the play only', 'Power: shown in dialogue, control and ironic reversals', 'Power is a word that appears in the title', 'Theme unknown, to be decided in the exam'],
+    answer: 'Power: shown in dialogue, control and ironic reversals',
     explanation: "A strong note identifies how the theme is developed, not just its name.",
   },
   {
@@ -96,8 +96,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which answer sounds most synthetic?",
-    options: ["This scene is in the text.", "The extract crystallises the theme of betrayal already foreshadowed earlier and intensified in the ending.", "I like this quotation.", "The character speaks here."],
-    answer: "The extract crystallises the theme of betrayal already foreshadowed earlier and intensified in the ending.",
+    options: ['This scene is found in the text that we studied.', 'The extract crystallises the betrayal theme foreshadowed earlier.', 'I like this quotation a lot, to be honest.', 'The character speaks at this point in the play.'],
+    answer: 'The extract crystallises the betrayal theme foreshadowed earlier.',
     explanation: "This answer connects the extract to broader development across the text.",
   },
 ];

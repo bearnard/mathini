@@ -15,7 +15,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { argValue, chunk, DATABASE_ID, DATABASE_NAME, selectRows, VECTORIZE_INDEX, wrangler } from './_wrangler';
+import { argValue, chunk, DATABASE_ID, DATABASE_NAME, retiredItemIds, selectRows, VECTORIZE_INDEX, wrangler } from './_wrangler';
 import { backupSql, decideMode, parseIds, parseTriageCsv, planMaintenance, sqlForPlan, summarise, type Action, type PoolRowLite } from '../src/lib/server/poolMaintenance';
 
 const argv = process.argv.slice(2);
@@ -35,12 +35,14 @@ fs.mkdirSync(out, { recursive: true });
 const triage = triagePath ? parseTriageCsv(fs.readFileSync(triagePath, 'utf8')) : [];
 const ids = idsPath ? parseIds(fs.readFileSync(idsPath, 'utf8')) : [];
 const rows = selectRows<PoolRowLite>('SELECT id, task, vector_id, quality_score FROM item_cache', source, persistTo);
-const plans = planMaintenance({ triage, actions: triagePath ? actions : [], rows, ids, target });
+const retiredIds = retiredItemIds(source, persistTo);
+const plans = planMaintenance({ triage, actions: triagePath ? actions : [], rows, ids, target, retiredIds });
 const sum = summarise(plans);
 
 const pad = (s: string | number, n: number) => String(s).padEnd(n);
 console.log(`${pad('pool', 44)}${pad('action', 7)}${pad('rows', 6)}${pad('delete', 7)}${pad('left', 6)}${pad('servable', 9)}${pad('vectors', 8)}generate`);
 for (const p of plans) console.log(`${pad(p.task, 44)}${pad(p.action, 7)}${pad(p.rowsBefore, 6)}${pad(p.deleteIds.length, 7)}${pad(p.rowsAfter, 6)}${pad(p.servableAfter, 9)}${pad(p.deleteVectorIds.length, 8)}${p.toGenerate}`);
+if (retiredIds.size) console.log(`\n${plans.reduce((n, p) => n + p.skippedRetired, 0)} retired row(s) in these pools are left alone (moderation keeps them; reinstating needs the row)`);
 console.log(`\n${sum.pools} pools; ${sum.rowsToDelete} rows and ${sum.vectorsToDelete} vectors to delete; ${sum.emptiedPools} pools emptied; ${sum.toGenerate} questions to regenerate (target ${target} per pool)`);
 fs.writeFileSync(path.join(out, 'plan.json'), JSON.stringify({ source, summary: sum, plans }, null, 2));
 console.log(`plan written to ${path.join(out, 'plan.json')}`);

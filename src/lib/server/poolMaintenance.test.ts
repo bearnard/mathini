@@ -74,7 +74,7 @@ test('the generated SQL really deletes the planned rows, leaves the rest, and en
 });
 
 test('SQL chunks stay at 200 ids per statement', () => {
-  const big = [{ task: 't', action: 'purge' as const, rowsBefore: 450, deleteIds: Array.from({ length: 450 }, (_, i) => i + 1), deleteVectorIds: [], rowsAfter: 0, servableAfter: 0, toGenerate: 50 }];
+  const big = [{ task: 't', action: 'purge' as const, rowsBefore: 450, deleteIds: Array.from({ length: 450 }, (_, i) => i + 1), deleteVectorIds: [], skippedRetired: 0, rowsAfter: 0, servableAfter: 0, toGenerate: 50 }];
   assert.equal(sqlForPlan(big, 1).deletes.length, 3);
   assert.equal(sqlForPlan([], 1).poolTasks, '');
 });
@@ -99,4 +99,24 @@ test('parsers reject garbage', () => {
   assert.throws(() => parseIds('-5'));
   assert.throws(() => parseTriageCsv('foo,bar\n1,2'));
   assert.throws(() => parseTriageCsv('action,task\nnuke,a'));
+});
+
+// ── retired questions (moderation) are never deleted ────────────────────────────────────────────────────────────────────────────
+
+test('retired rows are left alone by purge, fix and ids: moderation keeps them at score 0 and a reinstate needs the row', () => {
+  const withRetired: PoolRowLite[] = [...rows, { id: 500, task: 'fix-me', vector_id: 'v500', quality_score: 0 }, { id: 501, task: 'purge-me', vector_id: 'v501', quality_score: 0 }];
+  const retiredIds = new Set([500, 501, 400]);
+  const plans = planMaintenance({ triage, actions: ['purge', 'fix'], rows: withRetired, ids: [400], retiredIds });
+  const by = Object.fromEntries(plans.map((p) => [p.task, p]));
+  assert.ok(!by['fix-me'].deleteIds.includes(500), 'a retired rejected row is not "fixed" away');
+  assert.equal(by['fix-me'].skippedRetired, 1);
+  assert.ok(!by['purge-me'].deleteIds.includes(501), 'purge keeps the retired row');
+  assert.equal(by['purge-me'].deleteIds.length, 10);
+  assert.equal(by['purge-me'].skippedRetired, 1);
+  assert.ok(!by['ids-only'].deleteIds.includes(400), 'a named id that is retired is skipped');
+  const sql = sqlForPlan(plans, 1).deletes.join('\n');
+  assert.ok(!/\b(500|501)\b/.test(sql));
+  // no retired set: unchanged behaviour
+  const plain = planMaintenance({ triage, actions: ['fix'], rows: withRetired });
+  assert.ok(plain.find((p) => p.task === 'fix-me')!.deleteIds.includes(500));
 });

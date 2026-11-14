@@ -210,3 +210,11 @@ once stable question IDs exist.
 - Grade 8 Technology, "An AND gate gives output 1 only when..." / "An OR gate gives output 1 when...": the validator flags them as
   near-duplicates (same 80% of words, they differ only in the gate name). They are different questions; either reword the stems
   or teach the validator that a differing logic-gate name makes them distinct. Held by NEEDS_PROMPT_CHANGE in curatedBanks.quality.test.ts.
+
+## Retired questions are never rescored or purged
+
+Moderation (report-a-problem queue) retires a question by setting `questions.status = 'retired'` and `item_cache.quality_score = 0`, and keeps
+the score it had in `question_moderation.detail` so a reinstate restores it. A full `backfill-quality` run that rescored by id would overwrite
+that 0 and serve the retired question again; a `pool-maintenance` purge/fix would delete the row a reinstate needs. Both scripts therefore read
+`SELECT legacy_item_id FROM questions WHERE status = 'retired'` first and skip those rows (they still count as existing questions for the
+near-duplicate check). With an exported `--source file:` there is no questions table, so nothing is skipped (a warning says so).

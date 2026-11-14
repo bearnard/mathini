@@ -136,24 +136,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What is the main cause of the urban heat island effect?",
-    options: [
-      "Cities are closer to the Sun",
-      "Urban surfaces absorb and store heat while vegetation is limited",
-      "Cities always receive more rain",
-      "Rural areas produce more greenhouse gases",
-    ],
-    answer: "Urban surfaces absorb and store heat while vegetation is limited",
+    options: ['Cities are closer to the Sun than rural areas', 'Urban surfaces store heat, and there is little vegetation', 'Cities always receive more rain than rural areas', 'Rural areas give off more greenhouse gases'],
+    answer: 'Urban surfaces store heat, and there is little vegetation',
     explanation: "Built surfaces and reduced vegetation make cities warmer, especially at night.",
   },
   {
     prompt: "What is a temperature inversion?",
-    options: [
-      "Air becomes colder with height",
-      "A layer where warmer air lies above colder air near the surface",
-      "A sudden drop in pressure before a front",
-      "A permanent global warming trend",
-    ],
-    answer: "A layer where warmer air lies above colder air near the surface",
+    options: ['Air that gets colder as the height increases', 'A layer where warm air lies above colder air near the ground', 'A sudden drop in air pressure before a front', 'A lasting trend of global warming'],
+    answer: 'A layer where warm air lies above colder air near the ground',
     explanation: "During an inversion, the normal decrease of temperature with height is reversed.",
   },
   {

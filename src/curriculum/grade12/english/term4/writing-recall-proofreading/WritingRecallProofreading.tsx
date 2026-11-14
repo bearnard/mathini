@@ -39,8 +39,8 @@ const learnSteps = [
 const bank: CapsItem[] = [
   {
     prompt: "Why is format recall important in the final exam?",
-    options: ["Because format is never marked", "Because basic text-type conventions can earn or lose easy marks", "Because only poetry matters", "Because it replaces planning"],
-    answer: "Because basic text-type conventions can earn or lose easy marks",
+    options: ['Format is never marked in the final exam', 'Text-type conventions can earn or lose easy marks', 'Only poetry matters in the final exam', 'Format takes the place of all your planning'],
+    answer: 'Text-type conventions can earn or lose easy marks',
     explanation: "Remembering format features quickly prevents avoidable mark loss in Paper 3.",
   },
   {
@@ -51,8 +51,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which question helps you test tone?",
-    options: ["Did I number the pages?", "Does this language suit the audience and purpose?", "Did I use the longest word?", "Is the title underlined?"],
-    answer: "Does this language suit the audience and purpose?",
+    options: ['Did I number the pages of the answer?', 'Does this language suit the audience and purpose?', 'Did I use the longest word that I know?', 'Is the title of the piece underlined?'],
+    answer: 'Does this language suit the audience and purpose?',
     explanation: "Tone should always be judged against the intended audience and purpose.",
   },
   {
@@ -69,8 +69,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What should you check after writing a formal letter?",
-    options: ["Whether the salutation and sign-off are appropriate", "Whether it has stanza breaks", "Whether it includes stage directions", "Whether the plot twist is surprising"],
-    answer: "Whether the salutation and sign-off are appropriate",
+    options: ['Whether the salutation and sign-off are appropriate', 'Whether it has breaks between stanzas', 'Whether it includes stage directions', 'Whether the twist in the plot is surprising'],
+    answer: 'Whether the salutation and sign-off are appropriate',
     explanation: "Formal letters require correct conventions such as salutations and sign-offs.",
   },
   {

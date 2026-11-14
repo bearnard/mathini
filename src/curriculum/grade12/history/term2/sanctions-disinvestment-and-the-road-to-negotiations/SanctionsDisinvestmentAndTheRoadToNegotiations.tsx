@@ -83,20 +83,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What does “disinvestment” mean in the apartheid context?",
-    options: ["Companies and institutions withdrawing their money from South Africa", "The government increasing military spending", "Workers refusing to join unions", "The ANC moving its offices abroad"],
-    answer: "Companies and institutions withdrawing their money from South Africa",
+    options: ['Firms and institutions pulling their money out of South Africa', 'The government raising its military spending', 'Workers refusing to join the trade unions', 'The ANC moving its offices to other countries'],
+    answer: 'Firms and institutions pulling their money out of South Africa',
     explanation: "Disinvestment campaigns pressured firms and investors to stop supporting the apartheid economy.",
   },
   {
     prompt: "Why were sports boycotts important?",
-    options: ["They helped apartheid appear normal", "They isolated South Africa and damaged the regime's international image", "They gave South Africa more trade opportunities", "They ended the migrant labour system directly"],
-    answer: "They isolated South Africa and damaged the regime's international image",
+    options: ['They made apartheid appear normal to the world', 'They isolated South Africa and harmed its image abroad', 'They gave South Africa more chances to trade', 'They ended the system of migrant labour directly'],
+    answer: 'They isolated South Africa and harmed its image abroad',
     explanation: "Exclusion from international sport made apartheid visible and costly in symbolic terms.",
   },
   {
     prompt: "How did sanctions affect the apartheid government?",
-    options: ["They removed all internal resistance", "They increased the economic and political cost of continuing apartheid", "They created the homeland system", "They guaranteed immediate peace in townships"],
-    answer: "They increased the economic and political cost of continuing apartheid",
+    options: ['They removed all internal resistance', 'They raised the economic and political cost of apartheid', 'They created the system of homelands', 'They guaranteed immediate peace in the townships'],
+    answer: 'They raised the economic and political cost of apartheid',
     explanation: "Sanctions added pressure by harming confidence, lending, trade, and legitimacy.",
   },
   {
@@ -107,8 +107,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why did some South African business leaders begin supporting political change?",
-    options: ["They believed endless conflict threatened economic stability", "They wanted stricter racial segregation", "They had no interest in profits", "They hoped to revive the pass laws"],
-    answer: "They believed endless conflict threatened economic stability",
+    options: ['They believed endless conflict threatened the economy', 'They wanted stricter racial segregation', 'They had no interest in making any profits', 'They hoped to bring back the pass laws'],
+    answer: 'They believed endless conflict threatened the economy',
     explanation: "Economic crisis and instability made apartheid look increasingly unsustainable to parts of business.",
   },
   {
@@ -119,8 +119,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What was the main aim of the international anti-apartheid movement?",
-    options: ["To defend minority rule", "To isolate the apartheid regime and support democratic change", "To promote white-only sport", "To strengthen homeland governments"],
-    answer: "To isolate the apartheid regime and support democratic change",
+    options: ['To defend minority rule in South Africa', 'To isolate the regime and support democratic change', 'To promote sport for whites only', 'To strengthen the governments of the homelands'],
+    answer: 'To isolate the regime and support democratic change',
     explanation: "The movement used many forms of pressure to force change and support majority rule.",
   },
 ];

@@ -54,8 +54,8 @@ const learnSteps = [
 const bank: CapsItem[] = [
   {
     prompt: "What is the best reason to condense literature notes before finals?",
-    options: ["To forget important ideas", "To make revision more focused and repeatable", "To remove all quotations", "To study only titles"],
-    answer: "To make revision more focused and repeatable",
+    options: ['To forget the important ideas', 'To make revision more focused and repeatable', 'To remove all of the quotations', 'To study the titles and nothing else'],
+    answer: 'To make revision more focused and repeatable',
     explanation: "Compact notes are easier to revisit often and help you retain key patterns.",
   },
   {
@@ -72,8 +72,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which action shows interpretation rather than simple recall?",
-    options: ["Naming a character only", "Explaining how a quotation supports the theme of isolation", "Listing page numbers", "Copying a chapter title"],
-    answer: "Explaining how a quotation supports the theme of isolation",
+    options: ['Naming a character and nothing else at all', 'Explaining how a quote supports the theme of isolation', 'Listing the page numbers of the scenes', 'Copying the title of a chapter from the book'],
+    answer: 'Explaining how a quote supports the theme of isolation',
     explanation: "Interpretation explains meaning and significance, not just factual memory.",
   },
   {

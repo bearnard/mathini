@@ -45,14 +45,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What usually strengthens a prepared oral presentation most?",
-    options: ["Reading every word in a flat voice", "Clear structure, eye contact and controlled pace", "Speaking as fast as possible", "Ignoring the audience"],
-    answer: "Clear structure, eye contact and controlled pace",
+    options: ['Reading every word in a flat voice', 'Clear structure, eye contact and a controlled pace', 'Speaking as fast as you possibly can', 'Ignoring the audience in the room'],
+    answer: 'Clear structure, eye contact and a controlled pace',
     explanation: "Effective delivery depends on structure, audience connection and controlled pacing.",
   },
   {
     prompt: "What is a good note-taking approach in a listening task?",
-    options: ["Write down every single word", "Capture key points, details and signal words", "Ignore the instructions", "Only copy the title"],
-    answer: "Capture key points, details and signal words",
+    options: ['Write down every single word that you hear', 'Capture the key points, details and signal words', 'Ignore the instructions of the task', 'Copy the title and nothing else'],
+    answer: 'Capture the key points, details and signal words',
     explanation: "Selective notes help you retain important information without losing focus.",
   },
   {
@@ -63,20 +63,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why are trial exams important?",
-    options: ["They are a realistic rehearsal for final exam demands", "They remove all time pressure", "They assess only oral work", "They do not require revision"],
-    answer: "They are a realistic rehearsal for final exam demands",
+    options: ['They are a realistic rehearsal for the final exam', 'They remove all of the time pressure', 'They assess oral work and nothing else', 'They do not need any revision'],
+    answer: 'They are a realistic rehearsal for the final exam',
     explanation: "Trials give learners a strong indication of their readiness for the NSC exams.",
   },
   {
     prompt: "Which delivery feature can weaken an oral presentation?",
-    options: ["Appropriate pacing", "Monotone speaking with little engagement", "Clear transitions", "Relevant examples"],
-    answer: "Monotone speaking with little engagement",
+    options: ['Speaking at an appropriate pace', 'Monotone speaking with little engagement', 'Using clear transitions', 'Giving relevant examples'],
+    answer: 'Monotone speaking with little engagement',
     explanation: "A monotone presentation reduces impact and listener engagement.",
   },
   {
     prompt: "What should a trial-preparation plan include?",
-    options: ["Only your favourite topics", "Revision targets, paper strategy and timing", "No rest or routine", "Random guessing practice"],
-    answer: "Revision targets, paper strategy and timing",
+    options: ['Your favourite topics and nothing else', 'Revision targets, paper strategy and timing', 'No rest and no routine at all', 'Practice at guessing the answers'],
+    answer: 'Revision targets, paper strategy and timing',
     explanation: "A useful plan combines content review with practical exam management.",
   },
   {

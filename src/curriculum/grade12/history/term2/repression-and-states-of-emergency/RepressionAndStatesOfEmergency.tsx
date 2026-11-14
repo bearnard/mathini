@@ -83,8 +83,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What happened under detention without trial?",
-    options: ["People could be held by the state without normal court procedures", "Only judges were allowed to protest", "All political prisoners were released", "Trade unions ran the courts"],
-    answer: "People could be held by the state without normal court procedures",
+    options: ['People could be held without the normal court process', 'Only judges were allowed to protest', 'All political prisoners were set free', 'Trade unions ran the courts of the country'],
+    answer: 'People could be held without the normal court process',
     explanation: "Detention without trial gave the government a powerful tool to silence activists.",
   },
   {
@@ -101,14 +101,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Why did the government censor media coverage during the emergency?",
-    options: ["To hide the extent of violence and repression", "To promote open debate", "To teach history more accurately", "To help the UDF recruit members"],
-    answer: "To hide the extent of violence and repression",
+    options: ['To hide the extent of the violence and repression', 'To promote open debate in the country', 'To teach history more accurately', 'To help the UDF to recruit more members'],
+    answer: 'To hide the extent of the violence and repression',
     explanation: "The state hoped censorship would control public opinion inside and outside South Africa.",
   },
   {
     prompt: "What was one international consequence of emergency repression?",
-    options: ["Greater sympathy for apartheid", "More condemnation of South Africa as a violent police state", "The end of all sanctions", "Recognition of the homelands by the UN"],
-    answer: "More condemnation of South Africa as a violent police state",
+    options: ['Greater sympathy for apartheid abroad', 'More condemnation of South Africa as a police state', 'The end of all of the sanctions at once', 'Recognition of the homelands by the United Nations'],
+    answer: 'More condemnation of South Africa as a police state',
     explanation: "Images and reports of repression intensified global opposition to apartheid.",
   },
   {
@@ -119,8 +119,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Which statement best sums up emergency rule in the 1980s?",
-    options: ["It showed that apartheid increasingly relied on coercion to survive", "It solved racial inequality", "It made the constitution fully democratic", "It removed the military from politics"],
-    answer: "It showed that apartheid increasingly relied on coercion to survive",
+    options: ['It showed that apartheid relied more and more on force', 'It solved the problem of racial inequality', 'It made the constitution fully democratic', 'It took the military out of politics'],
+    answer: 'It showed that apartheid relied more and more on force',
     explanation: "Emergency rule revealed the regime's dependence on force rather than consent.",
   },
 ];

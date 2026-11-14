@@ -96,8 +96,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "When preparing for the literature paper, what is the strongest starting habit?",
-    options: ["Waiting for the final term to revise", "Keeping topic notes, quotations and themes updated from the start", "Studying only unseen poetry", "Ignoring exam terminology until prelims"],
-    answer: "Keeping topic notes, quotations and themes updated from the start",
+    options: ['Waiting for the final term to revise', 'Keeping notes on topics, quotes and themes up to date', 'Studying only the unseen poetry', 'Ignoring the exam terms until the prelims'],
+    answer: 'Keeping notes on topics, quotes and themes up to date',
     explanation: "Consistent note-making from Term 1 gives you better recall and deeper understanding by exam time.",
   },
 ];

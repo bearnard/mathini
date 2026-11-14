@@ -70,13 +70,8 @@ const learnSteps = [
 const bank: CapsItem[] = [
   {
     prompt: "Which settlement in the hierarchy usually offers the most specialised services?",
-    options: [
-      "Hamlet",
-      "Village",
-      "Large city or metropolitan area",
-      "Scattered farmstead",
-    ],
-    answer: "Large city or metropolitan area",
+    options: ['A hamlet in the countryside', 'A small village', 'A large city or metropolitan area', 'A scattered farmstead'],
+    answer: 'A large city or metropolitan area',
     explanation: "Higher-order settlements have a bigger population base and support more specialised functions.",
   },
   {
@@ -92,13 +87,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "Range in central place theory means:",
-    options: [
-      "The number of buildings in the CBD",
-      "The maximum distance consumers will travel for a service",
-      "The temperature difference in the city",
-      "The total rainfall of the settlement",
-    ],
-    answer: "The maximum distance consumers will travel for a service",
+    options: ['The number of buildings in the CBD', 'The maximum distance consumers will travel for a service', 'The difference in temperature within a city', 'The total rainfall that a settlement receives'],
+    answer: 'The maximum distance consumers will travel for a service',
     explanation: "People travel farther for high-order services than for daily low-order goods.",
   },
   {
@@ -114,24 +104,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: "What is the main function of the CBD?",
-    options: [
-      "Commercial and business activities",
-      "Subsistence farming",
-      "Mining only",
-      "River transport only",
-    ],
-    answer: "Commercial and business activities",
+    options: ['Commercial and business activities', 'Subsistence farming on small plots', 'Mining and nothing else', 'River transport and nothing else'],
+    answer: 'Commercial and business activities',
     explanation: "The CBD concentrates offices, shops, services and high land-value commercial activity.",
   },
   {
     prompt: "Why do land values tend to be highest in the CBD?",
-    options: [
-      "It has the lowest accessibility",
-      "It is usually the most accessible part of the city",
-      "It always has the coolest climate",
-      "All houses are larger there",
-    ],
-    answer: "It is usually the most accessible part of the city",
+    options: ['It has the lowest accessibility in the city', 'It is usually the most accessible part of the city', 'It always has the coolest climate in the city', 'All of the houses are larger there'],
+    answer: 'It is usually the most accessible part of the city',
     explanation: "High accessibility creates intense competition for land in the CBD, raising land values.",
   },
   {
