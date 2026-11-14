@@ -1,5 +1,6 @@
 'use client';
 
+import { makeQkey } from '../lib/shared/qkey';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { triggerConfetti } from '../lib/confetti';
 import Card from './ui/Card';
@@ -44,7 +45,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
   usePracticeTracking({ active: true, done, isCorrect, ctx: { subject: taskToSubject(apiPath), topic: task } });
 
   // Track per-question results for section aggregation
-  const resultsRef = useRef<{ section?: string; correct: boolean }[]>([]);
+  const resultsRef = useRef<{ section?: string; correct: boolean; qkey?: string }[]>([]);
   const hasSubmitted = useRef(false);
 
   const handleSelect = (option: string) => {
@@ -57,7 +58,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
     setStreak((s) => (correct ? s + 1 : 0));
 
     // Record result for section aggregation
-    resultsRef.current.push({ section: current.section, correct });
+    resultsRef.current.push({ section: current.section, correct, qkey: task ? makeQkey(task, current.prompt) : undefined });
 
     if (correct) {
       triggerConfetti();
@@ -107,6 +108,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
           subject,
           section: r.section,
           isCorrect: r.correct,
+          qkey: r.qkey,
           streak: 0,
         }),
       })
