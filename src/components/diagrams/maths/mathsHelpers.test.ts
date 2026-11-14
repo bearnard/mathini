@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  LADDERS, changeOf, convert, countOn, formatRand, prismMeasures, rectMeasures, elapsedMinutes, formatDuration, formatNumber, fromMinutes, handAngles, stats, stepFactors, to24, toMinutes, workedExample,
+  LADDERS, addSameDenominator, changeOf, compareFractions, convert, countOn, decimalComma, equivalent, hcf, hundredthsGrid, simplify, formatRand, prismMeasures, rectMeasures, elapsedMinutes, formatDuration, formatNumber, fromMinutes, handAngles, stats, stepFactors, to24, toMinutes, workedExample,
 } from './mathsHelpers';
 
 test('handAngles: 3:00 has the minute hand on 12 and the hour hand on 3', () => {
@@ -169,4 +169,52 @@ test('changeOf: the lesson shopping example in cents', () => {
   assert.equal(formatRand(r.spent), 'R30,50');
   assert.equal(formatRand(r.change), 'R19,50');
   assert.equal(r.spent + r.change, 5000); // the check step: R30,50 + R19,50 = R50,00
+});
+
+test('hcf and simplify: the lesson 12/18 and 3/6', () => {
+  assert.equal(hcf(12, 18), 6);
+  assert.equal(hcf(7, 13), 1);
+  assert.deepEqual(simplify(12, 18), { n: 2, d: 3, by: 6 });
+  assert.deepEqual(simplify(3, 6), { n: 1, d: 2, by: 3 });
+  assert.deepEqual(simplify(2, 4), { n: 1, d: 2, by: 2 });
+  assert.deepEqual(simplify(2, 3), { n: 2, d: 3, by: 1 });
+});
+
+test('equivalent: 1/2 = 2/4 = 4/8, and 1/3 is not 1/4', () => {
+  assert.ok(equivalent(1, 2, 2, 4));
+  assert.ok(equivalent(2, 4, 4, 8));
+  assert.ok(equivalent(1, 2, 4, 8));
+  assert.ok(equivalent(12, 18, 2, 3));
+  assert.ok(equivalent(3, 6, 1, 2));
+  assert.ok(!equivalent(1, 3, 1, 4));
+});
+
+test('compareFractions: the two comparison slides', () => {
+  assert.equal(compareFractions(1, 2, 1, 4), 1); // a half is bigger than a quarter
+  assert.equal(compareFractions(1, 3, 1, 4), 1); // thirds are bigger than quarters
+  assert.equal(compareFractions(1, 4, 1, 3), -1);
+  assert.equal(compareFractions(1, 2, 2, 4), 0);
+});
+
+test('addSameDenominator: 3/8 + 2/8 = 5/8 and 2/6 + 1/6 = 3/6 = 1/2', () => {
+  assert.deepEqual(addSameDenominator(3, 2, 8), { n: 5, d: 8 });
+  const sum = addSameDenominator(2, 1, 6);
+  assert.deepEqual(sum, { n: 3, d: 6 });
+  assert.deepEqual(simplify(sum.n, sum.d), { n: 1, d: 2, by: 3 });
+});
+
+test('hundredthsGrid: tenths are columns, hundredths are single squares', () => {
+  assert.deepEqual(hundredthsGrid(0.47), { tenths: 4, hundredths: 7, squares: 47 });
+  assert.deepEqual(hundredthsGrid(0.3), { tenths: 3, hundredths: 0, squares: 30 });
+  assert.deepEqual(hundredthsGrid(0.07), { tenths: 0, hundredths: 7, squares: 7 });
+  assert.deepEqual(hundredthsGrid(0.45), { tenths: 4, hundredths: 5, squares: 45 });
+  assert.deepEqual(hundredthsGrid(0.34), { tenths: 3, hundredths: 4, squares: 34 });
+  assert.equal(hundredthsGrid(0.45).squares + hundredthsGrid(0.3).squares, hundredthsGrid(0.75).squares); // 0,45 + 0,30 = 0,75
+});
+
+test('decimalComma', () => {
+  assert.equal(decimalComma(0.47), '0,47');
+  assert.equal(decimalComma(0.3, 1), '0,3');
+  assert.equal(decimalComma(0.07), '0,07');
+  assert.equal(decimalComma(0.45 + 0.3), '0,75');
 });

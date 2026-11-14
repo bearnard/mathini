@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import { AddAndSimplifyBars, AddBars, EquivalentBars, SimplifyBars } from '../../../../components/diagrams/maths/FractionScenes';
 
 type Fraction = {
     numerator: number;
@@ -20,6 +21,7 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Equivalent fractions name the <strong>same part</strong> of a whole.</p>
+                <EquivalentBars />
                 <div className="bg-slate-50 p-6 rounded-xl inline-flex items-center gap-4 text-indigo-700">
                     <FractionDisplay fraction={{ numerator: 1, denominator: 2 }} className="text-4xl" />
                     <span className="text-3xl font-bold text-slate-400">=</span>
@@ -36,6 +38,7 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">To simplify to lowest terms, divide by the <strong>highest common factor</strong> (HCF).</p>
+                <SimplifyBars n={12} d={18} />
                 <div className="grid grid-cols-3 gap-2 items-center max-w-lg mx-auto">
                     <div className="bg-amber-50 p-5 rounded-xl text-amber-700">
                         <FractionDisplay fraction={{ numerator: 12, denominator: 18 }} className="text-4xl" />
@@ -54,6 +57,7 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">When denominators are the same, add or subtract the <strong>numerators only</strong>.</p>
+                <AddBars n1={3} n2={2} d={8} />
                 <div className="bg-indigo-50 p-6 rounded-xl inline-flex items-center gap-4 text-indigo-700">
                     <FractionDisplay fraction={{ numerator: 3, denominator: 8 }} className="text-4xl" />
                     <span className="text-3xl font-bold text-slate-400">+</span>
@@ -70,14 +74,15 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">After adding or subtracting, simplify the answer if you can.</p>
-                <div className="bg-slate-50 p-6 rounded-xl inline-flex items-center gap-4 text-slate-800">
-                    <FractionDisplay fraction={{ numerator: 2, denominator: 6 }} className="text-4xl" />
-                    <span className="text-3xl font-bold text-slate-400">+</span>
-                    <FractionDisplay fraction={{ numerator: 1, denominator: 6 }} className="text-4xl" />
-                    <span className="text-3xl font-bold text-slate-400">=</span>
-                    <FractionDisplay fraction={{ numerator: 3, denominator: 6 }} className="text-4xl" />
-                    <span className="text-3xl font-bold text-slate-400">=</span>
-                    <FractionDisplay fraction={{ numerator: 1, denominator: 2 }} className="text-4xl text-emerald-700" />
+                <AddAndSimplifyBars n1={2} n2={1} d={6} />
+                <div className="bg-slate-50 p-3 sm:p-6 rounded-xl inline-flex items-center gap-1 min-[360px]:gap-1.5 sm:gap-4 text-slate-800">
+                    <FractionDisplay fraction={{ numerator: 2, denominator: 6 }} className="text-xl min-[360px]:text-2xl sm:text-4xl" />
+                    <span className="text-xl sm:text-3xl font-bold text-slate-400">+</span>
+                    <FractionDisplay fraction={{ numerator: 1, denominator: 6 }} className="text-xl min-[360px]:text-2xl sm:text-4xl" />
+                    <span className="text-xl sm:text-3xl font-bold text-slate-400">=</span>
+                    <FractionDisplay fraction={{ numerator: 3, denominator: 6 }} className="text-xl min-[360px]:text-2xl sm:text-4xl" />
+                    <span className="text-xl sm:text-3xl font-bold text-slate-400">=</span>
+                    <FractionDisplay fraction={{ numerator: 1, denominator: 2 }} className="text-xl min-[360px]:text-2xl sm:text-4xl text-emerald-700" />
                 </div>
             </div>
         )
