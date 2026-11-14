@@ -70,7 +70,7 @@ const learnSteps: LearnStep[] = [
           <span>4. <strong>Waxing Gibbous</strong></span>
           <span>5. <strong>Full Moon</strong> (whole face lit)</span>
           <span>6. <strong>Waning Gibbous</strong></span>
-          <span>7. <strong>Last Quarter</strong> (half lit)</span>
+          <span>7. <strong>Last Quarter</strong> (also called Third Quarter) (half lit)</span>
           <span>8. <strong>Waning Crescent</strong></span>
         </div>
         <p className="text-slate-500">Then it starts again at New Moon.</p>
