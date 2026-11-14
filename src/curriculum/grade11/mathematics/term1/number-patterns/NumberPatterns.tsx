@@ -11,7 +11,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-slate-600">First differences suggest a linear pattern, while constant second differences point to a quadratic rule.</p>
         <div className="space-y-2">
           <Formula block>{String.raw`T_n = an^2 + bn + c`}</Formula>
-          <Formula block>{String.raw`\\text{second difference} = 2a`}</Formula>
+          <Formula block>{String.raw`\text{second difference} = 2a`}</Formula>
         </div>
         <FunctionGraph
           curves={[
@@ -54,14 +54,14 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-amber-50 p-4">
             <h4 className="font-semibold text-amber-700">Find a term</h4>
-            <Formula block>{String.raw`T_n = n^2 + 3 \\Rightarrow T_7 = 7^2 + 3 = 52`}</Formula>
+            <Formula block>{String.raw`T_n = n^2 + 3 \Rightarrow T_7 = 7^2 + 3 = 52`}</Formula>
           </div>
           <div className="rounded-xl bg-rose-50 p-4">
             <h4 className="font-semibold text-rose-700">Find the term number</h4>
-            <Formula block>{String.raw`n^2 + 3 = 12 \\Rightarrow n^2 = 9 \\Rightarrow n = 3`}</Formula>
+            <Formula block>{String.raw`n^2 + 3 = 12 \Rightarrow n^2 = 9 \Rightarrow n = 3`}</Formula>
           </div>
         </div>
-        <p className="text-sm text-slate-600">Remember that in sequence questions, <Formula>{String.raw`n`}</Formula> usually belongs to the positive integers <Formula>{String.raw`\\mathbb{Z}^+`}</Formula>.</p>
+        <p className="text-sm text-slate-600">Remember that in sequence questions, <Formula>{String.raw`n`}</Formula> usually belongs to the positive integers <Formula>{String.raw`\mathbb{Z}^+`}</Formula>.</p>
       </div>
     ),
   },

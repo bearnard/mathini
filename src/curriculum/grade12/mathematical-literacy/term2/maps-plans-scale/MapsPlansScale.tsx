@@ -10,7 +10,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">A scale such as 1:50 000 means 1 unit on the map represents 50 000 of the same units in reality. Line scales work in the same way but show the equivalent distances visually.</p>
-        <Formula block>{String.raw`\\text{Actual distance} = \\text{map distance} \\times \\text{scale factor}`}</Formula>
+        <Formula block>{String.raw`\text{Actual distance} = \text{map distance} \times \text{scale factor}`}</Formula>
       </div>
     ),
   },
@@ -19,7 +19,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Some questions ask you to convert a measured map distance to a real distance, while others ask for the size on a plan from a real measurement. Decide which value must be multiplied and which must be divided.</p>
-        <Formula block>{String.raw`\\text{Plan distance} = \\frac{\\text{actual distance}{\\text{scale factor}`}</Formula>
+        <Formula block>{String.raw`\text{Plan distance} = \frac{\text{actual distance}}{\text{scale factor}}`}</Formula>
       </div>
     ),
   },
@@ -28,7 +28,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Maps and floor plans often include direction, legends, room labels and route information. Learners should not focus only on scale; they must also interpret the symbols and the path shown.</p>
-        <Formula block>{String.raw`t = \\frac{d}{v}`}</Formula>
+        <Formula block>{String.raw`t = \frac{d}{v}`}</Formula>
         <p className="text-lg leading-8 text-slate-600">After finding an actual distance, you can often connect it to travel time by using distance, speed and time together.</p>
       </div>
     ),

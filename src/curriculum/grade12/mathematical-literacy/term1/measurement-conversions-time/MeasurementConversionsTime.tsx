@@ -11,7 +11,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Grade 12 Mathematical Literacy still expects fluent conversion between units of length, mass, capacity and distance. Move carefully between larger and smaller units and keep track of the decimal shift.</p>
-        <Formula block>{String.raw`1 \\text{ km} = 1\\,000 \\text{ m}, \\quad 1 \\text{ m} = 100 \\text{ cm}, \\quad 1 \\text{ L} = 1\\,000 \\text{ mL}`}</Formula>
+        <Formula block>{String.raw`1 \text{ km} = 1\,000 \text{ m}, \quad 1 \text{ m} = 100 \text{ cm}, \quad 1 \text{ L} = 1\,000 \text{ mL}`}</Formula>
       </div>
     ),
   },
@@ -31,7 +31,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Some practical contexts combine units, such as km/h, rand per kWh or litres per minute. Convert one part at a time and keep units attached to every step.</p>
-        <Formula block>{String.raw`72 \\text{ km/h} = 72 \\times \\frac{1\\,000}{3\\,600} = 20 \\text{ m/s}`}</Formula>
+        <Formula block>{String.raw`72 \text{ km/h} = 72 \times \frac{1\,000}{3\,600} = 20 \text{ m/s}`}</Formula>
       </div>
     ),
   },
@@ -40,8 +40,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Learners must read 12-hour and 24-hour time, interpret timetables and calculate elapsed time. A useful strategy is to bridge to the next full hour before finding the total time difference.</p>
-        <Formula block>{String.raw`\\text{Elapsed time} = \\text{finish time} - \\text{start time}`}</Formula>
-        <p className="text-lg leading-8 text-slate-600">For example, <Formula>{String.raw`18{:}40 = 6{:}40 \\text{ PM}`}</Formula>. If a trip starts at 13:25 and ends at 15:10, the elapsed time is 1 hour 45 minutes.</p>
+        <Formula block>{String.raw`\text{Elapsed time} = \text{finish time} - \text{start time}`}</Formula>
+        <p className="text-lg leading-8 text-slate-600">For example, <Formula>{String.raw`18{:}40 = 6{:}40 \text{ PM}`}</Formula>. If a trip starts at 13:25 and ends at 15:10, the elapsed time is 1 hour 45 minutes.</p>
       </div>
     ),
   },

@@ -10,7 +10,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Integrated revision is about recognising which topic or combination of topics is being tested. Start by underlining important values, units and instruction words before choosing a method.</p>
-        <Formula block>{String.raw`\\text{Percentage change} = \\frac{\\text{new} - \\text{old}{\\text{old} \\times 100`}</Formula>
+        <Formula block>{String.raw`\text{Percentage change} = \frac{\text{new} - \text{old}}{\text{old}} \times 100`}</Formula>
       </div>
     ),
   },
@@ -19,9 +19,9 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">A single case study can include tariffs, VAT, maps, data and probability in one setting. Strong learners identify each small task inside the bigger context and then apply the correct formula to each part.</p>
-        <Formula block>{String.raw`\\text{VAT inclusive} = \\text{exclusive} \\times 1.15`}</Formula>
-        <Formula block>{String.raw`\\text{Actual distance} = \\text{map distance} \\times \\text{scale factor}`}</Formula>
-        <Formula block>{String.raw`P(A) = \\frac{n(A)}{n(S)}`}</Formula>
+        <Formula block>{String.raw`\text{VAT inclusive} = \text{exclusive} \times 1.15`}</Formula>
+        <Formula block>{String.raw`\text{Actual distance} = \text{map distance} \times \text{scale factor}`}</Formula>
+        <Formula block>{String.raw`P(A) = \frac{n(A)}{n(S)}`}</Formula>
       </div>
     ),
   },
@@ -30,7 +30,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Revision should reinforce the habit of writing down steps, units and final statements. Even in multiple-choice practice, learners should check the working that leads to the selected answer.</p>
-        <Formula block>{String.raw`\\text{Mean} = \\frac{\\text{sum of values}{\\text{number of values}`}</Formula>
+        <Formula block>{String.raw`\text{Mean} = \frac{\text{sum of values}}{\text{number of values}}`}</Formula>
       </div>
     ),
   },

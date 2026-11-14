@@ -12,7 +12,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-indigo-50 p-4">
             <h4 className="font-semibold text-indigo-700">Algebra cluster</h4>
-            <Formula block>{String.raw`\\Delta = b^2 - 4ac`}</Formula>
+            <Formula block>{String.raw`\Delta = b^2 - 4ac`}</Formula>
           </div>
           <div className="rounded-xl bg-violet-50 p-4">
             <h4 className="font-semibold text-violet-700">Functions cluster</h4>
@@ -36,7 +36,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Timed practice helps you switch quickly between topics and spot which formula or theorem is needed first.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`\\sin^2\\theta + \\cos^2\\theta = 1`}</Formula>
+          <Formula block>{String.raw`\sin^2\theta + \cos^2\theta = 1`}</Formula>
           <Formula block>{String.raw`A = P(1+i)^n`}</Formula>
         </div>
         <FunctionGraph
@@ -58,11 +58,11 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="rounded-xl bg-emerald-50 p-4">
             <h4 className="font-semibold text-emerald-700">Check domain</h4>
-            <p className="text-sm text-slate-600">Values inside <Formula>{String.raw`\\sqrt{\\;}`}</Formula> must stay non-negative.</p>
+            <p className="text-sm text-slate-600">Values inside <Formula>{String.raw`\sqrt{\;}`}</Formula> must stay non-negative.</p>
           </div>
           <div className="rounded-xl bg-cyan-50 p-4">
             <h4 className="font-semibold text-cyan-700">Check interval</h4>
-            <p className="text-sm text-slate-600">Trig answers must match the given interval, such as <Formula>{String.raw`0^\\circ \\le x < 360^\\circ`}</Formula>.</p>
+            <p className="text-sm text-slate-600">Trig answers must match the given interval, such as <Formula>{String.raw`0^\circ \le x < 360^\circ`}</Formula>.</p>
           </div>
           <div className="rounded-xl bg-amber-50 p-4">
             <h4 className="font-semibold text-amber-700">Check reasonableness</h4>

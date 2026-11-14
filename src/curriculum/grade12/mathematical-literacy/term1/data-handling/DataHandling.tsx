@@ -33,9 +33,9 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Mean, median, mode and range summarise a data set, but each one tells a slightly different story. The mean uses all values, the median gives the middle value, the mode is the most common value and the range shows spread.</p>
-        <Formula block>{String.raw`\\text{Mean} = \\frac{\\text{sum of values}{\\text{number of values}`}</Formula>
-        <Formula block>{String.raw`\\text{Range} = \\text{highest value} - \\text{lowest value}`}</Formula>
-        <p className="text-lg leading-8 text-slate-600">For a data set such as 58, 60, 60, 64 and 68, the mean is <Formula>{String.raw`\\frac{58+60+60+64+68}{5} = 62`}</Formula>, the median is 60 and the mode is 60. CAPS questions often ask which summary is most useful for a practical decision.</p>
+        <Formula block>{String.raw`\text{Mean} = \frac{\text{sum of values}}{\text{number of values}}`}</Formula>
+        <Formula block>{String.raw`\text{Range} = \text{highest value} - \text{lowest value}`}</Formula>
+        <p className="text-lg leading-8 text-slate-600">For a data set such as 58, 60, 60, 64 and 68, the mean is <Formula>{String.raw`\frac{58+60+60+64+68}{5} = 62`}</Formula>, the median is 60 and the mode is 60. CAPS questions often ask which summary is most useful for a practical decision.</p>
       </div>
     ),
   },
@@ -44,8 +44,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Survey and population questions frequently present results in different forms. Convert smoothly between a part of a whole, a decimal proportion and a percentage so that categories can be compared fairly.</p>
-        <Formula block>{String.raw`\\text{Percentage} = \\frac{\\text{part}{\\text{whole} \\times 100`}</Formula>
-        <p className="text-lg leading-8 text-slate-600">If 36 out of 120 learners prefer soccer, then <Formula>{String.raw`\\frac{36}{120} = 0.30 = 30\\%`}</Formula>. Writing the same result in all three forms often makes the next comparison much easier.</p>
+        <Formula block>{String.raw`\text{Percentage} = \frac{\text{part}}{\text{whole}} \times 100`}</Formula>
+        <p className="text-lg leading-8 text-slate-600">If 36 out of 120 learners prefer soccer, then <Formula>{String.raw`\frac{36}{120} = 0.30 = 30\%`}</Formula>. Writing the same result in all three forms often makes the next comparison much easier.</p>
       </div>
     ),
   },

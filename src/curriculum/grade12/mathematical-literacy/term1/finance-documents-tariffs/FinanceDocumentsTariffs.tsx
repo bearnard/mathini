@@ -31,9 +31,9 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">VAT is currently 15% in South Africa. To add VAT, multiply the VAT-exclusive amount by 1.15. To remove VAT from an inclusive price, divide by 1.15.</p>
-        <Formula block>{String.raw`\\text{VAT inclusive price} = \\text{VAT exclusive price} \\times 1.15`}</Formula>
-        <Formula block>{String.raw`\\text{VAT exclusive price} = \\frac{\\text{VAT inclusive price}{1.15}`}</Formula>
-        <p className="text-lg leading-8 text-slate-600">If an item costs R460 excluding VAT, then the inclusive price is <Formula>{String.raw`460 \\times 1.15 = 529`}</Formula>, so the customer pays R529.</p>
+        <Formula block>{String.raw`\text{VAT inclusive price} = \text{VAT exclusive price} \times 1.15`}</Formula>
+        <Formula block>{String.raw`\text{VAT exclusive price} = \frac{\text{VAT inclusive price}}{1.15}`}</Formula>
+        <p className="text-lg leading-8 text-slate-600">If an item costs R460 excluding VAT, then the inclusive price is <Formula>{String.raw`460 \times 1.15 = 529`}</Formula>, so the customer pays R529.</p>
       </div>
     ),
   },
@@ -42,7 +42,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Many real bills use a two-part tariff: a fixed fee plus a charge based on units used. Treat each part separately and then combine them into one total.</p>
-        <Formula block>{String.raw`\\text{Total tariff cost} = \\text{fixed charge} + (\\text{rate per unit} \\times \\text{quantity used})`}</Formula>
+        <Formula block>{String.raw`\text{Total tariff cost} = \text{fixed charge} + (\text{rate per unit} \times \text{quantity used})`}</Formula>
         <p className="text-lg leading-8 text-slate-600">This structure appears in cellphone contracts, electricity accounts, delivery fees and parking tariffs.</p>
       </div>
     ),
@@ -52,7 +52,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">The cheapest option depends on the amount used. Calculate both tariffs for the same usage level, compare totals and then explain which plan is better for that pattern of use.</p>
-        <Formula block>{String.raw`\\text{Difference in cost} = \\text{option A} - \\text{option B}`}</Formula>
+        <Formula block>{String.raw`\text{Difference in cost} = \text{option A} - \text{option B}`}</Formula>
         <p className="text-lg leading-8 text-slate-600">If usage changes, the better option can change too, so always connect your answer to the customer's actual habits.</p>
       </div>
     ),

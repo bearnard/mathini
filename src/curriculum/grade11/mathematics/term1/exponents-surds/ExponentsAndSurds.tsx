@@ -8,8 +8,8 @@ const learnSteps: LearnStep[] = [
     title: 'Rational Exponents',
     content: (
       <div className="space-y-4 text-center">
-        <p className="text-slate-600">A rational exponent links powers and roots, so <Formula>{String.raw`a^{\\frac{m}{n}`}</Formula> means “raise to the power <Formula>{String.raw`m`}</Formula> and take the <Formula>{String.raw`n`}</Formula>th root”.</p>
-        <Formula block>{String.raw`a^{\\frac{m}{n} = \\sqrt[n]{a^m}`}</Formula>
+        <p className="text-slate-600">A rational exponent links powers and roots, so <Formula>{String.raw`a^{\frac{m}{n}}`}</Formula> means “raise to the power <Formula>{String.raw`m`}</Formula> and take the <Formula>{String.raw`n`}</Formula>th root”.</p>
+        <Formula block>{String.raw`a^{\frac{m}{n}} = \sqrt[n]{a^m}`}</Formula>
         <FunctionGraph
           curves={[
             { fn: (x: number) => (x < 0 ? Number.NaN : Math.sqrt(x)), label: 'y = √x = x^(1/2)', color: '#6366f1' },
@@ -20,11 +20,11 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-indigo-50 p-4">
             <h4 className="font-semibold text-indigo-700">Convert neatly</h4>
-            <Formula block>{String.raw`8^{\\frac{2}{3} = \\sqrt[3]{8^2} = 4`}</Formula>
+            <Formula block>{String.raw`8^{\frac{2}{3}} = \sqrt[3]{8^2} = 4`}</Formula>
           </div>
           <div className="rounded-xl bg-violet-50 p-4">
             <h4 className="font-semibold text-violet-700">Negative powers</h4>
-            <Formula block>{String.raw`a^{-\\frac{m}{n} = \\frac{1}{a^{m/n}`}</Formula>
+            <Formula block>{String.raw`a^{-\frac{m}{n}} = \frac{1}{a^{m/n}}`}</Formula>
           </div>
         </div>
       </div>
@@ -38,15 +38,15 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="rounded-xl bg-emerald-50 p-4">
             <h4 className="font-semibold text-emerald-700">Add like surds</h4>
-            <Formula block>{String.raw`3\\sqrt{2} + 5\\sqrt{2} = 8\\sqrt{2}`}</Formula>
+            <Formula block>{String.raw`3\sqrt{2} + 5\sqrt{2} = 8\sqrt{2}`}</Formula>
           </div>
           <div className="rounded-xl bg-cyan-50 p-4">
             <h4 className="font-semibold text-cyan-700">Simplify first</h4>
-            <Formula block>{String.raw`2\\sqrt{18} = 2\\sqrt{9 \\cdot 2} = 6\\sqrt{2}`}</Formula>
+            <Formula block>{String.raw`2\sqrt{18} = 2\sqrt{9 \cdot 2} = 6\sqrt{2}`}</Formula>
           </div>
           <div className="rounded-xl bg-amber-50 p-4">
             <h4 className="font-semibold text-amber-700">Use conjugates</h4>
-            <Formula block>{String.raw`\\frac{1}{\\sqrt{3}-1} \\cdot \\frac{\\sqrt{3}+1}{\\sqrt{3}+1}`}</Formula>
+            <Formula block>{String.raw`\frac{1}{\sqrt{3}-1} \cdot \frac{\sqrt{3}+1}{\sqrt{3}+1}`}</Formula>
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Isolate the radical first, square both sides, and then check for extraneous answers in the original equation.</p>
-        <Formula block>{String.raw`\\sqrt{x + 3} = 4 \\Rightarrow x + 3 = 16 \\Rightarrow x = 13`}</Formula>
+        <Formula block>{String.raw`\sqrt{x + 3} = 4 \Rightarrow x + 3 = 16 \Rightarrow x = 13`}</Formula>
         <FunctionGraph
           curves={[
             { fn: (x: number) => (x < -3 ? Number.NaN : Math.sqrt(x + 3)), label: 'y = √(x + 3)', color: '#14b8a6' },
@@ -69,7 +69,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-rose-50 p-4">
             <h4 className="font-semibold text-rose-700">Check the answer</h4>
-            <p className="text-sm text-slate-600">Substituting <Formula>{String.raw`x = 13`}</Formula> gives <Formula>{String.raw`\\sqrt{16} = 4`}</Formula>, so the solution is valid.</p>
+            <p className="text-sm text-slate-600">Substituting <Formula>{String.raw`x = 13`}</Formula> gives <Formula>{String.raw`\sqrt{16} = 4`}</Formula>, so the solution is valid.</p>
           </div>
           <div className="rounded-xl bg-slate-100 p-4">
             <h4 className="font-semibold text-slate-700">Watch for traps</h4>

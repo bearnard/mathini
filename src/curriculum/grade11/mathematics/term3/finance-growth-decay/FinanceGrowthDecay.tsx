@@ -53,11 +53,11 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-slate-600">If interest is compounded more than once a year, convert to an effective annual rate before comparing investments.</p>
-        <Formula block>{String.raw`i_{\\text{eff} = \\left(1 + \\frac{i_{\\text{nom}}{m}\\right)^m - 1`}</Formula>
+        <Formula block>{String.raw`i_{\text{eff}} = \left(1 + \frac{i_{\text{nom}}}{m}\right)^m - 1`}</Formula>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-emerald-50 p-4">
             <h4 className="font-semibold text-emerald-700">Quarterly example</h4>
-            <Formula block>{String.raw`i_{\\text{eff} = \\left(1 + \\frac{0.12}{4}\\right)^4 - 1`}</Formula>
+            <Formula block>{String.raw`i_{\text{eff}} = \left(1 + \frac{0.12}{4}\right)^4 - 1`}</Formula>
           </div>
           <div className="rounded-xl bg-cyan-50 p-4">
             <h4 className="font-semibold text-cyan-700">Interpretation</h4>

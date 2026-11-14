@@ -22,13 +22,13 @@ const learnSteps: LearnStep[] = [
             <strong className="text-red-700">Expenditure (Costs)</strong>
             <p className="text-slate-600 text-sm">Money spent on goods, salaries, rent, materials, etc.</p>
             <p className="text-slate-600 text-sm mt-1">
-              Use <Formula>{String.raw`\\text{Profit} = \\text{Income} - \\text{Expenditure}`}</Formula> to decide whether there is a surplus or a loss.
+              Use <Formula>{String.raw`\text{Profit} = \text{Income} - \text{Expenditure}`}</Formula> to decide whether there is a surplus or a loss.
             </p>
           </div>
         </div>
         <div className="bg-slate-50 p-4 rounded-xl text-left">
           <p className="text-slate-700 text-sm">If expenditure exceeds income, the result is a loss. If income exceeds expenditure, the result is a surplus or profit.</p>
-          <Formula block>{String.raw`\\text{Profit} = \\text{Income} - \\text{Expenditure}`}</Formula>
+          <Formula block>{String.raw`\text{Profit} = \text{Income} - \text{Expenditure}`}</Formula>
         </div>
       </div>
     ),
@@ -53,11 +53,11 @@ const learnSteps: LearnStep[] = [
           The difference is the <strong>markup</strong>.
         </p>
         <div className="bg-indigo-50 p-6 rounded-xl text-left space-y-3">
-          <Formula block>{String.raw`\\text{Markup} = \\text{Selling price} - \\text{Cost price}`}</Formula>
-          <Formula block>{String.raw`\\text{Markup }\\% = \\frac{\\text{Markup}}{\\text{Cost price}} \\times 100`}</Formula>
+          <Formula block>{String.raw`\text{Markup} = \text{Selling price} - \text{Cost price}`}</Formula>
+          <Formula block>{String.raw`\text{Markup }\% = \frac{\text{Markup}}{\text{Cost price}} \times 100`}</Formula>
           <p className="text-slate-700 mt-2">Example: Cost price = R60, Selling price = R90</p>
-          <Formula block>{String.raw`\\text{Markup} = 90 - 60 = 30`}</Formula>
-          <Formula block>{String.raw`\\text{Markup }\\% = \\frac{30}{60} \\times 100 = 50\\%`}</Formula>
+          <Formula block>{String.raw`\text{Markup} = 90 - 60 = 30`}</Formula>
+          <Formula block>{String.raw`\text{Markup }\% = \frac{30}{60} \times 100 = 50\%`}</Formula>
         </div>
       </div>
     ),
@@ -71,10 +71,10 @@ const learnSteps: LearnStep[] = [
         </p>
         <div className="bg-yellow-50 p-6 rounded-xl text-left space-y-3">
           <p className="font-bold text-yellow-800">Break-even formulae:</p>
-          <Formula block>{String.raw`\\text{Revenue} = \\text{Costs}`}</Formula>
-          <Formula block>{String.raw`\\text{Units} = \\frac{\\text{Fixed Costs}}{\\text{Selling Price} - \\text{Variable Cost}}`}</Formula>
+          <Formula block>{String.raw`\text{Revenue} = \text{Costs}`}</Formula>
+          <Formula block>{String.raw`\text{Units} = \frac{\text{Fixed Costs}}{\text{Selling Price} - \text{Variable Cost}}`}</Formula>
           <p className="text-slate-700 mt-2">Example: Fixed costs = R500, Sell price = R25, Cost per item = R15</p>
-          <Formula block>{String.raw`\\text{Units} = \\frac{500}{25 - 15} = \\frac{500}{10} = 50`}</Formula>
+          <Formula block>{String.raw`\text{Units} = \frac{500}{25 - 15} = \frac{500}{10} = 50`}</Formula>
         </div>
         <div className="rounded-xl border border-slate-200 bg-white p-4 text-left">
           <p className="text-sm text-slate-500 mb-3">On a graph, break-even is where the revenue line crosses the total cost line.</p>
@@ -112,7 +112,7 @@ const learnSteps: LearnStep[] = [
           <p className="text-slate-700">1. Calculate the total income and total expenditure for each option.</p>
           <p className="text-slate-700">2. Determine which option is most profitable or affordable.</p>
           <p className="text-slate-700">3. Justify your choice with calculated evidence.</p>
-          <Formula block>{String.raw`\\text{Surplus} = \\text{Income} - \\text{Expenditure}`}</Formula>
+          <Formula block>{String.raw`\text{Surplus} = \text{Income} - \text{Expenditure}`}</Formula>
         </div>
         <p className="text-sm text-slate-500">Always check whether a surplus (profit) or deficit (loss) exists and explain its implications.</p>
       </div>

@@ -11,13 +11,13 @@ const learnSteps: LearnStep[] = [
         <p className="text-slate-600">Unit consistency matters. Convert all lengths to the same unit before using any perimeter, area, or volume formula.</p>
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="rounded-xl bg-indigo-50 p-4">
-            <Formula block>{String.raw`1\\,\\text{m} = 100\\,\\text{cm}`}</Formula>
+            <Formula block>{String.raw`1\,\text{m} = 100\,\text{cm}`}</Formula>
           </div>
           <div className="rounded-xl bg-violet-50 p-4">
-            <Formula block>{String.raw`1\\,\\text{m}^2 = 10\\,000\\,\\text{cm}^2`}</Formula>
+            <Formula block>{String.raw`1\,\text{m}^2 = 10\,000\,\text{cm}^2`}</Formula>
           </div>
           <div className="rounded-xl bg-cyan-50 p-4">
-            <Formula block>{String.raw`1\\,\\text{m}^3 = 1\\,000\\,000\\,\\text{cm}^3`}</Formula>
+            <Formula block>{String.raw`1\,\text{m}^3 = 1\,000\,000\,\text{cm}^3`}</Formula>
           </div>
         </div>
       </div>
@@ -29,9 +29,9 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Identify the solid or 2D shape first, then match it to the correct formula for area, surface area, or volume.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`V_{\\text{cylinder} = \\pi r^2 h`}</Formula>
-          <Formula block>{String.raw`V_{\\text{cone} = \\frac{1}{3}\\pi r^2 h`}</Formula>
-          <Formula block>{String.raw`SA_{\\text{sphere} = 4\\pi r^2`}</Formula>
+          <Formula block>{String.raw`V_{\text{cylinder}} = \pi r^2 h`}</Formula>
+          <Formula block>{String.raw`V_{\text{cone}} = \frac{1}{3}\pi r^2 h`}</Formula>
+          <Formula block>{String.raw`SA_{\text{sphere}} = 4\pi r^2`}</Formula>
         </div>
         <FunctionGraph
           curves={[
@@ -51,11 +51,11 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-amber-50 p-4">
             <h4 className="font-semibold text-amber-700">Exact form</h4>
-            <Formula block>{String.raw`V = 54\\pi\\,\\text{cm}^3`}</Formula>
+            <Formula block>{String.raw`V = 54\pi\,\text{cm}^3`}</Formula>
           </div>
           <div className="rounded-xl bg-rose-50 p-4">
             <h4 className="font-semibold text-rose-700">Decimal form</h4>
-            <Formula block>{String.raw`V \\approx 169.65\\,\\text{cm}^3`}</Formula>
+            <Formula block>{String.raw`V \approx 169.65\,\text{cm}^3`}</Formula>
           </div>
         </div>
       </div>

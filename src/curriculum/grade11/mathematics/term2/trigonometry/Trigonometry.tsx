@@ -11,8 +11,8 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Know the exact values for the special angles and connect them to the shapes of the sine and cosine graphs.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`\\sin 30^\\circ = \\frac{1}{2}, \\quad \\cos 60^\\circ = \\frac{1}{2}`}</Formula>
-          <Formula block>{String.raw`\\tan 45^\\circ = 1`}</Formula>
+          <Formula block>{String.raw`\sin 30^\circ = \frac{1}{2}, \quad \cos 60^\circ = \frac{1}{2}`}</Formula>
+          <Formula block>{String.raw`\tan 45^\circ = 1`}</Formula>
         </div>
         <FunctionGraph
           curves={[
@@ -32,14 +32,14 @@ const learnSteps: LearnStep[] = [
         <p className="text-slate-600">Use identities to rewrite an expression into a form you can evaluate or solve.</p>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-indigo-50 p-4">
-            <Formula block>{String.raw`\\sin^2\\theta + \\cos^2\\theta = 1`}</Formula>
+            <Formula block>{String.raw`\sin^2\theta + \cos^2\theta = 1`}</Formula>
           </div>
           <div className="rounded-xl bg-violet-50 p-4">
-            <Formula block>{String.raw`\\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta}`}</Formula>
+            <Formula block>{String.raw`\tan\theta = \frac{\sin\theta}{\cos\theta}`}</Formula>
           </div>
         </div>
         <div className="rounded-xl bg-cyan-50 p-4">
-          <p className="text-sm text-slate-600">For example, replace <Formula>{String.raw`1-\\cos^2\\theta`}</Formula> with <Formula>{String.raw`\\sin^2\\theta`}</Formula> before solving.</p>
+          <p className="text-sm text-slate-600">For example, replace <Formula>{String.raw`1-\cos^2\theta`}</Formula> with <Formula>{String.raw`\sin^2\theta`}</Formula> before solving.</p>
         </div>
       </div>
     ),
@@ -59,8 +59,8 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-slate-600">Solve the basic equation first, then use CAST and the graph to find every solution in the required interval.</p>
         <div className="space-y-2">
-          <Formula block>{String.raw`2\\sin x = 1 \\Rightarrow \\sin x = \\frac{1}{2}`}</Formula>
-          <Formula block>{String.raw`x = 30^\\circ \\text{ or } 150^\\circ \\quad \\text{for } 0^\\circ \\le x < 360^\\circ`}</Formula>
+          <Formula block>{String.raw`2\sin x = 1 \Rightarrow \sin x = \frac{1}{2}`}</Formula>
+          <Formula block>{String.raw`x = 30^\circ \text{ or } 150^\circ \quad \text{for } 0^\circ \le x < 360^\circ`}</Formula>
         </div>
         <FunctionGraph
           curves={[
