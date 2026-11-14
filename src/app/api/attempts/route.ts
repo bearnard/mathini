@@ -4,6 +4,7 @@ import { computeXp } from '../../../lib/server/scoring';
 import { evaluateBadges, type BadgeStats } from '../../../lib/server/badges';
 import { parseTaskSlug } from '../../../lib/server/caps/slug';
 import { makeQkey, isQkey } from '../../../lib/shared/qkey';
+import { recordReviewAnswer } from '../../../lib/server/review/store';
 import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
 
 export const dynamic = 'force-dynamic';
@@ -61,6 +62,19 @@ export async function POST(req: NextRequest) {
       )
       .bind(studentId, task, itemId || null, section || 'general', parsed.grade, subject, parsed.topic, isCorrect ? 1 : 0, xpAwarded, streak, now, qkey)
       .run();
+
+    // Spaced review schedule (Grade 6, answers with a qkey). Must never fail the attempt.
+    try {
+      await recordReviewAnswer(
+        {
+          all: async (sql, params) => ((await db.prepare(sql).bind(...params).all()).results ?? []) as never,
+          run: async (sql, params) => { await db.prepare(sql).bind(...params).run(); },
+        },
+        { studentId, qkey, task, subject, section: section || 'general', grade: parsed.grade, isCorrect, now },
+      );
+    } catch (e) {
+      console.error('Review schedule update failed:', e);
+    }
 
     // Upsert all 4 scope rows in one batch
     const scopes = [

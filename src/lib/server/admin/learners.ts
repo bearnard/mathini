@@ -262,7 +262,7 @@ export async function learnerPrivate(db: AdminDb, id: string): Promise<{ realNam
 // ---------- delete ----------
 
 export type DeleteResult =
-  | { ok: true; deleted: { attempts: number; events: number; xp: number; badges: number } }
+  | { ok: true; deleted: { attempts: number; events: number; xp: number; badges: number; reviews: number } }
   | { ok: false; status: 400 | 404; error: string };
 
 /**
@@ -276,15 +276,17 @@ export async function deleteLearner(db: AdminDb, id: string, confirm: unknown, a
   if (typeof confirm !== 'string' || confirm !== s[0].display_name) return { ok: false, status: 400, error: 'The confirmation does not match the nickname' };
 
   const count = async (sql: string) => num((await db.all<{ n: number }>(sql, [id]))[0]?.n);
-  const [attempts, events, xp, badges] = await Promise.all([
+  const [attempts, events, xp, badges, reviews] = await Promise.all([
     count('SELECT COUNT(*) AS n FROM attempts WHERE student_id = ?'),
     count('SELECT COUNT(*) AS n FROM events WHERE student_id = ?'),
     count('SELECT COUNT(*) AS n FROM student_xp WHERE student_id = ?'),
     count('SELECT COUNT(*) AS n FROM student_badges WHERE student_id = ?'),
+    count('SELECT COUNT(*) AS n FROM review_items WHERE student_id = ?'),
   ]);
-  const meta = JSON.stringify({ rows: { students: 1, attempts, events, xp, badges }, by: adminEmail, at: now });
+  const meta = JSON.stringify({ rows: { students: 1, attempts, events, xp, badges, reviews }, by: adminEmail, at: now });
   const statements: Statement[] = [
     { sql: 'DELETE FROM student_badges WHERE student_id = ?', params: [id] },
+    { sql: 'DELETE FROM review_items WHERE student_id = ?', params: [id] },
     { sql: 'DELETE FROM student_xp WHERE student_id = ?', params: [id] },
     { sql: 'DELETE FROM attempts WHERE student_id = ?', params: [id] },
     { sql: 'DELETE FROM events WHERE student_id = ?', params: [id] },
@@ -292,5 +294,5 @@ export async function deleteLearner(db: AdminDb, id: string, confirm: unknown, a
     { sql: `INSERT INTO events (ts, type, device_id, session_id, student_id, meta) VALUES (?, 'admin_delete', 'admin', 'admin', NULL, ?)`, params: [now, meta] },
   ];
   await db.batch(statements);
-  return { ok: true, deleted: { attempts, events, xp, badges } };
+  return { ok: true, deleted: { attempts, events, xp, badges, reviews } };
 }
