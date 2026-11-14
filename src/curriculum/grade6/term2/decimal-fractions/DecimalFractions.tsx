@@ -67,34 +67,34 @@ export const bank: CapsItem[] = [
         explanation: '7/100 means 7 hundredths. The hundredths digit goes two places after the decimal comma, so 7/100 = 0,07.'
     },
     {
-        prompt: 'What is 0.4 + 0.3?',
-        options: ['0.07', '0.7', '7', '0.12'],
-        answer: '0.7',
-        explanation: 'Line up the decimal points and add the tenths: 4 + 3 = 7 tenths, so the answer is 0.7.'
+        prompt: 'What is 0,4 + 0,3?',
+        options: ['0,07', '0,7', '7', '0,12'],
+        answer: '0,7',
+        explanation: 'Line up the decimal commas and add the tenths: 4 + 3 = 7 tenths, so the answer is 0,7.'
     },
     {
-        prompt: 'What is 0.85 − 0.3?',
-        options: ['0.25', '0.45', '0.55', '0.65'],
-        answer: '0.55',
-        explanation: 'Write 0.3 as 0.30, then subtract: 0.85 − 0.30 = 0.55.'
+        prompt: 'What is 0,85 − 0,3?',
+        options: ['0,25', '0,45', '0,55', '0,65'],
+        answer: '0,55',
+        explanation: 'Write 0,3 as 0,30, then subtract: 0,85 − 0,30 = 0,55.'
     },
     {
-        prompt: 'Which decimal is between 0.4 and 0.6?',
-        options: ['0.3', '0.5', '0.7', '0.04'],
-        answer: '0.5',
-        explanation: '0.5 is exactly halfway between 0.4 and 0.6. The others are outside that range.'
+        prompt: 'Which decimal is between 0,4 and 0,6?',
+        options: ['0,3', '0,5', '0,7', '0,04'],
+        answer: '0,5',
+        explanation: '0,5 is exactly halfway between 0,4 and 0,6. The others are outside that range.'
     },
     {
-        prompt: 'Write 0.25 as a fraction in its simplest form.',
+        prompt: 'Write 0,25 as a fraction in its simplest form.',
         options: ['25/10', '1/4', '2/5', '1/2'],
         answer: '1/4',
-        explanation: '0.25 = 25/100. The HCF of 25 and 100 is 25, so 25/100 = 1/4.'
+        explanation: '0,25 = 25/100. The HCF of 25 and 100 is 25, so 25/100 = 1/4.'
     },
     {
-        prompt: 'What is 1.3 + 0.7?',
-        options: ['1.0', '1.37', '2.0', '20'],
-        answer: '2.0',
-        explanation: 'Line up the decimal points: 1.3 + 0.7. The tenths add up to 10, which carries over to give 2.0.'
+        prompt: 'What is 1,3 + 0,7?',
+        options: ['1,0', '1,37', '2,0', '20'],
+        answer: '2,0',
+        explanation: 'Line up the decimal commas: 1,3 + 0,7. The tenths add up to 10, which carries over to give 2,0.'
     },
 ];
 

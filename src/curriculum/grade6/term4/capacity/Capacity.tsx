@@ -67,10 +67,10 @@ export const bank: CapsItem[] = [
         explanation: '1 litre = 1 000 millilitres.'
     },
     {
-        prompt: 'Convert 2.5 litres to millilitres.',
-        options: ['250 ml', '2 500 ml', '25 000 ml', '0.25 ml'],
+        prompt: 'Convert 2,5 litres to millilitres.',
+        options: ['250 ml', '2 500 ml', '25 000 ml', '0,25 ml'],
         answer: '2 500 ml',
-        explanation: '2.5 × 1 000 = 2 500 ml.'
+        explanation: '2,5 × 1 000 = 2 500 ml.'
     },
     {
         prompt: 'Convert 750 ml to litres.',

@@ -90,10 +90,10 @@ export const bank: CapsItem[] = [
         explanation: '1 tonne = 1 000 kilograms.'
     },
     {
-        prompt: 'Convert 3.5 kg to grams.',
-        options: ['350 g', '3 500 g', '35 000 g', '0.35 g'],
+        prompt: 'Convert 3,5 kg to grams.',
+        options: ['350 g', '3 500 g', '35 000 g', '0,35 g'],
         answer: '3 500 g',
-        explanation: '3.5 × 1 000 = 3 500 g.'
+        explanation: '3,5 × 1 000 = 3 500 g.'
     },
     {
         prompt: 'Convert 500 g to kilograms.',
