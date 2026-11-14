@@ -399,6 +399,12 @@ export const grade6: Grade = {
                                     title: "Mains Electricity & Safety",
                                     description: "Where mains power comes from and staying safe.",
                                     component: lazy(() => import('./natural-sciences/term3/mains-electricity/MainsElectricity'))
+                                },
+                                {
+                                    id: "nst-term3-test",
+                                    title: "Term 3 Mock Test",
+                                    description: "20 mixed questions from all Term 3 topics.",
+                                    component: lazy(() => import('./natural-sciences/term3/mock-test/Term3MockTest'))
                                 }
                             ]
                         },
@@ -429,6 +435,12 @@ export const grade6: Grade = {
                                     title: "Space Exploration & Technology",
                                     description: "Telescopes, satellites and rockets.",
                                     component: lazy(() => import('./natural-sciences/term4/space-exploration/SpaceExploration'))
+                                },
+                                {
+                                    id: "nst-term4-test",
+                                    title: "Term 4 Mock Test",
+                                    description: "20 mixed questions from all Term 4 topics.",
+                                    component: lazy(() => import('./natural-sciences/term4/mock-test/Term4MockTest'))
                                 }
                             ]
                         }

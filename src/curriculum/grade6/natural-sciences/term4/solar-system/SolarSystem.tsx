@@ -82,7 +82,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'What is the Sun?', options: ['A star that makes its own light', 'A planet that is extremely hot all over', 'A moon that only reflects light from Earth', 'A comet that never moves from its place'], answer: 'A star that makes its own light', explanation: 'The Sun is a star. Planets and moons only reflect its light.' },
   { prompt: 'Why can we see the planets in the night sky?', options: ['They reflect light from the Sun', 'They make their own light like stars', 'They are lit by the light of the Moon', 'They glow because they are hot inside'], answer: 'They reflect light from the Sun', explanation: 'Planets do not make light. They reflect sunlight.' },
   { prompt: 'What keeps the planets in orbit around the Sun?', options: ['The Sun\u2019s gravity', 'The wind in space', 'The Moon pulling on them', 'The spinning of the Earth'], answer: 'The Sun\u2019s gravity', explanation: 'Gravity from the Sun pulls on each planet and keeps it circling.' },

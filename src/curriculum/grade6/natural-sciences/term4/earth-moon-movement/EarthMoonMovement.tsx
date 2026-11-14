@@ -92,7 +92,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'Which movement of Earth gives us day and night?', options: ['Rotating on its axis', 'Revolving around the Sun', 'The Moon orbiting Earth', 'Tilting towards the Moon'], answer: 'Rotating on its axis', explanation: 'As Earth spins, different places face the Sun or face away from it.' },
   { prompt: 'In which direction does the Sun seem to rise?', options: ['East', 'West', 'North', 'South'], answer: 'East', explanation: 'Earth spins towards the east, so the Sun appears in the east and sets in the west.' },
   { prompt: 'Why does the Sun seem to move across the sky?', options: ['Earth is rotating', 'The Sun orbits around Earth', 'The Moon pulls the Sun along', 'Earth is revolving quickly'], answer: 'Earth is rotating', explanation: 'The Sun does not move across the sky. Earth turns, so our view changes.' },

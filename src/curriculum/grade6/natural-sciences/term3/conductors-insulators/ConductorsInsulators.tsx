@@ -72,7 +72,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'What is an electrical conductor?', options: ['A material that lets electricity pass through', 'A material that stores electricity inside it', 'A material that makes electricity from heat', 'A material that is hot when electricity is on'], answer: 'A material that lets electricity pass through', explanation: 'Conductors allow electric current to move through them.' },
   { prompt: 'What is an electrical insulator?', options: ['A material that does not let electricity pass easily', 'A material that keeps things warm, but not cold, and is a poor choice for circuits', 'A material that cannot be used in a circuit at all', 'A material that gets rid of any extra electricity'], answer: 'A material that does not let electricity pass easily', explanation: 'Insulators resist the flow of electric current.' },
   { prompt: 'Which group contains only conductors?', options: ['Copper, iron and aluminium', 'Copper, rubber and stainless steel', 'Iron, glass and aluminium foil', 'Steel, plastic and copper wire'], answer: 'Copper, iron and aluminium', explanation: 'All three are metals, and metals usually conduct.' },

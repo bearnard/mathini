@@ -84,7 +84,7 @@ const learnSteps: LearnStep[] = [
   },
 ];
 
-const bank: NstItem[] = [
+export const bank: NstItem[] = [
   { prompt: 'What causes day and night on Earth?', options: ['Earth rotating on its axis', 'The Sun moving around Earth', 'The Moon covering the Sun each night', 'Earth moving closer to and away from the Sun'], answer: 'Earth rotating on its axis', explanation: 'As Earth spins, each place turns towards the Sun and then away from it.' },
   { prompt: 'Which side of Earth has night?', options: ['The side facing away from the Sun', 'The side that is closest to the Moon', 'The side that has the most oceans on it', 'The side that is tilted upwards in space'], answer: 'The side facing away from the Sun', explanation: 'The side turned away from the Sun does not receive sunlight.' },
   { prompt: 'How long does Earth take to rotate once?', options: ['24 hours', '12 hours', '7 days', '365 days'], answer: '24 hours', explanation: 'One full rotation takes 24 hours, which is one day.' },
