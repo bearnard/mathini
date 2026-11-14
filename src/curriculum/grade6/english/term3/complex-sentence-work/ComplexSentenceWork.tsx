@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { CompoundComplex, JoinSplitVary, SentenceKey } from '@/components/diagrams/english/SentenceBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -11,23 +12,7 @@ const learnSteps: LearnStep[] = [
           <strong> clause</strong> contains a subject and a verb. Knowing the difference helps you build
           better sentences.
         </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-amber-50 p-4 text-slate-700">
-            <strong>Phrase</strong>
-            <br />
-            useful words without a full idea
-          </div>
-          <div className="rounded-xl bg-sky-50 p-4 text-slate-700">
-            <strong>Independent clause</strong>
-            <br />
-            can stand alone as a sentence
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-slate-700">
-            <strong>Dependent clause</strong>
-            <br />
-            needs another clause to complete it
-          </div>
-        </div>
+        <SentenceKey />
       </div>
     ),
   },
@@ -39,23 +24,7 @@ const learnSteps: LearnStep[] = [
           Writers combine ideas with <strong>conjunctions</strong>. Compound sentences join two complete
           ideas, while complex sentences join a complete idea to a dependent clause.
         </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-rose-50 p-4 text-slate-700">
-            <strong>Compound</strong>
-            <br />
-            two full ideas joined together
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-slate-700">
-            <strong>Complex</strong>
-            <br />
-            one full idea plus one dependent clause
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-slate-700">
-            <strong>Conjunction</strong>
-            <br />
-            words like and, but, because, although
-          </div>
-        </div>
+        <CompoundComplex />
       </div>
     ),
   },
@@ -67,23 +36,7 @@ const learnSteps: LearnStep[] = [
           Good writers edit sentences by joining short ideas, splitting run-on sentences, and choosing
           sentence types that make writing smoother and more varied.
         </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-indigo-50 p-4 text-slate-700">
-            <strong>Join</strong>
-            <br />
-            connect related ideas clearly
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-slate-700">
-            <strong>Split</strong>
-            <br />
-            fix long or confusing run-ons
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-slate-700">
-            <strong>Vary</strong>
-            <br />
-            mix sentence patterns for interest
-          </div>
-        </div>
+        <JoinSplitVary />
       </div>
     ),
   },
