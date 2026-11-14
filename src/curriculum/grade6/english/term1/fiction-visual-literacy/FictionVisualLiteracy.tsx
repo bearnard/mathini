@@ -149,13 +149,8 @@ const learnSteps: LearnStep[] = [
 export const bank: CapsItem[] = [
   {
     prompt: 'What is speculative fiction?',
-    options: [
-      'A story that imagines unusual worlds or future events',
-      'A list of real school rules only',
-      'A newspaper weather chart',
-      'A set of maths instructions',
-    ],
-    answer: 'A story that imagines unusual worlds or future events',
+    options: ['A story that imagines unusual worlds or events', 'A list of real school rules for the year', 'A newspaper chart of the weather', 'A set of instructions for a maths task'],
+    answer: 'A story that imagines unusual worlds or events',
     explanation: 'Speculative fiction uses imagination to explore ideas beyond everyday life.',
   },
   {

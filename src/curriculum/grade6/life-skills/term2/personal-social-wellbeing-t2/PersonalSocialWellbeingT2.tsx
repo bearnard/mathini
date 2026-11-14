@@ -143,8 +143,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'If a situation feels unsafe, what should you do?',
-    options: ['Tell a trusted adult as soon as possible', 'Keep quiet forever', 'Take a risky chance alone', 'Pretend nothing is wrong'],
-    answer: 'Tell a trusted adult as soon as possible',
+    options: ['Tell a trusted adult as soon as you can', 'Keep quiet about it for ever', 'Take a risky chance on your own', 'Pretend that nothing is wrong at all'],
+    answer: 'Tell a trusted adult as soon as you can',
     explanation: 'Reporting danger quickly helps adults protect you and solve the problem.',
   },
 ];

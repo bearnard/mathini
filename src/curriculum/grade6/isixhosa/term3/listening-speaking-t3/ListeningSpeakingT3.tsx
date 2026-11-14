@@ -181,18 +181,13 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which response gives a supported opinion about transport?',
-    options: [
-      'I prefer the train because it is reliable for long trips',
-      'Train',
-      'All transport is exactly the same',
-      'I have no reason and no choice',
-    ],
-    answer: 'I prefer the train because it is reliable for long trips',
+    options: ['I prefer the train because it is reliable', 'Train', 'All transport is exactly the same', 'I have no reason and no choice'],
+    answer: 'I prefer the train because it is reliable',
     explanation: 'A supported opinion includes both a viewpoint and a reason.',
   },
   {
     prompt: 'What helps your audience understand your retell?',
-    options: ['Using sequence words like first, then, finally', 'Speaking as fast as possible', 'Changing topic every sentence', 'Skipping the ending'],
+    options: ['Using sequence words like first, then, finally', 'Speaking as fast as you possibly can', 'Changing the topic in every sentence', 'Skipping the ending of the story'],
     answer: 'Using sequence words like first, then, finally',
     explanation: 'Sequence words guide listeners through events clearly.',
   },
@@ -216,13 +211,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which sentence best links an opinion to a reason?',
-    options: [
-      'I enjoy stories about animals because they teach a lesson',
-      'I enjoy stories about animals maybe',
-      'Stories are animals lesson because',
-      'Animals stories because and because',
-    ],
-    answer: 'I enjoy stories about animals because they teach a lesson',
+    options: ['I like animal stories because they teach', 'I enjoy stories about animals, maybe', 'Stories are animals lesson because', 'Animals stories because and because'],
+    answer: 'I like animal stories because they teach',
     explanation: 'It clearly states both a personal opinion and a sensible reason.',
   },
 ];

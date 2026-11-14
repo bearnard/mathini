@@ -73,7 +73,7 @@ export const bank: CapsItem[] = [
         prompt: 'How many centimetres are in 1 metre?',
         options: ['10', '100', '1 000', '10 000'],
         answer: '100',
-        explanation: '1 m = 100 cm.',
+        explanation: 'One metre is made up of 100 centimetres, so 1 m = 100 cm.',
     },
     {
         prompt: 'How many metres are in 1 kilometre?',
@@ -103,7 +103,7 @@ export const bank: CapsItem[] = [
         prompt: 'How many millimetres are in 1 centimetre?',
         options: ['1', '10', '100', '1 000'],
         answer: '10',
-        explanation: '1 cm = 10 mm.',
+        explanation: 'One centimetre is made up of 10 millimetres, so 1 cm = 10 mm.',
     },
     {
         prompt: 'A road is 2,5 km long. How many metres is that?',

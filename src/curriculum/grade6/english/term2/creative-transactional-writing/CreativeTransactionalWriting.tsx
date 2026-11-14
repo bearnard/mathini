@@ -107,7 +107,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which feature belongs in a play script?',
-    options: ['Speaker names and stage directions', 'A list of fractions', 'A weather graph', 'A science table'],
+    options: ['Speaker names and stage directions', 'A list of fractions with their answers', 'A weather graph for the week', 'A table of results from a science test'],
     answer: 'Speaker names and stage directions',
     explanation: 'A script shows who is speaking and what happens on stage.',
   },

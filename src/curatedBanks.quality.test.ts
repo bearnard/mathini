@@ -19,7 +19,7 @@ test('the extractor finds the curated banks of every grade 6-12', () => {
   assert.ok(checked > 6000, `${checked} curated MCQs`);
 });
 
-for (const scope of ['g6-natural-sciences', 'g6-history-geography', 'g7', 'g8', 'g9', 'g10', 'g11', 'g12', 'other']) {
+for (const scope of ['g6-natural-sciences', 'g6-history-geography', 'g6-other', 'g7', 'g8', 'g9', 'g10', 'g11', 'g12', 'other']) {
   test(`curated banks (${scope}): no reject-level count is above its baseline`, () => {
     const now = counts[scope] ?? {};
     const was = baseline.counts[scope] ?? {};
@@ -35,9 +35,9 @@ test('Grade 6 Natural Sciences (the bank written to the ADR 0001 rules) has no d
 });
 
 // Grades whose curated banks have been repaired at the source (options and answers only; prompts untouched). They stay at ZERO.
-const HELD_AT_ZERO = ['g9', 'g11', 'g8', 'g7', 'g12', 'g10'];
+const HELD_AT_ZERO = ['g6-natural-sciences', 'g6-history-geography', 'g6-other', 'g9', 'g11', 'g8', 'g7', 'g12', 'g10'];
 // Rejects that cannot be fixed without editing a prompt (listed in docs/notes/question-quality.md). They may not grow.
-const NEEDS_PROMPT_CHANGE: Record<string, Record<string, number>> = { g8: { near_duplicate: 2 } };
+const NEEDS_PROMPT_CHANGE: Record<string, Record<string, number>> = { g8: { near_duplicate: 2 }, 'g6-other': { near_duplicate: 5 } };
 for (const scope of HELD_AT_ZERO) {
   test(`curated banks (${scope}) have no reject-level defect at all`, () => {
     assert.deepEqual(counts[scope] ?? {}, NEEDS_PROMPT_CHANGE[scope] ?? {});

@@ -29,7 +29,7 @@ export const bank: CapsItem[] = [
     prompt: 'If the rule is × 4 and the input is 6, what is the output?',
     options: ['10', '20', '24', '28'],
     answer: '24',
-    explanation: '6 × 4 = 24.',
+    explanation: 'The rule is × 4, so multiply the input 6 by 4: 6 × 4 = 24.',
   },
   {
     prompt: 'If the rule is + 9 and the output is 17, what is the input?',
@@ -41,13 +41,13 @@ export const bank: CapsItem[] = [
     prompt: 'A flow diagram has rule ÷ 5. Input is 30. Output is...',
     options: ['5', '6', '25', '150'],
     answer: '6',
-    explanation: '30 ÷ 5 = 6.',
+    explanation: 'The rule is ÷ 5, so divide the input 30 by 5: 30 ÷ 5 = 6.',
   },
   {
     prompt: 'If input → rule → output is 4 → + 7 → ?, what is the output?',
     options: ['3', '9', '11', '28'],
     answer: '11',
-    explanation: '4 + 7 = 11.',
+    explanation: 'The rule is + 7, so add 7 to the input 4: 4 + 7 = 11.',
   },
   {
     prompt: 'What rule changes 3 → 12, 5 → 20, 7 → 28?',

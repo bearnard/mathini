@@ -107,13 +107,13 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which activity is an example of printmaking?',
-    options: ['Pressing a painted shape onto paper many times', 'Drawing only with an eraser', 'Reading a story silently', 'Cutting grass on the field'],
-    answer: 'Pressing a painted shape onto paper many times',
+    options: ['Pressing a painted shape onto paper again and again', 'Drawing with an eraser and nothing else', 'Reading a story silently to yourself', 'Cutting the grass on the field at school'],
+    answer: 'Pressing a painted shape onto paper again and again',
     explanation: 'Printmaking uses a stamp, block, or other surface to repeat an image.',
   },
   {
     prompt: 'What is a collage?',
-    options: ['An artwork made by joining different pieces', 'A dance done without music', 'A ball game played outdoors', 'A poem with only one word'],
+    options: ['An artwork made by joining different pieces', 'A dance that is done without any music', 'A ball game that is played outdoors', 'A poem that has only one word in it'],
     answer: 'An artwork made by joining different pieces',
     explanation: 'Collage combines papers, fabrics, or other materials into one composition.',
   },
@@ -125,7 +125,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a rhythm pattern?',
-    options: ['A repeated sequence of beats or sounds', 'A type of paintbrush', 'A shape cut from cardboard', 'A way to sharpen a pencil'],
+    options: ['A repeated sequence of beats or sounds', 'A type of paintbrush for art', 'A shape that is cut from cardboard', 'A way to sharpen a pencil neatly'],
     answer: 'A repeated sequence of beats or sounds',
     explanation: 'Rhythm patterns organise beats so that listeners can hear repetition.',
   },
@@ -143,8 +143,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which choice best fits Creative Arts in this term?',
-    options: ['Making prints and telling a short story with puppets', 'Memorising only multiplication tables', 'Writing a science test about magnets', 'Training for a relay race only'],
-    answer: 'Making prints and telling a short story with puppets',
+    options: ['Making prints and telling a story with puppets', 'Memorising the multiplication tables', 'Writing a science test about magnets', 'Training for a relay race and nothing else'],
+    answer: 'Making prints and telling a story with puppets',
     explanation: 'This term combines visual art techniques with storytelling and performance.',
   },
 ];

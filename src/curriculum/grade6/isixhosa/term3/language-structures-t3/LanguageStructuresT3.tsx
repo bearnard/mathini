@@ -230,13 +230,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What should you do in a tense change item?',
-    options: [
-      'Keep the meaning but change the verb form correctly',
-      'Change the topic to a new idea',
-      'Delete all verbs from the sentence',
-      'Only add punctuation marks',
-    ],
-    answer: 'Keep the meaning but change the verb form correctly',
+    options: ['Keep the meaning and change the verb form', 'Change the topic to a new idea', 'Delete all of the verbs in the sentence', 'Only add punctuation marks to it'],
+    answer: 'Keep the meaning and change the verb form',
     explanation: 'Tense-change tasks test accurate verb form while preserving meaning.',
   },
 ];

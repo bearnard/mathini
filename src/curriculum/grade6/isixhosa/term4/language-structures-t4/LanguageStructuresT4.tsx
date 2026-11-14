@@ -205,8 +205,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which option is part of Language Structures & Conventions revision?',
-    options: ['Pronouns, tenses, concords, punctuation, and spelling', 'Only drawing and colouring activities', 'Only mapwork symbols and directions', 'Only sport movement patterns'],
-    answer: 'Pronouns, tenses, concords, punctuation, and spelling',
+    options: ['Pronouns, tenses, concords, punctuation, spelling', 'Only drawing and colouring activities', 'Only mapwork symbols and directions', 'Only sport movement patterns'],
+    answer: 'Pronouns, tenses, concords, punctuation, spelling',
     explanation: 'These language elements are the core grammar-consolidation focus for Term 4.',
   },
 ];

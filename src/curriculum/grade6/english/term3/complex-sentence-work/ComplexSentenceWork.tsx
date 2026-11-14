@@ -95,8 +95,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'In the sentence "When the bell rang, the class cheered," which words form the dependent clause?',
-    options: ['When the bell rang', 'the class cheered', 'the bell', 'class cheered loudly'],
-    answer: 'When the bell rang',
+    options: ['The clause beginning with “When”', 'The clause ending with “cheered”', 'Only the single word “the”', 'The words “class cheered loudly”'],
+    answer: 'The clause beginning with “When”',
     explanation: 'The clause begins with a subordinating conjunction and cannot stand alone.',
   },
   {

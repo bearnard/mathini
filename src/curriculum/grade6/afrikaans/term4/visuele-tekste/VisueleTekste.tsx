@@ -119,8 +119,8 @@ export const bank: AfrikaansItem[] = [
   },
   {
     prompt: "'n Advertensie sê: 'Nuwe rugsakke — sterk en lig.' Watter beskrywing pas by die rugsakke?",
-    options: ['sterk en lig', 'oud en swaar', 'nat en koud', 'hard en sout'],
-    answer: 'sterk en lig',
+    options: ['Stewig en liggewig', 'Oud en swaar', 'Nat en koud', 'Hard en sout'],
+    answer: 'Stewig en liggewig',
     explanation: "The advert describes the bags as strong and light.",
   },
 ];

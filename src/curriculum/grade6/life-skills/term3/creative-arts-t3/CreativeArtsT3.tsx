@@ -208,13 +208,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What helps a group performance sound strong?',
-    options: [
-      'Listening to one another and keeping good timing',
-      'Everyone singing at random speeds',
-      'Ignoring the conductor or leader',
-      'Turning away from the audience the whole time',
-    ],
-    answer: 'Listening to one another and keeping good timing',
+    options: ['Listening to each other and keeping good timing', 'Everyone singing at a different speed', 'Ignoring the conductor or the leader', 'Turning away from the audience throughout'],
+    answer: 'Listening to each other and keeping good timing',
     explanation: 'Ensemble work depends on shared rhythm, listening, and coordination.',
   },
   {

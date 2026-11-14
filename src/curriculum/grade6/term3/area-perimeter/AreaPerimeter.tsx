@@ -73,7 +73,7 @@ export const bank: CapsItem[] = [
     },
     {
         prompt: 'What units do we use for area?',
-        options: ['cm or m', 'cm² or m² (square units)', 'cm³ or m³', 'just numbers'],
+        options: ['cm or m (length units)', 'cm² or m² (square units)', 'cm³ or m³ (cubic units)', 'just plain numbers'],
         answer: 'cm² or m² (square units)',
         explanation: 'Area is measured in square units such as cm² or m² because it covers two dimensions.',
     },

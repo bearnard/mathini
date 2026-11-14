@@ -194,7 +194,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the best way to improve sentence accuracy?',
-    options: ['Edit for concord and punctuation', 'Add random words', 'Remove all verbs', 'Use no capitals ever'],
+    options: ['Edit for concord and punctuation', 'Add extra words to the sentence', 'Remove all of the verbs from it', 'Write it without any capital letters'],
     answer: 'Edit for concord and punctuation',
     explanation: 'Editing helps fix grammar and punctuation errors.',
   },

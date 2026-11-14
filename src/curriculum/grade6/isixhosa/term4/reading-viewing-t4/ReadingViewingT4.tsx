@@ -199,8 +199,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which activity best supports Term 4 Reading & Viewing revision?',
-    options: ['Practising mixed comprehension texts from notices and stories', 'Memorising only one poem line', 'Avoiding all revision passages', 'Writing science formulas only'],
-    answer: 'Practising mixed comprehension texts from notices and stories',
+    options: ['Practising mixed texts such as notices and stories', 'Memorising one line of one poem', 'Avoiding all of the revision passages', 'Writing science formulas and nothing else'],
+    answer: 'Practising mixed texts such as notices and stories',
     explanation: 'Term 4 focuses on mixed familiar genres and revision reading strategies.',
   },
 ];

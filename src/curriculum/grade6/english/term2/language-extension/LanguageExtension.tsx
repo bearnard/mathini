@@ -89,7 +89,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What does the idiom “break the ice” usually mean?',
-    options: ['Start a friendly conversation', 'Smash frozen water', 'Win a race quickly', 'Become very cold'],
+    options: ['Start a friendly conversation', 'Smash a block of frozen water', 'Win a race by a short distance', 'Become very cold in winter weather'],
     answer: 'Start a friendly conversation',
     explanation: 'This idiom means making people feel relaxed and ready to talk.',
   },

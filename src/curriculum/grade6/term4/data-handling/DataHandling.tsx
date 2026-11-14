@@ -90,7 +90,7 @@ export const bank: CapsItem[] = [
     },
     {
         prompt: 'In a bar graph, what does the height of each bar show?',
-        options: ['The category name', 'The value or frequency for that category', 'The total of all data', 'The mode'],
+        options: ['The name of the category shown', 'The value or frequency for that category', 'The total of all of the data', 'The mode of the data set'],
         answer: 'The value or frequency for that category',
         explanation: 'The height (or length) of a bar represents the value or frequency for that category.'
     },
