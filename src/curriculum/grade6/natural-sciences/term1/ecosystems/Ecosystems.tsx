@@ -1,15 +1,13 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import { Adaptations, EcosystemScene, HabitatNeeds } from '@/components/diagrams/EcoMixtures';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Ecosystems include living and non-living things',
-    image: {
-      src: '/curriculum/grade6/nst/term1/ecosystems/diagram.webp',
-      alt: 'savanna ecosystem with plants animals water sunlight and soil',
-    },
     content: (
       <div className="space-y-4 text-center">
+        <EcosystemScene />
         <p className="text-lg text-slate-600">
           An <strong>ecosystem</strong> is a place where living things interact with each other and
           with <strong>non-living things</strong> like sunlight, water, air, rocks, and soil.
@@ -29,15 +27,7 @@ const learnSteps: LearnStep[] = [
           A <strong>habitat</strong> is the natural home of an organism. It must provide what the
           organism needs, such as <strong>food</strong>, <strong>water</strong>, shelter, space, and air.
         </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-flex flex-wrap items-center justify-center gap-3 text-xl font-bold text-slate-700">
-          <span>food</span>
-          <span className="text-slate-400">+</span>
-          <span>water</span>
-          <span className="text-slate-400">+</span>
-          <span>shelter</span>
-          <span className="text-slate-400">+</span>
-          <span>space</span>
-        </div>
+        <HabitatNeeds />
       </div>
     ),
   },
@@ -50,11 +40,7 @@ const learnSteps: LearnStep[] = [
           <strong> Adaptations</strong> are helpful features or behaviours that help organisms survive
           in their habitats.
         </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-yellow-50 p-4"><strong>Pollination</strong><br />insects help plants</div>
-          <div className="rounded-xl bg-green-50 p-4"><strong>Camouflage</strong><br />animals hide from danger</div>
-          <div className="rounded-xl bg-blue-50 p-4"><strong>Deep roots</strong><br />plants reach water</div>
-        </div>
+        <Adaptations />
       </div>
     ),
   },

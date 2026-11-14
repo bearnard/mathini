@@ -1,12 +1,13 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import { MixtureMake, MixturesAround, PartsKeep } from '@/components/diagrams/EcoMixtures';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'What is a mixture?',
-    image: { src: '/curriculum/grade6/nst/term2/mixtures/diagram.webp', alt: 'different examples of mixtures' },
     content: (
       <div className="space-y-4 text-center">
+        <MixtureMake />
         <p className="text-lg text-slate-600">
           A <strong>mixture</strong> is made when two or more materials are mixed together. The materials are not chemically joined and can often be separated again.
         </p>
@@ -17,6 +18,7 @@ const learnSteps: LearnStep[] = [
     title: 'Mixtures around us',
     content: (
       <div className="space-y-4 text-center">
+        <MixturesAround />
         <p className="text-lg text-slate-600">
           Breakfast cereal, fruit salad, muddy water, and air are all <strong>mixtures</strong>. Some are easy to see, while others look the same throughout.
         </p>
@@ -27,6 +29,7 @@ const learnSteps: LearnStep[] = [
     title: 'Parts keep their properties',
     content: (
       <div className="space-y-4 text-center">
+        <PartsKeep />
         <p className="text-lg text-slate-600">
           In a mixture, each material keeps many of its own <strong>properties</strong>. This is why raisins can be picked from cereal and sand can settle out of muddy water.
         </p>
