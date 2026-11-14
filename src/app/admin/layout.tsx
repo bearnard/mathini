@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import './admin.css';
 import { authorizeRequest } from '../../lib/server/admin/guard';
+import AdminNav from '../../components/admin/AdminNav';
 
 export const metadata: Metadata = {
   title: 'Admin',
@@ -35,6 +36,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     // suppressHydrationWarning: the inline script below may set data-theme on this element before React hydrates.
     <div className="admin-root" suppressHydrationWarning>
       <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      <AdminNav />
       {children}
     </div>
   );

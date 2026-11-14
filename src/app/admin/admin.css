@@ -148,3 +148,19 @@
 .admin-table td > div:first-child { overflow-wrap: anywhere; }
 @media (max-width: 600px) { .admin-table th, .admin-table td { padding: 8px 5px; font-size: 13px; } }
 .admin-table th { color: var(--text-secondary); font-weight: 600; position: sticky; top: 0; background: var(--surface-1); }
+.admin-btn-danger {
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid #d03b3b;
+  background: #d03b3b;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.admin-btn-danger:disabled { opacity: 0.45; cursor: not-allowed; }
+.admin-link { color: var(--accent); font-weight: 600; text-decoration: none; }
+.admin-link:hover { text-decoration: underline; }
+.admin-th-sort { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; font-weight: 600; }
+.admin-th-sort:hover { color: var(--text-primary); }

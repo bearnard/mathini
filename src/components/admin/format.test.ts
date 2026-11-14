@@ -58,19 +58,23 @@ test("today's date is the SAST date, even when UTC is still yesterday", () => {
   assert.equal(todaySast(Date.UTC(2026, 10, 14, 22, 30)), '2026-11-15');
 });
 
-import { topicLabel, subjectLabel } from './format';
-test('topic labels from task slugs', () => {
-  assert.equal(topicLabel('fractions-t2'), 'Fractions');
-  assert.equal(topicLabel('gr7-whole-numbers-t1'), 'Whole numbers');
-  assert.equal(topicLabel('electric-circuits'), 'Electric circuits');
-  assert.equal(topicLabel('nst-electric-circuits'), 'Nst electric circuits');
-  assert.equal(topicLabel(null), 'Unknown topic');
-  assert.equal(topicLabel(''), 'Unknown topic');
-  assert.equal(topicLabel('-t2'), '-t2');
+import { eventLabel, formatDateTime, formatDay, formatAge } from './format';
+test('event labels are plain language; unknown types pass through', () => {
+  assert.equal(eventLabel('practice_finish'), 'Finished a practice run');
+  assert.equal(eventLabel('signup'), 'Signed up');
+  assert.equal(eventLabel('something_new'), 'something_new');
 });
-test('subject labels fall back to the code', () => {
-  assert.equal(subjectLabel('nst'), 'Natural Sciences');
-  assert.equal(subjectLabel('grade6'), 'Grade 6 core');
-  assert.equal(subjectLabel('zzz'), 'zzz');
-  assert.equal(subjectLabel(null), 'Unknown subject');
+test('date-times are SAST, with the year only when it is not this year', () => {
+  const now = Date.UTC(2026, 10, 14, 10, 0);
+  assert.equal(formatDateTime(Date.UTC(2026, 10, 14, 8, 30), now), '14 Nov, 10:30');
+  assert.equal(formatDateTime(Date.UTC(2025, 11, 31, 22, 15), now), '1 Jan, 00:15'); // 22:15 UTC is already 1 Jan in SAST, and this year
+  assert.equal(formatDateTime(Date.UTC(2025, 5, 1, 12, 0), now), '1 Jun 2025, 14:00');
+  assert.equal(formatDateTime(0), '–');
+  assert.equal(formatDay(Date.UTC(2026, 10, 14, 22, 30)), '15 Nov 2026');
+});
+test('ages read naturally', () => {
+  assert.equal(formatAge(5), '5 s ago');
+  assert.equal(formatAge(59), '59 s ago');
+  assert.equal(formatAge(60), '1 min ago');
+  assert.equal(formatAge(200), '3 min ago');
 });

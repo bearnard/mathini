@@ -10,7 +10,9 @@ import WhenCard from './WhenCard';
 import WhatCard from './WhatCard';
 import FunnelCard from './FunnelCard';
 import DevicesCard from './DevicesCard';
+import LiveCard from './LiveCard';
 import { useAdminData } from './useAdminData';
+import { plural } from './names';
 import { formatDelta, formatDuration, formatInt, formatPercent, formatPoints, longDate, shortDate, todaySast } from './format';
 
 interface Tile {
@@ -77,6 +79,8 @@ export default function Dashboard() {
         <Overview data={overview.data} />
       )}
 
+      <LiveCard />
+
       {series.status === 'ok' ? (
         <ActivityCharts days={series.data.days} partialDate={todaySast()} />
       ) : series.status === 'error' ? null : (
@@ -111,7 +115,7 @@ function Overview({ data }: { data: OverviewData }) {
           spark={t.visitors.spark}
           sparkPartial={partial}
           sparkColor="var(--series-1)"
-          footnote={t.visitors.dntSessions > 0 ? `+ ${formatInt(t.visitors.dntSessions)} private (Do Not Track) visits` : undefined}
+          footnote={t.visitors.dntSessions > 0 ? `+ ${plural(t.visitors.dntSessions, 'private (Do Not Track) visit')}` : undefined}
           help="Unique devices that visited. A device is a random id kept in the browser, so one person on two devices counts twice. Do Not Track visits have no device id and are counted separately, by visit."
         />
         <StatTile

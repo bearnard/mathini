@@ -6,7 +6,8 @@
 //            by the Grade 6 Natural Sciences, Geography, History and Afrikaans shells)
 //   runs:    `practice_finish` events (one per finished run, score/total in meta; every shell, anonymous
 //            too; starts when tracking started)
-// All topic keys are task slugs, so the topic_open id inconsistency does not matter here.
+// All topic keys are FULL task slugs (attempts.task, events.topic), so the topic_open id inconsistency
+// does not matter here and both sources resolve to the same registry titles.
 
 import type { AdminDb, Param } from './db';
 import { attemptWhere, eventWhere } from './queries';
@@ -88,8 +89,8 @@ export async function content(db: AdminDb, f: Filters): Promise<ContentData> {
 
   const [ans, runs, conv, mocks] = await Promise.all([
     db.all<{ subject: string; grade: number; topic: string; learners: number; q: number; c: number }>(
-      `SELECT subject, grade, topic, COUNT(DISTINCT student_id) AS learners, COUNT(*) AS q, COALESCE(SUM(is_correct), 0) AS c
-         FROM attempts WHERE ${at.sql} GROUP BY subject, grade, topic`,
+      `SELECT subject, grade, task AS topic, COUNT(DISTINCT student_id) AS learners, COUNT(*) AS q, COALESCE(SUM(is_correct), 0) AS c
+         FROM attempts WHERE ${at.sql} GROUP BY subject, grade, task`,
       at.params,
     ),
     db.all<{ subject: string | null; grade: number | null; topic: string; runs: number; practisers: number; q: number; sc: number }>(

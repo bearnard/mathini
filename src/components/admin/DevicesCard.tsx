@@ -3,6 +3,7 @@
 import RankedList from './RankedList';
 import { formatInt, formatPercent } from './format';
 import { useAdminData } from './useAdminData';
+import { plural } from './names';
 
 interface Share { name: string; count: number; share: number }
 interface DevicesData { devices: Share[]; browsers: Share[]; os: Share[]; dntSessions: number }
@@ -31,7 +32,7 @@ export default function DevicesCard({ qs }: { qs: string }) {
             <div><h3 style={{ fontSize: 14, fontWeight: 700 }}>Operating system</h3><RankedList items={items(state.data.os, 'o')} max={1} empty="No visits in this period." /></div>
           </div>
           {state.data.dntSessions > 0 && (
-            <p className="admin-muted" style={{ fontSize: 12, marginTop: 10 }}>Not included: {formatInt(state.data.dntSessions)} private (Do Not Track) visits, which have no device id.</p>
+            <p className="admin-muted" style={{ fontSize: 12, marginTop: 10 }}>Not included: {plural(state.data.dntSessions, 'private (Do Not Track) visit')}, which have no device id.</p>
           )}
         </>
       )}

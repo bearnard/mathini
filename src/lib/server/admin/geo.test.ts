@@ -43,6 +43,19 @@ test('one device seen in two cities of the same province counts once for the pro
   });
 });
 
+test('the same city with and without a region code is ONE row (no duplicate map bubbles or table rows)', async (ctx) => {
+  await withDb(ctx, async (t) => {
+    t.exec(`INSERT INTO events (ts, type, device_id, session_id, student_id, country, region, region_code, city, lat, lon, device, browser, os) VALUES (?, 'page_view', 'd1', 's1', 'st1', 'ZA', 'Gauteng', 'GT', 'Pretoria', -25.7, 28.2, 'mobile', 'Chrome', 'Android')`, [at(1)]);
+    t.exec(`INSERT INTO events (ts, type, device_id, session_id, student_id, country, region, region_code, city, lat, lon, device, browser, os) VALUES (?, 'page_view', 'd1', 's2', 'st1', 'ZA', 'Gauteng', NULL, 'Pretoria', -25.7, 28.2, 'mobile', 'Chrome', 'Android')`, [at(1)]);
+    t.exec(`INSERT INTO events (ts, type, device_id, session_id, student_id, country, region, region_code, city, lat, lon, device, browser, os) VALUES (?, 'page_view', 'd2', 's3', 'st2', 'ZA', 'Gauteng', NULL, 'Pretoria', -25.7, 28.2, 'mobile', 'Chrome', 'Android')`, [at(1)]);
+    const g = await geo(t.db, F());
+    assert.equal(g.cities.length, 1);
+    assert.deepEqual([g.cities[0].city, g.cities[0].province, g.cities[0].events, g.cities[0].visitors, g.cities[0].learners], ['Pretoria', 'gauteng', 3, 2, 2]);
+    assert.equal(g.table.filter((r) => r.city === 'Pretoria').length, 1);
+    assert.equal(new Set(g.cities.map((c) => `${c.city}-${c.lat}-${c.lon}`)).size, g.cities.length);
+  });
+});
+
 test('cities carry rounded coordinates and their province, busiest first, South Africa only', async (ctx) => {
   await withDb(ctx, async (t) => {
     for (let i = 0; i < 3; i++) insertEvent(t, { ts: at(1), device: 'd1', student: 's1', ...za('Western Cape', 'Cape Town', -33.9, 18.4) });

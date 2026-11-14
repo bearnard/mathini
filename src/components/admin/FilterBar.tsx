@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
+import { subjectFilterLabel } from './names';
 
 const PRESETS = [
   { id: 'today', label: 'Today' },
@@ -72,7 +73,7 @@ export default function FilterBar({ subjects }: { subjects: string[] }) {
       <select className="admin-input" aria-label="Subject" value={subject} onChange={(e) => update({ subject: e.target.value })}>
         <option value="">All subjects</option>
         {subjectOptions.map((s) => (
-          <option key={s} value={s}>{s}</option>
+          <option key={s} value={s}>{subjectFilterLabel(s)}</option>
         ))}
       </select>
       <div style={{ marginLeft: 'auto' }}>

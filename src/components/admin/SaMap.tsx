@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { SA_PROVINCES, SA_VIEWBOX, projectSA } from './saProvinces';
 import { bubbleRadius, heatColor, heatStep } from './heat';
 import { formatInt } from './format';
+import { plural } from './names';
 
 export interface ProvinceData {
   id: string;
@@ -93,11 +94,11 @@ export default function SaMap({
               aria-label={`${p.name}: ${formatInt(v)} ${METRIC_LABEL[metric].toLowerCase()}`}
               onPointerMove={(e) => {
                 onActiveProvince(p.id);
-                place(e, p.name, [`${formatInt(d?.visitors)} visitors`, `${formatInt(d?.learners)} learners`, `${formatInt(d?.questions)} questions practised`]);
+                place(e, p.name, [plural(d?.visitors ?? 0, 'visitor'), plural(d?.learners ?? 0, 'learner'), `${plural(d?.questions ?? 0, 'question')} practised`]);
               }}
               onFocus={(e) => {
                 onActiveProvince(p.id);
-                place(e, p.name, [`${formatInt(d?.visitors)} visitors`, `${formatInt(d?.learners)} learners`, `${formatInt(d?.questions)} questions practised`]);
+                place(e, p.name, [plural(d?.visitors ?? 0, 'visitor'), plural(d?.learners ?? 0, 'learner'), `${plural(d?.questions ?? 0, 'question')} practised`]);
               }}
               onBlur={() => {
                 setTip(null);
@@ -109,11 +110,11 @@ export default function SaMap({
         })}
         {cities
           .filter((c) => c.lat !== null && c.lon !== null)
-          .map((c) => {
+          .map((c, i) => {
             const { x, y } = projectSA(c.lat as number, c.lon as number);
             return (
               <circle
-                key={`${c.city}-${c.lat}-${c.lon}`}
+                key={`${i}-${c.city}-${c.lat}-${c.lon}`}
                 cx={x}
                 cy={y}
                 r={bubbleRadius(c.events, maxActivity)}
@@ -122,12 +123,12 @@ export default function SaMap({
                 stroke="var(--surface-1)"
                 strokeWidth={2}
                 tabIndex={0}
-                aria-label={`${c.city}: ${formatInt(c.events)} events`}
+                aria-label={`${c.city}: ${plural(c.events, 'event')}`}
                 onPointerMove={(e) => {
                   e.stopPropagation();
-                  place(e, c.city, [`${c.province ? nameOf.get(c.province) : ''}`.trim() || 'Province unknown', `${formatInt(c.visitors)} visitors · ${formatInt(c.learners)} learners`, `${formatInt(c.questions)} questions practised`, `${formatInt(c.events)} events`]);
+                  place(e, c.city, [`${c.province ? nameOf.get(c.province) : ''}`.trim() || 'Province unknown', `${plural(c.visitors, 'visitor')} · ${plural(c.learners, 'learner')}`, `${plural(c.questions, 'question')} practised`, plural(c.events, 'event')]);
                 }}
-                onFocus={(e) => place(e, c.city, [`${formatInt(c.visitors)} visitors · ${formatInt(c.learners)} learners`, `${formatInt(c.events)} events`])}
+                onFocus={(e) => place(e, c.city, [`${plural(c.visitors, 'visitor')} · ${plural(c.learners, 'learner')}`, plural(c.events, 'event')])}
                 onBlur={() => setTip(null)}
                 style={{ outline: 'none' }}
               />

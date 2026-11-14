@@ -87,3 +87,11 @@ test('every admin route rejects a garbage Access assertion too', async () => {
     }
   }
 });
+
+test('routes that hold one learner\'s data are never cached, and the delete route clears the cache', () => {
+  const read = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  for (const rel of ['learners/[id]/route.ts', 'learners/[id]/private/route.ts', 'learners/route.ts', 'live/route.ts']) {
+    assert.match(read(rel), /cache:\s*false/, `${rel} must opt out of the 60 s cache`);
+  }
+  assert.match(read('learners/[id]/delete/route.ts'), /invalidateAdminCache\(\)/);
+});

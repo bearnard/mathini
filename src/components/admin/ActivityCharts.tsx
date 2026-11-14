@@ -27,6 +27,8 @@ interface Panel {
   key: keyof Day;
   label: string;
   unit: string;
+  /** singular of `unit`, for a count of 1 */
+  one: string;
   color: string;
   kind: 'area' | 'bar';
   note: string;
@@ -36,11 +38,11 @@ interface Panel {
 // visitors = series 1, active learners = series 2, practice runs = series 3; the secondary
 // measures use the neutral secondary text colour.
 const PANELS: Panel[] = [
-  { key: 'visitors', label: 'Visitors', unit: 'unique devices', color: 'var(--series-1)', kind: 'area', note: 'Unique devices per day (Do Not Track visits excluded)' },
-  { key: 'learners', label: 'Active learners', unit: 'learners', color: 'var(--series-2)', kind: 'area', note: 'Signed-in learners with any activity that day' },
-  { key: 'runs', label: 'Practice runs', unit: 'finished runs', color: 'var(--series-3)', kind: 'area', note: 'Finished practice runs, all topics (from practice events)' },
-  { key: 'questions', label: 'Questions answered', unit: 'answers', color: 'var(--text-secondary)', kind: 'area', note: 'Answers recorded for signed-in learners (not recorded for Grade 6 Natural Sciences, Geography, History and Afrikaans)' },
-  { key: 'signups', label: 'New sign-ups', unit: 'learners', color: 'var(--text-secondary)', kind: 'bar', note: 'Learners who created an account that day' },
+  { key: 'visitors', label: 'Visitors', unit: 'unique devices', one: 'unique device', color: 'var(--series-1)', kind: 'area', note: 'Unique devices per day (Do Not Track visits excluded)' },
+  { key: 'learners', label: 'Active learners', unit: 'learners', one: 'learner', color: 'var(--series-2)', kind: 'area', note: 'Signed-in learners with any activity that day' },
+  { key: 'runs', label: 'Practice runs', unit: 'finished runs', one: 'finished run', color: 'var(--series-3)', kind: 'area', note: 'Finished practice runs, all topics (from practice events)' },
+  { key: 'questions', label: 'Questions answered', unit: 'answers', one: 'answer', color: 'var(--text-secondary)', kind: 'area', note: 'Answers recorded for signed-in learners (not recorded for Grade 6 Natural Sciences, Geography, History and Afrikaans)' },
+  { key: 'signups', label: 'New sign-ups', unit: 'learners', one: 'learner', color: 'var(--text-secondary)', kind: 'bar', note: 'Learners who created an account that day' },
 ];
 
 interface TipProps {
@@ -59,7 +61,7 @@ function Tip({ active, payload, label, panel, partialDate }: TipProps) {
       <div className="admin-secondary" style={{ fontWeight: 600 }}>{longDate(label)}{label === partialDate ? ' (so far)' : ''}</div>
       <div>
         <span aria-hidden style={{ display: 'inline-block', width: 10, height: 10, borderRadius: 5, background: panel.color, marginRight: 6 }} />
-        <strong style={{ fontVariantNumeric: 'tabular-nums' }}>{formatInt(entry.value)}</strong> <span className="admin-muted">{panel.unit}</span>
+        <strong style={{ fontVariantNumeric: 'tabular-nums' }}>{formatInt(entry.value)}</strong> <span className="admin-muted">{entry.value === 1 ? panel.one : panel.unit}</span>
       </div>
     </div>
   );

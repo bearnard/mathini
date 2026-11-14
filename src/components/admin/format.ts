@@ -72,23 +72,6 @@ export function countryName(code: string | null | undefined): string {
   }
 }
 
-/** Task slug -> readable topic name: "fractions-t2" -> "Fractions", "gr7-whole-numbers-t1" -> "Whole numbers". */
-export function topicLabel(slug: string | null | undefined): string {
-  if (!slug) return 'Unknown topic';
-  const base = slug.replace(/^gr\d+-/, '').replace(/-t\d+$/, '').replace(/-/g, ' ').trim();
-  return base ? base[0].toUpperCase() + base.slice(1) : slug;
-}
-
-const SUBJECT_NAMES: Record<string, string> = {
-  nst: 'Natural Sciences', math: 'Maths', afr: 'Afrikaans', geo: 'Geography', his: 'History', eng: 'English', xho: 'isiXhosa',
-  lo: 'Life Orientation', ml: 'Maths Literacy', cat: 'CAT', bus: 'Business Studies', acc: 'Accounting', it: 'IT', grade6: 'Grade 6 core',
-};
-/** Subject code -> name when known, else the code itself. */
-export function subjectLabel(code: string | null | undefined): string {
-  if (!code) return 'Unknown subject';
-  return SUBJECT_NAMES[code] ?? code;
-}
-
 export const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as const;
 export const WEEKDAYS_LONG = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] as const;
 /** 16 -> "16:00–17:00". */
@@ -100,4 +83,39 @@ export function hourRange(h: number): string {
 /** Today's date in South Africa (SAST, UTC+2): "2026-11-14". */
 export function todaySast(now: number = Date.now()): string {
   return new Date(now + 2 * 3_600_000).toISOString().slice(0, 10);
+}
+
+const EVENT_LABELS: Record<string, string> = {
+  page_view: 'Viewed a page',
+  session_start: 'Started a visit',
+  onboarding_start: 'Started sign-up',
+  signup: 'Signed up',
+  login: 'Logged in',
+  topic_open: 'Opened a topic',
+  learn_complete: 'Finished the learn slides',
+  practice_start: 'Started practice',
+  practice_finish: 'Finished a practice run',
+  mock_test_start: 'Started a mock test',
+  mock_test_finish: 'Finished a mock test',
+};
+/** Event type -> plain-language label (unknown types are shown as stored). */
+export function eventLabel(type: string): string {
+  return EVENT_LABELS[type] ?? type;
+}
+
+/** ms epoch -> "14 Nov 2026, 10:30" in South Africa time. Without the year when it is this year. */
+export function formatDateTime(ms: number, now: number = Date.now()): string {
+  if (!ms) return '–';
+  const d = new Date(ms + 2 * 3_600_000).toISOString();
+  const date = d.slice(0, 10);
+  const sameYear = date.slice(0, 4) === new Date(now + 2 * 3_600_000).toISOString().slice(0, 4);
+  return `${sameYear ? shortDate(date) : longDate(date)}, ${d.slice(11, 16)}`;
+}
+/** ms epoch -> "14 Nov 2026" (SAST). */
+export function formatDay(ms: number): string {
+  return ms ? longDate(new Date(ms + 2 * 3_600_000).toISOString().slice(0, 10)) : '–';
+}
+/** 45 -> "45 s ago"; 130 -> "2 min ago". */
+export function formatAge(seconds: number): string {
+  return seconds < 60 ? `${seconds} s ago` : `${Math.round(seconds / 60)} min ago`;
 }

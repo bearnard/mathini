@@ -6,6 +6,7 @@ import { SA_PROVINCES } from './saProvinces';
 import { HEAT_STEPS, heatColor, heatLegend, heatStep } from './heat';
 import { countryName, formatInt } from './format';
 import { useAdminData } from './useAdminData';
+import { plural } from './names';
 
 interface Metrics {
   events: number;
@@ -127,7 +128,7 @@ function Body({ data, metric, active, setActive, showAll, setShowAll }: { data: 
           </ol>
           {(unlocated.visitors > 0 || unlocated.dntSessions > 0) && (
             <p className="admin-muted" style={{ fontSize: 12, marginTop: 8 }}>
-              Also in South Africa with no province recorded: {formatInt(unlocated.visitors)} visitors{unlocated.dntSessions > 0 ? ` and ${formatInt(unlocated.dntSessions)} private (Do Not Track) visits` : ''}.
+              Also in South Africa with no province recorded: {plural(unlocated.visitors, 'visitor')}{unlocated.dntSessions > 0 ? ` and ${plural(unlocated.dntSessions, 'private (Do Not Track) visit')}` : ''}.
             </p>
           )}
 

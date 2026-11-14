@@ -2,16 +2,16 @@
 
 import RankedList, { type RankedItem } from './RankedList';
 import MockHistogram from './MockHistogram';
-import { formatInt, formatPercent, subjectLabel, topicLabel } from './format';
+import { formatInt, formatPercent } from './format';
+import { plural, topicInfo, topicSubline } from './names';
 import { useAdminData } from './useAdminData';
 import { lowestAccuracy, lowestRunScore, MIN_ANSWERS_FOR_ACCURACY, MIN_RUNS_FOR_SCORE, MIN_SESSIONS_FOR_CONVERSION, type AccuracyRow } from '../../lib/server/admin/contentView';
 import type { ContentData } from '../../lib/server/admin/content';
 
-const where = (subject: string | null, grade: number | null) => `${subjectLabel(subject)}${grade ? ` · Grade ${grade}` : ''}`;
 const mockName = (t: string) => t.replace(/-/g, ' ').replace(/^./, (c) => c.toUpperCase());
 
 const accItems = (rows: AccuracyRow[], unit: string): RankedItem[] =>
-  rows.map((r, i) => ({ key: `${i}-${r.label.subject}-${r.label.grade}-${r.label.topic}`, label: topicLabel(r.label.topic), sub: `${where(r.label.subject, r.label.grade)} · ${formatInt(r.n)} ${unit}`, value: r.value, text: formatPercent(r.value) }));
+  rows.map((r, i) => ({ key: `${i}-${r.label.subject}-${r.label.grade}-${r.label.topic}`, label: topicInfo(r.label.grade, r.label.topic).title, sub: `${topicSubline(r.label.grade, r.label.topic, r.label.subject)} · ${plural(r.n, unit)}`, value: r.value, text: formatPercent(r.value) }));
 
 export default function WhatCard({ qs }: { qs: string }) {
   const state = useAdminData<ContentData>('/api/admin/content', qs);
@@ -33,8 +33,8 @@ export default function WhatCard({ qs }: { qs: string }) {
 }
 
 function Body({ data }: { data: ContentData }) {
-  const topAnswers: RankedItem[] = data.answers.slice(0, 8).map((r, i) => ({ key: `a${i}`, label: topicLabel(r.topic), sub: `${where(r.subject, r.grade)} · ${formatInt(r.learners)} learners`, value: r.questions, text: `${formatInt(r.questions)} answers` }));
-  const topRuns: RankedItem[] = data.runs.slice(0, 8).map((r, i) => ({ key: `r${i}`, label: topicLabel(r.topic), sub: `${where(r.subject, r.grade)} · ${formatInt(r.practisers)} devices`, value: r.runs, text: `${formatInt(r.runs)} runs` }));
+  const topAnswers: RankedItem[] = data.answers.slice(0, 8).map((r, i) => ({ key: `a${i}`, label: topicInfo(r.grade, r.topic).title, sub: `${topicSubline(r.grade, r.topic, r.subject)} · ${plural(r.learners, 'learner')}`, value: r.questions, text: plural(r.questions, 'answer') }));
+  const topRuns: RankedItem[] = data.runs.slice(0, 8).map((r, i) => ({ key: `r${i}`, label: topicInfo(r.grade, r.topic).title, sub: `${topicSubline(r.grade, r.topic, r.subject)} · ${plural(r.practisers, 'device')}`, value: r.runs, text: plural(r.runs, 'run') }));
   const struggleAnswers = lowestAccuracy(data.answers);
   const struggleRuns = lowestRunScore(data.runs);
   const conv = data.conversion.filter((c) => c.learnSessions + c.practiceSessions >= MIN_SESSIONS_FOR_CONVERSION).slice(0, 12);
@@ -58,8 +58,8 @@ function Body({ data }: { data: ContentData }) {
       <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 22 }}>Where learners struggle</h3>
       <p className="admin-muted" style={{ fontSize: 12, marginTop: 2 }}>Lowest first. Only topics with enough data are listed: {MIN_ANSWERS_FOR_ACCURACY}+ answers, or {MIN_RUNS_FOR_SCORE}+ runs.</p>
       <div style={grid}>
-        {col('Accuracy of recorded answers', <RankedList items={accItems(struggleAnswers, 'answers')} max={1} empty="No topic has enough recorded answers yet." />)}
-        {col('Average score of practice runs', <RankedList items={accItems(struggleRuns, 'runs')} max={1} color="var(--series-3)" empty="No topic has enough finished runs yet." />)}
+        {col('Accuracy of recorded answers', <RankedList items={accItems(struggleAnswers, 'answer')} max={1} empty="No topic has enough recorded answers yet." />)}
+        {col('Average score of practice runs', <RankedList items={accItems(struggleRuns, 'run')} max={1} color="var(--series-3)" empty="No topic has enough finished runs yet." />)}
       </div>
 
       <h3 style={{ fontSize: 15, fontWeight: 700, marginTop: 22 }}>Learn → practice</h3>
@@ -84,8 +84,8 @@ function Body({ data }: { data: ContentData }) {
               conv.map((c, i) => (
                 <tr key={`${i}-${c.subject}-${c.grade}-${c.topic}`}>
                   <td style={{ textAlign: 'left' }}>
-                    <div style={{ fontWeight: 600 }}>{topicLabel(c.topic)}</div>
-                    <div className="admin-muted" style={{ fontSize: 12 }}>{where(c.subject, c.grade)}</div>
+                    <div style={{ fontWeight: 600 }}>{topicInfo(c.grade, c.topic).title}</div>
+                    <div className="admin-muted" style={{ fontSize: 12 }}>{topicSubline(c.grade, c.topic, c.subject)}</div>
                   </td>
                   <td style={{ fontVariantNumeric: 'tabular-nums' }}>{formatInt(c.learnSessions)}</td>
                   <td style={{ fontVariantNumeric: 'tabular-nums' }}>{c.learnSessions > 0 ? `${formatPercent(c.thenPractised / c.learnSessions)}` : '–'}</td>
@@ -106,7 +106,7 @@ function Body({ data }: { data: ContentData }) {
         <div style={grid}>
           {data.mock.map((m) =>
             col(
-              `${mockName(m.test)} · ${formatInt(m.tests)} ${m.tests === 1 ? 'test' : 'tests'}${m.average !== null ? ` · average ${m.average.toFixed(1)} / ${m.total}` : ''}`,
+              `${mockName(m.test)} · ${plural(m.tests, 'test')}${m.average !== null ? ` · average ${m.average.toFixed(1)} / ${m.total}` : ''}`,
               <MockHistogram histogram={m.histogram} total={m.total} average={m.average} />,
               m.test,
             ),

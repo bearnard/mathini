@@ -95,8 +95,10 @@ export async function geo(db: AdminDb, f: Filters): Promise<GeoData> {
 
   const [placeRows, regionRows, countryRows, totalRow] = await Promise.all([
     run<MetricRow & { country: string | null; region: string | null; region_code: string | null; city: string | null; lat: number | null; lon: number | null }>(
-      `SELECT country, region, region_code, city, AVG(lat) AS lat, AVG(lon) AS lon, ${METRICS_SQL}
-         FROM events WHERE ${ev.sql} GROUP BY country, region, region_code, city`,
+      // Grouped by country, region and city only: the same place must not split into two rows just
+      // because some events carry a region code and others do not.
+      `SELECT country, region, MAX(region_code) AS region_code, city, AVG(lat) AS lat, AVG(lon) AS lon, ${METRICS_SQL}
+         FROM events WHERE ${ev.sql} GROUP BY country, region, city`,
     ),
     run<MetricRow & { country: string | null; region: string | null; region_code: string | null }>(
       `SELECT country, region, region_code, ${METRICS_SQL} FROM events WHERE ${ev.sql} GROUP BY country, region, region_code`,

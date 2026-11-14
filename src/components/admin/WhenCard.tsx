@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import { heatColor, heatLegend, heatStep, HEAT_STEPS } from './heat';
 import { formatInt, hourRange, WEEKDAYS, WEEKDAYS_LONG } from './format';
+import { plural } from './names';
 import { useAdminData } from './useAdminData';
 
 interface Peak {
@@ -16,9 +17,9 @@ interface HeatmapData {
   peak: { visits: Peak | null; runs: Peak | null };
 }
 type Measure = 'visits' | 'runs';
-const LABEL: Record<Measure, { name: string; unit: string }> = {
-  visits: { name: 'Visits', unit: 'visits started' },
-  runs: { name: 'Practice runs', unit: 'practice runs finished' },
+const LABEL: Record<Measure, { name: string; unit: string; one: string }> = {
+  visits: { name: 'Visits', unit: 'visits started', one: 'visit started' },
+  runs: { name: 'Practice runs', unit: 'practice runs finished', one: 'practice run finished' },
 };
 
 /** Hour of day x weekday heatmap (SAST): shows study habits and the exam rush. */
@@ -108,7 +109,7 @@ export default function WhenCard({ qs }: { qs: string }) {
                   {tip && (
                     <div role="status" className="admin-card" style={{ position: 'absolute', left: Math.min(tip.x + 12, (wrap.current?.clientWidth ?? 400) - 190), top: tip.y + 14, padding: '8px 10px', fontSize: 13, pointerEvents: 'none', boxShadow: '0 4px 14px rgba(0,0,0,.18)', zIndex: 2, whiteSpace: 'nowrap' }}>
                       <div style={{ fontWeight: 700 }}>{WEEKDAYS_LONG[tip.wd]} {hourRange(tip.h)}</div>
-                      <div className="admin-secondary"><strong style={{ fontVariantNumeric: 'tabular-nums' }}>{formatInt(grid[tip.wd][tip.h])}</strong> {LABEL[measure].unit}</div>
+                      <div className="admin-secondary"><strong style={{ fontVariantNumeric: 'tabular-nums' }}>{formatInt(grid[tip.wd][tip.h])}</strong> {grid[tip.wd][tip.h] === 1 ? LABEL[measure].one : LABEL[measure].unit}</div>
                     </div>
                   )}
                   <div aria-label="Colour key" className="admin-muted" style={{ display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'wrap', marginTop: 10, fontSize: 12 }}>
