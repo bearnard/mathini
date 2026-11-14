@@ -13,13 +13,13 @@ const mockName = (t: string) => t.replace(/-/g, ' ').replace(/^./, (c) => c.toUp
 const accItems = (rows: AccuracyRow[], unit: string): RankedItem[] =>
   rows.map((r, i) => ({ key: `${i}-${r.label.subject}-${r.label.grade}-${r.label.topic}`, label: topicInfo(r.label.grade, r.label.topic).title, sub: `${topicSubline(r.label.grade, r.label.topic, r.label.subject)} · ${plural(r.n, unit)}`, value: r.value, text: formatPercent(r.value) }));
 
-export default function WhatCard({ qs }: { qs: string }) {
+export default function WhatCard({ qs, recordingNote = '' }: { qs: string; recordingNote?: string }) {
   const state = useAdminData<ContentData>('/api/admin/content', qs);
   return (
     <section className="admin-card" style={{ padding: 16 }} aria-label="What learners practise">
       <h2 style={{ fontSize: 18, fontWeight: 700 }}>What</h2>
       <p className="admin-muted" style={{ fontSize: 12, marginTop: 4, lineHeight: 1.5 }}>
-        Two sources, shown side by side and never added together. <strong>Recorded answers</strong> come from signed-in learners and exist for every subject except Grade 6 Natural Sciences, Geography, History and Afrikaans. <strong>Practice runs</strong> come from usage events for every topic (anonymous visitors too) but only since tracking began.
+        Two sources, shown side by side and never added together. <strong>Recorded answers</strong> come from signed-in learners. {recordingNote} <strong>Practice runs</strong> come from usage events for every topic (anonymous visitors too) but only since tracking began.
       </p>
       {state.status === 'error' ? (
         <p role="alert" style={{ marginTop: 12 }}>Sorry, this could not be loaded.</p>

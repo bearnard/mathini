@@ -205,9 +205,11 @@ mean one topic key on every event.
 
 **Recorded answers do not cover everything.** Only `CapsSubjectTopic`, `PracticeRunner` and Grade 5's custom
 components write to `attempts`. The Grade 6 Natural Sciences, Geography, History and Afrikaans shells did not
-(an owner decision to change that was made during P3; see the separate `feat/g6-shell-attempts` work). Until it
-ships and has history, the dashboard keeps two sources apart and never adds them: recorded answers
-(`attempts`) and finished practice runs (`practice_finish` events, which cover every shell).
+(the owner decided to change that during P3). `feat/g6-shell-attempts` makes them record answers under the subject
+codes `nst`, `geo`, `his` and `afr` (the codes the leaderboard filter uses), with no backfill because earlier answers
+were never stored. The dashboard says from what date these subjects are recorded (read from the data) and keeps two
+sources apart, never adding them: recorded answers (`attempts`) and finished practice runs (`practice_finish`
+events, which cover every shell and the period before recording began). Mock tests are not recorded.
 
 **Filters only see tagged activity.** A grade or subject filter keeps events that carry that grade or subject
 (topic opens, practice, answers). Page views and visit starts carry neither, so they drop out of visitor,

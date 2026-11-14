@@ -13,6 +13,7 @@ import DevicesCard from './DevicesCard';
 import LiveCard from './LiveCard';
 import { useAdminData } from './useAdminData';
 import { plural } from './names';
+import { shellRecordingNote } from './coverage';
 import { formatDelta, formatDuration, formatInt, formatPercent, formatPoints, longDate, shortDate, todaySast } from './format';
 
 interface Tile {
@@ -36,6 +37,7 @@ interface OverviewData {
   options: { subjects: string[] };
   consent: { learners: number; consented: number };
   eventsSince: string | null;
+  recordedSince: string | null;
 }
 
 export default function Dashboard() {
@@ -82,14 +84,14 @@ export default function Dashboard() {
       <LiveCard />
 
       {series.status === 'ok' ? (
-        <ActivityCharts days={series.data.days} partialDate={todaySast()} />
+        <ActivityCharts days={series.data.days} partialDate={todaySast()} recordingNote={overview.status === 'ok' ? shellRecordingNote(overview.data.recordedSince) : ''} />
       ) : series.status === 'error' ? null : (
         <div className="admin-card" style={{ padding: 20 }} aria-busy="true">Loading the charts…</div>
       )}
 
       <WhereCard qs={qs} />
       <WhenCard qs={qs} />
-      <WhatCard qs={qs} />
+      <WhatCard qs={qs} recordingNote={overview.status === 'ok' ? shellRecordingNote(overview.data.recordedSince) : ''} />
       <FunnelCard qs={qs} />
       <DevicesCard qs={qs} />
     </main>
@@ -102,7 +104,7 @@ function Overview({ data }: { data: OverviewData }) {
   const ctx = `vs ${shortDate(data.range.previousFrom)} – ${shortDate(data.range.previousTo)}`;
   const coverage = data.consent.learners > 0 ? data.consent.consented / data.consent.learners : 0;
   const attemptsHelp =
-    'Answers recorded for signed-in learners. Grade 6 Natural Sciences, Geography, History and Afrikaans practice does not record answers, so use “Practice runs” for those.';
+    `Answers recorded for signed-in learners. ${shellRecordingNote(data.recordedSince)}`;
 
   return (
     <>
@@ -166,7 +168,7 @@ function Overview({ data }: { data: OverviewData }) {
           spark={t.runs.spark}
           sparkPartial={partial}
           sparkColor="var(--series-3)"
-          help="Finished practice runs across ALL topics (a run is one pass through a question set). Counted from usage events, so it also covers anonymous visitors and the Grade 6 subjects that do not record answers. Data starts when tracking started."
+          help="Finished practice runs across ALL topics (a run is one pass through a question set). Counted from usage events, so it also covers anonymous visitors and every subject, including answers that were not recorded individually. Data starts when tracking started."
         />
         <StatTile
           label="Average run score"

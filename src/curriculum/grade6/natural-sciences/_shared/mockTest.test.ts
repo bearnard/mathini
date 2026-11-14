@@ -121,3 +121,21 @@ test('topicsToRevise lists topics under 60%, lowest first', () => {
   ];
   assert.deepEqual(topicsToRevise(scores), ['low', 'mid']);
 });
+
+test('the same prompt in two topic banks is asked at most once, across many seeds, and the test still has 20 questions', () => {
+  const shared = { prompt: 'Why does the Sun seem to move across the sky?', options: ['A', 'B', 'C', 'D'], answer: 'A' };
+  for (let seed = 0; seed < 200; seed++) {
+    const a = makeGroup('a', 14); const b = makeGroup('b', 14);
+    a.items[0] = { ...shared }; b.items[0] = { ...shared };
+    const items = buildMockTest([a, b, makeGroup('c', 14), makeGroup('d', 14)], 20, mulberry32(seed));
+    assert.equal(items.length, 20, `seed ${seed}`);
+    assert.ok(items.filter((i) => i.prompt === shared.prompt).length <= 1, `seed ${seed}`);
+    assert.equal(new Set(items.map((i) => i.prompt)).size, items.length, `seed ${seed}`);
+  }
+});
+test('when every bank is the same ten questions the test is as long as the unique questions allow', () => {
+  const same = (topic: string): TopicBank => ({ topic, items: Array.from({ length: 10 }, (_, i) => ({ prompt: `shared ${i}`, options: ['A', 'B'], answer: 'A' })) });
+  const items = buildMockTest([same('a'), same('b'), same('c')], 20, mulberry32(1));
+  assert.equal(items.length, 10);
+  assert.equal(new Set(items.map((i) => i.prompt)).size, 10);
+});

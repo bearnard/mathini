@@ -10,6 +10,8 @@ import { AfrikaansItem, LearnStep } from './types';
 import { useAfrikaansItems } from './useAfrikaansItems';
 import { track } from '../../../../lib/client/analytics';
 import { usePracticeTracking } from '../../../../lib/client/usePracticeTracking';
+import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
+import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
 import SpeakButton from './SpeakButton';
 
 interface AfrikaansTopicProps {
@@ -41,12 +43,15 @@ const AfrikaansTopic = ({
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [streak, setStreak] = useState(0);
   usePracticeTracking({ active: mode === 'practice', done, isCorrect, ctx: { grade: 6, subject: 'afr', topic: task } });
+  // Signed-in learners' answers are recorded (XP, badges, leaderboards). Subject code matches the leaderboard filter.
+  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'afr');
 
   const handleSelect = (option: string) => {
     if (selected !== null || !current) {
       return;
     }
     setSelected(option);
+    recordAttempt(option === current.answer, current.section, current.id);
     if (option === current.answer) {
       setIsCorrect(true);
       setStreak((s) => s + 1);
@@ -67,6 +72,7 @@ const AfrikaansTopic = ({
     setSelected(null);
     setIsCorrect(null);
     setStreak(0);
+    resetStreak();
     reset();
   };
 
@@ -215,6 +221,7 @@ const AfrikaansTopic = ({
           )}
         </>
       )}
+      <BadgeUnlockModal badges={pendingBadges} onDismiss={clearBadges} />
     </TopicContainer>
   );
 };

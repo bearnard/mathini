@@ -10,6 +10,8 @@ import { GeoItem, LearnStep } from './types';
 import { useGeoItems } from './useGeoItems';
 import { track } from '../../../../lib/client/analytics';
 import { usePracticeTracking } from '../../../../lib/client/usePracticeTracking';
+import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
+import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
 
 interface GeoTopicProps {
   title: string;
@@ -31,12 +33,15 @@ const GeoTopic = ({ title, subtitle, learnSteps, task, bank }: GeoTopicProps) =>
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [streak, setStreak] = useState(0);
   usePracticeTracking({ active: mode === 'practice', done, isCorrect, ctx: { grade: 6, subject: 'geo', topic: task } });
+  // Signed-in learners' answers are recorded (XP, badges, leaderboards). Subject code matches the leaderboard filter.
+  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'geo');
 
   const handleSelect = (option: string) => {
     if (selected !== null || !current) {
       return;
     }
     setSelected(option);
+    recordAttempt(option === current.answer, current.section, current.id);
     if (option === current.answer) {
       setIsCorrect(true);
       setStreak((s) => s + 1);
@@ -57,6 +62,7 @@ const GeoTopic = ({ title, subtitle, learnSteps, task, bank }: GeoTopicProps) =>
     setSelected(null);
     setIsCorrect(null);
     setStreak(0);
+    resetStreak();
     reset();
   };
 
@@ -205,6 +211,7 @@ const GeoTopic = ({ title, subtitle, learnSteps, task, bank }: GeoTopicProps) =>
           )}
         </>
       )}
+      <BadgeUnlockModal badges={pendingBadges} onDismiss={clearBadges} />
     </TopicContainer>
   );
 };

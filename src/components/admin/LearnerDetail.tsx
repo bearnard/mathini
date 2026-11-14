@@ -9,6 +9,7 @@ import RankedList from './RankedList';
 import StatTile from './StatTile';
 import { countryName, eventLabel, formatDateTime, formatDay, formatInt, formatPercent, longDate, shortDate } from './format';
 import { plural, subjectTitle, topicInfo, topicSubline } from './names';
+import { shellRecordingNote } from './coverage';
 import { useAdminData } from './useAdminData';
 import type { LearnerDetail as Detail } from '../../lib/server/admin/learners';
 
@@ -27,7 +28,7 @@ export default function LearnerDetail({ id }: { id: string }) {
     return p.toString();
   }, [sp]);
   const state = useAdminData<Detail>(`/api/admin/learners/${encodeURIComponent(id)}`, qs);
-  const overview = useAdminData<{ options: { subjects: string[] } }>('/api/admin/overview', qs);
+  const overview = useAdminData<{ options: { subjects: string[] }; recordedSince: string | null }>('/api/admin/overview', qs);
   const subjects = overview.status === 'ok' ? overview.data.options.subjects : [];
   const back = `/admin/learners${qs ? `?${qs}` : ''}`;
 
@@ -45,7 +46,7 @@ export default function LearnerDetail({ id }: { id: string }) {
           <Header d={state.data} id={id} />
           <FilterBar subjects={subjects} />
           <p className="admin-muted" style={{ fontSize: 12, marginTop: -6 }}>The date range and subject filters apply to the accuracy chart, topics and weak sections.</p>
-          <Body d={state.data} />
+          <Body d={state.data} recordingNote={shellRecordingNote(overview.status === 'ok' ? overview.data.recordedSince : null)} />
           <DangerZone d={state.data} id={id} />
         </>
       )}
@@ -111,7 +112,7 @@ function Header({ d, id }: { d: Detail; id: string }) {
   );
 }
 
-function Body({ d }: { d: Detail }) {
+function Body({ d, recordingNote }: { d: Detail; recordingNote: string }) {
   const acc = d.totals.questions > 0 ? d.totals.correct / d.totals.questions : null;
   const series = d.accuracy.map((p) => ({ date: p.date, accuracy: p.questions > 0 ? Math.round((p.correct / p.questions) * 1000) / 10 : null, questions: p.questions }));
   const hasSeries = series.some((p) => p.accuracy !== null);
@@ -122,7 +123,7 @@ function Body({ d }: { d: Detail }) {
     <>
       <section aria-label="Summary" className="admin-tiles">
         <StatTile label="XP" value={formatInt(d.xp)} delta={NONE} deltaContext="" help="Experience points earned from recorded answers." />
-        <StatTile label="Questions answered" value={formatInt(d.totals.questions)} delta={NONE} deltaContext="" help="All recorded answers, ever (not limited to the date range). Grade 6 Natural Sciences, Geography, History and Afrikaans do not record answers." />
+        <StatTile label="Questions answered" value={formatInt(d.totals.questions)} delta={NONE} deltaContext="" help={`All recorded answers, ever (not limited to the date range). ${recordingNote}`} />
         <StatTile label="Accuracy" value={formatPercent(acc)} delta={NONE} deltaContext="" help="Share of all recorded answers that were correct." />
         <StatTile label="Badges" value={formatInt(d.badges.length)} delta={NONE} deltaContext="" help="Badges earned." />
       </section>

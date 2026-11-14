@@ -240,3 +240,17 @@ test('SQL injection shapes in filters cannot reach the query (parameters only)',
     assert.equal((await t.db.all<{ n: number }>('SELECT COUNT(*) AS n FROM events'))[0].n, 1);
   });
 });
+
+test('recordedSince: the date of the first recorded answer for the four Grade 6 shell subjects, else null', async (ctx) => {
+  await withDb(ctx, async (t) => {
+    insertStudent(t, { id: 'a', created: at(60) });
+    assert.equal((await overview(t.db, F(), NOW)).recordedSince, null);
+    insertAttempt(t, { student: 'a', ts: at(2), correct: true, subject: 'grade6', grade: 6 }); // maths: not a shell subject
+    insertAttempt(t, { student: 'a', ts: at(2), correct: true, subject: 'nst', grade: 7 }); // Grade 7 NST: not a shell
+    assert.equal((await overview(t.db, F(), NOW)).recordedSince, null);
+    insertAttempt(t, { student: 'a', ts: at(5), correct: true, subject: 'geo', grade: 6 });
+    insertAttempt(t, { student: 'a', ts: at(3), correct: false, subject: 'nst', grade: 6 });
+    assert.equal((await overview(t.db, F(), NOW)).recordedSince, '2026-11-09'); // earliest, SAST, not limited by the date range
+    assert.equal((await overview(t.db, F('range=today'), NOW)).recordedSince, '2026-11-09');
+  });
+});
