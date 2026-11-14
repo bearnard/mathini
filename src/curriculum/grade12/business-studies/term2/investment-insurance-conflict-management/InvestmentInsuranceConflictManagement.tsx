@@ -5,7 +5,6 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/bus/term2/investment-insurance-conflict-management/diagram.webp", alt: "SWOT Analysis: Investing Business Surplus Funds" },
     title: 'Compare investment options',
     content: (
       <div className="space-y-6">

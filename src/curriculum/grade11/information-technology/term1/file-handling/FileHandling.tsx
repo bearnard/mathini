@@ -4,7 +4,6 @@ import type { ITItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/it/term1/file-handling/diagram.webp", alt: "File Handling" },
     title: 'Text files vs binary files',
     content: (
       <div className="space-y-4 text-center">

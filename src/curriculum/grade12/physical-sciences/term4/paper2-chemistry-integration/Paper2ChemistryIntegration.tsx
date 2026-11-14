@@ -5,7 +5,6 @@ import Formula from '@/components/subjects/Formula';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ps/term4/paper2-chemistry-integration/diagram.webp", alt: "Paper 2 Chemistry Integration" },
     title: 'Link organic structure to likely reaction type',
     content: (
       <div className="space-y-4 text-left">

@@ -2,7 +2,6 @@ import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 
 const learnSteps = [
   {
-    image: { src: "/curriculum/grade12/eng/term1/paper3-essay-writing/diagram.webp", alt: "Paper 3 Essay Writing" },
     title: "Knowing the major essay types",
     content: (
       <div className="space-y-4 text-left">

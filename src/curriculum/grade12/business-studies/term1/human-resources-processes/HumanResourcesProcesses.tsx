@@ -5,7 +5,6 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/bus/term1/human-resources-processes/diagram.webp", alt: "SWOT Analysis: Recruitment Drive for a Growing Bakery" },
     title: 'Start with job analysis',
     content: (
       <div className="space-y-6">

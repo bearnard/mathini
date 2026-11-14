@@ -4,7 +4,6 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps = [
   {
-    image: { src: "/curriculum/grade12/geo/term1/tropical-cyclones-anticyclones/diagram.webp", alt: "Tropical Cyclones and Anticyclones" },
     title: "How tropical cyclones form",
     content: (
       <div className="space-y-4 text-left">

@@ -4,7 +4,6 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps = [
   {
-    image: { src: "/curriculum/grade12/geo/term4/settlements-revision/diagram.webp", alt: "Settlements Revision" },
     title: "Revise rural settlement basics",
     content: (
       <div className="space-y-4 text-left">

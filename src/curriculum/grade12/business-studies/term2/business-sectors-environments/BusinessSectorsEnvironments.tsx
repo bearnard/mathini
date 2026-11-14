@@ -5,7 +5,6 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/bus/term2/business-sectors-environments/diagram.webp", alt: "SWOT Analysis: Small Food Manufacturer" },
     title: 'Understand the three sectors',
     content: (
       <div className="space-y-6">

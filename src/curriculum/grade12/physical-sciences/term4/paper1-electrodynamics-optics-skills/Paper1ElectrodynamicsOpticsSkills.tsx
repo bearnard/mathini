@@ -6,7 +6,6 @@ import SimpleCircuit from '@/components/subjects/PhysicsSim/SimpleCircuit';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ps/term4/paper1-electrodynamics-optics-skills/diagram.webp", alt: "Paper 1 Electrodynamics and Optics Revision" },
     title: 'Compare the energy conversions across devices',
     content: (
       <div className="space-y-4 text-left">

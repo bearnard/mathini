@@ -9,7 +9,6 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ls/term4/paper2-genetics-evolution-consolidation/diagram.webp", alt: "From DNA to protein" },
     title: 'Paper 2 starts with strong molecular foundations',
     content: (
       <div className="space-y-6 text-left">

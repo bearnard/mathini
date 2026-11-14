@@ -5,7 +5,6 @@ import FunctionGraph from '../../../../../components/subjects/FunctionGraph';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/math/term3/euclidean-geometry/diagram.webp", alt: "Euclidean Geometry" },
     title: 'Apply Circle Theorems with Exact Statements',
     content: (
       <div className="space-y-4 text-center">

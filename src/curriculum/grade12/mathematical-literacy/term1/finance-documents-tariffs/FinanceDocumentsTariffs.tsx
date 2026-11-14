@@ -7,7 +7,6 @@ import BudgetPlanner from '@/components/subjects/BudgetPlanner';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ml/term1/finance-documents-tariffs/diagram.webp", alt: "Finance: Documents and Tariffs" },
     title: 'Read financial documents for key values',
     content: (
       <div className="space-y-4 text-left">

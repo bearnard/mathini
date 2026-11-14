@@ -3,7 +3,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 
 const learnSteps = [
   {
-    image: { src: "/curriculum/grade12/eng/term2/unseen-poetry-interpretation/diagram.webp", alt: "From \\" },
     title: "Finding the speaker and situation",
     content: (
       <div className="space-y-4 text-left">

@@ -3,7 +3,6 @@ import type { LearnStep } from '@/components/CapsSubjectTopic';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/lo/term4/world-of-work-entrepreneurship/diagram.webp", alt: "World of Work and Entrepreneurship" },
     title: 'Work Ethics and Workplace Norms',
     content: (
       <div className="space-y-4 text-center">

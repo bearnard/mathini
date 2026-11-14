@@ -5,7 +5,6 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps = [
   {
-    image: { src: "/curriculum/grade12/geo/term4/climate-and-geomorphology-revision/diagram.webp", alt: "Climate and Geomorphology Revision" },
     title: "Revise the major weather systems",
     content: (
       <div className="space-y-4 text-left">

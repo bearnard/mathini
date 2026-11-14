@@ -3,7 +3,6 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/cat/term1/spreadsheets-word-processing-pat-planning/diagram.webp", alt: "Spreadsheets, Word Processing and PAT Planning" },
     title: "Advanced spreadsheet logic",
     content: (
       <div className="space-y-4 text-left">

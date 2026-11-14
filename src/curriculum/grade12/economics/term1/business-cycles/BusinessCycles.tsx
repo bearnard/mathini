@@ -13,7 +13,6 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/econ/term1/business-cycles/diagram.webp", alt: "Business Cycles" },
     title: 'Phases of the cycle',
     content: (
       <div className="space-y-6">

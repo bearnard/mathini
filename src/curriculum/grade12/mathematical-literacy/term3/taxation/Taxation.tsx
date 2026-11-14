@@ -6,7 +6,6 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ml/term3/taxation/diagram.webp", alt: "Finance: Taxation" },
     title: 'Understand taxable income and deductions',
     content: (
       <div className="space-y-4 text-left">

@@ -8,7 +8,6 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ls/term4/paper1-response-coordination-plants/diagram.webp", alt: "Systems of response coordination" },
     title: 'Coordinate the nervous and endocrine systems',
     content: (
       <div className="space-y-6 text-left">

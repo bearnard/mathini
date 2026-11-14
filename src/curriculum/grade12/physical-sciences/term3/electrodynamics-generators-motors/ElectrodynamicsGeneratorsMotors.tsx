@@ -6,7 +6,6 @@ import SimpleCircuit from '@/components/subjects/PhysicsSim/SimpleCircuit';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ps/term3/electrodynamics-generators-motors/diagram.webp", alt: "Electrodynamics: Generators and Motors" },
     title: 'Generators rely on electromagnetic induction',
     content: (
       <div className="space-y-4 text-left">

@@ -6,7 +6,6 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ml/term4/integrated-revision/diagram.webp", alt: "Integrated Revision" },
     title: 'Read sources before reaching for a method',
     content: (
       <div className="space-y-4 text-left">

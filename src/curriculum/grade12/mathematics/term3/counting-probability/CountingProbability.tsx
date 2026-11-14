@@ -6,7 +6,6 @@ import ProbabilitySimulator from '@/components/subjects/ProbabilitySimulator';
 
   const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/math/term3/counting-probability/diagram.webp", alt: "Counting and Probability" },
     title: 'Fundamental counting principle',
     content: (
       <>

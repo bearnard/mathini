@@ -6,7 +6,6 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 
   const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/math/term2/analytical-geometry-circle/diagram.webp", alt: "Analytical Geometry of the Circle" },
     title: 'Centre-radius form of a circle',
     content: (
       <>

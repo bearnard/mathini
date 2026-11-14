@@ -13,7 +13,6 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/econ/term3/contemporary-economic-issues/diagram.webp", alt: "Contemporary Economic Issues" },
     title: 'Unemployment and inequality',
     content: (
       <div className="space-y-6">

@@ -5,7 +5,6 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/bus/term1/creative-thinking-business-strategies/diagram.webp", alt: "SWOT Analysis: Township Coffee Shop" },
     title: 'Creative thinking improves business responses',
     content: (
       <div className="space-y-6">

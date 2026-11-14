@@ -3,7 +3,6 @@ import type { LearnStep } from '@/components/CapsSubjectTopic';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/lo/term1/development-of-self-in-society/diagram.webp", alt: "Development of the Self in Society" },
     title: 'Life Roles and Purpose',
     content: (
       <div className="space-y-4 text-center">

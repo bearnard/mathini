@@ -3,7 +3,6 @@ import type { ITItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/it/term3/protocols-media/diagram.webp", alt: "Protocols and Communication Media" },
     title: 'The TCP/IP protocol suite',
     content: (
       <div className="space-y-4 text-center">

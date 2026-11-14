@@ -3,7 +3,6 @@ import type { LearnStep } from '@/components/CapsSubjectTopic';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/lo/term4/careers-career-choices/diagram.webp", alt: "Careers and Career Choices" },
     title: 'Post-School Pathways',
     content: (
       <div className="space-y-4 text-center">

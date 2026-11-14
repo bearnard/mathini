@@ -5,7 +5,6 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/bus/term4/exam-action-verbs-time-management/diagram.webp", alt: "SWOT Analysis: Exam Preparation Strategy" },
     title: 'Read the command words carefully',
     content: (
       <div className="space-y-6">

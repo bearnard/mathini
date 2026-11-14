@@ -6,7 +6,6 @@ import WaveInterference from '@/components/subjects/PhysicsSim/WaveInterference'
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ps/term3/photoelectric-effect-spectra/diagram.webp", alt: "Photoelectric Effect and Atomic Spectra" },
     title: 'Light can behave as packets of energy',
     content: (
       <div className="space-y-4 text-left">

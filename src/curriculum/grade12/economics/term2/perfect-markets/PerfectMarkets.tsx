@@ -14,7 +14,6 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/econ/term2/perfect-markets/diagram.webp", alt: "Perfect Competition Market" },
     title: 'Features of perfect competition',
     content: (
       <div className="space-y-6">

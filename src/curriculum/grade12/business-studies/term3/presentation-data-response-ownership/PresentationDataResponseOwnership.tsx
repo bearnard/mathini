@@ -5,7 +5,6 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/bus/term3/presentation-data-response-ownership/diagram.webp", alt: "SWOT Analysis: Choosing Ownership for a Community Bakery" },
     title: 'Choose the correct presentation method',
     content: (
       <div className="space-y-6">

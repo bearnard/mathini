@@ -3,7 +3,6 @@ import type { LearnStep } from '@/components/CapsSubjectTopic';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/lo/term3/democracy-and-human-rights/diagram.webp", alt: "Democracy and Human Rights" },
     title: 'Constitutional Values and Rights',
     content: (
       <div className="space-y-4 text-left">

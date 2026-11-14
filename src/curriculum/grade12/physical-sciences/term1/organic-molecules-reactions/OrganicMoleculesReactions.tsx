@@ -4,7 +4,6 @@ import type { PhysicalSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ps/term1/organic-molecules-reactions/diagram.webp", alt: "Organic Molecules and Reactions" },
     title: 'Homologous series are organised by functional groups',
     content: (
       <div className="space-y-4 text-left">

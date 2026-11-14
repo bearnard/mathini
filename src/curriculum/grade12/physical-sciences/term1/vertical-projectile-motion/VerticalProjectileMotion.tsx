@@ -8,7 +8,6 @@ const ProjectileMotion = dynamic(() => import('@/components/subjects/PhysicsSim/
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/ps/term1/vertical-projectile-motion/diagram.webp", alt: "Vertical Projectile Motion" },
     title: 'Choose a sign convention before substituting values',
     content: (
       <div className="space-y-4 text-left">

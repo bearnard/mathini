@@ -3,7 +3,6 @@ import type { ITItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/it/term2/computer-architecture/diagram.webp", alt: "Computer Architecture" },
     title: 'Von Neumann architecture',
     content: (
       <div className="space-y-4 text-center">

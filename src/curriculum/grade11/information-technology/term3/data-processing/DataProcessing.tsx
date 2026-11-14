@@ -4,7 +4,6 @@ import type { ITItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/it/term3/data-processing/diagram.webp", alt: "Data Processing and Validation" },
     title: 'Input validation techniques',
     content: (
       <div className="space-y-4 text-center">

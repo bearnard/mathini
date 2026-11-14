@@ -3,7 +3,6 @@ import type { LSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/ls/term3/excretion-humans/diagram.webp", alt: "Excretion in Humans" },
     title: 'Kidney Structure',
     content: (
       <div className="space-y-4 text-center">

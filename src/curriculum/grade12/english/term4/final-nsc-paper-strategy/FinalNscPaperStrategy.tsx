@@ -2,7 +2,6 @@ import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 
 const learnSteps = [
   {
-    image: { src: "/curriculum/grade12/eng/term4/final-nsc-paper-strategy/diagram.webp", alt: "Final NSC Paper Strategy" },
     title: "Recognising different paper demands quickly",
     content: (
       <div className="space-y-4 text-left">

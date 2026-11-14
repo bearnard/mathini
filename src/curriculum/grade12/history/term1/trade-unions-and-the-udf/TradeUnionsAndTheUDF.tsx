@@ -3,7 +3,6 @@ import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/his/term1/trade-unions-and-the-udf/diagram.webp", alt: "Trade Unions and the UDF" },
     title: 'Key Events — Timeline',
     content: (
       <div className="space-y-4">

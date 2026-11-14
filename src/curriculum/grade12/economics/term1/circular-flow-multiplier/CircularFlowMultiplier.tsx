@@ -13,7 +13,6 @@ type RawEconomicsItem = {
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/econ/term1/circular-flow-multiplier/diagram.webp", alt: "Circular Flow and the Multiplier" },
     title: 'The open circular flow',
     content: (
       <div className="space-y-6">

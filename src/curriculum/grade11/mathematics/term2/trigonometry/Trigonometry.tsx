@@ -6,7 +6,6 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/math/term2/trigonometry/diagram.webp", alt: "Trigonometry" },
     title: 'Use Special Angles and Graphs Together',
     content: (
       <div className="space-y-4 text-center">

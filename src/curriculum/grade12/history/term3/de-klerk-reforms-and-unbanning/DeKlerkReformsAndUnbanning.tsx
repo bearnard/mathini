@@ -3,7 +3,6 @@ import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/his/term3/de-klerk-reforms-and-unbanning/diagram.webp", alt: "De Klerk Reforms and Unbanning" },
     title: 'Key Events — Timeline',
     content: (
       <div className="space-y-4">

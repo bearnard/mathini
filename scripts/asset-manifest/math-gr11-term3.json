@@ -20,27 +20,5 @@
     "path": "curriculum/grade11/math/term3/trig-sine-cosine-rule/diagram.svg",
     "alt": "non-right-angled triangle with labelled sides a, b, c and angles A, B, C",
     "prompt": "Clear educational SVG diagram for Grade 11 learners showing a non-right-angled triangle with its three vertices and opposite sides distinguished by colour. Each angle and side is clearly visually distinguished to illustrate the sine rule and cosine rule setup."
-  },
-  {
-    "grade": "grade11",
-    "subject": "math",
-    "term": "term3",
-    "topic": "trig-sine-cosine-rule",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/math/term3/trig-sine-cosine-rule/diagram.webp",
-    "alt": "Trigonometry \u2014 Sine, Cosine and Area Rules",
-    "prompt": "A clear educational illustration depicting \"Trigonometry \u2014 Sine, Cosine and Area Rules\": Solving non-right-angled triangles with the correct rule."
-  },
-  {
-    "grade": "grade11",
-    "subject": "math",
-    "term": "term3",
-    "topic": "euclidean-geometry",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/math/term3/euclidean-geometry/diagram.webp",
-    "alt": "Euclidean Geometry",
-    "prompt": "A clear educational illustration depicting \"Euclidean Geometry\": Circle theorems, tangents, chords and cyclic quadrilaterals."
   }
 ]
