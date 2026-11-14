@@ -19,18 +19,7 @@
     "type": "svg",
     "path": "curriculum/grade11/math/term2/trigonometry/diagram.svg",
     "alt": "unit circle showing angles in all four quadrants with CAST rule labels",
-    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a unit circle divided into four quadrants with marked reference angles at 30°, 45°, 60° positions and the CAST (All, Sin, Tan, Cos) positive signs visually distinguished in each quadrant."
-  },
-  {
-    "grade": "grade11",
-    "subject": "math",
-    "term": "term2",
-    "topic": "exam-preparation",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/math/term2/exam-preparation/diagram.webp",
-    "alt": "student reviewing multiple maths topics illustrated as colourful topic cards",
-    "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing a student at a desk surrounded by colourful glowing topic cards representing maths subjects — algebra, graphs, geometry and trigonometry. Simple bright shapes, white background, no text or labels in the image."
+    "prompt": "Clear educational SVG diagram for Grade 11 learners showing a unit circle divided into four quadrants with marked reference angles at 30\u00b0, 45\u00b0, 60\u00b0 positions and the CAST (All, Sin, Tan, Cos) positive signs visually distinguished in each quadrant."
   },
   {
     "grade": "grade11",

@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Understand current, voltage and resistance',
-    image: {
-      src: '/curriculum/grade9/technology/term3/electrical-circuits/image1.jpg',
-      alt: 'learner measuring current with an ammeter and voltage with a voltmeter in a circuit containing resistors',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

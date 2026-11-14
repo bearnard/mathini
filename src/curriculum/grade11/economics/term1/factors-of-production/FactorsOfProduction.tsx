@@ -13,7 +13,6 @@ const factorProfileData = [
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/econ/term1/factors-of-production/diagram.webp", alt: "Labour Market" },
     title: 'The Four Factors of Production',
     content: (
       <div className="space-y-6">

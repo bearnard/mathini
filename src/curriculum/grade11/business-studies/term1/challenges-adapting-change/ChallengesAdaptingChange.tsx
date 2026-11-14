@@ -3,7 +3,6 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/bus/term1/challenges-adapting-change/diagram.webp", alt: "Challenges and Adapting to Change" },
     title: 'Socio-economic challenges in South Africa',
     content: (
       <div className="space-y-4 text-center">

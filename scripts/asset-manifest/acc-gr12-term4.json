@@ -3,33 +3,11 @@
     "grade": "grade12",
     "subject": "acc",
     "term": "term4",
-    "topic": "paper-2-revision",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade12/acc/term4/paper-2-revision/diagram.webp",
-    "alt": "Paper 2 Revision Snapshot",
-    "prompt": "A clear educational illustration depicting \"Paper 2 Revision Snapshot\": Inventory, assets, manufacturing, reconciliations, VAT and budgeting before the NSC exam."
-  },
-  {
-    "grade": "grade12",
-    "subject": "acc",
-    "term": "term4",
     "topic": "paper-1-revision",
     "section": "diagram",
     "type": "ai",
     "path": "curriculum/grade12/acc/term4/paper-1-revision/diagram.webp",
     "alt": "Paper 1 Revision Extract",
     "prompt": "A clear educational illustration depicting \"Paper 1 Revision Extract\": Companies, cash flow, financial indicators and governance for final exam readiness."
-  },
-  {
-    "grade": "grade12",
-    "subject": "acc",
-    "term": "term4",
-    "topic": "exam-readiness-strategies",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade12/acc/term4/exam-readiness-strategies/diagram.webp",
-    "alt": "Exam Layout Check",
-    "prompt": "A clear educational illustration depicting \"Exam Layout Check\": Final CAPS consolidation, common pitfalls and evidence-based answering in Grade 12 Accounting."
   }
 ]

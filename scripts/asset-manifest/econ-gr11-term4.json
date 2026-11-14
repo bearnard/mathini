@@ -9,16 +9,5 @@
     "path": "curriculum/grade11/econ/term4/environmental-sustainability/diagram.webp",
     "alt": "Polluting Industry",
     "prompt": "A clear educational illustration depicting \"Polluting Industry\": Externalities, climate change, green economy and SA."
-  },
-  {
-    "grade": "grade11",
-    "subject": "econ",
-    "term": "term4",
-    "topic": "current-economic-issues",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/econ/term4/current-economic-issues/diagram.webp",
-    "alt": "Cost-push Inflation Shock",
-    "prompt": "A clear educational illustration depicting \"Cost-push Inflation Shock\": SA."
   }
 ]

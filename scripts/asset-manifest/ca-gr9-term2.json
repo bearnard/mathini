@@ -25,17 +25,6 @@
     "grade": "grade9",
     "subject": "ca",
     "term": "term2",
-    "topic": "drama",
-    "section": "image1",
-    "type": "ai",
-    "path": "curriculum/grade9/creative-arts/term2/drama/image1.jpg",
-    "alt": "Grade 9 learners interpreting scripts and exploring character choices",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 9 learners showing students interpreting scripts with cultural awareness, making strong character choices, using voice and gesture control, following stage directions, and connecting to South African theatrical traditions and social themes. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade9",
-    "subject": "ca",
-    "term": "term2",
     "topic": "dance",
     "section": "image1",
     "type": "ai",

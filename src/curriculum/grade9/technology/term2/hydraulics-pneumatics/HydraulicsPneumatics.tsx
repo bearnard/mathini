@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Explore hydraulic and pneumatic systems',
-    image: {
-      src: '/curriculum/grade9/technology/term2/hydraulics-pneumatics/image1.jpg',
-      alt: 'learner comparing hydraulic fluid systems and pneumatic air systems with syringes and pistons',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

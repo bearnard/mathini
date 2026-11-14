@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Understand forces and structural stability',
-    image: {
-      src: '/curriculum/grade9/technology/term1/structures-accessible-design/image1.jpg',
-      alt: 'learner analyzing forces acting on a structure including static and dynamic forces, bending and torsion',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

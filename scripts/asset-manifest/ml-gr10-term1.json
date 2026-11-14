@@ -1,13 +1,1 @@
-[
-  {
-    "grade": "grade10",
-    "subject": "ml",
-    "term": "term1",
-    "topic": "patterns-relationships-representations",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade10/ml/term1/patterns-relationships-representations/diagram.webp",
-    "alt": "Patterns, Relationships and Representations",
-    "prompt": "A clear educational illustration depicting \"Patterns, Relationships and Representations\": Sequences, functions, and data visualization."
-  }
-]
+[]

@@ -8,7 +8,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/it/term1/gui-design-event-driven-programming/diagram.webp", alt: "GUI Design and Event-Driven Programming" },
     title: 'User-centred form design',
     content: (
       <div className="space-y-6">

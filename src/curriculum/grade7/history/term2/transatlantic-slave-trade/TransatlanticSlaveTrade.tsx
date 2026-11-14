@@ -24,10 +24,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'The transatlantic slave trade reshaped many societies',
-    image: {
-      src: '/curriculum/grade7/his/term2/transatlantic-slave-trade/diagram.webp',
-      alt: 'Grade 7 learners studying Atlantic routes linked to West Africa, the Americas, and Europe',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

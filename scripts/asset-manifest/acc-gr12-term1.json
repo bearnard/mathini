@@ -3,17 +3,6 @@
     "grade": "grade12",
     "subject": "acc",
     "term": "term1",
-    "topic": "company-share-capital",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade12/acc/term1/company-share-capital/diagram.webp",
-    "alt": "Statement of Changes in Equity (Extract)",
-    "prompt": "A clear educational illustration depicting \"Statement of Changes in Equity (Extract)\": Ordinary shares, buy-backs, dividends and the roles of shareholders, directors and auditors."
-  },
-  {
-    "grade": "grade12",
-    "subject": "acc",
-    "term": "term1",
     "topic": "company-financial-statements",
     "section": "diagram",
     "type": "ai",

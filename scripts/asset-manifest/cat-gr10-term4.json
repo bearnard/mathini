@@ -3,22 +3,11 @@
     "grade": "grade10",
     "subject": "cat",
     "term": "term4",
-    "topic": "spreadsheets-information-management-pat-completion",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade10/cat/term4/spreadsheets-information-management-pat-completion/diagram.webp",
-    "alt": "Spreadsheets, Information Management and PAT Completion",
-    "prompt": "A clear educational illustration depicting \"Spreadsheets, Information Management and PAT Completion\": Grade 10 · Computer Applications Technology · Term 4."
-  },
-  {
-    "grade": "grade10",
-    "subject": "cat",
-    "term": "term4",
     "topic": "document-integration-exam-consolidation",
     "section": "diagram",
     "type": "ai",
     "path": "curriculum/grade10/cat/term4/document-integration-exam-consolidation/diagram.webp",
     "alt": "Document Integration and Exam Consolidation",
-    "prompt": "A clear educational illustration depicting \"Document Integration and Exam Consolidation\": Grade 10 · Computer Applications Technology · Term 4."
+    "prompt": "A clear educational illustration depicting \"Document Integration and Exam Consolidation\": Grade 10 \u00b7 Computer Applications Technology \u00b7 Term 4."
   }
 ]

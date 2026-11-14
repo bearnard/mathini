@@ -3,17 +3,6 @@
     "grade": "grade12",
     "subject": "it",
     "term": "term4",
-    "topic": "nsc-theory-exam-technique",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade12/it/term4/nsc-theory-exam-technique/diagram.webp",
-    "alt": "NSC Theory Exam Technique",
-    "prompt": "A clear educational illustration depicting \"NSC Theory Exam Technique\": Answering CAPS theory questions with precision, evidence and balance."
-  },
-  {
-    "grade": "grade12",
-    "subject": "it",
-    "term": "term4",
     "topic": "nsc-practical-programming-revision",
     "section": "diagram",
     "type": "ai",

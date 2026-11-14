@@ -3,7 +3,6 @@ import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/bus/term2/change-crisis-management/diagram.webp", alt: "Change and Crisis Management" },
     title: 'Stress and its impact on business',
     content: (
       <div className="space-y-4 text-center">

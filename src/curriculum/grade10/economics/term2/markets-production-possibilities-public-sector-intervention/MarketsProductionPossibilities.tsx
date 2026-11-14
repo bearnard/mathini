@@ -6,7 +6,6 @@ import type { EconomicsItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/econ/term2/markets-production-possibilities-public-sector-intervention/diagram.webp", alt: "Market for Bread" },
     title: 'Demand, supply and market price',
     content: (
       <div className="space-y-6">

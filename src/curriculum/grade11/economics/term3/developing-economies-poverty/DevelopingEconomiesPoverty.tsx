@@ -13,7 +13,6 @@ const povertyTrendData = [
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/econ/term3/developing-economies-poverty/diagram.webp", alt: "Developing Economies and Poverty" },
     title: 'Developing vs Developed Economies',
     content: (
       <div className="space-y-6">

@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Calculate confidently with common fractions',
-    image: {
-      src: '/curriculum/grade7/math/term2/common-fractions/diagram.webp',
-      alt: 'Grade 7 learners comparing, simplifying, and operating with common fractions and mixed numbers',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

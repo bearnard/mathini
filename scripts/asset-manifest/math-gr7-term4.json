@@ -3,17 +3,6 @@
     "grade": "grade7",
     "subject": "math",
     "term": "term4",
-    "topic": "data-handling",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/math/term4/data-handling/diagram.webp",
-    "alt": "Grade 7 learners collecting and interpreting class data with graphs and tables",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners collecting class survey data and interpreting bar graph and pie chart representations. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade7",
-    "subject": "math",
-    "term": "term4",
     "topic": "probability",
     "section": "diagram",
     "type": "ai",

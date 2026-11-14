@@ -7,7 +7,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/acc/term4/paper-2-revision/diagram.webp", alt: "Paper 2 Revision Snapshot" },
     title: 'Core Paper 2 content',
     content: (
       <div className="space-y-6">

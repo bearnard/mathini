@@ -3,17 +3,6 @@
     "grade": "grade7",
     "subject": "lsk",
     "term": "term4",
-    "topic": "personal-social-wellbeing",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/lsk/term4/personal-social-wellbeing/diagram.webp",
-    "alt": "Grade 7 learners using study planners and stress-management routines for exams",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners planning goals with study timetables, practising stress-management routines, and discussing community responsibility. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade7",
-    "subject": "lsk",
-    "term": "term4",
     "topic": "physical-education",
     "section": "diagram",
     "type": "ai",

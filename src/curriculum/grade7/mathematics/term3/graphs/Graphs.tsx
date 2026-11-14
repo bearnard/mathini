@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Plot and interpret graphs accurately',
-    image: {
-      src: '/curriculum/grade7/math/term3/graphs/diagram.webp',
-      alt: 'Grade 7 learners plotting ordered pairs and linking tables to coordinate graphs',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

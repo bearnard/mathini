@@ -6,10 +6,6 @@ import ClimateGraph from '@/components/subjects/ClimateGraph';
 const learnSteps: LearnStep[] = [
   {
     title: 'Explain climate regions and controls',
-    image: {
-      src: '/curriculum/grade8/geo/term2/climate-regions-in-south-africa-and-the-world/diagram.webp',
-      alt: 'Grade 8 learners interpreting a climate graph and world climate map for South Africa and global regions',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

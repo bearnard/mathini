@@ -3,17 +3,6 @@
     "grade": "grade12",
     "subject": "it",
     "term": "term1",
-    "topic": "gui-design-event-driven-programming",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade12/it/term1/gui-design-event-driven-programming/diagram.webp",
-    "alt": "GUI Design and Event-Driven Programming",
-    "prompt": "A clear educational illustration depicting \"GUI Design and Event-Driven Programming\": Building user-friendly interfaces and linking controls to program logic."
-  },
-  {
-    "grade": "grade12",
-    "subject": "it",
-    "term": "term1",
     "topic": "encapsulation-class-design-exception-handling",
     "section": "diagram",
     "type": "ai",

@@ -3,34 +3,12 @@
     "grade": "grade11",
     "subject": "cat",
     "term": "term4",
-    "topic": "exam-preparation-consolidation",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/cat/term4/exam-preparation-consolidation/diagram.webp",
-    "alt": "Exam Preparation and Consolidation",
-    "prompt": "A clear educational illustration depicting \"Exam Preparation and Consolidation\": Mixed revision across all Grade 11 CAT topics and exam technique."
-  },
-  {
-    "grade": "grade11",
-    "subject": "cat",
-    "term": "term4",
     "topic": "email-management-online-risks",
     "section": "diagram",
     "type": "ai",
     "path": "curriculum/grade11/cat/term4/email-management-online-risks/diagram.webp",
     "alt": "Email Management and Online Risks",
     "prompt": "A clear educational illustration depicting \"Email Management and Online Risks\": Email organisation, webmail vs client, ransomware, and online safety."
-  },
-  {
-    "grade": "grade11",
-    "subject": "cat",
-    "term": "term4",
-    "topic": "application-integration-case-studies",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/cat/term4/application-integration-case-studies/diagram.webp",
-    "alt": "Application Integration and Case Studies",
-    "prompt": "A clear educational illustration depicting \"Application Integration and Case Studies\": Cross-application workflows, social implications, and exam command words."
   },
   {
     "grade": "grade11",

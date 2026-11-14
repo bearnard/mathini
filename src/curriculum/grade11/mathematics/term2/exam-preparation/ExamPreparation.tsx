@@ -5,7 +5,6 @@ import FunctionGraph from '../../../../../components/subjects/FunctionGraph';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/math/term2/exam-preparation/diagram.webp", alt: "Examination Preparation" },
     title: 'Revise Core Paper 1 Skills',
     content: (
       <div className="space-y-4 text-center">

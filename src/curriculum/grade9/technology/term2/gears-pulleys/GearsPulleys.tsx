@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Understand pulley systems and mechanical advantage',
-    image: {
-      src: '/curriculum/grade9/technology/term2/gears-pulleys/image1.jpg',
-      alt: 'learner examining fixed pulleys, movable pulleys, and block and tackle arrangements for lifting loads',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

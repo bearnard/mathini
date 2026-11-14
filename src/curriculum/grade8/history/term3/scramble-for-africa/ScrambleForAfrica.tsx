@@ -23,10 +23,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Colonial competition and African resistance',
-    image: {
-      src: '/curriculum/grade8/his/term3/scramble-for-africa/diagram.webp',
-      alt: 'Grade 8 learners studying a map of Africa, the Berlin Conference, and examples of resistance',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

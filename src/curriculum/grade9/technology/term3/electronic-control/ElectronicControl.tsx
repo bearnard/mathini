@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Explore electronic components and sensing',
-    image: {
-      src: '/curriculum/grade9/technology/term3/electronic-control/image1.jpg',
-      alt: 'learner examining diodes, LEDs, LDRs, thermistors, and transistors in a control circuit setup',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
