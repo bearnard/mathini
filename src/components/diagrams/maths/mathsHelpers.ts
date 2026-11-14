@@ -265,3 +265,49 @@ export const SYMMETRY_LINES = {
 
 /** Reflect an x coordinate in a vertical mirror line at x = m (the same distance on the other side). */
 export const reflectX = (x: number, m: number): number => 2 * m - x;
+
+/* ---- Patterns, flow diagrams, balance scales and bar graphs (item 3) ---- */
+
+export type RuleOp = '+' | '−' | '×' | '÷';
+export interface Rule { op: RuleOp; n: number }
+
+/** Apply one rule to a number. ÷ must divide exactly (a flow diagram never shows a remainder). */
+export const applyRule = (r: Rule, x: number): number => {
+  switch (r.op) {
+    case '+': return x + r.n;
+    case '−': return x - r.n;
+    case '×': return x * r.n;
+    case '÷':
+      if (x % r.n !== 0) throw new Error(`${x} ÷ ${r.n} is not a whole number`);
+      return x / r.n;
+  }
+};
+
+/** Apply several rules in order, e.g. [× 3, + 1] on 7 gives 22. */
+export const applyRules = (rules: Rule[], x: number): number => rules.reduce((v, r) => applyRule(r, v), x);
+
+/** "× 3 + 1" */
+export const ruleText = (rules: Rule[]): string => rules.map((r) => `${r.op} ${r.n}`).join(' ');
+
+/** The terms of a pattern: start, then the rule applied again and again. */
+export const sequence = (start: number, r: Rule, count: number): number[] => {
+  const out = [start];
+  while (out.length < count) out.push(applyRule(r, out[out.length - 1]));
+  return out;
+};
+
+/** A balance scale is only honest if both pans hold the same total. */
+export const balanced = (left: number[], right: number[]): boolean =>
+  left.reduce((a, b) => a + b, 0) === right.reduce((a, b) => a + b, 0);
+
+/** The unknown on a balance: what must be added to `known` to match `total`. */
+export const unknownAddend = (known: number, total: number): number => total - known;
+
+/** Smallest axis maximum that is a multiple of `step` and not below `max`. */
+export const axisMax = (max: number, step: number): number => Math.ceil(max / step) * step;
+
+/** Tick values 0, step, 2 step ... up to the axis maximum. */
+export const axisTicks = (max: number, step: number): number[] => {
+  const top = axisMax(max, step);
+  return Array.from({ length: top / step + 1 }, (_, i) => i * step);
+};

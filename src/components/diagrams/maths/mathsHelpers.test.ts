@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  LADDERS, SOLIDS, SYMMETRY_LINES, addSameDenominator, reflectX, regularPolygon, changeOf, compareFractions, convert, countOn, decimalComma, equivalent, hcf, hundredthsGrid, simplify, formatRand, prismMeasures, rectMeasures, elapsedMinutes, formatDuration, formatNumber, fromMinutes, handAngles, stats, stepFactors, to24, toMinutes, workedExample,
+  LADDERS, SOLIDS, applyRule, applyRules, ruleText, sequence, balanced, unknownAddend, axisMax, axisTicks, SYMMETRY_LINES, addSameDenominator, reflectX, regularPolygon, changeOf, compareFractions, convert, countOn, decimalComma, equivalent, hcf, hundredthsGrid, simplify, formatRand, prismMeasures, rectMeasures, elapsedMinutes, formatDuration, formatNumber, fromMinutes, handAngles, stats, stepFactors, to24, toMinutes, workedExample,
 } from './mathsHelpers';
 
 test('handAngles: 3:00 has the minute hand on 12 and the hour hand on 3', () => {
@@ -252,4 +252,36 @@ test('reflectX: same distance on the other side, and reflecting twice returns th
   assert.equal(reflectX(8, 5), 2);
   assert.equal(reflectX(5, 5), 5); // a point on the mirror stays put
   for (const x of [0, 1.5, 4, 9]) assert.equal(reflectX(reflectX(x, 5), 5), x);
+});
+
+test('applyRule / applyRules: the lesson flow diagrams', () => {
+  assert.equal(applyRule({ op: '+', n: 3 }, 5), 8);
+  assert.equal(applyRule({ op: '×', n: 2 }, 5), 10);
+  assert.equal(applyRule({ op: '−', n: 4 }, 9), 5);
+  assert.equal(applyRule({ op: '÷', n: 5 }, 30), 6);
+  assert.throws(() => applyRule({ op: '÷', n: 4 }, 30));
+  assert.equal(applyRules([{ op: '×', n: 3 }, { op: '+', n: 1 }], 7), 22);
+  assert.equal(ruleText([{ op: '×', n: 3 }, { op: '+', n: 1 }]), '× 3 + 1');
+});
+
+test('sequence: the lesson number patterns', () => {
+  assert.deepEqual(sequence(2, { op: '+', n: 2 }, 4), [2, 4, 6, 8]);
+  assert.deepEqual(sequence(5, { op: '+', n: 5 }, 3), [5, 10, 15]);
+  assert.deepEqual(sequence(4, { op: '+', n: 5 }, 4), [4, 9, 14, 19]);
+  assert.deepEqual(sequence(3, { op: '×', n: 2 }, 5), [3, 6, 12, 24, 48]);
+});
+
+test('balance scale: 8 + 4 = 12, and 9 + ? = 15 gives 6', () => {
+  assert.equal(balanced([8, 4], [12]), true);
+  assert.equal(balanced([8, 4], [13]), false);
+  assert.equal(unknownAddend(9, 15), 6);
+  assert.equal(balanced([9, unknownAddend(9, 15)], [15]), true);
+  assert.equal(unknownAddend(7, 12), 5);
+});
+
+test('bar graph axis: scale of 2 for the fruit data', () => {
+  assert.equal(axisMax(8, 2), 8);
+  assert.equal(axisMax(7, 2), 8);
+  assert.deepEqual(axisTicks(8, 2), [0, 2, 4, 6, 8]);
+  assert.deepEqual(axisTicks(9, 2), [0, 2, 4, 6, 8, 10]);
 });

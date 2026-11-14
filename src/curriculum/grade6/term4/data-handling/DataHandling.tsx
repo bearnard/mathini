@@ -1,7 +1,7 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
-import { cn } from '../../../../lib/utils';
 import DotStrip, { STRIP_COLORS } from '../../../../components/diagrams/maths/DotStrip';
+import { BarGraph } from '../../../../components/diagrams/maths/PatternDiagrams';
 import { stats } from '../../../../components/diagrams/maths/mathsHelpers';
 
 // One small data set for all four measures. Every number below is computed, not typed.
@@ -56,22 +56,8 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Bar graphs and pictographs help us compare values quickly.</p>
-                <div className="bg-slate-50 p-6 rounded-xl max-w-md mx-auto space-y-4">
-                    {[
-                        { label: 'Apples', value: 8, colour: 'bg-red-400' },
-                        { label: 'Bananas', value: 5, colour: 'bg-amber-400' },
-                        { label: 'Oranges', value: 7, colour: 'bg-orange-400' }
-                    ].map(item => (
-                        <div key={item.label} className="grid grid-cols-[5rem_1fr_2rem] items-center gap-3 text-sm">
-                            <span className="font-semibold text-slate-600 text-right">{item.label}</span>
-                            <div className="h-6 bg-white rounded-full overflow-hidden">
-                                <div className={cn('h-full rounded-full', item.colour)} style={{ width: `${item.value * 10}%` }} />
-                            </div>
-                            <span className="font-bold text-slate-700">{item.value}</span>
-                        </div>
-                    ))}
-                    <p className="text-slate-500 text-sm">Apples have the highest value: 8.</p>
-                </div>
+                <BarGraph title="Fruit in the basket" yLabel="Number of fruits" step={2} items={[{ label: 'Apples', value: 8 }, { label: 'Bananas', value: 5 }, { label: 'Oranges', value: 7 }]} />
+                <p className="text-slate-500 text-sm">Apples have the highest value: 8.</p>
             </div>
         )
     }
