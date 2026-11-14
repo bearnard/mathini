@@ -53,8 +53,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why were camels important in trans-Saharan trade?',
-    options: ['They could carry goods long distances in desert conditions', 'They could mine gold directly', 'They were used as currency only', 'They built city walls quickly'],
-    answer: 'They could carry goods long distances in desert conditions',
+    options: ['They could carry goods long distances in the desert', 'They could mine the gold directly from the ground', 'They were used as a form of currency only', 'They built the walls of cities very quickly'],
+    answer: 'They could carry goods long distances in the desert',
     explanation: 'Camel caravans made long desert journeys possible.',
   },
   {
@@ -77,14 +77,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'If a source says Timbuktu had many manuscripts, what does this suggest?',
-    options: ['Learning and scholarship were important there', 'People could not read at all', 'Trade did not happen there', 'The city had no religious life'],
+    options: ['Learning and scholarship were important there', 'People there could not read at all', 'No trade took place in the city', 'The city had no religious life'],
     answer: 'Learning and scholarship were important there',
     explanation: 'Manuscripts are written records linked to study and teaching.',
   },
   {
     prompt: 'Which statement best shows cause and consequence in this topic?',
-    options: ['Successful trade increased wealth, which supported centres of learning', 'Deserts disappeared, so trade ended', 'Caravans caused oceans to shrink', 'Mali became powerful because of railways'],
-    answer: 'Successful trade increased wealth, which supported centres of learning',
+    options: ['Successful trade raised wealth, which supported centres of learning', 'The deserts disappeared, so trade came to an end', 'Caravans caused the oceans to shrink', 'Mali became powerful because of its railways'],
+    answer: 'Successful trade raised wealth, which supported centres of learning',
     explanation: 'Trade wealth helped support cities such as Timbuktu and its learning institutions.',
   },
 ];

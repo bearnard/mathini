@@ -146,12 +146,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does personal reflection help you do?',
-    options: [
-      'Improve routines by learning from experience',
-      'Blame others for every result',
-      'Avoid setting goals completely',
-      'Ignore progress and setbacks',
-    ],
+    options: ['Improve routines by learning from experience', 'Blame other people for every result', 'Avoid setting goals of any kind', 'Ignore both progress and setbacks'],
     answer: 'Improve routines by learning from experience',
     explanation: 'Reflection helps learners adapt strategies for better outcomes.',
   },

@@ -57,7 +57,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which sentence sounds like a short review opinion?',
-    options: ['Le ncwadi inomdla kuba abalinganiswa bacacile.', 'Ndiyavuka kusasa.', 'Ivenkile ivaliwe ngoMvulo.', 'Ndiyafunda izenzi.'],
+    options: ['Le ncwadi inomdla kuba abalinganiswa bacacile.', 'Ndiyavuka kusasa ekuseni kakhulu.', 'Ivenkile ivaliwe ngoMvulo ngexesha.', 'Ndiyafunda izenzi kwiklasi yethu.'],
     answer: 'Le ncwadi inomdla kuba abalinganiswa bacacile.',
     explanation: 'A review includes evaluation with reasons.',
   },

@@ -54,8 +54,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How should Xhosa resistance best be understood in this period?',
-    options: ['As organised efforts to defend communities, land, and autonomy', 'As support for colonial expansion', 'As trade agreements only', 'As unrelated to frontier change'],
-    answer: 'As organised efforts to defend communities, land, and autonomy',
+    options: ['As organised efforts to defend communities, land and independence', 'As support for the expansion of the colony', 'As trade agreements and nothing more', 'As something unrelated to change on the frontier'],
+    answer: 'As organised efforts to defend communities, land and independence',
     explanation: 'Xhosa resistance formed an important part of frontier history.',
   },
   {
@@ -72,8 +72,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does “cooperation” on frontiers include?',
-    options: ['Trade, negotiation, and local exchange between groups', 'No contact between groups', 'Only military conflict', 'Ignoring all economic links'],
-    answer: 'Trade, negotiation, and local exchange between groups',
+    options: ['Trade, negotiation and local exchange between groups', 'No contact at all between the groups', 'Military conflict and nothing else', 'Ignoring all of the economic links between groups'],
+    answer: 'Trade, negotiation and local exchange between groups',
     explanation: 'Frontier societies experienced both conflict and forms of cooperation.',
   },
   {
@@ -84,8 +84,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which paragraph topic sentence best fits this unit?',
-    options: ['The Cape frontiers changed through both violent conflict and economic cooperation', 'Only one group shaped frontier history', 'Frontier history has no connection to migration', 'Trade and conflict never happened together'],
-    answer: 'The Cape frontiers changed through both violent conflict and economic cooperation',
+    options: ['The Cape frontiers changed through conflict and economic cooperation', 'Only one group shaped the history of the frontier', 'Frontier history has no link to migration', 'Trade and conflict never took place together'],
+    answer: 'The Cape frontiers changed through conflict and economic cooperation',
     explanation: 'A strong topic sentence captures both sides of frontier interactions.',
   },
 ];

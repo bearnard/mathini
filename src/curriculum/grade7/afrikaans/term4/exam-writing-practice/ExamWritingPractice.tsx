@@ -71,26 +71,26 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Watter praktyk wys goeie tydbestuur?",
-    options: ['Verdeel tyd tussen beplanning, skryf en redigering', 'Gebruik al die tyd op die inleiding', 'Slaan redigering oor', 'Skryf net bullet points'],
+    options: ['Verdeel tyd tussen beplanning, skryf en redigering', 'Gebruik al die tyd op die inleiding', 'Slaan die redigering heeltemal oor', 'Skryf net kolpunte neer en niks anders'],
     answer: 'Verdeel tyd tussen beplanning, skryf en redigering',
     explanation: 'Balanced timing helps complete all sections well.',
   },
   {
     prompt: "Kies die beste rede om 'n kontrolelys te gebruik.",
-    options: ['Dit help jou om algemene foute op te spoor', 'Dit maak beplanning onnodig', 'Dit vervang inhoud', 'Dit verander die vraag'],
+    options: ['Dit help jou om algemene foute op te spoor', 'Dit maak beplanning heeltemal onnodig', 'Dit vervang die inhoud van die opstel', 'Dit verander die vraag in die vraestel'],
     answer: 'Dit help jou om algemene foute op te spoor',
     explanation: 'Checklists improve technical accuracy.',
   },
   {
     prompt: "Watter antwoord pas by 'n formele eksamenvraag?",
-    options: ['Nette, formele taal met duidelike paragrawe', 'Baie sleng en afkortings', 'Slegs los notas', 'Emojis as hoofinhoud'],
+    options: ['Nette, formele taal met duidelike paragrawe', 'Baie sleng en afkortings in elke sin', 'Slegs los notas sonder sinne', 'Emojis as die hoofinhoud van die antwoord'],
     answer: 'Nette, formele taal met duidelike paragrawe',
     explanation: 'Formal tasks need formal style and structure.',
   },
   {
     prompt: "As die onderwerp vra vir 'n narratiewe opstel, wat moet jy doen?",
-    options: ["Vertel 'n samehangende storie met begin, middel en einde", 'Skryf net feite in lysvorm', 'Gebruik brief-formaat', 'Gee net definisies'],
-    answer: "Vertel 'n samehangende storie met begin, middel en einde",
+    options: ["Vertel 'n storie met begin, middel en einde", 'Skryf net feite in lysvorm neer', "Gebruik die formaat van 'n formele brief", 'Gee net definisies van die kernwoorde'],
+    answer: "Vertel 'n storie met begin, middel en einde",
     explanation: 'Narrative essays require clear storyline structure.',
   },
   {
@@ -101,14 +101,14 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Kies die beste afsluiting vir 'n opstel.",
-    options: ['Laastens bevestig hierdie ervaring waarom deursettingsvermoë belangrik is.', 'En toe stop ek sommer daar.', 'My pen is swart.', 'Einde van vraagpapier.'],
-    answer: 'Laastens bevestig hierdie ervaring waarom deursettingsvermoë belangrik is.',
+    options: ['Laastens het hierdie ervaring my deursettingsvermoë gewys.', 'En toe stop ek sommer daar by die tafel.', 'My pen is swart en dit is amper leeg.', 'Einde van die vraestel, dankie vir die tyd.'],
+    answer: 'Laastens het hierdie ervaring my deursettingsvermoë gewys.',
     explanation: 'A conclusion should wrap up the main idea meaningfully.',
   },
   {
     prompt: "Waarom is format-herroeping belangrik in eksamens?",
-    options: ['Verkeerde formaat kan punte kos al is taal goed', 'Formaat tel nooit nie', 'Formaat is net vir kuns', 'Formaat vervang inhoud heeltemal'],
-    answer: 'Verkeerde formaat kan punte kos al is taal goed',
+    options: ["'n Verkeerde formaat kan punte kos", 'Formaat tel nooit in die eksamen nie', 'Formaat is net belangrik in kuns', 'Formaat vervang die inhoud heeltemal'],
+    answer: "'n Verkeerde formaat kan punte kos",
     explanation: 'Assessment rubrics include format requirements.',
   },
 ];

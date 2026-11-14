@@ -97,13 +97,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a healthy way to manage strong emotions?',
-    options: [
-      'Pause, breathe, and talk to a trusted adult',
-      'Shout at friends immediately',
-      'Ignore your feelings forever',
-      'Break something to feel better',
-    ],
-    answer: 'Pause, breathe, and talk to a trusted adult',
+    options: ['Pause, breathe and talk to a trusted adult', 'Shout at your friends straight away', 'Ignore your feelings for ever and never talk', 'Break something to make yourself feel better'],
+    answer: 'Pause, breathe and talk to a trusted adult',
     explanation: 'Calm strategies and support help you respond safely and respectfully.',
   },
   {
@@ -130,13 +125,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A classmate shares a puberty myth. What is the best response?',
-    options: [
-      'Check facts with a trusted adult or reliable source',
-      'Spread the myth to more learners',
-      'Laugh and tease the classmate',
-      'Assume every rumour is true',
-    ],
-    answer: 'Check facts with a trusted adult or reliable source',
+    options: ['Check the facts with a trusted adult or source', 'Spread the myth on to more learners', 'Laugh at the classmate and tease them', 'Assume that every rumour must be true'],
+    answer: 'Check the facts with a trusted adult or source',
     explanation: 'Fact-checking helps learners avoid confusion and stigma.',
   },
   {

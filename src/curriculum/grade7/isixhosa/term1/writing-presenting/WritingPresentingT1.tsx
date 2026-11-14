@@ -57,7 +57,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What should a personal paragraph include?',
-    options: ['connected sentences about one topic', 'random unrelated words', 'only headings', 'only punctuation marks'],
+    options: ['connected sentences about one topic', 'unrelated words that are put together', 'headings and nothing else under them', 'punctuation marks and nothing else'],
     answer: 'connected sentences about one topic',
     explanation: 'A paragraph develops one clear idea with linked sentences.',
   },

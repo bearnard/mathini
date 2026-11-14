@@ -53,8 +53,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'An efficient kettle is one that...',
-    options: ['uses less electrical energy to heat the same amount of water', 'is always heavier than other kettles', 'takes longer to boil by design', 'releases more heat to the room'],
-    answer: 'uses less electrical energy to heat the same amount of water',
+    options: ['uses less electrical energy to heat the same water', 'is heavier than all of the other kettles', 'takes longer to boil, by design', 'gives off more heat into the room'],
+    answer: 'uses less electrical energy to heat the same water',
     explanation: 'Efficiency compares useful output with total energy input.',
   },
 ];

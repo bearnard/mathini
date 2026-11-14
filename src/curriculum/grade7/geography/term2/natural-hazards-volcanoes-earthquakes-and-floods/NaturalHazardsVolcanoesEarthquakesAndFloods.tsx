@@ -72,13 +72,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does disaster risk reduction aim to do?',
-    options: [
-      'Reduce damage and protect lives before hazards happen',
-      'Stop all natural processes',
-      'Increase building costs only',
-      'Move every town to mountains',
-    ],
-    answer: 'Reduce damage and protect lives before hazards happen',
+    options: ['Reduce damage and protect lives before hazards strike', 'Stop all natural processes from happening', 'Raise the cost of building and nothing more', 'Move every town up into the mountains'],
+    answer: 'Reduce damage and protect lives before hazards strike',
     explanation: 'Preparedness and planning reduce vulnerability and losses.',
   },
   {
@@ -89,13 +84,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How can settlements reduce flood impact?',
-    options: [
-      'Keep drainage clear and avoid building in floodplains',
-      'Remove all vegetation from riverbanks',
-      'Build only at sea level',
-      'Ignore weather warnings',
-    ],
-    answer: 'Keep drainage clear and avoid building in floodplains',
+    options: ['Keep drainage clear and avoid building on floodplains', 'Remove all of the plants from riverbanks', 'Build only at sea level near the coast', 'Ignore the weather warnings that are given'],
+    answer: 'Keep drainage clear and avoid building on floodplains',
     explanation: 'Good planning and maintenance reduce flood exposure.',
   },
   {

@@ -51,20 +51,20 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'In poetry questions, “mood” means...',
-    options: ['the feeling created by the poem', 'the page number', 'the poet age', 'the line length only'],
-    answer: 'the feeling created by the poem',
+    options: ['the feeling that the poem creates', 'the page number of the poem in the book', 'the age of the poet who wrote it', 'the length of the lines in the poem'],
+    answer: 'the feeling that the poem creates',
     explanation: 'Mood describes emotional atmosphere.',
   },
   {
     prompt: 'What is the main purpose of a poster?',
-    options: ['to give a message quickly and clearly', 'to tell a long novel', 'to list grammar rules only', 'to replace oral speaking'],
+    options: ['to give a message quickly and clearly', 'to tell a long novel in many chapters', 'to list the grammar rules and nothing else', 'to take the place of oral speaking'],
     answer: 'to give a message quickly and clearly',
     explanation: 'Posters communicate key ideas visually and briefly.',
   },
   {
     prompt: 'A picture sequence task asks learners to...',
-    options: ['order images logically to show events', 'count colours only', 'memorise one caption', 'ignore context clues'],
-    answer: 'order images logically to show events',
+    options: ['order the images logically to show events', 'count the colours that are in the images', 'memorise a single caption of one image', 'ignore the context clues in the images'],
+    answer: 'order the images logically to show events',
     explanation: 'Sequence tasks test understanding of event order.',
   },
   {
@@ -75,8 +75,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In a short factual text, key details are usually...',
-    options: ['names, places, numbers, and dates', 'imaginary spells and magic', 'rhyming words only', 'speaker turns only'],
-    answer: 'names, places, numbers, and dates',
+    options: ['names, places, numbers and dates', 'imaginary stories and made-up characters', 'rhyming words and nothing else', 'the turns of the speakers and nothing else'],
+    answer: 'names, places, numbers and dates',
     explanation: 'Factual reading requires extracting concrete information.',
   },
   {
@@ -87,14 +87,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which option best describes a comprehension strategy?',
-    options: ['read the question first, then scan the text', 'skip the passage', 'answer without reading', 'write your own story instead'],
+    options: ['read the question first, then scan the text', 'skip the passage and guess the answer', 'answer without reading the text at all', 'write your own story in its place'],
     answer: 'read the question first, then scan the text',
     explanation: 'Targeted scanning helps retrieve evidence efficiently.',
   },
   {
     prompt: 'Why compare two texts in Grade 7 reading?',
-    options: ['to identify different viewpoints and details', 'to avoid comprehension practice', 'to reduce vocabulary learning', 'to remove discussion tasks'],
-    answer: 'to identify different viewpoints and details',
+    options: ['to spot different viewpoints and details', 'to avoid doing any comprehension practice', 'to cut down on the learning of vocabulary', 'to remove the discussion tasks from the lesson'],
+    answer: 'to spot different viewpoints and details',
     explanation: 'Comparison develops deeper understanding of texts.',
   },
 ];

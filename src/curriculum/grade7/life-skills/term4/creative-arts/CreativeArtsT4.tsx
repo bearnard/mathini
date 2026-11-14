@@ -69,12 +69,7 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is portfolio curation?',
-    options: [
-      'Selecting and organising work that shows learning progress',
-      'Keeping every draft without review',
-      'Choosing only your quickest task',
-      'Presenting work in random order',
-    ],
+    options: ['Selecting and organising work that shows learning progress', 'Keeping every draft without reviewing it', 'Choosing only the task that you did quickest', 'Showing the work in an order that has no pattern'],
     answer: 'Selecting and organising work that shows learning progress',
     explanation: 'Curation highlights quality, growth, and reflection across tasks.',
   },
@@ -108,24 +103,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which question fits self-evaluation?',
-    options: [
-      'How clearly did my work communicate to the audience?',
-      'Did I finish before everyone else?',
-      'Was my costume the most expensive?',
-      'Did I avoid all suggestions?',
-    ],
+    options: ['How clearly did my work communicate to the audience?', 'Did I finish before everyone else did?', 'Was my costume the most expensive one?', 'Did I avoid all of the suggestions made?'],
     answer: 'How clearly did my work communicate to the audience?',
     explanation: 'Self-evaluation focuses on effectiveness and improvement.',
   },
   {
     prompt: 'Which peer feedback is most helpful?',
-    options: [
-      'Your transitions improved; slow the opening line',
-      'This is bad and pointless',
-      'No one should comment on work',
-      'Only marks matter, not improvement',
-    ],
-    answer: 'Your transitions improved; slow the opening line',
+    options: ['Your transitions improved; slow down the opening line', 'This is bad and pointless work', 'No one should comment on the work of others', 'Only marks matter and not improvement'],
+    answer: 'Your transitions improved; slow down the opening line',
     explanation: 'Helpful feedback is specific, balanced, and actionable.',
   },
   {

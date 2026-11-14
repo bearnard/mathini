@@ -81,7 +81,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which strategy helps avoid losing marks in comprehension?',
-    options: ['answer in full, clear sentences when needed', 'copy random lines only', 'leave blanks', 'ignore question words'],
+    options: ['answer in full, clear sentences when needed', 'copy lines from the text that you choose by chance', 'leave the answer spaces blank', 'ignore the question words in the questions'],
     answer: 'answer in full, clear sentences when needed',
     explanation: 'Clear responses aligned to question demand earn marks.',
   },

@@ -64,7 +64,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which phrase shows a future plan?',
-    options: ['Ndiza kufunda nzima kulo nyaka uzayo.', 'Ndifunda ngoku.', 'Ndifunde izolo.', 'Andisafundi.'],
+    options: ['Ndiza kufunda nzima kulo nyaka uzayo.', 'Ndifunda ngoku nje ekhaya.', 'Ndifunde izolo ebusuku kakhulu.', 'Andisafundi kule minyaka ngoku.'],
     answer: 'Ndiza kufunda nzima kulo nyaka uzayo.',
     explanation: 'Ndiza indicates planned future action.',
   },
@@ -76,7 +76,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which response shows respectful discussion behaviour?',
-    options: ['Ndiyavuma, kwaye ndinoluvo olongezelelweyo.', 'Sukundiphikisa!', 'Awazi nto!', 'Mamela mna kuphela.'],
+    options: ['Ndiyavuma, kwaye ndinoluvo olongezelelweyo.', 'Sukundiphikisa ngoku, ndiyakuxelela!', 'Awazi nto ngale ngxoxo kwaphela!', 'Mamela mna kuphela, ungathethi!'],
     answer: 'Ndiyavuma, kwaye ndinoluvo olongezelelweyo.',
     explanation: 'It responds politely and adds ideas constructively.',
   },

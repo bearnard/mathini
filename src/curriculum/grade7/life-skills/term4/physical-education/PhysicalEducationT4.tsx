@@ -69,13 +69,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What should a personal fitness plan include?',
-    options: [
-      'Clear goals, activities, and weekly schedule',
-      'Only one random workout',
-      'No rest or recovery time',
-      'A plan copied without changes',
-    ],
-    answer: 'Clear goals, activities, and weekly schedule',
+    options: ['Clear goals, activities and a weekly schedule', 'One workout that you picked on a whim', 'No rest or recovery time in the week', 'A plan that is copied without any changes'],
+    answer: 'Clear goals, activities and a weekly schedule',
     explanation: 'A useful plan is specific, balanced, and realistic.',
   },
   {
@@ -91,13 +86,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How can learners review participation effectively?',
-    options: [
-      'Reflect on effort, skills, and teamwork after activities',
-      'Focus only on winning scores',
-      'Avoid feedback from teachers',
-      'Skip all self-assessment',
-    ],
-    answer: 'Reflect on effort, skills, and teamwork after activities',
+    options: ['Reflect on effort, skills and teamwork', 'Focus on the winning scores only, nothing else', 'Avoid feedback from the teachers entirely', 'Skip all of the self-assessment tasks'],
+    answer: 'Reflect on effort, skills and teamwork',
     explanation: 'Participation review identifies progress and next goals.',
   },
   {
@@ -124,12 +114,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which evidence can show personal improvement?',
-    options: [
-      'Faster times and better skill consistency',
-      'Only the colour of your kit',
-      'How loud the crowd was',
-      'A single lucky result',
-    ],
+    options: ['Faster times and better skill consistency', 'The colour of your sports kit', 'How loud the crowd was on the day', 'One lucky result in a single game'],
     answer: 'Faster times and better skill consistency',
     explanation: 'Performance evidence should be measurable and repeated.',
   },

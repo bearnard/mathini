@@ -65,7 +65,7 @@ const learnSteps: LearnStep[] = [
 const bank: AfrikaansItem[] = [
   {
     prompt: "Watter strategie help eerste in 'n toetsvraag?",
-    options: ['Lees die vraag en sleutelwoorde stadig', 'Spring dadelik na opsie C', 'Ignoreer die instruksie', 'Skryf sonder om te dink'],
+    options: ['Lees die vraag en sleutelwoorde stadig', 'Spring dadelik na opsie C sonder om te lees', 'Ignoreer die instruksie en begin skryf', 'Skryf iets neer sonder om eers te dink'],
     answer: 'Lees die vraag en sleutelwoorde stadig',
     explanation: 'Careful reading reduces avoidable mistakes.',
   },
@@ -89,7 +89,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Wat beteken 'haal bewys uit die teks'?",
-    options: ["Gebruik 'n woord of frase uit die teks as ondersteuning", 'Skryf jou eie storie', 'Raai die antwoord', 'Kopieer die hele bladsy'],
+    options: ["Gebruik 'n woord of frase uit die teks as ondersteuning", 'Skryf jou eie storie oor die onderwerp', 'Raai die antwoord uit die titel van die teks', 'Kopieer die hele bladsy uit die teks neer'],
     answer: "Gebruik 'n woord of frase uit die teks as ondersteuning",
     explanation: 'Evidence must come from the given text.',
   },
@@ -107,8 +107,8 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Watter gewoonte help met taaltoetsvoorbereiding?",
-    options: ['Daaglikse kort hersiening van grammatika en woordeskat', 'Leer net die aand voor die toets', 'Skryf sonder leestekens', 'Lees nooit terug nie'],
-    answer: 'Daaglikse kort hersiening van grammatika en woordeskat',
+    options: ['Daaglikse kort hersiening van grammatika', 'Leer net die aand voor die toets alles', 'Skryf al jou werk sonder leestekens', 'Lees nooit jou antwoorde weer deur nie'],
+    answer: 'Daaglikse kort hersiening van grammatika',
     explanation: 'Consistent practice builds accuracy.',
   },
 ];

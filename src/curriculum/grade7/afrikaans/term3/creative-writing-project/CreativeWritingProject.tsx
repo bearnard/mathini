@@ -89,7 +89,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Wat moet jy tydens redigering fokus?",
-    options: ['Spelling, leestekens en grammatika', 'Net prentjies', 'Slegs die eerste sin', 'Die papierkleur'],
+    options: ['Spelling, leestekens en grammatika', 'Net die prentjies by die teks', 'Slegs die eerste sin van die opstel', 'Die kleur van die papier van die opstel'],
     answer: 'Spelling, leestekens en grammatika',
     explanation: 'Editing checks language accuracy.',
   },
@@ -101,7 +101,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Kies die beste tydsbestuur-strategie vir 'n lang taak.",
-    options: ['Breek die taak in kleiner sperdatums op', 'Wag tot die laaste aand', 'Skryf sonder plan', 'Ignoreer die rubric'],
+    options: ['Breek die taak in kleiner sperdatums op', 'Wag tot die laaste aand voor inhandiging', "Skryf sonder 'n plan vir die taak", 'Ignoreer die assesseringsrubriek heeltemal'],
     answer: 'Breek die taak in kleiner sperdatums op',
     explanation: 'Chunking tasks improves project completion.',
   },

@@ -88,8 +88,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the aim of proofreading tasks?',
-    options: ['to detect and correct language errors', 'to memorise random facts', 'to replace reading tasks', 'to avoid punctuation'],
-    answer: 'to detect and correct language errors',
+    options: ['to find and fix language errors', 'to memorise facts for the exam', 'to take the place of the reading tasks', 'to avoid using punctuation in the text'],
+    answer: 'to find and fix language errors',
     explanation: 'Proofreading improves final language accuracy.',
   },
   {

@@ -97,13 +97,13 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Watter sin is die beste slot vir 'n uitgebreide antwoord?",
-    options: ['Dus het ek geleer dat voorbereiding belangrik is.', 'Ek het nou klaar gepraat miskien.', 'Die pen was swaar.', "Hier is nog 'n titel."],
+    options: ['Dus het ek geleer dat voorbereiding belangrik is.', 'Ek het nou klaar gepraat, dink ek miskien.', 'Die pen wat ek gebruik het, was baie swaar.', "Hier is nog 'n titel vir die volgende opstel."],
     answer: 'Dus het ek geleer dat voorbereiding belangrik is.',
     explanation: 'A closing sentence should summarise the key message.',
   },
   {
     prompt: "Waarom redigeer ons aan die einde?",
-    options: ['Om foute in spelling en leestekens reg te maak', 'Om nuwe hoofstukke by te voeg', 'Om die onderwerp te verander', 'Om die vrae te ignoreer'],
+    options: ['Om foute in spelling en leestekens reg te maak', 'Om nuwe hoofstukke by die opstel te voeg', 'Om die onderwerp van die opstel te verander', 'Om die vrae in die vraestel te ignoreer'],
     answer: 'Om foute in spelling en leestekens reg te maak',
     explanation: 'Editing improves clarity and correctness.',
   },

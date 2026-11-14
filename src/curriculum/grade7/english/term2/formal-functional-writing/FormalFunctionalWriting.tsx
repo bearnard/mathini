@@ -78,12 +78,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Audience awareness in formal writing means...',
-    options: [
-      'choosing respectful words for the intended reader',
-      'using slang in every sentence',
-      'ignoring the task instructions',
-      'switching topics each paragraph',
-    ],
+    options: ['choosing respectful words for the intended reader', 'using slang in every one of the sentences', 'ignoring the instructions of the task', 'switching topics in each new paragraph'],
     answer: 'choosing respectful words for the intended reader',
     explanation: 'Writers adjust language to suit the audience and purpose.',
   },

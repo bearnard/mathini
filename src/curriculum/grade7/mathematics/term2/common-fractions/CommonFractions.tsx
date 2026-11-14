@@ -48,7 +48,7 @@ const bank: CapsItem[] = [
     prompt: 'Calculate 3/4 of 8.',
     options: ['6', '4', '8/4', '12'],
     answer: '6',
-    explanation: '3/4 × 8 = 6.',
+    explanation: 'One quarter of 8 is 2, so 3/4 of 8 is 3 × 2 = 6.',
   },
   {
     prompt: 'Calculate 1 1/2 + 2 1/4.',

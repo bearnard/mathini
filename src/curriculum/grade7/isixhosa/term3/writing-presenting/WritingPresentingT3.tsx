@@ -75,19 +75,19 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which sentence suits a cultural paragraph topic?',
-    options: ['Kwikhaya lethu sigcina amasiko ngentlonipho.', '2 + 2 = 4.', 'The bus leaves at 14:00.', 'No food in class.'],
+    options: ['Kwikhaya lethu sigcina amasiko ngentlonipho.', 'The bus leaves at 14:00 from the main gate.', 'No food is allowed inside of the classroom.', '2 + 2 = 4 in every number system.'],
     answer: 'Kwikhaya lethu sigcina amasiko ngentlonipho.',
     explanation: 'It directly addresses culture and values.',
   },
   {
     prompt: 'Peer feedback is useful because it helps you...',
-    options: ['improve clarity before final submission', 'avoid editing', 'remove all punctuation', 'change topic completely'],
-    answer: 'improve clarity before final submission',
+    options: ['improve clarity before the final submission', 'avoid editing the work that you did', 'remove all of the punctuation marks', 'change the whole topic of the work'],
+    answer: 'improve clarity before the final submission',
     explanation: 'Feedback helps refine accuracy and meaning.',
   },
   {
     prompt: 'Which opening suits a formal invitation line?',
-    options: ['Umenywa ngokufudumeleyo kumsitho wesikolo.', 'Ndinomsindo namhlanje.', 'Awamkelekanga.', 'Mna ndiphumile nje.'],
+    options: ['Umenywa ngokufudumeleyo kumsitho wesikolo.', 'Awamkelekanga kulo msitho wethu.', 'Ndinomsindo namhlanje kunye nawe.', 'Mna ndiphumile nje, ndiyabuya kamva.'],
     answer: 'Umenywa ngokufudumeleyo kumsitho wesikolo.',
     explanation: 'It is polite and purpose-appropriate.',
   },

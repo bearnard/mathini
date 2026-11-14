@@ -65,12 +65,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In a novel, character motivation means...',
-    options: [
-      'the reason a character acts in a certain way',
-      'the colour of the book cover',
-      'the order of page numbers',
-      'the speed of reading aloud',
-    ],
+    options: ['the reason a character acts in a certain way', 'the colour of the cover of the book', 'the order of the page numbers in the book', 'the speed at which the book is read aloud'],
     answer: 'the reason a character acts in a certain way',
     explanation: 'Motivation explains why characters make choices.',
   },
@@ -98,13 +93,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why are stage directions useful?',
-    options: [
-      'They show movement, mood, and action on stage',
-      'They replace all spoken lines',
-      'They are only decorative symbols',
-      'They describe printing errors',
-    ],
-    answer: 'They show movement, mood, and action on stage',
+    options: ['They show movement, mood and action on stage', 'They replace all of the spoken lines', 'They are only decorative symbols', 'They describe printing errors in the script'],
+    answer: 'They show movement, mood and action on stage',
     explanation: 'Stage directions guide how scenes are performed and understood.',
   },
   {

@@ -63,12 +63,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A net is...',
-    options: [
-      'a flat pattern that folds into a 3D object',
-      'a graph of points',
-      'a mirror line in geometry',
-      'a type of fraction model',
-    ],
+    options: ['a flat pattern that folds into a 3D object', 'a graph that is drawn from points', 'a mirror line in geometry', 'a type of model for a fraction'],
     answer: 'a flat pattern that folds into a 3D object',
     explanation: 'Nets represent the faces of a solid before folding.',
   },

@@ -92,12 +92,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does fair competition mean?',
-    options: [
-      'Playing by the rules and respecting opponents',
-      'Breaking rules to win quickly',
-      'Arguing with every decision',
-      'Only passing to close friends',
-    ],
+    options: ['Playing by the rules and respecting opponents', 'Breaking the rules in order to win quickly', 'Arguing about every decision that is made', 'Passing only to your close friends'],
     answer: 'Playing by the rules and respecting opponents',
     explanation: 'Fair competition includes honesty, respect, and safety.',
   },
@@ -120,8 +115,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What should a learner do when officiating a match?',
-    options: ['Apply rules consistently to both teams', 'Support only one team', 'Ignore clear fouls', 'Change rules during play'],
-    answer: 'Apply rules consistently to both teams',
+    options: ['Apply the rules in the same way to both teams', 'Support only one of the two teams', 'Ignore the clear fouls that are made', 'Change the rules while play is going on'],
+    answer: 'Apply the rules in the same way to both teams',
     explanation: 'Consistent officiating builds trust and fairness.',
   },
   {

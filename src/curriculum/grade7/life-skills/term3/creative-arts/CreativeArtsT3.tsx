@@ -102,12 +102,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is choreography?',
-    options: [
-      'Planning and organising movement sequences',
-      'Painting only with one colour',
-      'Memorising spelling lists',
-      'Recording sports scores',
-    ],
+    options: ['Planning and organising movement sequences', 'Painting with one colour and nothing else', 'Memorising lists of spelling words', 'Recording the scores of sports matches'],
     answer: 'Planning and organising movement sequences',
     explanation: 'Choreography arranges movement ideas into a coherent performance.',
   },
@@ -130,12 +125,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What makes a useful self-evaluation question?',
-    options: [
-      'Did my choices communicate the intended message?',
-      'Did I finish before everyone else?',
-      'Did I avoid all feedback?',
-      'Did I copy without changes?',
-    ],
+    options: ['Did my choices communicate the intended message?', 'Did I finish before everyone else did?', 'Did I avoid all of the feedback given?', 'Did I copy the work without any changes?'],
     answer: 'Did my choices communicate the intended message?',
     explanation: 'Evaluation should focus on effectiveness and communication.',
   },

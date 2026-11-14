@@ -85,7 +85,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Wat is 'n slagspreuk?",
-    options: ['Kort, onthoubare frase vir die produk of boodskap', "Lang paragraaf uit 'n opstel", 'Lys van spelreëls', 'Formele briefafsluiting'],
+    options: ['Kort, onthoubare frase vir die produk of boodskap', "'n Lang paragraaf uit 'n opstel", "'n Lys van spelreëls vir 'n wedstryd", "'n Formele afsluiting van 'n brief"],
     answer: 'Kort, onthoubare frase vir die produk of boodskap',
     explanation: 'A slogan is short and memorable.',
   },
@@ -109,7 +109,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Waarom moet jy 'n advertensie krities lees?",
-    options: ['Om te toets of die boodskap betroubaar en billik is', 'Om net die prentjie te kleur', 'Om alle vrae oor te slaan', 'Om ryme in elke sin te soek'],
+    options: ['Om te toets of die boodskap betroubaar en billik is', 'Om net die prentjie in die advertensie te kleur', 'Om al die vrae oor die advertensie oor te slaan', 'Om ryme in elke sin van die teks te soek'],
     answer: 'Om te toets of die boodskap betroubaar en billik is',
     explanation: 'Critical reading checks claims and bias.',
   },
