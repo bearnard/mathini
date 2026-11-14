@@ -71,13 +71,13 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Watter vraag help om karakterontwikkeling te ontleed?",
-    options: ['Hoe verander die karakter van begin tot einde?', 'Hoeveel bladsye het die boek?', 'Watter pen is gebruik?', 'Wat kos die boek?'],
+    options: ['Hoe verander die karakter van begin tot einde?', 'Hoeveel bladsye het die boek altesaam?', 'Watter pen is gebruik om die boek te skryf?', 'Wat kos die boek in die winkel?'],
     answer: 'Hoe verander die karakter van begin tot einde?',
     explanation: 'Development focuses on change over time.',
   },
   {
     prompt: "Kies die beste voorbeeld van teksbewys.",
-    options: ['Die hoofkarakter erken sy fout in hoofstuk 5.', 'Ek dink die boek is cool.', 'My vriend hou daarvan.', 'Die omslag is groen.'],
+    options: ['Die hoofkarakter erken sy fout in hoofstuk 5.', 'Ek dink die boek is baie cool en lekker.', 'My vriend hou baie daarvan om dit te lees.', 'Die omslag van die boek is groen en blou.'],
     answer: 'Die hoofkarakter erken sy fout in hoofstuk 5.',
     explanation: 'Specific reference is stronger than opinion only.',
   },
@@ -89,7 +89,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Wat is die beste definisie van intrige?",
-    options: ['Die volgorde van gebeure in die storie', 'Die kleur van die omslag', 'Die skrywer se adres', 'Die lengte van woorde'],
+    options: ['Die volgorde van gebeure in die storie', 'Die kleur van die omslag van die boek', 'Die adres van die skrywer van die boek', 'Die lengte van die woorde in die storie'],
     answer: 'Die volgorde van gebeure in die storie',
     explanation: 'Plot is the sequence of events.',
   },
@@ -107,7 +107,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Kies die sterkste antwoord op 'Hoekom is die karakter dapper?'",
-    options: ['Hy help sy broer al is hy bang.', 'Hy dra blou skoene.', 'Hy woon in Pretoria.', 'Hy eet vroeg aandete.'],
+    options: ['Hy help sy broer al is hy bang.', 'Hy dra blou skoene wanneer hy skool toe gaan.', 'Hy woon in Pretoria saam met sy ouers.', 'Hy eet vroeg aandete saam met die gesin.'],
     answer: 'Hy help sy broer al is hy bang.',
     explanation: 'It provides action-based evidence of courage.',
   },

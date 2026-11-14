@@ -83,7 +83,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which detail is most descriptive?',
-    options: ['The wind sliced through the narrow alley as papers spun.', 'It was nice.', 'Things happened quickly.', 'There was a place.'],
+    options: ['The wind sliced through the narrow alley as papers spun.', 'It was nice, and everyone enjoyed the day.', 'Things happened quickly and then it was over.', 'There was a place where people used to meet.'],
     answer: 'The wind sliced through the narrow alley as papers spun.',
     explanation: 'Specific sensory language creates vivid imagery.',
   },

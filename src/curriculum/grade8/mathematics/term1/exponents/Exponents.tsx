@@ -66,7 +66,7 @@ const bank: CapsItem[] = [
     prompt: 'Which number is a perfect square?',
     options: ['49', '45', '52', '63'],
     answer: '49',
-    explanation: '49 = 7².',
+    explanation: '49 is a perfect square because 49 = 7 × 7 = 7².',
   },
 ];
 

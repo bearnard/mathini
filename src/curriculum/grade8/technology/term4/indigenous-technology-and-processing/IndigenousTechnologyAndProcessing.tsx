@@ -44,12 +44,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Electroplating is used to...',
-    options: [
-      'Coat an object with a thin metal layer using electricity',
-      'Cut wood using electric current',
-      'Measure voltage in a parallel circuit',
-      'Join parts with adhesive only',
-    ],
+    options: ['Coat an object with a thin metal layer using electricity', 'Cut wood by passing an electric current through it', 'Measure the voltage in a parallel circuit', 'Join parts together with an adhesive only'],
     answer: 'Coat an object with a thin metal layer using electricity',
     explanation: 'Electroplating improves corrosion resistance or appearance.',
   },

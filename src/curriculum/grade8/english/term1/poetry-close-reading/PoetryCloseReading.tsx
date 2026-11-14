@@ -84,7 +84,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which response shows close reading?',
-    options: ['quoting a line and explaining its effect', 'retelling the title only', 'guessing without evidence', 'copying unrelated notes'],
+    options: ['quoting a line and explaining its effect', 'retelling the title of the text only', 'guessing an answer without evidence', 'copying notes that are unrelated to the text'],
     answer: 'quoting a line and explaining its effect',
     explanation: 'Close reading links specific words to interpretation.',
   },

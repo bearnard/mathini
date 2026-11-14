@@ -22,13 +22,13 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'In dance, energy quality describes...',
-    options: ['How movement feels, such as sharp or smooth', 'The colour of costumes', 'Only music volume', 'Classroom temperature'],
+    options: ['How movement feels, such as sharp or smooth', 'The colour of the costumes worn', 'The volume of the music played', 'The temperature of the classroom'],
     answer: 'How movement feels, such as sharp or smooth',
     explanation: 'Energy quality changes expression and style.',
   },
   {
     prompt: 'A choreographic device is...',
-    options: ['A method used to develop movement ideas', 'A speaker for music', 'A costume repair tool', 'A rehearsal timetable'],
+    options: ['A method used to develop movement ideas', 'A speaker that is used to play music', 'A tool used to repair costumes', 'A timetable for the rehearsals'],
     answer: 'A method used to develop movement ideas',
     explanation: 'Devices like repetition, canon, and unison shape choreography.',
   },
@@ -46,14 +46,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A transition in choreography helps to...',
-    options: ['Connect one movement phrase to the next', 'Stop all movement suddenly', 'Replace rhythm entirely', 'Remove expression'],
+    options: ['Connect one movement phrase to the next', 'Stop all movement quite suddenly', 'Take the place of the rhythm entirely', 'Remove the expression from the dance'],
     answer: 'Connect one movement phrase to the next',
     explanation: 'Transitions keep sequences fluent and coherent.',
   },
   {
     prompt: 'Performance quality improves when dancers show...',
-    options: ['Timing, control, and expression', 'Only speed', 'No eye focus', 'Random spacing'],
-    answer: 'Timing, control, and expression',
+    options: ['Timing, control and expression', 'Speed and nothing else', 'Eye contact with the floor only', 'Spacing that changes with every count'],
+    answer: 'Timing, control and expression',
     explanation: 'Quality performance combines technical accuracy and communication.',
   },
   {
@@ -64,8 +64,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When discussing style choices, learners should explain...',
-    options: ['Why movement choices suit the dance intention', 'Only how hard the routine is', 'Only the song length', 'Only the rehearsal room size'],
-    answer: 'Why movement choices suit the dance intention',
+    options: ['Why the movement choices suit the dance idea', 'How hard the routine was to learn', 'How long the song was in minutes', 'How big the rehearsal room was'],
+    answer: 'Why the movement choices suit the dance idea',
     explanation: 'Style analysis links artistic choices to meaning and effect.',
   },
 ];

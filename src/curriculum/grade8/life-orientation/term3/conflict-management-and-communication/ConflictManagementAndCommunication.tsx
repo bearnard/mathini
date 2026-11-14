@@ -33,13 +33,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is active listening?',
-    options: [
-      'Paying attention and checking understanding before responding',
-      'Waiting to interrupt quickly',
-      'Ignoring the speaker completely',
-      'Preparing insults while others talk',
-    ],
-    answer: 'Paying attention and checking understanding before responding',
+    options: ['Paying attention and checking you understand', 'Waiting for a chance to interrupt quickly', 'Ignoring the speaker for the whole time', 'Planning insults while others are talking'],
+    answer: 'Paying attention and checking you understand',
     explanation: 'Active listening reduces misunderstanding and conflict escalation.',
   },
   {
@@ -66,24 +61,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which action best shows compromise?',
-    options: [
-      'Both sides adjust to find a workable middle ground',
-      'Only one side always wins',
-      'No one is allowed to speak',
-      'The conflict is ignored',
-    ],
+    options: ['Both sides adjust to find a workable middle ground', 'Only one side wins every time', 'No one is allowed to speak at all', 'The conflict is ignored and left alone'],
     answer: 'Both sides adjust to find a workable middle ground',
     explanation: 'Compromise means shared adjustment toward a practical solution.',
   },
   {
     prompt: 'A disagreement becomes heated. What should happen first?',
-    options: [
-      'Pause, calm down, and restate the issue respectfully',
-      'Raise your voice immediately',
-      'Gather others to mock one side',
-      'Walk away and spread rumours',
-    ],
-    answer: 'Pause, calm down, and restate the issue respectfully',
+    options: ['Pause, calm down and restate the issue with respect', 'Raise your voice straight away', 'Gather others to mock one of the sides', 'Walk away and spread rumours about it'],
+    answer: 'Pause, calm down and restate the issue with respect',
     explanation: 'Calming and clarifying the issue prevents escalation.',
   },
   {
@@ -99,13 +84,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which communication habit harms relationships?',
-    options: [
-      'Using insults instead of discussing behaviour',
-      'Asking clarifying questions',
-      'Listening to both viewpoints',
-      'Using respectful tone',
-    ],
-    answer: 'Using insults instead of discussing behaviour',
+    options: ['Using insults instead of discussing the behaviour', 'Asking questions to make things clear', 'Listening to both points of view', 'Using a respectful tone of voice'],
+    answer: 'Using insults instead of discussing the behaviour',
     explanation: 'Personal attacks damage trust and block solutions.',
   },
   {

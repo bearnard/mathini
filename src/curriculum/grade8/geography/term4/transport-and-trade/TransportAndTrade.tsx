@@ -47,13 +47,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Why do countries trade with one another?',
-    options: [
-      'Because no country can produce every good and service it needs',
-      'Because trade removes all transport costs',
-      'Because imports are always free',
-      'Because climate has no effect on production',
-    ],
-    answer: 'Because no country can produce every good and service it needs',
+    options: ['Because no country can make everything it needs', 'Because trade removes all of the costs of transport', 'Because imports are always free of any charge', 'Because climate has no effect on what is produced'],
+    answer: 'Because no country can make everything it needs',
     explanation: 'Trade allows countries to access goods they cannot produce efficiently themselves.',
   },
   {
@@ -114,13 +109,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How do transport networks support trade?',
-    options: [
-      'They connect producers, markets, and ports so goods can move efficiently',
-      'They prevent goods from reaching markets',
-      'They remove the need for imports and exports',
-      'They only help movement inside one suburb',
-    ],
-    answer: 'They connect producers, markets, and ports so goods can move efficiently',
+    options: ['They link producers, markets and ports so goods move easily', 'They stop goods from reaching the markets', 'They remove the need for imports and exports', 'They help movement within one suburb only'],
+    answer: 'They link producers, markets and ports so goods move easily',
     explanation: 'Roads, railways, ports, and airports enable reliable movement through supply chains.',
   },
 ];

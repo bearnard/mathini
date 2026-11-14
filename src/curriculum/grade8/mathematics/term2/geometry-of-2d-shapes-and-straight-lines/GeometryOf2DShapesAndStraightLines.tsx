@@ -64,7 +64,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'An exterior angle of a triangle equals...',
-    options: ['the sum of the two opposite interior angles', 'half of the interior angle', '90° always', 'the adjacent interior angle'],
+    options: ['the sum of the two opposite interior angles', 'half of the interior angle next to it', 'always equal to 90 degrees', 'the same size as the adjacent interior angle'],
     answer: 'the sum of the two opposite interior angles',
     explanation: 'This is the exterior-angle theorem for triangles.',
   },

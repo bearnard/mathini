@@ -29,8 +29,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does a universal indicator mainly show?',
-    options: ['Whether a substance is acidic, neutral, or basic', 'The mass of a substance', 'The boiling point only', 'The number of atoms in a sample'],
-    answer: 'Whether a substance is acidic, neutral, or basic',
+    options: ['Whether a substance is acidic, neutral or basic', 'The mass of the substance being tested', 'The boiling point of the substance only', 'The number of atoms in the sample'],
+    answer: 'Whether a substance is acidic, neutral or basic',
     explanation: 'Indicator colour changes give information about pH.',
   },
   {
@@ -59,8 +59,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why is colour change with an indicator useful in experiments?',
-    options: ['It helps identify whether a solution is acid or base', 'It proves the liquid is safe to drink', 'It always means no reaction occurred', 'It measures density directly'],
-    answer: 'It helps identify whether a solution is acid or base',
+    options: ['It shows whether a solution is an acid or a base', 'It proves that the liquid is safe to drink', 'It always means that no reaction took place', 'It measures the density of the liquid directly'],
+    answer: 'It shows whether a solution is an acid or a base',
     explanation: 'Indicators provide visible evidence about acidity or alkalinity.',
   },
   {

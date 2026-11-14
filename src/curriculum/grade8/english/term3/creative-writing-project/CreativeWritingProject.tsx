@@ -56,8 +56,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Peer review is mainly used to...',
-    options: ['receive constructive feedback before finalising', 'avoid editing completely', 'check only handwriting style', 'replace the original writer'],
-    answer: 'receive constructive feedback before finalising',
+    options: ['get helpful feedback before finalising', 'avoid editing the work completely', 'check the handwriting style and nothing else', 'replace the original writer of the text'],
+    answer: 'get helpful feedback before finalising',
     explanation: 'Peer comments help improve clarity and effectiveness.',
   },
   {
@@ -74,13 +74,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which evidence best shows reflection in a project?',
-    options: ['explaining how feedback changed the final draft', 'stating no changes were needed', 'removing all planning notes', 'submitting only the title page'],
+    options: ['explaining how feedback changed the final draft', 'stating that no changes were needed', 'removing all of the planning notes', 'submitting the title page and nothing else'],
     answer: 'explaining how feedback changed the final draft',
     explanation: 'Reflection comments on decisions and growth during writing.',
   },
   {
     prompt: 'What should happen before final submission?',
-    options: ['editing for language, structure and accuracy', 'skipping proofreading', 'changing topic without reason', 'removing paragraphing'],
+    options: ['editing for language, structure and accuracy', 'skipping the proofreading of the work', 'changing the topic for no good reason', 'taking out the paragraphing of the text'],
     answer: 'editing for language, structure and accuracy',
     explanation: 'Final editing checks quality and correctness.',
   },

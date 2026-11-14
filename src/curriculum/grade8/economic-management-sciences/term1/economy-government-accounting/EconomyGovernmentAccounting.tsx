@@ -64,8 +64,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is standard of living?',
-    options: ['The cost of rent only', 'The quality of life and access to goods, services, and opportunities', 'Government spending alone', 'Income tax rates'],
-    answer: 'The quality of life and access to goods, services, and opportunities',
+    options: ['The cost of rent that a household pays', 'The quality of life and access to goods and services', 'The amount that government spends in a year', 'The rates of income tax that people pay'],
+    answer: 'The quality of life and access to goods and services',
     explanation: 'Standard of living measures access to education, healthcare, housing, and other goods and services that affect quality of life.',
   },
   {
@@ -94,8 +94,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why must transactions be classified correctly in accounting?',
-    options: ['To make work easier', 'To ensure accurate financial statements and decision-making', 'To hide information', 'Classification is not important'],
-    answer: 'To ensure accurate financial statements and decision-making',
+    options: ['To make the work of the accountant easier', 'So that statements are accurate and decisions are sound', 'To hide information from the owners', 'Classification is not important in accounting'],
+    answer: 'So that statements are accurate and decisions are sound',
     explanation: 'Correct classification ensures financial statements accurately reflect business performance and helps owners and creditors make informed decisions.',
   },
 ];

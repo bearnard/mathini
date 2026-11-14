@@ -50,8 +50,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Descriptive writing is strongest when it uses...',
-    options: ['specific sensory details', 'only numbers', 'no adjectives', 'no clear topic'],
-    answer: 'specific sensory details',
+    options: ['specific sensory details about what is described', 'only numbers and dates, with no description', 'no adjectives at all, to keep it short', 'no clear topic, so that it feels free'],
+    answer: 'specific sensory details about what is described',
     explanation: 'Details help readers imagine the scene clearly.',
   },
   {
@@ -68,8 +68,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the purpose of drafting?',
-    options: ['to shape ideas before final writing', 'to skip planning', 'to avoid revision', 'to remove all detail'],
-    answer: 'to shape ideas before final writing',
+    options: ['to shape ideas before the final writing', 'to skip the planning stage of the task', 'to avoid any revision of the work', 'to remove all of the detail from the work'],
+    answer: 'to shape ideas before the final writing',
     explanation: 'Drafting helps organize and improve writing before final submission.',
   },
   {

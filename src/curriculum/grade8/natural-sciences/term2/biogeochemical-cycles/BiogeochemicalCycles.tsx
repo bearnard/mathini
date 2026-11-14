@@ -53,8 +53,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In the nitrogen cycle, nitrogen-fixing bacteria help by...',
-    options: ['converting atmospheric nitrogen into usable compounds', 'removing all nitrogen from soil', 'turning nitrogen into sunlight', 'stopping plant growth'],
-    answer: 'converting atmospheric nitrogen into usable compounds',
+    options: ['turning nitrogen from the air into usable compounds', 'taking all of the nitrogen out of the soil', 'changing nitrogen into sunlight for plants', 'stopping the growth of plants in the soil'],
+    answer: 'turning nitrogen from the air into usable compounds',
     explanation: 'Nitrogen fixation makes nitrogen available to plants.',
   },
   {

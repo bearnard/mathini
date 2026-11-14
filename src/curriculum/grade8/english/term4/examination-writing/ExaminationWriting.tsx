@@ -74,8 +74,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'If a question asks for an essay, the best approach is to...',
-    options: ['use introduction, coherent body paragraphs, and conclusion', 'write disconnected bullet points only', 'switch to letter format', 'ignore paragraphing entirely'],
-    answer: 'use introduction, coherent body paragraphs, and conclusion',
+    options: ['use an introduction, body paragraphs and a conclusion', 'write bullet points that are not linked at all', 'switch to the format of a letter instead', 'ignore paragraphing from start to finish'],
+    answer: 'use an introduction, body paragraphs and a conclusion',
     explanation: 'Essay structure supports logical development of ideas.',
   },
   {

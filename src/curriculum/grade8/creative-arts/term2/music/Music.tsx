@@ -28,7 +28,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Melody is...',
-    options: ['A sequence of pitched notes that forms a tune', 'The speed of a song only', 'The sound level only', 'A stage direction'],
+    options: ['A sequence of pitched notes that forms a tune', 'The speed at which a song is played', 'The loudness level at which a song is played', 'A direction about movement on the stage'],
     answer: 'A sequence of pitched notes that forms a tune',
     explanation: 'Melody is the tune listeners can usually sing back.',
   },
@@ -46,8 +46,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which is an important listening skill in style comparison?',
-    options: ['Identifying similarities and differences', 'Ignoring rhythm patterns', 'Judging by clothing only', 'Skipping discussion'],
-    answer: 'Identifying similarities and differences',
+    options: ['Spotting similarities and differences', 'Ignoring the rhythm patterns in the pieces', 'Judging the pieces by the clothing of the players', 'Skipping the class discussion on the pieces'],
+    answer: 'Spotting similarities and differences',
     explanation: 'Style comparison depends on evidence from listening.',
   },
   {
@@ -64,8 +64,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A listening log is used to...',
-    options: ['Record observations about what was heard', 'Write costume sizes only', 'Store instrument repairs', 'Replace practical assessment'],
-    answer: 'Record observations about what was heard',
+    options: ['Record what you noticed while listening', 'Write down the costume sizes of the players', 'Store the repair records of the instruments', 'Take the place of the practical assessment'],
+    answer: 'Record what you noticed while listening',
     explanation: 'Listening logs capture evidence for reflection and comparison.',
   },
 ];

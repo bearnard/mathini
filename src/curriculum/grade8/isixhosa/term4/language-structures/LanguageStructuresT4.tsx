@@ -69,14 +69,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Revision of language structures helps learners to...',
-    options: ['apply grammar accurately in exams', 'avoid reading questions', 'skip proofreading', 'remove all connectors'],
-    answer: 'apply grammar accurately in exams',
+    options: ['apply grammar accurately in the exams', 'avoid reading the questions in the paper', 'skip the proofreading of the work', 'remove all of the connectors from the work'],
+    answer: 'apply grammar accurately in the exams',
     explanation: 'Consolidation improves exam performance and accuracy.',
   },
   {
     prompt: 'When correcting a sentence, check first for...',
-    options: ['agreement, tense, and punctuation', 'paper colour only', 'desk position only', 'word length only'],
-    answer: 'agreement, tense, and punctuation',
+    options: ['agreement, tense and punctuation', 'the colour of the paper and nothing else', 'the position of the desk and nothing else', 'the length of the words and nothing else'],
+    answer: 'agreement, tense and punctuation',
     explanation: 'These are common core areas in language corrections.',
   },
   {

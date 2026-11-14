@@ -45,19 +45,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A cam usually changes rotary motion into...',
-    options: ['Up-and-down or back-and-forth motion', 'Light energy', 'Heat only', 'Electrical current'],
+    options: ['Up-and-down or back-and-forth motion', 'Light energy that is given off', 'Heat energy and nothing else', 'An electrical current in a wire'],
     answer: 'Up-and-down or back-and-forth motion',
     explanation: 'Cams rotate and push followers to produce reciprocating motion.',
   },
   {
     prompt: 'What is the main job of a crank?',
-    options: [
-      'Convert rotary motion and reciprocating motion',
-      'Increase resistance in a circuit',
-      'Hold two wires apart',
-      'Insulate a metal frame',
-    ],
-    answer: 'Convert rotary motion and reciprocating motion',
+    options: ['Change rotary motion to reciprocating motion', 'Increase the resistance in an electric circuit', 'Hold two wires apart inside of a cable', 'Insulate a metal frame from the ground'],
+    answer: 'Change rotary motion to reciprocating motion',
     explanation: 'Cranks transform circular movement to linear movement, and vice versa.',
   },
   {

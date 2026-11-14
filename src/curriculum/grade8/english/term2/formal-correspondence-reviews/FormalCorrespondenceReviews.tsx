@@ -62,8 +62,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which line shows appropriate formal register?',
-    options: ['I would appreciate your response at your earliest convenience.', 'Please fix this now, it is ridiculous.', 'You people always ignore us.', 'This is super cool, thanks a lot!'],
-    answer: 'I would appreciate your response at your earliest convenience.',
+    options: ['I would appreciate your reply at your earliest convenience.', 'Please fix this now, it is ridiculous and unfair.', 'You people always ignore us and our requests.', 'This is super cool, thanks a lot for the help!'],
+    answer: 'I would appreciate your reply at your earliest convenience.',
     explanation: 'The sentence is polite and suitable for formal communication.',
   },
   {

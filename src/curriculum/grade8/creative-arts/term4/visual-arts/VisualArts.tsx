@@ -22,8 +22,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'A strong portfolio selection should show...',
-    options: ['Range, skill development, and effort', 'Only unfinished sketches', 'Only one repeated idea', 'No evidence of process'],
-    answer: 'Range, skill development, and effort',
+    options: ['Range, skill development and effort', 'Unfinished sketches and nothing else', 'One idea that is repeated in every piece', 'No evidence of how the work was made'],
+    answer: 'Range, skill development and effort',
     explanation: 'A portfolio should represent progress and variety in work.',
   },
   {
@@ -46,13 +46,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Reflection in Visual Arts helps learners...',
-    options: ['Identify strengths and next steps', 'Avoid all feedback', 'Replace practical tasks', 'Ignore previous work'],
-    answer: 'Identify strengths and next steps',
+    options: ['Spot strengths and set the next steps', 'Avoid all feedback from others', 'Take the place of the practical tasks', 'Ignore the work done earlier'],
+    answer: 'Spot strengths and set the next steps',
     explanation: 'Reflection supports improvement and deeper understanding.',
   },
   {
     prompt: 'When curating a display, a useful principle is to...',
-    options: ['Group related works to build a theme', 'Place all work randomly', 'Hide key pieces behind others', 'Use only the smallest wall area'],
+    options: ['Group related works to build a theme', 'Hang all of the work in no set order', 'Hide the key pieces behind other works', 'Use only the smallest area of the wall'],
     answer: 'Group related works to build a theme',
     explanation: 'Curating by theme creates coherence for viewers.',
   },
@@ -64,7 +64,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A useful end-of-year question is...',
-    options: ['How did my artistic choices improve over time?', 'How many desks are in the room?', 'What is the break-time menu?', 'What bus route is shortest?'],
+    options: ['How did my artistic choices improve over time?', 'How many desks are there in the room?', 'What is on the menu at break time?', 'Which bus route is the shortest?'],
     answer: 'How did my artistic choices improve over time?',
     explanation: 'Reviewing growth over time is central to portfolio reflection.',
   },

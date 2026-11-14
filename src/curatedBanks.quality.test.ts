@@ -35,10 +35,12 @@ test('Grade 6 Natural Sciences (the bank written to the ADR 0001 rules) has no d
 });
 
 // Grades whose curated banks have been repaired at the source (options and answers only; prompts untouched). They stay at ZERO.
-const HELD_AT_ZERO = ['g9', 'g11'];
+const HELD_AT_ZERO = ['g9', 'g11', 'g8'];
+// Rejects that cannot be fixed without editing a prompt (listed in docs/notes/question-quality.md). They may not grow.
+const NEEDS_PROMPT_CHANGE: Record<string, Record<string, number>> = { g8: { near_duplicate: 2 } };
 for (const scope of HELD_AT_ZERO) {
   test(`curated banks (${scope}) have no reject-level defect at all`, () => {
-    assert.deepEqual(counts[scope] ?? {}, {});
+    assert.deepEqual(counts[scope] ?? {}, NEEDS_PROMPT_CHANGE[scope] ?? {});
   });
 }
 

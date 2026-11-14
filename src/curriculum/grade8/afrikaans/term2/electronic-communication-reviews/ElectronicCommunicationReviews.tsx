@@ -79,8 +79,8 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Wat moet ná jou mening in 'n resensie volg?",
-    options: ['Bewyse of rede uit die teks', 'Nog drie vrae', 'Net emojis', 'Geen verdere sin'],
-    answer: 'Bewyse of rede uit die teks',
+    options: ['Bewyse of redes uit die teks', 'Nog drie vrae wat die leser kan beantwoord', 'Net emojis wat die gevoel wys', 'Geen verdere sin nie, want die mening is klaar'],
+    answer: 'Bewyse of redes uit die teks',
     explanation: 'Evidence supports the review opinion.',
   },
   {
@@ -97,7 +97,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Kies die beste openingsin vir 'n boekresensie.",
-    options: ['Hierdie roman is boeiend omdat die konflik realisties is.', 'Ek het hierdie week sokker gespeel.', 'Die boek het papierbladsye.', 'Daar is baie letters in die titel.'],
+    options: ['Hierdie roman is boeiend omdat die konflik realisties is.', 'Ek het hierdie week sokker gespeel by die skool.', "Die boek het papierbladsye en 'n harde omslag.", 'Daar is baie letters in die titel van die boek.'],
     answer: 'Hierdie roman is boeiend omdat die konflik realisties is.',
     explanation: 'It gives opinion and reason clearly.',
   },

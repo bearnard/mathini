@@ -207,3 +207,6 @@ once stable question IDs exist.
 - Grade 9 (several subjects): stems that are truncated fragments ("A scale is...", "Alignment in dance means...").
 - Grade 9 Afrikaans: the 12 identical placeholders ("How should you approach this skill?" and "What supports learning?") were
   deleted outright (not Afrikaans content; nothing depended on them).
+- Grade 8 Technology, "An AND gate gives output 1 only when..." / "An OR gate gives output 1 when...": the validator flags them as
+  near-duplicates (same 80% of words, they differ only in the gate name). They are different questions; either reword the stems
+  or teach the validator that a differing logic-gate name makes them distinct. Held by NEEDS_PROMPT_CHANGE in curatedBanks.quality.test.ts.

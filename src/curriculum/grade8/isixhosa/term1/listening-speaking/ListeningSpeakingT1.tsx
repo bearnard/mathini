@@ -47,7 +47,7 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Which response is best when introducing yourself in class?',
-    options: ['NdinguAyanda, ndifunda eGrade 8.', 'Andifuni kuthetha.', 'Mamela kuphela.', 'Hambani nonke.'],
+    options: ['NdinguAyanda, ndifunda eGrade 8.', 'Andifuni kuthetha nawe ngoku.', 'Mamela kuphela, ungathethi.', 'Hambani nonke ekhaya ngoku.'],
     answer: 'NdinguAyanda, ndifunda eGrade 8.',
     explanation: 'A clear introduction gives your name and relevant context.',
   },
@@ -83,8 +83,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'If you miss one detail in an oral passage, you should...',
-    options: ['use context from the rest of the message', 'guess without listening', 'stop following the task', 'change the topic'],
-    answer: 'use context from the rest of the message',
+    options: ['use the rest of the message for clues', 'guess an answer without listening any more', 'stop following the task for the rest of the passage', 'change the topic to one that you know well'],
+    answer: 'use the rest of the message for clues',
     explanation: 'Remaining details often help you infer missing information.',
   },
   {

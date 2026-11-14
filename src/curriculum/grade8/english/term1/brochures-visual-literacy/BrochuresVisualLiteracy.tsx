@@ -80,13 +80,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which statement is an inference?',
-    options: ['The brochure probably targets tourists because it highlights local attractions.', 'The brochure has three paragraphs.', 'The title is printed at the top.', 'The page includes two photos.'],
-    answer: 'The brochure probably targets tourists because it highlights local attractions.',
+    options: ['The brochure probably targets tourists, as it stresses local sights.', 'The brochure has three paragraphs of text in it.', 'The title is printed at the top of the first page.', 'The page includes two photos of the local area.'],
+    answer: 'The brochure probably targets tourists, as it stresses local sights.',
     explanation: 'Inference uses clues to reach a reasonable conclusion.',
   },
   {
     prompt: 'Why is white space important in brochure design?',
-    options: ['It improves readability and layout balance.', 'It adds more grammar errors.', 'It hides all key details.', 'It replaces audience analysis.'],
+    options: ['It improves readability and layout balance.', 'It adds more grammar errors to the text.', 'It hides the key details from the reader.', 'It takes the place of audience analysis.'],
     answer: 'It improves readability and layout balance.',
     explanation: 'White space keeps information uncluttered and easier to process.',
   },

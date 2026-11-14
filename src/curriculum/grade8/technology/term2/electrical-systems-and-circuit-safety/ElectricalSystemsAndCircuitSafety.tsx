@@ -73,13 +73,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Earthing helps safety by...',
-    options: [
-      'Providing a low-resistance path for fault current',
-      'Increasing brightness of all bulbs',
-      'Replacing all switches in a circuit',
-      'Removing the need for insulation',
-    ],
-    answer: 'Providing a low-resistance path for fault current',
+    options: ['Giving fault current a low-resistance path', 'Making all of the bulbs shine brighter', 'Replacing all of the switches in the circuit', 'Removing the need for any insulation'],
+    answer: 'Giving fault current a low-resistance path',
     explanation: 'Earthing directs fault current safely to ground.',
   },
   {

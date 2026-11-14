@@ -34,20 +34,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Audience awareness means performers should...',
-    options: ['Use voice and body so meaning reaches viewers', 'Ignore eye line and projection', 'Turn away all the time', 'Speak without expression'],
-    answer: 'Use voice and body so meaning reaches viewers',
+    options: ['Use voice and body so the meaning reaches viewers', 'Ignore eye line and projection on stage', 'Turn away from the audience for the whole scene', 'Speak the lines with no expression at all'],
+    answer: 'Use voice and body so the meaning reaches viewers',
     explanation: 'Audience awareness improves clarity and engagement.',
   },
   {
     prompt: 'A script excerpt gives learners...',
-    options: ['A short section of dialogue and action', 'A full music score', 'Only costume instructions', 'A painting reference'],
+    options: ['A short section of dialogue and action', 'A full music score for an orchestra', 'Instructions on costumes and nothing else', 'A reference picture for a painting'],
     answer: 'A short section of dialogue and action',
     explanation: 'Excerpts are selected parts used for focused performance practice.',
   },
   {
     prompt: 'Improvisation in storytelling tasks helps learners...',
-    options: ['Explore ideas quickly before finalising scenes', 'Avoid collaboration', 'Memorise without understanding', 'Skip all rehearsal'],
-    answer: 'Explore ideas quickly before finalising scenes',
+    options: ['Try out ideas quickly before settling the scenes', 'Avoid working with the other learners', 'Memorise lines without understanding them', 'Skip the rehearsals for the final scene'],
+    answer: 'Try out ideas quickly before settling the scenes',
     explanation: 'Improvisation develops creative options for scenes.',
   },
   {
@@ -64,7 +64,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Reflective discussion after performance should include...',
-    options: ['Specific examples of strengths and improvements', 'Only applause volume', 'Only prop prices', 'No mention of technique'],
+    options: ['Specific examples of strengths and improvements', 'The volume of the applause at the end', 'The prices of the props that were used', 'A general remark that leaves out any technique'],
     answer: 'Specific examples of strengths and improvements',
     explanation: 'Evidence-based reflection improves future performance quality.',
   },

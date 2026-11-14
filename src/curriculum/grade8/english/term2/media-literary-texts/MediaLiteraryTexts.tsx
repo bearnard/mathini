@@ -95,14 +95,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Theme is best described as...',
-    options: ['the underlying idea running through a text', 'the font size of the title', 'the number of commas', 'the speaker volume level'],
+    options: ['the underlying idea running through a text', 'the font size that is used for the title', 'the number of commas in a paragraph', 'the volume at which the speaker reads'],
     answer: 'the underlying idea running through a text',
     explanation: 'Theme reflects the deeper message or concept.',
   },
   {
     prompt: 'Why compare media and literary texts in one lesson?',
-    options: ['to see how different forms shape meaning and response', 'to avoid reading carefully', 'to remove evidence from answers', 'to memorise unrelated facts only'],
-    answer: 'to see how different forms shape meaning and response',
+    options: ['to see how forms shape meaning and response', 'to avoid having to read the texts carefully', 'to leave evidence out of the answers', 'to memorise facts that have no link'],
+    answer: 'to see how forms shape meaning and response',
     explanation: 'Comparison reveals how purpose and technique vary by genre.',
   },
 ];

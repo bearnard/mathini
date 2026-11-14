@@ -44,19 +44,19 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'An email should usually include...',
-    options: ['a subject and clear message', 'only emojis', 'no greeting', 'random symbols'],
-    answer: 'a subject and clear message',
+    options: ['a subject line and a clear message', 'only emojis in place of words', 'no greeting at the start of the email', 'a string of symbols that has no meaning'],
+    answer: 'a subject line and a clear message',
     explanation: 'Basic email format includes a focused subject and message.',
   },
   {
     prompt: 'A review mainly gives...',
-    options: ['an opinion supported by reasons', 'a shopping receipt', 'a grammar table', 'a timetable'],
-    answer: 'an opinion supported by reasons',
+    options: ['an opinion that is backed up by reasons', 'a shopping receipt that lists the items bought', 'a grammar table of the rules of language', 'a timetable of the events of the week'],
+    answer: 'an opinion that is backed up by reasons',
     explanation: 'Reviews evaluate with evidence and examples.',
   },
   {
     prompt: 'The purpose of a report is to...',
-    options: ['present factual information clearly', 'retell fantasy only', 'write a poem only', 'avoid organisation'],
+    options: ['present factual information clearly', 'retell a fantasy story and nothing else', 'write a poem and nothing else', 'avoid any kind of organisation'],
     answer: 'present factual information clearly',
     explanation: 'Reports communicate structured facts about a topic.',
   },
@@ -74,8 +74,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A clear paragraph usually has...',
-    options: ['topic sentence and supporting detail', 'many unrelated points', 'no punctuation', 'only one long line'],
-    answer: 'topic sentence and supporting detail',
+    options: ['a topic sentence and supporting detail', 'many points that have no link to each other', 'no punctuation marks of any kind', 'only one long line with no breaks'],
+    answer: 'a topic sentence and supporting detail',
     explanation: 'Paragraph unity improves readability.',
   },
   {
@@ -86,8 +86,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When writing for classmates, language should be...',
-    options: ['clear and appropriately informal', 'always legalistic', 'deliberately confusing', 'only abbreviations'],
-    answer: 'clear and appropriately informal',
+    options: ['clear and suitably informal', 'always legalistic and full of formal terms', 'deliberately confusing to the reader', 'made up of abbreviations and nothing else'],
+    answer: 'clear and suitably informal',
     explanation: 'Audience awareness guides effective style choices.',
   },
 ];

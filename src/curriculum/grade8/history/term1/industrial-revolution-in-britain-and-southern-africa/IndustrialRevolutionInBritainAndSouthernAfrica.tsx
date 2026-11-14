@@ -42,13 +42,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What does industrialisation mean?',
-    options: [
-      'A shift from mainly hand production to machine-based factory production',
-      'The end of all farming in Europe',
-      'A system where only kings controlled trade',
-      'Moving national borders every year',
-    ],
-    answer: 'A shift from mainly hand production to machine-based factory production',
+    options: ['A shift from hand production to machine factory production', 'The end of all farming in Europe', 'A system in which only kings controlled trade', 'The moving of national borders every year'],
+    answer: 'A shift from hand production to machine factory production',
     explanation: 'Industrialisation is the move toward machines, factories, and mass production.',
   },
   {
@@ -75,12 +70,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What was a key purpose of early trade unions?',
-    options: [
-      'To organise workers to demand better pay and conditions',
-      'To make laws for all countries',
-      'To stop all machines from being used',
-      'To replace schools with factories',
-    ],
+    options: ['To organise workers to demand better pay and conditions', 'To make the laws for all of the countries', 'To stop the use of all machines in factories', 'To take the place of schools with factories'],
     answer: 'To organise workers to demand better pay and conditions',
     explanation: 'Trade unions helped workers act together for fairer treatment.',
   },

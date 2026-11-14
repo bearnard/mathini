@@ -22,8 +22,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'A complete dance routine should include...',
-    options: ['A clear beginning, development, and ending', 'Only one repeated move', 'No transitions', 'No musical connection'],
-    answer: 'A clear beginning, development, and ending',
+    options: ['A clear beginning, development and ending', 'One move that is repeated again and again', 'Moves with no transitions between them', 'Moves that have no link to the music'],
+    answer: 'A clear beginning, development and ending',
     explanation: 'Structured routines are easier for audiences to follow.',
   },
   {
@@ -34,7 +34,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Expression in dance is shown through...',
-    options: ['Body dynamics and facial focus', 'Only costume choice', 'Only stage position', 'Only applause volume'],
+    options: ['Body dynamics and facial focus', 'The choice of costume and nothing else', 'The position on the stage and nothing else', 'The volume of the applause and nothing else'],
     answer: 'Body dynamics and facial focus',
     explanation: 'Expression communicates feeling and intention.',
   },
@@ -64,7 +64,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A good final reflection question is...',
-    options: ['What will I refine before the next performance?', 'What snack should I buy later?', 'How many desks are in class?', 'Which subject has no movement?'],
+    options: ['What will I refine before the next performance?', 'What snack should I buy later today?', 'How many desks are there in the class?', 'Which subject has the least movement?'],
     answer: 'What will I refine before the next performance?',
     explanation: 'Reflection guides targeted improvement after practical work.',
   },

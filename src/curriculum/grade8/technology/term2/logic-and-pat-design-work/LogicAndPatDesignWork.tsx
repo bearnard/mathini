@@ -39,12 +39,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does a truth table show?',
-    options: [
-      'All input combinations and the resulting output',
-      'Only physical wire colours',
-      'Only the cost of components',
-      'Only mechanical-force diagrams',
-    ],
+    options: ['All input combinations and the resulting output', 'The colours of the wires in a circuit', 'The cost of each of the components', 'The mechanical force diagrams of a frame'],
     answer: 'All input combinations and the resulting output',
     explanation: 'Truth tables map each possible input state to an output state.',
   },
@@ -74,13 +69,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why should PAT design sketches be labelled clearly?',
-    options: [
-      'To communicate ideas and system function accurately',
-      'To avoid using any measurements',
-      'To replace all practical testing',
-      'To hide design weaknesses',
-    ],
-    answer: 'To communicate ideas and system function accurately',
+    options: ['To show the ideas and how the system works', 'To avoid having to give any measurements', 'To take the place of all practical testing', 'To hide the weaknesses of the design'],
+    answer: 'To show the ideas and how the system works',
     explanation: 'Clear labels show components, inputs, outputs, and how parts connect.',
   },
 ];

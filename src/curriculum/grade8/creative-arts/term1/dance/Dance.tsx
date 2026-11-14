@@ -58,8 +58,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'In group dance, spatial awareness means...',
-    options: ['Knowing where others are to avoid collisions', 'Facing away from everyone', 'Dancing at random tempos', 'Ignoring formation lines'],
-    answer: 'Knowing where others are to avoid collisions',
+    options: ['Knowing where others are so you avoid collisions', 'Keeping your eyes on the mirror and nowhere else', 'Dancing at your own tempo, whatever the music does', 'Keeping to the formation lines even if others move'],
+    answer: 'Knowing where others are so you avoid collisions',
     explanation: 'Awareness of spacing keeps the group safe and coordinated.',
   },
   {

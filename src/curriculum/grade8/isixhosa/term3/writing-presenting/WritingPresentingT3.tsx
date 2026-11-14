@@ -56,8 +56,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A formal letter should use...',
-    options: ['appropriate formal tone and format', 'slang throughout', 'no salutation', 'emoji-only lines'],
-    answer: 'appropriate formal tone and format',
+    options: ['a suitable formal tone and format', 'slang throughout the whole letter', 'no salutation at the start of the letter', 'lines made of emojis and nothing else'],
+    answer: 'a suitable formal tone and format',
     explanation: 'Formal writing requires controlled language and layout.',
   },
   {
@@ -86,7 +86,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Strong paragraph development means...',
-    options: ['each paragraph develops one clear point', 'all ideas mix together', 'no examples are given', 'punctuation is ignored'],
+    options: ['each paragraph develops one clear point', 'all of the ideas are mixed together', 'no examples are given in any paragraph', 'punctuation is ignored in the paragraph'],
     answer: 'each paragraph develops one clear point',
     explanation: 'Paragraph unity improves coherence and clarity.',
   },

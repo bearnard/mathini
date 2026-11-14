@@ -33,12 +33,7 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is a risk behaviour?',
-    options: [
-      'An action likely to harm health or safety',
-      'A planned homework routine',
-      'A polite classroom discussion',
-      'A regular sleep schedule',
-    ],
+    options: ['An action likely to harm health or safety', 'A homework routine that is planned well', 'A polite discussion in a classroom', 'A regular schedule of sleep each night'],
     answer: 'An action likely to harm health or safety',
     explanation: 'Risk behaviours increase chances of injury or long-term harm.',
   },
@@ -66,34 +61,19 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A friend pressures you to do something unsafe. What should you do?',
-    options: [
-      'Use an assertive no and contact trusted support',
-      'Follow the group without thinking',
-      'Hide your concern and continue',
-      'Take bigger risks to appear brave',
-    ],
-    answer: 'Use an assertive no and contact trusted support',
+    options: ['Say a firm no and contact a trusted person for support', 'Follow the group without thinking about it', 'Hide your worry and carry on with them', 'Take bigger risks so as to look brave'],
+    answer: 'Say a firm no and contact a trusted person for support',
     explanation: 'Safe choices include boundaries plus immediate support.',
   },
   {
     prompt: 'Which behaviour builds resilience?',
-    options: [
-      'Learning from setbacks and trying healthy strategies again',
-      'Giving up after one challenge',
-      'Avoiding all feedback',
-      'Ignoring personal limits',
-    ],
-    answer: 'Learning from setbacks and trying healthy strategies again',
+    options: ['Learning from setbacks and trying again', 'Giving up after a single hard challenge', 'Avoiding all feedback from other people', 'Ignoring your own limits when you train'],
+    answer: 'Learning from setbacks and trying again',
     explanation: 'Resilience means adapting positively during challenges.',
   },
   {
     prompt: 'What is a personal safety plan?',
-    options: [
-      'A set of steps for staying safe in risky situations',
-      'A list of rumours at school',
-      'A strategy to skip responsibilities',
-      'A sports fixture schedule',
-    ],
+    options: ['A set of steps for staying safe in risky situations', 'A list of the rumours that go round school', 'A plan for skipping your responsibilities', 'A schedule of the sports fixtures'],
     answer: 'A set of steps for staying safe in risky situations',
     explanation: 'Safety plans identify warning signs, actions, and support contacts.',
   },
@@ -110,13 +90,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'How can learners lower everyday risk?',
-    options: [
-      'Think ahead about consequences before acting',
-      'Act first and reflect later',
-      'Ignore warning signs',
-      'Choose popularity over safety',
-    ],
-    answer: 'Think ahead about consequences before acting',
+    options: ['Think ahead about the consequences before acting', 'Act first and think about it afterwards', 'Ignore the warning signs around you', 'Choose to be popular rather than safe'],
+    answer: 'Think ahead about the consequences before acting',
     explanation: 'Consequence thinking improves responsible decisions.',
   },
 ];

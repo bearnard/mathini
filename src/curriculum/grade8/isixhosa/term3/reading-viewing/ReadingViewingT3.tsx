@@ -54,8 +54,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Mood in poetry is mainly the...',
-    options: ['feeling created for the reader', 'number of lines', 'author’s surname', 'type of paper'],
-    answer: 'feeling created for the reader',
+    options: ['the feeling that is created for the reader', 'the number of lines in the poem', 'the surname of the author of the poem', 'the type of paper that the poem is printed on'],
+    answer: 'the feeling that is created for the reader',
     explanation: 'Mood describes the emotional atmosphere of the poem.',
   },
   {
@@ -78,8 +78,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A short story response should track...',
-    options: ['character, events, and message', 'font size only', 'margin width only', 'spelling list only'],
-    answer: 'character, events, and message',
+    options: ['the character, the events and the message', 'the font size that is used in the text only', 'the width of the margin on the page only', 'a list of the spelling words only'],
+    answer: 'the character, the events and the message',
     explanation: 'These elements support deeper comprehension.',
   },
   {

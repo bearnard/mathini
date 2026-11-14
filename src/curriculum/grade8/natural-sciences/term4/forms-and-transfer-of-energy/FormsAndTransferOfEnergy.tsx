@@ -53,8 +53,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does conservation of energy mean?',
-    options: ['Energy cannot be created or destroyed, only transformed or transferred', 'Energy is always lost completely', 'Only electrical energy can be conserved', 'Conserved energy never changes form'],
-    answer: 'Energy cannot be created or destroyed, only transformed or transferred',
+    options: ['Energy cannot be made or destroyed, only changed or moved', 'Energy is always lost completely in any process', 'Only electrical energy can be conserved', 'Conserved energy never changes from one form'],
+    answer: 'Energy cannot be made or destroyed, only changed or moved',
     explanation: 'Total energy remains constant, though forms can change.',
   },
   {

@@ -56,12 +56,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Evaluation criteria are used to...',
-    options: [
-      'Judge how well the prototype meets requirements',
-      'Decorate the model only',
-      'Replace all practical testing',
-      'Increase cost without reason',
-    ],
+    options: ['Judge how well the prototype meets requirements', 'Decorate the model and nothing else', 'Take the place of all practical testing', 'Raise the cost for no good reason'],
     answer: 'Judge how well the prototype meets requirements',
     explanation: 'Criteria help you compare performance to design goals.',
   },
@@ -73,8 +68,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A process record should include...',
-    options: ['Steps followed, problems found, and improvements made', 'Only the final mark', 'Only material prices', 'Only the title page'],
-    answer: 'Steps followed, problems found, and improvements made',
+    options: ['Steps followed, problems found, improvements made', 'Only the final mark that was given', 'Only the prices of the materials used', 'Only the title page of the whole project'],
+    answer: 'Steps followed, problems found, improvements made',
     explanation: 'Clear records show evidence of making and evaluating decisions.',
   },
   {

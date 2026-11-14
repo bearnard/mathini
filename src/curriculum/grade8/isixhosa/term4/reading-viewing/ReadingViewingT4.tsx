@@ -53,8 +53,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'When revising poems, focus on...',
-    options: ['mood, imagery, and message', 'page numbering', 'font colour', 'desk layout'],
-    answer: 'mood, imagery, and message',
+    options: ['mood, imagery and message', 'page numbering and nothing else', 'font colour and nothing else', 'the layout of the desks and nothing else'],
+    answer: 'mood, imagery and message',
     explanation: 'These features help interpret poetic meaning.',
   },
   {
@@ -71,14 +71,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'If two texts disagree, you should...',
-    options: ['compare their evidence carefully', 'ignore one text', 'combine random claims', 'pick answers by chance'],
-    answer: 'compare their evidence carefully',
+    options: ['compare their evidence with care', 'ignore one of the two texts', 'combine claims from both texts in any way', 'pick the answer by chance'],
+    answer: 'compare their evidence with care',
     explanation: 'Comparison helps evaluate differences accurately.',
   },
   {
     prompt: 'A strong revision response usually includes...',
-    options: ['a clear answer plus textual support', 'a copied question', 'only personal opinion', 'no explanation'],
-    answer: 'a clear answer plus textual support',
+    options: ['a clear answer plus support from the text', 'a copy of the question and nothing more', 'only a personal opinion of the text', 'no explanation of the answer given'],
+    answer: 'a clear answer plus support from the text',
     explanation: 'Supporting evidence makes responses credible.',
   },
   {

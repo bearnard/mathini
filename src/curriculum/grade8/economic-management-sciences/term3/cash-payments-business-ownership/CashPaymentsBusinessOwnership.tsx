@@ -52,7 +52,7 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What does the cash payments journal record?',
-    options: ['All money received', 'All money paid out for business expenses', 'All sales transactions', 'Only wages paid'],
+    options: ['All of the money that was received', 'All money paid out for business expenses', 'All of the sales transactions of the month', 'Only the wages that were paid to staff'],
     answer: 'All money paid out for business expenses',
     explanation: 'The cash payments journal tracks all cash and cheque payments, including bills, expenses, and purchases.',
   },
@@ -70,25 +70,25 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which management level makes decisions about daily operations and staff supervision?',
-    options: ['Senior management', 'Middle management', 'Operational/supervisory management', 'Shareholders only'],
+    options: ['Senior management, who set the strategy', 'Middle management, who run the departments', 'Operational/supervisory management', 'The shareholders, who own the business only'],
     answer: 'Operational/supervisory management',
     explanation: 'Operational managers oversee day-to-day activities, supervise staff, and ensure tasks are completed efficiently.',
   },
   {
     prompt: 'Why is budgeting important for a small business?',
-    options: ['To avoid paying taxes', 'To plan income and expenses, control spending, and prepare for profitability', 'To reduce sales', 'It is not important'],
-    answer: 'To plan income and expenses, control spending, and prepare for profitability',
+    options: ['To avoid paying the taxes that are due', 'To plan income and spending and control costs', 'To reduce the sales of the business', 'Budgeting is not important for a small firm'],
+    answer: 'To plan income and spending and control costs',
     explanation: 'Budgets help businesses plan finances, avoid overspending, and identify whether they will be profitable.',
   },
   {
     prompt: 'What determines the price a business can charge for its products?',
-    options: ['What the owner wants to earn', 'Costs of production, competition, and market demand', 'Government regulations only', 'Random choice'],
-    answer: 'Costs of production, competition, and market demand',
+    options: ['What the owner wants to earn from each sale', 'The costs of production, competition and market demand', 'Government regulations and nothing else', 'Whatever price the owner happens to like'],
+    answer: 'The costs of production, competition and market demand',
     explanation: 'Prices are set by balancing production costs, what competitors charge, and what customers are willing to pay.',
   },
   {
     prompt: 'If a sole trader business fails, what happens to personal assets?',
-    options: ['Personal assets are protected', 'Personal assets may be used to pay business debts', 'Nothing happens', 'The bank covers it'],
+    options: ['Personal assets are fully protected by law', 'Personal assets may be used to pay business debts', 'Nothing happens to the personal assets', 'The bank covers the debts of the business'],
     answer: 'Personal assets may be used to pay business debts',
     explanation: 'A sole trader has unlimited liability—personal assets can be used to pay business debts and obligations.',
   },

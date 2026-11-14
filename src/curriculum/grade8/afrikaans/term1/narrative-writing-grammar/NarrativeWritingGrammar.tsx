@@ -71,7 +71,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Kies die beste narratiewe openingsin.",
-    options: ['Toe die klok lui, hardloop ek na die saal.', 'Die saal is groot en blou.', 'Ek hou van skryfwerk.', 'Daar is drie vensters.'],
+    options: ['Toe die klok lui, hardloop ek na die saal.', 'Die saal is groot en blou en het baie stoele.', 'Ek hou van skryfwerk en lees graag stories.', 'Daar is drie vensters en twee deure in die saal.'],
     answer: 'Toe die klok lui, hardloop ek na die saal.',
     explanation: 'It starts with action and context.',
   },
@@ -89,7 +89,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Watter opsie wys goeie redigering?",
-    options: ['Verbeter spelling en sinsbou in elke paragraaf', 'Voeg net meer uitroeptekens by', 'Verander net die titel', 'Skryf sonder leestekens'],
+    options: ['Verbeter spelling en sinsbou in elke paragraaf', 'Voeg net meer uitroeptekens by elke sin by', 'Verander net die titel van die opstel', 'Skryf sonder leestekens om tyd te spaar'],
     answer: 'Verbeter spelling en sinsbou in elke paragraaf',
     explanation: 'Editing focuses on language accuracy and clarity.',
   },

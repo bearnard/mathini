@@ -60,13 +60,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is migrant labour in this historical context?',
-    options: [
-      'Workers moving, often temporarily, from rural areas to mining centres for jobs',
-      'Workers permanently owning all mines',
-      'Only foreign diplomats working in cities',
-      'Children travelling for school exchanges',
-    ],
-    answer: 'Workers moving, often temporarily, from rural areas to mining centres for jobs',
+    options: ['Workers moving, often temporarily, to mining centres for jobs', 'Workers who permanently owned all of the mines', 'Foreign diplomats who worked in the cities only', 'Children who travelled for school exchanges'],
+    answer: 'Workers moving, often temporarily, to mining centres for jobs',
     explanation: 'Many men travelled for mine work and later returned home periodically.',
   },
   {

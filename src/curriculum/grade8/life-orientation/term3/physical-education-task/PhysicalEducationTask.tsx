@@ -43,12 +43,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Why are indigenous games included in PET?',
-    options: [
-      'They build movement skills and cultural appreciation',
-      'They replace all teamwork',
-      'They remove fitness demands',
-      'They are only for spectators',
-    ],
+    options: ['They build movement skills and cultural appreciation', 'They take the place of all teamwork', 'They remove the fitness demands of the lesson', 'They are meant for spectators only'],
     answer: 'They build movement skills and cultural appreciation',
     explanation: 'Indigenous games support coordination, social skills, and heritage learning.',
   },
@@ -87,35 +82,20 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What does endurance mean in athletics?',
-    options: [
-      'Sustaining effort over a period of time',
-      'One short sprint only',
-      'Avoiding physical activity',
-      'Stopping after every step',
-    ],
-    answer: 'Sustaining effort over a period of time',
+    options: ['Keeping up effort over a period of time', 'One short sprint and nothing more', 'Avoiding all physical activity', 'Stopping after every single step'],
+    answer: 'Keeping up effort over a period of time',
     explanation: 'Endurance supports longer performance with controlled energy use.',
   },
   {
     prompt: 'Which reflection question supports PET improvement?',
-    options: [
-      'Which skill improved, and what will I practise next?',
-      'Who should I blame for all mistakes?',
-      'How can I avoid activity next class?',
-      'How can I skip safety routines?',
-    ],
+    options: ['Which skill improved, and what will I practise next?', 'Who should I blame for all of my mistakes?', 'How can I avoid taking part next class?', 'How can I skip the safety routines?'],
     answer: 'Which skill improved, and what will I practise next?',
     explanation: 'Constructive reflection guides next-step practice goals.',
   },
   {
     prompt: 'What is a sign of fair participation in games?',
-    options: [
-      'Following rules and respecting every player',
-      'Arguing about every decision',
-      'Cheating when losing',
-      'Excluding weaker teammates',
-    ],
-    answer: 'Following rules and respecting every player',
+    options: ['Following rules and respecting all players', 'Arguing about every decision that is made', 'Cheating whenever you are losing', 'Leaving out the weaker members of the team'],
+    answer: 'Following rules and respecting all players',
     explanation: 'Fair participation creates safe, inclusive sport experiences.',
   },
 ];

@@ -22,7 +22,7 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Characterisation means...',
-    options: ['Building believable characters through choices', 'Reading lines with no emotion', 'Standing still throughout', 'Only choosing costumes'],
+    options: ['Building believable characters through choices', 'Reading the lines with no emotion', 'Standing still throughout the scene', 'Choosing the costumes and nothing else'],
     answer: 'Building believable characters through choices',
     explanation: 'Characterisation includes voice, movement, motivation, and reaction.',
   },
@@ -34,14 +34,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Staging refers to...',
-    options: ['How actors and action are arranged in performance space', 'Only script font size', 'Only sound volume', 'Only costume colour'],
-    answer: 'How actors and action are arranged in performance space',
+    options: ['How actors and action are placed on stage', 'The font size that is used in the script text', 'The sound volume of the whole performance', 'The colour of the costumes worn on stage'],
+    answer: 'How actors and action are placed on stage',
     explanation: 'Staging choices affect visibility, meaning, and audience focus.',
   },
   {
     prompt: 'Scripted dialogue helps learners to...',
-    options: ['Practise timing, cues, and interpretation', 'Avoid any rehearsal', 'Ignore punctuation', 'Remove character intentions'],
-    answer: 'Practise timing, cues, and interpretation',
+    options: ['Practise timing, cues and interpretation', 'Avoid rehearsals before the show', 'Ignore the punctuation in the lines', 'Take out the intentions of the characters'],
+    answer: 'Practise timing, cues and interpretation',
     explanation: 'Dialogue provides structure for performance decisions.',
   },
   {
@@ -52,19 +52,19 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Hot-seating is an activity where...',
-    options: ['A learner answers questions in role as a character', 'The audience leaves early', 'Actors change costumes only', 'Lines are read silently'],
-    answer: 'A learner answers questions in role as a character',
+    options: ['A learner answers questions while in role as a character', 'The audience leaves before the scene ends', 'The actors only change their costumes', 'The lines are read silently by each actor'],
+    answer: 'A learner answers questions while in role as a character',
     explanation: 'Hot-seating deepens understanding of character thoughts and motives.',
   },
   {
     prompt: 'Strong focus on stage means performers...',
-    options: ['Stay committed to the scene objective', 'Break character often', 'Face away from all cues', 'Move without purpose'],
-    answer: 'Stay committed to the scene objective',
+    options: ['Stay committed to the aim of the scene', 'Break character quite often during the scene', 'Face away from all of the cues', 'Move about without any purpose'],
+    answer: 'Stay committed to the aim of the scene',
     explanation: 'Focused acting keeps the dramatic world believable.',
   },
   {
     prompt: 'A useful rehearsal reflection question is...',
-    options: ['How did staging choices support the conflict?', 'How many desks were in class?', 'What was the weather outside?', 'Which snack was sold at break?'],
+    options: ['How did staging choices support the conflict?', 'How many desks were in the classroom?', 'What was the weather like outside?', 'Which snack was sold at break time?'],
     answer: 'How did staging choices support the conflict?',
     explanation: 'Reflection should connect techniques to dramatic meaning.',
   },

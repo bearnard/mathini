@@ -71,7 +71,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which choice best shows characterisation?',
-    options: ['The character shares food despite being hungry.', 'The page has three paragraphs.', 'The story title is centred.', 'The font is bold.'],
+    options: ['The character shares food despite being hungry.', 'The page has three paragraphs of equal length.', 'The story title is centred on the first page.', 'The font of the heading is bold and large.'],
     answer: 'The character shares food despite being hungry.',
     explanation: 'Actions reveal values and personality.',
   },
@@ -95,13 +95,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which evidence best supports a claim about narrator attitude?',
-    options: ['specific words describing events with emotion', 'the number of pages in the book', 'the date on the cover', 'the colour of the classroom wall'],
+    options: ['specific words describing events with emotion', 'the number of pages in the book', 'the date that is printed on the cover', 'the colour of the wall of the classroom'],
     answer: 'specific words describing events with emotion',
     explanation: 'Word choice reveals attitude and perspective.',
   },
   {
     prompt: 'Why might a writer rearrange sequence with a flashback?',
-    options: ['to reveal background that deepens current events', 'to remove all tension', 'to avoid character development', 'to switch genres to report writing'],
+    options: ['to reveal background that deepens current events', 'to remove all of the tension from the story', 'to avoid any development of the characters', 'to switch the genre to a news report'],
     answer: 'to reveal background that deepens current events',
     explanation: 'Flashbacks provide context that enriches interpretation.',
   },

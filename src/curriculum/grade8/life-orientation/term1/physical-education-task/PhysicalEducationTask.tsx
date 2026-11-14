@@ -33,13 +33,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Why is a warm-up important before activity?',
-    options: [
-      'It prepares muscles and reduces injury risk',
-      'It makes rules unnecessary',
-      'It replaces hydration',
-      'It is only needed for athletes',
-    ],
-    answer: 'It prepares muscles and reduces injury risk',
+    options: ['It prepares the muscles and lowers the risk of injury', 'It makes the rules of the game unnecessary', 'It takes the place of drinking enough water', 'It is needed only by athletes who compete'],
+    answer: 'It prepares the muscles and lowers the risk of injury',
     explanation: 'Warm-ups raise body readiness and improve movement safety.',
   },
   {
@@ -66,13 +61,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which option best builds basic fitness?',
-    options: [
-      'Consistent activity with effort and rest balance',
-      'One intense session per term only',
-      'Avoiding movement practice',
-      'Skipping cool-downs every time',
-    ],
-    answer: 'Consistent activity with effort and rest balance',
+    options: ['Regular activity with a balance of effort and rest', 'One intense session once a term and nothing more', 'Staying away from movement practice', 'Skipping the cool-down on every occasion'],
+    answer: 'Regular activity with a balance of effort and rest',
     explanation: 'Regular training supports gradual, safer fitness improvement.',
   },
   {

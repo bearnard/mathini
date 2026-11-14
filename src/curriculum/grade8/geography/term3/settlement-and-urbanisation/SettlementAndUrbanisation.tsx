@@ -60,19 +60,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which feature is most typical of a rural settlement?',
-    options: ['Low population density and larger open land', 'Many high-rise office blocks', 'Heavy daily traffic jams', 'Large CBD shopping districts'],
-    answer: 'Low population density and larger open land',
+    options: ['Low population density and larger areas of open land', 'Many high-rise office blocks in a small area', 'Heavy daily traffic jams on the main roads', 'Large CBD shopping districts with many stores'],
+    answer: 'Low population density and larger areas of open land',
     explanation: 'Rural areas generally have fewer people and more open space.',
   },
   {
     prompt: 'What is the CBD in a city?',
-    options: [
-      'The central business district where many services and businesses are concentrated',
-      'The city’s farming zone for livestock',
-      'The mountain catchment area',
-      'The outermost low-density residential belt only',
-    ],
-    answer: 'The central business district where many services and businesses are concentrated',
+    options: ['The central business district, where services and firms cluster', 'The farming zone of the city where livestock graze', 'The mountain catchment area above the city', 'The outer belt of low-density housing only'],
+    answer: 'The central business district, where services and firms cluster',
     explanation: 'The CBD is the commercial core of most cities.',
   },
   {
@@ -94,8 +89,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which is a pull factor attracting people to cities?',
-    options: ['More employment and service opportunities', 'Less access to healthcare', 'Reduced access to schools', 'Fewer transport links'],
-    answer: 'More employment and service opportunities',
+    options: ['More jobs and service opportunities', 'Less access to healthcare services', 'Reduced access to schools in the area', 'Fewer transport links to other places'],
+    answer: 'More jobs and service opportunities',
     explanation: 'Cities often attract migrants because they offer jobs and broader services.',
   },
   {

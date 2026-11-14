@@ -77,13 +77,13 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Waarom is tydsbeplanning belangrik in eksamens?",
-    options: ['Dit help jou om alle afdelings te voltooi', 'Dit maak antwoorde langer', 'Dit vervang studie', 'Dit verwyder moeilike vrae'],
+    options: ['Dit help jou om alle afdelings te voltooi', 'Dit maak jou antwoorde langer as nodig', 'Dit vervang die studie vir die eksamen', 'Dit haal die moeilike vrae uit die vraestel'],
     answer: 'Dit help jou om alle afdelings te voltooi',
     explanation: 'Time management prevents unfinished sections.',
   },
   {
     prompt: "Kies die beste laaste stap voor inhandiging.",
-    options: ['Kontroleer spelling, leestekens en instruksies', 'Begin nuwe antwoorde', 'Skryf alles weer oor', 'Slaan die laaste bladsy oor'],
+    options: ['Kontroleer spelling, leestekens en instruksies', 'Begin met nuwe antwoorde op die laaste oomblik', 'Skryf alles weer van voor af oor', 'Slaan die laaste bladsy oor om tyd te spaar'],
     answer: 'Kontroleer spelling, leestekens en instruksies',
     explanation: 'Final checks catch preventable errors.',
   },
@@ -107,7 +107,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Wat is die beste houding tydens hersiening?",
-    options: ['Werk gereeld met gemengde oefeninge', 'Studeer net die aand voor', 'Herhaal net een onderwerp', 'Moenie foute regmaak nie'],
+    options: ['Werk gereeld met gemengde oefeninge', 'Studeer net die aand voor die eksamen', 'Herhaal net een onderwerp keer op keer', 'Maak nie foute reg wat jy gemaak het nie'],
     answer: 'Werk gereeld met gemengde oefeninge',
     explanation: 'Regular mixed practice builds retention.',
   },

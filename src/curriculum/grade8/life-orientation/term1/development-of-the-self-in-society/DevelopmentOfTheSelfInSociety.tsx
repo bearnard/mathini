@@ -33,24 +33,14 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is self-concept?',
-    options: [
-      'How you understand your own strengths and areas to improve',
-      'A list of school rules only',
-      'A sports score from one game',
-      'A social media trend',
-    ],
-    answer: 'How you understand your own strengths and areas to improve',
+    options: ['How you see your own strengths and areas to improve', 'A list of the school rules for all learners', 'A sports score from a single game that you played', 'A trend that is spreading on social media'],
+    answer: 'How you see your own strengths and areas to improve',
     explanation: 'Self-concept is your view of who you are and how you can grow.',
   },
   {
     prompt: 'Which action best shows self-motivation?',
-    options: [
-      'Continuing with a study goal even when work is difficult',
-      'Waiting for others to do your tasks',
-      'Giving up after one mistake',
-      'Blaming everyone else for low marks',
-    ],
-    answer: 'Continuing with a study goal even when work is difficult',
+    options: ['Carrying on with a study goal even when the work is hard', 'Waiting for other people to do your tasks for you', 'Giving up after you make a single mistake', 'Blaming everyone else for your low marks'],
+    answer: 'Carrying on with a study goal even when the work is hard',
     explanation: 'Self-motivation means pushing yourself to keep improving.',
   },
   {
@@ -100,13 +90,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a good first step when you feel overwhelmed?',
-    options: [
-      'Speak to a trusted support person and make a simple action plan',
-      'Keep silent and stop trying',
-      'Spread your stress to classmates',
-      'Skip all school responsibilities',
-    ],
-    answer: 'Speak to a trusted support person and make a simple action plan',
+    options: ['Talk to a trusted person and make a simple action plan', 'Keep quiet about it and stop trying', 'Pass your stress on to your classmates', 'Skip all of your school duties for a while'],
+    answer: 'Talk to a trusted person and make a simple action plan',
     explanation: 'Support and planning help you regain control in healthy ways.',
   },
 ];

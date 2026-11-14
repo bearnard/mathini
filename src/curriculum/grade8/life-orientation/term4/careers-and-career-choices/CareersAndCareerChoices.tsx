@@ -33,13 +33,8 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Why is career exploration useful in Grade 8?',
-    options: [
-      'It helps learners make informed future subject and pathway choices',
-      'It forces one final career now',
-      'It is unrelated to school performance',
-      'It replaces all learning goals',
-    ],
-    answer: 'It helps learners make informed future subject and pathway choices',
+    options: ['It helps learners make informed subject and pathway choices', 'It forces them to choose one final career now', 'It has no link to how they do at school', 'It takes the place of all their learning goals'],
+    answer: 'It helps learners make informed subject and pathway choices',
     explanation: 'Early exploration supports smarter long-term planning.',
   },
   {
@@ -67,13 +62,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is a career aspiration map?',
-    options: [
-      'A plan linking goals, strengths, and steps toward options',
-      'A map of school buildings only',
-      'A list of random wishes',
-      'A record of exam marks only',
-    ],
-    answer: 'A plan linking goals, strengths, and steps toward options',
+    options: ['A plan linking goals, strengths and steps to options', 'A map of the school buildings and nothing else', 'A list of wishes with no plan behind them', 'A record of exam marks and nothing else'],
+    answer: 'A plan linking goals, strengths and steps to options',
     explanation: 'Aspiration mapping turns ideas into practical planning.',
   },
   {
@@ -89,23 +79,13 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which statement about careers is accurate?',
-    options: [
-      'People can adapt and grow through learning over time',
-      'Careers never change once chosen',
-      'Only one pathway leads to success',
-      'Interests never develop',
-    ],
-    answer: 'People can adapt and grow through learning over time',
+    options: ['People can adapt and grow by learning over time', 'Careers never change once they are chosen', 'Only one pathway leads to success', 'Interests never develop in a person'],
+    answer: 'People can adapt and grow by learning over time',
     explanation: 'Career development is a lifelong process.',
   },
   {
     prompt: 'A learner likes helping others and science. Which step is best?',
-    options: [
-      'Explore health and service-related career fields',
-      'Ignore both interests',
-      'Choose only what friends choose',
-      'Avoid any future planning',
-    ],
+    options: ['Explore health and service-related career fields', 'Ignore both interests and do nothing', 'Choose only what your friends choose', 'Avoid any planning for the future'],
     answer: 'Explore health and service-related career fields',
     explanation: 'Combining interests and strengths guides relevant options.',
   },

@@ -44,13 +44,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is peer pressure?',
-    options: [
-      'Influence from others to behave in a certain way',
-      'A formal school timetable',
-      'A type of weather pattern',
-      'A test score report',
-    ],
-    answer: 'Influence from others to behave in a certain way',
+    options: ['Influence from others to act in a certain way', 'A formal timetable that the school sets', 'A kind of weather pattern over a region', 'A report on the scores of a test'],
+    answer: 'Influence from others to act in a certain way',
     explanation: 'Peer pressure can be positive or negative depending on the behaviour encouraged.',
   },
   {
@@ -99,24 +94,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which scenario is most likely abuse?',
-    options: [
-      'A person repeatedly threatens and controls another person',
-      'A friend asks for help with homework',
-      'A coach explains safety rules',
-      'A classmate gives constructive feedback',
-    ],
-    answer: 'A person repeatedly threatens and controls another person',
+    options: ['A person repeatedly threatens and controls another', 'A friend asks you for help with homework', 'A coach explains the safety rules of a sport', 'A classmate gives you helpful feedback on your work'],
+    answer: 'A person repeatedly threatens and controls another',
     explanation: 'Control, threats, and fear are key abuse warning signs.',
   },
   {
     prompt: 'How can learners resist negative peer pressure?',
-    options: [
-      'Use refusal skills and choose safe friends',
-      'Follow every crowd decision',
-      'Take risks to gain popularity',
-      'Ignore personal values',
-    ],
-    answer: 'Use refusal skills and choose safe friends',
+    options: ['Use refusal skills and pick safe friends', 'Follow every decision that the crowd makes', 'Take risks in order to be popular', 'Ignore your own values and beliefs'],
+    answer: 'Use refusal skills and pick safe friends',
     explanation: 'Strong values and refusal phrases help learners make safer choices.',
   },
 ];

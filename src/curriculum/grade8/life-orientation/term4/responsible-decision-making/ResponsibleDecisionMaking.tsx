@@ -66,13 +66,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A friend encourages harmful behaviour. What is the best response?',
-    options: [
-      'Say no, choose safety, and seek support if needed',
-      'Join to avoid feeling left out',
-      'Hide the risk from adults',
-      'Pretend there are no consequences',
-    ],
-    answer: 'Say no, choose safety, and seek support if needed',
+    options: ['Say no, choose safety and seek support if needed', 'Join in to avoid feeling left out', 'Hide the risk from the adults around you', 'Pretend that there will be no consequences'],
+    answer: 'Say no, choose safety and seek support if needed',
     explanation: 'Safe boundaries and support protect your wellbeing.',
   },
   {
@@ -99,24 +94,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is resilience in decision-making?',
-    options: [
-      'Recovering from mistakes and choosing better next steps',
-      'Never admitting errors',
-      'Repeating harmful choices',
-      'Blaming others for everything',
-    ],
-    answer: 'Recovering from mistakes and choosing better next steps',
+    options: ['Recovering from mistakes and choosing better', 'Never admitting that you made any errors', 'Repeating the same harmful choices again', 'Blaming other people for everything that happens'],
+    answer: 'Recovering from mistakes and choosing better',
     explanation: 'Resilience supports growth after setbacks.',
   },
   {
     prompt: 'Which final check improves a decision?',
-    options: [
-      'Ask if the choice is safe, respectful, and goal-aligned',
-      'Ask if it looks popular online',
-      'Ask if it avoids all effort',
-      'Ask if it harms someone else',
-    ],
-    answer: 'Ask if the choice is safe, respectful, and goal-aligned',
+    options: ['Ask if it is safe, respectful and in line with goals', 'Ask if it looks popular on social media', 'Ask if it will get you out of any effort', 'Ask if it will impress your friends the most'],
+    answer: 'Ask if it is safe, respectful and in line with goals',
     explanation: 'A values-based check keeps decisions responsible.',
   },
 ];

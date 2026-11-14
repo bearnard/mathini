@@ -65,19 +65,19 @@ const learnSteps: LearnStep[] = [
 const bank: AfrikaansItem[] = [
   {
     prompt: "Wat wys dialoog die beste in 'n drama?",
-    options: ['Karakter se stem en verhouding', 'Boekprys', 'Bladsyuitleg', 'Papiersoort'],
+    options: ['Karakter se stem en verhouding', 'Die prys van die boek in die winkel', 'Die uitleg van die bladsye van die boek', 'Die soort papier waarop die drama gedruk is'],
     answer: 'Karakter se stem en verhouding',
     explanation: 'Dialogue reveals character and relationships.',
   },
   {
     prompt: "Watter element maak 'n toneel dramaties?",
-    options: ['Duidelike konflik tussen karakters', 'Slegs lang beskrywings', 'Geen handeling nie', 'Geen sprekers nie'],
+    options: ['Duidelike konflik tussen karakters', 'Slegs lang beskrywings van die plek', 'Geen handeling in die toneel nie', 'Geen sprekers in die toneel nie'],
     answer: 'Duidelike konflik tussen karakters',
     explanation: 'Drama depends on tension and conflict.',
   },
   {
     prompt: "Wat beteken 'toneelaanwysing'?",
-    options: ['Instruksies oor beweging en aksie', 'Die titel van die boek', 'Die skrywer se CV', 'Die lys vrae'],
+    options: ['Instruksies oor beweging en aksie', 'Die titel van die boek en die skrywer', 'Die CV van die skrywer van die drama', 'Die lys van vrae oor die drama'],
     answer: 'Instruksies oor beweging en aksie',
     explanation: 'Stage directions tell performers what to do.',
   },
@@ -95,7 +95,7 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Watter antwoord toon sterk teksverwysing?",
-    options: ['In toneel 2 weier hy om te lieg, dus is hy eerlik.', 'Hy lyk interessant.', 'Ek hou net van hom.', 'Die verhaal is lank.'],
+    options: ['In toneel 2 weier hy om te lieg, dus is hy eerlik.', 'Hy lyk baie interessant op die voorblad.', 'Ek hou net van hom en dit is al.', 'Die verhaal is baie lank en moeilik.'],
     answer: 'In toneel 2 weier hy om te lieg, dus is hy eerlik.',
     explanation: 'It links evidence to interpretation.',
   },

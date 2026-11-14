@@ -34,14 +34,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Printmaking usually involves...',
-    options: ['Transferring an image from a prepared surface', 'Only freehand pencil shading', 'Building a clay sculpture', 'Recording a dance routine'],
+    options: ['Transferring an image from a prepared surface', 'Shading freehand with a pencil only', 'Building a sculpture out of clay', 'Recording a dance routine on camera'],
     answer: 'Transferring an image from a prepared surface',
     explanation: 'In printmaking, an image is inked and transferred from a plate, block, or stencil.',
   },
   {
     prompt: 'Collage is an art technique where you...',
-    options: ['Assemble cut or torn materials onto a surface', 'Carve directly into wood only', 'Paint with water only', 'Trace every line with a ruler'],
-    answer: 'Assemble cut or torn materials onto a surface',
+    options: ['Stick cut or torn materials onto a surface', 'Carve directly into a block of wood', 'Paint with water on a sheet of paper', 'Trace each line with a ruler'],
+    answer: 'Stick cut or torn materials onto a surface',
     explanation: 'Collage combines papers or textures to create a new image.',
   },
   {
@@ -58,14 +58,14 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Positive and negative space refers to...',
-    options: ['Object areas and surrounding empty areas', 'Only warm and cool colours', 'Loud and soft music', 'Fast and slow movement'],
-    answer: 'Object areas and surrounding empty areas',
+    options: ['The areas of an object and the empty space around it', 'Warm and cool colours in a picture only', 'Loud and soft sounds in music only', 'Fast and slow movement in dance only'],
+    answer: 'The areas of an object and the empty space around it',
     explanation: 'Positive space is the subject; negative space is around it.',
   },
   {
     prompt: 'Process notes are useful because they...',
-    options: ['Show planning, testing, and improvements', 'Replace practical work', 'Are only decoration', 'Do not include any decisions'],
-    answer: 'Show planning, testing, and improvements',
+    options: ['They show planning, testing and improvements', 'They take the place of the practical work', 'They are only meant as decoration', 'They leave out any decisions that were made'],
+    answer: 'They show planning, testing and improvements',
     explanation: 'Process evidence helps explain how an artwork was developed.',
   },
 ];

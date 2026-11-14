@@ -40,7 +40,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Texture in a drawing can be shown by...',
-    options: ['Using marks like hatching and stippling', 'Erasing all outlines', 'Removing all detail', 'Writing labels on the page'],
+    options: ['Using marks like hatching and stippling', 'Rubbing out all of the outlines in the drawing', 'Leaving out all of the detail in the drawing', 'Writing labels on the page beside the drawing'],
     answer: 'Using marks like hatching and stippling',
     explanation: 'Repeated mark-making techniques help create the illusion of texture.',
   },
@@ -58,13 +58,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Balanced composition means...',
-    options: [
-      'Visual elements are arranged so the artwork feels stable',
-      'All objects are exactly the same size',
-      'Everything is placed only in one corner',
-      'No background is included',
-    ],
-    answer: 'Visual elements are arranged so the artwork feels stable',
+    options: ['The elements are arranged so the artwork feels stable', 'All of the objects are exactly the same size', 'Everything is placed in one corner of the page', 'No background is included in the picture'],
+    answer: 'The elements are arranged so the artwork feels stable',
     explanation: 'Balance helps a 2D artwork feel ordered and visually effective.',
   },
   {
