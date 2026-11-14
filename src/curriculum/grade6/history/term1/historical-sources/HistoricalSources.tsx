@@ -1,6 +1,6 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
-import Timeline from '@/components/subjects/Timeline';
+import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
+        <ScaleTimeline
           events={[
             {"date": "c. 3200 BCE", "title": "Writing begins in Mesopotamia", "description": "Some of the earliest written records were made in Mesopotamia. These tablets became important primary sources for studying ancient societies."},
             {"date": "c. 440 BCE", "title": "Herodotus uses many sources", "description": "Herodotus wrote about past events using stories, eyewitness accounts, and observations. His work shows how historians compare different kinds of evidence."},

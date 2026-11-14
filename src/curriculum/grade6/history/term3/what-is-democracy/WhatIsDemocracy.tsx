@@ -1,6 +1,6 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
-import Timeline from '@/components/subjects/Timeline';
+import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
+        <ScaleTimeline
           events={[
             {"date": "508/507 BCE", "title": "Athenian reforms widen participation", "description": "Cleisthenes introduced reforms in ancient Athens that gave more citizens a role in government. This is one of the earliest famous examples of democracy."},
             {"date": "1215", "title": "Magna Carta limits kings", "description": "England's Magna Carta said that even the king had to obey the law. It became an important step toward limiting government power."},

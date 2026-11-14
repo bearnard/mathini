@@ -1,6 +1,6 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
-import Timeline from '@/components/subjects/Timeline';
+import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
+        <ScaleTimeline
           events={[
             {"date": "c. 440 BCE", "title": "Herodotus writes Histories", "description": "Herodotus wrote about wars and peoples of the past. He is often called the 'Father of History' because he tried to explain events using evidence."},
             {"date": "1377", "title": "Ibn Khaldun studies causes", "description": "Ibn Khaldun wrote the Muqaddimah and explained that historians should think carefully about causes and evidence. His work showed that history is more than just telling stories."},

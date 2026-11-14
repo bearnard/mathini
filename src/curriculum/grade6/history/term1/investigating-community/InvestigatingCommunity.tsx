@@ -1,6 +1,6 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
-import Timeline from '@/components/subjects/Timeline';
+import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
+        <ScaleTimeline
           events={[
             {"date": "1683", "title": "Public museums open", "description": "The Ashmolean Museum opened in Oxford as one of the first public museums. Museums became important places for preserving community objects and stories."},
             {"date": "1839", "title": "Photography records communities", "description": "The invention of practical photography allowed streets, buildings, and families to be recorded visually. Old photographs later became useful local history evidence."},

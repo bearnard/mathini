@@ -1,6 +1,6 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
-import Timeline from '@/components/subjects/Timeline';
+import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,7 +8,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
+        <ScaleTimeline
           events={[
             {"date": "c. 370 CE", "title": "Early hospitals expand care", "description": "Large Christian hospitals began appearing in the late Roman world. They provided organised care for the sick and influenced later hospital medicine."},
             {"date": "1796", "title": "Jenner tests vaccination", "description": "Edward Jenner tested the first successful smallpox vaccine. Vaccination became a major way to prevent disease."},
