@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { SpeechChange } from '@/components/diagrams/english/SpeechChange';
 import { TenseCheck, TenseTimeline, WordRoles } from '@/components/diagrams/english/TenseDiagrams';
 
 const learnSteps: LearnStep[] = [
@@ -31,7 +32,7 @@ const learnSteps: LearnStep[] = [
         </p>
         <TenseTimeline verb="write" plural={false} tenses={['past', 'present']} before="She" after="neatly." />
         <TenseCheck which="revised" />
-        <div className="rounded-xl bg-lime-50 p-4 text-slate-700"><strong>Reported speech</strong><br />He said that she wrote neatly.</div>
+        <SpeechChange />
       </div>
     ),
   },
