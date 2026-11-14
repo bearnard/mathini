@@ -8,6 +8,7 @@ import { buildMockTest, marksGained, scoreByTopic, topicsToRevise, totalMarks, t
 import { kindOf, marksOf } from './itemKinds';
 import { onFinish, onStart } from './mockTestEvents';
 import NstQuestionBody, { incorrectMessageFor } from './NstQuestionBody';
+import ReportProblem from '../../../../components/items/ReportProblem';
 
 interface NstMockTestProps {
   title: string;
@@ -242,6 +243,8 @@ const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0 }: 
             </>
           )}
         </Card>
+
+        {current && <ReportProblem key={`${phase}:${index}:${current.prompt}`} task={current.task} prompt={current.prompt} itemId={current.id} />}
 
         <div className="min-h-24">
           <Feedback

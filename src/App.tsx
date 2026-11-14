@@ -1,6 +1,7 @@
 'use client';
 
 import { Suspense, lazy, useEffect, useState } from 'react';
+import { loadRetired } from './lib/client/retired';
 import type { Curriculum, Grade, Subject, Term, Topic } from './types/curriculum';
 import CurriculumSelector from './components/CurriculumSelector';
 import OnboardingGate from './components/onboarding/OnboardingGate';
@@ -41,6 +42,8 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
   const [view, setView] = useState<'home' | 'leaderboard' | 'review'>('home');
   // Spaced review (Grade 6 learners only): shown on the grade and subject lists, hidden when nothing is due.
   const reviewQuestions = useReviewPreview(status === 'active' && student?.grade === 6 && view === 'home', view);
+
+  useEffect(() => { void loadRetired(); }, []);
 
   useEffect(() => {
     if (selectedTopic) track('topic_open', { grade: selectedGrade?.id, subject: selectedSubject?.id, topic: selectedTopic.id });

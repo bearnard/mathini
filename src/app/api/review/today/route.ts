@@ -30,6 +30,7 @@ export async function GET(req: NextRequest) {
       .prepare(
         `SELECT qkey, task, subject, section, due_day FROM review_items
          WHERE student_id = ? AND retired_at IS NULL AND due_day <= ?
+           AND NOT EXISTS (SELECT 1 FROM questions q WHERE q.id = review_items.qkey AND q.status = 'retired')
          ORDER BY due_day ASC LIMIT 200`,
       )
       .bind(studentId, today)

@@ -6,11 +6,11 @@ import { bank as conductors } from '../conductors-insulators/ConductorsInsulator
 import { bank as diagrams } from '../circuit-diagrams/CircuitDiagrams';
 
 const groups = [
-  { topic: 'Electric Circuits', items: circuits },
-  { topic: 'Conductors & Insulators', items: conductors },
-  { topic: 'Circuit Diagrams & Symbols', items: diagrams },
-  { topic: 'Mains Electricity & Safety', items: mains },
-  { topic: 'Systems to Solve Problems', items: systems },
+  { topic: 'Electric Circuits', task: 'electric-circuits', items: circuits },
+  { topic: 'Conductors & Insulators', task: 'conductors-insulators', items: conductors },
+  { topic: 'Circuit Diagrams & Symbols', task: 'circuit-diagrams', items: diagrams },
+  { topic: 'Mains Electricity & Safety', task: 'mains-electricity', items: mains },
+  { topic: 'Systems to Solve Problems', task: 'systems-solve-problems', items: systems },
 ];
 
 const Term3MockTest = () => (

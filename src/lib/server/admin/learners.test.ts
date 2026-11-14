@@ -274,7 +274,7 @@ test('delete: removes the learner and everything linked to them, leaves everyone
     seed(t);
     insertEvent(t, { ts: at(3), device: 'da', session: 'before-signup', student: null }); // same device while anonymous
     const r = await deleteLearner(t.db, 'a', 'lion_alice', 'owner@example.com', NOW);
-    assert.deepEqual(r, { ok: true, deleted: { attempts: 8, events: 2, xp: 1, badges: 2, reviews: 3 } });
+    assert.deepEqual(r, { ok: true, deleted: { attempts: 8, events: 2, xp: 1, badges: 2, reviews: 3, reports: 0 } });
     assert.equal(await one(t, `SELECT COUNT(*) AS n FROM students WHERE id = 'a'`), 0);
     for (const tbl of ['attempts', 'student_xp', 'student_badges', 'events', 'review_items']) assert.equal(await one(t, `SELECT COUNT(*) AS n FROM ${tbl} WHERE student_id = 'a'`), 0, tbl);
     // others untouched
@@ -295,7 +295,7 @@ test('delete: one audit row (counts, admin email, time) with NO name, nickname o
     assert.equal(rows.length, 1);
     const a = rows[0];
     assert.deepEqual([a.device_id, a.session_id, a.student_id, a.ts], ['admin', 'admin', null, NOW]);
-    assert.deepEqual(JSON.parse(a.meta as string), { rows: { students: 1, attempts: 8, events: 2, xp: 1, badges: 2, reviews: 3 }, by: 'owner@example.com', at: NOW });
+    assert.deepEqual(JSON.parse(a.meta as string), { rows: { students: 1, attempts: 8, events: 2, xp: 1, badges: 2, reviews: 3, reports: 0 }, by: 'owner@example.com', at: NOW });
     const text = JSON.stringify(a);
     for (const secret of ['lion_alice', 'Real a', 'Secret Primary', '"a"', 'TEST-a']) assert.ok(!text.includes(secret), secret);
     for (const col of ['city', 'country', 'lat', 'lon']) assert.equal(a[col], null);
