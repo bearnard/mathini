@@ -1,11 +1,5 @@
-// A question as the review screen needs it. Structurally compatible with CapsItem and NstItem.
-// `kind` is graeme's new item-kind field (absent = multiple choice); only 'mcq' is reviewed in v1.
-export interface ReviewBankItem {
-  id?: number;
-  section?: string;
-  kind?: string;
-  prompt: string;
-  options: string[];
-  answer: string;
-  explanation?: string;
-}
+// A question as the review screen needs it: the same shape practice uses, so graeme's kinds
+// (mcq, order, label) and their non-serialisable fields (the label Diagram component) pass through untouched.
+import type { NstItem } from '../../../curriculum/grade6/natural-sciences/_shared/types';
+
+export type ReviewBankItem = NstItem;

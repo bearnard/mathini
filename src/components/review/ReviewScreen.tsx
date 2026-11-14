@@ -9,18 +9,11 @@ import DrillHeader from '../layout/DrillHeader';
 import Streak from '../gamification/Streak';
 import BadgeUnlockModal from '../gamification/BadgeUnlockModal';
 import { triggerConfetti } from '../../lib/confetti';
+import NstQuestionBody, { incorrectMessageFor } from '../../curriculum/grade6/natural-sciences/_shared/NstQuestionBody';
+import { shuffleOptions } from '../../curriculum/grade6/natural-sciences/_shared/itemKinds';
 import { useStudent } from '../../lib/client/StudentContext';
 import type { ReviewQuestion } from '../../lib/client/review/resolve';
 import { loadTodaysReview } from '../../lib/client/review/browserLoad';
-
-function shuffle<T>(arr: T[]): T[] {
-  const c = [...arr];
-  for (let i = c.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [c[i], c[j]] = [c[j], c[i]];
-  }
-  return c;
-}
 
 type Phase = 'loading' | 'error' | 'empty' | 'running' | 'done';
 
@@ -45,7 +38,7 @@ export default function ReviewScreen({ onBack, initialQuestions }: { onBack: () 
       if (cancelled) return;
       if (questions === null) { setPhase('error'); return; }
       if (questions.length === 0) { setPhase('empty'); return; }
-      setQueue(questions.map((q) => ({ ...q, options: shuffle(q.options) })));
+      setQueue(questions.map((q) => ({ ...q, item: { ...q.item, options: shuffleOptions(q.item) } })));
       setPhase('running');
     })();
     return () => { cancelled = true; };
@@ -53,10 +46,12 @@ export default function ReviewScreen({ onBack, initialQuestions }: { onBack: () 
 
   const current = queue[index];
 
-  const choose = (option: string) => {
-    if (selected !== null || !current) return;
-    const ok = option === current.answer;
-    setSelected(option);
+  // One result per question for every kind. Correct = fully right (exact order, every label), graded by the
+  // same helpers as practice inside OrderQuestion/LabelQuestion.
+  const handleResult = (ok: boolean, chosen?: string) => {
+    if (isCorrect !== null || !current) return;
+    if (chosen !== undefined) setSelected(chosen);
+    else setSelected('');
     setIsCorrect(ok);
     streakRef.current = ok ? streakRef.current + 1 : 0;
     setStreak(streakRef.current);
@@ -116,28 +111,15 @@ export default function ReviewScreen({ onBack, initialQuestions }: { onBack: () 
           </div>
 
           <Card className="space-y-6 p-5 md:space-y-8 md:p-8">
-            <p className="text-center text-lg font-bold text-slate-800 md:text-2xl">{current.prompt}</p>
-            <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
-              {current.options.map((option) => {
-                let variant: 'outline' | 'success' | 'danger' = 'outline';
-                if (selected !== null) {
-                  if (option === current.answer) variant = 'success';
-                  else if (option === selected) variant = 'danger';
-                }
-                return (
-                  <Button key={option} onClick={() => choose(option)} disabled={selected !== null} variant={variant} className="min-h-14 py-4 text-base md:py-6 md:text-lg">
-                    {option}
-                  </Button>
-                );
-              })}
-            </div>
+            <p className="text-center text-lg font-bold text-slate-800 md:text-2xl">{current.item.prompt}</p>
+            <NstQuestionBody item={current.item} questionKey={`${index}:${current.qkey}`} selected={selected} onResult={handleResult} />
           </Card>
 
           <div className="min-h-24">
             <Feedback
               isCorrect={isCorrect}
-              correctMessage={current.explanation ? `Correct! ${current.explanation}` : 'Correct! Well done!'}
-              incorrectMessage={`Not quite. The answer is "${current.answer}".${current.explanation ? ` ${current.explanation}` : ''}`}
+              correctMessage={current.item.explanation ? `Correct! ${current.item.explanation}` : 'Correct! Well done!'}
+              incorrectMessage={incorrectMessageFor(current.item)}
               onNext={next}
             />
           </div>

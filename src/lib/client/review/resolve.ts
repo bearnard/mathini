@@ -3,6 +3,7 @@
 
 import { makeQkey } from '../../shared/qkey';
 import type { ReviewBankItem } from './types';
+import { normaliseItem } from '../../../curriculum/grade6/natural-sciences/_shared/itemKinds';
 
 export interface DueCandidate { qkey: string; task: string; subject: string; section: string }
 export interface PoolQuestion { id: number; prompt: string; options: string[]; answer: string; explanation: string; section: string }
@@ -14,10 +15,8 @@ export interface ReviewQuestion {
   subject: string;
   section: string;
   itemId?: number;
-  prompt: string;
-  options: string[];
-  answer: string;
-  explanation?: string;
+  /** The playable item, exactly as practice would render it (any kind; may carry a Diagram component). */
+  item: ReviewBankItem;
 }
 
 export type BankLoaders = Record<string, () => Promise<ReviewBankItem[]>>;
@@ -28,8 +27,11 @@ export interface Resolved {
   gone: string[];
 }
 
-/** Only multiple choice can be rendered by the review screen in v1 (absent kind = multiple choice). */
-export const isReviewable = (it: ReviewBankItem): boolean => (it.kind === undefined || it.kind === 'mcq') && Array.isArray(it.options) && it.options.length >= 2 && !!it.answer;
+/**
+ * Can this item be played? Uses the same normaliseItem as practice (mcq, order and label are all supported;
+ * an unknown kind is played as mcq when valid, otherwise skipped). Returns the playable item or null.
+ */
+export const reviewable = (it: ReviewBankItem): ReviewBankItem | null => normaliseItem(it);
 
 export async function resolveCandidates(payload: TodayPayload, loaders: BankLoaders, limit: number): Promise<Resolved> {
   const questions: ReviewQuestion[] = [];
@@ -39,9 +41,9 @@ export async function resolveCandidates(payload: TodayPayload, loaders: BankLoad
   for (const c of payload.candidates) {
     if (questions.length >= limit) break;
     const pooled = payload.pool[c.qkey];
-    if (pooled && pooled.options.length >= 2) {
-      questions.push({ ...c, itemId: pooled.id, prompt: pooled.prompt, options: pooled.options, answer: pooled.answer, explanation: pooled.explanation || undefined, section: pooled.section || c.section });
-      continue;
+    if (pooled) {
+      const item = reviewable({ id: pooled.id, section: pooled.section, prompt: pooled.prompt, options: pooled.options, answer: pooled.answer, explanation: pooled.explanation || undefined });
+      if (item) { questions.push({ ...c, itemId: pooled.id, section: pooled.section || c.section, item }); continue; }
     }
     const load = loaders[c.task];
     if (!load) { gone.push(c.qkey); continue; }
@@ -52,8 +54,9 @@ export async function resolveCandidates(payload: TodayPayload, loaders: BankLoad
     if (!bank) continue;
     const hit = bank.find((it) => makeQkey(c.task, it.prompt) === c.qkey);
     if (!hit) { gone.push(c.qkey); continue; }
-    if (!isReviewable(hit)) continue; // stays scheduled until its kind has a renderer
-    questions.push({ ...c, prompt: hit.prompt, options: hit.options, answer: hit.answer, explanation: hit.explanation, section: hit.section ?? c.section });
+    const item = reviewable(hit);
+    if (!item) continue; // malformed: stays scheduled, never shown broken
+    questions.push({ ...c, section: item.section ?? c.section, item });
   }
   return { questions, gone };
 }
