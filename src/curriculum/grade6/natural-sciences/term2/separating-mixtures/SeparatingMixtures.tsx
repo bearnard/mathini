@@ -1,12 +1,13 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import SeparatingMixturesDiagram from '@/components/diagrams/SeparatingMixtures';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Choosing a separation method',
-    image: { src: '/curriculum/grade6/nst/term2/separating-mixtures/diagram.svg', alt: 'filtration setup diagram' },
     content: (
       <div className="space-y-4 text-center">
+        <SeparatingMixturesDiagram />
         <p className="text-lg text-slate-600">
           We separate mixtures by using differences in their <strong>properties</strong>, such as particle size, magnetism, or whether a material dissolves in water.
         </p>

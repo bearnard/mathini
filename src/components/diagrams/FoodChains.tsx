@@ -59,14 +59,21 @@ const ICONS: Record<string, ReactNode> = {
   ),
   lion: (
     <g>
-      <circle cx={0} cy={0} r={10.5} fill="#fff" opacity={0.55} />
-      <circle cx={-5.8} cy={-6.2} r={2.4} fill="#fff" />
-      <circle cx={5.8} cy={-6.2} r={2.4} fill="#fff" />
-      <circle cx={0} cy={0.5} r={6.4} fill="#fff" />
-      <circle cx={-2.5} cy={-1.5} r={0.9} fill={INK} />
-      <circle cx={2.5} cy={-1.5} r={0.9} fill={INK} />
-      <path d="M-1.6 1.2 L1.6 1.2 L0 3Z" fill={INK} />
-      <path d="M0 3 L0 4.6 M0 4.6 Q-1.8 5.6 -3 4.6 M0 4.6 Q1.8 5.6 3 4.6" stroke={INK} strokeWidth={0.7} fill="none" />
+      {/* mane: a ring of dark petals around the face */}
+      {Array.from({ length: 12 }).map((_, i) => {
+        const t = (i * Math.PI) / 6;
+        return <circle key={i} cx={8.2 * Math.cos(t)} cy={8.2 * Math.sin(t)} r={3.3} fill="#9a3412" />;
+      })}
+      <circle cx={0} cy={0} r={8.4} fill="#9a3412" />
+      {/* small round ears sit inside the mane */}
+      <circle cx={-4.6} cy={-5.6} r={1.7} fill="#fde68a" />
+      <circle cx={4.6} cy={-5.6} r={1.7} fill="#fde68a" />
+      <circle cx={0} cy={0.4} r={5.6} fill="#fde68a" />
+      <ellipse cx={0} cy={2.6} rx={3.1} ry={2.3} fill="#fff7ed" />
+      <circle cx={-2.3} cy={-1.4} r={0.85} fill={INK} />
+      <circle cx={2.3} cy={-1.4} r={0.85} fill={INK} />
+      <path d="M-1.5 1.2 L1.5 1.2 L0 2.9Z" fill={INK} />
+      <path d="M0 2.9 L0 4.2 M0 4.2 Q-1.5 5.1 -2.6 4.3 M0 4.2 Q1.5 5.1 2.6 4.3" stroke={INK} strokeWidth={0.6} fill="none" />
     </g>
   ),
   grasshopper: (
