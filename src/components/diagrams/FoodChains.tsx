@@ -16,6 +16,9 @@ export const ROLE_COLOR = {
 type Role = keyof typeof ROLE_COLOR;
 
 const INK = '#0f172a';
+// Round computed coordinates: Math.cos/sin/hypot can differ in the last digit between server and browser,
+// which makes React report a hydration mismatch.
+const r3 = (n: number) => Math.round(n * 1000) / 1000;
 const ARROW = '#e2e8f0';
 
 /** Icons are drawn in a box of about +-12 around (0,0). */
@@ -62,7 +65,7 @@ const ICONS: Record<string, ReactNode> = {
       {/* mane: a ring of dark petals around the face */}
       {Array.from({ length: 12 }).map((_, i) => {
         const t = (i * Math.PI) / 6;
-        return <circle key={i} cx={8.2 * Math.cos(t)} cy={8.2 * Math.sin(t)} r={3.3} fill="#9a3412" />;
+        return <circle key={i} cx={r3(8.2 * Math.cos(t))} cy={r3(8.2 * Math.sin(t))} r={3.3} fill="#9a3412" />;
       })}
       <circle cx={0} cy={0} r={8.4} fill="#9a3412" />
       {/* small round ears sit inside the mane */}
@@ -140,10 +143,10 @@ const EdgeView = ({ a, b, r, dashed, mid, labelH }: { a: NodeSpec; b: NodeSpec; 
   const pad = r + 1.2;
   return (
     <line
-      x1={dashed ? ax + ux * 0.5 : ax + ux * pad}
-      y1={dashed ? ay + uy * 0.5 : ay + uy * pad}
-      x2={b.x - ux * (pad + 1.2)}
-      y2={b.y - uy * (pad + 1.2)}
+      x1={r3(dashed ? ax + ux * 0.5 : ax + ux * pad)}
+      y1={r3(dashed ? ay + uy * 0.5 : ay + uy * pad)}
+      x2={r3(b.x - ux * (pad + 1.2))}
+      y2={r3(b.y - uy * (pad + 1.2))}
       stroke={dashed ? '#d6d3d1' : ARROW}
       strokeWidth={dashed ? 1 : 1.5}
       strokeDasharray={dashed ? '1.8 1.6' : undefined}
