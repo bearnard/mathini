@@ -20,27 +20,5 @@
     "path": "curriculum/grade6/his/term2/frontier-peoples/diagram.webp",
     "alt": "different groups of people with cattle on open grassland frontier",
     "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 6 learners showing a peaceful open grassland frontier scene with generic diverse groups of people and cattle, suggesting communities meeting respectfully. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image. Do not depict real, identifiable named people."
-  },
-  {
-    "grade": "grade6",
-    "subject": "his",
-    "term": "term2",
-    "topic": "frontier-conflicts",
-    "section": "diagram",
-    "type": "svg",
-    "path": "curriculum/grade6/his/term2/frontier-conflicts/diagram.svg",
-    "alt": "map of Cape Colony expanding east toward a meeting point with the Xhosa",
-    "svgSource": "scripts/svg-src/grade6/his/term2/frontier-conflicts/diagram.svg"
-  },
-  {
-    "grade": "grade6",
-    "subject": "his",
-    "term": "term2",
-    "topic": "trekboers-migration",
-    "section": "diagram",
-    "type": "svg",
-    "path": "curriculum/grade6/his/term2/trekboers-migration/diagram.svg",
-    "alt": "map showing Trekboer wagons and cattle moving inland from the Cape",
-    "svgSource": "scripts/svg-src/grade6/his/term2/trekboers-migration/diagram.svg"
   }
 ]

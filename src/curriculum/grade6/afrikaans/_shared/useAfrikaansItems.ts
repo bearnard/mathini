@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { AfrikaansItem } from './types';
+import { dropRetired } from '../../../../lib/client/retired';
 
 function shuffle<T>(arr: T[]): T[] {
   const copy = [...arr];
@@ -11,7 +12,7 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 function prepare(items: AfrikaansItem[]): AfrikaansItem[] {
-  return shuffle(items).map((it) => ({ ...it, options: shuffle(it.options) }));
+  return shuffle(dropRetired(items)).map((it) => ({ ...it, options: shuffle(it.options) }));
 }
 
 /**

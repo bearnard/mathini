@@ -1,17 +1,16 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
-import DataChart from '@/components/subjects/DataChart';
+import { DensityBars } from '@/components/diagrams/geo/DensityBars';
+import { DensitySquares } from '@/components/diagrams/geo/DensitySquares';
+import { densityRows } from '@/components/diagrams/geo/density'; // Stats SA Census 2022 figures, density computed
 
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Population is not spread evenly',
-    image: {
-      src: '/curriculum/grade6/geo/term4/population-distribution/diagram.svg',
-      alt: 'map showing densely and sparsely populated areas with dots',
-    },
     content: (
       <div className="space-y-4 text-center">
+        <DensitySquares />
         <p className="text-lg text-slate-600">
           <strong>Population distribution</strong> describes how people are spread over an area.
           Some places have many people close together, while other places have only a few people.
@@ -68,20 +67,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">Population density tells us how many people live in each square kilometre. Provinces with more jobs and services usually have much higher densities.</p>
-        <DataChart
-          data={[
-                        { province: 'Gauteng', density: 890 },
-                        { province: 'KwaZulu-Natal', density: 140 },
-                        { province: 'Limpopo', density: 48 },
-                        { province: 'Northern Cape', density: 4 },
-                      ]}
-          xKey="province"
-          series={[
-                        { key: 'density', label: 'People per km²', type: 'bar', color: '#f59e0b' },
-                      ]}
-          yLabel="People per km²"
-          height={220}
-        />
+        <DensityBars rows={densityRows(['Gauteng', 'KwaZulu-Natal', 'Limpopo', 'Northern Cape'])} />
 
         <p className="text-sm text-slate-500">Dense populations often form where transport routes, industries, and major cities are concentrated.</p>
       </div>

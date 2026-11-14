@@ -5,6 +5,7 @@ import { evaluateBadges, type BadgeStats } from '../../../lib/server/badges';
 import { parseTaskSlug } from '../../../lib/server/caps/slug';
 import { makeQkey, isQkey } from '../../../lib/shared/qkey';
 import { recordReviewAnswer } from '../../../lib/server/review/store';
+import { identifyAttempt } from '../../../lib/server/questions/store';
 import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
 
 export const dynamic = 'force-dynamic';
@@ -14,6 +15,8 @@ interface SubmitBody {
   subject: string;
   itemId?: number;
   qkey?: string;
+  /** question_versions.id the learner was shown, when the client knows it (checked against the question server-side). */
+  questionVersionId?: number;
   section?: string;
   isCorrect: boolean;
   streak: number;
@@ -53,15 +56,44 @@ export async function POST(req: NextRequest) {
       if (row) qkey = makeQkey(task, row.prompt);
     }
 
-    // Insert attempt
+    // Stable question identity (migration 0008). Maps any qkey (original or an edited version's) to the canonical question id,
+    // lazily registers a pool item, and finds the version shown. If the tables are not there yet or anything fails, the attempt
+    // is stored exactly as before (client qkey, no version).
     const now = Date.now();
-    await db
-      .prepare(
-        `INSERT INTO attempts (student_id, task, item_id, section, grade, subject, topic, is_correct, xp_awarded, streak_at, created_at, qkey)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      )
-      .bind(studentId, task, itemId || null, section || 'general', parsed.grade, subject, parsed.topic, isCorrect ? 1 : 0, xpAwarded, streak, now, qkey)
-      .run();
+    let questionVersionId: number | null = null;
+    try {
+      const ident = await identifyAttempt(db, {
+        task,
+        qkey,
+        itemId: itemId || null,
+        clientVersionId: Number.isInteger(body.questionVersionId) ? (body.questionVersionId as number) : null,
+        now,
+      });
+      qkey = ident.qkey;
+      questionVersionId = ident.versionId;
+    } catch (e) {
+      console.error('Question identity lookup failed:', e);
+    }
+
+    // Insert attempt. The version column only exists once 0008 is applied; it is written only when a version was found,
+    // which can only happen when the tables (and so the column) exist.
+    if (questionVersionId !== null) {
+      await db
+        .prepare(
+          `INSERT INTO attempts (student_id, task, item_id, section, grade, subject, topic, is_correct, xp_awarded, streak_at, created_at, qkey, question_version_id)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        )
+        .bind(studentId, task, itemId || null, section || 'general', parsed.grade, subject, parsed.topic, isCorrect ? 1 : 0, xpAwarded, streak, now, qkey, questionVersionId)
+        .run();
+    } else {
+      await db
+        .prepare(
+          `INSERT INTO attempts (student_id, task, item_id, section, grade, subject, topic, is_correct, xp_awarded, streak_at, created_at, qkey)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        )
+        .bind(studentId, task, itemId || null, section || 'general', parsed.grade, subject, parsed.topic, isCorrect ? 1 : 0, xpAwarded, streak, now, qkey)
+        .run();
+    }
 
     // Spaced review schedule (Grade 6, answers with a qkey). Must never fail the attempt.
     try {

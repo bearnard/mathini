@@ -3,17 +3,6 @@
     "grade": "grade6",
     "subject": "geo",
     "term": "term3",
-    "topic": "climate-regions",
-    "section": "diagram",
-    "type": "svg",
-    "path": "curriculum/grade6/geo/term3/climate-regions/diagram.svg",
-    "alt": "climate belts from equator to poles diagram",
-    "svgSource": "scripts/svg-src/grade6/geo/term3/climate-regions/diagram.svg"
-  },
-  {
-    "grade": "grade6",
-    "subject": "geo",
-    "term": "term3",
     "topic": "tropical-desert",
     "section": "diagram",
     "type": "ai",

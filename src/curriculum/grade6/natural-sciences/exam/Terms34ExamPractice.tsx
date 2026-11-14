@@ -11,15 +11,15 @@ import { bank as space } from '../term4/space-exploration/SpaceExploration';
 
 /** All nine Term 3 and Term 4 topics: the November exam covers Terms 3 and 4 only. */
 export const EXAM_GROUPS = [
-  { topic: 'Electric Circuits', items: electricCircuits },
-  { topic: 'Conductors & Insulators', items: conductors },
-  { topic: 'Circuit Diagrams & Symbols', items: circuitDiagrams },
-  { topic: 'Mains Electricity & Safety', items: mains },
-  { topic: 'Systems to Solve Problems', items: systems },
-  { topic: 'The Solar System', items: solarSystem },
-  { topic: 'Earth & Moon Movement', items: earthMoon },
-  { topic: 'Day, Night & Seasons', items: dayNight },
-  { topic: 'Space Exploration & Technology', items: space },
+  { topic: 'Electric Circuits', task: 'electric-circuits', items: electricCircuits },
+  { topic: 'Conductors & Insulators', task: 'conductors-insulators', items: conductors },
+  { topic: 'Circuit Diagrams & Symbols', task: 'circuit-diagrams', items: circuitDiagrams },
+  { topic: 'Mains Electricity & Safety', task: 'mains-electricity', items: mains },
+  { topic: 'Systems to Solve Problems', task: 'systems-solve-problems', items: systems },
+  { topic: 'The Solar System', task: 'solar-system', items: solarSystem },
+  { topic: 'Earth & Moon Movement', task: 'earth-moon-movement', items: earthMoon },
+  { topic: 'Day, Night & Seasons', task: 'day-night-seasons', items: dayNight },
+  { topic: 'Space Exploration & Technology', task: 'space-exploration', items: space },
 ];
 
 export const EXAM_QUESTION_COUNT = 25;

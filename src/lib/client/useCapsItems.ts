@@ -5,6 +5,7 @@
 //   fails — so a topic always has practice items rather than an empty state.
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { topUpFromBank, usableForTopUp } from '../shared/topUpFromBank';
+import { dropRetired } from './retired';
 
 export interface CapsItem {
   id?: number;
@@ -30,7 +31,7 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 function prepare(items: CapsItem[]): CapsItem[] {
-  return shuffle(items).map((it) => ({ ...it, options: shuffle(it.options) }));
+  return shuffle(dropRetired(items)).map((it) => ({ ...it, options: shuffle(it.options) }));
 }
 
 /**

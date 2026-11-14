@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { NstItem } from './types';
+import { dropRetired } from '../../../../lib/client/retired';
 import { kindOf, normaliseItem, shuffleOptions } from './itemKinds';
 import { topUpFromBank, usableForTopUp } from '../../../../lib/shared/topUpFromBank';
 
@@ -14,7 +15,7 @@ function shuffle<T>(arr: T[]): T[] {
 
 /** Drops items that cannot be played (unknown kinds fall back to mcq when valid), then shuffles. */
 function prepare(items: NstItem[]): NstItem[] {
-  const playable = items.map(normaliseItem).filter((it): it is NstItem => it !== null);
+  const playable = dropRetired(items).map(normaliseItem).filter((it): it is NstItem => it !== null);
   return shuffle(playable).map((it) => ({ ...it, options: shuffleOptions(it) }));
 }
 

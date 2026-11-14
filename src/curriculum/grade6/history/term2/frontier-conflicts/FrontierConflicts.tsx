@@ -1,6 +1,7 @@
 import HisTopic from '../../_shared/HisTopic';
 import { HisItem, LearnStep } from '../../_shared/types';
 import ScaleTimeline from '@/components/diagrams/ScaleTimeline';
+import { FrontierMap } from '@/components/diagrams/history/FrontierMap';
 
 const learnSteps: LearnStep[] = [
   {
@@ -22,12 +23,9 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'The eastern frontier expanded',
-    image: {
-      src: '/curriculum/grade6/his/term2/frontier-conflicts/diagram.svg',
-      alt: 'map of Cape Colony expanding east toward a meeting point with the Xhosa',
-    },
     content: (
       <div className="space-y-4 text-center">
+        <FrontierMap variant="frontier" />
         <p className="text-lg text-slate-600">
           As the Cape Colony grew, settlers moved further <strong>east</strong>. This brought them into
           closer contact with <strong>Xhosa</strong> communities already living in the region.

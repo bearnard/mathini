@@ -14,6 +14,7 @@ import { useStudent } from '../lib/client/StudentContext';
 import { aggregateResultsBySection, pickWeakSections } from '../lib/client/revision';
 import BadgeUnlockModal from './gamification/BadgeUnlockModal';
 import { usePracticeTracking } from '../lib/client/usePracticeTracking';
+import ReportProblem from './items/ReportProblem';
 
 export interface PracticeRunnerProps {
   /** Static question bank (used as fallback or sole source in static mode). */
@@ -217,6 +218,8 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
               </>
             )}
           </Card>
+
+          {current && !loading && <ReportProblem key={current.prompt} task={task} prompt={current.prompt} itemId={current.id} />}
 
           <div className="min-h-24">
             <Feedback
