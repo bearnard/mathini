@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Compare media and literary text purposes',
-    image: {
-      src: '/curriculum/grade8/eng/term2/media-literary-texts/diagram.webp',
-      alt: 'learner comparing a news report and a short literary scene for structure and message',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

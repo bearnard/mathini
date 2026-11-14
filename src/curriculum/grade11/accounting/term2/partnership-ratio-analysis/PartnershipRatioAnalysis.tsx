@@ -5,7 +5,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/acc/term2/partnership-ratio-analysis/diagram.webp", alt: "Source Figures for Ratio Analysis" },
     title: 'Why calculate financial ratios?',
     content: (
       <div className="space-y-4 text-center">

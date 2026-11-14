@@ -3,28 +3,6 @@
     "grade": "grade7",
     "subject": "math",
     "term": "term4",
-    "topic": "integers",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/math/term4/integers/diagram.webp",
-    "alt": "Grade 7 learners using a number line to compare and calculate with integers",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners working with positive and negative numbers on a number line and solving integer operation problems. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade7",
-    "subject": "math",
-    "term": "term4",
-    "topic": "patterns-functions-and-algebra-consolidation",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/math/term4/patterns-functions-and-algebra-consolidation/diagram.webp",
-    "alt": "Grade 7 learners revising pattern rules, function tables, and algebra equations",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners revising numeric patterns, function tables, algebraic expressions, and simple equations in groups. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade7",
-    "subject": "math",
-    "term": "term4",
     "topic": "data-handling",
     "section": "diagram",
     "type": "ai",

@@ -3,17 +3,6 @@
     "grade": "grade11",
     "subject": "eng",
     "term": "term2",
-    "topic": "summary-writing-technique",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/eng/term2/summary-writing-technique/diagram.webp",
-    "alt": "Summary Writing Technique",
-    "prompt": "A clear educational illustration depicting \"Summary Writing Technique\": Identifying main ideas, paraphrasing and writing within a word limit."
-  },
-  {
-    "grade": "grade11",
-    "subject": "eng",
-    "term": "term2",
     "topic": "prose-poetry-visual-literacy",
     "section": "diagram",
     "type": "ai",
@@ -31,16 +20,5 @@
     "path": "curriculum/grade11/eng/term2/midyear-exam-preparation/diagram.webp",
     "alt": "Mid-Year Exam Preparation",
     "prompt": "A clear educational illustration depicting \"Mid-Year Exam Preparation\": Paper 1, 2 and 3 strategies, time management and exam technique."
-  },
-  {
-    "grade": "grade11",
-    "subject": "eng",
-    "term": "term2",
-    "topic": "advanced-essay-functional-writing",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/eng/term2/advanced-essay-functional-writing/diagram.webp",
-    "alt": "Advanced Essay and Functional Writing",
-    "prompt": "A clear educational illustration depicting \"Advanced Essay and Functional Writing\": Discursive and reflective essays, agendas, minutes, reports and magazine articles."
   }
 ]

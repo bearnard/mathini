@@ -14,17 +14,6 @@
     "grade": "grade7",
     "subject": "math",
     "term": "term3",
-    "topic": "functions-algebraic-expressions-and-equations",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/math/term3/functions-algebraic-expressions-and-equations/diagram.webp",
-    "alt": "Grade 7 learners simplifying algebraic expressions and solving equations from function rules",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners connecting function tables to algebraic expressions and solving simple equations on mini whiteboards. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade7",
-    "subject": "math",
-    "term": "term3",
     "topic": "graphs",
     "section": "diagram",
     "type": "ai",

@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Analyse visual and persuasive texts',
-    image: {
-      src: '/curriculum/grade7/eng/term3/visual-literacy-persuasive-texts/diagram.webp',
-      alt: 'learner analysing an advertisement and poster for persuasive language and audience',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

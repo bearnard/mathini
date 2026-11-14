@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Strengthen sentence control through core grammar revision',
-    image: {
-      src: '/curriculum/grade8/xho/term1/language-structures/diagram.webp',
-      alt: 'Grade 8 learners revising nouns, concords, adjectives, tense, and punctuation rules',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

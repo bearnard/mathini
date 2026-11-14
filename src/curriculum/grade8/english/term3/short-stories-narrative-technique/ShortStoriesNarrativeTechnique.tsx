@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Analyse core narrative structure',
-    image: {
-      src: '/curriculum/grade8/eng/term3/short-stories-narrative-technique/diagram.webp',
-      alt: 'learner mapping narrator sequencing conflict climax and characterisation in a short story',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

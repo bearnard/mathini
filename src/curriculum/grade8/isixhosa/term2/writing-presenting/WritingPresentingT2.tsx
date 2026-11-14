@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Use appropriate tone and format in transactional writing',
-    image: {
-      src: '/curriculum/grade8/xho/term2/writing-presenting/diagram.webp',
-      alt: 'Grade 8 learner preparing an email, review, and short report draft in class',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

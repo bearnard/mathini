@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Revision across literature, visual texts, comprehension, and summary',
-    image: {
-      src: '/curriculum/grade9/isixhosa/term4/reading-viewing/image1.jpg',
-      alt: 'Grade 9 isiXhosa FAL learners revising literary analysis and visual comprehension skills',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

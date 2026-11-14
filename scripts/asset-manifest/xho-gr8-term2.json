@@ -14,28 +14,6 @@
     "grade": "grade8",
     "subject": "xho",
     "term": "term2",
-    "topic": "reading-viewing",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/xho/term2/reading-viewing/diagram.webp",
-    "alt": "Grade 8 learners reading folklore and youth prose while identifying theme and character",
-    "prompt": "Friendly educational illustration for Grade 8 isiXhosa FAL showing learners reading folklore and youth prose extracts with media text panels to identify theme and character, classroom setting, no text labels."
-  },
-  {
-    "grade": "grade8",
-    "subject": "xho",
-    "term": "term2",
-    "topic": "writing-presenting",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/xho/term2/writing-presenting/diagram.webp",
-    "alt": "Grade 8 learner preparing an email, review, and short report draft in class",
-    "prompt": "Friendly educational illustration for Grade 8 isiXhosa FAL showing a learner drafting an email, review and report using process-writing steps with editing notes, bright classroom desk view, no text labels."
-  },
-  {
-    "grade": "grade8",
-    "subject": "xho",
-    "term": "term2",
     "topic": "language-structures",
     "section": "diagram",
     "type": "ai",

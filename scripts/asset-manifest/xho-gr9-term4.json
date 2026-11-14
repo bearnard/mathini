@@ -9,38 +9,5 @@
     "path": "curriculum/grade9/isixhosa/term4/listening-speaking/image1.jpg",
     "alt": "Grade 9 isiXhosa FAL learners revising speeches and practising fluent, confident oral delivery",
     "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner revising speech delivery with confidence and fluency markers visible, preparing for final assessment. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  },
-  {
-    "grade": "grade9",
-    "subject": "xho",
-    "term": "term4",
-    "topic": "reading-viewing",
-    "section": "image1",
-    "type": "ai",
-    "path": "curriculum/grade9/isixhosa/term4/reading-viewing/image1.jpg",
-    "alt": "Grade 9 isiXhosa FAL learners revising literary analysis and visual comprehension skills",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner reviewing literature, visual texts and exam-style practice questions with study notes visible. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  },
-  {
-    "grade": "grade9",
-    "subject": "xho",
-    "term": "term4",
-    "topic": "writing-presenting",
-    "section": "image1",
-    "type": "ai",
-    "path": "curriculum/grade9/isixhosa/term4/writing-presenting/image1.jpg",
-    "alt": "Grade 9 isiXhosa FAL learners revising writing types and perfecting proofreading for exams",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner proofreading exam essays, reports and reviews with editing marks and corrections visible. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  },
-  {
-    "grade": "grade9",
-    "subject": "xho",
-    "term": "term4",
-    "topic": "language-structures",
-    "section": "image1",
-    "type": "ai",
-    "path": "curriculum/grade9/isixhosa/term4/language-structures/image1.jpg",
-    "alt": "Grade 9 isiXhosa FAL learners revising grammar, punctuation, and sentence construction for final assessment",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner revising grammar rules with visual cues for tenses, punctuation and sentence structure before final exams. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
   }
 ]

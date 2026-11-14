@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Work fluently with whole numbers and integers',
-    image: {
-      src: '/curriculum/grade8/math/term1/whole-numbers-and-integers/diagram.webp',
-      alt: 'Grade 8 learners solving real-life problems with whole numbers and integers',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

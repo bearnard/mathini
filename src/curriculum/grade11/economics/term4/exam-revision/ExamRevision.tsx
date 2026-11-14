@@ -14,7 +14,6 @@ const revisionIndicatorData = [
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/econ/term4/exam-revision/diagram.webp", alt: "Core Revision Graph" },
     title: 'Revising Terms 1 and 2 — Production and Markets',
     content: (
       <div className="space-y-6">

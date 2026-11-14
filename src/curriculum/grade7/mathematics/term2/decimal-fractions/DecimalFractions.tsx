@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Compute accurately with decimal fractions',
-    image: {
-      src: '/curriculum/grade7/math/term2/decimal-fractions/diagram.webp',
-      alt: 'Grade 7 learners using decimal place value and calculations in money and measurement contexts',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

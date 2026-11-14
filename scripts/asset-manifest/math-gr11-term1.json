@@ -8,7 +8,7 @@
     "type": "ai",
     "path": "curriculum/grade11/math/term1/exponents-surds/diagram.webp",
     "alt": "surds and exponents concept illustration",
-    "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing rational exponents and surds — a large cube root symbol beside a fractional power expression, with colourful blocks representing values. Simple bright shapes, white background, no text or labels in the image."
+    "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing rational exponents and surds \u2014 a large cube root symbol beside a fractional power expression, with colourful blocks representing values. Simple bright shapes, white background, no text or labels in the image."
   },
   {
     "grade": "grade11",
@@ -20,17 +20,6 @@
     "path": "curriculum/grade11/math/term1/equations-inequalities/diagram.webp",
     "alt": "quadratic parabola with number line for inequalities",
     "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing a smooth parabola curve above and below a horizontal axis, with two marked intersection points on the axis to illustrate quadratic inequality regions. Simple bright shapes, white background, no text or labels in the image."
-  },
-  {
-    "grade": "grade11",
-    "subject": "math",
-    "term": "term1",
-    "topic": "number-patterns",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/math/term1/number-patterns/diagram.webp",
-    "alt": "growing dot pattern illustrating a quadratic sequence",
-    "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing a growing sequence of colourful dot arrays arranged in a stepped quadratic pattern — first frame has 3 dots, second 7 dots, third 13 dots. Simple bright shapes, white background, no text or labels in the image."
   },
   {
     "grade": "grade11",

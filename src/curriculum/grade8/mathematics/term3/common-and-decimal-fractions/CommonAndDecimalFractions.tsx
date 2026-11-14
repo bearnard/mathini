@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Connect common fractions and decimals',
-    image: {
-      src: '/curriculum/grade8/math/term3/common-and-decimal-fractions/diagram.webp',
-      alt: 'Grade 8 learners converting and calculating with fractions and decimals',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

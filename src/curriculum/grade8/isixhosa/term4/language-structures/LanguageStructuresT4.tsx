@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Consolidate grammar and editing for final assessments',
-    image: {
-      src: '/curriculum/grade8/xho/term4/language-structures/diagram.webp',
-      alt: 'Grade 8 learners consolidating grammar, concord, tense and punctuation for finals',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

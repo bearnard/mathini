@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Analyse poetic devices in poems',
-    image: {
-      src: '/curriculum/grade9/english/term2/poetry-drama-study/image1.jpg',
-      alt: 'learner identifying rhyme scheme imagery tone and theme in a poem',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

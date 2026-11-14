@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Read stories through key literary elements',
-    image: {
-      src: '/curriculum/grade7/eng/term1/novel-short-story-study/diagram.webp',
-      alt: 'learner mapping character, plot, conflict, setting and theme from a short story',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

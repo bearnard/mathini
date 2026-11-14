@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Choose the correct measure and formula',
-    image: {
-      src: '/curriculum/grade8/math/term3/area-perimeter-surface-area-and-volume/diagram.webp',
-      alt: 'Grade 8 learners calculating area, perimeter, surface area, and volume',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Understand orthographic projection principles',
-    image: {
-      src: '/curriculum/grade9/technology/term1/graphic-orthographic-drawing/image1.jpg',
-      alt: 'learner viewing a 3D cube and its corresponding orthographic front, top and side views',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

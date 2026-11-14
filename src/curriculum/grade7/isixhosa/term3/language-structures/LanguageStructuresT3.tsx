@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Connect ideas using conjunctions and correct concords',
-    image: {
-      src: '/curriculum/grade7/xho/term3/language-structures/diagram.webp',
-      alt: 'Grade 7 learners linking isiXhosa sentences with connectors and punctuation',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

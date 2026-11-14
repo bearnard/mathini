@@ -15,22 +15,11 @@
     "subject": "economic-management-sciences",
     "term": "term2",
     "topic": "financial-literacy-entrepreneurship",
-    "section": "image2",
-    "type": "ai",
-    "path": "curriculum/grade8/economic-management-sciences/term2/financial-literacy-entrepreneurship/image2.jpg",
-    "alt": "Grade 8 learners recording cash receipts in specialized journals and posting entries to the general ledger, showing modern accounting practices.",
-    "prompt": "Grade 8 learners recording cash receipts in specialized journals and posting entries to the general ledger, showing modern accounting practices."
-  },
-  {
-    "grade": "grade8",
-    "subject": "economic-management-sciences",
-    "term": "term2",
-    "topic": "financial-literacy-entrepreneurship",
     "section": "image3",
     "type": "ai",
     "path": "curriculum/grade8/economic-management-sciences/term2/financial-literacy-entrepreneurship/image3.jpg",
-    "alt": "Grade 8 learners identifying the four factors of production—land, labour, capital, and enterprise—in real business contexts and entrepreneurship scenarios.",
-    "prompt": "Grade 8 learners identifying the four factors of production—land, labour, capital, and enterprise—in real business contexts and entrepreneurship scenarios."
+    "alt": "Grade 8 learners identifying the four factors of production\u2014land, labour, capital, and enterprise\u2014in real business contexts and entrepreneurship scenarios.",
+    "prompt": "Grade 8 learners identifying the four factors of production\u2014land, labour, capital, and enterprise\u2014in real business contexts and entrepreneurship scenarios."
   },
   {
     "grade": "grade8",

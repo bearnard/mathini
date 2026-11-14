@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Use tense, plurals, possessives, and punctuation accurately',
-    image: {
-      src: '/curriculum/grade7/xho/term1/language-structures/diagram.webp',
-      alt: 'Grade 7 learners practising isiXhosa grammar cards for tense and punctuation',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

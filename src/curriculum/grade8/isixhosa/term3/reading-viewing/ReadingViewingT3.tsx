@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Interpret literary features in drama, prose, and poetry',
-    image: {
-      src: '/curriculum/grade8/xho/term3/reading-viewing/diagram.webp',
-      alt: 'Grade 8 learners interpreting drama scenes, poetry, and short stories with visual support',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

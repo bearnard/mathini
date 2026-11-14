@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Revision of all major grammar, punctuation, and sentence control',
-    image: {
-      src: '/curriculum/grade9/isixhosa/term4/language-structures/image1.jpg',
-      alt: 'Grade 9 isiXhosa FAL learners revising grammar, punctuation, and sentence construction for final assessment',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

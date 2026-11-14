@@ -14,17 +14,6 @@
     "grade": "grade7",
     "subject": "math",
     "term": "term1",
-    "topic": "exponents",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/math/term1/exponents/diagram.webp",
-    "alt": "Grade 7 learners modelling powers, squares, and cubes with exponent cards",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners exploring exponents with powers, squares, cubes, and simplified expressions using manipulatives. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade7",
-    "subject": "math",
-    "term": "term1",
     "topic": "construction-of-geometric-figures",
     "section": "diagram",
     "type": "ai",

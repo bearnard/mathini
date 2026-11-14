@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Plan essays and transactional writing under time pressure',
-    image: {
-      src: '/curriculum/grade9/english/term4/examination-writing-practice/image1.jpg',
-      alt: 'learner planning an essay and timed response with outline and checking strategy',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

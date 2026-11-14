@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Complex sentences, conjunctions, punctuation, editing, and vocabulary refinement',
-    image: {
-      src: '/curriculum/grade9/isixhosa/term3/language-structures/image1.jpg',
-      alt: 'Grade 9 isiXhosa FAL learners learning complex sentence structures and advanced punctuation',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Use clauses and word choices to improve sentence variety',
-    image: {
-      src: '/curriculum/grade8/xho/term3/language-structures/diagram.webp',
-      alt: 'Grade 8 learners using adverbs, prepositions, and clause cards while editing sentences',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Use polite role-play language for shopping and transport',
-    image: {
-      src: '/curriculum/grade7/xho/term2/listening-speaking/diagram.webp',
-      alt: 'Grade 7 learners role-playing shopping and transport conversations in isiXhosa SAL',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

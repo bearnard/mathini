@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Balance creative and practical writing with revision',
-    image: {
-      src: '/curriculum/grade8/xho/term3/writing-presenting/diagram.webp',
-      alt: 'Grade 8 learner planning a descriptive essay, formal letter, and project notes',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

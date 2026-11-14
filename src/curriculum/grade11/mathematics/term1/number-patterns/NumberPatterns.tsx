@@ -5,7 +5,6 @@ import FunctionGraph from '../../../../../components/subjects/FunctionGraph';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/math/term1/number-patterns/diagram.webp", alt: "Number Patterns" },
     title: 'Recognise the Pattern Type',
     content: (
       <div className="space-y-4 text-center">

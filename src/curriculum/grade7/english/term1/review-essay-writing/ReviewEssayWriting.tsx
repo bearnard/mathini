@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Plan reviews and essays with purpose',
-    image: {
-      src: '/curriculum/grade7/eng/term1/review-essay-writing/diagram.webp',
-      alt: 'learner planning a review and essay with an introduction, body and conclusion',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

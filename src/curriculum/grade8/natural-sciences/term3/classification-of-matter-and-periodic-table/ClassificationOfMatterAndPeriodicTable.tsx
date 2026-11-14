@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Classify matter and use periodic-table basics',
-    image: {
-      src: '/curriculum/grade8/ns/term3/classification-of-matter-and-periodic-table/diagram.webp',
-      alt: 'Grade 8 learners sorting substances into elements compounds and mixtures with periodic-table clues',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

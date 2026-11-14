@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Consolidate pattern, function, and algebra skills',
-    image: {
-      src: '/curriculum/grade7/math/term4/patterns-functions-and-algebra-consolidation/diagram.webp',
-      alt: 'Grade 7 learners consolidating pattern rules, function tables, and algebra equations',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

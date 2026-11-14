@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Understand report structure and audience awareness',
-    image: {
-      src: '/curriculum/grade9/english/term3/reports-instructional-texts/image1.jpg',
-      alt: 'learner organizing report information with headings and clear structure for a specific purpose',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

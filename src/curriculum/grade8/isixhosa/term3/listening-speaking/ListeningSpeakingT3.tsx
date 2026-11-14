@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Respond independently in prepared and collaborative oral tasks',
-    image: {
-      src: '/curriculum/grade8/xho/term3/listening-speaking/diagram.webp',
-      alt: 'Grade 8 learners delivering prepared speeches and taking part in role-play discussion',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

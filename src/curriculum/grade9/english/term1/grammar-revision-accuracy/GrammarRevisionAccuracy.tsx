@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Review noun, adjective and verb forms',
-    image: {
-      src: '/curriculum/grade9/english/term1/grammar-revision-accuracy/image1.jpg',
-      alt: 'learner identifying nouns adjectives verbs and punctuation in a passage',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

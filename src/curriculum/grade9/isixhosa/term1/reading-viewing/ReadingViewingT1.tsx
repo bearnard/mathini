@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Short stories, visual texts, poetry, and theme analysis',
-    image: {
-      src: '/curriculum/grade9/isixhosa/term1/reading-viewing/image1.jpg',
-      alt: 'Grade 9 isiXhosa FAL learners analysing literary and visual texts for theme, tone, and supporting evidence',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

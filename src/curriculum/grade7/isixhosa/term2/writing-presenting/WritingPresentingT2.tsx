@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Write functional texts in clear sequence',
-    image: {
-      src: '/curriculum/grade7/xho/term2/writing-presenting/diagram.webp',
-      alt: 'Grade 7 learner planning a diary entry and short report in isiXhosa SAL',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

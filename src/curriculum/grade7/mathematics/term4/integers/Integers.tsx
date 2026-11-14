@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Operate with positive and negative integers',
-    image: {
-      src: '/curriculum/grade7/math/term4/integers/diagram.webp',
-      alt: 'Grade 7 learners using number lines to compare and calculate with integers',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

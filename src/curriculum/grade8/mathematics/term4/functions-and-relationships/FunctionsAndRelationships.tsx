@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Analyse tables and derive function rules',
-    image: {
-      src: '/curriculum/grade8/math/term4/functions-and-relationships/diagram.webp',
-      alt: 'Grade 8 learners deriving rules from input-output tables',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

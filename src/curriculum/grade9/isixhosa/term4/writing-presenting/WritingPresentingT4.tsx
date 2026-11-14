@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Report, review, summary, exam essays, and proofreading skills',
-    image: {
-      src: '/curriculum/grade9/isixhosa/term4/writing-presenting/image1.jpg',
-      alt: 'Grade 9 isiXhosa FAL learners revising writing types and perfecting proofreading for exams',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

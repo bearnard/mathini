@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Find key details in factual and fictional short texts',
-    image: {
-      src: '/curriculum/grade7/xho/term2/reading-viewing/diagram.webp',
-      alt: 'Grade 7 learner comparing a timetable and short folk story text',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

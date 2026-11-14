@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Read longer prose and identify theme and character',
-    image: {
-      src: '/curriculum/grade8/xho/term2/reading-viewing/diagram.webp',
-      alt: 'Grade 8 learners reading folklore and youth prose while identifying theme and character',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

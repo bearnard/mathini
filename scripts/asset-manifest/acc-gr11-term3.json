@@ -3,44 +3,11 @@
     "grade": "grade11",
     "subject": "acc",
     "term": "term3",
-    "topic": "cash-budgets",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/acc/term3/cash-budgets/diagram.webp",
-    "alt": "Grade 11 learners understanding the cash budget format showing opening balance, receipts, payments, and closing balance with a projected shortfall highlighted",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing a cash budget layout. Display a simple table with: Opening bank balance, add Total receipts (showing cash sales and debtor collections), less Total payments (showing creditors and expenses), equals Closing bank balance. Highlight a negative closing balance in red to show a cash shortfall. Use clean white background, simple flat design, green for receipts, red for payments, and minimal text labels."
-  },
-  {
-    "grade": "grade11",
-    "subject": "acc",
-    "term": "term3",
-    "topic": "projected-financial-statements",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/acc/term3/projected-financial-statements/diagram.webp",
-    "alt": "Grade 11 learners comparing budgeted versus actual results showing favourable and unfavourable variances",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing budget vs actual comparison. Display two side-by-side columns visually distinguished 'Budget' and 'Actual' for Sales, Cost of Sales, and Net Profit. Show a third column 'Variance' with green upward arrows for favourable variances and red downward arrows for unfavourable variances. Use clean white background, simple flat design, and minimal text labels."
-  },
-  {
-    "grade": "grade11",
-    "subject": "acc",
-    "term": "term3",
     "topic": "inventory-systems-stock-valuation",
     "section": "diagram",
     "type": "ai",
     "path": "curriculum/grade11/acc/term3/inventory-systems-stock-valuation/diagram.webp",
     "alt": "Grade 11 learners comparing FIFO and weighted average cost stock valuation methods with boxes showing which units are sold first",
     "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners comparing FIFO and WAC inventory methods. Show a row of stock boxes on a shelf. For FIFO: highlight the oldest boxes (left side) as sold first with a blue arrow. For WAC: show all boxes blending into one average price. Label each method clearly. Use clean white background, simple flat design, blue for FIFO and orange for WAC, and minimal text labels."
-  },
-  {
-    "grade": "grade11",
-    "subject": "acc",
-    "term": "term3",
-    "topic": "manufacturing-costs-break-even",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/acc/term3/manufacturing-costs-break-even/diagram.webp",
-    "alt": "Grade 11 learners understanding the break-even chart showing total revenue line, total cost line, fixed costs, and the break-even point where the lines intersect",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing a break-even chart. Display a graph with Units on the x-axis and Rand Amount on the y-axis. Show a horizontal fixed cost line, an upward-sloping total cost line starting from fixed costs, and an upward-sloping total revenue line starting from zero. Mark the intersection point clearly as 'Break-Even Point' with a dotted vertical line. Use green for revenue, red for cost, blue for fixed costs, clean white background, and minimal labels."
   }
 ]

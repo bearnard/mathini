@@ -3,28 +3,6 @@
     "grade": "grade8",
     "subject": "math",
     "term": "term4",
-    "topic": "functions-and-relationships",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/math/term4/functions-and-relationships/diagram.webp",
-    "alt": "Grade 8 learners identifying function rules from tables and contexts",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners comparing input-output tables and deriving function rules from number patterns. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade8",
-    "subject": "math",
-    "term": "term4",
-    "topic": "algebraic-equations",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/math/term4/algebraic-equations/diagram.webp",
-    "alt": "Grade 8 learners revising algebraic equation solving and checking",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners solving linear equations and verifying answers through substitution. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade8",
-    "subject": "math",
-    "term": "term4",
     "topic": "graphs",
     "section": "diagram",
     "type": "ai",

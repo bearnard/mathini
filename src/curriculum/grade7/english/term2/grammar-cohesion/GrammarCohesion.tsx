@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Build cohesion with grammar choices',
-    image: {
-      src: '/curriculum/grade7/eng/term2/grammar-cohesion/diagram.webp',
-      alt: 'learner linking sentences using adjectives, adverbs and conjunctions',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
