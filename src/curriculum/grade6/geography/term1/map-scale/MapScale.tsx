@@ -1,24 +1,17 @@
 import GeoTopic from '../../_shared/GeoTopic';
 import { GeoItem, LearnStep } from '../../_shared/types';
+import { MapScaleWays, MapScaleRuler } from '@/components/diagrams/MapScale';
 
 const learnSteps: LearnStep[] = [
   {
     title: 'Scale links map distance to real distance',
-    image: {
-      src: '/curriculum/grade6/geo/term1/map-scale/diagram.svg',
-      alt: 'bar scale from zero to four kilometres with map scale comparison',
-    },
     content: (
       <div className="space-y-4 text-center">
+        <MapScaleWays />
         <p className="text-lg text-slate-600">
           A map is smaller than the real place. <strong>Scale</strong> tells us how a distance on a
           map compares with the actual distance on the ground.
         </p>
-        <div className="bg-amber-50 p-6 rounded-xl inline-flex flex-wrap items-center justify-center gap-3 text-xl font-bold">
-          <span>map distance</span>
-          <span className="text-slate-400">→</span>
-          <span>real distance</span>
-        </div>
       </div>
     ),
   },
@@ -26,6 +19,7 @@ const learnSteps: LearnStep[] = [
     title: 'A line scale is like a ruler for maps',
     content: (
       <div className="space-y-4 text-center">
+        <MapScaleRuler />
         <p className="text-lg text-slate-600">
           A <strong>line scale</strong>, or bar scale, is divided into equal parts. We can measure a
           route on the map and compare it with the bar to estimate kilometres in real life.
