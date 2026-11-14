@@ -42,8 +42,8 @@ export const MOON_PHASES: MoonPhaseInfo[] = [
   { slug: 'waning-crescent', name: 'Waning Crescent', lines: ['Waning', 'crescent'] },
 ];
 
-const CX = 50;
-const CY = 50;
+export const CX = 50;
+export const CY = 50;
 const ORBIT_R = 16.5;
 const RING_R = 34;
 const FACE_R = 6;
@@ -53,7 +53,7 @@ const SMALL_R = 3;
 const elong = (i: number) => (i * Math.PI) / 4;
 
 /** Position on a circle of radius r for phase i. Sun is on the LEFT, so New Moon is on the left and the Moon moves anticlockwise (down first). */
-const pos = (i: number, r: number) => ({
+export const pos = (i: number, r: number) => ({
   x: CX - r * Math.cos(elong(i)),
   y: CY + r * Math.sin(elong(i)),
 });
@@ -79,7 +79,7 @@ const DARK = '#1e293b';
 const EDGE = '#94a3b8';
 
 /** One Moon disc. `index` picks the phase; lit side follows the southern-hemisphere rule. */
-function Face({ index, cx, cy, r }: { index: number; cx: number; cy: number; r: number }) {
+export function Face({ index, cx, cy, r }: { index: number; cx: number; cy: number; r: number }) {
   const th = elong(index);
   const c = Math.cos(th); // 1 new .. -1 full
   const waxing = index >= 1 && index <= 3;
@@ -104,7 +104,7 @@ function Face({ index, cx, cy, r }: { index: number; cx: number; cy: number; r: 
 }
 
 /** Small Moon on the orbit: the half facing the Sun (left) is always lit. */
-function OrbitMoon({ cx, cy, r }: { cx: number; cy: number; r: number }) {
+export function OrbitMoon({ cx, cy, r }: { cx: number; cy: number; r: number }) {
   return (
     <g>
       <circle cx={cx} cy={cy} r={r} fill={DARK} />

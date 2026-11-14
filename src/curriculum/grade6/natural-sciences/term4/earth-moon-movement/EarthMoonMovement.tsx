@@ -1,6 +1,6 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
-import MoonPhases from '@/components/diagrams/MoonPhases';
+import MoonStepper from '@/components/diagrams/MoonStepper';
 
 const learnSteps: LearnStep[] = [
   {
@@ -64,7 +64,7 @@ const learnSteps: LearnStep[] = [
     title: 'The 8 phases in order',
     content: (
       <div className="space-y-4 text-center">
-        <MoonPhases />
+        <MoonStepper />
         <p className="rounded-xl bg-indigo-50 p-4 font-semibold text-indigo-700">
           In South Africa the <strong>waxing</strong> Moon is lit on the <strong>left</strong>. The <strong>waning</strong> Moon is lit on the <strong>right</strong>.
         </p>
