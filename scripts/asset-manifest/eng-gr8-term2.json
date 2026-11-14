@@ -3,33 +3,11 @@
     "grade": "grade8",
     "subject": "eng",
     "term": "term2",
-    "topic": "media-literary-texts",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/eng/term2/media-literary-texts/diagram.webp",
-    "alt": "learner comparing a news report and a short literary scene for structure and message",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner comparing a news report and a literary text with cues for fact, opinion, conflict and theme. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  },
-  {
-    "grade": "grade8",
-    "subject": "eng",
-    "term": "term2",
     "topic": "formal-correspondence-reviews",
     "section": "diagram",
     "type": "ai",
     "path": "curriculum/grade8/eng/term2/formal-correspondence-reviews/diagram.webp",
     "alt": "learner drafting a formal letter email and review with correct structure",
     "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner drafting a formal letter, an email, and a short review with clear structure and audience awareness. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  },
-  {
-    "grade": "grade8",
-    "subject": "eng",
-    "term": "term2",
-    "topic": "language-report-dialogue",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/eng/term2/language-report-dialogue/diagram.webp",
-    "alt": "learner converting direct speech to indirect speech with tense and reporting verbs",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner converting direct to indirect speech and checking tense and active-passive voice in sentence cards. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
   }
 ]

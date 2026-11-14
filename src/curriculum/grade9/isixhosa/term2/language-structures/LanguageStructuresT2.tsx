@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Connectors, passive voice, pronouns, question tags, and concord',
-    image: {
-      src: '/curriculum/grade9/isixhosa/term2/language-structures/image1.jpg',
-      alt: 'Grade 9 isiXhosa FAL learners studying connectors, passive voice, and sentence patterns',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

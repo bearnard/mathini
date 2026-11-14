@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Consolidate exam-oriented writing and proofreading',
-    image: {
-      src: '/curriculum/grade8/xho/term4/writing-presenting/diagram.webp',
-      alt: 'Grade 8 learner practising summary, report and review writing with proofreading notes',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

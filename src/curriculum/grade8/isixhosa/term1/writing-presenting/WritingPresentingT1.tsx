@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Develop narrative, descriptive, and friendly-format writing',
-    image: {
-      src: '/curriculum/grade8/xho/term1/writing-presenting/diagram.webp',
-      alt: 'Grade 8 learner drafting a narrative paragraph, descriptive text, and friendly letter',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

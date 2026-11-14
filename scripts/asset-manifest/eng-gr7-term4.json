@@ -9,28 +9,5 @@
     "path": "curriculum/grade7/eng/term4/revision-all-genres/diagram.webp",
     "alt": "learner revising novel, poetry, drama and media comprehension strategies",
     "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 7 learners showing a learner revising mixed genre resources for novel, poetry, drama, and media comprehension. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  },
-  {
-    "grade": "grade7",
-    "subject": "eng",
-    "term": "term4",
-    "topic": "exam-writing-practice",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/eng/term4/exam-writing-practice/diagram.webp",
-    "alt": "learner planning an exam essay and transactional text with a timer and editing checklist",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 7 learners showing a learner planning timed exam writing with essay notes, transactional text planning, and an editing checklist. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  },
-  {
-    "grade": "grade7",
-    "subject": "eng",
-    "term": "term4",
-    "topic": "grammar-consolidation",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/eng/term4/grammar-consolidation/diagram.webp",
-    "alt": "learner revising tenses, clauses, punctuation and vocabulary in context",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 7 learners showing a learner revising sentence cards for tense, clauses, punctuation, and vocabulary in context. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
   }
 ]
-

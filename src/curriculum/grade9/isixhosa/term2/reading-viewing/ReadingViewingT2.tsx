@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Novel or folklore study, media texts, characterisation, message, and visual literacy',
-    image: {
-      src: '/curriculum/grade9/isixhosa/term2/reading-viewing/image1.jpg',
-      alt: 'Grade 9 isiXhosa FAL learners analysing novel characters, media texts, and visual messages',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

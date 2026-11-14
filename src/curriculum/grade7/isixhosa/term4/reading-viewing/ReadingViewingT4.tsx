@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Revise comprehension across different text genres',
-    image: {
-      src: '/curriculum/grade7/xho/term4/reading-viewing/diagram.webp',
-      alt: 'Grade 7 learner revising comprehension with a notice and short story text',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

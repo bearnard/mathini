@@ -3,17 +3,6 @@
     "grade": "grade11",
     "subject": "bus",
     "term": "term4",
-    "topic": "recruitment-selection-contracts",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/bus/term4/recruitment-selection-contracts/diagram.webp",
-    "alt": "Grade 11 learners following the HR recruitment and selection process from job posting to employment contract",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing a sequential HR process as a numbered flowchart: 1) Identify vacancy, 2) Advertise (internal/external), 3) Receive applications, 4) Shortlist, 5) Interview, 6) Select and appoint, 7) Sign contract. Use people icons at each step, connecting arrows, a split between internal and external paths at step 2, bright colours, simple flat design, clean white background, minimal text labels."
-  },
-  {
-    "grade": "grade11",
-    "subject": "bus",
-    "term": "term4",
     "topic": "induction-salary-benefits",
     "section": "diagram",
     "type": "ai",
@@ -31,16 +20,5 @@
     "path": "curriculum/grade11/bus/term4/revision-environments-ventures/diagram.webp",
     "alt": "Grade 11 learners reviewing business environments, forms of ownership and entrepreneurship content for the final exam",
     "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing a revision mind map. Central node: Grade 11 Business. Three main branches: Environments (micro/market/macro icons), Ownership (company/franchise/co-op icons), Ventures (entrepreneur/business-plan icons). Use bright distinct colours per branch, simple flat design, clean white background, minimal text labels."
-  },
-  {
-    "grade": "grade11",
-    "subject": "bus",
-    "term": "term4",
-    "topic": "revision-operations-exam-prep",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/bus/term4/revision-operations-exam-prep/diagram.webp",
-    "alt": "Grade 11 learners reviewing operations, marketing, quality, ethics, teamwork and HR content for final exam preparation",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing a revision checklist or grid with six topic areas as coloured tiles: Operations (factory icon), Marketing (megaphone), Quality/Ethics (tick/scales), Teamwork (people group), HR (person/desk), Exam Tips (pencil/paper). Use bright distinct tile colours, simple flat design, clean white background, minimal text labels."
   }
 ]

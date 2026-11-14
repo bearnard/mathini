@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Strengthen sentences through combining and variety',
-    image: {
-      src: '/curriculum/grade9/english/term2/sentence-structure-cohesion/image1.jpg',
-      alt: 'learner combining simple sentences into complex sentences with conjunctions and pronouns',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

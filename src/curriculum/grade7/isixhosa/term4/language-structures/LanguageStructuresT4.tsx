@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Consolidate grammar skills for Grade 8 readiness',
-    image: {
-      src: '/curriculum/grade7/xho/term4/language-structures/diagram.webp',
-      alt: 'Grade 7 learners revising isiXhosa tenses, pronouns, and spelling rules',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

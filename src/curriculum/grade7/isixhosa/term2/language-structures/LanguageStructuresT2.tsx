@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Build accurate questions, negatives, and concord patterns',
-    image: {
-      src: '/curriculum/grade7/xho/term2/language-structures/diagram.webp',
-      alt: 'Grade 7 class practising isiXhosa question forms and sentence correction',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

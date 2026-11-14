@@ -3,28 +3,6 @@
     "grade": "grade8",
     "subject": "math",
     "term": "term2",
-    "topic": "algebraic-expressions",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/math/term2/algebraic-expressions/diagram.webp",
-    "alt": "Grade 8 learners expanding and factorising algebraic expressions",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners expanding brackets, factorising expressions, and collecting like terms in a classroom activity. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade8",
-    "subject": "math",
-    "term": "term2",
-    "topic": "algebraic-equations",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/math/term2/algebraic-equations/diagram.webp",
-    "alt": "Grade 8 learners solving linear equations with balancing steps",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners balancing equation steps and checking solutions by substitution. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade8",
-    "subject": "math",
-    "term": "term2",
     "topic": "construction-of-geometric-figures",
     "section": "diagram",
     "type": "ai",

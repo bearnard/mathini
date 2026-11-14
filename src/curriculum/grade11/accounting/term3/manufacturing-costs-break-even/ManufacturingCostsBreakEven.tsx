@@ -4,7 +4,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/acc/term3/manufacturing-costs-break-even/diagram.webp", alt: "Cost of Production Summary" },
     title: 'Classifying manufacturing costs',
     content: (
       <div className="space-y-4 text-center">

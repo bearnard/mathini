@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Identify persuasive techniques in advertisements',
-    image: {
-      src: '/curriculum/grade9/english/term1/advertising-visual-design/image1.jpg',
-      alt: 'learner analysing advertisement posters for AIDA, tone, and visual techniques',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

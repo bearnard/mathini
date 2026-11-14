@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Read stories, notices, poems, and visuals with understanding',
-    image: {
-      src: '/curriculum/grade7/xho/term1/reading-viewing/diagram.webp',
-      alt: 'Grade 7 learners reading a short isiXhosa text and analysing visual clues',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

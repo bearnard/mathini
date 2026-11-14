@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Apply grammar in real writing contexts',
-    image: {
-      src: '/curriculum/grade7/eng/term1/foundational-grammar-context/diagram.webp',
-      alt: 'learner editing sentences for tense, number, word order and reported speech',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

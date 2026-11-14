@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Consolidate linear equation fluency',
-    image: {
-      src: '/curriculum/grade8/math/term4/algebraic-equations/diagram.webp',
-      alt: 'Grade 8 learners solving and checking algebraic equations',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

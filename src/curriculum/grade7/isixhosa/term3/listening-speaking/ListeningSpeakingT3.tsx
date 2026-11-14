@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Retell folktales and share opinions with reasons',
-    image: {
-      src: '/curriculum/grade7/xho/term3/listening-speaking/diagram.webp',
-      alt: 'Grade 7 learners discussing culture and retelling a folktale in isiXhosa SAL',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Write connected sentences for real audiences and purposes',
-    image: {
-      src: '/curriculum/grade7/xho/term1/writing-presenting/diagram.webp',
-      alt: 'Grade 7 learner drafting a friendly letter and short isiXhosa paragraph',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

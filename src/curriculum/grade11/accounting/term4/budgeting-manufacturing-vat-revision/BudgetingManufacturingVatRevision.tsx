@@ -5,7 +5,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/acc/term4/budgeting-manufacturing-vat-revision/diagram.webp", alt: "Cash Budget" },
     title: 'Revising cash budgets',
     content: (
       <div className="space-y-4 text-center">

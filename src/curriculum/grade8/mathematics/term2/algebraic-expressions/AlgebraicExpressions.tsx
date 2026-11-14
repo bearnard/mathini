@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Manipulate algebraic expressions accurately',
-    image: {
-      src: '/curriculum/grade8/math/term2/algebraic-expressions/diagram.webp',
-      alt: 'Grade 8 learners expanding, factorising, and simplifying algebraic expressions',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

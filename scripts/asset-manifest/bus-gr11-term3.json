@@ -14,28 +14,6 @@
     "grade": "grade11",
     "subject": "bus",
     "term": "term3",
-    "topic": "starting-implementing-venture",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/bus/term3/starting-implementing-venture/diagram.webp",
-    "alt": "Grade 11 learners following a numbered action plan with key steps to launch and implement a business venture",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing a horizontal numbered roadmap of starting a business: 1) Identify opportunity, 2) Write business plan, 3) Register the business, 4) Secure funding, 5) Launch and market, 6) Monitor and adjust. Use milestone flags or numbered circles connected by a path, bright colours, simple flat design, clean white background, minimal text labels."
-  },
-  {
-    "grade": "grade11",
-    "subject": "bus",
-    "term": "term3",
-    "topic": "presenting-business-information",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/bus/term3/presenting-business-information/diagram.webp",
-    "alt": "Grade 11 learners comparing presentation methods: tables, bar graphs, pie charts, oral presentations and slide decks",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing five presentation method icons in a grid: a data table, a bar graph, a pie chart, a person presenting at a podium, and a laptop/slides display. Use distinct pastel background colours for each icon box, simple flat design, clean white background, minimal text labels."
-  },
-  {
-    "grade": "grade11",
-    "subject": "bus",
-    "term": "term3",
     "topic": "team-dynamics-conflict",
     "section": "diagram",
     "type": "ai",

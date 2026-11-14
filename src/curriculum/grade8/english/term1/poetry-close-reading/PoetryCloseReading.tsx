@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Read poems line by line for meaning',
-    image: {
-      src: '/curriculum/grade8/eng/term1/poetry-close-reading/diagram.webp',
-      alt: 'learner close reading a poem for imagery tone rhyme and theme',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

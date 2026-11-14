@@ -3,17 +3,6 @@
     "grade": "grade11",
     "subject": "acc",
     "term": "term4",
-    "topic": "vat-calculations-recording",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/acc/term4/vat-calculations-recording/diagram.webp",
-    "alt": "Grade 11 learners understanding the flow of VAT showing input VAT on purchases, output VAT on sales, and net VAT payable to SARS",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing the VAT flow. Display three sections: a supplier sending an invoice to the business with 'Input VAT' visually distinguished in blue; the business sending an invoice to a customer with 'Output VAT' visually distinguished in green; and an arrow from the business to a SARS building showing 'Net VAT Payable (Output − Input)' in orange. Use clean white background, simple flat design, and minimal text labels including the 15% rate."
-  },
-  {
-    "grade": "grade11",
-    "subject": "acc",
-    "term": "term4",
     "topic": "vat-ethics-compliance",
     "section": "diagram",
     "type": "ai",
@@ -31,16 +20,5 @@
     "path": "curriculum/grade11/acc/term4/reconciliations-partnerships-revision/diagram.webp",
     "alt": "Grade 11 learners reviewing reconciliations and partnership accounts as connected topics in a revision mind map",
     "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing a revision mind map. Place 'Grade 11 Accounting' in the centre. Branch out to: 'Bank Reconciliation' (with outstanding deposits and unpresented cheques), 'Creditors Reconciliation', 'Partnership Adjustments' (interest, salary, profit share), and 'Financial Statements' (income statement, appropriation, balance sheet). Use bright distinct colours for each branch, clean white background, simple flat design, and minimal text labels."
-  },
-  {
-    "grade": "grade11",
-    "subject": "acc",
-    "term": "term4",
-    "topic": "budgeting-manufacturing-vat-revision",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/acc/term4/budgeting-manufacturing-vat-revision/diagram.webp",
-    "alt": "Grade 11 learners reviewing budgeting, manufacturing costs, inventory valuation, and VAT as connected topics in a revision summary",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 11 learners showing a revision summary grid. Display four panels: 'Cash Budget' (receipts and payments table), 'Manufacturing Costs' (direct materials + direct labour + overheads = unit cost), 'Inventory Valuation' (FIFO vs WAC comparison), and 'VAT' (input − output = net payable to SARS). Use a different colour for each panel, clean white background, simple flat design, and minimal text labels."
   }
 ]

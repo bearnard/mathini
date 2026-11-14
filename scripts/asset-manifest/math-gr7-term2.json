@@ -14,28 +14,6 @@
     "grade": "grade7",
     "subject": "math",
     "term": "term2",
-    "topic": "decimal-fractions",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/math/term2/decimal-fractions/diagram.webp",
-    "alt": "Grade 7 learners using decimal place value and operations with money and measurement",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners working with decimal place value and decimal calculations in money and measurement contexts. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade7",
-    "subject": "math",
-    "term": "term2",
-    "topic": "functions-and-relationships",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade7/math/term2/functions-and-relationships/diagram.webp",
-    "alt": "Grade 7 learners finding function rules from input-output tables and flow diagrams",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 7 learners showing generic learners identifying number rules from input-output tables and flow diagrams in a classroom activity. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade7",
-    "subject": "math",
-    "term": "term2",
     "topic": "area-and-perimeter-of-2d-shapes",
     "section": "diagram",
     "type": "ai",

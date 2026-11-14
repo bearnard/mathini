@@ -4,7 +4,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/acc/term4/vat-calculations-recording/diagram.webp", alt: "VAT Control Account" },
     title: 'What is VAT and why does it exist?',
     content: (
       <div className="space-y-4 text-center">

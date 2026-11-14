@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Describe rules in functions and relationships',
-    image: {
-      src: '/curriculum/grade7/math/term2/functions-and-relationships/diagram.webp',
-      alt: 'Grade 7 learners using input-output tables and flow diagrams to identify function rules',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

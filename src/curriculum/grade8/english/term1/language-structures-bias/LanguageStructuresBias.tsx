@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Revise language structures in context',
-    image: {
-      src: '/curriculum/grade8/eng/term1/language-structures-bias/diagram.webp',
-      alt: 'learner identifying nouns verbs adjectives adverbs and punctuation in a short text',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

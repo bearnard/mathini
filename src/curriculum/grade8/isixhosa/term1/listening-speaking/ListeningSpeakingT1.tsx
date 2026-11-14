@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Build confidence in introductions and daily discussions',
-    image: {
-      src: '/curriculum/grade8/xho/term1/listening-speaking/diagram.webp',
-      alt: 'Grade 8 isiXhosa FAL learners practising introductions and daily life discussion in class',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

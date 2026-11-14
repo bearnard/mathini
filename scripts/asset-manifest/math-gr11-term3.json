@@ -36,23 +36,12 @@
     "grade": "grade11",
     "subject": "math",
     "term": "term3",
-    "topic": "finance-growth-decay",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/math/term3/finance-growth-decay/diagram.webp",
-    "alt": "two curves illustrating compound growth and compound decay over time",
-    "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing two smooth curves on a minimal time axis — one curving upward (compound growth) in green and one curving downward (compound decay) in orange. Simple bright shapes, white background, no text or labels in the image."
-  },
-  {
-    "grade": "grade11",
-    "subject": "math",
-    "term": "term3",
     "topic": "probability",
     "section": "diagram",
     "type": "ai",
     "path": "curriculum/grade11/math/term3/probability/diagram.webp",
     "alt": "probability tree diagram with two stages and branching coloured paths",
-    "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing a tree diagram with two branching stages — each branch splits into two colourful paths (red and blue), forming a tree of four outcome paths. Simple bright shapes, white background, no text or labels in the image."
+    "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing a tree diagram with two branching stages \u2014 each branch splits into two colourful paths (red and blue), forming a tree of four outcome paths. Simple bright shapes, white background, no text or labels in the image."
   },
   {
     "grade": "grade11",
@@ -62,8 +51,8 @@
     "section": "diagram",
     "type": "ai",
     "path": "curriculum/grade11/math/term3/trig-sine-cosine-rule/diagram.webp",
-    "alt": "Trigonometry — Sine, Cosine and Area Rules",
-    "prompt": "A clear educational illustration depicting \"Trigonometry — Sine, Cosine and Area Rules\": Solving non-right-angled triangles with the correct rule."
+    "alt": "Trigonometry \u2014 Sine, Cosine and Area Rules",
+    "prompt": "A clear educational illustration depicting \"Trigonometry \u2014 Sine, Cosine and Area Rules\": Solving non-right-angled triangles with the correct rule."
   },
   {
     "grade": "grade11",

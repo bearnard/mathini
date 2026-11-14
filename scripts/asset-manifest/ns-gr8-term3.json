@@ -3,17 +3,6 @@
     "grade": "grade8",
     "subject": "ns",
     "term": "term3",
-    "topic": "classification-of-matter-and-periodic-table",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/ns/term3/classification-of-matter-and-periodic-table/diagram.webp",
-    "alt": "Grade 8 learners classifying matter and reading periodic-table clues",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners sorting samples into elements, compounds, and mixtures while using a simplified periodic-table display for metal and non-metal clues. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  },
-  {
-    "grade": "grade8",
-    "subject": "ns",
-    "term": "term3",
     "topic": "chemical-reactions-acids-and-bases",
     "section": "diagram",
     "type": "ai",

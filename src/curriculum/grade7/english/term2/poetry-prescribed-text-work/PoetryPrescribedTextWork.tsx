@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Read poetry closely and connect to prescribed texts',
-    image: {
-      src: '/curriculum/grade7/eng/term2/poetry-prescribed-text-work/diagram.webp',
-      alt: 'learner analysing stanza, rhyme, imagery and tone in a poem beside a prescribed text',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

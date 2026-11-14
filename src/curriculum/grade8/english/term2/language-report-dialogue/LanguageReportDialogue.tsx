@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Use tense accurately in reporting',
-    image: {
-      src: '/curriculum/grade8/eng/term2/language-report-dialogue/diagram.webp',
-      alt: 'learner converting direct speech to indirect speech with tense and reporting verbs',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -5,7 +5,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/acc/term1/fixed-assets-depreciation/diagram.webp", alt: "Equipment Depreciation Schedule" },
     title: 'What is a fixed asset register?',
     content: (
       <div className="space-y-4 text-center">
