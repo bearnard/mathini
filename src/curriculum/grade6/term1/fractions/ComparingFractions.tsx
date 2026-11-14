@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import { CompareBars } from '../../../../components/diagrams/maths/FractionScenes';
 
 const learnSteps: LearnStep[] = [
   {
@@ -7,21 +8,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6 text-center">
         <p className="text-lg text-slate-600">We can compare fractions to see which is bigger, smaller, or if they're equal.</p>
-        <div className="flex justify-center gap-8">
-          <div>
-            <div className="w-24 h-24 mx-auto bg-indigo-100 rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold text-indigo-600">1/2</span>
-            </div>
-            <p className="text-2xl font-bold text-indigo-600 mt-2">1/2</p>
-          </div>
-          <div>
-            <div className="w-24 h-24 mx-auto bg-emerald-100 rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold text-emerald-600">1/4</span>
-            </div>
-            <p className="text-2xl font-bold text-emerald-600 mt-2">1/4</p>
-          </div>
-        </div>
-        <p className="text-slate-500">Which slice is bigger?</p>
+        <CompareBars a={2} b={4} />
+        <p className="text-slate-500">Which shaded part is bigger?</p>
       </div>
     ),
   },
@@ -30,14 +18,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6 text-center">
         <p className="text-lg text-slate-600">When the tops (numerators) are the same, the one with the smaller bottom (denominator) is bigger!</p>
-        <div className="bg-indigo-50 p-6 rounded-xl border border-indigo-100 inline-block">
-          <div className="flex items-center gap-4 text-3xl font-bold">
-            <span className="text-indigo-600">1/3</span>
-            <span className="text-emerald-600">&gt;</span>
-            <span className="text-indigo-600">1/4</span>
-          </div>
-          <p className="text-sm text-slate-500 mt-4">Thirds are bigger than quarters!</p>
-        </div>
+        <CompareBars a={3} b={4} />
+        <p className="text-sm text-slate-500">Thirds are bigger than quarters!</p>
       </div>
     ),
   },

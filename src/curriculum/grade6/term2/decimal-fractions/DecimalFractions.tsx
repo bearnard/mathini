@@ -1,19 +1,21 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import DecimalGrids from '../../../../components/diagrams/maths/DecimalGrids';
 
 const learnSteps: LearnStep[] = [
     {
         title: "Tenths and Hundredths",
         content: (
             <div className="space-y-6 text-center">
-                <p className="text-lg text-slate-600">Digits after the decimal comma or point show parts smaller than one whole.</p>
+                <p className="text-lg text-slate-600">Digits after the decimal comma show parts smaller than one whole.</p>
                 <div className="bg-slate-50 p-6 rounded-xl inline-block">
                     <div className="flex justify-center gap-1 text-4xl font-mono font-bold mb-2">
                         <span className="text-slate-400">2</span>
-                        <span className="text-slate-500">.</span>
+                        <span className="text-slate-500">,</span>
                         <span className="text-indigo-600">4</span>
                         <span className="text-emerald-600">7</span>
                     </div>
+                    <DecimalGrids values={[0.47]} captions={['after the comma: 4 tenths + 7 hundredths']} />
                     <p className="text-slate-500">The 4 is in the <strong>tenths</strong> place.</p>
                     <p className="text-slate-500">The 7 is in the <strong>hundredths</strong> place.</p>
                 </div>
@@ -25,13 +27,14 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Tenths and hundredths can be written as decimal fractions.</p>
+                <DecimalGrids values={[0.3, 0.07]} captions={['3 tenths', '7 hundredths']} />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto">
                     <div className="bg-indigo-50 p-5 rounded-xl">
-                        <p className="text-3xl font-bold text-indigo-700">3/10 = 0.3</p>
+                        <p className="text-3xl font-bold text-indigo-700">3/10 = 0,3</p>
                         <p className="text-sm text-slate-500 mt-2">Three tenths</p>
                     </div>
                     <div className="bg-emerald-50 p-5 rounded-xl">
-                        <p className="text-3xl font-bold text-emerald-700">7/100 = 0.07</p>
+                        <p className="text-3xl font-bold text-emerald-700">7/100 = 0,07</p>
                         <p className="text-sm text-slate-500 mt-2">Seven hundredths</p>
                     </div>
                 </div>
@@ -42,11 +45,12 @@ const learnSteps: LearnStep[] = [
         title: "Adding and Subtracting",
         content: (
             <div className="space-y-6 text-center">
-                <p className="text-lg text-slate-600">Line up the decimal points, then add or subtract each place value.</p>
+                <p className="text-lg text-slate-600">Line up the decimal commas, then add or subtract each place value.</p>
+                <DecimalGrids values={[0.45, 0.3, 0.75]} signs={['+', '=']} places={2} />
                 <div className="bg-slate-50 p-6 rounded-xl inline-block font-mono text-3xl font-bold text-slate-800">
-                    <div className="text-right">0.45</div>
-                    <div className="text-right text-indigo-600">+ 0.30</div>
-                    <div className="border-t-2 border-slate-300 mt-2 pt-2 text-right text-emerald-600">0.75</div>
+                    <div className="text-right">0,45</div>
+                    <div className="text-right text-indigo-600">+ 0,30</div>
+                    <div className="border-t-2 border-slate-300 mt-2 pt-2 text-right text-emerald-600">0,75</div>
                 </div>
             </div>
         )

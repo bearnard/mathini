@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import { EquivalentBars } from '../../../../components/diagrams/maths/FractionScenes';
 
 const learnSteps: LearnStep[] = [
   {
@@ -8,17 +9,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4">
         <p className="text-lg text-slate-600">Equivalent fractions are fractions that look different but represent the <strong>same amount</strong>.</p>
-        <div className="flex justify-center gap-8 items-center">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-indigo-600 mb-2">1/2</div>
-            <p className="text-sm text-slate-500">½ shaded</p>
-          </div>
-          <div className="text-2xl text-slate-400">=</div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-emerald-600 mb-2">2/4</div>
-            <p className="text-sm text-slate-500">2/4 shaded</p>
-          </div>
-        </div>
+        <EquivalentBars />
         <p className="text-slate-500">Notice how the shaded area is the same size!</p>
       </div>
     ),

@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
+import DecimalGrids from '../../../../components/diagrams/maths/DecimalGrids';
 
 const learnSteps: LearnStep[] = [
   {
@@ -13,8 +14,8 @@ const learnSteps: LearnStep[] = [
             <span className="text-xs text-slate-400 font-sans font-normal">Ones</span>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="bg-slate-200 w-6 h-16 flex items-center justify-center rounded-lg text-slate-800">.</div>
-            <span className="text-xs text-slate-400 font-sans font-normal">Point</span>
+            <div className="bg-slate-200 w-6 h-16 flex items-center justify-center rounded-lg text-slate-800">,</div>
+            <span className="text-xs text-slate-400 font-sans font-normal">Comma</span>
           </div>
           <div className="flex flex-col items-center gap-2">
             <div className="bg-indigo-50 w-12 h-16 flex items-center justify-center rounded-lg text-indigo-800">5</div>
@@ -25,7 +26,8 @@ const learnSteps: LearnStep[] = [
             <span className="text-xs text-slate-400 font-sans font-normal">Hundredths</span>
           </div>
         </div>
-        <p className="text-slate-500">3.52 = 3 + 0.5 + 0.02</p>
+        <DecimalGrids values={[0.52]} captions={['after the comma: 5 tenths + 2 hundredths']} />
+        <p className="text-slate-500">3,52 = 3 + 0,5 + 0,02</p>
       </div>
     ),
   },
@@ -33,17 +35,18 @@ const learnSteps: LearnStep[] = [
     title: 'Place Value After the Decimal',
     content: (
       <div className="space-y-6 text-center">
-        <p className="text-lg text-slate-600">Each position after the decimal point has a special value.</p>
+        <p className="text-lg text-slate-600">Each position after the decimal comma has a special value.</p>
+        <DecimalGrids values={[0.34]} captions={['after the comma: 3 tenths + 4 hundredths']} />
         <div className="bg-white p-6 rounded-xl border border-slate-200 inline-block">
-          <div className="text-4xl font-bold text-slate-800 mb-4">12.34</div>
+          <div className="text-4xl font-bold text-slate-800 mb-4">12,34</div>
           <div className="grid grid-cols-2 gap-4 text-left text-sm text-slate-500">
             <div>
               <p><strong className="text-indigo-600">1</strong>0 (Tens)</p>
               <p><strong className="text-indigo-600">2</strong> (Ones)</p>
             </div>
             <div>
-              <p><strong className="text-emerald-600">3</strong> (0.3 = Tenths)</p>
-              <p><strong className="text-emerald-600">4</strong> (0.04 = Hundredths)</p>
+              <p><strong className="text-emerald-600">3</strong> (0,3 = Tenths)</p>
+              <p><strong className="text-emerald-600">4</strong> (0,04 = Hundredths)</p>
             </div>
           </div>
         </div>

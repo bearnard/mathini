@@ -185,3 +185,44 @@ export const changeOf = (paid: number, parts: number[]): { spent: number; change
   const spent = parts.reduce((a, b) => a + b, 0);
   return { spent, change: paid - spent };
 };
+
+/* ---------------- Fractions and decimals ---------------- */
+
+/** Highest common factor of two positive whole numbers. */
+export const hcf = (a: number, b: number): number => {
+  let x = Math.abs(a);
+  let y = Math.abs(b);
+  while (y) [x, y] = [y, x % y];
+  return x;
+};
+
+/** Lowest terms: 12/18 gives { n: 2, d: 3, by: 6 } (divide top and bottom by 6). */
+export const simplify = (n: number, d: number): { n: number; d: number; by: number } => {
+  const by = hcf(n, d);
+  return { n: n / by, d: d / by, by };
+};
+
+/** a/b and c/d name the same amount (cross-multiplying, so no decimals are involved). */
+export const equivalent = (a: number, b: number, c: number, d: number): boolean => a * d === c * b;
+
+/** 1 if a/b is bigger than c/d, -1 if smaller, 0 if equal. */
+export const compareFractions = (a: number, b: number, c: number, d: number): -1 | 0 | 1 => {
+  const l = a * d;
+  const r = c * b;
+  return l > r ? 1 : l < r ? -1 : 0;
+};
+
+/** Add fractions with the same denominator: only the numerators are added. */
+export const addSameDenominator = (n1: number, n2: number, d: number): { n: number; d: number } => ({ n: n1 + n2, d });
+
+/**
+ * A decimal below 1 on a 10 x 10 hundredths grid: whole columns of tenths, then single hundredths.
+ * 0,47 is 4 tenths (4 columns) and 7 hundredths (7 squares), 47 squares in all.
+ */
+export const hundredthsGrid = (value: number): { tenths: number; hundredths: number; squares: number } => {
+  const squares = Math.round(value * 100);
+  return { tenths: Math.floor(squares / 10), hundredths: squares % 10, squares };
+};
+
+/** Decimal comma, as the lessons and CAPS write it: 0.47 gives "0,47". */
+export const decimalComma = (value: number, places = 2): string => value.toFixed(places).replace('.', ',');
