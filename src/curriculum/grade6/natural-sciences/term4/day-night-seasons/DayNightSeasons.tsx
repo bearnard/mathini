@@ -104,7 +104,7 @@ const bank: NstItem[] = [
 ];
 
 const DayNightSeasons = () => (
-  <NstTopic title="Day, Night & Seasons" subtitle="Earth&apos;s spin, sunlight and seasons" learnSteps={learnSteps} task="day-night-seasons" bank={bank} />
+  <NstTopic title="Day, Night & Seasons" subtitle="Earth's spin, sunlight and seasons" learnSteps={learnSteps} task="day-night-seasons" bank={bank} />
 );
 
 export default DayNightSeasons;
