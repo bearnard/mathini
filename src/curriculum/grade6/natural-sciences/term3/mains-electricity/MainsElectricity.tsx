@@ -1,5 +1,6 @@
 import NstTopic from '../../_shared/NstTopic';
 import { NstItem, LearnStep } from '../../_shared/types';
+import CoalChain from '@/components/diagrams/CoalChain';
 
 const learnSteps: LearnStep[] = [
   {
@@ -24,9 +25,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           Most of South Africa&apos;s electricity comes from burning <strong>coal</strong>. Energy changes form at every step.
         </p>
-        <div className="rounded-xl bg-amber-50 p-5 font-semibold text-amber-800">
-          Coal burns → heat → water boils → steam → turbine spins → generator → electricity → grid
-        </div>
+        <CoalChain />
         <p className="text-slate-500">The steam pushes the blades of the <strong>turbine</strong>. The turbine turns a <strong>generator</strong>, which makes the electricity.</p>
       </div>
     ),
