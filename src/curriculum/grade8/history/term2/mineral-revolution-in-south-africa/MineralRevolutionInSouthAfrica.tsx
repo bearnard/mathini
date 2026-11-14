@@ -24,10 +24,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Mining transformed South African society',
-    image: {
-      src: '/curriculum/grade8/his/term2/mineral-revolution-in-south-africa/diagram.webp',
-      alt: 'Grade 8 learners exploring gold mines, migrant labour hostels, and the growth of Johannesburg',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

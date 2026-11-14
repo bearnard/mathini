@@ -1,13 +1,1 @@
-[
-  {
-    "grade": "grade9",
-    "subject": "eng",
-    "term": "term3",
-    "topic": "oral-literature-narrative",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade9/english/term3/oral-literature-narrative/image1.jpg",
-    "alt": "learner presenting a folktale with gesture expression and eye contact to an audience",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 9 learners showing a learner presenting a folktale or oral narrative with visual indicators for delivery techniques (gesture, expression, pacing, eye contact), audience engagement, and oral traditions features (repetition, formulaic language, cultural context). Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  }
-]
+[]

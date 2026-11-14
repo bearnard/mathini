@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Revise how simple machines reduce effort',
-    image: {
-      src: '/curriculum/grade8/tech/term3/simple-machines-revision/diagram.webp',
-      alt: 'Grade 8 learners identifying levers, ramps, wedges, and wheel-and-axle devices',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

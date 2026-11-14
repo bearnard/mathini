@@ -5,7 +5,6 @@ import FunctionGraph from '../../../../../components/subjects/FunctionGraph';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/math/term1/exponents-surds/diagram.webp", alt: "Exponents and Surds" },
     title: 'Rational Exponents',
     content: (
       <div className="space-y-4 text-center">

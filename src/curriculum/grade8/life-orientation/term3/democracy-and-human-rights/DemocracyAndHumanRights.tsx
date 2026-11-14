@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Link rights and responsibilities',
-    image: {
-      src: '/curriculum/grade8/lo/term3/democracy-and-human-rights/diagram.webp',
-      alt: 'grade 8 learners discussing rights responsibilities and respectful democratic participation',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

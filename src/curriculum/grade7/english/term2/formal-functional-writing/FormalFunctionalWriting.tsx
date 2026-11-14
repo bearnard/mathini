@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Match writing format to purpose',
-    image: {
-      src: '/curriculum/grade7/eng/term2/formal-functional-writing/diagram.webp',
-      alt: 'learner choosing between formal letter, email, dialogue and descriptive writing formats',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

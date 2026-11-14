@@ -4,7 +4,6 @@ import type { PhysicalSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/ps/term4/revision-examination-practice/diagram.webp", alt: "Revision and Examination Practice" },
     title: 'Review: Electricity and Circuits',
     content: (
       <div className="space-y-6">

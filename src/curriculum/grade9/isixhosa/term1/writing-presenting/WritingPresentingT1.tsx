@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Narrative and descriptive essays with clear structure and audience awareness',
-    image: {
-      src: '/curriculum/grade9/isixhosa/term1/writing-presenting/image1.jpg',
-      alt: 'Grade 9 isiXhosa FAL learners writing narrative and descriptive essays with planning and drafting',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

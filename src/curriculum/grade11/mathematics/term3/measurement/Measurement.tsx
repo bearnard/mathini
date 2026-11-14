@@ -5,7 +5,6 @@ import FunctionGraph from '../../../../../components/subjects/FunctionGraph';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/math/term3/measurement/diagram.webp", alt: "Measurement" },
     title: 'Convert Units Before Calculating',
     content: (
       <div className="space-y-4 text-center">

@@ -4,7 +4,6 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/ls/term1/chemistry-of-life-enzymes/diagram.webp", alt: "Enzyme-catalysed reaction" },
     title: 'Chemistry in Living Systems',
     content: (
       <div className="space-y-6">

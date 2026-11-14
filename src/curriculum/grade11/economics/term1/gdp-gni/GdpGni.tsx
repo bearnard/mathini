@@ -20,7 +20,6 @@ const nominalRealIndexData = [
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/econ/term1/gdp-gni/diagram.webp", alt: "GDP, GNI and Gross Value Added" },
     title: 'What is GDP?',
     content: (
       <div className="space-y-6">

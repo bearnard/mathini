@@ -8,7 +8,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/it/term3/social-implications-privacy-ethics/diagram.webp", alt: "Social Implications, Privacy and Ethics" },
     title: 'Privacy and responsible data use',
     content: (
       <div className="space-y-6">

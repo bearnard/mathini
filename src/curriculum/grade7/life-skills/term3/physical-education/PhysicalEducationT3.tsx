@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Improve athletics skills and endurance',
-    image: {
-      src: '/curriculum/grade7/lsk/term3/physical-education/diagram.webp',
-      alt: 'Grade 7 learners practising athletics drills and indigenous games in physical education',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

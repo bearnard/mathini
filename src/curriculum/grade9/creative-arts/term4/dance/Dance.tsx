@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Refine and perform polished choreography',
-    image: {
-      src: '/curriculum/grade9/creative-arts/term4/dance/image1.jpg',
-      alt: 'Grade 9 learners performing refined choreography to appreciative audience',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

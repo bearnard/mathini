@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Describe transformations and classify 3D objects',
-    image: {
-      src: '/curriculum/grade7/math/term3/transformation-geometry-and-3d-objects/diagram.webp',
-      alt: 'Grade 7 learners identifying translations, reflections, rotations, and properties of 3D solids',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

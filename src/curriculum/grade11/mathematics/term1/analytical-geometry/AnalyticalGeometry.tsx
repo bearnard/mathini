@@ -5,7 +5,6 @@ import FunctionGraph from '../../../../../components/subjects/FunctionGraph';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/math/term1/analytical-geometry/diagram.webp", alt: "Analytical Geometry" },
     title: 'Find the Equation of a Line',
     content: (
       <div className="space-y-4 text-center">

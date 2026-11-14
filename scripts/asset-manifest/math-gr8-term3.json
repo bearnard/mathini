@@ -1,13 +1,1 @@
-[
-  {
-    "grade": "grade8",
-    "subject": "math",
-    "term": "term3",
-    "topic": "data-handling",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/math/term3/data-handling/diagram.webp",
-    "alt": "Grade 8 learners creating graphs and interpreting data summaries",
-    "prompt": "Create a clear, flat friendly educational illustration for Grade 8 learners showing generic learners organising survey data, drawing graphs, and discussing summary measures together. Use bright simple colours, a clean white background, and no text, words, numbers, or labels."
-  }
-]
+[]

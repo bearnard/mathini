@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Develop motifs into coordinated group dance phrases',
-    image: {
-      src: '/curriculum/grade8/ca/term2/dance/diagram.webp',
-      alt: 'Grade 8 learners developing dance motifs in group patterns',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

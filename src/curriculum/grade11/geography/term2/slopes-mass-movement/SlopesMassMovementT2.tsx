@@ -5,7 +5,6 @@ import DataChart from '@/components/subjects/DataChart';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/geo/term2/slopes-mass-movement/diagram.webp", alt: "Slopes and Mass Movement" },
     title: 'Slope components',
     content: (
       <div className="space-y-4 text-center">

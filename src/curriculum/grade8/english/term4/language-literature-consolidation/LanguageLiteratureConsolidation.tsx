@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Integrate language and literature skills',
-    image: {
-      src: '/curriculum/grade8/eng/term4/language-literature-consolidation/diagram.webp',
-      alt: 'learner combining comprehension literature response grammar and summary practice',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

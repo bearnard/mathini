@@ -5,7 +5,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/acc/term2/combined-transactions-reconciliations/diagram.webp", alt: "Debtors Control Account" },
     title: 'Combining cash and credit transactions',
     content: (
       <div className="space-y-6 text-center">

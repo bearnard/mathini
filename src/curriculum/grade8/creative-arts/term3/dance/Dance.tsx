@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Use space, energy, and choreographic devices effectively',
-    image: {
-      src: '/curriculum/grade8/ca/term3/dance/diagram.webp',
-      alt: 'Grade 8 learners linking choreographed phrases using space and energy changes',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

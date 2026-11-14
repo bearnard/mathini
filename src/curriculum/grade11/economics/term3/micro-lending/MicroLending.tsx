@@ -12,7 +12,6 @@ const lendingChannelData = [
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/econ/term3/micro-lending/diagram.webp", alt: "Market for Small Business Credit" },
     title: 'What is Micro-lending?',
     content: (
       <div className="space-y-6">

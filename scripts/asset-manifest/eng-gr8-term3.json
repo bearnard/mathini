@@ -1,13 +1,1 @@
-[
-  {
-    "grade": "grade8",
-    "subject": "eng",
-    "term": "term3",
-    "topic": "essay-writing-style",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade8/eng/term3/essay-writing-style/diagram.webp",
-    "alt": "learner planning introduction body paragraphs and conclusion for an essay",
-    "prompt": "Create a clear, single-subject, flat friendly educational illustration for Grade 8 learners showing a learner structuring an essay with introduction, connected body paragraphs and conclusion planning cards. Use simple bright shapes, a clean white background, and no text, words, numbers, or labels in the image."
-  }
-]
+[]

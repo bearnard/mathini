@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Reason with 2D shape and line-angle properties',
-    image: {
-      src: '/curriculum/grade8/math/term2/geometry-of-2d-shapes-and-straight-lines/diagram.webp',
-      alt: 'Grade 8 learners solving angle problems in polygons and parallel lines',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

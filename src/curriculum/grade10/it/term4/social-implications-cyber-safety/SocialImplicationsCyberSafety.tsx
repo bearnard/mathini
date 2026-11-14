@@ -6,7 +6,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/it/term4/social-implications-cyber-safety/diagram.webp", alt: "Social Implications and Cyber Safety" },
     title: 'Social Impact of Information Technology',
     content: (
       <div className="space-y-6">

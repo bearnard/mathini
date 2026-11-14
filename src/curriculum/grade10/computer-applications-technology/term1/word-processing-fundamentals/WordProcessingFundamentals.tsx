@@ -5,7 +5,6 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/cat/term1/word-processing-fundamentals/diagram.webp", alt: "Word Processing Fundamentals" },
     title: 'Purpose of word processing',
     content: (
       <div className="space-y-6">

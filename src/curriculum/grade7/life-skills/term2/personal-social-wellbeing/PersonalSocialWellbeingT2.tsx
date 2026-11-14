@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Handle peer influence with assertive communication',
-    image: {
-      src: '/curriculum/grade7/lsk/term2/personal-social-wellbeing/diagram.webp',
-      alt: 'Grade 7 learners discussing peer influence, online safety, and healthy choices',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

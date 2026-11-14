@@ -26,10 +26,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Classifying transactions and recording in journals',
-    image: {
-      src: '/curriculum/grade8/economic-management-sciences/term1/economy-government-accounting/image3.jpg',
-      alt: 'Grade 8 learners classifying business transactions and recording journal entries',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

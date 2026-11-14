@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Map skills in the local area',
-    image: {
-      src: '/curriculum/grade7/geo/term1/map-skills-in-the-local-area/diagram.webp',
-      alt: 'Grade 7 learners using a local street map with scale, routes, and latitude and longitude references',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

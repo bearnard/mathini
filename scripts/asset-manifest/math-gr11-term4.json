@@ -14,17 +14,6 @@
     "grade": "grade11",
     "subject": "math",
     "term": "term4",
-    "topic": "revision-exam-prep",
-    "section": "diagram",
-    "type": "ai",
-    "path": "curriculum/grade11/math/term4/revision-exam-prep/diagram.webp",
-    "alt": "open mathematics textbook with surrounding icons representing all Grade 11 maths topics",
-    "prompt": "Clear, single-subject, flat friendly educational illustration for Grade 11 learners showing an open mathematics textbook at the centre surrounded by small colourful icons representing different maths topics: a parabola, a circle with a chord, a triangle, a bar chart and a coin. Simple bright shapes, white background, no text or labels in the image."
-  },
-  {
-    "grade": "grade11",
-    "subject": "math",
-    "term": "term4",
     "topic": "statistics",
     "section": "diagram",
     "type": "ai",

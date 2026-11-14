@@ -5,7 +5,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/acc/term3/adjustments-financial-statements/diagram.webp", alt: "Rent Expense Account" },
     title: 'Accruals and prepayments',
     content: (
       <div className="space-y-6 text-center">

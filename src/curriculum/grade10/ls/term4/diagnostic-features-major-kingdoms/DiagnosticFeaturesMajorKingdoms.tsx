@@ -4,7 +4,6 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/ls/term4/diagnostic-features-major-kingdoms/diagram.webp", alt: "The Five Kingdoms" },
     title: 'Five Kingdom System',
     content: (
       <div className="space-y-6">

@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Develop technique, alignment, and expressive movement',
-    image: {
-      src: '/curriculum/grade9/creative-arts/term1/dance/image1.jpg',
-      alt: 'Grade 9 learners performing longer phrases with clear alignment and dynamic variation',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

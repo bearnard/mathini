@@ -8,7 +8,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/it/term1/advanced-oop-inheritance-polymorphism/diagram.webp", alt: "Advanced OOP: Inheritance and Polymorphism" },
     title: 'Designing class hierarchies',
     content: (
       <div className="space-y-6">

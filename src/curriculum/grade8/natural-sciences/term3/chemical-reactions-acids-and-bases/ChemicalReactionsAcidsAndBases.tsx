@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Identify chemical change, acids, bases, and neutralisation',
-    image: {
-      src: '/curriculum/grade8/ns/term3/chemical-reactions-acids-and-bases/diagram.webp',
-      alt: 'Grade 8 learners testing acids and bases with indicators and observing reaction evidence',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

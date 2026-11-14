@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Build music literacy through beat, rhythm, and listening',
-    image: {
-      src: '/curriculum/grade8/ca/term1/music/diagram.webp',
-      alt: 'Grade 8 learners clapping rhythms and reading simple music patterns together',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

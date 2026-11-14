@@ -23,10 +23,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'The Cape changed under Dutch colonial expansion',
-    image: {
-      src: '/curriculum/grade7/his/term3/colonisation-of-the-cape/diagram.webp',
-      alt: 'Grade 7 learners tracing VOC settlement growth, farming expansion, and slavery at the Cape',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

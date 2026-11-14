@@ -7,7 +7,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/acc/term1/cash-flow-statements/diagram.webp", alt: "Cash Flow Statement (Extract)" },
     title: 'Purpose of the cash flow statement',
     content: (
       <div className="space-y-6">

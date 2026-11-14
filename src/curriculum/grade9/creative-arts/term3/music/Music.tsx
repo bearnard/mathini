@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Explore musical form, arrangement, and composition',
-    image: {
-      src: '/curriculum/grade9/creative-arts/term3/music/image1.jpg',
-      alt: 'Grade 9 learners analyzing musical form and creating arrangements',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

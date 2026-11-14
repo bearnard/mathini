@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Compose short ideas using form and ostinato',
-    image: {
-      src: '/curriculum/grade8/ca/term3/music/diagram.webp',
-      alt: 'Grade 8 learners composing patterns in binary and ternary musical form',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

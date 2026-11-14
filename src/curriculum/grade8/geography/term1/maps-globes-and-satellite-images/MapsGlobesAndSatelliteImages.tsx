@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Use maps, globes, and satellite images',
-    image: {
-      src: '/curriculum/grade8/geo/term1/maps-globes-and-satellite-images/diagram.webp',
-      alt: 'Grade 8 learners comparing a globe, an atlas map, and a satellite image to locate places',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

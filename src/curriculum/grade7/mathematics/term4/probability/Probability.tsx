@@ -17,10 +17,6 @@ const learnSteps: LearnStep[] = [
   },
   {
     title: 'Use sample space and probability language',
-    image: {
-      src: '/curriculum/grade7/math/term4/probability/diagram.webp',
-      alt: 'Grade 7 learners listing outcomes and comparing theoretical and experimental probability',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -14,7 +14,6 @@ const energyTransitionData = [
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/econ/term4/environmental-sustainability/diagram.webp", alt: "Polluting Industry" },
     title: 'Environmental Externalities and Market Failure',
     content: (
       <div className="space-y-6">

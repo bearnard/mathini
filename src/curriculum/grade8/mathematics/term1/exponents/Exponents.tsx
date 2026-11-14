@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Use exponent laws accurately',
-    image: {
-      src: '/curriculum/grade8/math/term1/exponents/diagram.webp',
-      alt: 'Grade 8 learners simplifying powers and exponent expressions',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

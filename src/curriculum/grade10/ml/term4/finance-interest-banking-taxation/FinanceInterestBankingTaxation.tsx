@@ -6,7 +6,6 @@ import BudgetPlanner from '@/components/subjects/BudgetPlanner';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/ml/term4/finance-interest-banking-taxation/diagram.webp", alt: "Finance: Interest, Banking and Taxation" },
     title: 'Simple Interest',
     content: (
       <div className="space-y-6">

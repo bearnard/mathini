@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Interpret symbolism and create mixed-media responses',
-    image: {
-      src: '/curriculum/grade8/ca/term3/visual-arts/diagram.webp',
-      alt: 'Grade 8 learners interpreting African artworks and creating mixed-media pieces',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

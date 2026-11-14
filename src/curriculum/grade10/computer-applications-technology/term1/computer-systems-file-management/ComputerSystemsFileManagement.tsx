@@ -8,7 +8,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/cat/term1/computer-systems-file-management/diagram.webp", alt: "Computer Systems and File Management" },
     title: 'Main parts of a computer system',
     content: (
       <div className="space-y-6">

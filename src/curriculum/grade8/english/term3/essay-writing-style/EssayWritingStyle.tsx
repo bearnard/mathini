@@ -5,10 +5,6 @@ import AnnotatedText from '@/components/subjects/AnnotatedText';
 const learnSteps: LearnStep[] = [
   {
     title: 'Build clear essay structure',
-    image: {
-      src: '/curriculum/grade8/eng/term3/essay-writing-style/diagram.webp',
-      alt: 'learner planning introduction body paragraphs and conclusion for an essay',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Discursive paragraph, formal letter, article, project writing, and presentation',
-    image: {
-      src: '/curriculum/grade9/isixhosa/term3/writing-presenting/image1.jpg',
-      alt: 'Grade 9 isiXhosa FAL learners writing discursive paragraphs, formal letters, and project presentations',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

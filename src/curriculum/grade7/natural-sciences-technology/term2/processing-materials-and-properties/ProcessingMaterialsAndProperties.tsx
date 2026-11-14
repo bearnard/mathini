@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Select and process materials for purpose',
-    image: {
-      src: '/curriculum/grade7/nst/term2/processing-materials-and-properties/diagram.webp',
-      alt: 'Grade 7 learners comparing natural and processed materials while planning safe product design',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

@@ -5,10 +5,6 @@ import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
 const learnSteps: LearnStep[] = [
   {
     title: 'Link ideas accurately with correct grammar forms',
-    image: {
-      src: '/curriculum/grade8/xho/term2/language-structures/diagram.webp',
-      alt: 'Grade 8 learners practising pronouns, conjunctions, and direct-indirect speech conversion',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

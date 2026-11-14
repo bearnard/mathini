@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Accounting cycle from source documents to financial statements',
-    image: {
-      src: '/curriculum/grade8/economic-management-sciences/term2/financial-literacy-entrepreneurship/image1.jpg',
-      alt: 'Grade 8 learners following the accounting cycle from source documents through journals and ledgers',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

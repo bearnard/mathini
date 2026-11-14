@@ -6,7 +6,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/it/term2/control-structures-modular-programming/diagram.webp", alt: "Control Structures and Modular Programming" },
     title: 'Selection Statements',
     content: (
       <div className="space-y-6">

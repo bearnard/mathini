@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Classify life and explain reproduction strategies',
-    image: {
-      src: '/curriculum/grade7/nst/term1/biosphere-biodiversity-and-reproduction/diagram.webp',
-      alt: 'Grade 7 learners classifying organisms and comparing reproduction strategies in different habitats',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

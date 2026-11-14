@@ -4,7 +4,6 @@ import Timeline from '@/components/subjects/Timeline';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/his/term1/communist-ideology/diagram.webp", alt: "Communist Ideology" },
     title: 'Key Events — Timeline',
     content: (
       <div className="space-y-4">

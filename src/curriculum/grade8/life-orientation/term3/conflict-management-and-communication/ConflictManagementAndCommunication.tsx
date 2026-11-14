@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Resolve conflict constructively',
-    image: {
-      src: '/curriculum/grade8/lo/term3/conflict-management-and-communication/diagram.webp',
-      alt: 'grade 8 learners using mediation listening and compromise to resolve conflict',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

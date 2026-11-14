@@ -3,7 +3,6 @@ import type { CATItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/cat/term4/ai-ransomware-pat-finalisation/diagram.webp", alt: "AI, Ransomware and PAT Finalisation" },
     title: 'Artificial intelligence in everyday life',
     content: (
       <div className="space-y-4 text-center">

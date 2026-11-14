@@ -8,7 +8,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade12/it/term3/cyber-security-emerging-technologies/diagram.webp", alt: "Cyber Security and Emerging Technologies" },
     title: 'Common cyber threats',
     content: (
       <div className="space-y-6">

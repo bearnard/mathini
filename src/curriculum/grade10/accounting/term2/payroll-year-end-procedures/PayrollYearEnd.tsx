@@ -5,7 +5,6 @@ import type { AccountingItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/acc/term2/payroll-year-end-procedures/diagram.webp", alt: "Salaries and Wages Control" },
     title: 'Gross pay, deductions and net pay',
     content: (
       <div className="space-y-6 text-center">

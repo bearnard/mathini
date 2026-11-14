@@ -5,7 +5,6 @@ import FunctionGraph from '../../../../../components/subjects/FunctionGraph';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade11/math/term1/equations-inequalities/diagram.webp", alt: "Equations and Inequalities" },
     title: 'Solve Quadratic Equations Systematically',
     content: (
       <div className="space-y-4 text-center">

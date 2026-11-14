@@ -4,7 +4,6 @@ import type { PhysicalSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/ps/term2/matter-states-phase-change/diagram.webp", alt: "Matter, States and Phase Change" },
     title: 'States of Matter and Kinetic Molecular Theory',
     content: (
       <div className="space-y-6">

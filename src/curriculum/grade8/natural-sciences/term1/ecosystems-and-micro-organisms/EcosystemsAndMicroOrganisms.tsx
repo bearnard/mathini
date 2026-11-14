@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Explain ecosystem balance and micro-organisms',
-    image: {
-      src: '/curriculum/grade8/ns/term1/ecosystems-and-micro-organisms/diagram.webp',
-      alt: 'Grade 8 learners identifying biotic and abiotic factors and different micro-organisms in an ecosystem',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

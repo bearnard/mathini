@@ -4,7 +4,6 @@ import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/ls/term4/revision-examination-practice/diagram.webp", alt: "Exam Question Hierarchy" },
     title: 'Key Concepts Review',
     content: (
       <div className="space-y-6">

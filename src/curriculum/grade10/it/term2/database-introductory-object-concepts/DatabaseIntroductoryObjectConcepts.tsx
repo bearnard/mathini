@@ -6,7 +6,6 @@ const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr
 
 const learnSteps: LearnStep[] = [
   {
-    image: { src: "/curriculum/grade10/it/term2/database-introductory-object-concepts/diagram.webp", alt: "Database and Introductory Object Concepts" },
     title: 'Database Concepts',
     content: (
       <div className="space-y-6">

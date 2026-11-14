@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Model seasons, phases, tides, and gravity',
-    image: {
-      src: '/curriculum/grade7/nst/term4/sun-earth-relationship-and-gravity/diagram.webp',
-      alt: 'Grade 7 learners modelling Earth, Moon, and Sun positions to explain seasons and tides',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">

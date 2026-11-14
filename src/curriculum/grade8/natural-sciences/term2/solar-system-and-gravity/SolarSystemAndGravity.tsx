@@ -4,10 +4,6 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 const learnSteps: LearnStep[] = [
   {
     title: 'Describe the solar system and the role of gravity',
-    image: {
-      src: '/curriculum/grade8/ns/term2/solar-system-and-gravity/diagram.webp',
-      alt: 'Grade 8 learners ordering planets and explaining gravity in the solar system',
-    },
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
