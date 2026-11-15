@@ -1,27 +1,83 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Hub, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { ProgressBars } from '../../../../../components/diagrams/lo/Lo4Pictures';
+import { gain } from '../../../../../components/diagrams/lo/lo4Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// Numbers in the pictures and worked examples come from lo4Helpers (lo4Helpers.test.ts).
+const quizMarks = [4, 5, 6, 7];
+const marksGained = gain(quizMarks[0], quizMarks[quizMarks.length - 1]);
+const goal = { from: 55, to: 65, points: gain(55, 65) };
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Build a healthy self-concept',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Development of the self in society focuses on self-image, self-motivation, strengths, support systems, and
-          realistic goal setting.
-        </p>
-      </div>
+    title: 'Self-image and self-concept',
+    content: slide(
+      <>
+        <Rule>Self-image is the picture you have of yourself. Self-concept is your wider view of who you are, including your strengths and the areas you can improve.</Rule>
+        <Hub centre="Me" spokes={['Strengths', 'Areas to improve', 'Values', 'Self-image']} aria="A circle labelled Me with four parts of the self-concept around it: strengths, areas to improve, values and self-image." />
+        <Worked
+          title="Write a short self-profile"
+          steps={[<>List two strengths: “I am reliable and I draw well.”</>, <>List one area to improve: “I rush my homework.”</>, <>Write one value: “Kindness matters to me.”</>, <>Join them: “I am a reliable, creative learner who is working on slowing down.”</>]}
+        />
+        <Mistake>Thinking self-concept is a school rule, a trend on social media or one sports score. It is your own view of yourself, and it can grow.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Set goals and use support',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Positive growth happens when learners reflect honestly, ask for help when needed, and keep working toward
-          personal goals.
-        </p>
-      </div>
+    title: 'Strengths and self-esteem',
+    content: slide(
+      <>
+        <Rule>Knowing your strengths helps you set realistic goals and builds confidence. You strengthen your self-esteem with positive self-talk and by celebrating small progress.</Rule>
+        <ProgressBars labels={['Wk 1', 'Wk 2', 'Wk 3', 'Wk 4']} values={quizMarks} max={10} title="Maths quiz marks" aria="Four bars of maths quiz marks out of 10 over four weeks: 4, 5, 6 and 7." />
+        <Worked
+          title="“I am hopeless at maths”"
+          steps={[<>Notice the negative thought.</>, <>Check the facts: the quiz marks were {quizMarks.join(', ')} out of 10.</>, <>Work out the progress: {quizMarks[3]} − {quizMarks[0]} = {marksGained} marks.</>, <>Say it kindly: “I am improving.” Then celebrate it.</>]}
+        />
+        <Mistake>Comparing yourself negatively every day, or ignoring your successes. Knowing your strengths does not mean you never need support.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Self-motivation and SMART goals',
+    content: slide(
+      <>
+        <Rule>Self-motivation means carrying on with a goal even when the work is hard. A SMART goal is specific, measurable, achievable, relevant and time-bound.</Rule>
+        <StepFlow steps={['Specific: say exactly what.', 'Measurable: use a number.', 'Achievable: realistic for you.', 'Relevant: it matters to you.', 'Time-bound: set a date.']} aria="The five SMART goal words in order: specific, measurable, achievable, relevant and time-bound." />
+        <Worked
+          title="“Get better marks” becomes a goal"
+          steps={[<>Specific: my maths mark.</>, <>Measurable: from {goal.from}% to {goal.to}%, a rise of {goal.points} percentage points.</>, <>Achievable: practise a little on school days.</>, <>Time-bound: by the end of Term 2.</>]}
+        />
+        <Mistake>Making a goal vague, based on luck or copied from a friend, or giving up after one mistake. Adjust the plan and keep going.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Support systems and feeling overwhelmed',
+    content: slide(
+      <>
+        <Rule>A support system is made of trusted people who listen and guide you, such as family, a teacher or a counsellor. When you feel overwhelmed, talk to one of them and make a simple action plan.</Rule>
+        <Hub centre="Me" spokes={['Family', 'Teacher', 'Friend', 'Counsellor']} aria="A circle labelled Me with four supporters around it: family, a teacher, a friend and a counsellor." />
+        <Worked
+          title="Three tests in one week"
+          steps={[<>Tell a trusted person how you feel.</>, <>List what is due and when.</>, <>Make a simple plan: one task a day.</>, <>Reflect on feedback and adjust the plan.</>]}
+        />
+        <Mistake>Keeping quiet, passing your stress on to classmates or skipping your duties. A person who pressures you into risky choices or mocks your effort is not support.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is self-concept, and why is it useful to know your strengths?" answer="Self-concept is how you see your strengths and areas to improve. Knowing your strengths helps you set realistic goals and build confidence." />
+        <Check question="Turn “I want to do better at maths” into a SMART goal." answer="For example: raise my maths mark from 55% to 65% by the end of Term 2. It is specific, measurable and time-bound." />
+        <Check question="Give two ways to build self-esteem." answer="Use positive self-talk and celebrate small progress." />
+        <Check question="You feel overwhelmed. What is a good first step?" answer="Talk to a trusted person and make a simple action plan." />
+      </>,
     ),
   },
 ];
