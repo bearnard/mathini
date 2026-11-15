@@ -25,10 +25,10 @@ const learnSteps: LearnStep[] = [
         </Rule>
         <LeverDiagram load={60} loadDistance={0.2} effortDistance={0.6} />
         <Worked
-          title="A bottle opener"
+          title="Levers at work"
           steps={[
-            <>A bottle opener works mainly as a lever: it uses leverage around a pivot to lift the cap.</>,
-            <>A 60 N load that is 0,2 m from the fulcrum needs only {lever} N of effort at 0,6 m.</>,
+            <>A bottle opener works mainly as a lever: it uses leverage around a pivot to lift the cap. It is a second-class lever, because the load (the cap) is between the fulcrum and the effort.</>,
+            <>The picture shows a first-class lever, with the fulcrum between the load and the effort. A 60 N load that is 0,2 m from the fulcrum needs only {lever} N of effort at 0,6 m.</>,
             <>Mechanical advantage = 60 ÷ {lever} = {leverMA}. Force multiplication means a machine gives a larger output force than input force.</>,
           ]}
         />

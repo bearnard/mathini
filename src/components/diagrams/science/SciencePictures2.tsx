@@ -21,7 +21,7 @@ export const LeverDiagram = ({ load = 60, loadDistance = 0.2, effortDistance = 0
   return (
     <svg viewBox="0 0 150 97" role="img" aria-labelledby="lv-t lv-d" className={cls} style={st}>
       <title id="lv-t">A lever</title>
-      <desc id="lv-d">{`A lever turns on a fulcrum. A load of ${load} newtons sits ${loadDistance} metres from the fulcrum. An effort of ${effort} newtons ${effortDistance} metres on the other side balances it, so the mechanical advantage is ${ma}.`}</desc>
+      <desc id="lv-d">{`A lever turns on a fulcrum. A load of ${load} newtons sits ${String(loadDistance).replace('.', ',')} metres from the fulcrum. An effort of ${effort} newtons ${String(effortDistance).replace('.', ',')} metres on the other side balances it, so the mechanical advantage is ${ma}.`}</desc>
       <rect x={r3(lx - 8)} y={y - 4} width={r3(ex - lx + 18)} height={4.5} rx={1.5} fill="#94a3b8" />
       <polygon points={`${fx},${y + 1} ${fx - 7},${y + 14} ${fx + 7},${y + 14}`} fill="#fbbf24" />
       <rect x={lx - 8} y={y - 18} width={16} height={14} rx={2} fill="#38bdf8" />
@@ -131,6 +131,15 @@ const Cell = ({ x, y }: { x: number; y: number }) => (
   </g>
 );
 
+/** A cell drawn ACROSS a vertical wire: long thin plate = positive (top), short thick plate = negative. The wire joins each plate. */
+const CellOnWire = ({ x, y }: { x: number; y: number }) => (
+  <g>
+    <rect x={x - 3} y={y - 2.4} width={6} height={4.8} fill="#0f172a" />
+    <line x1={x - 7} y1={y - 2.2} x2={x + 7} y2={y - 2.2} stroke="#e2e8f0" strokeWidth={1.1} />
+    <line x1={x - 3.5} y1={y + 2.2} x2={x + 3.5} y2={y + 2.2} stroke="#e2e8f0" strokeWidth={2.2} />
+  </g>
+);
+
 export const CircuitPair = () => (
   <svg viewBox="0 0 160 84" role="img" aria-labelledby="cp-t cp-d" className={cls} style={st}>
     <title id="cp-t">A series circuit and a parallel circuit</title>
@@ -138,8 +147,7 @@ export const CircuitPair = () => (
     <g stroke="#94a3b8" strokeWidth={1.1} fill="none">
       <polyline points="10,16 70,16 70,52 10,52 10,16" />
     </g>
-    <rect x={8} y={26} width={14} height={16} fill="#0f172a" />
-    <Cell x={14} y={34} />
+    <CellOnWire x={10} y={34} />
     <Bulb cx={30} cy={16} />
     <Bulb cx={52} cy={16} />
     <T x={40} y={68} fill="#7dd3fc" size={6.4}>series</T>
@@ -148,11 +156,8 @@ export const CircuitPair = () => (
       <polyline points="92,16 150,16 150,52 92,52 92,16" />
       <polyline points="116,16 116,52" />
     </g>
-    <rect x={90} y={26} width={14} height={16} fill="#0f172a" />
-    <Cell x={96} y={34} />
-    <rect x={109} y={26} width={14} height={16} fill="#0f172a" />
+    <CellOnWire x={92} y={34} />
     <Bulb cx={116} cy={34} />
-    <rect x={143} y={26} width={14} height={16} fill="#0f172a" />
     <Bulb cx={150} cy={34} />
     <T x={121} y={68} fill="#6ee7b7" size={6.4}>parallel</T>
     <T x={121} y={76} size={4.6}>separate paths</T>
@@ -167,10 +172,11 @@ export const SeasonsTilt = () => {
   const orbitX = 52;
   const R = 11;
   const tilt = (AXIAL_TILT * Math.PI) / 180;
-  // The axis points the same way in space at both positions: leaning to the right.
+  // The axis points the same way in space at both positions: its north end leans to the LEFT. In December Earth is left of the Sun,
+  // so the north end leans away from the Sun (southern summer); in June Earth is right of the Sun and the north end leans towards it.
   const axis = (ex: number) => ({
-    x1: r3(ex - Math.sin(tilt) * (R + 8)), y1: r3(cy + Math.cos(tilt) * (R + 8)),
-    x2: r3(ex + Math.sin(tilt) * (R + 8)), y2: r3(cy - Math.cos(tilt) * (R + 8)),
+    x1: r3(ex + Math.sin(tilt) * (R + 8)), y1: r3(cy + Math.cos(tilt) * (R + 8)),
+    x2: r3(ex - Math.sin(tilt) * (R + 8)), y2: r3(cy - Math.cos(tilt) * (R + 8)),
   });
   const left = cx - orbitX;
   const right = cx + orbitX;

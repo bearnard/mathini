@@ -109,8 +109,11 @@ export const ElectroplatingCell = () => (
     <rect x={101} y={56} width={6} height={10} fill="#fde68a" opacity={0} />
     <polyline points="54,26 54,12 80,12" fill="none" stroke="#e2e8f0" strokeWidth={1} />
     <polyline points="104,26 104,12 128,12" fill="none" stroke="#e2e8f0" strokeWidth={1} />
-    <line x1={80} y1={6} x2={80} y2={18} stroke="#e2e8f0" strokeWidth={1.6} />
-    <line x1={85} y1={9} x2={85} y2={15} stroke="#e2e8f0" strokeWidth={3} />
+    {/* long thin plate = positive, joined to the coating metal; short thick plate = negative, joined to the object to coat */}
+    <line x1={85} y1={6} x2={85} y2={18} stroke="#e2e8f0" strokeWidth={1.6} />
+    <line x1={80} y1={9} x2={80} y2={15} stroke="#e2e8f0" strokeWidth={3} />
+    <T x={74} y={9} size={5.4} fill="#e2e8f0">−</T>
+    <T x={91} y={9} size={5.4} fill="#e2e8f0">+</T>
     <polyline points="85,12 128,12" fill="none" stroke="#e2e8f0" strokeWidth={1} />
     <T x={4} y={22} anchor="start" size={5} fill="#e2e8f0">object to coat</T>
     <T x={80} y={88} size={5} fill="#bae6fd">solution of the coating metal</T>

@@ -112,6 +112,13 @@ export const OrbitShapes = () => {
   const cx = 84;
   const cy = 46;
   const sunX = cx - comet.c;
+  // The comet sits ON its orbit (angle 215 degrees on the ellipse, near the Sun) and its tail points away from the Sun.
+  const t = (215 * Math.PI) / 180;
+  const kx = cx + comet.a * Math.cos(t);
+  const ky = cy + comet.b * Math.sin(t);
+  const dx = kx - sunX;
+  const dy = ky - cy;
+  const dl = Math.hypot(dx, dy);
   return (
     <svg viewBox="0 0 160 96" role="img" aria-labelledby="os-t os-d" className={cls} style={st}>
       <title id="os-t">A planet's orbit and a comet's orbit</title>
@@ -120,8 +127,8 @@ export const OrbitShapes = () => {
       <circle cx={sunX} cy={cy} r={17} fill="none" stroke="#38bdf8" strokeWidth={1} />
       <circle cx={sunX} cy={cy} r={6} fill="#fbbf24" />
       <circle cx={sunX + 17} cy={cy} r={2.4} fill="#38bdf8" />
-      <circle cx={r3(sunX + (comet.a - comet.c) + 4)} cy={cy} r={2.2} fill="#f1f5f9" />
-      <line x1={r3(sunX + (comet.a - comet.c) + 6)} y1={cy} x2={r3(sunX + (comet.a - comet.c) + 20)} y2={cy} stroke="#e2e8f0" strokeWidth={1.4} opacity={0.6} />
+      <circle cx={r3(kx)} cy={r3(ky)} r={2.2} fill="#f1f5f9" />
+      <line x1={r3(kx + (dx / dl) * 2)} y1={r3(ky + (dy / dl) * 2)} x2={r3(kx + (dx / dl) * 15)} y2={r3(ky + (dy / dl) * 15)} stroke="#e2e8f0" strokeWidth={1.4} opacity={0.6} />
       <T x={sunX} y={cy + 33} size={4.8} fill="#fcd34d">Sun</T>
       <T x={r3(cx + 34)} y={cy - 6} size={4.8} fill="#7dd3fc">planet: nearly circular orbit</T>
       <T x={r3(cx + 34)} y={cy + 6} size={4.8} fill="#fdba74">comet: long, stretched orbit</T>

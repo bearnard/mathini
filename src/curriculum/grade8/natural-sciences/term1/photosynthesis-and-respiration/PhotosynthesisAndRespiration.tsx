@@ -76,8 +76,8 @@ const learnSteps: LearnStep[] = [
         <Worked
           title="A plant is kept in complete darkness for many days"
           steps={[
-            <>No light is available, so photosynthesis will mostly decrease.</>,
-            <>The plant makes little new glucose.</>,
+            <>No light is available, so photosynthesis decreases and, in complete darkness, stops.</>,
+            <>The plant makes no new glucose.</>,
             <>It still respires, using up its stored glucose, so it slowly becomes weak and yellow.</>,
           ]}
         />
@@ -102,7 +102,7 @@ const learnSteps: LearnStep[] = [
             <li>Carbon dioxide, water and sunlight. Oxygen.</li>
             <li>To release usable energy from food. In all living cells.</li>
             <li>Photosynthesis stores energy; respiration releases energy. The products of respiration are carbon dioxide and water.</li>
-            <li>It absorbs light energy. It will decrease because no light is available.</li>
+            <li>It absorbs light energy. It decreases, and in complete darkness it stops, because no light is available.</li>
           </ol>
         }
       />,

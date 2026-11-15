@@ -25,7 +25,7 @@ const learnSteps: LearnStep[] = [
           steps={[
             <>Draw the front view first: the block is 4 units wide, with a taller step at the left end.</>,
             <>Draw the top view below the front view, lined up with it: 4 units wide and 2 deep.</>,
-            <>Draw the side view to the right of the front view, lined up with its height.</>,
+            <>Draw the side view (the view from the left) to the right of the front view, lined up with its height.</>,
           ]}
         />
         <Mistake>Putting the top view above the front view. In first-angle projection the top view goes below.</Mistake>

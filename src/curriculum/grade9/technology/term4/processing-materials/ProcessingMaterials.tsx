@@ -36,7 +36,7 @@ const learnSteps: LearnStep[] = [
         <ElectroplatingCell />
         <Worked
           title="Chrome-plate a tap"
-          steps={[<>Hang the tap in a solution of the coating metal and connect it to a cell.</>, <>The electric current makes a thin layer of the metal build up on the tap.</>, <>The coat protects against corrosion and gives a shiny appearance.</>]}
+          steps={[<>Hang the tap in a solution of the coating metal and connect it to the negative terminal of a cell. A bar of the coating metal goes to the positive terminal.</>, <>The electric current makes a thin layer of the metal build up on the tap.</>, <>The coat protects against corrosion and gives a shiny appearance.</>]}
         />
         <Mistake>Thinking electroplating needs no electricity. The current is what moves the coating metal onto the object.</Mistake>
       </>,
@@ -52,7 +52,7 @@ const learnSteps: LearnStep[] = [
         <Terms
           rows={[
             ['Freezing', 'lowers the temperature so microbes cannot grow'],
-            ['Canning', 'seals the food so microbes cannot get in'],
+            ['Canning', 'heats the food to kill microbes, then seals it so new ones cannot get in'],
             ['Drying', 'removes water'],
             ['Salting', 'draws out water'],
             ['Smoking', 'treats the food so that microbes cannot grow'],
@@ -60,7 +60,7 @@ const learnSteps: LearnStep[] = [
         />
         <Worked
           title="Choose a method"
-          steps={[<>Meat to keep for weeks without a fridge: drying, salting or smoking, as in biltong.</>, <>Fruit to keep for a year in a jar: canning.</>, <>These methods stop food spoiling by removing water, lowering the temperature, or sealing and treating the food so that microbes cannot grow.</>]}
+          steps={[<>Meat to keep for weeks without a fridge: drying, salting or smoking, as in biltong.</>, <>Fruit to keep for a year in a jar: canning.</>, <>These methods stop food spoiling by removing water, lowering the temperature, or heating and sealing the food so that microbes cannot grow.</>]}
         />
         <Mistake>Thinking preservation only means keeping food cold. Several methods work by removing water or sealing out microbes.</Mistake>
       </>,
