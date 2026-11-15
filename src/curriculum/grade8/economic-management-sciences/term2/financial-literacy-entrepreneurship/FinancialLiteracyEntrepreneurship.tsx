@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Accounting cycle from source documents to financial statements',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          The accounting cycle processes transactions systematically: collect source documents, record in journals, post to ledgers, and prepare statements.
-          Understanding this cycle ensures accurate tracking of business transactions and financial health.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Cash receipts journal and the general ledger',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          The cash receipts journal records all money received. Transactions are posted to the general ledger, which summarizes each account's activity.
-          Together, these records provide a complete view of financial transactions.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Entrepreneurship and factors of production',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Entrepreneurs create businesses using the four factors of production: land, labour, capital, and enterprise.
-          Understanding these resources helps learners recognize how businesses combine inputs to create value and generate income.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {

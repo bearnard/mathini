@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Banking services and financial institutions',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Banks provide essential services like savings accounts, loans, and payment processing for individuals and businesses.
-          Understanding banking helps learners protect money, access credit responsibly, and plan for financial security.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Savings, interest, and entrepreneurship qualities',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Saving money in banks earns interest, helping money grow over time. Successful entrepreneurs share qualities like resilience, creativity, and willingness to learn.
-          These habits and traits are essential for financial independence and business success.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Integrated case studies and EMS consolidation',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Case studies connect all EMS topics: government decisions, accounting practices, business structures, and banking.
-          Solving realistic scenarios consolidates understanding and prepares learners for financial decision-making in real life.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {
