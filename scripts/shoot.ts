@@ -131,6 +131,9 @@ const shootOne = async (cdp: Cdp, o: ShootOptions, url: string, width: number): 
         ...(o.walk ? { step, title: String(m.title || m.heading).slice(0, 80) } : {}),
       };
       if (o.shots === 'all' || (o.shots === 'fail' && pageFailed(r))) {
+        // Chromium paints content far below the fold lazily, and a full-page capture taken at once can show an SVG chart there as an empty box (seen with the
+        // test-history chart: the DOM was complete, the picture was blank). Scroll down and back so every region is painted, then wait two frames.
+        await s('Runtime.evaluate', { expression: `(async () => { const h = document.documentElement.scrollHeight; for (let y = 0; y < h; y += window.innerHeight) { window.scrollTo(0, y); await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); } window.scrollTo(0, 0); await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); })()`, awaitPromise: true });
         const shot = await s('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
         fs.mkdirSync(o.out, { recursive: true });
         r.file = path.join(o.out, shotName(url, width, o.walk ? step : undefined));
