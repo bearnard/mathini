@@ -1,63 +1,123 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, OrderTiles, TaggedBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Exam strategy basics',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Revision combines comprehension, summary and language editing under time limits.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">hersiening <SpeakButton text="hersiening" /></span>
-          <span className="inline-flex items-center">opsomming <SpeakButton text="opsomming" /></span>
-          <span className="inline-flex items-center">begrip <SpeakButton text="begrip" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Apply reading techniques',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Skim for main ideas first, then scan for details needed by each question.
-        </p>
-        <p className="text-xl text-slate-700">Underline keywords before selecting an answer.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Practise timed responses',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Allocate time per section and leave minutes for a final accuracy check.
-        </p>
-        <p className="text-slate-500">Consistent practice improves confidence in final exams.</p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these comprehension words aloud so question terms are familiar during reading tasks.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"vraag"} phonetic={"[frɑːχ]"} meaning={"question"} lang="af" />
-          <PronunciationPlayer word={"antwoord"} phonetic={"[ˈantvɔrt]"} meaning={"answer"} lang="af" />
-          <PronunciationPlayer word={"paragraaf"} phonetic={"[paraˈχrɑːf]"} meaning={"paragraph"} lang="af" />
-          <PronunciationPlayer word={"hoofgedagte"} phonetic={"[ˈhoəfχədaχtə]"} meaning={"main idea"} lang="af" />
-          <PronunciationPlayer word={"detail"} phonetic={"[diˈtœil]"} meaning={"detail"} lang="af" />
-          <PronunciationPlayer word={"opsomming"} phonetic={"[ˈɔpsɔməŋ]"} meaning={"summary"} lang="af" />
-        </div>
-      </div>
+    title: 'Reading a new passage',
+    content: slide(
+      <>
+        <Rule>With a new comprehension test the best reading strategy is <Af>Lees eers vir hoofidee en doel</Af> <En>first read for the main idea and purpose</En>. Then go back for details.</Rule>
+        <OrderTiles
+          tiles={['Lees', 'Hoofidee', 'Detail']}
+          aria="Three reading steps in order: Lees (read the passage), Hoofidee (find the main idea and purpose), Detail (go back for the details)."
+        />
+        <Worked
+          title="Read for the main idea"
+          steps={[
+            <>Read the whole passage once without stopping.</>,
+            <>Ask: what is it about, and why was it written? Then read the questions.</>,
+          ]}
+        />
+        <Mistake>Starting with the questions and hunting for single words. First understand what the passage is about.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Summaries: key points only',
+    content: slide(
+      <>
+        <Rule>The purpose of a summary is to <Af>Gee kernpunte kort en duidelik</Af> <En>give the key points briefly and clearly</En>.</Rule>
+        <OrderTiles
+          tiles={['Lees', 'Kernpunte', 'Skryf']}
+          aria="Three summary steps in order: Lees (read), Kernpunte (find the key points), Skryf (write them briefly)."
+        />
+        <Worked
+          title="Write a summary"
+          steps={[
+            <>Underline the key points. Cross out examples and repeated detail.</>,
+            <>Write the key points in short, clear sentences in your own words.</>,
+          ]}
+        />
+        <Mistake>Copying whole sentences or adding your own opinion. A summary is short and keeps only the key points.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Listening: key words and facts',
+    content: slide(
+      <>
+        <Rule>In listening activities focus on <Af>sleutelwoorde en feite</Af> <En>key words and facts</En>: names, numbers, places and times.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'sleutelwoorde', tag: 'skryf neer' }, { word: 'feite', tag: 'skryf neer' }]}
+          aria="Two things to note while listening: sleutelwoorde (key words) and feite (facts); write both down."
+        />
+        <Worked
+          title="Take notes"
+          steps={[
+            <>Listen once for the main idea. Write down names, numbers, places and times.</>,
+            <>Use short notes, not full sentences, so that you keep up with the speaker.</>,
+          ]}
+        />
+        <Mistake>Trying to write every word. You miss the next fact. Note only the key words and facts.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Exam technique: instructions, marks, time',
+    content: slide(
+      <>
+        <Rule>Good exam technique: <Af>Ek lees elke instruksie twee keer.</Af> If a question is worth two marks, <Af>Gee twee duidelike antwoorde</Af> <En>give two clear answers</En>. Time planning <Af>Dit help jou om alle afdelings te voltooi</Af> <En>helps you finish all sections</En>.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['2 punte', '2 antwoorde'], ['elke instruksie', '2 keer']]}
+          aria="Two exam rules: a question worth 2 punte (marks) needs 2 antwoorde (answers), and each instruksie (instruction) is read 2 keer (times)."
+        />
+        <Worked
+          title="Plan the paper"
+          steps={[
+            <>Read each instruction twice before you answer. <SpeakButton text="Ek lees elke instruksie twee keer." /></>,
+            <>Check the marks: two marks means two separate points.</>,
+            <>Give each section its share of the time so that all sections are finished.</>,
+          ]}
+        />
+        <Mistake>Giving one long answer for two marks, or spending all the time on the first section. Count the marks and watch the clock.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Last check and a good revision habit',
+    content: slide(
+      <>
+        <Rule>The best last step before handing in is <Af>Kontroleer spelling, leestekens en instruksies</Af> <En>check spelling, punctuation and instructions</En>. The best revision attitude is <Af>Werk gereeld met gemengde oefeninge</Af> <En>work regularly with mixed exercises</En>.</Rule>
+        <OrderTiles
+          tiles={['Spelling', 'Leestekens', 'Instruksies']}
+          aria="Three last checks: Spelling, Leestekens (punctuation), Instruksies (instructions)."
+        />
+        <Worked
+          title="Finish well"
+          steps={[
+            <>Check spelling, then punctuation, then re-read the instructions against your answers.</>,
+            <>Revise a little every day, with different kinds of questions mixed together.</>,
+          ]}
+        />
+        <Mistake>Handing in at once, or cramming one topic the night before. Check your answers and revise regularly with mixed exercises.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Which reading strategy helps most with a new test?</>} answer={<><Af>Lees eers vir hoofidee en doel</Af>.</>} />
+        <Check question={<>What is the purpose of a summary?</>} answer={<><Af>Gee kernpunte kort en duidelik</Af>.</>} />
+        <Check question={<>A question is worth two marks. What do you do?</>} answer={<><Af>Gee twee duidelike antwoorde</Af>.</>} />
+        <Check question={<>What should you focus on in listening activities?</>} answer={<><Af>sleutelwoorde en feite</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -112,6 +172,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'Regular mixed practice builds retention.',
   },
 ];
+
+export { bank };
 
 const RevisionExamPreparation = () => (
   <AfrikaansTopic

@@ -1,63 +1,122 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, OrderTiles, TaggedBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Report writing essentials',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Reports must be factual, concise and structured for a clear purpose.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">verslag <SpeakButton text="verslag" /></span>
-          <span className="inline-flex items-center">opsomming <SpeakButton text="opsomming" /></span>
-          <span className="inline-flex items-center">relevante detail <SpeakButton text="relevante detail" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Balanced review responses',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Reviews include clear opinion, supporting evidence and recommendation.
-        </p>
-        <p className="text-xl text-slate-700">Avoid vague claims without examples.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Format and edit carefully',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Correct headings, sequence and language accuracy improve marks in transactional writing.
-        </p>
-        <p className="text-slate-500">Check if every sentence supports the writing purpose.</p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these literature words aloud before discussing stories, poems, characters, and themes.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"karakter"} phonetic={"[karakˈtɛr]"} meaning={"character"} lang="af" />
-          <PronunciationPlayer word={"tema"} phonetic={"[ˈteːma]"} meaning={"theme"} lang="af" />
-          <PronunciationPlayer word={"konflik"} phonetic={"[kɔnˈflək]"} meaning={"conflict"} lang="af" />
-          <PronunciationPlayer word={"storie"} phonetic={"[ˈstoːri]"} meaning={"story"} lang="af" />
-          <PronunciationPlayer word={"resensie"} phonetic={"[rɛˈsɛnsi]"} meaning={"review"} lang="af" />
-          <PronunciationPlayer word={"toneel"} phonetic={"[tɔˈniəl]"} meaning={"scene / stage"} lang="af" />
-        </div>
-      </div>
+    title: 'What a report is for',
+    content: slide(
+      <>
+        <Rule>The main purpose of a <Af>verslag</Af> <En>report</En> is <Af>Om feite duidelik te rapporteer</Af> <En>to report facts clearly</En>. Headings help the reader find each part.</Rule>
+        <OrderTiles
+          tiles={['Titel', 'Doel', 'Feite', 'Slot']}
+          aria="Four parts of a report in order: Titel (title), Doel (purpose), Feite (facts), Slot (closing)."
+        />
+        <Worked
+          title="Choose the heading"
+          steps={[
+            <>A report on a school event: <Af>Doel en Agtergrond</Af> <En>purpose and background</En> is a fitting heading.</>,
+            <>It tells the reader why the event took place and what led to it.</>,
+          ]}
+        />
+        <Mistake>Writing a report like a story or an opinion piece. A report gives facts under clear headings.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Facts, not opinions',
+    content: slide(
+      <>
+        <Rule>A factual report is formal. Avoid <Af>Onbevestigde persoonlike menings</Af> <En>unconfirmed personal opinions</En>. State what happened.</Rule>
+        <MeaningPairs
+          kind="opposite"
+          pairs={[['feit', 'mening'], ['formeel', 'sleng']]}
+          aria="Two pairs of opposites: feit (fact) against mening (opinion), formeel (formal) against sleng (slang)."
+        />
+        <Worked
+          title="Write it as a fact"
+          steps={[
+            <><Af>Die vergadering het om 14:00 begin.</Af> <En>The meeting began at 14:00.</En> <SpeakButton text="Die vergadering het om 14:00 begin." /></>,
+            <>It names the event and the time. There is nothing to guess or feel.</>,
+          ]}
+        />
+        <Mistake>Adding lines such as <Af>Ek dink dit was vervelig</Af> without proof. In a factual report leave out personal opinions that are not confirmed.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Relevant detail only',
+    content: slide(
+      <>
+        <Rule>Relevant detail matters because <Af>Dit hou die teks gefokus op die doel</Af> <En>it keeps the text focused on the purpose</En>.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'Doel', tag: 'fokus' }, { word: 'Detail', tag: 'relevant' }]}
+          aria="Two ideas that go together: the Doel (purpose) gives the focus, each Detail must be relevant to it."
+        />
+        <Worked
+          title="Test each detail"
+          steps={[
+            <>Purpose: report on the sports day. Detail: the date, the events, the winners: relevant.</>,
+            <>Detail: what you ate for breakfast: not relevant. Leave it out.</>,
+          ]}
+        />
+        <Mistake>Adding every detail you know. Extra detail pulls the report away from its purpose.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Reviews: opinion, then evidence',
+    content: slide(
+      <>
+        <Rule>In a review, evidence usually comes after <Af>jou mening</Af> <En>your opinion</En>. Close with a recommendation.</Rule>
+        <OrderTiles
+          tiles={['Mening', 'Bewyse', 'Slot']}
+          aria="Three parts of a review in order: Mening (opinion), Bewyse (evidence), Slot (closing recommendation)."
+        />
+        <Worked
+          title="A strong closing"
+          steps={[
+            <>Opinion first, then a reason or example from the text.</>,
+            <>Closing: <Af>Ek beveel hierdie teks aan vir leerders wat avontuur geniet.</Af> <En>I recommend this text to learners who enjoy adventure.</En> <SpeakButton text="Ek beveel hierdie teks aan vir leerders wat avontuur geniet." /></>,
+          ]}
+        />
+        <Mistake>Giving evidence before any opinion, or ending without a recommendation. The strongest closing names who would enjoy the text.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Edit: format, language, relevance',
+    content: slide(
+      <>
+        <Rule>In term 4 writing, the best editing focus is <Af>Kontroleer formaat, taal en inhoudsrelevansie</Af> <En>check format, language and relevance of content</En>.</Rule>
+        <OrderTiles
+          tiles={['Formaat', 'Taal', 'Inhoud']}
+          aria="Three editing checks: Formaat (format), Taal (language), Inhoud (relevant content)."
+        />
+        <Worked
+          title="Three passes"
+          steps={[
+            <>Format: headings, layout and the right text type.</>,
+            <>Language: spelling, punctuation and tone. Content: is every detail relevant?</>,
+          ]}
+        />
+        <Mistake>Checking only the spelling. A report with the wrong format or off-topic detail still loses marks.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>What is the main purpose of a report?</>} answer={<><Af>Om feite duidelik te rapporteer</Af>.</>} />
+        <Check question={<>What must you avoid in a factual report?</>} answer={<><Af>Onbevestigde persoonlike menings</Af>.</>} />
+        <Check question={<>Why is relevant detail important in a report?</>} answer={<><Af>Dit hou die teks gefokus op die doel</Af>.</>} />
+        <Check question={<>In a review, evidence comes after what?</>} answer={<><Af>jou mening</Af> <En>your opinion</En>.</>} />
+      </>,
     ),
   },
 ];
@@ -112,6 +171,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'Final edits should align structure and language to purpose.',
   },
 ];
+
+export { bank };
 
 const ReviewReportWriting = () => (
   <AfrikaansTopic
