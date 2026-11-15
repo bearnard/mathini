@@ -74,7 +74,7 @@ const SwotMatrix = ({ strengths, weaknesses, opportunities, threats, title, subj
             >
               <div className={`${q.header} text-white px-2 sm:px-3 py-1.5 flex items-center gap-1.5 sm:gap-2`}>
                 <span className="font-bold text-lg leading-none">{q.letter}</span>
-                <span className="font-semibold text-xs sm:text-sm min-w-0">{q.label}</span>
+                <span className="min-w-0 break-words font-semibold text-xs sm:text-sm">{q.label}</span>
               </div>
               <ul className="px-3 py-2 space-y-1">
                 {items.slice(0, isOpen ? undefined : 2).map((item, i) => (

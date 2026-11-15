@@ -11,10 +11,10 @@ const learnSteps: LearnStep[] = [
           The <strong>IF function</strong> returns different values based on whether a condition is true or false.
         </p>
         <div className="bg-slate-50 p-6 rounded-xl inline-block text-left">
-          <p className="font-mono text-sm text-slate-800 mb-2">=IF(condition, value_if_true, value_if_false)</p>
+          <p className="font-mono text-sm text-slate-800 mb-2 break-all">=IF(condition, value_if_true, value_if_false)</p>
           <p className="text-slate-600 text-sm mb-4">Example: <span className="font-mono">=IF(B2&gt;=50,"Pass","Fail")</span></p>
           <p className="font-bold text-slate-800 mb-2">Nesting with AND/OR:</p>
-          <p className="font-mono text-sm text-slate-700">=IF(AND(B2&gt;=50,C2&gt;=50),"Pass","Fail")</p>
+          <p className="font-mono text-sm text-slate-700 break-all">=IF(AND(B2&gt;=50,C2&gt;=50),"Pass","Fail")</p>
           <p className="text-slate-500 text-xs mt-1">Both conditions must be true for AND; at least one for OR.</p>
         </div>
       </div>

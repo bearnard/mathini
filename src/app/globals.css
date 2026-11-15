@@ -37,3 +37,16 @@
 @utility pt-safe {
   padding-top: env(safe-area-inset-top, 0px);
 }
+
+/* Lesson slides: a grid item may shrink below its widest content (a KaTeX formula, a table, a long word), so a card in a one-column grid cannot push
+   the slide wider than the phone. Without this, "grid gap-3 md:grid-cols-2" below md is one auto-sized column that grows to the widest formula and the
+   slide card clips it (phone sweep, G11/G12). Wide formulas and tables scroll inside their own box (Formula already has overflow-x-auto). */
+.lesson-card .grid > * {
+  min-width: 0;
+}
+
+/* A shrink-wrapped card ("inline-block ... text-left") holding a wide formula would grow past the slide; cap it at the slide's width. The formula
+   inside already scrolls (Formula has overflow-x-auto). */
+.lesson-card .inline-block {
+  max-width: 100%;
+}
