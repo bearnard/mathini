@@ -228,3 +228,11 @@ test('a later code change to an already-reworded question becomes an edit on the
   assert.equal(count(t, 'questions'), 1);
   assert.equal(count(t, 'question_versions'), 3);
 });
+
+test('a tag keeps a later run\'s chunk names (and so its ledger steps) apart from an earlier run\'s', () => {
+  const item: NewItem = { kind: 'new', grade: 11, code: code('Tagged one?', { grade: 11 }) };
+  assert.equal(buildChunks([item], NO)[0].name, 'sync-g11-001');
+  const tagged = buildChunks([item], NO, 'r2')[0];
+  assert.equal(tagged.name, 'sync-r2-g11-001');
+  assert.match(tagged.sql, /migration_ledger[^\n]*'sync-r2-g11-001'/);
+});
