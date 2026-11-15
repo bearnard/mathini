@@ -1,18 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Develop improvisation skills and ensemble accuracy',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Music in Grade 9 Term 1 develops your improvisation ability. You explore simple scales or tonal patterns, improve phrasing in melodies, strengthen ensemble accuracy, and review notation. Practice responding creatively while maintaining technical control.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {
