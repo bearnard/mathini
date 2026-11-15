@@ -102,10 +102,10 @@ export const bank: CapsItem[] = [
         explanation: '500 ÷ 1 000 = 0,5 kg.'
     },
     {
-        prompt: 'Which unit is best for measuring the mass of a car?',
+        prompt: 'Which unit is best for measuring the mass of a loaded delivery truck?',
         options: ['grams', 'millilitres', 'tonnes', 'milligrams'],
         answer: 'tonnes',
-        explanation: 'A car has a very large mass, so tonnes is the most appropriate unit.'
+        explanation: 'A loaded truck has an enormous mass, so tonnes is the most appropriate unit.'
     },
     {
         prompt: 'A scale shows 2 kg and 750 g. What is the total mass in grams?',

@@ -11,7 +11,7 @@ const learnSteps: LearnStep[] = [
         <Timeline
           events={[
             {"date": "Long before 1652", "title": "Plant remedies used widely", "description": "Indigenous communities in southern Africa used local plants, roots, and bark to treat illness and injury. This knowledge was built through observation and practice."},
-            {"date": "1652", "title": "Cape records indigenous healing", "description": "After European settlement at the Cape began, some written accounts described local healing knowledge. These records show that indigenous medicine was already well established."},
+            {"date": "After 1652", "title": "Cape records indigenous healing", "description": "After European settlement at the Cape began, some written accounts described local healing knowledge. These records show that indigenous medicine was already well established."},
             {"date": "1800s", "title": "Healer training continues", "description": "Across the 19th century, communities continued training izinyanga and izangoma through apprenticeship and oral teaching. Knowledge was passed carefully from one generation to the next."},
             {"date": "2007", "title": "Traditional healing recognised", "description": "South Africa passed the Traditional Health Practitioners Act in 2007. It formally recognised the role of traditional healers in the country."},
           ]}
@@ -87,7 +87,7 @@ export const bank: HisItem[] = [
   { prompt: 'Which pair correctly names two South African traditional healers?', options: ['Inyanga and sangoma', 'Astronaut and pilot', 'Miner and sailor', 'Judge and banker'], answer: 'Inyanga and sangoma', explanation: 'Inyanga and sangoma are examples of traditional healers in South Africa.' },
   { prompt: 'What is a natural remedy?', options: ['A treatment made from natural materials', 'A map of railway stations', 'A machine for counting money', 'A type of modern television'], answer: 'A treatment made from natural materials', explanation: 'Natural remedies may use plants, herbs, roots, or bark.' },
   { prompt: 'What helped early communities build medical knowledge?', options: ['Observation, practice, and teaching', 'Only random luck every time', 'Refusing to learn from elders', 'Throwing away all plant knowledge'], answer: 'Observation, practice, and teaching', explanation: 'Knowledge grew through careful observation, practice, and learning from others.' },
-  { kind: 'order', section: 'chronology', prompt: 'Put these events about indigenous healing in South Africa in order, earliest first.', options: ['Plant remedies used widely', 'Cape records indigenous healing', 'Healer training continues', 'Traditional healing recognised'], answer: 'Plant remedies used widely|Cape records indigenous healing|Healer training continues|Traditional healing recognised', explanation: 'The dates are Long before 1652, 1652, 1800s and 2007.' },
+  { kind: 'order', section: 'chronology', prompt: 'Put these events about indigenous healing in South Africa in order, earliest first.', options: ['Plant remedies used widely', 'Cape records indigenous healing', 'Healer training continues', 'Traditional healing recognised'], answer: 'Plant remedies used widely|Cape records indigenous healing|Healer training continues|Traditional healing recognised', explanation: 'The dates are Long before 1652, After 1652, 1800s and 2007.' },
 ];
 
 const EarlyIndigenousMedicine = () => (

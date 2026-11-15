@@ -116,9 +116,9 @@ export const bank: CapsItem[] = [
     },
     {
         prompt: 'What is 5/6 − 1/6?',
-        options: ['4/12', '4/6', '6/6', '3/6'],
-        answer: '4/6',
-        explanation: 'The denominators are the same, so subtract the numerators: 5 − 1 = 4. The answer is 4/6.'
+        options: ['4/12', '2/3', '6/6', '3/6'],
+        answer: '2/3',
+        explanation: 'The denominators are the same, so subtract the numerators: 5 − 1 = 4, which gives 4/6. Simplify by dividing the top and bottom by 2: the answer is 2/3.'
     },
     {
         prompt: 'To add 1/3 and 1/6, what common denominator should you use?',

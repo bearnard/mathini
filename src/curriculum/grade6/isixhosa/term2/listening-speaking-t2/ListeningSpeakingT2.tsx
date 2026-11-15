@@ -116,9 +116,9 @@ const learnSteps: LearnStep[] = [
 export const bank: CapsItem[] = [
   {
     prompt: 'Which isiXhosa word means morning?',
-    options: ['Kusasa', 'Ebusuku', 'Izolo', 'Ngoku'],
-    answer: 'Kusasa',
-    explanation: 'Kusasa refers to the morning part of the day.',
+    options: ['Ekuseni', 'Ebusuku', 'Izolo', 'Ngoku'],
+    answer: 'Ekuseni',
+    explanation: 'Ekuseni means in the morning (kusasa means tomorrow).',
   },
   {
     prompt: 'Which sentence is a polite request for water?',
@@ -139,10 +139,10 @@ export const bank: CapsItem[] = [
     explanation: 'Ndingathenga ... nceda? is a polite shopping request form.',
   },
   {
-    prompt: 'If someone says “Hamba tye kuqala,” what must you do first?',
+    prompt: 'If someone says “Hamba ngqo kuqala,” what must you do first?',
     options: ['Walk straight first', 'Turn left immediately', 'Go back home', 'Wait without moving'],
     answer: 'Walk straight first',
-    explanation: 'Hamba tye means go straight.',
+    explanation: 'Hamba ngqo means go straight.',
   },
   {
     prompt: 'Which direction word means left?',

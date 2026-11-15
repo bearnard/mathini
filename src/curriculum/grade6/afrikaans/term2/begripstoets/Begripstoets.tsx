@@ -127,9 +127,9 @@ export const bank: AfrikaansItem[] = [
     explanation: 'The first sentence says Mia plants tomatoes.',
   },
   {
-    prompt: 'Die bus kom om sewe-uur. Jan staan vroeg op sodat hy nie laat is nie. Hoe laat kom die bus?',
-    options: ['Teen sewe-uur', 'Teen agt-uur', 'Teen ses-uur', 'Teen tien-uur'],
-    answer: 'Teen sewe-uur',
+    prompt: 'Die bus kom om sewe uur. Jan staan vroeg op sodat hy nie laat is nie. Hoe laat kom die bus?',
+    options: ['Teen sewe uur', 'Teen agt uur', 'Teen ses uur', 'Teen tien uur'],
+    answer: 'Teen sewe uur',
     explanation: 'The time given in the passage is seven o’clock.',
   },
   {
