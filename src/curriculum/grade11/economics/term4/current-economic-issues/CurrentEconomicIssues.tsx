@@ -136,10 +136,10 @@ const bank: EconomicsItem[] = [
     explanation: 'High marks come from concept definition + SA-specific evidence + evaluation — mere definitions earn few marks in FET Economics essays.',
   },
   {
-    prompt: 'SARB\'s inflation target of 3–6% helps the economy by:',
+    prompt: 'SARB\'s inflation target (3% with a ±1 point band) helps the economy by:',
     options: ['Guaranteeing full employment for all workers', 'Price stability, which reduces uncertainty for firms and consumers', 'Fixing the exchange rate of the rand', 'Removing the need for any change in interest rates'],
     answer: 'Price stability, which reduces uncertainty for firms and consumers',
-    explanation: 'Price stability (low, stable inflation) reduces economic uncertainty, supports investment planning and protects consumers\' purchasing power.',
+    explanation: 'Price stability (low, stable inflation) reduces economic uncertainty, supports investment planning and protects consumers\' purchasing power. Until November 2025 the target range was 3–6%.',
   },
   {
     prompt: 'Which calculation method converts nominal GDP to real GDP?',

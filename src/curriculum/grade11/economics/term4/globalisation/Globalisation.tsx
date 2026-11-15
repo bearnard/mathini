@@ -114,7 +114,7 @@ const bank: EconomicsItem[] = [
     prompt: 'The WTO (World Trade Organisation) promotes globalisation mainly through:',
     options: ['Setting a global minimum wage for all workers', 'Lowering trade barriers within a rules-based framework', 'Providing loans to developing countries', 'Controlling the exchange rates of the world'],
     answer: 'Lowering trade barriers within a rules-based framework',
-    explanation: 'The WTO negotiates tariff reductions and enforces trade rules to promote freer international trade among its 164 member countries.',
+    explanation: 'The WTO negotiates tariff reductions and enforces trade rules to promote freer international trade among its 166 member countries.',
   },
   {
     prompt: 'AGOA (Africa Growth and Opportunity Act) benefits SA by:',

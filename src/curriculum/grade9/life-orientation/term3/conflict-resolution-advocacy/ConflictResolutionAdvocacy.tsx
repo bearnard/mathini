@@ -68,7 +68,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Is all conflict bad?',
-    options: ['Yes, all conflict is bad and does harm', 'No, conflict can lead to growth if handled well', 'Only some conflict is bad; the rest is harmless', 'Conflict is never useful, even when it is handled well'],
+    options: ['Yes, all conflict is bad and does harm', 'No, conflict can lead to growth if handled well', 'No, conflict always strengthens relationships, however it is handled', 'Conflict is never useful, even when it is handled well'],
     answer: 'No, conflict can lead to growth if handled well',
     explanation: 'Constructive conflict resolution builds understanding and stronger relationships.',
   },

@@ -131,7 +131,7 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Load-shedding by Eskom falls under which PESTLE factor?',
-    options: ['Economic', 'Technological', 'Environmental', 'Political'],
+    options: ['Social', 'Technological', 'Environmental', 'Legal'],
     answer: 'Technological',
     explanation: 'Infrastructure and energy supply issues relate to the Technological factor in PESTLE, as they affect a business\'s ability to use technology and operate.',
   },

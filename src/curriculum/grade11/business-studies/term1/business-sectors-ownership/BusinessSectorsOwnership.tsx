@@ -123,7 +123,7 @@ const bank: BusinessStudiesItem[] = [
     prompt: 'A group of small-scale tomato farmers in Limpopo register their business to share profits and make decisions democratically. Which form of ownership is this?',
     options: ['Partnership', 'Co-operative', 'Close corporation', 'Public company'],
     answer: 'Co-operative',
-    explanation: 'Co-operatives are member-owned organisations where profits are distributed equally and decisions are made democratically — ideal for community-based ventures.',
+    explanation: 'Co-operatives are member-owned organisations where decisions are made democratically (one member, one vote) and the surplus is shared in proportion to each member\'s use of the co-operative — ideal for community-based ventures.',
   },
   {
     prompt: 'A bank providing home loans operates in which sector?',
@@ -135,12 +135,12 @@ const bank: BusinessStudiesItem[] = [
     prompt: 'What is the MAIN difference between a public company (Ltd) and a private company (Pty Ltd)?',
     options: [
       'Public companies have limited liability; private companies do not',
-      'Public companies can list on the JSE and have unlimited shareholders; private companies cannot',
+      'Public companies may offer shares to the public and list on the JSE; private companies may not',
       'Private companies must publish annual reports; public companies do not',
       'Public companies are owned by the government',
     ],
-    answer: 'Public companies can list on the JSE and have unlimited shareholders; private companies cannot',
-    explanation: 'Public companies (Ltd) can list shares on the Johannesburg Stock Exchange and have unlimited shareholders, while private companies (Pty Ltd) may not offer shares to the public and cannot list.',
+    answer: 'Public companies may offer shares to the public and list on the JSE; private companies may not',
+    explanation: 'Under the Companies Act 71 of 2008 a public company (Ltd) may offer its shares to the public and list them on the Johannesburg Stock Exchange, while a private company (Pty Ltd) may not. Neither type has a maximum number of shareholders.',
   },
   {
     prompt: 'Which form of ownership has the HIGHEST personal financial risk for the owner?',

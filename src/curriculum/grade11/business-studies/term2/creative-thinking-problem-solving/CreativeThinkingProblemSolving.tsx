@@ -104,7 +104,7 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'A manager asks each team member to contribute ideas about reducing costs, starting from a central concept. Which technique is being used?',
-    options: ['Lateral thinking', 'Mind mapping', 'Brainstorming', 'PESTLE analysis'],
+    options: ['Lateral thinking', 'Mind mapping', 'SWOT analysis', 'PESTLE analysis'],
     answer: 'Mind mapping',
     explanation: 'Mind mapping starts from a central concept and branches out into related ideas — it visually organises thinking around a core topic.',
   },

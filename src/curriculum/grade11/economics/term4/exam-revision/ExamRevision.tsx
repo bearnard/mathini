@@ -106,9 +106,9 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: "SA's SARB sets the repo rate primarily to:",
-    options: ['Fix the exchange rate of the rand', 'Control the money supply and keep inflation in the 3-6% band', 'Set the wages of workers in the public sector', 'Decide how much the government may borrow'],
-    answer: 'Control the money supply and keep inflation in the 3-6% band',
-    explanation: 'The repo rate is the SARB\'s primary monetary policy tool — raising it reduces borrowing and spending to control inflation.',
+    options: ['Fix the exchange rate of the rand', 'Control the money supply and keep inflation near its 3% target', 'Set the wages of workers in the public sector', 'Decide how much the government may borrow'],
+    answer: 'Control the money supply and keep inflation near its 3% target',
+    explanation: 'The repo rate is the SARB\'s primary monetary policy tool — raising it reduces borrowing and spending to control inflation. The target is 3% with a ±1 point band; until November 2025 it was the 3–6% range.',
   },
   {
     prompt: 'A Gini coefficient close to 1 indicates:',

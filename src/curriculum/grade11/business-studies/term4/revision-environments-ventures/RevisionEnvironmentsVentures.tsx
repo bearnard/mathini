@@ -96,7 +96,7 @@ const bank: BusinessStudiesItem[] = [
     explanation: 'The macro environment contains PESTLE factors (political, economic, social, technological, legislative, environmental) over which the business has no direct control.',
   },
   {
-    prompt: 'A business changes its product range to target a new customer group. Which environment is the business directly influencing?',
+    prompt: 'A business changes its product range to target a new customer group. Which environment does the business control directly?',
     options: ['Macro environment', 'Market environment', 'Micro environment', 'Social environment'],
     answer: 'Micro environment',
     explanation: 'Product range decisions are internal (micro environment) choices that the business controls directly.',

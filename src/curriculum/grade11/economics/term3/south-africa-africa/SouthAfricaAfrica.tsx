@@ -124,7 +124,7 @@ const bank: EconomicsItem[] = [
     prompt: 'South Africa joined BRICS in:',
     options: ['2001', '2006', '2010', '2015'],
     answer: '2010',
-    explanation: 'South Africa joined the BRICS grouping (Brazil, Russia, India, China) in 2010 at the Sanya summit in China.',
+    explanation: 'South Africa joined the BRICS grouping (Brazil, Russia, India, China) after being invited in December 2010; it attended its first summit as a full member in Sanya, China, in 2011.',
   },
   {
     prompt: "South Africa's dominance in SADC (over 50% of the group's GDP) can cause challenges because:",

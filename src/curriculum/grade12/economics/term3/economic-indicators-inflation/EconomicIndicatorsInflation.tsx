@@ -80,7 +80,7 @@ const learnSteps: LearnStep[] = [
         <div className="rounded-xl bg-blue-50 border border-blue-200 p-4">
           <p className="text-sm font-semibold text-blue-900">Policy link</p>
           <p className="mt-2 text-slate-700">
-            South Africa's inflation target range is 3% to 6%. The SARB mainly uses the repo rate to slow
+            South Africa's inflation target is 3% with a ±1 percentage-point band (2% to 4%); until November 2025 it was a 3% to 6% range. The SARB mainly uses the repo rate to slow
             excessive demand, while fiscal discipline and better supply conditions also help.
           </p>
         </div>
@@ -128,15 +128,15 @@ const items: RawEconomicsItem[] = [
   },
   {
     "id": "ei-4",
-    "question": "South Africa’s inflation target range is commonly stated as ...",
+    "question": "South Africa’s current inflation target is ...",
     "options": [
       "0% to 2%",
       "1% to 3%",
-      "3% to 6%",
-      "6% to 9%"
+      "3% (band of 2% to 4%)",
+      "3% to 6%"
     ],
     "answer": 2,
-    "explanation": "The SARB’s inflation target range is 3% to 6%."
+    "explanation": "Since November 2025 the target is 3% with a ±1 percentage-point band (2% to 4%). Until November 2025 the target range was 3% to 6%."
   },
   {
     "id": "ei-5",

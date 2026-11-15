@@ -119,7 +119,7 @@ const bank: BusinessStudiesItem[] = [
     prompt: 'Why must entrepreneurs choose a form of ownership BEFORE registering their business?',
     options: ['It decides the marketing mix of the business', 'Registration steps and legal rules differ by form', 'It decides the salary of each employee', 'Banks lend to only one form of ownership'],
     answer: 'Registration steps and legal rules differ by form',
-    explanation: 'A sole proprietor, Pty Ltd, and co-operative each have different registration requirements with CIPC and different legal obligations under SA law.',
+    explanation: 'A Pty Ltd and a co-operative must be registered with CIPC under different rules, while a sole proprietor does not register with CIPC at all; each form also carries different legal obligations under SA law.',
   },
   {
     prompt: 'Which venture challenge involves a new business struggling to compete with a well-known brand that already dominates the market?',
