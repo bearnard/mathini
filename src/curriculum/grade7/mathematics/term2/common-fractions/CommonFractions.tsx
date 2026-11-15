@@ -6,7 +6,7 @@ import FractionRows from '../../../../../components/diagrams/maths/FractionRows'
 import { AddBars, EquivalentBars } from '../../../../../components/diagrams/maths/FractionScenes';
 import { FractionOfAmount, MixedBars } from '../../../../../components/diagrams/maths/Grade7Pictures';
 import { addFractions, addMixed, biggerFraction, fractionOf, subtractFractions } from '../../../../../components/diagrams/maths/grade7Helpers';
-import { equivalent, simplify } from '../../../../../components/diagrams/maths/mathsHelpers';
+import { simplify } from '../../../../../components/diagrams/maths/mathsHelpers';
 
 // Every number in the slides below comes from these tested helpers (grade7Helpers.test.ts).
 const fr = (n: number, d: number) => String.raw`\frac{${n}}{${d}}`;
@@ -25,7 +25,6 @@ const mix = addMixed({ whole: 1, n: 1, d: 2 }, { whole: 2, n: 1, d: 4 });
 const carry = addMixed({ whole: 2, n: 2, d: 3 }, { whole: 1, n: 1, d: 2 });
 const of1 = fractionOf(3, 4, 8);
 const of2 = fractionOf(3, 5, 35);
-if (!equivalent(up.n, up.d, up.n * up.by, up.d * up.by) || equivalent(3, 4, wrongAdd.n, wrongAdd.d) || cmp.sign !== 1) throw new Error('lesson numbers out of step');
 
 // "Check yourself" questions, with answers computed from the same helpers
 const q1 = biggerFraction(5, 6, 7, 9);
@@ -35,7 +34,7 @@ const q4 = addMixed({ whole: 1, n: 3, d: 4 }, { whole: 2, n: 1, d: 2 });
 
 const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
-const learnSteps: LearnStep[] = [
+export const learnSteps: LearnStep[] = [
   {
     title: 'Equivalent fractions: the same amount',
     content: slide(

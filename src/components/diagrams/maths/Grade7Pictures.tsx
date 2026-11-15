@@ -6,15 +6,15 @@ import { r3 } from '../round';
  * from the numbers passed in, so a picture always matches its worked example.
  */
 
-const INK = '#0f172a';
-const LINE = '#e2e8f0';
-const I = '#818cf8';
-const E = '#34d399';
-const A = '#fbbf24';
-const R = '#fb7185';
+export const INK = '#0f172a';
+export const LINE = '#e2e8f0';
+export const I = '#818cf8';
+export const E = '#34d399';
+export const A = '#fbbf24';
+export const R = '#fb7185';
 export const PICTURE_COLORS = { indigo: I, green: E, amber: A, rose: R } as const;
 
-const Panel = ({ h, aria, children, className }: { h: number; aria: string; children: React.ReactNode; className?: string }) => (
+export const Panel = ({ h, aria, children, className }: { h: number; aria: string; children: React.ReactNode; className?: string }) => (
   <svg viewBox={`0 0 120 ${h}`} role="img" aria-label={aria} className={`mx-auto block w-full max-w-md rounded-2xl ${className ?? ''}`} style={{ background: INK, fontFamily: 'inherit' }}>
     {children}
   </svg>

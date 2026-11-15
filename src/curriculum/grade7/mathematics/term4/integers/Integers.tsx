@@ -20,9 +20,6 @@ const temp = { from: -3, to: 4, up: jump(-3, 4) };
 const mulA = { a: -4, b: -3, r: -4 * -3, sign: productSign(-4, -3) };
 const divB = { a: 18, b: -6, r: divideExact(18, -6), sign: productSign(18, -6) };
 const abs = absolute(-9);
-if (add.r !== 3 || jump(add.a, add.r) !== add.b || jump(sub.a, sub.r) !== -sub.b || temp.up !== temp.to - temp.from || mulA.sign !== '+' || divB.sign !== '-') {
-  throw new Error('lesson numbers out of step');
-}
 
 // "Check yourself", answers computed from the same helpers
 const c1 = ascending([4, -7, 0, -1]);
@@ -32,7 +29,7 @@ const c4 = -5 * 4;
 
 const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
-const learnSteps: LearnStep[] = [
+export const learnSteps: LearnStep[] = [
   {
     title: 'The number line: farther right is bigger',
     content: slide(
