@@ -36,7 +36,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Adjectives agree with the noun',
-      rule: 'An isichazi (adjective) takes a prefix that matches the noun. The stem stays the same: -hle (nice, beautiful) and -khulu (big).',
+      rule: 'An isichazi (adjective) takes a prefix that matches the noun. The stem keeps its meaning (-hle nice, -khulu big), but its first sound can change after some prefixes: with incwadi and indlu it becomes -ntle and -nkulu.',
       workedTitle: 'The stem -hle and -khulu with different nouns',
       examples: [
         { xh: 'umntwana omhle', en: 'a beautiful child' },
@@ -44,6 +44,7 @@ const lesson: XhLesson = {
         { xh: 'incwadi entle', en: 'a nice book' },
         { xh: 'iincwadi ezintle', en: 'nice books' },
         { xh: 'isikolo esikhulu', en: 'a big school' },
+        { xh: 'indlu enkulu', en: 'a big house (-khulu becomes -nkulu)' },
         { xh: 'Umntwana umhle.', en: 'The child is beautiful.' },
       ],
       mistake: 'Each class needs its own prefix. Do not write abantwana omhle; write abantwana abahle.',

@@ -22,7 +22,7 @@ const lesson: XhLesson = {
       examples: [
         { xh: 'USipho akanayo incwadi.', en: 'Conflict (the problem): Sipho has no book.' },
         { xh: 'USipho ufunda esikolweni ekuseni.', en: 'Setting: Sipho studies at school in the morning.' },
-        { xh: 'USipho uyavuya.', en: 'Tone: warm and happy, shown by the word uyavuya (is happy).' },
+        { xh: 'USipho uyavuya.', en: 'Tone: warm and kind. Words such as uyamnceda (helps him) and uyavuya (is happy) create it.' },
       ],
       mistake: 'Tone is not how loudly characters speak or the size of the print. It is the attitude the words create.',
     },

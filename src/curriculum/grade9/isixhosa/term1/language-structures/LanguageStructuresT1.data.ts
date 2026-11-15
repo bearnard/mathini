@@ -32,7 +32,7 @@ const lesson: XhLesson = {
     {
       title: 'Concords: the words must agree',
       rule: 'Concord means agreement between the words in a phrase. Every noun belongs to a class, and the adjective and the verb take a marker that matches that class. Umfundi becomes abafundi in the plural, so the markers change too.',
-      wordParts: { word: 'Abafundi bayafunda', en: 'The learners are reading', parts: [{ t: 'aba', label: 'class 2' }, { t: 'fundi', label: 'learner' }, { t: 'ba', label: 'they' }, { t: 'ya', label: 'now' }, { t: 'fund', label: 'read' }, { t: 'a', label: 'ending' }] },
+      wordParts: { word: 'Abafundi bayafunda', en: 'The learners are reading', parts: [{ t: 'aba', label: 'class 2' }, { t: 'fundi', label: 'learner' }, { t: 'ba', label: 'they' }, { t: 'ya', label: 'present' }, { t: 'fund', label: 'read' }, { t: 'a', label: 'ending' }] },
       workedTitle: 'Same noun, matching markers',
       examples: [
         { xh: 'Umntwana omncinci uyadlala.', en: 'The small child is playing.' },
@@ -44,7 +44,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Direct and indirect speech',
-      rule: 'Direct speech gives the exact words of the speaker, in quotation marks. Indirect speech reports what was said without the exact words, and no quotation marks. You adjust the pronoun (ndi- becomes u-) and the tense to fit the reporting.',
+      rule: 'Direct speech gives the exact words of the speaker, in quotation marks. Indirect speech reports what was said without the exact words, and no quotation marks. You adjust the pronoun (ndi- becomes u- when you report someone else). In these examples the tense stays the same.',
       workedTitle: 'From direct to indirect',
       examples: [
         { xh: 'UThando uthi, “Ndiyafunda.”', en: 'Thando says, “I am reading.” (direct)' },
@@ -52,7 +52,7 @@ const lesson: XhLesson = {
         { xh: 'USipho uthe, “Ndiza kufika ngomso.”', en: 'Sipho said, “I will arrive tomorrow.” (direct)' },
         { xh: 'USipho uthe uza kufika ngomso.', en: 'Sipho said he will arrive tomorrow. (indirect)' },
       ],
-      mistake: 'Do not keep ndi- when you report someone else. Thando says she is reading is UThando uthi uyafunda, not uThando uthi ndiyafunda.',
+      mistake: 'Do not keep ndi- when you report someone else. Thando says she is reading is UThando uthi uyafunda, not UThando uthi ndiyafunda.',
     },
     {
       title: 'Idioms and punctuation',
