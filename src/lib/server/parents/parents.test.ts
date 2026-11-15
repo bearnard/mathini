@@ -348,9 +348,9 @@ test('the parent progress view renders every part of a ProgressResponse in the t
   assert.ok(text.includes('Exam readiness') && text.includes('Recent activity') && text.includes('Test history') && text.includes('What Lerato remembers'));
   for (const s of MOCK_PROGRESS.subjects) assert.ok(text.includes(s.label), s.label);
   for (const r of MOCK_PROGRESS.recentSessions ?? []) assert.ok(text.includes(r.label), r.label);
-  assert.ok(text.includes(MOCK_PROGRESS.nextStep.title));
+  assert.ok(text.includes(MOCK_PROGRESS.parentNextStep!.title) && !text.includes(MOCK_PROGRESS.nextStep.title), 'the parent reads the parent-worded next step');
   assert.ok(!/Practise this/.test(text) && !/href="\/app/.test(html), 'a parent has nothing to practise: no learner buttons or links into the app');
-  assert.ok(!/\b(you|your)\b/i.test(text.replace(MOCK_PROGRESS.nextStep.title, '').replace(MOCK_PROGRESS.nextStep.reason, '')), 'no learner-voice wording of its own');
+  assert.ok(!/\b(you|your)\b/i.test(text.replace('Ask your child', '')), 'no learner-voice wording of its own');
   // the learner's own page keeps its voice and its buttons
   const { SubjectCard } = await import('../../../components/progress/ProgressCards');
   const mine = renderToStaticMarkup(createElement(SubjectCard, { s: MOCK_PROGRESS.subjects[0] }));
@@ -393,4 +393,23 @@ test('change since last week: this week\'s accuracy minus the week before, only 
   ins.run(0, NOW - 2 * D); // this week 4 of 5
   const a = await kid();
   assert.deepEqual([a.weekAccuracyPct, a.changeSinceLastWeek], [80, 40]);
+});
+
+test('the child progress response carries a parent-worded next step with the child\'s name; the learner\'s own wording stays', async (ctx) => {
+  const x = await openParentsDb(); if (!x) return ctx.skip('node:sqlite unavailable');
+  await addStudent(x, 'child-0001', 'TIGER-4821', '4821', { name: 'Anfervio' });
+  const mum = await addAdult(x, 'mum3@example.com', ['parent']);
+  x.raw.prepare("INSERT INTO parent_links (user_id, student_id, method, linked_at) VALUES (?, 'child-0001', 'pin', 1)").run(mum.userId);
+  const p = await loadChildProgress(x.db, 'child-0001', NOW);
+  assert.ok(p);
+  assert.equal(p.parentNextStep?.title, 'Ask Anfervio to try their first topic');
+  assert.equal(p.nextStep.title, 'Try your first topic');
+  assert.ok(!/\b(he|she|his|her|him)\b/i.test(JSON.stringify(p.parentNextStep)));
+});
+
+test('the test history line chart is not animated, so every point is always joined (a half-drawn line looked like a missing last point)', () => {
+  const src = fs.readFileSync('src/components/subjects/DataChart.tsx', 'utf8');
+  const lines = src.match(/<Line\b[^>]*>/g) ?? [];
+  assert.ok(lines.length >= 2);
+  for (const l of lines) assert.match(l, /isAnimationActive=\{false\}/);
 });

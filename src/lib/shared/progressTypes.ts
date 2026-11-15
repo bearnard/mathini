@@ -144,6 +144,8 @@ export interface ProgressResponse {
   retention: RetentionProgress;
   consistency: ConsistencyProgress;
   nextStep: NextBestStep;
+  /** The same recommendation worded for a parent, using the child's name and "their" (shown on /parent). */
+  parentNextStep?: { title: string; reason: string };
   /** The last practice sessions, newest first (at most 5). */
   recentSessions?: RecentSession[];
 }

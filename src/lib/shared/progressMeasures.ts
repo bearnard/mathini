@@ -224,3 +224,18 @@ export function nextBestStep(args: {
   return { kind: 'all_caught_up', title: 'You are all caught up', reason: 'Nothing is due. Come back tomorrow, or practise any topic you like.', href: null, cta: 'Choose a topic' };
 }
 
+
+/**
+ * The same recommendation worded for a PARENT: "Ask Anfervio to do their 5 review cards". Uses the child's name and "their", never "he" or "she".
+ * Mirrors nextBestStep branch for branch (a test keeps them in step).
+ */
+export function parentNextStep(args: { dueCount: number; weakestInScope: { label: string } | null; untried: { label: string } | null; name: string | null }): { title: string; reason: string } {
+  const who = args.name?.trim() || 'your child';
+  if (args.dueCount > 0) {
+    const one = args.dueCount === 1;
+    return { title: `Ask ${who} to do their ${one ? 'review card' : `${args.dueCount} review cards`}`, reason: 'A few minutes now helps them remember what they have learned, ready for the exam.' };
+  }
+  if (args.weakestInScope) return { title: `Ask ${who} to practise ${args.weakestInScope.label}`, reason: 'This is the topic where a little practice helps most right now.' };
+  if (args.untried) return { title: `Ask ${who} to try ${args.untried.label}`, reason: 'A new topic. Their progress will appear here.' };
+  return { title: `${who} is all caught up`, reason: 'Nothing is due. Any topic they practise today is a bonus.' };
+}

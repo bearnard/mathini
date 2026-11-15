@@ -147,3 +147,26 @@ test('nextBestStep: due reviews first, then the weakest practised topic in the e
   const done = nextBestStep({ ...base, dueCount: 0, weakestInScope: null, untried: null });
   assert.deepEqual([done.kind, done.href], ['all_caught_up', null]);
 });
+
+test('parentNextStep follows nextBestStep branch for branch, uses the name and "their", and never a gendered pronoun', async () => {
+  const { parentNextStep, nextBestStep } = await import('./progressMeasures');
+  const base = { reviewHref: '/r', appHref: '/a' };
+  const cases = [
+    { dueCount: 5, weakestInScope: { label: 'Electric circuits', href: '/a' }, untried: { label: 'Mains', href: '/a' } },
+    { dueCount: 1, weakestInScope: null, untried: null },
+    { dueCount: 0, weakestInScope: { label: 'Electric circuits', href: '/a' }, untried: { label: 'Mains', href: '/a' } },
+    { dueCount: 0, weakestInScope: null, untried: { label: 'Mains', href: '/a' } },
+    { dueCount: 0, weakestInScope: null, untried: null },
+  ];
+  const kinds = cases.map((c) => nextBestStep({ ...c, ...base }).kind);
+  assert.deepEqual(kinds, ['review', 'review', 'weak_topic', 'new_topic', 'all_caught_up']);
+  const out = cases.map((c) => parentNextStep({ ...c, name: 'Anfervio' }));
+  assert.equal(out[0].title, 'Ask Anfervio to do their 5 review cards');
+  assert.equal(out[1].title, 'Ask Anfervio to do their review card');
+  assert.equal(out[2].title, 'Ask Anfervio to practise Electric circuits');
+  assert.equal(out[3].title, 'Ask Anfervio to try Mains');
+  assert.equal(out[4].title, 'Anfervio is all caught up');
+  assert.equal(parentNextStep({ ...cases[3], name: '  ' }).title, 'Ask your child to try Mains', 'no name: "your child"');
+  assert.equal(parentNextStep({ ...cases[3], name: null }).title, 'Ask your child to try Mains');
+  for (const o of out) assert.ok(!/\b(he|she|his|her|him|you|your)\b/i.test(`${o.title} ${o.reason}`), `${o.title} ${o.reason}`);
+});

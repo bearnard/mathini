@@ -136,7 +136,7 @@ const DataChart = ({
           <Legend />
           {series.map((s, i) =>
             s.type === 'line' ? (
-              <Line key={s.key} yAxisId="right" type="monotone" dataKey={s.key} name={s.label} stroke={colours[i]} strokeWidth={2} dot />
+              <Line key={s.key} yAxisId="right" type="monotone" dataKey={s.key} name={s.label} stroke={colours[i]} strokeWidth={2} dot isAnimationActive={false} />
             ) : (
               <Bar key={s.key} yAxisId="left" dataKey={s.key} name={s.label} fill={colours[i]} />
             ),
@@ -154,7 +154,7 @@ const DataChart = ({
           <Tooltip formatter={(value) => commaText(value)} />
           <Legend />
           {series.map((s, i) => (
-            <Line key={s.key} type="monotone" dataKey={s.key} name={s.label} stroke={colours[i]} strokeWidth={2} dot />
+            <Line key={s.key} type="monotone" dataKey={s.key} name={s.label} stroke={colours[i]} strokeWidth={2} dot isAnimationActive={false} />
           ))}
         </LineChart>
       );
