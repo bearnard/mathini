@@ -1,40 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Consolidate language structures for exam readiness',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Grammar consolidation revises tense control, clause use, punctuation, and vocabulary choices so learners can
-          apply language accurately in context.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Edit sentences with precision',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Careful editing catches agreement mistakes, tense shifts, and punctuation errors that weaken meaning.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Apply grammar while reading and writing',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Language knowledge is strongest when used in full texts, not isolated drills. Context-based practice supports
-          better exam performance.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './lesson';
 
 const bank: CapsItem[] = [
   {

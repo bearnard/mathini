@@ -1,56 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import AnnotatedText from '@/components/subjects/AnnotatedText';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Interpret drama and extended novel study',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 3 may focus on drama or continue novel analysis. Learners interpret dialogue, conflict, theme, and
-          character response in both oral and written tasks.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: "Annotated extract",
-    content: (
-      <AnnotatedText
-        title={"From \"Julius Caesar\" — William Shakespeare"}
-        text={"Friends, Romans, countrymen, lend me your ears; I come to bury Caesar, not to praise him."}
-        annotations={[
-          { start: 0, end: 27, device: "diction", note: "The ordered address draws in different groups of listeners and sounds carefully persuasive." },
-          { start: 29, end: 46, device: "metaphor", note: "Antony does not want literal ears; he wants attention and sympathy." },
-          { start: 71, end: 88, device: "irony", note: "The audience soon realises Antony’s speech does exactly the opposite of what he claims." },
-        ]}
-      />
-    ),
-  },
-  {
-    title: 'Track speaker and stage or narrative clues',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          In drama, identify who speaks and what stage actions reveal. In novels, use narration and character actions
-          to infer motivation and relationships.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Link conflict to theme',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Conflict drives plot and often reveals the central theme. Strong responses explain how specific events
-          connect to bigger ideas.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './lesson';
 
 const bank: CapsItem[] = [
   {

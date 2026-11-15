@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Plan and manage a longer language project',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 3 projects require sustained writing. Learners plan tasks, organise timelines, and draft sections before
-          revising for language accuracy.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Refine voice, punctuation and clauses',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Editing includes active/passive voice control, punctuation correction, and clearer clause structure for more
-          effective communication.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Use checklists for deliberate editing',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A focused checklist helps identify weak sentences, missing punctuation, and inconsistent grammar before final
-          submission.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './lesson';
 
 const bank: CapsItem[] = [
   {
