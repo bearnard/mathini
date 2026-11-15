@@ -1,42 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Identify entrepreneurial traits and opportunities',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Successful entrepreneurs are innovative, resilient and customer-focused. They identify unmet needs and 
-          opportunities, then develop products or services to meet them. Understanding these traits helps you 
-          evaluate business ideas.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Develop financial planning skills',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Budgeting and financial planning help businesses allocate resources wisely. Forecasting income and 
-          expenses ensures sustainability and allows adjustment when markets change.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Evaluate business viability',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Small businesses succeed when they match market demand, manage cash flow and maintain customer relationships. 
-          Understanding these factors helps determine if a business idea is viable.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {
