@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
+import { VerticalVelocityGraph } from '@/components/diagrams/physics/VerticalVelocityGraph';
 import Formula from '@/components/subjects/Formula';
 import type { PSItem, LearnStep } from '../../_shared/types';
 
@@ -24,6 +25,7 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">The vertical velocity becomes <Formula>{String.raw`v_y = 0`}</Formula>, but the acceleration is still <Formula>{String.raw`g`}</Formula> downward.</p>
           </div>
         </div>
+        <VerticalVelocityGraph />
       </div>
     ),
   },

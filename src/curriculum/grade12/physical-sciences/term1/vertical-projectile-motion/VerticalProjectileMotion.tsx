@@ -3,6 +3,7 @@ import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { PhysicalSciencesItem, LearnStep } from '../../_shared/types';
 import Formula from '@/components/subjects/Formula';
 import dynamic from 'next/dynamic';
+import { VerticalVelocityGraph } from '@/components/diagrams/physics/VerticalVelocityGraph';
 
 const ProjectileMotion = dynamic(() => import('@/components/subjects/PhysicsSim/ProjectileMotion'), { ssr: false });
 
@@ -16,6 +17,7 @@ const learnSteps: LearnStep[] = [
           negative because it always acts downward near Earth.
         </p>
         <Formula block>{String.raw`g = -9.8\ \text{m·s}^{-2}`}</Formula>
+        <VerticalVelocityGraph />
         <div className="rounded-2xl bg-slate-50 p-4 text-lg leading-8 text-slate-600">
           Use the same positive direction in every velocity, displacement and acceleration term. Most mistakes
           in projectile questions happen when the sign convention changes halfway through the solution.
