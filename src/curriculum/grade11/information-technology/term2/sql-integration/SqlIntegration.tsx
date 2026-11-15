@@ -1,5 +1,7 @@
 import CodeBlock from '@/components/subjects/CodeBlock';
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { DB_CONNECTION_STEPS } from '../../../../../components/diagrams/business/steps';
 import type { ITItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
@@ -8,8 +10,9 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          Programs interact with databases through a <strong>database connection</strong>. The key steps are: connect → query → process results → close connection.
+          Programs interact with databases through a <strong>database connection</strong>. The key steps are:
         </p>
+        <NumberedSteps steps={DB_CONNECTION_STEPS} tone="teal" label="Using a database from a program" />
         <CodeBlock language="sql" code={`# Python example using sqlite3
 import sqlite3
 conn = sqlite3.connect("school.db")

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { CRISIS_STEPS, PROBLEM_SOLVING_STEPS, SELECTION_STEPS, START_UP_STEPS, numberSteps, stepText } from './steps';
+import { CRISIS_STEPS, DB_CONNECTION_STEPS, HR_SELECTION_STEPS, PROBLEM_SOLVING_STEPS, SELECTION_STEPS, START_UP_STEPS, numberSteps, stepText } from './steps';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const lessonDir = path.join(here, '../../../curriculum/grade11/business-studies');
@@ -46,4 +46,26 @@ test('each lesson uses its sequence, so the picture is what the learner sees', (
   assert.ok(read('term4/recruitment-selection-contracts/RecruitmentSelectionContracts.tsx').includes('SELECTION_STEPS'));
   assert.ok(read('term2/creative-thinking-problem-solving/CreativeThinkingProblemSolving.tsx').includes('PROBLEM_SOLVING_STEPS'));
   assert.ok(read('term2/change-crisis-management/ChangeCrisisManagement.tsx').includes('CRISIS_STEPS'));
+});
+
+const curriculum = path.join(here, '../../../curriculum');
+const readCurriculum = (p: string) => fs.readFileSync(path.join(curriculum, p), 'utf8');
+
+test('the G12 selection steps are the four the lesson gave, word for word, and the lesson uses them', () => {
+  assert.deepEqual(HR_SELECTION_STEPS.map((s) => s.text), [
+    'Screen applications against the job specification.',
+    'Shortlist the strongest candidates.',
+    'Interview, test and check references fairly.',
+    'Make the appointment using objective evidence.',
+  ]);
+  const lesson = readCurriculum('grade12/business-studies/term1/human-resources-processes/HumanResourcesProcesses.tsx');
+  assert.ok(lesson.includes('HR_SELECTION_STEPS'));
+  assert.ok(!lesson.includes('<li>Screen applications'), 'the old plain list is gone');
+});
+
+test('the G11 database steps keep the lesson\'s order, and the arrow sentence is gone', () => {
+  assert.deepEqual(DB_CONNECTION_STEPS.map((s) => s.text.toLowerCase()), ['connect', 'query', 'process results', 'close connection']);
+  const lesson = readCurriculum('grade11/information-technology/term2/sql-integration/SqlIntegration.tsx');
+  assert.ok(lesson.includes('DB_CONNECTION_STEPS'));
+  assert.ok(!lesson.includes('connect → query'));
 });
