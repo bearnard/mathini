@@ -1,12 +1,15 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
 
+import { NestedIf } from '../../../../../components/diagrams/cat/Cat12Pictures';
+
 const learnSteps: LearnStep[] = [
   {
     title: "Advanced spreadsheet logic",
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"Grade 12 spreadsheets move beyond simple totals. Named ranges improve readability, nested IF statements test more than one condition, and lookup functions help users fetch related information from a table. To troubleshoot a formula, check the order of logic, cell references and whether the correct range or table was used."</p>
+        <NestedIf />
       </div>
     ),
   },

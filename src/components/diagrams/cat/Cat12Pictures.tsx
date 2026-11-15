@@ -1,5 +1,5 @@
 import { Schematic } from '../Schematic';
-import { HTML_TREE, LAN_WAN, TABLE, TABLE_DESC, TABLE_LABELS } from './cat12Pictures';
+import { HTML_TREE, LAN_WAN, NESTED_IF, TABLE, TABLE_DESC, TABLE_LABELS } from './cat12Pictures';
 
 /** A database table drawn as bars: header row = field names, each row = one record. */
 export const FieldsRecords = () => {
@@ -37,3 +37,4 @@ export const FieldsRecords = () => {
 
 export const HtmlTree = () => <Schematic spec={HTML_TREE} />;
 export const LanWan = () => <Schematic spec={LAN_WAN} />;
+export const NestedIf = () => <Schematic spec={NESTED_IF} />;

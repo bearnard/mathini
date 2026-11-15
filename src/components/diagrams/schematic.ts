@@ -38,6 +38,8 @@ export interface SArrow {
   both?: boolean;
   /** Slides the arrow's end along the side it enters, so several arrows into one box do not land on the same point. */
   toShift?: number;
+  /** The same for the start of the arrow. */
+  fromShift?: number;
 }
 export interface SLabel {
   x: number;
@@ -45,6 +47,14 @@ export interface SLabel {
   text: string;
   anchor?: 'start' | 'middle' | 'end';
   tone?: Tone;
+}
+/** A dashed region drawn behind the boxes, such as a LAN around its devices. Boxes must sit fully inside or fully outside it. */
+export interface SZone {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  tone: Tone;
 }
 export interface SchematicSpec {
   /** Short, unique per page (used for the aria ids). */
@@ -56,6 +66,7 @@ export interface SchematicSpec {
   boxes: SBox[];
   arrows: SArrow[];
   labels: SLabel[];
+  zones?: SZone[];
 }
 
 export const textWidth = (t: string, fs = FONT): number => r3(t.length * fs * CHAR_W);
@@ -82,11 +93,14 @@ export function arrowEnds(s: SchematicSpec, a: SArrow): { from: Point; to: Point
       : { x: r3(c.x), y: r3(c.y + Math.sign(towardY) * (box.h / 2)) };
   };
   const to = side(B, bc, -dx, -dy);
+  const from = side(A, ac, dx, dy);
   if (a.toShift) {
-    const useX = Math.abs(dx) * B.h >= Math.abs(dy) * B.w;
-    if (useX) to.y = r3(to.y + a.toShift); else to.x = r3(to.x + a.toShift);
+    if (Math.abs(dx) * B.h >= Math.abs(dy) * B.w) to.y = r3(to.y + a.toShift); else to.x = r3(to.x + a.toShift);
   }
-  return { from: side(A, ac, dx, dy), to };
+  if (a.fromShift) {
+    if (Math.abs(dx) * A.h >= Math.abs(dy) * A.w) from.y = r3(from.y + a.fromShift); else from.x = r3(from.x + a.fromShift);
+  }
+  return { from, to };
 }
 
 export const labelsOf = (s: SchematicSpec): string[] => [
@@ -113,6 +127,14 @@ export function checkSchematic(s: SchematicSpec): string[] {
       const a = s.boxes[i];
       const b = s.boxes[j];
       if (a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h) bad.push(`boxes ${a.id} and ${b.id} overlap`);
+    }
+  }
+  for (const z of s.zones ?? []) {
+    if (z.x < 0 || z.y < 0 || z.x + z.w > s.width || z.y + z.h > s.height) bad.push('a zone leaves the frame');
+    for (const b of s.boxes) {
+      const inside = b.x >= z.x && b.y >= z.y && b.x + b.w <= z.x + z.w && b.y + b.h <= z.y + z.h;
+      const apart = b.x >= z.x + z.w || b.x + b.w <= z.x || b.y >= z.y + z.h || b.y + b.h <= z.y;
+      if (!inside && !apart) bad.push(`box ${b.id} straddles a zone edge`);
     }
   }
   for (const a of s.arrows) {

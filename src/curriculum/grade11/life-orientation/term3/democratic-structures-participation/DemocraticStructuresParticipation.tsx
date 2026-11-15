@@ -1,6 +1,8 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 import type { LearnStep } from '@/components/CapsSubjectTopic';
 
+import { GovernmentBranches } from '@/components/diagrams/lo/LoGovernment';
+
 const learnSteps: LearnStep[] = [
   {
     title: 'Branches of Government',
@@ -9,6 +11,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           South Africa's democracy separates power into <strong>legislative</strong>, <strong>executive</strong>, and <strong>judicial</strong> branches to prevent abuse and strengthen accountability.
         </p>
+        <GovernmentBranches />
         <div className="grid gap-3 md:grid-cols-3 text-left text-sm">
           <div className="rounded-xl bg-blue-50 p-4">
             <strong className="text-blue-700">Legislature</strong>

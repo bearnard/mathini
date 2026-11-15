@@ -2,12 +2,15 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
 import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
+import { LanWan } from '../../../../../components/diagrams/cat/Cat12Pictures';
+
 const learnSteps: LearnStep[] = [
   {
     title: "LANs, WANs and connectivity",
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"A LAN links devices in a limited area such as a school lab, while a WAN connects devices over much larger distances using telecommunications infrastructure. In Grade 12 questions, compare range, ownership, cost and speed. The internet itself is a global network of networks, built from many connected WAN technologies."</p>
+        <LanWan />
       </div>
     ),
   },

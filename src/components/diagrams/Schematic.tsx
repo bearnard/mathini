@@ -20,6 +20,9 @@ export const Schematic = ({ spec }: { spec: SchematicSpec }) => {
           <path d="M0,0 L6,3 L0,6 z" fill="#e2e8f0" />
         </marker>
       </defs>
+      {(spec.zones ?? []).map((z) => (
+        <rect key={`${z.x}-${z.y}`} x={z.x} y={z.y} width={z.w} height={z.h} rx={4} fill={TONES[z.tone]} fillOpacity={0.07} stroke={TONES[z.tone]} strokeWidth={0.9} strokeDasharray="3 2" />
+      ))}
       {spec.arrows.map((a) => {
         const e = arrowEnds(spec, a);
         return (
