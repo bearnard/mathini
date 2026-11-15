@@ -1,60 +1,82 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Hub, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { Mediation } from '../../../../../components/diagrams/lo/Lo10Pictures';
+import { splitEvenly } from '../../../../../components/diagrams/lo/lo10Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// The break time split in the worked example comes from this helper (lo10Helpers.test.ts).
+const BREAK_MINUTES = 20;
+const each = splitEvenly(BREAK_MINUTES, 2) ?? 0;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Understanding Conflict Resolution',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Conflict</strong> happens when people have different needs or interests.
-          <strong> Conflict resolution</strong> is working toward solutions that satisfy everyone.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Conflict can be healthy when resolved constructively.</p>
-        </div>
-      </div>
+    title: 'Why conflict happens',
+    content: slide(
+      <>
+        <Rule>Conflict arises when people have different needs, interests or values. It is not always bad. Handled well, it leads to growth and stronger relationships.</Rule>
+        <Hub centre="Conflict" spokes={['Needs', 'Interests', 'Values']} aria="A circle labelled Conflict with three causes around it: different needs, different interests and different values." />
+        <Worked
+          title="Two friends both want the field at break"
+          steps={[<>One wants to play soccer. The other wants to play netball. Their interests differ.</>, <>Both really need time to play.</>, <>They decide to talk calmly instead of fighting.</>]}
+        />
+        <Mistake>Thinking all conflict is bad, or that a disagreement ends a friendship. Talking calmly and listening can make the friendship stronger.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Negotiation, Mediation, and Dialogue',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Negotiation</strong> is discussing to reach agreement. <strong>Mediation</strong> is using a neutral person to help.
-          <strong> Respectful dialogue</strong> means listening and speaking honestly.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Negotiation</strong>
-            <p className="text-slate-600">Direct discussion.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Mediation</strong>
-            <p className="text-slate-600">Third-party help.</p>
-          </div>
-          <div className="rounded-xl bg-yellow-50 p-4">
-            <strong className="text-yellow-700">Dialogue</strong>
-            <p className="text-slate-600">Honest conversation.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Negotiation and respectful dialogue',
+    content: slide(
+      <>
+        <Rule>Negotiation is talking to reach a deal both sides can accept. Respectful dialogue means listening, being honest and valuing the other person.</Rule>
+        <StepFlow steps={['Each side says what it needs.', 'Listen without interrupting.', 'Suggest options that suit both.', 'Agree on a deal both accept.']} aria="Four steps of negotiation in order: each side says what it needs, listen without interrupting, suggest options that suit both, agree on a deal both accept." />
+        <Worked
+          title="Sharing the field"
+          steps={[<>Break is {BREAK_MINUTES} minutes and there are 2 games.</>, <>Share it equally: {BREAK_MINUTES} ÷ 2 = {each} minutes each.</>, <>Soccer first for {each} minutes, then netball for {each} minutes.</>, <>Both sides accept, so it is a win-win deal.</>]}
+        />
+        <Mistake>Shouting to win, or giving in without saying what you need. Negotiation looks for a win-win or a compromise.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Leadership and Advocacy',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Leadership</strong> means guiding others toward goals. <strong>Advocacy</strong> is working to address social problems.
-          Young people can be powerful advocates for change.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Advocates do:</p>
-          <p className="text-slate-600">Listen, plan, raise awareness, and take action for causes that matter.</p>
-        </div>
-      </div>
+    title: 'Mediation: a neutral helper',
+    content: slide(
+      <>
+        <Rule>Mediation helps when the sides cannot settle a conflict themselves. A neutral mediator helps them find common ground, but the sides still make the deal.</Rule>
+        <Mediation left="Side A" right="Side B" mediator="Mediator" aria="Two sides with a neutral mediator between them. A neutral person helps both sides, and the sides still make the deal." />
+        <Worked
+          title="Two learners still argue after trying to talk"
+          steps={[<>First try to negotiate with each other.</>, <>If that fails, ask a neutral person, such as a trusted teacher.</>, <>Each side speaks while the mediator listens.</>, <>The mediator helps them find common ground.</>]}
+        />
+        <Mistake>Choosing a mediator who takes a side, or expecting the mediator to pick a winner. A mediator stays neutral.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Leadership, advocacy and activism',
+    content: slide(
+      <>
+        <Rule>Leadership is guiding and inspiring others towards shared goals. Advocacy is working to address social problems and bring about change. Activism is taking sustained action for change.</Rule>
+        <StepFlow steps={['Learn the issue.', 'Build support.', 'Take action.', 'Keep going and reflect.']} aria="Four steps for young advocates in order: learn the issue, build support, take action, keep going and reflect." />
+        <Worked
+          title="Litter at school"
+          steps={[<>Learn the issue: where is the litter, and why?</>, <>Build support with the learner council and teachers.</>, <>Take action: organise a clean-up and ask for more bins.</>, <>Keep going: check again next month.</>]}
+        />
+        <Mistake>Thinking one loud protest is enough. Effective advocacy and activism are informed and sustained.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What causes conflict, and is all conflict bad?" answer="Different needs, interests or values. No: handled well, conflict can lead to growth." />
+        <Check question="What is negotiation, and what makes dialogue respectful?" answer="Talking to reach a deal both sides can accept. Dialogue is respectful when it has listening, honesty and valuing the other person." />
+        <Check question="When is mediation helpful?" answer="When the sides cannot settle the conflict themselves. A neutral mediator helps them find common ground." />
+        <Check question="How can young people be effective advocates?" answer="By learning the issues, building support and taking action." />
+      </>,
     ),
   },
 ];
