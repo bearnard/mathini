@@ -8,7 +8,8 @@ import { signSession } from '../session';
 import { CHILD_FAILURES_PER_HOUR, HOUR_MS, INVITE_TTL_MS, MAX_ACTIVE_INVITES, NOT_RIGHT, PARENT_ATTEMPTS_PER_HOUR, createInvite, isLinked, linkByInvite, linkByPin, listChildren } from './links';
 import { parentWithdrew, setParentConsent } from './consent';
 import { RESETS_PER_CHILD_PER_DAY, RESETS_PER_PARENT_PER_DAY, resetChildPin } from './pinReset';
-import { loadChildActivity } from './progressSeam';
+import { loadChildProgress } from './progressSeam';
+import { refreshForRun } from '../progress/topicProgress';
 import { handleChildConsent, handleChildProgress, handleChildResetPin, handleChildUnlink, handleCreateInvite, handleLinkInvite, handleLinkPin, handleListChildren, type ParentDeps } from './http';
 import { NOW, SECRET, addAdult, addStudent, openParentsDb, type ParentsTestDb } from './testDb';
 
@@ -30,7 +31,7 @@ const setup = async () => {
 
 // ---------- the migration ----------
 
-test('0014 is additive and idempotent, and stores only invite-token HASHES', async (t0) => {
+test('0015 is additive and idempotent, and stores only invite-token HASHES', async (t0) => {
   const code = SQL.replace(/--.*$/gm, '');
   assert.ok(!/\b(DROP|ALTER|DELETE|UPDATE|INSERT|REPLACE)\b/i.test(code), 'only CREATE statements');
   for (const m of code.matchAll(/CREATE\s+(TABLE|INDEX)\s+(?!IF NOT EXISTS)/gi)) assert.fail(`not idempotent: ${m[0]}`);
@@ -207,6 +208,7 @@ test('a parent sees only safe fields of a child: never the login code, PIN hash,
   const prog = await (await handleChildProgress(get('/p', x.mum.cookie), dps, 'student-0001')).text();
   for (const body of [list, prog]) assert.ok(!/TIGER-4821|pin_hash|pin_salt|Real Name Secret|Secret School|real_name|login_code/.test(body), body);
   assert.deepEqual(Object.keys((JSON.parse(list) as { children: Record<string, unknown>[] }).children[0]).sort(), ['avatar', 'consent', 'consentVersion', 'displayName', 'grade', 'id', 'lastSeenAt', 'linkedAt']);
+  assert.ok(!/real_name|school|pin_|login_code|Real Name/.test(prog), 'the progress response carries nothing private either');
 });
 
 test('only the parent role may use these routes: signed-out is 401, a teacher who is not a parent is 403, and writes need the action header and Origin', async (t0) => {
@@ -285,21 +287,31 @@ test('PIN resets are limited: 3 a day per child and 5 a day per parent', async (
   assert.equal((await handleChildResetPin(post('/r', 'parent-reset-pin', viaHttp.cookie), silent(x, { now: NOW + 2000 }), 'student-0002')).status, 429);
 });
 
-// ---------- activity ----------
+// ---------- progress ----------
 
-test('the activity shown for a child counts only that child\'s answers', async (t0) => {
+test('a parent sees the SAME ProgressResponse the learner would get, for the linked child only', async (t0) => {
   const x = await setup(); if (!x) return t0.skip('node:sqlite unavailable');
-  const DAY = 86_400_000;
-  const put = x.raw.prepare("INSERT INTO attempts (student_id, task, section, grade, subject, topic, is_correct, created_at) VALUES (?, 'gr6-nst-t1', 'general', 6, 'nst', 'matter', ?, ?)");
-  for (let i = 0; i < 12; i++) put.run('student-0001', i < 9 ? 1 : 0, NOW - i * 3600_000 * 4);
-  put.run('student-0001', 1, NOW - 20 * DAY);
-  for (let i = 0; i < 30; i++) put.run('student-0002', 0, NOW - 1000 * i);
-  const a = await loadChildActivity(x.db, 'student-0001', NOW);
-  assert.deepEqual([a.attemptsLast7Days, a.attemptsLast30Days, a.recentAccuracyPct], [12, 13, Math.round((100 * 10) / 13)]);
-  assert.ok(a.daysPractisedLast14 >= 2 && a.daysPractisedLast14 <= 4);
-  assert.ok(a.lastPractisedAt === NOW);
-  const none = await loadChildActivity(x.db, 'student-9999', NOW);
-  assert.deepEqual(none, { attemptsLast7Days: 0, attemptsLast30Days: 0, daysPractisedLast14: 0, lastPractisedAt: null, recentAccuracyPct: null });
+  const put = x.raw.prepare("INSERT INTO attempts (student_id, task, section, grade, subject, topic, is_correct, created_at) VALUES (?, 'electric-circuits', 'general', 6, 'nst', 'electric-circuits', ?, ?)");
+  for (let i = 0; i < 24; i++) put.run('student-0001', i < 20 ? 1 : 0, NOW - (i + 1) * 3600_000 * 6);
+  for (let i = 0; i < 6; i++) put.run('student-0002', 0, NOW - i * 1000);
+  await refreshForRun(x.db, 'student-0001', ['electric-circuits'], NOW);
+  await linkByPin(x.db, x.mum.userId, { loginCode: 'TIGER-4821', pin: '4821', consent: false }, NOW);
+  await linkByPin(x.db, x.dad.userId, { loginCode: 'EAGLE-1111', pin: '1111', consent: false }, NOW);
+  const dps = silent(x);
+  const res = await handleChildProgress(get('/p', x.mum.cookie), dps, 'student-0001');
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get('cache-control'), 'no-store');
+  const body = await res.json() as { child: { id: string }; progress: Record<string, unknown> & { displayName: string; grade: number; subjects: { topics: { attempts: number }[] }[] } };
+  assert.deepEqual(Object.keys(body).sort(), ['child', 'progress']);
+  assert.equal(body.child.id, 'student-0001');
+  assert.deepEqual(body.progress, JSON.parse(JSON.stringify(await loadChildProgress(x.db, 'student-0001', NOW))), 'the very function behind GET /api/progress');
+  assert.equal(body.progress.displayName, 'Tiger Kid');
+  assert.equal(body.progress.subjects.flatMap((s) => s.topics).find((t) => t.attempts > 0)?.attempts, 24, "only student-0001's 24 answers");
+  const dad = await (await handleChildProgress(get('/p', x.dad.cookie), dps, 'student-0002')).json() as { progress: { displayName: string; subjects: unknown[] } };
+  assert.equal(dad.progress.displayName, 'Eagle Kid');
+  assert.ok(!JSON.stringify(dad).includes('Tiger Kid'));
+  assert.equal((await handleChildProgress(get('/p', x.dad.cookie), dps, 'student-0001')).status, 404, "dad cannot read mum's child");
+  assert.equal(await loadChildProgress(x.db, 'student-9999', NOW), null);
 });
 
 // ---------- logging, headers, pages ----------
@@ -319,9 +331,23 @@ test('a failure logs only the error message: never a PIN, token, code or name', 
 test('the parent pages and API are never cached, indexed or tracked, and the pages keep no token in storage', () => {
   const cfg = fs.readFileSync('next.config.ts', 'utf8');
   for (const src of ["'/parent'", "'/parent/:path*'", "'/invite-parent'", "'/api/parent/:path*'", "'/api/students/me/parent-invite'"]) assert.ok(cfg.includes(`source: ${src}`), src);
-  const robots = fs.readFileSync('src/app/robots.ts', 'utf8');
-  assert.ok(robots.includes("'/parent'") && robots.includes("'/invite-parent'"));
+  const robots = fs.readFileSync('src/lib/seo/publicPaths.ts', 'utf8');
+  assert.ok(robots.includes("'/parent'") && robots.includes("'/invite-parent'"), 'robots.txt takes PRIVATE_PREFIXES');
   for (const f of ['InviteLanding', 'InviteMaker', 'ParentDashboard']) assert.ok(!/localStorage|sessionStorage|document\.cookie/.test(fs.readFileSync(`src/components/parents/${f}.tsx`, 'utf8')), f);
   assert.ok(fs.readFileSync('src/components/parents/InviteLanding.tsx', 'utf8').includes('replaceState'), 'the invite token leaves the address bar');
   for (const f of ['parent/page.tsx', 'parent/link/page.tsx', 'invite-parent/page.tsx']) assert.match(fs.readFileSync(`src/app/${f}`, 'utf8'), /index: false/);
+});
+
+test('the parent progress view renders every part of a ProgressResponse in the third person', async () => {
+  const { renderToStaticMarkup } = await import('react-dom/server');
+  const { createElement } = await import('react');
+  const { ProgressDetails, ProgressStats } = await import('../../../components/parents/ChildProgress');
+  const { MOCK_PROGRESS } = await import('../../shared/progressMock');
+  const html = renderToStaticMarkup(createElement('div', null, createElement(ProgressStats, { p: MOCK_PROGRESS }), createElement(ProgressDetails, { p: MOCK_PROGRESS })));
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  assert.ok(text.includes('Exam readiness') && text.includes('Days practised, of 14') && text.includes('Day streak'));
+  for (const s of MOCK_PROGRESS.subjects) assert.ok(text.includes(s.label), s.label);
+  assert.ok(MOCK_PROGRESS.tests.length === 0 || text.includes('Recent tests'));
+  assert.ok(text.includes(MOCK_PROGRESS.nextStep.title));
+  assert.ok(!/\b(you|your)\b/i.test(text.replace(MOCK_PROGRESS.nextStep.title, '').replace(MOCK_PROGRESS.nextStep.reason, '')), 'no learner-voice wording of its own');
 });

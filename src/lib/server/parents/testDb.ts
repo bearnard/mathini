@@ -1,7 +1,8 @@
-// Test helper: the real migrations (through 0011 via the questions helper, plus 0004 consent columns, 0013 adult accounts and 0014 parents) over node:sqlite,
-// with learners and parents to work with.
+// Test helper: the real migrations (the admin helper builds 0002 to 0014: students, attempts, runs, topic_progress) plus 0013 adult accounts and
+// 0015 parents, over node:sqlite, with learners and parents to work with.
 import fs from 'node:fs';
-import { adminDbOf, openQuestionsDb } from '../questions/testQuestionsDb';
+import type { DatabaseSync } from 'node:sqlite';
+import { openTestDb } from '../admin/testdb';
 import { hashPin } from '../identity';
 import { signIn } from '../adultAuth/magicLink';
 import { createSession } from '../adultAuth/sessions';
@@ -10,10 +11,10 @@ export const NOW = 1_800_000_000_000;
 export const SECRET = 'test-session-secret';
 
 export async function openParentsDb() {
-  const t = await openQuestionsDb();
+  const t = await openTestDb();
   if (!t) return null;
-  for (const m of ['0004_parent_consent.sql', '0013_adult_auth.sql', '0015_parents.sql']) t.raw.exec(fs.readFileSync(`migrations/${m}`, 'utf8'));
-  return { t, raw: t.raw, db: adminDbOf(t) };
+  for (const m of ['0013_adult_auth.sql', '0015_parents.sql']) t.raw.exec(fs.readFileSync(`migrations/${m}`, 'utf8'));
+  return { t, raw: t.raw as unknown as DatabaseSync, db: t.db };
 }
 export type ParentsTestDb = NonNullable<Awaited<ReturnType<typeof openParentsDb>>>;
 

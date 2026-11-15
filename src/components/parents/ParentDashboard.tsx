@@ -2,7 +2,9 @@
 // The parent's page (ADR 0003 phase 2): children linked to me, with consent, a PIN reset and a way to link another child. Everything is decided on
 // the server; this page only shows it and sends the buttons' requests.
 import { useCallback, useEffect, useState } from 'react';
-import { ago, call, CONSENT_TEXT, type Activity, type ChildSummary } from './api';
+import type { ProgressResponse } from '../../lib/shared/progressTypes';
+import { ago, call, CONSENT_TEXT, type ChildSummary } from './api';
+import { ProgressDetails, ProgressStats } from './ChildProgress';
 
 type Me = { user: { email: string } | null; roles: string[] };
 
@@ -10,14 +12,15 @@ const btn = 'min-h-11 rounded-xl px-4 text-base font-semibold';
 const field = 'mt-1 min-h-11 w-full rounded-lg border border-slate-300 px-3 py-2 text-base text-slate-900';
 
 function ChildCard({ child, now, onChanged }: { child: ChildSummary; now: number; onChanged: () => void }) {
-  const [activity, setActivity] = useState<Activity | null>(null);
+  const [progress, setProgress] = useState<ProgressResponse | null>(null);
+  const [more, setMore] = useState(false);
   const [note, setNote] = useState('');
   const [pin, setPin] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
     let live = true;
-    void call<{ activity: Activity }>(`/api/parent/children/${child.id}/progress`).then((r) => { if (live && r.ok) setActivity(r.data.activity); });
+    void call<{ progress: ProgressResponse }>(`/api/parent/children/${child.id}/progress`).then((r) => { if (live && r.ok) setProgress(r.data.progress); });
     return () => { live = false; };
   }, [child.id]);
 
@@ -32,12 +35,12 @@ function ChildCard({ child, now, onChanged }: { child: ChildSummary; now: number
     <section className="rounded-2xl bg-white p-4 shadow-sm" aria-label={child.displayName}>
       <h2 className="text-lg font-bold text-slate-900">{child.displayName} <span className="text-sm font-semibold text-slate-600">Grade {child.grade}</span></h2>
       <p className="mt-1 text-sm text-slate-600">Last on PrepPals: {ago(child.lastSeenAt, now)}</p>
-      {activity && (
-        <dl className="mt-3 grid grid-cols-3 gap-2 text-center">
-          <div className="rounded-xl bg-slate-50 p-2"><dt className="text-xs text-slate-600">Answers, 7 days</dt><dd className="text-xl font-bold text-slate-900">{activity.attemptsLast7Days}</dd></div>
-          <div className="rounded-xl bg-slate-50 p-2"><dt className="text-xs text-slate-600">Days practised, of 14</dt><dd className="text-xl font-bold text-slate-900">{activity.daysPractisedLast14}</dd></div>
-          <div className="rounded-xl bg-slate-50 p-2"><dt className="text-xs text-slate-600">Recent answers right</dt><dd className="text-xl font-bold text-slate-900">{activity.recentAccuracyPct == null ? 'not yet' : `${activity.recentAccuracyPct}%`}</dd></div>
-        </dl>
+      {progress && (
+        <>
+          <ProgressStats p={progress} />
+          <button className="mt-2 text-sm font-semibold text-indigo-700 underline" aria-expanded={more} onClick={() => setMore((m) => !m)}>{more ? 'Hide details' : 'Show details'}</button>
+          {more && <ProgressDetails p={progress} />}
+        </>
       )}
       <p className="mt-3 text-sm text-slate-700">{CONSENT_TEXT[child.consent]}</p>
       <div className="mt-3 flex flex-wrap gap-2">

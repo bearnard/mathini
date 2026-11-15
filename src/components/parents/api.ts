@@ -10,14 +10,6 @@ export interface ChildSummary {
   consentVersion: string | null;
 }
 
-export interface Activity {
-  attemptsLast7Days: number;
-  attemptsLast30Days: number;
-  daysPractisedLast14: number;
-  lastPractisedAt: number | null;
-  recentAccuracyPct: number | null;
-}
-
 export interface ApiResult<T> { ok: boolean; status: number; data: T & { error?: string } }
 
 export async function call<T = Record<string, unknown>>(path: string, action?: string, body?: unknown): Promise<ApiResult<T>> {

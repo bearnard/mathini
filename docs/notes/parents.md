@@ -22,4 +22,4 @@ Every `/api/parent/children/<id>/...` route first checks that the signed-in pare
 
 ## Dashboard
 
-`/parent`: linked children, activity (answers in 7 days, days practised of 14, accuracy of the last answers), consent, reset PIN, unlink, link another. ADR 0005's full progress (mastery, exam readiness) will come through the same server function that backs `GET /api/progress`: `src/lib/server/parents/progressSeam.ts` is the one place to change when it exists on main (today it is plain activity from `attempts`).
+`/parent`: linked children with their **progress** (exam readiness, days practised of 14, streak, and on request next step, subjects with the weakest topics, recent tests and review cards), consent, reset PIN, unlink, link another. The progress is the SAME `ProgressResponse` the learner's own page gets from `GET /api/progress` (ADR 0005): `GET /api/parent/children/<id>/progress` builds it with the same `buildProgress`, for a child taken from a `parent_links` row instead of from the learner's session (`src/lib/server/parents/progressSeam.ts`).

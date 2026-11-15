@@ -9,7 +9,7 @@ import { verifySession, SESSION_COOKIE_NAME } from '../session';
 import { setParentConsent } from './consent';
 import { createInvite, isLinked, linkByInvite, linkByPin, listChildren, unlink } from './links';
 import { resetChildPin } from './pinReset';
-import { loadChildActivity } from './progressSeam';
+import { loadChildProgress } from './progressSeam';
 
 export const MAX_BODY_BYTES = 2048;
 
@@ -90,7 +90,7 @@ export async function handleLinkInvite(req: Request, deps: ParentDeps): Promise<
   }
 }
 
-/** GET: a linked child's activity. 404 for a child that is not linked to me. */
+/** GET: a linked child's progress (the same ProgressResponse the learner sees). 404 for a child that is not linked to me. */
 export async function handleChildProgress(req: Request, deps: ParentDeps, studentId: string): Promise<Response> {
   try {
     const g = await requireRole(req, deps.db, ['parent'], deps.now);
@@ -98,7 +98,8 @@ export async function handleChildProgress(req: Request, deps: ParentDeps, studen
     if (!CHILD_ID.test(studentId)) return notFound();
     const child = (await listChildren(deps.db, g.session.user.id)).find((c) => c.id === studentId);
     if (!child) return notFound();
-    return authJson({ child, activity: await loadChildActivity(deps.db, studentId, deps.now) });
+    const progress = await loadChildProgress(deps.db, studentId, deps.now);
+    return progress ? authJson({ child, progress }) : notFound();
   } catch (err) {
     return failed(deps, 'progress', err);
   }
