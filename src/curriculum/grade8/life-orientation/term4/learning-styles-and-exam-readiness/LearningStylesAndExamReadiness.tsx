@@ -1,27 +1,85 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Hub, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { RevisionGrid } from '../../../../../components/diagrams/lo/lo7Pictures';
+import { assignBlocks, comma, minutesPerMark, minutesText } from '../../../../../components/diagrams/lo/lo7Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// Numbers in the pictures and examples come from these helpers (lo7Helpers.test.ts).
+const plan = assignBlocks(['Maths', 'English', 'Natural Sciences'], 5, 2);
+const BLOCK = 30;
+const mathsMinutes = plan.counts[0].blocks * BLOCK;
+const test = { minutes: 45, marks: 30, perMark: comma(minutesPerMark(45, 30)) };
+const catchUp = assignBlocks(['Topic A', 'Topic B', 'Topic C', 'Topic D'], 3, 2);
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Prepare with a revision system',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Learning styles and exam readiness includes revision planning, note-making, memory techniques, and managing
-          stress during assessment periods.
-        </p>
-      </div>
+    title: 'A revision plan spreads the work',
+    content: slide(
+      <>
+        <Rule>A revision plan spreads your learning over time and reduces panic. Divide your subjects into daily revision blocks, and include the difficult topics.</Rule>
+        <RevisionGrid grid={plan.grid} subjects={plan.counts} aria={`A plan for five days with two blocks a day. Maths has ${plan.counts[0].blocks} blocks, English ${plan.counts[1].blocks} and Natural Sciences ${plan.counts[2].blocks}.`} />
+        <Worked
+          title="Five days, two blocks a day, three subjects"
+          steps={[<>Blocks: 5 × 2 = {plan.total}.</>, <>Share them in turn: Maths {plan.counts[0].blocks}, English {plan.counts[1].blocks}, Natural Sciences {plan.counts[2].blocks}.</>, <>Each block is {BLOCK} minutes, so Maths gets {plan.counts[0].blocks} × {BLOCK} = {mathsMinutes} minutes, or {minutesText(mathsMinutes)}.</>]}
+        />
+        <Mistake>Leaving all your revision for one day, or studying only your favourite topics and skipping the difficult ones.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Use time and stress management',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Learners perform better when they revise consistently, practise active recall, and use healthy routines
-          before tests.
-        </p>
-      </div>
+    title: 'Notes and learning preferences',
+    content: slide(
+      <>
+        <Rule>Summarise key points in your own words. Use the ways you learn best, such as pictures, listening or doing, and combine them with active practice.</Rule>
+        <Hub centre="My revision" spokes={['Diagrams', 'Explain aloud', 'Practice questions', 'Summaries']} aria="A circle labelled My revision with four methods around it: diagrams, explaining aloud, practice questions and summaries." />
+        <Worked
+          title="Summarise a paragraph"
+          steps={[<>Read: “Plants use sunlight, water and carbon dioxide to make glucose and release oxygen.”</>, <>Pick the key words: sunlight, water, carbon dioxide, glucose, oxygen.</>, <>Write your own short version: “Plants + light + water + CO₂ → glucose + oxygen.”</>]}
+        />
+        <Mistake>Copying pages without thinking, or using one method only and rejecting all others. A mix of methods works better.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Active recall and practice questions',
+    content: slide(
+      <>
+        <Rule>Active recall means testing yourself without looking at your notes first. Practise past-style questions to improve your timing and find weak areas.</Rule>
+        <StepFlow steps={['Close your notes.', 'Write what you remember.', 'Check against your notes.', 'Mark the gaps and revise them.']} aria="Four steps of active recall in order: close your notes, write what you remember, check against your notes, mark the gaps and revise them." />
+        <Worked
+          title={`A ${test.marks}-mark test in ${test.minutes} minutes`}
+          steps={[<>Timing: {test.minutes} ÷ {test.marks} = {test.perMark} minutes for each mark.</>, <>A 4-mark question should take about 4 × {test.perMark} = {comma(4 * minutesPerMark(test.minutes, test.marks))} minutes.</>, <>If you run over, practise that type of question again.</>]}
+        />
+        <Mistake>Reading your notes once and thinking you know them. Reading feels easy. Testing yourself shows what you really remember.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Stress and catching up',
+    content: slide(
+      <>
+        <Rule>Manage exam stress by sleeping well, breathing calmly and following your plan. If you feel unprepared, make a simple catch-up plan and ask for help.</Rule>
+        <StepFlow steps={['List the topics you still need.', 'Put the weakest first.', 'Plan short daily blocks.', 'Ask a teacher or classmate for help.']} aria="Four steps for catching up in order: list the topics you still need, put the weakest first, plan short daily blocks, ask a teacher or classmate for help." />
+        <Worked
+          title="Three days left and four topics"
+          steps={[<>Blocks: 3 × 2 = {catchUp.total}.</>, <>Two topics get {catchUp.counts[0].blocks} blocks and two get {catchUp.counts[3].blocks}. Give the weakest topics the extra blocks.</>, <>Total study time: {catchUp.total} × {BLOCK} = {catchUp.total * BLOCK} minutes, or {minutesText(catchUp.total * BLOCK)}.</>]}
+        />
+        <Mistake>Cramming all night without breaks, or hiding your worries and doing nothing. Sleep, a plan and asking for help work better.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is the benefit of a revision plan?" answer="It spreads learning over time and reduces panic." />
+        <Check question="What does active recall mean?" answer="Testing yourself without looking at your notes first." />
+        <Check question="You have a 30-mark test in 45 minutes. How long can you spend on each mark?" answer={`${test.perMark} minutes for each mark (45 ÷ 30).`} />
+        <Check question="You feel unprepared for a test. What should you do?" answer="Make a simple catch-up plan and ask for help." />
+      </>,
     ),
   },
 ];
