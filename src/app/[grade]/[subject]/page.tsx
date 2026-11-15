@@ -7,6 +7,7 @@ import { subjectMeta } from '../../../lib/seo/pageMeta';
 import { breadcrumbLd, courseLd, subjectCrumbs } from '../../../lib/seo/structuredData';
 import { ctaOutline, ctaPrimary } from '../../../lib/seo/ctaStyles';
 import { Breadcrumbs, PublicShell } from '../../../components/seo/PublicShell';
+import AdSlot from '../../../components/analytics/AdSlot';
 
 interface PageParams {
   grade: string;
@@ -46,6 +47,8 @@ export default async function SubjectLandingPage({ params }: { params: Promise<P
           Start practising {subject.title}
         </Link>
       </div>
+
+      <AdSlot placement="subject" />
 
       <div className="mt-12 space-y-10">
         {subject.terms.map((term) => (

@@ -7,6 +7,7 @@ import { fitDescription, topicMeta } from '../../../../lib/seo/pageMeta';
 import { breadcrumbLd, learningResourceLd, topicCrumbs } from '../../../../lib/seo/structuredData';
 import { ctaOutline, ctaPrimary } from '../../../../lib/seo/ctaStyles';
 import { Breadcrumbs, PublicShell } from '../../../../components/seo/PublicShell';
+import AdSlot from '../../../../components/analytics/AdSlot';
 
 interface PageParams { grade: string; subject: string; topic: string }
 
@@ -44,6 +45,8 @@ export default async function TopicPage({ params }: { params: Promise<PageParams
       <div className="mt-6">
         <Link href={practiseHref(grade, subject, term, topic)} className={`${ctaPrimary} text-lg px-8 py-3`}>Practise now</Link>
       </div>
+
+      <AdSlot placement="topic" />
 
       <section className="mt-12" aria-labelledby="scope">
         <h2 id="scope" className="text-xl font-bold text-slate-900">Where this fits in CAPS</h2>

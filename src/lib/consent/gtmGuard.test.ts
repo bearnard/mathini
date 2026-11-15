@@ -15,8 +15,11 @@ const walk = (dir: string): string[] =>
 const files = walk(SRC).filter((f) => !/\.test\.tsx?$/.test(f));
 
 const OWNS_ID = new Set(['src/lib/consent/gtmConsent.ts']);
+const OWNS_ADS = new Set(['src/lib/ads/adsense.ts']);
+const ADS_COMPONENTS = new Set(['src/components/analytics/AdsLoader.tsx', 'src/components/analytics/AdSlot.tsx']);
+const SLOT_PAGES = ['src/app/[grade]/[subject]/page.tsx', 'src/app/[grade]/[subject]/[topic]/page.tsx'];
 const RENDERS_ANALYTICS = new Set(['src/components/seo/PublicShell.tsx', 'src/app/page.tsx', 'src/app/privacy/page.tsx']);
-const ANALYTICS_COMPONENTS = new Set(['src/components/analytics/PublicAnalytics.tsx', 'src/components/analytics/ConsentGtm.tsx', 'src/components/analytics/CookieChoiceButton.tsx']);
+const ANALYTICS_COMPONENTS = new Set(['src/components/analytics/PublicAnalytics.tsx', 'src/components/analytics/ConsentGtm.tsx', 'src/components/analytics/CookieChoiceButton.tsx', ...ADS_COMPONENTS]);
 
 test('the container id and the Tag Manager URLs appear in one library file and nowhere else in the app', () => {
   const hits = files.filter((f) => /GTM-MNM3XGLP|googletagmanager\.com|google-analytics\.com/i.test(fs.readFileSync(f, 'utf8'))).map(rel);
@@ -27,6 +30,7 @@ test('only the home page, the privacy page and PublicShell render the analytics 
   const importers = files
     .filter((f) => !ANALYTICS_COMPONENTS.has(rel(f)))
     .filter((f) => /from ['"][^'"]*(analytics\/(PublicAnalytics|ConsentGtm|CookieChoiceButton)|consent\/gtmConsent)['"]/.test(fs.readFileSync(f, 'utf8')))
+    .filter((f) => !OWNS_ADS.has(rel(f)))
     .map(rel);
   assert.deepEqual(importers.sort(), [...RENDERS_ANALYTICS, 'src/components/analytics/PublicAnalytics.tsx'].filter((f) => !ANALYTICS_COMPONENTS.has(f)).sort());
 });
@@ -57,7 +61,7 @@ function reaches(start: string, targets: Set<string>): string | null {
 const PRIVATE_ROUTE_DIRS = ['app/app', 'app/progress', 'app/parent', 'app/teacher', 'app/teacher-review', 'app/admin', 'app/sign-in', 'app/account', 'app/invite-parent', 'app/unsubscribe', 'app/api'];
 
 test('no learner, parent, teacher, admin or review route (page, layout or API) reaches the analytics code through any import', () => {
-  const targets = new Set([...ANALYTICS_COMPONENTS, ...OWNS_ID, 'src/components/seo/PublicShell.tsx']);
+  const targets = new Set([...ANALYTICS_COMPONENTS, ...OWNS_ID, ...OWNS_ADS, 'src/components/seo/PublicShell.tsx']);
   let checked = 0;
   for (const dir of PRIVATE_ROUTE_DIRS) {
     const abs = path.join(SRC, dir);
@@ -74,7 +78,7 @@ test('no learner, parent, teacher, admin or review route (page, layout or API) r
 test('the root layout and every layout outside the public pages stay free of Tag Manager', () => {
   const layouts = files.filter((f) => /\/layout\.tsx$/.test(f));
   assert.ok(layouts.length >= 2);
-  const targets = new Set([...ANALYTICS_COMPONENTS, ...OWNS_ID, 'src/components/seo/PublicShell.tsx']);
+  const targets = new Set([...ANALYTICS_COMPONENTS, ...OWNS_ID, ...OWNS_ADS, 'src/components/seo/PublicShell.tsx']);
   for (const l of layouts) assert.equal(reaches(l, targets), null, `${rel(l)} must not load Tag Manager`);
 });
 
@@ -89,6 +93,40 @@ test('the privacy page says what is true: analytics only with consent, never in 
   const notice = fs.readFileSync(path.join(ROOT, 'src/lib/privacyNotice.ts'), 'utf8');
   assert.match(notice, /Google Tag Manager and Google Analytics/);
   assert.match(notice, /only run if you press Accept/);
-  assert.match(notice, /never loaded inside the app/i);
+  assert.match(notice, /ever loaded inside the app/i);
   assert.ok(!/We do not use advertising or third-party analytics, and we do not sell/.test(notice), 'the old blanket claim is gone');
+});
+
+test('AdSense: the publisher id, the script and the slot code live in the ads library and its two components, nowhere else in the app', () => {
+  const hits = files.filter((f) => /adsbygoogle|pub-4961734822376251|googlesyndication|pagead2/i.test(fs.readFileSync(f, 'utf8'))).map(rel);
+  assert.deepEqual(hits.sort(), [...OWNS_ADS, ...ADS_COMPONENTS, 'src/components/analytics/AdSlot.tsx'].filter((v, i, a) => a.indexOf(v) === i).sort());
+});
+
+test('exactly two pages draw an ad slot: the topic page and the subject page, never the home page, the demo, the FAQ, /for-parents, /for-teachers or /privacy', () => {
+  const users = files.filter((f) => /<AdSlot\b/.test(fs.readFileSync(f, 'utf8'))).map(rel);
+  assert.deepEqual(users.sort(), [...SLOT_PAGES].sort());
+  for (const f of SLOT_PAGES) assert.equal((fs.readFileSync(path.join(ROOT, f), 'utf8').match(/<AdSlot\b/g) ?? []).length, 1, `${f}: one slot at most`);
+  const topic = fs.readFileSync(path.join(ROOT, SLOT_PAGES[1]), 'utf8');
+  assert.ok(topic.indexOf('Practise now</Link>') < topic.indexOf('<AdSlot'), 'the slot is below the Practise now button');
+  assert.ok(topic.indexOf('<AdSlot') < topic.indexOf('Where this fits in CAPS'), 'and above the rest of the content');
+});
+
+test('the ad script is requested only after Accept and always non-personalised, and ads.txt is exactly the owner line', () => {
+  const loader = fs.readFileSync(path.join(ROOT, 'src/components/analytics/AdsLoader.tsx'), 'utf8');
+  assert.match(loader, /requestNonPersonalizedAds = 1/);
+  assert.match(loader, /disablePersonalization/);
+  assert.match(loader, /crossOrigin = 'anonymous'/);
+  assert.match(loader, /adsAllowed\(choice/);
+  assert.match(loader, /isPublicPath\(/);
+  assert.equal(fs.readFileSync(path.join(ROOT, 'public/ads.txt'), 'utf8'), 'google.com, pub-4961734822376251, DIRECT, f08c47fec0942fa0\n');
+});
+
+test('no page claims "no ads" or "no advertising" any more, and the privacy notice says what the ads are', () => {
+  const copy = files.filter((f) => /\/(seo|landing)\//.test(f) || /privacyNotice/.test(f)).map((f) => fs.readFileSync(f, 'utf8')).join('\n');
+  assert.ok(!/\bno ads\b|with no ads|We do not use advertising/i.test(copy), 'a "no ads" claim is left');
+  const notice = fs.readFileSync(path.join(ROOT, 'src/lib/privacyNotice.ts'), 'utf8');
+  assert.match(notice, /Google AdSense/);
+  assert.match(notice, /non-personalised/);
+  assert.match(notice, /If you press Decline, no ad is requested/);
+  assert.match(notice, /Those areas never show ads/);
 });
