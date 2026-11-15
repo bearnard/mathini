@@ -1,59 +1,84 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { HBars } from '../../../../../components/diagrams/lo/Lo8Pictures';
+import { hoursMinutes, subjectMinutes, totalMinutes } from '../../../../../components/diagrams/lo/lo8Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// Numbers in the timetable example come from these tested helpers (lo8Helpers.test.ts).
+const plan = subjectMinutes([
+  { subject: 'Maths', sessions: 3, length: 30 },
+  { subject: 'Life Sciences', sessions: 2, length: 30 },
+  { subject: 'English', sessions: 2, length: 30 },
+]);
+const weekTotal = totalMinutes(plan);
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Understanding Subject Demands',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Each subject has different demands—what it requires you to learn and do well.
-          Understanding these demands helps you <strong>prepare for Grade 10</strong>.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Different subjects need different study strategies.</p>
-        </div>
-      </div>
+    title: 'Subject demands',
+    content: slide(
+      <>
+        <Rule>Subject demands are what a subject asks you to learn and do well: its content, its skills and the standard expected. Different subjects need different study strategies.</Rule>
+        <Worked
+          title="Match the strategy to the subject"
+          steps={[<>Mathematics: practise worked problems.</>, <>Life Sciences: learn the key terms and label diagrams.</>, <>English: read and write regularly.</>, <>Ask each teacher what the subject expects.</>]}
+        />
+        <Mistake>Thinking subject demands are just the homework you must hand in, or that Grade 10 will be just like Grade 9. Each subject asks for more as you move up.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Building Strong Study Routines',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A <strong>study routine</strong> is a habit of studying regularly. Good routines include:
-          <strong> concentration, revision, and time management</strong>.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Concentration</strong>
-            <p className="text-slate-600">Focus without distractions.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Revision</strong>
-            <p className="text-slate-600">Review what you have learned.</p>
-          </div>
-          <div className="rounded-xl bg-yellow-50 p-4">
-            <strong className="text-yellow-700">Time management</strong>
-            <p className="text-slate-600">Plan your study time well.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Concentration and study routines',
+    content: slide(
+      <>
+        <Rule>A study routine is a habit of studying regularly. It helps you learn steadily and remember more. To concentrate, use a quiet place, put your phone away and set a clear goal for the session.</Rule>
+        <Worked
+          title="A 30-minute study session"
+          steps={[<>Goal: do ten maths problems.</>, <>Place: a quiet table, phone in another room.</>, <>Work without switching tasks until the goal is done.</>, <>Short break, then stop or start the next goal.</>]}
+        />
+        <Mistake>Studying next to the television, lying on a bed or playing music with words. A routine is not only for the weeks before exams. It works because you keep it up.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Preparing for the FET Phase',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          The <strong>FET phase (Grade 10–12)</strong> is more demanding. Planning ahead now helps you succeed.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Grade 10 preparation includes:</p>
-          <p className="text-slate-600">Good study habits, time management, and choosing subjects that match your goals.</p>
-        </div>
-      </div>
+    title: 'Revision and time management',
+    content: slide(
+      <>
+        <Rule>Revision is going over what you learned to strengthen your understanding. Do it regularly, even between tests. Time management is planning and using your time well, with breaks and a balance between subjects.</Rule>
+        <HBars title="One week's study plan (minutes)" items={plan.map((p) => ({ label: p.subject, value: p.minutes }))} aria={`A weekly study plan with bars: ${plan.map((p) => `${p.subject} ${p.minutes} minutes`).join(', ')}, ${weekTotal} minutes in total.`} />
+        <Worked
+          title="Plan the week"
+          steps={[<>Maths: 3 sessions × 30 minutes = {plan[0].minutes} minutes.</>, <>Life Sciences and English: 2 × 30 = {plan[1].minutes} minutes each.</>, <>Total: {weekTotal} minutes, or {hoursMinutes(weekTotal)}.</>, <>Add breaks and time to rest.</>]}
+        />
+        <Mistake>Reading your notes once and moving on, or waiting until the night before a test. Regular short revision is better than one rush.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Planning for Grade 10',
+    content: slide(
+      <>
+        <Rule>The FET phase is Grades 10 to 12. Its work is harder, so build good habits now. Start finding out what each subject demands before you choose your subjects.</Rule>
+        <StepFlow steps={['List your interests and strengths.', 'Find out what each subject demands.', 'Ask your teachers for advice.', 'Choose subjects that fit your goals.']} aria="Four steps for choosing subjects in order: list interests and strengths, find out what each subject demands, ask your teachers for advice, choose subjects that fit your goals." />
+        <Worked
+          title="Naledi thinks about Grade 10"
+          steps={[<>She lists what she enjoys and does well.</>, <>She asks what the subjects she likes require.</>, <>She checks her study habits against those demands.</>, <>She starts the habits she needs now.</>]}
+        />
+        <Mistake>Waiting until after the Grade 10 exams, or until Grade 12, to think about subject choices. Planning now gives you time to build the habits you will need.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What are subject demands, and why do they matter for Grade 10?" answer="What a subject asks you to learn and do well. Understanding them now helps you prepare and choose well for Grade 10." />
+        <Check question="What helps you concentrate while studying?" answer="A quiet place, no phone and clear goals." />
+        <Check question="What should a good study timetable include, and how often should you revise?" answer="Time for each subject, breaks and a balance. Revise regularly, even between tests." />
+        <Check question="Which grades make up the FET phase?" answer="Grades 10 to 12." />
+      </>,
     ),
   },
 ];

@@ -1,56 +1,75 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Hub, StepFlow, Zones } from '../../../../../components/diagrams/lo/PswPictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Understanding Relationships',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Relationships are connections with other people—family, friends, and peers.
-          Good relationships are built on <strong>trust, respect, and communication</strong>.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Healthy relationships support your wellbeing and growth.</p>
-        </div>
-      </div>
+    title: 'Healthy relationships and self-respect',
+    content: slide(
+      <>
+        <Rule>Relationships are connections with family, friends and peers. A healthy relationship is built on trust, respect and honest communication. Self-respect means valuing yourself and your wellbeing.</Rule>
+        <Hub centre="Healthy bond" spokes={['Trust', 'Respect', 'Honest talk', 'Support']} aria="A circle labelled Healthy bond with four labels around it: trust, respect, honest talk and support." />
+        <Worked
+          title="Compare two friends"
+          steps={[<>Friend A listens, keeps your secrets and accepts it when you say no: healthy.</>, <>Friend B tells you who you may talk to and pressures you: not healthy.</>, <>Self-respect: you are allowed to step back from Friend B.</>]}
+        />
+        <Mistake>Thinking a relationship where someone controls you, or where you always do what others want, is normal. Self-respect is not pride or selfishness. It is valuing your own wellbeing.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Managing Emotions and Change',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Growing up brings changes in your body, emotions, and relationships.
-          <strong> Emotions</strong> are natural feelings that help you understand yourself and others.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Emotions</strong>
-            <p className="text-slate-600">Joy, sadness, anger, fear are all normal.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Change</strong>
-            <p className="text-slate-600">Growing up is a natural process of change.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Emotions and change in adolescence',
+    content: slide(
+      <>
+        <Rule>Adolescence brings physical, emotional and social changes. Emotions such as joy, sadness, anger and fear are natural. They help you understand yourself and connect with others. With family, you may want more freedom but you still need support.</Rule>
+        <Worked
+          title="Lerato wants to stay out later than her parents allow"
+          steps={[<>Name the emotion: “I feel frustrated.”</>, <>Say it calmly instead of hiding it.</>, <>Listen to why her parents worry.</>, <>Ask to talk about a fair plan.</>]}
+        />
+        <Mistake>Hiding emotions because they show weakness, or thinking your family stops mattering as friends become more important. Family support stays important while you become more independent.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Healthy Boundaries and Communication',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Boundaries</strong> are limits you set to protect your wellbeing.
-          <strong> Communication</strong> is sharing your feelings and needs clearly and respectfully.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Healthy boundaries mean:</p>
-          <p className="text-slate-600">Saying "no" to things that hurt you, talking about your feelings, and respecting others.</p>
-        </div>
-      </div>
+    title: 'Boundaries and peer pressure',
+    content: slide(
+      <>
+        <Rule>A boundary is a limit you set to protect your physical, emotional and mental wellbeing. To handle peer pressure, know your values and say no when something feels wrong.</Rule>
+        <Zones zones={[{ title: 'Passive', line: 'Goes along, stays quiet' }, { title: 'Assertive', line: 'Clear, calm and respectful' }, { title: 'Aggressive', line: 'Loud, rude or threatening' }]} aria="Three ways of answering pressure side by side: passive goes along and stays quiet, assertive is clear, calm and respectful, aggressive is loud, rude or threatening." />
+        <Worked
+          title="A friend asks for your phone password"
+          steps={[<>Your boundary: passwords are private.</>, <>Say calmly: “No, I keep my password to myself.”</>, <>Repeat it if they push.</>, <>Walk away or tell a trusted adult if the pressure continues.</>]}
+        />
+        <Mistake>Believing a boundary means being unfriendly, or going along with something while you are unhappy. A boundary protects you and you can state it politely.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Communication, conflict and getting help',
+    content: slide(
+      <>
+        <Rule>Good communication means listening and being honest about how you feel. Conflict resolution is working together to settle a disagreement with respect. If a relationship feels unsafe, tell a trusted adult.</Rule>
+        <StepFlow steps={['Calm down first.', 'Listen to the other person.', 'Say how you feel.', 'Agree on a fair solution.']} aria="Four steps to settle a conflict in order: calm down, listen, say how you feel, agree on a fair solution." />
+        <Worked
+          title="Two friends argue over a group project"
+          steps={[<>Both calm down before talking.</>, <>Each listens without interrupting.</>, <>Each says how they feel: “I felt left out.”</>, <>They share the tasks fairly.</>]}
+        />
+        <Mistake>Always giving in, avoiding every conflict, or keeping quiet when a relationship feels unsafe. Do not handle an unsafe situation alone: tell a trusted adult.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is a healthy relationship based on, and what is self-respect?" answer="Trust, respect and honest communication. Self-respect is valuing yourself and your wellbeing." />
+        <Check question="What changes happen in adolescence, and why do emotions matter?" answer="Physical, emotional and social changes. Emotions are natural and help you understand yourself and connect with others." />
+        <Check question="What is a boundary, and how do you handle peer pressure?" answer="A limit you set to protect your wellbeing. Know your values and say no when something feels wrong." />
+        <Check question="A relationship feels unsafe. What do you do? What is conflict resolution?" answer="Tell a trusted adult. Conflict resolution is working together to settle a disagreement with respect." />
+      </>,
     ),
   },
 ];
