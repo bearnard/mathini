@@ -12,7 +12,7 @@ const learnSteps: LearnStep[] = [
           events={[
             {"date": "c. 440 BCE", "title": "Herodotus writes Histories", "description": "Herodotus wrote about wars and peoples of the past. He is often called the 'Father of History' because he tried to explain events using evidence."},
             {"date": "1377", "title": "Ibn Khaldun studies causes", "description": "Ibn Khaldun wrote the Muqaddimah and explained that historians should think carefully about causes and evidence. His work showed that history is more than just telling stories."},
-            {"date": "1791", "title": "France creates national archives", "description": "During the French Revolution, France created a national archives system. This helped preserve records so historians could study the past more carefully."},
+            {"date": "1791", "title": "France creates national archives", "description": "During the French Revolution, France set up a national archives. This helped preserve records so historians could study the past more carefully."},
             {"date": "1948", "title": "Oral history grows", "description": "Modern oral history projects began recording interviews in a more organised way. This showed that memories and spoken testimony are also important historical evidence."},
           ]}
         />

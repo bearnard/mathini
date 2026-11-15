@@ -24,7 +24,7 @@ const learnSteps: LearnStep[] = [
     title: 'New places for care',
     image: {
       src: '/curriculum/grade6/his/term4/european-medicine/diagram.svg',
-      alt: 'timeline of hospitals germ theory hygiene and vaccines',
+      alt: 'four icons: hospitals, germ theory, hygiene and vaccines (ideas, not in date order)',
     },
     content: (
       <div className="space-y-4 text-center">
