@@ -1,4 +1,6 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
+import { NumberedSteps } from '@/components/diagrams/business/NumberedSteps';
+import { HR_SELECTION_STEPS } from '@/components/diagrams/business/steps';
 import SwotMatrix from '@/components/subjects/SwotMatrix';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
@@ -60,12 +62,7 @@ const learnSteps: LearnStep[] = [
           <p className="font-semibold text-blue-800">Key Term: Selection</p>
           <p className="text-slate-600 mt-1">The process of screening applicants and choosing the most suitable person for the vacancy.</p>
         </div>
-        <ol className="list-decimal pl-6 space-y-2 text-slate-600">
-          <li>Screen applications against the job specification.</li>
-          <li>Shortlist the strongest candidates.</li>
-          <li>Interview, test and check references fairly.</li>
-          <li>Make the appointment using objective evidence.</li>
-        </ol>
+        <NumberedSteps steps={HR_SELECTION_STEPS} tone="blue" label="How selection narrows the candidates" />
       </div>
     ),
   },

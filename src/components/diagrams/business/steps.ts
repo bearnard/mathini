@@ -66,3 +66,19 @@ export const CRISIS_STEPS: readonly Step[] = [
   { lead: 'Contain', text: ' the damage and restore operations' },
   { lead: 'Review and learn', text: ' — update the crisis plan based on lessons learnt' },
 ];
+
+/** G12 Term 1, "Selection narrows down the best candidate" (human-resources-processes, four steps). */
+export const HR_SELECTION_STEPS: readonly Step[] = [
+  { text: 'Screen applications against the job specification.' },
+  { text: 'Shortlist the strongest candidates.' },
+  { text: 'Interview, test and check references fairly.' },
+  { text: 'Make the appointment using objective evidence.' },
+];
+
+/** G11 IT Term 2, "Connecting a program to a database": the lesson's own "connect → query → process results → close connection". */
+export const DB_CONNECTION_STEPS: readonly Step[] = [
+  { text: 'Connect' },
+  { text: 'Query' },
+  { text: 'Process results' },
+  { text: 'Close connection' },
+];
