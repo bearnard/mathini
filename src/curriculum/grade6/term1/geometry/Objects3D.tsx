@@ -7,7 +7,7 @@ const learnSteps: LearnStep[] = [
     title: 'Faces, Edges and Vertices',
     content: (
       <div className="space-y-6 text-center">
-        <p className="text-lg text-slate-600">A 3D object has <strong>faces</strong> (flat sides), <strong>edges</strong> (where faces meet) and <strong>vertices</strong> (corners).</p>
+        <p className="text-lg text-slate-600">A 3D object has <strong>faces</strong> (the flat or curved surfaces), <strong>edges</strong> (where two faces meet) and <strong>vertices</strong> (corners). A curved surface counts as one face, so a cylinder has 3 faces.</p>
         <SolidsRow names={['cube', 'cylinder', 'square pyramid']} />
       </div>
     ),
@@ -16,7 +16,7 @@ const learnSteps: LearnStep[] = [
     title: 'More 3D Objects',
     content: (
       <div className="space-y-6 text-center">
-        <p className="text-lg text-slate-600">Different 3D objects have different numbers of faces, edges, and vertices.</p>
+        <p className="text-lg text-slate-600">Different 3D objects have different numbers of faces, edges and vertices. The cone's pointed tip is a vertex, and a sphere has no edges or vertices.</p>
         <SolidsRow names={['cone', 'sphere', 'rectangular prism']} />
       </div>
     ),

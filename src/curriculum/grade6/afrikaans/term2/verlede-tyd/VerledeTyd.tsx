@@ -64,7 +64,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Verbs you will meet',
     content: slide(
       <>
-        <Rule>Most verbs just add <Af>ge-</Af>. One needs a small spelling change: <Af>eet</Af> becomes <Af>geëet</Af>, with <Af>ë</Af> to show a new syllable.</Rule>
+        <Rule>Most verbs just add <Af>ge-</Af> (verbs that start with <Af>be-</Af>, <Af>ver-</Af>, <Af>ont-</Af> or <Af>her-</Af> do not). One needs a small spelling change: <Af>eet</Af> becomes <Af>geëet</Af>, with <Af>ë</Af> to show a new syllable.</Rule>
         <Worked
           title="Make the past"
           steps={[

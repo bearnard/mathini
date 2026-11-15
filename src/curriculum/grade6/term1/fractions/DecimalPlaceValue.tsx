@@ -35,7 +35,7 @@ const learnSteps: LearnStep[] = [
     title: 'Place Value After the Decimal',
     content: (
       <div className="space-y-6 text-center">
-        <p className="text-lg text-slate-600">Each position after the decimal comma has a special value.</p>
+        <p className="text-lg text-slate-600">Each position after the decimal comma has a special value. To order decimals, compare the same places: 0,3 = 0,30, which is more than 0,13 and less than 0,31. Also 3/10 = 0,3 and 7/100 = 0,07.</p>
         <DecimalGrids values={[0.34]} captions={['after the comma: 3 tenths + 4 hundredths']} />
         <div className="bg-white p-6 rounded-xl border border-slate-200 inline-block">
           <div className="text-4xl font-bold text-slate-800 mb-4">12,34</div>

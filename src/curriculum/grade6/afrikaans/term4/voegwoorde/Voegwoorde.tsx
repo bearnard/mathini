@@ -89,7 +89,7 @@ export const learnSteps: LearnStep[] = [
             <><Af>Kom jy vandag of môre?</Af> <En>Are you coming today or tomorrow?</En> Again a choice: <Af>of</Af>.</>,
           ]}
         />
-        <Mistake>Writing <Af>of</Af> (or) when you mean <Af>want</Af> (because). They look alike but do different jobs.</Mistake>
+        <Mistake>Using <Af>en</Af> when you offer a choice. <Af>Kom jy vandag en môre?</Af> asks about both days. For either one, write <Af>Kom jy vandag of môre?</Af></Mistake>
       </>,
     ),
   },

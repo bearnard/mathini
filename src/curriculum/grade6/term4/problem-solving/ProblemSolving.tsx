@@ -40,10 +40,10 @@ const learnSteps: LearnStep[] = [
                 <p className="text-sm text-slate-500">Draw the bar: the whole, the parts you know, and the part you must find.</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-2xl mx-auto">
                     <div className="bg-indigo-50 p-4 rounded-xl text-indigo-800 font-bold">1. Total</div>
-                    <div className="bg-emerald-50 p-4 rounded-xl text-emerald-800 font-bold">2. Share or Compare</div>
+                    <div className="bg-emerald-50 p-4 rounded-xl text-emerald-800 font-bold">2. Calculate each step</div>
                     <div className="bg-amber-50 p-4 rounded-xl text-amber-800 font-bold">3. Answer</div>
                 </div>
-                <p className="text-slate-500">For shopping: multiply first, add the costs, then subtract to find change.</p>
+                <p className="text-slate-500">For shopping: find each cost (multiply if you buy several of one item), add the costs, then subtract the total from the money paid to find the change. Sharing equally means divide.</p>
             </div>
         )
     },
@@ -55,7 +55,7 @@ const learnSteps: LearnStep[] = [
                 <BarModel paid={PAID} parts={PARTS} unknown="change" solved />
                 <div className="bg-slate-50 p-6 rounded-xl inline-block space-y-2">
                     <p className="text-slate-500">{formatRand(PARTS[0].cents)} + {formatRand(PARTS[1].cents)} = <strong>{formatRand(SUM.spent)}</strong></p>
-                    <p className="text-slate-500">{formatRand(PAID)} - {formatRand(SUM.spent)} = <strong>{formatRand(SUM.change)} change</strong></p>
+                    <p className="text-slate-500">{formatRand(PAID)} − {formatRand(SUM.spent)} = <strong>{formatRand(SUM.change)} change</strong></p>
                     <p className="text-indigo-600 font-bold">Check: {formatRand(SUM.spent)} + {formatRand(SUM.change)} = {formatRand(SUM.spent + SUM.change)}</p>
                 </div>
             </div>

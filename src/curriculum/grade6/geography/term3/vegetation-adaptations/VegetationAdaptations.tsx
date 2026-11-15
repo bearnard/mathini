@@ -31,7 +31,7 @@ const learnSteps: LearnStep[] = [
           instead of leaves. Rainforest plants may have broad leaves and drip tips to cope with heavy rain.
         </p>
         <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-amber-50 p-4"><strong>Cactus</strong><br />stores water</div>
+          <div className="rounded-xl bg-amber-50 p-4"><strong>Succulents</strong><br />store water</div>
           <div className="rounded-xl bg-stone-100 p-4"><strong>Spines</strong><br />reduce water loss</div>
           <div className="rounded-xl bg-emerald-50 p-4"><strong>Broad leaves</strong><br />catch light in forests</div>
         </div>
@@ -81,18 +81,18 @@ const learnSteps: LearnStep[] = [
           <ClimateGraph
             station="Durban"
             data={[
-                      { month: 'Jan', rainfall: 130, temp: 27 },
-                      { month: 'Feb', rainfall: 130, temp: 27 },
-                      { month: 'Mar', rainfall: 120, temp: 27 },
-                      { month: 'Apr', rainfall: 80, temp: 25 },
-                      { month: 'May', rainfall: 50, temp: 23 },
-                      { month: 'Jun', rainfall: 40, temp: 21 },
-                      { month: 'Jul', rainfall: 30, temp: 21 },
-                      { month: 'Aug', rainfall: 40, temp: 22 },
-                      { month: 'Sep', rainfall: 60, temp: 23 },
-                      { month: 'Oct', rainfall: 90, temp: 24 },
-                      { month: 'Nov', rainfall: 110, temp: 25 },
-                      { month: 'Dec', rainfall: 120, temp: 26 },
+                      { month: 'Jan', rainfall: 130, temp: 25 },
+                      { month: 'Feb', rainfall: 130, temp: 25 },
+                      { month: 'Mar', rainfall: 120, temp: 24 },
+                      { month: 'Apr', rainfall: 80, temp: 22 },
+                      { month: 'May', rainfall: 50, temp: 19 },
+                      { month: 'Jun', rainfall: 40, temp: 17 },
+                      { month: 'Jul', rainfall: 30, temp: 17 },
+                      { month: 'Aug', rainfall: 40, temp: 18 },
+                      { month: 'Sep', rainfall: 60, temp: 19 },
+                      { month: 'Oct', rainfall: 90, temp: 21 },
+                      { month: 'Nov', rainfall: 110, temp: 22 },
+                      { month: 'Dec', rainfall: 120, temp: 24 },
                     ]}
           />
         </div>

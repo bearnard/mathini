@@ -11,7 +11,7 @@ const learnSteps: LearnStep[] = [
                 <PerimeterGrid length={6} breadth={4} />
                 <div className="bg-slate-50 p-4 rounded-xl inline-block">
                     <p className="text-slate-500 mt-6">For a rectangle: <strong>P = 2 × (l + b)</strong></p>
-                    <p className="text-slate-500">Perimeter is measured in <strong>cm</strong>.</p>
+                    <p className="text-slate-500">Perimeter is a length, so it is measured in units such as <strong>cm</strong> or <strong>m</strong>.</p>
                 </div>
             </div>
         ),
@@ -24,7 +24,7 @@ const learnSteps: LearnStep[] = [
                 <AreaGrid length={6} breadth={4} />
                 <div className="bg-emerald-50 p-4 rounded-xl inline-block">
                     <p className="text-slate-500 mt-6">For a rectangle: <strong>A = l × b</strong></p>
-                    <p className="text-slate-500">Area is measured in <strong>cm²</strong>.</p>
+                    <p className="text-slate-500">Area is measured in square units such as <strong>cm²</strong> or <strong>m²</strong>.</p>
                 </div>
             </div>
         ),

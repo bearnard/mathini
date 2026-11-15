@@ -131,7 +131,7 @@ export const HabitatNeeds = () => {
 
 export const Adaptations = () => (
   <svg viewBox="0 0 150 84" role="img" aria-labelledby="ada-t ada-d" className={frame} style={style()}>
-    <title id="ada-t">Three adaptations</title>
+    <title id="ada-t">Interdependence and two adaptations</title>
     <desc id="ada-d">A bee carries pollen between flowers. A green stick insect hides on a green leaf. A plant with long roots reaches water deep in the soil.</desc>
     {[0, 1, 2].map((i) => (
       <rect key={i} x={3 + i * 49} y={3} width={46} height={52} rx={5} fill="#1e293b" />

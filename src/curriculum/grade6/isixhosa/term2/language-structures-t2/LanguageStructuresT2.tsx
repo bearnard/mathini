@@ -25,7 +25,7 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">asks about time: when?</p>
           </div>
           <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Intoni?</p>
+            <p className="font-bold text-violet-700">Yintoni?</p>
             <p className="text-slate-600">asks about things: what?</p>
           </div>
         </div>

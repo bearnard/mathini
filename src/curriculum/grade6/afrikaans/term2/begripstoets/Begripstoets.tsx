@@ -63,7 +63,7 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Find the time and the reason"
           steps={[
-            <><Af>Die bus kom om agt-uur.</Af> <Af>Hoe laat</Af> kom die bus? <Af>Om agt-uur.</Af></>,
+            <><Af>Die bus kom om agt uur.</Af> <Af>Hoe laat</Af> kom die bus? <Af>Om agt uur.</Af></>,
             <><Af>Hulle bly binne omdat dit reën.</Af> <En>They stay inside because it rains.</En></>,
             <><Af>Hoekom</Af> bly hulle binne? <Af>Omdat dit reën.</Af></>,
           ]}

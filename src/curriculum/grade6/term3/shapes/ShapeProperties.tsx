@@ -24,7 +24,7 @@ const learnSteps: LearnStep[] = [
         title: 'Polygons Have Angles',
         content: (
             <div className="space-y-6 text-center">
-                <p className="text-lg text-slate-600">For these polygons, the number of sides is the same as the number of angles.</p>
+                <p className="text-lg text-slate-600">In every polygon, the number of sides is the same as the number of angles.</p>
                 <div className="bg-emerald-50 p-6 rounded-xl inline-block border border-emerald-100">
                     <svg viewBox="0 0 160 140" className="w-56 h-44 mx-auto" aria-label="Hexagon with six corners">
                         <polygon points="80,12 134,43 134,97 80,128 26,97 26,43" fill="#d1fae5" stroke="#059669" strokeWidth="6" />
@@ -41,7 +41,7 @@ const learnSteps: LearnStep[] = [
         title: '3D Objects',
         content: (
             <div className="space-y-6 text-center">
-                <p className="text-lg text-slate-600">A 3D object has <strong>faces</strong>, <strong>edges</strong> and <strong>vertices</strong>.</p>
+                <p className="text-lg text-slate-600">A 3D object has <strong>faces</strong> (flat or curved surfaces), <strong>edges</strong> (where two faces meet) and <strong>vertices</strong> (corners). A curved surface counts as one face, so a cylinder has 3 faces.</p>
                 <SolidsRow names={['cube', 'cylinder', 'square pyramid']} />
             </div>
         ),

@@ -70,10 +70,10 @@ const learnSteps: LearnStep[] = [
         )
     },
     {
-        title: "Always Check Your Answer",
+        title: "Simplify Your Answer",
         content: (
             <div className="space-y-6 text-center">
-                <p className="text-lg text-slate-600">After adding or subtracting, simplify the answer if you can.</p>
+                <p className="text-lg text-slate-600">After adding or subtracting, simplify the answer if you can. If the denominators differ, change to a common denominator first: 1/3 = 2/6, so 1/3 + 1/6 = 2/6 + 1/6 = 3/6 = 1/2.</p>
                 <AddAndSimplifyBars n1={2} n2={1} d={6} />
                 <div className="bg-slate-50 p-3 sm:p-6 rounded-xl inline-flex items-center gap-1 min-[360px]:gap-1.5 sm:gap-4 text-slate-800">
                     <FractionDisplay fraction={{ numerator: 2, denominator: 6 }} className="text-xl min-[360px]:text-2xl sm:text-4xl" />

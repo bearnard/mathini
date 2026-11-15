@@ -39,6 +39,19 @@ const learnSteps: LearnStep[] = [
       </div>
     ),
   },
+  {
+    title: 'Two special cases',
+    content: (
+      <div className="space-y-6 text-center">
+        <p className="text-lg text-slate-600"><strong>1 is not prime</strong>: it has only one factor (1). It is not composite either.</p>
+        <div className="bg-white p-6 rounded-xl border border-slate-200 max-w-sm mx-auto space-y-2">
+          <p className="text-slate-600"><strong>2</strong> is the smallest prime. Its factors are 1 and 2.</p>
+          <p className="text-slate-600">2 is the <strong>only even prime</strong>: every other even number can be divided by 2, so it has more than two factors.</p>
+          <p className="text-slate-500 text-sm">First primes: 2, 3, 5, 7, 11, 13, 17, 19</p>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export const bank: CapsItem[] = [

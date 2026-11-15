@@ -51,8 +51,8 @@ const learnSteps: LearnStep[] = [
                 <p className="text-lg text-slate-600">Good measuring starts by choosing a unit that makes sense.</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-2xl mx-auto">
                     <div className="bg-white border border-slate-200 p-4 rounded-xl">
-                        <p className="font-bold text-slate-800">Pencil tip</p>
-                        <p className="text-indigo-600">millimetres</p>
+                        <p className="font-bold text-slate-800">Length of a pencil</p>
+                        <p className="text-indigo-600">centimetres</p>
                     </div>
                     <div className="bg-white border border-slate-200 p-4 rounded-xl">
                         <p className="font-bold text-slate-800">Classroom door</p>

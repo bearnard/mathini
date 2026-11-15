@@ -43,7 +43,7 @@ const learnSteps: LearnStep[] = [
                         <p className="text-slate-500">8:45 pm</p>
                     </div>
                 </div>
-                <p className="text-slate-500">For pm times after noon, add 12 to the hour: 2:30 pm becomes 14:30.</p>
+                <p className="text-slate-500">For pm times from 1:00 pm, add 12 to the hour: 2:30 pm becomes 14:30. Noon stays 12:00 (12:30 pm is 12:30), and midnight is 00:00.</p>
             </div>
         )
     },

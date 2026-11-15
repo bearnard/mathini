@@ -61,7 +61,7 @@ const learnSteps: LearnStep[] = [
     title: 'Trade Data — A Simple Export and Import Example',
     content: (
       <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">This example uses a few products to show how exports and imports can be compared. When exports are larger than imports for a product, the country earns more from that trade item.</p>
+        <p className="text-lg text-slate-600">These made-up numbers (a value index, not real rand amounts) use a few products to show how exports and imports can be compared. When exports are larger than imports for a product, the country earns more from that trade item.</p>
         <DataChart
           data={[
                         { product: 'Fruit', exports: 12, imports: 3 },

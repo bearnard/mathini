@@ -1,6 +1,6 @@
 import CapsSubjectTopic from '../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../components/CapsSubjectTopic';
-import { JumpLine } from '../../../../components/diagrams/maths/PatternDiagrams';
+import { ChainSteps, JumpLine } from '../../../../components/diagrams/maths/PatternDiagrams';
 
 const learnSteps: LearnStep[] = [
   {
@@ -19,7 +19,8 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-6 text-center">
         <p className="text-lg text-slate-600">To find the rule, look at how to get from one number to the next.</p>
         <JumpLine start={5} rule={{ op: '+', n: 5 }} count={3} />
-        <p className="text-slate-500">Sometimes you add, subtract, or multiply.</p>
+        <p className="text-slate-500">Sometimes you add, subtract, or multiply. This rule is multiply by 3:</p>
+        <ChainSteps start={2} rule={{ op: '×', n: 3 }} count={4} />
       </div>
     ),
   },

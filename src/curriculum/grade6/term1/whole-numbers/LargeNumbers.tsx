@@ -34,7 +34,8 @@ const learnSteps: LearnStep[] = [
           <div className="bg-emerald-50 p-4 rounded-b-lg text-2xl font-mono font-bold text-emerald-900">456</div>
           <div className="bg-amber-50 p-4 rounded-b-lg text-2xl font-mono font-bold text-amber-900">789</div>
         </div>
-        <p className="text-slate-500 text-sm mt-4">123 Million, 456 Thousand, 789</p>
+        <p className="text-slate-500 text-sm mt-4">123 456 789 is 123 million, 456 thousand, 789.</p>
+        <p className="text-slate-500 text-sm">Inside each group the places are hundreds, tens, ones. So the 1 is 1 hundred million (100 000 000) and the 2 is 2 ten millions (20 000 000).</p>
       </div>
     ),
   },

@@ -14,7 +14,7 @@ const learnSteps: LearnStep[] = [
             {"date": "1652", "title": "Dutch station founded", "description": "Jan van Riebeeck established a Dutch refreshment station at the Cape. Ships could stop there for water, food, and repairs."},
             {"date": "1795", "title": "Britain first occupies Cape", "description": "Britain captured the Cape from the Dutch during the wars in Europe. The Cape mattered because it helped protect the sea route to India and the East."},
             {"date": "1806", "title": "Britain wins again", "description": "Britain took the Cape again after the Battle of Blaauwberg. From then on, British control lasted for many years."},
-            {"date": "1834", "title": "Slavery is abolished", "description": "Slavery was abolished in the Cape Colony under British rule. This was a major change, even though equality did not come immediately."},
+            {"date": "1834", "title": "Slavery is abolished", "description": "Slavery was abolished in the Cape Colony under British rule in 1834. Freed slaves still had to work as ‘apprentices’ for their former owners until 1838, so real freedom and equality did not come immediately."},
           ]}
         />
       </div>
@@ -66,7 +66,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
           British rule brought new laws, officials, and settlers. One major change was that
-          <strong> slavery at the Cape was abolished in 1834</strong>. Freedom did not immediately
+          <strong> slavery at the Cape was abolished in 1834</strong>. Freed people had to work as ‘apprentices’ for their former owners until 1838, so freedom did not immediately
           mean equality, but it was an important turning point.
         </p>
         <div className="bg-purple-50 p-6 rounded-xl inline-flex flex-wrap items-center justify-center gap-3 text-xl font-bold text-slate-700">

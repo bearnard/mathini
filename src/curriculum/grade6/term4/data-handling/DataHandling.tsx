@@ -31,6 +31,7 @@ const learnSteps: LearnStep[] = [
                     <p className="font-mono text-3xl font-bold text-emerald-700">3, 5, <span className="text-indigo-600">8</span>, 8, 16</p>
                     <p className="text-slate-500"><strong>Median:</strong> the middle value is <strong>8</strong>.</p>
                     <p className="text-slate-500"><strong>Range:</strong> 16 − 3 = <strong>13</strong>.</p>
+                    <p className="text-slate-500 text-sm">With an even number of values, the median is halfway between the two middle values.</p>
                 </div>
             </div>
         )
@@ -55,7 +56,7 @@ const learnSteps: LearnStep[] = [
         title: 'Reading Graphs',
         content: (
             <div className="space-y-6 text-center">
-                <p className="text-lg text-slate-600">Bar graphs and pictographs help us compare values quickly.</p>
+                <p className="text-lg text-slate-600">Bar graphs help us compare values quickly. The height of each bar shows the value for that group.</p>
                 <BarGraph title="Fruit in the basket" yLabel="Number of fruits" step={2} items={[{ label: 'Apples', value: 8 }, { label: 'Bananas', value: 5 }, { label: 'Oranges', value: 7 }]} />
                 <p className="text-slate-500 text-sm">Apples have the highest value: 8.</p>
             </div>
