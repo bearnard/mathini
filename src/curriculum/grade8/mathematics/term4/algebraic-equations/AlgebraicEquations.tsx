@@ -1,16 +1,151 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { LinePlot, SumBars, UndoFlow } from '../../../../../components/diagrams/maths/Grade8Graphs';
+import { solve } from '../../../../../components/diagrams/maths/grade8NumberHelpers';
 
-const learnSteps: LearnStep[] = [
+// Every number in the slides below comes from these tested helpers (grade8NumberHelpers) and
+// lessonsMaths6.test.ts checks that the rendered slides show them.
+const m = (n: number) => (n < 0 ? `−${Math.abs(n)}` : String(n));
+
+const one = solve(1, -6, 11); // x − 6 = 11
+const two = solve(4, 0, 28); // 4x = 28
+const div = 3 * 5; // x ÷ 5 = 3: multiply both sides by 5
+const wrongDiv = 3 / 5; // the mistake: dividing again
+const step = solve(3, 5, 26); // 3x + 5 = 26
+const wrongStep = 26 / 3 - 5; // the mistake: dividing first
+const br = { half: 16 / 2, x: 16 / 2 - 3 }; // 2(x + 3) = 16
+const neg = solve(-3, 10, -8); // 10 − 3x = −8
+const both = solve(3 - 1, 4, 12); // 3x + 4 = x + 12 → 2x + 4 = 12
+const meet = 3 * both.x + 4;
+const ages = solve(2, 3, 27); // x + x + 3 = 27
+
+// "Check yourself", answers computed from the same helpers
+const c1 = 6 * 4; // x ÷ 4 = 6
+const c2 = solve(-2, 7, -5);
+const c3 = { third: 15 / 3, x: 15 / 3 + 2 }; // 3(x − 2) = 15
+const c4 = { left: 4 * 3 - 1, right: 2 * 3 + 5 };
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Consolidate linear equation fluency',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Equation fluency improves with clear transformations and regular checking. Learners isolate variables,
-          maintain balance, and verify solutions in context.
-        </p>
-      </div>
+    title: 'Inverse operations: say what you do to both sides',
+    content: slide(
+      <>
+        <Rule>Solve by undoing what was done to x, doing the same to both sides. Write the operation next to each step so every change can be checked.</Rule>
+        <UndoFlow ops={[{ op: '÷', n: 5 }]} result={3} />
+        <Worked
+          steps={[
+            <>x − 6 = 11. Add 6 to both sides: x = 11 + 6 = <strong>{one.x}</strong>.</>,
+            <>4x = 28. Divide both sides by 4: x = <strong>{two.x}</strong>.</>,
+            <>x ÷ 5 = 3. Multiply both sides by 5: x = 3 × 5 = <strong>{div}</strong>.</>,
+          ]}
+        />
+        <Mistake>Using the same operation instead of its inverse: x ÷ 5 = 3 does not give x = 3 ÷ 5 = {String(wrongDiv).replace('.', ',')}. Dividing is undone by multiplying.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Two steps: undo in reverse order, then check',
+    content: slide(
+      <>
+        <Rule>x was multiplied first and the number added last, so undo the + or − first, then the × or ÷. Substitute the answer to check.</Rule>
+        <UndoFlow ops={[{ op: '×', n: 3 }, { op: '+', n: 5 }]} result={26} />
+        <Worked
+          title="3x + 5 = 26"
+          steps={[
+            <>Subtract 5 from both sides: 3x = {step.rhs}.</>,
+            <>Divide both sides by 3: x = <strong>{step.x}</strong>.</>,
+            <>Check: 3 × {step.x} + 5 = {3 * step.x + 5} ✓. In the same way, x = 4 solves 3x + 1 = 13 because 3 × 4 + 1 = {3 * 4 + 1}.</>,
+          ]}
+        />
+        <Mistake>Dividing first: 26 ÷ 3 − 5 ≈ {String(Math.round(wrongStep * 100) / 100).replace('.', ',')}, which does not check. The + 5 was done last, so undo it first.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Brackets and negative terms',
+    content: slide(
+      <>
+        <Rule>With brackets, divide by the number outside first (or expand). With a negative x-term, keep its sign when you divide.</Rule>
+        <UndoFlow ops={[{ op: '+', n: 3 }, { op: '×', n: 2 }]} result={16} />
+        <Worked
+          steps={[
+            <>2(x + 3) = 16. Divide both sides by 2: x + 3 = {br.half}. Subtract 3: x = <strong>{br.x}</strong>.</>,
+            <>10 − 3x = {m(-8)}. Subtract 10 from both sides: −3x = {m(neg.rhs)}.</>,
+            <>Divide both sides by −3: x = <strong>{neg.x}</strong>. Check: 10 − 3 × {neg.x} = {m(10 - 3 * neg.x)} ✓.</>,
+          ]}
+        />
+        <Mistake>Losing the sign: −3x = {m(neg.rhs)} gives x = {neg.x}, not {m(-neg.x)}. A negative divided by a negative is positive.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'The unknown on both sides',
+    content: slide(
+      <>
+        <Rule>Subtract the smaller x-term from both sides so x is on one side only. The solution is the x-value where both sides are equal.</Rule>
+        <LinePlot
+          lines={[{ m: 3, c: 4, color: '#818cf8', label: 'y = 3x + 4' }, { m: 1, c: 12, color: '#34d399', label: 'y = x + 12' }]}
+          xMax={6}
+          yMax={24}
+          xStep={1}
+          yStep={6}
+          mark={{ x: both.x, y: meet, text: `(${both.x}; ${meet})` }}
+          aria={`Two straight lines, y = 3x + 4 and y = x + 12, drawn from x = 0 to 6. They cross at x = ${both.x}, where both sides equal ${meet}.`}
+        />
+        <Worked
+          title="3x + 4 = x + 12"
+          steps={[
+            <>Subtract x from both sides: 2x + 4 = 12.</>,
+            <>Subtract 4: 2x = {both.rhs}. Divide by 2: x = <strong>{both.x}</strong>.</>,
+            <>Check: 3 × {both.x} + 4 = {meet} and {both.x} + 12 = {both.x + 12} ✓. The graphs cross at x = {both.x}.</>,
+          ]}
+        />
+        <Mistake>Adding x to both sides “to move it”: 4x + 4 = 2x + 12 still has x on both sides. Subtract the x-term you want to remove.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Writing an equation from words',
+    content: slide(
+      <>
+        <Rule>Let x be the unknown you are asked for, write every other amount in terms of x, form the equation, solve it, and answer in words.</Rule>
+        <SumBars names={['Lerato', 'Thabo']} extra={3} total={27} />
+        <Worked
+          title="Thabo is 3 years older than Lerato. Their ages add up to 27. How old is each?"
+          steps={[
+            <>Let Lerato be x years old; Thabo is x + 3.</>,
+            <>x + x + 3 = 27, so 2x + 3 = 27 and 2x = {ages.rhs}, so x = {ages.x}.</>,
+            <>Lerato is <strong>{ages.x}</strong> and Thabo is <strong>{ages.x + 3}</strong>. Check: {ages.x} + {ages.x + 3} = {ages.x + ages.x + 3} ✓.</>,
+          ]}
+        />
+        <Mistake>Stopping at x = {ages.x}. The question asks for both ages, so finish with Thabo: {ages.x} + 3 = {ages.x + 3}.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Solve x ÷ 4 = 6.</li>
+            <li>Solve 7 − 2x = {m(-5)}.</li>
+            <li>Solve 3(x − 2) = 15.</li>
+            <li>Is x = 3 a solution of 4x − 1 = 2x + 5?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Multiply both sides by 4: x = {c1}.</li>
+            <li>−2x = {m(c2.rhs)}, so x = {c2.x}.</li>
+            <li>x − 2 = {c3.third}, so x = {c3.x}.</li>
+            <li>Yes: 4 × 3 − 1 = {c4.left} and 2 × 3 + 5 = {c4.right}.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
