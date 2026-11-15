@@ -3,6 +3,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import ProcessFlow from '@/components/subjects/ProcessFlow';
 import ClassificationTree from '@/components/subjects/ClassificationTree';
+import { DnaBasePairing } from '@/components/diagrams/lifesci/DnaBasePairing';
 import PunnettSquare from '@/components/subjects/PunnettSquare';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
@@ -43,6 +44,7 @@ const learnSteps: LearnStep[] = [
             ],
           }}
         />
+        <DnaBasePairing />
         <div className="rounded-xl bg-green-50 border border-green-200 p-4">
           <p className="font-semibold text-green-800">Key Concept: Complementary base pairing</p>
           <p className="text-slate-600 mt-1">
