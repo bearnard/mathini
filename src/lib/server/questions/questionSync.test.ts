@@ -236,3 +236,17 @@ test('a tag keeps a later run\'s chunk names (and so its ledger steps) apart fro
   assert.equal(tagged.name, 'sync-r2-g11-001');
   assert.match(tagged.sql, /migration_ledger[^\n]*'sync-r2-g11-001'/);
 });
+
+test('the rename map also settles a reword the matcher could not pair: the new prompt becomes an edit of the OLD id instead of a new question', () => {
+  const fresh = code('Completely different new wording for the same idea?', { options: ['p', 'q'], answer: 'p' });
+  const c: Classified = { identical: [], editedSamePrompt: [], conflict: [], reworded: [], ambiguous: [], newInCode: [fresh], goneFromCode: [] };
+  const row = (id: string) => [id, { q: { id, status: 'active', current_version_id: 7, source: 'curated', task: TASK }, cur: { author: 'seed' } }] as const;
+  const prod = new Map([row('oldquestion1')]);
+  const without = planSync([{ grade: 8, c }], prod as never, NO);
+  assert.deepEqual(without.items.map((i) => i.kind), ['new']);
+  const withMap = planSync([{ grade: 8, c }], prod as never, NO, { oldquestion1: fresh.prompt });
+  assert.deepEqual(withMap.items.map((i) => (i.kind === 'edit' ? [i.questionId, i.reworded] : 'new')), [['oldquestion1', true]]);
+  // a map entry for a question of ANOTHER task does not apply
+  const other = new Map([[ 'oldquestion1', { q: { id: 'oldquestion1', status: 'active', current_version_id: 7, source: 'curated', task: 'some-other-task' }, cur: { author: 'seed' } } ]]);
+  assert.deepEqual(planSync([{ grade: 8, c }], other as never, NO, { oldquestion1: fresh.prompt }).items.map((i) => i.kind), ['new']);
+});

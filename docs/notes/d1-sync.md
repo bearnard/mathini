@@ -54,7 +54,7 @@ D1 is what learners see (flag `serve_from_d1`), so **a change to a bank in code 
 1. **Any merge that edits, rewords, adds or removes a curated bank question** (anything under `src/curriculum/**` that changes a `prompt`, `options`, `answer` or `explanation` of a multiple-choice item) needs a sync afterwards. Run `node --import tsx scripts/question-drift.ts` on a fresh export: it lists exactly what differs, per grade. Zero drift = nothing to do.
 2. Re-export `questions` and `question_versions`, run `node --import tsx scripts/question-sync.ts --tag <short name> --write`, back up, apply the chunks, re-export and confirm the plan is empty. The tag keeps this run's ledger steps apart from earlier runs.
 3. Prefer fixing a single reported question with the admin editor (`/admin/questions`, [question-edit.md](question-edit.md)) instead of editing code: a human edit is never overwritten by a later sync.
-4. A reworded prompt in code is matched to its old question automatically (same answer and options, or a unique 0.8 similarity); anything ambiguous is listed for a rename map. Never delete and re-add a question to reword it.
+4. A reworded prompt in code is matched to its old question automatically (same answer and options, or a unique 0.8 similarity). When the wording AND the options both changed, or the match is ambiguous, add a line to `migrations/seeds/question-renames.json` (`"<old question id>": "<new prompt>"`; the old id is in the drift report or the questions export). The sync reads that file by default and turns the pair into an edit of the OLD question; without the line it would add a new question and leave the old wording served. Never delete and re-add a question to reword it.
 
 See also [merge-checklist.md](merge-checklist.md).
 

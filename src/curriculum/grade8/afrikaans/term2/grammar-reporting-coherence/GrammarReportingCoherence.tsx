@@ -169,10 +169,10 @@ const bank: AfrikaansItem[] = [
     explanation: 'Direct speech uses punctuation and quotation marks.',
   },
   {
-    prompt: "Kies die beste aanpassing van tyd: 'Ek gaan môre oefen,' sê Karla.",
-    options: ['Karla sê sy gaan die volgende dag oefen.', 'Karla sê ek gaan môre oefen.', 'Karla sê sy oefen gister.', 'Karla sê sy gaan môre te gewees oefen.'],
-    answer: 'Karla sê sy gaan die volgende dag oefen.',
-    explanation: "Time words often shift in reported speech.",
+    prompt: "Kies die beste aanpassing van tyd: 'Ek gaan môre oefen,' het Karla gesê.",
+    options: ['Karla het gesê dat sy die volgende dag gaan oefen.', 'Karla het gesê dat ek môre gaan oefen.', 'Karla het gesê dat sy gister oefen.', 'Karla het gesê dat sy môre te gewees oefen.'],
+    answer: 'Karla het gesê dat sy die volgende dag gaan oefen.',
+    explanation: 'After a past reporting verb (het gesê), time words shift: môre becomes die volgende dag, and ek becomes sy.',
   },
 ];
 

@@ -110,7 +110,7 @@ export interface Plan { items: SyncItem[]; held: Held[]; skipped: { questionId: 
 /** Turn the drift results into sync items. Pure given the gathered data. */
 export function planSync(
   results: { grade: number; c: import('./question-drift').Classified }[],
-  prod: Map<string, { q: { id: string; status: string; current_version_id: number | null; source: string }; cur: { author: string } }>,
+  prod: Map<string, { q: { id: string; status: string; current_version_id: number | null; source: string; task?: string }; cur: { author: string } }>,
   o: Options,
   renames: Record<string, string> = {},
   grades?: number[],
@@ -137,7 +137,12 @@ export function planSync(
       else skipped.push({ questionId: a.code.id, why: 'ambiguous reword: add "<oldId>": "<new prompt>" to the rename map', grade: r.grade, task: a.code.task });
     }
     for (const c of r.c.conflict) skipped.push({ questionId: c.code.id, why: 'human-authored version differs from the code: human edit wins', grade: r.grade, task: c.code.task });
-    for (const n of r.c.newInCode) items.push({ kind: 'new', grade: r.grade, code: n });
+    for (const n of r.c.newInCode) {
+      // A reword the matcher could not pair (a different wording AND different options) is settled by the rename map: "<oldQuestionId>": "<new prompt>".
+      const oldId = Object.keys(renames).find((k) => renames[k] === n.prompt && prod.get(k)?.q.task === n.task);
+      if (oldId) add(oldId, n, 'prompt', true);
+      else items.push({ kind: 'new', grade: r.grade, code: n });
+    }
   }
   return { items, held, skipped };
 }
@@ -153,7 +158,9 @@ async function main() {
   const outDir = arg('--out', path.join(auditDir, 'sync'));
   const grades = arg('--grades', '') ? arg('--grades', '').split(',').map(Number) : undefined;
   const o: Options = { resetReviews: flag('--reset-reviews'), keepSource: flag('--keep-source') };
-  const renames = arg('--renames', '') ? (JSON.parse(fs.readFileSync(arg('--renames', ''), 'utf8')) as Record<string, string>) : {};
+  // The committed, human-checked rename map is read by default (an explicit --renames replaces it).
+  const renamesFile = arg('--renames', 'migrations/seeds/question-renames.json');
+  const renames = fs.existsSync(renamesFile) ? (JSON.parse(fs.readFileSync(renamesFile, 'utf8')) as Record<string, string>) : {};
   const { results, prod, prodQ, prodV } = await gather(qFile, vFile);
   const plan = planSync(results, prod, o, renames, grades);
   const tag = arg('--tag', '');
