@@ -157,3 +157,12 @@ schedules intact.
 - **Moderation load:** keep discussions per-question; no forum.
 - **More personal data** (teachers' SACE numbers, school links): restrict SACE numbers to the
   admin/verification view and exclude them from exports.
+
+## Addendum (2026-11-15): email provider
+
+- **Decision:** use Resend for magic-link and summary emails. It has a simple HTTP API, a free tier
+  of about 3k a month, and a data-processing agreement for POPIA. It sits behind a `Mailer`
+  interface, so swapping it later is one file.
+- The owner must create the Resend account, verify the sending domain and set the
+  `RESEND_API_KEY` worker secret. Until then, a dev mailer logs links locally (never in
+  production), and production refuses to send.
