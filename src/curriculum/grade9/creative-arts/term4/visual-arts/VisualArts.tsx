@@ -1,18 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Curate and present a portfolio of artwork',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Visual Arts in Grade 9 Term 4 culminates your learning. You select strongest portfolio pieces, plan exhibition presentation, apply finishing techniques, write critical reflections on your work, and explore creative careers. Demonstrate artistic growth, technical development, and clear communication of intent.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {

@@ -1,18 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Create themed artwork exploring identity and environment',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Visual Arts in Grade 9 Term 3 focuses on personal expression. You explore identity and environment as themes, experiment with mixed media, use symbolism deliberately, and develop critical thinking. Produce a themed artwork and discuss your media choices, symbols, and compositional decisions through artist statements and critique.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {
