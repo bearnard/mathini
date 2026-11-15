@@ -176,9 +176,9 @@ function ClassView({ id, onBack, onChanged, onNewClass }: { id: string; onBack: 
       {c.roster.length === 0 ? (
         <EmptyState title="No one has joined yet">Share the class code and learners will appear here.</EmptyState>
       ) : (
-        <ul className="max-h-[30rem] divide-y divide-slate-100 overflow-y-auto pr-1">
+        <ul className="divide-y divide-slate-100">
           {c.roster.map((m) => (
-            <li key={m.studentId} className="flex items-center justify-between gap-3 py-1.5">
+            <li key={m.studentId} className="flex items-center justify-between gap-3 py-0.5">
               <span className="min-w-0 break-words font-semibold text-slate-900">{m.nickname}{m.isNew && <span className="ml-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-900">New</span>}</span>
               {active && <button className="min-h-11 shrink-0 px-2 text-sm font-semibold text-red-700 underline" onClick={() => void act(`/api/teacher/classes/${id}/members/${m.studentId}/remove`, 'class-remove', `Remove ${m.nickname} from this class? They can join again with the code.`, `${m.nickname} removed.`)}>Remove</button>}
             </li>
