@@ -180,7 +180,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
             <Streak count={streak} />
           </div>
 
-          <Card className="p-8 space-y-8">
+          <Card className="p-5 sm:p-8 space-y-8">
             {!current || loading ? (
               <div className="flex flex-col items-center justify-center py-12 gap-4 text-slate-400">
                 <span className="h-8 w-8 animate-spin rounded-full border-4 border-brand-blue/30 border-t-brand-blue" />
