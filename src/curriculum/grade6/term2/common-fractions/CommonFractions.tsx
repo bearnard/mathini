@@ -122,7 +122,7 @@ export const bank: CapsItem[] = [
     },
     {
         prompt: 'To add 1/3 and 1/6, what common denominator should you use?',
-        options: ['3', '6', '9', '18'],
+        options: ['3', '6', '4', '5'],
         answer: '6',
         explanation: '6 is the lowest common multiple of 3 and 6. Convert 1/3 to 2/6, then add: 2/6 + 1/6 = 3/6.'
     },

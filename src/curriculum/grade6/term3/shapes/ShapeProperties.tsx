@@ -81,7 +81,7 @@ export const bank: CapsItem[] = [
     },
     {
         prompt: 'For a polygon, the number of sides equals the number of...',
-        options: ['faces', 'edges', 'vertices', 'angles'],
+        options: ['faces', 'diagonals', 'lines of symmetry', 'angles'],
         answer: 'angles',
         explanation: 'In any polygon, every side meets another side at an angle, so sides = angles.',
     },
