@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
 import { recordConsent } from '../../../lib/server/consent';
+import { d1Adapter } from '../../../lib/server/admin/db';
+import { parentWithdrew } from '../../../lib/server/parents/consent';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,6 +23,10 @@ export async function POST(req: NextRequest) {
     const body = (await req.json().catch(() => null)) as { agree?: unknown } | null;
     if (!body || body.agree !== true) {
       return NextResponse.json({ error: 'Agreement required' }, { status: 400 });
+    }
+    // ADR 0003 section 7: once a parent has withdrawn consent, the learner's own tick cannot switch it back on.
+    if (await parentWithdrew(d1Adapter(env.DB as never), studentId)) {
+      return NextResponse.json({ error: 'A parent has turned consent off. Ask them to switch it back on.' }, { status: 403 });
     }
     await recordConsent(env.DB as never, studentId);
     return NextResponse.json({ ok: true });

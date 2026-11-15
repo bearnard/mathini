@@ -340,7 +340,7 @@ test('sign-in pages and API are never cached, indexed or tracked, and the pages 
   const cfg = fs.readFileSync('next.config.ts', 'utf8');
   for (const src of ["'/sign-in'", "'/sign-in/:path*'", "'/account'", "'/api/auth/:path*'"]) assert.ok(cfg.includes(`source: ${src}`), src);
   // robots.ts disallows PRIVATE_PREFIXES from src/lib/seo/publicPaths.ts
-  const robots = fs.readFileSync('src/app/robots.ts', 'utf8');
+  const robots = fs.readFileSync('src/lib/seo/publicPaths.ts', 'utf8');
   const prefixes = fs.readFileSync('src/lib/seo/publicPaths.ts', 'utf8');
   assert.ok(robots.includes('PRIVATE_PREFIXES'));
   assert.ok(prefixes.includes("'/sign-in'") && prefixes.includes("'/account'"));
