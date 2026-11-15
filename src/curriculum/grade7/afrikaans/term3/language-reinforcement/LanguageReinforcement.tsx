@@ -77,15 +77,15 @@ export const learnSteps: LearnStep[] = [
         <Rule>Learn the exact spelling. Choose the form that fits the sentence. A synonym means nearly the same.</Rule>
         <MeaningPairs
           kind="same"
-          pairs={[['begin', 'start'], ['geleentheid', 'occasion']]}
-          aria="Two pairs: the synonyms begin and start, and the word geleentheid with its English meaning occasion."
+          pairs={[['begin', 'aanvang'], ['geleentheid', 'occasion']]}
+          aria="Two pairs: the synonyms begin and aanvang, and the word geleentheid with its English meaning occasion."
         />
         <Worked
           title="Choose the right word"
           steps={[
             <>Spelling: <Af>geleentheid</Af> <En>occasion</En>. <SpeakButton text="geleentheid" /></>,
             <><Af>Die film was baie interessant.</Af> <En>The film was very interesting.</En> The describing word is <Af>interessant</Af>, not <Af>interesse</Af>.</>,
-            <>A synonym for <Af>begin</Af> is <Af>start</Af>. <Af>einde</Af> is the opposite.</>,
+            <>A synonym for <Af>begin</Af> is <Af>aanvang</Af>. <Af>einde</Af> is the opposite.</>,
           ]}
         />
         <Mistake>Mixing up the letters, as in <Af>geleeentheid</Af> or <Af>gelleentheid</Af>. Say the word in parts: <Af>ge-leent-heid</Af>.</Mistake>
@@ -164,9 +164,9 @@ const bank: AfrikaansItem[] = [
   },
   {
     prompt: "Kies die beste sinoniem vir 'begin'.",
-    options: ['start', 'einde', 'stop', 'wag'],
-    answer: 'start',
-    explanation: "'Start' carries the same meaning as 'begin'.",
+    options: ['aanvang', 'afsluiting', 'beëindig', 'uitstel'],
+    answer: 'aanvang',
+    explanation: "'Aanvang' means the same as 'begin'.",
   },
   {
     prompt: "Watter redigeeraksie is die nuttigste laaste stap?",

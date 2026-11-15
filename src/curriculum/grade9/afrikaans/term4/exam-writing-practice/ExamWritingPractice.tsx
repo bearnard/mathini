@@ -53,7 +53,7 @@ export const learnSteps: LearnStep[] = [
     title: 'The final essay under time pressure',
     content: slide(
       <>
-        <Rule>Final essays are written in a set time. Split the time: read, plan, write, then proofread.</Rule>
+        <Rule>Final essays are written in a set time. Split the time: <Af>tyd vir beplan, skryf en proeflees</Af> <En>time to plan, write and proofread</En>.</Rule>
         <OrderTiles
           tiles={['Lees', 'Beplan', 'Skryf', 'Proeflees']}
           aria="Four exam steps in order: Lees (read the question), Beplan (plan), Skryf (write), Proeflees (proofread)."
@@ -61,8 +61,8 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Plan the clock"
           steps={[
-            <>Mark on the paper when each step must end.</>,
-            <>Keep the last few minutes for <Af>proeflees</Af>: check punctuation, spelling and tense.</>,
+            <>Mark on the paper when each step must end. After the plan: <Af>Skryf die opstel</Af> <En>write the essay</En>.</>,
+            <>Keep the last few minutes for <Af>proeflees</Af>, <Af>ná die skryf van die opstel</Af> <En>after writing the essay</En>: check <Af>spelling en leestekens</Af> and the tense.</>,
           ]}
         />
         <Mistake>Writing until the time is up and having none left to check. Keep time for proofreading.</Mistake>
@@ -139,6 +139,42 @@ const bank: AfrikaansItem[] = [
     options: ["antwoord", "vraag", "tyd", "formaat"],
     answer: "antwoord",
     explanation: "'Antwoord' means 'answer'.",
+  },
+  {
+    prompt: "Wat doen jy ná die plan?",
+    options: ["Skryf die opstel", "Proeflees dadelik", "Hand dit in", "Begin weer"],
+    answer: "Skryf die opstel",
+    explanation: "Plan, then write.",
+  },
+  {
+    prompt: "Wanneer proeflees jy?",
+    options: ["Ná die skryf van die opstel", "Voor jy die vraag gelees het", "Net tydens die beplanning self", "Nooit, want dit mors net tyd"],
+    answer: "Ná die skryf van die opstel",
+    explanation: "Proofread at the end.",
+  },
+  {
+    prompt: "Watter teks begin met 'Geagte'?",
+    options: ["formele brief", "agenda vir die vergadering", "verslag oor die geleentheid", "gedig oor die natuur"],
+    answer: "formele brief",
+    explanation: "A formal letter.",
+  },
+  {
+    prompt: "Wat is 'n goeie tydsplan?",
+    options: ["tyd vir beplan, skryf en proeflees", "al die tyd vir die inleiding van die opstel", "geen tyd vir proeflees aan die einde", "net skryf tot al die tyd verby is"],
+    answer: "tyd vir beplan, skryf en proeflees",
+    explanation: "Divide the time.",
+  },
+  {
+    prompt: "Wat kom eerste in 'n eksamenopstel?",
+    options: ["Lees die vraag", "Hand in", "Proeflees", "Skryf die slot"],
+    answer: "Lees die vraag",
+    explanation: "Read the question before anything else.",
+  },
+  {
+    prompt: "Watter foute vang proeflees?",
+    options: ["spelling en leestekens", "die vraag se punte", "die datum van die toets", "die tyd"],
+    answer: "spelling en leestekens",
+    explanation: "Proofreading finds spelling and punctuation mistakes.",
   },
 ];
 

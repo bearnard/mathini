@@ -162,6 +162,42 @@ const bank: AfrikaansItem[] = [
     answer: "sin",
     explanation: "'Sin' means 'sentence'.",
   },
+  {
+    prompt: "Watter sin is in die toekomende tyd?",
+    options: ["Sy sal 'n boek lees.", "Sy het 'n boek gelees.", "Sy lees 'n boek.", "Sy leesde 'n boek."],
+    answer: "Sy sal 'n boek lees.",
+    explanation: "sal + plain verb.",
+  },
+  {
+    prompt: "Kies die korrekte woordorde.",
+    options: ["Môre sal ons vroeg vertrek.", "Môre ons sal vroeg vertrek.", "Ons môre vroeg sal vertrek.", "Sal môre ons vroeg vertrek."],
+    answer: "Môre sal ons vroeg vertrek.",
+    explanation: "The verb stays second.",
+  },
+  {
+    prompt: "Watter woord is 'n voornaamwoord?",
+    options: ["Sy", "lees", "boek", "vroeg"],
+    answer: "Sy",
+    explanation: "A pronoun stands in for a noun.",
+  },
+  {
+    prompt: "Watter werkwoord is in 'Sy lees 'n boek'?",
+    options: ["lees", "Sy", "boek", "'n"],
+    answer: "lees",
+    explanation: "The action word.",
+  },
+  {
+    prompt: "Watter leesteken pas? 'Pasop___'",
+    options: ["!", "?", ",", "."],
+    answer: "!",
+    explanation: "A warning takes an exclamation mark.",
+  },
+  {
+    prompt: "Kies die verlede tyd.",
+    options: ["Sy het 'n boek gelees.", "Sy het 'n boek lees.", "Sy is 'n boek lees.", "Sy sal 'n boek gelees."],
+    answer: "Sy het 'n boek gelees.",
+    explanation: "The past needs het and gelees.",
+  },
 ];
 
 export { bank };

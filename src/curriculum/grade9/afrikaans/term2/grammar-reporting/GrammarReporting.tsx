@@ -84,7 +84,7 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Read the idiom"
           steps={[
-            <><Af>Die kat uit die boom kyk</Af> <En>to wait and see first</En>. <SpeakButton text="Die kat uit die boom kyk" /></>,
+            <><Af>Die kat uit die boom kyk</Af> = <Af>eers wag en kyk</Af> <En>to wait and see first</En>. <SpeakButton text="Die kat uit die boom kyk" /></>,
             <><Af>Dit reën pypestele.</Af> <En>It is pouring with rain.</En> There are no real pipe stems.</>,
           ]}
         />
@@ -162,6 +162,42 @@ const bank: AfrikaansItem[] = [
     options: ["omdat", "daarom", "maar", "terwyl"],
     answer: "omdat",
     explanation: "'Omdat' (because) gives a reason, like 'want'.",
+  },
+  {
+    prompt: "Kies die korrekte indirekte rede: Sy sê: 'Ek leer nou.'",
+    options: ["Sy sê dat sy nou leer.", "Sy sê dat ek nou leer.", "Sy sê: dat sy nou leer.", "Sy sê sy leer nou ek."],
+    answer: "Sy sê dat sy nou leer.",
+    explanation: "Pronoun changes, dat is used.",
+  },
+  {
+    prompt: "Watter woord wys twee dinge wat gelyktydig gebeur?",
+    options: ["terwyl", "want", "omdat", "daarom"],
+    answer: "terwyl",
+    explanation: "terwyl means while.",
+  },
+  {
+    prompt: "Watter sin is korrek?",
+    options: ["Ek is moeg omdat ek hard gewerk het.", "Ek is moeg omdat ek het hard gewerk.", "Ek is moeg omdat het ek hard gewerk.", "Ek is moeg omdat ek hard het gewerk."],
+    answer: "Ek is moeg omdat ek hard gewerk het.",
+    explanation: "The verb goes to the end after omdat.",
+  },
+  {
+    prompt: "Watter voegwoord pas? 'Hy het hard gewerk; ___ het hy geslaag.'",
+    options: ["daarom", "maar", "terwyl", "of"],
+    answer: "daarom",
+    explanation: "daarom shows a result.",
+  },
+  {
+    prompt: "Wat beteken die idioom 'Die kat uit die boom kyk'?",
+    options: ["eers wag en kyk", "'n kat in 'n boom soek", "baie hard hardloop", "baie en hard praat"],
+    answer: "eers wag en kyk",
+    explanation: "Wait and see first.",
+  },
+  {
+    prompt: "Watter voegwoord wys 'n teenstelling?",
+    options: ["maar", "en", "want", "daarom"],
+    answer: "maar",
+    explanation: "maar shows contrast.",
   },
 ];
 

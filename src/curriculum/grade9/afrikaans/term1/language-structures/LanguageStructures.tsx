@@ -137,6 +137,42 @@ const bank: AfrikaansItem[] = [
     answer: "blomme",
     explanation: "'Blom' has a short vowel, so the consonant doubles: blom / blomme.",
   },
+  {
+    prompt: "Wat is die meervoud van 'blom'?",
+    options: ["blomme", "blome", "bloms", "blommes"],
+    answer: "blomme",
+    explanation: "Short vowel + one consonant: the consonant doubles.",
+  },
+  {
+    prompt: "Watter sin is in die verlede tyd?",
+    options: ["Die kinders het blomme geplant.", "Die kinders plant blomme.", "Die kinders sal die blomme plant.", "Die kinders plantte blomme."],
+    answer: "Die kinders het blomme geplant.",
+    explanation: "het + ge- verb.",
+  },
+  {
+    prompt: "Kies die korrekte sin.",
+    options: ["Die vriendelike kinders speel.", "Die vriendelik kinders speel.", "Die vriendelike kind speel hulle.", "Die kinders vriendelike speel."],
+    answer: "Die vriendelike kinders speel.",
+    explanation: "Adjective with -e before the noun.",
+  },
+  {
+    prompt: "Watter leesteken sluit 'Waar gaan jy___' af?",
+    options: ["?", ".", "!", ","],
+    answer: "?",
+    explanation: "A question ends with a question mark.",
+  },
+  {
+    prompt: "Wat is die meervoud van 'dag'?",
+    options: ["dae", "dage", "dags", "dagge"],
+    answer: "dae",
+    explanation: "A plural that must be learned.",
+  },
+  {
+    prompt: "Watter sin het komma's korrek?",
+    options: ["Ek hou van boeke, blomme en honde.", "Ek hou van, boeke blomme en honde.", "Ek hou, van boeke blomme, en honde.", "Ek hou van boeke blomme en, honde."],
+    answer: "Ek hou van boeke, blomme en honde.",
+    explanation: "Commas separate list items.",
+  },
 ];
 
 export { bank };

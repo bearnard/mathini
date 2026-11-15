@@ -24,7 +24,7 @@ export const learnSteps: LearnStep[] = [
             <>Her friend falls into the dam. That problem is the <Af>konflik</Af>. The whole telling is the <Af>storie</Af>.</>,
           ]}
         />
-        <Mistake>Calling the setting or the title the conflict. The <Af>konflik</Af> is the problem the characters must solve.</Mistake>
+        <Mistake>Calling the setting or the title the conflict. The <Af>konflik</Af> is <Af>die probleem in die storie</Af>, the problem the characters must solve.</Mistake>
       </>,
     ),
   },
@@ -53,7 +53,7 @@ export const learnSteps: LearnStep[] = [
     title: 'The narrative essay',
     content: slide(
       <>
-        <Rule>A narrative essay tells a story in order: <Af>Begin</Af>, <Af>Konflik</Af>, <Af>Hoogtepunt</Af> and <Af>Einde</Af>. Use the past tense and keep it the same.</Rule>
+        <Rule>A narrative essay tells a story in order: <Af>Begin</Af>, <Af>Konflik</Af>, <Af>Hoogtepunt</Af> and <Af>Einde</Af>. Use the <Af>verlede tyd</Af> <En>past tense</En> and keep it the same.</Rule>
         <StoryArc
           points={['Begin', 'Konflik', 'Hoogtepunt', 'Einde']}
           aria="A story drawn as a hill with four points: Begin, Konflik (problem), Hoogtepunt (high point), Einde (end)."
@@ -83,7 +83,7 @@ export const learnSteps: LearnStep[] = [
           title="Spot the feature"
           steps={[
             <>Descriptive: <Af>Die lug het vars geruik.</Af> <En>The air smelled fresh.</En></>,
-            <>Reflective: <Af>Ek het geleer dat vriendskap belangrik is.</Af> <En>I learnt that friendship is important.</En></>,
+            <>Reflective: <Af>Ek het geleer dat vriendskap belangrik is.</Af> or <Af>Ek het vriendskap leer waardeer.</Af> <En>I learnt to value friendship.</En></>,
           ]}
         />
         <Mistake>Using a formal greeting in an informal letter, or only listing events in a reflective essay. Say what you learnt.</Mistake>
@@ -94,7 +94,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Writing a review',
     content: slide(
       <>
-        <Rule>A <Af>resensie</Af> gives your opinion with reasons about a book or film. It has an opinion, a reason or example, and a recommendation.</Rule>
+        <Rule>A <Af>resensie</Af> gives <Af>jou mening met 'n rede</Af> <En>your opinion with a reason</En> about a book or film. It has an opinion, a reason or example, and a recommendation.</Rule>
         <OrderTiles
           tiles={['Mening', 'Rede', 'Aanbeveling']}
           aria="Three parts of a review in order: Mening (opinion), Rede (reason), Aanbeveling (recommendation)."
@@ -159,6 +159,42 @@ const bank: AfrikaansItem[] = [
     options: ["toneel", "konflik", "storie", "karakter"],
     answer: "toneel",
     explanation: "'Toneel' means 'scene' or 'stage'.",
+  },
+  {
+    prompt: "Wat is die konflik in 'n storie?",
+    options: ["die probleem in die storie", "die titel wat bo-aan die storie staan", "die naam van die skrywer van die boek", "die datum waarop die boek verskyn het"],
+    answer: "die probleem in die storie",
+    explanation: "The conflict is the problem.",
+  },
+  {
+    prompt: "Watter tyd gebruik jy in 'n narratiewe opstel oor gister?",
+    options: ["verlede tyd", "toekomende tyd", "net teenwoordige tyd", "geen tyd"],
+    answer: "verlede tyd",
+    explanation: "Keep the past tense.",
+  },
+  {
+    prompt: "Watter sin is 'n besinning?",
+    options: ["Ek het vriendskap leer waardeer.", "Die lug het soos die see en sout geruik.", "Koop nou en spaar vandag by ons winkel!", "Geagte Mnr. Smit, ek skryf vandag aan u."],
+    answer: "Ek het vriendskap leer waardeer.",
+    explanation: "A reflective text says what you learnt.",
+  },
+  {
+    prompt: "Watter sin gebruik die sintuie?",
+    options: ["Die lug het vars geruik.", "Ek het geleer om te deel.", "Ons sal môre gaan.", "Die storie het 'n einde."],
+    answer: "Die lug het vars geruik.",
+    explanation: "Smell is a sense.",
+  },
+  {
+    prompt: "Hoe begin 'n informele brief?",
+    options: ["Liewe Sara", "Geagte Mevrou", "Aan wie dit mag aangaan", "Onderwerp"],
+    answer: "Liewe Sara",
+    explanation: "A friendly greeting.",
+  },
+  {
+    prompt: "Wat is deel van 'n goeie resensie?",
+    options: ["jou mening met 'n rede", "die hele storie oorvertel", "net die titel", "net die prys"],
+    answer: "jou mening met 'n rede",
+    explanation: "Opinion plus reason.",
   },
 ];
 

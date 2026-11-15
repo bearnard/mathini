@@ -141,6 +141,42 @@ const bank: AfrikaansItem[] = [
     answer: "sinsbou",
     explanation: "'Sinsbou' means 'sentence structure'.",
   },
+  {
+    prompt: "Kies die lydende vorm van 'Die hond jaag die kat.'",
+    options: ["Die kat word deur die hond gejaag.", "Die hond word deur die kat gejaag.", "Die kat jaag die hond.", "Die kat word die hond jaag."],
+    answer: "Die kat word deur die hond gejaag.",
+    explanation: "Passive: word + deur + ge- verb.",
+  },
+  {
+    prompt: "Watter sin is in die bedrywende vorm?",
+    options: ["Die kinders eet die appels.", "Die appels word deur die kinders geëet.", "Die appels is geëet.", "Die appels word geëet."],
+    answer: "Die kinders eet die appels.",
+    explanation: "The subject does the action.",
+  },
+  {
+    prompt: "In 'Die hond jaag die kat' doen 'Die hond' die aksie. Hoe heet hierdie deel van die sin?",
+    options: ["onderwerp", "werkwoord", "voorwerp", "sinsbou"],
+    answer: "onderwerp",
+    explanation: "The subject does the action.",
+  },
+  {
+    prompt: "Watter deel van die sin ontvang die aksie, soos 'die kat' in 'Die hond jaag die kat'?",
+    options: ["voorwerp", "onderwerp", "werkwoord", "sinsbou"],
+    answer: "voorwerp",
+    explanation: "The object receives the action.",
+  },
+  {
+    prompt: "Kies die sin met korrekte woordorde.",
+    options: ["Vandag jaag die hond die kat.", "Vandag die hond jaag die kat.", "Die hond vandag jaag die kat.", "Jaag vandag die hond die kat."],
+    answer: "Vandag jaag die hond die kat.",
+    explanation: "The verb stays second.",
+  },
+  {
+    prompt: "Kies die verlede lydende vorm.",
+    options: ["Die kat is deur die hond gejaag.", "Die kat word deur die hond gejaag.", "Die kat het deur die hond jaag.", "Die kat is die hond gejaag."],
+    answer: "Die kat is deur die hond gejaag.",
+    explanation: "is + deur + ge- verb.",
+  },
 ];
 
 export { bank };
