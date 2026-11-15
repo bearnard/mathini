@@ -1,44 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './ListeningSpeakingT1.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Build confidence in introductions and daily discussions',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 1 Listening & Speaking focuses on <strong>introductions, daily-life discussions, prepared reading,</strong>{' '}
-          and listening for key details.
-        </p>
-        <p className="text-slate-600">
-          Practise polite classroom interaction and clear spoken responses to short oral prompts.
-        </p>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these introduction and classroom words aloud before completing the lesson tasks.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Molo"} phonetic={"[mɔ:lɔ]"} meaning={"Hello (to one person)"} lang="xh" />
-          <PronunciationPlayer word={"Molweni"} phonetic={"[mɔl'wɛni]"} meaning={"Hello (to more than one person)"} lang="xh" />
-          <PronunciationPlayer word={"Unjani?"} phonetic={"[un'dʒani]"} meaning={"How are you?"} lang="xh" />
-          <PronunciationPlayer word={"Ndingu..."} phonetic={"[ndiŋ'gu]"} meaning={"I am ... / My name is ..."} lang="xh" />
-          <PronunciationPlayer word={"Isikolo"} phonetic={"[isi'kɔlɔ]"} meaning={"School"} lang="xh" />
-          <PronunciationPlayer word={"Ithishala"} phonetic={"[iti'ʃala]"} meaning={"Teacher"} lang="xh" />
-          <PronunciationPlayer word={"Enkosi"} phonetic={"[ɛŋ'kɔsi]"} meaning={"Thank you"} lang="xh" />
-          <PronunciationPlayer word={"Uxolo"} phonetic={"[u'xɔlɔ]"} meaning={"Sorry / Peace"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {
