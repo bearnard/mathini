@@ -1,39 +1,129 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { Compare, Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { BracedFrame } from '../../../../../components/diagrams/science/SciencePictures';
+import { BendingTorsion } from '../../../../../components/diagrams/science/SciencePictures7';
+import { IDMEC_STEPS } from '../../../../../components/diagrams/science/steps';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Understand forces and structural stability',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Structures experience static forces (weight, pressure) and dynamic forces (wind, vibration). Understanding 
-          bending, torsion, and compression helps engineers choose materials and shapes that resist these forces.
-        </p>
-      </div>
+    title: 'Static and dynamic forces',
+    content: slide(
+      <>
+        <Rule>
+          Static forces are constant while dynamic forces change over time. Structures carry both.
+        </Rule>
+        <Compare
+          left={{ title: 'Static forces', tone: 'sky', rows: ['constant: they act continuously', 'example: the weight of the structure', 'example: the pressure of water on a dam wall'] }}
+          right={{ title: 'Dynamic forces', tone: 'amber', rows: ['change over time', 'example: wind gusts', 'example: vibration and earthquakes'] }}
+        />
+        <Worked
+          title="Sort the forces on a tall mast"
+          steps={[<>The weight of the mast pulls down all the time: a static force.</>, <>Wind gusts change from moment to moment: a dynamic force.</>, <>Dynamic forces such as wind or earthquakes vary and can cause vibration.</>]}
+        />
+        <Mistake>Thinking dynamic forces only matter for moving structures. A building that stands still still feels wind and vibration.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Design with accessibility and safety in mind',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Inclusive design considers users with different abilities. Features like wheelchair ramps, handrails, and 
-          step dimensions must meet safety standards and accessibility guidelines (applied through the IDMEC design process). These design choices 
-          improve usability for everyone.
-        </p>
-      </div>
+    title: 'Bending and torsion',
+    content: slide(
+      <>
+        <Rule>
+          Bending is when a material curves or flexes under load. Torsion is a twisting force applied to a structure.
+        </Rule>
+        <BendingTorsion />
+        <Worked
+          title="Name the effect"
+          steps={[<>A diving board with a person standing at the end curves down: bending. Perpendicular forces cause the material to curve.</>, <>A drill bit turning in a hole is twisted by opposing rotational forces: torsion.</>, <>Understanding bending and torsion helps engineers prevent failure.</>]}
+        />
+        <Mistake>Confusing torsion with tension. Tension pulls along the length; torsion twists around it.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Develop and test structural designs',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A clear design brief outlines objectives, constraints, and acceptance criteria. Building scale models and 
-          evaluating them against criteria helps test assumptions before full-scale production.
-        </p>
-      </div>
+    title: 'Accessible design',
+    content: slide(
+      <>
+        <Rule>
+          Accessible design lets everyone use a place. Wheelchair ramps let wheelchair users enter buildings on their own.
+        </Rule>
+        <Worked
+          title="Design a ramp for a school entrance"
+          steps={[
+            <>The entrance has steps, which a wheelchair cannot climb.</>,
+            <>A ramp is built to a standard gradient, so it is gentle enough to use. This gives independent access for wheelchair users and others with walking difficulties.</>,
+            <>A longer, gentler ramp needs less effort than a steep one, as with any inclined plane.</>,
+          ]}
+        />
+        <Mistake>Treating a ramp as an extra for a few people. Accessible ramps also help people with prams, trolleys and walking difficulties.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'The design brief and scale models',
+    content: slide(
+      <>
+        <Rule>
+          IDMEC stands for Investigate, Design, Make, Evaluate, Communicate. A design brief should include aims, limits and what makes the design a success. A scale model lets you test ideas and find problems before building the real thing.
+        </Rule>
+        <NumberedSteps steps={IDMEC_STEPS} tone="blue" label="The IDMEC process" />
+        <Terms
+          rows={[
+            ['Aims', 'what the design must do'],
+            ['Limits', 'size, cost, materials and time'],
+            ['Success', 'how you will judge that the design works'],
+          ]}
+        />
+        <Worked
+          title="A footbridge model"
+          steps={[<>Build a small scale model of the footbridge from card.</>, <>Load it to test the ideas. It bends too much at the middle.</>, <>You found the problem on the model, which saves time and money compared to finding it on the real bridge.</>]}
+        />
+        <Mistake>Writing a brief that only says what to make. It must also give the limits and the success criteria.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Materials and stability',
+    content: slide(
+      <>
+        <Rule>
+          Strength, flexibility and cost decide which material suits the job. Choosing a material means balancing performance, budget and availability.
+        </Rule>
+        <BracedFrame />
+        <Worked
+          title="Choose a material"
+          steps={[<>A bridge beam needs strength to carry loads.</>, <>A pole for a flag must be flexible enough to bend in the wind and not snap.</>, <>If two materials do the job, the cheaper one may be the better choice. Triangles in a frame also add rigidity.</>]}
+        />
+        <Mistake>Choosing the strongest material every time. It may cost too much or be too heavy, so balance strength, flexibility and cost.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is the difference between static and dynamic forces? What is bending?</li>
+            <li>What is torsion? Why are wheelchair ramps important in accessible design?</li>
+            <li>What does IDMEC stand for? What should a design brief include?</li>
+            <li>Why is building a scale model useful? How do material properties affect structural design decisions?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Static forces are constant while dynamic forces change over time. When a material curves or flexes under load.</li>
+            <li>A twisting force applied to a structure. They let wheelchair users enter buildings on their own.</li>
+            <li>Investigate, Design, Make, Evaluate, Communicate. Aims, limits and what makes the design a success.</li>
+            <li>It lets you test ideas and find problems before building the real thing. Strength, flexibility and cost decide which material suits the job.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

@@ -53,7 +53,7 @@ const gearPath = (cx: number, cy: number, teeth: number, rOut: number, rIn: numb
 };
 
 export const GearPair = ({ driver = 10, driven = 20 }: { driver?: number; driven?: number }) => {
-  const k = 1.15; // pixels of radius per tooth
+  const k = Math.min(1.15, 28 / Math.max(driver, driven)); // pixels of radius per tooth, smaller for big gears so both fit
   const r1 = driver * k;
   const r2 = driven * k;
   const cy = 38;
