@@ -71,6 +71,8 @@ export interface ClassProgress {
   behindOnReviews: BehindOnReviews[];
   mockDistribution: MockDistribution;
   improvement: ImprovementSince;
+  /** Learners who have not practised anything in the last 7 days (or never), longest away first. For a friendly nudge, never a league table. */
+  notPractisedLast7: { nickname: string; lastPractisedDay: string | null }[];
   /** Alphabetical by nickname. */
   learners: ClassLearner[];
 }

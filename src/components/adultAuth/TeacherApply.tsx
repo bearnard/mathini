@@ -17,6 +17,11 @@ export default function TeacherApply({ roles }: { roles: string[] }) {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
   const isTeacher = roles.includes('teacher');
+  const [newJoins, setNewJoins] = useState(0);
+  useEffect(() => {
+    if (!isTeacher) return;
+    fetch('/api/teacher/notices', { cache: 'no-store' }).then((r) => (r.ok ? (r.json() as Promise<{ total: number }>) : null)).then((j) => { if (j) setNewJoins(j.total); }).catch(() => {});
+  }, [isTeacher]);
 
   const load = () => {
     fetch('/api/teacher/application', { cache: 'no-store' })
@@ -49,7 +54,7 @@ export default function TeacherApply({ roles }: { roles: string[] }) {
     return (
       <section className="mt-6 border-t border-slate-200 pt-5" aria-label="Teacher area">
         <h2 className="text-lg font-bold text-slate-900">Your classes</h2>
-        <a href="/teacher" className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-base font-semibold text-white">Open the teacher area</a>
+        <a href="/teacher" className="mt-3 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-base font-semibold text-white">Open the teacher area{newJoins > 0 && <span className="rounded-full bg-emerald-400 px-2 py-0.5 text-xs font-bold text-emerald-950">{newJoins} new</span>}</a>
       </section>
     );
   }

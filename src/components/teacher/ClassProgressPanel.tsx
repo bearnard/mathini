@@ -20,7 +20,8 @@ function Section({ title, children, hint }: { title: string; children: React.Rea
   );
 }
 
-export default function ClassProgressPanel({ classId }: { classId: string }) {
+/** `endpoint` lets a school admin read the same view from their own route; the default is the teacher's. */
+export default function ClassProgressPanel({ classId, endpoint }: { classId: string; endpoint?: string }) {
   const [p, setP] = useState<ClassProgress | null | 'error'>(null);
   const [since, setSince] = useState('');
   const [err, setErr] = useState('');
@@ -28,7 +29,8 @@ export default function ClassProgressPanel({ classId }: { classId: string }) {
 
   const load = (s: string) => {
     setErr('');
-    fetch(`/api/teacher/classes/${classId}/progress${s ? `?since=${encodeURIComponent(s)}` : ''}`, { cache: 'no-store' })
+    const base = endpoint ?? `/api/teacher/classes/${classId}/progress`;
+    fetch(`${base}${s ? `${base.includes('?') ? '&' : '?'}since=${encodeURIComponent(s)}` : ''}`, { cache: 'no-store' })
       .then(async (r) => {
         const j = (await r.json().catch(() => ({}))) as ClassProgress & { error?: string };
         if (r.ok) { setP(j); if (!s) setSince(j.improvement.since); } else if (r.status === 400) setErr(j.error ?? 'Choose another date.'); else setP('error');
@@ -110,6 +112,21 @@ export default function ClassProgressPanel({ classId }: { classId: string }) {
               <li key={b.nickname} className="flex items-center justify-between gap-3 px-4 py-2 text-sm">
                 <span className="min-w-0 break-words font-medium text-slate-900">{b.nickname}</span>
                 <span className="shrink-0 text-slate-600">{b.dueCount} {b.dueCount === 1 ? 'card' : 'cards'} · waiting {b.overdueDays} days</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </Section>
+
+      <Section title="Not practised in the last 7 days" hint="A short nudge from you can get them going again.">
+        {p.notPractisedLast7.length === 0 ? (
+          <p className="text-slate-700">Everyone has practised this week. Well done, class!</p>
+        ) : (
+          <ul className="divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+            {p.notPractisedLast7.map((l) => (
+              <li key={l.nickname} className="flex items-center justify-between gap-3 px-4 py-2 text-sm">
+                <span className="min-w-0 break-words font-medium text-slate-900">{l.nickname}</span>
+                <span className="shrink-0 text-slate-600">{l.lastPractisedDay ? `last on ${shortDate(l.lastPractisedDay)}` : 'not started yet'}</span>
               </li>
             ))}
           </ul>

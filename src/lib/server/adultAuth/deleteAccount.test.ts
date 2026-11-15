@@ -27,6 +27,9 @@ async function world() {
   const ev = x.raw.prepare("INSERT INTO consent_events (student_id, user_id, action, notice_version, created_at) VALUES (?, ?, ?, 'v1', ?)");
   ev.run('student-0001', mum.userId, 'given', NOW - 5000); ev.run('student-0002', mum.userId, 'given', NOW - 5000); ev.run('student-0002', dad.userId, 'given', NOW - 4000);
   x.raw.prepare('INSERT INTO pin_resets (student_id, user_id, created_at) VALUES (?, ?, ?)').run('student-0001', mum.userId, NOW - 3000);
+  x.raw.prepare("INSERT INTO school_admins (user_id, school_id, appointed_by, appointed_at) VALUES (?, 'school-1', 'owner', 1)").run(mum.userId);
+  x.raw.prepare("INSERT INTO school_admins (user_id, school_id, appointed_by, appointed_at) VALUES (?, 'school-1', 'owner', 1)").run(dad.userId);
+  x.raw.prepare("INSERT INTO class_join_seen (user_id, class_id, seen_at) VALUES (?, 'class-x', 1)").run(mum.userId);
   x.raw.prepare('INSERT INTO pin_resets (student_id, user_id, created_at) VALUES (?, ?, ?)').run('student-0002', dad.userId, NOW - 3000);
   x.raw.prepare('INSERT INTO child_invites (student_id, token_hash, created_at, expires_at, used_at, used_by) VALUES (?, ?, 1, 2, 1, ?)').run('student-0001', 'h1', mum.userId);
   x.raw.prepare('INSERT INTO child_invites (student_id, token_hash, created_at, expires_at, used_at, used_by) VALUES (?, ?, 1, 2, 1, ?)').run('student-0002', 'h2', dad.userId);
@@ -58,14 +61,14 @@ test('deleting an account removes the adult and everything that identifies them,
   const w = await world(); if (!w) return t0.skip('node:sqlite unavailable');
   const r = await deleteAdultAccount(w.db, w.mum.userId, NOW);
   assert.ok(r.ok);
-  if (r.ok) assert.deepEqual(r.deleted, { sessions: 4, links: 2, classes: 2, members: 3, scopes: 1, applications: 1, consentsAnonymised: 2, pinResetsAnonymised: 1, proposalsAnonymised: 0, commentsAnonymised: 0 });
+  if (r.ok) assert.deepEqual(r.deleted, { sessions: 4, links: 2, classes: 2, members: 3, scopes: 1, applications: 1, schoolAdminships: 1, consentsAnonymised: 2, pinResetsAnonymised: 1, proposalsAnonymised: 0, commentsAnonymised: 0 });
   const gone = (sql: string) => assert.equal(n(w, sql, w.mum.userId), 0, sql);
-  for (const sql of ['SELECT COUNT(*) AS n FROM users WHERE id = ?', 'SELECT COUNT(*) AS n FROM user_roles WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM sessions WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM parent_links WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM summary_prefs WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM summary_sent WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM teacher_applications WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM classes WHERE teacher_user_id = ?', 'SELECT COUNT(*) AS n FROM consent_events WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM pin_resets WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM exam_scopes WHERE created_by = ?', 'SELECT COUNT(*) AS n FROM child_invites WHERE used_by = ?']) gone(sql);
+  for (const sql of ['SELECT COUNT(*) AS n FROM users WHERE id = ?', 'SELECT COUNT(*) AS n FROM user_roles WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM sessions WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM parent_links WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM summary_prefs WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM summary_sent WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM teacher_applications WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM school_admins WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM class_join_seen WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM classes WHERE teacher_user_id = ?', 'SELECT COUNT(*) AS n FROM consent_events WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM pin_resets WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM exam_scopes WHERE created_by = ?', 'SELECT COUNT(*) AS n FROM child_invites WHERE used_by = ?']) gone(sql);
   assert.equal(n(w, "SELECT COUNT(*) AS n FROM class_members WHERE class_id IN ('class-mum-1', 'class-mum-2')"), 0, 'the teacher\'s classes lose their members');
   assert.equal(n(w, "SELECT COUNT(*) AS n FROM magic_links WHERE email = 'mum.private@example.com'"), 0);
   assert.equal(n(w, 'SELECT COUNT(*) AS n FROM auth_rate WHERE key = ?', `email:${await sha256Hex('mum.private@example.com')}`), 0);
   // the other adult is untouched
-  for (const sql of ['SELECT COUNT(*) AS n FROM users WHERE id = ?', 'SELECT COUNT(*) AS n FROM user_roles WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM sessions WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM parent_links WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM summary_prefs WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM teacher_applications WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM classes WHERE teacher_user_id = ?', 'SELECT COUNT(*) AS n FROM consent_events WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM pin_resets WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM exam_scopes WHERE created_by = ?']) assert.ok(n(w, sql, w.dad.userId) >= 1, `dad: ${sql}`);
+  for (const sql of ['SELECT COUNT(*) AS n FROM users WHERE id = ?', 'SELECT COUNT(*) AS n FROM user_roles WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM sessions WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM parent_links WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM summary_prefs WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM teacher_applications WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM school_admins WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM classes WHERE teacher_user_id = ?', 'SELECT COUNT(*) AS n FROM consent_events WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM pin_resets WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM exam_scopes WHERE created_by = ?']) assert.ok(n(w, sql, w.dad.userId) >= 1, `dad: ${sql}`);
   assert.equal(n(w, "SELECT COUNT(*) AS n FROM class_members WHERE class_id = 'class-dad'"), 1);
   assert.equal(n(w, "SELECT COUNT(*) AS n FROM magic_links WHERE email = 'dad.private@example.com'"), 1);
   // the children and the consent already given stay
@@ -88,7 +91,7 @@ test('after deletion neither the address, the SACE number nor the user id is any
   assert.equal(audit.length, 1);
   assert.deepEqual([audit[0].device_id, audit[0].student_id, audit[0].ts], ['self', null, NOW]);
   const meta = JSON.parse(String(audit[0].meta)) as { rows: Record<string, number> };
-  assert.deepEqual(meta.rows, { users: 1, sessions: 4, links: 2, classes: 2, members: 3, scopes: 1, applications: 1, consentsAnonymised: 2, pinResetsAnonymised: 1, proposalsAnonymised: 0, commentsAnonymised: 0 });
+  assert.deepEqual(meta.rows, { users: 1, sessions: 4, links: 2, classes: 2, members: 3, scopes: 1, applications: 1, schoolAdminships: 1, consentsAnonymised: 2, pinResetsAnonymised: 1, proposalsAnonymised: 0, commentsAnonymised: 0 });
 });
 
 test('an unknown account is 404 and changes nothing; deleting twice is harmless', async (t0) => {

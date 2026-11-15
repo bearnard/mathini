@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react';
 import ClassProgressPanel from './ClassProgressPanel';
 
 interface ClassSummary { id: string; name: string; grade: number; subjects: string[]; joinCode: string; status: 'active' | 'archived'; members: number; createdAt: number; schoolName: string }
-interface RosterEntry { studentId: string; nickname: string; joinedAt: number }
+interface RosterEntry { studentId: string; nickname: string; joinedAt: number; isNew?: boolean }
+interface Notices { total: number; classes: { classId: string; name: string; count: number }[] }
 interface ClassDetail extends ClassSummary { roster: RosterEntry[] }
 interface Me { user: { email: string } | null; roles: string[] }
 
@@ -130,7 +131,13 @@ function ClassView({ id, onBack, onChanged }: { id: string; onBack: () => void; 
   const [c, setC] = useState<ClassDetail | null | 'error'>(null);
   const [msg, setMsg] = useState('');
   const [copied, setCopied] = useState(false);
-  const load = () => { void api<{ class: ClassDetail }>(`/api/teacher/classes/${id}`).then((r) => setC(r.ok ? r.data.class : 'error')); };
+  const load = () => {
+    void api<{ class: ClassDetail }>(`/api/teacher/classes/${id}`).then((r) => {
+      setC(r.ok ? r.data.class : 'error');
+      // the teacher has now seen who joined: clear the "new" markers for next time (the ones on screen stay until they leave)
+      if (r.ok && r.data.class.roster.some((m) => m.isNew)) void api<Record<string, unknown>>(`/api/teacher/classes/${id}/seen`, 'class-seen').then(() => onChanged());
+    });
+  };
   useEffect(load, [id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (c === null) return <p className="mt-4 text-slate-600" role="status">Loading…</p>;
@@ -167,7 +174,7 @@ function ClassView({ id, onBack, onChanged }: { id: string; onBack: () => void; 
         <ul className="mt-2 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
           {c.roster.map((m) => (
             <li key={m.studentId} className="flex items-center justify-between gap-3 px-4 py-2">
-              <span className="min-w-0 break-words text-slate-900">{m.nickname}</span>
+              <span className="min-w-0 break-words text-slate-900">{m.nickname}{m.isNew && <span className="ml-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-900">New</span>}</span>
               {active && <button className="min-h-11 shrink-0 px-2 text-sm font-semibold text-red-700 underline" onClick={() => void act(`/api/teacher/classes/${id}/members/${m.studentId}/remove`, 'class-remove', `Remove ${m.nickname} from this class? You will stop seeing their progress.`, `${m.nickname} was removed.`)}>Remove</button>}
             </li>
           ))}
@@ -213,12 +220,14 @@ export default function TeacherArea() {
   const [me, setMe] = useState<Me | null | 'error'>(null);
   const [classes, setClasses] = useState<ClassSummary[] | null>(null);
   const [open, setOpen] = useState<string | null>(null);
+  const [notices, setNotices] = useState<Notices>({ total: 0, classes: [] });
 
   useEffect(() => {
     void api<Me>('/api/auth/me').then((r) => setMe(r.ok ? r.data : 'error'));
   }, []);
   const isTeacher = !!me && me !== 'error' && !!me.user && me.roles.includes('teacher');
-  const loadClasses = () => { void api<{ classes: ClassSummary[] }>('/api/teacher/classes').then((r) => setClasses(r.ok ? r.data.classes : [])); };
+  const loadNotices = () => { void api<Notices>('/api/teacher/notices').then((r) => { if (r.ok) setNotices(r.data); }); };
+  const loadClasses = () => { void api<{ classes: ClassSummary[] }>('/api/teacher/classes').then((r) => setClasses(r.ok ? r.data.classes : [])); loadNotices(); };
   useEffect(() => { if (isTeacher) loadClasses(); }, [isTeacher]);
 
   return (
@@ -242,6 +251,11 @@ export default function TeacherArea() {
       {isTeacher && open && <ClassView id={open} onBack={() => setOpen(null)} onChanged={loadClasses} />}
       {isTeacher && !open && (
         <>
+          {notices.total > 0 && (
+            <p className="mt-3 rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-900" role="status">
+              {notices.total === 1 ? '1 new learner has' : `${notices.total} new learners have`} joined your {notices.classes.length === 1 ? 'class' : 'classes'}.
+            </p>
+          )}
           {classes === null && <p className="mt-3 text-slate-600" role="status">Loading…</p>}
           {classes && classes.length === 0 && <p className="mt-3 text-slate-700">You have no classes yet. Make one below and share its code with your learners.</p>}
           {classes && classes.length > 0 && (
@@ -250,7 +264,10 @@ export default function TeacherArea() {
                 <li key={c.id}>
                   <button onClick={() => setOpen(c.id)} className="flex min-h-14 w-full items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left">
                     <span className="min-w-0"><strong className="block break-words text-slate-900">{c.name}</strong><span className="text-sm text-slate-600">Grade {c.grade} · {c.members} {c.members === 1 ? 'learner' : 'learners'}{c.status === 'archived' ? ' · archived' : ''}</span></span>
-                    {c.status === 'active' && <span className="shrink-0 rounded-lg bg-indigo-50 px-2 py-1 text-sm font-bold tracking-widest text-indigo-900">{show(c.joinCode)}</span>}
+                    <span className="flex shrink-0 flex-col items-end gap-1">
+                      {(notices.classes.find((n) => n.classId === c.id)?.count ?? 0) > 0 && <span className="rounded-full bg-emerald-500 px-2 py-0.5 text-xs font-bold text-white">{notices.classes.find((n) => n.classId === c.id)?.count} new</span>}
+                      {c.status === 'active' && <span className="rounded-lg bg-indigo-50 px-2 py-1 text-sm font-bold tracking-widest text-indigo-900">{show(c.joinCode)}</span>}
+                    </span>
                   </button>
                 </li>
               ))}

@@ -156,3 +156,25 @@ test('class progress route: teacher only, own class only, bad date 400, private 
   const p = (await res.json()) as { memberCount: number; learners: { nickname: string }[] };
   assert.deepEqual([p.memberCount, p.learners.map((l) => l.nickname)], [1, ['Zola']]);
 });
+
+import { handleNotices, handleSeen } from './http';
+
+test('notices over HTTP: teacher only; new joiners are flagged in the class view; /seen clears them; CSRF header required', async (ctx) => {
+  const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
+  const c = await created(s);
+  const a = await s.stu('Zola');
+  const later = (ms: number) => s.deps({ now: NOW + ms });
+  await handleJoin(req('/api/classes/join', { action: 'class-join', cookie: a.cookie, body: { code: c.joinCode } }), later(5000));
+  assert.equal((await handleNotices(req('/api/teacher/notices'), later(6000))).status, 401);
+  assert.equal((await handleNotices(req('/api/teacher/notices', { cookie: s.pc }), later(6000))).status, 403);
+  const n = (await (await handleNotices(req('/api/teacher/notices', { cookie: s.tc }), later(6000))).json()) as { total: number; classes: { count: number }[] };
+  assert.deepEqual([n.total, n.classes[0].count], [1, 1]);
+  const view = (await (await handleGetClass(req(`/api/teacher/classes/${c.id}`, { cookie: s.tc }), later(7000), c.id)).json()) as { class: { roster: { nickname: string; isNew: boolean }[] } };
+  assert.deepEqual(view.class.roster.map((r) => [r.nickname, r.isNew]), [['Zola', true]]);
+  assert.equal((await handleSeen(req(`/api/teacher/classes/${c.id}/seen`, { action: 'wrong', cookie: s.tc }), later(8000), c.id)).status, 403);
+  assert.equal((await handleSeen(req(`/api/teacher/classes/${c.id}/seen`, { action: 'class-seen', cookie: s.pc }), later(8000), c.id)).status, 403);
+  assert.equal((await handleSeen(req(`/api/teacher/classes/${c.id}/seen`, { action: 'class-seen', cookie: s.tc }), later(8000), c.id)).status, 200);
+  assert.equal(((await (await handleNotices(req('/api/teacher/notices', { cookie: s.tc }), later(9000))).json()) as { total: number }).total, 0);
+  const after = (await (await handleGetClass(req(`/api/teacher/classes/${c.id}`, { cookie: s.tc }), later(9500), c.id)).json()) as { class: { roster: { isNew: boolean }[] } };
+  assert.equal(after.class.roster[0].isNew, false);
+});

@@ -17,4 +17,4 @@ export function publicPaths(): PublicPath[] {
 }
 
 /** Prefixes that must never be crawled or listed: the app itself, the APIs, the admin console and the private reviewer pages. */
-export const PRIVATE_PREFIXES = ['/api/', '/app', '/admin', '/teacher', '/teacher-review', '/sign-in', '/account', '/progress', '/parent', '/invite-parent', '/unsubscribe'] as const;
+export const PRIVATE_PREFIXES = ['/api/', '/app', '/admin', '/teacher', '/school', '/teacher-review', '/sign-in', '/account', '/progress', '/parent', '/invite-parent', '/unsubscribe'] as const;

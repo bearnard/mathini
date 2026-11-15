@@ -44,7 +44,7 @@ const isUuid = (v: unknown): v is string => typeof v === 'string' && /^[0-9a-f]{
 export { isUuid };
 
 export interface ClassSummary { id: string; name: string; grade: number; subjects: string[]; joinCode: string; status: 'active' | 'archived'; members: number; createdAt: number; schoolName: string }
-export interface RosterEntry { studentId: string; nickname: string; joinedAt: number }
+export interface RosterEntry { studentId: string; nickname: string; joinedAt: number; isNew?: boolean }
 export interface ClassDetail extends ClassSummary { roster: RosterEntry[] }
 
 type Fail = { ok: false; status: number; error: string };
@@ -102,7 +102,11 @@ export async function createClass(db: AdminDb, teacherId: string, input: CreateC
   for (let attempt = 0; attempt < 5; attempt++) {
     const code = makeJoinCode(rand);
     try {
-      await db.batch([{ sql: "INSERT INTO classes (id, school_id, teacher_user_id, name, grade, subjects, join_code, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, 'active', ?)", params: [id, app.school_id, teacherId, name, grade, JSON.stringify(subjects), code, now] }]);
+      await db.batch([
+        { sql: "INSERT INTO classes (id, school_id, teacher_user_id, name, grade, subjects, join_code, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, 'active', ?)", params: [id, app.school_id, teacherId, name, grade, JSON.stringify(subjects), code, now] },
+        // the teacher's "new learner" marker starts when the class is made, so every learner who joins afterwards is new to them
+        { sql: 'INSERT OR IGNORE INTO class_join_seen (user_id, class_id, seen_at) VALUES (?, ?, ?)', params: [teacherId, id, now] },
+      ]);
       const c = await getClass(db, teacherId, id);
       return { ok: true, class: c as ClassSummary };
     } catch (e) {

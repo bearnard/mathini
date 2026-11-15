@@ -24,15 +24,23 @@ export const MAX_SINCE_DAYS = 180;
 const MAX_HISTORY_ROWS = 20_000;
 const MAX_TOPICS_SHOWN = 40;
 
-const inList = (n: number) => Array.from({ length: n }, () => '?').join(', ');
+// D1 allows 100 bound variables per statement, and a class of 60 learners with a 40-topic exam would need 100+ with one ? each, so lists go in as ONE
+// JSON parameter read with json_each. The member and topic ids are always ours (uuids and slugs), never raw user input.
+const JSON_LIST = 'SELECT value FROM json_each(?)';
 const topicLabel = (grade: number, task: string) => TOPIC_NAMES[`${grade}|${task}`]?.[0] ?? prettifySlug(task);
 
 export type ClassProgressResult = { ok: true; progress: ClassProgress } | { ok: false; status: number; error: string };
 
 /** `since` is YYYY-MM-DD (South Africa time); default 14 days ago; at most 180 days back and not in the future. */
-export async function buildClassProgress(db: AdminDb, teacherId: string, classId: unknown, sinceInput: unknown, now: number): Promise<ClassProgressResult> {
+/** Who is asking: the class's own teacher, or an admin of the class's school (they see the same view). */
+export type ClassOwner = string | { schoolId: string };
+
+export async function buildClassProgress(db: AdminDb, owner: ClassOwner, classId: unknown, sinceInput: unknown, now: number): Promise<ClassProgressResult> {
   if (!isUuid(classId)) return { ok: false, status: 404, error: 'Not found' };
-  const cls = (await db.all<{ id: string; name: string; grade: number; subjects: string; status: string }>('SELECT id, name, grade, subjects, status FROM classes WHERE id = ? AND teacher_user_id = ?', [classId, teacherId]))[0];
+  const cls = (await db.all<{ id: string; name: string; grade: number; subjects: string; status: string }>(
+    typeof owner === 'string' ? 'SELECT id, name, grade, subjects, status FROM classes WHERE id = ? AND teacher_user_id = ?' : 'SELECT id, name, grade, subjects, status FROM classes WHERE id = ? AND school_id = ?',
+    [classId, typeof owner === 'string' ? owner : owner.schoolId],
+  ))[0];
   if (!cls) return { ok: false, status: 404, error: 'Not found' };
 
   const todayDay = sastDayNumber(now);
@@ -68,13 +76,15 @@ export async function buildClassProgress(db: AdminDb, teacherId: string, classId
   let due: { student_id: string; due_day: number }[] = [];
   let tests: { student_id: string; score_pct: number; finished_at: number; subject: string }[] = [];
   let history: { student_id: string; task: string; is_correct: number; created_at: number }[] = [];
+  let lastAny: { student_id: string; last: number }[] = [];
   if (ids.length > 0) {
-    const q = inList(ids.length);
-    tpRows = await db.all(`SELECT student_id, task, subject, last20_pct, mastery, last_attempt_at FROM topic_progress WHERE student_id IN (${q}) LIMIT 4000`, ids);
-    due = await db.all(`SELECT student_id, due_day FROM review_items WHERE student_id IN (${q}) AND retired_at IS NULL AND due_day <= ? LIMIT 4000`, [...ids, sastDay(now)]);
+    const idsJson = JSON.stringify(ids);
+    tpRows = await db.all(`SELECT student_id, task, subject, last20_pct, mastery, last_attempt_at FROM topic_progress WHERE student_id IN (${JSON_LIST}) LIMIT 4000`, [idsJson]);
+    due = await db.all(`SELECT student_id, due_day FROM review_items WHERE student_id IN (${JSON_LIST}) AND retired_at IS NULL AND due_day <= ? LIMIT 4000`, [idsJson, sastDay(now)]);
+    lastAny = await db.all(`SELECT student_id, MAX(created_at) AS last FROM attempts WHERE student_id IN (${JSON_LIST}) GROUP BY student_id`, [idsJson]);
     tests = await db.all(
-      `SELECT student_id, score_pct, finished_at, subject FROM runs WHERE student_id IN (${q}) AND status = 'finished' AND kind IN ('mock_test', 'exam_practice') AND score_pct IS NOT NULL ORDER BY finished_at DESC LIMIT 2000`,
-      ids,
+      `SELECT student_id, score_pct, finished_at, subject FROM runs WHERE student_id IN (${JSON_LIST}) AND status = 'finished' AND kind IN ('mock_test', 'exam_practice') AND score_pct IS NOT NULL ORDER BY finished_at DESC LIMIT 2000`,
+      [idsJson],
     );
   }
   // topics in view: the exam's topics, else every topic of the class's subject(s) that anybody practised
@@ -96,8 +106,8 @@ export async function buildClassProgress(db: AdminDb, teacherId: string, classId
   if (ids.length > 0 && taskList.length > 0) {
     const tl = taskList.map((t) => t.task);
     history = await db.all(
-      `SELECT student_id, task, is_correct, created_at FROM attempts WHERE student_id IN (${inList(ids.length)}) AND task IN (${inList(tl.length)}) AND created_at >= ? ORDER BY id ASC LIMIT ?`,
-      [...ids, ...tl, sinceMs - 120 * DAY_MS, MAX_HISTORY_ROWS],
+      `SELECT student_id, task, is_correct, created_at FROM attempts WHERE student_id IN (${JSON_LIST}) AND task IN (${JSON_LIST}) AND created_at >= ? ORDER BY id ASC LIMIT ?`,
+      [JSON.stringify(ids), JSON.stringify(tl), sinceMs - 120 * DAY_MS, MAX_HISTORY_ROWS],
     );
     const att: HistAttempt[] = history.map((h) => ({ studentId: h.student_id, task: h.task, correct: Number(h.is_correct) === 1, at: Number(h.created_at) }));
     const r = improvementSince(att, sinceMs, sinceLabel);
@@ -133,6 +143,14 @@ export async function buildClassProgress(db: AdminDb, teacherId: string, classId
       behindOnReviews: behindOnReviews(due.map((d) => ({ studentId: d.student_id, dueDay: Number(d.due_day) })), nick, sastDay(now)),
       mockDistribution: mockDistribution(latest, ids),
       improvement: improvementSummary,
+      notPractisedLast7: (() => {
+        const last = new Map(lastAny.map((r) => [r.student_id, Number(r.last)]));
+        return members
+          .map((m) => ({ nickname: m.display_name, at: last.get(m.student_id) ?? null }))
+          .filter((x) => x.at === null || x.at < now - 7 * DAY_MS)
+          .sort((a, b) => (a.at ?? -1) - (b.at ?? -1) || a.nickname.localeCompare(b.nickname))
+          .map((x) => ({ nickname: x.nickname, lastPractisedDay: lastDayLabel(x.at) }));
+      })(),
       learners,
     },
   };

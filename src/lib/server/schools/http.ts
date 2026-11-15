@@ -95,7 +95,10 @@ export const handleCreateClass = (req: Request, deps: SchoolsDeps) =>
 export const handleGetClass = (req: Request, deps: SchoolsDeps, classId: string) =>
   asTeacher(req, deps, null, async (tid) => {
     const c = ID.test(classId) ? await getClass(deps.db, tid, classId) : null;
-    return c ? authJson({ class: c }) : authJson({ error: 'Not found' }, 404);
+    if (!c) return authJson({ error: 'Not found' }, 404);
+    // learners who joined since the teacher last looked are marked new (the screen then calls /seen)
+    const since = await seenAt(deps.db, tid, classId);
+    return authJson({ class: { ...c, roster: c.roster.map((m) => ({ ...m, isNew: since !== null && m.joinedAt > since })) } });
   });
 export const handleRegenerate = (req: Request, deps: SchoolsDeps, classId: string) =>
   asTeacher(req, deps, 'class-regenerate', async (tid) => {
@@ -190,4 +193,16 @@ export const handleClassProgress = (req: Request, deps: SchoolsDeps, classId: st
     const since = new URL(req.url).searchParams.get('since') ?? undefined;
     const r = await buildClassProgress(deps.db, tid, classId, since, deps.now);
     return r.ok ? authJson(r.progress) : authJson({ error: r.error }, r.status);
+  });
+
+// ---------- new-learner notices (part 6) ----------
+import { joinNotices, markJoinsSeen, seenAt } from './notices';
+
+/** GET: how many learners joined each of the teacher's classes since they last looked. In-app only. */
+export const handleNotices = (req: Request, deps: SchoolsDeps) => asTeacher(req, deps, null, async (tid) => authJson(await joinNotices(deps.db, tid, deps.now)));
+/** POST {}. Header X-Auth-Action: class-seen. The teacher has looked at the class's learners. */
+export const handleSeen = (req: Request, deps: SchoolsDeps, classId: string) =>
+  asTeacher(req, deps, 'class-seen', async (tid) => {
+    const r = await markJoinsSeen(deps.db, tid, classId, deps.now);
+    return r.ok ? authJson({ ok: true }) : authJson({ error: r.error }, r.status);
   });

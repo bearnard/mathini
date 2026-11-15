@@ -16,7 +16,7 @@ const clip = (v: unknown, n: number): string => (typeof v === 'string' ? v.repla
 /** SACE numbers are digits, sometimes with a dash or space: keep it loose (5 to 20 letters, digits, dashes) and let the admin check it. */
 const SACE_RE = /^[A-Za-z0-9][A-Za-z0-9 \-]{3,18}[A-Za-z0-9]$/;
 export const maskSace = (s: string): string => (s.length <= 3 ? '***' : `${'*'.repeat(Math.max(s.length - 3, 3))}${s.slice(-3)}`);
-const normName = (s: string) => s.toLowerCase().replace(/\s+/g, ' ').trim();
+export const normName = (s: string) => s.toLowerCase().replace(/\s+/g, ' ').trim();
 
 /** After a rejection (or a revoked teacher role) the person can send a new application once this long has passed. */
 export const REAPPLY_COOLDOWN_MS = 30 * 24 * 60 * 60 * 1000;
