@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
       { source: '/sign-in', headers: privateHeaders },
       { source: '/sign-in/:path*', headers: privateHeaders },
       { source: '/account', headers: privateHeaders },
+      { source: '/parent', headers: privateHeaders },
+      { source: '/parent/:path*', headers: privateHeaders },
+      { source: '/invite-parent', headers: privateHeaders },
+      { source: '/api/parent/:path*', headers: privateHeaders },
+      { source: '/api/students/me/parent-invite', headers: privateHeaders },
       { source: '/api/auth/:path*', headers: privateHeaders },
     ];
   },

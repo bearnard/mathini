@@ -36,3 +36,19 @@ export async function allowDurable(db: AdminDb, key: string, limit: number, wind
   await db.batch([{ sql: 'INSERT INTO auth_rate (key, window_start, count) VALUES (?, ?, 1) ON CONFLICT(key) DO UPDATE SET window_start = excluded.window_start, count = 1', params: [key, now] }]);
   return true;
 }
+
+/** True while `key` has reached `limit` in the current window. A READ only: use it to refuse before doing expensive work. */
+export async function isBlockedDurable(db: AdminDb, key: string, limit: number, windowMs: number, now: number): Promise<boolean> {
+  const row = (await db.all<{ window_start: number; count: number }>('SELECT window_start, count FROM auth_rate WHERE key = ?', [key]))[0];
+  return !!row && now - Number(row.window_start) < windowMs && Number(row.count) >= limit;
+}
+
+/** Counts one event (for example a wrong PIN) against `key`, starting a new window when the old one has ended. */
+export async function bumpDurable(db: AdminDb, key: string, windowMs: number, now: number): Promise<void> {
+  const row = (await db.all<{ window_start: number }>('SELECT window_start FROM auth_rate WHERE key = ?', [key]))[0];
+  if (row && now - Number(row.window_start) < windowMs) {
+    await db.batch([{ sql: 'UPDATE auth_rate SET count = count + 1 WHERE key = ? AND window_start = ?', params: [key, row.window_start] }]);
+    return;
+  }
+  await db.batch([{ sql: 'INSERT INTO auth_rate (key, window_start, count) VALUES (?, ?, 1) ON CONFLICT(key) DO UPDATE SET window_start = excluded.window_start, count = 1', params: [key, now] }]);
+}
