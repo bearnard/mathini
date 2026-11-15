@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Master case study analysis',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Case studies present real-world scenarios requiring you to apply EMS concepts. Read carefully, identify 
-          relevant concepts, support answers with evidence and justify decisions using economic principles.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Review core concepts across all terms',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Economic systems, financial recording, entrepreneurship, business planning, marketing, and responsibility 
-          form an integrated whole. Year-end assessment tests your ability to connect these areas.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Develop exam strategies',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Manage time effectively, read questions thoroughly, define key terms, support answers with examples and 
-          show your reasoning. Practice under timed conditions to build confidence.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {

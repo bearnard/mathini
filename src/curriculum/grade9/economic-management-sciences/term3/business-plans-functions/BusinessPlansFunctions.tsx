@@ -1,42 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Structure a business plan',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A business plan includes executive summary, market analysis, operational details, marketing strategy, 
-          financial projections and risk assessment. This structure communicates the business idea clearly to 
-          investors and guides management decisions.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Understand business functions',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Production creates goods; marketing promotes them; purchasing manages inputs; and finance ensures 
-          profitability. Management coordinates these functions to achieve business goals.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Analyze internal and external environments',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Internal factors include staff, resources and culture. External factors include competition, customer 
-          needs, government policies and economic conditions. Successful businesses adapt to both.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {
