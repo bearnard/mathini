@@ -2,7 +2,8 @@
 // ADR 0003 phase 3: the teacher's area. Make a class, share its code, see who joined, remove a learner, make a new code, archive.
 // Learners appear by nickname only. Every action is checked again on the server by role; hiding a button is not a permission.
 import { useEffect, useState } from 'react';
-import ClassProgressPanel from './ClassProgressPanel';
+import ClassDashboard from './ClassDashboard';
+import { DashboardPage, EmptyState, PageHeader, SectionCard, SkeletonCard, StatTileRow, plural } from '../dashboard';
 
 interface ClassSummary { id: string; name: string; grade: number; subjects: string[]; joinCode: string; status: 'active' | 'archived'; members: number; createdAt: number; schoolName: string }
 interface RosterEntry { studentId: string; nickname: string; joinedAt: number; isNew?: boolean }
@@ -72,11 +73,9 @@ function Exams({ classId, grade, active }: { classId: string; grade: number; act
   const today = new Date().toISOString().slice(0, 10);
 
   return (
-    <section className="mt-6" aria-label="Exams">
-      <h3 className="text-lg font-bold text-slate-900">Exams</h3>
-      <p className="text-sm text-slate-600">Tell us what the exam covers and when. Your learners get matching practice and a plan that counts down to it.</p>
+    <SectionCard id="exams" title="Exams" subtitle="Tell us what the exam covers and when. Your learners get matching practice and a plan that counts down to it.">
       {scopes && scopes.length > 0 && (
-        <ul className="mt-2 space-y-2">
+        <ul className="space-y-2">
           {scopes.map((sc) => (
             <li key={sc.id} className="flex items-start justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3">
               <span className="min-w-0"><strong className="block break-words text-slate-900">{sc.title}</strong><span className="text-sm text-slate-600">{longDate(sc.examDate)} · {sc.tasks.length} {sc.tasks.length === 1 ? 'topic' : 'topics'}</span></span>
@@ -123,11 +122,11 @@ function Exams({ classId, grade, active }: { classId: string; grade: number; act
         </form>
       )}
       {err && !open && <p className="mt-2 text-sm text-red-700" role="alert">{err}</p>}
-    </section>
+    </SectionCard>
   );
 }
 
-function ClassView({ id, onBack, onChanged }: { id: string; onBack: () => void; onChanged: () => void }) {
+function ClassView({ id, onBack, onChanged, onNewClass }: { id: string; onBack: () => void; onChanged: () => void; onNewClass: () => void }) {
   const [c, setC] = useState<ClassDetail | null | 'error'>(null);
   const [msg, setMsg] = useState('');
   const [copied, setCopied] = useState(false);
@@ -140,8 +139,8 @@ function ClassView({ id, onBack, onChanged }: { id: string; onBack: () => void; 
   };
   useEffect(load, [id]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (c === null) return <p className="mt-4 text-slate-600" role="status">Loading…</p>;
-  if (c === 'error') return <p className="mt-4 text-red-700" role="alert">Could not load this class. <button className="underline" onClick={onBack}>Back</button></p>;
+  if (c === null) return <SkeletonCard lines={5} label="Loading the class" />;
+  if (c === 'error') return <p className="text-red-700" role="alert">Could not load this class. <button className="underline" onClick={onBack}>Back</button></p>;
   const active = c.status === 'active';
 
   const act = async (url: string, action: string, confirm: string | null, done: string) => {
@@ -150,41 +149,56 @@ function ClassView({ id, onBack, onChanged }: { id: string; onBack: () => void; 
     if (!r.ok) { setMsg(r.error); return; }
     setMsg(done); load(); onChanged();
   };
+  const copy = () => { void navigator.clipboard?.writeText(c.joinCode).then(() => setCopied(true), () => setCopied(false)); };
+  const toExams = () => { document.getElementById('exams')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
 
-  return (
-    <div className="mt-4">
-      <button onClick={onBack} className="min-h-11 text-sm font-semibold text-indigo-700 underline">← All classes</button>
-      <h2 className="mt-2 break-words text-xl font-bold text-slate-900">{c.name}</h2>
-      <p className="text-sm text-slate-600">Grade {c.grade} · {c.schoolName}{active ? '' : ' · archived'}</p>
-      {active && (
-        <div className="mt-4 rounded-2xl border border-indigo-200 bg-indigo-50 p-4">
+  const actions = (
+    <SectionCard id="actions" title="Class code and actions">
+      {active ? (
+        <div className="rounded-2xl border border-indigo-200 bg-indigo-50 p-4">
           <p className="text-sm font-medium text-indigo-900">Class code: learners type this in the app</p>
           <p className="mt-1 break-all text-3xl font-black tracking-widest text-indigo-900" aria-label={`Class code ${c.joinCode.split('').join(' ')}`}>{show(c.joinCode)}</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            <button className={btn} onClick={() => { void navigator.clipboard?.writeText(c.joinCode).then(() => setCopied(true), () => setCopied(false)); }}>{copied ? 'Copied' : 'Copy code'}</button>
-            <button className={btn} onClick={() => void act(`/api/teacher/classes/${id}/regenerate`, 'class-regenerate', 'Make a new code? The old code stops working at once. Learners already in the class stay.', 'New code made.')}>New code</button>
-          </div>
+          <button className={`${btn} mt-3 w-full`} onClick={copy}>{copied ? 'Copied' : 'Copy code'}</button>
         </div>
-      )}
-      <ClassProgressPanel classId={id} />
-      <h3 className="mt-5 text-lg font-bold text-slate-900">Who is in the class ({c.roster.length})</h3>
+      ) : <p className="text-slate-600">This class is archived. Its code no longer works.</p>}
+      <div className="mt-4 grid gap-2">
+        {active && <button className={btnPrimary} onClick={toExams}>Set exam scope</button>}
+        <button className={btn} onClick={onNewClass}>Create another class</button>
+        {active && <button className={btn} onClick={() => void act(`/api/teacher/classes/${id}/regenerate`, 'class-regenerate', 'Make a new code? The old code stops working at once. Learners already in the class stay.', 'New code made.')}>Make a new code</button>}
+        {active && <button className={`${btn} text-red-700`} onClick={() => void act(`/api/teacher/classes/${id}/archive`, 'class-archive', 'Archive this class? Its code stops working and you stop seeing its learners.', 'Class archived.')}>Archive this class</button>}
+      </div>
+      {msg && <p className="mt-3 text-sm font-medium text-slate-800" role="status">{msg}</p>}
+    </SectionCard>
+  );
+
+  const roster = (
+    <SectionCard id="roster" title={`Who is in the class (${c.roster.length})`} subtitle="You see nicknames only. A learner who leaves, or whom you remove, disappears from this list and from your view of progress.">
       {c.roster.length === 0 ? (
-        <p className="mt-1 text-slate-600">No one has joined yet. Share the code above.</p>
+        <EmptyState title="No one has joined yet">Share the class code and learners will appear here.</EmptyState>
       ) : (
-        <ul className="mt-2 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+        <ul className="max-h-[30rem] divide-y divide-slate-100 overflow-y-auto pr-1">
           {c.roster.map((m) => (
-            <li key={m.studentId} className="flex items-center justify-between gap-3 px-4 py-2">
-              <span className="min-w-0 break-words text-slate-900">{m.nickname}{m.isNew && <span className="ml-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-900">New</span>}</span>
-              {active && <button className="min-h-11 shrink-0 px-2 text-sm font-semibold text-red-700 underline" onClick={() => void act(`/api/teacher/classes/${id}/members/${m.studentId}/remove`, 'class-remove', `Remove ${m.nickname} from this class? You will stop seeing their progress.`, `${m.nickname} was removed.`)}>Remove</button>}
+            <li key={m.studentId} className="flex items-center justify-between gap-3 py-1.5">
+              <span className="min-w-0 break-words font-semibold text-slate-900">{m.nickname}{m.isNew && <span className="ml-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-900">New</span>}</span>
+              {active && <button className="min-h-11 shrink-0 px-2 text-sm font-semibold text-red-700 underline" onClick={() => void act(`/api/teacher/classes/${id}/members/${m.studentId}/remove`, 'class-remove', `Remove ${m.nickname} from this class? They can join again with the code.`, `${m.nickname} removed.`)}>Remove</button>}
             </li>
           ))}
         </ul>
       )}
-      <p className="mt-2 text-sm text-slate-600">You see nicknames only. A learner who leaves, or whom you remove, disappears from this list and from your view of progress.</p>
-      <Exams classId={id} grade={c.grade} active={active} />
-      {active && <button className={`${btn} mt-5 w-full`} onClick={() => void act(`/api/teacher/classes/${id}/archive`, 'class-archive', 'Archive this class? Its code stops working and you stop seeing its learners.', 'Class archived.')}>Archive class</button>}
-      {msg && <p className="mt-3 text-sm font-medium text-slate-800" role="status">{msg}</p>}
-    </div>
+    </SectionCard>
+  );
+
+  return (
+    <>
+      <PageHeader
+        back={<button onClick={onBack} className="min-h-11 text-sm font-semibold text-indigo-700 underline">← All classes</button>}
+        eyebrow="PrepPals teacher"
+        title={c.name}
+        subtitle={`Grade ${c.grade} · ${c.schoolName}${active ? '' : ' · archived'}`}
+        actions={active ? <><button className={btn} onClick={copy}>{copied ? 'Copied' : `Copy code ${show(c.joinCode)}`}</button><button className={btnPrimary} onClick={toExams}>Set exam scope</button></> : undefined}
+      />
+      <ClassDashboard classId={id} extras={{ actions, roster, exams: <Exams classId={id} grade={c.grade} active={active} /> }} />
+    </>
   );
 }
 
@@ -202,27 +216,40 @@ function NewClass({ onCreated }: { onCreated: (id: string) => void }) {
     onCreated(r.data.class.id);
   };
   return (
-    <form className="mt-6 space-y-3 rounded-2xl border border-slate-200 bg-white p-4" onSubmit={(e) => { e.preventDefault(); void create(); }}>
-      <h2 className="text-lg font-bold text-slate-900">New class</h2>
-      <label className="block text-sm font-medium text-slate-700">Class name
-        <input className={field} value={name} onChange={(e) => setName(e.target.value)} maxLength={60} placeholder="6B Natural Sciences" required />
-      </label>
-      <label className="block text-sm font-medium text-slate-700">Grade
-        <select className={field} value={grade} onChange={(e) => setGrade(e.target.value)}>{[4, 5, 6, 7, 8, 9, 10, 11, 12].map((g) => <option key={g} value={g}>Grade {g}</option>)}</select>
-      </label>
-      {err && <p className="text-sm text-red-700" role="alert">{err}</p>}
-      <button type="submit" disabled={busy || name.trim().length < 2} className={`${btnPrimary} w-full`}>{busy ? 'Making…' : 'Make class'}</button>
-    </form>
+    <SectionCard id="new-class" title="New class" subtitle="Make a class, then share its code with your learners.">
+      <form className="space-y-3" onSubmit={(e) => { e.preventDefault(); void create(); }}>
+        <label className="block text-sm font-medium text-slate-700">Class name
+          <input className={field} value={name} onChange={(e) => setName(e.target.value)} maxLength={60} placeholder="6B Natural Sciences" required />
+        </label>
+        <label className="block text-sm font-medium text-slate-700">Grade
+          <select className={field} value={grade} onChange={(e) => setGrade(e.target.value)}>{[4, 5, 6, 7, 8, 9, 10, 11, 12].map((g) => <option key={g} value={g}>Grade {g}</option>)}</select>
+        </label>
+        {err && <p className="text-sm text-red-700" role="alert">{err}</p>}
+        <button type="submit" disabled={busy || name.trim().length < 2} className={`${btnPrimary} w-full`}>{busy ? 'Making…' : 'Make class'}</button>
+      </form>
+    </SectionCard>
   );
+}
+
+/** A small page for the states before the dashboard: loading, signed out, not a teacher. */
+function Narrow({ children }: { children: React.ReactNode }) {
+  return <main className="mx-auto min-h-screen max-w-md bg-slate-50 px-4 py-8">{children}</main>;
 }
 
 export default function TeacherArea() {
   const [me, setMe] = useState<Me | null | 'error'>(null);
   const [classes, setClasses] = useState<ClassSummary[] | null>(null);
-  const [open, setOpen] = useState<string | null>(null);
+  const [open, setOpenState] = useState<string | null>(null);
   const [notices, setNotices] = useState<Notices>({ total: 0, classes: [] });
 
+  // /teacher?class=<id> opens that class (so a class view can be linked to and reloaded); the address follows the screen.
+  const setOpen = (id: string | null) => {
+    setOpenState(id);
+    window.history.replaceState(null, '', id ? `/teacher?class=${encodeURIComponent(id)}` : '/teacher');
+  };
   useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get('class');
+    if (id && /^[A-Za-z0-9_-]{1,64}$/.test(id)) setOpenState(id);
     void api<Me>('/api/auth/me').then((r) => setMe(r.ok ? r.data : 'error'));
   }, []);
   const isTeacher = !!me && me !== 'error' && !!me.user && me.roles.includes('teacher');
@@ -230,53 +257,87 @@ export default function TeacherArea() {
   const loadClasses = () => { void api<{ classes: ClassSummary[] }>('/api/teacher/classes').then((r) => setClasses(r.ok ? r.data.classes : [])); loadNotices(); };
   useEffect(() => { if (isTeacher) loadClasses(); }, [isTeacher]);
 
+  if (me === null) return <Narrow><p className="text-slate-600" role="status">Loading…</p></Narrow>;
+  if (me === 'error') return <Narrow><p className="text-red-700" role="alert">Could not load your account. Try again.</p></Narrow>;
+  if (!me.user) {
+    return (
+      <Narrow>
+        <h1 className="text-2xl font-bold text-slate-900">Your classes</h1>
+        <p className="mt-3 text-slate-700">Sign in to see your classes.</p>
+        <a href="/sign-in" className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-base font-semibold text-white">Sign in</a>
+      </Narrow>
+    );
+  }
+  if (!isTeacher) {
+    return (
+      <Narrow>
+        <h1 className="text-2xl font-bold text-slate-900">Your classes</h1>
+        <p className="mt-3 text-slate-700">This area is for teachers. You can apply from your account page; we check every teacher before turning it on.</p>
+        <a href="/account" className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-base font-semibold text-white">Go to your account</a>
+      </Narrow>
+    );
+  }
+
+  if (open) {
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <DashboardPage>
+          <ClassView id={open} onBack={() => setOpen(null)} onChanged={loadClasses} onNewClass={() => { setOpen(null); setTimeout(() => document.getElementById('new-class')?.scrollIntoView({ behavior: 'smooth' }), 50); }} />
+        </DashboardPage>
+      </div>
+    );
+  }
+
+  const learners = (classes ?? []).reduce((n, c) => n + c.members, 0);
   return (
-    <main className="mx-auto min-h-screen max-w-md bg-slate-50 px-4 py-8">
-      <p className="text-sm font-semibold uppercase tracking-wide text-indigo-700">PrepPals</p>
-      <h1 className="mt-1 text-2xl font-bold text-slate-900">Your classes</h1>
-      {me === null && <p className="mt-3 text-slate-600" role="status">Loading…</p>}
-      {me === 'error' && <p className="mt-3 text-red-700" role="alert">Could not load your account. Try again.</p>}
-      {me && me !== 'error' && !me.user && (
-        <>
-          <p className="mt-3 text-slate-700">Sign in to see your classes.</p>
-          <a href="/sign-in" className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-base font-semibold text-white">Sign in</a>
-        </>
-      )}
-      {me && me !== 'error' && me.user && !isTeacher && (
-        <>
-          <p className="mt-3 text-slate-700">This area is for teachers. You can apply from your account page; we check every teacher before turning it on.</p>
-          <a href="/account" className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-base font-semibold text-white">Go to your account</a>
-        </>
-      )}
-      {isTeacher && open && <ClassView id={open} onBack={() => setOpen(null)} onChanged={loadClasses} />}
-      {isTeacher && !open && (
-        <>
-          {notices.total > 0 && (
-            <p className="mt-3 rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-900" role="status">
-              {notices.total === 1 ? '1 new learner has' : `${notices.total} new learners have`} joined your {notices.classes.length === 1 ? 'class' : 'classes'}.
-            </p>
+    <div className="min-h-screen bg-slate-50">
+      <DashboardPage>
+        <PageHeader
+          eyebrow="PrepPals teacher"
+          title="Your classes"
+          subtitle="Share a class code, then see how your learners are doing."
+          actions={<a href="/teacher/questions" className="inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-300 bg-white px-4 text-base font-semibold text-slate-800">Question bank: suggest changes</a>}
+        />
+        {notices.total > 0 && (
+          <p className="mb-4 rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-900" role="status">
+            {notices.total === 1 ? '1 new learner has' : `${notices.total} new learners have`} joined your {notices.classes.length === 1 ? 'class' : 'classes'}.
+          </p>
+        )}
+        {classes && classes.length > 0 && (
+          <div className="mb-4">
+            <StatTileRow label="Your classes at a glance" tiles={[
+              { label: 'Classes', value: String(classes.length), note: `${classes.filter((c) => c.status === 'active').length} active` },
+              { label: 'Learners', value: String(learners), note: 'across your classes' },
+              { label: 'New this visit', value: String(notices.total), note: notices.total === 0 ? 'no new learners' : 'learners joined', tone: notices.total > 0 ? 'good' : 'neutral' },
+            ]} />
+          </div>
+        )}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {classes === null && <SkeletonCard lines={3} label="Loading your classes" />}
+          {classes && classes.length === 0 && (
+            <div className="md:col-span-2 xl:col-span-2"><EmptyState title="You have no classes yet">Make one and share its code with your learners.</EmptyState></div>
           )}
-          {classes === null && <p className="mt-3 text-slate-600" role="status">Loading…</p>}
-          {classes && classes.length === 0 && <p className="mt-3 text-slate-700">You have no classes yet. Make one below and share its code with your learners.</p>}
-          {classes && classes.length > 0 && (
-            <ul className="mt-4 space-y-2">
-              {classes.map((c) => (
-                <li key={c.id}>
-                  <button onClick={() => setOpen(c.id)} className="flex min-h-14 w-full items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left">
-                    <span className="min-w-0"><strong className="block break-words text-slate-900">{c.name}</strong><span className="text-sm text-slate-600">Grade {c.grade} · {c.members} {c.members === 1 ? 'learner' : 'learners'}{c.status === 'archived' ? ' · archived' : ''}</span></span>
-                    <span className="flex shrink-0 flex-col items-end gap-1">
-                      {(notices.classes.find((n) => n.classId === c.id)?.count ?? 0) > 0 && <span className="rounded-full bg-emerald-500 px-2 py-0.5 text-xs font-bold text-white">{notices.classes.find((n) => n.classId === c.id)?.count} new</span>}
-                      {c.status === 'active' && <span className="rounded-lg bg-indigo-50 px-2 py-1 text-sm font-bold tracking-widest text-indigo-900">{show(c.joinCode)}</span>}
-                    </span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-          <a href="/teacher/questions" className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-xl border border-slate-300 bg-white px-4 text-base font-semibold text-slate-800">Question bank: suggest changes</a>
+          {classes?.map((c) => {
+            const fresh = notices.classes.find((n) => n.classId === c.id)?.count ?? 0;
+            return (
+              <button key={c.id} onClick={() => setOpen(c.id)} className="flex min-h-36 min-w-0 flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:border-indigo-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-indigo-600">
+                <span className="min-w-0">
+                  <strong className="block break-words text-lg font-extrabold text-slate-900">{c.name}</strong>
+                  <span className="mt-0.5 block text-sm text-slate-600">Grade {c.grade} · {plural(c.members, 'learner')}{c.status === 'archived' ? ' · archived' : ''}</span>
+                </span>
+                <span className="mt-4 flex items-center justify-between gap-2">
+                  {c.status === 'active' ? <span className="rounded-lg bg-indigo-50 px-2 py-1 text-sm font-bold tracking-widest text-indigo-900">{show(c.joinCode)}</span> : <span />}
+                  <span className="flex items-center gap-2">
+                    {fresh > 0 && <span className="rounded-full bg-emerald-500 px-2 py-0.5 text-xs font-bold text-white">{fresh} new</span>}
+                    <span className="text-sm font-bold text-indigo-700">Open →</span>
+                  </span>
+                </span>
+              </button>
+            );
+          })}
           <NewClass onCreated={(id) => { loadClasses(); setOpen(id); }} />
-        </>
-      )}
-    </main>
+        </div>
+      </DashboardPage>
+    </div>
   );
 }
