@@ -35,6 +35,24 @@ export interface SubjectProgress {
   topics: TopicProgress[];
 }
 
+/** One thing to do today on the way to an exam (ADR 0003 section 6). */
+export interface PlanStep {
+  kind: 'review' | 'topic' | 'mock' | 'rest';
+  title: string;
+  detail: string | null;
+  /** null when there is nothing to open. */
+  href: string | null;
+}
+
+/** Today's plan, counting down to the exam. Built by the server from what is due and what is weakest. */
+export interface DailyPlan {
+  daysLeft: number;
+  /** For example "12 days to your exam". */
+  headline: string;
+  /** At most 4, in the order to do them. */
+  steps: PlanStep[];
+}
+
 export interface ExamReadiness {
   scopeKey: string;
   /** For example "Grade 6 Natural Sciences, Terms 3 and 4 exam". */
@@ -47,6 +65,14 @@ export interface ExamReadiness {
   topicsTotal: number;
   topicsPractised: number;
   latestMock: { scorePct: number; finishedAt: string } | null;
+  /** Set when a teacher made this the class's exam (ADR 0003 phase 3); absent for the built-in scope. */
+  setByTeacher?: boolean;
+  /** The exam date as YYYY-MM-DD (South Africa time), when there is one. */
+  examDate?: string | null;
+  /** Whole days to the exam, 0 on the day. null when there is no date. */
+  daysLeft?: number | null;
+  /** Today's plan, when there is an exam date that has not passed. */
+  plan?: DailyPlan | null;
 }
 
 export interface TestResult {

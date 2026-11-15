@@ -105,3 +105,32 @@ test('a learner cannot leave a class they are not in, and cannot use another lea
   assert.equal((await s.t.db.all('SELECT 1 FROM class_members WHERE left_at IS NULL')).length, 1, 'A is still in');
 });
 
+
+import { handleArchiveScope, handleCatalog, handleCreateScope, handleListScopes } from './http';
+
+test('exam scope routes: teacher only, CSRF header on writes, the catalog lists real subjects and topics', async (ctx) => {
+  const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
+  const c = await created(s);
+  const cat = (q: string, cookie: string | undefined) => handleCatalog(req(`/api/teacher/catalog?${q}`, { cookie }), s.deps());
+  assert.equal((await cat('grade=6', undefined)).status, 401);
+  assert.equal((await cat('grade=6', s.pc)).status, 403);
+  assert.equal((await cat('grade=3', s.tc)).status, 400);
+  assert.equal((await cat('grade=6&subject=Bad Subject', s.tc)).status, 400);
+  const subjects = ((await (await cat('grade=6', s.tc)).json()) as { subjects: { code: string }[] }).subjects;
+  assert.ok(subjects.some((x) => x.code === 'nst'));
+  const topics = ((await (await cat('grade=6&subject=nst', s.tc)).json()) as { topics: { task: string }[] }).topics;
+  assert.ok(topics.length >= 5);
+
+  const day = new Date(Date.UTC(2027, 0, 15)).toISOString().slice(0, 10);
+  const body = { subject: 'nst', title: 'Term 3 test', tasks: topics.slice(0, 3).map((x) => x.task), examDate: day };
+  const create = (action: string, cookie: string) => handleCreateScope(req(`/api/teacher/classes/${c.id}/scopes`, { action, cookie, body }), s.deps({ now: Date.UTC(2026, 10, 15) }), c.id);
+  assert.equal((await create('scope-create', s.pc)).status, 403);
+  assert.equal((await create('wrong', s.tc)).status, 403);
+  const ok = await create('scope-create', s.tc);
+  assert.equal(ok.status, 201);
+  const scope = ((await ok.json()) as { scope: { id: string } }).scope;
+  const list = ((await (await handleListScopes(req(`/api/teacher/classes/${c.id}/scopes`, { cookie: s.tc }), s.deps(), c.id)).json()) as { scopes: unknown[] }).scopes;
+  assert.equal(list.length, 1);
+  assert.equal((await handleArchiveScope(req(`/api/teacher/classes/${c.id}/scopes/${scope.id}/archive`, { action: 'scope-archive', cookie: s.pc }), s.deps(), c.id, scope.id)).status, 403);
+  assert.equal((await handleArchiveScope(req(`/api/teacher/classes/${c.id}/scopes/${scope.id}/archive`, { action: 'scope-archive', cookie: s.tc }), s.deps(), c.id, scope.id)).status, 200);
+});

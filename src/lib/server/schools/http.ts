@@ -148,3 +148,35 @@ export const handleLeave = (req: Request, deps: ClassDeps, classId: string) =>
     const r = await leaveClass(deps.db, sid, classId, deps.now);
     return r.ok ? authJson({ ok: true }) : authJson({ error: r.error }, r.status);
   });
+
+// ---------- exam scopes (part 3) ----------
+import { archiveScope, createScope, listScopes } from './scopes';
+import { subjectsForGrade, topicsFor } from '../../shared/topicCatalog';
+
+export const handleListScopes = (req: Request, deps: SchoolsDeps, classId: string) =>
+  asTeacher(req, deps, null, async (tid) => {
+    const list = ID.test(classId) ? await listScopes(deps.db, tid, classId) : null;
+    return list ? authJson({ scopes: list }) : authJson({ error: 'Not found' }, 404);
+  });
+export const handleCreateScope = (req: Request, deps: SchoolsDeps, classId: string) =>
+  asTeacher(req, deps, 'scope-create', async (tid, b) => {
+    const r = await createScope(deps.db, tid, classId, b, deps.now);
+    return r.ok ? authJson({ scope: r.scope }, 201) : authJson({ error: r.error }, r.status);
+  });
+export const handleArchiveScope = (req: Request, deps: SchoolsDeps, classId: string, scopeId: string) =>
+  asTeacher(req, deps, 'scope-archive', async (tid) => {
+    const r = await archiveScope(deps.db, tid, classId, scopeId, deps.now);
+    return r.ok ? authJson({ ok: true }) : authJson({ error: r.error }, r.status);
+  });
+
+/** GET ?grade=6 lists the subjects; ?grade=6&subject=nst lists the topics a scope can hold. The curriculum registry, behind the teacher role. */
+export const handleCatalog = (req: Request, deps: SchoolsDeps) =>
+  asTeacher(req, deps, null, async () => {
+    const url = new URL(req.url);
+    const grade = Number(url.searchParams.get('grade'));
+    if (!Number.isInteger(grade) || grade < 4 || grade > 12) return authJson({ error: 'Choose a grade from 4 to 12' }, 400);
+    const subject = url.searchParams.get('subject');
+    if (!subject) return authJson({ subjects: subjectsForGrade(grade) });
+    if (!/^[a-z][a-z0-9-]{0,29}$/.test(subject)) return authJson({ error: 'Unknown subject' }, 400);
+    return authJson({ topics: topicsFor(grade, subject) });
+  });
