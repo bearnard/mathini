@@ -304,6 +304,8 @@ export async function deleteLearner(db: AdminDb, id: string, confirm: unknown, a
     { sql: 'DELETE FROM child_invites WHERE student_id = ?', params: [id] },
     { sql: 'DELETE FROM consent_events WHERE student_id = ?', params: [id] },
     { sql: 'DELETE FROM pin_resets WHERE student_id = ?', params: [id] },
+    // ADR 0003 phase 3: which teacher's class the learner joined (the teacher can see the learner's progress there).
+    { sql: 'DELETE FROM class_members WHERE student_id = ?', params: [id] },
     // ADR 0003 phase 3: the learner's class memberships (who they joined, with which notice) go too.
     { sql: 'DELETE FROM class_members WHERE student_id = ?', params: [id] },
     { sql: 'DELETE FROM attempts WHERE student_id = ?', params: [id] },
