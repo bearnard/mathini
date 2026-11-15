@@ -1,68 +1,104 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, OrderTiles, StoryArc, TaggedBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Elements of a short story',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A kortverhaal usually has a <strong>karakter</strong>, <strong>ruimte</strong>, and a clear{' '}
-          <strong>plot</strong>.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">karakter <SpeakButton text="karakter" /></span>
-          <span className="inline-flex items-center">ruimte <SpeakButton text="ruimte" /></span>
-          <span className="inline-flex items-center">plot <SpeakButton text="plot" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Theme and message',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          The <strong>tema</strong> is the big idea, like friendship or honesty.
-        </p>
-        <p className="text-xl text-slate-700">
-          Ask: “What lesson does the story teach?”
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Writing a simple review',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A <strong>resensie</strong> gives a short opinion with one reason from the story.
-        </p>
-        <p className="text-xl font-semibold text-slate-700">
-          “Ek hou van die storie omdat die hoofkarakter dapper is.”
-        </p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these literature words aloud before discussing stories, poems, characters, and themes.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"karakter"} phonetic={"[karakˈtɛr]"} meaning={"character"} lang="af" />
-          <PronunciationPlayer word={"tema"} phonetic={"[ˈteːma]"} meaning={"theme"} lang="af" />
-          <PronunciationPlayer word={"konflik"} phonetic={"[kɔnˈflək]"} meaning={"conflict"} lang="af" />
-          <PronunciationPlayer word={"storie"} phonetic={"[ˈstoːri]"} meaning={"story"} lang="af" />
-          <PronunciationPlayer word={"resensie"} phonetic={"[rɛˈsɛnsi]"} meaning={"review"} lang="af" />
-          <PronunciationPlayer word={"toneel"} phonetic={"[tɔˈniəl]"} meaning={"scene / stage"} lang="af" />
-        </div>
-      </div>
+    title: 'Characters and setting',
+    content: slide(
+      <>
+        <Rule>A <Af>karakter</Af> <En>character</En> is a person in the story. The <Af>hoofkarakter</Af> is the character the story is mostly about. The <Af>plek</Af> <En>setting</En> is where it happens.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'Amina', tag: 'karakter' }, { word: 'red', tag: 'aksie' }, { word: 'park', tag: 'plek' }]}
+          aria="Three words from a sentence, each with a tag: Amina is the character (karakter), red is the action (aksie), park is the place (plek)."
+        />
+        <Worked
+          title="Read the sentence"
+          steps={[
+            <><Af>Amina red haar vriend in die park.</Af> <En>Amina rescues her friend in the park.</En> <SpeakButton text="Amina red haar vriend in die park." /></>,
+            <>Who is the main character? <Af>Amina</Af>. She does the action.</>,
+            <>Where does it happen? <Af>park</Af>: that is the setting.</>,
+          ]}
+        />
+        <Mistake>Choosing <Af>vriend</Af> as the main character. The friend is helped; <Af>Amina</Af> is the one who acts. <Af>red</Af> is the action, not a character.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Plot and conflict',
+    content: slide(
+      <>
+        <Rule>The <Af>plot</Af> is what happens, in order. Ask: <Af>Wat gebeur eerste, daarna en laaste?</Af> The <Af>konflik</Af> is <Af>Die probleem wat opgelos moet word</Af> <En>the problem that must be solved</En>.</Rule>
+        <StoryArc
+          points={['Begin', 'Konflik', 'Hoogtepunt', 'Einde']}
+          aria="A story drawn as a hill with four points: Begin, Konflik (the problem), Hoogtepunt (the highest point), Einde (the end)."
+        />
+        <Worked
+          title="Follow the plot"
+          steps={[
+            <><Af>Begin:</Af> Amina and her friend play in the park.</>,
+            <><Af>Konflik:</Af> the friend falls into the dam.</>,
+            <><Af>Hoogtepunt:</Af> Amina rescues the friend. <Af>Einde:</Af> they go home safe.</>,
+          ]}
+        />
+        <Mistake>Calling the author&apos;s name, the list of chapters or the date of publication the <Af>konflik</Af>. The conflict is the problem in the story.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Theme: the message',
+    content: slide(
+      <>
+        <Rule>The <Af>tema</Af> <En>theme</En> is the big message of the story, written as a short idea. It is not a small fact.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'Vriendskap is belangrik', tag: 'tema' }]}
+          aria="The theme of the story in one box: Vriendskap is belangrik (friendship is important), tagged tema."
+        />
+        <Worked
+          title="Find the theme"
+          steps={[
+            <>Story: <Af>Amina red haar vriend.</Af> What is the message?</>,
+            <><Af>Vriendskap is belangrik.</Af> <En>Friendship is important.</En> <SpeakButton text="Vriendskap is belangrik." /></>,
+          ]}
+        />
+        <Mistake>Giving a fact as the theme: <Af>Die storie het drie paragrawe</Af>, <Af>Die hoofkarakter is 12</Af> or <Af>Die hond se naam is Max</Af>. These are details, not a message.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Writing a review: resensie',
+    content: slide(
+      <>
+        <Rule>A <Af>resensie</Af> <En>review</En> has three parts: your opinion, one reason or example, and a closing recommendation.</Rule>
+        <OrderTiles
+          tiles={['Mening', 'Rede', 'Aanbeveling']}
+          aria="Three parts of a review in order: Mening (opinion), Rede (reason), Aanbeveling (recommendation)."
+        />
+        <Worked
+          title="Write a short review"
+          steps={[
+            <>Opinion: <Af>Ek het die storie geniet omdat dit spannend was.</Af> <En>I enjoyed the story because it was exciting.</En></>,
+            <>After your opinion comes <Af>Een rede of voorbeeld uit die storie</Af> <En>one reason or example from the story</En>.</>,
+            <>Closing: <Af>Ek beveel hierdie storie vir Graad 7-leerders aan.</Af> <En>I recommend this story to Grade 7 learners.</En></>,
+          ]}
+        />
+        <Mistake>Retelling the whole story word for word, or adding ten questions. Give your opinion, one reason, and a recommendation.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<><Af>Amina red haar vriend in die park.</Af> Who is the main character?</>} answer={<><Af>Amina</Af>.</>} />
+        <Check question={<>In the same sentence, which word shows the setting?</>} answer={<><Af>park</Af>.</>} />
+        <Check question={<>Which is a theme: <Af>Vriendskap is belangrik</Af> or <Af>Die hond se naam is Max</Af>?</>} answer={<><Af>Vriendskap is belangrik</Af>.</>} />
+        <Check question={<>What is the <Af>konflik</Af> in a story?</>} answer={<><Af>Die probleem wat opgelos moet word</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -117,6 +153,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'A good closing sentence gives a final recommendation.',
   },
 ];
+
+export { bank };
 
 const ShortStoriesReviews = () => (
   <AfrikaansTopic

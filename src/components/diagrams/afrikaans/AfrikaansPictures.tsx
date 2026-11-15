@@ -139,7 +139,8 @@ export function TaggedBoxes({ items, aria }: { items: { word: string; tag: strin
 /** Up to six tiles in order, joined by a line. Each tile is one label. */
 export function OrderTiles({ tiles, aria }: { tiles: string[]; aria: string }) {
   const colors = [INDIGO, GREEN, YELLOW, ROSE, '#38bdf8', '#a78bfa'];
-  const gap = 8, w = Math.min(96, (344 - gap * (tiles.length - 1)) / tiles.length);
+  const gap = 8, w = Math.min(108, (344 - gap * (tiles.length - 1)) / tiles.length);
+  const fit = (t: string) => Math.min(tiles.length > 4 ? 22 : 20, Math.floor((w - 14) / (t.length * 0.62)));
   return (
     <Wrap aria={aria} w={360} h={78}>
       <line x1={14} y1={36} x2={346} y2={36} stroke={SLATE} strokeWidth={2} />
@@ -148,7 +149,7 @@ export function OrderTiles({ tiles, aria }: { tiles: string[]; aria: string }) {
         return (
           <g key={t + i}>
             <rect x={x} y={12} width={w} height={48} rx={10} fill={colors[i % colors.length]} />
-            <text x={x + w / 2} y={43} textAnchor="middle" fontSize={tiles.length > 4 ? 22 : 20} fontWeight={800} fill="#1e293b">{t}</text>
+            <text x={x + w / 2} y={43} textAnchor="middle" fontSize={fit(t)} fontWeight={800} fill="#1e293b">{t}</text>
           </g>
         );
       })}
@@ -212,6 +213,23 @@ export function PlaceScene({ scenes, aria }: { scenes: Place[]; aria: string }) 
           </g>
         );
       })}
+    </Wrap>
+  );
+}
+
+/** A story as a hill: four dots along a line that rises and falls. 4 labels. */
+export function StoryArc({ points, aria }: { points: string[]; aria: string }) {
+  const pts = [[40, 112], [120, 72], [210, 36], [320, 112]];
+  const colors = [GREEN, YELLOW, ROSE, INDIGO];
+  return (
+    <Wrap aria={aria} w={360} h={154}>
+      <polyline points={pts.map((p) => p.join(',')).join(' ')} fill="none" stroke={SLATE} strokeWidth={3} strokeLinejoin="round" />
+      {points.slice(0, 4).map((t, i) => (
+        <g key={t}>
+          <circle cx={pts[i][0]} cy={pts[i][1]} r={11} fill={colors[i]} stroke={SLATE} strokeWidth={2} />
+          <text x={pts[i][0]} y={i === 2 ? pts[i][1] - 18 : pts[i][1] + 34} textAnchor={i === 0 ? 'start' : i === 3 ? 'end' : 'middle'} dx={i === 0 ? -26 : i === 3 ? 26 : 0} fontSize={15} fontWeight={700} fill="#1e293b">{t}</text>
+        </g>
+      ))}
     </Wrap>
   );
 }

@@ -1,67 +1,107 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, TaggedBoxes, TenseTimeline, WordBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Core grammar patterns',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Revise plurals, adjectives and verbs in present, past and future tense.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">meervoude <SpeakButton text="meervoude" /></span>
-          <span className="inline-flex items-center">werkwoorde <SpeakButton text="werkwoorde" /></span>
-          <span className="inline-flex items-center">byvoeglike naamwoorde <SpeakButton text="byvoeglike naamwoorde" /></span>
-        </div>
-      </div>
+    title: 'Plurals: -e, -s and words to learn',
+    content: slide(
+      <>
+        <Rule>Most plurals add <Af>-e</Af> (<Af>boek</Af>, <Af>boeke</Af>) and words ending in <Af>-el</Af> take <Af>-s</Af> (<Af>tafel</Af>, <Af>tafels</Af>). Some plurals must be learned: <Af>kind</Af> becomes <Af>kinders</Af>.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['boek', 'boeke'], ['tafel', 'tafels'], ['kind', 'kinders']]}
+          aria="Three nouns and their plurals: boek becomes boeke, tafel becomes tafels, kind becomes kinders."
+        />
+        <Worked
+          title="Choose the plural"
+          steps={[
+            <><Af>een kind, twee kinders</Af> <En>one child, two children</En> <SpeakButton text="een kind, twee kinders" /></>,
+            <><Af>een hond, twee honde</Af> <En>one dog, two dogs</En></>,
+          ]}
+        />
+        <Mistake>Making up a form with a rule. <Af>kinde</Af>, <Af>kinds</Af> and <Af>kindere</Af> are all wrong. The plural of <Af>kind</Af> is <Af>kinders</Af>.</Mistake>
+      </>,
     ),
   },
   {
     title: 'Tense clues',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Time words help you choose the right tense.
-        </p>
-        <p className="text-xl text-slate-700">
-          Vandag = present, gister = past, môre = future.
-        </p>
-      </div>
+    content: slide(
+      <>
+        <Rule>Time words show the tense. <Af>Gister</Af> means past, with <Af>het</Af> and <Af>ge-</Af>. <Af>Nou</Af> means present, with the plain verb. <Af>Môre</Af> means future, with <Af>sal</Af>.</Rule>
+        <TenseTimeline
+          past="Ons het sokker gespeel."
+          present="Ek doen nou my huiswerk."
+          future="Ek sal hard werk."
+          aria="A timeline with three sentences: gister, Ons het sokker gespeel; vandag, Ek doen nou my huiswerk; môre, Ek sal hard werk."
+        />
+        <Worked
+          title="Pick the helper word"
+          steps={[
+            <><Af>Gister het ons sokker gespeel.</Af> <En>Yesterday we played soccer.</En></>,
+            <><Af>Môre sal ek hard werk.</Af> <En>Tomorrow I will work hard.</En> <SpeakButton text="Môre sal ek hard werk." /></>,
+            <>The past of <Af>Sy lees die boek</Af> is <Af>Sy het die boek gelees.</Af></>,
+          ]}
+        />
+        <Mistake>Adding <Af>-de</Af> like English <em>-ed</em>. <Af>Sy leesde die boek</Af> is wrong. Say <Af>Sy het die boek gelees.</Af></Mistake>
+      </>,
     ),
   },
   {
-    title: 'Idioms and meaning',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Idioms are fixed phrases. Learn the meaning, not only the words.
-        </p>
-        <p className="text-xl font-semibold text-slate-700">
-          “Die kat uit die boom kyk” means to wait and see.
-        </p>
-      </div>
+    title: 'Adjectives in a sentence',
+    content: slide(
+      <>
+        <Rule>An adjective describes a noun. Ask which word tells you more about the noun. A word that tells how the verb happens is not the adjective.</Rule>
+        <WordBoxes
+          words={['Die', 'bruin', 'hond', 'hardloop', 'vinnig']}
+          hot={[1]}
+          aria="The sentence Die bruin hond hardloop vinnig as five boxes, with the adjective bruin highlighted."
+        />
+        <Worked
+          title="Find the adjective"
+          steps={[
+            <><Af>Die bruin hond hardloop vinnig.</Af> <En>The brown dog runs fast.</En></>,
+            <><Af>bruin</Af> <En>brown</En> describes the noun <Af>hond</Af>. It is the adjective.</>,
+            <><Af>hardloop</Af> is the verb. <Af>vinnig</Af> tells how the dog runs.</>,
+          ]}
+        />
+        <Mistake>Choosing the noun <Af>hond</Af> or the verb <Af>hardloop</Af>. Only <Af>bruin</Af> describes the dog.</Mistake>
+      </>,
     ),
   },
-
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these noun and article words aloud so grammar labels connect with familiar examples.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"die"} phonetic={"[di]"} meaning={"the"} lang="af" />
-          <PronunciationPlayer word={"'n"} phonetic={"[ə]"} meaning={"a / an"} lang="af" />
-          <PronunciationPlayer word={"boek"} phonetic={"[buk]"} meaning={"book"} lang="af" />
-          <PronunciationPlayer word={"tafel"} phonetic={"[ˈtɑːfəl]"} meaning={"table"} lang="af" />
-          <PronunciationPlayer word={"hond"} phonetic={"[hɔnt]"} meaning={"dog"} lang="af" />
-          <PronunciationPlayer word={"kind"} phonetic={"[kənt]"} meaning={"child"} lang="af" />
-        </div>
-      </div>
+    title: 'Idioms and words that sound alike',
+    content: slide(
+      <>
+        <Rule>An <Af>idioom</Af> is a fixed saying whose meaning is not word for word. <Af>Die kat uit die boom kyk</Af> means to wait and see first. <Af>Homofone</Af> sound the same but mean different things, like <Af>lei/ly</Af>.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'Die kat uit die boom kyk', tag: 'Eers wag en kyk' }]}
+          aria="The idiom Die kat uit die boom kyk in one box, tagged with its meaning: Eers wag en kyk (first wait and watch)."
+        />
+        <Worked
+          title="Read the meaning"
+          steps={[
+            <><Af>Die kat uit die boom kyk</Af> = <Af>Eers wag en kyk</Af> <En>to wait and see</En>. <SpeakButton text="Die kat uit die boom kyk" /></>,
+            <><Af>lei</Af> <En>to lead</En> and <Af>ly</Af> <En>to suffer</En> sound the same. Read the whole sentence to choose.</>,
+          ]}
+        />
+        <Mistake>Taking an idiom word for word. <Af>Die kat uit die boom kyk</Af> is not about a real cat in a tree.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Plural: <Af>een kind, twee ___</Af>.</>} answer={<><Af>kinders</Af>.</>} />
+        <Check question={<>Fill in: <Af>Gister ___ ons sokker gespeel.</Af></>} answer={<><Af>het</Af>.</>} />
+        <Check question={<>What does the idiom <Af>Die kat uit die boom kyk</Af> mean?</>} answer={<><Af>Eers wag en kyk</Af> <En>wait and see first</En>.</>} />
+        <Check question={<>Which word is the adjective: <Af>Die bruin hond hardloop vinnig</Af>?</>} answer={<><Af>bruin</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -116,6 +156,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'Homophones sound alike but have different meanings/spellings.',
   },
 ];
+
+export { bank };
 
 const WordSentenceGrammar = () => (
   <AfrikaansTopic

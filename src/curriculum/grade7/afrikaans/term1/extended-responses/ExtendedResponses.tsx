@@ -1,65 +1,126 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, OrderTiles, TaggedBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Plan before writing',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Good extended writing starts with a short plan: opening, middle, and closing.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">inleiding <SpeakButton text="inleiding" /></span>
-          <span className="inline-flex items-center">middel <SpeakButton text="middel" /></span>
-          <span className="inline-flex items-center">slot <SpeakButton text="slot" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Paragraph order matters',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Keep one main idea per paragraph and connect ideas with linking words.
-        </p>
-        <p className="text-xl text-slate-700">
-          <strong>Eers</strong>, <strong>daarna</strong>, <strong>uiteindelik</strong>.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Write for your audience',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Your tone should match the reader. A school task needs clear, respectful language.
-        </p>
-        <p className="text-slate-500">Always reread and edit before submitting.</p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Use these past-tense words aloud to notice the common het ge- pattern in Afrikaans.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"het"} phonetic={"[hɛt]"} meaning={"has / had (auxiliary)"} lang="af" />
-          <PronunciationPlayer word={"ge-"} phonetic={"[χə]"} meaning={"past-tense prefix"} lang="af" />
-          <PronunciationPlayer word={"gespeel"} phonetic={"[χəˈspeəl]"} meaning={"played"} lang="af" />
-          <PronunciationPlayer word={"gelees"} phonetic={"[χəˈleəs]"} meaning={"read (past)"} lang="af" />
-          <PronunciationPlayer word={"geskryf"} phonetic={"[χəˈskrɛif]"} meaning={"wrote / written"} lang="af" />
-          <PronunciationPlayer word={"gekook"} phonetic={"[χəˈkuək]"} meaning={"cooked"} lang="af" />
-        </div>
-      </div>
+    title: 'Plan first: inleiding, middel, slot',
+    content: slide(
+      <>
+        <Rule>Plan before you write. A longer answer has three parts: the <Af>Inleiding</Af> <En>introduction</En> comes first, then the <Af>middel</Af> <En>middle</En>, then the <Af>slot</Af> <En>ending</En>.</Rule>
+        <OrderTiles
+          tiles={['Inleiding', 'Middel', 'Slot']}
+          aria="Three parts of a longer answer in order: Inleiding (introduction), Middel (middle), Slot (ending)."
+        />
+        <Worked
+          title="A plan for My beste vakansie"
+          steps={[
+            <><Af>Inleiding:</Af> where and when. <Af>Verlede Desember het ons strand toe gegaan.</Af> <En>Last December we went to the beach.</En></>,
+            <><Af>Middel:</Af> what happened, in order.</>,
+            <><Af>Slot:</Af> how you felt. <SpeakButton text="Inleiding, middel, slot" /></>,
+          ]}
+        />
+        <Mistake>Starting to write with no plan, or putting the <Af>slot</Af> first. The <Af>Inleiding</Af> starts the response.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'One idea in each paragraph',
+    content: slide(
+      <>
+        <Rule>A paragraph has one main idea. The best order is: <Af>Hoofidee, besonderhede, afsluiting</Af> <En>main idea, details, closing</En>.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'Hoofidee', tag: '1' }, { word: 'Besonderhede', tag: '2' }, { word: 'Afsluiting', tag: '3' }]}
+          aria="Three parts of a paragraph in order: Hoofidee (main idea) is 1, Besonderhede (details) is 2, Afsluiting (closing) is 3."
+        />
+        <Worked
+          title="Build a paragraph"
+          steps={[
+            <><Af>Hoofidee:</Af> <Af>Ek hou van sokker.</Af> <En>I like soccer.</En></>,
+            <><Af>Besonderhede:</Af> <Af>Ons oefen elke Dinsdag en speel op Saterdag.</Af> <En>We practise every Tuesday and play on Saturday.</En></>,
+            <><Af>Afsluiting:</Af> <Af>Sokker maak my gelukkig.</Af> <En>Soccer makes me happy.</En></>,
+          ]}
+        />
+        <Mistake>Giving only details with no <Af>hoofidee</Af>, or squeezing two ideas into one paragraph. Start a new paragraph for a new idea.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Linking words: eers, daarna, uiteindelik',
+    content: slide(
+      <>
+        <Rule>Linking words show the order of events. <Af>Daarna</Af> shows what comes next in a sequence.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['Eers', 'First'], ['Daarna', 'Then'], ['Uiteindelik', 'Finally']]}
+          aria="Three Afrikaans linking words with their English meaning: Eers is first, Daarna is then, Uiteindelik is finally."
+        />
+        <Worked
+          title="Show the sequence"
+          steps={[
+            <><Af>Eers het ons begin oefen.</Af> <En>First we started to practise.</En></>,
+            <><Af>Daarna het ons gespeel.</Af> <En>Then we played.</En> <SpeakButton text="Daarna het ons gespeel." /></>,
+            <><Af>Uiteindelik het ons gewen.</Af> <En>In the end we won.</En></>,
+          ]}
+        />
+        <Mistake>Using <Af>Maar</Af>, <Af>Want</Af> or <Af>Of</Af> to show sequence. They show contrast, a reason or a choice. For order use <Af>Daarna</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Know your reader: teikengehoor and tone',
+    content: slide(
+      <>
+        <Rule>The <Af>teikengehoor</Af> <En>audience</En> is <Af>Die mense vir wie jy skryf</Af> <En>the people you write for</En>. For school writing the tone must be <Af>Netjies en respekvol</Af> <En>neat and respectful</En>.</Rule>
+        <MeaningPairs
+          kind="opposite"
+          pairs={[['Netjies', 'Sleng'], ['Respekvol', 'Emoji']]}
+          aria="Two pairs of opposites: neat language (Netjies) against slang (Sleng), and respectful language (Respekvol) against emoji."
+        />
+        <Worked
+          title="Fix the tone"
+          steps={[
+            <>Too casual: <Af>Haai, dis cool!</Af></>,
+            <>Better for school: <Af>Dit is baie interessant.</Af> <En>It is very interesting.</En></>,
+          ]}
+        />
+        <Mistake>Using slang, emoji or short forms such as <Af>lol</Af> in a formal answer. They do not suit a school task.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Opening, closing and editing',
+    content: slide(
+      <>
+        <Rule>A story opening sets the scene. A closing sentence sums up the message. At the end you <Af>redigeer</Af> <En>edit</En>: <Af>Om foute in spelling en leestekens reg te maak</Af> <En>to fix mistakes in spelling and punctuation</En>.</Rule>
+        <OrderTiles
+          tiles={['Opening', 'Slot', 'Redigeer']}
+          aria="Three finishing steps in order: Opening, Slot (closing), Redigeer (edit)."
+        />
+        <Worked
+          title="Open and close"
+          steps={[
+            <>Opening: <Af>Verlede Saterdag het iets onverwags gebeur.</Af> <En>Last Saturday something unexpected happened.</En></>,
+            <>Closing: <Af>Dus het ek geleer dat voorbereiding belangrik is.</Af> <En>So I learnt that preparation is important.</En> <SpeakButton text="Dus het ek geleer dat voorbereiding belangrik is." /></>,
+          ]}
+        />
+        <Mistake>Skipping the edit, or ending with a vague line such as <Af>Ek het nou klaar gepraat</Af>. A closing should sum up your key message.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Which part of a longer answer comes first?</>} answer={<><Af>Inleiding</Af> <En>the introduction</En>.</>} />
+        <Check question={<>Choose the linking word: <Af>___ het ons begin oefen.</Af> (it shows sequence)</>} answer={<><Af>Daarna</Af>.</>} />
+        <Check question={<>What does <Af>teikengehoor</Af> mean?</>} answer={<><Af>Die mense vir wie jy skryf</Af>.</>} />
+        <Check question={<>What is the best order for a paragraph?</>} answer={<><Af>Hoofidee, besonderhede, afsluiting</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -114,6 +175,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'School writing should be clear and appropriate.',
   },
 ];
+
+export { bank };
 
 const ExtendedResponses = () => (
   <AfrikaansTopic
