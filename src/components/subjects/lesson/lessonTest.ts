@@ -51,9 +51,13 @@ export const renderSlides = (steps: { title: string; content: ReactNode }[]): Re
   });
 
 /** The shape the standard asks for: 4 to 6 slides, a rule/worked/mistake on each teaching slide, a final Check, accessible pictures. */
-export const assertLessonShape = (slides: RenderedSlide[]): void => {
-  assert.ok(slides.length >= 4 && slides.length <= 6, `expected 4-6 slides, got ${slides.length}`);
-  const last = slides[slides.length - 1];
+/** An optional hands-on slide (for example a simulation) sits just before "Check yourself". It is not counted in the 4-6 slides and needs no rule/worked/mistake. */
+export const OPTIONAL_SLIDE = /^Try it yourself/;
+
+export const assertLessonShape = (all: RenderedSlide[]): void => {
+  const slides = all.filter((s) => !OPTIONAL_SLIDE.test(s.title));
+  assert.ok(slides.length >= 4 && slides.length <= 6, `expected 4-6 slides (not counting an optional "Try it yourself"), got ${slides.length}`);
+  const last = all[all.length - 1];
   assert.equal(last.title, 'Check yourself', 'the last slide is "Check yourself"');
   assert.match(last.html, /<details/, 'the check slide hides its answers behind <details>');
   for (const s of slides.slice(0, -1)) {
@@ -62,6 +66,6 @@ export const assertLessonShape = (slides: RenderedSlide[]): void => {
     assert.match(s.text, /Common mistake/, `${s.title}: has a common mistake`);
     assert.ok(s.pictures >= 1, `${s.title}: has a picture`);
   }
-  for (const s of slides) assert.equal(s.labelled, s.pictures, `${s.title}: every picture has an aria-label`);
-  for (const s of slides) assert.ok(!/NaN|undefined|\[object Object\]/.test(s.text), `${s.title}: no NaN/undefined in the text`);
+  for (const s of all) assert.equal(s.labelled, s.pictures, `${s.title}: every picture has an aria-label`);
+  for (const s of all) assert.ok(!/NaN|undefined|\[object Object\]/.test(s.text), `${s.title}: no NaN/undefined in the text`);
 };
