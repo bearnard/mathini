@@ -15,6 +15,11 @@ const nextConfig: NextConfig = {
       { source: '/teacher-review/:path*', headers: privateHeaders },
       { source: '/api/teacher-review/:path*', headers: privateHeaders },
       { source: '/api/teacher-review', headers: privateHeaders },
+      // Adult sign-in (ADR 0003): the pages and the API are never cached, indexed or sent as a referrer.
+      { source: '/sign-in', headers: privateHeaders },
+      { source: '/sign-in/:path*', headers: privateHeaders },
+      { source: '/account', headers: privateHeaders },
+      { source: '/api/auth/:path*', headers: privateHeaders },
     ];
   },
 };

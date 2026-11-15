@@ -53,11 +53,11 @@ export interface TrackerDeps {
 
 /**
  * The admin area is never tracked: the owner looking at the dashboard is not a visitor. Neither is a teacher-review link:
- * its path contains the secret token, which must not reach the event log.
+ * its path contains the secret token, which must not reach the event log. Adult sign-in and account pages are not tracked either.
  */
 export function isTrackablePath(pathname: string | null | undefined): boolean {
   const p = (pathname ?? '').split(/[?#]/)[0];
-  return !(p === '/admin' || p.startsWith('/admin/') || p === '/api' || p.startsWith('/api/') || p === '/teacher-review' || p.startsWith('/teacher-review/'));
+  return !(p === '/admin' || p.startsWith('/admin/') || p === '/api' || p.startsWith('/api/') || p === '/teacher-review' || p.startsWith('/teacher-review/') || p === '/sign-in' || p.startsWith('/sign-in/') || p === '/account');
 }
 
 export const FLUSH_INTERVAL_MS = 10_000;
