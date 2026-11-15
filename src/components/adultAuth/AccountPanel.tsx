@@ -105,6 +105,12 @@ export default function AccountPanel() {
             <p className="mt-3 text-slate-700">Signed in as <strong>{me.user.email}</strong>.</p>
             <ul className="mt-3 list-disc pl-5 text-slate-700">{me.roles.map((r) => <li key={r}>{ROLE_LABEL[r] ?? r}</li>)}</ul>
             <TeacherApply roles={me.roles} />
+            {me.roles.includes('school_admin') && (
+              <section className="mt-6 border-t border-slate-200 pt-5" aria-label="School area">
+                <h2 className="text-lg font-bold text-slate-900">Your school</h2>
+                <a href="/school" className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-base font-semibold text-white">Open the school area</a>
+              </section>
+            )}
             <button onClick={() => void signOut()} disabled={out} className="mt-6 min-h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-base font-semibold text-slate-800 disabled:opacity-60">
               {out ? 'Signing out…' : 'Sign out'}
             </button>

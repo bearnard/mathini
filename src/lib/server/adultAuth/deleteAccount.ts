@@ -15,6 +15,8 @@ export interface DeletedCounts {
   members: number;
   scopes: number;
   applications: number;
+  /** Schools they were appointed school admin of (the appointment goes with the account). */
+  schoolAdminships: number;
   /** Consent events and PIN resets kept but made anonymous. */
   consentsAnonymised: number;
   pinResetsAnonymised: number;
@@ -30,25 +32,28 @@ export async function deleteAdultAccount(db: AdminDb, userId: string, now: numbe
   if (!u) return { ok: false, status: 404, error: 'Account not found' };
   const n = async (sql: string, p: (string | number)[] = [userId]) => Number((await db.all<{ n: number }>(sql, p))[0]?.n ?? 0);
   const mine = '(SELECT id FROM classes WHERE teacher_user_id = ?)';
-  const [sessions, links, classes, members, scopes, applications, consentsAnonymised, pinResetsAnonymised, proposalsAnonymised, commentsAnonymised] = await Promise.all([
+  const [sessions, links, classes, members, scopes, applications, schoolAdminships, consentsAnonymised, pinResetsAnonymised, proposalsAnonymised, commentsAnonymised] = await Promise.all([
     n('SELECT COUNT(*) AS n FROM sessions WHERE user_id = ?'),
     n('SELECT COUNT(*) AS n FROM parent_links WHERE user_id = ?'),
     n('SELECT COUNT(*) AS n FROM classes WHERE teacher_user_id = ?'),
     n(`SELECT COUNT(*) AS n FROM class_members WHERE class_id IN ${mine}`),
     n(`SELECT COUNT(*) AS n FROM exam_scopes WHERE class_id IN ${mine}`),
     n('SELECT COUNT(*) AS n FROM teacher_applications WHERE user_id = ?'),
+    n('SELECT COUNT(*) AS n FROM school_admins WHERE user_id = ?'),
     n('SELECT COUNT(*) AS n FROM consent_events WHERE user_id = ?'),
     n('SELECT COUNT(*) AS n FROM pin_resets WHERE user_id = ?'),
     n('SELECT COUNT(*) AS n FROM proposals WHERE proposer_user_id = ?'),
     n('SELECT COUNT(*) AS n FROM discussion_comments WHERE user_id = ?'),
   ]);
-  const deleted: DeletedCounts = { sessions, links, classes, members, scopes, applications, consentsAnonymised, pinResetsAnonymised, proposalsAnonymised, commentsAnonymised };
+  const deleted: DeletedCounts = { sessions, links, classes, members, scopes, applications, schoolAdminships, consentsAnonymised, pinResetsAnonymised, proposalsAnonymised, commentsAnonymised };
   const emailKey = `email:${await sha256Hex(u.email)}`;
   const statements: Statement[] = [
     { sql: `DELETE FROM class_members WHERE class_id IN ${mine}`, params: [userId] },
     { sql: `DELETE FROM exam_scopes WHERE class_id IN ${mine}`, params: [userId] },
     { sql: 'DELETE FROM classes WHERE teacher_user_id = ?', params: [userId] },
     { sql: 'DELETE FROM teacher_applications WHERE user_id = ?', params: [userId] },
+    { sql: 'DELETE FROM school_admins WHERE user_id = ?', params: [userId] },
+    { sql: 'DELETE FROM class_join_seen WHERE user_id = ?', params: [userId] },
     { sql: 'DELETE FROM parent_links WHERE user_id = ?', params: [userId] },
     { sql: 'UPDATE consent_events SET user_id = ? WHERE user_id = ?', params: [ANONYMOUS_USER, userId] },
     { sql: 'UPDATE pin_resets SET user_id = ? WHERE user_id = ?', params: [ANONYMOUS_USER, userId] },

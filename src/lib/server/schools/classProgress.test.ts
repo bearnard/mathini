@@ -154,3 +154,26 @@ test('another class\'s learners never appear, even with the same topics', async 
   assert.equal(p.topics[0].practised, 1);
   assert.ok(!JSON.stringify(p).includes('Theirs'));
 });
+
+test('no statement binds more than 100 variables (D1 limit), even for a full class with a 40-topic exam', async (ctx) => {
+  const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
+  for (let i = 0; i < 60; i++) await s.join(`kid${i}`);
+  const tasks = Array.from({ length: 40 }, (_, i) => `topic-${i}`);
+  s.t.raw.prepare("INSERT INTO exam_scopes (id, class_id, subject, grade, title, tasks, exam_date, created_by, created_at) VALUES (?, ?, 'nst', 6, 'Big exam', ?, ?, 'u', 1)").run(newTestId(), s.cls.id, JSON.stringify(tasks), dateIn(10));
+  let widest = 0;
+  const guarded = { all: <T,>(sql: string, params: (string | number | null)[] = []) => { widest = Math.max(widest, params.length); if (params.length > 100) return Promise.reject(new Error('too many SQL variables')); return s.t.db.all<T>(sql, params); }, batch: s.t.db.batch } as typeof s.t.db;
+  const r = await buildClassProgress(guarded, s.teacher, s.cls.id, undefined, NOW);
+  assert.ok(r.ok, JSON.stringify(r));
+  assert.equal((r as Extract<typeof r, { ok: true }>).progress.memberCount, 60);
+  assert.ok(widest <= 100, `widest statement bound ${widest} variables`);
+});
+
+test('a school admin\'s owner form reads the class of THEIR school and nobody else\'s', async (ctx) => {
+  const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
+  await s.join('Zola');
+  const schoolId = (s.t.raw.prepare('SELECT school_id FROM classes WHERE id = ?').get(s.cls.id) as { school_id: string }).school_id;
+  const mine = await buildClassProgress(s.t.db, { schoolId }, s.cls.id, undefined, NOW);
+  assert.ok(mine.ok);
+  const other = await buildClassProgress(s.t.db, { schoolId: newTestId() }, s.cls.id, undefined, NOW);
+  assert.deepEqual(other, { ok: false, status: 404, error: 'Not found' });
+});

@@ -20,7 +20,8 @@ function Section({ title, children, hint }: { title: string; children: React.Rea
   );
 }
 
-export default function ClassProgressPanel({ classId }: { classId: string }) {
+/** `endpoint` lets a school admin read the same view from their own route; the default is the teacher's. */
+export default function ClassProgressPanel({ classId, endpoint }: { classId: string; endpoint?: string }) {
   const [p, setP] = useState<ClassProgress | null | 'error'>(null);
   const [since, setSince] = useState('');
   const [err, setErr] = useState('');
@@ -28,7 +29,8 @@ export default function ClassProgressPanel({ classId }: { classId: string }) {
 
   const load = (s: string) => {
     setErr('');
-    fetch(`/api/teacher/classes/${classId}/progress${s ? `?since=${encodeURIComponent(s)}` : ''}`, { cache: 'no-store' })
+    const base = endpoint ?? `/api/teacher/classes/${classId}/progress`;
+    fetch(`${base}${s ? `${base.includes('?') ? '&' : '?'}since=${encodeURIComponent(s)}` : ''}`, { cache: 'no-store' })
       .then(async (r) => {
         const j = (await r.json().catch(() => ({}))) as ClassProgress & { error?: string };
         if (r.ok) { setP(j); if (!s) setSince(j.improvement.since); } else if (r.status === 400) setErr(j.error ?? 'Choose another date.'); else setP('error');
