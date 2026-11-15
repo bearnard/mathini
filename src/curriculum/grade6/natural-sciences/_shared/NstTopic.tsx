@@ -36,7 +36,7 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
   const [streak, setStreak] = useState(0);
   usePracticeTracking({ active: mode === 'practice', done, isCorrect, ctx: { grade: 6, subject: 'nst', topic: task } });
   // Signed-in learners' answers are recorded (XP, badges, leaderboards). Subject code matches the leaderboard filter.
-  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'nst');
+  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'nst', { grade: 6, total, done, label: title });
 
   // One result per question for every item kind. Correct = fully right (the whole sequence, every label).
   const handleResult = (correct: boolean, chosen?: string) => {

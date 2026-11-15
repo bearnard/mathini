@@ -11,8 +11,9 @@ test('every shell that records a multiple-choice answer passes the tapped option
   assert.match(fs.readFileSync(`${g6}/afrikaans/_shared/AfrikaansTopic.tsx`, 'utf8'), /recordAttempt\([^)]*current\.prompt, option\)/);
   for (const f of ['src/components/PracticeRunner.tsx', 'src/components/CapsSubjectTopic.tsx']) {
     const src = fs.readFileSync(f, 'utf8');
-    assert.match(src, /chosen: option/, f);
-    assert.match(src, /chosen: r\.chosen/, f);
+    assert.match(src, /chosen: option/, f); // the tapped option goes into the results ...
   }
-  assert.match(fs.readFileSync('src/components/review/ReviewScreen.tsx', 'utf8'), /streak: streakRef\.current, chosen \}/);
+  // ... and the shared step that posts them (ADR 0005 runs) sends it on.
+  assert.match(fs.readFileSync('src/lib/client/runs/submitRun.ts', 'utf8'), /chosen: r\.chosen/);
+  assert.match(fs.readFileSync('src/components/review/ReviewScreen.tsx', 'utf8'), /streak: streakRef\.current, chosen[,} ]/);
 });

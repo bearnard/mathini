@@ -119,3 +119,72 @@ test('the tapped option is sent as `chosen` (trimmed to 200 chars) and omitted w
   assert.equal(s.posts[1].chosen!.length, 200);
   assert.equal('chosen' in s.posts[2], false);
 });
+
+// ---- ADR 0005: runs
+import { createRunTracker, type RunResult, type RunTrackerDeps } from './runs/runTracker';
+
+function withRun(over: Partial<RunTrackerDeps> = {}, signedIn = true) {
+  const log: string[] = [];
+  const run = createRunTracker({
+    signedIn: () => signedIn,
+    newId: () => 'run-1',
+    now: () => 5,
+    start: async () => { log.push('start'); return true; },
+    finish: async (id) => { log.push(`finish:${id}`); return { id, status: 'finished', nItems: 2, nAnswered: 2, nCorrect: 1, scorePct: 50, durationMs: 1 } as RunResult; },
+    ...over,
+  });
+  const s = setup({ signedIn: () => signedIn, run: { tracker: run, scope: () => ({ kind: 'practice', grade: 6, subject: 'nst', scopeKey: 'mains-electricity', scopeLabel: 'Mains', nItems: 2 }) } });
+  return { ...s, log, run };
+}
+
+test('with a run: the first answer starts the run and every answer carries its id', async () => {
+  const s = withRun();
+  s.rec.record(true); s.rec.record(false);
+  await flush();
+  assert.deepEqual(s.posts.map((p) => p.runId), ['run-1', 'run-1']);
+  assert.deepEqual(s.log, ['start']);
+});
+
+test('with a run: finishRun waits for the posts, then finishes once', async () => {
+  const s = withRun();
+  s.rec.record(true); s.rec.record(true);
+  const r = await s.rec.finishRun();
+  assert.equal(s.posts.length, 2, 'both answers were posted before the run finished');
+  assert.equal(r?.scorePct, 50);
+  assert.deepEqual(s.log, ['start', 'finish:run-1']);
+  assert.equal(await s.rec.finishRun(), null);
+});
+
+test('with a run: resetStreak ("Practice again") ends the run so the next answer starts a new one', async () => {
+  let n = 0;
+  const s = withRun({ newId: () => `run-${++n}` });
+  s.rec.record(true);
+  s.rec.resetStreak();
+  s.rec.record(true);
+  await flush();
+  assert.deepEqual(s.posts.map((p) => p.runId), ['run-1', 'run-2']);
+});
+
+test('with a run that the server refused: answers are still posted, without a run id', async () => {
+  const s = withRun({ start: async () => false });
+  s.rec.record(true);
+  await flush();
+  assert.equal(s.posts.length, 1);
+  assert.ok(!('runId' in s.posts[0]));
+});
+
+test('with a run, anonymous: nothing is posted and nothing is started', async () => {
+  const s = withRun({}, false);
+  s.rec.record(true);
+  await flush();
+  assert.deepEqual(s.posts, []);
+  assert.deepEqual(s.log, []);
+});
+
+test('without a run the recorder behaves exactly as before (finishRun resolves null)', async () => {
+  const s = setup();
+  s.rec.record(true);
+  await flush();
+  assert.ok(!('runId' in s.posts[0]));
+  assert.equal(await s.rec.finishRun(), null);
+});

@@ -45,7 +45,7 @@ const AfrikaansTopic = ({
   const [streak, setStreak] = useState(0);
   usePracticeTracking({ active: mode === 'practice', done, isCorrect, ctx: { grade: 6, subject: 'afr', topic: task } });
   // Signed-in learners' answers are recorded (XP, badges, leaderboards). Subject code matches the leaderboard filter.
-  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'afr');
+  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'afr', { grade: 6, total, done, label: title });
 
   const handleSelect = (option: string) => {
     if (selected !== null || !current) {

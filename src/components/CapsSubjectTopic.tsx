@@ -11,6 +11,10 @@ import TopicContainer from './layout/TopicContainer';
 import { useCapsItems } from '../lib/client/useCapsItems';
 import type { CapsItem } from '../lib/client/useCapsItems';
 import MathText from './subjects/MathText';
+import { useRunTracker } from '../lib/client/runs/useRunTracker';
+import { submitPracticeRun } from '../lib/client/runs/submitRun';
+import { postAttemptJson } from '../lib/client/runs/runClient';
+import { parseTaskSlug } from '../lib/server/caps/slug';
 import { useStudent } from '../lib/client/StudentContext';
 import { aggregateResultsBySection, pickWeakSections } from '../lib/client/revision';
 import BadgeUnlockModal from './gamification/BadgeUnlockModal';
@@ -63,11 +67,15 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
   // Track per-question results for section aggregation
   const resultsRef = useRef<{ section?: string; correct: boolean; qkey?: string; chosen?: string }[]>([]);
   const hasSubmitted = useRef(false);
+  // ADR 0005: the practice session is one run; it starts at the first answer.
+  const tracker = useRunTracker();
+  const firstAnswerAt = useRef<number | null>(null);
 
   const handleSelect = (option: string) => {
     if (selected !== null || !current) {
       return;
     }
+    if (firstAnswerAt.current === null) firstAnswerAt.current = Date.now();
     setSelected(option);
     const correct = option === current.answer;
     setIsCorrect(correct);
@@ -85,45 +93,22 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
   useEffect(() => {
     if (!done || !task || hasSubmitted.current) return;
     hasSubmitted.current = true;
-    if (!student) return;
-
     const results = resultsRef.current;
     if (results.length === 0) return;
+    const subject = taskToSubject(apiPath);
+    const scope = { kind: 'practice' as const, grade: grade ?? parseTaskSlug(task).grade, subject, scopeKey: task, scopeLabel: title, nItems: total, startedAt: firstAnswerAt.current ?? undefined };
+    if (!student) {
+      // Anonymous: nothing is sent; the run is kept on the device only.
+      void submitPracticeRun({ tracker, post: null }, { scope, task, subject, results });
+      return;
+    }
 
-    // Per-result POSTs — collect newBadges from responses
-    const promises = results.map((r) =>
-      fetch('/api/attempts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          task,
-          subject: taskToSubject(apiPath),
-          section: r.section,
-          isCorrect: r.correct,
-          qkey: r.qkey,
-          chosen: r.chosen,
-          streak: 0,
-        }),
-      })
-        .then((res) => res.json() as Promise<{ newBadges?: string[] }>)
-        .catch(() => null),
-    );
-
-    Promise.allSettled(promises).then((settled) => {
-      const newBadges = [
-        ...new Set(
-          settled
-            .filter(
-              (r): r is PromiseFulfilledResult<{ newBadges?: string[] }> =>
-                r.status === 'fulfilled' && r.value !== null,
-            )
-            .flatMap((r) => r.value.newBadges ?? []),
-        ),
-      ];
+    // One run: every answer is posted with the run id, then the run is finished (the server counts the answers).
+    void submitPracticeRun({ tracker, post: postAttemptJson }, { scope, task, subject, results }).then(({ newBadges }) => {
       if (newBadges.length > 0) setPendingBadges(newBadges);
       refreshStudent();
     });
-  }, [done, task, apiPath, student, refreshStudent]);
+  }, [done, task, apiPath, student, refreshStudent, tracker, total, grade, title]);
 
   const handleNext = () => {
     setSelected(null);
@@ -139,6 +124,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
     reset();
     resultsRef.current = [];
     hasSubmitted.current = false;
+    firstAnswerAt.current = null;
   };
 
   // Compute weak sections from results

@@ -27,7 +27,7 @@ const block = (src: string, start: RegExp): string => {
 for (const { file, subject, handler, call } of SHELLS as { file: string; subject: string; handler?: RegExp; call?: RegExp }[]) {
   test(`${path.basename(file)} records answers with subject "${subject}" and the prompt`, () => {
     const src = read(file);
-    assert.ok(src.includes(`useAttemptRecorder(task, '${subject}')`), 'uses the recorder with its own subject code and its task');
+    assert.ok(src.includes(`useAttemptRecorder(task, '${subject}', { grade: 6, total, done, label: title })`), 'uses the recorder with its own subject code and its task, and follows the session as a run (ADR 0005)');
     assert.match(
       block(src, handler ?? /const handleSelect = /),
       call ?? /recordAttempt\(option === current\.answer, current\.section, current\.id, current\.prompt(?:, option)?\)/,
@@ -53,17 +53,24 @@ test('the four shells use four different subject codes (no merging of subjects)'
   assert.equal(new Set(SHELLS.map((s) => s.subject)).size, 4);
 });
 
-test('MOCK TESTS stay unrecorded: nothing in them imports the recorder or calls /api/attempts', () => {
+test('MOCK TESTS record only as runs (ADR 0005): no recorder hook, no qkey (so they never feed the spaced-review schedule), no direct /api/attempts call', () => {
   const files = [
     'curriculum/grade6/natural-sciences/_shared/NstMockTest.tsx',
     'curriculum/grade6/natural-sciences/_shared/mockTest.ts',
     'curriculum/grade6/natural-sciences/_shared/mockTestEvents.ts',
     'curriculum/grade6/natural-sciences/term3/mock-test/Term3MockTest.tsx',
     'curriculum/grade6/natural-sciences/term4/mock-test/Term4MockTest.tsx',
+    'curriculum/grade6/natural-sciences/exam/Terms34ExamPractice.tsx',
   ];
   for (const f of files) {
     const src = read(f);
-    assert.ok(!/useAttemptRecorder|attemptRecorder|\/api\/attempts|recordAttempt/.test(src), `${f} must not record attempts`);
+    assert.ok(!/useAttemptRecorder|attemptRecorder|\/api\/attempts|recordAttempt|qkey|makeQkey/.test(src), `${f} must not use the recorder or send a qkey`);
+  }
+  const mock = read('curriculum/grade6/natural-sciences/_shared/NstMockTest.tsx');
+  assert.match(mock, /tracker\.begin\(\{ kind: run\.kind/, 'a signed-in learner\'s first-attempt answers are tracked as a run');
+  assert.match(mock, /if \(run\) void tracker\.finish\(\)/, 'the results screen finishes the run');
+  for (const [f, kind] of [['term3/mock-test/Term3MockTest.tsx', 'mock_test'], ['term4/mock-test/Term4MockTest.tsx', 'mock_test'], ['exam/Terms34ExamPractice.tsx', 'exam_practice']]) {
+    assert.ok(read(`curriculum/grade6/natural-sciences/${f}`).includes(`kind: '${kind}'`), `${f} is a ${kind} run`);
   }
 });
 

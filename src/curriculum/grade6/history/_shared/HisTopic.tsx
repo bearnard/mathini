@@ -36,7 +36,7 @@ const HisTopic = ({ title, subtitle, learnSteps, task, bank }: HisTopicProps) =>
   const [streak, setStreak] = useState(0);
   usePracticeTracking({ active: mode === 'practice', done, isCorrect, ctx: { grade: 6, subject: 'his', topic: task } });
   // Signed-in learners' answers are recorded (XP, badges, leaderboards). Subject code matches the leaderboard filter.
-  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'his');
+  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'his', { grade: 6, total, done, label: title });
 
   // One result per question for every item kind. Correct = fully right (the whole sequence, every label).
   const handleResult = (correct: boolean, chosen?: string) => {

@@ -2,6 +2,7 @@
 // It never throws: recording an answer must never break practice.
 
 import { makeQkey } from '../shared/qkey';
+import type { RunResult, RunScope, RunTracker } from './runs/runTracker';
 
 export interface AttemptBody {
   task: string;
@@ -14,6 +15,8 @@ export interface AttemptBody {
   qkey?: string;
   /** Multiple-choice only: the option the learner tapped (item analysis). */
   chosen?: string;
+  /** The run (ADR 0005) this answer belongs to, when the server accepted the run's start. */
+  runId?: string;
 }
 
 export interface AttemptResponse {
@@ -29,6 +32,8 @@ export interface RecorderDeps {
   onBadges: (badges: string[]) => void;
   /** Called after a successful post (refresh XP shown in the header). */
   onRecorded: () => void;
+  /** ADR 0005: follow the session as a run. Without it the recorder behaves exactly as before. */
+  run?: { tracker: RunTracker; scope: () => RunScope };
 }
 
 export interface AttemptRecorder {
@@ -36,6 +41,8 @@ export interface AttemptRecorder {
   /** Start a fresh streak (e.g. "Practice again"). */
   resetStreak(): void;
   streak(): number;
+  /** Ends the run (results screen). Resolves the server's result, or null. No-op without a run tracker. */
+  finishRun(): Promise<RunResult | null>;
 }
 
 export function createAttemptRecorder(task: string, subject: string, deps: RecorderDeps): AttemptRecorder {
@@ -45,13 +52,19 @@ export function createAttemptRecorder(task: string, subject: string, deps: Recor
       try {
         // The streak counts for everyone; only signed-in learners are recorded.
         streak = isCorrect ? streak + 1 : 0;
+        if (deps.run) {
+          deps.run.tracker.begin(deps.run.scope());
+          deps.run.tracker.note(isCorrect);
+        }
         if (!deps.signedIn()) return;
         const body: AttemptBody = { task, subject, section: section || 'general', isCorrect, streak };
         if (typeof itemId === 'number' && Number.isInteger(itemId) && itemId > 0) body.itemId = itemId;
         if (typeof prompt === 'string' && prompt.trim()) body.qkey = makeQkey(task, prompt);
         if (typeof chosen === 'string' && chosen) body.chosen = chosen.slice(0, 200);
-        void deps
-          .post(body)
+        const run = deps.run;
+        const posted = run ? run.tracker.runId().then((id) => deps.post(id ? { ...body, runId: id } : body)) : deps.post(body);
+        run?.tracker.track(posted);
+        void posted
           .then((data) => {
             if (!data) return;
             if (data.newBadges?.length) deps.onBadges(data.newBadges);
@@ -64,7 +77,9 @@ export function createAttemptRecorder(task: string, subject: string, deps: Recor
     },
     resetStreak() {
       streak = 0;
+      deps.run?.tracker.reset();
     },
     streak: () => streak,
+    finishRun: () => (deps.run ? deps.run.tracker.finish() : Promise.resolve(null)),
   };
 }

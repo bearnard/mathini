@@ -36,7 +36,7 @@ const GeoTopic = ({ title, subtitle, learnSteps, task, bank }: GeoTopicProps) =>
   const [streak, setStreak] = useState(0);
   usePracticeTracking({ active: mode === 'practice', done, isCorrect, ctx: { grade: 6, subject: 'geo', topic: task } });
   // Signed-in learners' answers are recorded (XP, badges, leaderboards). Subject code matches the leaderboard filter.
-  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'geo');
+  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'geo', { grade: 6, total, done, label: title });
 
   // One result per question for every item kind. Correct = fully right (the whole sequence, every label).
   const handleResult = (correct: boolean, chosen?: string) => {

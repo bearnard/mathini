@@ -33,6 +33,7 @@ const Terms34ExamPractice = () => (
     groups={EXAM_GROUPS}
     count={EXAM_QUESTION_COUNT}
     explainCount={EXAM_EXPLAIN_COUNT}
+    run={{ kind: 'exam_practice', scopeKey: 'nst-terms34-exam' }}
   />
 );
 

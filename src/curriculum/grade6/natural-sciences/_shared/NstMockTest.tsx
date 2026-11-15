@@ -9,6 +9,10 @@ import { kindOf, marksOf } from './itemKinds';
 import { onFinish, onStart } from './mockTestEvents';
 import NstQuestionBody, { incorrectMessageFor } from './NstQuestionBody';
 import ReportProblem from '../../../../components/items/ReportProblem';
+import { useStudent } from '../../../../lib/client/StudentContext';
+import { useRunTracker } from '../../../../lib/client/runs/useRunTracker';
+import { postAttemptJson } from '../../../../lib/client/runs/runClient';
+import type { RunKind } from '../../../../lib/client/runs/runTracker';
 
 interface NstMockTestProps {
   title: string;
@@ -22,6 +26,8 @@ interface NstMockTestProps {
    * total, like an exam, and explain questions are not re-asked (their memo has just been shown).
    */
   explainCount?: number;
+  /** ADR 0005: record the test as a run (kind and a stable id of this test). Leave out to record nothing. */
+  run?: { kind: Extract<RunKind, 'mock_test' | 'exam_practice'>; scopeKey: string };
 }
 
 type Phase = 'round1' | 'reask' | 'results';
@@ -29,9 +35,12 @@ type Phase = 'round1' | 'reask' | 'results';
 /**
  * Client-only term mock test. Round 1 asks `count` mixed questions and keeps a
  * clean first-attempt score. Missed questions are then asked ONCE more (the
- * re-ask round). Nothing is sent to the server.
+ * re-ask round). Nothing is sent to the server, unless `run` is given: then the first-attempt answers of a signed-in learner are recorded as one
+ * run (ADR 0005). They are sent without a question key, so a mock test never feeds the spaced-review schedule.
  */
-const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0 }: NstMockTestProps) => {
+const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0, run }: NstMockTestProps) => {
+  const { student } = useStudent();
+  const tracker = useRunTracker();
   const [questions, setQuestions] = useState<MockItem[]>(() => buildMockTest(groups, count, Math.random, { explain: explainCount }));
   const [phase, setPhase] = useState<Phase>('round1');
   const [queue, setQueue] = useState<MockItem[]>(questions);
@@ -72,6 +81,8 @@ const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0 }: 
     finished.current = true;
     // Analytics hook point: one call when the results screen is shown.
     onFinish({ title, score, total: outOf, byTopic, reaskFixed, reaskTotal });
+    // ADR 0005: the results screen finishes the run; the server counts the answers it received.
+    if (run) void tracker.finish();
   }, [phase]);
 
   // One result per question for every item kind; correct = fully right.
@@ -82,6 +93,16 @@ const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0 }: 
     setStreak((s) => (correct ? s + 1 : 0));
     if (correct) triggerConfetti();
     if (phase === 'round1') {
+      if (run) {
+        // A self-marked written answer counts as correct only for full marks (correct = fully right, as in the score above).
+        tracker.begin({ kind: run.kind, grade: 6, subject: 'nst', scopeKey: run.scopeKey, scopeLabel: title, nItems: questions.length });
+        tracker.note(correct);
+        if (student) {
+          const body: Record<string, unknown> = { task: current.task ?? run.scopeKey, subject: 'nst', section: current.section, isCorrect: correct, streak: 0 };
+          if (chosen) body.chosen = chosen.slice(0, 200);
+          tracker.track(tracker.runId().then((id) => postAttemptJson(id ? { ...body, runId: id } : body)));
+        }
+      }
       setFirstAttempt((prev) => [...prev, correct]);
       setFirstMarks((prev) => [...prev, marksGained(current, given ? given.marks : correct)]);
     } else if (correct) {
@@ -110,6 +131,7 @@ const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0 }: 
   const handleNewTest = () => {
     const fresh = buildMockTest(groups, count, Math.random, { explain: explainCount });
     finished.current = false;
+    tracker.reset();
     setQuestions(fresh);
     setQueue(fresh);
     setIndex(0);

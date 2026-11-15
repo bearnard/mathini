@@ -7,6 +7,9 @@ import { makeQkey, isQkey } from '../../../lib/shared/qkey';
 import { recordReviewAnswer } from '../../../lib/server/review/store';
 import { identifyAttempt } from '../../../lib/server/questions/store';
 import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
+import { d1Adapter } from '../../../lib/server/admin/db';
+import { runIdForAttempt } from '../../../lib/server/progress/runs';
+import { attemptInsertPlans } from '../../../lib/server/progress/attemptPlans';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,6 +22,8 @@ interface SubmitBody {
   questionVersionId?: number;
   /** Multiple-choice only: the option text the learner tapped (<= 200 chars). */
   chosen?: string;
+  /** The run (ADR 0005) this answer belongs to. Kept only if it is the learner's own open run. */
+  runId?: string;
   section?: string;
   isCorrect: boolean;
   streak: number;
@@ -82,16 +87,12 @@ export async function POST(req: NextRequest) {
     const chosen = typeof body.chosen === 'string' ? body.chosen.trim().slice(0, 200) || null : null;
     const baseCols = ['student_id', 'task', 'item_id', 'section', 'grade', 'subject', 'topic', 'is_correct', 'xp_awarded', 'streak_at', 'created_at', 'qkey'];
     const baseVals: (string | number | null)[] = [studentId, task, itemId || null, section || 'general', parsed.grade, subject, parsed.topic, isCorrect ? 1 : 0, xpAwarded, streak, now, qkey];
-    const cols = [...baseCols];
-    const vals = [...baseVals];
-    if (questionVersionId !== null) { cols.push('question_version_id'); vals.push(questionVersionId); }
-    if (chosen !== null) { cols.push('chosen'); vals.push(chosen); }
+    // run_id (0014): only for the learner's own open run; null when the run, the table or the column is missing.
+    const runId = await runIdForAttempt(d1Adapter(db as never), studentId, body.runId, now);
     const insert = (c: string[], v: (string | number | null)[]) =>
       db.prepare(`INSERT INTO attempts (${c.join(', ')}) VALUES (${c.map(() => '?').join(', ')})`).bind(...v).run();
-    // Fall back in stages: everything, then without `chosen` (0010 missing: keep the version), then the plain row.
-    const attempts: [string[], (string | number | null)[]][] = [[cols, vals]];
-    if (chosen !== null && questionVersionId !== null) attempts.push([[...baseCols, 'question_version_id'], [...baseVals, questionVersionId]]);
-    if (cols.length > baseCols.length) attempts.push([baseCols, baseVals]);
+    // Fall back in stages (see attemptInsertPlans): the answer is stored even if a newer column does not exist yet.
+    const attempts = attemptInsertPlans(baseCols, baseVals, { questionVersionId, chosen, runId });
     for (let i = 0; i < attempts.length; i++) {
       try {
         await insert(attempts[i][0], attempts[i][1]);
