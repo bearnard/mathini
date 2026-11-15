@@ -9,7 +9,7 @@ import { norm, type RawItem } from './teacherCheckParse';
 import { countOccurrences } from './applyChanges';
 
 export interface BankQuestion { file: string; prompt: string; options: string[]; answer: string; explanation: string | null }
-export interface D1Question { id: string; versionId: number }
+export interface D1Question { id: string; versionId: number; task?: string }
 
 export interface ResolveEnv {
   read(rel: string): string | null; // path under src/curriculum
@@ -20,6 +20,28 @@ export interface ResolveEnv {
 }
 
 export const d1Key = (prompt: string, answer: string) => `${norm(prompt)}\u0001${norm(answer)}`;
+
+/**
+ * The same prompt and key can exist in two grades' topics (a question reused on purpose). D1 keeps them as separate questions with a `task`
+ * (the topic): `gr9-grammar-reporting-t2` for Grade 7 and up, a plain slug such as `begripstoets` for Grade 6. The bank file says which one is meant
+ * (grade, term, topic folder), so candidates are narrowed in tiers, and the first tier that is not empty wins:
+ *   1. the task the file name gives: `gr{grade}-{topic}-t{term}`, or `{topic}` for Grade 6
+ *   2. a task for that grade (`gr{grade}-` prefix) that contains the topic folder name
+ *   3. any task for that grade
+ * If that leaves more than one question, the match is ambiguous and is reported with the tasks.
+ */
+export const narrowByTask = (cands: D1Question[], file: string): D1Question[] => {
+  const m = file.match(/^grade(\d+)\/[^/]+\/term(\d)\/([^/]+)\//);
+  if (!m || cands.every((c) => !c.task)) return cands;
+  const [, grade, term, topic] = m;
+  const exact = new Set([`gr${grade}-${topic}-t${term}`, ...(grade === '6' ? [topic] : [])]);
+  const tiers: ((t: string) => boolean)[] = [(t) => exact.has(t), (t) => t.startsWith(`gr${grade}-`) && t.includes(topic), (t) => t.startsWith(`gr${grade}-`)];
+  for (const ok of tiers) {
+    const hit = cands.filter((c) => c.task && ok(c.task));
+    if (hit.length) return hit;
+  }
+  return cands;
+};
 
 export type Item =
   | { kind: 'question'; pack: string; file: string; questionId: string; versionId: number; prompt: string; doubt: string; sources: number[]; sections: string[] }
@@ -107,9 +129,10 @@ export const resolveItems = (raw: RawItem[], env: ResolveEnv, opts: ResolveOptio
   const addQuestion = (r: RawItem, b: BankQuestion, newQ = false) => {
     const hits = env.d1.get(d1Key(b.prompt, b.answer)) ?? [];
     if (hits.length === 0) return bad(r, `question not in the D1 export: ${b.prompt.slice(0, 70)}`);
-    const ids = new Set(hits.map((h) => h.id));
-    if (ids.size > 1) return bad(r, `question matches ${ids.size} D1 ids (same prompt and key; ids ${[...ids].join(', ')}): ${b.prompt.slice(0, 70)}`);
-    const h = hits[0];
+    const narrowed = narrowByTask(hits, b.file);
+    const ids = new Set(narrowed.map((h) => h.id));
+    if (ids.size > 1) return bad(r, `question matches ${ids.size} D1 ids (same prompt and key; ${narrowed.map((h) => `${h.id} in ${h.task ?? '?'}`).join(', ')}): ${b.prompt.slice(0, 70)}`);
+    const h = narrowed[0];
     add(`q:${h.id}`, { kind: 'question', pack: packOf(b.file, newQ), file: b.file, questionId: h.id, versionId: h.versionId, prompt: b.prompt, doubt: r.doubt, sources: [r.mdLine], sections: [r.section] });
   };
 

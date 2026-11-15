@@ -45,7 +45,7 @@ try {
     const v = versions.get(Number(qn.current_version_id));
     if (!v) continue;
     const k = d1Key(v.prompt, v.answer);
-    d1.set(k, [...(d1.get(k) ?? []), { id: String(qn.id), versionId: Number(qn.current_version_id) }]);
+    d1.set(k, [...(d1.get(k) ?? []), { id: String(qn.id), versionId: Number(qn.current_version_id), task: String(qn.task) }]);
   }
 } catch (e) {
   console.error(`cannot read inputs: ${(e as Error).message}`);
