@@ -6,10 +6,14 @@ import * as narrative from './term1/narrative-writing-grammar/NarrativeWritingGr
 import * as poetry from './term1/poetry-early-literature-study/PoetryEarlyLiteratureStudy';
 import * as advertisements from './term1/visual-literacy-advertisements/VisualLiteracyAdvertisements';
 import * as electronic from './term2/electronic-communication-reviews/ElectronicCommunicationReviews';
+import * as folklore from './term2/folklore-youth-novel-study/FolkloreYouthNovelStudy';
+import * as grammarReporting from './term2/grammar-reporting-coherence/GrammarReportingCoherence';
+import * as creative from './term3/creative-writing-project/CreativeWritingProject';
+import * as drama from './term3/short-stories-drama/ShortStoriesDrama';
 
 // Lesson standard (docs/notes/lesson-standard.md): 4-6 slides, the last one "Check yourself", every slide renders, and the topic's
 // practice bank can be answered from the slides. The banks themselves are byte-identical to before (checked in the branch).
-const lessons = { narrative, poetry, advertisements, electronic } as const;
+const lessons = { narrative, poetry, advertisements, electronic, folklore, grammarReporting, creative, drama } as const;
 
 const text = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 const slideText = (step: { content: React.ReactNode }) => text(renderToStaticMarkup(createElement('div', null, step.content)));

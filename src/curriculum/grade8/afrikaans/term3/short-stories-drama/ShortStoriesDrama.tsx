@@ -1,63 +1,102 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, OrderTiles, StoryArc, TaggedBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Read narrative and drama cues',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Short stories and drama scenes use dialogue, stage cues and conflict to build meaning.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">dialoog <SpeakButton text="dialoog" /></span>
-          <span className="inline-flex items-center">toneelaanwysing <SpeakButton text="toneelaanwysing" /></span>
-          <span className="inline-flex items-center">tema <SpeakButton text="tema" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Interpret character choices',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Ask what a character says, does and feels in each key moment.
-        </p>
-        <p className="text-xl text-slate-700">Use scene evidence to support your interpretation.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Identify theme and message',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Themes often appear through repeated conflict and final resolution.
-        </p>
-        <p className="text-slate-500">Contextual questions usually test this link.</p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these literature words aloud before discussing stories, poems, characters, and themes.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"karakter"} phonetic={"[karakˈtɛr]"} meaning={"character"} lang="af" />
-          <PronunciationPlayer word={"tema"} phonetic={"[ˈteːma]"} meaning={"theme"} lang="af" />
-          <PronunciationPlayer word={"konflik"} phonetic={"[kɔnˈflək]"} meaning={"conflict"} lang="af" />
-          <PronunciationPlayer word={"storie"} phonetic={"[ˈstoːri]"} meaning={"story"} lang="af" />
-          <PronunciationPlayer word={"resensie"} phonetic={"[rɛˈsɛnsi]"} meaning={"review"} lang="af" />
-          <PronunciationPlayer word={"toneel"} phonetic={"[tɔˈniəl]"} meaning={"scene / stage"} lang="af" />
-        </div>
-      </div>
+    title: 'Dialogue and stage directions',
+    content: slide(
+      <>
+        <Rule>In a drama, <Af>dialoog</Af> <En>dialogue</En> shows <Af>Karakter se stem en verhouding</Af> <En>the character&apos;s voice and relationship</En>. A <Af>toneelaanwysing</Af> gives <Af>Instruksies oor beweging en aksie</Af> <En>instructions about movement and action</En>.</Rule>
+        <TaggedBoxes
+          items={[{ word: '(kyk weg)', tag: 'aanwysing' }, { word: 'Ek was nie daar nie.', tag: 'dialoog' }]}
+          aria="Two parts of a drama script: (kyk weg), in brackets, is a stage direction (aanwysing), and Ek was nie daar nie is dialogue (dialoog)."
+        />
+        <Worked
+          title="Read a script line"
+          steps={[
+            <><Af>THABO: (kyk weg) Ek was nie daar nie.</Af> <En>THABO: (looks away) I was not there.</En> <SpeakButton text="Ek was nie daar nie." /></>,
+            <>The brackets tell the actor what to do. The spoken words show Thabo&apos;s voice, and that he may be hiding something.</>,
+          ]}
+        />
+        <Mistake>Reading the stage direction as spoken words. It is an instruction for movement and action, not something the character says.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'What makes a scene dramatic',
+    content: slide(
+      <>
+        <Rule>A scene is dramatic when there is a <Af>Duidelike konflik tussen karakters</Af> <En>clear conflict between characters</En>. The conflict builds up to a high point.</Rule>
+        <StoryArc
+          points={['Begin', 'Konflik', 'Hoogtepunt', 'Resolusie']}
+          aria="A scene drawn as a hill with four points: Begin, Konflik (conflict), Hoogtepunt (high point), Resolusie (resolution)."
+        />
+        <Worked
+          title="Find the conflict"
+          steps={[
+            <>Two friends want different things: one wants to tell the truth, the other wants to hide it.</>,
+            <>That clash is the conflict. It makes the scene tense and dramatic.</>,
+          ]}
+        />
+        <Mistake>Thinking a scene is dramatic because of a lot of talking or a long setting. Drama needs characters in conflict.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Characters under pressure',
+    content: slide(
+      <>
+        <Rule>To analyse a character ask: <Af>Hoe reageer die karakter onder druk?</Af> Then back it up with a scene from the text.</Rule>
+        <OrderTiles
+          tiles={['Druk', 'Reaksie', 'Eienskap']}
+          aria="Three steps in order: Druk (the pressure), Reaksie (what the character does), Eienskap (what it shows about the character)."
+        />
+        <Worked
+          title="Strong text reference"
+          steps={[
+            <>Pressure: he is asked to lie. Reaction: he refuses.</>,
+            <>Answer: <Af>In toneel 2 weier hy om te lieg, dus is hy eerlik.</Af> <En>In scene 2 he refuses to lie, so he is honest.</En> <SpeakButton text="In toneel 2 weier hy om te lieg, dus is hy eerlik." /></>,
+          ]}
+        />
+        <Mistake>Giving a trait with no scene, such as <Af>Hy is eerlik</Af>. Say where and how it shows.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Setting, theme and resolution',
+    content: slide(
+      <>
+        <Rule>In a short story <Af>ruimte</Af> <En>setting</En> refers to <Af>waar en wanneer die storie afspeel</Af> <En>where and when the story takes place</En>. A <Af>tema</Af> is <Af>Die groot boodskap van die teks</Af>. The <Af>resolusie</Af> is <Af>Die deel waar die probleem opgelos word</Af>.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['ruimte', 'waar/wanneer'], ['tema', 'boodskap'], ['resolusie', 'oplossing']]}
+          aria="Three story parts and what they mean: ruimte (setting) is where and when, tema (theme) is the message, resolusie (resolution) is the solution."
+        />
+        <Worked
+          title="Name the part"
+          steps={[
+            <><Af>Op 'n plaas in die winter</Af> <En>on a farm in winter</En>: where and when, so the setting.</>,
+            <>The end, where the brothers solve the problem: the resolution.</>,
+          ]}
+        />
+        <Mistake>Calling the resolution the beginning, or the theme a small detail. The resolution is where the problem is solved.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>What does dialogue show best in a drama?</>} answer={<><Af>Karakter se stem en verhouding</Af>.</>} />
+        <Check question={<>What does <Af>toneelaanwysing</Af> mean?</>} answer={<><Af>Instruksies oor beweging en aksie</Af>.</>} />
+        <Check question={<>Which question helps with character analysis?</>} answer={<><Af>Hoe reageer die karakter onder druk?</Af></>} />
+        <Check question={<>What is the <Af>resolusie</Af> of a story?</>} answer={<><Af>Die deel waar die probleem opgelos word</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -112,6 +151,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'Resolution closes the conflict.',
   },
 ];
+
+export { bank };
 
 const ShortStoriesDrama = () => (
   <AfrikaansTopic
