@@ -1,56 +1,85 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Hub, StepFlow, WeekBars, Zones } from '../../../../../components/diagrams/lo/PswPictures';
+import { weekPlan } from '../../../../../components/diagrams/lo/pswHelpers';
+import { fasterBy } from '../../../../../components/diagrams/lo/lo10Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// Times and totals below come from these helpers (lo10Helpers.test.ts, pswHelpers.test.ts).
+const logMinutes = [30, 0, 30, 45, 0];
+const logTotal = weekPlan(logMinutes).total;
+const first = '16,4';
+const second = '15,9';
+const better = fasterBy(first, second);
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Athletics and Indigenous Games',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Athletics</strong> includes running, jumping, and throwing. <strong>Indigenous games</strong> are traditional sports
-          that build skill, fitness, and cultural understanding.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Both athletics and indigenous games teach discipline, teamwork, and cultural pride.</p>
-        </div>
-      </div>
+    title: 'Athletics: running, jumping and throwing',
+    content: slide(
+      <>
+        <Rule>Athletics covers track and field: running, jumping, throwing and other field events. For your task, choose events from more than one group.</Rule>
+        <Zones zones={[{ title: 'Running', line: 'Sprints and relays' }, { title: 'Jumping', line: 'Long jump and high jump' }, { title: 'Throwing', line: 'Shot put and javelin' }]} aria="Three groups of athletics events: running with sprints and relays, jumping with long jump and high jump, throwing with shot put and javelin." />
+        <Worked
+          title="Choosing your events"
+          steps={[<>Pick one running event, such as the 100 m sprint.</>, <>Pick one jumping event, such as the long jump.</>, <>Pick one throwing event, such as the shot put.</>]}
+        />
+        <Mistake>Thinking athletics means only running. Jumps and throws are part of athletics too.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Fitness Maintenance and Leadership',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Fitness maintenance</strong> means keeping up your fitness year-round.
-          <strong> Leadership in physical activity</strong> means helping others participate and succeed.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Fitness</strong>
-            <p className="text-slate-600">Consistent training and balance.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p4">
-            <strong className="text-green-700">Leadership</strong>
-            <p className="text-slate-600">Motivating and supporting others.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Technique, safety and fair play',
+    content: slide(
+      <>
+        <Rule>Good technique improves performance and prevents injury. Athletes follow the rules of the sport and the principles of fair play.</Rule>
+        <StepFlow steps={['Warm up first.', 'Practise the technique slowly.', 'Add speed or distance.', 'Follow the rules and compete fairly.']} aria="Four steps in order: warm up first, practise the technique slowly, add speed or distance, follow the rules and compete fairly." />
+        <Worked
+          title="The long jump"
+          steps={[<>Run up at a steady speed.</>, <>Take off from behind the take-off line. Stepping over it is a no jump.</>, <>Jump as far as you can and land in the sand.</>]}
+        />
+        <Mistake>Skipping the warm-up, or using more speed with poor technique. That raises the chance of injury and does not improve your result.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Technique, Rules, and Participation',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Mastering technique in athletics involves proper form, breathing, and pacing.
-          Following rules and showing consistency demonstrates respect and growth.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Excellence requires:</p>
-          <p className="text-slate-600">Good technique, understanding rules, and regular participation with focus.</p>
-        </div>
-      </div>
+    title: 'Consistency, logs and timed events',
+    content: slide(
+      <>
+        <Rule>Fitness maintenance means keeping your fitness up steadily through the year. Show consistency by training regularly. A participation log tracks your activity, and timed events measure your progress.</Rule>
+        <WeekBars days={['Mon', 'Tue', 'Wed', 'Thu', 'Fri']} minutes={logMinutes} aria="Five bars of training minutes for Monday to Friday: 30, 0, 30, 45 and 0, which is 105 minutes in the week." />
+        <Worked
+          title="Reading a log and a timed event"
+          steps={[<>Add the log: 30 + 0 + 30 + 45 + 0 = {logTotal} minutes.</>, <>Your first 100 m time was {first} s. Your later time was {second} s.</>, <>Subtract: {first} − {second} = {better} s faster.</>]}
+        />
+        <Mistake>Thinking only the fastest athlete is outstanding. Outstanding means skill, dedication, respect for others and steady improvement.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Indigenous games and leadership',
+    content: slide(
+      <>
+        <Rule>Indigenous games build fitness and link us to our cultural heritage. Leadership in physical activity means motivating others and helping them improve.</Rule>
+        <Hub centre="Leader" spokes={['Explains', 'Encourages', 'Helps', 'Plays fair']} aria="A circle labelled Leader with four labels around it: explains, encourages, helps and plays fair." />
+        <Worked
+          title="Leading an indigenous game such as diketo"
+          steps={[<>Explain the rules clearly before you start.</>, <>Show how to play.</>, <>Encourage everyone, not only the best players.</>, <>Help anyone who struggles to improve.</>]}
+        />
+        <Mistake>Thinking a leader is the best player who gives orders. A leader helps everyone around them do better.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="Name the three groups of events in athletics." answer="Running, jumping and throwing (track and field events)." />
+        <Check question="Why does proper technique matter, and which rules should athletes follow?" answer="It improves performance and prevents injury. Athletes follow the rules of the sport and the principles of fair play." />
+        <Check question="Your log shows 30, 0, 30, 45 and 0 minutes. How many minutes is that in total, and how do logs help?" answer="105 minutes. Logs track your activity and show your progress over time." />
+        <Check question="How can you show leadership in an indigenous game?" answer="Motivate others and help them to improve." />
+      </>,
     ),
   },
 ];

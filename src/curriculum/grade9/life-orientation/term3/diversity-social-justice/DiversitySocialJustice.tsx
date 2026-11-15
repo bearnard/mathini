@@ -1,56 +1,84 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Branches, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { HubWide, LinkedPairs } from '../../../../../components/diagrams/lo/Lo10Pictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Understanding Discrimination and Stereotyping',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Discrimination</strong> is unfair treatment based on group membership.
-          <strong> Stereotypes</strong> are fixed ideas about groups that are often wrong.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Everyone deserves equal respect regardless of background.</p>
-        </div>
-      </div>
+    title: 'Discrimination and stereotypes',
+    content: slide(
+      <>
+        <Rule>Discrimination is unfair treatment of people because of the group they belong to. A stereotype is a fixed and often wrong belief about a group.</Rule>
+        <StepFlow steps={['A stereotype: a fixed belief about a group.', 'It limits chances and hurts self-esteem.', 'It excuses discrimination.']} aria="Three steps showing how stereotypes cause harm: a fixed belief about a group, it limits chances and hurts self-esteem, it excuses discrimination." />
+        <Worked
+          title="Someone says: “Boys are bad at reading”"
+          steps={[<>Name the stereotype: all boys are the same.</>, <>Ask who it harms: a boy who loves books gets teased.</>, <>Replace it with a fact: reading skill depends on the person and practice.</>]}
+        />
+        <Mistake>Thinking a stereotype is harmless because it is “only a joke” or “true for some people”. It still oversimplifies and can lead to unfair treatment.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Gender Equity and Inclusion',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Gender equity</strong> means fair treatment and opportunities for all genders.
-          <strong> Inclusion</strong> means ensuring all people feel valued and can participate.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Gender equity</strong>
-            <p className="text-slate-600">Equal opportunities and respect.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Inclusion</strong>
-            <p className="text-slate-600">Everyone belongs and is valued.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Gender equity and inclusion',
+    content: slide(
+      <>
+        <Rule>Gender equity means fair treatment and equal opportunity for all genders. Inclusion means everyone feels they belong, and people who belong do well and give more.</Rule>
+        <HubWide centre="Inclusion" spokes={['Belonging', 'A voice', 'Fair chances', 'Respect']} aria="A circle labelled Inclusion with four labels around it: belonging, a voice, fair chances and respect." />
+        <Worked
+          title="Only the boys at a school have a soccer team"
+          steps={[<>Spot the gap in opportunity.</>, <>Ask the school for a girls' team or a mixed team.</>, <>Check that every team gets fair field time and coaching.</>, <>More learners take part and feel they belong.</>]}
+        />
+        <Mistake>Thinking equity means ignoring differences. Equity recognises differences while making sure everyone gets a fair chance.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Building Inclusive Communities',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Nation-building</strong> is creating a society where all people can thrive together.
-          This requires fighting injustice and building inclusive spaces.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">You can contribute by:</p>
-          <p className="text-slate-600">Speaking against unfairness, supporting others, and creating welcoming spaces.</p>
-        </div>
-      </div>
+    title: 'Social justice and nation-building',
+    content: slide(
+      <>
+        <Rule>Social justice means building fair systems where everyone has equal rights and chances. Nation-building means building a society in which all can live together as equals.</Rule>
+        <LinkedPairs heads={['PROBLEM', 'ACTION']} pairs={[['Some voices are missing', 'A varied curriculum'], ['Racist behaviour', 'An anti-racism policy'], ['Learners feel unheard', 'Learner leadership']]} aria="Three school problems matched with an action: missing voices with a varied curriculum, racist behaviour with an anti-racism policy, learners who feel unheard with learner leadership." />
+        <Worked
+          title="Making your school more inclusive"
+          steps={[<>Find a problem, such as texts that show only one group.</>, <>Match it to an action, such as a varied curriculum.</>, <>Ask the learner council to take it to the school.</>]}
+        />
+        <Mistake>Thinking nation-building is finished, or that it is only the government's job. It is ongoing work that every learner and school shares.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Challenging discrimination',
+    content: slide(
+      <>
+        <Rule>You can challenge discrimination by speaking up, supporting the person who was hurt and promoting inclusion. Everyone is responsible for treating other groups with respect and defending their rights.</Rule>
+        <Branches
+          problem="A learner is teased for her accent"
+          options={[
+            { choice: 'Stay silent', outcome: 'The teasing goes on.' },
+            { choice: 'Speak up and support her', outcome: 'She feels she belongs.' },
+          ]}
+          aria="A decision tree. A learner is teased for her accent. If you stay silent the teasing goes on. If you speak up and support her she feels she belongs."
+        />
+        <Worked
+          title="Stepping in"
+          steps={[<>Stay safe and calm.</>, <>Say clearly that the teasing is not okay.</>, <>Support the learner: sit with her and include her.</>, <>Tell a teacher if it continues.</>]}
+        />
+        <Mistake>Joining in, or thinking “it is not my business”. Silence can let discrimination continue. Challenge it with respect, not with insults.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is discrimination, and what is a stereotype?" answer="Discrimination is unfair treatment of people based on the group they belong to. A stereotype is a fixed and often wrong belief about a group." />
+        <Check question="Name two ways stereotypes cause harm." answer="They limit chances, hurt self-esteem and excuse discrimination." />
+        <Check question="What is gender equity, and why does inclusion matter?" answer="Gender equity is fair treatment and equal opportunity for all genders. When people feel they belong they do well and give more." />
+        <Check question="Name two ways a school can build inclusive spaces." answer="A varied curriculum, anti-racism policies and learner leadership." />
+      </>,
     ),
   },
 ];
