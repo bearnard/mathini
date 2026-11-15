@@ -1,0 +1,7 @@
+import { handleCatalog, depsFromEnv } from '../../../../lib/server/schools/http';
+
+export const dynamic = 'force-dynamic';
+
+export async function GET(req: Request) {
+  return handleCatalog(req, depsFromEnv());
+}

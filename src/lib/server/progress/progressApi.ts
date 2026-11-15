@@ -9,6 +9,8 @@ import {
   consistency, examReadiness, improvementPoints, nextBestStep, retentionPct, sastDayNumber, sortWeakestFirst, subjectMastery, trendPoints, type TrendAttempt,
 } from '../../shared/progressMeasures';
 import { examScopeForGrade } from '../../shared/examScopes';
+import { dailyPlan, dayNumberOf, daysUntil, type PlanTopic } from '../../shared/dailyPlan';
+import { scopesForStudent } from '../schools/scopes';
 import { sastDay } from '../review/scheduler';
 import { SUBJECT_TITLES, TOPIC_NAMES } from '../../../components/admin/topicNames.generated';
 import { prettifySlug } from '../../../components/admin/names';
@@ -29,7 +31,7 @@ interface TpRow {
   task: string; grade: number; subject: string; topic: string; attempts: number; last20_pct: number | null; first10_pct: number | null; last10_pct: number | null;
   mastery: string; last_attempt_at: number;
 }
-interface RunRow { id: string; kind: string; scope_key: string; scope_label: string; score_pct: number; n_correct: number; n_items: number; n_answered: number; finished_at: number }
+interface RunRow { id: string; subject: string; kind: string; scope_key: string; scope_label: string; score_pct: number; n_correct: number; n_items: number; n_answered: number; finished_at: number }
 
 const iso = (ms: number) => new Date(ms).toISOString();
 const safe = async <T,>(f: () => Promise<T>, fallback: T): Promise<T> => {
@@ -68,7 +70,7 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
   // --- finished tests (newest first) and the previous result on the same scope
   const finished = await safe(
     () => db.all<RunRow>(
-      `SELECT id, kind, scope_key, scope_label, score_pct, n_correct, n_items, n_answered, finished_at FROM runs
+      `SELECT id, subject, kind, scope_key, scope_label, score_pct, n_correct, n_items, n_answered, finished_at FROM runs
        WHERE student_id = ? AND status = 'finished' AND kind IN ('quiz', 'mock_test', 'exam_practice') AND score_pct IS NOT NULL
        ORDER BY finished_at DESC LIMIT ?`,
       [studentId, TEST_HISTORY_READ],
@@ -141,28 +143,46 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
     })
     .sort((a, b) => (a.masteryPct === null ? 1 : 0) - (b.masteryPct === null ? 1 : 0) || (a.masteryPct ?? 0) - (b.masteryPct ?? 0) || a.label.localeCompare(b.label));
 
-  // --- the exam scope
-  const scope = examScopeForGrade(grade);
+  // --- the exam: the class's exam when a teacher set one (nearest date first), else the built-in scope for the grade
+  const today = sastDay(now);
+  const classScopes = await safe(() => scopesForStudent(db, studentId, now), []);
+  const teacherScope = classScopes[0] ?? null;
+  const builtIn = teacherScope ? null : examScopeForGrade(grade);
+  const scope = teacherScope
+    ? { scopeKey: `class-scope:${teacherScope.id}`, label: teacherScope.title, tasks: teacherScope.tasks, grade: teacherScope.grade }
+    : builtIn
+      ? { scopeKey: builtIn.scopeKey, label: builtIn.label, tasks: builtIn.tasks, grade: builtIn.grade }
+      : null;
   let exam: ProgressResponse['exam'] = null;
   let weakestInScope: { label: string; href: string } | null = null;
   let untriedInScope: { label: string; href: string } | null = null;
+  let planTopics: PlanTopic[] = [];
+  let daysSinceMock: number | null = null;
+  const examDay = teacherScope ? dayNumberOf(teacherScope.examDate) : null;
   if (scope) {
     const byTaskRow = new Map(tp.map((r) => [r.task, r]));
-    const mockRun = finished.find((r) => (r.kind === 'mock_test' || r.kind === 'exam_practice') && scope.mockScopeKeys.includes(r.scope_key));
+    const isMock = (r: RunRow) => r.kind === 'mock_test' || r.kind === 'exam_practice';
+    const mockRun = teacherScope
+      ? finished.find((r) => isMock(r) && r.subject === teacherScope.subject) // a practice test in the exam's subject
+      : finished.find((r) => isMock(r) && builtIn!.mockScopeKeys.includes(r.scope_key));
     const latestMock = mockRun ? { scorePct: Number(mockRun.score_pct), finishedAt: iso(Number(mockRun.finished_at)) } : null;
+    if (mockRun) daysSinceMock = Math.max(0, sastDayNumber(now) - sastDayNumber(Number(mockRun.finished_at)));
     const e = examReadiness({ scopeKey: scope.scopeKey, label: scope.label, topics: scope.tasks.map((t) => ({ accuracyPct: byTaskRow.get(t)?.last20_pct ?? null })), latestMock });
-    exam = e.readinessPct === null && e.topicsPractised === 0 && !latestMock ? null : e;
+    exam = !teacherScope && e.readinessPct === null && e.topicsPractised === 0 && !latestMock ? null : e;
     const weak = scope.tasks
       .map((t) => byTaskRow.get(t))
       .filter((r): r is TpRow => !!r && r.mastery !== 'mastered' && r.mastery !== 'not_started' && r.last20_pct !== null)
       .sort((a, b) => Number(a.last20_pct) - Number(b.last20_pct))[0];
     if (weak) weakestInScope = { label: topicLabel(Number(weak.grade), weak.task), href: APP_HREF };
     const untriedTask = scope.tasks.find((t) => !byTaskRow.has(t));
-    if (untriedTask) untriedInScope = { label: topicLabel(grade, untriedTask), href: APP_HREF };
+    if (untriedTask) untriedInScope = { label: topicLabel(scope.grade, untriedTask), href: APP_HREF };
+    planTopics = scope.tasks.map((t) => {
+      const r = byTaskRow.get(t);
+      return { task: t, label: topicLabel(scope.grade, t), level: (r?.mastery ?? 'not_started') as MasteryLevel, accuracyPct: r?.last20_pct == null ? null : Number(r.last20_pct) };
+    });
   }
 
   // --- retention (review cards)
-  const today = sastDay(now);
   const due = await safe(() => db.all<{ n: number }>('SELECT COUNT(*) AS n FROM review_items WHERE student_id = ? AND retired_at IS NULL AND due_day <= ?', [studentId, today]), [{ n: 0 }]);
   const retired = await safe(() => db.all<{ n: number }>('SELECT COUNT(*) AS n FROM review_items WHERE student_id = ? AND retired_at IS NOT NULL', [studentId]), [{ n: 0 }]);
   const week = await safe(
@@ -181,6 +201,11 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
   );
   const cons: ConsistencyProgress = consistency(dayRows.map((r) => Number(r.d)), sastDayNumber(now));
 
+  if (exam && teacherScope && examDay !== null) {
+    const daysLeft = daysUntil(examDay, sastDayNumber(now));
+    exam = { ...exam, setByTeacher: true, examDate: teacherScope.examDate, daysLeft, plan: dailyPlan({ daysLeft, topics: planTopics, dueCount, daysSinceMock, appHref: APP_HREF }) };
+  }
+
   const nextStep = nextBestStep({
     dueCount,
     weakestInScope: scope ? weakestInScope : weakestOverall(subjects),
@@ -188,7 +213,7 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
     reviewHref: APP_HREF,
     appHref: APP_HREF,
   });
-  if (tp.length === 0 && dueCount === 0) {
+  if (tp.length === 0 && dueCount === 0 && !teacherScope) {
     // A learner who has not started: encourage, never an empty "all caught up".
     return { generatedAt: iso(now), grade, displayName: student.display_name || null, exam: null, subjects: [], tests, testSeries, retention, consistency: cons, nextStep: { kind: 'new_topic', title: 'Try your first topic', reason: 'Pick any topic. Your progress will appear here.', href: APP_HREF, cta: 'Choose a topic' } };
   }
