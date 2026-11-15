@@ -79,7 +79,7 @@ const questions: Question[] = [
     text: "Which instrument is used to measure rainfall?",
     options: ["Thermometer", "Barometer", "Rain gauge", "Wind vane"],
     correctAnswer: 2,
-    explanation: "A rain gauge is used to measure the amount of rain that has fallen in millimeters."
+    explanation: "A rain gauge is used to measure the amount of rain that has fallen in millimetres."
   },
   {
     id: 9,
@@ -90,10 +90,10 @@ const questions: Question[] = [
   },
   {
     id: 10,
-    text: "Which vegetation region in South Africa is known for its variety of fynbos?",
-    options: ["Savanna", "Grassland", "Western Cape (Fynbos)", "Succulent Karoo"],
+    text: "Which type of vegetation is found only in the south-western corner of South Africa?",
+    options: ["Savanna", "Grassland", "Fynbos", "Forest"],
     correctAnswer: 2,
-    explanation: "The Western Cape is famous for Fynbos vegetation, which is unique to that part of the world."
+    explanation: "Fynbos grows in the south-western Cape and is found nowhere else in the world."
   },
   {
     id: 11,
@@ -152,7 +152,7 @@ const questions: Question[] = [
       "They burn easily to make fire"
     ],
     correctAnswer: 2,
-    explanation: "Diamonds are valuable because they are the hardest natural substance, they are rare, and they are used for jewelry and cutting tools."
+    explanation: "Diamonds are valuable because they are the hardest natural substance, they are rare, and they are used for jewellery and cutting tools."
   },
   {
     id: 17,

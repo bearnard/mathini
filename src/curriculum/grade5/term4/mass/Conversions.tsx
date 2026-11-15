@@ -5,6 +5,7 @@ import Button from '../../../../components/ui/Button';
 import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
 import { cn } from '../../../../lib/utils';
+import { parseSaNumber, saNumber } from './massFormat';
 import TopicContainer from '../../../../components/layout/TopicContainer';
 import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
 import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
@@ -46,7 +47,7 @@ const Conversions = () => {
         if (e) e.preventDefault();
         if (!userAnswer) return;
 
-        const val = parseFloat(userAnswer.replace(/,/g, '.'));
+        const val = parseSaNumber(userAnswer);
 
         let correct = false;
         if (direction === 'g-to-kg') {
@@ -168,7 +169,7 @@ const Conversions = () => {
                         <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
                             <div className="bg-slate-100 px-8 py-6 rounded-2xl">
                                 <div className="text-4xl font-bold text-slate-800">
-                                    {direction === 'g-to-kg' ? `${grams} g` : `${grams / 1000} kg`}
+                                    {direction === 'g-to-kg' ? `${saNumber(grams)} g` : `${saNumber(grams / 1000)} kg`}
                                 </div>
                             </div>
 
@@ -211,8 +212,8 @@ const Conversions = () => {
                     <div className="h-24">
                         <Feedback
                             isCorrect={isCorrect}
-                            correctMessage={`Correct! ${direction === 'g-to-kg' ? `${grams} g = ${grams / 1000} kg` : `${grams / 1000} kg = ${grams} g`}`}
-                            incorrectMessage={`Not quite. ${direction === 'g-to-kg' ? `${grams} g = ${grams / 1000} kg` : `${grams / 1000} kg = ${grams} g`}`}
+                            correctMessage={`Correct! ${direction === 'g-to-kg' ? `${saNumber(grams)} g = ${saNumber(grams / 1000)} kg` : `${saNumber(grams / 1000)} kg = ${saNumber(grams)} g`}`}
+                            incorrectMessage={`Not quite. ${direction === 'g-to-kg' ? `${saNumber(grams)} g = ${saNumber(grams / 1000)} kg` : `${saNumber(grams / 1000)} kg = ${saNumber(grams)} g`}`}
                             onNext={generateProblem}
                         />
                     </div>

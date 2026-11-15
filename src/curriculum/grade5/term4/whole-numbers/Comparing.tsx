@@ -33,7 +33,7 @@ const Comparing = () => {
             b = a;
         } else if (type < 0.7) {
             const diff = Math.pow(10, Math.floor(Math.random() * 4));
-            b = Math.random() < 0.5 ? a + diff : a - diff;
+            b = Math.random() < 0.5 || a - diff < 100000 ? a + diff : a - diff;
         } else {
             b = Math.floor(Math.random() * 900000) + 100000;
         }
