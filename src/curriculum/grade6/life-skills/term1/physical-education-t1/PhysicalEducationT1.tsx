@@ -1,130 +1,108 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Warm up and move safely before activity',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          In <strong>Physical Education</strong>, we prepare our bodies before the main activity. Warm-ups wake up
-          muscles, and safe movement routines help us enjoy games without unnecessary injury.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <strong className="text-sky-800">Warm-up</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-sky-700">
-              <span className="rounded-full bg-white px-3 py-1">gentle movement</span>
-              <span className="rounded-full bg-white px-3 py-1">ready to exercise</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <strong className="text-amber-800">Locomotor movement</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-amber-700">
-              <span className="rounded-full bg-white px-3 py-1">run</span>
-              <span className="rounded-full bg-white px-3 py-1">skip</span>
-              <span className="rounded-full bg-white px-3 py-1">jump</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <strong className="text-emerald-800">Non-locomotor movement</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-emerald-700">
-              <span className="rounded-full bg-white px-3 py-1">twist</span>
-              <span className="rounded-full bg-white px-3 py-1">bend</span>
-              <span className="rounded-full bg-white px-3 py-1">stretch</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <strong className="text-violet-800">Safety</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-violet-700">
-              <span className="rounded-full bg-white px-3 py-1">personal space</span>
-              <span className="rounded-full bg-white px-3 py-1">follow instructions</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Warm-ups and a safe space',
+    content: slide(
+      <>
+        <Rule>
+          We warm up to get the body ready to move safely: warm-ups gently prepare muscles and joints. Check your space before you start, so there are no collisions or accidents.
+        </Rule>
+        <Worked
+          title="Start a PE activity safely"
+          steps={[
+            <>Look around: is your personal space clear of people and objects?</>,
+            <>Check your space before you start.</>,
+            <>Warm up with gentle movement: jog on the spot, swing your arms.</>,
+            <>Now the body is ready to move safely in the main activity.</>,
+          ]}
+        />
+        <Mistake>Skipping the warm-up to start sooner. Cold muscles and joints are more likely to be hurt.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Balance and coordination give better control',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Balance</strong> helps us stay stable, while <strong>coordination</strong> helps body parts work
-          together smoothly. These skills make movement sequences neater and more confident.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <strong className="text-blue-800">Balance</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-blue-700">
-              <span className="rounded-full bg-white px-3 py-1">steady body</span>
-              <span className="rounded-full bg-white px-3 py-1">strong posture</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <strong className="text-rose-800">Coordination</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-rose-700">
-              <span className="rounded-full bg-white px-3 py-1">eyes and hands</span>
-              <span className="rounded-full bg-white px-3 py-1">timing</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <strong className="text-lime-800">Sequences</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-lime-700">
-              <span className="rounded-full bg-white px-3 py-1">move in order</span>
-              <span className="rounded-full bg-white px-3 py-1">control</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <strong className="text-orange-800">Team routines</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-orange-700">
-              <span className="rounded-full bg-white px-3 py-1">take turns</span>
-              <span className="rounded-full bg-white px-3 py-1">encourage others</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Locomotor and non-locomotor movement',
+    content: slide(
+      <>
+        <Rule>Locomotor movements travel from one place to another, like skipping across the court. Non-locomotor movements happen mostly in one place, like bending and stretching on the spot.</Rule>
+        <Worked
+          title="Sort the movements"
+          steps={[
+            <>Skipping across the court: you travel, so it is locomotor.</>,
+            <>Bending and stretching on the spot: you stay in one place, so it is non-locomotor.</>,
+            <>Other locomotor ones: walk, run, hop. Other non-locomotor ones: twist, stretch.</>,
+          ]}
+        />
+        <Mistake>Thinking non-locomotor means no movement. The body still moves, mostly in one place.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Target games need aim, accuracy, and fair play',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          In target games we try to send an object close to or into a target. Good players aim carefully, use the
-          correct throw, and practise with patience and <strong>teamwork</strong>.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <strong className="text-indigo-800">Target game</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-700">
-              <span className="rounded-full bg-white px-3 py-1">hit the target</span>
-              <span className="rounded-full bg-white px-3 py-1">score points</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <strong className="text-teal-800">Underarm throw</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-teal-700">
-              <span className="rounded-full bg-white px-3 py-1">smooth swing</span>
-              <span className="rounded-full bg-white px-3 py-1">release forward</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <strong className="text-fuchsia-800">Aim</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-fuchsia-700">
-              <span className="rounded-full bg-white px-3 py-1">eyes on target</span>
-              <span className="rounded-full bg-white px-3 py-1">judge distance</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <strong className="text-cyan-800">Fair play</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-cyan-700">
-              <span className="rounded-full bg-white px-3 py-1">follow rules</span>
-              <span className="rounded-full bg-white px-3 py-1">respect others</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Balance and coordination',
+    content: slide(
+      <>
+        <Rule>
+          Balance improves when you keep your body steady and your eyes focused. Coordination means body parts working together smoothly: it links movement, timing and control.
+        </Rule>
+        <Worked
+          title="Balance on one foot"
+          steps={[
+            <>Stand tall with a steady body and strong posture.</>,
+            <>Focus your eyes on one spot ahead.</>,
+            <>Lift one foot. If you wobble, keep your eyes on the spot and slow down.</>,
+            <>Throwing and catching a ball uses coordination: eyes, hands and timing working together.</>,
+          ]}
+        />
+        <Mistake>Looking at your feet when you balance. Focus your eyes on a steady spot instead.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Target games and teamwork',
+    content: slide(
+      <>
+        <Rule>
+          In a target game your main job is to aim accurately at the target. An underarm throw gives gentle control for short target games, such as sending a beanbag to a hoop. Good teamwork means taking turns and encouraging others.
+        </Rule>
+        <Worked
+          title="Throw a beanbag at a hoop"
+          steps={[
+            <>Face the target with your eyes on it.</>,
+            <>Swing your arm smoothly back and forward (an underarm throw).</>,
+            <>Release forward and judge the distance. Control and accuracy matter more than speed.</>,
+            <>Take turns and encourage others in your team.</>,
+          ]}
+        />
+        <Mistake>Throwing as hard as you can in a target game. Target games focus on accuracy, not speed alone.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Why do we warm up? Which routine is safest before starting?</li>
+            <li>Give an example of a locomotor and a non-locomotor movement.</li>
+            <li>What helps you keep balance, and what does coordination mean?</li>
+            <li>What is your main job in a target game? Which throw suits a beanbag and hoop, and what is good teamwork?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>To get the body ready to move safely. Checking your space before you start.</li>
+            <li>Skipping across the court. Bending and stretching on the spot.</li>
+            <li>Keeping your body steady and eyes focused. Body parts working together smoothly.</li>
+            <li>Aim accurately at the target. Underarm throw. Taking turns and encouraging others.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
