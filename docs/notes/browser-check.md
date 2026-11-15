@@ -12,6 +12,7 @@ node --import tsx scripts/shoot.ts [--widths 390,1280] [--out DIR] [--timeout MS
 - `--stub-api` answers `/api/*` with empty JSON so lessons render without a database. `localhost` is rewritten to `127.0.0.1`.
 - The first request to each URL is made with `fetch` before the browser visit, so Next dev finishes compiling that page first. Pass `--no-warmup` for non-HTTP URLs.
 - `SHOOT_MOCKS=file.json` (env var) answers chosen requests with your own JSON, for pages that need real-looking API data (for example /admin pages with `ADMIN_DEV_BYPASS=1`): `[{ "match": "/api/admin/reviews/1", "body": {...}, "status": 200 }]`. A URL containing `match` gets that body; the longest match wins; everything else follows `--stub-api` or goes to the network.
+- Before each screenshot the script scrolls the page down and back and waits two frames: Chromium paints content far below the fold lazily, and a full-page capture taken at once could show an SVG chart (the test-history chart) as an empty box although the page was complete (the DOM was checked: it was never empty, and 18 loads showed the chart every time). With the scroll, repeated runs give identical pictures.
 - Each run uses a fresh temporary profile and its own Chromium, on a free debugging port, and kills it on exit, so runs never share a profile or leave processes behind.
 
 Typical lesson check (a throwaway preview page, as in `docs/notes/lesson-standard.md`):
