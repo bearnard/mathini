@@ -48,6 +48,12 @@ export const grade5: Grade = {
                                     title: "Heritage Trail",
                                     description: "A Heritage Trail Through South Africa.",
                                     component: lazy(() => import('./term4/history/HeritageTrail'))
+                                },
+                                {
+                                    id: "history-ancient-egypt",
+                                    title: "Ancient Egypt",
+                                    description: "The Nile, pharaohs, pyramids, writing and daily life.",
+                                    component: lazy(() => import('./term4/history/AncientEgypt'))
                                 }
                             ]
                         },
@@ -87,6 +93,54 @@ export const grade5: Grade = {
                     id: "geography",
                     title: "Geography",
                     terms: [
+                        {
+                            id: 1,
+                            title: "Term 1",
+                            topics: [
+                                {
+                                    id: "geography-map-skills",
+                                    title: "Map Skills",
+                                    description: "Oceans, compass points, map scale and capital cities.",
+                                    component: lazy(() => import('./term1/geography/MapSkills'))
+                                }
+                            ]
+                        },
+                        {
+                            id: 2,
+                            title: "Term 2",
+                            topics: [
+                                {
+                                    id: "geography-physical-features",
+                                    title: "Physical Features",
+                                    description: "Plateau, escarpment, mountains and rivers.",
+                                    component: lazy(() => import('./term2/geography/PhysicalFeatures'))
+                                }
+                            ]
+                        },
+                        {
+                            id: 3,
+                            title: "Term 3",
+                            topics: [
+                                {
+                                    id: "geography-weather-climate-vegetation",
+                                    title: "Weather, Climate and Vegetation",
+                                    description: "Instruments, rainfall regions, plants and crops.",
+                                    component: lazy(() => import('./term3/geography/WeatherClimateVegetation'))
+                                }
+                            ]
+                        },
+                        {
+                            id: 4,
+                            title: "Term 4",
+                            topics: [
+                                {
+                                    id: "geography-minerals-mining",
+                                    title: "Minerals and Mining",
+                                    description: "Minerals, how we mine, their cost and our resources.",
+                                    component: lazy(() => import('./term4/geography/MineralsMining'))
+                                }
+                            ]
+                        },
                         {
                             id: 5,
                             title: "Final Assessment",
