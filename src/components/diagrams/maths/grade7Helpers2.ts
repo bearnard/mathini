@@ -114,3 +114,70 @@ export const volumeScale = (k: number): number => k ** 3;
 /** Squares in a cube net, as [column, row] cells of a 4 × 3 grid (the cross net). */
 export const CROSS_NET: [number, number][] = [[1, 0], [0, 1], [1, 1], [2, 1], [3, 1], [1, 2]];
 
+// ---------- Numeric and geometric patterns ----------
+
+/** The first `count` terms of Tn = m·n + c (n = 1, 2, 3 ...). */
+export const linearTerms = (m: number, c: number, count: number): number[] => Array.from({ length: count }, (_, i) => m * (i + 1) + c);
+
+/** The first `count` terms that start at `first` and multiply by `ratio` each time. */
+export const geometricTerms = (first: number, ratio: number, count: number): number[] => Array.from({ length: count }, (_, i) => first * ratio ** i);
+
+/** The constant ratio of a pattern (each term ÷ the one before), or null when it is not constant. */
+export const commonRatio = (terms: number[]): number | null => {
+  const r = terms[1] / terms[0];
+  return terms.slice(1).every((t, i) => t === terms[i] * r) ? r : null;
+};
+
+/** The constant difference of a pattern, or null when it is not constant. */
+export const commonDifference = (terms: number[]): number | null => {
+  const d = differences(terms);
+  return d.every((x) => x === d[0]) ? d[0] : null;
+};
+
+/** The cells of stage n of a plus-shaped tile pattern: a centre tile and four arms of n tiles (4n + 1 tiles). */
+export const plusStage = (n: number): [number, number][] => {
+  const cells: [number, number][] = [[0, 0]];
+  for (let k = 1; k <= n; k++) cells.push([k, 0], [-k, 0], [0, k], [0, -k]);
+  return cells;
+};
+
+// ---------- Transformations (grid points, y up) ----------
+
+export type Pt2 = [number, number];
+
+
+export const translate = (pts: Pt2[], dx: number, dy: number): Pt2[] => pts.map(([x, y]) => [x + dx, y + dy]);
+/** Reflect in the vertical mirror line x = m: same distance from the line, on the other side. */
+export const reflectInVertical = (pts: Pt2[], m: number): Pt2[] => pts.map(([x, y]) => [2 * m - x, y]);
+/** Rotate 90° clockwise about the centre (cx, cy). */
+export const rotate90cw = (pts: Pt2[], cx: number, cy: number): Pt2[] => pts.map(([x, y]) => [cx + (y - cy), cy - (x - cx)]);
+/** Enlarge by factor k from the centre (cx, cy). */
+export const enlarge = (pts: Pt2[], k: number, cx: number, cy: number): Pt2[] => pts.map(([x, y]) => [cx + k * (x - cx), cy + k * (y - cy)]);
+/** Side lengths of a polygon (closed). */
+export const sideLengths = (pts: Pt2[]): number[] => pts.map(([x, y], i) => {
+  const [x2, y2] = pts[(i + 1) % pts.length];
+  return Math.round(Math.hypot(x2 - x, y2 - y) * 1e6) / 1e6;
+});
+
+/** Faces, edges and vertices of the polyhedra in the Grade 7 lessons. Euler: F + V − E = 2 (checked in the test). */
+export const POLYHEDRA = {
+  cube: { faces: 6, edges: 12, vertices: 8 },
+  'triangular prism': { faces: 5, edges: 9, vertices: 6 },
+  'square pyramid': { faces: 5, edges: 8, vertices: 5 },
+  'rectangular prism': { faces: 6, edges: 12, vertices: 8 },
+} as const;
+
+// ---------- Data handling ----------
+
+/** Part of a whole as a percentage. */
+export const percentOf = (part: number, whole: number): number => (part / whole) * 100;
+/** The angle of a pie-chart sector for part of a whole. */
+export const sectorAngle = (part: number, whole: number): number => (part / whole) * 360;
+/** A sector angle as a fraction of the full turn, in lowest terms: 90 gives 1/4. */
+export const turnFraction = (deg: number): { n: number; d: number } => {
+  const g = (a: number, b: number): number => (b ? g(b, a % b) : a);
+  const k = g(deg, 360);
+  return { n: deg / k, d: 360 / k };
+};
+/** The value of a bar that reaches `intervals` marks on a scale going up in `step`s. */
+export const barValue = (intervals: number, step: number): number => intervals * step;
