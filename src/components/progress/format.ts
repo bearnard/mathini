@@ -35,12 +35,25 @@ export const LEVEL_COLOUR: Record<MasteryLevel, { bar: string; chip: string }> =
   mastered: { bar: 'bg-emerald-500', chip: 'bg-emerald-50 text-emerald-800' },
 };
 
-/** "↑ 5 since last time" / "↓ 5 since last time" / "Same as last time"; null (first try) reads as a fresh start. */
+/** "↑ 5" or "↓ 5" (the size as the server sent it, decimal comma); null, 0 and anything else give an empty string. */
+export const arrowPoints = (points: number | null | undefined): string => {
+  if (typeof points !== 'number' || points === 0) return '';
+  const size = commaText(points < 0 ? Number(String(points).slice(1)) : points);
+  return `${points > 0 ? '↑' : '↓'} ${size}`;
+};
+
+/** A TEST: "↑ 5 since last time" / "↓ 5 since last time" / "Same as last time"; null (first try) reads as a fresh start. */
 export const changeText = (points: number | null | undefined): string => {
   if (typeof points !== 'number') return 'First try';
   if (points === 0) return 'Same as last time';
-  const size = commaText(points < 0 ? Number(String(points).slice(1)) : points);
-  return `${points > 0 ? '↑' : '↓'} ${size} since last time`;
+  return `${arrowPoints(points)} since last time`;
+};
+
+/** A TOPIC: the latest 10 answers against the first 10 (ADR 0005), so it reads "since you started", not "since last time". */
+export const startChangeText = (points: number | null | undefined): string => {
+  if (typeof points !== 'number') return '';
+  if (points === 0) return 'Steady since you started';
+  return `${arrowPoints(points)} since you started`;
 };
 
 /** The tone of a change, for colour only: up is green, down is a calm neutral (a dip is not a failure), first try is neutral. */
