@@ -87,7 +87,7 @@ export const learnSteps: LearnStep[] = [
           title="Synonym and position"
           steps={[
             <>A synonym for <Af>vinnig</Af> <En>fast</En> is <Af>gou</Af>. <Af>stadig</Af> is the opposite.</>,
-            <><Af>Die kat sit onder die stoel.</Af> <En>The cat sits under the chair.</En> <SpeakButton text="Die kat sit onder die stoel." /></>,
+            <><Af>Die skoen is onder die bed.</Af> <En>The shoe is under the bed.</En> <SpeakButton text="Die skoen is onder die bed." /></>,
           ]}
         />
         <Mistake>Choosing the opposite for a synonym. <Af>stadig</Af> <En>slow</En> is the opposite of <Af>vinnig</Af>, so it is not the synonym.</Mistake>
