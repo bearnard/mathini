@@ -1,16 +1,115 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { BalanceScale } from '../../../../../components/diagrams/maths/PatternDiagrams';
+import { AlgebraTiles, LessThanBar } from '../../../../../components/diagrams/maths/Grade7Functions';
+import { collectLike, evalLinear, evaluate, solveLinear, termsText, type Term } from '../../../../../components/diagrams/maths/grade7Helpers2';
 
-const learnSteps: LearnStep[] = [
+// Every number in the slides below comes from tested helpers (grade7Helpers2.test.ts, lessons2.test.ts).
+const sub = { a: evaluate([{ coef: 2, letter: 'a' }, { coef: 3, letter: '' }], 4), wrong: 2 * (4 + 3), y: evalLinear(2, 0, 5) };
+const like1: Term[] = [{ coef: 3, letter: 'x' }, { coef: 2, letter: 'x' }];
+const like2: Term[] = [{ coef: 4, letter: 'y' }, { coef: 3, letter: '' }, { coef: -2, letter: 'y' }];
+const add = solveLinear(1, 7, 15);
+const times = solveLinear(3, 0, 21);
+const check = {
+  b: evaluate([{ coef: 3, letter: 'b' }, { coef: -2, letter: '' }], 5),
+  simp: termsText(collectLike([{ coef: 5, letter: 'a' }, { coef: 2, letter: 'b' }, { coef: -1, letter: 'a' }])),
+  eq: solveLinear(2, 5, 17),
+};
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Translate between words, expressions, and equations',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Algebra uses symbols to represent numbers. Learners simplify expressions, substitute values, and solve simple
-          equations using balanced steps.
-        </p>
-      </div>
+    title: 'Words into symbols',
+    content: slide(
+      <>
+        <Rule>A letter stands for an unknown number. “More than” means add, “less than” means subtract from the number, “times” or “twice” means multiply.</Rule>
+        <LessThanBar letter="n" less={5} />
+        <Worked
+          title="Write as expressions"
+          steps={[
+            <>“Five less than n”: start with n and take 5 away: <strong>n − 5</strong>.</>,
+            <>“Three more than twice a number x”: twice x is 2x, then add 3: <strong>2x + 3</strong>.</>,
+          ]}
+        />
+        <Mistake>Writing 5 − n for “five less than n”. The order matters: you start with n and take 5 away, so n − 5.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Substitution: replace the letter',
+    content: slide(
+      <>
+        <Rule>To evaluate an expression, replace the letter with its value. Multiply before you add or subtract.</Rule>
+        <AlgebraTiles terms={[{ coef: 2, letter: 'a' }, { coef: 3, letter: '' }]} value={4} />
+        <Worked
+          title="Evaluate 2a + 3 when a = 4"
+          steps={[
+            <>Replace a: 2 × 4 + 3.</>,
+            <>Multiply first: 2 × 4 = 8.</>,
+            <>Then add: 8 + 3 = <strong>{sub.a}</strong>.</>,
+            <>In the same way, if y = 2x and x = 5, then y = 2 × 5 = <strong>{sub.y}</strong>.</>,
+          ]}
+        />
+        <Mistake>Adding first: 2 × (4 + 3) = {sub.wrong}. In 2a + 3 only the a is multiplied by 2, so multiply first and then add 3.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Like terms: collect and simplify',
+    content: slide(
+      <>
+        <Rule>Like terms have the same letter. Add or subtract their numbers (coefficients) and keep the letter. Numbers without a letter stay apart.</Rule>
+        <AlgebraTiles terms={like2} />
+        <Worked
+          title="Simplify 3x + 2x and 4y + 3 − 2y"
+          steps={[
+            <>3x + 2x: 3 + 2 = 5, so <strong>{termsText(collectLike(like1))}</strong>.</>,
+            <>4y − 2y = 2y. The 3 has no letter, so it stays: <strong>{termsText(collectLike(like2))}</strong>.</>,
+          ]}
+        />
+        <Mistake>Joining unlike terms: 2y + 3 is not 5y. A y-bar and a unit square are different things, so they cannot be added into one term.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Equations: keep the balance',
+    content: slide(
+      <>
+        <Rule>An equation says both sides have equal value, like a balanced scale. Do the same to both sides to get the letter alone, then check.</Rule>
+        <BalanceScale left={[add.x, 7]} right={[15]} unknown={0} />
+        <Worked
+          title="Solve x + 7 = 15, and 3x = 21"
+          steps={[
+            <>Take 7 from both sides: x = 15 − 7 = <strong>{add.x}</strong>. Check: {add.x} + 7 = 15 ✓</>,
+            <>3x means 3 × x. Divide both sides by 3: x = 21 ÷ 3 = <strong>{times.x}</strong>. Check: 3 × {times.x} = 21 ✓</>,
+          ]}
+        />
+        <Mistake>Changing one side only. If you take 7 from the left but not the right, the scale tips and the answer is wrong.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Write “seven more than k” as an expression.</li>
+            <li>Evaluate 3b − 2 when b = 5.</li>
+            <li>Simplify 5a + 2b − a.</li>
+            <li>Solve 2x + 5 = 17.</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>k + 7.</li>
+            <li>3 × 5 = 15, then 15 − 2 = {check.b}.</li>
+            <li>5a − a = 4a, so {check.simp}.</li>
+            <li>17 − 5 = {check.eq.afterB}, then {check.eq.afterB} ÷ 2 = {check.eq.x}. Check: 2 × {check.eq.x} + 5 = 17 ✓</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
