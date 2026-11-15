@@ -1,42 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './LanguageStructuresT3.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Complex sentences, conjunctions, punctuation, editing, and vocabulary refinement',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 3 Language Structures focuses on <strong>complex sentences, conjunctions, punctuation,</strong>{' '}
-          editing, and vocabulary refinement.
-        </p>
-        <p className="text-slate-600">
-          Learners refine sentence structure and edit work carefully for clarity and correctness.
-        </p>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Repeat these grammar-and-style terms to support complex sentence control and careful editing.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Igatya"} phonetic={"[i'gaːtja]"} meaning={"Clause"} lang="xh" />
-          <PronunciationPlayer word={"Isihlanganisi"} phonetic={"[isi.hlaŋga'niːsi]"} meaning={"Conjunction"} lang="xh" />
-          <PronunciationPlayer word={"Isimbo"} phonetic={"[i'simbɔ]"} meaning={"Style"} lang="xh" />
-          <PronunciationPlayer word={"Ukuhlela"} phonetic={"[uku'ɬɛla]"} meaning={"Editing"} lang="xh" />
-          <PronunciationPlayer word={"Isivakalisi"} phonetic={"[isi.vaka'liːsi]"} meaning={"Sentence"} lang="xh" />
-          <PronunciationPlayer word={"Isiphumlisi"} phonetic={"[isi.pʰum'liːsi]"} meaning={"Punctuation mark"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {
