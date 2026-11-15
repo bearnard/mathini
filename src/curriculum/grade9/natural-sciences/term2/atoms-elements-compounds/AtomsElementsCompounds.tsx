@@ -13,8 +13,8 @@ const learnSteps: LearnStep[] = [
         <div className="bg-slate-50 p-6 rounded-xl inline-block text-left">
           <p className="font-bold text-slate-800 mb-2">Key parts of an atom:</p>
           <div className="space-y-1 text-slate-600">
-            <p><strong>Protons:</strong> Positively charged; in the nucleus</p>
-            <p><strong>Neutrons:</strong> Neutral; in the nucleus</p>
+            <p><strong>Protons:</strong> Positively charged; in the nucleus; they add mass</p>
+            <p><strong>Neutrons:</strong> Neutral; in the nucleus; they add mass</p>
             <p><strong>Electrons:</strong> Negatively charged; orbit the nucleus</p>
           </div>
         </div>

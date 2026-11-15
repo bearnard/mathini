@@ -28,7 +28,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          Acids taste sour and turn litmus paper red. Bases feel slippery and turn litmus paper blue.
+          Acids turn blue litmus paper red and bases turn red litmus paper blue. Common acids taste sour and common bases feel slippery, but never taste or touch unknown chemicals: use an indicator.
           <strong> pH</strong> measures how acidic or basic a substance is.
         </p>
         <div className="grid gap-3 md:grid-cols-3 text-left">
@@ -54,7 +54,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
           When an acid and base react, they <strong>neutralise</strong> each other to form a salt and
-          water. No mass is lost or gained in a chemical reaction.
+          water. No mass is lost or gained in a chemical reaction in a closed system (if a gas escapes, the mass you measure drops).
         </p>
         <div className="bg-slate-50 p-6 rounded-xl space-y-2">
           <p className="font-bold text-slate-800">Key principle:</p>

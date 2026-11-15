@@ -9,7 +9,8 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           <strong>Minerals</strong> are natural, crystalline solids. <strong>Rocks</strong> are made
           of minerals. The Earth has layers: <strong>crust</strong>, <strong>mantle</strong>, and
-          <strong> core</strong>.
+          <strong> core</strong>. The <strong>lithosphere</strong> is the crust together with the
+          rigid top part of the mantle; tectonic plates are pieces of it.
         </p>
         <div className="bg-slate-50 p-6 rounded-xl text-left">
           <p className="font-bold text-slate-800 mb-2">Three types of rocks:</p>
