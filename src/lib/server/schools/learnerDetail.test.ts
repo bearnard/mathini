@@ -49,6 +49,7 @@ test('a teacher opens a current member of their active class: the learner\'s rea
   assert.ok(d.progress.subjects.flatMap((x) => x.topics).some((x) => x.task === 'electric-circuits' && x.attempts === 20), 'built from the answers although there are no runs and no cached rows');
   assert.equal(d.progress.recentSessions.length, 1);
   assert.match(d.progress.teacherNextStep.title, /Anfervio/);
+  assert.doesNotMatch(d.progress.teacherNextStep.title, /your learner|your child|this learner/, 'the nickname is used when there is one');
   assert.ok(!/Real Name Secret|Secret School|real_name|pin_hash|pin_salt|login_code|CODE-|"age"/i.test(text), 'no real name, school, age, PIN or login code');
   assert.ok(!/\b(he|she|his|her|him)\b/i.test(JSON.stringify(d.progress.teacherNextStep)));
 });
