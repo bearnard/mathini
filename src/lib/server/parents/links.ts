@@ -91,7 +91,13 @@ export interface ChildActivity {
   answersThisWeek: number;
   daysPractisedLast14: number;
   lastPractisedAt: number | null;
+  /** Share of this week's answers that were right, 0 to 100; null with no answers this week. */
+  weekAccuracyPct: number | null;
+  /** This week's accuracy minus the week before, in points; null unless both weeks have at least MIN_WEEK_ANSWERS answers (a few answers say nothing). */
+  changeSinceLastWeek: number | null;
 }
+
+export const MIN_WEEK_ANSWERS = 5;
 
 export interface ChildSummary {
   id: string;
@@ -132,18 +138,24 @@ export async function withActivity(db: AdminDb, children: ChildSummary[], now: n
   try {
     const ids = children.map((c) => c.id);
     const marks = ids.map(() => '?').join(',');
-    const rows = await db.all<{ student_id: string; week: number; days: number; last: number | null }>(
+    const rows = await db.all<{ student_id: string; week: number; days: number; last: number | null; c1: number | null; n2: number | null; c2: number | null }>(
       `SELECT student_id,
               SUM(CASE WHEN created_at >= ? THEN 1 ELSE 0 END) AS week,
               COUNT(DISTINCT CASE WHEN created_at >= ? THEN (created_at + 7200000) / 86400000 END) AS days,
-              MAX(created_at) AS last
+              MAX(created_at) AS last,
+              SUM(CASE WHEN created_at >= ? THEN is_correct ELSE 0 END) AS c1,
+              SUM(CASE WHEN created_at >= ? AND created_at < ? THEN 1 ELSE 0 END) AS n2,
+              SUM(CASE WHEN created_at >= ? AND created_at < ? THEN is_correct ELSE 0 END) AS c2
          FROM attempts WHERE student_id IN (${marks}) GROUP BY student_id`,
-      [now - 7 * DAY, now - 14 * DAY, ...ids],
+      [now - 7 * DAY, now - 14 * DAY, now - 7 * DAY, now - 14 * DAY, now - 7 * DAY, now - 14 * DAY, now - 7 * DAY, ...ids],
     );
     const by = new Map(rows.map((r) => [r.student_id, r]));
     return children.map((c) => {
       const r = by.get(c.id);
-      return { ...c, activity: { answersThisWeek: Number(r?.week ?? 0), daysPractisedLast14: Number(r?.days ?? 0), lastPractisedAt: r?.last == null ? null : Number(r.last) } };
+      const n1 = Number(r?.week ?? 0), k1 = Number(r?.c1 ?? 0), n2 = Number(r?.n2 ?? 0), k2 = Number(r?.c2 ?? 0);
+      const acc = (k: number, n: number) => (n > 0 ? Math.round((k / n) * 100) : null);
+      const change = n1 >= MIN_WEEK_ANSWERS && n2 >= MIN_WEEK_ANSWERS ? (acc(k1, n1) as number) - (acc(k2, n2) as number) : null;
+      return { ...c, activity: { answersThisWeek: n1, daysPractisedLast14: Number(r?.days ?? 0), lastPractisedAt: r?.last == null ? null : Number(r.last), weekAccuracyPct: acc(k1, n1), changeSinceLastWeek: change } };
     });
   } catch {
     return children;

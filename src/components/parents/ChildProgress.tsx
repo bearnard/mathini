@@ -1,104 +1,58 @@
-// A linked child's progress for a PARENT, from the same ProgressResponse the learner's own page gets (ADR 0005). Every number is the server's;
-// this only formats it (the learner's page is written to the learner, so a parent gets a third-person summary instead of that view).
+// A linked child's progress for a PARENT, from the same ProgressResponse the learner's own page gets (ADR 0005). Every number is the server's; this
+// only formats it. The cards are the learner's own cards (ExamCard, SubjectCard, TestsCard, RetentionCard) in a third-person, read-only voice
+// (`who` = the child's name), laid out on the dashboard kit grid: one column on a phone, two from md, three from xl.
 import type { ProgressResponse } from '../../lib/shared/progressTypes';
-import { KIND_TEXT, LEVEL_COLOUR, LEVEL_TEXT, numText, pctText, shortDate } from '../progress/format';
-
-export const Stat = ({ label, value }: { label: string; value: string }) => (
-  <div className="rounded-xl bg-slate-50 p-2 text-center">
-    <dt className="text-xs text-slate-600">{label}</dt>
-    <dd className="text-xl font-bold text-slate-900">{value}</dd>
-  </div>
-);
-
-/** The three numbers a parent looks at first. */
-export function ProgressStats({ p }: { p: ProgressResponse }) {
-  return (
-    <dl className="mt-3 grid grid-cols-3 gap-2">
-      <Stat label="Exam readiness" value={pctText(p.exam?.readinessPct, 'not yet')} />
-      <Stat label="Days practised, of 14" value={numText(p.consistency.daysPractisedLast14)} />
-      <Stat label="Day streak" value={numText(p.consistency.streakDays)} />
-    </dl>
-  );
-}
-
-/** The plain activity numbers. They come from the answers themselves, so they show even when the full progress could not be loaded. */
-export function ActivityLine({ a, now }: { a?: { answersThisWeek: number; daysPractisedLast14: number; lastPractisedAt: number | null }; now: number }) {
-  if (!a) return null;
-  const last = a.lastPractisedAt == null ? 'not yet' : (() => { const d = Math.floor((now - a.lastPractisedAt) / 86_400_000); return d <= 0 ? 'today' : d === 1 ? 'yesterday' : `${d} days ago`; })();
-  return (
-    <dl className="mt-3 grid grid-cols-3 gap-2" aria-label="Activity">
-      <Stat label="Answers this week" value={numText(a.answersThisWeek)} />
-      <Stat label="Days practised, of 14" value={numText(a.daysPractisedLast14)} />
-      <Stat label="Last practised" value={last} />
-    </dl>
-  );
-}
+import { DashboardGrid, GridItem, SectionCard, numText, pctText } from '../dashboard';
+import { ExamCard, RetentionCard, SubjectCard } from '../progress/ProgressCards';
+import { TestsCard } from '../progress/ProgressView';
+import { shortDate } from '../progress/format';
 
 /** The last practice sessions: when, which topic, and how it went. */
-export function RecentActivity({ p }: { p: ProgressResponse }) {
+export function RecentActivityCard({ p }: { p: ProgressResponse }) {
   const list = p.recentSessions ?? [];
-  if (list.length === 0) return null;
   return (
-    <section aria-label="Recent activity">
-      <h3 className="text-sm font-bold text-slate-900">Recent activity</h3>
-      <ul className="mt-1 space-y-1">
-        {list.map((r, i) => (
-          <li key={`${r.at}-${i}`} className="flex items-center justify-between gap-3 text-sm text-slate-700">
-            <span className="min-w-0 break-words">{shortDate(r.at)} · {r.label}</span>
-            <span className="shrink-0">{numText(r.correct)} of {numText(r.answered)} right · {pctText(r.scorePct)}</span>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <SectionCard title="Recent activity" id="recent-activity">
+      {list.length === 0 ? (
+        <p className="text-slate-700">No practice sessions yet.</p>
+      ) : (
+        <ul>
+          {list.map((r, i) => (
+            <li key={`${r.at}-${i}`} className="flex items-center justify-between gap-3 border-t border-slate-100 py-2 first:border-t-0">
+              <div className="min-w-0">
+                <p className="break-words font-bold text-slate-800">{r.label}</p>
+                <p className="text-sm text-slate-600">{shortDate(r.at)}</p>
+              </div>
+              <div className="shrink-0 text-right">
+                <p className="text-lg font-extrabold text-slate-900">{pctText(r.scorePct)}</p>
+                <p className="text-xs text-slate-600">{numText(r.correct)} of {numText(r.answered)} right</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </SectionCard>
   );
 }
 
-/** Subjects with their weakest topics, recent tests and review cards. */
-export function ProgressDetails({ p }: { p: ProgressResponse }) {
+export function NextStepSummary({ p, who }: { p: ProgressResponse; who: string }) {
   return (
-    <div className="mt-3 space-y-4 border-t border-slate-200 pt-3">
-      <RecentActivity p={p} />
-      <p className="text-sm text-slate-800"><strong>Next step:</strong> {p.nextStep.title}. {p.nextStep.reason}</p>
-      {p.exam && (
-        <p className="text-sm text-slate-800">
-          <strong>{p.exam.label}:</strong> {numText(p.exam.topicsPractised)} of {numText(p.exam.topicsTotal)} topics practised
-          {p.exam.latestMock ? `, latest mock ${pctText(p.exam.latestMock.scorePct)} (${shortDate(p.exam.latestMock.finishedAt)})` : ''}.
-        </p>
-      )}
-      {p.subjects.length === 0 && <p className="text-sm text-slate-700">No topics have been practised yet.</p>}
-      {p.subjects.map((s) => (
-        <section key={s.subject} aria-label={s.label}>
-          <h3 className="flex items-center justify-between text-sm font-bold text-slate-900">
-            <span>{s.label}</span>
-            <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${LEVEL_COLOUR[s.level].chip}`}>{LEVEL_TEXT[s.level]} {s.masteryPct == null ? '' : pctText(s.masteryPct)}</span>
-          </h3>
-          <ul className="mt-1 space-y-1">
-            {s.topics.slice(0, 3).map((t) => (
-              <li key={t.task} className="flex items-center justify-between text-sm text-slate-700">
-                <span>{t.label}</span>
-                <span>{t.attempts === 0 ? 'not started' : `${pctText(t.accuracyPct)} · ${numText(t.attempts)} answers`}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
-      {p.tests.length > 0 && (
-        <section aria-label="Tests">
-          <h3 className="text-sm font-bold text-slate-900">Recent tests</h3>
-          <ul className="mt-1 space-y-1">
-            {p.tests.slice(0, 3).map((t) => (
-              <li key={t.runId} className="flex items-center justify-between text-sm text-slate-700">
-                <span>{KIND_TEXT[t.kind]}: {t.scopeLabel}</span>
-                <span>{pctText(t.scorePct)} · {shortDate(t.finishedAt)}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-      <p className="text-sm text-slate-700">
-        Review cards: {numText(p.retention.retiredCount)} remembered for good, {numText(p.retention.dueCount)} due now
-        {p.retention.weekPct == null ? '.' : `, ${pctText(p.retention.weekPct)} right this week.`}
-      </p>
-    </div>
+    <SectionCard title={`How to help ${who}`} id="next-step">
+      <p className="font-bold text-slate-900">{p.nextStep.title}</p>
+      <p className="mt-1 text-slate-700">{p.nextStep.reason}</p>
+    </SectionCard>
+  );
+}
+
+/** Everything under the child's header strip, as a responsive grid. Pure: no state, so it renders on the server as well. */
+export function ChildProgressCards({ p, who }: { p: ProgressResponse; who: string }) {
+  return (
+    <DashboardGrid>
+      <GridItem span="wide"><ExamCard exam={p.exam} who={who} /></GridItem>
+      <GridItem><NextStepSummary p={p} who={who} /></GridItem>
+      <GridItem><RecentActivityCard p={p} /></GridItem>
+      {p.subjects.map((s) => <GridItem key={s.subject}><SubjectCard s={s} who={who} /></GridItem>)}
+      <GridItem span="wide"><TestsCard tests={p.tests} series={p.testSeries} who={who} /></GridItem>
+      <GridItem><RetentionCard r={p.retention} days={p.consistency.daysPractisedLast14} streak={p.consistency.streakDays} who={who} /></GridItem>
+    </DashboardGrid>
   );
 }

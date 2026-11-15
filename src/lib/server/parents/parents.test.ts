@@ -338,18 +338,23 @@ test('the parent pages and API are never cached, indexed or tracked, and the pag
   for (const f of ['parent/page.tsx', 'parent/link/page.tsx', 'invite-parent/page.tsx']) assert.match(fs.readFileSync(`src/app/${f}`, 'utf8'), /index: false/);
 });
 
-test('the parent progress view renders every part of a ProgressResponse in the third person', async () => {
+test('the parent progress view renders every part of a ProgressResponse in the third person, read-only (no Practise links)', async () => {
   const { renderToStaticMarkup } = await import('react-dom/server');
   const { createElement } = await import('react');
-  const { ProgressDetails, ProgressStats } = await import('../../../components/parents/ChildProgress');
+  const { ChildProgressCards } = await import('../../../components/parents/ChildProgress');
   const { MOCK_PROGRESS } = await import('../../shared/progressMock');
-  const html = renderToStaticMarkup(createElement('div', null, createElement(ProgressStats, { p: MOCK_PROGRESS }), createElement(ProgressDetails, { p: MOCK_PROGRESS })));
+  const html = renderToStaticMarkup(createElement(ChildProgressCards, { p: MOCK_PROGRESS, who: 'Lerato' }));
   const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
-  assert.ok(text.includes('Exam readiness') && text.includes('Days practised, of 14') && text.includes('Day streak'));
+  assert.ok(text.includes('Exam readiness') && text.includes('Recent activity') && text.includes('Test history') && text.includes('What Lerato remembers'));
   for (const s of MOCK_PROGRESS.subjects) assert.ok(text.includes(s.label), s.label);
-  assert.ok(MOCK_PROGRESS.tests.length === 0 || text.includes('Recent tests'));
+  for (const r of MOCK_PROGRESS.recentSessions ?? []) assert.ok(text.includes(r.label), r.label);
   assert.ok(text.includes(MOCK_PROGRESS.nextStep.title));
+  assert.ok(!/Practise this/.test(text) && !/href="\/app/.test(html), 'a parent has nothing to practise: no learner buttons or links into the app');
   assert.ok(!/\b(you|your)\b/i.test(text.replace(MOCK_PROGRESS.nextStep.title, '').replace(MOCK_PROGRESS.nextStep.reason, '')), 'no learner-voice wording of its own');
+  // the learner's own page keeps its voice and its buttons
+  const { SubjectCard } = await import('../../../components/progress/ProgressCards');
+  const mine = renderToStaticMarkup(createElement(SubjectCard, { s: MOCK_PROGRESS.subjects[0] }));
+  assert.ok(/Practise this/.test(mine));
 });
 
 test('the children list carries each child\'s activity (answers this week, days practised, last practised) from the answers themselves', async (ctx) => {
@@ -364,11 +369,28 @@ test('the children list carries each child\'s activity (answers this week, days 
   ins.run(NOW - 1 * D); ins.run(NOW - 1 * D + 1000); ins.run(NOW - 3 * D); ins.run(NOW - 10 * D); ins.run(NOW - 40 * D);
   const kids = await withActivity(x.db, await listChildren(x.db, mum.userId), NOW);
   const by = Object.fromEntries(kids.map((k) => [k.id, k.activity]));
-  assert.deepEqual(by['child-0001'], { answersThisWeek: 3, daysPractisedLast14: 3, lastPractisedAt: NOW - 1 * D + 1000 });
-  assert.deepEqual(by['child-0002'], { answersThisWeek: 0, daysPractisedLast14: 0, lastPractisedAt: null }, 'no answers: zeros and not yet, not missing');
+  assert.deepEqual(by['child-0001'], { answersThisWeek: 3, daysPractisedLast14: 3, lastPractisedAt: NOW - 1 * D + 1000, weekAccuracyPct: 100, changeSinceLastWeek: null });
+  assert.deepEqual(by['child-0002'], { answersThisWeek: 0, daysPractisedLast14: 0, lastPractisedAt: null, weekAccuracyPct: null, changeSinceLastWeek: null }, 'no answers: zeros and not yet, not missing');
   // a read failure leaves the list as it was (no activity), never an error
   const broken = { all: async () => { throw new Error('boom'); }, batch: async () => undefined };
   const plain = await withActivity(broken, await listChildren(x.db, mum.userId), NOW);
   assert.equal(plain.length, 2);
   assert.ok(plain.every((k) => k.activity === undefined));
+});
+
+test('change since last week: this week\'s accuracy minus the week before, only when both weeks have at least 5 answers', async (ctx) => {
+  const x = await openParentsDb(); if (!x) return ctx.skip('node:sqlite unavailable');
+  const { withActivity, listChildren } = await import('./links');
+  await addStudent(x, 'child-0001', 'TIGER-4821', '4821', { name: 'Tiger Kid' });
+  const mum = await addAdult(x, 'mum2@example.com', ['parent']);
+  x.raw.prepare("INSERT INTO parent_links (user_id, student_id, method, linked_at) VALUES (?, 'child-0001', 'pin', 1)").run(mum.userId);
+  const D = 86_400_000;
+  const ins = x.raw.prepare("INSERT INTO attempts (student_id, task, section, grade, subject, topic, is_correct, xp_awarded, streak_at, created_at) VALUES ('child-0001', 'electric-circuits', 'general', 6, 'nst', 't', ?, 0, 0, ?)");
+  const kid = async () => (await withActivity(x.db, await listChildren(x.db, mum.userId), NOW))[0].activity!;
+  for (let i = 0; i < 4; i++) ins.run(1, NOW - 1 * D - i); // this week 4 right
+  for (let i = 0; i < 5; i++) ins.run(i < 2 ? 1 : 0, NOW - 9 * D - i); // last week 2 of 5
+  assert.equal((await kid()).changeSinceLastWeek, null, 'only 4 answers this week: no change shown');
+  ins.run(0, NOW - 2 * D); // this week 4 of 5
+  const a = await kid();
+  assert.deepEqual([a.weekAccuracyPct, a.changeSinceLastWeek], [80, 40]);
 });
