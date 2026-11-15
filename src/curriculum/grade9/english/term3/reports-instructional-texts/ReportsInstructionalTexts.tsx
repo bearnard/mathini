@@ -1,42 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Understand report structure and audience awareness',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Reports present information clearly and objectively, organized by headings and sections. Writers must 
-          understand the audience and purpose to choose appropriate detail level, technical language, and layout.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Master instructional writing with clear sequencing',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Instructions guide a reader through steps to achieve a goal. Use numbered lists, imperative verbs 
-          (command form), and clear language. Each step must be logical and complete so the reader can follow without 
-          confusion.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Control narrative perspective and organize information',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Reports maintain objective tone and third-person perspective unless otherwise appropriate. Functional texts 
-          require audience awareness to determine detail, vocabulary, and structure that best serves the reader\'s needs.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './ReportsInstructionalTextsSlides';
 
 const bank: CapsItem[] = [
   {

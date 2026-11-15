@@ -1,43 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Review genres and comprehension strategies',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Synoptic revision pulls together all year\'s learning: poetry, prose, drama, essays, reports, and letters. 
-          Use comprehension strategies like scanning, skimming, inferencing, and summarizing to handle mixed-genre exam 
-          papers efficiently.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Practise summary skills and evidence selection',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Summary condenses main ideas in your own words while keeping original meaning. Exam success depends on 
-          selecting the most relevant evidence and organizing it clearly to answer the specific question posed.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Develop exam strategy and time management',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Exam technique includes reading questions carefully, planning answers, managing time across multiple sections, 
-          and checking for errors. Regular practice with mixed-paper items builds confidence and strategic thinking for 
-          final assessment.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './SynopticRevisionSlides';
 
 const bank: CapsItem[] = [
   {

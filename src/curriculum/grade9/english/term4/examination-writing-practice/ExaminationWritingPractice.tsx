@@ -1,44 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Plan essays and transactional writing under time pressure',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Exam writing requires quick planning and effective time use. Outline main points before writing, maintain 
-          focus on the topic, and leave time for editing. Timed responses test your ability to produce accurate, 
-          well-structured pieces under pressure.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Recall correct formats for letters and essays',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Different text types have specific formats: formal letters follow conventions of layout and salutation; 
-          essays need clear paragraphing and logical flow. Format recall prevents errors and demonstrates command of 
-          writing conventions.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Edit for common errors and technical accuracy',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Final editing checks grammar, spelling, punctuation, and tense consistency. Recognizing and correcting common 
-          mistakes improves your score and shows attention to detail. Practice builds speed and accuracy in error 
-          detection.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './ExaminationWritingPracticeSlides';
 
 const bank: CapsItem[] = [
   {
