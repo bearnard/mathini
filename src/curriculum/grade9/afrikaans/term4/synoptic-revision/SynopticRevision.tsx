@@ -32,7 +32,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Three text types: gedig, brief, advertensie',
     content: slide(
       <>
-        <Rule>Know the main features of each text type: a <Af>gedig</Af> <En>poem</En> has rhyme and imagery, a <Af>brief</Af> <En>letter</En> has a format, an <Af>advertensie</Af> <En>advertisement</En> wants to persuade.</Rule>
+        <Rule>Know the main features of each text type: a <Af>gedig</Af> <En>poem</En> has <Af>rym en beeldspraak</Af> <En>rhyme and imagery</En>, a <Af>brief</Af> <En>letter</En> has a format, an <Af>advertensie</Af> <En>advertisement</En> wants to persuade.</Rule>
         <MeaningPairs
           kind="becomes"
           pairs={[['gedig', 'rym'], ['brief', 'formaat'], ['advertensie', 'oortuig']]}
@@ -53,7 +53,7 @@ export const learnSteps: LearnStep[] = [
     title: 'A comprehension strategy',
     content: slide(
       <>
-        <Rule>For a <Af>begriptoets</Af> read the text first, read the questions, then find the answer in the text and support it.</Rule>
+        <Rule>For a <Af>begriptoets</Af>: <Af>Lees die teks</Af> <En>read the text</En> first, read the questions, then find the answer in the text and support it.</Rule>
         <OrderTiles
           tiles={['Lees', 'Vrae', 'Soek', 'Bewys']}
           aria="Four steps in order: Lees (read the text), Vrae (read the questions), Soek (find the answer), Bewys (support it from the text)."
@@ -73,7 +73,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Summary and mixed revision',
     content: slide(
       <>
-        <Rule>A summary gives the main ideas briefly, in your own words. For revision, mix texts and skills: a poem, a letter, an advertisement and a comprehension in one session.</Rule>
+        <Rule>A summary gives <Af>die hoofidees in eie woorde</Af> <En>the main ideas in your own words</En>, briefly. For revision, <Af>verskillende teksopdragte meng</Af> <En>mix different text tasks</En>: a poem, a letter, an advertisement and a comprehension in one session.</Rule>
         <OrderTiles
           tiles={['Lees', 'Hoofidees', 'Eie woorde']}
           aria="Three summary steps in order: Lees (read), Hoofidees (find the main ideas), Eie woorde (write them in your own words)."
@@ -138,6 +138,42 @@ const bank: AfrikaansItem[] = [
     options: ["hersiening", "begrip", "woordeskat", "gedig"],
     answer: "hersiening",
     explanation: "'Hersiening' means 'revision', going over work again before an exam.",
+  },
+  {
+    prompt: "Watter stap kom eerste in 'n begriptoets?",
+    options: ["Lees die teks", "Skryf die opsomming", "Gee in", "Raai die antwoord"],
+    answer: "Lees die teks",
+    explanation: "Read the text first.",
+  },
+  {
+    prompt: "Wat is die belangrikste kenmerk van 'n gedig?",
+    options: ["rym en beeldspraak", "adres, datum en handtekening", "slagspreuk en oproep tot aksie", "agenda en lys van items"],
+    answer: "rym en beeldspraak",
+    explanation: "A poem works with rhyme and imagery.",
+  },
+  {
+    prompt: "Watter teks het 'n slagspreuk?",
+    options: ["advertensie", "formele brief", "gedig", "notule"],
+    answer: "advertensie",
+    explanation: "Advertisements have slogans.",
+  },
+  {
+    prompt: "Watter vraagwoord vra na 'n rede?",
+    options: ["Hoekom", "Wie", "Waar", "Wanneer"],
+    answer: "Hoekom",
+    explanation: "Hoekom asks why.",
+  },
+  {
+    prompt: "Wat is 'n goeie opsomming?",
+    options: ["die hoofidees in eie woorde", "elke detail woord vir woord", "net die titel", "'n nuwe storie"],
+    answer: "die hoofidees in eie woorde",
+    explanation: "Main ideas, own words.",
+  },
+  {
+    prompt: "Wat help die meeste met hersiening?",
+    options: ["verskillende teksopdragte meng", "net een soort oefening doen en herhaal", "nooit weer jou antwoorde proeflees nie", "net begrip oefen tot die einde van die jaar"],
+    answer: "verskillende teksopdragte meng",
+    explanation: "Mixed practice.",
   },
 ];
 

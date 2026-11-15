@@ -20,7 +20,7 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Read the advert lines"
           steps={[
-            <><Af>Koop vandag!</Af> <En>Buy today!</En> <SpeakButton text="Koop vandag!" /></>,
+            <><Af>Koop vandag en spaar!</Af> <En>Buy today and save! A call to action: it tells the reader to act now.</En> <SpeakButton text="Koop vandag en spaar!" /></>,
             <><Af>'n Spesiale prys vir Graad 9-leerders.</Af> <En>A special price for Grade 9 learners.</En></>,
             <><Af>Vars brood elke oggend.</Af> <En>Fresh bread every morning.</En></>,
           ]}
@@ -55,7 +55,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Tone and emotive language',
     content: slide(
       <>
-        <Rule>The <Af>toon</Af> <En>tone</En> is the attitude of the text, such as excited or serious. <Af>Emosionele taal</Af> <En>emotive language</En> works on your feelings.</Rule>
+        <Rule>The <Af>toon</Af> <En>tone</En> is the attitude of the text, such as excited or serious. <Af>Emosionele taal</Af> <En>emotive language</En>: <Af>Dit werk op jou gevoelens</Af> <En>it works on your feelings</En>.</Rule>
         <MeaningPairs
           kind="becomes"
           pairs={[['Wen nou!', 'opgewonde'], ['Veilig en seker', 'kalm'], ['Moenie wag nie!', 'dringend']]}
@@ -76,7 +76,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Picture and words work together',
     content: slide(
       <>
-        <Rule>Visual and verbal parts together persuade. Ask what the picture shows, what the words say, and who the advert is for.</Rule>
+        <Rule>Visual and verbal parts together persuade: <Af>beeld en woorde</Af> <En>picture and words</En>. Ask what the picture shows, what the words say, and who the advert is for.</Rule>
         <TaggedBoxes
           items={[{ word: 'beeld', tag: 'visueel' }, { word: 'woorde', tag: 'verbaal' }, { word: 'gehoor', tag: 'teiken' }]}
           aria="Three parts to analyse in an advert: the beeld (picture) is visual, the woorde (words) are verbal, the gehoor (audience) is the target."
@@ -141,6 +141,42 @@ const bank: AfrikaansItem[] = [
     options: ["oortuig", "koop", "spesiaal", "aandag"],
     answer: "oortuig",
     explanation: "'Oortuig' means 'convince' or 'persuade', which is the aim of an advert.",
+  },
+  {
+    prompt: "Watter sin is 'n oproep tot aksie?",
+    options: ["Koop vandag en spaar!", "Die lug is vandag baie blou.", "Ek hou baie van katte.", "Die boek is oop op bladsy vier."],
+    answer: "Koop vandag en spaar!",
+    explanation: "An instruction telling the reader to act now.",
+  },
+  {
+    prompt: "Wat is die toon van 'Wen nou!'?",
+    options: ["opgewonde", "hartseer en swaar", "kalm en rustig", "verveeld en moeg"],
+    answer: "opgewonde",
+    explanation: "The exclamation mark and command make it excited.",
+  },
+  {
+    prompt: "Watter woord is 'n byvoeglike naamwoord in 'Vars brood elke oggend'?",
+    options: ["vars", "brood", "elke", "oggend"],
+    answer: "vars",
+    explanation: "vars describes the bread.",
+  },
+  {
+    prompt: "Wat doen emosionele taal in 'n advertensie?",
+    options: ["Dit werk op jou gevoelens", "Dit gee net die prys", "Dit lys feite sonder beeld", "Dit vervang die beeld"],
+    answer: "Dit werk op jou gevoelens",
+    explanation: "Emotive language works on feelings.",
+  },
+  {
+    prompt: "Watter paar werk saam om te oortuig?",
+    options: ["beeld en woorde", "datum en adres", "titel en bladsynommer", "reël en strofe"],
+    answer: "beeld en woorde",
+    explanation: "Picture and words together persuade.",
+  },
+  {
+    prompt: "Kies die regte vorm: 'n ___ prys.",
+    options: ["spesiale", "spesiaal", "spesialle", "spesiales"],
+    answer: "spesiale",
+    explanation: "Many adjectives take -e before a noun.",
   },
 ];
 

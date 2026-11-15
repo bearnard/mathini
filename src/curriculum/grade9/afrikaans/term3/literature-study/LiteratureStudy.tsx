@@ -53,7 +53,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Literary features: setting, imagery, tone',
     content: slide(
       <>
-        <Rule>Look for the <Af>ruimte</Af> <En>setting</En>, <Af>beeldspraak</Af> <En>imagery</En> and <Af>toon</Af> <En>tone</En> in a text. Each one adds to the message.</Rule>
+        <Rule>Look for the <Af>ruimte</Af> <En>setting</En>: <Af>waar en wanneer dit gebeur</Af>. Then <Af>beeldspraak</Af> <En>imagery</En>: <Af>woorde wat 'n prentjie skep</Af>. Then <Af>toon</Af> <En>tone</En>: <Af>die gevoel in die stem</Af>.</Rule>
         <MeaningPairs
           kind="becomes"
           pairs={[['ruimte', 'waar'], ['beeldspraak', 'prentjie'], ['toon', 'gevoel']]}
@@ -74,7 +74,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Textual evidence',
     content: slide(
       <>
-        <Rule>A strong answer proves its claim with <Af>teksbewys</Af> <En>textual evidence</En>: a word, a line or an action from the text.</Rule>
+        <Rule>A strong answer proves its claim with <Af>teksbewys</Af> <En>textual evidence</En>: a word, a line or an action from the text. Its three parts are <Af>bewering, bewys, verklaring</Af>.</Rule>
         <OrderTiles
           tiles={['Bewering', 'Bewys', 'Verklaar']}
           aria="Three parts of a strong answer: Bewering (claim), Bewys (evidence), Verklaar (explain)."
@@ -155,6 +155,42 @@ const bank: AfrikaansItem[] = [
     options: ["storie", "konflik", "tema", "resensie"],
     answer: "storie",
     explanation: "'Storie' (story) tells about characters and events.",
+  },
+  {
+    prompt: "Watter sin is teksbewys vir 'Hy is dapper'?",
+    options: ["Hy help sy broer al is hy bang.", "Hy is die langste seun in sy klas.", "Hy hou baie van sokker en rugby.", "Hy woon in 'n dorp naby die see."],
+    answer: "Hy help sy broer al is hy bang.",
+    explanation: "An action from the text proves bravery.",
+  },
+  {
+    prompt: "Waarna verwys 'ruimte' in 'n storie?",
+    options: ["waar en wanneer dit gebeur", "die probleem wat opgelos moet word", "die boodskap van die hele storie", "die titel wat bo-aan die storie staan"],
+    answer: "waar en wanneer dit gebeur",
+    explanation: "Setting means where and when a story happens.",
+  },
+  {
+    prompt: "Wat is beeldspraak?",
+    options: ["woorde wat 'n prentjie skep", "die lengte van die hele gedig", "die prys van die boek in die winkel", "die naam van die skrywer van die boek"],
+    answer: "woorde wat 'n prentjie skep",
+    explanation: "Imagery uses words to make a picture.",
+  },
+  {
+    prompt: "Wat toon die toon van 'n teks?",
+    options: ["die gevoel in die stem", "die aantal bladsye", "die kleur van die omslag", "die datum"],
+    answer: "die gevoel in die stem",
+    explanation: "Tone is the feeling in the voice.",
+  },
+  {
+    prompt: "Watter drie dele het 'n sterk antwoord?",
+    options: ["bewering, bewys, verklaring", "titel, datum, adres en onderwerp", "groet, inhoud, slot en handtekening", "vraag, tyd, formaat en antwoord"],
+    answer: "bewering, bewys, verklaring",
+    explanation: "Claim, proof, explanation.",
+  },
+  {
+    prompt: "Wat is die tema van 'n teks?",
+    options: ["die hoofboodskap", "die karakter se naam", "die aantal toneel", "die einde"],
+    answer: "die hoofboodskap",
+    explanation: "The theme is the message.",
   },
 ];
 

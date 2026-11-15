@@ -11,7 +11,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Agenda and notule',
     content: slide(
       <>
-        <Rule>The <Af>agenda</Af> is the list of items to be discussed at a meeting. The <Af>notule</Af> <En>minutes</En> are the written record of what was said and decided.</Rule>
+        <Rule>The <Af>agenda</Af> is the list of items to be discussed at a meeting. The <Af>notule</Af> <En>minutes</En> are <Af>die skriftelike rekord van die vergadering</Af> <En>the written record of the meeting</En>: what was said and decided.</Rule>
         <OrderTiles
           tiles={['Agenda', 'Vergadering', 'Notule']}
           aria="Three steps in order: Agenda (the list of items), Vergadering (the meeting), Notule (the written record)."
@@ -23,7 +23,7 @@ export const learnSteps: LearnStep[] = [
             <>After the meeting, the secretary writes the <Af>notule</Af>: who came, what was decided. <SpeakButton text="agenda, notule" /></>,
           ]}
         />
-        <Mistake>Mixing up the two. The <Af>agenda</Af> is written before the meeting; the <Af>notule</Af> are written after it.</Mistake>
+        <Mistake>Mixing up the two. The <Af>agenda</Af> is written <Af>voor die vergadering</Af> <En>before the meeting</En>; the <Af>notule</Af> are written after it.</Mistake>
       </>,
     ),
   },
@@ -62,7 +62,7 @@ export const learnSteps: LearnStep[] = [
           title="Make it formal"
           steps={[
             <>Informal: <Af>Haai, kom jy Vrydag?</Af></>,
-            <>Formal: <Af>Ons nooi u graag uit na die vergadering op Vrydag.</Af> <En>We gladly invite you to the meeting on Friday.</En></>,
+            <>Formal: <Af>Ons nooi u graag na Vrydag se vergadering.</Af> <En>We gladly invite you to Friday&apos;s meeting.</En></>,
           ]}
         />
         <Mistake>Using friendly or slang language in an agenda, report or formal request. Keep the register formal.</Mistake>
@@ -82,8 +82,8 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Pick the type"
           steps={[
-            <>Topic: <Af>My eerste skooldag</Af>. A story with a beginning, middle and end is narrative.</>,
-            <>Topic: <Af>Die strand</Af>. What you see, hear and smell: descriptive.</>,
+            <>Topic: <Af>My eerste skooldag</Af>. A story with a beginning, middle and end is a <Af>narratiewe opstel</Af>.</>,
+            <>Topic: <Af>Die strand</Af>. What you see, hear and smell: a <Af>beskrywende opstel</Af>.</>,
           ]}
         />
         <Mistake>Writing a list of events for a descriptive essay. A descriptive essay needs pictures made with words.</Mistake>
@@ -139,6 +139,42 @@ const bank: AfrikaansItem[] = [
     options: ["formeel", "verslag", "versoek", "agenda"],
     answer: "formeel",
     explanation: "'Formeel' means 'formal'. Official documents use a formal style.",
+  },
+  {
+    prompt: "Wanneer word die agenda geskryf?",
+    options: ["voor die vergadering", "nadat die vergadering klaar is", "tydens die middagpouse", "nooit, want dit is nie nodig nie"],
+    answer: "voor die vergadering",
+    explanation: "The agenda lists items beforehand.",
+  },
+  {
+    prompt: "Wat is die notule?",
+    options: ["die skriftelike rekord van die vergadering", "die lys van items wat bespreek gaan word", "'n uitnodiging aan al die lede van die komitee", "'n versoek aan die skoolhoof vir geld"],
+    answer: "die skriftelike rekord van die vergadering",
+    explanation: "Minutes record what was said and decided.",
+  },
+  {
+    prompt: "Watter teks nooi iemand om te kom?",
+    options: ["uitnodiging", "verslag oor die geleentheid", "notule van die vergadering", "agenda vir die vergadering"],
+    answer: "uitnodiging",
+    explanation: "An invitation asks someone to come.",
+  },
+  {
+    prompt: "Watter sin is formeel?",
+    options: ["Ons nooi u graag na Vrydag se vergadering.", "Haai, kom jy Vrydag na die vergadering toe?", "Kom Vrydag na die vergadering, ok maat?", "Sien jou Vrydag by die vergadering!"],
+    answer: "Ons nooi u graag na Vrydag se vergadering.",
+    explanation: "Formal register uses u and polite wording.",
+  },
+  {
+    prompt: "Watter tipe opstel gebruik die sintuie?",
+    options: ["beskrywende opstel", "narratiewe opstel", "notule van 'n vergadering", "agenda vir 'n vergadering"],
+    answer: "beskrywende opstel",
+    explanation: "A descriptive essay paints a picture.",
+  },
+  {
+    prompt: "'My eerste skooldag' as onderwerp vra vir watter tipe opstel?",
+    options: ["narratiewe opstel", "agenda vir 'n vergadering", "verslag oor 'n gebeurtenis", "uitnodiging na 'n partytjie"],
+    answer: "narratiewe opstel",
+    explanation: "A story with beginning, middle and end.",
   },
 ];
 

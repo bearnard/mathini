@@ -53,7 +53,7 @@ export const learnSteps: LearnStep[] = [
     title: 'A news report: who, what, where, when',
     content: slide(
       <>
-        <Rule>A news report gives the key facts. It answers <Af>Wie?</Af> <En>who</En>, <Af>Wat?</Af> <En>what</En>, <Af>Waar?</Af> <En>where</En> and <Af>Wanneer?</Af> <En>when</En>. The headline is short.</Rule>
+        <Rule>A news report gives the key facts. It answers <Af>Wie?</Af> <En>who</En>, <Af>Wat?</Af> <En>what</En>, <Af>Waar?</Af> <En>where</En> and <Af>Wanneer?</Af> <En>when</En>. The headline is short. In short: <Af>Wie, wat, waar, wanneer</Af>.</Rule>
         <OrderTiles
           tiles={['Wie', 'Wat', 'Waar', 'Wanneer']}
           aria="Four questions a news report answers: Wie (who), Wat (what), Waar (where), Wanneer (when)."
@@ -65,7 +65,7 @@ export const learnSteps: LearnStep[] = [
             <>Who? <Af>'n kind</Af>. What? Found a dog. Where and when come in the first paragraph.</>,
           ]}
         />
-        <Mistake>Putting opinions in a news report. A report tells the facts; an opinion piece is a different text.</Mistake>
+        <Mistake>Putting <Af>persoonlike mening</Af> <En>personal opinion</En> in a news report. A report tells the facts; an opinion piece is a different text.</Mistake>
       </>,
     ),
   },
@@ -73,7 +73,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Interviews and listening for key information',
     content: slide(
       <>
-        <Rule>In an interview one person asks and another answers. When you listen or read, find the key information: the names, places, numbers and the speaker&apos;s opinion.</Rule>
+        <Rule>In an interview one person asks and another answers. When you listen or read, find the key information: <Af>name, plekke en getalle</Af> <En>names, places and numbers</En> and the speaker&apos;s opinion.</Rule>
         <Worked
           title="Find the key information"
           steps={[
@@ -134,6 +134,42 @@ const bank: AfrikaansItem[] = [
     options: ["kind", "boek", "tafel", "hond"],
     answer: "kind",
     explanation: "'Kind' means 'child'. Its plural is 'kinders'.",
+  },
+  {
+    prompt: "Watter vrae beantwoord 'n nuusberig?",
+    options: ["Wie, wat, waar, wanneer", "Rym, strofe, reël, beeld", "Datum, adres, groet, afsluiting", "Koop, kies, betaal, gaan"],
+    answer: "Wie, wat, waar, wanneer",
+    explanation: "The key facts of a report.",
+  },
+  {
+    prompt: "Wat is die lidwoord in 'die hond'?",
+    options: ["die", "hond", "die hond", "geen"],
+    answer: "die",
+    explanation: "The article die means the.",
+  },
+  {
+    prompt: "Watter opskrif is 'n nuusopskrif?",
+    options: ["Kind vind verlore hond", "Liewe hond, ek mis jou baie", "Geagte hond van die dorp", "Ek het my hond baie lief"],
+    answer: "Kind vind verlore hond",
+    explanation: "Headlines are short and drop articles.",
+  },
+  {
+    prompt: "Wat moet jy in 'n onderhoud neerskryf?",
+    options: ["name, plekke en getalle", "elke woord wat die persoon sê", "net die titel van die onderhoud", "net jou eie mening oor die persoon"],
+    answer: "name, plekke en getalle",
+    explanation: "Note the key information.",
+  },
+  {
+    prompt: "Watter sin het 'n onbepaalde lidwoord?",
+    options: ["'n Kind lees 'n boek.", "Die kind lees die boek.", "Kind lees boek.", "Die kinders lees."],
+    answer: "'n Kind lees 'n boek.",
+    explanation: "The article 'n means a or an.",
+  },
+  {
+    prompt: "Wat hoort nie in 'n nuusberig nie?",
+    options: ["persoonlike mening", "die belangrikste feite", "wie, wat en waar", "wanneer dit gebeur het"],
+    answer: "persoonlike mening",
+    explanation: "A report gives facts, not opinion.",
   },
 ];
 
