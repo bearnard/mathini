@@ -3,6 +3,7 @@ import type { MathematicsItem, LearnStep } from '../../_shared/types';
 import Formula from '../../../../../components/subjects/Formula';
 import FunctionGraph from '../../../../../components/subjects/FunctionGraph';
 import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
+import { SpecialTriangles } from '@/components/diagrams/maths/SpecialTriangles';
 
 const learnSteps: LearnStep[] = [
   {
@@ -14,6 +15,7 @@ const learnSteps: LearnStep[] = [
           <Formula block>{String.raw`\sin 30^\circ = \frac{1}{2}, \quad \cos 60^\circ = \frac{1}{2}`}</Formula>
           <Formula block>{String.raw`\tan 45^\circ = 1`}</Formula>
         </div>
+        <SpecialTriangles />
         <FunctionGraph
           curves={[
             { fn: (x: number) => Math.sin((x * Math.PI) / 180), label: 'y = sin x', color: '#14b8a6' },

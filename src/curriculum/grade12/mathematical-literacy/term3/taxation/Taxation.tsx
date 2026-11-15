@@ -14,7 +14,7 @@ const learnSteps: LearnStep[] = [
         <Formula block>{String.raw`\text{Taxable income} = \text{gross income} - \text{allowable deductions}`}</Formula>
         <Formula block>{String.raw`\text{Tax payable} = \text{tax before rebate} - \text{rebate}`}</Formula>
         <TaxableIncomeSteps />
-        <p className="text-sm text-slate-500">Round numbers for illustration, not a tax table.</p>
+        <p className="text-sm text-slate-500">2026/27 tax year: 18% on taxable income up to R245 100, and a primary rebate of R17 820. Tax tables change, so always use the table given in the question.</p>
       </div>
     ),
   },
