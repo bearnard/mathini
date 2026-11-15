@@ -12,7 +12,7 @@ import { loadChildActivity } from './progressSeam';
 import { handleChildConsent, handleChildProgress, handleChildResetPin, handleChildUnlink, handleCreateInvite, handleLinkInvite, handleLinkPin, handleListChildren, type ParentDeps } from './http';
 import { NOW, SECRET, addAdult, addStudent, openParentsDb, type ParentsTestDb } from './testDb';
 
-const SQL = fs.readFileSync('migrations/0014_parents.sql', 'utf8');
+const SQL = fs.readFileSync('migrations/0015_parents.sql', 'utf8');
 const ORIGIN = 'https://scholar.hibbins.org';
 const silent = (x: ParentsTestDb, over: Partial<ParentDeps> = {}): ParentDeps => ({ db: x.db, now: NOW, sessionSecret: SECRET, log: () => undefined, ...over });
 const post = (path: string, action: string | null, cookie: string | undefined, body: unknown = {}) =>

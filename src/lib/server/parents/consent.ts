@@ -25,6 +25,6 @@ export async function parentWithdrew(db: AdminDb, studentId: string): Promise<bo
     const row = (await db.all<{ action: string }>('SELECT action FROM consent_events WHERE student_id = ? ORDER BY id DESC LIMIT 1', [studentId]))[0];
     return row?.action === 'withdrawn';
   } catch {
-    return false; // migration 0014 not applied yet: there are no parents
+    return false; // migration 0015 not applied yet: there are no parents
   }
 }

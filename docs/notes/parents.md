@@ -1,6 +1,6 @@
 # Parents (ADR 0003 phase 2): linking, consent, PIN reset, dashboard
 
-Needs migration **0013** (adult accounts, see adult-auth.md) and **0014** (four new tables: `parent_links`, `child_invites`, `consent_events`, `pin_resets`; no ALTER). Apply both before using any of it; the learner consent route tolerates 0014 not being there yet.
+Needs migration **0013** (adult accounts, see adult-auth.md) and **0015** (four new tables: `parent_links`, `child_invites`, `consent_events`, `pin_resets`; no ALTER). Apply both before using any of it; the learner consent route tolerates 0015 not being there yet.
 
 ## Linking a child (parent role required; every write needs the `X-Auth-Action` header and a matching Origin)
 
