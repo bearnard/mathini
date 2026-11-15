@@ -93,7 +93,7 @@ const learnSteps: LearnStep[] = [
         <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
           <p className="text-sm text-amber-900">
             <strong>Food webs</strong> are more realistic than food chains because most organisms eat multiple food sources. 
-            <strong>Energy pyramids</strong> show biomass decreasing at higher trophic levels. This explains why there are 
+            <strong>Energy pyramids</strong> show the energy available decreasing at higher trophic levels (only about 10% is passed on). This explains why there are 
             more producers than herbivores, more herbivores than carnivores.
           </p>
         </div>

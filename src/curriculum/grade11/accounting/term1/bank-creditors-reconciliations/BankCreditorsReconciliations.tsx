@@ -51,12 +51,10 @@ const learnSteps: LearnStep[] = [
           title="Bank Account (Cashbook adjustments)"
           debit={[
             { description: 'Interest on current account', amount: 450 },
-            { description: 'EFT received from debtor', amount: 3800 },
           ]}
           credit={[
             { description: 'Bank charges', amount: 285 },
             { description: 'Dishonoured cheque - S Dlamini', amount: 1200 },
-            { description: 'Debit order: insurance', amount: 950 },
           ]}
         />
         <p className="text-sm text-slate-500">Items found only on the bank statement are first posted to the bank account in the cashbook before the reconciliation is prepared.</p>

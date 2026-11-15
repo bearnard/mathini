@@ -41,7 +41,8 @@ const learnSteps: LearnStep[] = [
         <CodeBlock language="text" code={`IF code or media came from another creator
   THEN acknowledge the source
   AND check permission or licence terms
-ELSE do not present it as your own work`} />
+  AND do not present it as your own work
+ELSE it is your own original work`} />
         <div className="rounded-xl bg-rose-50 border border-rose-200 p-4">
           <p className="font-semibold text-rose-800">Key ethical issue</p>
           <p className="text-slate-600 mt-1">

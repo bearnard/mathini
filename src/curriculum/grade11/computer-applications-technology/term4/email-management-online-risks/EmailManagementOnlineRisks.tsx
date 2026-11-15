@@ -20,7 +20,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-yellow-50 p-4">
             <strong className="text-yellow-700">CC vs BCC</strong>
-            <p className="text-slate-600">CC (Carbon Copy): all recipients see each other. BCC (Blind Carbon Copy): other recipients are hidden from BCC recipients. Use BCC to protect privacy.</p>
+            <p className="text-slate-600">CC (Carbon Copy): all recipients see each other. BCC (Blind Carbon Copy): the BCC recipients' addresses are hidden from all the other recipients. Use BCC to protect privacy.</p>
           </div>
           <div className="rounded-xl bg-orange-50 p-4">
             <strong className="text-orange-700">Distribution lists</strong>

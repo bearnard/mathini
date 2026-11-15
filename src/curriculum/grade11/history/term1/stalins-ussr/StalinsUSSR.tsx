@@ -94,7 +94,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-slate-50 p-4">
             <strong className="text-slate-700">The Gulag:</strong>
-            <p className="text-slate-600">A vast network of forced labour camps in Siberia. Millions were sent there; hundreds of thousands died from overwork, cold, and starvation.</p>
+            <p className="text-slate-600">A vast network of forced labour camps in Siberia. Millions were sent there; well over a million died from overwork, cold, and starvation.</p>
           </div>
         </div>
         <p className="text-sm text-slate-500 mt-2">The purges eliminated any possible challenge to Stalin's absolute power and created a climate of fear throughout Soviet society.</p>

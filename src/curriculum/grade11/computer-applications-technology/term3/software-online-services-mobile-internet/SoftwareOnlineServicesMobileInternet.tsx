@@ -96,7 +96,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-slate-100 p-4">
             <strong className="text-slate-700">Freeware</strong>
-            <p className="text-slate-600">Free to use but source code is closed. E.g. Adobe Acrobat Reader, VLC (dual-licensed).</p>
+            <p className="text-slate-600">Free to use but source code is closed. E.g. Adobe Acrobat Reader.</p>
           </div>
           <div className="rounded-xl bg-slate-100 p-4">
             <strong className="text-slate-700">Shareware</strong>

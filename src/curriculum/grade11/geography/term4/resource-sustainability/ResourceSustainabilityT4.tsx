@@ -50,7 +50,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-red-50 p-4">
             <strong className="text-red-700">Soil degradation</strong>
-            <p className="text-slate-600 text-sm">Overgrazing, poor farming, and urbanisation degrade 500 million hectares of agricultural land globally each year.</p>
+            <p className="text-slate-600 text-sm">Overgrazing, poor farming, and urbanisation cause the loss of billions of tonnes of fertile soil worldwide every year.</p>
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ const learnSteps: LearnStep[] = [
           The <strong>ecological footprint</strong> measures how much biologically productive land and sea is required to sustain a population's lifestyle and absorb its waste.
         </p>
         <div className="bg-slate-50 p-5 rounded-xl text-left space-y-2">
-          <p><strong>Unit:</strong> global hectares (gha) per person. If everyone lived like the average American (~8 gha), we would need 4 Earths.</p>
+          <p><strong>Unit:</strong> global hectares (gha) per person. If everyone lived like the average American (~8 gha), we would need about 5 Earths.</p>
           <p><strong>Earth Overshoot Day:</strong> the date each year when humanity has used more from nature than the planet can renew in the entire year. In 2023 it fell on 2 August.</p>
           <p><strong>South Africa's footprint:</strong> moderate compared to developed nations, but growing. Water scarcity is a particular concern.</p>
         </div>

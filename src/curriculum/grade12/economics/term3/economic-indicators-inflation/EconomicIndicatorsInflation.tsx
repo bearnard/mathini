@@ -27,8 +27,8 @@ const learnSteps: LearnStep[] = [
           data={[
             { year: '2019', gdp: 0.2, unemployment: 29.1 },
             { year: '2020', gdp: -6.4, unemployment: 32.5 },
-            { year: '2021', gdp: 4.9, unemployment: 34.9 },
-            { year: '2022', gdp: 1.9, unemployment: 33.9 },
+            { year: '2021', gdp: 4.9, unemployment: 35.3 },
+            { year: '2022', gdp: 1.9, unemployment: 32.7 },
             { year: '2023', gdp: 0.6, unemployment: 32.1 },
           ]}
           series={[

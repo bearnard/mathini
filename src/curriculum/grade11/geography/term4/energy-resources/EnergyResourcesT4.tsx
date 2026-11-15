@@ -14,7 +14,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-slate-100 p-4">
             <strong className="text-slate-700">Coal</strong>
-            <p className="text-slate-600 text-sm">South Africa generates ~80% of electricity from coal (Eskom). Cheap and abundant locally, but major CO₂ emitter and health risk from pollution.</p>
+            <p className="text-slate-600 text-sm">South Africa generates roughly 70-80% of its electricity from coal (Eskom). Cheap and abundant locally, but major CO₂ emitter and health risk from pollution.</p>
           </div>
           <div className="rounded-xl bg-slate-100 p-4">
             <strong className="text-slate-700">Oil and natural gas</strong>
@@ -22,7 +22,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-slate-100 p-4">
             <strong className="text-slate-700">Nuclear</strong>
-            <p className="text-slate-600 text-sm">Koeberg near Cape Town generates ~6% of SA's electricity. Zero direct carbon emissions but radioactive waste and high cost remain concerns.</p>
+            <p className="text-slate-600 text-sm">Koeberg near Cape Town generates roughly 4-5% of SA's electricity. Zero direct carbon emissions but radioactive waste and high cost remain concerns.</p>
           </div>
         </div>
       </div>

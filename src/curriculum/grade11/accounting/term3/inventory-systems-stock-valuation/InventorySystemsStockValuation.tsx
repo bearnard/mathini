@@ -80,7 +80,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          Under <strong>WAC</strong>, all units are valued at an average cost, recalculated after each purchase.
+          Under <strong>WAC</strong>, all units are valued at the average cost of the stock available (total cost ÷ total units). In a perpetual system it is recalculated after each purchase.
         </p>
         <FinancialStatement
           title="Weighted Average Cost Example"
@@ -148,7 +148,7 @@ const learnSteps: LearnStep[] = [
             <strong className="text-blue-700">In a period of rising prices:</strong>
             <ul className="text-slate-600 list-disc list-inside mt-1 space-y-1">
               <li>FIFO: lower cost of sales → higher gross profit</li>
-              <li>WAC: middle ground between FIFO and LIFO</li>
+              <li>WAC: gives a result between the earliest and latest costs</li>
             </ul>
           </div>
           <div className="rounded-xl bg-amber-50 p-4">

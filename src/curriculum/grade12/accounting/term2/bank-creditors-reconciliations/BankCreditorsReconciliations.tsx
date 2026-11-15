@@ -47,10 +47,10 @@ const learnSteps: LearnStep[] = [
               heading: 'Reconciling to the bank statement balance',
               lines: [
                 { label: 'Favourable balance as per updated cashbook', amount: 94070 },
-                { label: 'Outstanding deposit', amount: 18600 },
-                { label: 'Unpresented cheque no. 418', amount: -9450 },
-                { label: 'Unpresented cheque no. 426', amount: -12820 },
-                { label: 'Favourable balance as per bank statement', amount: 90300, isTotal: true },
+                { label: 'Less: Outstanding deposit', amount: -18600 },
+                { label: 'Add: Unpresented cheque no. 418', amount: 9450 },
+                { label: 'Add: Unpresented cheque no. 426', amount: 12820 },
+                { label: 'Favourable balance as per bank statement', amount: 97740, isTotal: true },
               ],
             },
           ]}

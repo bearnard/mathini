@@ -75,7 +75,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-indigo-50 p-4">
             <strong className="text-indigo-700">Cape Granite Suite</strong>
-            <p className="text-slate-600 text-sm">Batholithic granites forming the Cape Peninsula mountains, including Table Mountain's sides and Lion's Head.</p>
+            <p className="text-slate-600 text-sm">Batholithic granites that underlie the Cape Peninsula and show on its lower slopes and coast. Table Mountain and Lion's Head are mostly sandstone resting on this granite.</p>
           </div>
           <div className="rounded-xl bg-purple-50 p-4">
             <strong className="text-purple-700">Pilanesberg (North West)</strong>

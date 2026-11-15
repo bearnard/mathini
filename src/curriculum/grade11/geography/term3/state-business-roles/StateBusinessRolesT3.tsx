@@ -54,7 +54,7 @@ const learnSteps: LearnStep[] = [
         </p>
         <div className="bg-slate-50 p-5 rounded-xl text-left space-y-2">
           <p><strong>How it works:</strong> Government provides the regulatory framework or land; private sector provides capital and management. Revenue is shared or government pays for the service.</p>
-          <p><strong>South African examples:</strong> Gautrain (rapid rail), toll roads (e-tolls), Coega Special Economic Zone, some hospital services, renewable energy plants under REIPPPP.</p>
+          <p><strong>South African examples:</strong> Gautrain (rapid rail), the N4 and N1 toll-road concessions, some hospital services, renewable energy plants under REIPPPP.</p>
           <p><strong>Advantages:</strong> delivers infrastructure faster with less government debt; transfers risk to the private sector; improves efficiency.</p>
           <p><strong>Concerns:</strong> public loses some control; profits accrue to private investors; service delivery may suffer if profit motive dominates.</p>
         </div>
@@ -79,7 +79,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-blue-50 p-4">
             <strong className="text-blue-700">BRICS</strong>
-            <p className="text-slate-600 text-sm">Brazil, Russia, India, China, South Africa. Forum for cooperation among major emerging economies; NDB provides development finance.</p>
+            <p className="text-slate-600 text-sm">Started with Brazil, Russia, India, China and South Africa and has since added more members. Forum for cooperation among major emerging economies; the New Development Bank provides development finance.</p>
           </div>
         </div>
       </div>

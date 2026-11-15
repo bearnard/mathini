@@ -46,7 +46,7 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-2xl bg-blue-50 p-5">
             <h3 className="font-semibold text-blue-700">Gross profit percentage</h3>
             <p className="mt-2 font-mono text-sm text-blue-700">312 000 ÷ 780 000 × 100 = 40%</p>
-            <p className="mt-2 text-slate-600">Shows the mark-up left after paying for stock sold.</p>
+            <p className="mt-2 text-slate-600">Shows the percentage of sales left after paying for the stock sold. Mark-up % is different: it is on cost (312 000 ÷ 468 000 = 66,7%).</p>
           </div>
           <div className="rounded-2xl bg-emerald-50 p-5">
             <h3 className="font-semibold text-emerald-700">Net profit percentage</h3>

@@ -6,10 +6,10 @@ import type { EconomicsItem, LearnStep } from '../../_shared/types';
 
 const costRevenueData = [
   { output: '1', mc: 12, mr: 18, atc: 24 },
-  { output: '2', mc: 14, mr: 18, atc: 20 },
+  { output: '2', mc: 14, mr: 18, atc: 19 },
   { output: '3', mc: 16, mr: 18, atc: 18 },
-  { output: '4', mc: 18, mr: 18, atc: 17 },
-  { output: '5', mc: 21, mr: 18, atc: 18 },
+  { output: '4', mc: 18, mr: 18, atc: 18 },
+  { output: '5', mc: 21, mr: 18, atc: 18.6 },
 ];
 
 const learnSteps: LearnStep[] = [

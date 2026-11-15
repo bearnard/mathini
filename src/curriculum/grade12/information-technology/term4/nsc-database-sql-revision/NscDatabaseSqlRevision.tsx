@@ -33,7 +33,7 @@ FROM Results r
 INNER JOIN Students s ON r.StudentID = s.StudentID
 INNER JOIN Classes c ON s.ClassID = c.ClassID
 WHERE r.Mark >= 50
-GROUP BY s.Surname, c.ClassName
+GROUP BY s.StudentID, s.Surname, c.ClassName
 ORDER BY AvgMark DESC;`} />
         <div className="rounded-xl bg-amber-50 border border-amber-200 p-4">
           <p className="font-semibold text-amber-800">Exam Tip</p>

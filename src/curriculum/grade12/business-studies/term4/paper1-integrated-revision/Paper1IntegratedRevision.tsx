@@ -45,7 +45,7 @@ const learnSteps: LearnStep[] = [
           strengths={['Topic summaries complete', 'Past papers collected', 'Clear study routine']}
           weaknesses={['Weak timing', 'Some confusion between similar concepts', 'Limited feedback on mistakes']}
           opportunities={['Timed mock sessions', 'Teacher memo discussions', 'Comparison tables']}
-          threats={['Panic in mixed case studies', 'Skipping weak topics', 'Rote learning only']}
+          threats={['A harder-than-expected paper', 'Load-shedding while revising', 'Distractions at home']}
         />
       </div>
     ),

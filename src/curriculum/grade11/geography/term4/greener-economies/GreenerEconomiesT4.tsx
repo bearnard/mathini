@@ -33,9 +33,9 @@ const learnSteps: LearnStep[] = [
           A <strong>carbon footprint</strong> measures the total greenhouse gas (GHG) emissions caused directly and indirectly by a person, organisation, or country.
         </p>
         <div className="bg-slate-50 p-5 rounded-xl text-left space-y-2">
-          <p><strong>Kyoto Protocol (1997):</strong> the first binding international agreement committing developed countries to reduce GHG emissions. South Africa was an observer/developing nation.</p>
+          <p><strong>Kyoto Protocol (1997):</strong> the first binding international agreement committing developed countries to reduce GHG emissions. South Africa ratified it in 2002 as a developing country, without binding emission targets.</p>
           <p><strong>Paris Agreement (2015):</strong> 196 nations committed to limiting global warming to well below 2 °C, ideally 1.5 °C above pre-industrial levels.</p>
-          <p><strong>Nationally Determined Contributions (NDCs):</strong> each country sets its own emission reduction targets under the Paris Agreement. South Africa committed to peak emissions by 2025–2030.</p>
+          <p><strong>Nationally Determined Contributions (NDCs):</strong> each country sets its own emission reduction targets under the Paris Agreement. South Africa's NDC follows a peak, plateau and decline path for emissions.</p>
         </div>
       </div>
     ),

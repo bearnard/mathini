@@ -70,7 +70,7 @@ const learnSteps: LearnStep[] = [
           ]}
         />
         <p className="text-base leading-7 text-slate-600">
-          From this extract, the current ratio is 1,260,000 : 540,000, or about 2.33 : 1, while the debt-equity ratio is 1,180,000 : 3,140,000. Learners should use those figures to explain that liquidity is comfortable, but debt still needs to be monitored.
+          From this extract, the current ratio is 1 260 000 : 540 000, or about 2,33 : 1, while the debt-equity ratio is 1 180 000 : 3 140 000, or about 0,38 : 1. Learners should use those figures to explain that liquidity is comfortable, but debt still needs to be monitored.
         </p>
       </div>
     ),

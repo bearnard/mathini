@@ -66,7 +66,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          By 1932, <strong>one in four Americans</strong> was unemployed — around 13 million people. Poverty was widespread, visible in "Hoovervilles" (shanty towns) and breadlines.
+          By 1932-33, <strong>one in four Americans</strong> was unemployed — around 13 million people. Poverty was widespread, visible in "Hoovervilles" (shanty towns) and breadlines.
         </p>
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-slate-100 p-4">

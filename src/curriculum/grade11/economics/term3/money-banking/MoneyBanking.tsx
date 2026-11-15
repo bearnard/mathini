@@ -8,7 +8,7 @@ const monetaryData = [
   { year: '2019', repo: 6.5, inflation: 4.1, prime: 10.0 },
   { year: '2020', repo: 3.5, inflation: 3.3, prime: 7.0 },
   { year: '2021', repo: 3.75, inflation: 4.5, prime: 7.25 },
-  { year: '2022', repo: 6.25, inflation: 6.9, prime: 9.75 },
+  { year: '2022', repo: 7.0, inflation: 6.9, prime: 10.5 },
   { year: '2023', repo: 8.25, inflation: 5.9, prime: 11.75 },
 ];
 

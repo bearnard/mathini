@@ -71,12 +71,11 @@ var
 // Function with return value
 function Calculate(n: Integer): Integer;
 var
-  i, result: Integer;
+  i: Integer;
 begin
-  result := 1;
+  Result := 1;
   for i := 1 to n do
-    result := result * i;
-  Result := result;
+    Result := Result * i;
 end;
 
 begin

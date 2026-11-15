@@ -12,7 +12,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-3 md:grid-cols-3 text-left">
           <div className="rounded-xl bg-red-50 p-4">
             <strong className="text-red-700">Syntax error</strong>
-            <p className="text-slate-600">Violates the language's grammar rules. Caught by the compiler/interpreter <em>before</em> the program runs. E.g. missing colon, misspelled keyword.</p>
+            <p className="text-slate-600">Violates the language's grammar rules. Caught by the compiler/interpreter <em>before</em> the program runs. E.g. missing semicolon, missing end, misspelled keyword.</p>
           </div>
           <div className="rounded-xl bg-orange-50 p-4">
             <strong className="text-orange-700">Runtime error</strong>

@@ -52,7 +52,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-slate-100 p-4">
             <strong className="text-slate-700">Access point</strong>
-            <p className="text-slate-600">Extends Wi-Fi coverage by connecting wirelessly to the router and broadcasting the signal further.</p>
+            <p className="text-slate-600">Connects (usually by cable) to the router or switch and broadcasts a Wi-Fi signal so wireless devices can join the network.</p>
           </div>
           <div className="rounded-xl bg-slate-100 p-4">
             <strong className="text-slate-700">Modem</strong>

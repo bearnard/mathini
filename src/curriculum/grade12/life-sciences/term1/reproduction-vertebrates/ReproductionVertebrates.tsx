@@ -23,7 +23,7 @@ const learnSteps: LearnStep[] = [
               {
                 label: 'External fertilisation',
                 children: [
-                  { label: 'Fish', description: 'Gametes are released into water.' },
+                  { label: 'Most bony fish', description: 'Gametes are released into water.' },
                   { label: 'Amphibians', description: 'Usually need moist environments for successful fertilisation.' },
                 ],
               },

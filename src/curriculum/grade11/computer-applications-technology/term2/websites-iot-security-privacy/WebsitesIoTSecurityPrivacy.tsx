@@ -16,7 +16,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-green-50 p-4">
             <strong className="text-green-700">Trust indicators</strong>
-            <p className="text-slate-600">HTTPS padlock, known domain (.gov.za, .ac.za, .org), recent publication date, named author.</p>
+            <p className="text-slate-600">Official domains (.gov.za, .ac.za), recent publication date, named author. A padlock (HTTPS) only shows the connection is encrypted, not that the site is honest.</p>
           </div>
           <div className="rounded-xl bg-red-50 p-4">
             <strong className="text-red-700">Warning signs</strong>

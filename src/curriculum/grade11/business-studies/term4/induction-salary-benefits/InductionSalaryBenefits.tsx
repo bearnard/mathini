@@ -39,8 +39,8 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Compare what similar roles pay in the industry to stay competitive and attract talent.</p>
           </div>
           <div className="rounded-xl bg-yellow-50 p-4">
-            <strong className="text-yellow-700">BCEA minimums</strong>
-            <p className="text-slate-600">The National Minimum Wage Act sets a floor — no employee may be paid below this amount.</p>
+            <strong className="text-yellow-700">Legal minimums</strong>
+            <p className="text-slate-600">The National Minimum Wage Act sets a wage floor — no employee may be paid below it. The BCEA sets other minimums, such as hours, leave and notice.</p>
           </div>
           <div className="rounded-xl bg-orange-50 p-4">
             <strong className="text-orange-700">Collective bargaining</strong>

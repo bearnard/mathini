@@ -20,10 +20,12 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Accepts arguments so the caller can supply initial values at creation time.</p>
           </div>
         </div>
-        <CodeBlock language="pascal" code={`constructor Dog(n: string; b: string; a: integer)
-  name  := n
-  breed := b
-  age   := a`} />
+        <CodeBlock language="pascal" code={`constructor TDog.Create(n, b: string; a: integer);
+begin
+  name  := n;
+  breed := b;
+  age   := a;
+end;`} />
       </div>
     ),
   },
@@ -56,8 +58,10 @@ const learnSteps: LearnStep[] = [
           Inside a method, <strong>this</strong> (Java/Python) or <strong>Self</strong> (Delphi) refers to the <em>current object</em> — the specific instance the method was called on.
         </p>
         <CodeBlock language="pascal" code={`// Resolves naming clash between parameter and attribute
-constructor Person(name: string)
-  this.name := name  // attribute = parameter`} />
+constructor TPerson.Create(Name: string);
+begin
+  Self.Name := Name;  // attribute = parameter
+end;`} />
         <p className="text-slate-600">It is also used to pass the current object as an argument to another method.</p>
       </div>
     ),

@@ -78,7 +78,7 @@ const learnSteps: LearnStep[] = [
             {
               heading: 'Result',
               lines: [
-                { label: 'Net profit for the year', amount: 59200, isTotal: true },
+                { label: 'Net profit for the year', amount: 59500, isTotal: true },
               ],
             },
           ]}
@@ -101,9 +101,9 @@ const learnSteps: LearnStep[] = [
               heading: 'Owner’s equity',
               lines: [
                 { label: 'Capital', amount: 268000 },
-                { label: 'Add: Net profit', amount: 59200, indent: 1 },
+                { label: 'Add: Net profit', amount: 59500, indent: 1 },
                 { label: 'Less: Drawings', amount: -24000, indent: 1 },
-                { label: 'Closing owner’s equity', amount: 303200, isTotal: true },
+                { label: 'Closing owner’s equity', amount: 303500, isTotal: true },
               ],
             },
             {
@@ -121,9 +121,9 @@ const learnSteps: LearnStep[] = [
                 { label: 'Equipment at carrying value', amount: 146000 },
                 { label: 'Inventory', amount: 132800 },
                 { label: 'Trade receivables', amount: 51800 },
-                { label: 'Bank', amount: 89100 },
+                { label: 'Bank', amount: 88300 },
                 { label: 'Prepaid insurance', amount: 1200 },
-                { label: 'Total assets', amount: 420900, isTotal: true },
+                { label: 'Total assets', amount: 420100, isTotal: true },
               ],
             },
           ]}

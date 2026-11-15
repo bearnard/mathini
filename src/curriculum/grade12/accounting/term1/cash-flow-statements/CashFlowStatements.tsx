@@ -86,13 +86,13 @@ const learnSteps: LearnStep[] = [
             {
               heading: 'Adjustments',
               lines: [
-                { label: 'Operating profit before working-capital changes', amount: 1450000 },
+                { label: 'Operating profit before working-capital changes', amount: 950000 },
                 { label: 'Depreciation', amount: 180000, indent: 1 },
                 { label: 'Profit on sale of equipment', amount: -15000, indent: 1 },
                 { label: 'Increase in inventory', amount: -60000, indent: 1 },
                 { label: 'Decrease in trade receivables', amount: 42000, indent: 1 },
                 { label: 'Increase in trade payables', amount: 27000, indent: 1 },
-                { label: 'Cash generated from operations', amount: 1624000, isTotal: true },
+                { label: 'Cash generated from operations', amount: 1124000, isTotal: true },
               ],
             },
           ]}

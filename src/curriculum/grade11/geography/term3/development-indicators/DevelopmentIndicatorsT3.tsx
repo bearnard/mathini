@@ -50,7 +50,7 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600 text-sm">Measured by Gross National Income (GNI) per capita (PPP $).</p>
           </div>
         </div>
-        <p className="text-sm text-slate-500">HDI ranges from 0 (very low) to 1.0 (very high). Norway consistently tops the ranking; many African nations have low HDI scores.</p>
+        <p className="text-sm text-slate-500">HDI ranges from 0 (very low) to 1.0 (very high). Countries such as Norway, Switzerland and Iceland regularly rank at or near the top; many African nations have low HDI scores.</p>
       </div>
     ),
   },
