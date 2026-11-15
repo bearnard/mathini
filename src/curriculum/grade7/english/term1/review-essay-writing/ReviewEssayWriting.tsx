@@ -1,38 +1,107 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StructureBlocks } from '../../../../../components/diagrams/english/Grade7EnglishPictures';
+import { ESSAY_PARTS, PARAGRAPH, REVIEW_PARTS, unityFixed } from '../../../../../components/diagrams/english/grade7english';
+
+// Frames and the paragraph example come from grade7english.ts (tested).
+const off = PARAGRAPH.find((s) => s.off)!;
+const fixed = unityFixed(PARAGRAPH);
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Plan reviews and essays with purpose',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Grade 7 writing requires clear planning. In both reviews and essays, choose a purpose, plan key points, and
-          organise ideas before drafting.
-        </p>
-      </div>
+    title: 'Plan before you write',
+    content: slide(
+      <>
+        <Rule>Planning comes before the first draft. Decide your <strong>purpose</strong> (why you are writing), your <strong>audience</strong> (who will read it) and your key ideas. Then choose a tone and vocabulary that suit the reader.</Rule>
+        <Worked
+          title="Task: write a review of your school play for the school newsletter"
+          steps={[
+            <>Purpose: tell readers what you thought of the play.</>,
+            <>Audience: learners, parents and teachers, so the tone is friendly but polite, with no slang.</>,
+            <>Key ideas: the acting, the set, and whether you recommend it. Write them as a short list.</>,
+          ]}
+        />
+        <Mistake>Starting the first draft straight away. Without a plan the writing wanders. Planning key ideas first makes drafting faster.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Use the right format and structure',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A review usually includes a brief summary, opinion, and recommendation. Essays need a focused introduction,
-          linked body paragraphs, and a strong conclusion.
-        </p>
-      </div>
+    title: 'Writing a review',
+    content: slide(
+      <>
+        <Rule>A review gives a <strong>judgement supported by reasons</strong>. It has a short summary, your opinion with reasons, and a recommendation.</Rule>
+        <StructureBlocks blocks={REVIEW_PARTS} aria="The three parts of a review in order: summary, opinion with reasons, recommendation." />
+        <Worked
+          title="A short review of an imagined school play"
+          steps={[
+            <><strong>Summary:</strong> “The Rain Drum” is a school play about a village waiting for rain.</>,
+            <><strong>Opinion with reasons:</strong> I enjoyed it because the actors spoke clearly and the drums built excitement.</>,
+            <><strong>Recommendation:</strong> I recommend it to anyone who likes music and stories.</>,
+          ]}
+        />
+        <Mistake>Only retelling the story or listing names. A review must say what you think and why.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Draft, edit, and improve paragraph unity',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Good writing improves through revision. Each paragraph should stay on one main idea and use linking words for
-          smooth flow.
-        </p>
-      </div>
+    title: 'Essay structure and types',
+    content: slide(
+      <>
+        <Rule>An essay has an introduction, body paragraphs and a conclusion. A <strong>narrative essay</strong> tells a story. A <strong>reflective essay</strong> asks you to think about an experience and what you learned from it.</Rule>
+        <StructureBlocks blocks={ESSAY_PARTS} aria="The three parts of an essay in order: introduction, body paragraphs, conclusion." />
+        <Worked
+          title="Choose a conclusion for a reflective essay on a hard exam week"
+          steps={[
+            <>A conclusion rounds off the main ideas and leaves a final thought.</>,
+            <>It should not start a new point or be about page numbers.</>,
+            <>“In conclusion, this taught me to prepare and persevere.” looks back at what was learned.</>,
+          ]}
+        />
+        <Mistake>Putting the conclusion first or leaving it out. Without one the essay stops suddenly and the reader has no final thought.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Paragraph unity and redrafting',
+    content: slide(
+      <>
+        <Rule><strong>Paragraph unity</strong> means each paragraph focuses on one main point. Use linking words such as “first”, “also” and “however” to connect paragraphs. Drafting and redrafting improves clarity, detail and accuracy.</Rule>
+        <Worked
+          title="Spot the sentence that does not belong"
+          steps={[
+            <>Main point: the school play was well planned.</>,
+            <>Check each sentence. “{off.text}” is not about the play.</>,
+            <>Remove it. The paragraph now reads: “{fixed}”</>,
+          ]}
+        />
+        <Mistake>Thinking paragraphs must all be the same length. Unity is about one point, not length. Readers lose track when one paragraph mixes unrelated ideas.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What should you do before writing a full first draft?</li>
+            <li>Name the key feature of a review.</li>
+            <li>What is the structure of an essay?</li>
+            <li>What does a reflective essay ask you to do?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Plan your key ideas, purpose and audience.</li>
+            <li>An opinion supported by reasons.</li>
+            <li>Introduction, body paragraphs, conclusion.</li>
+            <li>Think about an experience and what you learned from it.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
