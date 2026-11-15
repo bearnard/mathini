@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { classify, jaccard, changedFields, type CodeQuestion, type ProdQuestion, type Content } from '../../../../scripts/question-drift';
+import { classify, jaccard, changedFields, staleRows, type CodeQuestion, type ProdQuestion, type Content } from '../../../../scripts/question-drift';
 
 const content = (p: Partial<Content> = {}): Content => ({ prompt: 'What is 2 + 2?', options: ['3', '4', '5', '6'], answer: '4', explanation: 'Add.', extra: '{}', ...p });
 const code = (id: string, p: Partial<CodeQuestion> = {}): CodeQuestion => ({ task: 't1', id, grade: 7, ...content(), ...p });
@@ -64,4 +64,22 @@ test('changedFields compares options in order and ignores nothing else', () => {
   assert.deepEqual(changedFields(content(), content()), []);
   assert.deepEqual(changedFields(content(), content({ options: ['4', '3', '5', '6'] })), ['options']);
   assert.deepEqual(changedFields(content(), content({ extra: '{"diagram":true}' })), ['extra']);
+});
+
+test('staleRows lists the item_cache ids (legacy_item_id) of edited and reworded questions, and skips questions with no pool row', () => {
+  const withLegacy = (id: string, legacy: number | null, source: string, c: Partial<Content> = {}) => {
+    const r = prodRow(id, source, source === 'ai' ? 'ai' : 'seed', c);
+    r.q.legacy_item_id = legacy;
+    return r;
+  };
+  const p = prod(
+    withLegacy('edited', 101, 'ai'),
+    withLegacy('same', 102, 'ai'),
+    withLegacy('nolink', null, 'curated'),
+    withLegacy('old', 103, 'ai', { prompt: 'Something quite different about arithmetic?' }),
+  );
+  const c = classify([code('edited', { answer: '5' }), code('same'), code('nolink', { answer: '6' }), code('newid', { prompt: 'Calculate the sum of 2 and 2.' })], p, T);
+  const rows = staleRows([{ grade: 7, c }], p);
+  assert.deepEqual(rows.map((r) => [r.itemId, r.kind]).sort(), [[101, 'edited'], [103, 'reworded-exact']]);
+  assert.ok(rows.every((r) => typeof r.codeUsable === 'boolean'));
 });
