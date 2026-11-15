@@ -90,6 +90,8 @@ interface Apply {
   findings: Reason[];
   adminEmail: string;
   now: number;
+  /** Who wrote the new version: 'owner' (the admin) or 'teacher:<user id>' (an approved proposal). */
+  author: string;
 }
 
 /** The one atomic batch. Returns null on success, or 'stale' when the question moved on (nothing was written). */
@@ -99,20 +101,20 @@ async function apply(db: AdminDb, a: Apply): Promise<EditResult> {
   const clash = await db.all<{ x: number }>('SELECT 1 AS x FROM questions WHERE id = ? AND id <> ? UNION SELECT 1 FROM question_versions WHERE qkey = ? AND question_id <> ? LIMIT 1', [qk, Q, qk, Q]);
   if (clash.length > 0) return { ok: false, status: 409, error: 'That wording is already used by another question in this topic' };
 
-  const ours = `EXISTS (SELECT 1 FROM questions q JOIN question_versions v ON v.id = q.current_version_id WHERE q.id = ? AND v.author = 'owner' AND v.created_at = ? AND v.id > ?)`;
-  const oursP: Param[] = [Q, a.now, a.expectedVersionId];
+  const ours = `EXISTS (SELECT 1 FROM questions q JOIN question_versions v ON v.id = q.current_version_id WHERE q.id = ? AND v.author = ? AND v.created_at = ? AND v.id > ?)`;
+  const oursP: Param[] = [Q, a.author, a.now, a.expectedVersionId];
   const statements: Statement[] = [
     {
       sql: `INSERT INTO question_versions (question_id, version_no, qkey, prompt, options, answer, explanation, extra, source_note, author, status, created_at)
-            SELECT ?, (SELECT COALESCE(MAX(version_no), 0) + 1 FROM question_versions WHERE question_id = ?), ?, ?, ?, ?, ?, ?, ?, 'owner', 'approved', ?
+            SELECT ?, (SELECT COALESCE(MAX(version_no), 0) + 1 FROM question_versions WHERE question_id = ?), ?, ?, ?, ?, ?, ?, ?, ?, 'approved', ?
             WHERE EXISTS (SELECT 1 FROM questions WHERE id = ? AND status = 'active' AND current_version_id = ?)`,
-      params: [Q, Q, qk, a.next.prompt, JSON.stringify(a.next.options), a.next.answer, a.next.explanation, a.extra, a.sourceNote, a.now, Q, a.expectedVersionId],
+      params: [Q, Q, qk, a.next.prompt, JSON.stringify(a.next.options), a.next.answer, a.next.explanation, a.extra, a.sourceNote, a.author, a.now, Q, a.expectedVersionId],
     },
     {
       // An AI-pool question a human has approved is a curated one from now on: the AI-only quality filter in serving no longer applies to it.
-      sql: `UPDATE questions SET current_version_id = (SELECT id FROM question_versions WHERE question_id = ? AND id > ? AND author = 'owner' AND created_at = ? ORDER BY id DESC LIMIT 1)${a.source === 'ai' ? ", source = 'curated'" : ''}
-            WHERE id = ? AND status = 'active' AND current_version_id = ? AND EXISTS (SELECT 1 FROM question_versions WHERE question_id = ? AND id > ? AND author = 'owner' AND created_at = ?)`,
-      params: [Q, a.expectedVersionId, a.now, Q, a.expectedVersionId, Q, a.expectedVersionId, a.now],
+      sql: `UPDATE questions SET current_version_id = (SELECT id FROM question_versions WHERE question_id = ? AND id > ? AND author = ? AND created_at = ? ORDER BY id DESC LIMIT 1)${a.source === 'ai' ? ", source = 'curated'" : ''}
+            WHERE id = ? AND status = 'active' AND current_version_id = ? AND EXISTS (SELECT 1 FROM question_versions WHERE question_id = ? AND id > ? AND author = ? AND created_at = ?)`,
+      params: [Q, a.expectedVersionId, a.author, a.now, Q, a.expectedVersionId, Q, a.expectedVersionId, a.author, a.now],
     },
   ];
   if (a.resetReviews) {
@@ -133,15 +135,15 @@ async function apply(db: AdminDb, a: Apply): Promise<EditResult> {
   await db.batch(statements);
 
   const done = (await db.all<{ vid: number; no: number }>(
-    `SELECT v.id AS vid, v.version_no AS no FROM questions q JOIN question_versions v ON v.id = q.current_version_id WHERE q.id = ? AND v.author = 'owner' AND v.created_at = ? AND v.id > ?`,
-    [Q, a.now, a.expectedVersionId],
+    `SELECT v.id AS vid, v.version_no AS no FROM questions q JOIN question_versions v ON v.id = q.current_version_id WHERE q.id = ? AND v.author = ? AND v.created_at = ? AND v.id > ?`,
+    [Q, a.author, a.now, a.expectedVersionId],
   ))[0];
   if (!done) return { ok: false, status: 409, error: 'Someone else changed this question first. Reload it and try again.' };
   const audit = (await db.all<{ n: number }>('SELECT reviews_reset AS n FROM question_edits WHERE to_version_id = ?', [done.vid]))[0];
   return { ok: true, versionId: Number(done.vid), versionNo: Number(done.no), reviewsReset: Number(audit?.n ?? 0), warnings: a.findings.filter((f) => f.severity === 'warn') };
 }
 
-export async function editQuestion(db: AdminDb, questionId: string, raw: unknown, adminEmail: string, now = Date.now()): Promise<EditResult> {
+export async function editQuestion(db: AdminDb, questionId: string, raw: unknown, adminEmail: string, now = Date.now(), author = 'owner'): Promise<EditResult> {
   if (!QID.test(questionId)) return { ok: false, status: 404, error: 'Not found' };
   const parsed = parseEditInput(raw);
   if (!parsed.ok) return { ok: false, status: 400, error: parsed.error };
@@ -170,7 +172,7 @@ export async function editQuestion(db: AdminDb, questionId: string, raw: unknown
   const meaning = input.changeKind === 'meaning' || isMeaningChange(cur, next);
   return apply(db, {
     questionId, task: q.task, source: q.source, expectedVersionId: input.expectedVersionId, next, extra: cur.extra, sourceNote: input.sourceNote,
-    changeKind: meaning ? 'meaning' : 'wording', reason: input.sourceNote, resetReviews: meaning, findings: result.reasons, adminEmail, now,
+    changeKind: meaning ? 'meaning' : 'wording', reason: input.sourceNote, resetReviews: meaning, findings: result.reasons, adminEmail, now, author,
   });
 }
 
@@ -196,7 +198,7 @@ export async function restoreVersion(db: AdminDb, questionId: string, raw: unkno
   const note = cleanNote(`restore of v${old.version_no}: ${input.reason}`) ?? `restore of v${old.version_no}`;
   return apply(db, {
     questionId, task: q.task, source: q.source, expectedVersionId: input.expectedVersionId, next, extra: old.extra, sourceNote: note,
-    changeKind: 'restore', reason: input.reason, resetReviews: isMeaningChange(cur, next), findings: result.reasons, adminEmail, now,
+    changeKind: 'restore', reason: input.reason, resetReviews: isMeaningChange(cur, next), findings: result.reasons, adminEmail, now, author: 'owner',
   });
 }
 
