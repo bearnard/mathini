@@ -3,7 +3,9 @@
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { d1Adapter, type AdminDb } from '../admin/db';
 import { SITE_URL } from '../../seo/site';
+import { deleteAdultAccount } from './deleteAccount';
 import { consumeMagicLink, requestMagicLink, signIn } from './magicLink';
+import { normaliseEmail } from './email';
 import { isDevelopment, mailerFromEnv, type MailEnv, type Mailer } from './mailer';
 import { createLimiter, type Limiter } from './rateLimit';
 import { authenticate, authJson, checkWriteRequest } from './roles';
@@ -128,5 +130,29 @@ export async function handleMe(req: Request, deps: AuthDeps): Promise<Response> 
     return authJson(s ? { user: { email: s.user.email }, roles: s.roles } : { user: null, roles: [] });
   } catch {
     return authJson({ user: null, roles: [] }, 500);
+  }
+}
+
+/**
+ * POST { confirm: "<your email address>" }. Deletes the signed-in adult's own account (see deleteAccount.ts). Needs the action header and Origin, a signed-in
+ * adult, and the address typed exactly: a stolen browser session alone cannot delete the account without knowing it, and a click cannot do it by accident.
+ */
+export async function handleDeleteAccount(req: Request, deps: AuthDeps): Promise<Response> {
+  const bad = checkWriteRequest(req, 'account-delete');
+  if (bad) return authJson({ error: bad }, 403);
+  const log = deps.log ?? ((l: string) => console.error(l));
+  try {
+    const session = await authenticate(req, deps.db, deps.now);
+    if (!session) return authJson({ error: 'Sign in first' }, 401);
+    const b = await readBody(req);
+    if (!b.ok) return b.response;
+    const typed = normaliseEmail(b.body.confirm);
+    if (!typed || typed !== session.user.email) return authJson({ error: 'The confirmation does not match your email address.' }, 400);
+    const r = await deleteAdultAccount(deps.db, session.user.id, deps.now);
+    if (!r.ok) return authJson({ error: r.error }, r.status);
+    return authJson({ ok: true, deleted: r.deleted }, 200, { 'Set-Cookie': clearedCookie() });
+  } catch (err) {
+    log(`adult sign-in: delete failed: ${err instanceof Error ? err.message : 'unknown'}`);
+    return authJson({ error: 'Something went wrong. Nothing was deleted. Try again.' }, 500);
   }
 }

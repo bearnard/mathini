@@ -33,3 +33,14 @@ Parents, teachers, moderators and school admins sign in with an **email magic li
 ## Not built here (later phases)
 
 Teacher verification (SACE + school confirmation), moderator groups, and the parent features (linking a child, consent, PIN reset, dashboard) come in `feat/parents` and ADR 0003 phase 1b.
+
+## Deleting your own account
+
+`/account` has a two-step "Delete my account": the first click only opens a panel that lists what goes and what stays, and the final button stays disabled until the signed-in adult has typed their own email address (the server checks it again: `POST /api/auth/delete { confirm }`, with the `account-delete` action header, an Origin check and a session). One atomic batch (`src/lib/server/adultAuth/deleteAccount.ts`) then removes:
+
+- the account, roles and every session (so every device is signed out), any sign-in links and rate counters for the address;
+- their links to children (`parent_links`) and their weekly-email settings and send log;
+- the teacher application, with the SACE number;
+- for a teacher: their classes, the members of those classes, join codes and exam scopes.
+
+What stays, because it protects the child, but no longer says who: the consent record (`consent_events` stay, with the parent replaced by `deleted`), the log of PIN resets, and which parent used an invite. Children's accounts, their progress and the consent already given are untouched. One audit row (`events`, type `account_delete`) holds counts and the time only. A test dumps every table and checks the address, the SACE number and the user id are nowhere in it afterwards. The same address can sign up again later and starts empty.
