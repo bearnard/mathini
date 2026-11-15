@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Strengthen sentences through combining and variety',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Simple, compound, and complex sentences each serve different purposes. Combining ideas with conjunctions 
-          (and, but, because) and varying sentence length improves flow and prevents repetitive writing.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Use pronouns and prepositions to improve cohesion',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Pronouns (he, she, it, they) replace nouns to avoid repetition and link ideas. Prepositions (in, on, 
-          between, during) show relationships between words. Clear pronoun reference ensures readers follow your meaning.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Maintain consistent tense in writing',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Tense consistency helps readers follow a timeline and understand your perspective. Avoid switching between 
-          past and present without reason. This strengthens coherence and improves readability of extended responses.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './SentenceStructureCohesionSteps';
 
 const bank: CapsItem[] = [
   {

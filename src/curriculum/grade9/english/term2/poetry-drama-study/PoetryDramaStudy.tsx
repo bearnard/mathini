@@ -1,57 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import AnnotatedText from '@/components/subjects/AnnotatedText';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Analyse poetic devices in poems',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Poetry uses devices like rhyme, imagery, metaphor, and symbolism to create meaning. Close reading helps 
-          identify these devices and explain how they support the poem\'s theme and emotional impact.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: "Annotated extract",
-    content: (
-      <AnnotatedText
-        title={"From \"Macbeth\" — William Shakespeare"}
-        text={"Out, out, brief candle! Life's but a walking shadow, a poor player that struts and frets his hour upon the stage."}
-        annotations={[
-          { start: 10, end: 22, device: "symbolism", note: "The candle symbolises how fragile and temporary life can be." },
-          { start: 37, end: 51, device: "metaphor", note: "Life is compared to something insubstantial, deepening the tragedy." },
-          { start: 55, end: 66, device: "metaphor", note: "Shakespeare turns life into a performance to stress its emptiness." },
-          { start: 72, end: 88, device: "diction", note: "The verbs suggest noisy anxiety, helping the speech sound bitter and restless." },
-        ]}
-      />
-    ),
-  },
-  {
-    title: 'Understand drama through characterisation and dialogue',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          In drama, characters reveal themselves through dialogue and action. Scene analysis looks at how conflicts 
-          develop, how characters change, and what themes emerge from their interactions.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Support responses with textual evidence',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Strong literary analysis uses quotations and line references as proof. Connect specific words or actions 
-          to your interpretation to make your response convincing and grounded in the text.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './PoetryDramaStudySteps';
 
 const bank: CapsItem[] = [
   {

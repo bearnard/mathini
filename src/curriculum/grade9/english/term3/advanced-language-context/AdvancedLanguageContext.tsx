@@ -1,43 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Distinguish active and passive voice',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Active voice emphasizes the subject performing the action ("The player scored a goal"). Passive voice 
-          emphasizes the action or recipient ("A goal was scored by the player"). Choosing the right voice affects 
-          focus, clarity, and style.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Transform direct and reported speech',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Reported speech paraphrases what someone said, shifting tense and pronouns. Recognizing these transformations 
-          and applying them correctly strengthens your ability to represent ideas accurately across contexts.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Identify figurative language in context',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Figurative language—metaphors, similes, personification, hyperbole—creates vivid imagery and emotional 
-          impact. Understanding how these techniques work in complex sentences improves both reading comprehension and 
-          writing expressiveness.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './AdvancedLanguageContextSteps';
 
 const bank: CapsItem[] = [
   {
