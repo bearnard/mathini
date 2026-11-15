@@ -1,6 +1,7 @@
 'use client';
 // A minimal account page for adults: who is signed in, with which roles, and sign out. Later phases (families, teachers) grow from here.
 import { useEffect, useState } from 'react';
+import TeacherApply from './TeacherApply';
 
 interface Me { user: { email: string } | null; roles: string[] }
 
@@ -45,6 +46,7 @@ export default function AccountPanel() {
           <>
             <p className="mt-3 text-slate-700">Signed in as <strong>{me.user.email}</strong>.</p>
             <ul className="mt-3 list-disc pl-5 text-slate-700">{me.roles.map((r) => <li key={r}>{ROLE_LABEL[r] ?? r}</li>)}</ul>
+            <TeacherApply roles={me.roles} />
             <button onClick={() => void signOut()} disabled={out} className="mt-6 min-h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-base font-semibold text-slate-800 disabled:opacity-60">
               {out ? 'Signing out…' : 'Sign out'}
             </button>

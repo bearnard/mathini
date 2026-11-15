@@ -1,0 +1,7 @@
+import { handleOwnApplication, depsFromEnv } from '../../../../lib/server/schools/http';
+
+export const dynamic = 'force-dynamic';
+
+export async function GET(req: Request) {
+  return handleOwnApplication(req, depsFromEnv());
+}

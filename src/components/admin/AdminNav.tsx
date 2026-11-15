@@ -8,6 +8,7 @@ const LINKS = [
   { href: '/admin/learners', label: 'Learners' },
   { href: '/admin/questions', label: 'Questions' },
   { href: '/admin/reviews', label: 'Reviews' },
+  { href: '/admin/teachers', label: 'Teachers' },
 ];
 
 export default function AdminNav() {
