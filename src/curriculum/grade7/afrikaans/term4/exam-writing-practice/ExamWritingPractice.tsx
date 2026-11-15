@@ -1,63 +1,102 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, OrderTiles, TaggedBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Write under time pressure',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Exam writing needs quick planning, correct format and steady time management.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">beplan <SpeakButton text="beplan" /></span>
-          <span className="inline-flex items-center">tydbestuur <SpeakButton text="tydbestuur" /></span>
-          <span className="inline-flex items-center">kontrolelys <SpeakButton text="kontrolelys" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Follow format rules',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Different tasks need different structures: essay, formal text or informal response.
-        </p>
-        <p className="text-xl text-slate-700">Choose the format that matches the question.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Use an editing checklist',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Reserve a few minutes to check spelling, punctuation and sentence flow.
-        </p>
-        <p className="text-slate-500">Small corrections can improve marks quickly.</p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these exam-practice words aloud before moving into timed writing and revision tasks.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"beplan"} phonetic={"[bəˈplan]"} meaning={"plan"} lang="af" />
-          <PronunciationPlayer word={"formaat"} phonetic={"[fɔrˈmɑːt]"} meaning={"format"} lang="af" />
-          <PronunciationPlayer word={"proeflees"} phonetic={"[ˈprufleəs]"} meaning={"proofread"} lang="af" />
-          <PronunciationPlayer word={"tyd"} phonetic={"[tɛit]"} meaning={"time"} lang="af" />
-          <PronunciationPlayer word={"vraag"} phonetic={"[frɑːχ]"} meaning={"question"} lang="af" />
-          <PronunciationPlayer word={"antwoord"} phonetic={"[ˈantvɔrt]"} meaning={"answer"} lang="af" />
-        </div>
-      </div>
+    title: 'Read first, then plan briefly',
+    content: slide(
+      <>
+        <Rule>The best first step in an exam writing task is <Af>Lees die vraag en beplan kortliks</Af> <En>read the question and plan briefly</En>. Then write, then edit.</Rule>
+        <OrderTiles
+          tiles={['Lees', 'Beplan', 'Skryf', 'Redigeer']}
+          aria="Four exam steps in order: Lees (read the question), Beplan (plan briefly), Skryf (write), Redigeer (edit)."
+        />
+        <Worked
+          title="A short plan"
+          steps={[
+            <>Underline the topic and the text type in the question.</>,
+            <>Jot down three or four ideas in order. Then start writing.</>,
+          ]}
+        />
+        <Mistake>Writing at once without reading, choosing a closing first, or ignoring the topic. Read and plan first.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Share your time',
+    content: slide(
+      <>
+        <Rule>Good time management is to <Af>Verdeel tyd tussen beplanning, skryf en redigering</Af> <En>divide time between planning, writing and editing</En>. Writing gets the most time.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'Beplan', tag: 'kort' }, { word: 'Skryf', tag: 'langste' }, { word: 'Redigeer', tag: 'laaste' }]}
+          aria="Three parts of the exam time: Beplan is short, Skryf is the longest, Redigeer comes last."
+        />
+        <Worked
+          title="Plan the clock"
+          steps={[
+            <>Look at the time for the whole task and mark when each part ends.</>,
+            <>Keep a few minutes at the end for editing.</>,
+          ]}
+        />
+        <Mistake>Using all the time on the introduction, skipping the edit, or writing only bullet points with no sentences.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Follow the format',
+    content: slide(
+      <>
+        <Rule>The topic decides the format. A narrative essay needs <Af>'n storie met begin, middel en einde</Af>. A formal question needs <Af>Nette, formele taal met duidelike paragrawe</Af>.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['narratief', 'storie'], ['formele brief', 'formaat']]}
+          aria="Two exam text types and what they need: a narratiewe opstel (narrative essay) needs a story, a formele brief (formal letter) needs the correct format."
+        />
+        <Worked
+          title="Match topic and format"
+          steps={[
+            <>Narrative topic: <Af>Vertel 'n storie met begin, middel en einde</Af> <En>tell a story with a beginning, middle and end</En>.</>,
+            <>Formal answer: neat, formal language and clear paragraphs, not slang or loose notes.</>,
+          ]}
+        />
+        <Mistake>Using the wrong format. <Af>'n Verkeerde formaat kan punte kos</Af> <En>a wrong format can cost marks</En>. Do not use a formal-letter format for a story.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Checklist, common slips and endings',
+    content: slide(
+      <>
+        <Rule>A <Af>kontrolelys</Af> <En>checklist</En> is useful because <Af>Dit help jou om algemene foute op te spoor</Af> <En>it helps you find common mistakes</En>. Under time pressure learners often <Af>Vergeet van leestekens</Af> <En>forget punctuation</En>.</Rule>
+        <OrderTiles
+          tiles={['Leestekens', 'Spelling', 'Taal']}
+          aria="Three checklist items: Leestekens (punctuation), Spelling, Taal (language and tense)."
+        />
+        <Worked
+          title="Finish well"
+          steps={[
+            <>Check punctuation, spelling and tense, one at a time.</>,
+            <>End with a closing that sums up: <Af>Laastens het hierdie ervaring my deursettingsvermoë gewys.</Af> <En>Lastly this experience showed my perseverance.</En> <SpeakButton text="Laastens het hierdie ervaring my deursettingsvermoë gewys." /></>,
+          ]}
+        />
+        <Mistake>Ending with chat or thanks, such as <Af>Einde van die vraestel, dankie vir die tyd</Af>. A closing belongs to the essay and sums up its message.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>What is the best first step in an exam writing task?</>} answer={<><Af>Lees die vraag en beplan kortliks</Af>.</>} />
+        <Check question={<>Which practice shows good time management?</>} answer={<><Af>Verdeel tyd tussen beplanning, skryf en redigering</Af>.</>} />
+        <Check question={<>The topic asks for a narrative essay. What do you do?</>} answer={<><Af>Vertel 'n storie met begin, middel en einde</Af>.</>} />
+        <Check question={<>Which mistake is common under time pressure?</>} answer={<><Af>Vergeet van leestekens</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -112,6 +151,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'Assessment rubrics include format requirements.',
   },
 ];
+
+export { bank };
 
 const ExamWritingPractice = () => (
   <AfrikaansTopic
