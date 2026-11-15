@@ -35,12 +35,12 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
     content: (
       <>
         <p>
-          The multiplicity of a root affects the graph: simple roots usually cross the x-axis, while even
+          The multiplicity of a root affects the graph: simple roots cross the x-axis, while even
           multiplicity roots touch and turn. Always connect the algebraic factors to the sketch of the graph.
         </p>
         <FunctionGraph
           curves={[
-            { fn: (x: number) => x ** 3 - 3 * x + 1, label: 'f(x) = x³ - 3x + 1', color: '#6366f1' },
+            { fn: (x: number) => (x + 2) * (x - 1) ** 2, label: 'f(x) = (x + 2)(x - 1)²: crosses at x = -2, touches at x = 1', color: '#6366f1' },
           ]}
           xRange={[-3, 3]}
           yRange={[-5, 5]}

@@ -36,7 +36,7 @@ const learnSteps: LearnStep[] = [
     title: 'Interactive Simulation: Momentum and Impulse',
     content: (
       <div>
-        <p className="mb-3 text-sm text-muted-foreground">Use the simulation to explore motion before impacts. Adjust parameters and observe how the momentum changes.</p>
+        <p className="mb-3 text-sm text-muted-foreground">Use the simulation to watch a ball's velocity change in size and direction during its flight. Because p = mv and the mass stays the same, the ball's momentum changes in exactly the same way as its velocity.</p>
         <ProjectileMotion />
       </div>
     ),
@@ -50,7 +50,7 @@ const learnSteps: LearnStep[] = [
           time produces a larger change in momentum, which is why safety devices aim to increase the time
           of impact.
         </p>
-        <Formula block>{String.raw`J = F\Delta t = \Delta p`}</Formula>
+        <Formula block>{String.raw`J = F_{\text{net}}\Delta t = \Delta p`}</Formula>
         <ul className="list-disc space-y-2 pl-6 text-lg leading-8 text-slate-600">
           <li>The area under a force-time graph gives the impulse.</li>
           <li>For the same <Formula>{String.raw`\Delta p`}</Formula>, increasing <Formula>{String.raw`\Delta t`}</Formula> lowers the average force.</li>

@@ -9,7 +9,7 @@ const learnSteps: LearnStep[] = [
     title: 'Recognise the Pattern Type',
     content: (
       <div className="space-y-4 text-center">
-        <p className="text-slate-600">First differences suggest a linear pattern, while constant second differences point to a quadratic rule.</p>
+        <p className="text-slate-600">Constant first differences point to a linear pattern, while constant second differences (and changing first differences) point to a quadratic rule.</p>
         <QuadraticDots />
         <div className="space-y-2">
           <Formula block>{String.raw`T_n = an^2 + bn + c`}</Formula>

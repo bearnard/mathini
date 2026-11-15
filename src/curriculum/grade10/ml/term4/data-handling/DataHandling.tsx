@@ -25,8 +25,8 @@ const learnSteps: LearnStep[] = [
           <ul className="space-y-2 text-sm">
             <li><strong>Categorical:</strong> Non-numerical (gender, province, favorite sport)</li>
             <li><strong>Numerical:</strong> Numbers (age, height, test scores)</li>
-            <li><strong>Discrete:</strong> Whole numbers (number of learners)</li>
-            <li><strong>Continuous:</strong> Can have decimals (weight, temperature)</li>
+            <li><strong>Discrete (numerical):</strong> Counted; only separate, specific values (number of learners, shoe sizes)</li>
+            <li><strong>Continuous (numerical):</strong> Measured; can take any value in a range (mass, height, temperature, time)</li>
           </ul>
         </div>
       </div>

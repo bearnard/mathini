@@ -53,7 +53,7 @@ import ProbabilitySimulator from '@/components/subjects/ProbabilitySimulator';
           The complement rule is often the fastest route when “at least one” or “not” appears. For independent
           events, the occurrence of one does not change the probability of the other.
         </p>
-        <Formula block>{String.raw`P(A') = 1 - P(A),\quad P(A \cap B) = P(A)P(B)`}</Formula>
+        <Formula block>{String.raw`P(A') = 1 - P(A),\quad P(A \cap B) = P(A) \times P(B) \text{ (independent events)}`}</Formula>
       </>
     ),
   },

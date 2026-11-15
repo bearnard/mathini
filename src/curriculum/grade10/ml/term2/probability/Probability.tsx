@@ -68,8 +68,8 @@ const learnSteps: LearnStep[] = [
         </p>
         <div className="bg-green-50 p-4 rounded-lg">
           <h4 className="font-semibold mb-3">Lotto Example</h4>
-          <p className="text-sm mb-2">The South African Lotto draws 6 numbers from 52. What's the probability of matching exactly 3 numbers?</p>
-          <p className="text-xs italic">This uses complex combinations, but the published probability is about 1 in 57.</p>
+          <p className="text-sm mb-2">Suppose a Lotto game draws 6 numbers from 52. What's the probability of matching exactly 3 numbers?</p>
+          <p className="text-xs italic">This uses combinations (beyond Grade 10), but the probability works out to about 1 in 67. The number range of the South African Lotto has changed over the years, so always use the rules given in the question.</p>
         </div>
         <div className="bg-blue-50 p-4 rounded-lg">
           <h4 className="font-semibold mb-3">Weather Forecast Example</h4>

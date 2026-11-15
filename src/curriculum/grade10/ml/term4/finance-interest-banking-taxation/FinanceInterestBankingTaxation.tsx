@@ -116,7 +116,7 @@ const learnSteps: LearnStep[] = [
           <h4 className="font-semibold mb-2">Tax Deductions from Salary</h4>
           <ul className="space-y-2 text-sm">
             <li><strong>PAYE:</strong> Pay As You Earn (income tax)</li>
-            <li><strong>UIF:</strong> Unemployment Insurance Fund (1% of salary)</li>
+            <li><strong>UIF:</strong> Unemployment Insurance Fund (1% of salary, up to a ceiling of R17 712 per month, so at most R177.12)</li>
             <li><strong>Pension/Provident Fund:</strong> Retirement savings</li>
             <li><strong>Medical Aid:</strong> Health insurance contributions</li>
           </ul>
@@ -126,9 +126,9 @@ const learnSteps: LearnStep[] = [
           <div className="space-y-1 text-sm">
             <p>Gross salary: R18 000</p>
             <p>PAYE (tax): R2 500</p>
-            <p>UIF: R180 (1% of R18000)</p>
+            <p>UIF: R177.12 (1% of the R17 712 ceiling, because R18 000 is above it)</p>
             <p>Pension: R1 800 (10%)</p>
-            <Formula block>{String.raw`\text{Net salary} = 18\,000 - 2500 - 180 - 1800 = \text{R}13\,520`}</Formula>
+            <Formula block>{String.raw`\text{Net salary} = 18\,000 - 2500 - 177.12 - 1800 = \text{R}13\,522.88`}</Formula>
           </div>
         </div>
         <div className="bg-green-50 p-4 rounded-lg text-sm">

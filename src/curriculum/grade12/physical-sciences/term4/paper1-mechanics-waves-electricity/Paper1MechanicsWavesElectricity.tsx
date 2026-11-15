@@ -51,7 +51,7 @@ const learnSteps: LearnStep[] = [
         <ul className="list-disc space-y-2 pl-6 text-lg leading-8 text-slate-600">
           <li>Area under a force-time graph gives impulse.</li>
           <li>Area under a velocity-time graph gives displacement.</li>
-          <li>With upward positive, use <Formula>{String.raw`g = -9.8\ \text{m·s}^{-2}`}</Formula>.</li>
+          <li>With upward positive, use <Formula>{String.raw`a = -9{,}8\ \text{m·s}^{-2}`}</Formula> (g = 9,8 m·s⁻² downward).</li>
         </ul>
       </div>
     ),

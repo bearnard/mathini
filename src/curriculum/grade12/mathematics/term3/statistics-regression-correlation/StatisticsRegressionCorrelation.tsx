@@ -27,10 +27,10 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
           sensible. Substitute the given value carefully into the regression equation and interpret the answer in
           the context of the question.
         </p>
-        <Formula block>{String.raw`\hat{y} = ax + b`}</Formula>
+        <Formula block>{String.raw`\hat{y} = a + bx`}</Formula>
         <FunctionGraph
           curves={[
-            { fn: (x: number) => 1.5 * x + 2, label: 'ŷ = 1.5x + 2', color: '#6366f1' },
+            { fn: (x: number) => 1.5 * x + 2, label: 'ŷ = 2 + 1,5x', color: '#6366f1' },
           ]}
           xRange={[0, 10]}
           yRange={[0, 18]}

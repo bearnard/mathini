@@ -56,7 +56,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
           <Formula>{String.raw`y = x`}</Formula>. That reflection swaps the domain and range, so intercepts and turning points
           should be interpreted carefully.
         </p>
-        <FunctionGraph
+        <FunctionGraph equalAxes
           curves={[
             { fn: (x: number) => (x >= 0 ? x ** 2 : NaN), label: 'f(x) = x^2, x ≥ 0', color: '#6366f1' },
             { fn: (x: number) => (x >= 0 ? Math.sqrt(x) : NaN), label: 'f⁻¹(x) = √x', color: '#ef4444' },

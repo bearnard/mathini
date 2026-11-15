@@ -34,11 +34,11 @@ const learnSteps: LearnStep[] = [
           Vertical projectile motion uses the kinematic equations with gravity acting downward. On a velocity-time graph, the slope is acceleration and the area is displacement.
         </p>
         <div className="bg-slate-50 p-6 rounded-xl inline-block text-left">
-          <p className="font-bold text-slate-800">Key equations (upward positive)</p>
-          <Formula block>{String.raw`v_y = v_{yi} - g\Delta t`}</Formula>
-          <Formula block>{String.raw`\Delta y = v_{yi}\Delta t - \frac{1}{2}g(\Delta t)^2`}</Formula>
-          <Formula block>{String.raw`v_y^2 = v_{yi}^2 - 2g\Delta y`}</Formula>
-          <p className="text-slate-600 mt-2">At maximum height, <Formula>{String.raw`v_y = 0`}</Formula> and the time to the top is <Formula>{String.raw`t = \frac{v_{yi}}{g}`}</Formula>.</p>
+          <p className="font-bold text-slate-800">Key equations (upward positive, so <Formula>{String.raw`a = g = -9{,}8\text{ m·s}^{-2}`}</Formula>)</p>
+          <Formula block>{String.raw`v_f = v_i + g\Delta t`}</Formula>
+          <Formula block>{String.raw`\Delta y = v_i\Delta t + \frac{1}{2}g(\Delta t)^2`}</Formula>
+          <Formula block>{String.raw`v_f^2 = v_i^2 + 2g\Delta y`}</Formula>
+          <p className="text-slate-600 mt-2">At maximum height, <Formula>{String.raw`v_f = 0`}</Formula>, so the time to the top is <Formula>{String.raw`\Delta t = \frac{v_i}{9{,}8}`}</Formula> (in seconds, with <Formula>{String.raw`v_i`}</Formula> in m·s⁻¹).</p>
         </div>
       </div>
     ),

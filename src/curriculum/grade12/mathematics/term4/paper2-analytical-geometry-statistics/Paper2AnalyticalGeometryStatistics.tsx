@@ -56,7 +56,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
           or negative, identify when you are interpolating or extrapolating, and interpret the result in the
           context of the data.
         </p>
-        <Formula block>{String.raw`\hat{y} = ax + b`}</Formula>
+        <Formula block>{String.raw`\hat{y} = a + bx`}</Formula>
       </>
     ),
   },

@@ -88,10 +88,12 @@ const learnSteps: LearnStep[] = [
         <div className="bg-blue-50 p-4 rounded-lg">
           <h4 className="font-semibold mb-3">VAT Calculations</h4>
           <div className="space-y-2 text-sm">
-            <p><strong>Finding VAT-inclusive price:</strong></p>
-            <Formula block>{String.raw`\text{Total} = \text{Price} \times 1.15`}</Formula>
-            <p><strong>Finding VAT amount only:</strong></p>
-            <Formula block>{String.raw`\text{VAT} = \text{Price} \times 0.15`}</Formula>
+            <p><strong>Finding VAT-inclusive price (from the price excluding VAT):</strong></p>
+            <Formula block>{String.raw`\text{Total} = \text{Price excl. VAT} \times 1.15`}</Formula>
+            <p><strong>Finding VAT amount only (from the price excluding VAT):</strong></p>
+            <Formula block>{String.raw`\text{VAT} = \text{Price excl. VAT} \times 0.15`}</Formula>
+            <p><strong>If the price already includes VAT:</strong></p>
+            <Formula block>{String.raw`\text{Price excl. VAT} = \frac{\text{Price incl. VAT}}{1.15}, \quad \text{VAT} = \text{Price incl. VAT} \times \frac{15}{115}`}</Formula>
           </div>
         </div>
         <div>

@@ -66,7 +66,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-purple-50 p-4">
             <strong className="text-purple-700">More Negative E°</strong>
-            <p className="text-slate-600">Better reducing agent (more easily oxidised). Example: <Formula>{String.raw`Li/Li^+`}</Formula> has <Formula>{String.raw`E^\circ = -3.04\text{ V}`}</Formula>.</p>
+            <p className="text-slate-600">Better reducing agent (more easily oxidised). Example: <Formula>{String.raw`Li^+/Li`}</Formula> has <Formula>{String.raw`E^\circ = -3{,}05\text{ V}`}</Formula>.</p>
           </div>
         </div>
       </div>
