@@ -1,38 +1,135 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { SpeechChange } from '../../../../../components/diagrams/english/SpeechChange';
+import { StepFlow, TwoColumns } from '../../../../../components/diagrams/english/Grade8Pictures';
+import { activeSentence, futureTense, passiveSentence, presentPerfect, reportStatement } from '../../../../../components/diagrams/english/grade8';
 
-const learnSteps: LearnStep[] = [
+// Every sentence below is built by these tested helpers (grade8.test.ts).
+const perfect = `${presentPerfect('She', 'complete')} the dialogue task.`;
+const future = `${futureTense('They', 'present')} their report tomorrow.`;
+const reported = reportStatement('Lindiwe', 'I am tired', { i: 'she' });
+const monitor = { doer: 'the class monitor', verb: 'write', receiver: 'the notice' };
+const active = activeSentence(monitor);
+const passive = passiveSentence(monitor);
+
+// "Check yourself"
+const q1 = `${presentPerfect('We', 'finish')} the poster.`;
+const q2 = reportStatement('Sipho', 'We will win', { we: 'they' });
+const q3 = passiveSentence({ doer: 'the principal', verb: 'open', receiver: 'the library' });
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Use tense accurately in reporting',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Reporting language often requires tense control. Grade 8 learners practise perfect and future forms in
-          meaningful sentence contexts.
-        </p>
-      </div>
+    title: 'Perfect and future tenses',
+    content: slide(
+      <>
+        <Rule>Present perfect: has or have + the past participle. Future: will + the base form of the verb.</Rule>
+        <StepFlow
+          items={[
+            { label: 'Present perfect', note: 'has / have + past participle' },
+            { label: 'Future', note: 'will + base verb' },
+          ]}
+          aria="Two boxes. Present perfect is has or have plus the past participle. Future is will plus the base verb."
+        />
+        <Worked
+          title="Choose the tense that fits the sentence"
+          steps={[
+            <>An action that is finished but still matters now: &ldquo;{perfect}&rdquo; (has + completed).</>,
+            <>An action still to come: &ldquo;{future}&rdquo; (will + present).</>,
+          ]}
+        />
+        <Mistake>Do not use has or have with a word such as &ldquo;yesterday&rdquo;. &ldquo;She completed the dialogue task yesterday&rdquo; is simple past, not present perfect.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Convert direct and indirect speech',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Speech conversion needs careful pronoun and tense changes. Punctuation and reporting verbs must also fit the
-          sentence meaning.
-        </p>
-      </div>
+    title: 'Direct and indirect speech',
+    content: slide(
+      <>
+        <Rule>Direct speech is the speaker&apos;s exact words inside quotation marks. In indirect speech drop the marks, add &ldquo;that&rdquo;, change the pronoun and step the tense back.</Rule>
+        <SpeechChange />
+        <Worked
+          title="&ldquo;I am tired,&rdquo; said Lindiwe."
+          steps={[
+            <>Drop the quotation marks and start with the speaker: Lindiwe said that&hellip;</>,
+            <>Change the pronoun: I becomes she.</>,
+            <>Step the tense back: am becomes was. Result: &ldquo;{reported}&rdquo;</>,
+          ]}
+        />
+        <Mistake>Keeping the speaker&apos;s words: &ldquo;Lindiwe said that I am tired&rdquo; still has the pronoun and the tense of the direct speech.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Build links with conjunctions and voice',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Conjunctions connect ideas logically, while active and passive voice choices shift focus in formal and
-          informational writing.
-        </p>
-      </div>
+    title: 'Conjunctions link ideas',
+    content: slide(
+      <>
+        <Rule>A conjunction joins two ideas and shows how they are related. Choose the one that matches the meaning.</Rule>
+        <StepFlow
+          items={[
+            { label: 'because', note: 'gives a reason (cause)' },
+            { label: 'although', note: 'shows a contrast' },
+            { label: 'unless', note: 'sets a condition' },
+            { label: 'meanwhile', note: 'links things at the same time' },
+          ]}
+          aria="Four conjunctions and their jobs: because gives a reason, although shows contrast, unless sets a condition, meanwhile links events at the same time."
+        />
+        <Worked
+          title="Link the two ideas: the match was cancelled / it rained"
+          steps={[
+            <>Ask: which idea is the cause? The rain. Which is the result? The cancelled match.</>,
+            <>A cause needs &ldquo;because&rdquo;: The match was cancelled because it rained.</>,
+          ]}
+        />
+        <Mistake>&ldquo;Although&rdquo; shows contrast, so &ldquo;The match was cancelled although it rained&rdquo; changes the meaning. In dialogue writing, conjunctions turn short sentences into connected, logical ones.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Active and passive voice',
+    content: slide(
+      <>
+        <Rule>Active: the doer comes first. Passive: the thing acted on is the subject, with was/were + the past participle, and &ldquo;by&rdquo; names the doer if needed.</Rule>
+        <TwoColumns
+          left={{ title: 'Active', lines: ['doer first', 'wrote'] }}
+          right={{ title: 'Passive', lines: ['receiver first', 'was written by'] }}
+          aria="Two columns. Active puts the doer first and uses the verb wrote. Passive puts the receiver first and uses was written by."
+        />
+        <Worked
+          title="Change to passive"
+          steps={[
+            <>Active: &ldquo;{active}&rdquo; The receiver is the notice.</>,
+            <>Put the receiver first, add was, use the participle written, then by + the doer: &ldquo;{passive}&rdquo;</>,
+            <>A report uses passive voice to focus on the action or result rather than on who did it.</>,
+          ]}
+        />
+        <Mistake>Using the wrong verb form: &ldquo;The notice was wrote&rdquo; should be &ldquo;was written&rdquo;.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Write in the present perfect: We (finish) the poster.</li>
+            <li>Turn into indirect speech: &ldquo;We will win,&rdquo; said Sipho.</li>
+            <li>Which conjunction fits: He stayed home ___ he was ill?</li>
+            <li>Make passive: The principal opened the library.</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>{q1}</li>
+            <li>{q2}</li>
+            <li>because (it gives the reason)</li>
+            <li>{q3}</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

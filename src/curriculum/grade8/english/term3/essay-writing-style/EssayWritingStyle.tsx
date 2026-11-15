@@ -1,53 +1,146 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import AnnotatedText from '@/components/subjects/AnnotatedText';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StepFlow, TwoColumns } from '../../../../../components/diagrams/english/Grade8Pictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Build clear essay structure',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Narrative and reflective essays need a strong introduction, coherent body paragraphs, and a conclusion that
-          closes the central idea.
-        </p>
-      </div>
+    title: 'Essay structure',
+    content: slide(
+      <>
+        <Rule>An introduction introduces the topic and engages the reader. Body paragraphs develop the idea. A conclusion brings closure and reinforces the main idea.</Rule>
+        <StepFlow
+          items={[
+            { label: 'Introduction', note: 'topic and a hook' },
+            { label: 'Body paragraphs', note: 'one idea each' },
+            { label: 'Conclusion', note: 'closure, main idea again' },
+          ]}
+          aria="An essay in three parts: an introduction with the topic and a hook, body paragraphs with one idea each, and a conclusion that closes and reinforces the main idea."
+        />
+        <Worked
+          title="Essay topic: A day I will never forget"
+          steps={[
+            <>Introduction: &ldquo;The morning the taxi broke down, I thought my day was ruined.&rdquo; It opens with a hook and names the topic.</>,
+            <>Body: one paragraph for the breakdown, one for how strangers helped.</>,
+            <>Conclusion: &ldquo;That day taught me that help can come from anyone.&rdquo; It closes the story and returns to the main idea.</>,
+          ]}
+        />
+        <Mistake>Starting a new, unrelated topic in the conclusion. It should tie earlier ideas together, not repeat every sentence word for word.</Mistake>
+      </>,
     ),
   },
   {
-    title: "Annotated extract",
-    content: (
-      <AnnotatedText
-        title={"From \"Hard Times\" — Charles Dickens"}
-        text={"It was a town of red brick, or of brick that would have been red if the smoke and ashes had allowed it."}
-        annotations={[
-          { start: 45, end: 64, device: "irony", note: "The line points out how industrial pollution has ruined what should have been bright and ordinary." },
-          { start: 72, end: 87, device: "imagery", note: "The concrete details make the polluted town easy to picture." },
-          { start: 88, end: 102, device: "personification", note: "Smoke and ashes are treated as if they can choose to withhold colour." },
-        ]}
-      />
+    title: 'Coherent paragraphs',
+    content: slide(
+      <>
+        <Rule>Coherence means the ideas in a paragraph connect logically, so the reader can follow your reasoning. Use a topic sentence, supporting detail and linking words.</Rule>
+        <StepFlow
+          items={[
+            { label: 'Topic sentence', note: 'the one idea' },
+            { label: 'Supporting detail', note: 'shows the idea' },
+            { label: 'Linking word', note: 'then, because, however' },
+          ]}
+          aria="A paragraph built in order: a topic sentence with the one idea, supporting detail, and linking words such as then, because and however."
+        />
+        <Worked
+          title="Make the sentences connect"
+          steps={[
+            <>Topic sentence: &ldquo;Our walk to school taught me patience.&rdquo;</>,
+            <>Detail: &ldquo;The path was flooded, so we waited for the water to drop.&rdquo; &ldquo;So&rdquo; links cause and result.</>,
+            <>Next: &ldquo;Then we crossed one by one.&rdquo; Every sentence supports the topic sentence.</>,
+          ]}
+        />
+        <Mistake>A paragraph where each sentence is about something different. Sentences that do not support the topic sentence break coherence.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Develop style with detail and variety',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Effective writing uses sentence variety, descriptive detail, and selected stylistic devices to make ideas
-          vivid and purposeful.
-        </p>
-      </div>
+    title: 'Narrative and reflective essays',
+    content: slide(
+      <>
+        <Rule>A narrative essay tells what happened, in order. A reflective essay focuses on personal experience and insight: what the experience meant and what you learned.</Rule>
+        <TwoColumns
+          left={{ title: 'Narrative', lines: ['tells the event', 'in order'] }}
+          right={{ title: 'Reflective', lines: ['personal experience', 'insight gained'] }}
+          aria="Two columns. A narrative essay tells the event in order. A reflective essay explores personal experience and the insight gained."
+        />
+        <Worked
+          title="One event, two essays"
+          steps={[
+            <>Event: our netball team lost the final.</>,
+            <>Narrative sentence: &ldquo;In the last minute, the ball slipped through my fingers and the whistle blew.&rdquo;</>,
+            <>Reflective sentence: &ldquo;Losing that final showed me that a team is more than its score.&rdquo; It gives an insight, not just events.</>,
+          ]}
+        />
+        <Mistake>Writing a reflective essay that only lists events. Say what the experience meant to you.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Revise for coherence and impact',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Revision checks whether paragraphs link logically, examples are relevant, and language choices match tone and
-          audience.
-        </p>
-      </div>
+    title: 'Style: detail, variety and devices',
+    content: slide(
+      <>
+        <Rule>Descriptive detail is specific and uses the senses. Sentence variety changes how sentences begin. A stylistic device is a language technique that creates an effect.</Rule>
+        <StepFlow
+          items={[
+            { label: 'Simile', note: 'like or as: fast as a taxi' },
+            { label: 'Metaphor', note: 'is: the road was a river' },
+            { label: 'Personification', note: 'the wind whispered' },
+          ]}
+          aria="Three stylistic devices with examples: a simile uses like or as, a metaphor says one thing is another, and personification gives human actions to a non-human thing."
+        />
+        <Worked
+          title="Make it vivid and varied"
+          steps={[
+            <>Vague: &ldquo;It was nice, and everyone enjoyed the day.&rdquo; We learn nothing.</>,
+            <>Specific: &ldquo;The wind sliced through the narrow alley as papers spun.&rdquo; Sensory detail makes a picture.</>,
+            <>Variety: instead of &ldquo;We went there&rdquo; three times, write &ldquo;After the rain stopped, we finally entered the field.&rdquo;</>,
+          ]}
+        />
+        <Mistake>Starting every sentence the same way, or using vague words such as &ldquo;thing&rdquo; and &ldquo;nice&rdquo;. Both make writing flat.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Revise with purpose',
+    content: slide(
+      <>
+        <Rule>When you revise, the most important check is whether each paragraph supports the essay&apos;s purpose.</Rule>
+        <Worked
+          title="Revise a paragraph"
+          steps={[
+            <>Purpose: show that the taxi breakdown taught me to ask for help.</>,
+            <>Read each paragraph and ask: does this support the purpose? A paragraph about my favourite lunch does not, so cut it.</>,
+            <>Then check openings for variety, replace vague words with specific ones, and make sure the conclusion links back to the purpose.</>,
+          ]}
+        />
+        <Mistake>Revising only the spelling. Correcting commas matters, but a well-spelt paragraph that does not support the purpose still weakens the essay.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What should an introduction mainly do?</li>
+            <li>What does paragraph coherence mean?</li>
+            <li>Which kind of essay focuses on personal experience and insight?</li>
+            <li>During revision, what is the most important check?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Introduce the topic and engage the reader.</li>
+            <li>The ideas in the paragraph connect logically.</li>
+            <li>A reflective essay.</li>
+            <li>Whether each paragraph supports the essay&apos;s purpose.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

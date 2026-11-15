@@ -1,38 +1,123 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { PlanBar, StepFlow } from '../../../../../components/diagrams/english/Grade8Pictures';
+import { PROJECT_PLAN, totalDays } from '../../../../../components/diagrams/english/grade8';
 
-const learnSteps: LearnStep[] = [
+// The days in the plan are added by a tested helper (grade8.test.ts).
+const days = totalDays(PROJECT_PLAN);
+const dayOf = (name: string) => PROJECT_PLAN.find((t) => t.name === name)?.days ?? 0;
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Plan and research before drafting',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A successful creative project starts with planning and research. Gather ideas, organise notes, and define
-          audience and purpose before writing.
-        </p>
-      </div>
+    title: 'Plan and research first',
+    content: slide(
+      <>
+        <Rule>A creative writing project moves through stages. Planning and research come first, because they give the writing direction and purpose.</Rule>
+        <StepFlow
+          items={[
+            { label: 'Plan and research', note: 'topic, purpose, audience' },
+            { label: 'Draft', note: 'write a first version' },
+            { label: 'Peer review', note: 'get feedback' },
+            { label: 'Redraft, edit, present', note: 'improve, check, share' },
+          ]}
+          aria="Four stages in order: plan and research, draft, peer review, then redraft, edit and present."
+        />
+        <Worked
+          title="Plan a story about a lost dog"
+          steps={[
+            <>Topic and purpose: a short story that shows how a community helps a lost dog.</>,
+            <>Audience: Grade 6 learners.</>,
+            <>Research: ask a neighbour about lost-pet notices and note the details a story could use.</>,
+          ]}
+        />
+        <Mistake>Starting to draft with no plan. Without a purpose and notes the writing wanders and is hard to revise.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Draft, peer review and revise',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Process writing includes drafting, feedback, and redrafting. Peer review helps identify strengths and areas
-          for improvement.
-        </p>
-      </div>
+    title: 'Audience and timeline',
+    content: slide(
+      <>
+        <Rule>Audience awareness shapes tone, detail and language choices. A project timeline manages the tasks so you meet the deadline.</Rule>
+        <PlanBar tasks={PROJECT_PLAN} aria={`One bar of ${days} school days split into six stages: plan ${dayOf('Plan')} days, draft ${dayOf('Draft')}, peer review ${dayOf('Peer review')}, redraft ${dayOf('Redraft')}, edit ${dayOf('Edit')} and present ${dayOf('Present')}.`} />
+        <Worked
+          title="Same news, two audiences"
+          steps={[
+            <>For Grade 1: &ldquo;Our dog Bobo ran away. We looked and looked!&rdquo; Short words, a friendly tone.</>,
+            <>For the school newsletter: &ldquo;A lost dog sparked a search across the neighbourhood.&rdquo; More formal, more detail.</>,
+            <>The timeline: {PROJECT_PLAN.map((t) => `${t.name} ${t.days}`).join(' + ')} = {days} school days.</>,
+          ]}
+        />
+        <Mistake>Ignoring the audience, or the timeline. Unrelated content and a rushed last day both lower the quality of the project.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Present with reflection and clarity',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Final presentation should show polished language, structured ideas, and reflection on how the work developed
-          through revision.
-        </p>
-      </div>
+    title: 'Draft, peer review and redraft',
+    content: slide(
+      <>
+        <Rule>Peer review gets helpful feedback before you finalise. Redrafting is rewriting after feedback to improve the quality.</Rule>
+        <StepFlow
+          items={[
+            { label: 'Draft', note: 'The dog was sad.' },
+            { label: 'Peer comment', note: 'Show how you know.' },
+            { label: 'Redraft', note: 'rewrite using the comment' },
+          ]}
+          aria="Three boxes in order: a draft sentence, a peer comment asking to show how we know, and a redraft that uses the comment."
+        />
+        <Worked
+          title="Improve one sentence"
+          steps={[
+            <>Draft: &ldquo;The dog was sad.&rdquo;</>,
+            <>A peer reads it and writes: &ldquo;Show how you know.&rdquo;</>,
+            <>Redraft: &ldquo;The dog lay by the gate, head low, and would not touch her food.&rdquo; The change comes from the feedback.</>,
+          ]}
+        />
+        <Mistake>Copying the same draft with no changes, or deleting everything. Redrafting means keeping what works and improving the rest.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Introduce, edit and reflect',
+    content: slide(
+      <>
+        <Rule>A strong introduction engages the reader and states the focus clearly. Before submission, edit for language, structure and accuracy. Reflection explains how feedback changed your work.</Rule>
+        <Worked
+          title="Weak and strong"
+          steps={[
+            <>Weak introduction: &ldquo;This is my project.&rdquo; It has no hook and no focus.</>,
+            <>Stronger: &ldquo;When Bobo vanished on a Monday, a whole street became a search party. This story shows how neighbours care.&rdquo; It hooks the reader and states the focus.</>,
+            <>Edit: check spelling, punctuation, paragraphs and facts. Reflect: &ldquo;After my partner asked me to show feelings, I rewrote the opening scene.&rdquo;</>,
+          ]}
+        />
+        <Mistake>Writing &ldquo;No changes were needed&rdquo; as your reflection. Reflection is evidence of how feedback changed the final draft, so skipping proofreading or planning notes removes that evidence.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Which stage comes first in a creative writing project?</li>
+            <li>What is redrafting?</li>
+            <li>Why do writers think about their audience?</li>
+            <li>Our plan has {PROJECT_PLAN.length} stages. How many school days does it need in total?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Planning and research.</li>
+            <li>Rewriting after feedback to improve the quality.</li>
+            <li>The audience shapes tone, detail and language choices.</li>
+            <li>{PROJECT_PLAN.map((t) => t.days).join(' + ')} = {days} school days.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

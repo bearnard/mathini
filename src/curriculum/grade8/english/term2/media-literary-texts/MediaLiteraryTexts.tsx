@@ -1,53 +1,137 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import AnnotatedText from '@/components/subjects/AnnotatedText';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StepFlow, TwoColumns } from '../../../../../components/diagrams/english/Grade8Pictures';
+import { isOpinion } from '../../../../../components/diagrams/english/grade8';
 
-const learnSteps: LearnStep[] = [
+// Fact or opinion is decided by a tested helper (grade8.test.ts).
+const verdict = (s: string) => (isOpinion(s) ? 'opinion' : 'fact');
+const s1 = 'This article is the most inspiring one ever.';
+const s2 = 'The article was published on Monday.';
+const s3 = 'The report names two speakers.';
+const c1 = 'The school garden is the best thing in Mthatha.';
+const c2 = 'The garden has twelve vegetable beds.';
+const c3 = 'Everyone should plant a tree.';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Compare media and literary text purposes',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Media texts and literary texts shape information differently. News reports prioritise factual clarity, while
-          stories use plot and character to build meaning.
-        </p>
-      </div>
+    title: 'Media text or literary text?',
+    content: slide(
+      <>
+        <Rule>A media text, such as a news report, gives verified current information. A literary text, such as a folktale, tells a story that carries a meaning.</Rule>
+        <TwoColumns
+          left={{ title: 'News report', lines: ['factual focus', 'current events'] }}
+          right={{ title: 'Folktale', lines: ['narrative meaning', 'plot and characters'] }}
+          aria="Two columns. A news report has a factual focus and covers current events. A folktale has narrative meaning, with a plot and characters."
+        />
+        <Worked
+          title="Which genre is it?"
+          steps={[
+            <>&ldquo;Two learners won the quiz on Monday.&rdquo; It states something that happened and can be checked: a news report.</>,
+            <>&ldquo;Once, a clever girl outwitted a greedy chief.&rdquo; It begins a story with characters: a folktale.</>,
+            <>Comparing the two shows how form and purpose shape meaning and the reader&apos;s response.</>,
+          ]}
+        />
+        <Mistake>Thinking a folktale has no point because it is not factual. It has a purpose too: it is built to carry an idea.</Mistake>
+      </>,
     ),
   },
   {
-    title: "Annotated extract",
-    content: (
-      <AnnotatedText
-        title={"From \"The War of the Worlds\" — H. G. Wells"}
-        text={"No one would have believed in the last years of the nineteenth century that this world was being watched keenly and closely by intelligences greater than man's."}
-        annotations={[
-          { start: 0, end: 26, device: "tone", note: "The opening immediately creates a serious, ominous narrative voice." },
-          { start: 97, end: 123, device: "imagery", note: "The wording makes readers picture an unsettling gaze fixed on humanity." },
-          { start: 127, end: 159, device: "diction", note: "The elevated wording stresses human weakness beside a superior force." },
-        ]}
-      />
+    title: 'Fact or opinion?',
+    content: slide(
+      <>
+        <Rule>A fact can be checked. An opinion is a personal judgement. Words such as &ldquo;most&rdquo;, &ldquo;best&rdquo;, &ldquo;inspiring&rdquo; and &ldquo;should&rdquo; signal opinion.</Rule>
+        <TwoColumns
+          left={{ title: 'Fact', lines: ['can be checked', 'published on Monday'] }}
+          right={{ title: 'Opinion', lines: ['personal judgement', 'most inspiring'] }}
+          aria="Two columns. A fact can be checked, for example published on Monday. An opinion is a personal judgement, for example most inspiring."
+        />
+        <Worked
+          title="Test each sentence"
+          steps={[
+            <>&ldquo;{s1}&rdquo; &ldquo;most inspiring&rdquo; is a judgement: {verdict(s1)}.</>,
+            <>&ldquo;{s2}&rdquo; You could check the date: {verdict(s2)}.</>,
+            <>&ldquo;{s3}&rdquo; You could count them: {verdict(s3)}.</>,
+          ]}
+        />
+        <Mistake>Believing a sentence is a fact because it sounds sure. &ldquo;{c1}&rdquo; is an {verdict(c1)}; &ldquo;{c2}&rdquo; is a {verdict(c2)}.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Track fact, opinion and headline technique',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Readers should identify factual claims, subjective opinions, and headline language choices that influence
-          interpretation.
-        </p>
-      </div>
+    title: 'Headlines and sources',
+    content: slide(
+      <>
+        <Rule>A headline uses short, strong wording to grab attention. A direct quote from a witness is supporting evidence: it makes the report more credible.</Rule>
+        <StepFlow
+          items={[
+            { label: 'Headline', note: 'grabs attention' },
+            { label: 'Opening facts', note: 'who, what, when, where' },
+            { label: 'Witness quote', note: 'supporting evidence' },
+          ]}
+          aria="A news report in three parts: a headline that grabs attention, opening facts, then a witness quote as supporting evidence."
+        />
+        <Worked
+          title="Look at the wording"
+          steps={[
+            <>&ldquo;Community Fights Back&rdquo; uses the strong verb &ldquo;fights&rdquo; to catch the eye.</>,
+            <>A plainer version, &ldquo;Residents hold a meeting&rdquo;, gives the same facts with less impact.</>,
+            <>A quote such as &ldquo;We saw the water rise,&rdquo; said a resident, is evidence from a source who was there.</>,
+          ]}
+        />
+        <Mistake>Treating a headline as a full summary or a source list. Its job is to attract the reader, not to give every detail.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Analyse conflict and theme across genres',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Comparing conflict and theme across articles, folklore, and drama builds stronger understanding of how texts
-          communicate ideas.
-        </p>
-      </div>
+    title: 'Conflict and theme',
+    content: slide(
+      <>
+        <Rule>Conflict is the central struggle in a story and it drives the plot. Theme is the underlying idea running through the whole text.</Rule>
+        <StepFlow
+          items={[
+            { label: 'Characters want different things' },
+            { label: 'Conflict', note: 'the central struggle' },
+            { label: 'Events follow', note: 'the plot moves' },
+            { label: 'Theme', note: 'the underlying idea' },
+          ]}
+          aria="Four boxes in order: characters want different things, which creates conflict, events follow, and the story leaves an underlying idea called the theme."
+        />
+        <Worked
+          title="A short invented folktale"
+          steps={[
+            <>Naledi wants to keep the last seed maize for planting. Her cousin wants to eat it now.</>,
+            <>Conflict: Naledi against her cousin, patience against hunger. This struggle drives what happens next.</>,
+            <>If the maize is planted and the village has food later, the theme is that planning for the future pays off.</>,
+          ]}
+        />
+        <Mistake>Mixing up theme and plot. The plot is what happens; the theme is the idea behind it. Conflict is never a date or a list of references.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Is this a fact or an opinion? &ldquo;{c3}&rdquo;</li>
+            <li>Which text type usually gives verified current information?</li>
+            <li>What does the headline &ldquo;Community Fights Back&rdquo; mainly try to do?</li>
+            <li>What is the conflict in a story?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>{verdict(c3)}: &ldquo;should&rdquo; shows a personal judgement.</li>
+            <li>A news report.</li>
+            <li>Grab attention with strong wording.</li>
+            <li>The central struggle that drives the plot.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
