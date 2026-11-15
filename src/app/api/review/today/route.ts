@@ -5,6 +5,7 @@ import { pickDue, type DueRow } from '../../../../lib/server/review/due';
 import { sastDay } from '../../../../lib/server/review/scheduler';
 import { REVIEW_GRADE } from '../../../../lib/server/review/store';
 import { makeQkey } from '../../../../lib/shared/qkey';
+import { resolveFromD1 } from '../../../../lib/server/serving/review';
 
 export const dynamic = 'force-dynamic';
 
@@ -39,10 +40,11 @@ export async function GET(req: NextRequest) {
     const candidates = pickDue(rows, today);
 
     // Resolve pool questions (item_cache is unique on task + prompt, so qkey maps to at most one row).
-    const pool: Record<string, { id: number; prompt: string; options: string[]; answer: string; explanation: string; section: string }> = {};
-    const tasks = [...new Set(candidates.map((c) => c.task))];
+    // Flag ON for a task: its current approved version from D1 (found by stable id, so an edited question still resolves). Flag OFF: nothing here.
+    const pool: Record<string, { id: number; prompt: string; options: string[]; answer: string; explanation: string; section: string }> = await resolveFromD1(db, candidates);
+    const tasks = [...new Set(candidates.filter((c) => !pool[c.qkey]).map((c) => c.task))];
     if (tasks.length > 0) {
-      const wanted = new Set(candidates.map((c) => c.qkey));
+      const wanted = new Set(candidates.filter((c) => !pool[c.qkey]).map((c) => c.qkey));
       const q = await db
         .prepare(`SELECT id, task, prompt, options, answer, explanation, section FROM item_cache WHERE task IN (${tasks.map(() => '?').join(',')})`)
         .bind(...tasks)

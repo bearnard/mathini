@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { fetchPoolItems } from '../../../../lib/server/poolStore';
+import { servePool } from '../../../../lib/server/serving/served';
 
 export const dynamic = 'force-dynamic';
 
@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
   }
 
   const { env } = getCloudflareContext();
-  const items = await fetchPoolItems(env.DB, task, count);
+  const items = await servePool(env.DB, task, count);
 
   return NextResponse.json({ items });
 }

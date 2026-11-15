@@ -50,6 +50,10 @@ test('the cron route and the scheduled job reach the same insert code (no privat
 
 test('all readers of the AI pool apply the servable filter (rejected rows are never served)', () => {
   const caps = ['src/app/api/caps/grade6/route.ts', 'src/app/api/caps/[subject]/route.ts', 'src/app/api/revision/route.ts'];
-  for (const f of caps) assert.match(fs.readFileSync(f, 'utf8'), /fetchPoolItems/, `${f} must read through poolStore.fetchPoolItems`);
+  // The caps routes read through servePool, which serves D1 versions behind the flag and otherwise (or on any problem) falls back to fetchPoolItems.
+  for (const f of caps) assert.match(fs.readFileSync(f, 'utf8'), /fetchPoolItems|servePool/, `${f} must read through poolStore.fetchPoolItems (directly or via servePool)`);
+  const served = fs.readFileSync('src/lib/server/serving/served.ts', 'utf8');
+  assert.match(served, /fetchPoolItems/, 'servePool must fall back to poolStore.fetchPoolItems');
+  assert.match(served, /q\.source = 'curated' OR c\.quality_score IS NULL OR c\.quality_score > 0/, 'the D1 path must not serve rejected AI rows');
   assert.match(fs.readFileSync('src/lib/server/poolStore.ts', 'utf8'), /quality_score IS NULL OR quality_score > 0/);
 });
