@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Create realistic budgets',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Budgets must reflect actual revenue expectations and all cost categories. Padding costs or underestimating 
-          income leads to poor decisions. Realistic budgets become management tools, not wish lists.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Monitor and adjust spending',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Regularly comparing actual spending to budgeted amounts reveals variances. Businesses adjust by reducing 
-          expenses, increasing sales or redirecting resources to high-priority areas.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Use budgets for strategic decisions',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Whether to hire staff, expand, or buy equipment—these decisions require budget analysis. Sound financial 
-          planning ensures decisions support long-term business goals.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {

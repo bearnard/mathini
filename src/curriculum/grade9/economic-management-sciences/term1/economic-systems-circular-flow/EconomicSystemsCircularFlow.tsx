@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Understand economic systems',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Economies operate through different systems: planned (centrally controlled), market (supply and demand), 
-          and mixed (combination). Each shapes how resources are produced, distributed and consumed.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Explore the circular flow model',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          The circular flow shows how households, businesses and government interact. Money flows from consumers to 
-          producers; goods and services flow back. Government taxes fund public services and regulations.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Apply factors of production',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Land, labour, capital and entrepreneurship are the foundation of all economic activity. Understanding these 
-          factors helps explain how goods are made and why economies grow or decline.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {

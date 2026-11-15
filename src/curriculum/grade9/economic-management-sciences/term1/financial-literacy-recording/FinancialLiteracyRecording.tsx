@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Master source documents',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Source documents like invoices, receipts and purchase orders form the evidence for financial transactions. 
-          Accurate recording begins with identifying and classifying these documents correctly.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Learn journal and ledger recording',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Journals record transactions in chronological order; ledgers organize them by account. Double-entry 
-          bookkeeping ensures debits equal credits, maintaining financial accuracy.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Understand trial balance',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Trial balance proves the accuracy of double-entry records by confirming total debits equal total credits. 
-          It is the foundation for preparing financial statements.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {
