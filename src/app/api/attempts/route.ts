@@ -11,6 +11,7 @@ import { d1Adapter } from '../../../lib/server/admin/db';
 import { runIdForAttempt } from '../../../lib/server/progress/runs';
 import { attemptInsertPlans } from '../../../lib/server/progress/attemptPlans';
 import { attemptsLimiter } from '../../../lib/server/learnerGuards';
+import { markAttempt, verifiedStreak } from '../../../lib/server/marking';
 
 export const dynamic = 'force-dynamic';
 
@@ -33,10 +34,10 @@ interface SubmitBody {
 export async function POST(req: NextRequest) {
   try {
     const body = (await req.json()) as SubmitBody;
-    const { task, subject, itemId, section, isCorrect, streak } = body;
+    const { task, subject, itemId, section, isCorrect: clientCorrect, streak: clientStreak } = body;
     let qkey: string | null = isQkey(body.qkey) ? body.qkey : null;
 
-    if (!task || !subject || typeof isCorrect !== 'boolean' || typeof streak !== 'number') {
+    if (!task || !subject || typeof clientCorrect !== 'boolean' || typeof clientStreak !== 'number') {
       return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
     }
 
@@ -56,9 +57,6 @@ export async function POST(req: NextRequest) {
 
     // Parse task slug for denormalised fields
     const parsed = parseTaskSlug(task);
-
-    // Compute XP
-    const xpAwarded = computeXp(isCorrect, streak);
 
     // Pool answers without a client qkey: derive it from the item_cache row (task + prompt).
     if (!qkey && itemId) {
@@ -88,9 +86,18 @@ export async function POST(req: NextRequest) {
       console.error('Question identity lookup failed:', e);
     }
 
-    // Insert attempt. question_version_id (0008) and chosen (0010) are only written when there is a value, and if a column does
-    // not exist yet (migration not applied) the plain insert below still stores the attempt: an answer is never lost.
     const chosen = typeof body.chosen === 'string' ? body.chosen.trim().slice(0, 200) || null : null;
+
+    // The SERVER marks multiple-choice answers (security review follow-up): `isCorrect` below is the server's verdict whenever it holds the question, and the
+    // browser's word only for what it cannot mark (generated exercises, order/label/explain items), flagged marked_by = 'client'. The streak the browser sends
+    // can never be higher than the run of right answers the server has seen, so XP and badges follow marked answers too.
+    const marking = await markAttempt(d1Adapter(db as never), { versionId: questionVersionId, chosen, clientCorrect });
+    const isCorrect = marking.isCorrect;
+    const streak = await verifiedStreak(d1Adapter(db as never), studentId, isCorrect, clientStreak);
+    const xpAwarded = computeXp(isCorrect, streak);
+
+    // Insert attempt. question_version_id (0008), chosen (0010) and marked_by and client_correct (0018) are only written when there is a value, and if a column
+    // does not exist yet (migration not applied) the plain insert below still stores the attempt: an answer is never lost.
     const baseCols = ['student_id', 'task', 'item_id', 'section', 'grade', 'subject', 'topic', 'is_correct', 'xp_awarded', 'streak_at', 'created_at', 'qkey'];
     const baseVals: (string | number | null)[] = [studentId, task, itemId || null, section || 'general', parsed.grade, subject, parsed.topic, isCorrect ? 1 : 0, xpAwarded, streak, now, qkey];
     // run_id (0014): only for the learner's own open run; null when the run, the table or the column is missing.
@@ -98,7 +105,7 @@ export async function POST(req: NextRequest) {
     const insert = (c: string[], v: (string | number | null)[]) =>
       db.prepare(`INSERT INTO attempts (${c.join(', ')}) VALUES (${c.map(() => '?').join(', ')})`).bind(...v).run();
     // Fall back in stages (see attemptInsertPlans): the answer is stored even if a newer column does not exist yet.
-    const attempts = attemptInsertPlans(baseCols, baseVals, { questionVersionId, chosen, runId });
+    const attempts = attemptInsertPlans(baseCols, baseVals, { questionVersionId, chosen, runId, marking: { markedBy: marking.markedBy, clientCorrect: marking.clientCorrect } });
     for (let i = 0; i < attempts.length; i++) {
       try {
         await insert(attempts[i][0], attempts[i][1]);
@@ -194,6 +201,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       xpAwarded,
+      isCorrect, // the server's verdict (the browser may have claimed otherwise)
       totalXp,
       xpByScope: Object.fromEntries((allXp.results ?? []).map((r) => [r.scope, r.xp])),
       newBadges: insertedBadges,
