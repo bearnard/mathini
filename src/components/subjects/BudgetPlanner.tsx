@@ -155,7 +155,7 @@ export default function BudgetPlanner({
         </div>
 
         <div className="grid gap-6 xl:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
             <div className="mb-4 flex items-center justify-between gap-3">
               <h4 className="text-sm font-semibold text-slate-900">Income</h4>
               <button
@@ -173,7 +173,7 @@ export default function BudgetPlanner({
                   <input
                     value={item.name}
                     onChange={(event) => updateIncome(index, 'name', event.target.value)}
-                    className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none"
+                    className="w-full min-w-0 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none"
                     placeholder="Income source"
                   />
                   <input
@@ -182,14 +182,14 @@ export default function BudgetPlanner({
                     step="0.01"
                     value={item.amount}
                     onChange={(event) => updateIncome(index, 'amount', event.target.value)}
-                    className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-right text-sm font-semibold text-slate-900 outline-none"
+                    className="w-full min-w-0 rounded-xl border border-slate-200 bg-white px-3 py-2 text-right text-sm font-semibold text-slate-900 outline-none"
                   />
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="min-w-0 space-y-4">
             <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
               <div className="mb-4 flex items-center justify-between gap-3">
                 <h4 className="text-sm font-semibold text-slate-900">Expenses</h4>
@@ -209,7 +209,7 @@ export default function BudgetPlanner({
                       <input
                         value={expenses[index]?.name ?? ''}
                         onChange={(event) => updateExpense(index, 'name', event.target.value)}
-                        className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none"
+                        className="w-full min-w-0 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none"
                         placeholder="Expense name"
                       />
                       <input
@@ -218,7 +218,7 @@ export default function BudgetPlanner({
                         step="0.01"
                         value={expenses[index]?.amount ?? 0}
                         onChange={(event) => updateExpense(index, 'amount', event.target.value)}
-                        className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-right text-sm font-semibold text-slate-900 outline-none"
+                        className="w-full min-w-0 rounded-xl border border-slate-200 bg-white px-3 py-2 text-right text-sm font-semibold text-slate-900 outline-none"
                       />
                     </div>
                     {applyVat && index === vatExpenseIndex ? (
