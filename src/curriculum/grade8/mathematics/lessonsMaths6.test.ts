@@ -124,3 +124,10 @@ test('Functions and Relationships: worked numbers', () => {
   assert.match(functions[4].text, /x = 5/);
   assert.match(functions[4].text, /y = 4x \+ 3/);
 });
+
+test('Algebraic Equations (term 4): the negative x-term advice is not contradictory', () => {
+  assert.equal(solve(-3, 10, -8).x, 6);
+  assert.match(equations[2].text, /divide both sides by that negative number/);
+  assert.doesNotMatch(equations[2].text, /keep its sign/);
+  assert.match(equations[2].text, /−18 ÷ −3 is positive, and substituting x = 6 checks it/);
+});

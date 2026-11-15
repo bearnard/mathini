@@ -81,3 +81,13 @@ test('Transformation Geometry: worked numbers', () => {
   assert.match(transf[4].text, /\(1; −3\)\./);
   assert.match(transf[4].text, /9 cm by 3 cm/);
 });
+
+test('Geometry of 3D Objects: the curved-solid picture agrees with the text', () => {
+  assert.match(solids[2].html, />2 flat, 1 curved</);
+  assert.match(solids[2].html, />1 flat, 1 curved</);
+  assert.match(solids[2].html, />0 flat, 1 curved</);
+  assert.doesNotMatch(solids[2].text, /3 faces|2 faces|1 face\b/);
+  // the default (Grade 6 and 9) labels are unchanged
+  assert.match(solids[0].html, />6 faces</);
+  assert.match(solids[0].html, />5 faces</);
+});

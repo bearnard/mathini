@@ -68,7 +68,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Brackets and negative terms',
     content: slide(
       <>
-        <Rule>With brackets, divide by the number outside first (or expand). With a negative x-term, keep its sign when you divide.</Rule>
+        <Rule>With brackets, divide by the number outside first (or expand). With a negative x-term such as −3x, divide both sides by that negative number: a negative divided by a negative is positive.</Rule>
         <UndoFlow ops={[{ op: '+', n: 3 }, { op: '×', n: 2 }]} result={16} />
         <Worked
           steps={[
@@ -77,7 +77,7 @@ export const learnSteps: LearnStep[] = [
             <>Divide both sides by −3: x = <strong>{neg.x}</strong>. Check: 10 − 3 × {neg.x} = {m(10 - 3 * neg.x)} ✓.</>,
           ]}
         />
-        <Mistake>Losing the sign: −3x = {m(neg.rhs)} gives x = {neg.x}, not {m(-neg.x)}. A negative divided by a negative is positive.</Mistake>
+        <Mistake>Carrying the minus sign into the answer: −3x = {m(neg.rhs)} gives x = {neg.x}, not {m(-neg.x)}. {m(neg.rhs)} ÷ −3 is positive, and substituting x = {neg.x} checks it.</Mistake>
       </>,
     ),
   },

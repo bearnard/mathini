@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { solidsAria } from './Solids';
+import { faceLabel, solidsAria } from './Solids';
 import { SOLIDS } from './mathsHelpers';
 
 test('the spoken description of curved solids matches how the lessons teach them', () => {
@@ -16,4 +16,12 @@ test('flat solids keep their face, edge and vertex counts', () => {
   // the numbers still come from the shared SOLIDS table (the Grade 6 convention counts a curved surface as a face)
   assert.equal(SOLIDS.cylinder.faces, 3);
   assert.equal(SOLIDS.cone.faces + SOLIDS.cone.edges + SOLIDS.cone.vertices, 4);
+});
+
+test('the printed face label can separate flat faces from curved surfaces', () => {
+  assert.equal(faceLabel('cylinder'), '3 faces');
+  assert.equal(faceLabel('cylinder', true), '2 flat, 1 curved');
+  assert.equal(faceLabel('cone', true), '1 flat, 1 curved');
+  assert.equal(faceLabel('sphere', true), '0 flat, 1 curved');
+  assert.equal(faceLabel('cube', true), '6 faces');
 });
