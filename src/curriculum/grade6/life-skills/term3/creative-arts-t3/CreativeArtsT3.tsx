@@ -93,9 +93,9 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is one purpose of South African cultural art? Which action shows respect?</li>
+            <li>Why do people make South African cultural art, and how do you show respect when you look at it?</li>
             <li>What does mixed media mean? Why layer rough and smooth materials?</li>
-            <li>What is choral verse, and what helps a group performance sound strong?</li>
+            <li>Describe choral verse, and say how a group makes its performance work well together.</li>
             <li>How can movement add meaning? Why rehearse?</li>
           </ol>
         }

@@ -89,10 +89,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which action shows a healthy friendship? What is the safest response to a dare to break a school rule?</li>
-            <li>What is a good first step in a disagreement, and which sentence helps solve a conflict fairly?</li>
+            <li>What is one thing a good friend does that shows a healthy friendship? What is the safest answer to a dare to break a school rule?</li>
+            <li>When two friends start to disagree, what should each do first, and what can they say so that both get a turn?</li>
             <li>Who is a trusted adult? What do you do if someone you do not know offers you a lift? What if a situation feels unsafe?</li>
-            <li>Which behaviour shows responsibility at school, and which study habit helps before a test?</li>
+            <li>Give one way to be responsible at school and one habit that helps you study for a test.</li>
           </ol>
         }
         answer={

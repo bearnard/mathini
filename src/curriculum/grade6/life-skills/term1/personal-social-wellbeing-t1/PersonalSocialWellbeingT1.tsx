@@ -85,7 +85,7 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What does self-image mean? Which choice shows a personal strength?</li>
+            <li>What does self-image mean? Name something a learner does that is a personal strength.</li>
             <li>Which is a healthy habit, and which action shows respect?</li>
             <li>What is peer pressure? Give a good refusal sentence and say what to do if it continues.</li>
             <li>Which learner acts like a supportive friend? What is an example of a simple goal?</li>

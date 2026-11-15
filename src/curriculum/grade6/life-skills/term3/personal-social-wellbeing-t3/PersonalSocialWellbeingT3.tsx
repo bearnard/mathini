@@ -91,9 +91,9 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What does diversity mean in a community? Which action shows respect for another person’s culture or religion?</li>
+            <li>Explain what diversity means in a community, and give one way to show respect for someone’s culture or religion.</li>
             <li>Why are stereotypes harmful?</li>
-            <li>Give a right with a matching responsibility. What does a responsibility mean? How does a respectful community become stronger?</li>
+            <li>Give a right with a matching responsibility. What does a responsibility mean? What makes a community that shows respect and takes responsibility grow stronger?</li>
             <li>Why is substance abuse dangerous? What do you do if pressured, and who do you talk to if worried?</li>
           </ol>
         }

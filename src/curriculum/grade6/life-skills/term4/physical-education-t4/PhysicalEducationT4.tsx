@@ -110,7 +110,7 @@ const learnSteps: LearnStep[] = [
           <ol className="list-decimal space-y-2 pl-5">
             <li>Which action shows good teamwork and which shows good communication? What does fair play mean?</li>
             <li>What is a fitness circuit? Why warm up before vigorous exercise?</li>
-            <li>Which activity improves coordination? How does regular activity help health?</li>
+            <li>Which activity improves coordination? In what way does exercising often keep you healthy?</li>
             <li>What do you do if you feel dizzy or sore? What is self-assessment?</li>
           </ol>
         }
