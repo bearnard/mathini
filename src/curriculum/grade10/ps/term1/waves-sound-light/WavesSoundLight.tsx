@@ -65,7 +65,7 @@ const learnSteps: LearnStep[] = [
           </p>
           <Formula block>{String.raw`f_{\text{obs}} = f_{\text{source}} \left( \frac{v \pm v_{\text{obs}}}{v \mp v_{\text{source}}} \right)`}</Formula>
           <p className="text-sm text-slate-600 mt-2">
-            <em>v</em> is wave speed. Use + when moving toward, − when moving away.
+            <em>v</em> is the speed of sound. Use the upper signs when the observer or source moves toward the other, the lower signs when moving away (so a source moving toward the listener gives v − v<sub>source</sub> in the denominator).
           </p>
         </div>
         <p className="text-slate-700">

@@ -24,7 +24,7 @@ const learnSteps: LearnStep[] = [
     title: 'Interactive Simulation: Momentum in Motion',
     content: (
       <div>
-        <p className="mb-3 text-sm text-muted-foreground">Use the simulation to explore moving objects in flight. Adjust parameters and observe how the momentum changes.</p>
+        <p className="mb-3 text-sm text-muted-foreground">Use the simulation to watch a ball's velocity change in size and direction during its flight. Because p = mv and the mass stays the same, the ball's momentum changes in exactly the same way as its velocity.</p>
         <ProjectileMotion />
       </div>
     ),
@@ -34,12 +34,12 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          <strong>Impulse</strong> is the product of force and the time for which it acts. Impulse equals the change in momentum.
+          <strong>Impulse</strong> is the product of the net (resultant) force acting on an object and the time for which the net force acts. Impulse equals the change in momentum.
         </p>
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-blue-50 p-4">
             <strong className="text-blue-700">Impulse-Momentum Theorem</strong>
-            <Formula block>{String.raw`J = F\Delta t = \Delta p`}</Formula>
+            <Formula block>{String.raw`J = F_{\text{net}}\Delta t = \Delta p`}</Formula>
             <p className="text-slate-600 mt-1">A larger force or longer contact time produces a greater change in momentum.</p>
           </div>
           <div className="rounded-xl bg-green-50 p-4">
@@ -55,7 +55,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          The <strong>law of conservation of momentum</strong>: in an isolated system (no external forces), the total momentum before a collision equals the total momentum after.
+          The <strong>law of conservation of momentum</strong>: in an isolated system (net external force is zero), the total momentum before a collision equals the total momentum after.
         </p>
         <div className="bg-slate-50 p-6 rounded-xl inline-block text-left">
           <Formula block>{String.raw`\sum p_i = \sum p_f`}</Formula>

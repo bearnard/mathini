@@ -26,13 +26,13 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
           Double-angle identities are special cases of compound angles. They are useful when you need to rewrite
           expressions in terms of one trig ratio or compare how the graph changes when the angle is doubled.
         </p>
-        <Formula block>{String.raw`\sin 2x = 2\sin x\cos x,\quad \cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x - 1`}</Formula>
+        <Formula block>{String.raw`\sin 2x = 2\sin x\cos x,\quad \cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2 x`}</Formula>
         <FunctionGraph
           curves={[
-            { fn: (x: number) => Math.sin(x), label: 'y = sin x', color: '#6366f1' },
-            { fn: (x: number) => Math.sin(2 * x), label: 'y = sin 2x', color: '#ef4444' },
+            { fn: (x: number) => Math.sin((x * Math.PI) / 180), label: 'y = sin x (x in degrees)', color: '#6366f1' },
+            { fn: (x: number) => Math.sin((2 * x * Math.PI) / 180), label: 'y = sin 2x', color: '#ef4444' },
           ]}
-          xRange={[-6.28, 6.28]}
+          xRange={[-360, 360]}
           yRange={[-1.5, 1.5]}
         />
       </>

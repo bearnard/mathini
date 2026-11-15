@@ -31,10 +31,10 @@ const learnSteps: LearnStep[] = [
         <p className="text-slate-600">Straight-line depreciation subtracts the same amount each time, but reducing-balance depreciation multiplies by the same factor.</p>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-indigo-50 p-4">
-            <Formula block>{String.raw`V = P - nd`}</Formula>
+            <Formula block>{String.raw`A = P(1-ni)`}</Formula>
           </div>
           <div className="rounded-xl bg-violet-50 p-4">
-            <Formula block>{String.raw`V = P(1-i)^n`}</Formula>
+            <Formula block>{String.raw`A = P(1-i)^n`}</Formula>
           </div>
         </div>
         <FunctionGraph

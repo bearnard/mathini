@@ -55,7 +55,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-blue-50 p-4">
             <strong className="text-blue-700">At the launch height again</strong>
-            <p className="mt-2 text-slate-600">Speed has the same magnitude as launch, but opposite direction.</p>
+            <p className="mt-2 text-slate-600">Velocity has the same magnitude as at launch, but the opposite direction (downward).</p>
           </div>
         </div>
       </div>
@@ -66,8 +66,9 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">
-          The simulation helps you link the equations to the changing graphs. Watch the velocity decrease linearly,
-          become zero at the top and then increase in the downward direction.
+          The simulation launches a ball at an angle (angled launches are beyond Grade 12 CAPS, so focus on the
+          up-and-down part of the motion). Its vertical velocity decreases by 9,8 m·s⁻¹ every second, is zero at the
+          top and then increases in the downward direction, exactly as the velocity-time graph in the first step shows.
         </p>
         <div className="rounded-2xl bg-slate-50 p-4">
           <ProjectileMotion />

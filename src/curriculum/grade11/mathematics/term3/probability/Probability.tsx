@@ -28,16 +28,16 @@ const learnSteps: LearnStep[] = [
     title: 'Use Addition and Multiplication Rules',
     content: (
       <div className="space-y-4 text-center">
-        <p className="text-slate-600">Addition combines events, while multiplication handles successive or independent events.</p>
+        <p className="text-slate-600">The addition rule gives P(A or B). The product rule P(A and B) = P(A) × P(B) holds only for independent events; for dependent events multiply along a tree diagram using the changed probabilities.</p>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-indigo-50 p-4">
             <Formula block>{String.raw`P(A \cup B) = P(A) + P(B) - P(A \cap B)`}</Formula>
           </div>
           <div className="rounded-xl bg-violet-50 p-4">
-            <Formula block>{String.raw`P(A \cap B) = P(A) \cdot P(B)`}</Formula>
+            <Formula block>{String.raw`P(A \cap B) = P(A) \cdot P(B) \quad \text{(independent events only)}`}</Formula>
           </div>
         </div>
-        <p className="text-sm text-slate-600">Ask yourself whether the events can happen together. That decides whether you subtract the overlap.</p>
+        <p className="text-sm text-slate-600">Ask yourself whether the events can happen together. That decides whether you subtract the overlap: for mutually exclusive events P(A ∩ B) = 0, so P(A ∪ B) = P(A) + P(B).</p>
       </div>
     ),
   },

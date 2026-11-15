@@ -29,10 +29,10 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
         <Formula block>{String.raw`\sin^2\theta + \cos^2\theta = 1,\quad \frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}`}</Formula>
         <FunctionGraph
           curves={[
-            { fn: (x: number) => Math.sin(x), label: 'y = sin x', color: '#6366f1' },
-            { fn: (x: number) => Math.cos(x), label: 'y = cos x', color: '#ef4444' },
+            { fn: (x: number) => Math.sin((x * Math.PI) / 180), label: 'y = sin x (x in degrees)', color: '#6366f1' },
+            { fn: (x: number) => Math.cos((x * Math.PI) / 180), label: 'y = cos x', color: '#ef4444' },
           ]}
-          xRange={[-6.28, 6.28]}
+          xRange={[-360, 360]}
           yRange={[-1.5, 1.5]}
         />
       </>

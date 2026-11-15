@@ -7,6 +7,8 @@ import ThreeSimulation from '../ThreeSimulation';
 import * as THREE from 'three';
 
 const POINTS = 200;
+// Both waves are drawn at the same reduced scale so that their SUM (the resultant) still fits in view.
+const SCALE = 0.6;
 
 const WaveScene = ({ freq1, freq2, amp, running }: { freq1: number; freq2: number; amp: number; running: boolean }) => {
   const t = useRef(0);
@@ -23,11 +25,11 @@ const WaveScene = ({ freq1, freq2, amp, running }: { freq1: number; freq2: numbe
     const sum: THREE.Vector3[] = [];
     for (let i = 0; i <= POINTS; i++) {
       const x = (i / POINTS) * 8 - 4;
-      const y1 = amp * Math.sin(freq1 * x - t.current * 3);
-      const y2 = amp * Math.sin(freq2 * x - t.current * 3);
+      const y1 = SCALE * amp * Math.sin(freq1 * x - t.current * 3);
+      const y2 = SCALE * amp * Math.sin(freq2 * x - t.current * 3);
       pts1.push(new THREE.Vector3(x, y1 + 2, 0));
       pts2.push(new THREE.Vector3(x, y2, 0));
-      sum.push(new THREE.Vector3(x, (y1 + y2) * 0.5 - 2, 0));
+      sum.push(new THREE.Vector3(x, y1 + y2 - 2, 0)); // superposition: the resultant is the SUM of the two waves
     }
     w1Ref.current.points = pts1;
     w2Ref.current.points = pts2;

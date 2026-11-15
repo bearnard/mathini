@@ -75,7 +75,7 @@ const learnSteps: LearnStep[] = [
         <div className="bg-red-50 p-4 rounded-lg border border-red-200">
           <h4 className="font-semibold text-red-900 mb-2">Example</h4>
           <p className="text-slate-700">
-            A 50 N force pushes a 5 kg box 4 m. Find work and final velocity (starts from rest).
+            A 50 N horizontal force pushes a 5 kg box 4 m along a frictionless horizontal surface, so the 50 N force is the net force. Find work and final velocity (starts from rest).
           </p>
           <p className="text-slate-700 mt-2">
             W = FΔx = 50 × 4 = 200 J
@@ -144,13 +144,13 @@ const learnSteps: LearnStep[] = [
         <div className="bg-lime-50 p-4 rounded-lg border border-lime-200">
           <h4 className="font-semibold text-lime-900 mb-2">Example with Friction</h4>
           <p className="text-slate-700">
-            A 5 kg object slides down a 10 m high ramp. Friction force = 20 N. Find velocity at bottom.
+            A 5 kg object starts from rest and slides 20 m down a ramp that is 10 m high. Friction force = 20 N. Find velocity at bottom.
           </p>
           <p className="text-slate-700 mt-2">
             Initial PE = 5 × 9.8 × 10 = 490 J
-            <br />Energy lost to friction = 20 × 10 = 200 J
-            <br />Final KE = 490 − 200 = 290 J
-            <br />0.5 × 5 × v² = 290 → v = 10.8 m/s
+            <br />Energy lost to friction = f × distance along the ramp = 20 × 20 = 400 J
+            <br />Final KE = 490 − 400 = 90 J
+            <br />0.5 × 5 × v² = 90 → v² = 36 → v = 6 m/s
           </p>
         </div>
         <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">

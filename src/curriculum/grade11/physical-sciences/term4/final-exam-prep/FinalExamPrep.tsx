@@ -82,7 +82,7 @@ const learnSteps: LearnStep[] = [
         </p>
         <div className="bg-slate-50 p-6 rounded-xl inline-block text-left">
           <p className="font-bold text-slate-800">Key Strategies:</p>
-          <Formula block>{String.raw`90\text{ min} \div 100\text{ marks} \approx 0.9\text{ min/mark}`}</Formula>
+          <Formula block>{String.raw`180\text{ min} \div 150\text{ marks} = 1{,}2\text{ min/mark}`}</Formula>
           <p className="text-slate-600">• Attempt all questions — never leave blanks.</p>
           <p className="text-slate-600">• Do Section A first for quick marks; save longer calculations for later.</p>
           <p className="text-slate-600">• Always write the formula, then substitute, then calculate.</p>

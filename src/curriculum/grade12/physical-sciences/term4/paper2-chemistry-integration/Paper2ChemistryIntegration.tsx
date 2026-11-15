@@ -39,7 +39,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">
-          Strong acids produce a high concentration of H⁺, while bases increase the OH⁻ concentration. Salt hydrolysis questions
+          Strong acids ionise completely in water and weak acids ionise only partially; strength is not the same as
+          concentration (a dilute strong acid can have a lower [H₃O⁺] than a concentrated weak acid). Salt hydrolysis questions
           depend on whether the salt comes from strong or weak acids and bases.
         </p>
         <Formula block>{String.raw`\text{pH} = -\log[H^+]`}</Formula>

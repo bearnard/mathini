@@ -120,7 +120,7 @@ const learnSteps: LearnStep[] = [
             Heat 2 kg of water from 20°C to 80°C:
           </p>
           <p className="text-slate-700 mt-2">
-            Q = mcΔT = 2 × 4180 × (80 − 20) = 2 × 4180 × 60 = 501,600 J = 501.6 kJ
+            Q = mcΔT = 2 × 4180 × (80 − 20) = 2 × 4180 × 60 = 501 600 J = 501,6 kJ
           </p>
         </div>
       </div>

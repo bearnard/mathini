@@ -43,7 +43,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          <strong>Newton's Second Law:</strong> The net force acting on an object is directly proportional to its acceleration and is in the same direction as the acceleration.
+          <strong>Newton's Second Law:</strong> When a net (resultant) force acts on an object, the object accelerates in the direction of the net force. The acceleration is directly proportional to the net force and inversely proportional to the mass of the object.
         </p>
         <div className="bg-slate-50 p-6 rounded-xl inline-block text-left">
           <p className="font-bold text-slate-800">Net-force equation</p>

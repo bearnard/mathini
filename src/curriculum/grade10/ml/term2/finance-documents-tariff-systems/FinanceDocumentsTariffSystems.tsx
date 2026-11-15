@@ -84,7 +84,8 @@ const learnSteps: LearnStep[] = [
           South African municipalities charge for water, electricity, sewerage, and refuse removal. Understanding how to read and verify these accounts helps you manage household expenses.
         </p>
         <div className="bg-purple-50 p-4 rounded-lg">
-          <h4 className="font-semibold mb-3">City of Cape Town Water Tariff Example</h4>
+          <h4 className="font-semibold mb-3">Example Municipal Water Tariff (illustrative figures)</h4>
+          <p className="text-xs mb-2">Real tariffs differ per municipality and change every July; free basic water is often only for registered indigent households.</p>
           <div className="space-y-2 text-sm">
             <p>0-6 kℓ: R0 (free basic allocation)</p>
             <p>6-10.5 kℓ: R10.50 per kℓ</p>

@@ -2,9 +2,6 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { PhysicalSciencesItem, LearnStep } from '../../_shared/types';
 import Formula from '@/components/subjects/Formula';
-import dynamic from 'next/dynamic';
-
-const WaveInterference = dynamic(() => import('@/components/subjects/PhysicsSim/WaveInterference'), { ssr: false });
 
 const learnSteps: LearnStep[] = [
   {
@@ -32,7 +29,22 @@ const learnSteps: LearnStep[] = [
           approaching source and spread out behind a receding source, which is why a siren changes pitch as it passes.
         </p>
         <div className="rounded-2xl bg-slate-50 p-4">
-          <WaveInterference />
+          <svg viewBox="0 0 400 380" className="mx-auto w-full max-w-md" role="img" aria-label="Wavefronts from a source moving right: bunched in front, spread out behind">
+            {[
+              [240, 40],
+              [220, 80],
+              [200, 120],
+              [180, 160],
+            ].map(([cx, r]) => (
+              <circle key={r} cx={cx} cy={180} r={r} fill="none" stroke="#0891b2" strokeWidth={2} />
+            ))}
+            <circle cx={260} cy={180} r={7} fill="#e11d48" />
+            <line x1={268} y1={180} x2={305} y2={180} stroke="#e11d48" strokeWidth={3} />
+            <polygon points="305,173 318,180 305,187" fill="#e11d48" />
+            <text x={262} y={210} fontSize={13} fill="#be123c">source, v_s</text>
+            <text x={290} y={360} fontSize={13} fill="#334155" textAnchor="middle">ahead: λ shorter, f higher</text>
+            <text x={100} y={360} fontSize={13} fill="#334155" textAnchor="middle">behind: λ longer, f lower</text>
+          </svg>
         </div>
       </div>
     ),
