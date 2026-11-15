@@ -1,6 +1,5 @@
 
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
-import DataChart from '@/components/subjects/DataChart';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
 
 type RawEconomicsItem = {
@@ -35,20 +34,29 @@ const learnSteps: LearnStep[] = [
     title: 'Revenue, expenditure and budgets',
     content: (
       <div className="space-y-6">
-        <DataChart
-          data={[
-            { item: 'Income tax', amount: 34 },
-            { item: 'VAT', amount: 26 },
-            { item: 'Company tax', amount: 18 },
-            { item: 'Infrastructure', amount: 22 },
-            { item: 'Grants', amount: 20 },
-            { item: 'Debt service', amount: 14 },
-          ]}
-          series={[{ key: 'amount', label: 'Share of budget (%)', color: '#6366f1' }]}
-          xKey="item"
-          type="bar"
-          yLabel="%"
-        />
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="rounded-xl border border-green-200 bg-green-50 p-4 text-sm text-slate-700">
+            <p className="font-semibold text-green-900">Revenue: where the money comes from</p>
+            <ul className="mt-2 list-disc space-y-1 pl-5">
+              <li>Personal income tax</li>
+              <li>Value-added tax (VAT)</li>
+              <li>Company (corporate) income tax</li>
+              <li>Fuel levies and other taxes</li>
+            </ul>
+          </div>
+          <div className="rounded-xl border border-orange-200 bg-orange-50 p-4 text-sm text-slate-700">
+            <p className="font-semibold text-orange-900">Expenditure: where the money goes</p>
+            <ul className="mt-2 list-disc space-y-1 pl-5">
+              <li>Education, health and social grants</li>
+              <li>Infrastructure and policing</li>
+              <li>Interest on government debt (debt service)</li>
+            </ul>
+          </div>
+        </div>
+        <p className="text-sm text-slate-500">
+          Schematic only, with no figures. Revenue and expenditure are separate lists: each is a share of its own total, so they cannot be
+          added together. For the current shares see the National Treasury Budget Review (treasury.gov.za).
+        </p>
         <p className="text-sm leading-7 text-slate-600">
           A budget deficit occurs when planned spending is greater than expected revenue for the financial
           year. Borrowing can support growth, but it may also increase future debt-service costs.

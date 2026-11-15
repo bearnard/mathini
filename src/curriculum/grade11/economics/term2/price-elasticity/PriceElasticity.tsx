@@ -1,7 +1,7 @@
 
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
-import SupplyDemand from '@/components/subjects/SupplyDemand';
+import ElasticityPicture from '@/components/subjects/ElasticityPicture';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
 
 const revenueTestData = [
@@ -23,7 +23,18 @@ const learnSteps: LearnStep[] = [
           <p className="font-semibold text-slate-800">Formula</p>
           <p className="mt-1 text-slate-600">PED = % change in quantity demanded ÷ % change in price</p>
         </div>
-        <SupplyDemand title="Elastic vs Inelastic Demand" showShifts={true} />
+        <div className="rounded-xl border border-slate-200 bg-white p-4 text-left text-sm leading-7 text-slate-600">
+          <p>
+            <span className="font-semibold text-slate-800">Worked example (pretend good):</span> the price rises from R10 to R12, which is
+            (12 − 10) ÷ 10 = 20%. On the flat curve quantity falls from 100 to 60: (60 − 100) ÷ 100 = −40%, so PED = −40 ÷ 20 = −2. On the
+            steep curve quantity falls from 100 to 90: −10%, so PED = −10 ÷ 20 = −0,5.
+          </p>
+          <p className="mt-2">
+            PED is negative because price and quantity demanded move in opposite directions, so we compare its size. If the size is more than 1,
+            demand is elastic; less than 1, inelastic; exactly 1, unit elastic. PED = 0 is perfectly inelastic and a very large PED is perfectly elastic.
+          </p>
+        </div>
+        <ElasticityPicture />
       </div>
     ),
   },
@@ -92,7 +103,7 @@ const learnSteps: LearnStep[] = [
           type="line"
           yLabel="Revenue"
         />
-        <p className="text-sm text-slate-500">When demand is elastic, a price increase cuts revenue. When demand is inelastic, a price increase raises revenue.</p>
+        <p className="text-sm text-slate-500">When demand is elastic, a price increase cuts revenue. When demand is inelastic, a price increase raises revenue. (Made-up numbers for two pretend goods, not the ones on the first slide.)</p>
       </div>
     ),
   },
