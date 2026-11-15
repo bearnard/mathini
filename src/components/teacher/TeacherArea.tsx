@@ -2,6 +2,7 @@
 // ADR 0003 phase 3: the teacher's area. Make a class, share its code, see who joined, remove a learner, make a new code, archive.
 // Learners appear by nickname only. Every action is checked again on the server by role; hiding a button is not a permission.
 import { useEffect, useState } from 'react';
+import ClassProgressPanel from './ClassProgressPanel';
 
 interface ClassSummary { id: string; name: string; grade: number; subjects: string[]; joinCode: string; status: 'active' | 'archived'; members: number; createdAt: number; schoolName: string }
 interface RosterEntry { studentId: string; nickname: string; joinedAt: number }
@@ -158,7 +159,8 @@ function ClassView({ id, onBack, onChanged }: { id: string; onBack: () => void; 
           </div>
         </div>
       )}
-      <h3 className="mt-5 text-lg font-bold text-slate-900">Learners ({c.roster.length})</h3>
+      <ClassProgressPanel classId={id} />
+      <h3 className="mt-5 text-lg font-bold text-slate-900">Who is in the class ({c.roster.length})</h3>
       {c.roster.length === 0 ? (
         <p className="mt-1 text-slate-600">No one has joined yet. Share the code above.</p>
       ) : (

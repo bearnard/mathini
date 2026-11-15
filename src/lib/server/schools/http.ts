@@ -180,3 +180,14 @@ export const handleCatalog = (req: Request, deps: SchoolsDeps) =>
     if (!/^[a-z][a-z0-9-]{0,29}$/.test(subject)) return authJson({ error: 'Unknown subject' }, 400);
     return authJson({ topics: topicsFor(grade, subject) });
   });
+
+// ---------- class progress (part 4) ----------
+import { buildClassProgress } from './classProgress';
+
+/** GET ?since=YYYY-MM-DD (optional). The teacher's view of one of THEIR classes (ADR 0005 section 4): nicknames only, learners still in the class only. */
+export const handleClassProgress = (req: Request, deps: SchoolsDeps, classId: string) =>
+  asTeacher(req, deps, null, async (tid) => {
+    const since = new URL(req.url).searchParams.get('since') ?? undefined;
+    const r = await buildClassProgress(deps.db, tid, classId, since, deps.now);
+    return r.ok ? authJson(r.progress) : authJson({ error: r.error }, r.status);
+  });

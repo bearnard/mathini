@@ -93,3 +93,10 @@ export async function scopesForStudent(db: AdminDb, studentId: string, now: numb
   const today = sastDayNumber(now);
   return rows.map((r) => ({ ...toScope(r), className: r.class_name })).filter((s) => { const d = dayNumberOf(s.examDate); return d !== null && d >= today; });
 }
+
+/** A class's active exams that have not passed, soonest first (for the teacher's class view). The caller has already checked the class is theirs. */
+export async function scopesForClass(db: AdminDb, classId: string, now: number): Promise<ScopeRow[]> {
+  const rows = await db.all<DbScope>(`SELECT ${COLS} FROM exam_scopes WHERE class_id = ? AND archived_at IS NULL ORDER BY exam_date ASC, created_at ASC LIMIT 20`, [classId]);
+  const today = sastDayNumber(now);
+  return rows.map(toScope).filter((s) => { const d = dayNumberOf(s.examDate); return d !== null && d >= today; });
+}

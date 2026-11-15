@@ -134,3 +134,25 @@ test('exam scope routes: teacher only, CSRF header on writes, the catalog lists 
   assert.equal((await handleArchiveScope(req(`/api/teacher/classes/${c.id}/scopes/${scope.id}/archive`, { action: 'scope-archive', cookie: s.pc }), s.deps(), c.id, scope.id)).status, 403);
   assert.equal((await handleArchiveScope(req(`/api/teacher/classes/${c.id}/scopes/${scope.id}/archive`, { action: 'scope-archive', cookie: s.tc }), s.deps(), c.id, scope.id)).status, 200);
 });
+
+import { handleClassProgress } from './http';
+
+test('class progress route: teacher only, own class only, bad date 400, private (no-store), nicknames only', async (ctx) => {
+  const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
+  const c = await created(s);
+  const a = await s.stu('Zola');
+  await handleJoin(req('/api/classes/join', { action: 'class-join', cookie: a.cookie, body: { code: c.joinCode } }), s.deps());
+  const get = (cookie: string | undefined, q = '', id = c.id) => handleClassProgress(req(`/api/teacher/classes/${id}/progress${q}`, { cookie }), s.deps(), id);
+  assert.equal((await get(undefined)).status, 401);
+  assert.equal((await get(s.pc)).status, 403);
+  const other = addTeacher(s.t, 'o@example.invalid', 'Other');
+  const oc = `${ADULT_COOKIE}=${(await createSession(s.t.db, other.userId, NOW)).token}`;
+  assert.equal((await get(oc)).status, 404, 'another teacher');
+  assert.equal((await get(s.tc, '', 'nope')).status, 404);
+  assert.equal((await get(s.tc, '?since=soon')).status, 400);
+  const res = await get(s.tc);
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get('cache-control'), 'no-store');
+  const p = (await res.json()) as { memberCount: number; learners: { nickname: string }[] };
+  assert.deepEqual([p.memberCount, p.learners.map((l) => l.nickname)], [1, ['Zola']]);
+});
