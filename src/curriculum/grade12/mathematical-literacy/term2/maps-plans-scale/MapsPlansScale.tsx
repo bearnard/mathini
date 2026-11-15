@@ -3,6 +3,7 @@ import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { MathematicalLiteracyItem, LearnStep } from '../../_shared/types';
 import Formula from '@/components/subjects/Formula';
 import DataChart from '@/components/subjects/DataChart';
+import { LineScaleKm } from '@/components/diagrams/mathlit/ScalePictures';
 
 const learnSteps: LearnStep[] = [
   {
@@ -11,6 +12,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">A scale such as 1:50 000 means 1 unit on the map represents 50 000 of the same units in reality. Line scales work in the same way but show the equivalent distances visually.</p>
         <Formula block>{String.raw`\text{Actual distance} = \text{map distance} \times \text{scale factor}`}</Formula>
+        <LineScaleKm />
       </div>
     ),
   },

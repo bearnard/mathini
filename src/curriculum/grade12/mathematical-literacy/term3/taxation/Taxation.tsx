@@ -3,6 +3,7 @@ import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { MathematicalLiteracyItem, LearnStep } from '../../_shared/types';
 import Formula from '@/components/subjects/Formula';
 import DataChart from '@/components/subjects/DataChart';
+import { TaxableIncomeSteps } from '@/components/diagrams/mathlit/TaxableIncomeSteps';
 
 const learnSteps: LearnStep[] = [
   {
@@ -12,6 +13,8 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg leading-8 text-slate-600">Taxation questions begin with income, then consider allowable deductions or exempt amounts before tax is calculated. Learners should distinguish between gross income, taxable income and the final amount paid after rebates.</p>
         <Formula block>{String.raw`\text{Taxable income} = \text{gross income} - \text{allowable deductions}`}</Formula>
         <Formula block>{String.raw`\text{Tax payable} = \text{tax before rebate} - \text{rebate}`}</Formula>
+        <TaxableIncomeSteps />
+        <p className="text-sm text-slate-500">Round numbers for illustration, not a tax table.</p>
       </div>
     ),
   },
