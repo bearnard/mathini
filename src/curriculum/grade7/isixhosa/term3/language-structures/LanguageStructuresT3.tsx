@@ -1,50 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './LanguageStructuresT3.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Connect ideas using conjunctions and correct concords',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          In Term 3, language structures focus on <strong>connectors, conjunctions, past and future tense,</strong>{' '}
-          concords, and punctuation to make writing more fluent.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <p className="font-semibold text-sky-800">Linking words</p>
-            <p className="text-slate-600">Use ngoba, kodwa, kwaye to connect ideas smoothly.</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-semibold text-emerald-800">Tense and concord</p>
-            <p className="text-slate-600">Keep agreement and time forms consistent in a sentence.</p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these linking and time words aloud to make sentence building smoother and more accurate.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Kwaye"} phonetic={"[kwa'jɛ]"} meaning={"And"} lang="xh" />
-          <PronunciationPlayer word={"Kodwa"} phonetic={"[kɔ'dwa]"} meaning={"But"} lang="xh" />
-          <PronunciationPlayer word={"Ngoko"} phonetic={"[ŋɔ'kɔ]"} meaning={"So / therefore"} lang="xh" />
-          <PronunciationPlayer word={"Xa"} phonetic={"[ksa]"} meaning={"When / if"} lang="xh" />
-          <PronunciationPlayer word={"Namhlanje"} phonetic={"[nam'ɬaɲɛ]"} meaning={"Today"} lang="xh" />
-          <PronunciationPlayer word={"Izolo"} phonetic={"[i'zɔlɔ]"} meaning={"Yesterday"} lang="xh" />
-          <PronunciationPlayer word={"Ngomso"} phonetic={"[ŋɔm'sɔ]"} meaning={"Tomorrow"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {

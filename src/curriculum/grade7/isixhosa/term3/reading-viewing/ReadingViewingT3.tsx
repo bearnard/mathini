@@ -1,48 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './ReadingViewingT3.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Interpret poems, posters, folktales, and picture sequences',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 3 reading broadens to <strong>poems, folktales, posters, factual texts,</strong> and image sequences.
-          Identify mood, message, and key details.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2">
-          <div className="rounded-xl bg-pink-50 p-4 text-left">
-            <p className="font-semibold text-pink-800">Poetry</p>
-            <p className="text-slate-600">Look for feelings, repeated words, and imagery.</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-semibold text-cyan-800">Visual texts</p>
-            <p className="text-slate-600">Use symbols, layout, and pictures to infer meaning.</p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Use these literary-reading words when discussing folktales, poems, drama scenes, and character response.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Intsomi"} phonetic={"[in'tsɔmi]"} meaning={"Folktale"} lang="xh" />
-          <PronunciationPlayer word={"Umbongo"} phonetic={"[um'bɔŋgɔ]"} meaning={"Poem"} lang="xh" />
-          <PronunciationPlayer word={"Abalinganiswa"} phonetic={"[abaliŋga'niswa]"} meaning={"Characters"} lang="xh" />
-          <PronunciationPlayer word={"Umxholo"} phonetic={"[um'xɔlɔ]"} meaning={"Theme / topic"} lang="xh" />
-          <PronunciationPlayer word={"Imvakalelo"} phonetic={"[im.vaka'lɛlɔ]"} meaning={"Feeling / emotion"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {

@@ -1,49 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './LanguageStructuresT4.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Consolidate grammar skills for Grade 8 readiness',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 4 language revision consolidates <strong>tenses, pronouns, question forms, concords,</strong> and
-          spelling to support end-of-year assessment and transition to Grade 8.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <p className="font-semibold text-sky-800">Revision drills</p>
-            <p className="text-slate-600">Practise mixed grammar items in exam-style MCQs.</p>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <p className="font-semibold text-orange-800">Proofreading</p>
-            <p className="text-slate-600">Spot and fix sentence and spelling errors quickly.</p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Keep these core grammar words active in memory while revising forms, tense control, and punctuation.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Isibizo"} phonetic={"[isi'biːzo]"} meaning={"Noun"} lang="xh" />
-          <PronunciationPlayer word={"Isimelabizo"} phonetic={"[isi.mɛla'biːzo]"} meaning={"Pronoun"} lang="xh" />
-          <PronunciationPlayer word={"Ixesha"} phonetic={"[i'kʰeʃa]"} meaning={"Tense / time"} lang="xh" />
-          <PronunciationPlayer word={"Kwaye"} phonetic={"[kwa'jɛ]"} meaning={"And"} lang="xh" />
-          <PronunciationPlayer word={"Kodwa"} phonetic={"[kɔ'dwa]"} meaning={"But"} lang="xh" />
-          <PronunciationPlayer word={"Isiphumlisi"} phonetic={"[isi.pʰum'liːsi]"} meaning={"Punctuation mark"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {

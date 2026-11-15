@@ -1,49 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './ListeningSpeakingT4.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Prepare short talks on health, feelings, and future plans',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 4 oral work revises vocabulary through discussions about <strong>health, feelings,</strong> and
-          <strong> future plans</strong>, plus short prepared talks.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-semibold text-rose-800">Prepared speech</p>
-            <p className="text-slate-600">Plan your points and practise smooth delivery.</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-semibold text-lime-800">Discussion skills</p>
-            <p className="text-slate-600">Listen actively and respond respectfully to others.</p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these health, feelings, and celebration words aloud to build confidence for revision conversations.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Impilo"} phonetic={"[im'piːlɔ]"} meaning={"Health"} lang="xh" />
-          <PronunciationPlayer word={"Uvuyo"} phonetic={"[u'vujɔ]"} meaning={"Joy"} lang="xh" />
-          <PronunciationPlayer word={"Usizi"} phonetic={"[u'siːzi]"} meaning={"Sadness"} lang="xh" />
-          <PronunciationPlayer word={"Ndidiniwe"} phonetic={"[ndi.di'niːwe]"} meaning={"I am tired"} lang="xh" />
-          <PronunciationPlayer word={"Umnyhadala"} phonetic={"[umɲa'dala]"} meaning={"Celebration / event"} lang="xh" />
-          <PronunciationPlayer word={"Phumla"} phonetic={"[pʰum'la]"} meaning={"Rest"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {
