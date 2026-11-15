@@ -4,7 +4,7 @@ import Card from '../../../../components/ui/Card';
 import Button from '../../../../components/ui/Button';
 import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
-import { buildMockTest, marksGained, scoreByTopic, topicsToRevise, totalMarks, type MockItem, type TopicBank } from './mockTest';
+import { buildMockTest, marksGained, seededRandom, scoreByTopic, topicsToRevise, totalMarks, type MockItem, type TopicBank } from './mockTest';
 import { kindOf, marksOf } from './itemKinds';
 import { onFinish, onStart } from './mockTestEvents';
 import NstQuestionBody, { incorrectMessageFor } from './NstQuestionBody';
@@ -41,7 +41,10 @@ type Phase = 'round1' | 'reask' | 'results';
 const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0, run }: NstMockTestProps) => {
   const { student } = useStudent();
   const tracker = useRunTracker();
-  const [questions, setQuestions] = useState<MockItem[]>(() => buildMockTest(groups, count, Math.random, { explain: explainCount }));
+  // The server and the first client render must build the SAME test, or React reports a hydration mismatch. So the first test
+  // is seeded (deterministic); once mounted, the learner's real random test replaces it before they can answer anything.
+  const [questions, setQuestions] = useState<MockItem[]>(() => buildMockTest(groups, count, seededRandom(1), { explain: explainCount }));
+  const [ready, setReady] = useState(false);
   const [phase, setPhase] = useState<Phase>('round1');
   const [queue, setQueue] = useState<MockItem[]>(questions);
   const [index, setIndex] = useState(0);
@@ -56,12 +59,20 @@ const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0, ru
   const finished = useRef(false);
   const startedFor = useRef<MockItem[] | null>(null);
 
-  // Analytics hook point: one call when a test begins.
   useEffect(() => {
-    if (startedFor.current === questions) return; // once per test (StrictMode replays effects in dev)
+    const fresh = buildMockTest(groups, count, Math.random, { explain: explainCount });
+    setQuestions(fresh);
+    setQueue(fresh);
+    setReady(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Analytics hook point: one call when a test begins (after the real test is in place, so the seeded placeholder is never counted).
+  useEffect(() => {
+    if (!ready || startedFor.current === questions) return; // once per test (StrictMode replays effects in dev)
     startedFor.current = questions;
     onStart({ title, questionCount: questions.length });
-  }, [questions]);
+  }, [questions, ready]);
 
   const current = phase === 'results' ? undefined : queue[index];
   // The last question overall: end of the re-ask round, or end of round 1 with nothing missed.
