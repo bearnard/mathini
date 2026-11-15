@@ -5,8 +5,7 @@ import { useEffect, useState } from 'react';
 import { Users } from 'lucide-react';
 import Card from '../ui/Card';
 import { JOIN_NOTICE } from '../../lib/shared/classNotice';
-
-interface Joined { classId: string; name: string; grade: number; schoolName: string }
+import { parseClasses, parseJoined, type JoinedClass as Joined } from '../../lib/client/parseClasses';
 
 async function post(url: string, action: string, body?: unknown): Promise<{ ok: boolean; data: Record<string, unknown> }> {
   try {
@@ -26,8 +25,8 @@ export default function ClassesCard() {
 
   const load = () => {
     fetch('/api/classes/mine', { cache: 'no-store' })
-      .then((r) => (r.ok ? (r.json() as Promise<{ classes: Joined[] }>) : Promise.reject(new Error('x'))))
-      .then((j) => setClasses(j.classes))
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => setClasses(parseClasses(j)))
       .catch(() => setClasses([]));
   };
   useEffect(load, []);
@@ -37,8 +36,8 @@ export default function ClassesCard() {
     const r = await post('/api/classes/join', 'class-join', { code });
     setBusy(false);
     if (!r.ok) { setMsg(String(r.data.error ?? 'That did not work.')); return; }
-    const j = r.data.joined as Joined;
-    setMsg(r.data.alreadyMember ? `You are already in ${j.name}.` : `You joined ${j.name}.`);
+    const j = parseJoined(r.data);
+    setMsg(j ? (r.data.alreadyMember ? `You are already in ${j.name}.` : `You joined ${j.name}.`) : 'You joined the class.');
     setCode(''); setOpen(false);
     load();
   };
