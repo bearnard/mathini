@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Understand business and labour responsibility',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Businesses have responsibilities to employees (fair wages, safe conditions), customers (quality, honesty), 
-          and society (ethical practices, environmental care). South African labour law protects workers.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Apply integrated business thinking',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Economic systems, entrepreneurship, financial literacy, and business functions work together. Success 
-          requires balancing profitability with stakeholder needs and social responsibility.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Prepare for year-end assessment',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Review case studies, apply concepts to real scenarios, justify business decisions and demonstrate deep 
-          understanding of EMS principles. Integration across all topics is key.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {

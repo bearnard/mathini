@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Optimize production processes',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Production efficiency reduces costs and improves quality. Methods like standardization, automation and 
-          quality control ensure products meet customer expectations while maximizing resource use.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Develop marketing strategies',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Effective marketing identifies customer needs, positions products attractively, prices competitively and 
-          promotes through appropriate channels. Marketing links production to customer satisfaction.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Connect production and marketing',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Production must respond to market demands. Marketing must understand production capabilities. Integration 
-          of these functions ensures customer-focused products at profitable prices.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {
