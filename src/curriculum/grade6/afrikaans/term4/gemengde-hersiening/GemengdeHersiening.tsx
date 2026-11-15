@@ -81,10 +81,10 @@ export const bank: AfrikaansItem[] = [
     explanation: "'Elke dag' uses the simple present tense here.",
   },
   {
-    prompt: 'Verlede tyd: Ek speel sokker. Gister ___ ek sokker.',
-    options: ['het gespeel', 'speel', 'sal speel', 'gespeel het'],
-    answer: 'het gespeel',
-    explanation: "Past tense uses 'het ... gespeel'.",
+    prompt: 'Verlede tyd: Ek speel sokker. Gister ___ ek sokker ___.',
+    options: ['het ... gespeel', 'het ... speel', 'sal ... speel', 'is ... gespeel'],
+    answer: 'het ... gespeel',
+    explanation: "Past tense uses 'het ... gespeel': Gister het ek sokker gespeel.",
   },
   {
     prompt: 'Toekomende tyd: Môre ___ ek my boek lees.',
