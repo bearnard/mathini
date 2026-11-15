@@ -111,7 +111,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Which action shows respect for another family’s religious customs?',
-    options: ['Listening politely and asking questions', 'Laughing at the clothes', 'Refusing to go near', 'Copying them as a joke'],
+    options: ['Listening politely and asking questions', 'Laughing at the clothes people wear', 'Refusing to go anywhere near them', 'Copying their customs as a joke'],
     answer: 'Listening politely and asking questions',
     explanation: 'Respect means treating beliefs with care.',
   },

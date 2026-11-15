@@ -113,7 +113,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'A balanced diet means eating…',
-    options: ['foods from all the groups in the right amounts', 'only the foods you like', 'as much as you can', 'only fruit'],
+    options: ['foods from all the groups in the right amounts', 'only the foods that you like best', 'as much food as you possibly can', 'only fruit and nothing else at all'],
     answer: 'foods from all the groups in the right amounts',
     explanation: 'A variety keeps the body healthy.',
   },

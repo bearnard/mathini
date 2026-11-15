@@ -99,7 +99,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'TB spreads when a sick person…',
-    options: ['coughs or sneezes in the air', 'shakes hands', 'shares a desk', 'hugs you'],
+    options: ['coughs or sneezes in the air', 'shakes hands with you', 'shares a desk with you', 'gives you a hug hello'],
     answer: 'coughs or sneezes in the air',
     explanation: 'The bacteria travel in the air.',
   },

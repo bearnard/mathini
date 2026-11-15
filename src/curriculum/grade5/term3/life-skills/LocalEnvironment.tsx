@@ -107,13 +107,13 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Oil poured down a drain is harmful because…',
-    options: ['it pollutes water and harms fish', 'it makes plants grow', 'it cleans the river', 'it makes rain'],
+    options: ['it pollutes water and harms fish', 'it makes all the plants grow faster', 'it cleans the river for the fish', 'it makes more rain fall nearby'],
     answer: 'it pollutes water and harms fish',
     explanation: 'Oil contaminates water.',
   },
   {
     prompt: 'Cutting down too many trees can cause…',
-    options: ['animals to lose their homes', 'more fish', 'cleaner air', 'better soil'],
+    options: ['animals to lose their homes', 'many more fish in rivers', 'much cleaner air in cities', 'better soil on the hillside'],
     answer: 'animals to lose their homes',
     explanation: 'Trees are homes for many animals.',
   },

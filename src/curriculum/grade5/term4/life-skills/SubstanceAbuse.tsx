@@ -111,7 +111,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Peer pressure means…',
-    options: ['friends pushing you to do something', 'a school rule', 'a type of medicine', 'a kind of food'],
+    options: ['friends pushing you to do something', 'a rule that your school made', 'a type of medicine from a clinic', 'a kind of food that is healthy'],
     answer: 'friends pushing you to do something',
     explanation: 'Others try to influence your choices.',
   },
