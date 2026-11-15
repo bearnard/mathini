@@ -1,105 +1,117 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
 import AnnotatedText from '@/components/subjects/AnnotatedText';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Theme and mood grow from story details',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A deeper literature response looks past the plot. Readers explain the <strong>theme</strong>
-          {' '}or message, describe the <strong>mood</strong>, and point to details that create these ideas.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-amber-50 p-4 text-slate-700">
-            <strong>Theme</strong>
-            <br />
-            the big idea the story grows around
-          </div>
-          <div className="rounded-xl bg-sky-50 p-4 text-slate-700">
-            <strong>Mood</strong>
-            <br />
-            the feeling the reader notices
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-slate-700">
-            <strong>Clues</strong>
-            <br />
-            words, actions, and events from the text
-          </div>
-        </div>
-      </div>
+    title: 'Theme and mood',
+    content: slide(
+      <>
+        <Rule>
+          A theme is the big idea or message in a story. Mood is the feeling or atmosphere created by the story. Both grow from details in the text.
+        </Rule>
+        <Worked
+          title="Name a mood and state a theme"
+          steps={[
+            <>A story feels tense and frightening: the mood is suspenseful.</>,
+            <>Mood answers “what feeling does the reader get?”. Look at the words that create it.</>,
+            <>A theme is a broad message that applies beyond one event: “Honesty builds trust, even when the truth is hard.”</>,
+            <>Compare: “Lebo hid a letter” is only an event, not a theme.</>,
+          ]}
+        />
+        <Mistake>Giving the plot as the theme. A theme is a message that could apply to many stories, not what happens in one.</Mistake>
+      </>,
     ),
   },
   {
-    title: "Annotated extract",
-    content: (
-      <AnnotatedText
-        title={"From \"The Highwayman\" — Alfred Noyes"}
-        text={"The wind was a torrent of darkness among the gusty trees. The moon was a ghostly galleon tossed upon cloudy seas."}
-        annotations={[
-          { start: 15, end: 34, device: "metaphor", note: "Darkness is compared to a rushing flood, making the setting feel forceful and threatening." },
-          { start: 45, end: 56, device: "imagery", note: "The descriptive phrase sharpens the stormy picture in the reader’s mind." },
-          { start: 73, end: 88, device: "metaphor", note: "The moon becomes a haunted ship, turning the sky into a dramatic seascape." },
-          { start: 101, end: 112, device: "imagery", note: "Clouds are imagined as waves, deepening the visual effect of the line." },
-        ]}
-      />
+    title: 'How description builds mood',
+    content: slide(
+      <>
+        <Rule>Writers use metaphor and imagery to build mood. Find the device, then say what feeling it creates.</Rule>
+        <AnnotatedText
+          title={'From "The Highwayman" — Alfred Noyes'}
+          text={"The wind was a torrent of darkness among the gusty trees. The moon was a ghostly galleon tossed upon cloudy seas."}
+          annotations={[
+            { start: 15, end: 34, device: 'metaphor', note: 'The wind is compared to a rushing flood of darkness, which makes the setting forceful and threatening.' },
+            { start: 45, end: 56, device: 'imagery', note: 'The description sharpens the stormy picture in the reader’s mind.' },
+            { start: 73, end: 88, device: 'metaphor', note: 'The moon is compared to a haunted ship.' },
+            { start: 101, end: 112, device: 'imagery', note: 'Clouds are imagined as waves, deepening the picture.' },
+          ]}
+        />
+        <Worked
+          title="From device to mood"
+          steps={[
+            <>“The wind was a torrent of darkness”: the wind is called a flood of darkness, a metaphor.</>,
+            <>“a ghostly galleon”: the moon becomes a haunted ship, another metaphor.</>,
+            <>Together the dark, stormy images make the mood threatening and mysterious.</>,
+          ]}
+        />
+        <Mistake>Saying the mood is just “the weather”. Mood is the feeling the reader gets from the details.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Character motivation explains why actions happen',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          When we analyse <strong>character motivation</strong>, we ask why a character made a choice.
-          Good answers connect the action to a reason and then support it with evidence from the story.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-rose-50 p-4 text-slate-700">
-            <strong>Action</strong>
-            <br />
-            what the character does
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-slate-700">
-            <strong>Motivation</strong>
-            <br />
-            what the character wants or fears
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-slate-700">
-            <strong>Evidence</strong>
-            <br />
-            the moment that proves your idea
-          </div>
-        </div>
-      </div>
+    title: 'Character motivation',
+    content: slide(
+      <>
+        <Rule>Motivation is why a character acts: what they want or fear. A good answer joins the action, the reason and the evidence from the story.</Rule>
+        <Worked
+          title="Explain why a character acts"
+          steps={[
+            <>Action: a character practises every day.</>,
+            <>Motivation: she wants to make the team.</>,
+            <>Evidence: the action and the reason together show what motivates her.</>,
+            <>Write it: “She practises every day because she wants to make the team.”</>,
+          ]}
+        />
+        <Mistake>Saying what the character did without saying why. An action alone is not a motivation.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Strong opinions are justified with textual support',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          In a review, interview, or book response, do more than say what you liked. Give a clear opinion,
-          support it with details, and keep events or ideas in a sensible sequence.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-indigo-50 p-4 text-slate-700">
-            <strong>Opinion</strong>
-            <br />
-            your judgement about the text
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-slate-700">
-            <strong>Support</strong>
-            <br />
-            quote or retell a useful detail
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-slate-700">
-            <strong>Sequence</strong>
-            <br />
-            explain ideas in a clear order
-          </div>
-        </div>
-      </div>
+    title: 'Opinions, reviews and interviews',
+    content: slide(
+      <>
+        <Rule>
+          A review gives an opinion supported by reasons and examples. Use textual support (a clear detail from the text) and keep ideas in order, because sequencing helps explain events in a clear order.
+        </Rule>
+        <Worked
+          title="Support an opinion and plan an interview"
+          steps={[
+            <>Opinion: “The hero is brave.”</>,
+            <>Textual support: “because he helps his friend in chapter 3”. The detail proves the opinion.</>,
+            <>Sequence your points: first, then, finally.</>,
+            <>Interview question for a character: “Why did you decide to hide the letter?” It explores a choice or a motive.</>,
+          ]}
+        />
+        <Mistake>Saying only “I liked it”. Give an opinion and prove it with a detail from the text.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is a theme, and what does mood tell the reader?</li>
+            <li>A story feels tense and frightening. What is the mood? Which sentence best states a theme?</li>
+            <li>Which detail shows motivation: a character who practises every day to make the team?</li>
+            <li>What should a review include, and which sentence uses textual support?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>The big idea or message. The feeling or atmosphere created by the story.</li>
+            <li>Suspenseful. “Honesty builds trust, even when the truth is hard.”</li>
+            <li>Yes: the action and the reason together show motivation.</li>
+            <li>An opinion supported by reasons and examples. “The hero is brave because he helps his friend in chapter 3.”</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
