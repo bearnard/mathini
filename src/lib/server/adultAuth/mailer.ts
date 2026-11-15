@@ -6,6 +6,8 @@ export interface Mail {
   subject: string;
   text: string;
   html?: string;
+  /** Extra message headers, for example List-Unsubscribe. */
+  headers?: Record<string, string>;
 }
 
 export interface Mailer {
@@ -35,7 +37,7 @@ export class ResendMailer implements Mailer {
     const res = await this.fetchImpl('https://api.resend.com/emails', {
       method: 'POST',
       headers: { Authorization: `Bearer ${this.apiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from: this.from, to: [mail.to], subject: mail.subject, text: mail.text, ...(mail.html ? { html: mail.html } : {}) }),
+      body: JSON.stringify({ from: this.from, to: [mail.to], subject: mail.subject, text: mail.text, ...(mail.html ? { html: mail.html } : {}), ...(mail.headers ? { headers: mail.headers } : {}) }),
     });
     if (!res.ok) throw new Error(`resend responded ${res.status}`);
   }
@@ -67,5 +69,8 @@ export function mailerFromEnv(env: MailEnv | null | undefined, isDevelopment: bo
   if (isDevelopment && !key) return new DevMailer();
   return new RefusingMailer();
 }
+
+/** True when `mailer` can really send (production without a key gets a RefusingMailer). */
+export const canSend = (mailer: Mailer): boolean => !(mailer instanceof RefusingMailer);
 
 export const isDevelopment = (): boolean => process.env.NODE_ENV === 'development';

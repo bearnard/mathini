@@ -57,7 +57,7 @@ export interface TrackerDeps {
  */
 export function isTrackablePath(pathname: string | null | undefined): boolean {
   const p = (pathname ?? '').split(/[?#]/)[0];
-  return !(p === '/admin' || p.startsWith('/admin/') || p === '/api' || p.startsWith('/api/') || p === '/teacher-review' || p.startsWith('/teacher-review/') || p === '/sign-in' || p.startsWith('/sign-in/') || p === '/account' || p === '/parent' || p.startsWith('/parent/') || p === '/invite-parent');
+  return !(p === '/admin' || p.startsWith('/admin/') || p === '/api' || p.startsWith('/api/') || p === '/teacher-review' || p.startsWith('/teacher-review/') || p === '/sign-in' || p.startsWith('/sign-in/') || p === '/account' || p === '/parent' || p.startsWith('/parent/') || p === '/invite-parent' || p === '/unsubscribe');
 }
 
 export const FLUSH_INTERVAL_MS = 10_000;
