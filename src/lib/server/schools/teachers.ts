@@ -18,6 +18,10 @@ const SACE_RE = /^[A-Za-z0-9][A-Za-z0-9 \-]{3,18}[A-Za-z0-9]$/;
 export const maskSace = (s: string): string => (s.length <= 3 ? '***' : `${'*'.repeat(Math.max(s.length - 3, 3))}${s.slice(-3)}`);
 const normName = (s: string) => s.toLowerCase().replace(/\s+/g, ' ').trim();
 
+/** After a rejection (or a revoked teacher role) the person can send a new application once this long has passed. */
+export const REAPPLY_COOLDOWN_MS = 30 * 24 * 60 * 60 * 1000;
+const sastDateOf = (ms: number): string => new Date(ms + 2 * 3_600_000).toISOString().slice(0, 10);
+
 export type ApplyResult = { ok: true; status: 'pending' } | { ok: false; status: number; error: string };
 
 /** A signed-in adult asks for the teacher role. One application per adult; a rejected one can be sent again; an approved teacher cannot apply. */
@@ -32,8 +36,12 @@ export async function applyAsTeacher(db: AdminDb, userId: string, input: ApplyIn
 
   const roles = await db.all<{ role: string }>('SELECT role FROM user_roles WHERE user_id = ?', [userId]);
   if (roles.some((r) => r.role === 'teacher')) return { ok: false, status: 409, error: 'You already have a teacher account' };
-  const existing = (await db.all<{ status: string }>('SELECT status FROM teacher_applications WHERE user_id = ?', [userId]))[0];
+  const existing = (await db.all<{ status: string; decided_at: number | null }>('SELECT status, decided_at FROM teacher_applications WHERE user_id = ?', [userId]))[0];
   if (existing?.status === 'pending') return { ok: false, status: 409, error: 'Your application is waiting for approval' };
+  // A rejected application (or a revoked teacher) waits 30 days, so the admin's queue cannot be spammed by sending the same thing again at once.
+  if (existing?.status === 'rejected' && existing.decided_at != null && now < Number(existing.decided_at) + REAPPLY_COOLDOWN_MS) {
+    return { ok: false, status: 429, error: `Your last application was not approved. You can send a new one on ${sastDateOf(Number(existing.decided_at) + REAPPLY_COOLDOWN_MS)}.` };
+  }
 
   await db.batch([{
     sql: `INSERT INTO teacher_applications (user_id, sace_number, school_name, province, subjects_note, status, submitted_at)
@@ -46,14 +54,14 @@ export async function applyAsTeacher(db: AdminDb, userId: string, input: ApplyIn
   return { ok: true, status: 'pending' };
 }
 
-export interface OwnApplication { status: ApplicationStatus; schoolName: string; saceMasked: string; submittedAt: number; decidedAt: number | null; note: string | null }
+export interface OwnApplication { status: ApplicationStatus; schoolName: string; saceMasked: string; submittedAt: number; decidedAt: number | null; note: string | null; /** For a rejected application: when a new one may be sent. */ canApplyAgainAt: number | null }
 
 /** The applicant's own view: status and the admin's note on a rejection. The SACE number is masked. */
 export async function getOwnApplication(db: AdminDb, userId: string): Promise<OwnApplication | null> {
   const r = (await db.all<{ status: string; school_name: string; sace_number: string; submitted_at: number; decided_at: number | null; decision_note: string | null }>(
     'SELECT status, school_name, sace_number, submitted_at, decided_at, decision_note FROM teacher_applications WHERE user_id = ?', [userId]))[0];
   if (!r) return null;
-  return { status: r.status as ApplicationStatus, schoolName: r.school_name, saceMasked: maskSace(r.sace_number), submittedAt: Number(r.submitted_at), decidedAt: r.decided_at == null ? null : Number(r.decided_at), note: r.status === 'rejected' ? r.decision_note : null };
+  return { status: r.status as ApplicationStatus, schoolName: r.school_name, saceMasked: maskSace(r.sace_number), submittedAt: Number(r.submitted_at), decidedAt: r.decided_at == null ? null : Number(r.decided_at), note: r.status === 'rejected' ? r.decision_note : null, canApplyAgainAt: r.status === 'rejected' && r.decided_at != null ? Number(r.decided_at) + REAPPLY_COOLDOWN_MS : null };
 }
 
 export interface AdminApplication {

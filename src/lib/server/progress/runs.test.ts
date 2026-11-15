@@ -50,7 +50,11 @@ test('startRun refuses bad input and another learner\'s run id', async (ctx) => 
   }
   assert.ok((await startRun(t.db, 's1', input(), T0)).ok);
   const steal = await startRun(t.db, 's2', input(), T0);
-  assert.deepEqual([steal.ok, !steal.ok && steal.status], [false, 409]);
+  assert.deepEqual([steal.ok, !steal.ok && steal.status], [false, 404], 'someone else\'s run id is a 404, never a confirmation that it exists');
+  const ghost = await finishRun(t.db, 's2', id(1), T0);
+  const unknown = await finishRun(t.db, 's2', id(99), T0);
+  assert.deepEqual([ghost.ok, !ghost.ok && ghost.status, !ghost.ok && ghost.error], [unknown.ok, !unknown.ok && unknown.status, !unknown.ok && unknown.error], 'finishing it reads exactly like an unknown run');
+  assert.deepEqual([!steal.ok && steal.error], [!ghost.ok && ghost.error], 'and starting it says the same thing');
 });
 
 test('startRun caps nItems, clamps a claimed start time to the last 2 hours and never to the future', async (ctx) => {
