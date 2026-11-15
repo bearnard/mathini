@@ -1,6 +1,7 @@
 'use client';
 
-import { Trophy, LogOut } from 'lucide-react';
+import Link from 'next/link';
+import { Trophy, LogOut, TrendingUp } from 'lucide-react';
 import type { Student } from '../../lib/client/StudentContext';
 import { cn } from '../../lib/utils';
 
@@ -31,13 +32,22 @@ export default function AppHeader({
               <span className="truncate text-sm font-semibold text-slate-700">
                 {student.displayName}
               </span>
-              <span className="shrink-0 rounded-full bg-brand-yellow/25 px-2 py-0.5 text-xs font-bold text-amber-800">
+              <span className="shrink-0 rounded-full bg-brand-yellow/25 px-2 py-0.5 text-xs font-bold text-amber-800 max-[359px]:hidden">
                 {student.xp} XP
               </span>
             </>
           )}
         </div>
         <div className="flex shrink-0 items-center gap-1">
+          <Link
+            href="/progress"
+            className="inline-flex h-11 min-w-11 items-center justify-center gap-1.5 rounded-full px-2.5 text-sm font-bold text-indigo-700 transition-colors hover:bg-indigo-50"
+            title="My progress"
+            aria-label="My progress"
+          >
+            <TrendingUp className="h-5 w-5" />
+            <span className="hidden sm:inline">My progress</span>
+          </Link>
           <button
             type="button"
             onClick={onToggleLeaderboard}

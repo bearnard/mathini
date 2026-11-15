@@ -6,7 +6,7 @@
 import Link from 'next/link';
 import DataChart from '../subjects/DataChart';
 import type { ExamReadiness, ProgressResponse, RetentionProgress, SubjectProgress, TestResult, TestSeries, TopicProgress } from '../../lib/shared/progressTypes';
-import { KIND_TEXT, LEVEL_COLOUR, LEVEL_HINT, LEVEL_TEXT, changeText, changeTone, numText, pctText, remembered, shortDate } from './format';
+import { KIND_TEXT, LEVEL_COLOUR, LEVEL_HINT, LEVEL_TEXT, changeText, changeTone, numText, pctText, remembered, shortDate, startChangeText } from './format';
 import { SPARK, sparkPoints } from './sparkline';
 
 /** A bar whose fill is the percentage the server sent (null shows an empty bar). */
@@ -33,7 +33,7 @@ const Card = ({ title, children, id }: { title: string; children: React.ReactNod
 
 const toneClass = { up: 'text-emerald-700', flat: 'text-slate-500', down: 'text-slate-600' } as const;
 
-const Change = ({ points }: { points: number | null | undefined }) => <span className={`text-xs font-bold ${toneClass[changeTone(points)]}`}>{changeText(points)}</span>;
+const Change = ({ points, text = changeText }: { points: number | null | undefined; text?: (p: number | null | undefined) => string }) => <span className={`text-xs font-bold ${toneClass[changeTone(points)]}`}>{text(points)}</span>;
 
 const Spark = ({ values, label }: { values: number[]; label: string }) =>
   values.length === 0 ? (
@@ -69,7 +69,7 @@ export const ExamCard = ({ exam }: { exam: ExamReadiness | null }) => (
         <div className="mt-2"><Bar pct={exam.readinessPct} colour="bg-indigo-500" label="Exam readiness" /></div>
         <dl className="mt-4 grid grid-cols-1 gap-3 text-sm sm:grid-cols-3">
           <div className="rounded-xl bg-slate-50 p-3">
-            <dt className="font-semibold text-slate-600">Topics mastered so far</dt>
+            <dt className="font-semibold text-slate-600">Average across exam topics</dt>
             <dd className="text-lg font-extrabold text-slate-900">{pctText(exam.masteryPct)}</dd>
           </div>
           <div className="rounded-xl bg-slate-50 p-3">
@@ -94,7 +94,7 @@ const TopicRow = ({ t }: { t: TopicProgress }) => (
         <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${LEVEL_COLOUR[t.level].chip}`}>{LEVEL_TEXT[t.level]}</span>
         <span className="text-slate-600">{t.accuracyPct === null ? LEVEL_HINT[t.level] : `${pctText(t.accuracyPct)} · ${LEVEL_HINT[t.level]}`}</span>
       </p>
-      {t.changePoints !== null ? <p className="mt-0.5"><Change points={t.changePoints} /></p> : null}
+      {t.changePoints !== null ? <p className="mt-0.5"><Change points={t.changePoints} text={startChangeText} /></p> : null}
     </div>
     <div className="flex items-center justify-between gap-3 sm:justify-end">
       <Spark values={t.trend} label={t.trend.length === 0 ? '' : `Trend for ${t.label}: ${t.trend.map((v) => pctText(v)).join(', ')}`} />
@@ -170,7 +170,9 @@ export const RetentionCard = ({ r, days, streak }: { r: RetentionProgress; days:
       </>
     )}
     <p className="mt-3 border-t border-slate-100 pt-3 text-sm text-slate-700">
-      You practised on {numText(days)} of the last 14 days{streak > 0 ? `. Your streak: ${numText(streak)} ${streak === 1 ? 'day' : 'days'}` : ''}.
+      {days === 0
+        ? 'Practise today and your practice days will start to add up.'
+        : `You practised on ${numText(days)} of the last 14 days${streak > 0 ? `. Your streak: ${numText(streak)} ${streak === 1 ? 'day' : 'days'}` : ''}.`}
     </p>
   </Card>
 );
@@ -179,6 +181,7 @@ export default function ProgressView({ data }: { data: ProgressResponse }) {
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
       <header>
+        <Link href="/app" className="inline-flex min-h-11 items-center text-sm font-bold text-indigo-700">← Back to your topics</Link>
         <h1 className="text-2xl font-extrabold text-slate-900">My progress</h1>
         <p className="mt-1 text-slate-700">{data.displayName ? `${data.displayName}, here` : 'Here'} is how you are growing. Every try counts.</p>
       </header>

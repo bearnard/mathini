@@ -7,7 +7,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import ProgressView from './ProgressView';
 import { MOCK_PROGRESS, MOCK_PROGRESS_NEW } from '../../lib/shared/progressMock';
 import { MASTERY_LEVELS, type ProgressResponse } from '../../lib/shared/progressTypes';
-import { LEVEL_TEXT, changeText, changeTone, numText, pctText, remembered, shortDate } from './format';
+import { LEVEL_TEXT, arrowPoints, changeText, startChangeText, changeTone, numText, pctText, remembered, shortDate } from './format';
 import { SPARK, sparkPoints } from './sparkline';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -25,6 +25,13 @@ test('format: decimal comma, arrows and gentle words; first try and zero are neu
   assert.equal(changeText(-2.5), '↓ 2,5 since last time');
   assert.equal(changeText(0), 'Same as last time');
   assert.equal(changeText(null), 'First try');
+  assert.equal(arrowPoints(12.5), '↑ 12,5');
+  assert.equal(arrowPoints(-3), '↓ 3');
+  assert.equal(arrowPoints(0), '');
+  assert.equal(startChangeText(50), '↑ 50 since you started');
+  assert.equal(startChangeText(-4), '↓ 4 since you started');
+  assert.equal(startChangeText(0), 'Steady since you started');
+  assert.equal(startChangeText(null), '');
   assert.deepEqual([5, -5, 0, null].map(changeTone), ['up', 'down', 'flat', 'flat']);
   assert.equal(remembered(34, 40), 'You remembered 34 of 40 review cards this week');
   assert.equal(shortDate('2026-11-12T10:30:00.000Z'), '12 Nov');
@@ -63,7 +70,7 @@ test('the page shows every number the API sent, with the decimal comma, and the 
   const html = renderToStaticMarkup(<ProgressView data={MOCK_PROGRESS} />);
   const t = text(html);
   const d = MOCK_PROGRESS;
-  for (const must of ['68,5%', '64%', '6 of 8', '72% on 12 Nov', '42,5%', '↑ 12,5 since last time', '↑ 8 since last time', '↓ 5 since last time', 'You remembered 34 of 40 review cards this week', '12 cards remembered for good', '5 cards ready for you', '9 of the last 14 days', 'streak: 3 days', 'Do your 5 review cards']) assert.ok(t.includes(must), `missing "${must}"`);
+  for (const must of ['68,5%', 'Average across exam topics', '6 of 8', '72% on 12 Nov', '42,5%', '↑ 12,5 since you started', '↑ 8 since last time', '↓ 5 since last time', 'You remembered 34 of 40 review cards this week', '12 cards remembered for good', '5 cards ready for you', '9 of the last 14 days', 'streak: 3 days', 'Do your 5 review cards']) assert.ok(t.includes(must), `missing "${must}"`);
   assert.ok(t.indexOf('Your next best step') < t.indexOf('Exam readiness') && t.indexOf('Exam readiness') < t.indexOf('Test history'));
   assert.ok(!/\d\.\d/.test(t.replace(/\d{4}-\d{2}-\d{2}/g, '')), 'a decimal point leaked into the text');
   // topics in the order the server sent them, "Practise this" on every one, and bar fills straight from the data
@@ -84,8 +91,9 @@ test('the tone: encouraging words, nothing that compares with other learners or 
 
 test('a new learner sees friendly empty states, never a blank or a broken card', () => {
   const t = text(renderToStaticMarkup(<ProgressView data={MOCK_PROGRESS_NEW} />));
-  for (const must of ['Practise a few topics and your exam readiness will show up here', 'Your subjects and topics will appear here', 'it will be listed here', 'Review cards help you remember', 'Try your first topic', 'Choose a topic']) assert.ok(t.includes(must), `missing "${must}"`);
+  for (const must of ['Practise a few topics and your exam readiness will show up here', 'Your subjects and topics will appear here', 'it will be listed here', 'Review cards help you remember', 'Try your first topic', 'Choose a topic', 'Practise today and your practice days will start to add up']) assert.ok(t.includes(must), `missing "${must}"`);
   assert.ok(!t.includes('NaN') && !t.includes('undefined') && !t.includes('null'));
+  assert.ok(!t.includes('0 of the last 14'), 'a new learner is not told they practised on 0 days');
 });
 
 test('a next step with nothing to do shows no button', () => {

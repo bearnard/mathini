@@ -8,6 +8,8 @@ import OnboardingGate from './components/onboarding/OnboardingGate';
 import ConsentGate from './components/onboarding/ConsentGate';
 import LeaderboardView from './components/leaderboard/LeaderboardView';
 import TodaysReviewCard from './components/review/TodaysReviewCard';
+import MyProgressCard from './components/progress/MyProgressCard';
+import { useProgressTeaser } from './components/progress/useProgressTeaser';
 import { useReviewPreview } from './components/review/useTodayReview';
 import AppHeader from './components/layout/AppHeader';
 import TopicHeader from './components/layout/TopicHeader';
@@ -42,6 +44,7 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
   const [view, setView] = useState<'home' | 'leaderboard' | 'review'>('home');
   // Spaced review (Grade 6 learners only): shown on the grade and subject lists, hidden when nothing is due.
+  const progressTeaser = useProgressTeaser(status === 'active' && view === 'home');
   const reviewQuestions = useReviewPreview(status === 'active' && student?.grade === 6 && view === 'home', view);
 
   useEffect(() => { void loadRetired(); }, []);
@@ -156,9 +159,10 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
         </Suspense>
       ) : (
         <>
-        {reviewQuestions !== null && !selectedSubject && (
+        {!selectedSubject && (
           <div className="mx-auto max-w-5xl px-4 pt-4">
-            <TodaysReviewCard dueCount={reviewQuestions.length} onStart={() => setView('review')} />
+            <MyProgressCard teaser={progressTeaser} />
+            {reviewQuestions !== null && <TodaysReviewCard dueCount={reviewQuestions.length} onStart={() => setView('review')} />}
           </div>
         )}
         <CurriculumSelector
