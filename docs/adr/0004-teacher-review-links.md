@@ -8,6 +8,11 @@
   need accounts. The owner invites them by link. It reuses ADR 0003's question versions,
   validator and audit trail, and the `/admin/questions` edit pipeline.
 
+## Names (decided 2026-11-15)
+
+Server library `src/lib/server/teacherReview/`, API `/api/teacher-review/...`, reviewer page `/teacher-review/<token>`,
+admin page `/admin/reviews`. Not `src/lib/server/review/`, which is the learners' spaced review.
+
 ## The flow
 
 1. **Owner creates a review pack** (`/admin/reviews` → New). A pack holds about 10–60 *review
@@ -55,7 +60,7 @@
 
 ## Security and privacy
 
-- **Link token:** 32 random bytes (base64url) in the path, `/review/<token>`. Only the
+- **Link token:** 32 random bytes (base64url) in the path, `/teacher-review/<token>`. Only the
   **SHA-256 hash** is stored. Comparison is constant-time. The link expires after **14 days**
   (adjustable). The owner can **revoke** it at any time. It's scoped to one reviewer and one pack.
 - **Responses:** pages are `noindex`, served with `Cache-Control: no-store` and
