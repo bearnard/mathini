@@ -1,38 +1,99 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { SkimScan } from '../../../../../components/diagrams/english/WritingPictures';
+import { SCAN_LINES, SCAN_TITLE, findLine } from '../../../../../components/diagrams/english/writing';
+
+// The scanned line below is found by findLine (writing.test.ts).
+const target = findLine(SCAN_LINES, 'chess');
+const targetLine = SCAN_LINES[target];
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Consolidate mixed-genre revision',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 4 revision brings together reading, writing, language, and oral skills. Learners practise mixed-genre
-          questions to strengthen transfer across tasks.
-        </p>
-      </div>
+    title: 'Skim first, then scan',
+    content: slide(
+      <>
+        <Rule>Skimming gives you the overall meaning quickly. Scanning finds one specific detail, such as a name, time or place.</Rule>
+        <SkimScan target={target} aria="A notice titled After-school clubs with three lines. The chess club line is highlighted for scanning. Skimming covers the whole page for the gist." />
+        <Worked
+          title={`Notice: “${SCAN_TITLE}”. When does the chess club meet?`}
+          steps={[
+            <>Skim: the title shows this notice is about club times.</>,
+            <>Scan for the key word “chess”.</>,
+            <>Read that line only: <strong>{targetLine}</strong>. The answer is Thursday at 14:00.</>,
+          ]}
+        />
+        <Mistake>Answering before reading, or ignoring the title. The title orients you before you look for detail.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Use targeted exam strategies',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Effective revision includes skimming for overview, scanning for detail, planning answers quickly, and
-          checking instructions before writing.
-        </p>
-      </div>
+    title: 'Mixed genres need different approaches',
+    content: slide(
+      <>
+        <Rule>Revision brings all genres together. Adapt your reading strategy to each text type, because each one asks for a different focus.</Rule>
+        <ul className="space-y-1.5 rounded-xl bg-slate-50 p-4 text-left text-slate-700">
+          <li><strong>Poem:</strong> images, sound and tone.</li>
+          <li><strong>News report:</strong> facts and who, what, where.</li>
+          <li><strong>Advertisement:</strong> how it persuades.</li>
+          <li><strong>Story:</strong> character, setting and plot.</li>
+        </ul>
+        <Worked
+          title="Two questions, two strategies"
+          steps={[
+            <>“Who opened the new library?” Scan a news report for the name.</>,
+            <>“How does the poet feel about the sea?” Read the whole poem for tone, then find an image as evidence.</>,
+          ]}
+        />
+        <Mistake>Using one identical approach for every text. A scanning habit will not help you find tone in a poem.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Complete oral evidence with confidence',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Oral completion requires clear speaking, organised ideas, and reflection on texts studied during the year.
-          Preparation improves confidence and fluency.
-        </p>
-      </div>
+    title: 'Timed practice and exam habits',
+    content: slide(
+      <>
+        <Rule>Practise with short deadlines and check your answers afterwards. Read the command words and the instructions before you write.</Rule>
+        <Worked
+          title="Two command words"
+          steps={[
+            <>“List two clubs”: write two names, nothing more.</>,
+            <>“Explain why the notice is useful”: give a reason in a full sentence.</>,
+            <>Before you hand in: review the instructions and check that every question is answered.</>,
+          ]}
+        />
+        <Mistake>Skipping the command words, leaving questions blank on purpose, or changing answers at the last moment without a reason.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Oral reflection and the portfolio',
+    content: slide(
+      <>
+        <Rule>An oral reflection gives clear points, each backed by an example from a text you studied. In Term 4 the portfolio is finalised, so all required evidence of your progress is complete.</Rule>
+        <Worked
+          title="Point, example, link"
+          steps={[
+            <>Point: a character can learn from a mistake.</>,
+            <>Example: in the story about Thandi sharing her lunch, she learns that kindness is returned.</>,
+            <>Link: this shows how stories teach ideas.</>,
+          ]}
+        />
+        <Mistake>One-word answers with no preparation. Also, the portfolio does not replace the final examinations. It is evidence alongside them.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="Which strategy helps first when reading a new exam text?" answer="Skimming for the overall meaning." />
+        <Check question="When is scanning useful?" answer="When you need to find a specific detail quickly." />
+        <Check question="What should an oral reflection include?" answer="Clear points with examples from studied texts." />
+        <Check question="What should you do before submitting your answer script?" answer="Review the instructions and check that every question is answered." />
+      </>,
     ),
   },
 ];
