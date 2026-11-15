@@ -138,7 +138,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
     <>
       <TopicContainer title={title} subtitle={subtitle} onModeChange={setMode}>
         {mode === 'learn' ? (
-        <Card className="p-5 sm:p-8 space-y-8">
+        <Card className="lesson-card p-5 sm:p-8 space-y-8">
           <h2 className="text-2xl font-bold text-slate-800">{step.title}</h2>
 
           {step.image && (

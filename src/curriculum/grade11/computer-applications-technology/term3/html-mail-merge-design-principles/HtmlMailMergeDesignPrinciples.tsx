@@ -13,22 +13,22 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-blue-50 p-4">
             <strong className="text-blue-700">External link</strong>
-            <p className="font-mono text-sm text-slate-700 mt-1">&lt;a href="https://www.example.com"&gt;Visit site&lt;/a&gt;</p>
+            <p className="font-mono text-sm text-slate-700 mt-1 break-all">&lt;a href="https://www.example.com"&gt;Visit site&lt;/a&gt;</p>
             <p className="text-slate-600 text-sm mt-1">Uses a full URL. Opens another website. Add target="_blank" to open in a new tab.</p>
           </div>
           <div className="rounded-xl bg-green-50 p-4">
             <strong className="text-green-700">Internal link</strong>
-            <p className="font-mono text-sm text-slate-700 mt-1">&lt;a href="about.html"&gt;About us&lt;/a&gt;</p>
+            <p className="font-mono text-sm text-slate-700 mt-1 break-all">&lt;a href="about.html"&gt;About us&lt;/a&gt;</p>
             <p className="text-slate-600 text-sm mt-1">Uses a relative path to another page within the same website. No domain needed.</p>
           </div>
           <div className="rounded-xl bg-yellow-50 p-4">
             <strong className="text-yellow-700">Anchor (bookmark) link</strong>
-            <p className="font-mono text-sm text-slate-700 mt-1">&lt;a href="#contact"&gt;Jump to contact&lt;/a&gt;</p>
+            <p className="font-mono text-sm text-slate-700 mt-1 break-all">&lt;a href="#contact"&gt;Jump to contact&lt;/a&gt;</p>
             <p className="text-slate-600 text-sm mt-1">Links to a named section on the same page using the id attribute as a target.</p>
           </div>
           <div className="rounded-xl bg-orange-50 p-4">
             <strong className="text-orange-700">Image as link</strong>
-            <p className="font-mono text-sm text-slate-700 mt-1">&lt;a href="home.html"&gt;&lt;img src="logo.png" alt="Home"&gt;&lt;/a&gt;</p>
+            <p className="font-mono text-sm text-slate-700 mt-1 break-all">&lt;a href="home.html"&gt;&lt;img src="logo.png" alt="Home"&gt;&lt;/a&gt;</p>
             <p className="text-slate-600 text-sm mt-1">Wrap an &lt;img&gt; tag inside an &lt;a&gt; tag to make an image clickable.</p>
           </div>
         </div>

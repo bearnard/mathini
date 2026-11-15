@@ -31,6 +31,7 @@ const learnSteps: LearnStep[] = [
           Data size is measured in bytes. Knowing the units helps you compare storage options.
         </p>
         <div className="bg-slate-50 p-6 rounded-xl inline-block text-left">
+          <div className="overflow-x-auto">
           <table className="text-slate-700 text-sm w-full">
             <thead>
               <tr className="border-b border-slate-300">
@@ -46,6 +47,7 @@ const learnSteps: LearnStep[] = [
               <tr><td className="pr-6 py-1">Terabyte</td><td className="pr-6 py-1">TB</td><td>1 024 GB</td></tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
     ),

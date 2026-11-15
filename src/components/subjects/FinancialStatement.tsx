@@ -31,7 +31,7 @@ const fmt = (n: number) =>
  */
 const FinancialStatement = ({ title, period, sections, className }: FinancialStatementProps) => {
   return (
-    <div className={`rounded-xl border border-slate-200 overflow-hidden text-sm ${className ?? ''}`}>
+    <div className={`rounded-xl border border-slate-200 overflow-x-auto text-sm ${className ?? ''}`}>
       <div className="bg-slate-800 text-white px-4 py-3">
         <div className="font-bold text-base">{title}</div>
         {period && <div className="text-slate-300 text-xs mt-0.5">{period}</div>}
@@ -41,7 +41,7 @@ const FinancialStatement = ({ title, period, sections, className }: FinancialSta
           <div className="bg-slate-100 px-4 py-1.5 font-semibold text-slate-600 uppercase tracking-wide text-xs">
             {sec.heading}
           </div>
-          <table className="w-full">
+          <table className="w-full min-w-0">
             <tbody>
               {sec.lines.map((line, li) => (
                 <tr
@@ -59,7 +59,7 @@ const FinancialStatement = ({ title, period, sections, className }: FinancialSta
                     {line.label}
                     {line.note && <span className="ml-1 text-xs text-slate-400">({line.note})</span>}
                   </td>
-                  <td className="px-4 py-1.5 text-right font-mono text-slate-800 w-32">
+                  <td className="px-2 sm:px-4 py-1.5 text-right font-mono text-xs sm:text-sm text-slate-800 whitespace-nowrap">
                     {line.amount !== undefined ? (
                       <span className={line.amount < 0 ? 'text-red-600' : ''}>
                         {line.amount < 0 ? '(' : ''}R {fmt(line.amount)}{line.amount < 0 ? ')' : ''}
