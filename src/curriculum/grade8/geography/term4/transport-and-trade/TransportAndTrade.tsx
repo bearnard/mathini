@@ -1,41 +1,125 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { FlowDiagram } from '../../../../../components/diagrams/science/SciencePictures4';
+import { EXPORT_STEPS } from '../../../../../components/diagrams/geography/steps';
 
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Analyse transport and trade systems',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Trade depends on transport networks that move people and goods efficiently. Learners compare road, rail, air,
-          and sea transport, and connect imports, exports, harbours, and commuter travel to economic activity.
-        </p>
-      </div>
+    title: 'Why countries trade',
+    content: slide(
+      <>
+        <Rule>
+          Countries trade because no country can make everything it needs. An import is a product bought from another country. An export is a product sold to another country.
+        </Rule>
+        <FlowDiagram
+          id="trade"
+          title="Imports and exports"
+          desc="Goods leave South Africa as exports and are bought by another country. Goods come into South Africa from abroad as imports."
+          nodes={[
+            { id: 'sa', label: 'South Africa', x: 34, y: 54, color: '#6ee7b7' },
+            { id: 'other', label: 'another country', x: 126, y: 54, color: '#7dd3fc' },
+          ]}
+          edges={[
+            { from: 'sa', to: 'other', label: 'exports: sold abroad', bend: -4, lx: 80, ly: 26 },
+            { from: 'other', to: 'sa', label: 'imports: bought from abroad', bend: -4, lx: 80, ly: 88 },
+          ]}
+        />
+        <Worked
+          title="Name the trade"
+          steps={[<>South African oranges sold in another country are exports for South Africa.</>, <>Oil that South Africa buys from abroad is an import.</>, <>Trade lets countries get goods they cannot produce efficiently themselves.</>]}
+        />
+        <Mistake>Mixing up imports and exports. Exports leave the country; imports enter it.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Transport Data — Freight by Transport Mode',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Trade depends on transport systems. In South Africa, most freight moves by road, with smaller shares on rail and pipelines.</p>
-        <DataChart
-          data={[
-                        { mode: 'Road', share: 76 },
-                        { mode: 'Rail', share: 19 },
-                        { mode: 'Pipeline', share: 5 },
-                      ]}
-          xKey="mode"
-          series={[
-                        { key: 'share', label: 'Share of freight (%)', type: 'bar', color: '#f97316' },
-                      ]}
-          yLabel="Percent"
-          height={220}
+    title: 'Transport modes',
+    content: slide(
+      <>
+        <Rule>
+          Different transport modes suit different goods. Rail is usually best for moving heavy bulk goods over long distances on land. Air transport is usually preferred when goods are high-value, light or urgently needed.
+        </Rule>
+        <Terms
+          rows={[
+            ['Rail', 'efficient for large, heavy loads over long inland distances'],
+            ['Road', 'flexible: goes door to door and links places that have no railway'],
+            ['Air', 'fast but costly, so it suits urgent or high-value cargo'],
+            ['Sea', 'moves very large amounts between countries'],
+          ]}
         />
-
-        <p className="text-sm text-slate-500">When one transport mode carries most freight, bottlenecks on that network can slow trade and raise costs.</p>
-      </div>
+        <Worked
+          title="Choose a transport mode"
+          steps={[<>Thousands of tonnes of coal from inland to a port: rail.</>, <>A small parcel of medicine that is needed tomorrow: air, because it is light, valuable and urgent.</>, <>A delivery to a shop with no railway: road.</>]}
+        />
+        <Mistake>Thinking air is always best because it is fastest. It is costly, so it only suits urgent or high-value cargo.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Harbours and networks',
+    content: slide(
+      <>
+        <Rule>
+          Transport networks link producers, markets and ports so goods move easily. Durban Harbour is one of the busiest container ports in South Africa.
+        </Rule>
+        <NumberedSteps steps={EXPORT_STEPS} tone="teal" label="From producer to foreign buyer" />
+        <Worked
+          title="Follow a container of fruit"
+          steps={[<>Fruit is packed on the farm and trucked or railed to the harbour.</>, <>At a major port such as Durban, large container volumes are handled and loaded onto ships.</>, <>Roads, railways, ports and airports together enable reliable movement through supply chains.</>]}
+        />
+        <Mistake>Thinking a harbour works alone. It only works when roads and railways connect it to producers and markets.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Commuter transport',
+    content: slide(
+      <>
+        <Rule>
+          Urban commuter transport is the daily travel of people between home, school or work. Commuter transport supports regular movement within and around cities.
+        </Rule>
+        <Terms
+          rows={[
+            ['Commuter', 'a person who travels regularly between home and school or work'],
+            ['Examples', 'buses, trains and minibus taxis'],
+            ['Why it matters', 'it links where people live to where they study and work'],
+          ]}
+        />
+        <Worked
+          title="A learner's daily trip"
+          steps={[<>She walks to a taxi rank, then takes a minibus taxi to school.</>, <>Her father catches a train to work.</>, <>These are daily trips between home, school and work, so they are commuter transport.</>]}
+        />
+        <Mistake>Mixing up commuter transport and freight. Commuter transport moves people, and freight moves goods.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Why do countries trade with one another? What is an import? What is an export?</li>
+            <li>Which transport mode is usually best for moving heavy bulk goods over long distances on land?</li>
+            <li>Which South African harbour is one of the busiest container ports? How do transport networks support trade?</li>
+            <li>Which option best describes urban commuter transport? When is air transport usually preferred for trade?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Because no country can make everything it needs. A product bought from another country. A product sold to another country.</li>
+            <li>Rail transport.</li>
+            <li>Durban Harbour. They link producers, markets and ports so goods move easily.</li>
+            <li>Daily travel by people between home, school or work. When goods are high-value, light or urgently needed.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
