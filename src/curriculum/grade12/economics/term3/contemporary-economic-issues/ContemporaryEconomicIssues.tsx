@@ -100,7 +100,7 @@ const items: RawEconomicsItem[] = [
     "id": "ci-1",
     "question": "Structural unemployment is most closely linked to ...",
     "options": [
-      "a temporary holiday shutdown",
+      "a temporary shutdown during the holiday season",
       "a mismatch between skills and jobs",
       "higher rainfall only",
       "a lower VAT rate"
@@ -115,7 +115,7 @@ const items: RawEconomicsItem[] = [
       "raising productive capacity",
       "reducing output and investment confidence",
       "eliminating inflation",
-      "making exports cheaper automatically"
+      "making exports cheaper for foreign buyers automatically"
     ],
     "answer": 1,
     "explanation": "Electricity shortages lower output and discourage investment."
@@ -136,9 +136,9 @@ const items: RawEconomicsItem[] = [
     "id": "ci-4",
     "question": "Inclusive growth aims to ...",
     "options": [
-      "concentrate gains among a few firms",
+      "concentrate the gains among a few large firms",
       "spread opportunities and benefits widely",
-      "replace all imports",
+      "replace imports with local products",
       "reduce all government spending"
     ],
     "answer": 1,
@@ -149,7 +149,7 @@ const items: RawEconomicsItem[] = [
     "question": "A major long-term response to structural unemployment is ...",
     "options": [
       "skills development",
-      "price controls on all goods",
+      "price controls on basic goods",
       "banning technology",
       "lowering all tariffs to zero immediately"
     ],
@@ -161,8 +161,8 @@ const items: RawEconomicsItem[] = [
     "question": "An energy shortage is mainly a ... problem.",
     "options": [
       "supply-side",
-      "demand-side only",
-      "foreign-trade-only",
+      "demand-side",
+      "foreign-trade",
       "currency-only"
     ],
     "answer": 0,
@@ -173,7 +173,7 @@ const items: RawEconomicsItem[] = [
     "question": "A weaker economy usually makes it harder to reduce ...",
     "options": [
       "unemployment",
-      "all imports",
+      "the import bill",
       "all taxes",
       "the size of the labour force"
     ],
@@ -184,7 +184,7 @@ const items: RawEconomicsItem[] = [
     "id": "ci-8",
     "question": "In an exam data-response question, the best economic answer usually ...",
     "options": [
-      "ignores the source material",
+      "ignores the source material given in the question",
       "quotes the case and links it to theory",
       "lists random facts",
       "avoids South African context"

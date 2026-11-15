@@ -144,7 +144,7 @@ const items: PhysicalSciencesItem[] = [
     "id": "electrodynamics-generators-motors-7",
     "question": "In an AC generator, the current direction changes every:",
     "options": [
-      "quarter turn only",
+      "quarter turn",
       "half turn",
       "full turn only",
       "ten turns"

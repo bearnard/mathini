@@ -112,7 +112,7 @@ const items: BusinessStudiesItem[] = [
     "id": "quality-management-systems-4",
     "question": "Which statement about total quality management is CORRECT?",
     "options": [
-      "Only the inspector is responsible for quality",
+      "The inspector alone is responsible for quality",
       "Quality is everyone's responsibility",
       "Quality matters only in factories",
       "Customer needs are unimportant"
@@ -125,7 +125,7 @@ const items: BusinessStudiesItem[] = [
     "question": "ISO 9001 is mainly associated with:",
     "options": [
       "A quality management standard",
-      "A marketing campaign",
+      "A national marketing campaign for a brand",
       "A salary scale",
       "A labour union"
     ],
@@ -136,7 +136,7 @@ const items: BusinessStudiesItem[] = [
     "id": "quality-management-systems-6",
     "question": "Which benefit is commonly linked to quality circles?",
     "options": [
-      "Lower employee involvement",
+      "Lower employee involvement in the workplace",
       "Improved morale and problem solving",
       "No need for training",
       "Automatic profit guarantees"

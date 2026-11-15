@@ -96,9 +96,9 @@ const items: BusinessStudiesItem[] = [
     "id": "investment-insurance-conflict-management-3",
     "question": "Diversification helps an investor to:",
     "options": [
-      "Put all money into one option",
+      "Put the full amount into one investment option",
       "Spread risk across different investments",
-      "Avoid all losses forever",
+      "Prevent losses on the money invested",
       "Ignore return completely"
     ],
     "answer": 1,
@@ -132,7 +132,7 @@ const items: BusinessStudiesItem[] = [
     "id": "investment-insurance-conflict-management-6",
     "question": "A team is most likely to perform well when members have:",
     "options": [
-      "Unclear roles and weak communication",
+      "Unclear roles and weak communication between members",
       "Shared goals and clear responsibilities",
       "No deadlines and no leader",
       "Constant unresolved conflict"

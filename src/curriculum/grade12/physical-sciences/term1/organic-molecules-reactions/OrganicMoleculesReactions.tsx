@@ -114,7 +114,7 @@ const items: PhysicalSciencesItem[] = [
     "question": "What is the functional group of a carboxylic acid?",
     "options": [
       "-OH",
-      "-CHO",
+      "-COOR",
       "-COOH",
       "-X"
     ],

@@ -102,7 +102,7 @@ const items: BusinessStudiesItem[] = [
     "options": [
       "Environmental responsibility",
       "Recruitment",
-      "Conflict escalation",
+      "Conflict escalation between departments",
       "Job analysis"
     ],
     "answer": 0,
@@ -124,7 +124,7 @@ const items: BusinessStudiesItem[] = [
     "id": "environmental-social-responsibility-5",
     "question": "Which is the BEST example of CSI?",
     "options": [
-      "Introducing fair wages for staff",
+      "Introducing fair wages for the business's own staff",
       "Funding a community maths and science centre",
       "Checking product defects",
       "Training only senior managers"
@@ -136,7 +136,7 @@ const items: BusinessStudiesItem[] = [
     "id": "environmental-social-responsibility-6",
     "question": "One likely benefit of responsible environmental behaviour is:",
     "options": [
-      "Damage to reputation",
+      "Damage to reputation among customers",
       "Improved stakeholder trust",
       "Higher wastage",
       "Less compliance with laws"
@@ -149,8 +149,8 @@ const items: BusinessStudiesItem[] = [
     "question": "Which stakeholder is most directly affected by toxic waste dumped by a factory?",
     "options": [
       "The local community",
-      "Only shareholders",
-      "Only the receptionist",
+      "The shareholders of the company",
+      "The receptionist at head office",
       "Only suppliers"
     ],
     "answer": 0,
@@ -160,7 +160,7 @@ const items: BusinessStudiesItem[] = [
     "id": "environmental-social-responsibility-8",
     "question": "A sustainable sourcing policy would MOST likely require the business to:",
     "options": [
-      "Buy from any supplier regardless of ethics",
+      "Buy from any supplier regardless of ethics, as long as the price is low",
       "Choose suppliers with responsible environmental practices",
       "Ignore packaging waste",
       "Stop all community involvement"

@@ -209,7 +209,7 @@ const items: LifeSciencesItem[] = [
     "options": [
       "Cell organelles",
       "Family inheritance patterns",
-      "Ecosystem energy flow",
+      "Ecosystem energy flow and cycling",
       "Muscle contraction"
     ],
     "answer": 1,
@@ -226,9 +226,9 @@ const items: LifeSciencesItem[] = [
     "id": "paper2-genetics-evolution-consolidation-6",
     "question": "The Out of Africa hypothesis relates to the origin of:",
     "options": [
-      "All reptiles",
+      "Early reptiles",
       "Modern humans",
-      "All flowering plants",
+      "Flowering plants",
       "Bacteria only"
     ],
     "answer": 1,

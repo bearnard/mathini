@@ -175,7 +175,7 @@ const items: LifeSciencesItem[] = [
     "id": "endocrine-homeostasis-plant-responses-2",
     "question": "Homeostasis is the maintenance of a:",
     "options": [
-      "Completely unchanging body",
+      "Constant external environment",
       "Stable internal environment",
       "Permanent high temperature",
       "Single hormone level only"
@@ -187,9 +187,9 @@ const items: LifeSciencesItem[] = [
     "id": "endocrine-homeostasis-plant-responses-3",
     "question": "Negative feedback works by:",
     "options": [
-      "Increasing a change indefinitely",
+      "Increasing a change until it becomes extreme",
       "Reversing a deviation from the norm",
-      "Stopping all hormone secretion",
+      "Stopping hormone secretion in the body",
       "Preventing all stimuli"
     ],
     "answer": 1,
@@ -199,7 +199,7 @@ const items: LifeSciencesItem[] = [
     "id": "endocrine-homeostasis-plant-responses-4",
     "question": "Which gland is often called the master gland?",
     "options": [
-      "Pancreas",
+      "Parathyroid gland",
       "Pituitary gland",
       "Adrenal gland",
       "Thyroid gland"
@@ -238,7 +238,7 @@ const items: LifeSciencesItem[] = [
       "Carry oxygen in plants",
       "Control growth responses",
       "Digest stored starch",
-      "Produce pollen grains"
+      "Produce pollen grains in flowers"
     ],
     "answer": 1,
     "explanation": "Auxins are plant hormones that influence growth and tropic responses."

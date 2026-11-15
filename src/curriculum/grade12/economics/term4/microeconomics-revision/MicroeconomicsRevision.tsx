@@ -105,9 +105,9 @@ const items: RawEconomicsItem[] = [
     "id": "mir-2",
     "question": "A perfectly competitive firm is called a price taker because it ...",
     "options": [
-      "can set any price it wants",
+      "can set any price it wants to charge",
       "must accept the market price",
-      "has only one buyer",
+      "has a single buyer",
       "always earns losses"
     ],
     "answer": 1,
@@ -142,7 +142,7 @@ const items: RawEconomicsItem[] = [
     "question": "Allocative efficiency is reached where ...",
     "options": [
       "price = marginal cost",
-      "profit = revenue",
+      "profit = total revenue",
       "AC = zero",
       "imports = exports"
     ],

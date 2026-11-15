@@ -121,7 +121,7 @@ const bank: AccountingItem[] = [
     "id": "fac-3",
     "question": "Under the diminishing-balance method, depreciation is calculated on the asset's:",
     "options": [
-      "original cost every year",
+      "original cost at the date of purchase of the asset",
       "carrying value at the start of the year",
       "selling price at the end of the year",
       "replacement cost only"
@@ -152,7 +152,7 @@ const bank: AccountingItem[] = [
     "id": "fac-6",
     "question": "Depreciation is best described as a:",
     "options": [
-      "cash payment to replace an asset",
+      "cash payment made to replace an old asset at year-end",
       "non-cash expense allocating cost over useful life",
       "method of increasing ordinary share capital",
       "type of VAT refund"

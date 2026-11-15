@@ -160,7 +160,7 @@ const items: BusinessStudiesItem[] = [
     "id": "business-sectors-environments-8",
     "question": "Why should a business analyse its environments regularly?",
     "options": [
-      "To eliminate every risk permanently",
+      "To remove the risks the business faces for good",
       "To identify threats and opportunities early",
       "To avoid all planning",
       "To stop communicating with staff"

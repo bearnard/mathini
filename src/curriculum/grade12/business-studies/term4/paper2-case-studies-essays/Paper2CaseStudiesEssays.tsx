@@ -80,8 +80,8 @@ const items: BusinessStudiesItem[] = [
     "question": "Business Studies Paper 2 usually focuses more on:",
     "options": [
       "Business ventures and roles",
-      "Only mathematics formulas",
-      "Only language grammar",
+      "Mathematics formulas and graphs",
+      "Language grammar and spelling",
       "Only accounting journals"
     ],
     "answer": 0,
@@ -94,7 +94,7 @@ const items: BusinessStudiesItem[] = [
       "Ignore the source text",
       "Use evidence from the case to support the answer",
       "Write unrelated theory only",
-      "Answer in bullet points no matter what"
+      "Answer in bullet points even when the question asks for a paragraph"
     ],
     "answer": 1,
     "explanation": "Using evidence from the source strengthens application and relevance."
@@ -103,7 +103,7 @@ const items: BusinessStudiesItem[] = [
     "id": "paper2-case-studies-essays-3",
     "question": "A well-structured essay should include:",
     "options": [
-      "Only a conclusion",
+      "A conclusion without an introduction",
       "Introduction, body and conclusion",
       "Only headings with no content",
       "A graph instead of writing"
@@ -130,7 +130,7 @@ const items: BusinessStudiesItem[] = [
     "question": "The BEST way to support a recommendation in a case study is to:",
     "options": [
       "Use a reason linked to the facts in the source",
-      "Write a very short answer with no reason",
+      "Write a very short answer without giving a reason from the case",
       "Repeat the question",
       "Change the business name"
     ],
@@ -141,7 +141,7 @@ const items: BusinessStudiesItem[] = [
     "id": "paper2-case-studies-essays-7",
     "question": "Which command word usually requires a reasoned final opinion?",
     "options": [
-      "State",
+      "Describe",
       "Evaluate",
       "List",
       "Name"

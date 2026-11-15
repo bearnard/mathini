@@ -166,7 +166,7 @@ const items: LifeSciencesItem[] = [
     "options": [
       "Y-linked dominant trait",
       "X-linked recessive trait",
-      "Polygenic trait",
+      "Autosomal polygenic trait",
       "Mitochondrial trait"
     ],
     "answer": 1,
@@ -226,9 +226,9 @@ const items: LifeSciencesItem[] = [
     "id": "pedigrees-sex-linkage-mutations-8",
     "question": "Mutagens are agents that can:",
     "options": [
-      "Slow down digestion only",
+      "Slow down digestion",
       "Cause changes in DNA",
-      "Prevent fertilisation completely",
+      "Prevent fertilisation from occurring",
       "Destroy all chromosomes"
     ],
     "answer": 1,

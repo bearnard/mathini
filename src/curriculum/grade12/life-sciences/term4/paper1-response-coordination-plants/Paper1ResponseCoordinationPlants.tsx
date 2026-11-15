@@ -192,7 +192,7 @@ const items: LifeSciencesItem[] = [
     "id": "paper1-response-coordination-plants-3",
     "question": "The retina contains:",
     "options": [
-      "Hormone glands",
+      "Hormone-producing glands",
       "Light receptors",
       "Air sacs",
       "Bone cells"
@@ -235,9 +235,9 @@ const items: LifeSciencesItem[] = [
     "id": "paper1-response-coordination-plants-7",
     "question": "Unequal distribution of auxin in a shoot causes cells on one side to:",
     "options": [
-      "Stop dividing completely",
+      "Stop dividing and become dormant on that side",
       "Elongate more than the other side",
-      "Lose all water",
+      "Lose water and shrink",
       "Become roots"
     ],
     "answer": 1,
@@ -247,7 +247,7 @@ const items: LifeSciencesItem[] = [
     "id": "paper1-response-coordination-plants-8",
     "question": "The main function of negative feedback in physiology is to:",
     "options": [
-      "Create larger deviations",
+      "Create larger deviations from the set point",
       "Restore conditions toward normal",
       "Prevent all hormone action",
       "Stop receptor activity"

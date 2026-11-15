@@ -107,7 +107,7 @@ const items: RawEconomicsItem[] = [
     "question": "Economic growth refers mainly to an increase in ...",
     "options": [
       "real output",
-      "population only",
+      "population size",
       "tax rates",
       "imports only"
     ],
@@ -125,7 +125,7 @@ const items: RawEconomicsItem[] = [
     "id": "gd-4",
     "question": "Beneficiation means ...",
     "options": [
-      "exporting raw minerals without processing",
+      "exporting raw minerals without any processing",
       "adding value to raw materials before export",
       "removing value-added tax",
       "lowering all wages"
@@ -137,7 +137,7 @@ const items: RawEconomicsItem[] = [
     "id": "gd-5",
     "question": "A Special Economic Zone is used mainly to ...",
     "options": [
-      "ban foreign investment",
+      "ban foreign investment in targeted areas",
       "attract investment into targeted areas",
       "set the repo rate",
       "replace all local businesses"
@@ -149,7 +149,7 @@ const items: RawEconomicsItem[] = [
     "id": "gd-6",
     "question": "Inclusive growth means growth that ...",
     "options": [
-      "benefits only large corporations",
+      "benefits mainly large corporations and their owners",
       "widens participation and opportunity",
       "ignores inequality",
       "happens without employment"
@@ -163,7 +163,7 @@ const items: RawEconomicsItem[] = [
     "options": [
       "Higher GDP with worse health outcomes",
       "Improved education and lower poverty",
-      "More monopoly power only",
+      "More monopoly power in key markets",
       "A higher customs tariff only"
     ],
     "answer": 1,

@@ -88,7 +88,7 @@ const items: MathematicalLiteracyItem[] = [
     "id": "maps-plans-models-4",
     "question": "Which view best shows the height and width of a cupboard?",
     "options": [
-      "Top view",
+      "Top view from above",
       "Front view",
       "Map key",
       "Pie chart"

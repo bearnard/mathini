@@ -105,7 +105,7 @@ import ProbabilitySimulator from '@/components/subjects/ProbabilitySimulator';
 {
   id: "prob-7",
   question: "Two events A and B are independent when ...",
-  options: ["P(A ∪ B) = 1", "P(A ∩ B) = 0", "P(A ∩ B) = P(A)P(B)", "P(A) = P(B)"],
+  options: ["P(A ∪ B) = 1", "P(A ∩ B) = 0", "P(A ∩ B) = P(A)P(B)", "P(A) + P(B) = P(A ∪ B)"],
   answer: 2,
   explanation: "That is the defining condition for independence.",
 },

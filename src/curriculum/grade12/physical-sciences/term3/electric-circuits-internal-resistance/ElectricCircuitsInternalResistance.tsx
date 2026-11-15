@@ -79,7 +79,7 @@ const items: PhysicalSciencesItem[] = [
     "question": "The emf of a cell is the energy supplied per:",
     "options": [
       "second",
-      "ampere",
+      "ampere of current",
       "coulomb",
       "ohm"
     ],

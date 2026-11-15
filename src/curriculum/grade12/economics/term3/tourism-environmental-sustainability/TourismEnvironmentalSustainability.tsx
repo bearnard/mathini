@@ -27,7 +27,7 @@ const items: RawEconomicsItem[] = [
     "id": "te-2",
     "question": "Seasonality in tourism means that demand ...",
     "options": [
-      "is the same every month",
+      "is the same in each month",
       "changes during the year",
       "is illegal in winter",
       "comes only from locals"
@@ -70,7 +70,7 @@ const items: RawEconomicsItem[] = [
     "id": "te-6",
     "question": "The tourism multiplier refers to the way initial tourist spending ...",
     "options": [
-      "stays in one business only",
+      "stays within the first business that receives it",
       "creates additional rounds of income",
       "eliminates imports",
       "reduces all taxes"
@@ -82,7 +82,7 @@ const items: RawEconomicsItem[] = [
     "id": "te-7",
     "question": "Which is a likely negative externality of heavy tourism?",
     "options": [
-      "Cleaner beaches in every case",
+      "Cleaner beaches and quieter local towns",
       "Less congestion",
       "Litter and environmental damage",
       "Automatic price stability"

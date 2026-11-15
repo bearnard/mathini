@@ -136,7 +136,7 @@ const items: MathematicalLiteracyItem[] = [
       "profit",
       "surplus",
       "shortfall",
-      "discount"
+      "cash discount"
     ],
     "answer": 2,
     "explanation": "Spending more than planned creates a shortfall or overspend."

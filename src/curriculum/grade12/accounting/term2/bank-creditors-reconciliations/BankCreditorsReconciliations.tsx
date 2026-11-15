@@ -107,7 +107,7 @@ const bank: AccountingItem[] = [
     "options": [
       "appears in the cashbook but not yet on the bank statement",
       "appears on the bank statement but not in the cashbook",
-      "was stolen by an employee",
+      "was stolen by an employee and not yet detected by management",
       "was paid to a supplier by EFT"
     ],
     "answer": 0,
@@ -163,7 +163,7 @@ const bank: AccountingItem[] = [
     "question": "Which document is essential when preparing a bank reconciliation?",
     "options": [
       "The bank statement",
-      "The wages journal only",
+      "The wages journal",
       "The shareholders register",
       "The fixed asset register only"
     ],

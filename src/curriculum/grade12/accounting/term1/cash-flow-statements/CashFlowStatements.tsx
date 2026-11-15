@@ -201,7 +201,7 @@ const bank: AccountingItem[] = [
     "id": "cfl-7",
     "question": "Net change in cash and cash equivalents for the year equals:",
     "options": [
-      "opening cash and cash equivalents + dividends paid",
+      "opening cash and cash equivalents + dividends paid + interest received",
       "closing cash and cash equivalents - opening cash and cash equivalents",
       "gross profit - operating expenses",
       "ordinary share capital - retained income"

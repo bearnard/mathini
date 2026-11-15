@@ -103,7 +103,7 @@ const bank: AccountingItem[] = [
     "options": [
       "newest units on hand",
       "oldest units on hand",
-      "damaged units only",
+      "damaged units",
       "units returned by debtors only"
     ],
     "answer": 0,

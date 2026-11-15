@@ -155,7 +155,7 @@ const bank: AccountingItem[] = [
     "id": "aie-4",
     "question": "An unqualified audit report indicates that the financial statements are:",
     "options": [
-      "guaranteed to show high profits",
+      "guaranteed to show high profits in future years",
       "free from all small mistakes",
       "fairly presented in all material respects",
       "approved by SARS for tax refunds"
@@ -168,7 +168,7 @@ const bank: AccountingItem[] = [
     "question": "Return on average shareholders' equity measures:",
     "options": [
       "the return earned for ordinary shareholders",
-      "the value of inventory sold",
+      "the value of inventory sold during the financial year",
       "the salary of directors",
       "the number of shares authorised"
     ],

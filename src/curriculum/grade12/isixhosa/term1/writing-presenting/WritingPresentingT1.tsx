@@ -128,14 +128,14 @@ const rawItems: RawItem[] = [
   {
     id: 'wp1',
     question: 'What is the main purpose of a thesis statement in an essay?',
-    options: ['To express the central idea that guides the whole essay', 'To list every example in the introduction', 'To replace the conclusion', 'To greet the reader politely'],
+    options: ['To express the central idea that guides the whole essay', 'To list every example that appears in the body of the essay', 'To replace the conclusion', 'To greet the reader politely'],
     answer: 0,
     explanation: 'A thesis gives direction to the essay and helps each paragraph stay focused on the same main idea.',
   },
   {
     id: 'wp2',
     question: 'Why is a mind map useful before writing?',
-    options: ['It helps you generate and organise ideas quickly', 'It replaces the need for paragraphs', 'It is only used after proofreading', 'It is a type of formal letter'],
+    options: ['It helps you generate and organise ideas quickly', 'It replaces the need for paragraphs', 'It is only used after proofreading', 'It is a type of formal letter used in business writing'],
     answer: 0,
     explanation: 'Mind maps help you see connections between ideas and organise them before drafting.',
   },
@@ -149,7 +149,7 @@ const rawItems: RawItem[] = [
   {
     id: 'wp4',
     question: 'Which sentence best works as a TEEL topic sentence?',
-    options: ['Discipline is one of the main reasons learners succeed at school.', 'For example, one learner woke up early yesterday.', 'This proves my previous paragraph was correct.', 'In conclusion, school rules are important.'],
+    options: ['Discipline is one of the main reasons learners succeed at school.', 'For example, one learner woke up early yesterday and did his homework.', 'This proves my previous paragraph was correct.', 'In conclusion, school rules are important.'],
     answer: 0,
     explanation: 'A topic sentence introduces the main idea of the paragraph clearly and directly.',
   },
@@ -163,7 +163,7 @@ const rawItems: RawItem[] = [
   {
     id: 'wp6',
     question: 'Which order is correct for the beginning of a formal letter?',
-    options: ['Sender address, date, recipient address, salutation', 'Salutation, signature, sender address, body', 'Recipient address, body, heading, date', 'Date, conclusion, title, salutation'],
+    options: ['Sender address, date, recipient address, salutation', 'Salutation, signature, sender address, body, recipient address', 'Recipient address, body, heading, date', 'Date, conclusion, title, salutation'],
     answer: 0,
     explanation: 'Formal letters follow a recognised layout so the reader can immediately identify sender, date, recipient, and purpose.',
   },

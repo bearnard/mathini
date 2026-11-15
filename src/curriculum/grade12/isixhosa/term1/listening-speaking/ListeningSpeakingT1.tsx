@@ -177,7 +177,7 @@ const rawItems: RawItem[] = [
   {
     id: 'ls3',
     question: 'What is the best strategy before listening to a comprehension passage?',
-    options: ['Read the questions and predict what information may appear', 'Memorise every answer before the recording starts', 'Ignore the heading and wait for the first answer', 'Write a summary before hearing the passage'],
+    options: ['Read the questions and predict what information may appear', 'Memorise the answers to the questions before the recording starts', 'Ignore the heading and wait for the first answer', 'Write a summary before hearing the passage'],
     answer: 0,
     explanation: 'Pre-reading the questions focuses attention on the type of information you need to identify.',
   },
@@ -205,7 +205,7 @@ const rawItems: RawItem[] = [
   {
     id: 'ls7',
     question: 'Which delivery choice usually improves a prepared speech?',
-    options: ['Maintaining eye contact and pacing yourself clearly', 'Reading every line without looking up', 'Speaking as fast as possible', 'Using informal slang to sound relaxed'],
+    options: ['Maintaining eye contact and pacing yourself clearly', 'Reading every line without looking up', 'Speaking as fast as possible', 'Using informal slang throughout the speech to sound relaxed'],
     answer: 0,
     explanation: 'Eye contact and steady pacing help the audience follow the speech and show confidence.',
   },

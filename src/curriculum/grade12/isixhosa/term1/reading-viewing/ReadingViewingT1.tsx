@@ -144,21 +144,21 @@ const rawItems: RawItem[] = [
   {
     id: 'rv4',
     question: 'In an advertisement, the target audience is:',
-    options: ['The group of people the advert is trying to persuade', 'Only the people who designed the advert', 'The first person in the picture', 'Anyone who dislikes the product'],
+    options: ['The group of people the advert is trying to persuade', 'The people who designed and produced the advert for the client', 'The first person in the picture', 'Anyone who dislikes the product'],
     answer: 0,
     explanation: 'The target audience is the intended consumer or viewer the advert is aimed at.',
   },
   {
     id: 'rv5',
     question: 'Which feature is especially important when analysing a cartoon?',
-    options: ['Facial expression and caption', 'The page number', 'The price of the newspaper', 'The size of the margin only'],
+    options: ['Facial expression and caption', 'The page number', 'The price of the newspaper', 'The size of the margin around the cartoon'],
     answer: 0,
     explanation: 'Cartoons communicate meaning through visual clues such as expression, posture, captions, and symbolism.',
   },
   {
     id: 'rv6',
     question: 'What is the difference between skimming and scanning?',
-    options: ['Skimming finds the general idea, while scanning looks for a specific detail', 'Skimming means reading aloud, while scanning means reading silently', 'Skimming is for poetry only, while scanning is for prose only', 'There is no difference'],
+    options: ['Skimming finds the general idea, while scanning looks for a specific detail', 'Skimming means reading aloud to others, while scanning means reading silently to yourself', 'Skimming is for poetry only, while scanning is for prose only', 'There is no difference'],
     answer: 0,
     explanation: 'Skimming is broad and fast; scanning is focused on finding one piece of information.',
   },
@@ -172,7 +172,7 @@ const rawItems: RawItem[] = [
   {
     id: 'rv8',
     question: 'Why should you refer to mark allocation in a comprehension paper?',
-    options: ['It helps you judge how much detail your answer needs', 'It tells you which questions to skip', 'It changes the wording of the passage', 'It shows the correct answer automatically'],
+    options: ['It helps you judge how much detail your answer needs', 'It tells you which of the questions you are allowed to skip', 'It changes the wording of the passage', 'It shows the correct answer automatically'],
     answer: 0,
     explanation: 'A 1-mark answer needs less detail than a 3-mark answer, so mark allocation guides response length.',
   },

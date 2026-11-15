@@ -108,8 +108,8 @@ const items: RawEconomicsItem[] = [
     "id": "fx-2",
     "question": "The balance of payments records transactions between South Africa and ...",
     "options": [
-      "only Africa",
-      "the government sector only",
+      "African countries",
+      "the national government sector",
       "the rest of the world",
       "households only"
     ],
@@ -180,7 +180,7 @@ const items: RawEconomicsItem[] = [
     "id": "fx-8",
     "question": "A current-account deficit means that, broadly, SA is ...",
     "options": [
-      "earning more from trade than it spends",
+      "earning more from trade and investments than it spends abroad",
       "spending more on current transactions than it earns",
       "running a budget surplus",
       "receiving zero capital inflow"

@@ -142,7 +142,7 @@ const rawItems: RawItem[] = [
   {
     id: 'lang2',
     question: 'Which sentence shows correct concord?',
-    options: ['Abantwana bayafunda.', 'Abantwana uyafunda.', 'Abantwana iyafunda.', 'Abantwana sifunda.'],
+    options: ['Abantwana bayafunda.', 'Abantwana uyafunda ngoku.', 'Abantwana iyafunda.', 'Abantwana sifunda.'],
     answer: 0,
     explanation: 'The plural noun “abantwana” must agree with the verb prefix “ba-”.',
   },
@@ -156,7 +156,7 @@ const rawItems: RawItem[] = [
   {
     id: 'lang4',
     question: 'What is the best reason to use a semicolon?',
-    options: ['To join closely related independent clauses', 'To show a direct question', 'To replace every comma in a sentence', 'To mark possession in English'],
+    options: ['To join closely related independent clauses', 'To show a direct question', 'To replace the commas in a long and complex sentence', 'To mark possession in English'],
     answer: 0,
     explanation: 'A semicolon links related clauses without using a conjunction.',
   },
@@ -177,14 +177,14 @@ const rawItems: RawItem[] = [
   {
     id: 'lang7',
     question: 'Which edit most improves style?',
-    options: ['Replacing vague words with more precise vocabulary', 'Adding the same adjective repeatedly', 'Removing all punctuation', 'Changing every sentence into slang'],
+    options: ['Replacing vague words with more precise vocabulary', 'Adding the same adjective repeatedly to describe each noun', 'Removing punctuation from the text', 'Changing every sentence into slang'],
     answer: 0,
     explanation: 'Precise vocabulary makes writing clearer, more mature, and more effective.',
   },
   {
     id: 'lang8',
     question: 'What should you check when editing for clarity?',
-    options: ['Whether ideas are concise and the tense stays consistent', 'Whether every sentence has the same length', 'Whether the paragraph avoids all verbs', 'Whether the text has no full stops'],
+    options: ['Whether ideas are concise and the tense stays consistent', 'Whether the sentences have the same length throughout the text', 'Whether the paragraph avoids all verbs', 'Whether the text has no full stops'],
     answer: 0,
     explanation: 'Clear writing depends on concise wording and consistent grammar, including tense control.',
   },

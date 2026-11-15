@@ -97,7 +97,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 {
   id: "stat-7",
   question: "Which statement is correct?",
-  options: ["Correlation proves causation", "Causation always gives r = 1", "Correlation does not by itself prove causation", "Only positive correlation matters"],
+  options: ["Correlation by itself proves causation in a data set", "Causation always gives r = 1", "Correlation does not by itself prove causation", "Positive correlation matters but negative does not"],
   answer: 2,
   explanation: "Two variables may be correlated without one causing the other.",
 },

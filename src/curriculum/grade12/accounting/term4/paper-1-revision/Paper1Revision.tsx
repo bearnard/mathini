@@ -103,7 +103,7 @@ const bank: AccountingItem[] = [
     "options": [
       "issues more shares",
       "declares dividends from profit",
-      "purchases inventory",
+      "purchases inventory on credit for resale",
       "collects from debtors"
     ],
     "answer": 1,

@@ -189,7 +189,7 @@ const items: LifeSciencesItem[] = [
     "id": "human-reproduction-2",
     "question": "Ovulation normally occurs when:",
     "options": [
-      "The embryo implants in the uterus",
+      "The embryo implants in the wall of the uterus",
       "An ovum is released from the ovary",
       "Menstruation starts",
       "Sperm are produced in the testes"
@@ -225,7 +225,7 @@ const items: LifeSciencesItem[] = [
     "id": "human-reproduction-5",
     "question": "Implantation refers to:",
     "options": [
-      "The release of an ovum from the ovary",
+      "The release of a mature ovum from the ovary",
       "The embryo embedding in the uterine lining",
       "The fusion of sperm and egg nuclei",
       "The start of labour"

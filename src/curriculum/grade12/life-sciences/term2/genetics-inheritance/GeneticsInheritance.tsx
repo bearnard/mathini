@@ -199,7 +199,7 @@ const items: LifeSciencesItem[] = [
     "question": "A monohybrid cross investigates:",
     "options": [
       "One characteristic",
-      "Only sex-linked traits",
+      "Sex-linked traits",
       "Only blood groups",
       "Two unrelated species"
     ],
@@ -210,7 +210,7 @@ const items: LifeSciencesItem[] = [
     "id": "genetics-inheritance-6",
     "question": "Which blood group demonstrates codominance?",
     "options": [
-      "O",
+      "O negative",
       "A",
       "B",
       "AB"
@@ -224,7 +224,7 @@ const items: LifeSciencesItem[] = [
     "options": [
       "Any normal cell division",
       "A permanent change in the DNA base sequence",
-      "The pairing of homologous chromosomes only",
+      "The pairing of homologous chromosomes during meiosis",
       "The exchange of gases"
     ],
     "answer": 1,
@@ -237,7 +237,7 @@ const items: LifeSciencesItem[] = [
       "Mother only",
       "Father’s sperm cell",
       "Placenta",
-      "Uterus lining"
+      "Lining of the uterus wall"
     ],
     "answer": 1,
     "explanation": "The ovum always carries an X chromosome, while the sperm contributes either X or Y."

@@ -68,7 +68,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 {
   id: "poly-3",
   question: "Factorise x³ − x² − 4x + 4 completely.",
-  options: ["(x − 1)(x² + 4)", "(x − 1)(x − 2)(x + 2)", "(x + 1)(x − 2)²", "(x − 4)(x² − 1)"],
+  options: ["(x − 1)(x − 2)(x − 2)", "(x − 1)(x − 2)(x + 2)", "(x + 1)(x − 2)²", "(x − 4)(x² − 1)"],
   answer: 1,
   explanation: "Group terms: x²(x − 1) − 4(x − 1) = (x − 1)(x² − 4) = (x − 1)(x − 2)(x + 2).",
 },

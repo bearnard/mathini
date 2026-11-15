@@ -112,7 +112,7 @@ const items: PhysicalSciencesItem[] = [
       "mass",
       "kinetic energy",
       "wavelength",
-      "resistance"
+      "electrical resistance"
     ],
     "answer": 1,
     "explanation": "This is the work-energy theorem."

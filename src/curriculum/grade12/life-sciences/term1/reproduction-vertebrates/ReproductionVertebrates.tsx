@@ -146,7 +146,7 @@ const items: LifeSciencesItem[] = [
     "options": [
       "Very dry air",
       "Water",
-      "Underground burrows only",
+      "Underground burrows",
       "Cold mountain caves only"
     ],
     "answer": 1,
@@ -159,7 +159,7 @@ const items: LifeSciencesItem[] = [
       "Most birds and mammals",
       "Most mosses",
       "Most algae",
-      "Most bacteria"
+      "Most bacteria and fungi"
     ],
     "answer": 0,
     "explanation": "Birds and mammals are vertebrates that usually reproduce by internal fertilisation."
@@ -177,7 +177,7 @@ const items: LifeSciencesItem[] = [
     "options": [
       "Produced from spores",
       "Developed inside the mother and born alive",
-      "Always hatched from shelled eggs",
+      "Hatched from shelled eggs laid outside the mother",
       "Formed without fertilisation"
     ],
     "answer": 1,
@@ -187,10 +187,10 @@ const items: LifeSciencesItem[] = [
     "id": "reproduction-vertebrates-5",
     "question": "An important advantage of internal fertilisation on land is that it:",
     "options": [
-      "Prevents all mutations",
+      "Prevents mutations from occurring in offspring",
       "Protects gametes from drying out",
       "Removes the need for gametes",
-      "Always produces twins"
+      "Usually produces twins"
     ],
     "answer": 1,
     "explanation": "Internal fertilisation reduces water loss and increases the chance of successful gamete union."
@@ -219,7 +219,7 @@ const items: LifeSciencesItem[] = [
     "question": "Greater parental care usually results in:",
     "options": [
       "Fewer offspring with a higher survival rate",
-      "Many more offspring with no energy cost",
+      "Many more offspring with no energy cost to the parents",
       "Offspring developing without fertilisation",
       "Complete absence of competition"
     ],

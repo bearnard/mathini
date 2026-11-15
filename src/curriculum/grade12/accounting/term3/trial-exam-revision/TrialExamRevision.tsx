@@ -121,7 +121,7 @@ const bank: AccountingItem[] = [
     "id": "ter-2",
     "question": "In periods of rising prices, FIFO usually causes cost of sales to be:",
     "options": [
-      "higher because newest costs are sold first",
+      "higher because the newest, most expensive units are sold first",
       "lower because older, cheaper units are sold first",
       "equal to sales value",
       "unaffected by inventory prices"

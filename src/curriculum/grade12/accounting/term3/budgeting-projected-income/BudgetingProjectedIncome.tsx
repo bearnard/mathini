@@ -115,7 +115,7 @@ const bank: AccountingItem[] = [
     "question": "A projected income statement is prepared to estimate:",
     "options": [
       "future profit for a planned period",
-      "past cash receipts only",
+      "past cash receipts and payments",
       "the number of shares authorised",
       "the fixed asset register balance only"
     ],

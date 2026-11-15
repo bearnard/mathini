@@ -108,7 +108,7 @@ const items: BusinessStudiesItem[] = [
     "id": "creative-thinking-business-strategies-1",
     "question": "During brainstorming, team members should first focus on:",
     "options": [
-      "Criticising every idea",
+      "Criticising each idea as it is suggested",
       "Generating as many ideas as possible",
       "Choosing only one idea immediately",
       "Ignoring unusual suggestions"
@@ -123,7 +123,7 @@ const items: BusinessStudiesItem[] = [
       "Implement the solution",
       "Identify the problem clearly",
       "Reward employees",
-      "Write the conclusion"
+      "Write the conclusion of the report"
     ],
     "answer": 1,
     "explanation": "You must define the problem properly before you can solve it effectively."
@@ -182,7 +182,7 @@ const items: BusinessStudiesItem[] = [
     "options": [
       "Ignore the market",
       "Differentiate the product and add value",
-      "Stop all advertising permanently",
+      "Cut advertising and hope sales recover on their own",
       "Refuse to plan"
     ],
     "answer": 1,

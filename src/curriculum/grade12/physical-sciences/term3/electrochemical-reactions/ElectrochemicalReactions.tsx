@@ -101,7 +101,7 @@ const items: PhysicalSciencesItem[] = [
     "options": [
       "To supply electrons directly",
       "To complete the circuit by ion movement",
-      "To increase the mass of the electrodes",
+      "To increase the mass of the electrodes in the cell",
       "To stop all chemical reactions"
     ],
     "answer": 1,
@@ -124,7 +124,7 @@ const items: PhysicalSciencesItem[] = [
     "question": "A galvanic cell converts energy from chemical to:",
     "options": [
       "nuclear",
-      "thermal only",
+      "thermal",
       "electrical",
       "light only"
     ],
@@ -135,7 +135,7 @@ const items: PhysicalSciencesItem[] = [
     "id": "electrochemical-reactions-6",
     "question": "Electrolysis requires:",
     "options": [
-      "a spontaneous reaction only",
+      "a spontaneous reaction that releases energy",
       "an external electrical energy source",
       "no electrodes",
       "no ions in solution"

@@ -132,7 +132,7 @@ const items: BusinessStudiesItem[] = [
       "Sharing confidential client information",
       "Arriving on time and communicating respectfully",
       "Ignoring dress code rules",
-      "Using company resources for private business"
+      "Using company resources for private business purposes"
     ],
     "answer": 1,
     "explanation": "Professional workers are reliable, respectful and protect confidential information."
@@ -161,7 +161,7 @@ const items: BusinessStudiesItem[] = [
     "question": "Which action is clearly unethical?",
     "options": [
       "Reporting fraud",
-      "Declaring a gift from a supplier",
+      "Declaring a gift from a supplier to management",
       "Accepting a bribe to overlook poor quality",
       "Following company policy"
     ],
@@ -174,7 +174,7 @@ const items: BusinessStudiesItem[] = [
     "options": [
       "It damages trust",
       "It improves reputation and workplace relationships",
-      "It replaces training needs completely",
+      "It reduces the need for staff training in the business",
       "It guarantees profit every day"
     ],
     "answer": 1,

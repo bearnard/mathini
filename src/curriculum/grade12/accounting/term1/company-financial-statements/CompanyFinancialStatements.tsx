@@ -181,7 +181,7 @@ const bank: AccountingItem[] = [
     "question": "Closing retained income is generally calculated as:",
     "options": [
       "Opening retained income + net profit after tax - dividends",
-      "Opening retained income + share capital - liabilities",
+      "Opening retained income + share capital - total liabilities",
       "Net profit after tax + trade receivables",
       "Cash and cash equivalents - bank overdraft"
     ],
