@@ -16,7 +16,7 @@ const learnSteps: LearnStep[] = [
     title: 'More Polygons',
     content: (
       <div className="space-y-6 text-center">
-        <p className="text-lg text-slate-600">Shapes with straight sides are called <strong>polygons</strong>.</p>
+        <p className="text-lg text-slate-600">A closed shape with only straight sides is called a <strong>polygon</strong>. A circle has no straight sides, so it is not a polygon.</p>
         <PolygonRow shapes={[{ name: 'Octagon', sides: 8 }, { name: 'Rectangle', sides: 4, rect: true }, { name: 'Circle', sides: 0 }]} />
       </div>
     ),

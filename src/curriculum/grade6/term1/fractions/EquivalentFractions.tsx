@@ -39,6 +39,7 @@ const learnSteps: LearnStep[] = [
             <span className="text-4xl font-bold text-emerald-600">4</span>
           </div>
         </div>
+        <p className="text-slate-600">To <strong>simplify</strong>, divide the top and bottom by their highest common factor (HCF). For 6/8 the HCF is 2, so 6/8 = 3/4.</p>
       </div>
     ),
   },
