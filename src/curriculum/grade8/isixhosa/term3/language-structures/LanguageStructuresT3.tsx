@@ -1,41 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './LanguageStructuresT3.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Use clauses and word choices to improve sentence variety',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Language work this term covers <strong>adverbs, prepositions, clauses, punctuation,</strong> editing, and
-          vocabulary growth.
-        </p>
-        <p className="text-slate-600">Apply these tools in context to improve sentence flow and precision.</p>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these linking and time words aloud to make sentence building smoother and more accurate.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Kwaye"} phonetic={"[kwa'jɛ]"} meaning={"And"} lang="xh" />
-          <PronunciationPlayer word={"Kodwa"} phonetic={"[kɔ'dwa]"} meaning={"But"} lang="xh" />
-          <PronunciationPlayer word={"Ngoko"} phonetic={"[ŋɔ'kɔ]"} meaning={"So / therefore"} lang="xh" />
-          <PronunciationPlayer word={"Xa"} phonetic={"[ksa]"} meaning={"When / if"} lang="xh" />
-          <PronunciationPlayer word={"Namhlanje"} phonetic={"[nam'ɬaɲɛ]"} meaning={"Today"} lang="xh" />
-          <PronunciationPlayer word={"Izolo"} phonetic={"[i'zɔlɔ]"} meaning={"Yesterday"} lang="xh" />
-          <PronunciationPlayer word={"Ngomso"} phonetic={"[ŋɔm'sɔ]"} meaning={"Tomorrow"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {
