@@ -138,7 +138,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
     <>
       <TopicContainer title={title} subtitle={subtitle} onModeChange={setMode}>
         {mode === 'learn' ? (
-        <Card className="p-8 space-y-8">
+        <Card className="p-5 sm:p-8 space-y-8">
           <h2 className="text-2xl font-bold text-slate-800">{step.title}</h2>
 
           {step.image && (
@@ -158,7 +158,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
 
           {step.content}
 
-          <div className="flex justify-between pt-8 border-t border-slate-100">
+          <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-3 pt-6 sm:pt-8 border-t border-slate-100">
             <Button
               variant="secondary"
               disabled={learnStep === 0}
@@ -166,7 +166,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
             >
               Previous
             </Button>
-            <div className="flex gap-1 items-center">
+            <div className="flex gap-1 items-center justify-center order-last basis-full sm:order-none sm:basis-auto">
               {learnSteps.map((_, i) => (
                 <div
                   key={i}
