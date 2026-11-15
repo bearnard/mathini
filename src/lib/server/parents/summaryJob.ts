@@ -12,7 +12,7 @@ import { buildProgress } from '../progress/progressApi';
 import { buildSummary, childWeekFrom, isSendDay, makeUnsubscribeToken, weekKey, WEEK_MS, type ChildWeek } from './summaryEmail';
 
 /** Must equal the cron in wrangler.jsonc (a test compares them). */
-export const WEEKLY_CRON = '30 3 * * 0,1,2';
+export const WEEKLY_CRON = '30 3 * * SUN,MON,TUE';
 export const MAX_PARENTS_PER_RUN = 12;
 export const MAX_ATTEMPTS = 3;
 export const DEFAULT_MAX_OPS = 44; // of the 50 subrequests a free-plan invocation allows, leaving a few for housekeeping
