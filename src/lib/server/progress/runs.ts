@@ -6,7 +6,7 @@
 //   - The client makes the run id (a uuid), so answers can carry it at once. The server checks the format and that the run is the learner's.
 //   - A run still open 2 hours after it started is ABANDONED: it keeps the answers so far, is flagged, and has no score (excluded from trends).
 //   - Starting twice with the same id is harmless (idempotent). Finishing twice returns the first result.
-import type { AdminDb } from '../admin/db';
+import type { AdminDb, Statement } from '../admin/db';
 
 export const RUN_KINDS = ['practice', 'review', 'quiz', 'mock_test', 'exam_practice'] as const;
 export type RunKind = (typeof RUN_KINDS)[number];
@@ -151,15 +151,19 @@ export async function finishRun(db: AdminDb, studentId: string, runId: unknown, 
  * set from its attempts, it has no score and no finish time. At most `limit` runs per call (the nightly job is bounded). `onlyId` limits it to one run.
  * One statement, so it costs one D1 call.
  */
-export async function abandonRuns(db: AdminDb, now: number, limit = 200, onlyId?: string): Promise<void> {
+export function abandonStatement(now: number, limit = 200, onlyId?: string): Statement {
   const cutoff = now - ABANDON_AFTER_MS;
-  await db.batch([{
+  return {
     sql: `UPDATE runs SET status = 'abandoned',
             n_answered = (SELECT COUNT(*) FROM attempts a WHERE a.run_id = runs.id),
             n_correct = (SELECT COALESCE(SUM(a.is_correct), 0) FROM attempts a WHERE a.run_id = runs.id)
           WHERE status = 'open' AND started_at < ? AND id IN (SELECT id FROM runs WHERE status = 'open' AND started_at < ? ${onlyId ? 'AND id = ?' : ''} LIMIT ?)`,
     params: onlyId ? [cutoff, cutoff, onlyId, limit] : [cutoff, cutoff, limit],
-  }]);
+  };
+}
+
+export async function abandonRuns(db: AdminDb, now: number, limit = 200, onlyId?: string): Promise<void> {
+  await db.batch([abandonStatement(now, limit, onlyId)]);
 }
 
 /**

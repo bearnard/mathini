@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { openPoolDb } from './testD1';
+import fs from 'node:fs';
+import { openPoolDb, openTestD1 } from './testD1';
 import { limitsFromEnv, runScheduled } from './scheduled';
 import { DEFAULT_LIMITS } from './topUp';
 import type { GeneratedItem } from './gemini';
@@ -94,4 +95,30 @@ test('src/worker.ts exposes fetch and scheduled and wrangler main points at it',
   assert.match(src, /export \{ DOQueueHandler, DOShardedTagCache, BucketCachePurge \}/);
   assert.match(fs.readFileSync('wrangler.jsonc', 'utf8'), /"main": "src\/worker\.ts"/);
   assert.match(fs.readFileSync('wrangler.jsonc', 'utf8'), /"crons":\s*\[/);
+});
+
+test('the nightly job refreshes topic_progress and abandons stale runs (ADR 0005), in one read and one batch', async () => {
+  const t = await openTestD1();
+  if (!t) return;
+  const mig = (f: string) => fs.readFileSync(`migrations/${f}`, 'utf8');
+  t.raw.exec(mig('0002_students_results_gamification.sql').replace(/ALTER TABLE item_cache[^;]*;/g, '').replace(/CREATE INDEX IF NOT EXISTS idx_item_cache_task_section[^;]*;/g, ''));
+  t.raw.exec(mig('0014_progress.sql'));
+  const now = Date.UTC(2026, 10, 15, 3, 0, 0);
+  t.raw.prepare("INSERT INTO students (id, login_code, pin_hash, pin_salt, display_name, real_name, grade, created_at, last_seen_at) VALUES ('s1','C','h','s','n','r',6,1,1)").run();
+  for (let i = 0; i < 4; i++) t.raw.prepare("INSERT INTO attempts (student_id, task, section, grade, subject, topic, is_correct, created_at) VALUES ('s1','electric-circuits','general',6,'nst','electric-circuits',?,?)").run(i % 2, now - 3600_000 + i);
+  t.raw.prepare("INSERT INTO runs (id, student_id, kind, grade, subject, scope_key, started_at, n_items) VALUES ('00000000-0000-4000-8000-000000000001','s1','practice',6,'nst','electric-circuits',?,5)").run(now - 5 * 3600_000);
+  const lines: string[] = [];
+  const r = await runScheduled({ DB: t.db }, { now: () => now, log: (l) => lines.push(l) });
+  assert.equal(r.topicsRefreshed, 1);
+  assert.equal((t.raw.prepare('SELECT attempts FROM topic_progress').get() as { attempts: number }).attempts, 4);
+  assert.equal((t.raw.prepare('SELECT status FROM runs').get() as { status: string }).status, 'abandoned');
+  assert.match(lines[0], /topics refreshed 1/);
+});
+
+test('without migration 0014 the progress step is skipped (null) and the rest of the job still runs', async () => {
+  const e = await env(0);
+  if (!e) return;
+  const r = await runScheduled({ DB: e.t.db }, { now: () => e.now, log: () => {} });
+  assert.equal(r.topicsRefreshed, null);
+  assert.equal(r.eventsPurged, 1200);
 });

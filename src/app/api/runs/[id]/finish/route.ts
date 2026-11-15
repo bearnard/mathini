@@ -3,6 +3,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { verifySession, SESSION_COOKIE_NAME } from '../../../../../lib/server/session';
 import { d1Adapter } from '../../../../../lib/server/admin/db';
 import { finishRun } from '../../../../../lib/server/progress/runs';
+import { refreshForRun } from '../../../../../lib/server/progress/topicProgress';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,8 +17,18 @@ export async function POST(req: NextRequest, ctx: { params: Promise<{ id: string
     const { env } = getCloudflareContext();
     const studentId = await verifySession(req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
     if (!studentId) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-    const r = await finishRun(d1Adapter(env.DB as never), studentId, id, Date.now());
+    const db = d1Adapter(env.DB as never);
+    const now = Date.now();
+    const r = await finishRun(db, studentId, id, now);
     if (!r.ok) return NextResponse.json({ error: r.error }, { status: r.status });
+    if (!r.alreadyFinished) {
+      // ADR 0005 part 2: refresh the topic measures of the tasks this run touched (one read, one batch). The run is already finished: this must never fail it.
+      try {
+        await refreshForRun(db, studentId, r.tasks, now);
+      } catch (e) {
+        console.error('Topic progress refresh failed:', e);
+      }
+    }
     return NextResponse.json({ run: r.run });
   } catch (err) {
     console.error('Run finish error:', err);
