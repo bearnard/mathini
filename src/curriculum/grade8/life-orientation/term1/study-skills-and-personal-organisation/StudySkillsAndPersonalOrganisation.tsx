@@ -1,26 +1,95 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { PlanBar, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { planSegments } from '../../../../../components/diagrams/lo/pswHelpers';
+import { ProgressBars } from '../../../../../components/diagrams/lo/Lo4Pictures';
+import { byDeadline, percentDone } from '../../../../../components/diagrams/lo/lo4Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// Numbers in the pictures and worked examples come from the tested helpers (pswHelpers, lo4Helpers).
+const afternoon = [
+  { label: 'Homework', minutes: 40, kind: 'study' as const },
+  { label: 'Break', minutes: 10, kind: 'break' as const },
+  { label: 'Revision', minutes: 30, kind: 'study' as const },
+];
+const afternoonTotal = planSegments(afternoon).total;
+const hoursMinutes = (m: number) => `${Math.floor(m / 60)} h ${m % 60} min`;
+const tasks = byDeadline([
+  { name: 'Read a chapter', daysLeft: 7 },
+  { name: 'Maths worksheet', daysLeft: 1 },
+  { name: 'History project', daysLeft: 4 },
+]);
+const dayWord = (n: number) => `${n} ${n === 1 ? 'day' : 'days'}`;
+const weeklyGoals = [3, 4, 4, 5];
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Plan your study time',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Good study skills include time management, homework routines, concentration strategies, and organised
-          materials.
-        </p>
-      </div>
+    title: 'A study timetable',
+    content: slide(
+      <>
+        <Rule>A study timetable organises your tasks and reduces last-minute stress. Plan time for homework, revision and short breaks.</Rule>
+        <PlanBar parts={afternoon} aria="One afternoon as a bar: 40 minutes of homework, a 10 minute break, then 30 minutes of revision, 80 minutes in total." />
+        <Worked
+          title="Plan one afternoon"
+          steps={[<>Homework: {afternoon[0].minutes} minutes.</>, <>Break: {afternoon[1].minutes} minutes.</>, <>Revision: {afternoon[2].minutes} minutes.</>, <>Total: {afternoonTotal} minutes, or {hoursMinutes(afternoonTotal)}.</>]}
+        />
+        <Mistake>Thinking a timetable lets you skip homework, or study one subject for the whole week. A good timetable spreads your subjects out.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Use routines and reflection',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Learners become more independent when they plan ahead, complete tasks consistently, and review what works.
-        </p>
-      </div>
+    title: 'Concentration and homework routines',
+    content: slide(
+      <>
+        <Rule>You concentrate best in a quiet place with few distractions. A regular homework routine builds consistency and helps you learn independently.</Rule>
+        <StepFlow steps={['Choose a regular time.', 'Find a quiet place.', 'Put distractions away.', 'Work, then tick it off.']} aria="Four steps for a homework routine in order: choose a regular time, find a quiet place, put distractions away, work then tick it off." />
+        <Worked
+          title="Thabo checks social media every few minutes while he studies"
+          steps={[<>Spot the distraction: his phone.</>, <>Put the phone out of reach.</>, <>Choose a quiet place and a fixed time.</>, <>Work for the planned time, then take a break.</>]}
+        />
+        <Mistake>Believing a routine means you do not need to revise, or that it guarantees full marks. A routine only makes it easier to do the work.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Prioritising and staying organised',
+    content: slide(
+      <>
+        <Rule>When many tasks are due, rank them by deadline and importance. Stay organised by keeping notes and files sorted by subject.</Rule>
+        <StepFlow steps={tasks.map((t) => `${t.name}: due in ${dayWord(t.daysLeft)}`)} aria="Three tasks ranked by deadline, closest first: the maths worksheet due in 1 day, the history project due in 4 days, and reading a chapter due in 7 days." />
+        <Worked
+          title="Three tasks are due"
+          steps={[<>List each task with its deadline.</>, <>Put the closest deadline first: {tasks[0].name}, due in {dayWord(tasks[0].daysLeft)}.</>, <>Then {tasks[1].name} ({dayWord(tasks[1].daysLeft)}), then {tasks[2].name.toLowerCase()} ({dayWord(tasks[2].daysLeft)}).</>, <>If two tasks are due on the same day, do the more important one first.</>]}
+        />
+        <Mistake>Waiting until the last night, leaving the hard subjects for later, losing worksheets or ignoring due dates. Rank first, then start.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Hard topics, progress and balance',
+    content: slide(
+      <>
+        <Rule>When a topic feels difficult, split it into small steps and ask for help when you need it. Review your completed goals each week. Put rest, sleep and revision in your weekly plan.</Rule>
+        <ProgressBars labels={['Wk 1', 'Wk 2', 'Wk 3', 'Wk 4']} values={weeklyGoals} max={5} title="Weekly goals done" aria="Four bars showing weekly study goals done out of 5: 3, 4, 4 and 5." />
+        <Worked
+          title="Fractions feel hard"
+          steps={[<>Split it: what a fraction is, then equal denominators, then different denominators.</>, <>Work on one small step at a time.</>, <>Ask your teacher about the step where you get stuck.</>, <>Review each week: week 1, {weeklyGoals[0]} of 5 goals = {percentDone(weeklyGoals[0], 5)}%. Week 4, 5 of 5 = {percentDone(weeklyGoals[3], 5)}%.</>]}
+        />
+        <Mistake>Avoiding the topic, copying answers without understanding, or studying all night and skipping meals. Rest and sleep help you learn.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is the main purpose of a study timetable?" answer="To organise tasks and reduce last-minute stress." />
+        <Check question="Name two habits that improve concentration when you study." answer="Study in a quiet place with few distractions and keep a regular routine." />
+        <Check question="You have a maths worksheet due tomorrow and a project due in four days. Which do you start first, and why?" answer="The maths worksheet, because its deadline is closest. Rank tasks by deadline and importance." />
+        <Check question="A topic feels very difficult. What strategy works best?" answer="Split it into small steps and ask for help when needed." />
+      </>,
     ),
   },
 ];
