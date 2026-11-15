@@ -67,5 +67,5 @@ test('lookupStudentConsent: consented, not consented, and missing learner', asyn
   assert.deepEqual(await lookupStudentConsent(fakeDb(null), 'a'), { exists: false, consented: false });
 });
 test('the notice version changed with the new tick-box text', () => {
-  assert.equal(CONSENT_VERSION, 'privacy-2026-11-15-v4');
+  assert.equal(CONSENT_VERSION, 'privacy-2026-11-15-v5');
 });

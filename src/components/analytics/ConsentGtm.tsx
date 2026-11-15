@@ -23,6 +23,7 @@ function ensureGtag(w: DataLayerWindow): (...args: unknown[]) => void {
 }
 
 export const REOPEN_EVENT = 'pp-consent-reopen';
+const announce = (choice: Choice | null) => window.dispatchEvent(new CustomEvent('pp-consent-change', { detail: choice }));
 
 export default function ConsentGtm() {
   const [show, setShow] = useState(false);
@@ -37,13 +38,14 @@ export default function ConsentGtm() {
     else setShow(true);
     // The standard container snippet, after the consent defaults.
     (w.dataLayer as unknown[]).push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+    announce(saved);
     if (!document.querySelector(`script[src="${GTM_SCRIPT_URL}"]`)) {
       const s = document.createElement('script');
       s.async = true;
       s.src = GTM_SCRIPT_URL;
       document.head.appendChild(s);
     }
-    const reopen = () => { clearChoice(storage()); setShow(true); };
+    const reopen = () => { clearChoice(storage()); setShow(true); announce(null); };
     window.addEventListener(REOPEN_EVENT, reopen);
     return () => window.removeEventListener(REOPEN_EVENT, reopen);
   }, []);
@@ -52,6 +54,7 @@ export default function ConsentGtm() {
     writeChoice(storage(), choice);
     (window as DataLayerWindow).gtag?.('consent', 'update', consentUpdateFor(choice));
     setShow(false);
+    announce(choice);
   };
 
   if (!show) return null;
@@ -59,7 +62,7 @@ export default function ConsentGtm() {
     <div role="region" aria-label="Cookie choices" className="fixed inset-x-0 bottom-0 z-50 p-3 sm:p-4">
       <div className="mx-auto flex max-w-3xl flex-col gap-3 rounded-2xl border border-slate-300 bg-white p-4 shadow-2xl sm:flex-row sm:items-center">
         <p className="flex-1 text-sm text-slate-700">
-          Can we use Google Analytics on this public site to count visits? It only runs if you say yes, and never inside the learner, parent or teacher areas.{' '}
+          Can we use Google Analytics to count visits, and show non-personalised Google ads, on this public site? Both only run if you say yes, and neither ever runs inside the learner, parent or teacher areas.{' '}
           <Link href="/privacy" className="font-bold text-[#3285bc] underline">Privacy</Link>
         </p>
         <div className="flex shrink-0 gap-2">

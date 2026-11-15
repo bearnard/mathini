@@ -5,7 +5,7 @@
 // tell which notice a learner agreed to. The server stores it with the consent.
 
 /** Version of the notice + tick-box text. Bump whenever either changes. */
-export const CONSENT_VERSION = 'privacy-2026-11-15-v4';
+export const CONSENT_VERSION = 'privacy-2026-11-15-v5';
 
 /** The required sign-up tick-box (and the one-time prompt for existing learners). */
 export const CONSENT_CHECKBOX_LABEL =
@@ -32,7 +32,7 @@ export const PRIVACY_SECTIONS: PrivacySection[] = [
     heading: 'What we do not collect',
     body: [
       'We never store your IP address, and we do not keep your full browser details.',
-      'We do not use advertising, and we do not use third-party analytics inside the app or the learner, parent and teacher areas. We do not sell or share this information.',
+      'The app and the learner, parent and teacher areas never show ads and never use third-party analytics. We do not sell or share this information.',
     ],
   },
   {
@@ -64,11 +64,11 @@ export const PRIVACY_SECTIONS: PrivacySection[] = [
     ],
   },
   {
-    heading: 'Google Tag Manager and Analytics on the public pages',
+    heading: 'Google Tag Manager, Analytics and ads on the public pages',
     body: [
       'The public pages (the home page, the grade, subject and topic pages, For parents, For teachers and this page) can use Google Tag Manager and Google Analytics to count visits. They only run if you press Accept in the banner. If you press Decline, or your browser sends Do Not Track or Global Privacy Control, they do not.',
-      'We do not use them for advertising: ad storage is switched off. Your choice is kept in your browser for six months, and you can change it at any time with the button below.',
-      'They are never loaded inside the app, or in the learner, parent or teacher areas, the admin or the review pages.',
+      'The same Accept also lets the topic and subject pages show a Google ad (Google AdSense). These ads are non-personalised: we ask Google not to use your interests or browsing history, and we switch off ad personalisation and ad storage in Tag Manager. If you press Decline, no ad is requested and Google\'s ad code does not load. Your choice is kept in your browser for six months, and you can change it at any time with the button below.',
+      'Neither Google\'s analytics nor its ads are ever loaded inside the app, or in the learner, parent or teacher areas, the admin or the review pages. Those areas never show ads.',
     ],
   },
   {
