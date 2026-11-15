@@ -1,93 +1,111 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { BeatRhythm, PatternRow } from '../../../../../components/diagrams/lifeskills/LifeSkillsPictures';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Explore texture, pattern, and printmaking',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          In <strong>Creative Arts</strong>, learners experiment with materials and designs.
-          <strong> Texture</strong>, <strong>pattern</strong>, and <strong>printmaking</strong> help artists
-          create interesting artworks with repeated shapes and varied surfaces.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <p className="font-bold text-sky-700">Texture</p>
-            <p className="text-slate-600">how a surface feels or looks</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-bold text-emerald-700">Pattern</p>
-            <p className="text-slate-600">a design that repeats in a planned way</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-bold text-amber-700">Printmaking</p>
-            <p className="text-slate-600">pressing ink or paint to make repeated images</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Collage</p>
-            <p className="text-slate-600">combining cut or torn pieces into one artwork</p>
-          </div>
-        </div>
-      </div>
+    title: 'Texture and pattern',
+    content: slide(
+      <>
+        <Rule>Texture describes how a surface feels or looks: rough, smooth, bumpy or soft. A pattern is a design that repeats.</Rule>
+        <PatternRow />
+        <Worked
+          title="Find the pattern"
+          steps={[
+            <>Look for one unit: here a circle, a square and a triangle.</>,
+            <>See it repeat: the same three shapes come again, and again.</>,
+            <>A design that repeats is a pattern. Patterns can repeat shapes, colours, lines or sounds.</>,
+            <>Texture is different: feel a tree bark (rough) and a leaf (smooth) and describe how each surface feels or looks.</>,
+          ]}
+        />
+        <Mistake>Calling any design a pattern. A pattern must repeat in an organised way; texture is about how a surface feels or looks.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Tell stories with puppets, voice, and movement',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Creative Arts also includes performance. Short stories can be shared through
-          <strong> puppetry</strong>, expressive voices, and body movement that shows character and action.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-bold text-rose-700">Story sequence</p>
-            <p className="text-slate-600">beginning, middle, and end</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-bold text-cyan-700">Puppetry</p>
-            <p className="text-slate-600">use puppets to bring characters to life</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-bold text-lime-700">Voice</p>
-            <p className="text-slate-600">change tone and volume to show feeling</p>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <p className="font-bold text-fuchsia-700">Movement</p>
-            <p className="text-slate-600">actions help the audience follow the story</p>
-          </div>
-        </div>
-      </div>
+    title: 'Printmaking and collage',
+    content: slide(
+      <>
+        <Rule>
+          Printmaking uses a stamp, block or other surface to repeat an image, such as pressing a painted shape onto paper again and again. A collage is an artwork made by joining different pieces.
+        </Rule>
+        <Worked
+          title="Make a print and a collage"
+          steps={[
+            <>Paint a shape on a sponge or block.</>,
+            <>Press it onto paper again and again: the repeated image is a print, and the repeat makes a pattern.</>,
+            <>For a collage, join different pieces (paper, fabric or other materials) into one composition.</>,
+          ]}
+        />
+        <Mistake>Thinking a print is a single drawing. Printmaking repeats the same image with a stamp or block; a collage joins different pieces.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Keep rhythm patterns and prepare a performance',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          A strong performance uses practice and timing. Learners rehearse, repeat
-          <strong> rhythm patterns</strong>, and improve their artwork or storytelling before presenting.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Rhythm</p>
-            <p className="text-slate-600">a repeated pattern of beats or sounds</p>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <p className="font-bold text-orange-700">Rehearsal</p>
-            <p className="text-slate-600">practise so the performance becomes smooth</p>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <p className="font-bold text-teal-700">Presentation</p>
-            <p className="text-slate-600">share artwork or a story clearly and proudly</p>
-          </div>
-          <div className="rounded-xl bg-yellow-50 p-4 text-left">
-            <p className="font-bold text-yellow-700">Reflection</p>
-            <p className="text-slate-600">notice what worked and what can improve</p>
-          </div>
-        </div>
-      </div>
+    title: 'Puppetry: story, voice and movement',
+    content: slide(
+      <>
+        <Rule>
+          A clear puppet story has a beginning, middle and end. Show that two puppets are different characters by using different voices and movements.
+        </Rule>
+        <Worked
+          title="Plan a puppet show"
+          steps={[
+            <>Beginning: a tortoise and a hare meet.</>,
+            <>Middle: they have a race and something goes wrong.</>,
+            <>End: the story finishes. A clear sequence helps the audience understand what happens.</>,
+            <>Give the tortoise a slow, deep voice and slow movements, and the hare a quick, high voice and fast movements.</>,
+          ]}
+        />
+        <Mistake>Using the same voice and movement for every puppet. Different voices and movements help the audience recognise different characters.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Rhythm patterns, rehearsal and presentation',
+    content: slide(
+      <>
+        <Rule>
+          A rhythm pattern is a repeated sequence of beats or sounds. Rehearsal helps the performance become smoother. This term you make prints and tell a story with puppets, then present and reflect.
+        </Rule>
+        <BeatRhythm />
+        <Worked
+          title="Prepare to present"
+          steps={[
+            <>Choose a rhythm pattern to accompany your puppet show. Clap the picture’s pattern (long, short, short, long, long) and then repeat it: a repeated sequence of beats or sounds.</>,
+            <>Rehearse it several times to practise and improve your timing and confidence.</>,
+            <>Present your artwork or story clearly.</>,
+            <>Reflect: notice what worked and what can improve.</>,
+          ]}
+        />
+        <Mistake>Presenting without rehearsal. Rehearsal gives you a chance to practise and improve timing and confidence.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What does texture describe? What is a pattern?</li>
+            <li>Which activity is printmaking? What is a collage?</li>
+            <li>Which order tells a clear puppet story? How can you show two puppets are different characters?</li>
+            <li>What is a rhythm pattern? Why rehearse? What does Creative Arts combine this term?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>How a surface feels or looks. A design that repeats.</li>
+            <li>Pressing a painted shape onto paper again and again. An artwork made by joining different pieces.</li>
+            <li>Beginning, middle and end. Use different voices and movements.</li>
+            <li>A repeated sequence of beats or sounds. It helps the performance become smoother. Making prints and telling a story with puppets.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

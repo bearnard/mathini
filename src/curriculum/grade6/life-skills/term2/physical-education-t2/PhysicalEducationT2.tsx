@@ -1,92 +1,112 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { InvasionGame } from '../../../../../components/diagrams/lifeskills/LifeSkillsPictures';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Use passing and movement in invasion games',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          In <strong>invasion games</strong>, teams move into open space, pass the ball, and try to
-          score while defending their area. Good movement and accurate passes help the whole team.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <p className="font-bold text-sky-700">Open space</p>
-            <p className="text-slate-600">move where a teammate can find you</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-bold text-emerald-700">Passing</p>
-            <p className="text-slate-600">send the ball accurately and at the right time</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-bold text-amber-700">Catching</p>
-            <p className="text-slate-600">watch the ball and receive it with control</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Small-sided games</p>
-            <p className="text-slate-600">fewer players mean more touches and decisions</p>
-          </div>
-        </div>
-      </div>
+    title: 'Invasion games: attack into space',
+    content: slide(
+      <>
+        <Rule>
+          In an invasion game the main aim is to move into space and try to score. Moving into an open space helps a teammate receive a pass more easily.
+        </Rule>
+        <InvasionGame />
+        <Worked
+          title="Read the picture"
+          steps={[
+            <>The player with the ball has a defender in the way.</>,
+            <>A teammate moves into open space, away from the defender.</>,
+            <>The ball carrier passes to the open teammate: pass to an open teammate.</>,
+            <>Now the team attacks the space towards the goal and tries to score.</>,
+          ]}
+        />
+        <Mistake>Standing still next to a defender and waiting for the ball. Move into open space so a teammate can find you.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Build agility, fitness, and teamwork with drills',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Repeated drills improve <strong>agility</strong>, coordination, and fitness. Working with a
-          partner or team also builds communication and trust.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-bold text-rose-700">Agility</p>
-            <p className="text-slate-600">change direction quickly and stay balanced</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-bold text-cyan-700">Repeated drills</p>
-            <p className="text-slate-600">practise skills again to improve control</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-bold text-lime-700">Teamwork</p>
-            <p className="text-slate-600">support your teammates and share the ball</p>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <p className="font-bold text-fuchsia-700">Communication</p>
-            <p className="text-slate-600">call clearly and give useful information</p>
-          </div>
-        </div>
-      </div>
+    title: 'Attack and defend',
+    content: slide(
+      <>
+        <Rule>
+          Good defending is staying between the attacker and the goal, which protects the scoring area. If a defender is blocking you, the best team tactic is usually to pass to an open teammate.
+        </Rule>
+        <Worked
+          title="Choose a tactic"
+          steps={[
+            <>You are attacking and a defender blocks you.</>,
+            <>Do not force a risky move. Look for an open teammate.</>,
+            <>Pass to the open teammate: good tactics use teamwork and space.</>,
+            <>When you defend, stay between the attacker and the goal.</>,
+          ]}
+        />
+        <Mistake>Forcing a run through two defenders. Good tactics use teamwork and space, not a risky move.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Play fairly and use simple game tactics',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Good players show <strong>fair play</strong> and make smart choices in mini-games. Pass into
-          space, defend responsibly, and respect rules, opponents, and officials.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Fair play</p>
-            <p className="text-slate-600">follow rules and respect everyone</p>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <p className="font-bold text-orange-700">Attack</p>
-            <p className="text-slate-600">move the ball quickly towards a goal or target</p>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <p className="font-bold text-teal-700">Defend</p>
-            <p className="text-slate-600">stay between the attacker and the scoring area</p>
-          </div>
-          <div className="rounded-xl bg-yellow-50 p-4 text-left">
-            <p className="font-bold text-yellow-700">Tactics</p>
-            <p className="text-slate-600">choose the best pass, space, or position</p>
-          </div>
-        </div>
-      </div>
+    title: 'Agility, drills and small-sided games',
+    content: slide(
+      <>
+        <Rule>
+          Agility is changing direction quickly with control. We practise catching and passing drills many times to improve skill and fitness. A small-sided game has fewer players on each team.
+        </Rule>
+        <Worked
+          title="Practise and play"
+          steps={[
+            <>Agility drill: run, stop and change direction quickly, staying balanced.</>,
+            <>Repeat the catching and passing drill many times: it builds control, confidence and fitness.</>,
+            <>Play a small-sided game: fewer players on each team, so each learner gets more chances to move, pass and make decisions.</>,
+          ]}
+        />
+        <Mistake>Thinking agility only means being fast. Agility is changing direction quickly with control, while staying balanced.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Teamwork and fair play',
+    content: slide(
+      <>
+        <Rule>
+          Teamwork in a small-sided game means communicating and supporting others. Fair play means being honest and respecting the rules, such as admitting the ball went out off your hand.
+        </Rule>
+        <Worked
+          title="Show fair play"
+          steps={[
+            <>You touch the ball last and it goes out. Nobody saw.</>,
+            <>Admit it: “It went out off my hand.” That is being honest.</>,
+            <>Call clearly to your teammates and support them. Communicating improves passing and positioning.</>,
+            <>Follow the rules and respect everyone.</>,
+          ]}
+        />
+        <Mistake>Hiding a mistake to win a point. Fair play means being honest and respecting the rules of the game.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is the main aim in an invasion game? Which action helps a teammate receive a pass?</li>
+            <li>What is good defending, and what should you do if a defender blocks you?</li>
+            <li>What does agility mean? Why repeat catching and passing drills? What is a small-sided game?</li>
+            <li>What does teamwork look like in a small-sided game, and which behaviour is fair play?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Move into space and try to score. Moving into an open space.</li>
+            <li>Staying between the attacker and the goal. Pass to an open teammate.</li>
+            <li>Changing direction quickly with control. To improve skill and fitness. A game with fewer players on each team.</li>
+            <li>Communicating and supporting others. Admitting the ball went out off your hand.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

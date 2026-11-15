@@ -1,93 +1,109 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Build healthy friendships and make safe choices',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Personal and Social Well-being</strong> helps you build strong friendships, behave
-          responsibly, and choose safe actions. Healthy relationships are based on
-          <strong> respect</strong>, <strong>honesty</strong>, and knowing when to ask a trusted adult for help.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <p className="font-bold text-sky-700">Friendships</p>
-            <p className="text-slate-600">care, kindness, and listening to each other</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-bold text-emerald-700">Respect</p>
-            <p className="text-slate-600">speak politely and respect boundaries</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-bold text-amber-700">Trusted adults</p>
-            <p className="text-slate-600">parents, caregivers, teachers, and other safe helpers</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Safe choices</p>
-            <p className="text-slate-600">walk away from danger and report problems quickly</p>
-          </div>
-        </div>
-      </div>
+    title: 'Healthy friendships',
+    content: slide(
+      <>
+        <Rule>A healthy friendship is based on respect, care and listening, such as listening respectfully when a friend speaks. A friend dares you to break a school rule? Say no and choose the responsible action.</Rule>
+        <Worked
+          title="Be a good friend"
+          steps={[
+            <>Your friend is telling you about their day: listen respectfully.</>,
+            <>Speak politely and respect their boundaries.</>,
+            <>A friend dares you to break a school rule: say no and choose the responsible action.</>,
+            <>Good friends should not force you into unsafe or irresponsible choices.</>,
+          ]}
+        />
+        <Mistake>Thinking you must do what a friend dares you to do to keep the friendship. Good friends respect your “no”.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Solve conflicts fairly and calmly',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Friends sometimes disagree, but conflicts can be solved fairly. Stay calm, let each person
-          speak, and work towards a solution that is <strong>fair</strong> and <strong>peaceful</strong>.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-bold text-rose-700">Pause first</p>
-            <p className="text-slate-600">take a breath instead of shouting</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-bold text-cyan-700">Listen</p>
-            <p className="text-slate-600">hear both sides before deciding</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-bold text-lime-700">Use kind words</p>
-            <p className="text-slate-600">say how you feel without blaming</p>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <p className="font-bold text-fuchsia-700">Agree on a plan</p>
-            <p className="text-slate-600">choose a solution both people can follow</p>
-          </div>
-        </div>
-      </div>
+    title: 'Solving conflict fairly',
+    content: slide(
+      <>
+        <Rule>
+          When a disagreement starts, calm down and listen first. To solve it fairly, give both people a chance to speak: “Let us each explain what happened.”
+        </Rule>
+        <Worked
+          title="Solve a disagreement"
+          steps={[
+            <>Pause first: take a breath instead of shouting. Calm down and listen.</>,
+            <>Say: “Let us each explain what happened.” Both people speak.</>,
+            <>Use kind words to say how you feel, without blaming.</>,
+            <>Agree on a plan that both people can follow.</>,
+          ]}
+        />
+        <Mistake>Shouting first or blaming. Staying calm helps both people solve the problem fairly.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Take responsibility for safety and study habits',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Being responsible means protecting yourself and doing your best at school. Good
-          <strong> study habits</strong> and a clear safety plan help you stay prepared and confident.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Responsibilities</p>
-            <p className="text-slate-600">finish tasks, follow rules, and be dependable</p>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <p className="font-bold text-orange-700">Personal safety</p>
-            <p className="text-slate-600">tell an adult if something feels unsafe</p>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <p className="font-bold text-teal-700">Study habits</p>
-            <p className="text-slate-600">plan time, pack books, and revise regularly</p>
-          </div>
-          <div className="rounded-xl bg-yellow-50 p-4 text-left">
-            <p className="font-bold text-yellow-700">Help-seeking</p>
-            <p className="text-slate-600">ask early when you are worried or confused</p>
-          </div>
-        </div>
-      </div>
+    title: 'Trusted adults and safe choices',
+    content: slide(
+      <>
+        <Rule>
+          A trusted adult is someone responsible who protects and supports you, such as a teacher who helps you stay safe. If someone you do not know offers you a lift, say no and tell a trusted adult. If a situation feels unsafe, tell a trusted adult as soon as you can.
+        </Rule>
+        <Worked
+          title="Make a safe choice"
+          steps={[
+            <>A person you do not know offers you a lift.</>,
+            <>Say no. Do not go with them.</>,
+            <>Tell a trusted adult, such as a parent, caregiver or teacher.</>,
+            <>Reporting quickly helps adults protect you and solve the problem.</>,
+          ]}
+        />
+        <Mistake>Keeping an unsafe situation a secret or waiting to tell. Tell a trusted adult as soon as you can.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Responsibility and study habits',
+    content: slide(
+      <>
+        <Rule>
+          Being responsible means being prepared, such as packing your books and homework the night before. A strong study habit is reviewing your notes over several days before a test, which reduces stress.
+        </Rule>
+        <Worked
+          title="Prepare for a test on Friday"
+          steps={[
+            <>Pack your books and homework the night before: responsibility at school.</>,
+            <>Review a little of your notes each day from Monday: reviewing your notes over several days.</>,
+            <>On Thursday night you only need a quick look, so you feel calm.</>,
+            <>If you do not understand something, ask for help.</>,
+          ]}
+        />
+        <Mistake>Leaving all the revision to the night before. Regular revision over several days works better and reduces stress.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Which action shows a healthy friendship? What is the safest response to a dare to break a school rule?</li>
+            <li>What is a good first step in a disagreement, and which sentence helps solve a conflict fairly?</li>
+            <li>Who is a trusted adult? What do you do if someone you do not know offers you a lift? What if a situation feels unsafe?</li>
+            <li>Which behaviour shows responsibility at school, and which study habit helps before a test?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Listening respectfully when a friend speaks. Say no and choose the responsible action.</li>
+            <li>Calm down and listen. “Let us each explain what happened.”</li>
+            <li>A teacher who helps you stay safe. Say no and tell a trusted adult. Tell a trusted adult as soon as you can.</li>
+            <li>Packing your books and homework the night before. Reviewing your notes over several days.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
