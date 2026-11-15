@@ -1,134 +1,93 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { BeatRhythm, LinesAndShapes } from '../../../../../components/diagrams/lifeskills/LifeSkillsPictures';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Lines, shapes, and colours build visual art',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          In <strong>Creative Arts</strong>, artists use the elements of art to make meaning. Lines, shapes, and
-          colours help us create simple <strong>2D artworks</strong> on a flat surface.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <strong className="text-sky-800">Line</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-sky-700">
-              <span className="rounded-full bg-white px-3 py-1">straight</span>
-              <span className="rounded-full bg-white px-3 py-1">curved</span>
-              <span className="rounded-full bg-white px-3 py-1">zigzag</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <strong className="text-amber-800">Shape</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-amber-700">
-              <span className="rounded-full bg-white px-3 py-1">circle</span>
-              <span className="rounded-full bg-white px-3 py-1">square</span>
-              <span className="rounded-full bg-white px-3 py-1">triangle</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <strong className="text-emerald-800">Colour</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-emerald-700">
-              <span className="rounded-full bg-white px-3 py-1">bright</span>
-              <span className="rounded-full bg-white px-3 py-1">calm</span>
-              <span className="rounded-full bg-white px-3 py-1">contrast</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <strong className="text-violet-800">2D artwork</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-violet-700">
-              <span className="rounded-full bg-white px-3 py-1">flat picture</span>
-              <span className="rounded-full bg-white px-3 py-1">drawing</span>
-              <span className="rounded-full bg-white px-3 py-1">collage</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Lines, shapes and colour',
+    content: slide(
+      <>
+        <Rule>
+          A line is a mark that can be straight, curved or zigzag. A shape is a flat enclosed form, such as a triangle. Colour can create mood and contrast. A 2D artwork is a flat artwork made on a surface.
+        </Rule>
+        <LinesAndShapes />
+        <Worked
+          title="Describe a collage"
+          steps={[
+            <>A collage of paper pieces on a page is a 2D artwork: it is flat, made on a surface.</>,
+            <>Look for lines: a zigzag border and curved lines for waves.</>,
+            <>Look for shapes: triangles for roofs, circles for the sun.</>,
+            <>Look at colour: bright yellow and blue give contrast and a happy mood.</>,
+          ]}
+        />
+        <Mistake>Calling a shape a line. A line is a mark; a shape is an enclosed form such as a circle, square or triangle.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Rhythm and body percussion keep a steady beat',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Music begins with a beat we can feel and repeat. <strong>Rhythm</strong> is a pattern of sounds, and
-          <strong> body percussion</strong> lets us clap, tap, stamp, and click to make that pattern together.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <strong className="text-blue-800">Rhythm</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-blue-700">
-              <span className="rounded-full bg-white px-3 py-1">sound pattern</span>
-              <span className="rounded-full bg-white px-3 py-1">repeat</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <strong className="text-rose-800">Steady beat</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-rose-700">
-              <span className="rounded-full bg-white px-3 py-1">even pulse</span>
-              <span className="rounded-full bg-white px-3 py-1">keep time</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <strong className="text-lime-800">Body percussion</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-lime-700">
-              <span className="rounded-full bg-white px-3 py-1">clap</span>
-              <span className="rounded-full bg-white px-3 py-1">stamp</span>
-              <span className="rounded-full bg-white px-3 py-1">tap</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <strong className="text-orange-800">Echo patterns</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-orange-700">
-              <span className="rounded-full bg-white px-3 py-1">listen</span>
-              <span className="rounded-full bg-white px-3 py-1">copy</span>
-              <span className="rounded-full bg-white px-3 py-1">stay together</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Rhythm and a steady beat',
+    content: slide(
+      <>
+        <Rule>
+          Rhythm is a pattern of sounds and beats, made of long and short sounds. A steady beat is an even pulse that stays regular, and it helps musicians and dancers stay together.
+        </Rule>
+        <BeatRhythm />
+        <Worked
+          title="Read the picture"
+          steps={[
+            <>The top row is the steady beat: 4 even pulses, always the same distance apart.</>,
+            <>The bottom row is the rhythm: one long sound (1 beat), two short sounds (½ beat each), then two long sounds.</>,
+            <>Add them: 1 + ½ + ½ + 1 + 1 = 4 beats, the same four beats as the steady beat.</>,
+            <>Keep the beat steady while the rhythm changes.</>,
+          ]}
+        />
+        <Mistake>Mixing up beat and rhythm. The beat stays even; the rhythm is the pattern of long and short sounds on top of it.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Drama games use movement and imagination',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Drama is not only about speaking. Learners can improvise short scenes, play drama games, and create
-          movement phrases that show feelings, actions, and ideas in a clear way.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <strong className="text-indigo-800">Drama games</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-700">
-              <span className="rounded-full bg-white px-3 py-1">pretend</span>
-              <span className="rounded-full bg-white px-3 py-1">respond quickly</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <strong className="text-teal-800">Freeze frame</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-teal-700">
-              <span className="rounded-full bg-white px-3 py-1">still picture</span>
-              <span className="rounded-full bg-white px-3 py-1">show meaning</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <strong className="text-fuchsia-800">Improvisation</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-fuchsia-700">
-              <span className="rounded-full bg-white px-3 py-1">make it up</span>
-              <span className="rounded-full bg-white px-3 py-1">use imagination</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <strong className="text-cyan-800">Movement phrase</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-cyan-700">
-              <span className="rounded-full bg-white px-3 py-1">short sequence</span>
-              <span className="rounded-full bg-white px-3 py-1">planned order</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Body percussion, drama games and movement',
+    content: slide(
+      <>
+        <Rule>
+          Body percussion uses the body to make musical sounds, such as clapping and stamping a pattern. A drama game is a short acting activity that uses imagination. A movement phrase is a short sequence of planned movements.
+        </Rule>
+        <Worked
+          title="Build a short performance"
+          steps={[
+            <>Body percussion: clap, clap, stamp. Repeat it to a steady beat.</>,
+            <>Drama game: pretend to be a market seller. It is a short activity that uses imagination.</>,
+            <>Movement phrase: step, turn, bend. Plan the order and repeat it the same way each time.</>,
+          ]}
+        />
+        <Mistake>Thinking a movement phrase is random dancing. It is planned: the actions link together in a clear order.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is a line? Which is a shape? What is a 2D artwork?</li>
+            <li>How can colour help an artwork?</li>
+            <li>What is rhythm, and what is a steady beat?</li>
+            <li>What is body percussion, a drama game and a movement phrase?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>A mark that can be straight, curved or zigzag. A triangle. A flat artwork made on a surface.</li>
+            <li>It can create mood and contrast.</li>
+            <li>A pattern of sounds and beats. An even pulse that stays regular.</li>
+            <li>Clapping and stamping a pattern. A short acting activity that uses imagination. A short sequence of planned movements.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

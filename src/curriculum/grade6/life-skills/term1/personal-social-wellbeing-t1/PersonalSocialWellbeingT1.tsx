@@ -1,134 +1,105 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'A healthy self-image starts with knowing yourself',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Personal and Social Well-being</strong> helps us understand who we are. A good self-image grows
-          when we notice our strengths, speak kindly about ourselves, and show <strong>respect</strong> to others.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <strong className="text-sky-800">Self-image</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-sky-700">
-              <span className="rounded-full bg-white px-3 py-1">how you see yourself</span>
-              <span className="rounded-full bg-white px-3 py-1">positive self-talk</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <strong className="text-amber-800">Personal strengths</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-amber-700">
-              <span className="rounded-full bg-white px-3 py-1">kindness</span>
-              <span className="rounded-full bg-white px-3 py-1">effort</span>
-              <span className="rounded-full bg-white px-3 py-1">problem solving</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <strong className="text-emerald-800">Respect</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-emerald-700">
-              <span className="rounded-full bg-white px-3 py-1">listen carefully</span>
-              <span className="rounded-full bg-white px-3 py-1">fair words</span>
-              <span className="rounded-full bg-white px-3 py-1">good manners</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <strong className="text-violet-800">Supportive friends</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-violet-700">
-              <span className="rounded-full bg-white px-3 py-1">include others</span>
-              <span className="rounded-full bg-white px-3 py-1">encourage</span>
-              <span className="rounded-full bg-white px-3 py-1">trust</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Self-image and personal strengths',
+    content: slide(
+      <>
+        <Rule>Self-image is how you see and feel about yourself. A personal strength is something you do well, such as helping a classmate patiently.</Rule>
+        <Worked
+          title="Find a strength"
+          steps={[
+            <>Think of a time you did something well, for example helping a classmate patiently.</>,
+            <>Name the strength: patience and helpfulness.</>,
+            <>Patience and helpfulness build good relationships, and noticing them grows a positive self-image.</>,
+          ]}
+        />
+        <Mistake>Thinking self-image is only how you look. It is the picture you carry in your mind about yourself, including your strengths.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Healthy habits build everyday wellbeing',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Good habits help us feel ready to learn and play. Eating balanced meals, sleeping well, staying clean,
-          and being active are <strong>healthy choices</strong> that protect body and mind.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <strong className="text-blue-800">Rest</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-blue-700">
-              <span className="rounded-full bg-white px-3 py-1">sleep routine</span>
-              <span className="rounded-full bg-white px-3 py-1">energy</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <strong className="text-rose-800">Hygiene</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-rose-700">
-              <span className="rounded-full bg-white px-3 py-1">wash hands</span>
-              <span className="rounded-full bg-white px-3 py-1">brush teeth</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <strong className="text-lime-800">Healthy eating</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-lime-700">
-              <span className="rounded-full bg-white px-3 py-1">balanced meals</span>
-              <span className="rounded-full bg-white px-3 py-1">water</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <strong className="text-orange-800">Activity</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-orange-700">
-              <span className="rounded-full bg-white px-3 py-1">move daily</span>
-              <span className="rounded-full bg-white px-3 py-1">play safely</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Healthy habits and respect',
+    content: slide(
+      <>
+        <Rule>A healthy habit keeps your body healthy: washing your hands before eating is good hygiene. Respect means showing care, fairness and good manners to others, such as listening when another learner is speaking.</Rule>
+        <Worked
+          title="Spot the habit and the respect"
+          steps={[
+            <>Washing your hands before eating helps prevent illness: a healthy habit.</>,
+            <>A learner is speaking and you listen: that shows respect.</>,
+            <>Interrupting or laughing would not show care or good manners.</>,
+          ]}
+        />
+        <Mistake>Thinking respect only matters with adults. Respect means care, fairness and good manners to everyone.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Peer pressure needs brave and respectful choices',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Sometimes people try to push us into choices that are unsafe or unkind. We can use
-          <strong> refusal skills</strong>, set simple goals, and ask trusted adults for help when pressure does not
-          stop.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <strong className="text-indigo-800">Peer pressure</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-700">
-              <span className="rounded-full bg-white px-3 py-1">pressure from friends</span>
-              <span className="rounded-full bg-white px-3 py-1">stop and think</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <strong className="text-teal-800">Refusal skills</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-teal-700">
-              <span className="rounded-full bg-white px-3 py-1">say no clearly</span>
-              <span className="rounded-full bg-white px-3 py-1">walk away</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <strong className="text-fuchsia-800">Simple goals</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-fuchsia-700">
-              <span className="rounded-full bg-white px-3 py-1">clear</span>
-              <span className="rounded-full bg-white px-3 py-1">realistic</span>
-              <span className="rounded-full bg-white px-3 py-1">one step at a time</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <strong className="text-cyan-800">Trusted support</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-cyan-700">
-              <span className="rounded-full bg-white px-3 py-1">parent</span>
-              <span className="rounded-full bg-white px-3 py-1">teacher</span>
-              <span className="rounded-full bg-white px-3 py-1">caregiver</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Peer pressure and refusal skills',
+    content: slide(
+      <>
+        <Rule>
+          Peer pressure is pressure from others to do something. A good refusal skill is clear and calm and protects you. If unsafe peer pressure continues, tell a trusted adult.
+        </Rule>
+        <Worked
+          title="Say no safely"
+          steps={[
+            <>A group pushes you to do something you do not want to do: that is peer pressure.</>,
+            <>Say it clearly and calmly: “No thanks, I do not want to do that.”</>,
+            <>Walk away if you need to.</>,
+            <>If the pressure continues and feels unsafe, tell a trusted adult. Trusted adults can help you stay safe and make a good plan.</>,
+          ]}
+        />
+        <Mistake>Giving in to avoid trouble, or keeping unsafe pressure secret. Tell a trusted adult.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Supportive friends and simple goals',
+    content: slide(
+      <>
+        <Rule>
+          A supportive friend is kind, respectful and welcoming, for example a learner who includes a new classmate in a game. A simple goal is clear, realistic and easy to practise step by step.
+        </Rule>
+        <Worked
+          title="Make a simple goal"
+          steps={[
+            <>Problem: you sometimes forget your homework.</>,
+            <>Goal: “I will pack my homework every night this week.”</>,
+            <>It is clear (pack homework), realistic (every night) and easy to practise step by step.</>,
+            <>A supportive friend can help by including others and encouraging you.</>,
+          ]}
+        />
+        <Mistake>Making a goal too big or too vague, such as “be perfect”. A simple goal is clear and realistic.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What does self-image mean? Which choice shows a personal strength?</li>
+            <li>Which is a healthy habit, and which action shows respect?</li>
+            <li>What is peer pressure? Give a good refusal sentence and say what to do if it continues.</li>
+            <li>Which learner acts like a supportive friend? What is an example of a simple goal?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>How you see and feel about yourself. Helping a classmate patiently.</li>
+            <li>Washing your hands before eating. Listening when another learner is speaking.</li>
+            <li>Pressure from others to do something. “No thanks, I do not want to do that.” Tell a trusted adult.</li>
+            <li>A learner who includes a new classmate in a game. “I will pack my homework every night this week.”</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
