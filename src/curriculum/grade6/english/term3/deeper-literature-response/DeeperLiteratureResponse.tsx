@@ -38,7 +38,7 @@ const learnSteps: LearnStep[] = [
         title={"From \"The Highwayman\" — Alfred Noyes"}
         text={"The wind was a torrent of darkness among the gusty trees. The moon was a ghostly galleon tossed upon cloudy seas."}
         annotations={[
-          { start: 15, end: 34, device: "metaphor", note: "Darkness is compared to a rushing flood, making the setting feel forceful and threatening." },
+          { start: 15, end: 34, device: "metaphor", note: "The wind is compared to a rushing flood of darkness, making the setting feel forceful and threatening." },
           { start: 45, end: 56, device: "imagery", note: "The descriptive phrase sharpens the stormy picture in the reader’s mind." },
           { start: 73, end: 88, device: "metaphor", note: "The moon becomes a haunted ship, turning the sky into a dramatic seascape." },
           { start: 101, end: 112, device: "imagery", note: "Clouds are imagined as waves, deepening the visual effect of the line." },
