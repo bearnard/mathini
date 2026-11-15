@@ -1,4 +1,5 @@
 import CodeBlock from '@/components/subjects/CodeBlock';
+import { KeyedTables } from '../../../../../components/diagrams/it/G11DataPictures';
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
 
@@ -10,6 +11,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           A <strong>relational database</strong> stores data in tables made up of rows (records) and columns (fields).
         </p>
+        <KeyedTables />
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-blue-50 p-4">
             <strong className="text-blue-700">Primary key</strong>

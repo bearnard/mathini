@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import CodeBlock from '../../../../../components/subjects/CodeBlock';
+import { ValidationGates } from '../../../../../components/diagrams/it/G11DataPictures';
 import type { LearnStep } from '../../_shared/types';
 import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
 import { average, delphiCopy, delphiDelete, delphiInsert, delphiPos, formatCheckAt, lengthCheck, maxOf, presenceCheck, rangeCheck, sum, tryStrToInt } from '../../../../../components/diagrams/it/g11delphi';
@@ -22,6 +23,7 @@ export const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>Validation stops bad data entering a program. A presence check asks if anything was typed, a type check if it is the right kind of data, a range check if it is within limits, a length check if it has the right size, and a format check if it follows the pattern.</Rule>
+        <ValidationGates />
         <CodeBlock language="pascal" code={`if edtName.Text = '' then ...            // presence
 if not TryStrToInt(edtMark.Text, iMark) then ...  // type
 if (iMark < 0) or (iMark > 100) then ...   // range
