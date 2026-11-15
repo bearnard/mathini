@@ -1,56 +1,104 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, LetterLayout, MeaningPairs } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Learn key concepts',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Grade 9 Afrikaans FAL builds on foundational skills.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Develop deeper understanding',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Mastering these concepts prepares you for advanced language study.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Apply learning in context',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Practice strengthens your command of Afrikaans language and literature.
-        </p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these formal-writing words aloud so register and structure feel more natural on the page.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Geagte"} phonetic={"[χəˈɑxtə]"} meaning={"Dear / respected"} lang="af" />
-          <PronunciationPlayer word={"Onderwerp"} phonetic={"[ˈɔndərvɛrp]"} meaning={"Subject"} lang="af" />
-          <PronunciationPlayer word={"Adres"} phonetic={"[aˈdrɛs]"} meaning={"Address"} lang="af" />
-          <PronunciationPlayer word={"Datum"} phonetic={"[ˈdɑːtəm]"} meaning={"Date"} lang="af" />
-          <PronunciationPlayer word={"Handtekening"} phonetic={"[ˈhanttɛikəneŋ]"} meaning={"Signature"} lang="af" />
-          <PronunciationPlayer word={"Vriendelik"} phonetic={"[ˈfriəndələk]"} meaning={"Kind / friendly"} lang="af" />
-        </div>
-      </div>
+    title: 'The top of the letter: Adres, Datum, Geagte',
+    content: slide(
+      <>
+        <Rule>A formal letter starts with the <Af>Adres</Af> <En>address</En> and the <Af>Datum</Af> <En>date</En>, then the greeting <Af>Geagte</Af> <En>Dear, respected</En> with a title and surname.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['Adres', 'Address'], ['Datum', 'Date'], ['Geagte', 'Dear']]}
+          aria="Three Afrikaans letter words with their English meaning: Adres is address, Datum is date, Geagte is dear or respected."
+        />
+        <Worked
+          title="Write the top"
+          steps={[
+            <><Af>Hoofstraat 12, Kaapstad</Af> <En>12 Main Street, Cape Town</En></>,
+            <><Af>12 Maart 2025</Af>, then <Af>Geagte Mnr. Smit</Af> <En>Dear Mr Smit</En>. <SpeakButton text="Geagte Mnr. Smit" /></>,
+          ]}
+        />
+        <Mistake>Greeting with <Af>Haai</Af> or only a first name. A formal letter uses <Af>Geagte</Af> plus title and surname.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Onderwerp, Handtekening, Vriendelik',
+    content: slide(
+      <>
+        <Rule>The <Af>Onderwerp</Af> <En>subject</En> line says what the letter is about. You end with a friendly closing and your <Af>Handtekening</Af> <En>signature</En>. <Af>Vriendelik</Af> means kind or friendly.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['Onderwerp', 'Subject'], ['Handtekening', 'Signature'], ['Vriendelik', 'Kind']]}
+          aria="Three Afrikaans letter words with their English meaning: Onderwerp is subject, Handtekening is signature, Vriendelik is kind or friendly."
+        />
+        <Worked
+          title="Subject and closing"
+          steps={[
+            <><Af>Onderwerp: Versoek om 'n afspraak</Af> <En>Subject: Request for an appointment</En></>,
+            <>Closing: <Af>Vriendelike groete</Af> <En>kind regards</En>, then your signature and name.</>,
+          ]}
+        />
+        <Mistake>Leaving out the <Af>Onderwerp</Af>, or signing without a closing. The closing comes before the signature.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'The whole formal letter',
+    content: slide(
+      <>
+        <Rule>Put the parts in order: address and date, greeting, content, closing, signature. The subject line comes after the greeting.</Rule>
+        <LetterLayout
+          parts={['Adres, Datum', 'Geagte Mnr. Smit', 'Onderwerp en inhoud', 'Vriendelike groete', 'Handtekening']}
+          aria="A formal letter drawn as five strips from top to bottom: Adres and Datum, the greeting Geagte Mnr. Smit, the Onderwerp and inhoud (the biggest strip), the closing Vriendelike groete, and the Handtekening (signature)."
+        />
+        <Worked
+          title="Check the order"
+          steps={[
+            <>Address and date at the top, then the greeting.</>,
+            <>Then subject and content, the closing, and last of all the signature.</>,
+          ]}
+        />
+        <Mistake>Putting the signature before the closing, or the date at the bottom. Follow the order.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Register and audience',
+    content: slide(
+      <>
+        <Rule>The register must fit the reader. Public writing, such as a letter to a newspaper editor, needs a formal tone and a clear purpose.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['redakteur', 'formeel'], ['boetie', 'informeel']]}
+          aria="Two readers and the register to use: a redakteur (editor) needs a formeel (formal) register, a boetie (little brother) allows an informeel (informal) register."
+        />
+        <Worked
+          title="Match the reader"
+          steps={[
+            <>To an editor: <Af>Ek skryf om my kommer uit te spreek oor...</Af> <En>I am writing to express my concern about...</En></>,
+            <>To your little brother: <Af>Hallo, boetie! Hoe gaan dit?</Af> Relaxed and friendly.</>,
+          ]}
+        />
+        <Mistake>Using the same register for every reader. Think about who will read the text and why you write.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Which word means <em>Dear / respected</em>?</>} answer={<><Af>Geagte</Af>.</>} />
+        <Check question={<>Which word means <em>Subject</em> in a letter?</>} answer={<><Af>Onderwerp</Af>.</>} />
+        <Check question={<>Which word means <em>Signature</em>?</>} answer={<><Af>Handtekening</Af>.</>} />
+        <Check question={<>Which word means <em>Date</em>?</>} answer={<><Af>Datum</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -93,6 +141,8 @@ const bank: AfrikaansItem[] = [
     explanation: "'Vriendelik' means 'kind' or 'friendly'.",
   },
 ];
+
+export { bank };
 
 const FormalCorrespondence = () => (
   <AfrikaansTopic
