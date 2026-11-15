@@ -36,6 +36,13 @@ export async function postComment(db: AdminDb, userId: string, t: Target, rawBod
 
 export async function listComments(db: AdminDb, viewerId: string, t: Target): Promise<{ ok: true; comments: Comment[] } | { ok: false; status: 403 | 404; error: string }> {
   if (!(await isTeacherOrModerator(db, viewerId))) return { ok: false, status: 403, error: 'Only teachers and moderators can read the discussion' };
+  return readThread(db, viewerId, t);
+}
+
+/** The owner reads any thread (Cloudflare Access guards the caller). Authors still show as "Teacher at <school>"; the owner removes by comment id. */
+export const listCommentsForOwner = (db: AdminDb, t: Target) => readThread(db, null, t);
+
+async function readThread(db: AdminDb, viewerId: string | null, t: Target): Promise<{ ok: true; comments: Comment[] } | { ok: false; status: 403 | 404; error: string }> {
   if (!(await targetExists(db, t))) return { ok: false, status: 404, error: 'Not found' };
   const [col, val] = 'questionId' in t ? ['question_id', t.questionId] : ['proposal_id', t.proposalId];
   const rows = await db.all<{ id: string; user_id: string; body: string; created_at: number; removed_at: number | null; school: string | null; is_mod: number }>(
@@ -48,7 +55,7 @@ export async function listComments(db: AdminDb, viewerId: string, t: Target): Pr
     comments: rows.map((r) => ({
       id: r.id,
       author: r.user_id === 'deleted' ? 'A former teacher' : `${r.is_mod ? 'Moderator' : 'Teacher'}${r.school ? ` at ${r.school}` : ''}`,
-      mine: r.user_id === viewerId,
+      mine: viewerId !== null && r.user_id === viewerId,
       body: r.removed_at ? '' : r.body,
       createdAt: Number(r.created_at),
       removed: r.removed_at != null,
@@ -56,12 +63,12 @@ export async function listComments(db: AdminDb, viewerId: string, t: Target): Pr
   };
 }
 
-/** A comment is taken down (the text is cleared from view, the row stays) by its author, or by the owner. */
-export async function removeComment(db: AdminDb, actor: { userId: string } | { owner: true }, commentId: string, now: number): Promise<{ ok: true } | { ok: false; status: 403 | 404; error: string }> {
+/** A comment is taken down (the text is cleared from view, the row stays) by its author, or by the owner. removed_by records who: 'author' or 'owner:<email>' (the audit). */
+export async function removeComment(db: AdminDb, actor: { userId: string } | { owner: string }, commentId: string, now: number): Promise<{ ok: true } | { ok: false; status: 403 | 404; error: string }> {
   if (!UUID.test(commentId)) return { ok: false, status: 404, error: 'Not found' };
   const row = (await db.all<{ user_id: string }>('SELECT user_id FROM discussion_comments WHERE id = ? AND removed_at IS NULL', [commentId]))[0];
   if (!row) return { ok: false, status: 404, error: 'Not found' };
   if ('userId' in actor && actor.userId !== row.user_id) return { ok: false, status: 403, error: 'Only the author can remove a comment' };
-  await db.batch([{ sql: 'UPDATE discussion_comments SET removed_at = ?, removed_by = ? WHERE id = ? AND removed_at IS NULL', params: [now, 'userId' in actor ? 'author' : 'owner', commentId] }]);
+  await db.batch([{ sql: 'UPDATE discussion_comments SET removed_at = ?,  removed_by = ? WHERE id = ? AND removed_at IS NULL', params: [now, 'userId' in actor ? 'author' : `owner:${actor.owner}`, commentId] }]);
   return { ok: true };
 }

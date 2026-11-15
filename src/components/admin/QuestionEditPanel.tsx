@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { checkQuestion, type Reason } from '../../lib/shared/questionQuality';
 import { EDIT_LIMITS, changedFields, isMeaningChange, sameContent } from '../../lib/shared/questionEdit';
 import type { QuestionDetail } from '../../lib/server/questions/edit';
+import AdminDiscussion from './proposals/AdminDiscussion';
 
 const when = (ms: number) => new Date(ms).toLocaleString('en-ZA', { timeZone: 'Africa/Johannesburg', dateStyle: 'medium', timeStyle: 'short' });
 
@@ -47,6 +48,8 @@ export default function QuestionEditPanel({ questionId, onDone, onClose }: { que
   const [failure, setFailure] = useState<Failure | null>(null);
   const [saved, setSaved] = useState('');
   const [n, setN] = useState(0);
+  const [talk, setTalk] = useState(false);
+  const [vmsg, setVmsg] = useState('');
 
   useEffect(() => {
     let live = true;
@@ -88,6 +91,12 @@ export default function QuestionEditPanel({ questionId, onDone, onClose }: { que
   const warned = live.reasons.some((r) => r.severity === 'warn');
   const canSave = changed && shapeOk && noteOk && !rejected && (!warned || ack) && !busy;
 
+  const verify = async () => {
+    setVmsg('');
+    const r = await send(`/api/admin/questions/${encodeURIComponent(questionId)}/verify`, 'question-verify', {});
+    if (r.ok) { setVmsg('Marked as teacher-verified.'); setN((x) => x + 1); } else setVmsg(r.failure.error);
+  };
+
   const save = async () => {
     setBusy(true); setFailure(null); setSaved('');
     const r = await send(`/api/admin/questions/${encodeURIComponent(questionId)}/edit`, 'question-edit', { expectedVersionId: cur.id, ...next, sourceNote: note.trim(), changeKind: meaning ? 'meaning' : kind, acknowledgeWarnings: ack });
@@ -119,6 +128,14 @@ export default function QuestionEditPanel({ questionId, onDone, onClose }: { que
 
   return (
     <section aria-label="Edit this question" style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid var(--admin-border, #ddd)' }}>
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center', marginBottom: 8 }}>
+        {detail.verified
+          ? <span role="status" style={{ fontSize: 12, fontWeight: 700, padding: '2px 8px', borderRadius: 8, background: 'var(--surface-2)' }}>Teacher-verified · {when(detail.verified.at)} · {detail.verified.via === 'proposal' ? 'accepted proposal' : `reviewed by ${detail.verified.by}`}</span>
+          : <button type="button" className="admin-btn" onClick={() => void verify()}>Mark as teacher-verified</button>}
+        <button type="button" className="admin-btn" aria-expanded={talk} onClick={() => setTalk((t) => !t)}>{talk ? 'Hide discussion' : 'Discussion'}</button>
+        {vmsg && <span role="status" style={{ fontSize: 13 }}>{vmsg}</span>}
+      </div>
+      {talk && <AdminDiscussion target={{ question: questionId }} />}
       <h3 style={{ fontSize: 15, fontWeight: 700 }}>Edit the wording (version {cur.versionNo} now · {detail.task})</h3>
       <p className="admin-muted" style={{ fontSize: 12, marginTop: 4, lineHeight: 1.5 }}>
         Multiple-choice only. The quality checker runs as you type and blocks anything it rejects. Learners see the new wording on their next question fetch; their review schedule keeps its place.

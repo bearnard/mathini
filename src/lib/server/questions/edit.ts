@@ -215,6 +215,8 @@ export interface QuestionDetail {
   current: VersionView;
   versions: VersionView[];
   edits: EditView[];
+  /** Teacher-verified at the CURRENT version (ADR 0003 section 4); null when not. */
+  verified: { at: number; via: string; by: string } | null;
 }
 
 /** Everything the edit form needs: the current wording, the history (for restore) and the audit trail. */
@@ -227,7 +229,9 @@ export async function questionDetail(db: AdminDb, questionId: string): Promise<Q
   const view = (r: Record<string, unknown>): VersionView => ({ id: Number(r.id), versionNo: Number(r.version_no), prompt: String(r.prompt), options: parseOptions(r.options), answer: String(r.answer), explanation: String(r.explanation ?? ''), author: String(r.author), note: r.source_note == null ? null : String(r.source_note), at: Number(r.created_at), current: Number(r.id) === q.current_version_id });
   const edits = await db.all<Record<string, unknown>>('SELECT created_at, change_kind, admin_email, reason, from_version_id, to_version_id, reviews_reset FROM question_edits WHERE question_id = ? ORDER BY id DESC LIMIT 20', [questionId]);
   const why = q.status === 'retired' ? 'This question is retired. Reinstate it first.' : plainMcq(q, cur);
+  const ver = (await db.all<{ verified_at: number; via: string; verified_by: string }>('SELECT verified_at, via, verified_by FROM question_verified WHERE question_id = ? AND version_id = ?', [questionId, cur.id]).catch(() => []))[0];
   return {
+    verified: ver ? { at: Number(ver.verified_at), via: ver.via, by: ver.verified_by } : null,
     questionId, task: q.task, status: q.status, source: q.source, kind: q.kind, editable: why === null, notEditableReason: why,
     current: view({ id: cur.id, version_no: cur.version_no, prompt: cur.prompt, options: cur.options_json, answer: cur.answer, explanation: cur.explanation, author: cur.author, source_note: cur.source_note, created_at: cur.created_at }),
     versions: rows.map(view),
