@@ -123,3 +123,22 @@ export const MixedMedia = () => (
     <line x1={100} y1={62} x2={108} y2={62} stroke="#fdba74" strokeWidth={0.8} />
   </svg>
 );
+
+/** Two models: a wide base with balanced parts stays up; a narrow base with a heavy top to one side topples. */
+export const StableModel = () => (
+  <svg viewBox="0 0 160 90" role="img" aria-labelledby="ls-st-t ls-st-d" className={cls} style={st}>
+    <title id="ls-st-t">What keeps a 3D model stable</title>
+    <desc id="ls-st-d">Left: a model with a wide base and balanced parts, centred over its base, is stable. Right: a model with a narrow base and a heavy block to one side is not stable and will topple.</desc>
+    <line x1={8} y1={72} x2={152} y2={72} stroke="#94a3b8" strokeWidth={1.2} />
+    <rect x={16} y={58} width={56} height={14} fill="#34d399" />
+    <rect x={28} y={42} width={32} height={16} fill="#6ee7b7" />
+    <rect x={36} y={28} width={16} height={14} fill="#a7f3d0" />
+    <T x={44} y={84} size={5.2} fill="#a7f3d0">wide base: stable</T>
+    <rect x={106} y={58} width={14} height={14} fill="#f87171" />
+    <rect x={104} y={42} width={14} height={16} fill="#fca5a5" />
+    <rect x={106} y={22} width={44} height={20} fill="#fecaca" />
+    <T x={122} y={84} size={5.2} fill="#fecaca">narrow base: topples</T>
+    <line x1={120} y1={72} x2={120} y2={14} stroke="#fef08a" strokeWidth={0.8} strokeDasharray="2 2" />
+    <T x={118} y={14} anchor="end" size={4.6} fill="#fef08a">heavy part sticks out</T>
+  </svg>
+);
