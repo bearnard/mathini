@@ -18,6 +18,9 @@ export interface DeletedCounts {
   /** Consent events and PIN resets kept but made anonymous. */
   consentsAnonymised: number;
   pinResetsAnonymised: number;
+  /** Teacher proposals and comments kept but made anonymous; open proposals are withdrawn. */
+  proposalsAnonymised: number;
+  commentsAnonymised: number;
 }
 
 export type DeleteAccountResult = { ok: true; deleted: DeletedCounts } | { ok: false; status: 404; error: string };
@@ -27,7 +30,7 @@ export async function deleteAdultAccount(db: AdminDb, userId: string, now: numbe
   if (!u) return { ok: false, status: 404, error: 'Account not found' };
   const n = async (sql: string, p: (string | number)[] = [userId]) => Number((await db.all<{ n: number }>(sql, p))[0]?.n ?? 0);
   const mine = '(SELECT id FROM classes WHERE teacher_user_id = ?)';
-  const [sessions, links, classes, members, scopes, applications, consentsAnonymised, pinResetsAnonymised] = await Promise.all([
+  const [sessions, links, classes, members, scopes, applications, consentsAnonymised, pinResetsAnonymised, proposalsAnonymised, commentsAnonymised] = await Promise.all([
     n('SELECT COUNT(*) AS n FROM sessions WHERE user_id = ?'),
     n('SELECT COUNT(*) AS n FROM parent_links WHERE user_id = ?'),
     n('SELECT COUNT(*) AS n FROM classes WHERE teacher_user_id = ?'),
@@ -36,8 +39,10 @@ export async function deleteAdultAccount(db: AdminDb, userId: string, now: numbe
     n('SELECT COUNT(*) AS n FROM teacher_applications WHERE user_id = ?'),
     n('SELECT COUNT(*) AS n FROM consent_events WHERE user_id = ?'),
     n('SELECT COUNT(*) AS n FROM pin_resets WHERE user_id = ?'),
+    n('SELECT COUNT(*) AS n FROM proposals WHERE proposer_user_id = ?'),
+    n('SELECT COUNT(*) AS n FROM discussion_comments WHERE user_id = ?'),
   ]);
-  const deleted: DeletedCounts = { sessions, links, classes, members, scopes, applications, consentsAnonymised, pinResetsAnonymised };
+  const deleted: DeletedCounts = { sessions, links, classes, members, scopes, applications, consentsAnonymised, pinResetsAnonymised, proposalsAnonymised, commentsAnonymised };
   const emailKey = `email:${await sha256Hex(u.email)}`;
   const statements: Statement[] = [
     { sql: `DELETE FROM class_members WHERE class_id IN ${mine}`, params: [userId] },
@@ -48,6 +53,14 @@ export async function deleteAdultAccount(db: AdminDb, userId: string, now: numbe
     { sql: 'UPDATE consent_events SET user_id = ? WHERE user_id = ?', params: [ANONYMOUS_USER, userId] },
     { sql: 'UPDATE pin_resets SET user_id = ? WHERE user_id = ?', params: [ANONYMOUS_USER, userId] },
     { sql: 'UPDATE child_invites SET used_by = NULL WHERE used_by = ?', params: [userId] },
+    // Moderation: what they wrote and decided stays (the question bank and its history are the owner's record) but no longer says who.
+    { sql: "UPDATE proposals SET status = 'withdrawn', updated_at = ? WHERE proposer_user_id = ? AND status IN ('returned', 'submitted')", params: [now, userId] },
+    { sql: 'UPDATE proposals SET proposer_user_id = ? WHERE proposer_user_id = ?', params: [ANONYMOUS_USER, userId] },
+    { sql: 'UPDATE proposals SET decided_by_user = ? WHERE decided_by_user = ?', params: [ANONYMOUS_USER, userId] },
+    { sql: 'UPDATE discussion_comments SET user_id = ? WHERE user_id = ?', params: [ANONYMOUS_USER, userId] },
+    { sql: 'UPDATE question_versions SET author = ? WHERE author = ?', params: ['teacher', `teacher:${userId}`] },
+    { sql: 'DELETE FROM group_moderators WHERE user_id = ?', params: [userId] },
+    { sql: 'DELETE FROM reputation_events WHERE user_id = ?', params: [userId] },
     { sql: 'DELETE FROM summary_prefs WHERE user_id = ?', params: [userId] },
     { sql: 'DELETE FROM summary_sent WHERE user_id = ?', params: [userId] },
     { sql: 'DELETE FROM sessions WHERE user_id = ?', params: [userId] },

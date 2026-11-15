@@ -58,7 +58,7 @@ test('deleting an account removes the adult and everything that identifies them,
   const w = await world(); if (!w) return t0.skip('node:sqlite unavailable');
   const r = await deleteAdultAccount(w.db, w.mum.userId, NOW);
   assert.ok(r.ok);
-  if (r.ok) assert.deepEqual(r.deleted, { sessions: 4, links: 2, classes: 2, members: 3, scopes: 1, applications: 1, consentsAnonymised: 2, pinResetsAnonymised: 1 });
+  if (r.ok) assert.deepEqual(r.deleted, { sessions: 4, links: 2, classes: 2, members: 3, scopes: 1, applications: 1, consentsAnonymised: 2, pinResetsAnonymised: 1, proposalsAnonymised: 0, commentsAnonymised: 0 });
   const gone = (sql: string) => assert.equal(n(w, sql, w.mum.userId), 0, sql);
   for (const sql of ['SELECT COUNT(*) AS n FROM users WHERE id = ?', 'SELECT COUNT(*) AS n FROM user_roles WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM sessions WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM parent_links WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM summary_prefs WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM summary_sent WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM teacher_applications WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM classes WHERE teacher_user_id = ?', 'SELECT COUNT(*) AS n FROM consent_events WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM pin_resets WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM exam_scopes WHERE created_by = ?', 'SELECT COUNT(*) AS n FROM child_invites WHERE used_by = ?']) gone(sql);
   assert.equal(n(w, "SELECT COUNT(*) AS n FROM class_members WHERE class_id IN ('class-mum-1', 'class-mum-2')"), 0, 'the teacher\'s classes lose their members');
@@ -88,7 +88,7 @@ test('after deletion neither the address, the SACE number nor the user id is any
   assert.equal(audit.length, 1);
   assert.deepEqual([audit[0].device_id, audit[0].student_id, audit[0].ts], ['self', null, NOW]);
   const meta = JSON.parse(String(audit[0].meta)) as { rows: Record<string, number> };
-  assert.deepEqual(meta.rows, { users: 1, sessions: 4, links: 2, classes: 2, members: 3, scopes: 1, applications: 1, consentsAnonymised: 2, pinResetsAnonymised: 1 });
+  assert.deepEqual(meta.rows, { users: 1, sessions: 4, links: 2, classes: 2, members: 3, scopes: 1, applications: 1, consentsAnonymised: 2, pinResetsAnonymised: 1, proposalsAnonymised: 0, commentsAnonymised: 0 });
 });
 
 test('an unknown account is 404 and changes nothing; deleting twice is harmless', async (t0) => {
@@ -161,4 +161,29 @@ test('the account page asks twice: it lists what goes and what stays, needs the 
   assert.ok(!/localStorage|sessionStorage/.test(ui));
   assert.ok(fs.readFileSync('next.config.ts', 'utf8').includes("source: '/api/auth/:path*'"), '/api/auth/delete is covered by the private headers');
   assert.ok(fs.readFileSync('src/app/api/auth/delete/route.ts', 'utf8').includes('handleDeleteAccount'));
+});
+
+test('deleting a teacher anonymises their proposals, comments and decisions, withdraws open ones, and removes group membership and points', async (t0) => {
+  const x = await openParentsDb(); if (!x) return t0.skip('node:sqlite unavailable');
+  const teacher = await addAdult(x, 'teach.private@example.com', ['teacher', 'moderator']);
+  const other = await addAdult(x, 'other.private@example.com', ['teacher']);
+  const ins = x.raw.prepare("INSERT INTO proposals (id, kind, question_id, task, group_key, proposer_user_id, reason, source_kind, source_ref, status, created_at, updated_at, decided_by_user) VALUES (?, 'retire', 'aaaaaaaaaaaa', 't', 'History|intermediate', ?, 'a reason here', 'caps', 'CAPS p1', ?, 1, 1, ?)");
+  ins.run('p-open', teacher.userId, 'submitted', null);
+  ins.run('p-done', teacher.userId, 'approved', null);
+  ins.run('p-other', other.userId, 'approved', teacher.userId);
+  x.raw.prepare('INSERT INTO group_moderators (group_key, user_id, appointed_by, appointed_at) VALUES (?, ?, ?, 1)').run('History|intermediate', teacher.userId, 'o');
+  x.raw.prepare("INSERT INTO reputation_events (user_id, proposal_id, points, reason, created_at) VALUES (?, 'p-done', 10, 'x', 1)").run(teacher.userId);
+  x.raw.prepare("INSERT INTO discussion_comments (id, question_id, user_id, body, created_at) VALUES ('c1', 'aaaaaaaaaaaa', ?, 'hello', 1)").run(teacher.userId);
+  x.raw.exec("INSERT INTO questions (id, task, kind, source, status, created_at) VALUES ('aaaaaaaaaaaa', 't', 'mcq', 'curated', 'active', 1)");
+  x.raw.prepare("INSERT INTO question_versions (question_id, version_no, qkey, prompt, options, answer, author, status, created_at) VALUES ('aaaaaaaaaaaa', 1, 'aaaaaaaaaaaa', 'q', '[]', 'a', ?, 'approved', 1)").run(`teacher:${teacher.userId}`);
+  const r = await deleteAdultAccount(x.db, teacher.userId, NOW);
+  assert.equal(r.ok, true);
+  const one = (sql: string) => x.raw.prepare(sql).all().map((v) => ({ ...v }));
+  assert.deepEqual(one("SELECT id, proposer_user_id AS u, status FROM proposals WHERE id <> 'p-other' ORDER BY id"), [{ id: 'p-done', u: ANONYMOUS_USER, status: 'approved' }, { id: 'p-open', u: ANONYMOUS_USER, status: 'withdrawn' }]);
+  assert.deepEqual(one("SELECT decided_by_user AS d FROM proposals WHERE id = 'p-other'"), [{ d: ANONYMOUS_USER }]);
+  assert.deepEqual(one("SELECT user_id AS u FROM discussion_comments"), [{ u: ANONYMOUS_USER }]);
+  assert.deepEqual(one('SELECT author FROM question_versions'), [{ author: 'teacher' }]);
+  assert.equal(one('SELECT * FROM group_moderators').length, 0);
+  assert.equal(one('SELECT * FROM reputation_events').length, 0);
+  assert.equal(JSON.stringify(one('SELECT * FROM proposals') ).includes(teacher.userId), false);
 });
