@@ -11,6 +11,11 @@ const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 const withTimeout = <T,>(p: Promise<T>, ms: number, what: string): Promise<T> =>
   Promise.race([p, new Promise<T>((_, rej) => setTimeout(() => rej(new Error(`timeout after ${ms} ms: ${what}`)), ms))]);
 
+// SHOOT_MOCKS=file.json: [{ "match": "/api/admin/reviews/1", "body": {...}, "status": 200 }]. A request whose URL contains `match` gets that JSON. Longest match wins.
+const MOCKS: { match: string; body: unknown; status?: number }[] = process.env.SHOOT_MOCKS
+  ? (JSON.parse(fs.readFileSync(process.env.SHOOT_MOCKS, 'utf8')) as { match: string; body: unknown; status?: number }[]).sort((a, b) => b.match.length - a.match.length)
+  : [];
+
 type Msg = { id?: number; method?: string; params?: any; result?: any; error?: any; sessionId?: string };
 
 class Cdp {
@@ -81,7 +86,10 @@ const shootOne = async (cdp: Cdp, o: ShootOptions, url: string, width: number): 
       else if (m.method === 'Network.loadingFailed' && !p.canceled) text = `request failed: ${p.errorText}`;
       else if (m.method === 'Fetch.requestPaused') {
         const u: string = p.request.url;
-        if (o.stubApi && u.includes('/api/')) {
+        const mock = MOCKS.find((x) => u.includes(x.match));
+        if (mock) {
+          void cdp.send('Fetch.fulfillRequest', { requestId: p.requestId, responseCode: mock.status ?? 200, responseHeaders: [{ name: 'content-type', value: 'application/json' }], body: Buffer.from(JSON.stringify(mock.body)).toString('base64') }, sessionId);
+        } else if (o.stubApi && u.includes('/api/')) {
           const body = u.includes('/api/session') ? '{"studentId":"stub","displayName":"Test","grade":8,"xp":0,"consented":true}' : '{"items":[],"questions":[]}';
           void cdp.send('Fetch.fulfillRequest', { requestId: p.requestId, responseCode: 200, responseHeaders: [{ name: 'content-type', value: 'application/json' }], body: Buffer.from(body).toString('base64') }, sessionId);
         } else void cdp.send('Fetch.continueRequest', { requestId: p.requestId }, sessionId);
@@ -89,7 +97,7 @@ const shootOne = async (cdp: Cdp, o: ShootOptions, url: string, width: number): 
       if (text && !isIgnorableError(text)) r.errors.push(text.slice(0, 300));
     });
     await Promise.all([s('Page.enable'), s('Runtime.enable'), s('Log.enable'), s('Network.enable')]);
-    if (o.stubApi) await s('Fetch.enable', { patterns: [{ urlPattern: '*' }] });
+    if (o.stubApi || MOCKS.length > 0) await s('Fetch.enable', { patterns: [{ urlPattern: '*' }] });
     await s('Emulation.setDeviceMetricsOverride', { width, height: 900, deviceScaleFactor: 1, mobile: false });
     await s('Page.navigate', { url });
     await withTimeout(loaded, o.timeoutMs, `load of ${url}`);

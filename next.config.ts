@@ -8,5 +8,5 @@ export default nextConfig;
 import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
 initOpenNextCloudflareForDev();
 module.exports = {
-  allowedDevOrigins: ['scholar.hibbins.org', '192.168.0.12'],
+  allowedDevOrigins: ['scholar.hibbins.org', '192.168.0.12', '127.0.0.1'],
 }
