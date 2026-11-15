@@ -16,7 +16,7 @@ const files = walk(SRC).filter((f) => !/\.test\.tsx?$/.test(f));
 
 const OWNS_ID = new Set(['src/lib/consent/gtmConsent.ts']);
 const OWNS_ADS = new Set(['src/lib/ads/adsense.ts']);
-const ADS_COMPONENTS = new Set(['src/components/analytics/AdsLoader.tsx', 'src/components/analytics/AdSlot.tsx']);
+const ADS_COMPONENTS = new Set(['src/components/analytics/adsClient.ts', 'src/components/analytics/AdSlot.tsx']);
 const SLOT_PAGES = ['src/app/[grade]/[subject]/page.tsx', 'src/app/[grade]/[subject]/[topic]/page.tsx'];
 const RENDERS_ANALYTICS = new Set(['src/components/seo/PublicShell.tsx', 'src/app/page.tsx', 'src/app/privacy/page.tsx']);
 const ANALYTICS_COMPONENTS = new Set(['src/components/analytics/PublicAnalytics.tsx', 'src/components/analytics/ConsentGtm.tsx', 'src/components/analytics/CookieChoiceButton.tsx', ...ADS_COMPONENTS]);
@@ -112,11 +112,13 @@ test('exactly two pages draw an ad slot: the topic page and the subject page, ne
 });
 
 test('the ad script is requested only after Accept and always non-personalised, and ads.txt is exactly the owner line', () => {
-  const loader = fs.readFileSync(path.join(ROOT, 'src/components/analytics/AdsLoader.tsx'), 'utf8');
+  const loader = fs.readFileSync(path.join(ROOT, 'src/components/analytics/adsClient.ts'), 'utf8');
   assert.match(loader, /requestNonPersonalizedAds = 1/);
   assert.match(loader, /disablePersonalization/);
   assert.match(loader, /crossOrigin = 'anonymous'/);
   assert.match(loader, /adsAllowed\(choice/);
+  assert.ok(!files.some((f) => rel(f) !== 'src/components/analytics/AdSlot.tsx' && /adsClient/.test(fs.readFileSync(f, 'utf8')) && !ADS_COMPONENTS.has(rel(f))), 'only AdSlot uses the ads client');
+  assert.ok(!/adsClient|AdsLoader|ADSENSE_SCRIPT_URL/.test(fs.readFileSync(path.join(ROOT, 'src/components/analytics/PublicAnalytics.tsx'), 'utf8').replace(/AdSense script is NOT loaded here[^\n]*/, '')), 'PublicAnalytics no longer loads the AdSense script');
   assert.match(loader, /isPublicPath\(/);
   assert.equal(fs.readFileSync(path.join(ROOT, 'public/ads.txt'), 'utf8'), 'google.com, pub-4961734822376251, DIRECT, f08c47fec0942fa0\n');
 });
