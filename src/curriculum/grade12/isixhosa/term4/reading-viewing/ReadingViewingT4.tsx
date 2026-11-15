@@ -1,80 +1,8 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
-import type { LearnStep } from '@/components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './ReadingViewingT4.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Summary writing: 5 rules for the exam',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Final summary revision should focus on the rules examiners expect learners to apply consistently.</p>
-        <div className="grid gap-3 text-left md:grid-cols-5">
-          <div className="rounded-xl bg-slate-50 p-3"><strong className="text-slate-700">1</strong><p className="text-sm text-slate-600">State only main points.</p></div>
-          <div className="rounded-xl bg-slate-50 p-3"><strong className="text-slate-700">2</strong><p className="text-sm text-slate-600">Use own words as far as possible.</p></div>
-          <div className="rounded-xl bg-slate-50 p-3"><strong className="text-slate-700">3</strong><p className="text-sm text-slate-600">Number the points.</p></div>
-          <div className="rounded-xl bg-slate-50 p-3"><strong className="text-slate-700">4</strong><p className="text-sm text-slate-600">Stay within the word limit.</p></div>
-          <div className="rounded-xl bg-slate-50 p-3"><strong className="text-slate-700">5</strong><p className="text-sm text-slate-600">Do not add examples or opinions.</p></div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Comprehension across text types: revision',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Across prose, drama, poetry, and visual texts, question type determines answer style.</p>
-        <div className="grid gap-3 text-left md:grid-cols-3">
-          <div className="rounded-xl bg-indigo-50 p-4"><strong className="text-indigo-700">Explicit questions</strong><p className="text-slate-600">The answer is stated directly in the text.</p></div>
-          <div className="rounded-xl bg-amber-50 p-4"><strong className="text-amber-700">Implicit questions</strong><p className="text-slate-600">You must infer the answer from clues.</p></div>
-          <div className="rounded-xl bg-emerald-50 p-4"><strong className="text-emerald-700">Mark allocation</strong><p className="text-slate-600">Use it to judge how detailed your answer should be.</p></div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Visual text revision: key features',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Visual literacy revision should cover the recurring features of cartoons, adverts, and information graphics.</p>
-        <div className="grid gap-3 text-left md:grid-cols-3">
-          <div className="rounded-xl bg-blue-50 p-4"><strong className="text-blue-700">Cartoons</strong><p className="text-slate-600">Caption, facial expression, symbolism, irony.</p></div>
-          <div className="rounded-xl bg-rose-50 p-4"><strong className="text-rose-700">Advertisements</strong><p className="text-slate-600">Target audience, persuasive appeal, layout.</p></div>
-          <div className="rounded-xl bg-slate-100 p-4"><strong className="text-slate-700">Infographics</strong><p className="text-slate-600">Labels, legend, comparison, trend.</p></div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Literature revision: key terms and exam strategies',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Final literature revision should combine terminology with answer technique.</p>
-        <div className="grid gap-3 text-left md:grid-cols-2">
-          <div className="rounded-xl bg-emerald-50 p-4"><strong className="text-emerald-700">Key terms</strong><p className="text-slate-600">Revise terms from prose, poetry, and drama.</p></div>
-          <div className="rounded-xl bg-amber-50 p-4"><strong className="text-amber-700">Exam strategy</strong><p className="text-slate-600">Use P-E-E, budget time, and answer the question asked.</p></div>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Keep these comprehension words ready while revising stories, visual texts, and summary skills.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Ibali"} phonetic={"[i'baːli]"} meaning={"Story"} lang="xh" />
-          <PronunciationPlayer word={"Umbongo"} phonetic={"[um'bɔŋgɔ]"} meaning={"Poem"} lang="xh" />
-          <PronunciationPlayer word={"Isibhengezo"} phonetic={"[isi.bhɛŋ'gɛːzo]"} meaning={"Advert / poster"} lang="xh" />
-          <PronunciationPlayer word={"Isishwankathelo"} phonetic={"[isiʃwaŋka'tʰeːlɔ]"} meaning={"Summary"} lang="xh" />
-          <PronunciationPlayer word={"Ingcinga"} phonetic={"[iŋ'ciŋga]"} meaning={"Idea / thought"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 type RawItem = { id: string; question: string; options: string[]; answer: number; explanation: string };
 
