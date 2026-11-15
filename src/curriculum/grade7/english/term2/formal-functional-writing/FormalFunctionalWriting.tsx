@@ -32,7 +32,13 @@ const learnSteps: LearnStep[] = [
           Correct layout helps the reader follow your message. Include expected features such as greeting, subject,
           paragraphing, and closing where needed.
         </p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"In formal writing think about who will read your text, such as a principal or a company manager, and choose a polite, respectful tone and words that suit that person."}</p>
+  <p className="text-slate-600">{"A descriptive essay paints a picture for the reader. It uses words for what you can see, hear, smell, taste and feel, for example 'the damp, salty air of the harbour at dawn'."}</p>
+  <p className="text-slate-600">{"A formal letter has a standard closing. If you began with the person's name, such as 'Dear Mr Dlamini', you end with 'Yours sincerely'. If you began without a name, you end with 'Yours faithfully'."}</p>
+  <p className="text-slate-600">{"A formal letter to a person you do not know begins with a polite greeting such as 'Dear Sir or Madam', not a casual one like 'Hi there'."}</p>
+</div>
+</div>
     ),
   },
 ];

@@ -125,7 +125,12 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">Food insecurity is linked to poverty, climate shocks, conflict, and poor access to markets.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"In agroforestry, farmers grow trees and crops together on the same land. The tree roots hold the soil, falling leaves feed it, and the trees give extra products such as fruit and firewood."}</p>
+  <p className="text-slate-600">{"Everyone can help: plan meals so that less food is thrown away, buy fresh produce from nearby growers, and grow some vegetables at home."}</p>
+  <p className="text-slate-600">{"A large share of all food produced is thrown away before it is eaten. Wasted food uses land, water and money, and if it were saved there would be more food to share."}</p>
+</div>
+</div>
     ),
   },
 ];

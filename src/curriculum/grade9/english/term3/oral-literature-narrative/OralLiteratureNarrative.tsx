@@ -51,7 +51,13 @@ const learnSteps: LearnStep[] = [
           signposting ("First...", "Next...", "Finally...") to follow the sequence and understand relationships between 
           ideas.
         </p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Stories were passed on by word of mouth, so storytellers repeated key lines and phrases and used refrains. These patterns made the story easy to remember and retell."}</p>
+  <p className="text-slate-600">{"A myth is a traditional story that explains how something began or why nature behaves as it does, such as how the world, the stars or the first people came to be."}</p>
+  <p className="text-slate-600">{"Prepare a few focused questions before you interview someone. Listen carefully and, depending on what they say, ask a follow-up such as 'Can you tell me more about that?'"}</p>
+  <p className="text-slate-600">{"A storyteller's face, hands and voice add to the words: a wide gesture can show size, and a change of tone can show fear or joy, so the audience feels the story."}</p>
+</div>
+</div>
     ),
   },
 ];

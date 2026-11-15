@@ -78,7 +78,12 @@ const learnSteps: LearnStep[] = [
           Saving electricity saves money and saves coal. Switch off <strong>lights</strong> and <strong>appliances</strong> you are not using.
         </p>
         <p className="text-slate-500">Use daylight when you can. Close the fridge door quickly. Unplug chargers when you are done.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Appliances use energy at different rates: a heater or a kettle uses a lot of electricity every second, while a phone charger uses very little. The bill depends on that rate and on how many hours the appliance is on."}</p>
+  <p className="text-slate-600">{"You can lower an electricity bill by not using power you do not need, for example by switching off a television that nobody is watching or by using a lower setting on a heater."}</p>
+  <p className="text-slate-600">{"Ordinary water, especially with salt or dirt in it, carries electric current, so wet skin lets current flow through your body to the ground. That is why you must dry your hands before touching switches."}</p>
+</div>
+</div>
     ),
   },
 ];

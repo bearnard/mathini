@@ -29,7 +29,10 @@ const learnSteps: LearnStep[] = [
           The Dutch East India Company (<strong>VOC</strong>) established a settlement at the Cape in 1652. Over time,
           farming expansion, enslavement, and land seizure reshaped life for many communities.
         </p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Written records were often made by the colonisers, so they give one side of events. To understand the past fairly, compare different sources, including voices of the people who were colonised."}</p>
+</div>
+</div>
     ),
   },
 ];

@@ -31,7 +31,12 @@ const learnSteps: LearnStep[] = [
           systems, expanded Johannesburg, intensified land dispossession, and helped lay foundations for segregation in
           the early twentieth century.
         </p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Historians use numbers such as population counts or workforce tables as evidence. By comparing the figures from year to year you can see trends, such as growth or decline, and then ask what caused them."}</p>
+  <p className="text-slate-600">{"Dispossession means that people lose the land they lived on and farmed, because it is taken by force or by laws that give them no fair choice, and they are left without land to farm."}</p>
+  <p className="text-slate-600">{"Migrant workers leave their homes in the countryside for a period, live in compounds or hostels near the mines, and send money home. They often return home for a time and then go back to work again."}</p>
+</div>
+</div>
     ),
   },
 ];

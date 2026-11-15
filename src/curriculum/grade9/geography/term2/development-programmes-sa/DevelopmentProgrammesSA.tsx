@@ -114,7 +114,12 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">Programmes are judged by whether they improve daily life through better services and living conditions.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Help for small businesses, such as training or loans, lets people start shops and workshops. These businesses hire local people, who spend their wages in the same community."}</p>
+  <p className="text-slate-600">{"TVET colleges teach practical skills, for example plumbing, electrical work or welding, so that young people can qualify for work in a trade."}</p>
+  <p className="text-slate-600">{"In a public works programme the government pays people to do jobs such as clearing alien plants or building roads. Workers earn an income, and the community is left with something useful that lasts."}</p>
+</div>
+</div>
     ),
   },
 ];

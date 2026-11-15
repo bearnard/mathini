@@ -110,7 +110,10 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">A higher HDI usually reflects better health, education, and income outcomes.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"HDI scores are highest in wealthy countries with good schools, health care and incomes, such as Norway and other Scandinavian countries, and lowest where these services are weakest."}</p>
+</div>
+</div>
     ),
   },
 ];

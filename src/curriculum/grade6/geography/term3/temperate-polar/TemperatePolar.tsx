@@ -79,7 +79,10 @@ const learnSteps: LearnStep[] = [
         </div>
 
         <p className="text-sm text-slate-500">Very cold winters and a short warm season limit the type of vegetation that can grow for much of the year.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"In hot, dry summers a plant loses water through its leaves, so many dry-climate plants, such as olive trees, have small, thick leaves with a waxy coat that holds the water in."}</p>
+</div>
+</div>
     ),
   },
 ];

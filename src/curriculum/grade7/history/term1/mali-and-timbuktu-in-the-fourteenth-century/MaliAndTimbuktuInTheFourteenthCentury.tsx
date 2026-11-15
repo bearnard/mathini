@@ -29,7 +29,10 @@ const learnSteps: LearnStep[] = [
           The Mali Empire became powerful through <strong>trans-Saharan trade</strong> in gold and salt. Under{' '}
           <strong>Mansa Musa</strong>, Timbuktu became famous for religion, scholarship, and exchange.
         </p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Camels can go for days without water and walk on soft sand, so traders used long caravans of camels to carry salt, gold and cloth across the Sahara between towns such as Timbuktu."}</p>
+</div>
+</div>
     ),
   },
 ];

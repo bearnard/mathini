@@ -59,7 +59,10 @@ export const learnSteps: LearnStep[] = [
           steps={[<>He does not trust a rumour from a friend.</>, <>He asks a trusted adult or the clinic nurse.</>, <>He checks a reliable source.</>]}
         />
         <Mistake>Waiting for symptoms before getting tested. HIV and other STIs can cause no signs for a long time, so testing matters.</Mistake>
-      </>,
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Looking after your sexual health means learning how your body works, making careful choices that protect you, and speaking honestly with a partner or a health worker."}</p>
+</div>
+</>,
     ),
   },
   {

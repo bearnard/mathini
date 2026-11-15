@@ -80,7 +80,11 @@ const learnSteps: LearnStep[] = [
         <div className="bg-indigo-50 p-6 rounded-xl inline-block text-slate-700">
           <strong>Expansion:</strong> 1936–1939, aggressive moves unchecked by Western powers
         </div>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"In the early 1920s prices in Germany rose so fast that money lost its value from one day to the next, and people who had saved all their lives found their savings were worth almost nothing."}</p>
+  <p className="text-slate-600">{"The Nazis persecuted Jews above all, but also Roma and Sinti people, disabled people, political opponents and others they claimed were a threat."}</p>
+</div>
+</div>
     ),
   },
 ];

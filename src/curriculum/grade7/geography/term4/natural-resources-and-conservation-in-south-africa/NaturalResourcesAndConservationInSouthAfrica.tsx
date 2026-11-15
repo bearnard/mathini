@@ -36,7 +36,13 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">High biodiversity is one reason why conservation areas, national parks, and habitat protection are important.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"A catchment is the whole area of land from which rain collects and flows downhill into a river system, and then into dams and the sea. What happens anywhere in the catchment affects the water downstream."}</p>
+  <p className="text-slate-600">{"Visitors to nature reserves pay fees and spend money in the area, and some of that money pays for rangers and for protecting animals and plants. Eco-tourism works when visitors respect the place and the people who live there."}</p>
+  <p className="text-slate-600">{"Sea life is harmed when rubbish and oil are dumped in the sea, and when more fish are caught than can breed to replace them."}</p>
+  <p className="text-slate-600">{"To manage water well, save the water you already have: repair dripping taps and pipes and do not leave water running. Every litre that is not lost is a litre still available in dry years."}</p>
+</div>
+</div>
     ),
   },
 ];

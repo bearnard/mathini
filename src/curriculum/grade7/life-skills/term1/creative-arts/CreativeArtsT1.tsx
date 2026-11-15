@@ -57,7 +57,10 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">evaluate what worked and what to improve</p>
           </div>
         </div>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Musicians and dancers stay together by agreeing on a start signal, such as a nod or a clap, and by counting the beat quietly in their heads while they perform."}</p>
+</div>
+</div>
     ),
   },
 ];

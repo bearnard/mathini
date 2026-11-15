@@ -86,7 +86,10 @@ const learnSteps: LearnStep[] = [
           ]}
         />
         <Mistake>Using the last minutes to add unrelated new ideas or rewrite in a different genre. Editing is for fixing errors and checking the task, not starting again.</Mistake>
-      </>,
+      <div className="space-y-2">
+  <p className="text-slate-600">{"In an exam, share your minutes between planning, writing and checking, and write down a time limit for each part before you start so that no question or section is left unfinished."}</p>
+</div>
+</>,
     ),
   },
   {

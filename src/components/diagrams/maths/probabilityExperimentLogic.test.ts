@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { addCounts, outcomesOf, relFreq, runTrials, theoryOf, theoryText } from './probabilityExperiment';
+import { addCounts, outcomesOf, relFreq, runTrials, theoryOf, theoryText } from './probabilityExperimentLogic';
 
 // A scripted "random" source so the trials are repeatable.
 const scripted = (values: number[]) => {

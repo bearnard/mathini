@@ -129,7 +129,10 @@ export const learnSteps: LearnStep[] = [
           ]}
         />
         <Mistake>Writing d = t + 60. That says the car has gone 61 km after 1 hour. Speed multiplies time.</Mistake>
-      </>,
+      <div className="space-y-2">
+  <p className="text-slate-600">{"In the equation of a straight line, the constant term is where the line cuts the vertical axis, because that is the point on the line where x is zero."}</p>
+</div>
+</>,
     ),
   },
   {

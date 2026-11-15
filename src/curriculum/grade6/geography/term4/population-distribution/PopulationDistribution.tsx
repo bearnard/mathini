@@ -70,7 +70,10 @@ const learnSteps: LearnStep[] = [
         <DensityBars rows={densityRows(['Gauteng', 'KwaZulu-Natal', 'Limpopo', 'Northern Cape'])} />
 
         <p className="text-sm text-slate-500">Dense populations often form where transport routes, industries, and major cities are concentrated.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"On a map, one dot can stand for a number of people, so many dots close together show a crowded area and a few scattered dots show an empty one."}</p>
+</div>
+</div>
     ),
   },
 ];

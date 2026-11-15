@@ -90,7 +90,10 @@ export const learnSteps: LearnStep[] = [
           steps={[{ lead: 'Record', text: ' yourself playing the section.' }, { lead: 'Listen', text: ' and find the problem.' }, { lead: 'Slow down', text: ' and fix it.' }, { lead: 'Play again', text: ' at full speed.' }]}
         />
         <Mistake>Waiting for the teacher to say what is wrong. Rehearsing independently means finding and solving it yourself.</Mistake>
-      </>,
+      <div className="space-y-2">
+  <p className="text-slate-600">{"When you listen to a piece several times and mark where the theme repeats or changes, you can see its shape, such as AB or ABA, and think about why the composer chose it."}</p>
+</div>
+</>,
     ),
   },
   {

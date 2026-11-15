@@ -80,7 +80,10 @@ const learnSteps: LearnStep[] = [
         <div className="bg-indigo-50 p-6 rounded-xl inline-block text-slate-700">
           <strong>Memory:</strong> Oral testimony; Personal stories; Historical truth
         </div>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Women such as Lilian Ngoyi, Helen Joseph, Albertina Sisulu and Winnie Mandela helped to organise marches, strikes and campaigns and kept the resistance going even when many male leaders were jailed."}</p>
+</div>
+</div>
     ),
   },
 ];

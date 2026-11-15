@@ -92,7 +92,10 @@ export const learnSteps: LearnStep[] = [
           ]}
         />
         <Mistake>Copying lines with no comment, or giving an opinion with no text to support it. Evidence without explanation leaves the reader to guess your point.</Mistake>
-      </>,
+      <div className="space-y-2">
+  <p className="text-slate-600">{"In a play, the lines of speech are labelled with the character's name. In a story, use clues such as who is being spoken to, what the character wants and how they usually talk to decide who is speaking."}</p>
+</div>
+</>,
     ),
   },
   {
