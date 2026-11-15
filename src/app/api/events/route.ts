@@ -2,7 +2,8 @@ import { NextRequest } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { handleEvents } from '../../../lib/server/events/handler';
 import { createRateLimiter } from '../../../lib/server/events/ratelimit';
-import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
+import { verifyLiveSession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
+import { d1Adapter } from '../../../lib/server/admin/db';
 import { lookupStudentConsent } from '../../../lib/server/consent';
 
 export const dynamic = 'force-dynamic';
@@ -30,7 +31,7 @@ export async function POST(req: NextRequest) {
         db: env.DB as never,
         cf: cf as never,
         now: Date.now(),
-        verifySession: (token) => verifySession(token, env.SESSION_SECRET),
+        verifySession: (token) => verifyLiveSession(d1Adapter(env.DB as never), token, env.SESSION_SECRET),
         lookupConsent: (id) => lookupStudentConsent(env.DB as never, id),
         rateLimiter,
         waitUntil: ctx?.waitUntil ? (p) => ctx.waitUntil(p) : undefined,

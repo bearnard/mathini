@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { hashPin, generateLoginCode, generatePin } from '../../../lib/server/identity';
-import { signSession, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from '../../../lib/server/session';
+import { signSessionV, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from '../../../lib/server/session';
 import { parseRegistration } from '../../../lib/server/consent';
 import { CONSENT_VERSION } from '../../../lib/privacyNotice';
 import { d1Adapter } from '../../../lib/server/admin/db';
@@ -62,7 +62,7 @@ export async function POST(req: NextRequest) {
       .run();
 
     // Set session cookie so the browser stays signed in across reloads
-    const token = await signSession(studentId, env.SESSION_SECRET);
+    const token = await signSessionV(studentId, 0, env.SESSION_SECRET); // a new learner starts at session version 0
     const response = NextResponse.json({
       studentId,
       displayName,

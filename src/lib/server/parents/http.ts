@@ -5,7 +5,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { d1Adapter, type AdminDb } from '../admin/db';
 import { readCapped } from '../adultAuth/http';
 import { authJson, checkWriteRequest, requireRole } from '../adultAuth/roles';
-import { verifySession, SESSION_COOKIE_NAME } from '../session';
+import { verifyLiveSession, SESSION_COOKIE_NAME } from '../session';
 import { setParentConsent } from './consent';
 import { createInvite, isLinked, linkByInvite, linkByPin, listChildren, unlink } from './links';
 import { resetChildPin } from './pinReset';
@@ -149,7 +149,7 @@ export async function handleCreateInvite(req: Request, deps: ParentDeps): Promis
   try {
     const cookie = req.headers.get('cookie') ?? '';
     const token = /(?:^|;\s*)pp_session=([^;]+)/.exec(cookie)?.[1];
-    const studentId = deps.sessionSecret ? await verifySession(token, deps.sessionSecret) : null;
+    const studentId = deps.sessionSecret ? await verifyLiveSession(deps.db, token, deps.sessionSecret) : null;
     if (!studentId) return authJson({ error: 'Sign in first' }, 401);
     const r = await createInvite(deps.db, studentId, deps.now);
     return r.ok ? authJson({ ok: true, token: r.token, expiresAt: r.expiresAt }) : authJson({ error: r.error }, 429);

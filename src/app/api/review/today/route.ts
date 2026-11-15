@@ -1,6 +1,7 @@
+import { d1Adapter } from '../../../../lib/server/admin/db';
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { verifySession, SESSION_COOKIE_NAME } from '../../../../lib/server/session';
+import { verifyLiveSession, SESSION_COOKIE_NAME } from '../../../../lib/server/session';
 import { pickDue, type DueRow } from '../../../../lib/server/review/due';
 import { sastDay } from '../../../../lib/server/review/scheduler';
 import { REVIEW_GRADE } from '../../../../lib/server/review/store';
@@ -20,7 +21,7 @@ export async function GET(req: NextRequest) {
   try {
     const { env } = getCloudflareContext();
     const db = env.DB;
-    const studentId = await verifySession(req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
+    const studentId = await verifyLiveSession(d1Adapter(env.DB as never), req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
     if (!studentId) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
 
     const student = await db.prepare('SELECT grade FROM students WHERE id = ?').bind(studentId).first<{ grade: number }>();
