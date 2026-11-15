@@ -1,49 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './LanguageStructuresT2.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Build accurate questions, negatives, and concord patterns',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 2 language structures focus on <strong>negatives, question forms, pronouns, subject concords,</strong>{' '}
-          and adjectives for stronger sentence control.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2">
-          <div className="rounded-xl bg-red-50 p-4 text-left">
-            <p className="font-semibold text-red-800">Sentence building</p>
-            <p className="text-slate-600">Transform statements into questions and negatives correctly.</p>
-          </div>
-          <div className="rounded-xl bg-purple-50 p-4 text-left">
-            <p className="font-semibold text-purple-800">Agreement</p>
-            <p className="text-slate-600">Match pronouns and concords with the subject.</p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these question and control words to strengthen negatives, question forms, and sentence accuracy.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Umbuzo"} phonetic={"[um'buːzo]"} meaning={"Question"} lang="xh" />
-          <PronunciationPlayer word={"Ngubani?"} phonetic={"[ŋu'baːni]"} meaning={"Who?"} lang="xh" />
-          <PronunciationPlayer word={"Phi?"} phonetic={"[pʰi]"} meaning={"Where?"} lang="xh" />
-          <PronunciationPlayer word={"Nini?"} phonetic={"[ni'ni]"} meaning={"When?"} lang="xh" />
-          <PronunciationPlayer word={"Kutheni?"} phonetic={"[ku'tʰɛni]"} meaning={"Why?"} lang="xh" />
-          <PronunciationPlayer word={"Hayi"} phonetic={"[hayi]"} meaning={"No / not"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {

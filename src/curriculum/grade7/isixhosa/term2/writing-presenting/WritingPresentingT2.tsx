@@ -1,48 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './WritingPresentingT2.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Write functional texts in clear sequence',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 2 writing includes <strong>diary entries, short reports, dialogues, instructions,</strong> and messages.
-          Keep audience and purpose in mind.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2">
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-semibold text-emerald-800">Text purpose</p>
-            <p className="text-slate-600">Choose format that matches what you need to communicate.</p>
-          </div>
-          <div className="rounded-xl bg-yellow-50 p-4 text-left">
-            <p className="font-semibold text-yellow-800">Sequence</p>
-            <p className="text-slate-600">Order events and instructions logically from first to last.</p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these writing words clearly so that everyday transactional tasks become easier to plan and present.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Idayari"} phonetic={"[i'dajari]"} meaning={"Diary"} lang="xh" />
-          <PronunciationPlayer word={"Uluhlu"} phonetic={"[ulu'ɬu]"} meaning={"List"} lang="xh" />
-          <PronunciationPlayer word={"Imiyalelo"} phonetic={"[imi.ja'lɛlɔ]"} meaning={"Instructions"} lang="xh" />
-          <PronunciationPlayer word={"Umyalezo"} phonetic={"[umja'lɛzo]"} meaning={"Message"} lang="xh" />
-          <PronunciationPlayer word={"Inkcazo"} phonetic={"[iŋ'kazɔ]"} meaning={"Description"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {
