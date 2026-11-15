@@ -36,7 +36,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg leading-8 text-slate-600">
           GUI programs are event-driven. Code waits for an action such as a button click, then runs the matching event handler.
         </p>
-        <CodeBlock language="delphi" code={`procedure TfrmLogin.btnLoginClick(Sender: TObject);
+        <CodeBlock language="pascal" code={`procedure TfrmLogin.btnLoginClick(Sender: TObject);
 var
   sUsername: string;
 begin
@@ -59,7 +59,7 @@ end;`} />
         <p className="text-lg leading-8 text-slate-600">
           Different controls suit different kinds of data. Validation should happen as soon as the user provides the value.
         </p>
-        <CodeBlock language="delphi" code={`procedure TfrmRegister.btnSaveClick(Sender: TObject);
+        <CodeBlock language="pascal" code={`procedure TfrmRegister.btnSaveClick(Sender: TObject);
 begin
   if Trim(edtName.Text) = '' then
   begin
@@ -89,7 +89,7 @@ end;`} />
         <p className="text-lg leading-8 text-slate-600">
           The form should collect input and display output, but the real rules and calculations should usually live in a helper method or class.
         </p>
-        <CodeBlock language="delphi" code={`procedure TfrmSales.btnCalculateClick(Sender: TObject);
+        <CodeBlock language="pascal" code={`procedure TfrmSales.btnCalculateClick(Sender: TObject);
 var
   rTotal: Real;
 begin

@@ -16,7 +16,7 @@ const learnSteps: LearnStep[] = [
           Inheritance starts with identifying the most general class and moving all shared fields and methods into that parent.
           Child classes then add specialised behaviour without repeating code.
         </p>
-        <CodeBlock language="delphi" code={`type
+        <CodeBlock language="pascal" code={`type
   TVehicle = class
   protected
     FRegistration: string;
@@ -62,7 +62,7 @@ end;`} />
           In Delphi, polymorphic behaviour depends on a parent method being declared <strong>virtual</strong> or <strong>abstract</strong>
           and the child method using <strong>override</strong>. The method call stays the same, but the executed code depends on the actual object.
         </p>
-        <CodeBlock language="delphi" code={`type
+        <CodeBlock language="pascal" code={`type
   TShape = class
   public
     function Area: Real; virtual; abstract;
@@ -103,7 +103,7 @@ end;`} />
           A parent reference can store many different child objects. This makes loops and collections powerful because the same method call
           can produce different output for each object.
         </p>
-        <CodeBlock language="delphi" code={`var
+        <CodeBlock language="pascal" code={`var
   i: Integer;
   arrAnimals: array[1..2] of TAnimal;
 begin

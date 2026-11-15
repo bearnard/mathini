@@ -145,3 +145,6 @@ export const totalValidLines = (lines: readonly string[]): { total: number; skip
   }
   return { total, skipped };
 };
+
+/** SetAge in the TDog lesson: store the new age only when it is not negative; return the age the object keeps. */
+export const setAgeValidated = (current: number, requested: number): number => (requested >= 0 ? requested : current);

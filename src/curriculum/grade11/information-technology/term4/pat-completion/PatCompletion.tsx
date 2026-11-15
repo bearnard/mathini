@@ -135,7 +135,7 @@ const bank: ITItem[] = [
     explanation: 'Phase 1 covers analysis (understanding the problem) and design (planning the solution) before any code is written.',
   },
   {
-    prompt: 'A form shows the error message "Exception: System.FormatException" when invalid data is entered. How could this be improved?',
+    prompt: 'A form shows the error message "Exception: EConvertError" when invalid data is entered. How could this be improved?',
     options: ['Remove all of the validation from the form', 'Replace the raw error with a friendly message', 'Disable the input field that is on the form', 'Let only the developers of the program use it'],
     answer: 'Replace the raw error with a friendly message',
     explanation: 'Good UI design shows clear, helpful error messages — not internal exception details that confuse non-technical users.',

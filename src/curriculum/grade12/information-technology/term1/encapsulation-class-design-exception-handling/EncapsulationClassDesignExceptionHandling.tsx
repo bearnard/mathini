@@ -16,7 +16,7 @@ const learnSteps: LearnStep[] = [
           Encapsulation hides the internal state of an object and exposes only safe ways to work with that data.
           This protects the object from careless changes.
         </p>
-        <CodeBlock language="delphi" code={`type
+        <CodeBlock language="pascal" code={`type
   TBankAccount = class
   private
     FBalance: Real;
@@ -53,7 +53,7 @@ end;`} />
           A constructor should help every new object start in a sensible state. If essential values are missing or invalid,
           the constructor must handle that immediately.
         </p>
-        <CodeBlock language="delphi" code={`constructor TBankAccount.Create(AOpeningBalance: Real);
+        <CodeBlock language="pascal" code={`constructor TBankAccount.Create(AOpeningBalance: Real);
 begin
   inherited Create;
 
@@ -78,7 +78,7 @@ end;`} />
           Validation tries to stop bad input before it causes harm. Exception handling deals with runtime problems that still happen,
           such as bad numeric conversion or a missing file.
         </p>
-        <CodeBlock language="delphi" code={`try
+        <CodeBlock language="pascal" code={`try
   iValue := StrToInt(edtQuantity.Text);
   ShowMessage('Quantity captured: ' + IntToStr(iValue));
 except
@@ -101,7 +101,7 @@ end;`} />
         <p className="text-lg leading-8 text-slate-600">
           Defensive coding reduces the chance of hidden bugs. Breakpoints, watches and careful test data help you find the exact moment the program state becomes wrong.
         </p>
-        <CodeBlock language="delphi" code={`if iDivisor = 0 then
+        <CodeBlock language="pascal" code={`if iDivisor = 0 then
   raise Exception.Create('Cannot divide by zero');
 
 rAnswer := iTotal / iDivisor;`} />
