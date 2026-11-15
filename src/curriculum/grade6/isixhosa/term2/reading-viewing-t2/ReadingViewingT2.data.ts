@@ -48,7 +48,7 @@ const lesson: XhLesson = {
       vocab: [
         { word: 'Imenyu', meaning: 'Menu' },
         { word: 'Imiyalelo', meaning: 'Instructions' },
-        { word: 'Isibhengezo', meaning: 'Advert / notice' },
+        { word: 'Isibhengezo', meaning: 'Advert / poster' },
         { word: 'Ixesha', meaning: 'Time / schedule' },
       ],
     },

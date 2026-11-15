@@ -38,14 +38,14 @@ const lesson: XhLesson = {
     },
     {
       title: 'Short factual texts and reading strategy',
-      rule: 'Key details in a factual text are names, places, numbers and dates. Read the question first, then scan the text for the answer.',
+      rule: 'Key details in a factual text are names, places, numbers and dates. To find one of them, read the question first, then scan the text for the answer.',
       workedTitle: 'Find the key details',
       examples: [
         { xh: 'Amagama', en: 'Names: who?' },
         { xh: 'Iindawo', en: 'Places: where?' },
         { xh: 'Amanani nemihla', en: 'Numbers and dates: how many, when?' },
       ],
-      mistake: 'Reading the whole text before you look at the question. Read the question first and scan.',
+      mistake: 'Reading the whole text word by word to find one detail. Read the question first and scan.',
       vocab: [
         { word: 'Intsomi', meaning: 'Folktale' },
         { word: 'Umbongo', meaning: 'Poem' },
@@ -58,7 +58,7 @@ const lesson: XhLesson = {
     { q: 'In poetry, what does mood mean?', a: 'The feeling that the poem creates.' },
     { q: 'Which question checks the message of a folktale?', a: 'What lesson does the story teach?' },
     { q: 'Name two key details in a factual text.', a: 'For example names, places, numbers or dates.' },
-    { q: 'What do you do first in a comprehension task?', a: 'Read the question first, then scan the text.' },
+    { q: 'To find one detail in a short factual text, what do you do?', a: 'Read the question first, then scan the text.' },
   ],
 };
 

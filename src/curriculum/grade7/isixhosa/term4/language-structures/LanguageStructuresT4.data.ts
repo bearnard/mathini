@@ -40,7 +40,7 @@ const lesson: XhLesson = {
     {
       title: 'Spelling and proofreading',
       rule: 'Proofreading means reading your work slowly to find and fix language errors: spelling, concords, punctuation.',
-      workedTitle: 'Spot the error',
+      workedTitle: 'Correct forms to check against',
       examples: [
         { xh: 'isikolo', en: 'school (spelled correctly)' },
         { xh: 'Abafundi bayafunda.', en: 'The learners are studying. (correct concord)' },

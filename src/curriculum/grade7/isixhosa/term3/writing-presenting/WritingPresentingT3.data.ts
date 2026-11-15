@@ -17,7 +17,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'A recount in time order',
-      rule: 'A recount tells what happened, in the order it happened, in the past tense. Use kuqala, emva koko and ekugqibeleni.',
+      rule: 'A recount tells what happened, in the order it happened, in the past tense. Use order words: kuqala (first), emva koko (then), ekugqibeleni (at the end).',
       workedTitle: 'Recount a visit',
       examples: [
         { xh: 'Izolo siye ekhaya likamakhulu.', en: 'Yesterday we went to grandmother’s home.' },

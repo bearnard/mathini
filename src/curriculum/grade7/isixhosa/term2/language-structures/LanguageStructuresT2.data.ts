@@ -26,7 +26,7 @@ const lesson: XhLesson = {
         { xh: 'Ufika nini?', en: 'When do you arrive?' },
         { xh: 'Kutheni ungafuni?', en: 'Why do you not want to?' },
       ],
-      mistake: 'Keep the verb and the noun in the order of a statement and put the question word near the end: Uhlala phi umhlobo wakho?',
+      mistake: 'Keep the word order of a statement. Phi and nini come after the verb: Uhlala phi umhlobo wakho? Kutheni usually opens the question.',
     },
     {
       title: 'Subject concords and pronouns',
@@ -62,7 +62,7 @@ const lesson: XhLesson = {
   checks: [
     { q: 'Make negative: Ndifunda incwadi.', a: 'Andifundi incwadi.' },
     { q: 'Which question word asks about place: phi or nini?', a: 'phi (where)' },
-    { q: 'Complete: Abafundi ___ yafunda (bayafunda or uyafunda).', a: 'bayafunda (ba- agrees with abafundi)' },
+    { q: 'Complete: Abafundi ___ (bayafunda or uyafunda).', a: 'bayafunda (ba- agrees with abafundi)' },
     { q: 'Say “a big house” (indlu + adjective).', a: 'indlu enkulu' },
   ],
 };

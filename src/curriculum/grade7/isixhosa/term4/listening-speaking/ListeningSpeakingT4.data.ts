@@ -16,7 +16,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Health and healthy habits',
-      rule: 'Impilo means health. Talk about healthy habits with the infinitive: ukutya (to eat), ukuphumla (to rest).',
+      rule: 'Impilo means health. Say what we must do with Kufuneka (it is necessary) plus a verb ending in -e: sitye (we eat), siphumle (we rest). The verbs are ukutya (to eat) and ukuphumla (to rest).',
       workedTitle: 'Healthy habits',
       examples: [
         { xh: 'Kufuneka sitye ukutya okunempilo.', en: 'We must eat healthy food.' },
@@ -36,7 +36,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Discussion and delivery',
-      rule: 'Disagree politely and listen first. Speak at a steady pace so that listeners can follow the message.',
+      rule: 'Listen first, then agree or disagree politely. Speak at a steady pace so that listeners can follow the message.',
       workedTitle: 'Polite discussion',
       examples: [
         { xh: 'Ndiyavuma, kwaye ndinoluvo olongezelelweyo.', en: 'I agree, and I have an extra opinion.' },

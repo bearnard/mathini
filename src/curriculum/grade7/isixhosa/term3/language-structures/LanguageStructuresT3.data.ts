@@ -5,7 +5,7 @@ const lesson: XhLesson = {
   slides: [
     {
       title: 'Connectors for cause and contrast',
-      rule: 'Kuba (because) gives a reason. Kodwa (but) shows contrast. Put a comma before the connector.',
+      rule: 'Kuba (because) gives a reason. Kodwa (but) shows contrast, and a comma often comes before it.',
       workedTitle: 'Reason and contrast',
       examples: [
         { xh: 'Ndafunda kuba ndifuna amanqaku aphezulu.', en: 'I studied because I want high marks.' },
@@ -37,12 +37,12 @@ const lesson: XhLesson = {
     },
     {
       title: 'Concords and punctuation',
-      rule: 'The verb agrees with the noun: abantwana takes ba-. Use a comma between two linked clauses and a full stop at the end.',
+      rule: 'The verb agrees with the noun: abantwana takes ba-. Use a comma between two linked clauses, as before kodwa, kwaye or ngoko, and a full stop at the end.',
       workedTitle: 'Agreement and commas',
       examples: [
         { xh: 'Abantwana bayacula.', en: 'The children are singing.' },
         { xh: 'Umntwana uyacula.', en: 'The child is singing.' },
-        { xh: 'Ndiyafunda, ngoko ndiya kuphumelela.', en: 'I study, so I will pass.' },
+        { xh: 'Ndiyafunda, ngoko ndiza kuphumelela.', en: 'I study, so I will pass.' },
       ],
       mistake: 'Using u- with a plural noun. Abantwana uyacula is wrong; write Abantwana bayacula.',
       vocab: [
