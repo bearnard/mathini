@@ -36,7 +36,7 @@ export const learnSteps: LearnStep[] = [
             <>Future: <Af>{S(fut)}</Af> <En>I will play soccer.</En> <SpeakButton text={S(fut)} /></>,
           ]}
         />
-        <Mistake>Using the present tense for the future with no signal word. <Af>môre</Af> <En>tomorrow</En> tells you to use <Af>sal</Af>.</Mistake>
+        <Mistake>Leaving out <Af>sal</Af> when a question asks for the future tense. <Af>Ek speel sokker</Af> is the present. For the future write <Af>Ek sal sokker speel</Af>. A word like <Af>môre</Af> <En>tomorrow</En> is a clue to use <Af>sal</Af>.</Mistake>
       </>,
     ),
   },

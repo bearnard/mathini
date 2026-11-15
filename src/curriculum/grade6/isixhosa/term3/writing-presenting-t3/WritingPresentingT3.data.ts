@@ -8,7 +8,7 @@ const lesson: XhLesson = {
       rule: 'A formal invitation must show the date (umhla), the time (ixesha) and the venue (indawo). Open with a warm line.',
       workedTitle: 'An invitation',
       examples: [
-        { xh: 'Umenywa ngokufudumeleyo kumnyhadala wenkcubeko.', en: 'You are warmly invited to our cultural day celebration.' },
+        { xh: 'Uyamenywa kumsitho wethu.', en: 'You are invited to our function.' },
         { xh: 'Umhla:', en: 'Date:' },
         { xh: 'Ixesha:', en: 'Time:' },
         { xh: 'Indawo:', en: 'Venue:' },
@@ -17,10 +17,10 @@ const lesson: XhLesson = {
     },
     {
       title: 'Write directions',
-      rule: 'Directions are steps in logical order. Use landmarks and clear words: hamba tye (go straight), jika (turn).',
+      rule: 'Directions are steps in logical order. Use landmarks and clear words: hamba ngqo (go straight), jika (turn).',
       workedTitle: 'Directions in order',
       examples: [
-        { xh: 'Hamba tye.', en: 'Go straight.' },
+        { xh: 'Hamba ngqo.', en: 'Go straight.' },
         { xh: 'Jika ngasekunene.', en: 'Turn right.' },
         { xh: 'Ivenkile ikufuphi nesikolo.', en: 'The shop is near the school.' },
       ],

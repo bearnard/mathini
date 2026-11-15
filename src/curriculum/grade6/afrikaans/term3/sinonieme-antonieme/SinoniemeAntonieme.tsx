@@ -90,7 +90,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <>
-        <Check question={<>Give a synonym for <Af>kwaad</Af> <En>angry</En>.</>} answer={<><Af>boos</Af> (also <Af>kwaad</Af> = <Af>boos</Af>).</>} />
+        <Check question={<>Give a synonym for <Af>kwaad</Af> <En>angry</En>.</>} answer={<><Af>boos</Af> <En>angry</En>.</>} />
         <Check question={<>Give the antonym of <Af>oop</Af> <En>open</En>.</>} answer={<><Af>toe</Af> <En>closed</En>.</>} />
         <Check question={<>Give a synonym for <Af>vinnig</Af> <En>fast</En>.</>} answer={<><Af>gou</Af> <En>quick</En>.</>} />
         <Check question={<>Give the antonym of <Af>lank</Af> <En>long</En>.</>} answer={<><Af>kort</Af> <En>short</En>.</>} />

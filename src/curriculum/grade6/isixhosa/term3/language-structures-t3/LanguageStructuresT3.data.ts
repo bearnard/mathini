@@ -12,16 +12,16 @@ const lesson: XhLesson = {
         { xh: 'Siza kuya eKapa ngomso.', en: 'We will go to Cape Town tomorrow.' },
         { xh: 'Ndiza kufunda ngomso.', en: 'I will study tomorrow.' },
       ],
-      mistake: 'Do not use the present tense for a plan that is for tomorrow. Use za + ku- after the marker.',
+      mistake: 'Leaving out za when you talk about tomorrow. Say Ndiza kufunda ngomso for I will study tomorrow.',
     },
     {
       title: 'Conjunctions and connectors',
       rule: 'A conjunction joins words or ideas: kwaye (and), kodwa (but), kuba (because). A connector shows order: emva koko means then.',
       workedTitle: 'Joining ideas',
       examples: [
-        { xh: 'Ndifunda kwaye ndibhala.', en: 'I read and I write.' },
-        { xh: 'Ndifunda kuba ndifuna ukuphumelela.', en: 'I study because I want to pass.' },
-        { xh: 'Sigqibe umsebenzi, emva koko sidlala ngaphandle.', en: 'We finished homework, then we play outside.' },
+        { xh: 'Ndiyafunda kwaye ndiyabhala.', en: 'I study and I write.' },
+        { xh: 'Ndiyafunda kuba ndifuna ukuphumelela.', en: 'I study because I want to pass.' },
+        { xh: 'Siyafunda, emva koko siyadlala.', en: 'We study, then we play.' },
       ],
       mistake: 'Writing short sentences with no link. A conjunction makes writing smoother.',
     },
@@ -58,7 +58,7 @@ const lesson: XhLesson = {
     { q: 'Say “I will study tomorrow.”', a: 'Ndiza kufunda ngomso.' },
     { q: 'Which word means because: kuba or kodwa?', a: 'kuba' },
     { q: 'Which question word asks for a reason?', a: 'Kutheni (why).' },
-    { q: 'Complete: Abafundi ___ yafunda (bayafunda or uyafunda).', a: 'bayafunda' },
+    { q: 'Complete: Abafundi ___ (bayafunda or uyafunda).', a: 'bayafunda' },
   ],
 };
 

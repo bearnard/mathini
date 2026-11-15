@@ -53,7 +53,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Between and at: tussen, by',
     content: slide(
       <>
-        <Rule><Af>tussen</Af> means between two things. <Af>by</Af> means at or by a place or a person.</Rule>
+        <Rule><Af>tussen</Af> means between two (or more) things. <Af>by</Af> means at or by a place or a person.</Rule>
         <PlaceScene
           scenes={['tussen']}
           aria="A small picture of a ball and two boxes: the ball is between the two boxes (tussen)."
@@ -65,7 +65,7 @@ export const learnSteps: LearnStep[] = [
             <><Af>Ons wag by die hek.</Af> <En>We wait at the gate.</En></>,
           ]}
         />
-        <Mistake>Using <Af>tussen</Af> with one thing. <Af>tussen</Af> needs two things, such as <Af>die twee stoele</Af>. For one place use <Af>by</Af>.</Mistake>
+        <Mistake>Using <Af>tussen</Af> with one thing. <Af>tussen</Af> needs two or more things, such as <Af>die twee stoele</Af>. For one place or person use <Af>by</Af>.</Mistake>
       </>,
     ),
   },
