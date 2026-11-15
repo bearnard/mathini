@@ -38,7 +38,7 @@ test('number text: decimal comma, a real minus sign, "Not yet" and the dash for 
 });
 
 test('layout: one column on a phone, two from md, three from xl, at most 1200 px wide; wide items span; items may shrink', () => {
-  const page = html(h(DashboardPage, null, h(DashboardGrid, null, h(GridItem, { span: 'full' }, 'a'), h(GridItem, { span: 'wide' }, 'b'), h(GridItem, null, 'c'))));
+  const page = html(h(DashboardPage, null, h(DashboardGrid, null, h(GridItem, { span: 'full' as const }, 'a'), h(GridItem, { span: 'wide' as const }, 'b'), h(GridItem, null, 'c'))));
   assert.match(page, /<main class="mx-auto w-full max-w-\[1200px\]/);
   assert.match(page, /grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3/);
   assert.match(page, /min-w-0 md:col-span-2 xl:col-span-3/);
@@ -80,6 +80,8 @@ test('section card: a labelled region with an h2, optional subtitle and actions'
   assert.match(s, /More/);
 });
 
+type Row = { name: string; avg: number | null };
+const RowTable = SortableTable<Row>;
 const cols = [
   { key: 'name', label: 'Nickname', sortValue: (r: { name: string; avg: number | null }) => r.name },
   { key: 'avg', label: 'Average', align: 'right' as const, sortValue: (r: { name: string; avg: number | null }) => r.avg, render: (r: { name: string; avg: number | null }) => pctText(r.avg) },
@@ -88,7 +90,7 @@ const cols = [
 const data = [{ name: 'Thandi', avg: 71.5 }, { name: 'Ben', avg: 40 }, { name: 'Amy', avg: null }];
 
 test('sortable table: caption for screen readers, scoped headers, aria-sort, header buttons only on sortable columns, default sort applied, no-data last', () => {
-  const t = html(h(SortableTable, { columns: cols, rows: data, rowKey: (r: (typeof data)[number]) => r.name, caption: 'Learners in the class', defaultSort: { key: 'avg', dir: 'desc' } }));
+  const t = html(h(RowTable, { columns: cols, rows: data, rowKey: (r: Row) => r.name, caption: 'Learners in the class', defaultSort: { key: 'avg', dir: 'desc' } }));
   assert.match(t, /<caption class="sr-only">Learners in the class<\/caption>/);
   assert.equal((t.match(/scope="col"/g) ?? []).length, 3);
   assert.match(t, /aria-sort="descending"/);
@@ -101,10 +103,10 @@ test('sortable table: caption for screen readers, scoped headers, aria-sort, hea
 });
 
 test('sortable table: no rows shows the empty state, not an empty table', () => {
-  const t = html(h(SortableTable, { columns: cols, rows: [], rowKey: () => 'x', caption: 'c', empty: h(EmptyState, { title: 'No learners yet' }, 'Share the code.') }));
+  const t = html(h(RowTable, { columns: cols, rows: [], rowKey: () => 'x', caption: 'c', empty: h(EmptyState, { title: 'No learners yet' }, 'Share the code.') }));
   assert.match(t, /No learners yet/);
   assert.ok(!/<table/.test(t));
-  assert.match(html(h(SortableTable, { columns: cols, rows: [], rowKey: () => 'x', caption: 'c' })), /Nothing to show yet/);
+  assert.match(html(h(RowTable, { columns: cols, rows: [], rowKey: () => 'x', caption: 'c' })), /Nothing to show yet/);
 });
 
 test('empty state and skeletons: announced politely, calm, motion-safe', () => {

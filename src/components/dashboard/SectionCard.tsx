@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 /** A titled white card: the unit every dashboard is built from. `id` makes the heading a link target and labels the region. */
-export function SectionCard({ title, subtitle, actions, children, id, className = '' }: { title: ReactNode; subtitle?: ReactNode; actions?: ReactNode; children: ReactNode; id?: string; className?: string }) {
+export function SectionCard({ title, subtitle, actions, children, id, className = '' }: { title: ReactNode; subtitle?: ReactNode; actions?: ReactNode; children?: ReactNode; id?: string; className?: string }) {
   const hid = id ? `${id}-h` : undefined;
   return (
     <section id={id} aria-labelledby={hid} className={`flex h-full min-w-0 flex-col rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 ${className}`}>
