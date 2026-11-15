@@ -172,3 +172,27 @@ export const MiningTypes = () => (
   </svg>
 );
 
+
+/** Four kinds of food and what each does for the body. */
+export const FoodGroups = () => {
+  const boxes = [
+    { x: 8, y: 8, color: '#fcd34d', title: 'carbohydrates', note: 'energy', eg: 'bread, rice, pap, potatoes' },
+    { x: 84, y: 8, color: '#fb923c', title: 'proteins', note: 'grow and repair', eg: 'meat, fish, eggs, beans' },
+    { x: 8, y: 52, color: '#4ade80', title: 'fruit and vegetables', note: 'vitamins', eg: 'apples, spinach, carrots' },
+    { x: 84, y: 52, color: '#93c5fd', title: 'milk and cheese', note: 'calcium for bones', eg: 'milk, yoghurt, cheese' },
+  ];
+  return (
+    <svg viewBox="0 0 160 96" role="img" aria-labelledby="g5-food-t g5-food-d" className={cls} style={st}>
+      <title id="g5-food-t">Food groups and what they do</title>
+      <desc id="g5-food-d">Four boxes. Carbohydrates such as bread, rice and pap give energy. Proteins such as meat, fish, eggs and beans help the body grow and repair. Fruit and vegetables give vitamins. Milk and cheese give calcium for strong bones and teeth.</desc>
+      {boxes.map((b) => (
+        <g key={b.title}>
+          <rect x={b.x} y={b.y} width={68} height={38} rx={4} fill={b.color} />
+          <T x={b.x + 34} y={b.y + 13} size={4.8} fill="#0f172a">{b.title}</T>
+          <T x={b.x + 34} y={b.y + 23} size={4.4} fill="#1e293b">{b.note}</T>
+          <T x={b.x + 34} y={b.y + 33} size={3.8} fill="#334155">{b.eg}</T>
+        </g>
+      ))}
+    </svg>
+  );
+};
