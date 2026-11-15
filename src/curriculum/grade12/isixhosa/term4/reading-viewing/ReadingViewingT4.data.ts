@@ -9,7 +9,7 @@ const lesson: XhLesson = {
       workedTitle: 'Passage and one summary point',
       examples: [
         { xh: 'USipho uhamba umgama omde ukuya esikolweni. Uvuka ngentsimbi yesihlanu.', en: 'Sipho walks a long way to school. He wakes at five o\'clock.' },
-        { xh: '1. USipho uzimisele ngemfundo.', en: '1. Sipho is determined about education. (numbered, own words)' },
+        { xh: '1. USipho uzimisele ngemfundo.', en: '1. Sipho is determined about education. (numbered, own words; the main idea, which the long walk and early waking show)' },
         { xh: 'Isishwankathelo', en: 'Summary' },
       ],
       mistake: 'Do not rewrite the whole passage, copy it, or add your own opinion. Numbering follows the instructions and shows your points clearly.',

@@ -44,7 +44,7 @@ const lesson: XhLesson = {
       examples: [
         { xh: 'Molo. Ndingakunceda?', en: 'Hello. Can I help you? (shopkeeper)' },
         { xh: 'Ndifuna isonka, nceda.', en: 'I want bread, please. (customer)' },
-        { xh: 'Ndiyabulela. Hamba kakuhle.', en: 'Thank you. Go well. (customer leaves)' },
+        { xh: 'Ndiyabulela. Hamba kakuhle.', en: 'Thank you. (customer) Go well. (shopkeeper, to the customer who is leaving)' },
         { xh: 'Ndiyavuma, kodwa ndicinga ukuba…', en: 'I agree, but I think that… (group reply)' },
       ],
       mistake: 'Role play is not wasted time or acting games. Treat it as real communication.',

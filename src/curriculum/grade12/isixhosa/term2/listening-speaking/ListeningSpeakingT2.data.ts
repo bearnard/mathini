@@ -43,14 +43,14 @@ const lesson: XhLesson = {
         { xh: 'Kukho iindwendwe ezintathu.', en: 'There are three guests. (fact: you can count them)' },
         { xh: 'Esi sisombululo sibi kakhulu.', en: 'This solution is very bad. (opinion)' },
         { xh: 'Uthetha ngovuyo.', en: 'He/she speaks with joy. (tone: excitement)' },
-        { xh: 'Uthetha ngomsindo.', en: 'He/she speaks with anger. (tone: annoyance)' },
+        { xh: 'Uthetha ngomsindo.', en: 'He/she speaks with anger. (tone: anger)' },
       ],
       mistake: 'Words like "worst" or "very bad" are judgements, not facts. Do not treat them as verifiable information.',
     },
     {
       title: 'Formal oral responses',
       rule: 'Answer in complete sentences, avoid slang, and refer to the spoken text. Careful phrases such as "it seems that" and "the speaker says that" show control and precision.',
-      workedTitle: 'Formal and informal',
+      workedTitle: 'Formal phrases',
       examples: [
         { xh: 'Kubonakala ukuba lo mntu unexhala ngemfundo.', en: 'It seems that this person is worried about education. (formal)' },
         { xh: 'Lo mntu uthi imfundo ibalulekile.', en: 'This person says that education is important. (refers to the text)' },

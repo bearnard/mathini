@@ -39,7 +39,7 @@ const lesson: XhLesson = {
         { xh: 'Inkokeli yingonyama.', en: 'The leader is a lion. (connotation: courage and power)' },
         { xh: 'Ingonyama yinyamakazi.', en: 'A lion is a wild animal. (literal meaning)' },
       ],
-      mistake: 'The caption does not hide or replace the article. It connects the photo to the story and directs interpretation.',
+      mistake: 'A caption is not the headline. The headline gives the main idea; the caption connects the photo to the story and directs interpretation.',
     },
     {
       title: 'Critical literacy: comparing viewpoints',
@@ -50,7 +50,7 @@ const lesson: XhLesson = {
         { xh: 'Ngokutsho kombhali, imfundo iyabiza.', en: 'According to the writer, education is expensive. (evidence)' },
         { xh: 'Umbhali uthetha kuphela ngecala elinye.', en: 'The writer speaks about only one side. (bias)' },
       ],
-      mistake: 'Bias does not remove the need for evidence, and a biased text is not always fiction. Bias shows in how an issue is presented.',
+      mistake: 'Do not call a text biased just because you disagree. Bias shows in one-sided evidence or loaded words, so point to them.',
     },
   ],
   checks: [

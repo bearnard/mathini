@@ -33,7 +33,7 @@ const lesson: XhLesson = {
       examples: [
         { xh: 'Ilanga liyatshisa. Umoya uyabanda.', en: 'The sun is hot. The wind is cold. (feel)' },
         { xh: 'Ndiva iintaka zicula.', en: 'I hear birds singing. (hear)' },
-        { xh: 'Ngenye imini, ndiya esikolweni.', en: 'One day, I went to school. (a narrative opening)' },
+        { xh: 'Ngenye imini, ndiya esikolweni.', en: 'One day, I go to school. (a narrative opening in the present tense)' },
       ],
       mistake: 'Do not add details that confuse or have no link to the story. Every detail must help the reader see or follow.',
     },

@@ -17,7 +17,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Passive voice',
-      rule: 'The passive voice is used when the action matters more than who does it. Add -w- before the final vowel of the verb (ukufunda becomes ukufundwa). The doer comes last, with nga-: ngabantwana (by the children).',
+      rule: 'The passive voice is used when the action matters more than who does it. Add -w- before the final vowel of the verb (ukufunda becomes ukufundwa; the one-syllable verb tya becomes tyiwa). The doer comes last, with nga-: ngabantwana (by the children).',
       wordParts: { word: 'ifundwa', en: 'is read', parts: [{ t: 'i', label: 'it' }, { t: 'fund', label: 'read' }, { t: 'w', label: 'passive' }, { t: 'a', label: 'ending' }] },
       workedTitle: 'Active to passive',
       examples: [

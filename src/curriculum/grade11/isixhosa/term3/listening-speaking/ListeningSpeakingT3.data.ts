@@ -28,7 +28,7 @@ const lesson: XhLesson = {
         { xh: 'Ndikholelwa ukuba imfundo ibalulekile.', en: 'I believe that education is important. (position)' },
         { xh: 'Kuqala, imfundo isinceda sifumane umsebenzi.', en: 'Firstly, education helps us get a job. (argument 1)' },
         { xh: 'Abanye bathi imfundo iyabiza, kodwa isiphumo siyalunga.', en: 'Some say education is expensive, but the result is good. (opposing view)' },
-        { xh: 'Ekugqibeleni, ndiyavuma ukuba imfundo yeyabo bonke.', en: 'Finally, I maintain that education is for everyone. (conclusion)' },
+        { xh: 'Ekugqibeleni, ndiyavuma ukuba imfundo yeyabo bonke.', en: 'Finally, I agree that education is for everyone. (conclusion)' },
       ],
       mistake: 'Personal stories alone are not enough. Back every argument with a fact or example, and answer the opposing view instead of ignoring it.',
       vocab: [
@@ -57,7 +57,7 @@ const lesson: XhLesson = {
       examples: [
         { xh: 'Ingxaki: kukho ubuhlwempu.', en: 'The problem: there is poverty.' },
         { xh: 'Unobangela: akukho misebenzi.', en: 'The cause: there are no jobs.' },
-        { xh: 'Isiphumo: abantu bayalamba.', en: 'The impact: people go hungry.' },
+        { xh: 'Isiphumo: abantu bayalamba.', en: 'The impact (result): people go hungry.' },
         { xh: 'Isisombululo: sifanele sidale imisebenzi.', en: 'The solution: we must create jobs.' },
         { xh: 'Ndicaphula umbhali. Oku kubonisa ukuba ibali lixoxa ngobuhlwempu.', en: 'I quote the writer. This shows that the story is about poverty. (literary: evidence, then explanation)' },
       ],

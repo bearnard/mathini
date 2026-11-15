@@ -50,7 +50,7 @@ const lesson: XhLesson = {
       rule: 'Underline the main points, write rough notes in your own words, then write the summary with the number of points asked for. Proofread concord, tense and spelling. Never copy sentences word for word, add detail or change the meaning.',
       workedTitle: 'From passage to summary point',
       examples: [
-        { xh: 'USipho uzimisele ngemfundo.', en: 'Sipho is determined about education. (one summary point)' },
+        { xh: 'USipho uzimisele ngemfundo.', en: 'Sipho is determined about education. (one summary point: the main idea, which the long walk and early waking show)' },
         { xh: 'Isishwankathelo', en: 'Summary (a short version in your own words)' },
         { xh: 'Ingcinga ephambili', en: 'The main idea' },
       ],
