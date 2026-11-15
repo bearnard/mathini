@@ -154,7 +154,7 @@ async function main() {
   const grades = arg('--grades', '') ? arg('--grades', '').split(',').map(Number) : undefined;
   const o: Options = { resetReviews: flag('--reset-reviews'), keepSource: flag('--keep-source') };
   const renames = arg('--renames', '') ? (JSON.parse(fs.readFileSync(arg('--renames', ''), 'utf8')) as Record<string, string>) : {};
-  const { results, prod } = await gather(qFile, vFile);
+  const { results, prod, prodQ, prodV } = await gather(qFile, vFile);
   const plan = planSync(results, prod, o, renames, grades);
   const chunks = buildChunks(plan.items, o);
   const total = chunks.reduce((s, c) => s + c.estimatedRows, 0);
@@ -167,7 +167,7 @@ async function main() {
   if (cur.names.length) nights.push(cur);
 
   const L: string[] = [];
-  L.push('# Sync plan (code banks to D1)', '', `Mode: **${flag('--write') ? 'WRITE' : 'DRY RUN (no files written; add --write)'}**. Options: reset-reviews ${o.resetReviews}, keep-source ${o.keepSource}. Built from \`${path.basename(qFile)}\` / \`${path.basename(vFile)}\`: **re-export both just before you apply**, the statements only act on the versions in that export.`, '');
+  L.push('# Sync plan (code banks to D1)', '', `Inputs: \`${path.resolve(qFile)}\` (${fmt(prodQ.length)} questions), \`${path.resolve(vFile)}\` (${fmt(prodV.length)} versions, ${fmt(prodV.filter((v) => Number(v.version_no) > 1).length)} beyond v1). If these counts are not what production holds, the export is the wrong file.`, '', `Mode: **${flag('--write') ? 'WRITE' : 'DRY RUN (no files written; add --write)'}**. Options: reset-reviews ${o.resetReviews}, keep-source ${o.keepSource}. Built from \`${path.basename(qFile)}\` / \`${path.basename(vFile)}\`: **re-export both just before you apply**, the statements only act on the versions in that export.`, '');
   L.push('| Chunk | Grade | Questions | Edited/reworded | New | Estimated rows written |', '|---|---|---|---|---|---|');
   for (const c of chunks) L.push(`| ${c.name} | ${c.grade} | ${fmt(c.questions)} | ${fmt(c.edits)} | ${fmt(c.news)} | ${fmt(c.estimatedRows)} |`);
   L.push(`| **Total** | | ${fmt(chunks.reduce((s, c) => s + c.questions, 0))} | ${fmt(chunks.reduce((s, c) => s + c.edits, 0))} | ${fmt(chunks.reduce((s, c) => s + c.news, 0))} | **${fmt(total)}** |`, '');

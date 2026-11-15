@@ -20,7 +20,7 @@ Plan: [d1-serving-plan.md](d1-serving-plan.md) sections 4.1 and 4.2. Needs migra
 
 ## Known behaviours to be aware of when you switch it on
 
-1. With the flag ON the D1 list normally has 10 or more questions, so the browser's top-up from the code bank (`topUpFromBank`, runs only below 10 items) will not add order/label/diagram items from the bank for that task. Those kinds appear again only if D1 returns fewer than 10.
+1. Order / label / explain / diagram items are never served from D1 (a row cannot carry their fields). The Grade 6 NST, History and Geography hooks **already add the bank's non-multiple-choice items to every server batch, whatever its size** (`withCuratedExtras` runs before the top-up, which itself only runs below 10 items), so those items stay in practice with the flag ON; `curatedExtras.test.ts` pins this on the real banks (38 items, all Grade 6; the Afrikaans bank has none). Review also never resolves them from D1 (they would show as plain multiple choice): they fall back to the code bank.
 2. Curated questions now come before AI questions in a mixed topic (today the AI pool is served and the bank only tops up).
 3. AI rows that are not registered in `questions` yet are not served from D1; if the task has none registered at all, the old path serves it.
 

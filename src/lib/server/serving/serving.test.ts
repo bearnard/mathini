@@ -211,3 +211,14 @@ test('review: retired questions, tasks that are not switched on, and unknown ids
   clearFlagCache();
   assert.deepEqual(await resolveFromD1(t.db, [{ qkey: 'x', task: TASK }]), {});
 });
+
+test('review never resolves an order / label / explain question from D1 (it would be shown as plain multiple choice); those stay with the code bank', async (t0) => {
+  const t = await openQuestionsDb(); if (!t) return t0.skip('node:sqlite unavailable');
+  curated(t, 'Put these in order please', { kind: 'order', options: ['first', 'second', 'third'], answer: 'first' });
+  curated(t, 'Explain why the Moon changes shape', { kind: 'explain' });
+  curated(t, 'A normal multiple choice question?');
+  setFlag(t, { grades: [6], tasks: [], exclude: [] });
+  const ids = ['Put these in order please', 'Explain why the Moon changes shape', 'A normal multiple choice question?'].map((p) => qid(p));
+  const got = await resolveFromD1(t.db, ids.map((qkey) => ({ qkey, task: TASK })));
+  assert.deepEqual(Object.keys(got), [ids[2]]);
+});
