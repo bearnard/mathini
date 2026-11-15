@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createLimiter, handleReview, reviewJson, WINDOW_MS, type ReviewDeps } from './http';
 import { loadReviewerPack, markDone, saveResponse } from './store';
-import { generateToken, revokeReviewer } from './token';
+import { generateToken, revokeReviewer } from './reviewerLink';
 import { newReviewer, NOW, openReviewDb, seedPack } from './testDb';
 
 const req = (token: string, action: string | null, method = 'GET', body?: unknown, extra: Record<string, string> = {}) =>

@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { constantTimeEqual, createReviewer, expiryFrom, extendReviewer, findReviewerByToken, generateToken, hashToken, isWellFormedToken, linkState, revokeReviewer, TOKEN_PATTERN } from './token';
-import { NOW, openReviewDb, seedPack } from './testDb';
+import { constantTimeEqual, expiryFrom, extendReviewer, findReviewerByToken, generateReviewerLink, generateToken, hashToken, isWellFormedToken, linkState, revokeReviewer, TOKEN_PATTERN } from './reviewerLink';
+import { createReviewer, NOW, openReviewDb, seedPack } from './testDb';
 
 test('a token is 32 random bytes as 43 base64url characters, and two tokens differ', () => {
   const t = generateToken();
@@ -15,6 +15,13 @@ test('a token is 32 random bytes as 43 base64url characters, and two tokens diff
 test('isWellFormedToken accepts only 43 url-safe characters', () => {
   assert.equal(isWellFormedToken(generateToken()), true);
   for (const bad of ['', 'abc', 'a'.repeat(42), 'a'.repeat(44), 'a'.repeat(42) + '+', 'a'.repeat(42) + '/', 'a'.repeat(42) + ' ', null, undefined, 42]) assert.equal(isWellFormedToken(bad), false, String(bad));
+});
+
+test('generateReviewerLink returns a token and the hash of exactly that token', async () => {
+  const l = await generateReviewerLink();
+  assert.ok(isWellFormedToken(l.token));
+  assert.equal(l.hash, await hashToken(l.token));
+  assert.notEqual((await generateReviewerLink()).token, l.token);
 });
 
 test('hashToken is the hex SHA-256 (known vector) and is stable', async () => {

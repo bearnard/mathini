@@ -5,7 +5,7 @@
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { trDbOfD1, type TrDb } from './db';
 import { loadPack } from './store';
-import { findReviewerByToken, hashToken, isWellFormedToken } from './token';
+import { findReviewerByToken, hashToken, isWellFormedToken } from './reviewerLink';
 import type { ReviewPackRow, ReviewerRow } from './types';
 
 /** The header every review API call must carry. A cross-site page cannot set a custom header without a CORS preflight. */

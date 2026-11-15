@@ -218,7 +218,7 @@ function Reviewers({ data, onDone }: { data: PackResults; onDone: () => void }) 
     setErr(''); setCopied(false);
     const r = await postJson(`/api/admin/reviews/${data.pack.id}/invite`, 'review-invite', { displayName: name, note, days: Number(days) });
     if (!r.ok) return setErr(r.failure.error);
-    setLink({ name, url: `${window.location.origin}/review/${String(r.data.token)}` });
+    setLink({ name, url: `${window.location.origin}/teacher-review#${String(r.data.token)}` });
     setName(''); setNote('');
     onDone();
   };

@@ -7,10 +7,14 @@ import path from 'node:path';
 // nothing from the learner or admin modules, so a reviewer link can never reach learner, attempt or admin code.
 
 const SRC = path.join(process.cwd(), 'src');
+const LIB = path.join(SRC, 'lib', 'server', 'teacherReview');
+// The reviewer side of the library. The other files in the folder (adminStore, merge, applyChanges, teacherCheck*) belong to
+// the admin pages and may use admin code, so a reviewer-side file must never import them either.
+const REVIEWER_LIB = ['db', 'http', 'proposal', 'reviewerLink', 'store', 'types'];
 const ROOTS = [
   path.join(SRC, 'app', 'api', 'teacher-review'),
   path.join(SRC, 'app', 'teacher-review'),
-  path.join(SRC, 'lib', 'server', 'teacherReview'),
+  LIB,
   path.join(SRC, 'components', 'teacherReview'),
 ];
 const ALLOWED_PACKAGES = [/^react(\/|$)/, /^react-dom(\/|$)/, /^next(\/|$)/, /^@opennextjs\/cloudflare$/, /^node:/];
@@ -27,7 +31,7 @@ function files(dir: string): string[] {
 }
 
 const isTest = (f: string) => /\.test\.tsx?$/.test(f) || /[\\/]test[A-Z][A-Za-z]*\.tsx?$/.test(f);
-const production = ROOTS.flatMap(files).filter((f) => !isTest(f));
+const production = ROOTS.flatMap(files).filter((f) => !isTest(f)).filter((f) => !f.startsWith(LIB + path.sep) || REVIEWER_LIB.includes(path.basename(f).replace(/\.tsx?$/, '')));
 
 export const importsOf = (src: string): string[] => {
   const out: string[] = [];
@@ -36,10 +40,15 @@ export const importsOf = (src: string): string[] => {
 };
 
 test('there are teacher-review files to guard', () => {
-  assert.ok(production.length >= 8, `found ${production.length}`);
+  assert.ok(production.length >= 12, `found ${production.length}`);
+  for (const name of REVIEWER_LIB) assert.ok(production.some((f) => path.basename(f).startsWith(name + '.')), `${name} must be scanned`);
+  assert.ok(!production.some((f) => /adminStore|merge|applyChanges/.test(path.basename(f))), 'admin files are not part of the reviewer side');
 });
 
-const inRoots = (target: string) => ROOTS.some((r) => target === r || target.startsWith(r + path.sep));
+const inRoots = (target: string) => {
+  if (target === LIB || target.startsWith(LIB + path.sep)) return REVIEWER_LIB.includes(path.basename(target).replace(/\.tsx?$/, ''));
+  return ROOTS.some((r) => target === r || target.startsWith(r + path.sep));
+};
 export const isAllowedImport = (fromFile: string, spec: string): boolean => {
   if (spec.startsWith('.')) return inRoots(path.resolve(path.dirname(fromFile), spec));
   if (spec.startsWith('@/')) return false;
@@ -62,6 +71,8 @@ test('the guard really catches a learner, admin or events import', () => {
     "const m = await import('../events/handler');",
     "import { createRateLimiter } from '../events/ratelimit';",
     "import { d1Adapter } from '../admin/db';",
+    "import { listPacks } from './adminStore';",
+    "import { suggestMerge } from './merge';",
     "import fs from 'fs';",
   ]) {
     const spec = importsOf(line)[0];
@@ -100,6 +111,12 @@ test('the link is a fragment: the page has no token segment and the client reads
   assert.match(app, /history\.replaceState/);
   assert.match(app, /sessionStorage/);
   assert.ok(!/fetch\(`[^`]*\$\{token\}/.test(app), 'the token must not be put into a URL');
+});
+
+test('the admin invite builds the fragment link /teacher-review#<token>', () => {
+  const admin = fs.readFileSync(path.join(SRC, 'components', 'admin', 'reviews', 'ReviewPackPage.tsx'), 'utf8');
+  assert.match(admin, /\/teacher-review#\$\{/);
+  assert.ok(!/\/teacher-review\/\$\{|\/review\/\$\{/.test(admin), 'no path-style link');
 });
 
 test('the reviewer page is noindex and sends no referrer', () => {

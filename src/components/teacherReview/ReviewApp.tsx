@@ -10,7 +10,7 @@ import {
   type ItemDraft, type LineDraft, type QuestionDraft,
 } from './reviewState';
 import { LIMITS } from '../../lib/server/teacherReview/proposal';
-import { isWellFormedToken } from '../../lib/server/teacherReview/token';
+import { isWellFormedToken } from '../../lib/server/teacherReview/reviewerLink';
 import type {
   LessonLineItemContext, QuestionContent, QuestionItemContext, ReviewConfidence, ReviewVerdict, ReviewerItemView, ReviewerPackView,
 } from '../../lib/server/teacherReview/types';

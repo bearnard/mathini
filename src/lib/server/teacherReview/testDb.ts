@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import { openQuestionsDb } from '../questions/testQuestionsDb';
 import type { TrDb } from './db';
-import { createReviewer } from './token';
+import { expiryFrom, generateReviewerLink } from './reviewerLink';
 
 export async function openReviewDb() {
   const t = await openQuestionsDb();
@@ -47,6 +47,15 @@ export function seedPack(raw: NonNullable<Awaited<ReturnType<typeof openReviewDb
   ins.run(1, 'lesson_line', null, null, 'grade7/afrikaans/x.tsx', 'Ek gaan more skool toe.', JSON.stringify({ slideTitle: 'Tyd', before: 'Gister was dit Maandag.', after: 'Volgende week is toetsweek.' }), 'Is this natural?', 2);
   ins.run(2, 'lesson_line', null, null, 'f.tsx', 'Other pack line', null, null, 1);
   return { packId: 1, closedPackId: 2, qItemId: 1, lineItemId: 2, otherPackItemId: 3, versionId: 1 };
+}
+
+/** Creates a reviewer the way the admin invite does: a fresh link, only the hash stored. Returns the token to use in requests. */
+export async function createReviewer(db: TrDb, packId: number, name: string, contactNote: string | null, now: number, ttlDays = 14) {
+  const { token, hash } = await generateReviewerLink();
+  const expiresAt = expiryFrom(now, ttlDays);
+  await db.batch([{ sql: 'INSERT INTO reviewers (pack_id, display_name, contact_note, token_hash, expires_at, created_at) VALUES (?, ?, ?, ?, ?, ?)', params: [packId, name, contactNote, hash, expiresAt, now] }]);
+  const row = await db.all<{ id: number }>('SELECT id FROM reviewers WHERE token_hash = ?', [hash]);
+  return { reviewerId: row[0].id, token, expiresAt };
 }
 
 export async function newReviewer(db: TrDb, packId: number, name = 'Ms N.') {
