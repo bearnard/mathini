@@ -140,7 +140,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'What was the job of a scribe?',
-    options: ['Writing down records such as taxes and food stores', 'Building pyramids', 'Sailing boats', 'Guarding the pharaoh'],
+    options: ['Writing down records such as taxes and food stores', 'Building the stone tombs for the pharaohs', 'Sailing the pharaoh’s boats along the river', 'Guarding the pharaoh’s palace at night'],
     answer: 'Writing down records such as taxes and food stores',
     explanation: 'Scribes trained for years so that they could read and write hieroglyphics.',
   },

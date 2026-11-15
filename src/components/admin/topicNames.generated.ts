@@ -1907,6 +1907,26 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Writing Recall and Proofreading",
   "English HL"
  ],
+ "5|gr5-ancient-egypt": [
+  "Ancient Egypt",
+  "History"
+ ],
+ "5|gr5-geography-map-skills": [
+  "Map Skills",
+  "Geography"
+ ],
+ "5|gr5-geography-minerals-mining": [
+  "Minerals and Mining",
+  "Geography"
+ ],
+ "5|gr5-geography-physical-features": [
+  "Physical Features",
+  "Geography"
+ ],
+ "5|gr5-geography-weather-climate-vegetation": [
+  "Weather, Climate and Vegetation",
+  "Geography"
+ ],
  "6|ancient-medicine": [
   "Medicine in Ancient Times",
   "History"
@@ -3841,7 +3861,9 @@ export const SUBJECT_TITLES: Record<string, string> = {
  "12|ml": "Mathematical Literacy",
  "12|ps": "Physical Sciences",
  "12|xho": "isiXhosa FAL",
+ "5|geo": "Geography",
  "5|geography": "Geography",
+ "5|his": "History",
  "5|history": "History",
  "5|life-skills": "Life Skills",
  "5|math": "Mathematics",

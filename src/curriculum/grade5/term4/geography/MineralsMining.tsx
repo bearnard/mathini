@@ -159,7 +159,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'Recycling metal objects helps because…',
-    options: ['less new ore has to be mined', 'mines get bigger', 'coal runs out faster', 'water is wasted'],
+    options: ['less new ore has to be mined', 'mines have to get much bigger', 'coal runs out much faster', 'more water is wasted on land'],
     answer: 'less new ore has to be mined',
     explanation: 'Recycling saves resources.',
   },
