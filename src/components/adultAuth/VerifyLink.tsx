@@ -3,6 +3,7 @@
 // once, removed from the address bar, and held in memory only. Signing in needs a CLICK: a mail scanner that opens the link cannot use it up.
 import { useEffect, useRef, useState } from 'react';
 import { isWellFormedToken } from '../../lib/server/adultAuth/crypto';
+import { adultLandingPath } from '../../lib/shared/landingPath';
 
 type State = 'loading' | 'ready' | 'working' | 'failed' | 'invalid';
 
@@ -42,7 +43,9 @@ export default function VerifyLink() {
         referrerPolicy: 'no-referrer',
       });
       if (res.ok) {
-        window.location.assign('/account');
+        // Teachers go to their classes, school admins to their school, parents to their children; anyone else to the account page.
+        const j = (await res.json().catch(() => ({}))) as { roles?: string[] };
+        window.location.assign(adultLandingPath(j.roles));
         return;
       }
       const j = (await res.json().catch(() => ({}))) as { error?: string };

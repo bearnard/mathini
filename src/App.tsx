@@ -11,6 +11,7 @@ import TodaysReviewCard from './components/review/TodaysReviewCard';
 import MyProgressCard from './components/progress/MyProgressCard';
 import { useProgressTeaser } from './components/progress/useProgressTeaser';
 import ClassesCard from './components/classes/ClassesCard';
+import ParentLinkCard from './components/parents/ParentLinkCard';
 import { useReviewPreview } from './components/review/useTodayReview';
 import AppHeader from './components/layout/AppHeader';
 import TopicHeader from './components/layout/TopicHeader';
@@ -169,6 +170,7 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
         {status === 'active' && !selectedSubject && (
           <div className="mx-auto max-w-5xl px-4 pt-4">
             <ClassesCard />
+            <ParentLinkCard />
           </div>
         )}
         <CurriculumSelector
