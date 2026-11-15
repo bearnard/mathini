@@ -6,6 +6,7 @@
 //      maxOps 45), so a full pool costs one query and the worst case is bounded per run.
 //   2b. teacher-review personal data (ADR 0004): names, contact notes and free-text reasons of reviewers 90 days after their pack closed (bounded,
 //       no API; last in the job, one read plus one batch only when there is something to scrub)
+//   2c. adult sign-in housekeeping (ADR 0003): old links, long-expired sessions and rate counters, one batch
 //   3. item analysis (ADR 0003 section 5): 3 D1 round trips, no external API. Together with the top-up's maxOps 45 that is
 //      48 of the 50 subrequests a free-plan invocation allows.
 // With no GEMINI_API_KEY the top-up is a no-op; retention still runs.
@@ -16,6 +17,7 @@ import { d1Adapter } from './admin/db';
 import { refreshItemFlags } from './questions/itemAnalysis';
 import { trDbOfD1 } from './teacherReview/db';
 import { scrubReviewerPersonalData } from './teacherReview/retention';
+import { purgeAuthData } from './adultAuth/purge';
 
 export interface ScheduledEnv {
   DB: D1Database;
@@ -107,6 +109,12 @@ export async function runScheduled(env: ScheduledEnv, deps: ScheduledDeps = {}):
   } catch {
     result.reviewersScrubbed = null; // the table may not exist yet (migration 0012 not applied)
     result.reasonsScrubbed = null; // this step runs last, so a subrequest-limit failure here never costs the top-up; it retries tomorrow
+  }
+
+  try {
+    await purgeAuthData(d1Adapter(env.DB as never), deps.now?.() ?? Date.now()); // one batch; the tables may not exist yet (migration 0013)
+  } catch {
+    /* housekeeping only: tomorrow's run tries again */
   }
 
   const t = result.topUp;
