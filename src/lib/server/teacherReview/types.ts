@@ -155,7 +155,7 @@ export interface ReviewerResponseView {
   reason: string | null;
 }
 
-/** GET /api/teacher-review/<token>: the pack as one reviewer sees it. */
+/** GET /api/teacher-review (token in the X-Review-Token header): the pack as one reviewer sees it. */
 export interface ReviewerPackView {
   packTitle: string;
   /** The "Reviewer 1/2/3" label or the owner's display name, as the reviewer should see themselves. */

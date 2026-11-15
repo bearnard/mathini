@@ -8,6 +8,7 @@ node --import tsx scripts/shoot.ts [--widths 390,1280] [--out DIR] [--timeout MS
 
 - Each URL is shot at every width (default 390 and 1280) as a full-page PNG in `--out` (default `shots/`), plus `report.json`.
 - A page FAILS if it times out (default 60 s per page), has `scrollWidth > clientWidth`, or logs a console error, an exception or a failed request. The exit code is 1 if any page fails, 2 for bad arguments.
+- `--wait-for 'main h1'` waits until that selector exists before measuring (for pages that render after a fetch); it counts against the per-page timeout.
 - `--stub-api` answers `/api/*` with empty JSON so lessons render without a database. `localhost` is rewritten to `127.0.0.1`.
 - The first request to each URL is made with `fetch` before the browser visit, so Next dev finishes compiling that page first. Pass `--no-warmup` for non-HTTP URLs.
 - `SHOOT_MOCKS=file.json` (env var) answers chosen requests with your own JSON, for pages that need real-looking API data (for example /admin pages with `ADMIN_DEV_BYPASS=1`): `[{ "match": "/api/admin/reviews/1", "body": {...}, "status": 200 }]`. A URL containing `match` gets that body; the longest match wins; everything else follows `--stub-api` or goes to the network.

@@ -6,6 +6,8 @@ export interface ShootOptions {
   out: string;
   timeoutMs: number;
   settleMs: number;
+  /** CSS selector that must exist before the page is measured (client-rendered pages). */
+  waitFor: string | null;
   stubApi: boolean;
   warmup: boolean;
   chromium: string;
@@ -30,7 +32,7 @@ export const parseWidths = (s: string): number[] => {
 
 export const parseArgs = (argv: string[], env: Record<string, string | undefined> = {}): ShootOptions => {
   const o: ShootOptions = {
-    urls: [], widths: DEFAULT_WIDTHS, out: 'shots', timeoutMs: 60000, settleMs: 800, stubApi: false, warmup: true,
+    urls: [], widths: DEFAULT_WIDTHS, out: 'shots', timeoutMs: 60000, settleMs: 800, waitFor: null, stubApi: false, warmup: true,
     chromium: env.CHROMIUM_BIN || '/usr/bin/chromium',
   };
   const need = (i: number, flag: string) => {
@@ -46,6 +48,7 @@ export const parseArgs = (argv: string[], env: Record<string, string | undefined
       o.timeoutMs = Number(need(i++, a));
       if (!(o.timeoutMs >= 1000)) throw new Error('--timeout is in milliseconds, at least 1000');
     } else if (a === '--settle') o.settleMs = Number(need(i++, a));
+    else if (a === '--wait-for') o.waitFor = need(i++, a);
     else if (a === '--stub-api') o.stubApi = true;
     else if (a === '--no-warmup') o.warmup = false;
     else if (a === '--chromium') o.chromium = need(i++, a);

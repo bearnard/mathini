@@ -51,10 +51,13 @@ export interface TrackerDeps {
   clearTimer: (handle: unknown) => void;
 }
 
-/** The admin area is never tracked: the owner looking at the dashboard is not a visitor. */
+/**
+ * The admin area is never tracked: the owner looking at the dashboard is not a visitor. Neither is a teacher-review link:
+ * its path contains the secret token, which must not reach the event log.
+ */
 export function isTrackablePath(pathname: string | null | undefined): boolean {
   const p = (pathname ?? '').split(/[?#]/)[0];
-  return !(p === '/admin' || p.startsWith('/admin/') || p === '/api' || p.startsWith('/api/'));
+  return !(p === '/admin' || p.startsWith('/admin/') || p === '/api' || p.startsWith('/api/') || p === '/teacher-review' || p.startsWith('/teacher-review/'));
 }
 
 export const FLUSH_INTERVAL_MS = 10_000;

@@ -167,6 +167,6 @@ test('props pass through but identity fields are the tracker\'s own', () => {
 });
 
 test('the admin area and API paths are never tracked as page views', () => {
-  for (const p of ['/admin', '/admin/', '/admin/learners/abc', '/admin?x=1', '/api/events', '/api']) assert.equal(isTrackablePath(p), false, p);
-  for (const p of ['/', '/app', '/privacy', '/grade-6/natural-sciences-technology', '/administration', '/adminx', '/apiary', '', null, undefined]) assert.equal(isTrackablePath(p as string), true, String(p));
+  for (const p of ['/admin', '/admin/', '/admin/learners/abc', '/admin?x=1', '/api/events', '/api', '/teacher-review/abc', '/teacher-review']) assert.equal(isTrackablePath(p), false, p);
+  for (const p of ['/', '/app', '/privacy', '/grade-6/natural-sciences-technology', '/administration', '/adminx', '/apiary', '/teacher-reviews', '', null, undefined]) assert.equal(isTrackablePath(p as string), true, String(p));
 });
