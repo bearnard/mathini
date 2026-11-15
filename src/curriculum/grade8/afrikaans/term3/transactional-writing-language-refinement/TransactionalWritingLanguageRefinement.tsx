@@ -1,65 +1,103 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, LetterLayout, MeaningPairs, TaggedBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Transactional writing formats',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Formal letters and practical texts need clear structure and audience focus.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">formele brief <SpeakButton text="formele brief" /></span>
-          <span className="inline-flex items-center">voegwoorde <SpeakButton text="voegwoorde" /></span>
-          <span className="inline-flex items-center">leestekens <SpeakButton text="leestekens" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Refine sentence links',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Conjunctions improve flow and make reasons, contrasts and results explicit.
-        </p>
-        <p className="text-xl text-slate-700">Choose link words that match meaning exactly.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Check punctuation and reported speech',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Edit punctuation and reporting forms to improve formal writing quality.
-        </p>
-        <p className="text-slate-500">Final checks prevent avoidable language errors.</p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these greeting phrases aloud so that everyday Afrikaans conversation feels natural and confident.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Goeiemore"} phonetic={"[ɣujəˈmɔːrə]"} meaning={"Good morning"} lang="af" />
-          <PronunciationPlayer word={"Goedag"} phonetic={"[ɣuˈdax]"} meaning={"Good day"} lang="af" />
-          <PronunciationPlayer word={"Totsiens"} phonetic={"[tɔtˈsins]"} meaning={"Goodbye"} lang="af" />
-          <PronunciationPlayer word={"Dankie"} phonetic={"[ˈdaŋki]"} meaning={"Thank you"} lang="af" />
-          <PronunciationPlayer word={"Asseblief"} phonetic={"[asəˈblif]"} meaning={"Please"} lang="af" />
-          <PronunciationPlayer word={"Verskoon my"} phonetic={"[fərˈskoːn mɛi]"} meaning={"Excuse me"} lang="af" />
-          <PronunciationPlayer word={"Hoe gaan dit?"} phonetic={"[huː χɑːn dət]"} meaning={"How are you?"} lang="af" />
-          <PronunciationPlayer word={"Baie goed"} phonetic={"[ˈbɑːiə χut]"} meaning={"Very well"} lang="af" />
-        </div>
-      </div>
+    title: 'The formal letter',
+    content: slide(
+      <>
+        <Rule>A formal letter has an address and date, a greeting such as <Af>Geagte Mevrou</Af> <En>Dear Madam</En>, the content, a closing and a signature. The closing paragraph must <Af>Om die versoek netjies af te sluit</Af> <En>close the request neatly</En>.</Rule>
+        <LetterLayout
+          parts={['adres, datum', 'Geagte Mevrou', 'inhoud', 'Die uwe', 'handtekening']}
+          aria="A formal letter drawn as five strips from top to bottom: adres and datum, the greeting Geagte Mevrou, the inhoud (content, the biggest strip), the closing Die uwe, and the handtekening (signature)."
+        />
+        <Worked
+          title="Greeting and closing"
+          steps={[
+            <>Greeting: <Af>Geagte Mevrou</Af>. <SpeakButton text="Geagte Mevrou" /></>,
+            <>Closing: <Af>Die uwe</Af> <En>yours faithfully</En>, then your signature.</>,
+          ]}
+        />
+        <Mistake>Closing with a casual line or no closing paragraph at all. The last paragraph thanks the reader and ends the request neatly.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Linking words: want, daarom, dus',
+    content: slide(
+      <>
+        <Rule><Af>want</Af> gives a reason. <Af>daarom</Af> and <Af>dus</Af> show a result. After <Af>daarom</Af> the verb comes before the subject.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['want', 'because'], ['daarom', 'therefore'], ['dus', 'so']]}
+          aria="Three Afrikaans linking words with their English meaning: want is because, daarom is therefore, dus is so."
+        />
+        <Worked
+          title="Choose the link"
+          steps={[
+            <><Af>Ek studeer hard, want ek wil slaag.</Af> <En>I study hard because I want to pass.</En></>,
+            <><Af>Ons begin vroeg; daarom voltooi ons betyds.</Af> <En>We start early; therefore we finish on time.</En> <SpeakButton text="Ons begin vroeg; daarom voltooi ons betyds." /></>,
+          ]}
+        />
+        <Mistake>Using <Af>maar</Af> or <Af>of</Af> for a reason or result, or writing <Af>daarom ons voltooi</Af>. Say <Af>daarom voltooi ons</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Punctuation: full stop and semicolon',
+    content: slide(
+      <>
+        <Rule>A statement ends with a full stop. A semicolon joins two sentences that belong closely together, as before <Af>daarom</Af>.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'Dankie vir u hulp.', tag: 'punt' }, { word: 'Ons begin vroeg;', tag: 'kommapunt' }]}
+          aria="Two sentences with their end marks: Dankie vir u hulp ends with a full stop (punt), Ons begin vroeg ends with a semicolon (kommapunt)."
+        />
+        <Worked
+          title="Choose the mark"
+          steps={[
+            <><Af>Dankie vir u hulp.</Af> <En>Thank you for your help.</En> A statement, so a full stop.</>,
+            <><Af>Ons begin vroeg; daarom voltooi ons betyds.</Af> Two linked sentences, so a semicolon.</>,
+          ]}
+        />
+        <Mistake>Ending a thank-you line with a question mark or an exclamation mark. A polite statement in a formal letter ends with a full stop.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Reported speech and precise words',
+    content: slide(
+      <>
+        <Rule>In indirect speech use <Af>dat</Af> and change the pronoun. In editing, <Af>Vervang vae woorde met presiese taal</Af> <En>replace vague words with precise language</En>.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['dinge', 'handboeke'], ['baie', 'vyf']]}
+          aria="Two vague words and a precise replacement: dinge (things) becomes handboeke (textbooks), baie (many) becomes vyf (five)."
+        />
+        <Worked
+          title="Report and refine"
+          steps={[
+            <><Af>Hy sê: 'Ek is laat.'</Af> becomes <Af>Hy sê dat hy laat is.</Af> <SpeakButton text="Hy sê dat hy laat is." /></>,
+            <>Vague: <Af>Ek het dinge nodig.</Af> Precise: <Af>Ek het twee handboeke nodig.</Af> <En>I need two textbooks.</En></>,
+          ]}
+        />
+        <Mistake>Keeping <Af>ek</Af> in the report: <Af>Hy sê dat ek laat is</Af> is wrong. Also avoid vague words like <Af>dinge</Af> in a formal request.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Which greeting suits a formal letter to a woman?</>} answer={<><Af>Geagte Mevrou</Af>.</>} />
+        <Check question={<>Choose the joiner: <Af>Ek studeer hard, ___ ek wil slaag.</Af></>} answer={<><Af>want</Af>.</>} />
+        <Check question={<>Which closing suits a formal letter?</>} answer={<><Af>Die uwe</Af>.</>} />
+        <Check question={<>Change to indirect speech: <Af>Hy sê: 'Ek is laat.'</Af></>} answer={<><Af>Hy sê dat hy laat is.</Af></>} />
+      </>,
     ),
   },
 ];
@@ -114,6 +152,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'This closing is appropriate in formal correspondence.',
   },
 ];
+
+export { bank };
 
 const TransactionalWritingLanguageRefinement = () => (
   <AfrikaansTopic

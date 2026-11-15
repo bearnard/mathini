@@ -10,10 +10,14 @@ import * as folklore from './term2/folklore-youth-novel-study/FolkloreYouthNovel
 import * as grammarReporting from './term2/grammar-reporting-coherence/GrammarReportingCoherence';
 import * as creative from './term3/creative-writing-project/CreativeWritingProject';
 import * as drama from './term3/short-stories-drama/ShortStoriesDrama';
+import * as transactional from './term3/transactional-writing-language-refinement/TransactionalWritingLanguageRefinement';
+import * as consolidation from './term4/language-consolidation/LanguageConsolidation';
+import * as report from './term4/review-report-writing/ReviewReportWriting';
+import * as revisionExam from './term4/revision-exam-preparation/RevisionExamPreparation';
 
 // Lesson standard (docs/notes/lesson-standard.md): 4-6 slides, the last one "Check yourself", every slide renders, and the topic's
 // practice bank can be answered from the slides. The banks themselves are byte-identical to before (checked in the branch).
-const lessons = { narrative, poetry, advertisements, electronic, folklore, grammarReporting, creative, drama } as const;
+const lessons = { narrative, poetry, advertisements, electronic, folklore, grammarReporting, creative, drama, transactional, consolidation, report, revisionExam } as const;
 
 const text = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 const slideText = (step: { content: React.ReactNode }) => text(renderToStaticMarkup(createElement('div', null, step.content)));
