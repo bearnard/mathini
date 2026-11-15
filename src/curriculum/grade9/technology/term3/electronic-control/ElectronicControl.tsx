@@ -1,38 +1,109 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { IpoFlow } from '../../../../../components/diagrams/science/SciencePictures2';
+import { LogicSwitches, TruthTable } from '../../../../../components/diagrams/science/SciencePictures6';
+import { ElectronicSymbols, SensorCurves } from '../../../../../components/diagrams/science/SciencePictures8';
+import { current } from '../../../../../components/diagrams/science/electronicsHelpers';
+import { and, or } from '../../../../../components/diagrams/science/techHelpers';
+
+// The Ohm's law example comes from a tested helper (electronics.test.ts), which also checks that an LDR falls in light.
+const amps = current(12, 3);
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Explore electronic components and sensing',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Diodes allow current flow in one direction. LEDs emit light when current passes. LDRs and thermistors change 
-          resistance based on light and temperature. Transistors act as electronic switches to control circuits.
-        </p>
-      </div>
+    title: 'Diodes and LEDs',
+    content: slide(
+      <>
+        <Rule>
+          A diode is a component that lets current flow in one direction only. An LED is a light-emitting diode that gives light when current flows through it.
+        </Rule>
+        <ElectronicSymbols />
+        <Worked
+          title="Fit an LED the right way round"
+          steps={[<>A diode has a direction, from anode to cathode, so it must be connected the correct way.</>, <>Connected one way, current flows and the LED lights.</>, <>Turned round, no current flows and the LED stays off. LEDs are energy-efficient indicators.</>]}
+        />
+        <Mistake>Thinking a diode works the same both ways. It lets current flow in one direction only.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Understand logic switching and control devices',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          AND gates require all inputs to be high for output to be high. OR gates require any input to be high. 
-          These logic gates, combined with sensors and transistors, create automated control systems that respond to conditions.
-        </p>
-      </div>
+    title: 'Sensors: LDR and thermistor',
+    content: slide(
+      <>
+        <Rule>
+          An LDR&apos;s resistance changes with the amount of light that falls on it. A thermistor is a resistor whose resistance changes with temperature.
+        </Rule>
+        <SensorCurves />
+        <Worked
+          title="A light sensor for a street lamp"
+          steps={[
+            <>In the dark the LDR&apos;s resistance is high, and in bright light it is low.</>,
+            <>A lower resistance lets more current flow. For example, by Ohm&apos;s law, 12 V across 3 Ω gives {amps} A.</>,
+            <>The circuit can use this change to respond to light levels for automatic control. A thermistor does the same for temperature, as in a thermostat.</>,
+          ]}
+        />
+        <Mistake>Saying a sensor makes light or heat. It only changes its resistance when the light or temperature changes.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Design and evaluate electronic solutions',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          By combining sensors, logic circuits, and output devices, you can design solutions to real problems. 
-          PAT 2 involves assembling and testing an electronic system that meets design criteria and performance standards.
-        </p>
-      </div>
+    title: 'The transistor as a switch',
+    content: slide(
+      <>
+        <Rule>
+          A transistor works as an electronic switch turned on by a small signal. It can also amplify signals.
+        </Rule>
+        <IpoFlow id="trn" input="LDR sensor" process="transistor" output="lamp" />
+        <Worked
+          title="An automatic night light"
+          steps={[<>Input: the LDR senses that it has become dark.</>, <>Process: its change in resistance gives a small signal that turns the transistor on.</>, <>Output: the transistor switches on the lamp, which needs much more current than the signal.</>]}
+        />
+        <Mistake>Thinking the small sensor current runs the lamp. The small signal only turns the transistor on; the lamp is supplied by the main supply.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Logic gates and PAT 2',
+    content: slide(
+      <>
+        <Rule>
+          An AND gate is a logic gate whose output is high only if all inputs are high. An OR gate is a logic gate whose output is high if any input is high. In PAT 2, an electronic system must meet the brief and do its job reliably.
+        </Rule>
+        <LogicSwitches />
+        <TruthTable gate={and} name="AND gate" />
+        <TruthTable gate={or} name="OR gate" />
+        <Worked
+          title="Choose the gate"
+          steps={[<>A greenhouse fan must run only if it is hot AND the window is shut: an AND gate.</>, <>An alarm must sound if the door OR the window is opened: an OR gate.</>, <>For PAT 2, test the circuit and show that it meets the brief and works reliably.</>]}
+        />
+        <Mistake>Using OR when both conditions must be true. When all inputs must be high, you need AND.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is a diode? What is an LED?</li>
+            <li>What does an LDR do? What is a thermistor?</li>
+            <li>What is a transistor&apos;s primary function in a control circuit?</li>
+            <li>What is an AND gate? What is an OR gate? In PAT 2, what must an electronic system demonstrate?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>A component that lets current flow in one direction only. A light-emitting diode that gives light when current flows through it.</li>
+            <li>Its resistance changes with the amount of light that falls on it. A resistor whose resistance changes with temperature.</li>
+            <li>To work as an electronic switch turned on by a small signal.</li>
+            <li>A logic gate whose output is high only if all inputs are high. A logic gate whose output is high if any input is high. That it meets the brief and does its job reliably.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

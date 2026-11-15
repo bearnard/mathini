@@ -55,7 +55,7 @@ export const FlowDiagram = ({ nodes, edges, id, title, desc }: { nodes: FlowNode
           <g key={`${e.from}-${e.to}`}>
             <path d={`M${r3(p0.x)} ${r3(p0.y)} Q${r3(cx)} ${r3(cy)} ${r3(p1.x - 1.5 * Math.cos(ang))} ${r3(p1.y - 1.5 * Math.sin(ang))}`} fill="none" stroke={SOFT} strokeWidth={1.1} />
             <polygon points={`${r3(p1.x)},${r3(p1.y)} ${q(0.5)} ${q(-0.5)}`} fill={SOFT} />
-            <T x={e.lx ?? r3(tx + nx * 6)} y={e.ly ?? r3(ty + ny * 6 + 1.5)} size={4.6} fill="#fde68a">{e.label}</T>
+            {e.label && <T x={e.lx ?? r3(tx + nx * 6)} y={e.ly ?? r3(ty + ny * 6 + 1.5)} size={4.6} fill="#fde68a">{e.label}</T>}
           </g>
         );
       })}

@@ -1,38 +1,108 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { ProtectionLayers } from '../../../../../components/diagrams/science/SciencePictures6';
+import { ElectroplatingCell } from '../../../../../components/diagrams/science/SciencePictures8';
+import { PLASTIC_STEPS } from '../../../../../components/diagrams/science/steps';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Understand material processing and corrosion prevention',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Metals corrode when exposed to oxygen and moisture. Galvanising (zinc coating) and electroplating (metal transfer) 
-          protect materials from corrosion. Understanding these processes helps prevent deterioration and extend product life.
-        </p>
-      </div>
+    title: 'Corrosion and galvanising',
+    content: slide(
+      <>
+        <Rule>
+          Corrosion is the chemical wearing away of metals by oxygen and moisture. Galvanising protects metal: a zinc coat keeps oxygen and moisture away from the metal.
+        </Rule>
+        <ProtectionLayers />
+        <Worked
+          title="Why does a galvanised roof last?"
+          steps={[<>Rust (iron oxide) is the most common corrosion problem. It damages structures and equipment.</>, <>The zinc coat keeps oxygen and moisture off the steel.</>, <>Galvanised coatings are sacrificial: the zinc protects the steel underneath even if the coating is scratched.</>]}
+        />
+        <Mistake>Thinking galvanising is a kind of paint. It is a coating of zinc, bonded to the steel.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Explore food and plastic processing',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Food preservation methods (freezing, canning, drying) extend shelf life and maintain nutritional value. 
-          Plastics are processed through melting, moulding, and recycling. Material choice depends on properties needed.
-        </p>
-      </div>
+    title: 'Electroplating',
+    content: slide(
+      <>
+        <Rule>
+          Electroplating uses an electric current to put a thin metal coat on a surface. It makes precise, uniform coatings for corrosion protection and decoration.
+        </Rule>
+        <ElectroplatingCell />
+        <Worked
+          title="Chrome-plate a tap"
+          steps={[<>Hang the tap in a solution of the coating metal and connect it to a cell.</>, <>The electric current makes a thin layer of the metal build up on the tap.</>, <>The coat protects against corrosion and gives a shiny appearance.</>]}
+        />
+        <Mistake>Thinking electroplating needs no electricity. The current is what moves the coating metal onto the object.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Evaluate environmental and economic trade-offs',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Processing decisions affect cost, performance, and environment. Selecting sustainable materials, 
-          minimizing waste, and recycling reduce environmental impact while maintaining product quality and affordability.
-        </p>
-      </div>
+    title: 'Preserving food',
+    content: slide(
+      <>
+        <Rule>
+          Food preservation makes food last longer, keeps its goodness and stops it going off. Common methods are freezing, canning, drying, salting and smoking.
+        </Rule>
+        <Terms
+          rows={[
+            ['Freezing', 'lowers the temperature so microbes cannot grow'],
+            ['Canning', 'seals the food so microbes cannot get in'],
+            ['Drying', 'removes water'],
+            ['Salting', 'draws out water'],
+            ['Smoking', 'treats the food so that microbes cannot grow'],
+          ]}
+        />
+        <Worked
+          title="Choose a method"
+          steps={[<>Meat to keep for weeks without a fridge: drying, salting or smoking, as in biltong.</>, <>Fruit to keep for a year in a jar: canning.</>, <>These methods stop food spoiling by removing water, lowering the temperature, or sealing and treating the food so that microbes cannot grow.</>]}
+        />
+        <Mistake>Thinking preservation only means keeping food cold. Several methods work by removing water or sealing out microbes.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Plastics and the environment',
+    content: slide(
+      <>
+        <Rule>
+          Plastic processing changes raw plastic into products by melting, moulding and shaping. Recycling cuts waste and saves resources, so it harms the environment less.
+        </Rule>
+        <NumberedSteps steps={PLASTIC_STEPS} tone="teal" label="From raw plastic to product to recycling" />
+        <Worked
+          title="Weigh up a processing choice"
+          steps={[<>Injection moulding, extrusion and thermoforming are common plastic processing techniques.</>, <>Recycling addresses pollution and resource scarcity while creating secondary materials.</>, <>Energy use, emissions, waste and material choice all matter when you choose a process.</>]}
+        />
+        <Mistake>Looking only at cost. Responsible material and processing choices keep the environmental footprint small.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is corrosion? How does galvanising protect metal?</li>
+            <li>What is electroplating? Why is food preservation important?</li>
+            <li>Name some common food preservation methods. What is plastic processing?</li>
+            <li>Why is recycling important for plastic materials? How do processing choices affect the environment?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>The chemical wearing away of metals by oxygen and moisture. A zinc coat keeps oxygen and moisture away from the metal.</li>
+            <li>Using an electric current to put a thin metal coat on a surface. To make food last longer, keep its goodness, and stop it going off.</li>
+            <li>Freezing, canning, drying, salting and smoking. Changing raw plastic into products by melting, moulding and shaping.</li>
+            <li>Recycling cuts waste and saves resources, so it harms the environment less. Energy use, emissions, waste and material choice all matter.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
