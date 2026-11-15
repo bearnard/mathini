@@ -68,13 +68,14 @@ export function classify(code: CodeQuestion[], prodCurated: Map<string, { q: Pro
   for (const c of code) {
     const p = prodCurated.get(c.id);
     if (!p) { unmatchedCode.push(c); continue; }
-    matched.add(c.id);
+    matched.add(p.q.id);
     const fields = changedFields(p.cur, c);
     if (fields.length === 0) r.identical.push({ ...c, source: p.q.source });
     else if (p.cur.author === 'seed' || p.cur.author === 'ai') r.editedSamePrompt.push({ code: c, fields, source: p.q.source });
     else r.conflict.push({ code: c, fields });
   }
-  const leftover = [...prodCurated.values()].filter((p) => tasks.has(p.q.task) && !matched.has(p.q.id));
+  // an alias (a reworded version's qkey) points at the same entry as the question id: count each question once
+  const leftover = [...new Map([...prodCurated.values()].map((p) => [p.q.id, p])).values()].filter((p) => tasks.has(p.q.task) && !matched.has(p.q.id));
   const taken = new Set<string>();
   for (const c of unmatchedCode) {
     const pool = leftover.filter((p) => p.q.task === c.task && !taken.has(p.q.id));
@@ -117,7 +118,7 @@ export interface Plan { night: string; what: string; questions: number; rows: nu
 
 const fmt = (n: number) => n.toLocaleString('en-ZA').replace(/,/g, ' ');
 
-interface GradeResult {
+export interface GradeResult {
   grade: number;
   code: number;
   unknownTask: number;
@@ -134,16 +135,10 @@ const fieldStats = (c: Classified) => {
   return f;
 };
 
-async function main() {
-  const arg = (k: string, d: string) => { const i = process.argv.indexOf(k); return i >= 0 ? process.argv[i + 1] : d; };
-  const auditDir = process.env.D1_AUDIT_DIR ?? path.join(process.env.HOME ?? '', 'Source/private/mathini/audit/d1-serving');
-  const qFile = arg('--questions', path.join(auditDir, 'questions.json'));
-  const vFile = arg('--versions', path.join(auditDir, 'question_versions.json'));
-  const out = arg('--out', path.join(auditDir, 'drift-report.md'));
-  const jsonOut = arg('--json', '');
-  const itemCacheRows = Number(arg('--item-cache-rows', '0')) || 0;
-  const prodQ = (JSON.parse(fs.readFileSync(qFile, 'utf8'))[0].results as ProdQuestion[]);
-  const prodV = (JSON.parse(fs.readFileSync(vFile, 'utf8'))[0].results as ProdVersion[]);
+export type ProdMap = Map<string, { q: ProdQuestion; cur: Content & { author: string } }>;
+
+/** The production questions with their current content, keyed by question id AND by every alias qkey of a reworded version. */
+export function buildProdMap(prodQ: ProdQuestion[], prodV: ProdVersion[]) {
   const vById = new Map(prodV.map((v) => [Number(v.id), v]));
   const prod = new Map<string, { q: ProdQuestion; cur: Content & { author: string } }>();
   let ai = 0, cur = 0, retired = 0, noVersion = 0, edited = 0;
@@ -155,6 +150,18 @@ async function main() {
     prod.set(q.id, { q, cur: { prompt: v.prompt, options: JSON.parse(v.options) as string[], answer: v.answer, explanation: v.explanation ?? '', extra: canonExtra(v.extra), author: v.author } });
   }
   for (const v of prodV) if (Number(v.version_no) > 1) edited++;
+  // A reworded version's qkey is an alias of its question: a code prompt that hashes to an alias belongs to that question (already synced), not to a new one.
+  for (const v of prodV) {
+    const own = prod.get(v.question_id);
+    if (own && v.qkey !== v.question_id && !prod.has(v.qkey)) prod.set(v.qkey, own);
+  }
+  return { prod, ai, cur, retired, noVersion, edited };
+}
+
+export async function gather(qFile: string, vFile: string) {
+  const prodQ = (JSON.parse(fs.readFileSync(qFile, 'utf8'))[0].results as ProdQuestion[]);
+  const prodV = (JSON.parse(fs.readFileSync(vFile, 'utf8'))[0].results as ProdVersion[]);
+  const { prod, ai, cur, retired, noVersion, edited } = buildProdMap(prodQ, prodV);
   const prodTasks = new Set([...prod.values()].map((p) => p.q.task));
 
   // Grade 6: the registry, exactly as the seed reads it.
@@ -212,6 +219,18 @@ async function main() {
   }
   for (const [g, n] of unknown) if (!codeByGrade.has(g)) results.push({ grade: g, code: 0, unknownTask: n, c: classify([], prod, new Set()), fieldCounts: fieldStats(classify([], prod, new Set())) });
   results.sort((a, b) => a.grade - b.grade);
+  return { prodQ, prodV, prod, ai, cur, retired, noVersion, edited, code6, tasks6, dupes, results, unknown, codeByGrade };
+}
+
+async function main() {
+  const arg = (k: string, d: string) => { const i = process.argv.indexOf(k); return i >= 0 ? process.argv[i + 1] : d; };
+  const auditDir = process.env.D1_AUDIT_DIR ?? path.join(process.env.HOME ?? '', 'Source/private/mathini/audit/d1-serving');
+  const qFile = arg('--questions', path.join(auditDir, 'questions.json'));
+  const vFile = arg('--versions', path.join(auditDir, 'question_versions.json'));
+  const out = arg('--out', path.join(auditDir, 'drift-report.md'));
+  const jsonOut = arg('--json', '');
+  const itemCacheRows = Number(arg('--item-cache-rows', '0')) || 0;
+  const { prodQ, prod, ai, cur, retired, noVersion, edited, code6, tasks6, dupes, results } = await gather(qFile, vFile);
 
   const rowsOf = (r: GradeResult) => (r.c.editedSamePrompt.length + r.c.reworded.length) * ROWS.newVersion + (r.c.newInCode.length + r.unknownTask) * ROWS.newCurated;
   const qsOf = (r: GradeResult) => r.c.editedSamePrompt.length + r.c.reworded.length + r.c.newInCode.length + r.unknownTask;
