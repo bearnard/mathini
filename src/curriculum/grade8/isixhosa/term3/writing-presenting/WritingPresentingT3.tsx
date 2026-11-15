@@ -1,41 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './WritingPresentingT3.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Balance creative and practical writing with revision',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 3 Writing & Presenting includes <strong>descriptive essays, narrative writing, formal letters,</strong>{' '}
-          and project tasks.
-        </p>
-        <p className="text-slate-600">
-          Use planning, drafting, feedback, and presentation skills to strengthen final responses.
-        </p>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these connected-writing words before producing invitations, reports, directions, and paragraphs.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Isimemo"} phonetic={"[isi'meːmɔ]"} meaning={"Invitation"} lang="xh" />
-          <PronunciationPlayer word={"Ileta"} phonetic={"[i'lɛta]"} meaning={"Letter"} lang="xh" />
-          <PronunciationPlayer word={"Ingxelo"} phonetic={"[iŋ'xelo]"} meaning={"Report"} lang="xh" />
-          <PronunciationPlayer word={"Umhlathi"} phonetic={"[um'ɬaːti]"} meaning={"Paragraph"} lang="xh" />
-          <PronunciationPlayer word={"Indlela"} phonetic={"[in'dlɛla]"} meaning={"Direction / route"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {
