@@ -118,6 +118,21 @@ export default function ClassProgressPanel({ classId, endpoint }: { classId: str
         )}
       </Section>
 
+      <Section title="Not practised in the last 7 days" hint="A short nudge from you can get them going again.">
+        {p.notPractisedLast7.length === 0 ? (
+          <p className="text-slate-700">Everyone has practised this week. Well done, class!</p>
+        ) : (
+          <ul className="divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+            {p.notPractisedLast7.map((l) => (
+              <li key={l.nickname} className="flex items-center justify-between gap-3 px-4 py-2 text-sm">
+                <span className="min-w-0 break-words font-medium text-slate-900">{l.nickname}</span>
+                <span className="shrink-0 text-slate-600">{l.lastPractisedDay ? `last on ${shortDate(l.lastPractisedDay)}` : 'not started yet'}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </Section>
+
       <Section title="Improvement since" hint="How accuracy now compares with how it stood on that date.">
         <label className="block text-sm font-medium text-slate-700">Since
           <input type="date" value={since} max={new Date().toISOString().slice(0, 10)} onChange={(e) => { setSince(e.target.value); if (e.target.value) load(e.target.value); }} className="mt-1 block min-h-12 w-full rounded-xl border border-slate-300 bg-white px-3 text-base text-slate-900" />

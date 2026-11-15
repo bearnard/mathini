@@ -177,3 +177,19 @@ test('a school admin\'s owner form reads the class of THEIR school and nobody el
   const other = await buildClassProgress(s.t.db, { schoolId: newTestId() }, s.cls.id, undefined, NOW);
   assert.deepEqual(other, { ok: false, status: 404, error: 'Not found' });
 });
+
+test('not practised in the last 7 days: learners with no practice at all or none for a week, longest away first; anything counts as practice', async (ctx) => {
+  const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
+  const recent = await s.join('Recent'); const old = await s.join('Old'); const never = await s.join('Never'); const other = await s.join('OtherSubject');
+  await s.practise(recent, nstTasks[0], '11', { start: NOW - 2 * D });
+  await s.practise(old, nstTasks[0], '11', { start: NOW - 12 * D });
+  await s.practise(other, 'some-english-topic', '1', { start: NOW - 1 * D, subject: 'eng' });
+  const p = await ok(s);
+  assert.deepEqual(p.notPractisedLast7.map((x) => x.nickname), ['Never', 'Old']);
+  assert.equal(p.notPractisedLast7[0].lastPractisedDay, null);
+  assert.match(p.notPractisedLast7[1].lastPractisedDay ?? '', /^\d{4}-\d{2}-\d{2}$/);
+  assert.ok(!p.notPractisedLast7.some((x) => x.nickname === 'OtherSubject'), 'practice in any subject counts');
+  assert.deepEqual((await ok(s, undefined, NOW + 30 * D)).notPractisedLast7.map((x) => x.nickname).sort(), ['Never', 'Old', 'OtherSubject', 'Recent']);
+  const empty = await setup(); if (!empty) return;
+  assert.deepEqual((await ok(empty)).notPractisedLast7, []);
+});

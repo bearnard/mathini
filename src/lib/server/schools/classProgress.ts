@@ -76,10 +76,12 @@ export async function buildClassProgress(db: AdminDb, owner: ClassOwner, classId
   let due: { student_id: string; due_day: number }[] = [];
   let tests: { student_id: string; score_pct: number; finished_at: number; subject: string }[] = [];
   let history: { student_id: string; task: string; is_correct: number; created_at: number }[] = [];
+  let lastAny: { student_id: string; last: number }[] = [];
   if (ids.length > 0) {
     const idsJson = JSON.stringify(ids);
     tpRows = await db.all(`SELECT student_id, task, subject, last20_pct, mastery, last_attempt_at FROM topic_progress WHERE student_id IN (${JSON_LIST}) LIMIT 4000`, [idsJson]);
     due = await db.all(`SELECT student_id, due_day FROM review_items WHERE student_id IN (${JSON_LIST}) AND retired_at IS NULL AND due_day <= ? LIMIT 4000`, [idsJson, sastDay(now)]);
+    lastAny = await db.all(`SELECT student_id, MAX(created_at) AS last FROM attempts WHERE student_id IN (${JSON_LIST}) GROUP BY student_id`, [idsJson]);
     tests = await db.all(
       `SELECT student_id, score_pct, finished_at, subject FROM runs WHERE student_id IN (${JSON_LIST}) AND status = 'finished' AND kind IN ('mock_test', 'exam_practice') AND score_pct IS NOT NULL ORDER BY finished_at DESC LIMIT 2000`,
       [idsJson],
@@ -141,6 +143,14 @@ export async function buildClassProgress(db: AdminDb, owner: ClassOwner, classId
       behindOnReviews: behindOnReviews(due.map((d) => ({ studentId: d.student_id, dueDay: Number(d.due_day) })), nick, sastDay(now)),
       mockDistribution: mockDistribution(latest, ids),
       improvement: improvementSummary,
+      notPractisedLast7: (() => {
+        const last = new Map(lastAny.map((r) => [r.student_id, Number(r.last)]));
+        return members
+          .map((m) => ({ nickname: m.display_name, at: last.get(m.student_id) ?? null }))
+          .filter((x) => x.at === null || x.at < now - 7 * DAY_MS)
+          .sort((a, b) => (a.at ?? -1) - (b.at ?? -1) || a.nickname.localeCompare(b.nickname))
+          .map((x) => ({ nickname: x.nickname, lastPractisedDay: lastDayLabel(x.at) }));
+      })(),
       learners,
     },
   };
