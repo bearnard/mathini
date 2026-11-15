@@ -1,63 +1,90 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Hub, PlanBar, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { ProgressLine } from '../../../../../components/diagrams/lo/PePictures';
+import { comma, targetTime } from '../../../../../components/diagrams/lo/peHelpers';
+import { planSegments } from '../../../../../components/diagrams/lo/pswHelpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// Numbers in the slides come from these tested helpers (peHelpers.test.ts, pswHelpers.test.ts).
+const baseline = 14.2;
+const goalGain = 0.5;
+const goalTime = targetTime(baseline, goalGain);
+const lessonParts = [
+  { label: 'Warm-up', minutes: 10, kind: 'break' as const },
+  { label: 'Activity', minutes: 25, kind: 'study' as const },
+  { label: 'Cool-down', minutes: 5, kind: 'break' as const },
+];
+const lessonTotal = planSegments(lessonParts).total;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Build fitness safely from a baseline',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Physical Education starts with a <strong>fitness baseline</strong>. Baselines help learners set realistic
-          improvement goals while keeping activities safe.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <p className="font-bold text-blue-700">Baseline checks</p>
-            <p className="text-slate-600">measure current fitness level</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-bold text-emerald-700">Warm-up</p>
-            <p className="text-slate-600">prepare muscles and joints</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-bold text-amber-700">Movement patterns</p>
-            <p className="text-slate-600">locomotor and control skills</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Coordination</p>
-            <p className="text-slate-600">timing and control of movement</p>
-          </div>
-        </div>
-      </div>
+    title: 'Baseline fitness checks',
+    content: slide(
+      <>
+        <Rule>A baseline fitness check measures your fitness at the start. You use it to set goals and to see your progress later.</Rule>
+        <ProgressLine values={[baseline, goalTime]} firstLabel="Baseline" lastLabel="Goal" unit="s" aria={`A line chart: the 60 metre run time falls from the baseline of ${comma(baseline)} seconds to the goal of ${comma(goalTime)} seconds.`} />
+        <Worked
+          title="Thabo times a 60 m run"
+          steps={[<>Test: he runs 60 m and records {comma(baseline)} s. This is his baseline.</>, <>Goal: improve by {comma(goalGain)} s. {comma(baseline)} − {comma(goalGain)} = {comma(goalTime)} s.</>, <>He trains safely, then repeats the test and compares.</>]}
+        />
+        <Mistake>Treating the baseline as a pass or fail mark. It is only your starting point, so you can set a realistic goal.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Cooperate in paired and group tasks',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          PE is not only about speed or strength. <strong>Cooperation</strong>, encouragement, and safe behaviour help
-          everyone improve together.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-bold text-rose-700">Communication</p>
-            <p className="text-slate-600">give clear and positive cues</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-bold text-cyan-700">Support</p>
-            <p className="text-slate-600">help partners complete challenges</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-bold text-lime-700">Safety rules</p>
-            <p className="text-slate-600">space, control, and fair turns</p>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Reflection</p>
-            <p className="text-slate-600">track progress after each activity</p>
-          </div>
-        </div>
-      </div>
+    title: 'Safe warm-up and cool-down',
+    content: slide(
+      <>
+        <Rule>A safe warm-up uses light jogging and dynamic stretches to raise your heart rate gradually. After vigorous activity, cool down with slow movement and controlled breathing.</Rule>
+        <PlanBar parts={lessonParts} aria={`A PE lesson as a bar: ${lessonParts[0].minutes} minutes of warm-up, ${lessonParts[1].minutes} minutes of activity and ${lessonParts[2].minutes} minutes of cool-down, ${lessonTotal} minutes in total.`} />
+        <Worked
+          title="Plan a lesson"
+          steps={[<>Warm-up: {lessonParts[0].minutes} min of jogging and dynamic stretches.</>, <>Activity: {lessonParts[1].minutes} min of the main task.</>, <>Cool-down: {lessonParts[2].minutes} min of slow walking and deep breaths.</>, <>Total: {lessonTotal} minutes.</>]}
+        />
+        <Mistake>Starting to sprint with cold muscles, or stopping suddenly when you finish. Warm up first and cool down after.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Movement and coordination',
+    content: slide(
+      <>
+        <Rule>Locomotor movements travel from one place to another, such as running across the court. Coordination joins timing, control and body awareness, for example when you catch and pass with the right timing.</Rule>
+        <Hub centre="Skill" spokes={['Timing', 'Control', 'Body awareness']} aria="A circle labelled Skill with three parts of coordination around it: timing, control and body awareness." />
+        <Worked
+          title="Catch and pass to a partner"
+          steps={[<>Watch the ball all the way in.</>, <>Hands ready, reach out to meet it.</>, <>Step and pass at the moment your partner is ready.</>]}
+        />
+        <Mistake>Calling a movement locomotor when you stay in one spot, such as twisting on the spot. Locomotor movements travel.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Cooperation and safe play',
+    content: slide(
+      <>
+        <Rule>In group tasks, cooperate: take turns fairly and follow the rules. Support a partner with encouragement and clear cues. Safety routines reduce the risk of injury.</Rule>
+        <StepFlow steps={['Check the space is clear.', 'Follow the rules of the task.', 'Encourage your partner and give clear cues.', 'Take turns fairly.']} aria="Four steps for a paired challenge in order: check the space is clear, follow the rules, encourage and give clear cues, take turns fairly." />
+        <Worked
+          title="A paired balance challenge"
+          steps={[<>Clear the floor of bags and shoes.</>, <>Agree on the rules and who goes first.</>, <>Say “Good try, slow down” to your partner.</>, <>Swap places and repeat.</>]}
+        />
+        <Mistake>Laughing at a partner who struggles, or skipping the safety check to save time. That harms confidence and risks injury.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="Why do learners complete a baseline fitness check?" answer="To measure starting fitness and set goals." />
+        <Check question="Name two things in a safe warm-up, and say what to do after vigorous activity." answer="Light jogging and dynamic stretches. After vigorous activity, do a cool-down with controlled breathing." />
+        <Check question="Is running across the court locomotor? Which action shows coordination?" answer="Yes, it travels from one place to another. Catching and passing with correct timing shows coordination." />
+        <Check question="Give two ways to show cooperation and support in a paired challenge." answer="Take turns fairly and follow the rules. Encourage your partner and give clear cues." />
+      </>,
     ),
   },
 ];

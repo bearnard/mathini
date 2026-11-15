@@ -1,63 +1,82 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { LapBars, ProgressLine } from '../../../../../components/diagrams/lo/PePictures';
+import { comma, sum, timeProgress } from '../../../../../components/diagrams/lo/peHelpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+const steady = [70, 70, 70, 70];
+const fastStart = [55, 70, 85, 100];
+const weeklyTimes = [15.2, 14.9, 14.6, 14.4];
+const progress = timeProgress(weeklyTimes);
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Improve athletics skills and endurance',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 3 PE develops <strong>athletics</strong> performance through running technique, pacing, and endurance.
-          Learners also monitor progress using timed activities.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <p className="font-bold text-blue-700">Athletics</p>
-            <p className="text-slate-600">running, jumping, and coordinated movement</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-bold text-emerald-700">Endurance</p>
-            <p className="text-slate-600">maintain effort over longer periods</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-bold text-amber-700">Flexibility</p>
-            <p className="text-slate-600">safe range of movement in joints</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Tracking</p>
-            <p className="text-slate-600">record times to monitor growth</p>
-          </div>
-        </div>
-      </div>
+    title: 'Endurance and pacing',
+    content: slide(
+      <>
+        <Rule>Endurance is the ability to keep going for longer. Steady interval running over set distances builds it. In a longer run, start controlled and keep a steady effort.</Rule>
+        <LapBars a={steady} b={fastStart} nameA="Steady start" nameB="Too fast, then slow" aria={`Two runners' four laps on one scale. The steady runner takes ${sum(steady)} seconds. The runner who starts too fast slows down and takes ${sum(fastStart)} seconds.`} />
+        <Worked
+          title="Two runners, four laps"
+          steps={[<>Steady runner: 4 × {steady[0]} s = {sum(steady)} s.</>, <>Fast starter: {fastStart.join(' + ')} = {sum(fastStart)} s.</>, <>The steady runner finishes {sum(fastStart) - sum(steady)} s sooner.</>]}
+        />
+        <Mistake>Sprinting at the start of a long run. You run out of energy and slow down. Control your pace and save energy to finish strongly.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Lead and cooperate in indigenous games',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Indigenous games build coordination, teamwork, and cultural appreciation. Learners practise leadership by
-          explaining rules and supporting fair participation.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-bold text-rose-700">Cultural heritage</p>
-            <p className="text-slate-600">learn through traditional play</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-bold text-cyan-700">Teamwork</p>
-            <p className="text-slate-600">communicate and coordinate actions</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-bold text-lime-700">Fair play</p>
-            <p className="text-slate-600">respect rules and opponents</p>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Recovery</p>
-            <p className="text-slate-600">cool down and stretch after effort</p>
-          </div>
-        </div>
-      </div>
+    title: 'Flexibility, warm-up and cool-down',
+    content: slide(
+      <>
+        <Rule>Flexibility training improves your range of movement and reduces injury risk. Before a timed run, warm up gradually with dynamic movement. Afterwards, a cool-down lowers your heart rate and helps you recover.</Rule>
+        <StepFlow steps={['Jog lightly.', 'Dynamic leg swings.', 'A few gentle build-up runs.', 'Run your timed event, then cool down.']} aria="Steps around a timed run in order: jog lightly, dynamic leg swings, a few gentle build-up runs, run the timed event and then cool down." />
+        <Worked
+          title="Before a timed run"
+          steps={[<>Jog lightly to raise your heart rate.</>, <>Swing your legs to widen your range of movement.</>, <>Do gentle build-up runs.</>, <>After the run, walk slowly until your breathing settles.</>]}
+        />
+        <Mistake>Skipping the warm-up and going straight into a fast run, or stopping dead at the finish. Warm up gradually and cool down.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Tracking your progress',
+    content: slide(
+      <>
+        <Rule>To track personal progress in athletics, record your times and compare the improvement over weeks.</Rule>
+        <ProgressLine values={weeklyTimes} firstLabel="Week 1" lastLabel="Week 4" unit="s" aria={`A line chart of four weekly run times: ${weeklyTimes.map(comma).join(', ')} seconds, getting faster each week.`} />
+        <Worked
+          title="Four weeks of run times"
+          steps={[<>Record each week: {weeklyTimes.map(comma).join(' s, ')} s.</>, <>Compare week 4 with week 1: {comma(progress.first)} − {comma(progress.last)} = {comma(progress.faster)} s.</>, <>You are {comma(progress.faster)} s faster. Set a new goal.</>]}
+        />
+        <Mistake>Judging yourself from one run. A single result can be good or bad for many reasons. Look at the records over weeks.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Indigenous games and relay teamwork',
+    content: slide(
+      <>
+        <Rule>Indigenous games are traditional games from our communities. They build teamwork while celebrating cultural heritage. In a relay, teamwork means giving your teammate clear handover cues.</Rule>
+        <Worked
+          title="A relay handover"
+          steps={[<>The next runner stands ready and looks ahead.</>, <>The runner arriving calls “Now!” as the baton reaches out.</>, <>The baton is passed, then the new runner goes.</>]}
+        />
+        <Mistake>Playing only to win for yourself, or ignoring the rules of the game. In indigenous games and relays the team succeeds through communication and timing.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="Which activity builds endurance, and what is a good pacing strategy for a longer run?" answer="Steady interval running over set distances. Start controlled and keep a steady effort." />
+        <Check question="Why is flexibility training important, and what should you do before a timed run?" answer="It improves movement range and reduces injury risk. Warm up gradually with dynamic movement." />
+        <Check question="How can you track personal progress in athletics?" answer="Record your times and compare the improvement over weeks." />
+        <Check question="Name one value of indigenous games and one teamwork action in a relay." answer="They build teamwork while celebrating cultural heritage. In a relay, give clear handover cues." />
+      </>,
     ),
   },
 ];
