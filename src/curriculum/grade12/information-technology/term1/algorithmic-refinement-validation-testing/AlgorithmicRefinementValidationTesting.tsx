@@ -16,7 +16,7 @@ const learnSteps: LearnStep[] = [
           Algorithmic refinement means starting with a broad solution and then improving it into smaller, testable parts.
           Each helper method should solve one clear sub-problem.
         </p>
-        <CodeBlock language="delphi" code={`function GetValidMark: Integer;
+        <CodeBlock language="pascal" code={`function GetValidMark: Integer;
 var
   sInput: string;
   iMark: Integer;
@@ -50,7 +50,7 @@ end;`} />
           Validation checks whether data is acceptable. Verification checks whether the captured data matches the original source.
           In practical programming, robust validation protects the program before calculations begin.
         </p>
-        <CodeBlock language="delphi" code={`repeat
+        <CodeBlock language="pascal" code={`repeat
   sEmail := InputBox('Email', 'Enter school email address', '');
 until (Pos('@', sEmail) > 1) and sEmail.EndsWith('.za');
 
@@ -75,7 +75,7 @@ ShowMessage('Valid email captured.');`} />
         <p className="text-lg leading-8 text-slate-600">
           Recursion is powerful when a problem can be reduced to a smaller version of itself. Every recursive solution needs a base case and a recursive step.
         </p>
-        <CodeBlock language="delphi" code={`function Factorial(iNum: Integer): Integer;
+        <CodeBlock language="pascal" code={`function Factorial(iNum: Integer): Integer;
 begin
   if iNum <= 1 then
     Result := 1

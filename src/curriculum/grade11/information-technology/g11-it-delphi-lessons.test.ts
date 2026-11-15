@@ -9,17 +9,19 @@ import { learnSteps as sql } from './term2/sql-integration/Slides';
 import { learnSteps as data } from './term3/data-processing/Slides';
 import { learnSteps as debug } from './term4/debugging-testing/Slides';
 import { learnSteps as exam } from './term4/exam-consolidation/Slides';
+import { learnSteps as oop } from './term1/oop-methods-constructors/Slides';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const html = (n: unknown) => renderToStaticMarkup(n as never);
 const text = (h: string) => h.replace(/<pre[\s\S]*?<\/pre>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-const lessons = { fileHandling, sql, data, debug, exam };
+const lessons = { fileHandling, sql, data, debug, exam, oop };
 const files = [
   'term1/file-handling/FileHandling.tsx',
   'term2/sql-integration/SqlIntegration.tsx',
   'term3/data-processing/DataProcessing.tsx',
   'term4/debugging-testing/DebuggingTesting.tsx',
   'term4/exam-consolidation/ExamConsolidation.tsx',
+  'term1/oop-methods-constructors/OopMethodsConstructors.tsx',
 ];
 const python = /print\(|\bdef \b|range\(|python|\.strip\(|readlines|fetchall|ValueError|ZeroDivisionError|\bNameError|SyntaxError/i;
 
@@ -40,4 +42,11 @@ for (const [name, steps] of Object.entries(lessons)) {
 
 test('banks contain no Python', () => {
   files.forEach((f) => assert.ok(!python.test(fs.readFileSync(path.join(here, f), 'utf8')), f));
+});
+
+test('OOP methods and constructors: Delphi only, no Java or Python keywords', () => {
+  const javaOrPython = /\bJava\b|\bthis\.|\bself\b|\bnew [A-Z]\w*\(|System\.\w+Exception/;
+  const src = fs.readFileSync(path.join(here, 'term1/oop-methods-constructors/OopMethodsConstructors.tsx'), 'utf8');
+  assert.ok(!javaOrPython.test(src), 'bank mentions Java/Python');
+  oop.forEach((s) => assert.ok(!javaOrPython.test(html(s.content)), s.title));
 });

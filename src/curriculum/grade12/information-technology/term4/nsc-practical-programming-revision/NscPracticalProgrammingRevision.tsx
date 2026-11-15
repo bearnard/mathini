@@ -31,7 +31,7 @@ const learnSteps: LearnStep[] = [
           The exam often reuses familiar patterns such as input validation, accumulators, loops, arrays and class methods.
           Fluency comes from recognising the pattern quickly.
         </p>
-        <CodeBlock language="delphi" code={`iTotal := 0;
+        <CodeBlock language="pascal" code={`iTotal := 0;
 for i := 0 to Length(arrMarks) - 1 do
 begin
   if arrMarks[i] >= 50 then
@@ -53,7 +53,7 @@ end;`} />
         <p className="text-lg leading-8 text-slate-600">
           Calm, step-by-step debugging is faster than random changes. Trace one section at a time and check where the program state first becomes incorrect.
         </p>
-        <CodeBlock language="delphi" code={`for i := 0 to 4 do
+        <CodeBlock language="pascal" code={`for i := 0 to 4 do
 begin
   ShowMessage('i = ' + IntToStr(i) + ' value = ' + IntToStr(arrNums[i]));
 end;`} />

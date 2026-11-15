@@ -33,7 +33,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg leading-8 text-slate-600">
           In a strong integrated solution, forms, classes and database operations work together in a predictable flow.
         </p>
-        <CodeBlock language="delphi" code={`procedure TfrmLearners.btnSaveClick(Sender: TObject);
+        <CodeBlock language="pascal" code={`procedure TfrmLearners.btnSaveClick(Sender: TObject);
 var
   objLearner: TLearner;
 begin

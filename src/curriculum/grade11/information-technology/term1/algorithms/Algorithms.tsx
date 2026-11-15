@@ -30,7 +30,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           <strong>Bubble sort</strong> repeatedly compares adjacent elements and swaps them if they are in the wrong order. It "bubbles" the largest unsorted value to the end each pass.
         </p>
-        <CodeBlock language="pascal" code={`for i := 0 to n-2 do
+        <CodeBlock language="text" code={`for i := 0 to n-2 do
   for j := 0 to n-2-i do
     if arr[j] > arr[j+1] then
       swap arr[j] and arr[j+1]`} />
@@ -55,7 +55,7 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Requires a <em>sorted</em> array. Halves the search space each step. O(log n) worst case — much faster for large arrays.</p>
           </div>
         </div>
-        <CodeBlock language="pascal" code={`Binary search steps:
+        <CodeBlock language="text" code={`Binary search steps:
 1. low=0, high=n-1
 2. mid = (low+high) div 2
 3. if arr[mid]=target → found

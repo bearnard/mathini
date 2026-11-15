@@ -55,7 +55,7 @@ SELECT AVG(Mark) FROM Results;`} />
         <p className="text-lg text-slate-600">
           SQL can also <em>modify</em> data in a table:
         </p>
-        <CodeBlock language="pascal" code={`-- Add a new record
+        <CodeBlock language="sql" code={`-- Add a new record
 INSERT INTO Students (ID, Name, Age)
 VALUES (101, 'Ayesha', 17);
 

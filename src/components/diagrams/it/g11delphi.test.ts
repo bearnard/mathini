@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  setAgeValidated,
   average, averageWithoutDividing, classifyTestValue, countAndAverage, countWhen, delphiCopy, delphiDelete, delphiInsert, delphiPos, fileAfter,
   formatCheckAt, lengthCheck, maxOf, presenceCheck, rangeCheck, readLoop, selectMarkAtLeast, splitAtComma, sum, sumMissingLast,
   traceSumOfSquares, tracePower, traceWhileSubtract, tryStrToInt, updateBump, groupAverages, totalValidLines,
@@ -90,4 +91,10 @@ test('GROUP BY averages and skipping bad lines', () => {
   assert.deepEqual(groupAverages(rows), [{ group: '11A', count: 2, average: 62.5 }, { group: '11B', count: 3, average: 62 }]);
   assert.deepEqual(totalValidLines(['12', 'N/A', '7']), { total: 19, skipped: 1 });
   assert.deepEqual(totalValidLines([]), { total: 0, skipped: 0 });
+});
+
+test('setter keeps the old age when the new one is negative', () => {
+  assert.equal(setAgeValidated(3, 5), 5);
+  assert.equal(setAgeValidated(3, 0), 0);
+  assert.equal(setAgeValidated(3, -5), 3);
 });

@@ -57,7 +57,7 @@ ORDER BY TotalSpent DESC;`} />
         <p className="text-lg leading-8 text-slate-600">
           Integrated applications pass values from the interface into program logic and then into SQL. Consistent field names and data types are essential.
         </p>
-        <CodeBlock language="delphi" code={`qryOrders.SQL.Text :=
+        <CodeBlock language="pascal" code={`qryOrders.SQL.Text :=
   'SELECT OrderID, Amount FROM Orders WHERE CustomerID = :CustomerID';
 qryOrders.Parameters.ParamByName('CustomerID').Value := StrToInt(edtCustomerID.Text);
 qryOrders.Open;`} />

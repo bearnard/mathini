@@ -1,100 +1,6 @@
-import CodeBlock from '@/components/subjects/CodeBlock';
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { ITItem, LearnStep } from '../../_shared/types';
-import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Constructors: initialising objects',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A <strong>constructor</strong> is a special method that runs automatically when an object is created. Its job is to set initial values for the object's attributes.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Default constructor</strong>
-            <p className="text-slate-600">Takes no parameters; sets attributes to default values (0, "", false).</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Parameterised constructor</strong>
-            <p className="text-slate-600">Accepts arguments so the caller can supply initial values at creation time.</p>
-          </div>
-        </div>
-        <CodeBlock language="pascal" code={`constructor TDog.Create(n, b: string; a: integer);
-begin
-  name  := n;
-  breed := b;
-  age   := a;
-end;`} />
-      </div>
-    ),
-  },
-  {
-    title: 'Methods: defining behaviour',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Methods</strong> define what an object can <em>do</em>. There are two main kinds:
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-yellow-50 p-4">
-            <strong className="text-yellow-700">Procedure (void method)</strong>
-            <p className="text-slate-600">Performs an action but returns <strong>no value</strong>. E.g. <code>bark()</code> prints a sound.</p>
-          </div>
-          <div className="rounded-xl bg-purple-50 p-4">
-            <strong className="text-purple-700">Function (return method)</strong>
-            <p className="text-slate-600">Performs a calculation and <strong>returns a value</strong>. E.g. <code>getAge()</code> returns an integer.</p>
-          </div>
-        </div>
-        <p className="text-sm text-slate-600">A method's <em>signature</em> is its name plus its parameter list — this uniquely identifies it.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'The "this" / "Self" keyword',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Inside a method, <strong>this</strong> (Java/Python) or <strong>Self</strong> (Delphi) refers to the <em>current object</em> — the specific instance the method was called on.
-        </p>
-        <CodeBlock language="pascal" code={`// Resolves naming clash between parameter and attribute
-constructor TPerson.Create(Name: string);
-begin
-  Self.Name := Name;  // attribute = parameter
-end;`} />
-        <p className="text-slate-600">It is also used to pass the current object as an argument to another method.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Getters and setters in practice',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Getters</strong> and <strong>setters</strong> are methods that read or modify private attributes, often including <em>validation</em> logic.
-        </p>
-        <CodeBlock language="pascal" code={`function getAge(): integer
-  return age
-
-procedure setAge(a: integer)
-  if a >= 0 then
-    age := a`} />
-        <p className="text-sm text-slate-600">Setters can reject invalid data (e.g. negative age), protecting the object's state.</p>
-      </div>
-    ),
-  },
-  {
-    title: "Validating inside a setter",
-    content: (
-      <div className="space-y-4">
-        <GapRule>{"A setter such as if a >= 0 then age := a validates input and stops a negative age being stored."}</GapRule>
-        <GapWorked title={"Protect an attribute"} steps={["The attribute fAge is private.", "SetAge(a) checks a >= 0 before storing it.", "A call with -5 is rejected, so the object keeps a valid age."]} />
-        <GapMistake>{"Letting other code assign the attribute directly."}</GapMistake>
-      </div>
-    ),
-  },
-];
+import type { ITItem } from '../../_shared/types';
+import { learnSteps } from './Slides';
 
 const bank: ITItem[] = [
   {
@@ -109,10 +15,10 @@ const bank: ITItem[] = [
     explanation: 'A constructor runs automatically at object creation and sets up initial attribute values.',
   },
   {
-    prompt: 'In Java, what makes a constructor different from a regular method?',
-    options: ['It has a return type of integer', 'It can be called only once in a program', 'It has the same name as the class and no return type', 'It must always be declared as private'],
-    answer: 'It has the same name as the class and no return type',
-    explanation: 'In Java a constructor is named identically to its class and declares no return type (not even void). In Delphi it is declared with the keyword constructor and is usually named Create.',
+    prompt: 'In Delphi, what makes a constructor different from a regular method?',
+    options: ['It always has a return type of Integer', 'It can be called only once in a program', 'It is declared with constructor, usually named Create', 'It must always be declared in the private section'],
+    answer: 'It is declared with constructor, usually named Create',
+    explanation: 'In Delphi a constructor is declared with the keyword constructor, usually named Create, and it is called on the class, as in TDog.Create. It has no return type.',
   },
   {
     prompt: 'What is a parameterised constructor?',
@@ -132,7 +38,7 @@ const bank: ITItem[] = [
     explanation: 'Procedures (void methods) carry out actions without returning a result to the caller.',
   },
   {
-    prompt: 'What does "this" refer to inside a method?',
+    prompt: 'What does Self refer to inside a method?',
     options: [
       'The class definition',
       'The first object ever created from the class',
@@ -140,10 +46,10 @@ const bank: ITItem[] = [
       'The parent class',
     ],
     answer: 'The current object on which the method was called',
-    explanation: '"this" (or Self in Delphi) always refers to the specific object instance the method is operating on.',
+    explanation: 'Self always refers to the specific object instance the method is operating on.',
   },
   {
-    prompt: 'A setter method for age contains: "if a >= 0 then age := a". Why is this check included?',
+    prompt: 'A setter method for age contains: "if AAge >= 0 then fAge := AAge". Why is that check included?',
     options: ['To speed up the running of the program', 'To validate input and stop a negative age being stored', 'To make sure that the getter works properly', 'To satisfy the compiler that checks the code'],
     answer: 'To validate input and stop a negative age being stored',
     explanation: 'Setters often include validation logic to protect the object\'s internal state from invalid data.',
@@ -160,16 +66,16 @@ const bank: ITItem[] = [
     explanation: 'A signature uniquely identifies a method: name + parameter types and order.',
   },
   {
-    prompt: 'Which keyword in Python plays the same role as "this" in Java?',
-    options: ['me', 'self', 'current', 'object'],
-    answer: 'self',
-    explanation: 'Python uses "self" as the first parameter of instance methods to refer to the current object.',
+    prompt: 'Which section of a Delphi class should normally hold the attributes?',
+    options: ['The public section, open to all code', 'The private section, so only the class changes them', 'The uses clause at the top of the unit', 'The begin..end block of the form'],
+    answer: 'The private section, so only the class changes them',
+    explanation: 'Attributes go in the private section. Other code reaches them only through public methods such as getters and setters, which can validate the data.',
   },
   {
-    prompt: 'In Delphi/Pascal, what is the equivalent of the "this" keyword in Java?',
-    options: ['Me', 'Current', 'Self', 'Object'],
-    answer: 'Self',
-    explanation: 'Delphi uses the reserved word "Self" to refer to the current object inside a method.',
+    prompt: 'Which statement correctly creates a TDog object named dog?',
+    options: ["dog := TDog.Create('Rex', 3);", "dog.Create('Rex', 3);", "dog := Create(TDog, 'Rex', 3);", "TDog := dog.Create('Rex', 3);"],
+    answer: "dog := TDog.Create('Rex', 3);",
+    explanation: 'The constructor is called on the class name, and the object it returns is assigned to the variable.',
   },
   {
     prompt: 'If a class has both a default and a parameterised constructor, which one runs when you write: myDog := TDog.Create(\'Rex\', \'Lab\', 3)?',
