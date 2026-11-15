@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { AI_UNAVAILABLE_TEXT, ALL_AGREE_TEXT, buildMergePrompt, suggestMerge, type MergeInput, type MergeResponse, type QuestionContent } from './merge';
+import { AI_UNAVAILABLE_TEXT, ALL_AGREE_TEXT, buildMergePrompt, scrubReason, suggestMerge, type MergeInput, type MergeResponse, type QuestionContent } from './merge';
 
 const original: QuestionContent = {
   prompt: 'Wat beteken "Kusasa" in isiXhosa?',
@@ -153,4 +153,44 @@ test('lesson lines: text in, text out, no quality findings', async () => {
 
 test('a malformed original is a caller bug: it throws', async () => {
   await assert.rejects(suggestMerge({ ...base([]), original: { prompt: '' } as unknown as QuestionContent }), TypeError);
+});
+
+// ---- scrubReason ----
+test('scrubReason: emails, links, phone numbers, titled names and "I am X" are replaced; ordinary reasons are untouched', () => {
+  const cases: [string, string][] = [
+    ["Hi, it's Mrs Naidoo, mail me at n.naidoo@school.example or call 082 555 0100.", "Hi, it's [name], mail me at [email] or call [phone]."],
+    ['Call +27 82 555 0100 or (011) 555-0100', 'Call [phone] or [phone]'],
+    ['WhatsApp me: 0825550100', 'WhatsApp me: [phone]'],
+    ['See https://school.example/a?b=1 and www.example.org/x', 'See [link] and [link]'],
+    ['I am Sipho Dlamini and I teach Xhosa', 'I am [name] and I teach Xhosa'],
+    ["I'm Thandi.", "I'm [name]."],
+    ['my name is Ms N. Naidoo', 'my name is [name]'],
+    ['my naam is Pieter Botha', 'my naam is [name]'],
+    ['Dr. Anna van der Merwe says the key is wrong', '[name] says the key is wrong'],
+    ['Ek het Mnr Smit gevra', 'Ek het [name] gevra'],
+    // not personal: must stay as typed
+    ['I am sure Kusasa means tomorrow', 'I am sure Kusasa means tomorrow'],
+    ['I am Afrikaans-speaking and fairly sure', 'I am Afrikaans-speaking and fairly sure'],
+    ['I am a Grade 6 teacher', 'I am a Grade 6 teacher'],
+    ['The answer is 1 500 000 and the next is 12 345', 'The answer is 1 500 000 and the next is 12 345'],
+    ['Year 2024, page 12.5', 'Year 2024, page 12.5'],
+    ['Kusasa means tomorrow, not morning', 'Kusasa means tomorrow, not morning'],
+  ];
+  for (const [input, want] of cases) assert.equal(scrubReason(input), want, input);
+});
+
+test('scrubReason: reasons are scrubbed in the prompt that goes to Gemini', async () => {
+  const g = fake(aiReply);
+  await suggestMerge(
+    base([
+      resp({ verdict: 'change', proposal: fixed, reason: "I am Sipho Dlamini. Mail s.dlamini@school.example or 082 555 0100. Kusasa is tomorrow." }),
+      resp({ verdict: 'change', proposal: fixedOther, reason: 'Mrs Naidoo (Pretoria) disagrees' }),
+    ]),
+    g,
+  );
+  const sent = g.calls[0].prompt;
+  for (const secret of ['Sipho', 'Dlamini', 'school.example', '082 555', 'Naidoo']) assert.ok(!sent.includes(secret), `${secret} reached the prompt`);
+  assert.match(sent, /Kusasa is tomorrow/);
+  assert.match(sent, /\[email\]/);
+  assert.match(sent, /\[phone\]/);
 });
