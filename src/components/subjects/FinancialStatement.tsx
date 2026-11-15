@@ -31,7 +31,7 @@ const fmt = (n: number) =>
  */
 const FinancialStatement = ({ title, period, sections, className }: FinancialStatementProps) => {
   return (
-    <div className={`rounded-xl border border-slate-200 overflow-hidden text-sm ${className ?? ''}`}>
+    <div className={`rounded-xl border border-slate-200 overflow-x-auto text-sm ${className ?? ''}`}>
       <div className="bg-slate-800 text-white px-4 py-3">
         <div className="font-bold text-base">{title}</div>
         {period && <div className="text-slate-300 text-xs mt-0.5">{period}</div>}

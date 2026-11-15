@@ -206,7 +206,7 @@ export const CostLines = ({ fixed, perUnit, maxUnits, aria }: { fixed: number; p
 // ---------- budget against actual (real table text) ----------
 
 export const VarianceTable = ({ rows, aria }: { rows: readonly { item: string; budget: number; actual: number; diff: number; kind: string }[]; aria: string }) => (
-  <div className="mx-auto w-full max-w-md overflow-hidden rounded-2xl text-left" style={{ background: INK }}>
+  <div className="mx-auto w-full max-w-md overflow-x-auto rounded-2xl text-left" style={{ background: INK }}>
     <table aria-label={aria} className="w-full border-collapse text-[12px] text-slate-100">
       <caption className="px-2.5 pt-2.5 text-left text-sm font-extrabold text-amber-300">Budget against actual</caption>
       <thead>

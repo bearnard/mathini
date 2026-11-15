@@ -231,7 +231,7 @@ const learnSteps: LearnStep[] = [
               <h5 className="font-bold text-blue-800 mb-2">IPv6 (Internet Protocol version 6)</h5>
               <p className="text-sm text-slate-700 mb-2">Format: Eight groups of hexadecimal separated by colons</p>
               <div className="bg-blue-50 p-2 rounded text-center text-xs">
-                <code className="text-blue-900 font-mono">2001:0db8:85a3:0000:0000:8a2e:0370:7334</code>
+                <code className="text-blue-900 font-mono break-all">2001:0db8:85a3:0000:0000:8a2e:0370:7334</code>
               </div>
               <p className="text-xs text-slate-600 mt-2">
                 128-bit address = 340 undecillion addresses (practically unlimited!)
