@@ -7,6 +7,7 @@
 //   - A run still open 2 hours after it started is ABANDONED: it keeps the answers so far, is flagged, and has no score (excluded from trends).
 //   - Starting twice with the same id is harmless (idempotent). Finishing twice returns the first result.
 import type { AdminDb, Statement } from '../admin/db';
+import { EXAM_SCOPES } from '../../shared/examScopes';
 
 export const RUN_KINDS = ['practice', 'review', 'quiz', 'mock_test', 'exam_practice'] as const;
 export type RunKind = (typeof RUN_KINDS)[number];
@@ -18,6 +19,29 @@ export const MAX_RUN_ITEMS = 200;
 /** A learner can have at most this many runs open at once (a stuck tab or a script cannot flood the table). */
 export const MAX_OPEN_RUNS = 20;
 const MAX_BACKDATE_MS = ABANDON_AFTER_MS;
+
+/** The scope key of a spaced-review session (ReviewScreen). */
+export const REVIEW_SCOPE_KEY = 'spaced-review';
+/** A mock test or exam practice holds many questions; declaring fewer than this is refused (one easy question must not be a "100%" mock). */
+export const MIN_EXAM_ITEMS = 5;
+const EXAM_KEYS = new Set(EXAM_SCOPES.flatMap((s) => [s.scopeKey, ...s.mockScopeKeys]));
+
+/**
+ * Whether a run's kind, scope and size are ones the app really has (security review follow-up): the browser used to be able to start a `mock_test` with
+ * any made-up scope key and a single question. Review runs have one scope, tests and exam practice must be a known exam scope with its grade and subject,
+ * and practice may be any topic except those reserved keys. Returns the problem, or null.
+ */
+export function scopeProblem(kind: RunKind, scopeKey: string, grade: number, subject: string, nItems: number): string | null {
+  if (kind === 'review') return scopeKey === REVIEW_SCOPE_KEY ? null : 'Invalid scope for a review';
+  if (kind === 'mock_test' || kind === 'exam_practice') {
+    const sc = EXAM_SCOPES.find((x) => x.scopeKey === scopeKey || x.mockScopeKeys.includes(scopeKey));
+    if (!sc) return 'Unknown test';
+    if (grade !== sc.grade || subject !== sc.subject) return 'Invalid scope for this test';
+    if (nItems < MIN_EXAM_ITEMS) return 'A test needs its questions';
+    return null;
+  }
+  return EXAM_KEYS.has(scopeKey) || scopeKey === REVIEW_SCOPE_KEY ? 'Invalid scope for practice' : null;
+}
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 export const isRunId = (v: unknown): v is string => typeof v === 'string' && UUID.test(v);
@@ -80,6 +104,10 @@ export async function startRun(db: AdminDb, studentId: string, input: StartRunIn
   if (!SLUG.test(subject) || !SLUG.test(scopeKey)) return { ok: false, status: 400, error: 'Invalid subject or scope' };
   const grade = Number(input.grade);
   if (!Number.isInteger(grade) || grade < 1 || grade > 12) return { ok: false, status: 400, error: 'Invalid grade' };
+
+  const nItemsEarly = Number(input.nItems);
+  const problem = scopeProblem(input.kind as RunKind, scopeKey, grade, subject, Number.isInteger(nItemsEarly) && nItemsEarly > 0 ? Math.min(nItemsEarly, MAX_RUN_ITEMS) : 0);
+  if (problem) return { ok: false, status: 400, error: problem };
 
   const existing = await db.all<DbRun>(`SELECT ${COLS} FROM runs WHERE id = ?`, [input.id]);
   if (existing[0]) {
