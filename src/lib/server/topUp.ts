@@ -17,6 +17,7 @@ import { decimalPolicyFor } from './caps/formatPolicy';
 import { BATCH_INSTRUCTIONS, BATCH_ORDER, batchesFor, calculationsOkFor, misconceptionsOkFor, type BatchType } from './caps/batches';
 import { scopeFor } from './caps/scope';
 import type { GeneratedItem } from './gemini';
+import { registerAiStatements } from './questions/register';
 
 // The batch types, their wording and the per-subject selection live in caps/batches.ts (re-exported here for existing callers).
 export { BATCH_INSTRUCTIONS, BATCH_ORDER, batchesFor, calculationsOkFor, misconceptionsOkFor };
@@ -62,6 +63,8 @@ export interface TopUpSummary {
   poolsBelowTarget: number;
   tasksWorked: number;
   accepted: number;
+  /** Accepted rows that were also registered in questions (so they are served from D1 at once). */
+  registered: number;
   rejected: number;
   rejectedByReason: Record<string, number>;
   apiCalls: number;
@@ -137,7 +140,7 @@ export async function runTopUp(deps: TopUpDeps, limits: TopUpLimits = DEFAULT_LI
   const { db, generate, embed, vector } = deps;
   const now = deps.now ?? Date.now;
   const log = deps.log ?? (() => {});
-  const summary: TopUpSummary = { poolsBelowTarget: 0, tasksWorked: 0, accepted: 0, rejected: 0, rejectedByReason: {}, apiCalls: 0, ops: 0, regenerated: 0, skippedNoIndex: [], skippedNoScope: [], stoppedBy: null };
+  const summary: TopUpSummary = { poolsBelowTarget: 0, tasksWorked: 0, accepted: 0, registered: 0, rejected: 0, rejectedByReason: {}, apiCalls: 0, ops: 0, regenerated: 0, skippedNoIndex: [], skippedNoScope: [], stoppedBy: null };
 
   summary.ops++; // the pools query
   const below = await poolsBelowTarget(db);
@@ -208,11 +211,21 @@ export async function runTopUp(deps: TopUpDeps, limits: TopUpLimits = DEFAULT_LI
           }
         }
         summary.ops++;
-        const res = await db
+        const insert = db
           .prepare('INSERT OR IGNORE INTO item_cache (task, prompt, options, answer, explanation, created_at, vector_id, section, quality_score, quality_flags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
-          .bind(pool.task, item.prompt, JSON.stringify(item.options), item.answer, item.explanation ?? '', now(), vectorId, 'general', item.quality_score, JSON.stringify(item.quality_flags))
-          .run();
-        if ((res.meta?.changes ?? 1) > 0) {
+          .bind(pool.task, item.prompt, JSON.stringify(item.options), item.answer, item.explanation ?? '', now(), vectorId, 'general', item.quality_score, JSON.stringify(item.quality_flags));
+        // The row and its registration in questions / question_versions go in ONE batch (one subrequest, one transaction), so a stored row is
+        // served from D1 at once. If the registration cannot run (tables missing), the plain insert still happens: generation never breaks.
+        let changes: number;
+        try {
+          const out = await db.batch([insert, ...registerAiStatements({ task: pool.task, section: 'general', prompt: item.prompt, options: item.options, answer: item.answer, explanation: item.explanation }).map((st) => db.prepare(st.sql).bind(...st.params))]);
+          changes = out[0]?.meta?.changes ?? 1;
+          if (changes > 0) summary.registered++;
+        } catch {
+          summary.ops++;
+          changes = (await insert.run()).meta?.changes ?? 1;
+        }
+        if (changes > 0) {
           prompts.push(item.prompt);
           summary.accepted++;
           need--;

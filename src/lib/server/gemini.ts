@@ -2,6 +2,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { Mp3Encoder } from '@breezystack/lamejs';
 import { katexError } from './latexCheck';
 import { acceptItems } from '../shared/questionQuality';
+import { registerAiStatements } from './questions/register';
 
 /**
  * Reads the Gemini API key from the server environment. In production the key
@@ -291,7 +292,13 @@ export async function persistItems(task: string, items: GeneratedItem[]): Promis
     const batch = accepted.map((it) =>
       stmt.bind(task, it.prompt, JSON.stringify(it.options), it.answer, it.explanation ?? '', now, 'general', it.quality_score, JSON.stringify(it.quality_flags)),
     );
-    await db.batch(batch);
+    // The rows and their registration in questions / question_versions go in one batch; if the registration cannot run, the plain inserts still do.
+    const registration = accepted.flatMap((it) => registerAiStatements({ task, section: 'general', prompt: it.prompt, options: it.options, answer: it.answer, explanation: it.explanation }).map((st) => db.prepare(st.sql).bind(...st.params)));
+    try {
+      await db.batch([...batch, ...registration]);
+    } catch {
+      await db.batch(batch);
+    }
   } catch {
     // best-effort persistence; ignore write failures
   }

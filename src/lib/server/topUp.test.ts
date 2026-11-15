@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { openPoolDb } from './testD1';
+import { openQuestionsDb } from './questions/testQuestionsDb';
 import { buildTopUpPrompt, DEFAULT_LIMITS, numericOkFor, poolsBelowTarget, runTopUp, type TopUpLimits } from './topUp';
 import { QUALITY_RULES } from './caps/qualityRules';
 import type { GeneratedItem } from './gemini';
@@ -22,7 +22,7 @@ const cleanBatch = (k = 10) => Array.from({ length: k }, clean);
 const limits = (o: Partial<TopUpLimits> = {}): TopUpLimits => ({ ...DEFAULT_LIMITS, ...o });
 
 async function fixture(pools: Record<string, { rows?: number; rejected?: number; enabled?: number; target?: number }>) {
-  const t = await openPoolDb();
+  const t = await openQuestionsDb(); // production has the question tables (0008), so the fixture does too
   if (!t) return null;
   t.raw.exec('DELETE FROM pool_tasks');
   const ins = t.raw.prepare('INSERT INTO item_cache (task, prompt, options, answer, explanation, created_at, quality_score) VALUES (?,?,?,?,?,1,?)');
@@ -187,4 +187,71 @@ test('a Grade 6 maths question with a decimal point is rejected at insert; the s
   assert.equal(s7.accepted, 2);
   const rows7 = t7.raw.prepare("SELECT quality_score AS q, quality_flags AS f FROM item_cache WHERE task='gr7-decimal-fractions-t2'").all() as { q: number; f: string }[];
   for (const r of rows7) { assert.ok(r.q > 0 && r.q < 80); assert.ok(JSON.parse(r.f).includes('decimal_point')); }
+});
+
+// ---------- registration at insert (served from D1 at once) ----------
+import { makeQkey } from '../shared/qkey';
+import { servePool, clearServedCache } from './serving/served';
+import { clearFlagCache } from './serving/flags';
+
+test('every accepted top-up row is registered in questions in the same batch: source ai, v1 current, the pool row linked, id = qkey', async () => {
+  const t = await fixture({ 'what-is-history': { rows: 0 } });
+  if (!t) return;
+  const s = await runTopUp({ db: t.db, generate: async () => cleanBatch(10) }, limits({ maxAccepted: 6 }));
+  assert.equal(s.accepted, 6);
+  assert.equal(s.registered, 6);
+  const rows = t.raw.prepare("SELECT c.id AS item, c.prompt, q.id AS qid, q.source, q.status, q.current_version_id AS cv, v.version_no, v.author, v.status AS vs, v.qkey FROM item_cache c JOIN questions q ON q.legacy_item_id = c.id JOIN question_versions v ON v.id = q.current_version_id WHERE c.task = 'what-is-history'").all() as Record<string, unknown>[];
+  assert.equal(rows.length, 6);
+  for (const r of rows) {
+    assert.equal(r.qid, makeQkey('what-is-history', String(r.prompt)));
+    assert.deepEqual([r.source, r.status, r.version_no, r.author, r.vs, r.qkey], ['ai', 'active', 1, 'ai', 'approved', r.qid]);
+  }
+  assert.equal((t.raw.prepare('SELECT COUNT(*) AS n FROM questions').get() as { n: number }).n, 6);
+  assert.equal((t.raw.prepare('SELECT COUNT(*) AS n FROM question_versions').get() as { n: number }).n, 6);
+});
+
+test('the new rows are served from D1 when the flag is on (the point of registering them)', async () => {
+  const t = await fixture({ 'what-is-history': { rows: 0 } });
+  if (!t) return;
+  await runTopUp({ db: t.db, generate: async () => cleanBatch(10) }, limits({ maxAccepted: 5 }));
+  t.raw.prepare("UPDATE serving_flags SET value = ? WHERE key = 'serve_from_d1'").run('{"grades":[],"tasks":["what-is-history"],"exclude":[]}');
+  clearFlagCache(); clearServedCache();
+  const served = await servePool(t.db, 'what-is-history', 20);
+  assert.equal(served.length, 5);
+  assert.ok(served.every((i) => 'qid' in i));
+});
+
+test('registration is idempotent: running it again for the same rows adds nothing', async () => {
+  const t = await fixture({ 'what-is-history': { rows: 0 } });
+  if (!t) return;
+  await runTopUp({ db: t.db, generate: async () => cleanBatch(10) }, limits({ maxAccepted: 4 }));
+  const { registerAiStatements } = await import('./questions/register');
+  const items = t.raw.prepare("SELECT task, prompt, options, answer, explanation, section FROM item_cache WHERE task = 'what-is-history'").all() as { task: string; prompt: string; options: string; answer: string; explanation: string; section: string }[];
+  const before = [(t.raw.prepare('SELECT COUNT(*) AS n FROM questions').get() as { n: number }).n, (t.raw.prepare('SELECT COUNT(*) AS n FROM question_versions').get() as { n: number }).n];
+  for (const it of items) for (const st of registerAiStatements({ ...it, options: JSON.parse(it.options) })) t.raw.prepare(st.sql).run(...st.params);
+  assert.deepEqual([(t.raw.prepare('SELECT COUNT(*) AS n FROM questions').get() as { n: number }).n, (t.raw.prepare('SELECT COUNT(*) AS n FROM question_versions').get() as { n: number }).n], before);
+});
+
+test('if the question tables are missing (migration 0008 not applied), the row is still stored and generation carries on', async () => {
+  const t = await fixture({ 'what-is-history': { rows: 0 } });
+  if (!t) return;
+  t.raw.exec('DROP TABLE question_versions'); t.raw.exec('DROP TABLE questions');
+  const s = await runTopUp({ db: t.db, generate: async () => cleanBatch(10) }, limits({ maxAccepted: 3 }));
+  assert.equal(s.accepted, 3);
+  assert.equal(s.registered, 0);
+  assert.equal((t.raw.prepare("SELECT COUNT(*) AS n FROM item_cache WHERE task = 'what-is-history'").get() as { n: number }).n, 3);
+});
+
+test('a pool row identical to an existing curated question is LINKED to it, not duplicated', async () => {
+  const t = await fixture({ 'what-is-history': { rows: 0 } });
+  if (!t) return;
+  const item = clean();
+  const { registerQuestionSql } = await import('./questions/sql');
+  t.raw.exec(registerQuestionSql({ task: 'what-is-history', section: 'general', kind: 'mcq', source: 'curated', prompt: item.prompt, options: item.options, answer: item.answer, explanation: item.explanation ?? '', extra: {}, author: 'seed' }).join('\n'));
+  const s = await runTopUp({ db: t.db, generate: async () => [item, ...cleanBatch(9)] }, limits({ maxAccepted: 3 }));
+  assert.ok(s.accepted >= 1);
+  const q = t.raw.prepare('SELECT source, legacy_item_id AS l FROM questions WHERE id = ?').get(makeQkey('what-is-history', item.prompt)) as { source: string; l: number | null };
+  assert.equal(q.source, 'curated');
+  assert.ok(q.l !== null, 'linked to the pool row');
+  assert.equal((t.raw.prepare('SELECT COUNT(*) AS n FROM questions WHERE id = ?').get(makeQkey('what-is-history', item.prompt)) as { n: number }).n, 1);
 });
