@@ -10,6 +10,7 @@ import { verifyLiveSession, SESSION_COOKIE_NAME } from '../../../lib/server/sess
 import { d1Adapter } from '../../../lib/server/admin/db';
 import { runIdForAttempt } from '../../../lib/server/progress/runs';
 import { attemptInsertPlans } from '../../../lib/server/progress/attemptPlans';
+import { routeLimited } from '../../../lib/server/edgeLimitRoute';
 import { attemptsLimiter } from '../../../lib/server/learnerGuards';
 import { markAttempt, verifiedStreak } from '../../../lib/server/marking';
 
@@ -49,6 +50,8 @@ export async function POST(req: NextRequest) {
     if (!studentId) {
       return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
     }
+    const limited = await routeLimited(req, 'attempts', studentId);
+    if (limited) return limited;
 
     // Security review: a burst limit per learner (a runaway client or script must not be able to spend the shared D1 write budget).
     if (!attemptsLimiter.allow(studentId, Date.now())) {

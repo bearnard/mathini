@@ -4,6 +4,7 @@ import { verifyLiveSession, SESSION_COOKIE_NAME } from '../../../../../lib/serve
 import { d1Adapter } from '../../../../../lib/server/admin/db';
 import { finishRun } from '../../../../../lib/server/progress/runs';
 import { refreshForRun } from '../../../../../lib/server/progress/topicProgress';
+import { routeLimited } from '../../../../../lib/server/edgeLimitRoute';
 import { runFinishLimiter } from '../../../../../lib/server/learnerGuards';
 
 export const dynamic = 'force-dynamic';
@@ -18,6 +19,8 @@ export async function POST(req: NextRequest, ctx: { params: Promise<{ id: string
     const { env } = getCloudflareContext();
     const studentId = await verifyLiveSession(d1Adapter(env.DB as never), req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
     if (!studentId) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
+    const limited = await routeLimited(req, 'runs', studentId);
+    if (limited) return limited;
     if (!runFinishLimiter.allow(studentId, Date.now())) return NextResponse.json({ error: 'Too many runs too fast' }, { status: 429, headers: { 'Retry-After': '60' } });
     const db = d1Adapter(env.DB as never);
     const now = Date.now();
