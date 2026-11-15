@@ -1,56 +1,88 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Hub, PlanBar } from '../../../../../components/diagrams/lo/PswPictures';
+import { HBars } from '../../../../../components/diagrams/lo/Lo8Pictures';
+import { logGain } from '../../../../../components/diagrams/lo/lo8Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// Numbers in the examples come from these tested helpers (lo8Helpers.test.ts).
+const planA = 40;
+const planB = { sessions: 3, length: 20, weeks: 4 };
+const planBMinutes = planB.sessions * planB.length * planB.weeks;
+const log = [12, 15, 17, 20];
+const session = [
+  { label: 'Warm-up', minutes: 10, kind: 'break' as const },
+  { label: 'Skills', minutes: 30, kind: 'study' as const },
+  { label: 'Cool-down', minutes: 5, kind: 'break' as const },
+];
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Understanding Fitness Development',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Fitness</strong> is the ability to do physical activity with strength, speed, and endurance.
-          Developing fitness takes practice, patience, and consistency.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Regular physical activity builds strength, endurance, and coordination.</p>
-        </div>
-      </div>
+    title: 'Fitness and consistency',
+    content: slide(
+      <>
+        <Rule>Fitness is the ability to be active with strength and endurance. It is not something you are born with: regular activity builds it and improves your skills.</Rule>
+        <Worked
+          title="Two plans for one month"
+          steps={[<>Plan A: one long session of {planA} minutes in the month: {planA} minutes.</>, <>Plan B: {planB.sessions} sessions of {planB.length} minutes a week for {planB.weeks} weeks: {planB.sessions} × {planB.length} × {planB.weeks} = {planBMinutes} minutes.</>, <>Plan B gives much more practice, and the practice is regular.</>]}
+        />
+        <Mistake>Thinking that being thin means being fit, that fitness comes quickly, or that one long session lasts for months. Consistency builds fitness.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Coordination and Teamwork',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Coordination</strong> is using your body parts together smoothly.
-          <strong> Teamwork</strong> means working with others toward a common goal.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Coordination</strong>
-            <p className="text-slate-600">Balance, agility, and control.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Teamwork</strong>
-            <p className="text-slate-600">Cooperation, communication, support.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Coordination and teamwork',
+    content: slide(
+      <>
+        <Rule>Coordination is using the parts of your body together smoothly: balance, agility and control. Teamwork is working together towards a common goal.</Rule>
+        <Hub centre="Teamwork" spokes={['Communicate', 'Support', 'Cooperate', 'Share roles']} aria="A circle labelled Teamwork with four labels around it: communicate, support, cooperate and share roles." />
+        <Worked
+          title="A three-person passing drill"
+          steps={[<>Eyes on the ball and feet balanced: that is coordination.</>, <>Call the name of the player you pass to.</>, <>Pass so your teammate can catch it easily.</>, <>Praise a good pass and help after a drop.</>]}
+        />
+        <Mistake>Ignoring teammates to score yourself. Teamwork means supporting and communicating with the others, not competing against them.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Safe Participation and Progress Monitoring',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Safe participation</strong> means using correct technique and following rules.
-          <strong> Monitoring progress</strong> helps you see how you are improving.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Good practice includes:</p>
-          <p className="text-slate-600">Warm-ups, proper technique, cool-downs, and keeping fitness logs.</p>
-        </div>
-      </div>
+    title: 'Safe participation',
+    content: slide(
+      <>
+        <Rule>Safe participation means using good technique, following the rules and avoiding injury. A warm-up prepares the body and lowers the risk of injury. A cool-down brings your heart rate back to normal.</Rule>
+        <PlanBar parts={session} aria="One activity session as a bar: a 10 minute warm-up, 30 minutes of skills practice and a 5 minute cool-down, 45 minutes in total." />
+        <Worked
+          title="A safe session"
+          steps={[<>Warm up for {session[0].minutes} minutes: light jogging and loosening the muscles.</>, <>Practise skills for {session[1].minutes} minutes with correct technique.</>, <>Cool down for {session[2].minutes} minutes: walk slowly and stretch.</>, <>Total: {session.reduce((a, p) => a + p.minutes, 0)} minutes.</>]}
+        />
+        <Mistake>Skipping the warm-up because you are young, pushing on through pain, or stopping suddenly and sitting down. Warm up first and cool down slowly afterwards.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Monitoring your progress',
+    content: slide(
+      <>
+        <Rule>A fitness log is a record of your activities and your progress. Test yourself, write down the result and compare it with your own earlier results. This lets you manage your own fitness.</Rule>
+        <HBars title="Example log: repetitions in one minute" items={log.map((v, i) => ({ label: `Week ${i + 1}`, value: v }))} aria={`A fitness log with four bars for weeks 1 to 4: ${log.join(', ')} repetitions in one minute.`} />
+        <Worked
+          title="Read the log"
+          steps={[<>Week 1: {log[0]}. Week 4: {log[log.length - 1]}.</>, <>Gain: {log[log.length - 1]} − {log[0]} = {logGain(log)} more repetitions.</>, <>Your progress is shown by the numbers, not by guessing.</>]}
+        />
+        <Mistake>Guessing, or only comparing yourself with other learners. Fitness can be measured, and the best comparison is with your own earlier results.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="Why is consistency important in physical activity?" answer="Regular activity builds stronger skills and fitness. One long session cannot do this." />
+        <Check question="What is coordination, and what is teamwork?" answer="Coordination is using the parts of your body together smoothly. Teamwork is working together towards a common goal." />
+        <Check question="Why do you warm up first, and what do you do after activity?" answer="A warm-up prepares the body and lowers the risk of injury. Afterwards you cool down slowly and stretch." />
+        <Check question="What is a fitness log, and how does it help?" answer="A record of your activities and progress. It lets you test yourself, keep records and see your improvement." />
+      </>,
     ),
   },
 ];

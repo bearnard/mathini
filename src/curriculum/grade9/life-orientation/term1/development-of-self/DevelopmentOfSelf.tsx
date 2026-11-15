@@ -1,55 +1,96 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Branches, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { SmartGoal } from '../../../../../components/diagrams/lo/Lo8Pictures';
+import { targetMark } from '../../../../../components/diagrams/lo/lo8Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// Numbers in the goal example come from these tested helpers (lo8Helpers.test.ts).
+const mark = { now: 55, gain: 10, target: targetMark(55, 10) };
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Understanding Values',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Values</strong> are the beliefs and principles that guide how we live and make decisions.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Our values help us choose what is important and shape our actions.</p>
-        </div>
-      </div>
+    title: 'Values guide your choices',
+    content: slide(
+      <>
+        <Rule>Values are the beliefs and principles that guide how we live and make decisions. They shape what you see as important and right.</Rule>
+        <StepFlow steps={['You hold a value: honesty.', 'It guides a choice: return the extra change.', 'You act on it.', 'The result: people trust you.']} aria="Four steps from a value to a result: you hold the value honesty, it guides a choice to return extra change, you act on it, and people trust you." />
+        <Worked
+          title="A cashier gives you R20 too much change"
+          steps={[<>Your value: honesty.</>, <>Your choice: tell the cashier.</>, <>Your action: hand the R20 back.</>, <>The consequence: you act in line with your values.</>]}
+        />
+        <Mistake>Thinking values are just rules made by adults, or that they have no effect on your choices. Values are your own beliefs, and they guide what you do even when nobody is watching.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Self-Awareness and Self-Motivation',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Self-awareness</strong> means understanding your strengths, weaknesses, feelings, and values.
-          <strong> Self-motivation</strong> is the drive to do things without needing others to push you.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Self-awareness</strong>
-            <p className="text-slate-600">Know yourself and your abilities.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Self-motivation</strong>
-            <p className="text-slate-600">Push yourself to achieve your goals.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Self-awareness and self-motivation',
+    content: slide(
+      <>
+        <Rule>Self-awareness is understanding your strengths, weaknesses, feelings and values. You build it by reflecting on your feelings, your actions and your reasons. Self-motivation is the drive to reach your own goals without being pushed.</Rule>
+        <Worked
+          title="Thandi reflects on a poor science test"
+          steps={[<>Feelings: rushed and worried.</>, <>Actions: she started revising the night before.</>, <>Reason: she spent the week on her phone.</>, <>Strength: she is good at diagrams. Weakness: planning. She sets her own reminders (self-motivation).</>]}
+        />
+        <Mistake>Thinking self-awareness means being popular, comparing yourself with the best learner, or ignoring your teachers&apos; feedback. It means honestly understanding yourself.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Goal Setting and Decision-Making',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Goals</strong> are specific things you want to achieve.
-          <strong> Decision-making</strong> is choosing between options based on your values and goals.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Good goals are SMART:</p>
-          <p className="text-slate-600">Specific, Measurable, Achievable, Relevant, Time-bound</p>
-        </div>
-      </div>
+    title: 'Setting SMART goals',
+    content: slide(
+      <>
+        <Rule>A goal names something specific you want to achieve. A SMART goal is Specific, Measurable, Achievable, Relevant and Time-bound.</Rule>
+        <SmartGoal
+          rows={[
+            { letter: 'S', word: 'Specific' },
+            { letter: 'M', word: 'Measurable' },
+            { letter: 'A', word: 'Achievable' },
+            { letter: 'R', word: 'Relevant' },
+            { letter: 'T', word: 'Time-bound' },
+          ]}
+          aria={`The five SMART letters for the goal to raise a maths mark from ${mark.now} to ${mark.target}: specific, measurable, achievable, relevant and time-bound.`}
+        />
+        <Worked
+          title="“Do better in maths” becomes a SMART goal"
+          steps={[<>Specific: my maths mark.</>, <>Measurable: {mark.gain} marks higher, from {mark.now} to {mark.target}.</>, <>Time-bound: by the end of term.</>, <>Goal: I will improve my maths mark by {mark.gain} marks by the end of term.</>]}
+        />
+        <Mistake>Wishes such as “I want to do better” or “I will try harder and see what happens”. They cannot be measured and have no deadline.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Decisions and consequences',
+    content: slide(
+      <>
+        <Rule>A consequence is the result of a choice you make. When you decide, think about your values, your goals and the consequences, not only what friends want or what is easiest.</Rule>
+        <Branches
+          problem="Friends invite you out the night before a maths test"
+          options={[
+            { choice: 'Go out', outcome: 'Less revision. Your mark may drop.' },
+            { choice: 'Study, go on Saturday', outcome: 'Goal stays on track. You still see them.' },
+          ]}
+          aria="A decision tree. Friends invite you out the night before a maths test. Going out means less revision and a mark that may drop. Studying and going on Saturday keeps your goal on track and you still see your friends."
+        />
+        <Worked
+          title="Choose using values, goals and consequences"
+          steps={[<>Value: I take my work seriously.</>, <>Goal: improve my maths mark.</>, <>Consequences: going out hurts the goal; Saturday does not.</>, <>Choice: study tonight, go out on Saturday.</>]}
+        />
+        <Mistake>Choosing whatever is easiest or most popular in your class. You cannot control every outcome, but you can think about likely consequences before you decide.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What are values, and how do they influence your choices?" answer="Values are beliefs and principles that guide how we live. They guide what you see as important and right when you choose." />
+        <Check question="What does SMART stand for, and is “I will try harder at maths” a SMART goal?" answer="Specific, Measurable, Achievable, Relevant, Time-bound. No: it cannot be measured and has no deadline." />
+        <Check question="How can you build self-awareness?" answer="By reflecting honestly on your feelings, your actions and your reasons for them." />
+        <Check question="Name three things to consider before you decide, and say what a consequence is." answer="Your values, your goals and the consequences. A consequence is the result or outcome of a choice." />
+      </>,
     ),
   },
 ];
