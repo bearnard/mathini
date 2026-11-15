@@ -22,6 +22,7 @@ export type ReasonCode =
   | 'bad_shape'
   | 'key_not_in_options'
   | 'duplicate_options'
+  | 'equal_numeric_options'
   | 'length_tell_strong'
   | 'filler_distractor'
   | 'key_in_prompt'
@@ -29,6 +30,7 @@ export type ReasonCode =
   | 'explanation_scratchpad'
   | 'explanation_other_option'
   | 'explanation_contradicts_key'
+  | 'mistake_key_is_correct'
   | 'near_duplicate'
   | 'length_tell'
   | 'list_count_tell'
@@ -153,6 +155,18 @@ const SCRATCHPAD_RE = new RegExp(
     String.raw`so one option seems`,
     String.raw`\bcorrection[,:!– -]+(actually|the|it|total|wait|let)`,
     String.raw`wait.{0,3}that.s wrong`,
+    // Self-correction tells found in the AI-generated G7-12 numeric audit (keys that were only "the closest option").
+    String.raw`(^|[.!?]\s+)actually[,:]?\s+[^.]*[=≈]`,
+    String.raw`\bno,? wait\b`,
+    String.raw`\bclosest (given |listed |available )?(option|answer|choice)`,
+    String.raw`\bclosest (is|one is)\b`,
+    String.raw`\bnone (is |are )?(exact|exactly)\b`,
+    String.raw`\blet (us|.s) (check|verify|reconsider|reassess|see)\b`,
+    String.raw`\breconsider (the |my )?(logic|setup|question|interpretation)`,
+    String.raw`\binvalid set\b`,
+    String.raw`\bbased on (the )?(answer )?(choices|options)\b`,
+    String.raw`\bmatches? the (given |listed )?(option|choice)s? (so|best)`,
+    String.raw`\bwhich is not (among|one of) the (given |listed )?(options|choices)`,
   ].join('|'),
   'i',
 );
@@ -201,6 +215,132 @@ export function optionNumber(option: string): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
+
+// ---- Equal numeric options (two options with the same value are both correct) ------------------------------------------------------
+type Dim = 'num' | 'cur' | 'len' | 'area' | 'vol' | 'mass' | 'time';
+const UNIT_TABLE: Record<string, [Dim, number]> = {
+  mm: ['len', 0.001], cm: ['len', 0.01], dm: ['len', 0.1], m: ['len', 1], km: ['len', 1000],
+  'mm2': ['area', 1e-6], 'cm2': ['area', 1e-4], 'dm2': ['area', 1e-2], 'm2': ['area', 1], 'km2': ['area', 1e6], ha: ['area', 1e4],
+  'mm3': ['vol', 1e-9], 'cm3': ['vol', 1e-6], 'dm3': ['vol', 1e-3], 'm3': ['vol', 1],
+  ml: ['vol', 1e-6], 'mℓ': ['vol', 1e-6], l: ['vol', 1e-3], 'ℓ': ['vol', 1e-3], kl: ['vol', 1], 'kℓ': ['vol', 1],
+  mg: ['mass', 1e-6], g: ['mass', 1e-3], kg: ['mass', 1], t: ['mass', 1000],
+  s: ['time', 1], sec: ['time', 1], min: ['time', 60], h: ['time', 3600], hr: ['time', 3600],
+};
+const UNIT_RE = /\s*(mm|cm|dm|km|ml|mℓ|kl|kℓ|mg|kg|ha|sec|min|hr|m|l|ℓ|g|t|s|h)(?:\s*\^?\s*\{?([23²³])\}?)?\s*$/i;
+
+/** A small safe arithmetic evaluator: numbers, + - * / ^, brackets, sqrt(), a trailing %. Returns null on anything else. */
+function evalArithmetic(src: string): number | null {
+  let i = 0;
+  const peek = () => src[i];
+  const ws = () => { while (src[i] === ' ') i++; };
+  function expr(): number | null {
+    let v = term(); if (v === null) return null;
+    for (;;) { ws(); const c = peek(); if (c !== '+' && c !== '-') return v; i++; const r = term(); if (r === null) return null; v = c === '+' ? v + r : v - r; }
+  }
+  function term(): number | null {
+    let v = unary(); if (v === null) return null;
+    for (;;) { ws(); const c = peek(); if (c !== '*' && c !== '/') return v; i++; const r = unary(); if (r === null || (c === '/' && r === 0)) return null; v = c === '*' ? v * r : v / r; }
+  }
+  function unary(): number | null {
+    ws(); if (peek() === '-') { i++; const v = unary(); return v === null ? null : -v; }
+    if (peek() === '+') { i++; return unary(); }
+    return power();
+  }
+  function power(): number | null {
+    const b = atom(); if (b === null) return null;
+    ws(); if (peek() === '^') { i++; const e = unary(); if (e === null || Math.abs(e) > 64) return null; const r = Math.pow(b, e); return Number.isFinite(r) ? r : null; }
+    return b;
+  }
+  function atom(): number | null {
+    ws();
+    if (src.startsWith('sqrt(', i)) { i += 5; const v = expr(); ws(); if (v === null || peek() !== ')' || v < 0) return null; i++; return Math.sqrt(v); }
+    if (peek() === '(') { i++; const v = expr(); ws(); if (v === null || peek() !== ')') return null; i++; return pct(v); }
+    const m = /^\d+(?:\.\d+)?/.exec(src.slice(i)); if (!m) return null;
+    i += m[0].length; return pct(parseFloat(m[0]));
+  }
+  function pct(v: number): number { ws(); if (peek() === '%') { i++; return v / 100; } return v; }
+  const v = expr(); ws();
+  return v !== null && i === src.length && Number.isFinite(v) ? v : null;
+}
+
+/** The value of an option when it is a number, fraction, simple arithmetic or a quantity with a unit: { dim, v } with v in SI-ish base units. */
+export function optionQuantity(option: string): { dim: Dim; v: number } | null {
+  let s = option.replace(/ /g, ' ').replace(/\\\$/g, '');
+  s = s.replace(/\$/g, '').replace(//g, '$');
+  s = s.replace(/\\left|\\right|\\,|\;|\\!|\\ /g, ' ').replace(/\\(?:text|mathrm|mbox)\{([^{}]*)\}/g, ' $1 ');
+  s = s.replace(/−|–/g, '-').replace(/\\times|\\cdot|×/g, '*').replace(/\\div|÷/g, '/').replace(/\\%/g, '%').replace(/°|\\circ|\\degree/g, '');
+  let currency = false;
+  if (/^\s*[R€£]\s*(?=-?\d)/.test(s)) { currency = true; s = s.replace(/^\s*[R€£]\s*/, ''); }
+  // A statement such as "49 + 27 = 76" counts as its result, but only when it is consistent ("3^2 = 8" is a false statement, not a value).
+  if (s.includes('=')) {
+    const parts = s.split('=').map((x) => x.trim());
+    if (parts.some((x) => !x || /[a-zA-Z]/.test(x.replace(/\\(?:d?frac|sqrt|text|mathrm)|sqrt|(?:mm|cm|dm|km|ml|kg|mg|[mglsth])\s*[23²³]?\s*$/gi, '')))) return null;
+    const vals = parts.map((x) => optionQuantity(x));
+    if (vals.some((x) => !x)) return null;
+    const first = vals[0]!;
+    if (vals.some((x) => x!.dim !== first.dim || Math.abs(x!.v - first.v) > 1e-9 * Math.max(1, Math.abs(first.v)))) return null;
+    return first;
+  }
+  if (/[a-zA-Z]/.test(s.replace(/\\(?:d?frac|sqrt)|sqrt/g, '').replace(UNIT_RE, ''))) return null;
+  s = s.trim();
+  let dim: Dim = currency ? 'cur' : 'num', factor = 1;
+  const um = UNIT_RE.exec(s);
+  if (um && dim === 'num') {
+    const key = um[1].toLowerCase().replace('ℓ', 'ℓ') + (um[2] ? (um[2] === '²' ? '2' : um[2] === '³' ? '3' : um[2]) : '');
+    const unit = UNIT_TABLE[key] ?? UNIT_TABLE[key.toLowerCase()];
+    if (!unit) return null;
+    [dim, factor] = unit; s = s.slice(0, um.index);
+  }
+  s = s.replace(/(\d+)\s*\\d?frac\{(\d+)\}\{(\d+)\}/g, '($1+$2/$3)');
+  for (let k = 0; k < 4; k++) s = s.replace(/\\d?frac\{([^{}]*)\}\{([^{}]*)\}/g, '(($1)/($2))').replace(/\\sqrt\{([^{}]*)\}/g, 'sqrt($1)');
+  s = s.replace(/\^\{([^{}]*)\}/g, '^($1)').replace(/²/g, '^2').replace(/³/g, '^3').replace(/\\/g, '');
+  if (/^\s*\d+\s*-\s*\d+\s*$/.test(s) && !/\d\s-\s\d/.test(s)) return null;                 // 15-35 is a range, not a subtraction
+  s = s.replace(/(?<=\d) (?=\d{3}(?!\d))/g, '');                                            // thousands space: 1 000
+  s = s.replace(/(?<![\d.,])[1-9]\d{0,2}(?:,\d{3})+(?![\d,])/g, (m) => m.replace(/,/g, ''));    // thousands comma: 4,180 / 7,000,000 (never 0,375)
+  s = s.replace(/(?<=\d),(?=\d)/g, '.');                              // decimal comma: 3,5
+  s = s.replace(/(\d)\s+(\d)/g, '$1 $2');
+  if (/\d\s+\d/.test(s) || !/\d/.test(s) || !/^[0-9.+\-*\/^()%\s]|sqrt\(/.test(s)) return null;
+  const v = evalArithmetic(s.trim());
+  return v === null ? null : { dim, v: v * factor };
+}
+
+/** Pairs of options that have the same numeric value (equivalent fractions, 2.1 and 2.10, 10 dm and 100 cm, 64 and 2^6). With keyIndex, only pairs that include the key. */
+export function equalNumericOptions(options: readonly string[], keyIndex?: number): [number, number][] {
+  const q = options.map(optionQuantity);
+  const out: [number, number][] = [];
+  for (let i = 0; i < q.length; i++) for (let j = i + 1; j < q.length; j++) {
+    if (keyIndex !== undefined && keyIndex >= 0 && i !== keyIndex && j !== keyIndex) continue;
+    const a = q[i], b = q[j];
+    if (!a || !b || a.dim !== b.dim) continue;
+    if (Math.abs(a.v - b.v) <= 1e-9 * Math.max(1, Math.abs(a.v), Math.abs(b.v))) out.push([i, j]);
+  }
+  return out;
+}
+
+/** Prompts where equal values are the point of the question ("which is NOT equivalent", "simplify", a time signature): no equal-value rule. */
+const EQUAL_VALUE_OK_RE = /\b(not|except|false|incorrect|odd one|simplif\w*|factor\w*|lowest terms|simplest form|reduce|time signature|beats?)\b/i;
+
+// ---- "What is the mistake?" prompts whose keyed option is itself correct -------------------------------------------------------------
+const MISTAKE_PROMPT_RE = /\b(mistake|error|misconception|misunderstand\w*|what is wrong|incorrect|wrongly|common error)\b/i;
+/** A keyed option that itself says nothing is wrong ("They are correct") is consistent with such an explanation. */
+const KEY_SAYS_NO_MISTAKE_RE = /\b(correct|no (mistake|error)|nothing|not a mistake|right)\b/i;
+/** Explanations that admit nothing was wrong: used only when the PROMPT asks for a mistake. Deliberately narrow (see tests). */
+const NO_MISTAKE_RE = new RegExp(
+  [
+    String.raw`\bno (mistake|error)\b`,
+    String.raw`\bnot (really )?(a|an) (mistake|error)\b`,
+    String.raw`\b(is|are|was) (actually|in fact) (correct|right|true)\b`,
+    String.raw`\bit is (actually )?correct to\b`,
+    String.raw`\bshows? correct (thinking|understanding)\b`,
+    String.raw`\breflects? correct understanding\b`,
+    String.raw`\bthis is (actually )?correct\b`,
+    String.raw`\bso it is (actually )?(correct|right)\b`,
+    String.raw`\bthe (final )?(value|answer|result) is (actually )?correct\b`,
+    String.raw`\bno mistake in (the )?final\b`,
+  ].join('|'),
+  'i',
+);
+
 /** Checks one question. Pure. */
 // C0 control characters except newline. A single-backslash \t, \f, \r or \b in model JSON decodes to one of these, so \times, \text,
 // \frac, \right, \beta lose their backslash and the learner sees "imes", "ext", "rac".
@@ -248,6 +388,10 @@ export function checkQuestion(q: QuestionLike, ctx: QualityContext = {}): Qualit
   const keyIndex = options.indexOf(answer);
   if (keyIndex < 0) add('key_not_in_options', 'reject', 'the answer is not one of the options');
   if (new Set(options).size !== options.length) add('duplicate_options', 'reject', 'two options are identical');
+  else {
+    const eq = EQUAL_VALUE_OK_RE.test(prompt) ? [] : equalNumericOptions(options, keyIndex);
+    if (eq.length) add('equal_numeric_options', 'reject', `two options have the same value ("${options[eq[0][0]]}" and "${options[eq[0][1]]}"): both are correct`);
+  }
 
   // length tell
   if (keyIndex >= 0 && options.length >= 3) {
@@ -304,6 +448,7 @@ export function checkQuestion(q: QuestionLike, ctx: QualityContext = {}): Qualit
   if (expl.trim().length < MIN_EXPLANATION_CHARS) {
     add('explanation_missing', 'reject', 'the explanation is missing or too short');
   } else {
+    if (MISTAKE_PROMPT_RE.test(prompt) && NO_MISTAKE_RE.test(expl) && !KEY_SAYS_NO_MISTAKE_RE.test(answer)) add('mistake_key_is_correct', 'reject', 'the prompt asks for a mistake but the explanation says the keyed option is correct');
     if (SCRATCHPAD_RE.test(expl)) add('explanation_scratchpad', 'reject', 'the explanation shows the generator working things out ("wait", "recheck", "this does not match")');
 
     if (keyIndex >= 0) {
