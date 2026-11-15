@@ -1,63 +1,84 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { MixedLayers, SectionBar } from '../../../../../components/diagrams/lo/CaPictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+const dance = [
+  { label: 'Move A', units: 8 },
+  { label: 'Move B', units: 8 },
+  { label: 'Link', units: 4 },
+  { label: 'Move A', units: 8 },
+];
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Use heritage research to shape creative work',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Learners explore <strong>South African heritage</strong> and transform research into visual and performing
-          arts. Respectful use of cultural sources is essential.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <p className="font-bold text-sky-700">Heritage themes</p>
-            <p className="text-slate-600">culture, symbols, stories, and identity</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-bold text-amber-700">Mixed media</p>
-            <p className="text-slate-600">combine materials in one artwork</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-bold text-emerald-700">Scene building</p>
-            <p className="text-slate-600">setting, action, and purpose</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Choreography</p>
-            <p className="text-slate-600">planned movement sequence</p>
-          </div>
-        </div>
-      </div>
+    title: 'Heritage: research with respect',
+    content: slide(
+      <>
+        <Rule>Research heritage before you create, so cultural themes are shown accurately and respectfully. Use cultural symbols with understanding of their meaning.</Rule>
+        <StepFlow steps={['Find out what the symbol means.', 'Ask who uses it and when.', 'Use it in a way that fits its meaning.', 'Say where you learned about it.']} aria="Four steps in order: find out what the symbol means, ask who uses it and when, use it in a way that fits its meaning, say where you learned about it." />
+        <Worked
+          title="You want a traditional pattern on your poster"
+          steps={[<>Ask your teacher or a community member, or use a library book.</>, <>Find out what the pattern means and when it is used.</>, <>Use it in a way that fits that meaning.</>, <>Write down where you learned about it.</>]}
+        />
+        <Mistake>Copying a symbol only because it looks nice. Without its meaning you can misrepresent a culture or repeat a stereotype.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Evaluate and polish final presentation choices',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Learners gather process evidence, evaluate effectiveness, and improve pacing, transitions, and expressive
-          choices before final sharing.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-bold text-rose-700">Process evidence</p>
-            <p className="text-slate-600">drafts, notes, and rehearsal records</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-bold text-cyan-700">Evaluation</p>
-            <p className="text-slate-600">judge strengths and next improvements</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-bold text-lime-700">Transitions</p>
-            <p className="text-slate-600">smooth movement between sections</p>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Expression</p>
-            <p className="text-slate-600">voice, mood, and body control</p>
-          </div>
-        </div>
-      </div>
+    title: 'Mixed media',
+    content: slide(
+      <>
+        <Rule>Mixed media means combining different materials in one piece, such as paint, paper and fabric.</Rule>
+        <MixedLayers layers={['Cardboard base', 'Paint', 'Torn paper', 'Fabric']} aria="Four layers stacked from bottom to top: a cardboard base, paint, torn paper and fabric." />
+        <Worked
+          title="A heritage collage"
+          steps={[<>Start with a cardboard base.</>, <>Paint the background colours.</>, <>Glue on torn paper shapes.</>, <>Add a piece of fabric, then step back: do all the materials support your theme?</>]}
+        />
+        <Mistake>Calling a painting with two colours mixed media. You need different materials. Do not add materials that do not help your message either.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Scene building and choreography',
+    content: slide(
+      <>
+        <Rule>A scene needs a clear setting and a purpose for the action so the audience can follow the story. Choreography is planning and organising movement sequences.</Rule>
+        <SectionBar parts={dance} unit="counts" aria="An example dance plan as a bar: move A for 8 counts, move B for 8 counts, a link for 4 counts, then move A again for 8 counts." />
+        <Worked
+          title="Build a market scene"
+          steps={[<>Setting: a fruit stall at a market.</>, <>Characters: a seller and a customer.</>, <>Purpose: the customer wants to buy before the stall closes.</>, <>Now every action has a reason, and the audience can follow.</>]}
+        />
+        <Mistake>Moving around the stage with no setting or reason. In choreography, order your movement ideas into a plan instead of making them up on the spot.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Polish your work and evaluate it',
+    content: slide(
+      <>
+        <Rule>Process evidence shows how your ideas developed, such as a rehearsal plan and draft sketches. Polish a group piece by rehearsing transitions and timing again and again.</Rule>
+        <StepFlow steps={['Keep draft sketches and a rehearsal plan.', 'Rehearse transitions and timing.', 'Ask: did my choices communicate the message?', 'Improve it and rehearse again.']} aria="Four steps in order: keep draft sketches and a rehearsal plan, rehearse transitions and timing, ask whether your choices communicated the message, improve and rehearse again." />
+        <Worked
+          title="Evaluate your own piece"
+          steps={[<>Write the message you wanted to send.</>, <>Ask: “Did my choices communicate the intended message?”</>, <>Name one choice that worked and one you will change.</>]}
+        />
+        <Mistake>Keeping only the final piece, or judging it by “I liked it”. Keep your drafts, and judge whether the message came across.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What does mixed media mean?" answer="Combining different materials in one piece, for example paint, paper and fabric." />
+        <Check question="Why research heritage before making art, and how should you use a cultural symbol?" answer="To represent cultural themes accurately and respectfully. Use symbols with respect and understanding of their meaning." />
+        <Check question="What is choreography, and what does a scene need?" answer="Choreography is planning and organising movement sequences. A scene needs a clear setting and a purpose for the action." />
+        <Check question="Give one example of process evidence and one useful self-evaluation question." answer="A rehearsal plan or draft sketches. “Did my choices communicate the intended message?”" />
+      </>,
     ),
   },
 ];

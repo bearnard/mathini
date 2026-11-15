@@ -1,63 +1,82 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Hub, WeekBars, Zones } from '../../../../../components/diagrams/lo/PswPictures';
+import { weekPlan } from '../../../../../components/diagrams/lo/pswHelpers';
+import { GrowthBars } from '../../../../../components/diagrams/lo/CaPictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// The week total comes from the tested weekPlan helper.
+const practice = weekPlan([15, 15, 15, 15, 15]);
+const hoursMinutes = (m: number) => `${Math.floor(m / 60)} h ${m % 60} min`;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Curate a mini-portfolio and prepare a showcase',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 4 Creative Arts consolidates the year through <strong>portfolio curation</strong> and an integrated
-          showcase. Learners choose work that demonstrates growth and quality.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <p className="font-bold text-sky-700">Curation</p>
-            <p className="text-slate-600">select meaningful evidence of learning</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-bold text-amber-700">Rehearsal discipline</p>
-            <p className="text-slate-600">consistent focused practice</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-bold text-emerald-700">Integrated showcase</p>
-            <p className="text-slate-600">combine visual and performing elements</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Self-evaluation</p>
-            <p className="text-slate-600">reflect on strengths and next steps</p>
-          </div>
-        </div>
-      </div>
+    title: 'Curating a portfolio',
+    content: slide(
+      <>
+        <Rule>Portfolio curation means selecting and organising work that shows your learning progress. Choose pieces that show improvement and a range of skills, and put them in a logical order.</Rule>
+        <GrowthBars labels={['Draft', 'Redo', 'Final']} values={[2, 3, 5]} aria="Three bars rising from left to right: a draft, a redo and a final piece, showing improvement." />
+        <Worked
+          title="Choose pieces for a mini-portfolio"
+          steps={[<>You have a first sketch, an improved sketch, a mixed-media piece and a performance photo.</>, <>Keep the first and improved sketch: they show improvement.</>, <>Keep the mixed-media piece and the photo: they show a range of skills.</>, <>Order them by date and add a short note on what you learned.</>]}
+        />
+        <Mistake>Choosing only the prettiest pieces, or putting work in a random order. The order should help viewers see your growth and intention.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Use feedback to polish final presentations',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Learners improve communication by using self- and peer-assessment. Polished work shows planning, rehearsal,
-          and clear choices for an audience.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-bold text-rose-700">Audience focus</p>
-            <p className="text-slate-600">deliver message clearly and confidently</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-bold text-cyan-700">Peer feedback</p>
-            <p className="text-slate-600">specific comments for improvement</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-bold text-lime-700">Organisation</p>
-            <p className="text-slate-600">logical order of portfolio pieces</p>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Final polish</p>
-            <p className="text-slate-600">timing, transitions, and detail checks</p>
-          </div>
-        </div>
-      </div>
+    title: 'Rehearsal discipline',
+    content: slide(
+      <>
+        <Rule>Rehearsal discipline means arriving prepared and practising consistently. It builds confidence and reliable performance quality.</Rule>
+        <WeekBars days={['Mon', 'Tue', 'Wed', 'Thu', 'Fri']} minutes={[15, 15, 15, 15, 15]} aria="Five bars for Monday to Friday, each showing 15 minutes of rehearsal, 75 minutes in the week." />
+        <Worked
+          title="A rehearsal plan"
+          steps={[<>Practise your piece for 15 minutes each weekday.</>, <>5 × 15 = {practice.total} minutes, or {hoursMinutes(practice.total)}, in the week.</>, <>Arrive with your lines, music or props ready.</>]}
+        />
+        <Mistake>Practising only the night before, or arriving at rehearsal without what you need. Regular practice is what makes a performance reliable.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'An integrated showcase',
+    content: slide(
+      <>
+        <Rule>An integrated showcase is a presentation that combines different art forms. It links visual, musical, movement or dramatic elements around one message.</Rule>
+        <Hub centre="Showcase" spokes={['Visual art', 'Music', 'Movement', 'Drama']} aria="A circle labelled Showcase with four art forms around it: visual art, music, movement and drama." />
+        <Worked
+          title="A showcase on the theme “Water”"
+          steps={[<>Visual art: a blue poster backdrop.</>, <>Music: a flowing rhythm on a drum.</>, <>Movement: a ripple passing along the group.</>, <>Drama: one spoken line about saving water.</>]}
+        />
+        <Mistake>Adding an art form that has nothing to do with your message just to have more parts. Every part should help the message.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Feedback and final checks',
+    content: slide(
+      <>
+        <Rule>Self-evaluation asks how clearly your work communicated to the audience. Helpful peer feedback is specific, balanced and tells you what to do next. Before presenting, check timing, transitions and clarity of message.</Rule>
+        <Zones zones={[{ title: 'Vague', line: '“It was good.”' }, { title: 'Helpful', line: 'A strength and a next step' }, { title: 'Unkind', line: 'Insults the person' }]} aria="Three kinds of feedback side by side: vague feedback such as it was good, helpful feedback with a strength and a next step, and unkind feedback that insults the person." />
+        <Worked
+          title="Make feedback helpful"
+          steps={[<>Not helpful: “It was not good.”</>, <>Helpful: “Your transitions improved; slow down the opening line.”</>, <>Then run through timing, transitions and your message once more.</>]}
+        />
+        <Mistake>Skipping the final run-through. Checking timing, transitions and clarity of message gives you confidence on the day.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is portfolio curation, and which two things help you choose pieces?" answer="Selecting and organising work that shows learning progress. Choose pieces that show improvement and a range of skills." />
+        <Check question="What does rehearsal discipline look like?" answer="Arriving prepared and practising consistently." />
+        <Check question="What is an integrated showcase?" answer="A presentation combining different art forms." />
+        <Check question="Name three things to check before the final presentation." answer="Timing, transitions and clarity of message." />
+      </>,
     ),
   },
 ];
