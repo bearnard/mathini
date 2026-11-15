@@ -2,7 +2,7 @@
  * One-way sync: code banks -> D1 questions (docs/notes/d1-serving-plan.md section 4.4). Turns the drift classes into SQL chunk files you apply by hand.
  * NOTHING here touches a database: it reads two wrangler JSON exports and writes .sql files (only with --write; the default is a dry run).
  *
- *   node --import tsx scripts/question-sync.ts [--questions <json>] [--versions <json>] [--out <dir>] [--grades 6,7,...] [--reset-reviews] [--keep-source] [--renames <json>] [--write]
+ *   node --import tsx scripts/question-sync.ts [--questions <json>] [--versions <json>] [--out <dir>] [--grades 6,7,...] [--reset-reviews] [--keep-source] [--renames <json>] [--tag <name>] [--write]
  *
  *   edited / reworded question  -> a new approved version (author 'seed', source_note 'sync from v<N>') + the pointer move + a question_edits row ('sync', admin 'sync')
  *   new in code                 -> registered like the seed does (curated, version 1)
@@ -81,7 +81,7 @@ export const newSql = (c: CodeQuestion): string[] => {
 export interface Chunk { name: string; grade: number; questions: number; edits: number; news: number; estimatedRows: number; sql: string }
 
 /** Items to chunks: one grade per chunk, at most CHUNK_MAX questions each, each ending with its ledger row. */
-export function buildChunks(items: SyncItem[], o: Options): Chunk[] {
+export function buildChunks(items: SyncItem[], o: Options, tag = ''): Chunk[] {
   const sorted = [...items].sort((a, b) => a.grade - b.grade || (a.kind === 'edit' ? a.task : a.code.task).localeCompare(b.kind === 'edit' ? b.task : b.code.task) || (a.kind === 'edit' ? a.questionId : a.code.id).localeCompare(b.kind === 'edit' ? b.questionId : b.code.id));
   const byGrade = new Map<number, SyncItem[]>();
   for (const it of sorted) byGrade.set(it.grade, [...(byGrade.get(it.grade) ?? []), it]);
@@ -89,7 +89,7 @@ export function buildChunks(items: SyncItem[], o: Options): Chunk[] {
   for (const [grade, list] of [...byGrade.entries()].sort((a, b) => a[0] - b[0])) {
     for (let i = 0, n = 1; i < list.length; i += CHUNK_MAX, n++) {
       const part = list.slice(i, i + CHUNK_MAX);
-      const name = `sync-g${String(grade).padStart(2, '0')}-${String(n).padStart(3, '0')}`;
+      const name = `sync${tag ? `-${tag}` : ''}-g${String(grade).padStart(2, '0')}-${String(n).padStart(3, '0')}`;
       const edits = part.filter((p): p is EditItem => p.kind === 'edit');
       const news = part.filter((p): p is NewItem => p.kind === 'new');
       const rows = edits.length * EDIT_COST + news.length * COST.newQuestion + COST.ledger;
@@ -156,7 +156,8 @@ async function main() {
   const renames = arg('--renames', '') ? (JSON.parse(fs.readFileSync(arg('--renames', ''), 'utf8')) as Record<string, string>) : {};
   const { results, prod, prodQ, prodV } = await gather(qFile, vFile);
   const plan = planSync(results, prod, o, renames, grades);
-  const chunks = buildChunks(plan.items, o);
+  const tag = arg('--tag', '');
+  const chunks = buildChunks(plan.items, o, tag);
   const total = chunks.reduce((s, c) => s + c.estimatedRows, 0);
   const nights: { n: number; rows: number; names: string[] }[] = [];
   let cur = { n: 1, rows: 0, names: [] as string[] };
