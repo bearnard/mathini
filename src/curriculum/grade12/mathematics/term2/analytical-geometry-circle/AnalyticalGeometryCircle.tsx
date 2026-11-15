@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
   import type { CapsItem } from '@/components/CapsSubjectTopic';
   import type { MathematicsItem, LearnStep } from '../../_shared/types';
 import Formula from '@/components/subjects/Formula';
+import { CircleCentreRadius } from '@/components/diagrams/maths/CircleCentreRadius';
 import FunctionGraph from '@/components/subjects/FunctionGraph';
 
   const learnSteps: LearnStep[] = [
@@ -15,6 +16,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
           features.
         </p>
         <Formula block>{String.raw`(x-a)^2 + (y-b)^2 = r^2`}</Formula>
+        <CircleCentreRadius />
       </>
     ),
   },
