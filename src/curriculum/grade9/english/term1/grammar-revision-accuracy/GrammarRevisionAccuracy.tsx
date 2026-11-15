@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Review noun, adjective and verb forms',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Nouns name people, places or things; adjectives describe them; verbs show actions. Correct forms and 
-          consistent tense strengthen writing and ensure readers understand your meaning clearly.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Master direct and indirect speech',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Direct speech quotes exact words with quotation marks: "I will attend," she said. Indirect speech reports 
-          what was said without quotes: She said she would attend. Choose the right form for your purpose.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Improve spelling and punctuation accuracy',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Correct punctuation clarifies meaning and guides readers. Full stops, commas, and quotation marks each have 
-          specific purposes. Regular practice with editing passages strengthens accuracy in your own writing.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './GrammarRevisionAccuracySteps';
 
 const bank: CapsItem[] = [
   {

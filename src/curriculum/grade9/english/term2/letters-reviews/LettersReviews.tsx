@@ -1,42 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Master letter formats and register',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Friendly letters use casual language and simple layout; formal letters follow strict conventions with 
-          proper salutations, indentation, and professional tone. Register (formal vs informal) must match the relationship 
-          and context.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Write effective reviews with clear criteria',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Reviews evaluate products, services, or performances against specific criteria. Use a consistent structure: 
-          introduce what you\'re reviewing, assess key aspects, and conclude with a recommendation or overall rating.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Apply process writing to transactional tasks',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Plan your letter or review before writing to organize ideas and ensure proper structure. Revise to improve 
-          clarity, tone, and layout so your message reaches the intended audience effectively.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './LettersReviewsSteps';
 
 const bank: CapsItem[] = [
   {
