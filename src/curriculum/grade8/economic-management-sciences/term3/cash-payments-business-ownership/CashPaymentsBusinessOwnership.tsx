@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Cash payments journal and ledger management',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          The cash payments journal records all money paid out by the business for expenses and purchases.
-          Accurate recording ensures businesses track cash flow and maintain control over spending and liabilities.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Business ownership structures: sole trader and partnerships',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A sole trader owns and operates a business alone, keeping all profits and bearing all risk.
-          A partnership shares ownership, profits, and responsibilities among two or more partners, allowing shared workload and capital.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Business management, budgeting, and market understanding',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Managers at different levels make decisions about budgets, staff, and production.
-          Understanding market demand, costs, and budgeting helps businesses plan for profit and sustainability.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {

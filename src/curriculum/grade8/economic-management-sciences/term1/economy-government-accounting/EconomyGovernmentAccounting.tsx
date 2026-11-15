@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Government, budgets, and economic foundations',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Governments at national, provincial, and local levels manage budgets and collect taxes to provide services.
-          Understanding the economy, government spending, and living standards is essential for financial literacy.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Accounting concepts and source documents',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Accounting records business transactions using source documents like invoices and receipts.
-          The double-entry system records every transaction as a debit and credit to track assets, liabilities, and equity.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Classifying transactions and recording in journals',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Transactions are classified (sales, expenses, assets) and recorded in journals chronologically.
-          Accurate classification ensures financial statements accurately reflect the business's financial position.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {
