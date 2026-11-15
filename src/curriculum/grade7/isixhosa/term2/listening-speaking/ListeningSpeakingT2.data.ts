@@ -12,7 +12,7 @@ const lesson: XhLesson = {
         { xh: 'Malini le nto?', en: 'How much is this?' },
         { xh: 'Ndicela isonka.', en: 'Please may I have bread.' },
       ],
-      mistake: 'Do not demand: Nika amasi! (Give me amasi!) sounds rude. Add nceda or start with ndicela.',
+      mistake: 'Do not demand: Ndinike amasi! (Give me amasi!) sounds rude. Add nceda or start with ndicela.',
     },
     {
       title: 'Directions',
