@@ -1,65 +1,102 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, LetterLayout, MeaningPairs, OrderTiles, TaggedBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Email conventions',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Emails need a subject line, greeting, clear body and suitable closing.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">onderwerplyn <SpeakButton text="onderwerplyn" /></span>
-          <span className="inline-flex items-center">groet <SpeakButton text="groet" /></span>
-          <span className="inline-flex items-center">register <SpeakButton text="register" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Review writing',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A good review gives an opinion, evidence and a final recommendation.
-        </p>
-        <p className="text-xl text-slate-700">Match tone to purpose and audience.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Choose the correct formality',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Formal writing avoids slang and uses respectful, direct wording.
-        </p>
-        <p className="text-slate-500">Always check if the reader is a friend, teacher or organisation.</p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these greeting phrases aloud so that everyday Afrikaans conversation feels natural and confident.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Goeiemore"} phonetic={"[ɣujəˈmɔːrə]"} meaning={"Good morning"} lang="af" />
-          <PronunciationPlayer word={"Goedag"} phonetic={"[ɣuˈdax]"} meaning={"Good day"} lang="af" />
-          <PronunciationPlayer word={"Totsiens"} phonetic={"[tɔtˈsins]"} meaning={"Goodbye"} lang="af" />
-          <PronunciationPlayer word={"Dankie"} phonetic={"[ˈdaŋki]"} meaning={"Thank you"} lang="af" />
-          <PronunciationPlayer word={"Asseblief"} phonetic={"[asəˈblif]"} meaning={"Please"} lang="af" />
-          <PronunciationPlayer word={"Verskoon my"} phonetic={"[fərˈskoːn mɛi]"} meaning={"Excuse me"} lang="af" />
-          <PronunciationPlayer word={"Hoe gaan dit?"} phonetic={"[huː χɑːn dət]"} meaning={"How are you?"} lang="af" />
-          <PronunciationPlayer word={"Baie goed"} phonetic={"[ˈbɑːiə χut]"} meaning={"Very well"} lang="af" />
-        </div>
-      </div>
+    title: 'The parts of an email',
+    content: slide(
+      <>
+        <Rule>An <Af>e-pos</Af> is a transactional text. The <Af>Onderwerplyn</Af> <En>subject line</En> explains the topic in one short phrase. Then come the greeting, the message and the closing.</Rule>
+        <LetterLayout
+          parts={['Onderwerplyn', 'Geagte Mnr. Jacobs', 'Boodskap', 'Vriendelike groete', 'Naam']}
+          aria="An email drawn as five strips from top to bottom: Onderwerplyn (subject line), the greeting Geagte Mnr. Jacobs, the Boodskap (message, the biggest strip), the closing Vriendelike groete, and the Naam (name)."
+        />
+        <Worked
+          title="Write the subject line"
+          steps={[
+            <>A short phrase that says what the email is about: <Af>Aansoek om 'n boek</Af> <En>Request for a book</En>.</>,
+            <>It is not a whole sentence and not left empty.</>,
+          ]}
+        />
+        <Mistake>Leaving the subject line empty or writing the whole message in it. The subject line is one short phrase.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Formal greeting and closing',
+    content: slide(
+      <>
+        <Rule>To a school principal write <Af>Geagte Mnr. Jacobs</Af> <En>Dear Mr Jacobs</En> and close with <Af>Vriendelike groete</Af> <En>kind regards</En>. A formal letter closes with <Af>Die uwe</Af>.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'Geagte Mnr. Jacobs', tag: 'aanhef' }, { word: 'Vriendelike groete', tag: 'slot' }]}
+          aria="Two parts of a formal email: the greeting Geagte Mnr. Jacobs (aanhef) and the closing Vriendelike groete (slot)."
+        />
+        <Worked
+          title="Choose the formal words"
+          steps={[
+            <>Greeting: <Af>Geagte Mnr. Jacobs</Af>, not <Af>Haai oom</Af>. <SpeakButton text="Geagte Mnr. Jacobs" /></>,
+            <>Closing in a formal email: <Af>Vriendelike groete</Af>.</>,
+          ]}
+        />
+        <Mistake>Greeting a principal like a friend. Use the title and surname: <Af>Mnr.</Af> <En>Mr</En> or <Af>Mev.</Af> <En>Mrs</En>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Register: fit language to purpose and reader',
+    content: slide(
+      <>
+        <Rule>Register matters because <Af>Dit pas taal by doel en gehoor</Af> <En>it fits language to purpose and audience</En>. To a friend the register is <Af>Informeel maar duidelik</Af> <En>informal but clear</En>.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['skoolhoof', 'formeel'], ['vriend', 'informeel']]}
+          aria="Two readers and the register to use: a skoolhoof (school principal) needs formeel (formal) language, a vriend (friend) allows informeel (informal) language."
+        />
+        <Worked
+          title="Match the reader"
+          steps={[
+            <>To the principal: <Af>Ek wil graag vra of ek...</Af> <En>I would like to ask whether I...</En></>,
+            <>To a friend: <Af>Hallo, kom jy Saterdag?</Af> <En>Hello, are you coming on Saturday?</En> Relaxed, but still clear.</>,
+          ]}
+        />
+        <Mistake>Using the same language for everyone. Slang suits a friend, not a principal; and even to a friend the message must stay clear.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Writing a book review',
+    content: slide(
+      <>
+        <Rule>A review starts with your opinion. After your opinion comes <Af>Bewyse of redes uit die teks</Af> <En>evidence or reasons from the text</En>. Then you close with a recommendation.</Rule>
+        <OrderTiles
+          tiles={['Mening', 'Bewyse', 'Slot']}
+          aria="Three parts of a review in order: Mening (opinion), Bewyse (evidence), Slot (closing)."
+        />
+        <Worked
+          title="Opinion plus reason"
+          steps={[
+            <><Af>Hierdie roman is boeiend omdat die konflik realisties is.</Af> <En>This novel is gripping because the conflict is realistic.</En> <SpeakButton text="Hierdie roman is boeiend omdat die konflik realisties is." /></>,
+            <>The opinion is <Af>boeiend</Af>; the reason follows after <Af>omdat</Af>.</>,
+          ]}
+        />
+        <Mistake>Giving an opinion with no evidence, or opening with a fact about the cover. Back up your opinion with a reason from the text.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Which part of an email explains the topic in one short phrase?</>} answer={<><Af>Onderwerplyn</Af>.</>} />
+        <Check question={<>Choose the formal greeting for a principal.</>} answer={<><Af>Geagte Mnr. Jacobs</Af>.</>} />
+        <Check question={<>Which closing suits a formal email?</>} answer={<><Af>Vriendelike groete</Af>.</>} />
+        <Check question={<>What should follow your opinion in a review?</>} answer={<><Af>Bewyse of redes uit die teks</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -114,6 +151,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'Audience determines an appropriate level of formality.',
   },
 ];
+
+export { bank };
 
 const ElectronicCommunicationReviews = () => (
   <AfrikaansTopic
