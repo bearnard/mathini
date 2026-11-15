@@ -63,7 +63,7 @@ const bank: MLItem[] = [
     prompt: 'The rand strengthens and the USD rate falls from R19,00 to R17,50. What happens to the cost of a $200 item for a South African buyer?',
     options: ['It becomes more expensive', 'It stays the same', 'It becomes cheaper', 'The item disappears from the market'],
     answer: 'It becomes cheaper',
-    explanation: 'Old cost: $200 × R19 = R3 800. New cost: $200 × R17,50 = R3 500. The item is R300 cheaper.',
+    explanation: 'Old cost: \\$200 × R19 = R3 800. New cost: \\$200 × R17,50 = R3 500. The item is R300 cheaper.',
   },
 ];
 

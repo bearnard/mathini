@@ -219,3 +219,49 @@ test('decimal_point: version numbers and IP addresses are only a problem if the 
   assert.equal(checkQuestion(x, {}).reasons.some((y) => y.code === 'decimal_point'), false);
   assert.ok(decimalPointsIn('192.168.1.10').length === 1, 'the matcher sees one dotted number');
 });
+
+// --- LaTeX guards (2026-11 bank-formula audit). Examples are real item_cache rows. ---
+const FF = '\f';
+const TAB = '\t';
+
+test('control character in prompt/options/answer is rejected (id 12568: \\frac became FF + "rac")', () => {
+  const x = q('Which equation matches "a divided by 7 is 39"?', [`$${FF}rac{a}{7} = 39$`, '$7a = 39$', '$a + 7 = 39$', '$a - 7 = 39$'], '$7a = 39$');
+  has(x, 'latex_control_char');
+  assert.equal(checkQuestion(x).ok, false);
+});
+
+test('a TAB (the silent \\times / \\text case, ids 10242 and 10147) is rejected, even leading an option that trim() would clean', () => {
+  has(q('Which expression shows n multiplied by 10?', [`${TAB}imes n`, '$n + 10$', '$n - 10$', '$n \\div 10$'], '$n + 10$'), 'latex_control_char');
+  has(q(`A temperature drops from $8^${TAB}ext{C}$ to $-3^${TAB}ext{C}$. How much did it drop?`, ['11', '5', '6', '12'], '11'), 'latex_control_char');
+  has(q('What is 2 + 2?', ['4', '5', '6', '7'], `4${String.fromCharCode(8)}`), 'latex_control_char'); // backspace (\b)
+  has(q('What is 2 + 2?', ['4\r', '5', '6', '7'], '5'), 'latex_control_char'); // carriage return (\r)
+});
+
+test('newline is NOT a control-char reject, and clean LaTeX passes', () => {
+  lacks(q('Solve $x^2 = 9$.\nWhat is x?', ['$3$', '$4$', '$5$', '$6$'], '$3$'), 'latex_control_char');
+  lacks(q('What is $\\frac{1}{2} + \\frac{1}{4}$?', ['$\\frac{3}{4}$', '$\\frac{2}{6}$', '$\\frac{1}{8}$', '$1$'], '$\\frac{3}{4}$'), 'latex_control_char');
+});
+
+test('doubled backslash inside $...$ is rejected (id 16700)', () => {
+  const x = q("If a flow diagram shows the rule '$\\\\times 3$', what is the inverse rule?", ['$\\\\div 3$', '$\\\\times 3$', '$+ 3$', '$- 3$'], '$\\\\div 3$');
+  has(x, 'latex_doubled_backslash');
+  // a LaTeX line break (\\ then a space) and text outside $...$ are not flagged
+  lacks(q('Which is right?', ['$a \\\\ b$', '$c$', '$d$', '$e$'], '$c$'), 'latex_doubled_backslash');
+  lacks(q('Pick the path C:\\\\data here.', ['one', 'two', 'three', 'four'], 'one'), 'latex_doubled_backslash');
+});
+
+test('escaped dollar (currency) never opens a maths run (ExchangeRates.tsx:112)', () => {
+  const x = q('A traveller needs A\\$400 at a rate of A\\$1 = R12.50. What is the cost?', ['R4 800', 'R5 000', 'R5 080', 'R5 200'], 'R5 080');
+  const seen: string[] = [];
+  checkQuestion(x, { validateMath: (l) => (seen.push(l), null) });
+  assert.deepEqual(seen, []);
+});
+
+test('injected validateMath: a failing $...$ run is latex_parse (reject); absent validator does nothing', () => {
+  const x = q('What is $\\frac{1}{2$?', ['$1$', '$2$', '$3$', '$4$'], '$1$');
+  lacks(x, 'latex_parse');
+  const err = (l: string) => (l.includes('{1}{2') ? 'Expected }' : null);
+  has(x, 'latex_parse', { validateMath: err });
+  assert.equal(checkQuestion(x, { validateMath: err }).ok, false);
+  lacks(clean, 'latex_parse', { validateMath: err });
+});

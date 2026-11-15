@@ -9,6 +9,7 @@
 //     (it used to be a generic Grade 6 string),
 //   - every generated item passes acceptItems; rejects are never stored; a batch whose keys are mostly the longest option
 //     is regenerated; a per-run budget caps API calls and accepted questions (Worker CPU and cost limits).
+import { katexError } from './latexCheck';
 import { acceptItems, checkBatch, NUMERIC_SUBJECTS } from '../shared/questionQuality';
 import { registry } from './caps/registry';
 import { TASK_INDEX } from './caps/taskIndex.generated';
@@ -169,7 +170,7 @@ export async function runTopUp(deps: TopUpDeps, limits: TopUpLimits = DEFAULT_LI
         items = attempt === limits.maxRegenerate ? items : [];
       }
 
-      const { accepted, rejected } = acceptItems(items, { existingPrompts: prompts, numericOk, decimalComma });
+      const { accepted, rejected } = acceptItems(items, { existingPrompts: prompts, numericOk, decimalComma, validateMath: katexError });
       for (const r of rejected) {
         summary.rejected++;
         for (const x of r.reasons.filter((y) => y.severity === 'reject')) summary.rejectedByReason[x.code] = (summary.rejectedByReason[x.code] ?? 0) + 1;

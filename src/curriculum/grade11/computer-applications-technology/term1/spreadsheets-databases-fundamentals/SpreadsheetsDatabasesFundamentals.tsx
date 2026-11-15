@@ -114,7 +114,7 @@ const bank: CATItem[] = [
     prompt: 'A formula =B2*$C$1 is copied from row 2 to row 5. What does the formula become?',
     options: ['=B5*$C$4', '=B5*$C$1', '=B2*$C$1', '=$B$5*$C$1'],
     answer: '=B5*$C$1',
-    explanation: 'B2 is a relative reference and adjusts to B5. $C$1 is an absolute reference and stays fixed as C1.',
+    explanation: 'B2 is a relative reference and adjusts to B5. \\$C\\$1 is an absolute reference and stays fixed as C1.',
   },
   {
     prompt: 'Which function would you use to count only cells that contain numbers in the range A1:A20?',
@@ -162,7 +162,7 @@ const bank: CATItem[] = [
     prompt: 'Which keyboard shortcut toggles between reference types (relative/absolute) in most spreadsheet applications?',
     options: ['F2', 'F4', 'Ctrl+T', 'Alt+F4'],
     answer: 'F4',
-    explanation: 'Pressing F4 while editing a cell reference cycles through: relative (A1) → absolute ($A$1) → row-absolute (A$1) → column-absolute ($A1).',
+    explanation: 'Pressing F4 while editing a cell reference cycles through: relative (A1) → absolute (\\$A\\$1) → row-absolute (A\\$1) → column-absolute (\\$A1).',
   },
   {
     prompt: 'What data type should a "Phone Number" field in a database be set to?',
