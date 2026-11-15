@@ -163,7 +163,7 @@ const items: LifeSciencesItem[] = [
     "id": "human-evolution-2",
     "question": "Bipedalism means:",
     "options": [
-      "Flying with two wings",
+      "Flying with two wings and a tail",
       "Walking upright on two legs",
       "Using tools to hunt",
       "Living in trees only"
@@ -201,7 +201,7 @@ const items: LifeSciencesItem[] = [
     "options": [
       "Evolved in South America first",
       "Evolved in Africa and then spread elsewhere",
-      "Evolved independently on every continent",
+      "Evolved independently on several continents at once",
       "Did not share common ancestry"
     ],
     "answer": 1,
@@ -214,7 +214,7 @@ const items: LifeSciencesItem[] = [
       "Are unrelated",
       "Share a common ancestor",
       "Evolved from dinosaurs",
-      "Have identical DNA"
+      "Have identical DNA sequences"
     ],
     "answer": 1,
     "explanation": "Both lineages diverged from ancestral populations in the past."
@@ -230,9 +230,9 @@ const items: LifeSciencesItem[] = [
     "id": "human-evolution-8",
     "question": "Which type of evidence supports the relatedness of humans and other primates?",
     "options": [
-      "Only body temperature",
+      "Body temperature",
       "Genetic similarities",
-      "Different diets only",
+      "Different diets",
       "Different habitats only"
     ],
     "answer": 1,

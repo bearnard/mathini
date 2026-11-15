@@ -105,9 +105,9 @@ const items: RawEconomicsItem[] = [
     "id": "ei-1",
     "question": "The CPI measures changes in ...",
     "options": [
-      "producer profits only",
+      "producer profits in each industry",
       "consumer prices over time",
-      "GDP per capita only",
+      "GDP per capita",
       "exchange rates only"
     ],
     "answer": 1,
@@ -118,7 +118,7 @@ const items: RawEconomicsItem[] = [
     "question": "Demand-pull inflation occurs when ...",
     "options": [
       "aggregate demand grows too quickly",
-      "imports become cheaper",
+      "imports become cheaper for local consumers",
       "taxes are zero",
       "productivity rises rapidly"
     ],
@@ -167,10 +167,10 @@ const items: RawEconomicsItem[] = [
     "id": "ei-7",
     "question": "The PPI mainly measures price changes at the ... level.",
     "options": [
-      "retail consumer",
+      "retail or consumer",
       "factory or producer",
       "import tourist",
-      "exchange-control"
+      "exchange-control board"
     ],
     "answer": 1,
     "explanation": "The producer price index tracks prices received by domestic producers."

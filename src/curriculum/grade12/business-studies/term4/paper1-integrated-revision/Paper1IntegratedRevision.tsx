@@ -90,7 +90,7 @@ const items: BusinessStudiesItem[] = [
     "options": [
       "Revise only favourite topics",
       "Link related topics across the syllabus",
-      "Avoid past papers",
+      "Avoid past papers and memoranda from earlier years",
       "Ignore weak areas"
     ],
     "answer": 1,
@@ -100,7 +100,7 @@ const items: BusinessStudiesItem[] = [
     "id": "paper1-integrated-revision-3",
     "question": "Why should learners practise past papers under timed conditions?",
     "options": [
-      "To memorise only one answer",
+      "To memorise one answer for each question",
       "To improve exam technique and time use",
       "To avoid reading instructions",
       "To replace all studying"
@@ -113,7 +113,7 @@ const items: BusinessStudiesItem[] = [
     "question": "In an integrated case study, the first useful step is to:",
     "options": [
       "Underline key facts and identify the topic",
-      "Write the conclusion immediately",
+      "Write the conclusion immediately without reading the source",
       "Skip the source",
       "Change the question wording"
     ],
@@ -124,7 +124,7 @@ const items: BusinessStudiesItem[] = [
     "id": "paper1-integrated-revision-5",
     "question": "If a question asks for legislation linked to a hiring scenario, you should:",
     "options": [
-      "Answer with any topic you remember",
+      "Answer with any topic you remember from your notes",
       "Connect the facts to the relevant labour law",
       "Ignore the scenario",
       "Write only definitions with no link"

@@ -91,7 +91,7 @@ const items: PhysicalSciencesItem[] = [
     "question": "Which expression gives the work done by a constant force on an object?",
     "options": [
       "W = FΔx cosθ",
-      "W = ma",
+      "W = mgΔx / cosθ",
       "W = mv",
       "W = F/Δx"
     ],
@@ -102,7 +102,7 @@ const items: PhysicalSciencesItem[] = [
     "id": "work-energy-power-2",
     "question": "When does a force do zero work on a moving object?",
     "options": [
-      "When the force is parallel to the displacement",
+      "When the force is parallel to the direction of the displacement",
       "When the force is perpendicular to the displacement",
       "When the object has mass",
       "When the object moves at constant speed"
@@ -138,7 +138,7 @@ const items: PhysicalSciencesItem[] = [
     "id": "work-energy-power-5",
     "question": "In the absence of friction, the total mechanical energy of a system is:",
     "options": [
-      "always zero",
+      "zero",
       "always increasing",
       "conserved",
       "equal to the power"
@@ -151,7 +151,7 @@ const items: PhysicalSciencesItem[] = [
     "question": "Average power is calculated using:",
     "options": [
       "P = W/Δt",
-      "P = FΔx",
+      "P = FΔx cosθ",
       "P = mv",
       "P = Ir"
     ],

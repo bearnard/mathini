@@ -199,7 +199,7 @@ const items: LifeSciencesItem[] = [
       "Ribose",
       "Glucose",
       "Deoxyribose",
-      "Sucrose"
+      "Sucrose (table sugar)"
     ],
     "answer": 2,
     "explanation": "DNA nucleotides contain deoxyribose sugar, while RNA nucleotides contain ribose."
@@ -273,7 +273,7 @@ const items: LifeSciencesItem[] = [
       "Position of the ribosome only",
       "Order of amino acids in the polypeptide",
       "Number of organelles in the cell",
-      "Amount of water in the cytoplasm"
+      "Amount of water in the cytoplasm of the cell"
     ],
     "answer": 1,
     "explanation": "Changing the DNA base sequence can alter mRNA codons and therefore the amino-acid sequence of the protein."

@@ -100,10 +100,10 @@ const items: BusinessStudiesItem[] = [
     "id": "human-resources-processes-2",
     "question": "A job specification focuses mainly on the applicant's:",
     "options": [
-      "Working hours only",
+      "Working hours and break times",
       "Personal qualifications and skills",
       "Salary advice",
-      "Disciplinary history only"
+      "Disciplinary history at a previous employer"
     ],
     "answer": 1,
     "explanation": "A job specification describes the qualities, qualifications and competencies needed."
@@ -143,7 +143,7 @@ const items: BusinessStudiesItem[] = [
     "id": "human-resources-processes-6",
     "question": "Placement means that the employee is:",
     "options": [
-      "Dismissed after probation",
+      "Dismissed once the probation period has ended",
       "Matched to the most suitable job",
       "Sent to an outside supplier",
       "Promoted automatically"
@@ -155,7 +155,7 @@ const items: BusinessStudiesItem[] = [
     "id": "human-resources-processes-7",
     "question": "Why may a business choose external recruitment?",
     "options": [
-      "To avoid all paperwork",
+      "To avoid the paperwork involved in hiring",
       "To bring in fresh ideas and scarce skills",
       "To skip interviews",
       "To reduce all training needs to zero"
@@ -167,7 +167,7 @@ const items: BusinessStudiesItem[] = [
     "id": "human-resources-processes-8",
     "question": "Which statement about induction is CORRECT?",
     "options": [
-      "It happens before shortlisting",
+      "It takes place before applicants are shortlisted for the job",
       "It introduces the new employee to the workplace",
       "It replaces the employment contract",
       "It is only needed for managers"

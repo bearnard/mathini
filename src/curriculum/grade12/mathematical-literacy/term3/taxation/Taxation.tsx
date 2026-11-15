@@ -108,8 +108,8 @@ const items: MathematicalLiteracyItem[] = [
     "question": "VAT is best described as a tax on:",
     "options": [
       "goods and services purchased",
-      "only salary income",
-      "only savings interest",
+      "salary income earned by workers",
+      "interest earned on savings accounts",
       "all exports only"
     ],
     "answer": 0,
@@ -143,8 +143,8 @@ const items: MathematicalLiteracyItem[] = [
     "id": "taxation-7",
     "question": "In a progressive tax system, the lower tax bracket is calculated:",
     "options": [
-      "after the higher bracket",
-      "only if overtime is worked",
+      "after the higher bracket portion is calculated",
+      "if overtime is worked",
       "before the higher bracket portion",
       "only on deductions"
     ],

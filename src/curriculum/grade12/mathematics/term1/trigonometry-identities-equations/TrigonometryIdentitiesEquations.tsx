@@ -101,7 +101,7 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
 {
   id: "trig1-4",
   question: "Solve sin x = 1/2 for 0° ≤ x < 360°.",
-  options: ["30° only", "150° only", "30° and 150°", "210° and 330°"],
+  options: ["30°", "150° only", "30° and 150°", "210° and 330°"],
   answer: 2,
   explanation: "sin x is positive in quadrants I and II, so x = 30° and 150°.",
 },
@@ -129,7 +129,7 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
 {
   id: "trig1-8",
   question: "Evaluate sin 2(30°).",
-  options: ["1/2", "√3/2", "1", "0"],
+  options: ["1/√2", "√3/2", "1", "0"],
   answer: 1,
   explanation: "sin 2(30°) = sin 60° = √3/2.",
 }

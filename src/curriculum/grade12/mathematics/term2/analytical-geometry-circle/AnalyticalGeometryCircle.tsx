@@ -90,7 +90,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 {
   id: "circle-4",
   question: "A line tangent to a circle is always ...",
-  options: ["parallel to the radius at the point of contact", "perpendicular to the radius at the point of contact", "equal in length to the radius", "through the centre"],
+  options: ["parallel to the radius drawn at the point of contact", "perpendicular to the radius at the point of contact", "equal in length to the radius", "through the centre"],
   answer: 1,
   explanation: "The radius to the point of contact is perpendicular to the tangent.",
 },

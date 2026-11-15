@@ -133,7 +133,7 @@ const bank: AccountingItem[] = [
       "Creditors",
       "Employees",
       "Shareholders",
-      "SARS"
+      "The auditors"
     ],
     "answer": 2,
     "explanation": "Shareholders are the owners and elect directors at meetings such as the AGM."

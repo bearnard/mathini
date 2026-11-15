@@ -179,7 +179,7 @@ const items: RawEconomicsItem[] = [
     "id": "mr-8",
     "question": "Which answer style is best in a macro data-response question?",
     "options": [
-      "State facts without linking them to theory",
+      "State facts from memory without linking them to the theory",
       "Use the source and explain the economic concept clearly",
       "Ignore South African context",
       "Write only definitions"

@@ -185,7 +185,7 @@ const items: LifeSciencesItem[] = [
       "One base",
       "Two bases",
       "Three bases",
-      "Four bases"
+      "Four or more bases"
     ],
     "answer": 2,
     "explanation": "Protein synthesis uses triplets of bases called codons."
@@ -202,8 +202,8 @@ const items: LifeSciencesItem[] = [
     "question": "Natural selection acts on inherited variation in a:",
     "options": [
       "Population",
-      "Single chromosome only",
-      "Food chain only",
+      "Single chromosome",
+      "Food chain",
       "Laboratory diagram only"
     ],
     "answer": 0,
@@ -213,9 +213,9 @@ const items: LifeSciencesItem[] = [
     "id": "revision-trial-examinations-6",
     "question": "A pedigree diagram is used to study:",
     "options": [
-      "The digestive system",
+      "The digestive system in different organisms",
       "Inheritance through generations",
-      "Protein synthesis only",
+      "Protein synthesis in the cell",
       "Plant tropisms only"
     ],
     "answer": 1,

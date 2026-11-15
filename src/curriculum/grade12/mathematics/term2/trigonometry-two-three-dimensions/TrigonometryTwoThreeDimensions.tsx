@@ -115,7 +115,7 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
 {
   id: "trig2-7",
   question: "Which statement about angles of elevation and depression is correct?",
-  options: ["They are always supplementary", "They are equal when measured from parallel horizontals", "They are only used in right-angled triangles", "They are measured from the vertical"],
+  options: ["They are supplementary when measured from the same horizontal", "They are equal when measured from parallel horizontals", "They are only used in right-angled triangles", "They are measured from the vertical"],
   answer: 1,
   explanation: "They are equal because the horizontal lines are parallel and the line of sight forms equal alternate angles.",
 },

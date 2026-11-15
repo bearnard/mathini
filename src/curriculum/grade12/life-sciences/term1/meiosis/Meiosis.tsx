@@ -165,7 +165,7 @@ const items: LifeSciencesItem[] = [
     "id": "meiosis-1",
     "question": "The chromosome number is halved during meiosis so that:",
     "options": [
-      "All body cells remain diploid",
+      "The body cells can remain diploid after growth",
       "Fertilisation can restore the diploid number",
       "DNA replication is avoided completely",
       "Proteins can be made faster"
@@ -189,7 +189,7 @@ const items: LifeSciencesItem[] = [
     "id": "meiosis-3",
     "question": "Which structures separate during anaphase I?",
     "options": [
-      "Sister chromatids",
+      "Sister chromatids of each chromosome",
       "Homologous chromosomes",
       "Genes",
       "Centrioles"
@@ -239,9 +239,9 @@ const items: LifeSciencesItem[] = [
     "id": "meiosis-8",
     "question": "A key difference between meiosis and mitosis is that meiosis:",
     "options": [
-      "Occurs only in bacteria",
+      "Occurs in prokaryotic organisms",
       "Produces gametes and genetic variation",
-      "Produces two identical diploid cells only",
+      "Produces two genetically identical diploid cells",
       "Never involves DNA replication"
     ],
     "answer": 1,

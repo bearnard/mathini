@@ -74,7 +74,7 @@ const items: BusinessStudiesItem[] = [
     "id": "human-rights-inclusivity-1",
     "question": "An inclusive workplace is one where employees:",
     "options": [
-      "Are treated exactly the same in every circumstance",
+      "Are treated in exactly the same way regardless of circumstances",
       "Feel respected, valued and able to participate",
       "Must hide their differences",
       "May only use one language at all times"

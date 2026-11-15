@@ -107,9 +107,9 @@ const items: RawEconomicsItem[] = [
     "id": "tp-3",
     "question": "Which reason is commonly given for protecting an infant industry?",
     "options": [
-      "It is already the world leader",
+      "It is already the world leader in its sector",
       "It needs time to become competitive",
-      "It never needs innovation",
+      "It does not need innovation",
       "It should avoid all exports"
     ],
     "answer": 1,
@@ -150,7 +150,7 @@ const items: RawEconomicsItem[] = [
     "id": "tp-7",
     "question": "A likely disadvantage of protectionism is that it can ...",
     "options": [
-      "lower domestic prices in every case",
+      "lower domestic prices in most cases",
       "reduce competition and raise prices",
       "eliminate all unemployment",
       "guarantee export success"

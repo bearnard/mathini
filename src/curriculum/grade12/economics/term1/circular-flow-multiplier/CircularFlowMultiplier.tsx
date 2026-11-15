@@ -147,7 +147,7 @@ const items: RawEconomicsItem[] = [
     "id": "cfm-5",
     "question": "Why does a higher marginal propensity to consume increase the multiplier?",
     "options": [
-      "It reduces imports automatically",
+      "It reduces imports automatically as incomes rise",
       "It means households save more",
       "It means more of extra income is re-spent",
       "It makes taxes smaller"

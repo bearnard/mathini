@@ -92,7 +92,7 @@ const items: RawEconomicsItem[] = [
     "options": [
       "many identical firms",
       "one dominant seller",
-      "free entry only",
+      "free entry and exit",
       "perfect information only"
     ],
     "answer": 1,
@@ -138,7 +138,7 @@ const items: RawEconomicsItem[] = [
     "id": "im-5",
     "question": "Collusion means firms ...",
     "options": [
-      "cut prices independently",
+      "cut prices independently of rival firms",
       "agree secretly on price or output",
       "must accept the market price",
       "leave the industry immediately"
@@ -172,7 +172,7 @@ const items: RawEconomicsItem[] = [
       "Competition authorities",
       "SARB reserves division",
       "Municipal schools",
-      "Export councils only"
+      "Export promotion councils"
     ],
     "answer": 0,
     "explanation": "Competition authorities investigate collusion and abuse of market power."

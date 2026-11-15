@@ -104,7 +104,7 @@ const bank: AccountingItem[] = [
     "question": "Inventory should be valued at the lower of:",
     "options": [
       "cost and net realisable value",
-      "selling price and cost price",
+      "selling price and cost price per unit",
       "cost and trade discount",
       "VAT and selling price"
     ],
@@ -118,7 +118,7 @@ const bank: AccountingItem[] = [
       "a lower closing stock value",
       "a higher closing stock value",
       "no closing stock",
-      "a lower sales value"
+      "a lower sales value for the year"
     ],
     "answer": 1,
     "explanation": "FIFO leaves the latest, more expensive units in ending inventory, so closing stock is usually higher."
@@ -127,8 +127,8 @@ const bank: AccountingItem[] = [
     "id": "ivc-3",
     "question": "The perpetual inventory system updates inventory records:",
     "options": [
-      "only at year-end",
-      "only when the bank statement arrives",
+      "once, at the end of the financial year",
+      "when the bank statement arrives",
       "continuously as transactions occur",
       "only for damaged stock"
     ],
@@ -140,7 +140,7 @@ const bank: AccountingItem[] = [
     "question": "Under the periodic system, cost of sales is normally determined:",
     "options": [
       "after a stock count at period-end",
-      "every time a sale is made",
+      "each time a sale is recorded in the journal",
       "from the cash flow statement",
       "by adding VAT only"
     ],
@@ -175,7 +175,7 @@ const bank: AccountingItem[] = [
     "id": "ivc-7",
     "question": "A stock deficit identified during a stock count usually suggests:",
     "options": [
-      "the business issued more shares",
+      "the business issued more shares during the year to raise capital",
       "shrinkage, theft, damage or recording errors",
       "the company paid too much income tax",
       "the cash budget is balanced"
@@ -187,7 +187,7 @@ const bank: AccountingItem[] = [
     "id": "ivc-8",
     "question": "Which control measure helps strengthen inventory control?",
     "options": [
-      "Allowing the same person to order, receive and record stock",
+      "Allowing the same person to order, receive and record the stock",
       "Using pre-numbered stock sheets and independent stock counts",
       "Leaving storerooms unlocked at all times",
       "Recording damaged stock at full selling price"

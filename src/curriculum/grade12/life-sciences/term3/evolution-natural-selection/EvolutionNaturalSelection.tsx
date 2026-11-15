@@ -140,8 +140,8 @@ const items: LifeSciencesItem[] = [
     "question": "Natural selection acts directly on an organism’s:",
     "options": [
       "Phenotype",
-      "Age only",
-      "Habitat only",
+      "Age",
+      "Habitat",
       "Chromosome number only"
     ],
     "answer": 0,
@@ -151,9 +151,9 @@ const items: LifeSciencesItem[] = [
     "id": "evolution-natural-selection-2",
     "question": "A key idea in Darwin’s theory is that organisms in a population:",
     "options": [
-      "Are all identical",
+      "Are identical to one another",
       "Show heritable variation",
-      "Never compete",
+      "Do not compete",
       "Always acquire useful traits during life"
     ],
     "answer": 1,
@@ -171,8 +171,8 @@ const items: LifeSciencesItem[] = [
     "question": "Speciation is most likely when populations become:",
     "options": [
       "Genetically isolated",
-      "Fully mixed every generation",
-      "Identical in every trait",
+      "Fully mixed in each generation",
+      "Identical in their traits",
       "Unable to reproduce at all"
     ],
     "answer": 0,

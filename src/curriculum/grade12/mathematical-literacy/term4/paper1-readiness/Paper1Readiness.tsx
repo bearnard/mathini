@@ -135,7 +135,7 @@ const items: MathematicalLiteracyItem[] = [
     "id": "paper1-readiness-8",
     "question": "What is a useful first step when reading a long Paper 1 case study?",
     "options": [
-      "Ignore the source and guess",
+      "Ignore the source and guess the answers",
       "Underline key facts, values and units",
       "Answer from memory only",
       "Start with the last question"

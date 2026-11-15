@@ -122,7 +122,7 @@ const items: RawEconomicsItem[] = [
     "question": "Which tax is an example of a direct tax?",
     "options": [
       "VAT",
-      "Fuel levy",
+      "Fuel levy on petrol and diesel",
       "Personal income tax",
       "Customs duty"
     ],
@@ -145,7 +145,7 @@ const items: RawEconomicsItem[] = [
     "id": "ps-4",
     "question": "A progressive tax system means that ...",
     "options": [
-      "everyone pays the same percentage regardless of income",
+      "everyone pays the same percentage of income regardless of how much they earn",
       "higher-income earners pay a higher proportion of income",
       "only companies pay tax",
       "indirect taxes are removed"
@@ -170,9 +170,9 @@ const items: RawEconomicsItem[] = [
     "question": "Public-sector failure is most closely linked to ...",
     "options": [
       "perfect information and zero corruption",
-      "efficient allocation in every case",
+      "efficient allocation of resources by the state",
       "inefficiency and poor service delivery",
-      "the absence of all government"
+      "the absence of any government"
     ],
     "answer": 2,
     "explanation": "Public-sector failure refers to government intervention that produces inefficient outcomes."
@@ -183,7 +183,7 @@ const items: RawEconomicsItem[] = [
     "options": [
       "Reducing income inequality",
       "Maximising monopoly profits",
-      "Lowering all wages",
+      "Lowering wages for workers",
       "Removing all imports"
     ],
     "answer": 0,

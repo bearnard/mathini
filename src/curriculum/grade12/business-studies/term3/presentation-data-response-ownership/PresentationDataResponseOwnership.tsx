@@ -125,7 +125,7 @@ const items: BusinessStudiesItem[] = [
     "id": "presentation-data-response-ownership-4",
     "question": "Which form of ownership has unlimited liability for one owner?",
     "options": [
-      "Private company",
+      "Private company (Pty) Ltd",
       "Sole proprietorship",
       "Public company",
       "Non-profit company"
@@ -151,7 +151,7 @@ const items: BusinessStudiesItem[] = [
     "options": [
       "Maximise only one owner's control",
       "Meet the common needs of members",
-      "Avoid all rules",
+      "Avoid the rules that apply to businesses",
       "Trade shares publicly"
     ],
     "answer": 1,
@@ -173,7 +173,7 @@ const items: BusinessStudiesItem[] = [
     "id": "presentation-data-response-ownership-8",
     "question": "When comparing ownership forms, which factor is MOST relevant?",
     "options": [
-      "Favourite colour of the owner",
+      "Favourite colour of the owner or the logo",
       "Liability and ability to raise capital",
       "Office music choice",
       "Uniform size"

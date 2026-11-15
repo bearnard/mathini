@@ -99,7 +99,7 @@ const bank: AccountingItem[] = [
     "id": "ers-1",
     "question": "When asked to comment on a financial indicator, the strongest answer will:",
     "options": [
-      "repeat the formula only",
+      "repeat the formula without explaining the result",
       "use the figures from the question as evidence",
       "avoid mentioning numbers",
       "copy the question without analysis"
@@ -120,7 +120,7 @@ const bank: AccountingItem[] = [
     "options": [
       "lower financial risk",
       "greater financial risk",
-      "automatic VAT refunds",
+      "automatic VAT refunds from SARS",
       "zero finance costs"
     ],
     "answer": 1,
@@ -149,7 +149,7 @@ const bank: AccountingItem[] = [
     "id": "ers-6",
     "question": "If a business expects a cash shortfall in a budget, management should:",
     "options": [
-      "ignore it because profit may still be good",
+      "ignore it because profit may still be good this year",
       "plan how to finance or reduce the shortfall",
       "declare more dividends immediately",
       "write down fixed assets to zero"

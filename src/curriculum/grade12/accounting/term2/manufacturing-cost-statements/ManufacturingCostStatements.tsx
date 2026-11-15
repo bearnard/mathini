@@ -141,7 +141,7 @@ const bank: AccountingItem[] = [
     "question": "Cost of production is calculated after adjusting total factory cost for:",
     "options": [
       "opening and closing work-in-process",
-      "trade receivables only",
+      "trade receivables and trade payables at year-end",
       "share issues and dividends",
       "VAT refunds only"
     ],
@@ -167,7 +167,7 @@ const bank: AccountingItem[] = [
       "cost of finished goods produced ÷ units completed",
       "sales ÷ units sold",
       "gross profit ÷ trade receivables",
-      "factory overhead ÷ number of shareholders"
+      "total factory overhead ÷ number of shareholders at year-end"
     ],
     "answer": 0,
     "explanation": "Unit cost measures the production cost per unit completed."

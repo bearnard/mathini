@@ -94,7 +94,7 @@ const items: BusinessStudiesItem[] = [
     "question": "If a question asks you to discuss a topic, you should:",
     "options": [
       "Give fuller detail and explanation",
-      "Write one word only",
+      "Write a one-word answer for each point",
       "Ignore the scenario",
       "Answer with a drawing only"
     ],
@@ -106,7 +106,7 @@ const items: BusinessStudiesItem[] = [
     "question": "Why should learners look at the mark allocation before answering?",
     "options": [
       "It shows how much detail is needed",
-      "It changes the topic",
+      "It changes the topic that the question asks about",
       "It removes the need to think",
       "It is only for the teacher"
     ],

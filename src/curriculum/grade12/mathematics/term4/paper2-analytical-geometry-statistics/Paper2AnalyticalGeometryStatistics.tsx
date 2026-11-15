@@ -108,7 +108,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 {
   id: "rev3-7",
   question: "A line perpendicular to a line with gradient 2 has gradient ...",
-  options: ["2", "1/2", "−2", "−1/2"],
+  options: ["2", "+1/2", "−2", "−1/2"],
   answer: 3,
   explanation: "Perpendicular gradients multiply to −1, so the new gradient is −1/2.",
 },

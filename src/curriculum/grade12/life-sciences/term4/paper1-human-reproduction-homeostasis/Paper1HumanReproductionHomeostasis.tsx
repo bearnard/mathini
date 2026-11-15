@@ -178,7 +178,7 @@ const items: LifeSciencesItem[] = [
     "options": [
       "The sperm enters the ovary",
       "The embryo embeds in the endometrium",
-      "The ovum is released from the ovary",
+      "The mature ovum is released from the ovary",
       "The placenta detaches"
     ],
     "answer": 1,
@@ -203,7 +203,7 @@ const items: LifeSciencesItem[] = [
       "Lower blood glucose",
       "Increase heat production",
       "Cause ovulation",
-      "Reduce breathing rate"
+      "Reduce the breathing rate of the body"
     ],
     "answer": 1,
     "explanation": "Shivering is rapid muscle contraction that generates heat when the body is cold."

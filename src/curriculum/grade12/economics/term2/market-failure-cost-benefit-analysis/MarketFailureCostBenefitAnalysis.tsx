@@ -99,7 +99,7 @@ const items: RawEconomicsItem[] = [
     "options": [
       "rival and excludable",
       "non-rival and non-excludable",
-      "always imported",
+      "usually imported from abroad",
       "sold only by monopolies"
     ],
     "answer": 1,
@@ -111,7 +111,7 @@ const items: RawEconomicsItem[] = [
     "options": [
       "public goods",
       "exchange rates",
-      "private schools only",
+      "private schools",
       "oligopolies only"
     ],
     "answer": 0,
@@ -160,7 +160,7 @@ const items: RawEconomicsItem[] = [
     "question": "A subsidy is commonly used to encourage ...",
     "options": [
       "positive externalities",
-      "cartel behaviour",
+      "cartel behaviour in markets",
       "imports only",
       "fiscal drag"
     ],

@@ -123,7 +123,7 @@ const items: RawEconomicsItem[] = [
     "question": "What is the lower turning point of a business cycle called?",
     "options": [
       "Boom",
-      "Peak",
+      "Upswing",
       "Trough",
       "Trend"
     ],
@@ -160,7 +160,7 @@ const items: RawEconomicsItem[] = [
     "options": [
       "Higher taxes and less spending",
       "Expansionary fiscal policy",
-      "A stronger exchange-rate target only",
+      "A stronger exchange-rate target",
       "Price fixing in all markets"
     ],
     "answer": 1,
@@ -196,7 +196,7 @@ const items: RawEconomicsItem[] = [
     "options": [
       "Upper turning point",
       "Circular flow",
-      "Multiplier point",
+      "Multiplier turning point",
       "Lagged point"
     ],
     "answer": 0,
@@ -206,9 +206,9 @@ const items: RawEconomicsItem[] = [
     "id": "bc-8",
     "question": "Which statement best describes a recovery?",
     "options": [
-      "Output continues to fall below trend forever",
+      "Output continues to fall below trend for years",
       "The economy moves upward after the trough",
-      "Inflation is always zero",
+      "Inflation falls to zero",
       "Imports disappear completely"
     ],
     "answer": 1,

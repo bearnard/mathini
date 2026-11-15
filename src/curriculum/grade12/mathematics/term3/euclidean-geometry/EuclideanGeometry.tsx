@@ -60,7 +60,7 @@ import Formula from '@/components/subjects/Formula';
 {
   id: "euc-3",
   question: "What does the midpoint theorem state?",
-  options: ["The line joining the midpoints of two sides is perpendicular to the third side", "The line joining the midpoints of two sides is parallel to the third side and half its length", "The midpoint always bisects the area", "Any median is equal to the third side"],
+  options: ["The line joining the midpoints of two sides is perpendicular to the third side and half its length", "The line joining the midpoints of two sides is parallel to the third side and half its length", "The midpoint always bisects the area", "Any median is equal to the third side"],
   answer: 1,
   explanation: "That is the standard midpoint theorem in a triangle.",
 },

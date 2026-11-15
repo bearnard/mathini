@@ -93,8 +93,8 @@ const items: RawEconomicsItem[] = [
     "question": "Economic development includes improvements in ...",
     "options": [
       "welfare and living standards",
-      "only the exchange rate",
-      "only customs duties",
+      "the exchange rate and interest rates",
+      "customs duties and import quotas",
       "monopoly power only"
     ],
     "answer": 0,
@@ -118,7 +118,7 @@ const items: RawEconomicsItem[] = [
     "options": [
       "increase value before export",
       "lower the repo rate",
-      "remove all mining activity",
+      "close down mining activity in the country",
       "raise VAT"
     ],
     "answer": 0,
@@ -135,9 +135,9 @@ const items: RawEconomicsItem[] = [
     "id": "ep-5",
     "question": "Sustainability is important because growth should ...",
     "options": [
-      "ignore environmental limits",
+      "ignore environmental limits to speed up output",
       "be possible for future generations too",
-      "benefit only current producers",
+      "benefit the current generation of producers",
       "focus only on short-run profits"
     ],
     "answer": 1,

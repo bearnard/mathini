@@ -74,7 +74,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 {
   id: "calc-2",
   question: "Differentiate y = x³ − 4x.",
-  options: ["3x² − 4", "x² − 4", "3x²", "x³ − 4"],
+  options: ["3x² − 4", "x² − 4", "3x²", "x³ − 4x"],
   answer: 0,
   explanation: "Differentiate term by term: d/dx(x³) = 3x² and d/dx(−4x) = −4.",
 },
@@ -102,7 +102,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 {
   id: "calc-6",
   question: "For y = x³ − 3x, where is the local maximum?",
-  options: ["x = −1", "x = 0", "x = 1", "x = 3"],
+  options: ["x = −1", "x = 0", "x = 1", "x = −3"],
   answer: 0,
   explanation: "y″ = 6x. At x = −1, y″ is negative, so the stationary point is a local maximum.",
 },

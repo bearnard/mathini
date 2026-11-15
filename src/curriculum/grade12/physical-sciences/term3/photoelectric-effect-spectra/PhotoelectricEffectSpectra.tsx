@@ -125,9 +125,9 @@ const items: PhysicalSciencesItem[] = [
     "id": "photoelectric-effect-spectra-4",
     "question": "The threshold frequency of photoelectric emission depends on the metal's:",
     "options": [
-      "colour only",
+      "colour",
       "work function",
-      "shape only",
+      "shape",
       "temperature only"
     ],
     "answer": 1,
@@ -139,7 +139,7 @@ const items: PhysicalSciencesItem[] = [
     "options": [
       "dark lines on a continuous background",
       "bright lines at specific wavelengths",
-      "all wavelengths equally",
+      "a continuous range of wavelengths",
       "only radio waves"
     ],
     "answer": 1,
@@ -168,8 +168,8 @@ const items: PhysicalSciencesItem[] = [
     "id": "photoelectric-effect-spectra-8",
     "question": "Line spectra provide evidence that atomic electrons occupy:",
     "options": [
-      "any energy at all",
-      "random positions only",
+      "a continuous range of energies",
+      "random positions",
       "quantised energy levels",
       "only the nucleus"
     ],

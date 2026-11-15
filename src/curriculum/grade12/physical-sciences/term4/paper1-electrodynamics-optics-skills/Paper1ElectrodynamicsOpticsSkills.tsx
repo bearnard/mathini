@@ -91,7 +91,7 @@ const items: PhysicalSciencesItem[] = [
       "direct current only",
       "alternating current",
       "chemical energy",
-      "light only"
+      "light and sound energy"
     ],
     "answer": 1,
     "explanation": "An AC generator produces alternating current."
@@ -157,7 +157,7 @@ const items: PhysicalSciencesItem[] = [
     "options": [
       "collapsing",
       "expanding",
-      "completely static",
+      "static",
       "made of only hydrogen"
     ],
     "answer": 1,

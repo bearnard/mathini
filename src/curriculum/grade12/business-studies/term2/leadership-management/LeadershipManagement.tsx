@@ -120,7 +120,7 @@ const items: BusinessStudiesItem[] = [
     "question": "Transactional leadership mainly uses:",
     "options": [
       "Rewards and corrective action",
-      "No performance standards",
+      "No performance standards or targets for staff",
       "Only informal chats",
       "Family ownership"
     ],
@@ -131,9 +131,9 @@ const items: BusinessStudiesItem[] = [
     "id": "leadership-management-6",
     "question": "Situational leadership suggests that a leader should:",
     "options": [
-      "Use one style in every situation",
+      "Use the same style regardless of the situation",
       "Adapt the style to the context and team",
-      "Avoid delegation completely",
+      "Avoid delegation to team members",
       "Ignore staff competence"
     ],
     "answer": 1,
@@ -146,7 +146,7 @@ const items: BusinessStudiesItem[] = [
       "Organising",
       "Controlling",
       "Leading",
-      "Planning"
+      "Strategic planning"
     ],
     "answer": 1,
     "explanation": "Controlling involves monitoring results and comparing them with plans or standards."

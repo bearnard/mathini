@@ -147,7 +147,7 @@ const items: RawEconomicsItem[] = [
     "id": "pm-6",
     "question": "A horizontal demand curve for the firm means that ...",
     "options": [
-      "the firm can charge any price",
+      "the firm can charge any price it wants",
       "the firm faces a fixed market price",
       "consumers buy nothing",
       "marginal cost is zero"
@@ -161,7 +161,7 @@ const items: RawEconomicsItem[] = [
     "options": [
       "AC = TC",
       "price = marginal cost",
-      "profit = zero",
+      "total revenue = total cost",
       "output = zero"
     ],
     "answer": 1,

@@ -194,7 +194,7 @@ const items: LifeSciencesItem[] = [
       "Produce tears",
       "Change shape to focus light",
       "Detect colour only",
-      "Move the eyeball"
+      "Move the eyeball in its socket"
     ],
     "answer": 1,
     "explanation": "The lens becomes thicker or thinner so that images focus on the retina."
@@ -239,7 +239,7 @@ const items: LifeSciencesItem[] = [
     "id": "nervous-system-sense-organs-8",
     "question": "The tiny gap between two neurons is called a:",
     "options": [
-      "Reflex",
+      "Reflex arc",
       "Synapse",
       "Lens",
       "Node"
