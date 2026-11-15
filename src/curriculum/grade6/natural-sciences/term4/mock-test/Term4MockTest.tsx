@@ -12,7 +12,7 @@ const groups = [
 ];
 
 const Term4MockTest = () => (
-  <NstMockTest title="Term 4 Mock Test" subtitle="20 mixed questions from all Term 4 topics" groups={groups} />
+  <NstMockTest title="Term 4 Mock Test" subtitle="20 mixed questions from all Term 4 topics" groups={groups} run={{ kind: 'mock_test', scopeKey: 'nst-term4-mock' }} />
 );
 
 export default Term4MockTest;

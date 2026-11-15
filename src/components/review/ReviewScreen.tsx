@@ -12,6 +12,7 @@ import { triggerConfetti } from '../../lib/confetti';
 import NstQuestionBody, { incorrectMessageFor } from '../../curriculum/grade6/natural-sciences/_shared/NstQuestionBody';
 import { shuffleOptions } from '../../curriculum/grade6/natural-sciences/_shared/itemKinds';
 import { useStudent } from '../../lib/client/StudentContext';
+import { useRunTracker } from '../../lib/client/runs/useRunTracker';
 import type { ReviewQuestion } from '../../lib/client/review/resolve';
 import { loadTodaysReview } from '../../lib/client/review/browserLoad';
 import ReportProblem from '../items/ReportProblem';
@@ -30,6 +31,8 @@ export default function ReviewScreen({ onBack, initialQuestions }: { onBack: () 
   const [right, setRight] = useState(0);
   const [badges, setBadges] = useState<string[]>([]);
   const streakRef = useRef(0);
+  // ADR 0005: today's review is one run of kind 'review' (Grade 6 only, like the schedule itself).
+  const tracker = useRunTracker();
 
   useEffect(() => {
     let cancelled = false;
@@ -57,12 +60,18 @@ export default function ReviewScreen({ onBack, initialQuestions }: { onBack: () 
     streakRef.current = ok ? streakRef.current + 1 : 0;
     setStreak(streakRef.current);
     if (ok) { setRight((n) => n + 1); triggerConfetti(); }
-    // Same endpoint as practice: XP, badges and the schedule update all happen server-side.
-    void fetch('/api/attempts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ task: current.task, subject: current.subject, section: current.section, itemId: current.itemId, qkey: current.qkey, isCorrect: ok, streak: streakRef.current, chosen }),
-    })
+    tracker.begin({ kind: 'review', grade: 6, subject: 'review', scopeKey: 'spaced-review', scopeLabel: "Today's review", nItems: queue.length });
+    tracker.note(ok);
+    // Same endpoint as practice: XP, badges and the schedule update all happen server-side. The answer carries the run id when the run was accepted.
+    const posted = tracker
+      .runId()
+      .then((runId) =>
+        fetch('/api/attempts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ task: current.task, subject: current.subject, section: current.section, itemId: current.itemId, qkey: current.qkey, isCorrect: ok, streak: streakRef.current, chosen, ...(runId ? { runId } : {}) }),
+        }),
+      )
       .then((r) => (r.ok ? (r.json() as Promise<{ newBadges?: string[] }>) : null))
       .then((d) => {
         if (!d) return;
@@ -70,13 +79,17 @@ export default function ReviewScreen({ onBack, initialQuestions }: { onBack: () 
         refreshStudent();
       })
       .catch(() => {});
+    tracker.track(posted);
   };
 
   const next = () => {
     setSelected(null);
     setIsCorrect(null);
     if (index + 1 < queue.length) setIndex(index + 1);
-    else setPhase('done');
+    else {
+      setPhase('done');
+      void tracker.finish();
+    }
   };
 
   const total = queue.length;

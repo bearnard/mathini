@@ -15,6 +15,10 @@ import { aggregateResultsBySection, pickWeakSections } from '../lib/client/revis
 import BadgeUnlockModal from './gamification/BadgeUnlockModal';
 import { usePracticeTracking } from '../lib/client/usePracticeTracking';
 import ReportProblem from './items/ReportProblem';
+import { useRunTracker } from '../lib/client/runs/useRunTracker';
+import { submitPracticeRun } from '../lib/client/runs/submitRun';
+import { postAttemptJson } from '../lib/client/runs/runClient';
+import { parseTaskSlug } from '../lib/server/caps/slug';
 
 export interface PracticeRunnerProps {
   /** Static question bank (used as fallback or sole source in static mode). */
@@ -48,11 +52,15 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
   // Track per-question results for section aggregation
   const resultsRef = useRef<{ section?: string; correct: boolean; qkey?: string; chosen?: string }[]>([]);
   const hasSubmitted = useRef(false);
+  // ADR 0005: this session is one run; it starts at the first answer.
+  const tracker = useRunTracker();
+  const firstAnswerAt = useRef<number | null>(null);
 
   const handleSelect = (option: string) => {
     if (selected !== null || !current) {
       return;
     }
+    if (firstAnswerAt.current === null) firstAnswerAt.current = Date.now();
     setSelected(option);
     const correct = option === current.answer;
     setIsCorrect(correct);
@@ -80,13 +88,18 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
     reset();
     resultsRef.current = [];
     hasSubmitted.current = false;
+    firstAnswerAt.current = null;
   };
 
   // Submit results when practice is done
   useEffect(() => {
     if (!done || !task || hasSubmitted.current) return;
     hasSubmitted.current = true;
+    const subject = taskToSubject(apiPath);
+    const scope = { kind: 'practice' as const, grade: parseTaskSlug(task).grade, subject, scopeKey: task, scopeLabel: task, nItems: total, startedAt: firstAnswerAt.current ?? undefined };
     if (!student) {
+      // Anonymous: nothing is sent; the run is kept on the device only.
+      void submitPracticeRun({ tracker, post: null }, { scope, task, subject, results: resultsRef.current });
       const weak = pickWeakSections(aggregateResultsBySection(resultsRef.current));
       onComplete?.(weak);
       return;
@@ -98,43 +111,13 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
       return;
     }
 
-    const subject = taskToSubject(apiPath);
-
-    const promises = results.map((r) =>
-      fetch('/api/attempts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          task,
-          subject,
-          section: r.section,
-          isCorrect: r.correct,
-          qkey: r.qkey,
-          chosen: r.chosen,
-          streak: 0,
-        }),
-      })
-        .then((res) => res.json() as Promise<{ newBadges?: string[] }>)
-        .catch(() => null),
-    );
-
-    Promise.allSettled(promises).then((settled) => {
-      const newBadges = [
-        ...new Set(
-          settled
-            .filter(
-              (r): r is PromiseFulfilledResult<{ newBadges?: string[] }> =>
-                r.status === 'fulfilled' && r.value !== null,
-            )
-            .flatMap((r) => r.value.newBadges ?? []),
-        ),
-      ];
+    void submitPracticeRun({ tracker, post: postAttemptJson }, { scope, task, subject, results }).then(({ newBadges }) => {
       if (newBadges.length > 0) setPendingBadges(newBadges);
       refreshStudent();
       const weak = pickWeakSections(aggregateResultsBySection(resultsRef.current));
       onComplete?.(weak);
     });
-  }, [done, task, apiPath, student, refreshStudent, onComplete]);
+  }, [done, task, apiPath, student, refreshStudent, onComplete, tracker, total]);
 
   // Compute weak sections from results
   const results = resultsRef.current;
