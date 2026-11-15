@@ -1,17 +1,118 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { OrbitShapes, PlanetOrder, WeightBars } from '../../../../../components/diagrams/science/SciencePictures4';
+import { G_EARTH, G_MOON, PLANETS, weight } from '../../../../../components/diagrams/science/motionHelpers';
+
+// The planet order and the weights come from tested helpers (motionMatter.test.ts).
+const inner = PLANETS.slice(0, 4).join(', ');
+const mass = 60;
+const onEarth = weight(mass, G_EARTH);
+const onMoon = weight(mass, G_MOON);
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Describe the solar system and the role of gravity',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          The Sun is the central star of our solar system. Planets, moons, comets, and asteroids are held in
-          orbit by <strong>gravity</strong>, a force of attraction between masses. Gravity helps explain motion and
-          planetary systems at different scales.
-        </p>
-      </div>
+    title: 'The Sun and the planets',
+    content: slide(
+      <>
+        <Rule>
+          The Sun is at the centre of our solar system, and the planets orbit it. Starting from the Sun outward, the order is {inner}, then Jupiter, Saturn, Uranus and Neptune.
+        </Rule>
+        <PlanetOrder />
+        <Worked
+          title="Order and describe"
+          steps={[
+            <>Mercury, Venus, Earth and Mars are the first four planets: {inner}.</>,
+            <>Saturn is known for its prominent rings.</>,
+            <>The first four planets are small and rocky. The last four are much larger.</>,
+          ]}
+        />
+        <Mistake>Thinking the planets orbit the Earth, or that the pictures are to scale. The Sun is in the centre, and the real distances are far bigger than any picture can show.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Moons, comets and asteroids',
+    content: slide(
+      <>
+        <Rule>
+          A moon orbits a planet: the Moon is the natural satellite of Earth. Comets have icy material and very elliptical orbits. Asteroids are rocky objects, many in a belt between Mars and Jupiter.
+        </Rule>
+        <OrbitShapes />
+        <Worked
+          title="Compare a comet with a planet"
+          steps={[
+            <>A planet moves on an orbit that is nearly a circle, so it stays about the same distance from the Sun.</>,
+            <>A comet is made of ice and dust. Its elliptical orbit is long and stretched, so it passes close to the Sun and then travels far away.</>,
+            <>Near the Sun, some of the ice warms up and forms a tail.</>,
+          ]}
+        />
+        <Mistake>Thinking a comet is a planet that has caught fire. A comet is an icy body with an elongated path, not a planet.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Gravity',
+    content: slide(
+      <>
+        <Rule>
+          Gravity is an attractive force between masses. Any two masses attract each other, and the larger the mass, the stronger the pull. The Sun&apos;s gravitational pull keeps the planets in orbit.
+        </Rule>
+        <Worked
+          title="Why do planets keep orbiting?"
+          steps={[
+            <>The Sun has a huge mass, so its gravitational pull is very strong.</>,
+            <>The pull bends each planet&apos;s path into a curve round the Sun, instead of letting it fly off in a straight line.</>,
+            <>In the same way, Earth&apos;s gravity keeps the Moon in orbit around Earth.</>,
+          ]}
+        />
+        <Mistake>Believing gravity only works on Earth. Any two masses attract each other, even though the pull is tiny for small masses.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Gravity on the Moon',
+    content: slide(
+      <>
+        <Rule>
+          The Moon has a weaker gravitational pull than Earth, because its mass is smaller. So an astronaut feels lighter on the Moon. Weight is mass × gravity, and mass does not change.
+        </Rule>
+        <WeightBars mass={mass} />
+        <Worked
+          title={`An astronaut of mass ${mass} kg`}
+          steps={[
+            <>On Earth, g is {String(G_EARTH).replace('.', ',')} N/kg: weight = {mass} × {String(G_EARTH).replace('.', ',')} = {onEarth} N.</>,
+            <>On the Moon, g is about {String(G_MOON).replace('.', ',')} N/kg: weight = {mass} × {String(G_MOON).replace('.', ',')} = {onMoon} N.</>,
+            <>The mass is still {mass} kg. Only the weight is smaller.</>,
+          ]}
+        />
+        <Mistake>Saying the astronaut has less mass on the Moon. The amount of matter stays the same; the pull on it is weaker.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Which object is at the centre of our solar system? Which planet is known for its prominent rings?</li>
+            <li>What keeps planets in orbit around the Sun? What is gravity?</li>
+            <li>What is a natural satellite of Earth? How are comets different from planets?</li>
+            <li>Why does an astronaut feel lighter on the Moon? Which order starts correctly from the Sun outward?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>The Sun. Saturn.</li>
+            <li>Gravity. Gravity is an attractive force between masses.</li>
+            <li>The Moon. Comets have icy material and very elliptical orbits.</li>
+            <li>The Moon has a weaker gravitational pull than Earth. Mercury, Venus, Earth, Mars.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
