@@ -35,6 +35,7 @@ export async function openTestDb(): Promise<TestDb | null> {
   raw.exec(mig('0010_item_analysis.sql'));
   raw.exec(mig('0014_progress.sql'));
   raw.exec(mig('0015_parents.sql'));
+  raw.exec(mig('0016_schools.sql'));
 
   const run = (sql: string, params: Param[] = []) => raw.prepare(sql).run(...params);
   const db: AdminDb = {

@@ -262,7 +262,7 @@ export async function learnerPrivate(db: AdminDb, id: string): Promise<{ realNam
 // ---------- delete ----------
 
 export type DeleteResult =
-  | { ok: true; deleted: { attempts: number; events: number; xp: number; badges: number; reviews: number; reports: number; runs: number; topics: number; parentLinks: number; invites: number; consents: number; pinResets: number } }
+  | { ok: true; deleted: { attempts: number; events: number; xp: number; badges: number; reviews: number; reports: number; runs: number; topics: number; parentLinks: number; invites: number; consents: number; pinResets: number; classMemberships: number } }
   | { ok: false; status: 400 | 404; error: string };
 
 /**
@@ -276,7 +276,7 @@ export async function deleteLearner(db: AdminDb, id: string, confirm: unknown, a
   if (typeof confirm !== 'string' || confirm !== s[0].display_name) return { ok: false, status: 400, error: 'The confirmation does not match the nickname' };
 
   const count = async (sql: string) => num((await db.all<{ n: number }>(sql, [id]))[0]?.n);
-  const [attempts, events, xp, badges, reviews, reports, runs, topics, parentLinks, invites, consents, pinResets] = await Promise.all([
+  const [attempts, events, xp, badges, reviews, reports, runs, topics, parentLinks, invites, consents, pinResets, classMemberships] = await Promise.all([
     count('SELECT COUNT(*) AS n FROM attempts WHERE student_id = ?'),
     count('SELECT COUNT(*) AS n FROM events WHERE student_id = ?'),
     count('SELECT COUNT(*) AS n FROM student_xp WHERE student_id = ?'),
@@ -289,8 +289,9 @@ export async function deleteLearner(db: AdminDb, id: string, confirm: unknown, a
     count('SELECT COUNT(*) AS n FROM child_invites WHERE student_id = ?'),
     count('SELECT COUNT(*) AS n FROM consent_events WHERE student_id = ?'),
     count('SELECT COUNT(*) AS n FROM pin_resets WHERE student_id = ?'),
+    count('SELECT COUNT(*) AS n FROM class_members WHERE student_id = ?'),
   ]);
-  const meta = JSON.stringify({ rows: { students: 1, attempts, events, xp, badges, reviews, reports, runs, topics, parentLinks, invites, consents, pinResets }, by: adminEmail, at: now });
+  const meta = JSON.stringify({ rows: { students: 1, attempts, events, xp, badges, reviews, reports, runs, topics, parentLinks, invites, consents, pinResets, classMemberships }, by: adminEmail, at: now });
   const statements: Statement[] = [
     { sql: 'DELETE FROM student_badges WHERE student_id = ?', params: [id] },
     { sql: 'DELETE FROM review_items WHERE student_id = ?', params: [id] },
@@ -303,11 +304,13 @@ export async function deleteLearner(db: AdminDb, id: string, confirm: unknown, a
     { sql: 'DELETE FROM child_invites WHERE student_id = ?', params: [id] },
     { sql: 'DELETE FROM consent_events WHERE student_id = ?', params: [id] },
     { sql: 'DELETE FROM pin_resets WHERE student_id = ?', params: [id] },
+    // ADR 0003 phase 3: the learner's class memberships (who they joined, with which notice) go too.
+    { sql: 'DELETE FROM class_members WHERE student_id = ?', params: [id] },
     { sql: 'DELETE FROM attempts WHERE student_id = ?', params: [id] },
     { sql: 'DELETE FROM events WHERE student_id = ?', params: [id] },
     { sql: 'DELETE FROM students WHERE id = ?', params: [id] },
     { sql: `INSERT INTO events (ts, type, device_id, session_id, student_id, meta) VALUES (?, 'admin_delete', 'admin', 'admin', NULL, ?)`, params: [now, meta] },
   ];
   await db.batch(statements);
-  return { ok: true, deleted: { attempts, events, xp, badges, reviews, reports, runs, topics, parentLinks, invites, consents, pinResets } };
+  return { ok: true, deleted: { attempts, events, xp, badges, reviews, reports, runs, topics, parentLinks, invites, consents, pinResets, classMemberships } };
 }
