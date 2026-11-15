@@ -100,22 +100,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Give an example of a fixed expense.</li>
-            <li>A phone-repair shop budgets {rand(q2.budget)} for parts but spends {rand(q2.actual)}. What is the variance?</li>
-            <li>Income is {rand(q3.income)}; fixed costs {rand(q3.totalFixed)} and variable costs {rand(q3.totalVariable)}. Surplus or deficit?</li>
-            <li>How often should a business review its budget?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Rent (it stays the same each period).</li>
-            <li>{rand(q2.actual)} − {rand(q2.budget)} = −{rand(q2.amount)}: {rand(q2.amount)} {q2.kind}.</li>
-            <li>A {q3.kind} of {rand(q3.amount)}.</li>
-            <li>At least monthly.</li>
-          </ol>
-        }
+        questions={[
+          <>Give an example of a fixed expense.</>,
+          <>A phone-repair shop budgets {rand(q2.budget)} for parts but spends {rand(q2.actual)}. What is the variance?</>,
+          <>Income is {rand(q3.income)}; fixed costs {rand(q3.totalFixed)} and variable costs {rand(q3.totalVariable)}. Surplus or deficit?</>,
+          <>How often should a business review its budget?</>,
+        ]}
+        answers={[
+          <>Rent (it stays the same each period).</>,
+          <>{rand(q2.actual)} − {rand(q2.budget)} = −{rand(q2.amount)}: {rand(q2.amount)} {q2.kind}.</>,
+          <>A {q3.kind} of {rand(q3.amount)}.</>,
+          <>At least monthly.</>,
+        ]}
       />,
     ),
   },

@@ -122,22 +122,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which step starts the accounting cycle, before anything is recorded in a journal?</li>
-            <li>Add the cash receipts: {q2.entries.map(rand).join(', ')}.</li>
-            <li>Which factor of production earns wages?</li>
-            <li>Sipho sells {SOLD_Q} vetkoek at {rand(5)}, each costing {rand(2)}. What is his profit?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Analyse the source documents.</li>
-            <li>{q2.entries.map(rand).join(' + ')} = {rand(q2.total)}.</li>
-            <li>Labour.</li>
-            <li>{rand(q4.revenue)} − {rand(q4.costs)} = {rand(q4.profit)}.</li>
-          </ol>
-        }
+        questions={[
+          <>Which step starts the accounting cycle, before anything is recorded in a journal?</>,
+          <>Add the cash receipts: {q2.entries.map(rand).join(', ')}.</>,
+          <>Which factor of production earns wages?</>,
+          <>Sipho sells {SOLD_Q} vetkoek at {rand(5)}, each costing {rand(2)}. What is his profit?</>,
+        ]}
+        answers={[
+          <>Analyse the source documents.</>,
+          <>{q2.entries.map(rand).join(' + ')} = {rand(q2.total)}.</>,
+          <>Labour.</>,
+          <>{rand(q4.revenue)} − {rand(q4.costs)} = {rand(q4.profit)}.</>,
+        ]}
       />,
     ),
   },

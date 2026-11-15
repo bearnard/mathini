@@ -95,22 +95,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Why does a tourism office hand out brochures?</li>
-            <li>Which strategy do you use to find the price of a ticket?</li>
-            <li>Which is an inference: &quot;The brochure has two photos&quot; or &quot;The brochure is probably for tourists&quot;?</li>
-            <li>Why is white space useful?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>To inform or persuade a target audience.</li>
-            <li>{scan[0].toUpperCase() + scan.slice(1)}: it finds a specific detail.</li>
-            <li>&quot;Probably for tourists&quot; is the inference, because it is reasoned from clues.</li>
-            <li>It improves readability and balances the layout.</li>
-          </ol>
-        }
+        questions={[
+          <>Why does a tourism office hand out brochures?</>,
+          <>Which strategy do you use to find the price of a ticket?</>,
+          <>Which is an inference: &quot;The brochure has two photos&quot; or &quot;The brochure is probably for tourists&quot;?</>,
+          <>Why is white space useful?</>,
+        ]}
+        answers={[
+          <>To inform or persuade a target audience.</>,
+          <>{scan[0].toUpperCase() + scan.slice(1)}: it finds a specific detail.</>,
+          <>&quot;Probably for tourists&quot; is the inference, because it is reasoned from clues.</>,
+          <>It improves readability and balances the layout.</>,
+        ]}
       />,
     ),
   },

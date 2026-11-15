@@ -102,22 +102,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name two features that are typical of a drama text.</li>
-            <li>A character helps others after being selfish. What does this show?</li>
-            <li>Which is a conflict: a title at the top of a page, or two friends disagreeing about an important decision?</li>
-            <li>Write the three parts of a short paragraph response.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Dialogue and stage directions.</li>
-            <li>Character development: a meaningful change in behaviour over time.</li>
-            <li>Two friends disagreeing about an important decision: it is a struggle between people.</li>
-            <li>A claim, textual evidence and an explanation.</li>
-          </ol>
-        }
+        questions={[
+          <>Name two features that are typical of a drama text.</>,
+          <>A character helps others after being selfish. What does this show?</>,
+          <>Which is a conflict: a title at the top of a page, or two friends disagreeing about an important decision?</>,
+          <>Write the three parts of a short paragraph response.</>,
+        ]}
+        answers={[
+          <>Dialogue and stage directions.</>,
+          <>Character development: a meaningful change in behaviour over time.</>,
+          <>Two friends disagreeing about an important decision: it is a struggle between people.</>,
+          <>A claim, textual evidence and an explanation.</>,
+        ]}
       />,
     ),
   },

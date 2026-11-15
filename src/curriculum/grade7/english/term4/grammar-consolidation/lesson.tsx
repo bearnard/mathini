@@ -105,22 +105,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Put into the future tense: They revise before the test.</li>
-            <li>Correct: The learners was ready.</li>
-            <li>Which word fits: “a ___ explanation”, clear or clearly?</li>
-            <li>Punctuate: however the group completed the task on time</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>They will revise before the test.</li>
-            <li>The learners {were} ready.</li>
-            <li>clear: it describes the noun “explanation”.</li>
-            <li>{opener.however}</li>
-          </ol>
-        }
+        questions={[
+          <>Put into the future tense: They revise before the test.</>,
+          <>Correct: The learners was ready.</>,
+          <>Which word fits: “a ___ explanation”, clear or clearly?</>,
+          <>Punctuate: however the group completed the task on time</>,
+        ]}
+        answers={[
+          <>They will revise before the test.</>,
+          <>The learners {were} ready.</>,
+          <>clear: it describes the noun “explanation”.</>,
+          <>{opener.however}</>,
+        ]}
       />,
     ),
   },

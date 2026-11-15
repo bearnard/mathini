@@ -104,22 +104,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What do you do first in an exam essay, and for how long?</li>
-            <li>Name three things at the top of a formal letter.</li>
-            <li>Correct the closing: “Dear Sir/Madam, … Yours sincerely”.</li>
-            <li>Which errors do you fix first when editing?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Plan your main points and structure, for about 5 to 10 minutes.</li>
-            <li>The sender’s address, the date and the recipient’s address.</li>
-            <li>With no name, close with “{closingFor('Dear Sir/Madam')}”.</li>
-            <li>Major errors (spelling, grammar, sense) before minor style points.</li>
-          </ol>
-        }
+        questions={[
+          <>What do you do first in an exam essay, and for how long?</>,
+          <>Name three things at the top of a formal letter.</>,
+          <>Correct the closing: “Dear Sir/Madam, … Yours sincerely”.</>,
+          <>Which errors do you fix first when editing?</>,
+        ]}
+        answers={[
+          <>Plan your main points and structure, for about 5 to 10 minutes.</>,
+          <>The sender’s address, the date and the recipient’s address.</>,
+          <>With no name, close with “{closingFor('Dear Sir/Madam')}”.</>,
+          <>Major errors (spelling, grammar, sense) before minor style points.</>,
+        ]}
       />,
     ),
   },

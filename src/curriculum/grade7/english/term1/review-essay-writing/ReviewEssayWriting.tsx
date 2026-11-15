@@ -85,22 +85,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What should you do before writing a full first draft?</li>
-            <li>What must a good book or film review contain to convince readers?</li>
-            <li>What is the structure of an essay?</li>
-            <li>What does a reflective essay ask you to do?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Plan your key ideas, purpose and audience.</li>
-            <li>An opinion supported by reasons.</li>
-            <li>Introduction, body paragraphs, conclusion.</li>
-            <li>Think about an experience and what you learned from it.</li>
-          </ol>
-        }
+        questions={[
+          <>What should you do before writing a full first draft?</>,
+          <>What must a good book or film review contain to convince readers?</>,
+          <>What is the structure of an essay?</>,
+          <>What does a reflective essay ask you to do?</>,
+        ]}
+        answers={[
+          <>Plan your key ideas, purpose and audience.</>,
+          <>An opinion supported by reasons.</>,
+          <>Introduction, body paragraphs, conclusion.</>,
+          <>Think about an experience and what you learned from it.</>,
+        ]}
       />,
     ),
   },

@@ -90,8 +90,8 @@ for (const l of lessons) {
     assert.equal((src.match(/<Worked/g) ?? []).length, l.slides - 1);
     assert.equal((src.match(/<Check\b/g) ?? []).length, 1);
     assert.ok(src.includes('export const learnSteps'));
-    const checkQs = src.split('<Check')[1].split('answer={')[0];
-    assert.equal((checkQs.match(/<li>/g) ?? []).length, 4);
+    const checkQs = src.split('<Check')[1].split('answers={')[0];
+    assert.equal((checkQs.match(/^\s*<>/gm) ?? []).length, 4, 'four questions, each with its own answer');
   });
   test(`${l.name}: lesson part has no throw and keeps the bank`, () => {
     assert.ok(!/\bthrow\b/.test(lessonPart(l.file)));

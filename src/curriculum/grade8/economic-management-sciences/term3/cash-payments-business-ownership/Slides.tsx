@@ -111,22 +111,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does the cash payments journal record?</li>
-            <li>Two equal partners share a profit of {rand(30_000)}. How much does each get?</li>
-            <li>A product costs {rand(80)} and the mark-up is 50%. What is the selling price?</li>
-            <li>Which level of management supervises staff each day?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>All money paid out, such as rent, wages and stock.</li>
-            <li>{rand(q2[0])} each.</li>
-            <li>Mark-up {rand(q3.add)}, so {rand(q3.price)}.</li>
-            <li>Operational (supervisory) management.</li>
-          </ol>
-        }
+        questions={[
+          <>What does the cash payments journal record?</>,
+          <>Two equal partners share a profit of {rand(30_000)}. How much does each get?</>,
+          <>A product costs {rand(80)} and the mark-up is 50%. What is the selling price?</>,
+          <>Which level of management supervises staff each day?</>,
+        ]}
+        answers={[
+          <>All money paid out, such as rent, wages and stock.</>,
+          <>{rand(q2[0])} each.</>,
+          <>Mark-up {rand(q3.add)}, so {rand(q3.price)}.</>,
+          <>Operational (supervisory) management.</>,
+        ]}
       />,
     ),
   },

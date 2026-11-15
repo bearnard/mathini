@@ -125,22 +125,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What should you do first with a case study?</li>
-            <li>A case says &ldquo;the owner buys flour&rdquo;. Which business function is that?</li>
-            <li>Give the three parts of an answer to a decision question.</li>
-            <li>A 45-minute paper has 90 marks. How many minutes for a 12-mark question?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Read it carefully and find the key question or problem.</li>
-            <li>Purchasing.</li>
-            <li>State the decision, explain with concepts and justify with evidence.</li>
-            <li>{comma(q4perMark)} minute a mark, so {q4for12} minutes.</li>
-          </ol>
-        }
+        questions={[
+          <>What should you do first with a case study?</>,
+          <>A case says &ldquo;the owner buys flour&rdquo;. Which business function is that?</>,
+          <>Give the three parts of an answer to a decision question.</>,
+          <>A 45-minute paper has 90 marks. How many minutes for a 12-mark question?</>,
+        ]}
+        answers={[
+          <>Read it carefully and find the key question or problem.</>,
+          <>Purchasing.</>,
+          <>State the decision, explain with concepts and justify with evidence.</>,
+          <>{comma(q4perMark)} minute a mark, so {q4for12} minutes.</>,
+        ]}
       />,
     ),
   },

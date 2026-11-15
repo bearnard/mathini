@@ -107,22 +107,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>You are given a writing topic in an exam. What should you do before writing a word?</li>
-            <li>Is a formal letter an essay or a transactional text?</li>
-            <li>Which is the formal sentence: “Hey, fix this!” or “I would appreciate your response.”?</li>
-            <li>Correct: The learners was excited.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Read the question and plan the key points.</li>
-            <li>Transactional.</li>
-            <li>“I would appreciate your response.”</li>
-            <li>The learners {fixedBe} excited.</li>
-          </ol>
-        }
+        questions={[
+          <>You are given a writing topic in an exam. What should you do before writing a word?</>,
+          <>Is a formal letter an essay or a transactional text?</>,
+          <>Which is the formal sentence: “Hey, fix this!” or “I would appreciate your response.”?</>,
+          <>Correct: The learners was excited.</>,
+        ]}
+        answers={[
+          <>Read the question and plan the key points.</>,
+          <>Transactional.</>,
+          <>“I would appreciate your response.”</>,
+          <>The learners {fixedBe} excited.</>,
+        ]}
       />,
     ),
   },

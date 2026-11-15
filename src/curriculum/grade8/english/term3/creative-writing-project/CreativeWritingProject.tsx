@@ -101,22 +101,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Before you write any scenes for your story project, which stage must you finish?</li>
-            <li>What is redrafting?</li>
-            <li>Why do writers think about their audience?</li>
-            <li>Our plan has {PROJECT_PLAN.length} stages. How many school days does it need in total?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Planning and research.</li>
-            <li>Rewriting after feedback to improve the quality.</li>
-            <li>The audience shapes tone, detail and language choices.</li>
-            <li>{PROJECT_PLAN.map((t) => t.days).join(' + ')} = {days} school days.</li>
-          </ol>
-        }
+        questions={[
+          <>Before you write any scenes for your story project, which stage must you finish?</>,
+          <>What is redrafting?</>,
+          <>Why do writers think about their audience?</>,
+          <>Our plan has {PROJECT_PLAN.length} stages. How many school days does it need in total?</>,
+        ]}
+        answers={[
+          <>Planning and research.</>,
+          <>Rewriting after feedback to improve the quality.</>,
+          <>The audience shapes tone, detail and language choices.</>,
+          <>{PROJECT_PLAN.map((t) => t.days).join(' + ')} = {days} school days.</>,
+        ]}
       />,
     ),
   },
