@@ -3,6 +3,7 @@ import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { MathematicalLiteracyItem, LearnStep } from '../../_shared/types';
 import Formula from '@/components/subjects/Formula';
 import DataChart from '@/components/subjects/DataChart';
+import { PlanScaleExample } from '@/components/diagrams/mathlit/PlanScaleExample';
 
 const learnSteps: LearnStep[] = [
   {
@@ -11,6 +12,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Plans and models are reduced versions of real objects. A scale such as 1:50 or 1:200 means every measurement on the drawing or model must be matched to the same unit in reality.</p>
         <Formula block>{String.raw`\text{Actual size} = \text{plan or model size} \times \text{scale factor}`}</Formula>
+        <PlanScaleExample />
       </div>
     ),
   },
