@@ -233,3 +233,28 @@ export function StoryArc({ points, aria }: { points: string[]; aria: string }) {
     </Wrap>
   );
 }
+
+/** A poem as grey bars in stanzas. The first bar is marked "reël" (line); each group is labelled on the right. 3 labels with two stanzas. */
+export function Stanzas({ groups, labels, aria }: { groups: number[]; labels: string[]; aria: string }) {
+  const lens = [200, 168, 190, 150];
+  let y = 8;
+  const rects: ReactNode[] = [];
+  let bar = 0;
+  groups.forEach((n, g) => {
+    const top = y;
+    const h = n * 12 + (n - 1) * 6 + 16;
+    rects.push(<rect key={`g${g}`} x={52} y={top} width={204} height={h} rx={8} fill="#eef2ff" stroke={INDIGO} strokeWidth={2} />);
+    for (let i = 0; i < n; i++, bar++) {
+      rects.push(<rect key={`b${bar}`} x={60} y={top + 8 + i * 18} width={lens[bar % lens.length] - 24} height={12} rx={6} fill={SLATE} opacity={0.55} />);
+    }
+    rects.push(<text key={`t${g}`} x={266} y={top + h / 2 + 5} fontSize={15} fontWeight={700} fill="#1e293b">{labels[g]}</text>);
+    y += h + 10;
+  });
+  return (
+    <Wrap aria={aria} w={360} h={y}>
+      {rects}
+      <text x={6} y={26} fontSize={14} fontWeight={700} fill="#be123c">reël</text>
+      <path d="M 40 22 H 52" stroke="#be123c" strokeWidth={2} />
+    </Wrap>
+  );
+}

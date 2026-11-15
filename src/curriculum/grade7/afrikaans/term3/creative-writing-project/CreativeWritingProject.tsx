@@ -1,63 +1,97 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, OrderTiles } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Project writing process',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A creative project goes through planning, drafting, revising and presenting.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">beplan <SpeakButton text="beplan" /></span>
-          <span className="inline-flex items-center">hersien <SpeakButton text="hersien" /></span>
-          <span className="inline-flex items-center">aanbied <SpeakButton text="aanbied" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Develop your draft',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Keep your topic and audience in mind while adding detail to each paragraph.
-        </p>
-        <p className="text-xl text-slate-700">Use feedback to improve clarity and creativity.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Present confidently',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Final projects should be neat, accurate, and easy to follow.
-        </p>
-        <p className="text-slate-500">Check spelling, punctuation and layout before submission.</p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these drafting words aloud before turning ideas into a polished creative piece.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"idees"} phonetic={"[iˈdeəs]"} meaning={"ideas"} lang="af" />
-          <PronunciationPlayer word={"beplan"} phonetic={"[bəˈplan]"} meaning={"plan"} lang="af" />
-          <PronunciationPlayer word={"eerste weergawe"} phonetic={"[ˈiərstə viərˌχɑːvə]"} meaning={"first draft"} lang="af" />
-          <PronunciationPlayer word={"wysig"} phonetic={"[ˈvɛisəχ]"} meaning={"revise / edit"} lang="af" />
-          <PronunciationPlayer word={"aanbied"} phonetic={"[ˈanbeət]"} meaning={"present"} lang="af" />
-          <PronunciationPlayer word={"skryf"} phonetic={"[skrɛif]"} meaning={"write"} lang="af" />
-        </div>
-      </div>
+    title: 'The steps of a writing project',
+    content: slide(
+      <>
+        <Rule>A writing project has steps. <Af>Beplanning</Af> <En>planning</En> comes first. Then you write a draft, revise, edit and present.</Rule>
+        <OrderTiles
+          tiles={['Beplan', 'Konsep', 'Hersien', 'Redigeer', 'Aanbied']}
+          aria="Five project steps in order: Beplan (plan), Konsep (draft), Hersien (revise), Redigeer (edit), Aanbied (present)."
+        />
+        <Worked
+          title="Follow the order"
+          steps={[
+            <><Af>Beplanning:</Af> choose a topic and list ideas.</>,
+            <><Af>Konsep:</Af> write the first version.</>,
+            <>Then revise, edit, and last of all <Af>Aanbieding</Af> <En>the presentation</En>.</>,
+          ]}
+        />
+        <Mistake>Starting with the <Af>Finale druk</Af> <En>final print</En> or the presentation. These come last, after planning, drafting, revising and editing.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'First draft and feedback',
+    content: slide(
+      <>
+        <Rule>A first <Af>konsep</Af> <En>draft</En> is meant <Af>Om idees neer te skryf wat later verbeter kan word</Af> <En>to write ideas down that can be improved later</En>. It is not the final, perfect version.</Rule>
+        <Worked
+          title="Use feedback"
+          steps={[
+            <>Write the draft without worrying about every mistake.</>,
+            <>Ask a friend to read it. <Af>Terugvoer</Af> <En>feedback</En> <Af>Dit wys waar die teks onduidelik of swak is</Af> <En>it shows where the text is unclear or weak</En>.</>,
+            <>Use the feedback to improve the next draft.</>,
+          ]}
+        />
+        <Mistake>Expecting the first draft to be faultless, or thinking feedback changes your topic or replaces your writing. Feedback only shows what to improve.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Revise first, then edit',
+    content: slide(
+      <>
+        <Rule>To <Af>hersien</Af> <En>revise</En> is to <Af>Verbeter inhoud, orde en woordkeuse</Af> <En>improve content, order and word choice</En>. To <Af>redigeer</Af> <En>edit</En> you focus on <Af>Spelling, leestekens en grammatika</Af> <En>spelling, punctuation and grammar</En>.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['hersien', 'inhoud'], ['redigeer', 'spelling']]}
+          aria="Two steps and their focus: hersien (revise) looks at inhoud (content), redigeer (edit) looks at spelling."
+        />
+        <Worked
+          title="Two different jobs"
+          steps={[
+            <>Revise: move a paragraph, add a detail, choose a stronger word.</>,
+            <>Edit: fix a spelling mistake, add a full stop, correct a verb.</>,
+          ]}
+        />
+        <Mistake>Calling a change of font size or deleting every paragraph a revision. Revising makes the content, order and word choice better.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Time, presenting and reflecting',
+    content: slide(
+      <>
+        <Rule>For a long task, <Af>Breek die taak in kleiner sperdatums op</Af> <En>break the task into smaller deadlines</En>. Present <Af>Om jou werk duidelik en selfversekerd te deel</Af> <En>to share your work clearly and confidently</En>.</Rule>
+        <Worked
+          title="Plan, present, reflect"
+          steps={[
+            <>Set a deadline for the plan, one for each draft, and one for the final copy.</>,
+            <>Practise your presentation. Do not only read from the board.</>,
+            <>Reflect: <Af>Ek het my tweede konsep verbeter ná terugvoer.</Af> <En>I improved my second draft after feedback.</En> <SpeakButton text="Ek het my tweede konsep verbeter ná terugvoer." /></>,
+          ]}
+        />
+        <Mistake>Waiting until the last evening before the deadline, or writing without a plan. Also read the rubric: it shows what is marked.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Which step comes first in a writing project?</>} answer={<><Af>Beplanning</Af>.</>} />
+        <Check question={<>What is the purpose of a first draft?</>} answer={<>To write ideas down that can be improved later.</>} />
+        <Check question={<>What do you focus on when you edit?</>} answer={<><Af>Spelling, leestekens en grammatika</Af>.</>} />
+        <Check question={<>What is a good time-management strategy for a long task?</>} answer={<><Af>Breek die taak in kleiner sperdatums op</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -112,6 +146,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'Reflection shows growth through revision.',
   },
 ];
+
+export { bank };
 
 const CreativeWritingProject = () => (
   <AfrikaansTopic
