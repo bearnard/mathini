@@ -103,12 +103,7 @@ const items: RawEconomicsItem[] = [
   {
     "id": "cfm-1",
     "question": "Which item is an injection into the circular flow of income?",
-    "options": [
-      "Savings",
-      "Taxes",
-      "Government spending",
-      "Imports"
-    ],
+    "options": ['Savings by households', 'Taxes paid to government', 'Government spending', 'Imports from other countries'],
     "answer": 2,
     "explanation": "Government spending adds expenditure to the economy, so it is an injection."
   },

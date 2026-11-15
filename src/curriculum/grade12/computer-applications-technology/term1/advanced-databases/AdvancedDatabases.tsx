@@ -51,13 +51,13 @@ const items = [
   },
   {
     prompt: "What is the purpose of a query?",
-    options: ["To decorate the database window", "To retrieve records that match specific criteria", "To replace the need for tables", "To format paragraphs in Word"],
+    options: ['To change the colour scheme of the database window', 'To retrieve records that match specific criteria', 'To remove the need for tables in the database', 'To format paragraphs in a Word document'],
     answer: 1,
     explanation: "Queries are used to find and display only the records that meet chosen conditions.",
   },
   {
     prompt: "A report groups sales by province and shows totals. Why is grouping useful?",
-    options: ["It hides all the data permanently", "It organises related records so summaries are easier to read", "It turns the report into a spreadsheet", "It removes the need for calculations"],
+    options: ['It hides the underlying data so nobody can read it', 'It organises related records so summaries are easier to read', 'It turns the report into an editable spreadsheet file', 'It removes the need for any calculations to be made in the report'],
     answer: 1,
     explanation: "Grouping places similar records together and makes summaries such as totals clearer.",
   },
@@ -75,13 +75,13 @@ const items = [
   },
   {
     prompt: "Why is a calculated field useful in a report?",
-    options: ["It can display results such as totals or percentages automatically", "It changes the operating system", "It stores sound clips only", "It prevents sorting"],
+    options: ['It can display results such as totals or percentages automatically', 'It changes the operating system settings of the computer used to print', 'It stores sound clips inside the report layout', 'It prevents users from sorting the report records'],
     answer: 0,
     explanation: "Calculated fields automate values like totals, averages or percentages in outputs.",
   },
   {
     prompt: "Which statement about a PAT database is best?",
-    options: ["Any random table is acceptable if it has many records", "The database should store relevant data that helps answer the investigation", "Tables are only needed for decoration", "Reports should avoid all headings"],
+    options: ['Any table is acceptable provided it has many records', 'The database should store relevant data that helps answer the investigation', 'Tables are mainly needed to make the file look decorative for markers in the file', 'Reports should avoid headings so they look simpler'],
     answer: 1,
     explanation: "The PAT database should support the research task and make the information easier to analyse.",
   },

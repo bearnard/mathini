@@ -211,24 +211,14 @@ const items: LifeSciencesItem[] = [
   {
     "id": "pedigrees-sex-linkage-mutations-6",
     "question": "A mutation can be inherited only if it occurs in a:",
-    "options": [
-      "Skin cell",
-      "Gamete or gamete-forming cell",
-      "Muscle cell",
-      "Red blood cell"
-    ],
+    "options": ['Skin cell exposed to sunlight', 'Gamete or gamete-forming cell', 'Muscle cell in the arm', 'Red blood cell in the blood'],
     "answer": 1,
     "explanation": "Only mutations in the germ line can be passed to offspring."
   },
   {
     "id": "pedigrees-sex-linkage-mutations-7",
     "question": "The main purpose of a pedigree diagram is to:",
-    "options": [
-      "Show the stages of meiosis",
-      "Track the inheritance of a trait through a family",
-      "Compare ecosystems",
-      "Explain protein synthesis"
-    ],
+    "options": ['Show the stages of meiosis in a developing germ cell', 'Track the inheritance of a trait through a family', 'Compare different ecosystems', 'Explain protein synthesis'],
     "answer": 1,
     "explanation": "Pedigrees help biologists trace how characteristics are inherited across generations."
   },

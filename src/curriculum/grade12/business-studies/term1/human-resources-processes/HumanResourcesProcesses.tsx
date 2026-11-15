@@ -135,12 +135,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "human-resources-processes-5",
     "question": "The main purpose of an interview is to:",
-    "options": [
-      "Order office furniture",
-      "Assess the suitability of shortlisted applicants",
-      "Register the business for VAT",
-      "Train all employees at once"
-    ],
+    "options": ['Order new office furniture for the human resources department', 'Assess the suitability of shortlisted applicants', 'Register the business for VAT', 'Train all employees at the same time'],
     "answer": 1,
     "explanation": "Interviews help the business judge whether shortlisted candidates fit the post."
   },

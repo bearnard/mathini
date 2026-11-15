@@ -118,12 +118,7 @@ const items: RawEconomicsItem[] = [
   {
     "id": "tp-4",
     "question": "Free trade generally gives consumers ...",
-    "options": [
-      "fewer choices",
-      "more choices and lower prices",
-      "higher quotas",
-      "automatic subsidies"
-    ],
+    "options": ['fewer choices of goods and services in the shops', 'more choices and lower prices', 'higher import quotas', 'automatic subsidies on food'],
     "answer": 1,
     "explanation": "Free trade usually widens consumer choice and increases price competition."
   },

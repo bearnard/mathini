@@ -105,12 +105,7 @@ const items: PhysicalSciencesItem[] = [
   {
     "id": "electrodynamics-generators-motors-3",
     "question": "A DC motor commonly uses a:",
-    "options": [
-      "slip ring",
-      "split-ring commutator",
-      "salt bridge",
-      "lens"
-    ],
+    "options": ['a pair of copper slip rings', 'split-ring commutator', 'salt bridge', 'convex lens'],
     "answer": 1,
     "explanation": "The split-ring commutator reverses current every half turn in a DC motor."
   },
@@ -141,12 +136,7 @@ const items: PhysicalSciencesItem[] = [
   {
     "id": "electrodynamics-generators-motors-6",
     "question": "The turning effect in a motor is caused by the force on a:",
-    "options": [
-      "charged nucleus",
-      "current-carrying conductor in a magnetic field",
-      "stationary resistor",
-      "light ray in a vacuum"
-    ],
+    "options": ['charged nucleus inside a single atom of the metal conductor', 'current-carrying conductor in a magnetic field', 'stationary resistor in a circuit', 'light ray travelling in a vacuum'],
     "answer": 1,
     "explanation": "A motor works because a current-carrying conductor experiences a force in a magnetic field."
   },
@@ -165,12 +155,7 @@ const items: PhysicalSciencesItem[] = [
   {
     "id": "electrodynamics-generators-motors-8",
     "question": "What is the function of brushes in generators and motors?",
-    "options": [
-      "To increase resistance deliberately",
-      "To provide electrical contact with rotating parts",
-      "To create magnetic flux only",
-      "To store charge chemically"
-    ],
+    "options": ['To increase resistance in the circuit of the machine', 'To provide electrical contact with rotating parts', 'To create magnetic flux in the coil', 'To store charge in the machine'],
     "answer": 1,
     "explanation": "Brushes maintain electrical contact between the rotating coil and the external circuit."
   }

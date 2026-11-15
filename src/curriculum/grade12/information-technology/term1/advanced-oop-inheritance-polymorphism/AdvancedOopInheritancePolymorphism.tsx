@@ -165,7 +165,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "Which statement about an abstract parent design is most accurate?",
-    options: ["It stores no shared behaviour at all", "It should only contain private constructors", "It captures common features that specialised subclasses can extend", "It can only be used for databases"],
+    options: ['It stores no shared behaviour in the parent class', 'It should contain private constructors and a single attribute with no methods', 'It captures common features that specialised subclasses can extend', 'It can be used for databases and nothing else'],
     answer: 2,
     explanation: "An abstract parent design groups common fields and methods so subclasses can specialise the shared model.",
   },
@@ -183,7 +183,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "Which UML symbol normally indicates inheritance?",
-    options: ["A dashed circle between classes", "A line with a hollow triangle pointing to the parent class", "A double rectangle around the subclass", "A lightning bolt between methods"],
+    options: ['A dashed circle drawn between the classes', 'A line with a hollow triangle pointing to the parent class', 'A double rectangle drawn around the subclass in the diagram', 'A lightning bolt drawn between the methods'],
     answer: 1,
     explanation: "UML class diagrams show inheritance with a line ending in a hollow triangle that points to the superclass.",
   },

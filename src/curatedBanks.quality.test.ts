@@ -42,9 +42,8 @@ test('Grade 6 Natural Sciences (the bank written to the ADR 0001 rules) has no d
   for (const code of Object.keys(now)) assert.equal(code, 'length_tell_strong', `unexpected ${code} in the Grade 6 NST bank`);
 });
 
-// Grade 12 is NOT yet held at zero: its {question, answer:index} banks were only brought under the validator in 2026-11 and are being
-// repaired (add 'g12' here when the repair lands). Grades whose curated banks have been repaired at the source (options and answers only; prompts untouched). They stay at ZERO.
-const HELD_AT_ZERO = ['g6-natural-sciences', 'g6-history-geography', 'g6-other', 'g9', 'g11', 'g8', 'g7', 'g10'];
+// Grade 12 was brought under the validator in 2026-11 (its {question, answer:index} banks) and repaired to zero in the same change.
+const HELD_AT_ZERO = ['g6-natural-sciences', 'g6-history-geography', 'g6-other', 'g9', 'g11', 'g8', 'g7', 'g10', 'g12'];
 // Rejects that cannot be fixed without editing a prompt (listed in docs/notes/question-quality.md). They may not grow.
 const NEEDS_PROMPT_CHANGE: Record<string, Record<string, number>> = { g8: { near_duplicate: 2 }, 'g6-other': { near_duplicate: 5 } };
 for (const scope of HELD_AT_ZERO) {

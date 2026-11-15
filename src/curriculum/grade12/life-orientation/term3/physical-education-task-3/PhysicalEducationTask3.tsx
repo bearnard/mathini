@@ -61,12 +61,7 @@ const items = [
   },
   {
     prompt: 'What does self-discipline look like in PET?',
-    options: [
-      'Skipping sessions without reason',
-      'Being prepared and following through consistently',
-      'Blaming teammates for effort',
-      'Ignoring feedback',
-    ],
+    options: ['Skipping sessions when tired or busy', 'Being prepared and following through', 'Letting teammates carry the effort', 'Waiting for the coach to motivate you'],
     answer: 1,
     explanation: 'Self-discipline involves commitment, preparation and consistency.',
   },
@@ -105,12 +100,7 @@ const items = [
   },
   {
     prompt: 'How should teammates respond to different ability levels?',
-    options: [
-      'Mock weaker participants',
-      'Work respectfully and support inclusion',
-      'Exclude beginners',
-      'Refuse to cooperate',
-    ],
+    options: ['Let stronger players take most turns', 'Work respectfully and support inclusion', 'Leave beginners to practise on their own', 'Tease weaker players to push them'],
     answer: 1,
     explanation: 'Respect and inclusion strengthen teamwork and participation for everyone.',
   },

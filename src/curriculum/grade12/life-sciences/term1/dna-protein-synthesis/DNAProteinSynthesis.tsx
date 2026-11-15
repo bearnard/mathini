@@ -208,12 +208,7 @@ const items: LifeSciencesItem[] = [
   {
     "id": "dna-protein-synthesis-3",
     "question": "Why is DNA replication described as semi-conservative?",
-    "options": [
-      "Only half the DNA is copied",
-      "Each new DNA molecule has one original strand and one new strand",
-      "DNA replication happens only in some cells",
-      "The DNA shortens during copying"
-    ],
+    "options": ['Half of the DNA in the cell is copied during interphase', 'Each new DNA molecule has one original strand and one new strand', 'DNA replication occurs in some types of cells during the cell cycle', 'The DNA shortens during copying'],
     "answer": 1,
     "explanation": "Semi-conservative replication means every new DNA molecule keeps one parental strand and adds one newly synthesised strand."
   },
@@ -244,12 +239,7 @@ const items: LifeSciencesItem[] = [
   {
     "id": "dna-protein-synthesis-6",
     "question": "What is the role of tRNA in protein synthesis?",
-    "options": [
-      "To store DNA in the nucleus",
-      "To bring specific amino acids to the ribosome",
-      "To unzip the DNA molecule",
-      "To destroy unwanted proteins"
-    ],
+    "options": ['To store the genetic DNA of the cell in the nucleus', 'To bring specific amino acids to the ribosome', 'To unzip the DNA molecule', 'To destroy unwanted proteins'],
     "answer": 1,
     "explanation": "Transfer RNA carries amino acids and matches its anticodon to the correct mRNA codon."
   },

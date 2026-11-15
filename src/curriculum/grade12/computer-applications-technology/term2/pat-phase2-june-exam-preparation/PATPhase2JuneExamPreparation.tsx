@@ -45,13 +45,13 @@ const items = [
   },
   {
     prompt: "Why should learners back up PAT files regularly during term 2?",
-    options: ["Because PAT work cannot be marked", "Because losing files would delay both PAT progress and exam preparation", "Because backups improve internet speed", "Because exam papers are written online only"],
+    options: ['Because PAT work cannot be marked without backups', 'Because losing files would delay both PAT progress and exam preparation', 'Because backups improve the speed of the internet connection at school at the school', 'Because exam papers are written online only'],
     answer: 1,
     explanation: "Regular backups protect important work during a very demanding term.",
   },
   {
     prompt: "Which habit best supports the practical exam?",
-    options: ["Ignoring file names and saving anywhere", "Checking instructions, file paths and output before moving on", "Using one font size for all answers", "Skipping formula verification"],
+    options: ['Ignoring file names and saving files anywhere on the drive you like', 'Checking instructions, file paths and output before moving on', 'Using one font size for all of the answers', 'Skipping the verification of formulas to save time'],
     answer: 1,
     explanation: "Careful checking helps prevent avoidable errors in practical tasks.",
   },
@@ -63,7 +63,7 @@ const items = [
   },
   {
     prompt: "Why is milestone planning useful in term 2?",
-    options: ["It helps learners manage PAT deadlines and exam revision time", "It automatically marks the PAT", "It converts all files to HTML", "It removes the need for practical practice"],
+    options: ['It helps learners manage PAT deadlines and exam revision time', 'It automatically marks the PAT for the learner at the end of the term', 'It converts all of the PAT files to HTML pages', 'It removes the need for any practical practice'],
     answer: 0,
     explanation: "Milestones help learners spread work across the term instead of leaving everything too late.",
   },
@@ -75,13 +75,13 @@ const items = [
   },
   {
     prompt: "What is the best response if a practical answer looks correct but the output layout is poor?",
-    options: ["Leave it because layout never matters", "Improve the layout because presentation can affect marks", "Delete the file and restart immediately", "Ignore the print preview"],
+    options: ['Leave it as it is because layout never earns marks', 'Improve the layout because presentation can affect marks', 'Delete the file and restart the whole task immediately from scratch', 'Ignore the print preview and submit the file'],
     answer: 1,
     explanation: "Practical CAT tasks assess both correctness and the quality of the final output.",
   },
   {
     prompt: "Why do CAT theory questions often ask for advantages and disadvantages?",
-    options: ["To test balanced judgement and understanding of trade-offs", "Because definitions are never used", "Because only short answers are allowed", "To avoid practical knowledge completely"],
+    options: ['To test balanced judgement and understanding of trade-offs', 'Because definitions are not used in theory papers', 'Because only short one-word answers are allowed', 'To avoid testing practical knowledge of the learner in the theory paper'],
     answer: 0,
     explanation: "Advantages and disadvantages show that you understand both the benefits and limitations of a technology choice.",
   },

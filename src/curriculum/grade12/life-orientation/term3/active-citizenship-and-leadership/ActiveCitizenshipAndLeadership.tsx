@@ -39,12 +39,7 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: 'What is active citizenship?',
-    options: [
-      'Waiting for leaders to do everything',
-      'Informed participation in community and democratic life',
-      'Only voting once every few years',
-      'Avoiding public issues',
-    ],
+    options: ['Waiting for leaders to solve problems', 'Informed involvement in community life', 'Voting once every five years, then stopping', 'Following the views of popular people'],
     answer: 1,
     explanation: 'Active citizenship involves ongoing, informed participation and responsibility.',
   },
@@ -72,23 +67,13 @@ const items = [
   },
   {
     prompt: 'What is social cohesion?',
-    options: [
-      'Forcing everyone to be identical',
-      'A sense of belonging and cooperation in society',
-      'The absence of all disagreement',
-      'A government slogan only',
-    ],
+    options: ['Everyone sharing identical views', 'Belonging and cooperation in society', 'A period without political disagreement', 'Equal income across households'],
     answer: 1,
     explanation: 'Social cohesion means people can live and work together despite differences.',
   },
   {
     prompt: 'Which action best shows active citizenship at school?',
-    options: [
-      'Ignoring unfair treatment',
-      'Helping organise a respectful anti-bullying campaign',
-      'Spreading gossip about a problem',
-      'Waiting for social media to solve it',
-    ],
+    options: ['Ignoring unfair treatment of others', 'Helping run an anti-bullying campaign', 'Posting rumours about the bully online', 'Waiting for the principal to act first'],
     answer: 1,
     explanation: 'Organising respectful, informed action is a practical form of citizenship.',
   },
@@ -116,12 +101,7 @@ const items = [
   },
   {
     prompt: 'Which statement best supports social justice?',
-    options: [
-      'Some groups deserve fewer opportunities',
-      'Everyone should have fair treatment and access to rights',
-      'Power matters more than fairness',
-      'Diversity should be avoided',
-    ],
+    options: ['Opportunities should go to the largest groups', 'Everyone deserves fair treatment and rights', 'Rights should depend on wealth and status', 'Fairness matters less than tradition'],
     answer: 1,
     explanation: 'Social justice focuses on fairness, inclusion and equal respect.',
   },

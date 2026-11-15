@@ -51,13 +51,13 @@ const items = [
   },
   {
     prompt: "Why might fibre internet be preferred over older copper connections?",
-    options: ["It usually offers higher speed and better reliability", "It can only be used for printers", "It works without electricity", "It removes the need for a router"],
+    options: ['It usually offers higher speed and better reliability', 'It can only be used to connect printers to computers', 'It works without any electricity supply to the equipment', 'It removes the need for a router in the network'],
     answer: 0,
     explanation: "Fibre connections generally provide faster and more reliable data transmission.",
   },
   {
     prompt: "Which situation is an example of a social implication of network access?",
-    options: ["A new keyboard layout is released", "Learners without affordable data struggle to access online resources", "A monitor has a larger screen size", "A printer uses more paper in draft mode"],
+    options: ['A new keyboard layout is released to the market', 'Learners without affordable data struggle to access online resources', 'A monitor is sold with a larger screen size', 'A printer uses more paper when it is printing in draft mode and wastes ink on the page'],
     answer: 1,
     explanation: "Unequal access to data and connectivity contributes to the digital divide.",
   },
@@ -75,7 +75,7 @@ const items = [
   },
   {
     prompt: "Why can satellite internet have higher latency than fibre?",
-    options: ["Because satellites are closer to the user", "Because data must travel long distances to and from satellites", "Because fibre uses no cables", "Because satellite internet has no routers"],
+    options: ['Because satellites are much closer to the user than fibre cables are', 'Because data must travel long distances to and from satellites', 'Because fibre uses no cables to carry the data', 'Because satellite internet does not use any routers'],
     answer: 1,
     explanation: "The greater travel distance to orbit and back increases delay, known as latency.",
   },

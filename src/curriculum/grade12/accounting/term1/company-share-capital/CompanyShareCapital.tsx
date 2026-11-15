@@ -98,12 +98,7 @@ const bank: AccountingItem[] = [
   {
     "id": "csc-1",
     "question": "Authorised share capital refers to:",
-    "options": [
-      "the number of shares already sold to the public",
-      "the maximum number of shares the company may issue according to its MOI",
-      "the total dividends paid for the year",
-      "the amount of profit available for distribution"
-    ],
+    "options": ['the number of shares that have already been sold to the public by the company', 'the maximum number of shares the company may issue according to its MOI', 'the total dividends paid out for the financial year', 'the amount of profit available for distribution'],
     "answer": 1,
     "explanation": "Authorised shares are the maximum number the company is allowed to issue according to its founding documents."
   },
@@ -158,12 +153,7 @@ const bank: AccountingItem[] = [
   {
     "id": "csc-6",
     "question": "A rights issue is best described as:",
-    "options": [
-      "an offer of shares to existing shareholders first",
-      "a loan from the bank to the company",
-      "a compulsory tax paid to SARS",
-      "the repurchase of old fixed assets"
-    ],
+    "options": ['an offer of shares to existing shareholders first', 'a long-term loan obtained from the bank by the company', 'a compulsory tax paid by the company to SARS', 'the repurchase of old fixed assets by the company'],
     "answer": 0,
     "explanation": "In a rights issue, existing shareholders are offered the opportunity to buy additional shares first."
   },

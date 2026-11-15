@@ -134,13 +134,13 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "Which testing choice is strongest before final submission?",
-    options: ["Testing only one easy value", "Testing normal, boundary and invalid cases", "Testing only the GUI colours", "Skipping testing to save time"],
+    options: ['Testing a single easy value and then stopping', 'Testing normal, boundary and invalid cases', 'Testing the colours of the GUI', 'Skipping the testing to save time'],
     answer: 1,
     explanation: "Strong testing covers typical inputs as well as edge cases and invalid values.",
   },
   {
     prompt: "Why should you compare your output with the wording of the question before submitting?",
-    options: ["Because small formatting or logic differences can still cost marks", "Because markers never run the program", "Because the program only needs to compile", "Because comments matter more than results"],
+    options: ['Because small formatting or logic differences can still cost marks', 'Because markers do not run the program', 'Because the program only needs to compile', 'Because comments matter more than the results of the program at the final stage of the exam paper'],
     answer: 0,
     explanation: "Exam questions often specify exact outputs or behaviours, so a final comparison can prevent avoidable mark loss.",
   },

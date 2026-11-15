@@ -190,12 +190,7 @@ const bank: AccountingItem[] = [
   {
     "id": "aie-7",
     "question": "Insider trading is unethical because it involves:",
-    "options": [
-      "paying dividends late",
-      "using confidential information for personal gain",
-      "issuing more shares to the public",
-      "preparing a cash budget"
-    ],
+    "options": ['failing to pay the declared dividends to shareholders on time', 'using confidential information for personal gain', 'issuing more shares to the public', 'preparing a budget for cash receipts'],
     "answer": 1,
     "explanation": "Insider trading uses non-public information unfairly and is both unethical and illegal."
   },

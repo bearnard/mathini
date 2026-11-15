@@ -61,12 +61,7 @@ const items = [
   },
   {
     prompt: 'What does redress aim to do?',
-    options: [
-      'Hide the problem',
-      'Correct injustice and restore fairness',
-      'Punish without process',
-      'Ignore community impact',
-    ],
+    options: ['Punish offenders without a fair hearing', 'Correct injustice and restore fairness', 'Hide the problem to keep peace', 'Reward those who caused the harm'],
     answer: 1,
     explanation: 'Redress seeks to address harm and move toward justice.',
   },
@@ -94,12 +89,7 @@ const items = [
   },
   {
     prompt: 'What strengthens a rights-based argument?',
-    options: [
-      'Rumours and insults',
-      'Facts linked to constitutional principles',
-      'Personal attacks',
-      'Avoiding evidence',
-    ],
+    options: ['Strong opinions repeated loudly', 'Facts linked to constitutional principles', 'Insults aimed at the people on the other side', 'Support from a large online crowd'],
     answer: 1,
     explanation: 'Evidence and constitutional reasoning make the response credible and fair.',
   },
@@ -116,12 +106,7 @@ const items = [
   },
   {
     prompt: 'Why should learners study global and local rights issues?',
-    options: [
-      'Rights only matter in textbooks',
-      'It helps them compare problems and defend justice using evidence',
-      'It prevents all disagreement',
-      'It replaces community action',
-    ],
+    options: ['It shows that rights are the same everywhere', 'It helps them compare issues and defend justice', 'It proves that local issues matter less than global ones', 'It lets them avoid community involvement'],
     answer: 1,
     explanation: 'Studying different contexts strengthens analysis and informed citizenship.',
   },

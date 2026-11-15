@@ -207,12 +207,7 @@ const items: LifeSciencesItem[] = [
   {
     "id": "paper2-genetics-evolution-consolidation-5",
     "question": "Natural selection leads to evolution because advantageous traits are:",
-    "options": [
-      "Destroyed before reproduction",
-      "Passed on more often through successful reproduction",
-      "Ignored by the environment",
-      "Always acquired after birth"
-    ],
+    "options": ['Destroyed before reproduction can take place in the population', 'Passed on more often through successful reproduction', 'Ignored by the environment', 'Acquired after birth through effort'],
     "answer": 1,
     "explanation": "Individuals with favourable inherited traits tend to leave more offspring, increasing those traits over time."
   },

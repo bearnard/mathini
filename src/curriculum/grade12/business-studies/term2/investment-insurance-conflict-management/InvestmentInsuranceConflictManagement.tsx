@@ -76,12 +76,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "investment-insurance-conflict-management-1",
     "question": "What is the main role of the Johannesburg Stock Exchange (JSE)?",
-    "options": [
-      "To issue passports",
-      "To provide a market for listed shares",
-      "To set school exams",
-      "To manage labour disputes"
-    ],
+    "options": ['To issue identity documents and passports to citizens', 'To provide a market for listed shares', 'To set the national school exams', 'To manage disputes between workers'],
     "answer": 1,
     "explanation": "The JSE is a formal market where listed securities such as shares are traded."
   },

@@ -139,13 +139,13 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What does validation do?",
-    options: ["Checks whether entered data is reasonable and allowed", "Backs up all files automatically", "Converts GUI controls into classes", "Draws a UML diagram"],
+    options: ['Checks whether entered data is reasonable and allowed', 'Backs up all the files automatically', 'Converts the GUI controls on a form into program classes automatically', 'Draws a UML diagram of the program'],
     answer: 0,
     explanation: "Validation checks that data meets rules such as length, type or range before it is processed.",
   },
   {
     prompt: "What must every recursive algorithm have?",
-    options: ["A base case that stops the repeated calls", "Two constructors", "A database connection", "A public array"],
+    options: ['A base case that stops the repeated calls', 'Two constructors in the class', 'A database connection to a remote server with a login screen', 'A public array of integer values'],
     answer: 0,
     explanation: "Without a base case, recursion keeps calling itself and may never stop correctly.",
   },
@@ -169,7 +169,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What is usually true of a refined algorithm?",
-    options: ["It avoids unnecessary repetition and handles edge cases clearly", "It ignores invalid input to save time", "It uses the longest possible code", "It can only run once"],
+    options: ['It avoids unnecessary repetition and handles edge cases clearly', 'It ignores invalid input in order to save time', 'It uses the longest possible code to show the marker the effort', 'It can be run once and then never again'],
     answer: 0,
     explanation: "Refined algorithms are clearer, more efficient and more reliable in unusual cases.",
   },

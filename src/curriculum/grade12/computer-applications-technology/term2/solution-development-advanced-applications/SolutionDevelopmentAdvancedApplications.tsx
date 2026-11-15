@@ -51,7 +51,7 @@ const items = [
   },
   {
     prompt: "What is the advantage of importing calculated data into a report document?",
-    options: ["It allows accurate results to be presented in a polished format", "It removes the need to save the files", "It changes the database into a browser", "It prevents all spelling errors"],
+    options: ['It allows accurate results to be presented in a polished format', 'It removes the need to save the files on the computer afterwards', 'It changes the database into a web browser', 'It prevents spelling errors in the whole document'],
     answer: 0,
     explanation: "Integration lets the application that is best for calculation feed the application that is best for presentation.",
   },
@@ -63,7 +63,7 @@ const items = [
   },
   {
     prompt: "What should a learner do first when a practical task seems complex?",
-    options: ["Guess the answer format", "Break the task into smaller application-specific parts", "Delete the source files", "Ignore the instructions"],
+    options: ['Guess the answer format then start typing in any application', 'Break the task into smaller application-specific parts', 'Delete the source files then begin the task again', 'Skip the instructions then use a familiar tool'],
     answer: 1,
     explanation: "Breaking the task into smaller parts helps you decide which application and feature to use at each stage.",
   },
@@ -75,13 +75,13 @@ const items = [
   },
   {
     prompt: "Why is a query often run before creating a database report?",
-    options: ["The query selects the correct records to appear in the report", "Queries add page numbers", "Reports cannot contain headings", "Queries replace the need for tables"],
+    options: ['The query selects the correct records to appear in the report', 'Queries add page numbers to the finished report', 'Reports cannot contain headings unless a query is first run on them', 'Queries replace the need for tables in the database'],
     answer: 0,
     explanation: "The query filters and sorts the data so that the report displays the intended results.",
   },
   {
     prompt: "Which approach shows good solution development?",
-    options: ["Choosing tools because they look familiar only", "Selecting features that match the problem and checking the output carefully", "Typing everything in one long paragraph", "Ignoring data quality issues"],
+    options: ['Choosing tools only because they look familiar to you', 'Selecting features that match the problem and checking the output carefully', 'Choosing tools because they look familiar rather than because they fit in the practical task', 'Ignoring data quality issues because time is short'],
     answer: 1,
     explanation: "Good solution development links the problem, the tool choice and the quality of the final result.",
   },

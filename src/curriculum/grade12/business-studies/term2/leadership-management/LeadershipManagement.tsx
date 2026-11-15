@@ -111,12 +111,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "leadership-management-4",
     "question": "Transformational leaders are best known for:",
-    "options": [
-      "Ignoring change",
-      "Inspiring innovation and a shared vision",
-      "Avoiding communication",
-      "Relying only on punishment"
-    ],
+    "options": ['Ignoring change in the business environment and the market', 'Inspiring innovation and a shared vision', 'Avoiding communication with staff', 'Relying on punishment to motivate'],
     "answer": 1,
     "explanation": "Transformational leaders motivate people around vision, growth and change."
   },

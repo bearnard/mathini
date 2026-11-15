@@ -116,19 +116,19 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "A 3-mark theory question usually expects what?",
-    options: ["One very short word only", "About three relevant distinct points or a fully developed answer worth three marks", "A drawing with no labels", "No explanation at all"],
+    options: ['One very short word with no further explanation of the idea behind the answer given', 'About three relevant distinct points or a fully developed answer worth three marks', 'A drawing that has no labels on it', 'No explanation or points at all'],
     answer: 1,
     explanation: "The mark allocation suggests the depth needed, so three marks usually require several relevant points.",
   },
   {
     prompt: "What is a good MCQ strategy when you are unsure?",
-    options: ["Skip all options without reading them", "Eliminate clearly wrong options and choose the best remaining answer", "Choose the longest option every time", "Leave the paper blank"],
+    options: ['Skip the options and pick the first one that looks the most familiar to you', 'Eliminate clearly wrong options and choose the best remaining answer', 'Choose the longest option every time', 'Leave the paper blank and move on'],
     answer: 1,
     explanation: "Elimination improves the chance of choosing the best answer when you are uncertain.",
   },
   {
     prompt: "Why should final revision include both theory and practical ideas?",
-    options: ["Because the NSC papers can connect conceptual knowledge to applied scenarios", "Because theory papers never mention practical work", "Because practical work replaces all theory", "Because only one topic is examined each year"],
+    options: ['Because the NSC papers can connect conceptual knowledge to applied scenarios', 'Because theory papers do not mention practical work in the NSC exam scenarios', 'Because practical work replaces the theory content', 'Because a single topic is examined each year'],
     answer: 0,
     explanation: "The exam often links conceptual understanding to real practical situations, so revision should stay balanced.",
   },
@@ -140,7 +140,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What is the purpose of leaving time to review your theory paper?",
-    options: ["To check for missing points, weak wording or unanswered sections", "To learn a new chapter from scratch", "To redesign the exam paper layout", "To change every correct answer randomly"],
+    options: ['To check for missing points, weak wording or unanswered sections', 'To learn a new chapter from scratch', 'To redesign the layout of the exam paper', 'To change a correct answer without a reason and then hand in the paper'],
     answer: 0,
     explanation: "A review period helps catch avoidable mistakes and incomplete answers before submission.",
   },

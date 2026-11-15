@@ -72,12 +72,7 @@ const items = [
   },
   {
     prompt: 'Why are backup options useful in a transition plan?',
-    options: [
-      'They show a lack of ambition',
-      'They provide alternatives if the first plan changes',
-      'They are only for weak learners',
-      'They replace effort',
-    ],
+    options: ['They show you lack confidence in the plan', 'They offer options if plans change', 'They are for learners who expect to fail', 'They save you from having to work hard'],
     answer: 1,
     explanation: 'Backup options make planning more resilient and realistic.',
   },
@@ -94,12 +89,7 @@ const items = [
   },
   {
     prompt: 'What should a transition action plan include?',
-    options: [
-      'Only one dream with no deadlines',
-      'Goals, documents, deadlines and support contacts',
-      'No realistic next steps',
-      'Only advice from strangers online',
-    ],
+    options: ['A single dream with no timeline', 'Goals, deadlines, documents and contacts', 'A list of jobs without steps to reach them', 'Opinions from online strangers'],
     answer: 1,
     explanation: 'A useful plan includes concrete steps and resources.',
   },

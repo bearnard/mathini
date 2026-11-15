@@ -211,12 +211,7 @@ const items: LifeSciencesItem[] = [
   {
     "id": "human-evolution-7",
     "question": "An advantage of bipedalism is that it:",
-    "options": [
-      "Stops natural selection",
-      "Frees the hands for carrying and tool use",
-      "Prevents all predators",
-      "Eliminates competition"
-    ],
+    "options": ['Stops natural selection from acting on a population', 'Frees the hands for carrying and tool use', 'Prevents attacks by predators', 'Removes competition for food'],
     "answer": 1,
     "explanation": "Walking upright leaves the hands available for other functions."
   },

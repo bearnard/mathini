@@ -228,12 +228,7 @@ const bank: AccountingItem[] = [
   {
     "id": "cfs-8",
     "question": "Which item belongs in cash and cash equivalents?",
-    "options": [
-      "Trade receivables",
-      "Bank overdraft repayable on demand",
-      "Inventory",
-      "Ordinary share capital"
-    ],
+    "options": ['Trade receivables from credit customers', 'Bank overdraft repayable on demand', 'Inventory held for resale to customers', 'Ordinary share capital issued to owners'],
     "answer": 1,
     "explanation": "A bank overdraft repayable on demand is included in cash and cash equivalents for cash flow statement purposes."
   }

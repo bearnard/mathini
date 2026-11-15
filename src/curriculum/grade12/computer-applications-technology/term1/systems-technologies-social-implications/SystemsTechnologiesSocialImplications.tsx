@@ -57,7 +57,7 @@ const items = [
   },
   {
     prompt: "What is an example of a social implication of technology?",
-    options: ["The colour of a computer case", "The shape of a desktop icon", "The digital divide between users with and without internet access", "The brand of office chair used"],
+    options: ['The colour of a computer case', 'The shape of a desktop icon displayed on a learner\'s computer screen', 'The digital divide between users with and without internet access', 'The brand of office chair used in a lab'],
     answer: 2,
     explanation: "The digital divide is a social issue because access to technology is not equal for all users.",
   },
@@ -69,13 +69,13 @@ const items = [
   },
   {
     prompt: "Why might a CAT learner choose a laptop instead of a desktop for PAT research at school and home?",
-    options: ["A laptop is always more powerful than a desktop", "A laptop is more portable and supports work in different locations", "A laptop never needs charging", "A laptop does not use an operating system"],
+    options: ['A laptop is more powerful than any desktop computer', 'A laptop is more portable and supports work in different locations', 'A laptop does not need charging while it is being used for research', 'A laptop runs without an operating system installed'],
     answer: 1,
     explanation: "Portability is a major advantage when work must continue in more than one place.",
   },
   {
     prompt: "Which software factor is MOST important before installing a new application?",
-    options: ["Whether the icon looks modern", "Whether the software is compatible with the operating system", "Whether the keyboard is wireless", "Whether the monitor has built-in speakers"],
+    options: ['Whether the icon looks modern on the desktop', 'Whether the software is compatible with the operating system', 'Whether the keyboard connected to the computer is wireless or wired', 'Whether the monitor has built-in speakers fitted'],
     answer: 1,
     explanation: "The software must be compatible with the operating system and hardware before it can run properly.",
   },

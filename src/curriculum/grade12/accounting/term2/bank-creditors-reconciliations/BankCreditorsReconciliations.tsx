@@ -116,12 +116,7 @@ const bank: AccountingItem[] = [
   {
     "id": "bcr-2",
     "question": "An unpresented cheque is a cheque that has been:",
-    "options": [
-      "lost and cancelled by the bank",
-      "recorded in the cashbook but not yet presented to the bank for payment",
-      "deposited by a debtor",
-      "written after the year-end date only"
-    ],
+    "options": ['lost by the business and later cancelled by the bank after proper notice was given', 'recorded in the cashbook but not yet presented to the bank for payment', 'deposited by a debtor into the bank account', 'written after the year-end date by the business'],
     "answer": 1,
     "explanation": "The business has issued and recorded the cheque, but the bank has not yet processed it."
   },
@@ -140,24 +135,14 @@ const bank: AccountingItem[] = [
   {
     "id": "bcr-4",
     "question": "A direct deposit by a debtor shown on the bank statement means the business must:",
-    "options": [
-      "ignore it until next month",
-      "update the cashbook because cash has been received",
-      "treat it as a share issue",
-      "record it as an unpresented cheque"
-    ],
+    "options": ['leave it unrecorded until the next bank statement arrives in the following month', 'update the cashbook because cash has been received', 'treat it as an issue of new shares', 'record it as an unpresented cheque'],
     "answer": 1,
     "explanation": "The cashbook must be updated because the debtor has paid directly into the business bank account."
   },
   {
     "id": "bcr-5",
     "question": "A creditors reconciliation mainly compares:",
-    "options": [
-      "inventory with fixed assets",
-      "supplier statements with creditor accounts and the creditors control account",
-      "cash sales with credit sales",
-      "ordinary share capital with retained income"
-    ],
+    "options": ['inventory records with the fixed asset register and the asset disposal journal', 'supplier statements with creditor accounts and the creditors control account', 'cash sales figures with credit sales figures', 'ordinary share capital with retained income'],
     "answer": 1,
     "explanation": "The purpose is to confirm that what suppliers say is owed matches the business's creditor records."
   },

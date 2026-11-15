@@ -39,12 +39,7 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: 'Which situation is a clear social risk factor for a learner?',
-    options: [
-      'Stable support at home',
-      'Exposure to substance abuse and violence',
-      'Regular exercise',
-      'Reliable school attendance',
-    ],
+    options: ['Supportive friends and a safe neighbourhood', 'Exposure to substance abuse and violence', 'Stable home with caring family support', 'Access to a library and sports facilities'],
     answer: 1,
     explanation: 'Violence and substance abuse increase risk to safety, health and learning.',
   },
@@ -94,23 +89,13 @@ const items = [
   },
   {
     prompt: 'How can poverty affect learners?',
-    options: [
-      'It has no effect on school life',
-      'It can increase stress and limit opportunities',
-      'It guarantees resilience',
-      'It only affects adults',
-    ],
+    options: ['It has no effect once learners are at school', 'It can raise stress and limit opportunities', 'It makes learners more disciplined and focused', 'It affects the adults in a household, not learners'],
     answer: 1,
     explanation: 'Poverty can place pressure on wellbeing, nutrition, transport and study opportunities.',
   },
   {
     prompt: 'What is responsible intervention?',
-    options: [
-      'Taking dangerous action alone',
-      'Responding safely and referring to proper support',
-      'Posting the story online',
-      'Ignoring the warning signs',
-    ],
+    options: ['Confronting the person alone to stop it', 'Responding safely and referring to support', 'Sharing the story online to raise awareness', 'Waiting to see if the situation improves'],
     answer: 1,
     explanation: 'Responsible intervention prioritises safety and appropriate referral.',
   },

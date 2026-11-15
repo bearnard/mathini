@@ -51,7 +51,7 @@ const items = [
   },
   {
     prompt: "What is the main purpose of alt text on an image?",
-    options: ["To increase internet speed", "To describe the image for accessibility and when it cannot load", "To change the background colour", "To create a table border"],
+    options: ['To increase the internet speed of the web page', 'To describe the image for accessibility and when it cannot load', 'To change the background colour of the web page behind the image', 'To create a border around a table on the page'],
     answer: 1,
     explanation: "Alt text supports accessibility and provides a text alternative if the image is unavailable.",
   },
@@ -63,13 +63,13 @@ const items = [
   },
   {
     prompt: "Why is colour contrast important on a website?",
-    options: ["It reduces the size of image files", "It helps users read text clearly against the background", "It automatically fixes HTML errors", "It removes the need for headings"],
+    options: ['It reduces the size of the image files that are shown on the page', 'It helps users read text clearly against the background', 'It automatically fixes errors in the HTML code', 'It removes the need for headings on the page'],
     answer: 1,
     explanation: "Strong contrast improves readability and accessibility.",
   },
   {
     prompt: "A school club wants visitors to contact them easily from the website. What should be included?",
-    options: ["A hidden menu only", "Visible contact information or a clear contact link", "Only large decorative images", "A blank home page"],
+    options: ['A hidden menu that visitors must search for on the page', 'Visible contact information or a clear contact link', 'Large decorative images that fill the page', 'A blank home page with no links on it'],
     answer: 1,
     explanation: "The page should make the communication action obvious by providing contact details or a contact page link.",
   },

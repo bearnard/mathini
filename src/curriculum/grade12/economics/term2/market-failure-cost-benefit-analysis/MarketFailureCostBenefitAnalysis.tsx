@@ -132,24 +132,14 @@ const items: RawEconomicsItem[] = [
   {
     "id": "mf-5",
     "question": "Education is often described as a merit good because it is ...",
-    "options": [
-      "always over-consumed",
-      "under-consumed if left to the market",
-      "a pure public good only",
-      "a demerit good"
-    ],
+    "options": ['over-consumed by learners because it is too cheap to buy', 'under-consumed if left to the market', 'a pure public good', 'a demerit good'],
     "answer": 1,
     "explanation": "Merit goods create social benefits and may be under-consumed without state support."
   },
   {
     "id": "mf-6",
     "question": "Cost-benefit analysis is mainly used to ...",
-    "options": [
-      "set the repo rate",
-      "compare social costs and social benefits of projects",
-      "measure unemployment only",
-      "calculate VAT refunds"
-    ],
+    "options": ['set the repo rate for banks and the prime lending rate', 'compare social costs and social benefits of projects', 'measure unemployment among youth', 'calculate VAT refunds for vendors'],
     "answer": 1,
     "explanation": "CBA helps policymakers decide whether a project is worthwhile for society."
   },

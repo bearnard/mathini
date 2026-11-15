@@ -45,7 +45,7 @@ const items = [
   },
   {
     prompt: "What happens when linked content is updated in its source file?",
-    options: ["The linked content can update in the destination document", "The source file is deleted", "The operating system changes", "The printer stops working"],
+    options: ['The linked content can update in the destination document', 'The source file is deleted from the computer', 'The operating system changes to a different version on the computer', 'The printer stops working until it is restarted'],
     answer: 0,
     explanation: "Linked content can reflect changes from the source, depending on the application settings.",
   },
@@ -57,13 +57,13 @@ const items = [
   },
   {
     prompt: "Why is application integration useful in CAT practical work?",
-    options: ["It allows each application to do the task it is best suited for", "It forces every task into one program", "It removes the need for accuracy checks", "It prevents the use of databases"],
+    options: ['It allows each application to do the task it is best suited for', 'It forces every task into one single program', 'It removes the need for accuracy checks on the final results in the document', 'It prevents the use of databases in practical work'],
     answer: 0,
     explanation: "Integration is effective because each tool can contribute its strength to the final solution.",
   },
   {
     prompt: "What is the best reason to keep source files organised when using links?",
-    options: ["So broken links are less likely and the correct files are easier to find", "So the keyboard types faster", "So the browser history is erased", "So every file uses the same wallpaper"],
+    options: ['So broken links are less likely and the correct files are easier to find', 'So the keyboard is able to type faster', 'So the browser history is erased automatically each time it is used in the browser', 'So every file uses the same desktop wallpaper'],
     answer: 0,
     explanation: "Linked tasks depend on source files being stored consistently and predictably.",
   },
@@ -81,7 +81,7 @@ const items = [
   },
   {
     prompt: "Which phrase best describes good application integration?",
-    options: ["Transfer data, then verify accuracy and presentation", "Copy everything as a screenshot", "Avoid using source files", "Ignore changes once a file is linked"],
+    options: ['Transfer data, then verify accuracy and presentation', 'Copy the information as a screenshot into the document instead of data', 'Avoid using source files and retype all the data', 'Ignore any changes made once a file is linked'],
     answer: 0,
     explanation: "Good integration includes both the transfer of data and checking that the result remains correct and useful.",
   },

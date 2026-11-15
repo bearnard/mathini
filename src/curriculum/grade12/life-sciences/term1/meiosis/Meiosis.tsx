@@ -224,24 +224,14 @@ const items: LifeSciencesItem[] = [
   {
     "id": "meiosis-6",
     "question": "Which process in meiosis increases genetic variation?",
-    "options": [
-      "Binary fission",
-      "Independent assortment of homologous chromosomes",
-      "Budding",
-      "Diffusion"
-    ],
+    "options": ['Binary fission of the parent cell into two cells', 'Independent assortment of homologous chromosomes', 'Budding from the parent organism', 'Diffusion across the cell membrane'],
     "answer": 1,
     "explanation": "Independent assortment changes the combinations of maternal and paternal chromosomes that enter gametes."
   },
   {
     "id": "meiosis-7",
     "question": "Non-disjunction refers to:",
-    "options": [
-      "Chromosomes failing to separate correctly",
-      "DNA being copied twice",
-      "A gamete fusing with a zygote",
-      "The loss of the cell membrane"
-    ],
+    "options": ['Chromosomes failing to separate correctly', 'DNA being copied twice in the cell before division', 'A gamete fusing with a zygote', 'The loss of the cell membrane'],
     "answer": 0,
     "explanation": "Non-disjunction happens when chromosomes or chromatids fail to move to opposite poles."
   },

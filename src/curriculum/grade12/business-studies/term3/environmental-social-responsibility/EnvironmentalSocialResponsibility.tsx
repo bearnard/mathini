@@ -74,24 +74,14 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "environmental-social-responsibility-1",
     "question": "Which statement BEST describes corporate social responsibility (CSR)?",
-    "options": [
-      "A once-off donation only",
-      "The broader responsibility of a business toward stakeholders",
-      "A method of salary grading",
-      "A form of ownership"
-    ],
+    "options": ['A once-off donation made to charity by the business owner each year', 'The broader responsibility of a business toward stakeholders', 'A method of salary grading', 'A form of business ownership'],
     "answer": 1,
     "explanation": "CSR is the wider responsibility of the business toward society, employees, customers and the environment."
   },
   {
     "id": "environmental-social-responsibility-2",
     "question": "Corporate social investment (CSI) usually refers to:",
-    "options": [
-      "Targeted community upliftment projects",
-      "Daily production targets",
-      "Shortlisting job applicants",
-      "Private household spending"
-    ],
+    "options": ['Targeted community upliftment projects', 'Daily production targets set for factory workers', 'Shortlisting job applicants', 'Private household spending'],
     "answer": 0,
     "explanation": "CSI generally involves specific projects such as bursaries, clinics or school support."
   },

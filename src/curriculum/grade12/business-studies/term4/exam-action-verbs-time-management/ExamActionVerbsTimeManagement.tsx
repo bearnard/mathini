@@ -117,24 +117,14 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "exam-action-verbs-time-management-5",
     "question": "What should a learner underline or identify before answering?",
-    "options": [
-      "Only the page number",
-      "The action verb and key topic clues",
-      "Only the date",
-      "The school logo"
-    ],
+    "options": ['The page number of the question paper', 'The action verb and key topic clues', 'The date printed on the paper', 'The school logo on the cover'],
     "answer": 1,
     "explanation": "Spotting the command word and topic focus helps shape the correct answer."
   },
   {
     "id": "exam-action-verbs-time-management-6",
     "question": "The purpose of a final answer check is to:",
-    "options": [
-      "Change every answer randomly",
-      "Catch numbering mistakes and incomplete responses",
-      "Add unrelated theory",
-      "Avoid reading instructions"
-    ],
+    "options": ['Change answers without reading the questions again from the start', 'Catch numbering mistakes and incomplete responses', 'Add unrelated theory to fill space', 'Avoid reading the instructions again'],
     "answer": 1,
     "explanation": "A final check can recover marks by finding easy-to-fix mistakes."
   },
@@ -153,12 +143,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "exam-action-verbs-time-management-8",
     "question": "Which statement about exam technique is TRUE?",
-    "options": [
-      "Content knowledge alone is enough",
-      "Good technique helps learners earn marks they already know",
-      "Timing never matters",
-      "Command words are optional"
-    ],
+    "options": ['Content knowledge alone is enough to earn full marks in a paper', 'Good technique helps learners earn marks they already know', 'Timing matters very little in exams', 'Command words can be left out'],
     "answer": 1,
     "explanation": "Strong exam technique helps learners present their knowledge in the form the examiner expects."
   }

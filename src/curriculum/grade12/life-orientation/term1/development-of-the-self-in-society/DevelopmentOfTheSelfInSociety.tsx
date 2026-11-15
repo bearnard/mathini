@@ -50,12 +50,7 @@ const items = [
   },
   {
     prompt: 'Which goal is most aligned with the SMART principle?',
-    options: [
-      'Do better at everything',
-      'Become more successful someday',
-      'Complete two Mathematics revision sessions every week this term',
-      'Try harder when possible',
-    ],
+    options: ['Get better marks in my subjects soon', 'Become a more successful learner someday', 'Do two Maths revision sessions a week', 'Study harder whenever I feel stressed'],
     answer: 2,
     explanation: 'SMART goals are specific and measurable, so the learner knows exactly what to do.',
   },
@@ -116,12 +111,7 @@ const items = [
   },
   {
     prompt: 'Which action best reflects self-motivation?',
-    options: [
-      'Giving up after one weak result',
-      'Working steadily toward goals even when no one is watching',
-      'Studying only when friends insist',
-      'Avoiding feedback to protect confidence',
-    ],
+    options: ['Giving up after one weak test result', 'Working toward goals unprompted', 'Studying when parents threaten punishment', 'Avoiding feedback to protect confidence'],
     answer: 1,
     explanation: 'Self-motivation comes from internal commitment rather than external pressure alone.',
   },

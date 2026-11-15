@@ -197,12 +197,7 @@ const bank: AccountingItem[] = [
   {
     "id": "bpi-8",
     "question": "Bad debts expense will usually:",
-    "options": [
-      "reduce projected profit but not create an immediate cash outflow",
-      "increase cash sales immediately",
-      "be shown as a financing inflow",
-      "raise ordinary share capital"
-    ],
+    "options": ['reduce projected profit but not create an immediate cash outflow', 'be shown as an inflow in the financing activities section of the statement', 'be shown as a financing activity inflow', 'raise the ordinary share capital of the company'],
     "answer": 0,
     "explanation": "Bad debts reduce profit, but the write-off itself is not a new cash payment."
   }

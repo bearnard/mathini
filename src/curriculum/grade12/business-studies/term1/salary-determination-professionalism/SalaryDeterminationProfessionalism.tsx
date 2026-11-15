@@ -141,12 +141,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "salary-determination-professionalism-6",
     "question": "Collective bargaining influences salary determination because it:",
-    "options": [
-      "Removes all labour laws",
-      "Allows unions and employers to negotiate pay and conditions",
-      "Only applies to customers",
-      "Is the same as recruitment"
-    ],
+    "options": ['Removes the labour laws of the country for most large employers', 'Allows unions and employers to negotiate pay and conditions', 'Applies to customers who buy goods', 'Is the same process as recruitment'],
     "answer": 1,
     "explanation": "Collective bargaining is the negotiation process between organised labour and employers."
   },

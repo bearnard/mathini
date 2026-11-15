@@ -87,12 +87,7 @@ const items: RawEconomicsItem[] = [
   {
     "id": "gd-1",
     "question": "Economic development is broader than economic growth because it includes ...",
-    "options": [
-      "only higher inflation",
-      "changes in living standards and welfare",
-      "only larger imports",
-      "the exchange rate only"
-    ],
+    "options": ['higher inflation rates and faster price increases', 'changes in living standards and welfare', 'larger imports from abroad', 'a stronger exchange rate'],
     "answer": 1,
     "explanation": "Development includes welfare improvements such as health, education and reduced poverty."
   },
@@ -111,12 +106,7 @@ const items: RawEconomicsItem[] = [
   {
     "id": "gd-3",
     "question": "Industrial policy aims mainly to ...",
-    "options": [
-      "discourage production",
-      "support productive sectors and structural change",
-      "remove all trade",
-      "reduce education levels"
-    ],
+    "options": ['discourage production in key sectors of the economy', 'support productive sectors and structural change', 'remove trade with other countries', 'reduce education levels of workers'],
     "answer": 1,
     "explanation": "Industrial policy supports sectors that can drive output, jobs and competitiveness."
   },

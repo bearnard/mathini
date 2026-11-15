@@ -137,12 +137,7 @@ const bank: AccountingItem[] = [
   {
     "id": "p1r-5",
     "question": "Earnings per share is based on profit attributable to ordinary shareholders divided by:",
-    "options": [
-      "weighted average number of ordinary shares",
-      "total current assets",
-      "number of directors",
-      "closing inventory units"
-    ],
+    "options": ['weighted average number of ordinary shares', 'number of directors serving on the company board', 'total number of employees at year end', 'closing inventory units on hand'],
     "answer": 0,
     "explanation": "EPS measures earnings earned per ordinary share using the weighted average number of shares."
   },
@@ -161,12 +156,7 @@ const bank: AccountingItem[] = [
   {
     "id": "p1r-7",
     "question": "Good governance requires directors to:",
-    "options": [
-      "hide conflicts of interest",
-      "act in the best interests of the company and disclose conflicts",
-      "focus only on short-term bonuses",
-      "remove all external audits"
-    ],
+    "options": ['hide conflicts of interest from shareholders and the board to avoid scrutiny', 'act in the best interests of the company and disclose conflicts', 'focus on short-term bonuses for themselves', 'remove external audits to save costs'],
     "answer": 1,
     "explanation": "Directors must act responsibly and disclose conflicts to protect stakeholders."
   },

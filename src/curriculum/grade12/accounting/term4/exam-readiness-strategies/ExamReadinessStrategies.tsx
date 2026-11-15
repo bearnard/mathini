@@ -101,12 +101,7 @@ const bank: AccountingItem[] = [
   {
     "id": "ers-2",
     "question": "Which internal control weakness is most serious for inventory?",
-    "options": [
-      "One person ordering, receiving and recording stock alone",
-      "Using pre-numbered stock sheets",
-      "Locking the storeroom",
-      "Doing regular stock counts"
-    ],
+    "options": ['One person ordering, receiving and recording stock alone', 'Locking the storeroom after working hours and keeping the key safe', 'Locking the storeroom after working hours', 'Doing regular stock counts by different staff'],
     "answer": 0,
     "explanation": "Allowing one person to control the full process weakens segregation of duties and increases fraud risk."
   },
@@ -137,12 +132,7 @@ const bank: AccountingItem[] = [
   {
     "id": "ers-5",
     "question": "An unqualified audit report means the financial statements are:",
-    "options": [
-      "materially fair according to the auditor",
-      "guaranteed to show a profit",
-      "free of every minor error",
-      "prepared by SARS"
-    ],
+    "options": ['materially fair according to the auditor', 'free of any minor error in the accounting records', 'guaranteed to contain no fraud at all', 'prepared and approved by SARS officials'],
     "answer": 0,
     "explanation": "An unqualified report means the auditor believes the statements are fairly presented in all material respects."
   },
@@ -173,12 +163,7 @@ const bank: AccountingItem[] = [
   {
     "id": "ers-8",
     "question": "Which exam habit best protects marks in Accounting?",
-    "options": [
-      "Skipping labels to save time",
-      "Checking whether the amount is VAT-inclusive or exclusive before calculating",
-      "Ignoring the mark allocation",
-      "Answering interpretation questions without figures"
-    ],
+    "options": ['Skipping labels and headings on the answer sheet to save time during the paper', 'Checking whether the amount is VAT-inclusive or exclusive before calculating', 'Ignoring the mark allocation next to each question', 'Answering interpretation questions without using figures'],
     "answer": 1,
     "explanation": "Many avoidable errors come from using the wrong VAT basis, so checking this first protects marks."
   }

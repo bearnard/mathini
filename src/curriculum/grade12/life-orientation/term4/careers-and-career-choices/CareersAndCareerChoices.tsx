@@ -50,12 +50,7 @@ const items = [
   },
   {
     prompt: 'Why must learners check entry requirements early?',
-    options: [
-      'Requirements usually change every hour',
-      'They help learners plan realistic applications and subject choices',
-      'They are only needed after acceptance',
-      'They replace career research',
-    ],
+    options: ['They change too often for planning to be useful', 'They help learners plan realistic applications', 'They are needed after acceptance is given', 'They matter once the course has begun'],
     answer: 1,
     explanation: 'Early checking prevents learners from applying blindly or missing key requirements.',
   },
@@ -72,12 +67,7 @@ const items = [
   },
   {
     prompt: 'Which factor should influence career choice most responsibly?',
-    options: [
-      'Pressure from friends only',
-      'Your strengths, interests and realistic opportunities',
-      'A career title that sounds impressive',
-      'Choosing without any research',
-    ],
+    options: ['What your friends have decided to study', 'Your strengths, interests and opportunities', 'Which career sounds the most impressive', 'The highest salary, whatever the work involves'],
     answer: 1,
     explanation: 'Responsible decisions match personal qualities with real opportunities and requirements.',
   },
@@ -105,23 +95,13 @@ const items = [
   },
   {
     prompt: 'What should a learner use when researching institutions?',
-    options: [
-      'Official websites and verified information',
-      'Rumours from unrelated sources',
-      'Only social media comments',
-      'Guesswork',
-    ],
+    options: ['Official websites and verified information', 'Comments left under social media posts', 'Stories a friend heard from an older cousin', 'Unverified rankings shared in group chats'],
     answer: 0,
     explanation: 'Official sources are more reliable for requirements, funding and deadlines.',
   },
   {
     prompt: 'Why is it risky to choose a career without research?',
-    options: [
-      'Research is only for top achievers',
-      'You may ignore requirements, costs and suitability',
-      'It guarantees creativity',
-      'It makes applications easier',
-    ],
+    options: ['Research limits the careers you can choose', 'You may overlook requirements, costs and fit', 'Research is meant for top achievers', 'You will qualify for a bursary automatically'],
     answer: 1,
     explanation: 'Lack of research can lead to unrealistic or poorly matched choices.',
   },

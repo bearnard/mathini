@@ -113,36 +113,21 @@ const bank: AccountingItem[] = [
   {
     "id": "p2r-3",
     "question": "Bank charges appearing on the bank statement but not in the cashbook will:",
-    "options": [
-      "increase the cashbook bank balance",
-      "decrease the cashbook bank balance when recorded",
-      "increase ordinary share capital",
-      "reduce inventory cost"
-    ],
+    "options": ['increase the cashbook bank balance when the charges are recorded', 'decrease the cashbook bank balance when recorded', 'increase the ordinary share capital', 'reduce the cost of inventory on hand'],
     "answer": 1,
     "explanation": "Bank charges reduce the amount in the Bank account, so the cashbook bank balance must be decreased."
   },
   {
     "id": "p2r-4",
     "question": "A difference in a creditors reconciliation may be caused by:",
-    "options": [
-      "an unrecorded supplier invoice or credit note",
-      "a share buy-back",
-      "a dividend declaration",
-      "depreciation on land"
-    ],
+    "options": ['an unrecorded supplier invoice or credit note', 'a dividend declaration made by the directors in March', 'a dividend declaration by directors', 'depreciation on land and buildings'],
     "answer": 0,
     "explanation": "Missing supplier documents are common reasons why the supplier statement and business records disagree."
   },
   {
     "id": "p2r-5",
     "question": "Input VAT may only be claimed when there is usually a:",
-    "options": [
-      "valid tax invoice from a registered vendor",
-      "cash budget surplus",
-      "share certificate",
-      "debt-equity ratio below 1"
-    ],
+    "options": ['valid tax invoice from a registered vendor', 'share certificate issued to the owner of the business', 'signed letter from the company secretary', 'debt-equity ratio below 1 for the year'],
     "answer": 0,
     "explanation": "A valid tax invoice is essential evidence for claiming input VAT."
   },

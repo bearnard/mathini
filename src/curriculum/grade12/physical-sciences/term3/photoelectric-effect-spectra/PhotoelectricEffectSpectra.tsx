@@ -148,12 +148,7 @@ const items: PhysicalSciencesItem[] = [
   {
     "id": "photoelectric-effect-spectra-6",
     "question": "An absorption spectrum is recognised by:",
-    "options": [
-      "bright lines only",
-      "dark lines in a continuous spectrum",
-      "a single wavelength only",
-      "no visible pattern"
-    ],
+    "options": ['bright lines on a dark background spectrum', 'dark lines in a continuous spectrum', 'a single wavelength of light', 'a uniform band of one colour'],
     "answer": 1,
     "explanation": "Specific wavelengths are absorbed, leaving dark lines in the continuous spectrum."
   },

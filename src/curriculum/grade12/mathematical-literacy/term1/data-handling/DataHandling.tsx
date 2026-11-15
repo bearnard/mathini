@@ -104,12 +104,7 @@ const items: MathematicalLiteracyItem[] = [
   {
     "id": "data-handling-4",
     "question": "Which feature would make a bar graph misleading?",
-    "options": [
-      "A clear title",
-      "A labelled axis",
-      "A vertical axis that starts at 90 instead of 0 to exaggerate differences",
-      "Using equal bar widths"
-    ],
+    "options": ['A clear title above the graph describing the data', 'A labelled axis with the correct units shown', 'A vertical axis that starts at 90 instead of 0 to exaggerate differences', 'Using equal bar widths for all of the bars on the graph and a zero baseline'],
     "answer": 2,
     "explanation": "A truncated axis can make small differences look much larger than they really are."
   },

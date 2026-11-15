@@ -134,13 +134,13 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What does referential integrity prevent?",
-    options: ["All sorting of data", "Orphan records that point to missing parent records", "The use of foreign keys", "Any reporting in the database"],
+    options: ['The sorting of data in the tables', 'Orphan records that point to missing parent records', 'The use of foreign keys in the tables', 'The creation of new reports from the data in the database'],
     answer: 1,
     explanation: "Referential integrity keeps table links valid by preventing child records from referencing missing parents.",
   },
   {
     prompt: "What is the effect of a LEFT JOIN?",
-    options: ["It keeps all rows from the left table, even if some have no match on the right", "It only keeps matched rows from both tables", "It deletes unmatched rows from the database", "It reverses the sort order of the query"],
+    options: ['It keeps all rows from the left table, even if some have no match on the right', 'It keeps only the rows that have a match in both tables and drops unmatched left rows', 'It deletes the unmatched rows from the database', 'It reverses the sort order of the query results'],
     answer: 0,
     explanation: "A left join preserves every row from the left table and fills unmatched right-side data with null or blank results.",
   },
@@ -152,7 +152,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What is a good use for a composite key in a linking table?",
-    options: ["To identify each combination of the related foreign keys uniquely", "To make all text uppercase", "To replace every query with a report", "To remove normalisation from the design"],
+    options: ['To identify each combination of the related foreign keys uniquely', 'To make all text in the table uppercase', 'To replace each query with a report', 'To remove normalisation so that duplicate rows can repeat in the table'],
     answer: 0,
     explanation: "A composite key can uniquely identify each pair of linked records in a junction table.",
   },

@@ -101,14 +101,9 @@ const items: MathematicalLiteracyItem[] = [
   {
     "id": "measurement-4",
     "question": "One litre of paint covers 8 m². How many litres are needed for a wall area of 24 m²?",
-    "options": [
-      "2 L",
-      "3 L",
-      "4 L",
-      "8 L"
-    ],
+    "options": ['2 L', '3 L', '4 L', '8 L'],
     "answer": 1,
-    "explanation": "24 ÷ 8 = 3 L."
+    "explanation": 'Litres needed = total area ÷ coverage per litre = 24 ÷ 8 = 3 L. Dividing is correct because each litre covers 8 m².'
   },
   {
     "id": "measurement-5",

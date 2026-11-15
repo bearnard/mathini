@@ -125,12 +125,7 @@ const items: PhysicalSciencesItem[] = [
   {
     "id": "rates-equilibrium-acids-bases-4",
     "question": "If more reactant is added to a system at equilibrium, the equilibrium position usually shifts:",
-    "options": [
-      "toward the products",
-      "toward the reactants",
-      "nowhere because equilibrium is fixed",
-      "randomly"
-    ],
+    "options": ['toward the products', 'toward the reactants', 'nowhere because equilibrium is fixed', 'toward the side with fewer particles'],
     "answer": 0,
     "explanation": "The system uses some of the added reactant, so it usually shifts toward the products."
   },

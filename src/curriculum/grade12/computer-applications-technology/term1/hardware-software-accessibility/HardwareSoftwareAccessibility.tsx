@@ -39,13 +39,13 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: "Which device is best suited to capture printed text so that it can be edited in a document?",
-    options: ["Projector", "Scanner with OCR software", "Plotter", "Speaker"],
+    options: ['Projector that displays the screen on a wall', 'Scanner with OCR software', 'Plotter that prints large technical drawings', 'Speaker that plays audio from the computer'],
     answer: 1,
     explanation: "A scanner together with optical character recognition can capture printed text and convert it to editable text.",
   },
   {
     prompt: "What is the main purpose of an operating system?",
-    options: ["To create spreadsheets only", "To manage hardware resources and provide a user interface", "To replace all application software", "To connect only to the internet"],
+    options: ['To create spreadsheets and nothing else on the computer', 'To manage hardware resources and provide a user interface', 'To replace all application software on the computer', 'To connect the computer to the internet and do little else'],
     answer: 1,
     explanation: "The operating system controls the computer's resources and allows the user to interact with the device.",
   },
@@ -57,7 +57,7 @@ const items = [
   },
   {
     prompt: "Why might a school choose open-source software?",
-    options: ["It can never be updated", "It is usually available with source code and often without licence fees", "It only works without internet access", "It cannot be customised"],
+    options: ['It cannot be updated once the school has installed it on its computers by the staff', 'It is usually available with source code and often without licence fees', 'It has no source code and always needs licence fees', 'It cannot be customised to suit the school\'s needs'],
     answer: 1,
     explanation: "Open-source software is often cheaper and may be customised or audited because the source code is available.",
   },
@@ -81,7 +81,7 @@ const items = [
   },
   {
     prompt: "Why is it useful to explain the user's barrier in an accessibility answer?",
-    options: ["Because every accessibility feature works the same way", "Because the correct feature depends on the exact challenge the user experiences", "Because accessibility is only about eyesight", "Because software licensing decides accessibility"],
+    options: ['Because every accessibility feature helps every user in the same way', 'Because the correct feature depends on the exact challenge the user experiences', 'Because accessibility is a concern for eyesight problems alone', 'Because the software licence decides which accessibility features exist for users'],
     answer: 1,
     explanation: "CAT expects you to match the accessibility feature to the barrier, such as reading, hearing or motor control.",
   },

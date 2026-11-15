@@ -129,12 +129,7 @@ const items: RawEconomicsItem[] = [
   {
     "id": "ei-4",
     "question": "South Africa’s current inflation target is ...",
-    "options": [
-      "0% to 2%",
-      "1% to 3%",
-      "3% (band of 2% to 4%)",
-      "3% to 6%"
-    ],
+    "options": ['0% to 2%', '1% to 3%', '3% (band of 2% to 4%)', '3% to 6% (the old target range)'],
     "answer": 2,
     "explanation": "Since November 2025 the target is 3% with a ±1 percentage-point band (2% to 4%). Until November 2025 the target range was 3% to 6%."
   },
@@ -153,12 +148,7 @@ const items: RawEconomicsItem[] = [
   {
     "id": "ei-6",
     "question": "Which indicator measures unemployment most directly?",
-    "options": [
-      "The share of the labour force without work but seeking work",
-      "The CPI basket",
-      "The repo rate",
-      "The value of exports only"
-    ],
+    "options": ['The share of the labour force without work but seeking work', 'The CPI basket of goods and services bought by urban households', 'The repo rate set by the SARB', 'The value of exports and imports'],
     "answer": 0,
     "explanation": "The unemployment rate measures the share of the labour force actively seeking work but unemployed."
   },

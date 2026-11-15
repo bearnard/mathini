@@ -144,12 +144,7 @@ const bank: AccountingItem[] = [
   {
     "id": "fac-5",
     "question": "The fixed asset register should include details such as:",
-    "options": [
-      "shareholder dividends only",
-      "cost, date acquired and accumulated depreciation",
-      "bank statement balances only",
-      "creditors' addresses only"
-    ],
+    "options": ['dividends declared, share capital issued and directors\' fees', 'cost, date acquired and accumulated depreciation', 'bank balance, cheque numbers and deposit dates', 'creditors\' names, addresses and credit limits'],
     "answer": 1,
     "explanation": "The asset register tracks key information needed for control and reporting."
   },
