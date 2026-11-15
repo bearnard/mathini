@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  LADDERS, SOLIDS, applyRule, applyRules, ruleText, sequence, balanced, unknownAddend, axisMax, axisTicks, SYMMETRY_LINES, addSameDenominator, reflectX, regularPolygon, changeOf, compareFractions, convert, countOn, decimalComma, equivalent, hcf, hundredthsGrid, simplify, formatRand, prismMeasures, rectMeasures, elapsedMinutes, formatDuration, formatNumber, fromMinutes, handAngles, stats, stepFactors, to24, toMinutes, workedExample,
+  LADDERS, SOLIDS, applyRule, applyRules, ruleText, sequence, balanced, unknownAddend, axisMax, axisTicks, barGraphAria, scaleStepWords, SYMMETRY_LINES, addSameDenominator, reflectX, regularPolygon, changeOf, compareFractions, convert, countOn, decimalComma, equivalent, hcf, hundredthsGrid, simplify, formatRand, prismMeasures, rectMeasures, elapsedMinutes, formatDuration, formatNumber, fromMinutes, handAngles, stats, stepFactors, to24, toMinutes, workedExample,
 } from './mathsHelpers';
 
 test('handAngles: 3:00 has the minute hand on 12 and the hour hand on 3', () => {
@@ -284,4 +284,18 @@ test('bar graph axis: scale of 2 for the fruit data', () => {
   assert.equal(axisMax(7, 2), 8);
   assert.deepEqual(axisTicks(8, 2), [0, 2, 4, 6, 8]);
   assert.deepEqual(axisTicks(9, 2), [0, 2, 4, 6, 8, 10]);
+});
+
+test('the bar graph screen-reader text names the scale step that is actually used (it used to always say "in twos")', () => {
+  assert.equal(scaleStepWords(1), 'ones');
+  assert.equal(scaleStepWords(2), 'twos');
+  assert.equal(scaleStepWords(5), 'fives');
+  assert.equal(scaleStepWords(10), 'tens');
+  assert.equal(scaleStepWords(25), 'steps of 25');
+  const items = [{ label: 'Apples', value: 8 }, { label: 'Bananas', value: 5 }];
+  assert.equal(barGraphAria('Fruit', 'Number of fruits', items, 2), 'A bar graph titled Fruit. The vertical axis shows Number of fruits and the scale goes up in twos, from 0 to 8. Apples: 8, Bananas: 5.');
+  const tens = barGraphAria('Learners', 'Learners', [{ label: 'A', value: 35 }, { label: 'B', value: 12 }], 10);
+  assert.ok(tens.includes('up in tens, from 0 to 40'));
+  assert.ok(!tens.includes('twos'));
+  assert.ok(barGraphAria('T', 'Y', [{ label: 'A', value: 3 }], 1).includes('up in ones, from 0 to 3'));
 });

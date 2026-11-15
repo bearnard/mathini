@@ -311,3 +311,15 @@ export const axisTicks = (max: number, step: number): number[] => {
   const top = axisMax(max, step);
   return Array.from({ length: top / step + 1 }, (_, i) => i * step);
 };
+
+/** How a graph scale counts, in words for a screen reader: 1 -> "ones", 2 -> "twos", 5 -> "fives", 10 -> "tens", else "steps of 25". */
+export const scaleStepWords = (step: number): string => {
+  const names: Record<number, string> = { 1: 'ones', 2: 'twos', 3: 'threes', 4: 'fours', 5: 'fives', 10: 'tens', 20: 'twenties', 50: 'fifties', 100: 'hundreds' };
+  return names[step] ?? `steps of ${formatNumber(step)}`;
+};
+
+/** The screen-reader description of a bar graph: its title, the axis label, the scale step actually used, then every bar. */
+export const barGraphAria = (title: string, yLabel: string, items: { label: string; value: number }[], step: number): string => {
+  const top = axisMax(Math.max(...items.map((i) => i.value)), step);
+  return `A bar graph titled ${title}. The vertical axis shows ${yLabel} and the scale goes up in ${scaleStepWords(step)}, from 0 to ${top}. ${items.map((i) => `${i.label}: ${i.value}`).join(', ')}.`;
+};
