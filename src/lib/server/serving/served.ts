@@ -85,14 +85,18 @@ interface ContentRow {
   extra: string;
 }
 
-/** The current approved version of each question id, in the order given. Rows that cannot be played as multiple choice are left out. */
+/**
+ * The current approved version of each question id, in the order given. Only plain multiple choice: an order / label / explain question
+ * (or a diagram item) is left out here and stays in the code bank, because a row cannot carry its kind-specific fields. This also protects the
+ * review path, which would otherwise show such a question as ordinary multiple choice.
+ */
 export async function currentVersions(db: D1Database, ids: string[]): Promise<ServedItem[]> {
   if (ids.length === 0) return [];
   const res = await db
     .prepare(
       `SELECT q.id AS id, q.section AS section, q.legacy_item_id AS legacy_item_id, v.id AS vid, v.prompt, v.options, v.answer, v.explanation, v.extra
        FROM questions q JOIN question_versions v ON v.id = q.current_version_id
-       WHERE q.id IN (${ids.map(() => '?').join(',')}) AND q.status = 'active' AND v.status = 'approved'`,
+       WHERE q.id IN (${ids.map(() => '?').join(',')}) AND q.status = 'active' AND q.kind = 'mcq' AND v.status = 'approved'`,
     )
     .bind(...ids)
     .all<ContentRow>();
