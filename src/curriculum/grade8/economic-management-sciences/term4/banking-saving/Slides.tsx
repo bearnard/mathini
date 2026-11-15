@@ -99,7 +99,7 @@ export const learnSteps: LearnStep[] = [
         />
         <Worked
           title="Why regulate?"
-          steps={['People trust banks with their savings.', 'The Prudential Authority supervises banks, and the National Credit Regulator oversees credit providers.', 'Rules and checks keep deposits and borrowers safer.']}
+          steps={['People trust banks with their savings.', 'The Prudential Authority (in the Reserve Bank) regulates banks, and the National Credit Regulator enforces the National Credit Act.', 'Rules and checks keep deposits and borrowers safer.']}
         />
         <Mistake>Believing government plays no part in banking. Regulators exist so people&apos;s savings and credit are treated fairly.</Mistake>
       </>,
