@@ -1,56 +1,83 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Branches, Hub, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Understanding Substance Abuse',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Substance abuse</strong> is harmful use of alcohol, drugs, or other substances.
-          Substances can damage your health, relationships, and future.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Addiction is real and can develop quickly, especially in young people.</p>
-        </div>
-      </div>
+    title: 'Substance abuse and dependence',
+    content: slide(
+      <>
+        <Rule>Substance abuse is the harmful use of alcohol, drugs or other substances. Dependence is when your body or mind relies on a substance. Young people are more vulnerable because their brains are still developing.</Rule>
+        <StepFlow steps={['Harmful use of a substance.', 'Using it again and again.', 'Body or mind relies on it: dependence.']} aria="Three steps in order: harmful use of a substance, using it again and again, then dependence when the body or mind relies on it." />
+        <Worked
+          title="Sam uses a substance to feel calm"
+          steps={[<>He uses it to escape a worry.</>, <>He uses it again when the worry returns.</>, <>Now he feels he cannot cope without it: that is dependence.</>]}
+        />
+        <Mistake>Thinking “just once cannot hurt” or “it only happens to other people”. Anyone can become dependent, and young people are at greater risk.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Recognizing Harmful Behaviour',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Warning signs of substance abuse include: neglecting school or friends, mood changes, and risky behaviour.
-          <strong> Dependence</strong> means your body or mind relies on a substance to function.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Physical signs</strong>
-            <p className="text-slate-600">Changes in appearance, health problems.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Behaviour changes</strong>
-            <p className="text-slate-600">Withdrawal from activities, new friends.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Warning signs and the effect on your future',
+    content: slide(
+      <>
+        <Rule>Warning signs of substance abuse include neglecting school, mood swings and risky behaviour. Substance abuse harms your education, health, relationships and careers.</Rule>
+        <Hub centre="Your future" spokes={['Education', 'Health', 'Relationships', 'Careers']} aria="A circle labelled Your future with four things that substance abuse harms: education, health, relationships and careers." />
+        <Worked
+          title="A friend skips school, has mood swings and takes risks"
+          steps={[<>Spot the signs: school, mood and risks.</>, <>Look for a pattern, not one bad day.</>, <>Show you care and think about how to help.</>]}
+        />
+        <Mistake>Deciding after one bad day that someone abuses substances. Look for a pattern of signs over time.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Coping Skills and Getting Support',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Coping skills</strong> help you manage stress without substance abuse.
-          Many support services and resources are available to help.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Healthy coping includes:</p>
-          <p className="text-slate-600">Exercise, talking to friends or counsellors, creative activities, and reaching out for help.</p>
-        </div>
-      </div>
+    title: 'Pressure, stress and healthy coping',
+    content: slide(
+      <>
+        <Rule>Peers may encourage use, which makes saying no hard. Stress may lead people to use substances to cope. Healthy coping strategies are exercise, talking, hobbies and creative activities.</Rule>
+        <Branches
+          problem="You feel stressed after a bad test"
+          options={[
+            { choice: 'Use a substance', outcome: 'The stress returns and a new risk begins.' },
+            { choice: 'Exercise and talk to someone', outcome: 'You cope and stay safe.' },
+          ]}
+          aria="A decision tree. You feel stressed after a bad test. Using a substance means the stress returns and a new risk begins. Exercising and talking to someone means you cope and stay safe."
+        />
+        <Worked
+          title="Choose a healthy way to cope"
+          steps={[<>Name the stress: a bad test.</>, <>List healthy options: a run, a talk, a hobby.</>, <>Pick one and do it today.</>]}
+        />
+        <Mistake>Believing a substance solves stress. It does not remove the problem, and it adds new risks.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Getting help and helping a friend',
+    content: slide(
+      <>
+        <Rule>You can get help from counsellors, doctors, support groups, helplines and trusted adults. If a friend shows warning signs, speak to them with care and urge them to get help.</Rule>
+        <StepFlow steps={['Choose a calm, private moment.', 'Say you care and what you have noticed.', 'Listen without judging.', 'Urge them to talk to a trusted adult.']} aria="Four steps for helping a friend in order: choose a calm private moment, say you care and what you noticed, listen without judging, urge them to talk to a trusted adult." />
+        <Worked
+          title="You are worried about a friend"
+          steps={[<>Find a private moment, not in front of others.</>, <>Say: “I care about you, and I noticed you are missing school.”</>, <>Listen to the answer.</>, <>Suggest talking to a counsellor or a trusted adult together.</>]}
+        />
+        <Mistake>Shaming your friend or ignoring the problem. Both leave your friend alone. Speak with care and point to support.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is substance abuse, and what is dependence?" answer="Substance abuse is the harmful use of alcohol, drugs or other substances. Dependence is when your body or mind relies on a substance." />
+        <Check question="Name two warning signs of substance abuse." answer="Any two of: neglecting school, mood swings, risky behaviour." />
+        <Check question="Give two healthy ways to cope with stress." answer="Any two of: exercise, talking, hobbies, creative activities." />
+        <Check question="A friend shows warning signs. What should you do, and who can help?" answer="Speak to them with care and urge them to get help. Counsellors, doctors, support groups, helplines and trusted adults can help." />
+      </>,
     ),
   },
 ];

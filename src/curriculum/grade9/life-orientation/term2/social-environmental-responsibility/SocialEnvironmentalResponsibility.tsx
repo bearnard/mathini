@@ -1,56 +1,83 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Branches, Hub, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Community Health',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Community health</strong> is the wellbeing of all people in a community.
-          Healthy communities have clean water, healthcare, and safe environments.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Everyone has a role in creating a healthy community.</p>
-        </div>
-      </div>
+    title: 'Community health',
+    content: slide(
+      <>
+        <Rule>Community health is the wellbeing of all the people in a community. It depends on services, clean water, safety, education and jobs.</Rule>
+        <Hub centre="Health" spokes={['Clean water', 'Safety', 'Education', 'Jobs']} aria="A circle labelled Health with four things it depends on: clean water, safety, education and jobs." />
+        <Worked
+          title="A community has no clean water"
+          steps={[<>Problem: people cannot get clean water.</>, <>Effect: people can get sick and miss school or work.</>, <>Response: report the problem to the municipality.</>, <>Help others: share what you know.</>]}
+        />
+        <Mistake>Thinking community health only means having a clinic. Water, safety, education and jobs also affect how healthy people are.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Social Pressure and Environmental Care',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Social pressure</strong> is when friends or peers try to make you do something.
-          <strong> Environmental care</strong> is protecting nature and resources for the future.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Social pressure</strong>
-            <p className="text-slate-600">Resisting negative pressure matters.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Environmental care</strong>
-            <p className="text-slate-600">Reduce, reuse, recycle, protect nature.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Social pressure and responsible action',
+    content: slide(
+      <>
+        <Rule>Social pressure can influence choices for good or bad. Responsible action means making choices that help your community and nature.</Rule>
+        <Branches
+          problem="Friends want to dump rubbish near the stream"
+          options={[
+            { choice: 'Join in', outcome: 'The stream is polluted.' },
+            { choice: 'Say no, pick it up', outcome: 'The place stays clean.' },
+          ]}
+          aria="A decision tree. Friends want to dump rubbish near the stream. If you join in the stream is polluted. If you say no and pick it up the place stays clean."
+        />
+        <Worked
+          title="Choose a responsible action"
+          steps={[<>Notice the pressure from friends.</>, <>Ask: does this help or harm my community?</>, <>Say no, and suggest a clean-up instead.</>]}
+        />
+        <Mistake>Going along with a group because “everyone does it”. Social pressure can also be positive, for example when a group joins a clean-up.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Responsible Action',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Responsible action</strong> means making choices that help your community and environment.
-          Small actions by many people create big changes.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">You can take action by:</p>
-          <p className="text-slate-600">Educating others, volunteering, reducing waste, and supporting community initiatives.</p>
-        </div>
-      </div>
+    title: 'Caring for the environment',
+    content: slide(
+      <>
+        <Rule>Environmental care protects resources for future generations. Environmental problems include pollution, deforestation, water shortage and climate change. “Reduce, reuse, recycle” cuts waste and saves resources.</Rule>
+        <StepFlow steps={['Reduce: use less.', 'Reuse: use it again.', 'Recycle: make it into something new.']} aria="Three steps in order: reduce by using less, reuse by using it again, recycle by making it into something new." />
+        <Worked
+          title="A plastic bottle"
+          steps={[<>Reduce: bring a refillable bottle.</>, <>Reuse: keep a bottle to store water at home.</>, <>Recycle: put the empty bottle in a recycling bin.</>]}
+        />
+        <Mistake>Thinking recycling alone solves waste. Reduce comes first, because the waste you never make needs no recycling.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'What learners can do',
+    content: slide(
+      <>
+        <Rule>Education helps people make informed choices about their health. As a learner you can save water, cut waste, teach others and volunteer.</Rule>
+        <StepFlow steps={['Find a real problem at school.', 'Plan a realistic action.', 'Teach others about it.', 'Check what changed.']} aria="Four steps for a class campaign in order: find a real problem, plan a realistic action, teach others, check what changed." />
+        <Worked
+          title="A class campaign to cut waste"
+          steps={[<>Problem: the bins are full of paper.</>, <>Action: use both sides of the page.</>, <>Teach: make a poster for other classes.</>, <>Check: are the bins emptier after a month?</>]}
+        />
+        <Mistake>Choosing a goal that is too big, such as “stop all pollution”. A small action you can finish makes a real difference.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is community health, and name three things it depends on?" answer="The wellbeing of all the people in a community. For example: clean water, safety, education, jobs, services." />
+        <Check question="How can social pressure affect people?" answer="It can influence choices, for good or bad." />
+        <Check question="What do reduce, reuse and recycle mean?" answer="Use less, use it again, and make it into something new. Together they cut waste and save resources." />
+        <Check question="Give two things you can do as a learner to protect the environment." answer="Any two of: save water, cut waste, teach others, volunteer." />
+      </>,
     ),
   },
 ];
