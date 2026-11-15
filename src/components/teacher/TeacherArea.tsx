@@ -256,6 +256,7 @@ export default function TeacherArea() {
               ))}
             </ul>
           )}
+          <a href="/teacher/questions" className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-xl border border-slate-300 bg-white px-4 text-base font-semibold text-slate-800">Question bank: suggest changes</a>
           <NewClass onCreated={(id) => { loadClasses(); setOpen(id); }} />
         </>
       )}
