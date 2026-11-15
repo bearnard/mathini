@@ -178,3 +178,40 @@ export function LetterLayout({ parts, aria }: { parts: string[]; aria: string })
     </Wrap>
   );
 }
+
+export type Place = 'op' | 'onder' | 'in' | 'voor' | 'agter' | 'langs' | 'tussen';
+
+/** Up to three small scenes of a ball and a box. Each scene has one label: the preposition. */
+export function PlaceScene({ scenes, aria }: { scenes: Place[]; aria: string }) {
+  const Ball = ({ cx, cy }: { cx: number; cy: number }) => <circle cx={cx} cy={cy} r={11} fill={ROSE} stroke="#be123c" strokeWidth={2} />;
+  const Box = ({ x, w = 60, open }: { x: number; w?: number; open?: boolean }) => (
+    <rect x={x} y={34} width={w} height={36} rx={5} fill={open ? '#fff' : '#c7d2fe'} stroke={INDIGO} strokeWidth={3} />
+  );
+  return (
+    <Wrap aria={aria} w={360} h={122}>
+      {scenes.map((p, i) => {
+        const ox = scenes.length === 1 ? 125 : 10 + i * 118;
+        return (
+          <g key={p}>
+            {p === 'agter' ? <Ball cx={ox + 82} cy={40} /> : null}
+            {p === 'tussen' ? (
+              <>
+                <Box x={ox + 5} w={36} />
+                <Box x={ox + 69} w={36} />
+              </>
+            ) : (
+              <Box x={ox + 25} open={p === 'in'} />
+            )}
+            {p === 'op' ? <Ball cx={ox + 55} cy={23} /> : null}
+            {p === 'onder' ? <Ball cx={ox + 55} cy={84} /> : null}
+            {p === 'in' ? <Ball cx={ox + 55} cy={52} /> : null}
+            {p === 'voor' ? <Ball cx={ox + 38} cy={70} /> : null}
+            {p === 'langs' ? <Ball cx={ox + 98} cy={52} /> : null}
+            {p === 'tussen' ? <Ball cx={ox + 55} cy={52} /> : null}
+            <text x={ox + 55} y={116} textAnchor="middle" fontSize={16} fontWeight={800} fill="#1e293b">{p}</text>
+          </g>
+        );
+      })}
+    </Wrap>
+  );
+}

@@ -1,68 +1,108 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, TenseTimeline } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Revise language building blocks',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Mixed revision practises vocabulary, tenses, plurals, adjectives and meaning.
-        </p>
-        <div className="flex flex-wrap justify-center gap-3 text-2xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">woordeskat <SpeakButton text="woordeskat" /></span>
-          <span className="inline-flex items-center">meervoude <SpeakButton text="meervoude" /></span>
-          <span className="inline-flex items-center">tye <SpeakButton text="tye" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Watch the time words',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Time words help you choose present, past or future tense.
-        </p>
-        <p className="text-xl text-slate-700">
-          <strong>Vandag</strong> speel ek. <strong>Gister</strong> het ek gespeel. <strong>Môre</strong> sal ek speel.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Meaning in context',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Read the whole question. A synonym has a similar meaning, while a preposition shows position.
-        </p>
-        <div className="flex flex-wrap justify-center gap-3 text-2xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">sinoniem <SpeakButton text="sinoniem" /></span>
-          <span className="inline-flex items-center">voorsetsel <SpeakButton text="voorsetsel" /></span>
-        </div>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say singular and plural forms aloud to notice the sound changes that happen in meervoude.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"boek / boeke"} phonetic={"[buk / ˈbukə]"} meaning={"book / books"} lang="af" />
-          <PronunciationPlayer word={"hond / honde"} phonetic={"[hɔnt / ˈhɔndə]"} meaning={"dog / dogs"} lang="af" />
-          <PronunciationPlayer word={"kind / kinders"} phonetic={"[kənt / ˈkəndərs]"} meaning={"child / children"} lang="af" />
-          <PronunciationPlayer word={"huis / huise"} phonetic={"[ɦœys / ˈɦœysə]"} meaning={"house / houses"} lang="af" />
-          <PronunciationPlayer word={"dag / dae"} phonetic={"[dax / dɑːi]"} meaning={"day / days"} lang="af" />
-          <PronunciationPlayer word={"blom / blomme"} phonetic={"[blɔm / ˈblɔmə]"} meaning={"flower / flowers"} lang="af" />
-        </div>
-      </div>
+    title: 'Revise: the time word shows the tense',
+    content: slide(
+      <>
+        <Rule>Look for the time word. <Af>Vandag</Af> or <Af>elke dag</Af> means present. <Af>Gister</Af> means past: <Af>het ... ge-</Af>. <Af>Môre</Af> means future: <Af>sal</Af>.</Rule>
+        <TenseTimeline
+          past="Ek het sokker gespeel."
+          present="Ek speel sokker."
+          future="Ek sal sokker speel."
+          aria="A timeline with three sentences: gister, Ek het sokker gespeel; vandag, Ek speel sokker; môre, Ek sal sokker speel."
+        />
+        <Worked
+          title="Pick the tense"
+          steps={[
+            <><Af>Hulle stap elke dag skool toe.</Af> <En>They walk to school every day.</En> Present: <Af>stap</Af>.</>,
+            <><Af>Gister het ek sokker gespeel.</Af> and <Af>Gister het sy 'n appel geëet.</Af> Past: <Af>het ... gespeel</Af>, <Af>het ... geëet</Af>.</>,
+            <><Af>Môre sal ek my boek lees.</Af> <En>Tomorrow I will read my book.</En> Future: <Af>sal</Af>. <SpeakButton text="Môre sal ek my boek lees." /></>,
+          ]}
+        />
+        <Mistake>Using <Af>sal</Af> after <Af>Gister</Af>, or <Af>het</Af> after <Af>Môre</Af>. The time word decides.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Revise: plurals and adjectives',
+    content: slide(
+      <>
+        <Rule>Most plurals add <Af>-e</Af>: <Af>boek</Af> becomes <Af>boeke</Af>. Words in <Af>-el</Af> take <Af>-s</Af>. An adjective describes a noun.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['boek', 'boeke'], ['hond', 'honde'], ['tafel', 'tafels']]}
+          aria="Three nouns and their plurals: boek becomes boeke, hond becomes honde, tafel becomes tafels."
+        />
+        <Worked
+          title="Plural and adjective"
+          steps={[
+            <>One book, two books: <Af>een boek, twee boeke</Af>. <SpeakButton text="een boek, twee boeke" /></>,
+            <><Af>Die seun is vriendelik.</Af> <En>The boy is friendly.</En> <Af>vriendelik</Af> describes the boy.</>,
+            <><Af>Die rooi bal lê in die tuin.</Af> <En>The red ball lies in the garden.</En> <Af>rooi</Af> describes the ball.</>,
+          ]}
+        />
+        <Mistake>Adding <Af>-s</Af> to every plural. <Af>boeks</Af> and <Af>boekes</Af> are wrong. The plural is <Af>boeke</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Revise: words you need',
+    content: slide(
+      <>
+        <Rule>Learn the Afrikaans word together with its English meaning. Then check that the word fits the whole sentence.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['venster', 'window'], ['deur', 'door'], ['stoel', 'chair']]}
+          aria="Three Afrikaans nouns with their English meaning: venster is window, deur is door, stoel is chair."
+        />
+        <Worked
+          title="Choose the word"
+          steps={[
+            <><Af>Kies die Afrikaans vir window.</Af> The answer is <Af>venster</Af>. <SpeakButton text="venster" /></>,
+            <>Colours: <Af>rooi</Af> <En>red</En>, <Af>groen</Af> <En>green</En>, <Af>blou</Af> <En>blue</En>, <Af>wit</Af> <En>white</En>.</>,
+          ]}
+        />
+        <Mistake>Picking <Af>deur</Af> because it is the first word you know. Match the English meaning: window is <Af>venster</Af>, door is <Af>deur</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Revise: synonyms and positions',
+    content: slide(
+      <>
+        <Rule>A synonym means the same. A <Af>voorsetsel</Af> shows position, such as <Af>onder</Af> <En>under</En>, <Af>op</Af> <En>on</En> or <Af>langs</Af> <En>next to</En>.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['vinnig', 'gou'], ['bly', 'gelukkig'], ['praat', 'gesels']]}
+          aria="Three pairs of Afrikaans synonyms: vinnig and gou, bly and gelukkig, praat and gesels."
+        />
+        <Worked
+          title="Synonym and position"
+          steps={[
+            <>A synonym for <Af>vinnig</Af> <En>fast</En> is <Af>gou</Af>. <Af>stadig</Af> is the opposite.</>,
+            <><Af>Die kat sit onder die stoel.</Af> <En>The cat sits under the chair.</En> <SpeakButton text="Die kat sit onder die stoel." /></>,
+          ]}
+        />
+        <Mistake>Choosing the opposite for a synonym. <Af>stadig</Af> <En>slow</En> is the opposite of <Af>vinnig</Af>, so it is not the synonym.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<><Af>Verlede tyd:</Af> <Af>Gister ___ ek sokker ___.</Af> (play)</>} answer={<><Af>het ... gespeel</Af>.</>} />
+        <Check question={<><Af>Môre ___ ek my boek lees.</Af></>} answer={<><Af>sal</Af>: môre points to the future.</>} />
+        <Check question={<>Plural: <Af>een boek, twee ___</Af>.</>} answer={<><Af>boeke</Af>.</>} />
+        <Check question={<>Choose a synonym for <Af>vinnig</Af>.</>} answer={<><Af>gou</Af>.</>} />
+      </>,
     ),
   },
 ];
