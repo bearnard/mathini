@@ -36,7 +36,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-yellow-50 p-4">
             <strong className="text-yellow-700">Private Company (Pty) Ltd</strong>
-            <p className="text-slate-600">1–50 shareholders, limited liability, separate legal entity, cannot list on JSE.</p>
+            <p className="text-slate-600">One or more shareholders, shares not offered to the public, limited liability, separate legal entity, cannot list on JSE.</p>
           </div>
           <div className="rounded-xl bg-orange-50 p-4">
             <strong className="text-orange-700">Public Company (Ltd)</strong>
@@ -108,10 +108,10 @@ const bank: BusinessStudiesItem[] = [
     explanation: 'In a private company, shareholders\' liability is limited to the amount they invested — their personal assets are protected.',
   },
   {
-    prompt: 'A private company (Pty Ltd) may have a maximum of how many shareholders?',
-    options: ['10', '25', '50', '100'],
-    answer: '50',
-    explanation: 'Under the Companies Act in South Africa, a private company may have between 1 and 50 shareholders.',
+    prompt: 'Under the Companies Act 71 of 2008, which statement about a private company (Pty Ltd) is correct?',
+    options: ['It may not offer its shares to the public', 'It must have at least 50 shareholders at all times', 'It may have no more than 10 shareholders in total', 'Its shares are freely traded on the JSE every day'],
+    answer: 'It may not offer its shares to the public',
+    explanation: 'Under the Companies Act 71 of 2008 a private company may not offer its shares to the public and cannot list on the JSE. The old limit of 50 shareholders (1973 Act) no longer applies.',
   },
   {
     prompt: 'Which feature allows a company to continue operating even after its original owner passes away?',
@@ -140,7 +140,7 @@ const bank: BusinessStudiesItem[] = [
       'Public companies are owned by the government',
     ],
     answer: 'Public companies can list on the JSE and have unlimited shareholders; private companies cannot',
-    explanation: 'Public companies (Ltd) can list shares on the Johannesburg Stock Exchange and have unlimited shareholders, while private companies (Pty Ltd) are limited to 50 shareholders and cannot list.',
+    explanation: 'Public companies (Ltd) can list shares on the Johannesburg Stock Exchange and have unlimited shareholders, while private companies (Pty Ltd) may not offer shares to the public and cannot list.',
   },
   {
     prompt: 'Which form of ownership has the HIGHEST personal financial risk for the owner?',

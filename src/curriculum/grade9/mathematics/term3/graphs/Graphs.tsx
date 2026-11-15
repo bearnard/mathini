@@ -43,7 +43,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'Which point lies on the line y = 2x + 1?',
-    options: ['(1, 2)', '(2, 5)', '(3, 5)', '(1, 3)'],
+    options: ['(1, 2)', '(2, 5)', '(3, 5)', '(1, 4)'],
     answer: '(2, 5)',
     explanation: 'When x = 2: y = 2(2) + 1 = 5, so (2, 5) is on the line.',
   },

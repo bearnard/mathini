@@ -96,7 +96,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: '√3 × √12 = ?',
-    options: ['6', '4√3', '3√4', '√36'],
+    options: ['6', '4√3', '3√4', '√18'],
     answer: '6',
     explanation: '√3 × √12 = √(3 × 12) = √36 = 6.',
   },

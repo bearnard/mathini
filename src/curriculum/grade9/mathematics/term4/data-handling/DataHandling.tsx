@@ -67,7 +67,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'If a data set has values 1, 2, 3, 4, 100, which is most affected by the outlier 100?',
-    options: ['Median', 'Mode', 'Mean', 'Range'],
+    options: ['Median', 'Mode', 'Mean', 'Minimum value'],
     answer: 'Mean',
     explanation: 'The mean is heavily influenced by extreme values like 100.',
   },

@@ -150,7 +150,7 @@ const bank: CATItem[] = [
     prompt: 'A spreadsheet has exam marks in B2:B31 (30 learners). Which formula gives the class average?',
     options: ['=SUM(B2:B31)', '=COUNT(B2:B31)', '=MAX(B2:B31)', '=AVERAGE(B2:B31)'],
     answer: '=AVERAGE(B2:B31)',
-    explanation: 'Both formulas produce the same result: AVERAGE divides the sum by the count automatically.',
+    explanation: 'AVERAGE adds the 30 marks and divides by the count automatically. SUM gives the total, COUNT gives the number of marks and MAX the highest mark.',
   },
   {
     prompt: 'In a relational database, a FOREIGN KEY is used to:',

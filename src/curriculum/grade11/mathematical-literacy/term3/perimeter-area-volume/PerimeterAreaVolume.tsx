@@ -55,9 +55,9 @@ const bank: MLItem[] = [
   },
   {
     prompt: 'A cylindrical water tank has a radius of 60 cm and a height of 1,2 m. What is its volume in litres? (π ≈ 3,14)',
-    options: ['1 357 ℓ', '135,6 ℓ', '1 357,17 ℓ', '13 572 ℓ'],
-    answer: '1 357,17 ℓ',
-    explanation: 'Convert: r = 60 cm, h = 120 cm. V = 3,14 × 60² × 120 = 3,14 × 3 600 × 120 = 1 356 480 cm³ ÷ 1 000 = 1 356,48 ≈ 1 357 ℓ.',
+    options: ['1 356,48 ℓ', '135,6 ℓ', '1 357,17 ℓ', '13 572 ℓ'],
+    answer: '1 356,48 ℓ',
+    explanation: 'Convert: r = 60 cm, h = 120 cm. V = 3,14 × 60² × 120 = 3,14 × 3 600 × 120 = 1 356 480 cm³ ÷ 1 000 = 1 356,48 ℓ. (1 357,17 ℓ comes from using the full π button instead of 3,14.)',
   },
   {
     prompt: 'A triangular garden has a base of 8 m and a height of 5 m. What is its area?',

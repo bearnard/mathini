@@ -73,7 +73,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'Which input-output pair fits y = -2x + 5?',
-    options: ['(1, 3)', '(2, 1)', '(3, -1)', '(0, -2)'],
+    options: ['(1, 4)', '(2, 2)', '(3, -1)', '(0, -2)'],
     answer: '(3, -1)',
     explanation: 'y = -2(3) + 5 = -6 + 5 = -1, so (3, -1) is correct.',
   },

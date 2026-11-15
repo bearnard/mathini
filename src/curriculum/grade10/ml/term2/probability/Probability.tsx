@@ -130,9 +130,9 @@ const bank: MathematicalLiteracyItem[] = [
   },
   {
     prompt: 'A spinner has 8 equal sections: 3 red, 3 blue, 2 green. What is the probability of landing on green?',
-    options: ['1/4', '3/8', '2/8', '1/2'],
+    options: ['1/3', '3/8', '2/8', '1/2'],
     answer: '2/8',
-    explanation: 'P(green) = 2/8 (which simplifies to 1/4, but 2/8 is shown as an option)',
+    explanation: 'P(green) = 2 green sections ÷ 8 sections in total = 2/8 (which is 0,25).',
   },
 ];
 
