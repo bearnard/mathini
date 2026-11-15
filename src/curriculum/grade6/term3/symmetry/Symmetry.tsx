@@ -19,6 +19,7 @@ const learnSteps: LearnStep[] = [
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">Some shapes have more than one line of symmetry. Count every different fold line that matches both sides.</p>
                 <SymmetryLines />
+                <p className="text-slate-500 text-sm">The diagonals of a rectangle are not lines of symmetry. A regular hexagon has 6 lines. A circle has infinitely many.</p>
             </div>
         ),
     },

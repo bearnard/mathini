@@ -23,6 +23,19 @@ const learnSteps: LearnStep[] = [
       </div>
     ),
   },
+  {
+    title: 'Different denominators',
+    content: (
+      <div className="space-y-6 text-center">
+        <p className="text-lg text-slate-600">If the bottoms are the same, the larger numerator is bigger: 3/4 is more than 1/4. If the bottoms are different, change both to the <strong>same denominator</strong> first.</p>
+        <div className="bg-slate-50 p-6 rounded-xl max-w-md mx-auto space-y-2 text-slate-700">
+          <p>Compare 4/5 and 3/4.</p>
+          <p>4/5 = 16/20 and 3/4 = 15/20.</p>
+          <p>16 is more than 15, so <strong>4/5 &gt; 3/4</strong>.</p>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export const bank: CapsItem[] = [
