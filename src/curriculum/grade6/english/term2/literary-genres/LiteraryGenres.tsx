@@ -38,8 +38,8 @@ const learnSteps: LearnStep[] = [
         text={"All the world's a stage, and all the men and women merely players; they have their exits and their entrances."}
         annotations={[
           { start: 8, end: 23, device: "metaphor", note: "Human life is compared directly to a play, helping learners recognise a key dramatic metaphor." },
-          { start: 51, end: 65, device: "symbolism", note: "People become symbols of the roles they perform in society." },
-          { start: 83, end: 108, device: "imagery", note: "Stage directions turn the abstract idea of life into a scene the reader can imagine." },
+          { start: 51, end: 65, device: "metaphor", note: "People are compared directly to actors (players), so ordinary lives become roles in a play." },
+          { start: 83, end: 108, device: "extended metaphor", note: "Theatre words (exits and entrances) carry on the stage comparison, so a whole life is pictured as a performance." },
         ]}
       />
     ),
