@@ -147,7 +147,7 @@ test('every limited route calls the limiter BEFORE it reads the body or touches 
   before('lib/server/teacherReview/http.ts', /edgeAllow\(edgeEnv, 'teacher-review'/, [/hashToken\(token\)/, /findReviewerByToken\(/]);
   // attempts and runs need a session first: the limiter is keyed by the learner, so it sits right after the 401
   assert.ok(read('app/api/attempts/route.ts').indexOf('Not authenticated') < read('app/api/attempts/route.ts').indexOf("routeLimited(req, 'attempts'"));
-  assert.deepEqual([...EDGE_ROUTES].sort(), ['attempts', 'auth-request', 'runs', 'session', 'students', 'teacher-review']);
+  assert.deepEqual([...EDGE_ROUTES].sort(), ['attempts', 'auth-request', 'demo', 'runs', 'session', 'students', 'teacher-review']);
 });
 
 test('wrangler.jsonc: the ratelimits entries have the shape Cloudflare documents, match the env names, and use the limits we chose', () => {
