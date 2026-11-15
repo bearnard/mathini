@@ -62,7 +62,7 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Find the features"
           steps={[
-            <><Af>Die aand kom sag en koud.</Af> <En>The evening comes softly and cold.</En> The words make a picture and set a calm tone.</>,
+            <><Af>Die aand kom sag en koud.</Af> <En>The evening comes softly and cold.</En> The words make a picture and set a quiet, cool mood.</>,
             <>Ask: where is it, what picture is made, and what is the feeling?</>,
           ]}
         />
@@ -76,8 +76,8 @@ export const learnSteps: LearnStep[] = [
       <>
         <Rule>A strong answer proves its claim with <Af>teksbewys</Af> <En>textual evidence</En>: a word, a line or an action from the text. Its three parts are <Af>bewering, bewys, verklaring</Af>.</Rule>
         <OrderTiles
-          tiles={['Bewering', 'Bewys', 'Verklaar']}
-          aria="Three parts of a strong answer: Bewering (claim), Bewys (evidence), Verklaar (explain)."
+          tiles={['Bewering', 'Bewys', 'Verklaring']}
+          aria="Three parts of a strong answer: Bewering (claim), Bewys (evidence), Verklaring (explanation)."
         />
         <Worked
           title="Claim, proof, explanation"

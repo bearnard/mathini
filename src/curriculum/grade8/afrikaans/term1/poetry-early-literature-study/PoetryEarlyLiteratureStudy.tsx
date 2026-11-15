@@ -13,14 +13,14 @@ export const learnSteps: LearnStep[] = [
       <>
         <Rule>A poem is built from <Af>reëls</Af> <En>lines</En>. A group of lines is a <Af>Strofe</Af> <En>stanza</En>. When words have the same end sound, we call it <Af>rym</Af> <En>rhyme</En>.</Rule>
         <Stanzas
-          groups={[3, 3]}
-          labels={['strofe 1', 'strofe 2']}
-          aria="A poem drawn as grey bars in two groups of three lines. Each group is a strofe (stanza) and each bar is a reël (line)."
+          groups={[4]}
+          labels={['strofe 1']}
+          aria="A poem drawn as four grey bars in one group. The group is a strofe (stanza) and each bar is a reël (line)."
         />
         <Worked
           title="Find the rhyme"
           steps={[
-            <><Af>Die son sak stadig oor die berg, die wolke word rooi en goud. Die voëls word stil in die bome, en die aand kom sag en koud.</Af></>,
+            <><Af><span className="block">Die son sak stadig oor die berg,</span><span className="block">die wolke word rooi en goud.</span><span className="block">Die voëls word stil in die bome,</span><span className="block">en die aand kom sag en koud.</span></Af></>,
             <><Af>goud</Af> and <Af>koud</Af> end the same way. They rhyme. <SpeakButton text="goud, koud" /></>,
           ]}
         />
@@ -45,7 +45,7 @@ export const learnSteps: LearnStep[] = [
             <>The words paint a sunset: the colours of the evening sky.</>,
           ]}
         />
-        <Mistake>Counting letters or asking who printed the poem. Imagery questions are about the picture and feeling the words create.</Mistake>
+        <Mistake>Treating imagery as the rhyme, or copying the words without saying what they show. Imagery questions are about the picture and feeling the words create.</Mistake>
       </>,
     ),
   },

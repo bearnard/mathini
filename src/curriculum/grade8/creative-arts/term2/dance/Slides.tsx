@@ -70,13 +70,13 @@ export const learnSteps: LearnStep[] = [
     title: 'Group patterns and folk dance',
     content: slide(
       <>
-        <Rule>A group pattern is how dancers are arranged in space, such as a line, circle, block or diagonal. Folk and social dances show the style and history of a community.</Rule>
+        <Rule>A group pattern is how dancers are arranged in space, such as a line, circle, block or diagonal. Folk and social dances show the style and history of a community. The gumboot dance comes from the culture of South African mine workers.</Rule>
         <FloorPlan points={blockPts} aria={`A stage seen from above with ${DANCERS} dancers in a block of ${block.rows} rows of ${block.cols}.`} />
         <Worked
           title={`Arrange ${DANCERS} dancers`}
           steps={[`Put ${block.cols} dancers in each row.`, `${DANCERS} ÷ ${block.cols} = ${block.rows} rows: a block of ${block.rows} rows of ${block.cols}.`, 'Change the pattern, to a circle for example, to make a new picture.']}
         />
-        <Mistake>Mixing up a group pattern with hand gestures. The pattern is where the dancers stand and travel. Gumboot dance, for example, comes from the culture of South African mine workers.</Mistake>
+        <Mistake>Mixing up a group pattern with the steps themselves. The pattern is where the dancers stand and travel, not what their feet or hands do.</Mistake>
       </>,
     ),
   },
@@ -117,7 +117,7 @@ export const learnSteps: LearnStep[] = [
         />
         <Worked
           title="A journal entry"
-          steps={['Idea: a reach, a turn and a step as the motif.', 'Change: made it slower, 8 counts.', 'Reflection: next time, cue the turn on count 3.']}
+          steps={['Idea: a reach, a turn and a step as the motif.', 'Change: made it slower, 8 counts.', 'Reflection: next time, say the counts out loud as I turn.']}
         />
         <Mistake>Surprising a partner with a lift, or rushing the change between moves. Agree first and keep eye contact.</Mistake>
       </>,

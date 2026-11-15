@@ -47,7 +47,7 @@ export const learnSteps: LearnStep[] = [
             <><Af>My ma koop brood by die winkel.</Af> <En>My mom buys bread at the shop.</En> Object, then place.</>,
           ]}
         />
-        <Mistake>Mixing the order, such as place before time. <Af>Ek speel buite vandag</Af> breaks STOMPI. Say <Af>Ek speel vandag buite</Af>.</Mistake>
+        <Mistake>Mixing the order, such as place before time. <Af>Ek speel buite vandag</Af> is not the usual STOMPI order, because time comes before place. Say <Af>Ek speel vandag buite</Af>.</Mistake>
       </>,
     ),
   },

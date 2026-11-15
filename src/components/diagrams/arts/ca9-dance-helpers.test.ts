@@ -57,8 +57,8 @@ test('formations: a line is level, a circle is round, a diagonal climbs, a block
   const line = formationPoints('line', 6);
   assert.ok(line.every((p) => p.y === 45));
   const circle = formationPoints('circle', 6);
-  for (const p of circle) assert.ok(Math.abs(Math.hypot((p.x - 50) / 30, (p.y - 45) / 28) - 1) < 0.01);
-  assert.deepEqual(circle[0], { x: 20, y: 45 });
+  for (const p of circle) assert.ok(Math.abs(Math.hypot((p.x - 50) / 20, (p.y - 45) / 28) - 1) < 0.01);
+  assert.deepEqual(circle[0], { x: 30, y: 45 });
   const diag = formationPoints('diagonal', 5);
   assert.ok(diag.every((p, k) => k === 0 || (p.x > diag[k - 1].x && p.y < diag[k - 1].y)));
   assert.deepEqual([...new Set(formationPoints('block', 6).map((p) => p.y))], [30, 62]);

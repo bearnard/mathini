@@ -11,7 +11,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Audience: teikengehoor and doelgroep',
     content: slide(
       <>
-        <Rule>The <Af>Teikengehoor</Af> <En>target audience</En> names who must read the message. Words that point to a group, such as a grade, show the <Af>Doelgroep</Af> <En>target group</En>.</Rule>
+        <Rule>The <Af>Teikengehoor</Af> <En>target audience</En> names who must read the message. Words that point to a group, such as a grade, show the <Af>Doelgroep</Af> <En>target group</En>. The two words are close in meaning: the target audience is the group the advertiser aims at.</Rule>
         <TaggedBoxes
           items={[{ word: 'Perfek vir Graad 8-leerders', tag: 'doelgroep' }]}
           aria="A line from an advertisement in one box, Perfek vir Graad 8-leerders, tagged doelgroep (target group)."
@@ -112,7 +112,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <>
-        <Check question={<>Which word names who must read the advertisement?</>} answer={<><Af>Teikengehoor</Af>.</>} />
+        <Check question={<>Which word names who must read the advertisement?</>} answer={<><Af>Teikengehoor</Af> <En>target audience</En>, also called the <Af>doelgroep</Af>.</>} />
         <Check question={<>What is the purpose of a slogan?</>} answer={<><Af>Om die produk maklik te onthou</Af>.</>} />
         <Check question={<><Af>Moenie uitmis nie!</Af> Which technique is this?</>} answer={<><Af>Oorredende taal</Af> <En>persuasive language</En>.</>} />
         <Check question={<>Which is a good call to action?</>} answer={<><Af>Koop vandag en spaar 20%</Af>.</>} />

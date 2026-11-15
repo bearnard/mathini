@@ -21,7 +21,7 @@ export const learnSteps: LearnStep[] = [
           title="Write the top"
           steps={[
             <><Af>Hoofstraat 12, Kaapstad</Af> <En>12 Main Street, Cape Town</En></>,
-            <><Af>12 Maart 2025</Af>, then <Af>Geagte Mnr. Smit</Af> <En>Dear Mr Smit</En>. <SpeakButton text="Geagte Mnr. Smit" /></>,
+            <><Af>12 Maart 2026</Af>, then <Af>Geagte Mnr. Smit</Af> <En>Dear Mr Smit</En>. <SpeakButton text="Geagte Mnr. Smit" /></>,
           ]}
         />
         <Mistake>Greeting with <Af>Haai</Af> or only a first name. A formal letter uses <Af>Geagte</Af> plus title and surname.</Mistake>

@@ -238,7 +238,7 @@ export const GalleryWallPicture = ({ wall = 300, widths = [60, 90, 60] }: { wall
           <rect x={x(i) + (wd * k) / 2 - 4} y={top + 25} width={8} height={3} fill="#475569" />
         </g>
       ))}
-      <T x={60} y={53} size={4.8} fill={LINE}>Equal gaps, labels beside the work</T>
+      <T x={60} y={53} size={4.8} fill={LINE}>Equal gaps, labels under the work</T>
     </Panel>
   );
 };

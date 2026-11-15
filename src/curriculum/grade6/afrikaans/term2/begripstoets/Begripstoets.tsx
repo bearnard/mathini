@@ -54,7 +54,7 @@ export const learnSteps: LearnStep[] = [
     title: 'More question words: hoe laat, hoekom, watter',
     content: slide(
       <>
-        <Rule><Af>Hoe laat?</Af> asks for a time. <Af>Hoekom?</Af> asks for a reason, often after <Af>omdat</Af> <En>because</En>. <Af>Watter?</Af> asks which one, such as a colour.</Rule>
+        <Rule><Af>Hoe laat?</Af> asks for a time. <Af>Hoekom?</Af> asks for a reason, and the answer often starts with <Af>omdat</Af> <En>because</En>. <Af>Watter?</Af> asks which one, such as a colour.</Rule>
         <MeaningPairs
           kind="same"
           pairs={[['Hoe laat?', 'What time?'], ['Hoekom?', 'Why?'], ['Watter?', 'Which?']]}

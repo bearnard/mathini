@@ -11,7 +11,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Tenses: past needs het',
     content: slide(
       <>
-        <Rule>The past tense uses <Af>het</Af> with a <Af>ge-</Af> verb. A time word like <Af>Gister</Af> tells you to use it.</Rule>
+        <Rule>The past tense uses <Af>het</Af> with a <Af>ge-</Af> verb. A time word like <Af>Gister</Af> tells you to use it. A few verbs of movement, such as <Af>gaan</Af>, use <Af>is</Af> instead.</Rule>
         <TenseTimeline
           past="Ons het die opdrag voltooi."
           present="Ons voltooi die opdrag."
@@ -25,7 +25,7 @@ export const learnSteps: LearnStep[] = [
             <>The verb <Af>voltooi</Af> already starts with a prefix, so it takes no extra <Af>ge-</Af>.</>,
           ]}
         />
-        <Mistake>Using <Af>sal</Af> or <Af>is</Af> after <Af>Gister</Af>. The past needs <Af>het</Af>.</Mistake>
+        <Mistake>Using <Af>sal</Af> (the future) after <Af>Gister</Af>. The past needs <Af>het</Af>, or <Af>is</Af> with a verb like <Af>gaan</Af>.</Mistake>
       </>,
     ),
   },
