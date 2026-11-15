@@ -1,65 +1,121 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
 import ClimateGraph from '@/components/subjects/ClimateGraph';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { ClimatePatterns, MountainRain } from '../../../../../components/diagrams/geography/GeoPictures';
+import { tempAtHeight } from '../../../../../components/diagrams/geography/geoHelpers';
 
+// The temperature example comes from a tested helper (geoHelpers.test.ts).
+const sa = (n: number) => String(n).replace('.', ',');
+const t1000 = tempAtHeight(25, 1000);
+const t2000 = tempAtHeight(25, 2000);
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Explain climate regions and controls',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Climate patterns depend on latitude, altitude, ocean currents, and relief. Learners compare climate graphs,
-          identify world climate regions, and connect South African regional climates to physical controls.
-        </p>
-      </div>
+    title: 'Weather, climate and climate graphs',
+    content: slide(
+      <>
+        <Rule>
+          Weather is short-term conditions; climate is long-term average patterns. A climate graph usually shows average monthly temperature and rainfall.
+        </Rule>
+        <ClimatePatterns />
+        <Worked
+          title="Read a climate graph"
+          steps={[<>The bars show the average rainfall for each month and the line shows the average temperature.</>, <>A month-by-month pattern tells you the climate, because climate is the typical pattern over many years.</>, <>Today&apos;s rain or heat is weather, and it changes from day to day.</>]}
+        />
+        <Mistake>Calling a hot day or a rainy week the climate. Weather changes day to day. Climate describes typical conditions over many years.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Climate Data — Johannesburg vs Cape Town',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">These two South African stations show a major climate contrast. Johannesburg is a summer-rainfall city, while Cape Town is a winter-rainfall city.</p>
-        <div className="grid gap-4 lg:grid-cols-2">
-          <ClimateGraph
-            station="Johannesburg"
-            data={[
-                      { month: 'Jan', rainfall: 114, temp: 21 },
-                      { month: 'Feb', rainfall: 109, temp: 22 },
-                      { month: 'Mar', rainfall: 89, temp: 20 },
-                      { month: 'Apr', rainfall: 38, temp: 17 },
-                      { month: 'May', rainfall: 13, temp: 14 },
-                      { month: 'Jun', rainfall: 8, temp: 11 },
-                      { month: 'Jul', rainfall: 4, temp: 11 },
-                      { month: 'Aug', rainfall: 6, temp: 13 },
-                      { month: 'Sep', rainfall: 23, temp: 16 },
-                      { month: 'Oct', rainfall: 60, temp: 18 },
-                      { month: 'Nov', rainfall: 107, temp: 20 },
-                      { month: 'Dec', rainfall: 125, temp: 21 },
-                    ]}
-          />
-
-          <ClimateGraph
-            station="Cape Town"
-            data={[
-                      { month: 'Jan', rainfall: 15, temp: 21 },
-                      { month: 'Feb', rainfall: 17, temp: 21 },
-                      { month: 'Mar', rainfall: 20, temp: 20 },
-                      { month: 'Apr', rainfall: 41, temp: 17 },
-                      { month: 'May', rainfall: 69, temp: 15 },
-                      { month: 'Jun', rainfall: 93, temp: 13 },
-                      { month: 'Jul', rainfall: 82, temp: 12 },
-                      { month: 'Aug', rainfall: 77, temp: 13 },
-                      { month: 'Sep', rainfall: 40, temp: 14 },
-                      { month: 'Oct', rainfall: 30, temp: 16 },
-                      { month: 'Nov', rainfall: 14, temp: 18 },
-                      { month: 'Dec', rainfall: 17, temp: 20 },
-                    ]}
-          />
-        </div>
-
-        <p className="text-sm text-slate-500">The different rainfall seasons help explain changes in farming systems, water storage, and natural vegetation.</p>
-      </div>
+    title: 'Altitude and relief',
+    content: slide(
+      <>
+        <Rule>
+          Temperature decreases as altitude increases. Mountains also affect rainfall on opposite slopes: windward slopes are wetter and leeward slopes are drier.
+        </Rule>
+        <MountainRain seaTemp={25} height={2000} />
+        <Worked
+          title="A 2 000 m mountain near the sea"
+          steps={[
+            <>Temperature falls by about 6,5 °C for every 1 000 m. Starting at 25 °C at sea level, it is about {sa(t1000)} °C at 1 000 m and {sa(t2000)} °C at 2 000 m.</>,
+            <>Moist air from the sea rises up the windward slope and cools, so it drops rain there.</>,
+            <>The air that descends the leeward slope is drier, so that side gets less rain.</>,
+          ]}
+        />
+        <Mistake>Believing higher places are warmer because they are closer to the Sun. Higher places are generally cooler: the air is thinner and holds less heat.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Latitude and ocean currents',
+    content: slide(
+      <>
+        <Rule>
+          Climate patterns depend on latitude, altitude, ocean currents and relief. The cold Benguela Current cools the west coast of South Africa and reduces evaporation and rainfall.
+        </Rule>
+        <Terms
+          rows={[
+            ['Latitude', 'places near the Equator are heated strongly; places far from it are cooler'],
+            ['Altitude', 'higher places are cooler'],
+            ['Ocean current', 'the cold Benguela Current runs along the west coast; the west coast is cool and drier'],
+            ['Relief', 'mountains make windward slopes wetter and leeward slopes drier'],
+          ]}
+        />
+        <Worked
+          title="Why is the west coast cool and dry?"
+          steps={[<>A cold current, the Benguela, flows along the west coast.</>, <>Air over cold water is cooled, and less water evaporates from it.</>, <>So there is less moisture for rain: a cool, drier coast.</>]}
+        />
+        <Mistake>Thinking all of South Africa&apos;s coasts have the same climate. Ocean currents make the west coast cooler and drier than the east.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Three world climate regions',
+    content: slide(
+      <>
+        <Rule>
+          A tropical rainforest climate is hot and very wet throughout the year near the Equator. A hot desert has very low annual rainfall. A Mediterranean climate has hot, dry summers and mild, wet winters.
+        </Rule>
+        <Terms
+          rows={[
+            ['Tropical rainforest', 'near the Equator: strong heating and frequent rainfall all year'],
+            ['Hot desert', 'very limited rainfall and sparse vegetation'],
+            ['Mediterranean', 'hot, dry summers and mild, wet winters, as in parts of the Western Cape'],
+          ]}
+        />
+        <Worked
+          title="Match the pattern to the region"
+          steps={[<>Hot and very wet in every month: tropical rainforest.</>, <>Very little rain in any month, with sparse plants: hot desert.</>, <>Dry summers with wetter winters: Mediterranean. In the Western Cape, the wet season is the winter.</>]}
+        />
+        <Mistake>Thinking a desert is always hot in every season and always sand. The key feature is very low annual rainfall.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is the difference between weather and climate? What does a climate graph usually show?</li>
+            <li>How does altitude usually affect temperature? How can mountains affect rainfall on opposite slopes?</li>
+            <li>Which ocean current contributes to cool, drier conditions on South Africa&apos;s west coast?</li>
+            <li>Which pattern matches a Mediterranean climate? Which region is hot and very wet throughout the year near the Equator? What is a key feature of hot deserts?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Weather is short-term conditions; climate is long-term average patterns. Average monthly temperature and rainfall.</li>
+            <li>Temperature decreases as altitude increases. Windward slopes are wetter, and leeward slopes are drier.</li>
+            <li>The Benguela Current.</li>
+            <li>Hot, dry summers and mild, wet winters. Tropical rainforest climate. Very low annual rainfall.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
