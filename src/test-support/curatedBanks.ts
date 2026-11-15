@@ -29,16 +29,21 @@ export function extractCuratedBanks(root = path.join(process.cwd(), 'src', 'curr
   };
   const scan = (file: string) => {
     const src = fs.readFileSync(file, 'utf8');
-    if (!/prompt\s*:/.test(src)) return;
+    if (!/(prompt|question)\s*:/.test(src)) return;
     const sf = ts.createSourceFile(file, src, ts.ScriptTarget.Latest, true, file.endsWith('x') ? ts.ScriptKind.TSX : ts.ScriptKind.TS);
     const rel = path.relative(root, file).split(path.sep);
     const visit = (n: ts.Node) => {
       if (ts.isObjectLiteralExpression(n)) {
         const props: Record<string, ts.Expression> = {};
         for (const p of n.properties) if (ts.isPropertyAssignment(p) && p.name) props[p.name.getText(sf).replace(/['"]/g, '')] = p.initializer;
-        if (props.prompt && props.options && props.answer && ts.isArrayLiteralExpression(props.options)) {
-          const prompt = str(props.prompt), answer = str(props.answer);
+        // Two shapes: {prompt, options, answer:'text'} (grades 6-11 and most of 12) and {question, options, answer:<index>} (the Grade 12
+        // banks written by hand). The index is resolved to the option text so the validator sees the same thing in both.
+        const promptNode = props.prompt ?? props.question;
+        if (promptNode && props.options && props.answer && ts.isArrayLiteralExpression(props.options)) {
+          const prompt = str(promptNode);
           const options = props.options.elements.map(str);
+          let answer = str(props.answer);
+          if (answer === null && ts.isNumericLiteral(props.answer)) answer = options[Number(props.answer.text)] ?? null;
           if (prompt !== null && answer !== null && options.every((o): o is string => o !== null)) {
             out.push({
               file: rel.join('/'),
