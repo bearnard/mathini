@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { chromiumArgs, hasOverflow, isIgnorableError, normalizeUrl, pageFailed, parseArgs, parseWidths, shotName, summarize, type PageResult } from '../scripts/lib/browserCheckCore';
+import { chromiumArgs, hasOverflow, isIgnorableError, normalizeUrl, pageFailed, parseArgs, parseWidths, shortHash, shotName, summarize, type PageResult } from '../scripts/lib/browserCheckCore';
 
 test('normalizeUrl avoids localhost (IPv6 first) and fills in a scheme', () => {
   assert.equal(normalizeUrl('localhost:3000/x?l=a'), 'http://127.0.0.1:3000/x?l=a');
@@ -41,6 +41,23 @@ test('shotName is filesystem safe and distinct per width', () => {
   assert.equal(shotName('http://127.0.0.1:3000/zz-preview?l=fh', 390), '127_0_0_1_3000_zz_preview_l_fh-390.png');
   assert.notEqual(shotName('http://127.0.0.1:3000/a', 390), shotName('http://127.0.0.1:3000/a', 1280));
   assert.ok(shotName('http://127.0.0.1:3000/' + 'x'.repeat(300), 390).length < 100);
+});
+
+test('shotName: long URLs that differ only after the cut never collide (the pilotpreview bug)', () => {
+  const topic = 'grade8naturalsciencesterm4forcesmotionandmeasurement';
+  const names = new Set<string>();
+  for (let s = 0; s < 6; s++) for (const w of [320, 390]) names.add(shotName(`http://127.0.0.1:3231/pilotpreview?t=${topic}&s=${s}`, w));
+  assert.equal(names.size, 12);
+  for (const n of names) assert.ok(n.length < 100 && /^[a-z0-9_.-]+$/i.test(n), n);
+  const a = shotName('http://127.0.0.1:3231/pilotpreview?t=' + topic + '&s=1', 390);
+  assert.equal(a, shotName('http://127.0.0.1:3231/pilotpreview?t=' + topic + '&s=1', 390), 'stable');
+  assert.notEqual(shotName('http://127.0.0.1:3231/p?' + 'a'.repeat(80) + '1', 390), shotName('http://127.0.0.1:3231/p?' + 'a'.repeat(80) + '2', 390));
+  assert.equal(shotName('http://127.0.0.1:3000/a', 390), '127_0_0_1_3000_a-390.png', 'short names stay readable and unhashed');
+  assert.equal(shotName('http://127.0.0.1:3000/' + 'x'.repeat(100) + '#secret', 390), shotName('http://127.0.0.1:3000/' + 'x'.repeat(100) + '#other', 390));
+  assert.ok(!shotName('http://127.0.0.1:3000/x#tok3nvalue', 390).includes('tok3n'), 'a fragment never reaches a file name');
+  assert.equal(shortHash('abc'), shortHash('abc'));
+  assert.notEqual(shortHash('abc'), shortHash('abd'));
+  assert.equal(shortHash('').length, 7);
 });
 
 test('overflow and console-noise rules', () => {
