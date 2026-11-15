@@ -7,7 +7,7 @@ import type { TestD1 } from '../testD1';
 import type { AdminDb } from '../admin/db';
 import fs from 'node:fs';
 import { hashToken } from './reviewerLink';
-import { closePack, createPack, decideItem, findCandidates, inviteReviewer, listPacks, packResults, revokeReviewer } from './adminStore';
+import { closePack, createPack, decideItem, findCandidates, inviteReviewer, listPacks, packResults, revokeReviewer, suggestItemMerge } from './adminStore';
 
 const EMAIL = 'owner@example.org';
 const AFR = 'begripstoets';
@@ -197,4 +197,56 @@ test('needsCheck leaves out questions that already have a teacher decision', asy
   await decideItem(s.db, k.packId, k.q, { decision: 'keep_original' }, EMAIL, 100);
   const left = await findCandidates(s.db, { language: 'afrikaans', needsCheck: true });
   assert.deepEqual(left.map((c) => c.prompt), ['Watter woord beteken die aand?']);
+});
+
+const calls = (reply: unknown) => { const log: string[] = []; return { log, deps: { generateJson: async (prompt: string) => { log.push(prompt); return reply; } } }; };
+
+test('suggestItemMerge: identical changes need no AI call; a split asks the AI and never sends names or contact notes', async (t0) => {
+  const s = await setup(); if (!s) return t0.skip('node:sqlite unavailable');
+  const p = await createPack(s.db, { title: 'Review', items: [{ kind: 'question', questionId: qid(AFR, P1) }] }, EMAIL, 5);
+  if (!p.ok) throw new Error('pack');
+  const a = await inviteReviewer(s.db, p.packId, { displayName: 'Ms Naidoo', note: 'call 082 555 0100' }, 10);
+  const b = await inviteReviewer(s.db, p.packId, { displayName: 'Mr Dlamini' }, 10);
+  if (!a.ok || !b.ok) throw new Error('invite');
+  const item = (await packResults(s.db, p.packId))!.items[0].id;
+  const one = { prompt: 'Watter woord beteken die vroeë dag?', options: OPTS, answer: 'oggend', explanation: 'Oggend beteken die oggend, voor middagete.' };
+  respond(s.t, a.reviewerId, item, 'change', one, 'clearer');
+  respond(s.t, b.reviewerId, item, 'change', one);
+  const none = calls(null);
+  const agree = await suggestItemMerge(s.db, p.packId, item, none.deps);
+  assert.ok(agree.ok && agree.result);
+  assert.deepEqual([agree.ok && agree.result?.source, none.log.length], ['agreement', 0]);
+
+  s.t.raw.prepare('UPDATE review_responses SET proposal = ?, reason = ? WHERE reviewer_id = ?').run(JSON.stringify({ ...one, prompt: 'Watter woord is vroegdag?' }), 'Mrs Naidoo says so, 082 555 0100', b.reviewerId);
+  const ai = calls({ merged: one, rationale: 'Both reword the prompt; the first reads better.', disagreements: ['Prompt wording differs'] });
+  const r = await suggestItemMerge(s.db, p.packId, item, ai.deps);
+  assert.ok(r.ok && r.result);
+  assert.deepEqual([r.ok && r.result?.source, r.ok && r.result?.disagreements], ['ai', ['Prompt wording differs']]);
+  assert.equal(ai.log.length, 1);
+  for (const secret of ['Naidoo', 'Dlamini', '082 555 0100', 'call 082']) assert.equal(ai.log[0].includes(secret), false, secret);
+
+  const down = await suggestItemMerge(s.db, p.packId, item, { generateJson: async () => { throw new Error('network'); } });
+  assert.ok(down.ok && down.result?.source === 'unavailable' && down.result.merged === null);
+  assert.equal((await suggestItemMerge(s.db, p.packId, 9999)).ok, false);
+});
+
+test('suggestItemMerge returns null when nobody suggested a change', async (t0) => {
+  const s = await setup(); if (!s) return t0.skip('node:sqlite unavailable');
+  const k = await packWithReviewers(s, 1);
+  respond(s.t, k.rs[0], k.q, 'correct');
+  const r = await suggestItemMerge(s.db, k.packId, k.q, calls(null).deps);
+  assert.deepEqual([r.ok, r.ok && r.result], [true, null]);
+});
+
+test('accepting a merged proposal stores the AI rationale and disagreements, and the outcome', async (t0) => {
+  const s = await setup(); if (!s) return t0.skip('node:sqlite unavailable');
+  const k = await packWithReviewers(s, 2);
+  respond(s.t, k.rs[0], k.q, 'change', { prompt: 'A?', options: OPTS, answer: 'oggend', explanation: 'x' });
+  const merged = { prompt: 'Watter woord beteken die oggend van die dag?', options: OPTS, answer: 'oggend', explanation: 'Oggend beteken die oggend, voor middagete.' };
+  const r = await decideItem(s.db, k.packId, k.q, { decision: 'accept_merged', proposal: merged, aiRationale: 'Takes the clearer prompt.', aiDisagreements: ['Explanation length'] }, EMAIL, 100);
+  assert.ok(r.ok, JSON.stringify(r));
+  const d = s.t.raw.prepare('SELECT ai_rationale, ai_disagreements, outcome, chosen_reviewer_id FROM review_decisions WHERE item_id = ?').get(k.q) as Record<string, unknown>;
+  assert.deepEqual({ ...d }, { ai_rationale: 'Takes the clearer prompt.', ai_disagreements: '["Explanation length"]', outcome: 'changed', chosen_reviewer_id: null });
+  const shown = (await packResults(s.db, k.packId))!.items[0].decision;
+  assert.deepEqual([shown?.aiRationale, shown?.aiDisagreements], ['Takes the clearer prompt.', ['Explanation length']]);
 });

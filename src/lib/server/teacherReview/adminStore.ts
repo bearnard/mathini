@@ -3,7 +3,8 @@
 import type { AdminDb, Param, Statement } from '../admin/db';
 import { TOPIC_NAMES } from '../../../components/admin/topicNames.generated';
 import { taskGrade } from '../serving/flags';
-import { editQuestion, type EditResult } from '../questions/edit';
+import { decimalPolicyForTask, editQuestion, type EditResult } from '../questions/edit';
+import { suggestMerge, type MergeResult } from './merge';
 import { generateReviewerLink } from './reviewerLink';
 import {
   parseProposal, summariseAgreement, unanimousProposal,
@@ -174,7 +175,7 @@ export interface ResultItem {
   agreement: Agreement;
   /** A proposal ready to accept: the unanimous one (the AI merge will fill this in for split opinions). */
   merged: Proposal | null;
-  decision: { decision: DecisionKind; decidedBy: string; decidedAt: number; appliedVersionId: number | null; changeQueueId: number | null } | null;
+  decision: { decision: DecisionKind; decidedBy: string; decidedAt: number; appliedVersionId: number | null; changeQueueId: number | null; aiRationale: string | null; aiDisagreements: string[] } | null;
 }
 export interface PackResults { pack: { id: number; title: string; status: string; createdAt: number }; reviewers: ReviewerRow[]; items: ResultItem[] }
 
@@ -190,7 +191,7 @@ export async function packResults(db: AdminDb, packId: number): Promise<PackResu
   const resp = await db.all<Record<string, unknown>>(
     'SELECT s.reviewer_id, s.item_id, s.verdict, s.proposal, s.confidence, s.reason FROM review_responses s JOIN review_pack_items i ON i.id = s.item_id WHERE i.pack_id = ? ORDER BY s.reviewer_id', [packId]);
   const dec = await db.all<Record<string, unknown>>(
-    'SELECT d.item_id, d.decision, d.decided_by, d.decided_at, d.applied_version_id, d.change_queue_id FROM review_decisions d JOIN review_pack_items i ON i.id = d.item_id WHERE i.pack_id = ?', [packId]);
+    'SELECT d.item_id, d.decision, d.decided_by, d.decided_at, d.applied_version_id, d.change_queue_id, d.ai_rationale, d.ai_disagreements FROM review_decisions d JOIN review_pack_items i ON i.id = d.item_id WHERE i.pack_id = ?', [packId]);
 
   const out: ResultItem[] = [];
   for (const it of items) {
@@ -216,7 +217,7 @@ export async function packResults(db: AdminDb, packId: number): Promise<PackResu
     out.push({
       id, kind, doubt: String(it.doubt ?? ''), file: it.file == null ? null : String(it.file), anchorText: it.anchor_text == null ? null : String(it.anchor_text), context: parse<unknown>(it.context, null),
       question, responses, agreement, merged: unanimousProposal(responses),
-      decision: d ? { decision: String(d.decision) as DecisionKind, decidedBy: String(d.decided_by), decidedAt: Number(d.decided_at), appliedVersionId: d.applied_version_id == null ? null : Number(d.applied_version_id), changeQueueId: d.change_queue_id == null ? null : Number(d.change_queue_id) } : null,
+      decision: d ? { decision: String(d.decision) as DecisionKind, decidedBy: String(d.decided_by), decidedAt: Number(d.decided_at), appliedVersionId: d.applied_version_id == null ? null : Number(d.applied_version_id), changeQueueId: d.change_queue_id == null ? null : Number(d.change_queue_id), aiRationale: d.ai_rationale == null ? null : String(d.ai_rationale), aiDisagreements: parse<string[]>(d.ai_disagreements, []) } : null,
     });
   }
   return { pack: { id: Number(p.id), title: String(p.title), status: String(p.status), createdAt: Number(p.created_at) }, reviewers, items: out };
@@ -224,7 +225,7 @@ export async function packResults(db: AdminDb, packId: number): Promise<PackResu
 
 // ---------- Decisions ----------
 
-export interface DecideInput { decision?: unknown; reviewerId?: unknown; proposal?: unknown; changeKind?: unknown; acknowledgeWarnings?: unknown; note?: unknown }
+export interface DecideInput { decision?: unknown; reviewerId?: unknown; proposal?: unknown; changeKind?: unknown; acknowledgeWarnings?: unknown; note?: unknown; aiRationale?: unknown; aiDisagreements?: unknown }
 export type DecideResult =
   | { ok: true; decision: DecisionKind; versionId?: number; changeQueueId?: number; askAgainPackId?: number; warnings?: unknown }
   | { ok: false; status: 400 | 404 | 409 | 422; error: string; findings?: unknown; needsAcknowledgement?: boolean };
@@ -244,10 +245,12 @@ export async function decideItem(db: AdminDb, packId: number, itemId: number, in
   if (!['accept_merged', 'accept_reviewer', 'edit_accept', 'keep_original', 'ask_again'].includes(String(input.decision))) return { ok: false, status: 400, error: 'Unknown decision' };
   if (item.decision && item.decision.decision !== 'ask_again') return { ok: false, status: 409, error: 'This item already has a decision' };
 
+  const aiRationale = kind === 'accept_merged' && clip(input.aiRationale, 400) ? clip(input.aiRationale, 400) : null;
+  const aiDisagreements = kind === 'accept_merged' && Array.isArray(input.aiDisagreements) && input.aiDisagreements.length > 0 ? JSON.stringify((input.aiDisagreements as unknown[]).slice(0, 8).map((x) => clip(x, 300))) : null;
   const outcome = kind === 'keep_original' ? 'verified' : kind === 'ask_again' ? 'unsure' : 'changed';
   const recordOnly = (extra?: { mergedJson?: string | null; versionId?: number | null; queueId?: number | null }): Statement => ({
-    sql: 'INSERT OR REPLACE INTO review_decisions (item_id, decision, merged, ai_rationale, ai_disagreements, chosen_reviewer_id, outcome, decided_by, applied_version_id, change_queue_id, decided_at) VALUES (?, ?, ?, NULL, NULL, ?, ?, ?, ?, ?, ?)',
-    params: [itemId, kind, extra?.mergedJson ?? null, kind === 'accept_reviewer' ? Number(input.reviewerId) : null, outcome, adminEmail, extra?.versionId ?? null, extra?.queueId ?? null, now],
+    sql: 'INSERT OR REPLACE INTO review_decisions (item_id, decision, merged, ai_rationale, ai_disagreements, chosen_reviewer_id, outcome, decided_by, applied_version_id, change_queue_id, decided_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+    params: [itemId, kind, extra?.mergedJson ?? null, aiRationale, aiDisagreements, kind === 'accept_reviewer' ? Number(input.reviewerId) : null, outcome, adminEmail, extra?.versionId ?? null, extra?.queueId ?? null, now],
   });
 
   if (kind === 'keep_original') { await db.batch([recordOnly()]); return { ok: true, decision: kind }; }
@@ -270,7 +273,7 @@ export async function decideItem(db: AdminDb, packId: number, itemId: number, in
 
   // Everything else applies a proposal.
   let proposal: Proposal | null = null;
-  if (kind === 'accept_merged') proposal = item.merged;
+  if (kind === 'accept_merged') proposal = parseProposal(item.kind, input.proposal) ?? item.merged;
   else if (kind === 'accept_reviewer') {
     const r = item.responses.find((x) => x.reviewerId === Number(input.reviewerId));
     if (!r || r.verdict !== 'change' || !r.proposal) return { ok: false, status: 400, error: 'That reviewer did not suggest a change' };
@@ -306,4 +309,36 @@ export async function decideItem(db: AdminDb, packId: number, itemId: number, in
   const ok = edit as Extract<EditResult, { ok: true }>;
   await db.batch([recordOnly({ mergedJson: json(proposal), versionId: ok.versionId })]);
   return { ok: true, decision: kind, versionId: ok.versionId, warnings: ok.warnings };
+}
+
+// ---------- AI merge suggestion ----------
+
+const lessonGradeSubject = (file: string): { grade: number; subject: string } => {
+  const m = /^grade(\d{1,2})\/([^/]+)\//.exec(file);
+  return { grade: m ? Number(m[1]) : 0, subject: m ? m[2] : '' };
+};
+
+export type SuggestResult = { ok: true; result: MergeResult | null } | { ok: false; status: 404 | 400; error: string };
+
+/**
+ * Asks suggestMerge (merge.ts) for ONE merged version of an item, from its reviewers' answers. Names and contact notes never go in: only verdict,
+ * confidence, reason and proposal. `result` is null when there is nothing to merge (no usable change). Nothing is saved or applied here.
+ */
+export async function suggestItemMerge(db: AdminDb, packId: number, itemId: number, deps?: Parameters<typeof suggestMerge>[1]): Promise<SuggestResult> {
+  const res = await packResults(db, packId);
+  const item = res?.items.find((i) => i.id === itemId);
+  if (!res || !item) return { ok: false, status: 404, error: 'Item not found' };
+  const original: Proposal | null = item.question ? { prompt: item.question.prompt, options: item.question.options, answer: item.question.answer, explanation: item.question.explanation } : item.anchorText ? { text: item.anchorText } : null;
+  if (!original) return { ok: false, status: 400, error: 'This item has no content to merge' };
+  const gs = item.question ? { grade: item.question.grade ?? 0, subject: item.question.subject } : lessonGradeSubject(item.file ?? '');
+  try {
+    const result = await suggestMerge({
+      kind: item.kind, original, subject: gs.subject, grade: gs.grade,
+      responses: item.responses.map((r) => ({ verdict: r.verdict, proposal: r.proposal, confidence: r.confidence, reason: r.reason })),
+      qualityContext: item.question ? { decimalComma: decimalPolicyForTask(item.question.task) } : undefined,
+    }, deps);
+    return { ok: true, result };
+  } catch (e) {
+    return { ok: false, status: 400, error: e instanceof Error ? e.message : 'Could not merge' };
+  }
 }

@@ -7,6 +7,10 @@ import { postJson, when, type Failure } from './api';
 import type { PackResults, ResultItem } from '../../../lib/server/teacherReview/adminStore';
 import type { DecisionKind, Proposal, QuestionProposal, ReviewResponse } from '../../../lib/shared/teacherReview/types';
 
+interface Finding { code: string; severity: string; detail: string }
+interface Suggestion { merged: Proposal | null; rationale: string; disagreements: string[]; source: 'agreement' | 'ai' | 'unavailable'; findings: Finding[] }
+const SOURCE_TEXT = { agreement: 'All reviewers who suggested a change agree (no AI used)', ai: 'Merged by AI', unavailable: 'AI unavailable, decide manually' } as const;
+
 const DECISION_TEXT: Record<DecisionKind, string> = {
   accept_merged: 'Accepted the merged version', accept_reviewer: 'Accepted one reviewer’s version', edit_accept: 'Edited, then accepted', keep_original: 'Kept the original', ask_again: 'Asked again in a new pack',
 };
@@ -90,10 +94,24 @@ function ItemCard({ item, n, packId, onDone }: { item: ResultItem; n: number; pa
   const [failure, setFailure] = useState<Failure | null>(null);
   const [ack, setAck] = useState(false);
   const [info, setInfo] = useState('');
+  const [suggestion, setSuggestion] = useState<Suggestion | null | 'none'>(null);
+  const [asking, setAsking] = useState(false);
   const original: Proposal | null = item.question ? { prompt: item.question.prompt, options: item.question.options, answer: item.question.answer, explanation: item.question.explanation } : item.anchorText ? { text: item.anchorText } : null;
   const changers = item.responses.filter((r) => r.verdict === 'change' && r.proposal);
   const stale = !!item.question && item.question.currentVersionId !== item.question.versionId;
   const decidable = !item.decision || item.decision.decision === 'ask_again';
+
+  const suggest = async () => {
+    setAsking(true); setFailure(null);
+    const r = await postJson(`/api/admin/reviews/${packId}/items/${item.id}/merge`, 'review-merge', {});
+    setAsking(false);
+    if (!r.ok) return setFailure(r.failure);
+    const res = r.data.result as Suggestion | null;
+    setSuggestion(res ?? 'none');
+  };
+  const sg = suggestion && suggestion !== 'none' ? suggestion : null;
+  const mergedToAccept: Proposal | null = sg ? sg.merged : item.merged;
+  const rejected = !!sg && sg.findings.some((f) => f.severity === 'reject');
 
   const decide = async (body: Record<string, unknown>) => {
     setBusy(true); setFailure(null); setInfo('');
@@ -118,7 +136,32 @@ function ItemCard({ item, n, packId, onDone }: { item: ResultItem; n: number; pa
       </div>
       {stale && <p role="alert" style={{ fontSize: 13, marginTop: 8, fontWeight: 600 }}>This question was edited after the pack was made; changes cannot be accepted. Keep the original or ask again.</p>}
       <Responses list={item.responses} />
-      <p className="admin-muted" style={{ fontSize: 12, marginTop: 8 }} data-merge-hook>AI merge suggestion: not available yet. {item.merged ? 'Every reviewer who suggested a change suggested the same one, so it is offered as the merged version.' : ''}</p>
+      {changers.length > 0 && decidable && (
+        <div style={{ marginTop: 10 }}>
+          <button type="button" className="admin-btn" disabled={asking || busy} onClick={suggest}>{asking ? 'Asking…' : sg || suggestion === 'none' ? 'Ask the AI again' : 'Suggest a merge'}</button>
+          {suggestion === 'none' && <p className="admin-muted" style={{ fontSize: 13, marginTop: 6 }}>Nothing to merge: no reviewer suggested a usable change.</p>}
+          {sg && (
+            <div className="admin-card" style={{ padding: 12, marginTop: 8 }} aria-label="Merge suggestion">
+              <strong style={{ fontSize: 13 }}>{SOURCE_TEXT[sg.source]}</strong>
+              {sg.merged ? <div style={{ marginTop: 6 }}><Content p={sg.merged} /></div> : null}
+              <p style={{ fontSize: 13, marginTop: 6 }}>{sg.rationale}</p>
+              {sg.disagreements.length > 0 && (
+                <div style={{ marginTop: 6, fontSize: 13 }}>
+                  <strong>Where reviewers disagree</strong>
+                  <ul style={{ margin: '4px 0 0', paddingLeft: 18 }}>{sg.disagreements.map((d, i) => <li key={i}>{d}</li>)}</ul>
+                </div>
+              )}
+              {sg.findings.length > 0 && (
+                <div style={{ marginTop: 6, fontSize: 13 }} role={rejected ? 'alert' : 'status'}>
+                  <strong>Quality checker on the merged version</strong>
+                  <ul style={{ margin: '4px 0 0', paddingLeft: 18 }}>{sg.findings.map((f, i) => <li key={i}>{f.severity}: {f.detail}</li>)}</ul>
+                </div>
+              )}
+              {sg.source !== 'unavailable' && sg.findings.length === 0 && item.kind === 'question' && <p className="admin-muted" style={{ fontSize: 13, marginTop: 6 }}>The quality checker is happy with the merged version.</p>}
+            </div>
+          )}
+        </div>
+      )}
 
       {item.decision && (
         <p style={{ fontSize: 13, marginTop: 8, fontWeight: 600 }}>
@@ -126,6 +169,9 @@ function ItemCard({ item, n, packId, onDone }: { item: ResultItem; n: number; pa
           {item.decision.appliedVersionId != null ? ` · live as version id ${item.decision.appliedVersionId}` : ''}
           {item.decision.changeQueueId != null ? ` · queued as lesson change ${item.decision.changeQueueId}` : ''}
         </p>
+      )}
+      {item.decision?.aiRationale && (
+        <p className="admin-muted" style={{ fontSize: 13, marginTop: 4 }}>AI rationale: {item.decision.aiRationale}{item.decision.aiDisagreements.length > 0 ? ` Disagreements: ${item.decision.aiDisagreements.join('; ')}` : ''}</p>
       )}
 
       {decidable && !editing && (
@@ -137,7 +183,7 @@ function ItemCard({ item, n, packId, onDone }: { item: ResultItem; n: number; pa
             )}
           </div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-            <button type="button" className="admin-btn" disabled={busy || stale || !item.merged} onClick={() => decide({ decision: 'accept_merged' })}>Accept merged</button>
+            <button type="button" className="admin-btn" disabled={busy || stale || !mergedToAccept || rejected} onClick={() => decide(sg && sg.merged ? { decision: 'accept_merged', proposal: sg.merged, aiRationale: sg.rationale, aiDisagreements: sg.disagreements } : { decision: 'accept_merged' })}>Accept merged</button>
             {changers.map((r) => <button key={r.reviewerId} type="button" className="admin-btn" disabled={busy || stale} onClick={() => decide({ decision: 'accept_reviewer', reviewerId: r.reviewerId })}>Accept {r.label}’s</button>)}
             <button type="button" className="admin-btn" disabled={busy || stale || !original} onClick={() => setEditing(true)}>Edit then accept</button>
             <button type="button" className="admin-btn" disabled={busy} onClick={() => decide({ decision: 'keep_original' })}>Keep original</button>
@@ -145,7 +191,7 @@ function ItemCard({ item, n, packId, onDone }: { item: ResultItem; n: number; pa
           </div>
         </div>
       )}
-      {editing && original && <Editor start={item.merged ?? changers[0]?.proposal ?? original} isQuestion={item.kind === 'question'} busy={busy} onCancel={() => setEditing(false)} onSubmit={(p) => decide({ decision: 'edit_accept', proposal: p })} />}
+      {editing && original && <Editor start={sg?.merged ?? item.merged ?? changers[0]?.proposal ?? original} isQuestion={item.kind === 'question'} busy={busy} onCancel={() => setEditing(false)} onSubmit={(p) => decide({ decision: 'edit_accept', proposal: p })} />}
       {failure && (
         <div role="alert" style={{ marginTop: 8, fontSize: 13 }}>
           <strong>{failure.error}</strong>
