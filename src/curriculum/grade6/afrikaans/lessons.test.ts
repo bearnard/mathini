@@ -12,10 +12,13 @@ import * as begrip from './term2/begripstoets/Begripstoets';
 import * as byvoeglike from './term2/byvoeglike-naamwoorde/ByvoeglikeNaamwoorde';
 import * as brief from './term2/vriendskaplike-brief/VriendskaplikeBrief';
 import * as sinsbou from './term3/sinsbou/Sinsbou';
+import * as gemengde from './term4/gemengde-hersiening/GemengdeHersiening';
+import * as voegwoorde from './term4/voegwoorde/Voegwoorde';
+import * as voorsetsels from './term4/voorsetsels/Voorsetsels';
 
 // Lesson standard (docs/notes/lesson-standard.md): 4-6 slides, the last one "Check yourself", every slide renders, and the topic's
 // practice bank can be answered from the slides. The banks themselves are byte-identical to before (checked with cmp in the branch).
-const lessons = { sinonieme, trappe, toekomende, meervoude, verlede, groete, begrip, byvoeglike, brief, sinsbou } as const;
+const lessons = { sinonieme, trappe, toekomende, meervoude, verlede, groete, begrip, byvoeglike, brief, sinsbou, gemengde, voegwoorde, voorsetsels } as const;
 
 const text = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 const slideText = (step: { content: React.ReactNode }) => text(renderToStaticMarkup(createElement('div', null, step.content)));

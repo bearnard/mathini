@@ -1,68 +1,107 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, WordBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Join ideas',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Voegwoorde join words, phrases or sentences. Start with common joining words.
-        </p>
-        <div className="flex flex-wrap justify-center gap-3 text-2xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">en <SpeakButton text="en" /></span>
-          <span className="inline-flex items-center">maar <SpeakButton text="maar" /></span>
-          <span className="inline-flex items-center">want <SpeakButton text="want" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Choose the meaning',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>en</strong> means and, <strong>maar</strong> means but, and <strong>want</strong> gives a reason.
-        </p>
-        <p className="text-xl text-slate-700">
-          Ek lees <strong>en</strong> ek skryf. Ek is moeg, <strong>want</strong> ek het hard gewerk.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Other useful joiners',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Use <strong>of</strong> for a choice. Use <strong>omdat</strong> for because; it often sends the verb to the end.
-        </p>
-        <div className="flex flex-wrap justify-center gap-3 text-2xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">of <SpeakButton text="of" /></span>
-          <span className="inline-flex items-center">omdat <SpeakButton text="omdat" /></span>
-        </div>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these joining words aloud to make links between ideas sound smooth and accurate.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"en"} phonetic={"[ɛn]"} meaning={"and"} lang="af" />
-          <PronunciationPlayer word={"maar"} phonetic={"[mɑːr]"} meaning={"but"} lang="af" />
-          <PronunciationPlayer word={"want"} phonetic={"[vant]"} meaning={"because / for"} lang="af" />
-          <PronunciationPlayer word={"omdat"} phonetic={"[ɔmˈdat]"} meaning={"because"} lang="af" />
-          <PronunciationPlayer word={"daarom"} phonetic={"[ˈdɑːrɔm]"} meaning={"therefore"} lang="af" />
-          <PronunciationPlayer word={"terwyl"} phonetic={"[tərˈvɛil]"} meaning={"while"} lang="af" />
-        </div>
-      </div>
+    title: 'en: adding an idea',
+    content: slide(
+      <>
+        <Rule>A <Af>voegwoord</Af> <En>conjunction</En> joins words or sentences. <Af>en</Af> means <em>and</em>. It adds a second, similar idea.</Rule>
+        <WordBoxes
+          words={['Ek', 'lees', 'en', 'ek', 'skryf']}
+          hot={[2]}
+          aria="The sentence Ek lees en ek skryf as five boxes, with the joining word en highlighted between the two ideas."
+        />
+        <Worked
+          title="Join two ideas with en"
+          steps={[
+            <><Af>Sy sing.</Af> <Af>Sy dans.</Af></>,
+            <>Join them: <Af>Sy sing en sy dans.</Af> <En>She sings and she dances.</En> <SpeakButton text="Sy sing en sy dans." /></>,
+            <><Af>Hulle lag en hulle speel.</Af> <En>They laugh and they play.</En></>,
+          ]}
+        />
+        <Mistake>Using <Af>maar</Af> for two similar ideas. <Af>Hulle lag maar hulle speel</Af> is wrong. Use <Af>en</Af> to add.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'maar: showing a contrast',
+    content: slide(
+      <>
+        <Rule><Af>maar</Af> means <em>but</em>. It joins two ideas that are different, or that do not go together as you would expect.</Rule>
+        <WordBoxes
+          words={['Hy', 'is', 'klein', 'maar', 'sterk']}
+          hot={[3]}
+          aria="The sentence Hy is klein maar sterk as five boxes, with the joining word maar highlighted between small and strong."
+        />
+        <Worked
+          title="Join two ideas with maar"
+          steps={[
+            <><Af>Hy is klein, maar hy is sterk.</Af> <En>He is small, but he is strong.</En> <SpeakButton text="Hy is klein, maar hy is sterk." /></>,
+            <><Af>Ek hou van sokker, maar ek speel vandag nie.</Af> <En>I like soccer, but I am not playing today.</En></>,
+          ]}
+        />
+        <Mistake>Using <Af>en</Af> when the ideas clash. <Af>Hy is klein en hy is sterk</Af> misses the surprise. Say <Af>Hy is klein, maar hy is sterk</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'want and omdat: giving a reason',
+    content: slide(
+      <>
+        <Rule>Both <Af>want</Af> and <Af>omdat</Af> mean <em>because</em>. After <Af>want</Af> the word order stays normal. After <Af>omdat</Af> the verb goes to the end of its part.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['want', 'because'], ['omdat', 'because']]}
+          aria="Two Afrikaans joining words that both mean because: want and omdat."
+        />
+        <Worked
+          title="Give the reason"
+          steps={[
+            <><Af>Ons bly binne, want dit reën.</Af> <En>We stay inside because it rains.</En> <SpeakButton text="Ons bly binne, want dit reën." /></>,
+            <><Af>Ek dra 'n jas, want dit is koud.</Af> <En>I wear a coat because it is cold.</En> The verb <Af>is</Af> keeps its place.</>,
+            <><Af>Ek is moeg omdat ek hard gewerk het.</Af> <En>I am tired because I worked hard.</En> The verb <Af>het</Af> goes last.</>,
+          ]}
+        />
+        <Mistake>Using <Af>of</Af> or <Af>en</Af> for a reason. <Af>Ons bly binne, en dit reën</Af> does not say why. A reason needs <Af>want</Af> or <Af>omdat</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'of: a choice, and picking the joiner',
+    content: slide(
+      <>
+        <Rule><Af>of</Af> means <em>or</em>. It offers a choice. Ask what the two ideas do: add (<Af>en</Af>), clash (<Af>maar</Af>), give a reason (<Af>want</Af>) or choose (<Af>of</Af>).</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['en', 'and'], ['maar', 'but'], ['of', 'or']]}
+          aria="Three Afrikaans joining words with their English meaning: en is and, maar is but, of is or."
+        />
+        <Worked
+          title="Choose the joiner"
+          steps={[
+            <><Af>Wil jy appels of pere hê?</Af> <En>Do you want apples or pears?</En> A choice, so <Af>of</Af>. <SpeakButton text="Wil jy appels of pere hê?" /></>,
+            <><Af>Kom jy vandag of môre?</Af> <En>Are you coming today or tomorrow?</En> Again a choice: <Af>of</Af>.</>,
+          ]}
+        />
+        <Mistake>Writing <Af>of</Af> (or) when you mean <Af>want</Af> (because). They look alike but do different jobs.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Fill in: <Af>Sy sing ___ sy dans.</Af> (and)</>} answer={<><Af>en</Af>.</>} />
+        <Check question={<>Fill in: <Af>Hy is klein, ___ hy is sterk.</Af> (but)</>} answer={<><Af>maar</Af>.</>} />
+        <Check question={<>Fill in: <Af>Ons bly binne, ___ dit reën.</Af> (because)</>} answer={<><Af>want</Af>.</>} />
+        <Check question={<>Fill in: <Af>Kom jy vandag ___ môre?</Af> (or)</>} answer={<><Af>of</Af>.</>} />
+      </>,
     ),
   },
 ];
