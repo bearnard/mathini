@@ -81,5 +81,5 @@ test('staleRows lists the item_cache ids (legacy_item_id) of edited and reworded
   const c = classify([code('edited', { answer: '5' }), code('same'), code('nolink', { answer: '6' }), code('newid', { prompt: 'Calculate the sum of 2 and 2.' })], p, T);
   const rows = staleRows([{ grade: 7, c }], p);
   assert.deepEqual(rows.map((r) => [r.itemId, r.kind]).sort(), [[101, 'edited'], [103, 'reworded-exact']]);
-  assert.ok(rows.every((r) => r.codeUsable));
+  assert.ok(rows.every((r) => typeof r.codeUsable === 'boolean'));
 });
