@@ -1,7 +1,6 @@
-
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
-import DataChart from '@/components/subjects/DataChart';
-import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import type { EconomicsItem } from '../../_shared/types';
+import { learnSteps } from './TourismEnvironmentalSustainabilitySlides';
 
 type RawEconomicsItem = {
   id: string;
@@ -10,84 +9,6 @@ type RawEconomicsItem = {
   answer: number;
   explanation: string;
 };
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Tourism as an economic driver',
-    content: (
-      <div className="space-y-6">
-        <div className="rounded-xl bg-blue-50 border border-blue-200 p-4">
-          <p className="text-sm font-semibold text-blue-900">Multiplier effect</p>
-          <p className="mt-2 text-slate-700">
-            Tourist spending supports transport, accommodation, food, entertainment and retail. That is why
-            tourism can create large multiplier effects in local economies.
-          </p>
-        </div>
-        <DataChart
-          data={[
-            { sector: 'Accommodation', receipts: 18 },
-            { sector: 'Transport', receipts: 14 },
-            { sector: 'Food', receipts: 11 },
-            { sector: 'Activities', receipts: 9 },
-          ]}
-          series={[{ key: 'receipts', label: 'Tourism receipts (R bn)', color: '#10b981' }]}
-          xKey="sector"
-          type="bar"
-        />
-      </div>
-    ),
-  },
-  {
-    title: 'Leakages and seasonality',
-    content: (
-      <div className="space-y-6">
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-xl border border-slate-200 p-4">
-            <p className="font-semibold text-slate-800">Leakages</p>
-            <p className="mt-2 text-sm text-slate-600">Imported goods, foreign-owned profits and external bookings reduce local gains.</p>
-          </div>
-          <div className="rounded-xl border border-slate-200 p-4">
-            <p className="font-semibold text-slate-800">Seasonality</p>
-            <p className="mt-2 text-sm text-slate-600">Holiday peaks create unstable demand and uneven employment.</p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Environmental sustainability',
-    content: (
-      <div className="space-y-6">
-        <DataChart
-          data={[
-            { issue: 'Water stress', risk: 7 },
-            { issue: 'Waste', risk: 6 },
-            { issue: 'Congestion', risk: 5 },
-            { issue: 'Habitat damage', risk: 8 },
-          ]}
-          series={[{ key: 'risk', label: 'Pressure index', color: '#ef4444' }]}
-          xKey="issue"
-          type="bar"
-        />
-        <p className="text-sm leading-7 text-slate-600">If tourism damages natural assets, it can weaken the very attractions that support long-term income.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Sustainable tourism strategies',
-    content: (
-      <div className="space-y-6">
-        <div className="rounded-xl bg-blue-50 border border-blue-200 p-4">
-          <p className="text-sm font-semibold text-blue-900">Smart strategy</p>
-          <p className="mt-2 text-slate-700">
-            Sustainable tourism combines conservation, community participation, efficient resource use and
-            responsible visitor behaviour so growth remains durable.
-          </p>
-        </div>
-      </div>
-    ),
-  },
-];
 
 const items: RawEconomicsItem[] = [
   {

@@ -1,44 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Integrate language and literature knowledge',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Final consolidation brings together grammar skills (punctuation, tense, voice) and literary analysis 
-          (theme, device, characterisation). Integrated items on MCQs and contextual questions test your ability to 
-          connect language choices to literary meaning.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Revise vocabulary in context and literary themes',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Understanding words in context, not just definitions, strengthens comprehension. Recognizing recurring themes 
-          across texts (love, conflict, justice, growth) helps you analyse new texts and connect evidence to broader 
-          literary patterns.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Answer integrated questions with confidence',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Integrated MCQ hooks test one skill at a time while connecting language and literature. Short contextual 
-          questions require you to identify grammar, explain literary effects, and justify interpretations using the 
-          same evidence.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './GrammarLiteratureConsolidationSlides';
 
 const bank: CapsItem[] = [
   {
