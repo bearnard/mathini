@@ -297,7 +297,7 @@ test('delete: progress and family data go too (runs, topic measures, parent link
       t.exec("INSERT INTO child_invites (student_id, token_hash, created_at, expires_at) VALUES (?, ?, 1, 2)", [id, `hash-${id}`]);
       t.exec("INSERT INTO consent_events (student_id, user_id, action, notice_version, created_at) VALUES (?, 'parent-1', 'given', 'v', 1)", [id]);
       t.exec("INSERT INTO pin_resets (student_id, user_id, created_at) VALUES (?, 'parent-1', 1)", [id]);
-      t.exec("INSERT INTO class_members (class_id, student_id, joined_at, notice_version) VALUES ('class-1', ?, 1, 'v')", [id]);
+      t.exec("INSERT INTO class_members (class_id, student_id, joined_at, notice_version) VALUES ('class-erase', ?, 1, 'v')", [id]);
     }
     const r = await deleteLearner(t.db, 'a', 'lion_alice', 'owner@example.com', NOW);
     assert.ok(r.ok);
