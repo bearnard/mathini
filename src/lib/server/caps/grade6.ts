@@ -19,6 +19,7 @@ import xhoTerm1 from './tasks/xho-term1.json';
 import xhoTerm2 from './tasks/xho-term2.json';
 import xhoTerm3 from './tasks/xho-term3.json';
 import xhoTerm4 from './tasks/xho-term4.json';
+import afrGr6 from './tasks/afr-gr6.json';
 
 const ISIXHOSA_DIRECTIVE =
   ' Write every question, all four options and the explanation in isiXhosa.';
@@ -61,5 +62,7 @@ export const grade6: SubjectConfig = {
     ...inIsixhosa(xhoTerm2.tasks),
     ...inIsixhosa(xhoTerm3.tasks),
     ...inIsixhosa(xhoTerm4.tasks),
+    // Grade 6 Afrikaans: scope written from each lesson and bank (the 16 slugs had none, so they were generated from the bare slug).
+    ...afrGr6.tasks,
   },
 };

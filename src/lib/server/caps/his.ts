@@ -1,4 +1,6 @@
 import type { SubjectConfig } from '../caps/types';
+import hisGr6Facts from './tasks/his-gr6-facts.json';
+import { withLessonFacts } from './lessonFacts';
 import hisGr7Term1 from './tasks/his-gr7-term1.json';
 import hisGr7Term2 from './tasks/his-gr7-term2.json';
 import hisGr7Term3 from './tasks/his-gr7-term3.json';
@@ -20,7 +22,7 @@ import hisGr12Term2 from './tasks/his-gr12-term2.json';
 import hisGr12Term3 from './tasks/his-gr12-term3.json';
 import hisGr12Term4 from './tasks/his-gr12-term4.json';
 
-const existingHistoryTasks: Record<string, string> = {
+const rawHistoryTasks: Record<string, string> = {
   'what-is-history':
     'Topic: What is history. Cover that history is the study of the past, that historians use evidence to find out what happened, the difference between the past and history, and why we study history (to understand how people lived and how things changed). Ask what history is, what a historian does, or why we study the past.',
   'historical-sources':
@@ -54,6 +56,9 @@ const existingHistoryTasks: Record<string, string> = {
   'modern-medicine':
     'Topic: Modern medicine and breakthroughs. Cover modern advances such as antibiotics (like penicillin) to fight infection, X-rays to see inside the body, vaccinations, and that the first human heart transplant was performed by Dr Christiaan Barnard in Cape Town, South Africa, in 1967. Ask about a modern breakthrough or the first heart transplant.',
 };
+
+// Grade 6 scopes carry the lesson's own facts too (stops invented counts, dates and article numbers).
+const existingHistoryTasks = withLessonFacts(rawHistoryTasks, hisGr6Facts.facts);
 
 export const his: SubjectConfig = {
   getPreamble(grade: number): string {

@@ -37,6 +37,7 @@ export type ReasonCode =
   | 'off_topic_numeric'
   | 'place_boilerplate'
   | 'misconception_frame'
+  | 'false_statement_stem'
   | 'decimal_point'
   | 'all_none_of_the_above'
   | 'explanation_skips_key'
@@ -70,6 +71,13 @@ export interface QualityContext {
    * (IT/CAT code, versions, IP addresses, other subjects).
    */
   decimalComma?: DecimalPolicy;
+  /**
+   * Generated items only (cron top-up, seed script): reject a stem that asks for the misconception, mistake, myth or false statement.
+   * The 2026-11 audit found the model keyed a TRUE statement as 'the misconception' in a fifth of such rows, and a key that has to be the
+   * false option cannot be checked by a deterministic validator. A neutral content question (key = the true answer) is required instead.
+   * Unset for the curated banks (they are held by their own baseline).
+   */
+  rejectFalseStatementStems?: boolean;
   /**
    * Optional KaTeX check, injected on the insert path only (this module stays dependency-free). Called with the source of each
    * `$...$` run in the prompt, options and answer; return an error message when it does not parse, else null.
@@ -121,6 +129,8 @@ const FILLER_RES = FILLER_TERMS.map((t) => ({ t, re: new RegExp(`\\b${escape(t)}
 const ABSOLUTE_RE = /\b(always|never|only|completely|entirely|every|none|nobody|no one|impossible|all)\b/i;
 const ALL_NONE_RE = /\b(all of the above|none of the above|all of these|none of these|both a and b|both of the above|a and b|b and c|a and c|all the above|neither of the above)\b/i;
 const MISCONCEPTION_RE = /\b(misconception|misunderstanding|a student (says|thinks|believes)|students? (think|believe)|common (mistake|error)|which (idea|statement) is (a )?(misconception|incorrect|false))\b/i;
+/** A stem that asks which option is the misconception / mistake / myth / error / false or incorrect statement. */
+export const FALSE_STATEMENT_STEM_RE = /\b(which|what)\b[^?.]{0,80}\b(misconception|misunderstanding|misunderstood|mistake|myth|error|incorrect|false|untrue|wrong)\b|\bcommon (mistake|error|misconception|misunderstanding)\b|\bwhy is (this|that|it) (incorrect|wrong)\b|\b(spot|identify|find) the (mistake|error)\b|\b(a )?(learner|student|child)s? (thinks?|believes?|says?)\b/i;
 const PLACE_RE = /\b(soweto|limpopo|mpumalanga|durban|pretoria|cape town|johannesburg|eastern cape|western cape|kwazulu|bloemfontein|polokwane|east london|mokopane|thohoyandou)\b/i;
 const NUMERIC_PROBLEM_RE = /\b(how many|how much|calculate|what is the (total|average|mean|ratio|area|volume|perimeter|distance|cost|difference|sum)|find the)\b/i;
 const NEGATIVE_PROMPT_RE = /\b(not|mistake|misconception|misunderstanding|incorrect|wrong|false|error|except|myth|flaw)\b/i;
@@ -353,6 +363,7 @@ export function checkQuestion(q: QuestionLike, ctx: QualityContext = {}): Qualit
     }
   }
   if (PLACE_RE.test(prompt)) add('place_boilerplate', 'warn', 'wrapped in a South African place name (invented-premise risk)');
+  if (ctx.rejectFalseStatementStems && FALSE_STATEMENT_STEM_RE.test(prompt)) add('false_statement_stem', 'reject', 'asks which option is the misconception, mistake or false statement: ask a neutral question whose key is the true answer');
   if (MISCONCEPTION_RE.test(prompt)) add('misconception_frame', 'warn', 'uses the "a student says / which is the misconception" frame');
 
   // near duplicate within the task

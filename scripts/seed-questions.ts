@@ -28,7 +28,9 @@ import { registry } from "../src/lib/server/caps/registry";
 import { getSections } from "../src/lib/server/caps/sections";
 import { acceptItems } from "../src/lib/shared/questionQuality";
 import { specsFromSlugs } from "../src/lib/server/caps/seedSlugs";
-import { numericOkFor } from "../src/lib/server/topUp";
+import { numericOkFor, FACT_GUARD } from "../src/lib/server/topUp";
+import { batchesFor, BATCH_INSTRUCTIONS } from "../src/lib/server/caps/batches";
+import { usableScope } from "../src/lib/server/caps/scope";
 import { decimalPolicyFor } from "../src/lib/server/caps/formatPolicy";
 import {
   AuthAbort, AuthError, HttpError, RunStats, createAuthGuard, isAuthStatus, parseOauthToken, processTaskItems, retryTransient, taskOutcome,
@@ -158,7 +160,7 @@ function buildTaskPrompt(specs: TaskSpec[], count: number): string {
   const code = specs[0].code;
   const preamble = registry[code].getPreamble(GRADE).replace(/\{count\}/g, String(count * 4));
   const topicList = specs
-    .map((s, i) => `${i + 1}. "${s.slug}" — ${s.instruction}`)
+    .map((s, i) => `${i + 1}. "${s.slug}" — ${s.instruction}\n   Types to generate for this topic: ${batchesFor(s.slug, s.code).join(", ")}`)
     .join("\n");
 
   return `${preamble}
@@ -166,12 +168,14 @@ function buildTaskPrompt(specs: TaskSpec[], count: number): string {
 Generate questions for each of the following ${specs.length} topics. The quoted key is the topic ID you MUST reuse verbatim in the JSON; the text after the dash is the exact scope to cover — stay strictly within it.
 ${topicList}
 
-For EACH topic, generate ${count} questions of EACH of the following 4 types (${count * 4} questions per topic, ${count * 4 * specs.length} total):
+${FACT_GUARD}
+
+For EACH topic, generate ${count} questions of EACH type listed for THAT topic (the types differ by subject: never generate a type that is not listed for the topic). The types are:
 
 1. DEFINITIONS — test vocabulary and conceptual understanding. Ask students to define a term or identify what something means. No calculations.
-2. CALCULATIONS — require step-by-step numerical reasoning or formula application. Include working in the explanation.
+2. CALCULATIONS — ONLY where listed: require step-by-step numerical reasoning or formula application. Include working in the explanation.
 3. APPLICATION — set in real-world South African contexts (local places, food, nature, culture). No generic "Country A/B" placeholders.
-4. MISCONCEPTIONS — target common student errors. Distractors should represent typical mistakes; explanations must correct the misconception.
+4. MISCONCEPTIONS — ONLY where listed. ${BATCH_INSTRUCTIONS.misconceptions}
 
 Requirements for every question:
 - Exactly 4 answer options
@@ -277,6 +281,9 @@ const GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 type BatchType = "definitions" | "calculations" | "application" | "misconceptions";
 const BATCH_TYPES: BatchType[] = ["definitions", "calculations", "application", "misconceptions"];
 
+/** The batch types the subject may use (no calculations outside calculating subjects; typical-error batch only for science and maths). */
+const allowedTypes = (s: TaskSpec): Set<BatchType> => new Set(batchesFor(s.slug, s.code));
+
 type TaskBatches = Record<BatchType, GeneratedItem[]>;
 const emptyBatches = (): TaskBatches =>
   ({ definitions: [], calculations: [], application: [], misconceptions: [] });
@@ -353,9 +360,9 @@ async function generateTasks(
       const t = parsed[s.slug] ?? {};
       return [s.slug, {
         definitions:    validate(t.definitions),
-        calculations:   validate(t.calculations),
+        calculations:   allowedTypes(s).has("calculations") ? validate(t.calculations) : [],
         application:    validate(t.application),
-        misconceptions: validate(t.misconceptions),
+        misconceptions: allowedTypes(s).has("misconceptions") ? validate(t.misconceptions) : [],
       }];
     })
   );
@@ -482,9 +489,9 @@ async function generateTasksLocal(
         const t = parsed[s.slug] ?? {};
         return [s.slug, {
           definitions:    validate(t.definitions),
-          calculations:   validate(t.calculations),
+          calculations:   allowedTypes(s).has("calculations") ? validate(t.calculations) : [],
           application:    validate(t.application),
-          misconceptions: validate(t.misconceptions),
+          misconceptions: allowedTypes(s).has("misconceptions") ? validate(t.misconceptions) : [],
         }];
       })
     );
@@ -682,9 +689,9 @@ function groundTasks(specs: TaskSpec[]): void {
       missing.push(`${s.slug} — subject code "${s.code}" not in registry`);
       continue;
     }
-    const instruction = cfg.tasks[s.slug];
+    const instruction = usableScope(cfg.tasks[s.slug]);
     if (!instruction) {
-      missing.push(`${s.slug} — no instruction under registry["${s.code}"].tasks`);
+      missing.push(`${s.slug} — no usable scope text under registry["${s.code}"].tasks (missing, or too short to name the content)`);
       continue;
     }
     s.instruction = instruction;
@@ -909,7 +916,7 @@ async function main() {
         batches[t].map((item) => ({ ...item, batchType: t }))
       );
       // Quality gate (ADR 0003 section 1a): rejected questions are NEVER stored. Accepted ones carry their score and flags.
-      const { accepted: allItems, rejected: qualityRejected } = acceptItems(generated, { numericOk: numericOkFor(taskKey, spec.code), decimalComma: decimalPolicyFor(taskKey, spec.code) });
+      const { accepted: allItems, rejected: qualityRejected } = acceptItems(generated, { numericOk: numericOkFor(taskKey, spec.code), decimalComma: decimalPolicyFor(taskKey, spec.code), rejectFalseStatementStems: true });
       console.log(`\n  [${taskKey}] got ${generated.length} items, ${qualityRejected.length} rejected by the quality validator`);
       const taskStats = runStats.for(taskKey);
       taskStats.generated += generated.length;
