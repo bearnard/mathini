@@ -139,22 +139,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>y = 3x − 4. Find y when x = 5.</li>
-            <li>x = 0, 1, 2 gives y = 4, 7, 10. Find the formula.</li>
-            <li>Does (2, 2) fit y = −4x + 10?</li>
-            <li>A taxi charges R25 plus R12 per km: C = 12k + 25. What does 25 tell you, and what do 10 km cost?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>3 × 5 − 4 = {c1}</li>
-            <li>{ruleText(c2.m, c2.c)}</li>
-            <li>−4 × 2 + 10 = {c3}, so yes.</li>
-            <li>25 is the y-intercept: the fixed fee at 0 km. 12 × 10 + 25 = R{c4}.</li>
-          </ol>
-        }
+        questions={[
+          <>y = 3x − 4. Find y when x = 5.</>,
+          <>x = 0, 1, 2 gives y = 4, 7, 10. Find the formula.</>,
+          <>Does (2, 2) fit y = −4x + 10?</>,
+          <>A taxi charges R25 plus R12 per km: C = 12k + 25. What does 25 tell you, and what do 10 km cost?</>,
+        ]}
+        answers={[
+          <>3 × 5 − 4 = {c1}</>,
+          <>{ruleText(c2.m, c2.c)}</>,
+          <>−4 × 2 + 10 = {c3}, so yes.</>,
+          <>25 is the y-intercept: the fixed fee at 0 km. 12 × 10 + 25 = R{c4}.</>,
+        ]}
       />,
     ),
   },

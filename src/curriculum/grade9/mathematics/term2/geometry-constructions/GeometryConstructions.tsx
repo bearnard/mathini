@@ -115,22 +115,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>You construct an equilateral triangle with sides of 6 cm. What compass width do you use?</li>
-            <li>How many arcs do you draw to bisect a line segment, and what do you join?</li>
-            <li>Can you construct a triangle with sides 3 cm, 4 cm and 8 cm? Why?</li>
-            <li>You bisect a right angle. What size is each new angle?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>6 cm, the same for every arc.</li>
-            <li>4 arcs (2 from each end); join the two points where they cross.</li>
-            <li>{c3.ok ? 'Yes' : 'No'}: 3 + 4 = {c3.shortSum}, which is less than {c3.longest}.</li>
-            <li>{c4.angle}° ÷ 2 = {c4.half}°</li>
-          </ol>
-        }
+        questions={[
+          <>You construct an equilateral triangle with sides of 6 cm. What compass width do you use?</>,
+          <>How many arcs do you draw to bisect a line segment, and what do you join?</>,
+          <>Can you construct a triangle with sides 3 cm, 4 cm and 8 cm? Why?</>,
+          <>You bisect a right angle. What size is each new angle?</>,
+        ]}
+        answers={[
+          <>6 cm, the same for every arc.</>,
+          <>4 arcs (2 from each end); join the two points where they cross.</>,
+          <>{c3.ok ? 'Yes' : 'No'}: 3 + 4 = {c3.shortSum}, which is less than {c3.longest}.</>,
+          <>{c4.angle}° ÷ 2 = {c4.half}°</>,
+        ]}
       />,
     ),
   },

@@ -104,22 +104,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A box is 6 cm × 2 cm × 3 cm. Find its volume and its surface area.</li>
-            <li>A cube has sides of 5 cm. Find its surface area and its volume.</li>
-            <li>A cylinder has r = 3 cm and h = 5 cm. Find its volume (π ≈ 3,14).</li>
-            <li>How many squares does the net of a cube have?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>V = {q1.volume} {cm3}; SA = 2({q1.faces.lb} + {q1.faces.lh} + {q1.faces.bh}) = {q1.surface} {cm2}</li>
-            <li>SA = 6 × {q2.face} = {q2.surface} {cm2}; V = {q2.volume} {cm3}</li>
-            <li>3,14 × {q3.rSquared} × 5 = {sa(q3.volume)} {cm3}</li>
-            <li>6 squares, one for each face.</li>
-          </ol>
-        }
+        questions={[
+          <>A box is 6 cm × 2 cm × 3 cm. Find its volume and its surface area.</>,
+          <>A cube has sides of 5 cm. Find its surface area and its volume.</>,
+          <>A cylinder has r = 3 cm and h = 5 cm. Find its volume (π ≈ 3,14).</>,
+          <>How many squares does the net of a cube have?</>,
+        ]}
+        answers={[
+          <>V = {q1.volume} {cm3}; SA = 2({q1.faces.lb} + {q1.faces.lh} + {q1.faces.bh}) = {q1.surface} {cm2}</>,
+          <>SA = 6 × {q2.face} = {q2.surface} {cm2}; V = {q2.volume} {cm3}</>,
+          <>3,14 × {q3.rSquared} × 5 = {sa(q3.volume)} {cm3}</>,
+          <>6 squares, one for each face.</>,
+        ]}
       />,
     ),
   },

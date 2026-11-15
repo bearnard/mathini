@@ -113,22 +113,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A rectangle is 7 m by 4 m. Find its perimeter and its area.</li>
-            <li>A triangular sail has a base of 9 m and a height of 6 m. Find its area.</li>
-            <li>Find the volume of a box 5 cm × 2 cm × 3 cm.</li>
-            <li>Find the surface area of a cube with sides of 5 cm.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>P = 2(7 + 4) = {c1.p} m; A = 7 × 4 = {c1.a} m².</li>
-            <li>½ × 9 × 6 = {c2} m².</li>
-            <li>5 × 2 × 3 = {c3} cm³.</li>
-            <li>6 × 5² = 6 × 25 = {c4} cm².</li>
-          </ol>
-        }
+        questions={[
+          <>A rectangle is 7 m by 4 m. Find its perimeter and its area.</>,
+          <>A triangular sail has a base of 9 m and a height of 6 m. Find its area.</>,
+          <>Find the volume of a box 5 cm × 2 cm × 3 cm.</>,
+          <>Find the surface area of a cube with sides of 5 cm.</>,
+        ]}
+        answers={[
+          <>P = 2(7 + 4) = {c1.p} m; A = 7 × 4 = {c1.a} m².</>,
+          <>½ × 9 × 6 = {c2} m².</>,
+          <>5 × 2 × 3 = {c3} cm³.</>,
+          <>6 × 5² = 6 × 25 = {c4} cm².</>,
+        ]}
       />,
     ),
   },

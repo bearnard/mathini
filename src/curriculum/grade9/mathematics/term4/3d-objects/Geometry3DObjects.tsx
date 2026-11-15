@@ -119,22 +119,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Count the faces, edges and vertices of a pentagonal prism.</li>
-            <li>Check Euler&apos;s formula for a triangular pyramid (4 faces, 4 vertices, 6 edges).</li>
-            <li>A pyramid stands on a hexagon (6 sides). Count its faces.</li>
-            <li>Which solid has two circular ends joined by one curved side?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{prism5.faces} faces, {prism5.edges} edges, {prism5.vertices} vertices.</li>
-            <li>F + V = {tet.faces} + {tet.vertices} = {euler(tet).left}; E + 2 = {tet.edges} + 2 = {euler(tet).right}. It holds.</li>
-            <li>{hexPyr.faces} faces: 1 hexagon + 6 triangles.</li>
-            <li>A cylinder.</li>
-          </ol>
-        }
+        questions={[
+          <>Count the faces, edges and vertices of a pentagonal prism.</>,
+          <>Check Euler&apos;s formula for a triangular pyramid (4 faces, 4 vertices, 6 edges).</>,
+          <>A pyramid stands on a hexagon (6 sides). Count its faces.</>,
+          <>Which solid has two circular ends joined by one curved side?</>,
+        ]}
+        answers={[
+          <>{prism5.faces} faces, {prism5.edges} edges, {prism5.vertices} vertices.</>,
+          <>F + V = {tet.faces} + {tet.vertices} = {euler(tet).left}; E + 2 = {tet.edges} + 2 = {euler(tet).right}. It holds.</>,
+          <>{hexPyr.faces} faces: 1 hexagon + 6 triangles.</>,
+          <>A cylinder.</>,
+        ]}
       />,
     ),
   },

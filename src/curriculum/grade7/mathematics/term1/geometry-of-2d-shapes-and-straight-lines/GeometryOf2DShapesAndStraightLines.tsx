@@ -110,22 +110,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Two angles on a straight line: one is {check.line.a}°. Find the other.</li>
-            <li>Two lines cross and one angle is {check.opposite}°. What is the angle opposite it?</li>
-            <li>A triangle has angles of 55° and 65°. What is the third?</li>
-            <li>Find each interior and exterior angle of a regular {polygonName(check.hex.n)}.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>180° − {check.line.a}° = {check.line.b}°.</li>
-            <li>{check.opposite}°, because vertically opposite angles are equal.</li>
-            <li>180° − {55 + 65}° = {check.tri}°.</li>
-            <li>({check.hex.n} − 2) × 180° ÷ {check.hex.n} = {check.hex.each}° interior, and {check.hex.ext}° exterior.</li>
-          </ol>
-        }
+        questions={[
+          <>Two angles on a straight line: one is {check.line.a}°. Find the other.</>,
+          <>Two lines cross and one angle is {check.opposite}°. What is the angle opposite it?</>,
+          <>A triangle has angles of 55° and 65°. What is the third?</>,
+          <>Find each interior and exterior angle of a regular {polygonName(check.hex.n)}.</>,
+        ]}
+        answers={[
+          <>180° − {check.line.a}° = {check.line.b}°.</>,
+          <>{check.opposite}°, because vertically opposite angles are equal.</>,
+          <>180° − {55 + 65}° = {check.tri}°.</>,
+          <>({check.hex.n} − 2) × 180° ÷ {check.hex.n} = {check.hex.each}° interior, and {check.hex.ext}° exterior.</>,
+        ]}
       />,
     ),
   },

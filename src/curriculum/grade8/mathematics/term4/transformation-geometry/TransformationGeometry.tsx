@@ -134,22 +134,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Translate {pt(-3, 4)} by 5 right and 2 down.</li>
-            <li>Reflect {pt(-2, 5)} in the x-axis.</li>
-            <li>Turn {pt(5, -3)} through 90° clockwise about the origin.</li>
-            <li>A 3 cm by 1 cm rectangle is enlarged by scale factor 3. Give the new sides.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{P(c1)}.</li>
-            <li>{P(c2)}.</li>
-            <li>{P(c3)}.</li>
-            <li>{c4.w} cm by {c4.h} cm.</li>
-          </ol>
-        }
+        questions={[
+          <>Translate {pt(-3, 4)} by 5 right and 2 down.</>,
+          <>Reflect {pt(-2, 5)} in the x-axis.</>,
+          <>Turn {pt(5, -3)} through 90° clockwise about the origin.</>,
+          <>A 3 cm by 1 cm rectangle is enlarged by scale factor 3. Give the new sides.</>,
+        ]}
+        answers={[
+          <>{P(c1)}.</>,
+          <>{P(c2)}.</>,
+          <>{P(c3)}.</>,
+          <>{c4.w} cm by {c4.h} cm.</>,
+        ]}
       />,
     ),
   },

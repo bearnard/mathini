@@ -109,22 +109,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The shorter sides of a right-angled triangle are 9 cm and 12 cm. Find the hypotenuse.</li>
-            <li>The hypotenuse is 17 m and one side is 8 m. Find the other side.</li>
-            <li>Is a triangle with sides 7, 8 and 11 right-angled?</li>
-            <li>The shorter sides are 4 cm and 6 cm. Find the hypotenuse to 2 decimal places.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{c1.a2} + {c1.b2} = {c1.c2}; √{c1.c2} = {c1.c} cm</li>
-            <li>{c2.c2} − {c2.a2} = {c2.b2}; √{c2.b2} = {c2.b} m</li>
-            <li>{c3.a2} + {c3.b2} = {c3.sum}, but {sq(11)} = {c3.c2}: {c3.right ? 'yes' : 'no'}.</li>
-            <li>{c4.a2} + {c4.b2} = {c4.c2}; √{c4.c2} ≈ {fmt(roundTo(c4.c, 2))} cm</li>
-          </ol>
-        }
+        questions={[
+          <>The shorter sides of a right-angled triangle are 9 cm and 12 cm. Find the hypotenuse.</>,
+          <>The hypotenuse is 17 m and one side is 8 m. Find the other side.</>,
+          <>Is a triangle with sides 7, 8 and 11 right-angled?</>,
+          <>The shorter sides are 4 cm and 6 cm. Find the hypotenuse to 2 decimal places.</>,
+        ]}
+        answers={[
+          <>{c1.a2} + {c1.b2} = {c1.c2}; √{c1.c2} = {c1.c} cm</>,
+          <>{c2.c2} − {c2.a2} = {c2.b2}; √{c2.b2} = {c2.b} m</>,
+          <>{c3.a2} + {c3.b2} = {c3.sum}, but {sq(11)} = {c3.c2}: {c3.right ? 'yes' : 'no'}.</>,
+          <>{c4.a2} + {c4.b2} = {c4.c2}; √{c4.c2} ≈ {fmt(roundTo(c4.c, 2))} cm</>,
+        ]}
       />,
     ),
   },

@@ -134,22 +134,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Simplify 9y + 4 − 2y − 6.</li>
-            <li>Expand −3(a − 4).</li>
-            <li>Factorise 5x + 20.</li>
-            <li>Find the value of 4n − 9 when n = 3.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{T(c1)}.</li>
-            <li>{T(c2)} (−3 × −4 = +12).</li>
-            <li>{c3.k}(x + {c3.q}).</li>
-            <li>4 × 3 − 9 = {c4}.</li>
-          </ol>
-        }
+        questions={[
+          <>Simplify 9y + 4 − 2y − 6.</>,
+          <>Expand −3(a − 4).</>,
+          <>Factorise 5x + 20.</>,
+          <>Find the value of 4n − 9 when n = 3.</>,
+        ]}
+        answers={[
+          <>{T(c1)}.</>,
+          <>{T(c2)} (−3 × −4 = +12).</>,
+          <>{c3.k}(x + {c3.q}).</>,
+          <>4 × 3 − 9 = {c4}.</>,
+        ]}
       />,
     ),
   },

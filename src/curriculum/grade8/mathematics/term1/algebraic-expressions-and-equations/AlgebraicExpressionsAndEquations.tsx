@@ -124,22 +124,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Simplify 5x + 3 − 2x + 4.</li>
-            <li>Expand 3(m − 4).</li>
-            <li>Find the value of 3k − 2 when k = 4.</li>
-            <li>Solve 5x + 3 = 23 and check your answer.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{linearText(c1.x, c1.c, 'x')}.</li>
-            <li>{linearText(c2.a, c2.b, 'm')}.</li>
-            <li>3 × 4 − 2 = {c3}.</li>
-            <li>5x = {c4.rhs}, so x = {c4.x}. Check: 5 × {c4.x} + 3 = {linearValue(5, 3, c4.x)} ✓.</li>
-          </ol>
-        }
+        questions={[
+          <>Simplify 5x + 3 − 2x + 4.</>,
+          <>Expand 3(m − 4).</>,
+          <>Find the value of 3k − 2 when k = 4.</>,
+          <>Solve 5x + 3 = 23 and check your answer.</>,
+        ]}
+        answers={[
+          <>{linearText(c1.x, c1.c, 'x')}.</>,
+          <>{linearText(c2.a, c2.b, 'm')}.</>,
+          <>3 × 4 − 2 = {c3}.</>,
+          <>5x = {c4.rhs}, so x = {c4.x}. Check: 5 × {c4.x} + 3 = {linearValue(5, 3, c4.x)} ✓.</>,
+        ]}
       />,
     ),
   },

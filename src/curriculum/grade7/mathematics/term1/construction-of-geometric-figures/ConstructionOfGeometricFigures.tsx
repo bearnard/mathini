@@ -116,22 +116,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What compass width builds an equilateral triangle with sides of {check.side} cm?</li>
-            <li>A triangle has angles of {check.angles[0]}° and {check.angles[1]}°. What is the third angle?</li>
-            <li>A triangle has sides 7 cm, 7 cm and 3 cm. What kind is it?</li>
-            <li>Why must the arcs for a perpendicular bisector be wider than half the line?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{check.side} cm, the same as the side length.</li>
-            <li>180° − {check.angles[0] + check.angles[1]}° = {check.third}°.</li>
-            <li>{check.type}: two sides are equal.</li>
-            <li>If the width is half the line or less, the arcs never cross.</li>
-          </ol>
-        }
+        questions={[
+          <>What compass width builds an equilateral triangle with sides of {check.side} cm?</>,
+          <>A triangle has angles of {check.angles[0]}° and {check.angles[1]}°. What is the third angle?</>,
+          <>A triangle has sides 7 cm, 7 cm and 3 cm. What kind is it?</>,
+          <>Why must the arcs for a perpendicular bisector be wider than half the line?</>,
+        ]}
+        answers={[
+          <>{check.side} cm, the same as the side length.</>,
+          <>180° − {check.angles[0] + check.angles[1]}° = {check.third}°.</>,
+          <>{check.type}: two sides are equal.</>,
+          <>If the width is half the line or less, the arcs never cross.</>,
+        ]}
       />,
     ),
   },

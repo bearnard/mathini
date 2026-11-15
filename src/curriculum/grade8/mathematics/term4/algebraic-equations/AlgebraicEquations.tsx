@@ -129,22 +129,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Solve x ÷ 4 = 6.</li>
-            <li>Solve 7 − 2x = {m(-5)}.</li>
-            <li>Solve 3(x − 2) = 15.</li>
-            <li>Is x = 3 a solution of 4x − 1 = 2x + 5?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Multiply both sides by 4: x = {c1}.</li>
-            <li>−2x = {m(c2.rhs)}, so x = {c2.x}.</li>
-            <li>x − 2 = {c3.third}, so x = {c3.x}.</li>
-            <li>Yes: 4 × 3 − 1 = {c4.left} and 2 × 3 + 5 = {c4.right}.</li>
-          </ol>
-        }
+        questions={[
+          <>Solve x ÷ 4 = 6.</>,
+          <>Solve 7 − 2x = {m(-5)}.</>,
+          <>Solve 3(x − 2) = 15.</>,
+          <>Is x = 3 a solution of 4x − 1 = 2x + 5?</>,
+        ]}
+        answers={[
+          <>Multiply both sides by 4: x = {c1}.</>,
+          <>−2x = {m(c2.rhs)}, so x = {c2.x}.</>,
+          <>x − 2 = {c3.third}, so x = {c3.x}.</>,
+          <>Yes: 4 × 3 − 1 = {c4.left} and 2 × 3 + 5 = {c4.right}.</>,
+        ]}
       />,
     ),
   },

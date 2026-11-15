@@ -133,22 +133,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A rectangle has a perimeter of 30 cm and a length of 9 cm. Find its breadth.</li>
-            <li>Find the area of a triangle with base 14 cm and height 5 cm.</li>
-            <li>A circle has radius 10 cm. Find its circumference and area (π ≈ 3,14).</li>
-            <li>Write 4,2 m{sq} in cm{sq}.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>30 ÷ 2 = {q1.half}; {q1.half} − 9 = {q1.breadth} cm.</li>
-            <li>½ × 14 × 5 = {q2} cm{sq}.</li>
-            <li>C = 2 × 3,14 × 10 = {S(q3.circumference)} cm; A = 3,14 × {q3.rSquared} = {S(q3.area)} cm{sq}.</li>
-            <li>4,2 × {S(cm2)} = {S(q4)} cm{sq}.</li>
-          </ol>
-        }
+        questions={[
+          <>A rectangle has a perimeter of 30 cm and a length of 9 cm. Find its breadth.</>,
+          <>Find the area of a triangle with base 14 cm and height 5 cm.</>,
+          <>A circle has radius 10 cm. Find its circumference and area (π ≈ 3,14).</>,
+          <>Write 4,2 m{sq} in cm{sq}.</>,
+        ]}
+        answers={[
+          <>30 ÷ 2 = {q1.half}; {q1.half} − 9 = {q1.breadth} cm.</>,
+          <>½ × 14 × 5 = {q2} cm{sq}.</>,
+          <>C = 2 × 3,14 × 10 = {S(q3.circumference)} cm; A = 3,14 × {q3.rSquared} = {S(q3.area)} cm{sq}.</>,
+          <>4,2 × {S(cm2)} = {S(q4)} cm{sq}.</>,
+        ]}
       />,
     ),
   },

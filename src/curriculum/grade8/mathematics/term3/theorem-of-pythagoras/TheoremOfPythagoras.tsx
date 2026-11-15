@@ -120,22 +120,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The shorter sides are 6 cm and 8 cm. Find the hypotenuse.</li>
-            <li>The hypotenuse is 25 cm and one side is 7 cm. Find the other side.</li>
-            <li>Is a triangle with sides 5, 12 and 13 right-angled?</li>
-            <li>A rectangle is 12 cm long and 5 cm wide. How long is its diagonal?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{c1.a2} + {c1.b2} = {c1.c2}, so c = {c1.c} cm.</li>
-            <li>{c2.c2} − {c2.a2} = {c2.b2}, so b = {c2.b} cm.</li>
-            <li>{c3.right ? 'Yes' : 'No'}: 25 + 144 = {c3.others2} = {sq(13)}.</li>
-            <li>The diagonal is a hypotenuse: {c4.a2} + {c4.b2} = {c4.c2}, so it is {c4.c} cm.</li>
-          </ol>
-        }
+        questions={[
+          <>The shorter sides are 6 cm and 8 cm. Find the hypotenuse.</>,
+          <>The hypotenuse is 25 cm and one side is 7 cm. Find the other side.</>,
+          <>Is a triangle with sides 5, 12 and 13 right-angled?</>,
+          <>A rectangle is 12 cm long and 5 cm wide. How long is its diagonal?</>,
+        ]}
+        answers={[
+          <>{c1.a2} + {c1.b2} = {c1.c2}, so c = {c1.c} cm.</>,
+          <>{c2.c2} − {c2.a2} = {c2.b2}, so b = {c2.b} cm.</>,
+          <>{c3.right ? 'Yes' : 'No'}: 25 + 144 = {c3.others2} = {sq(13)}.</>,
+          <>The diagonal is a hypotenuse: {c4.a2} + {c4.b2} = {c4.c2}, so it is {c4.c} cm.</>,
+        ]}
       />,
     ),
   },

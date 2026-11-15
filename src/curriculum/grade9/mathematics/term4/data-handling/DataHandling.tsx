@@ -152,22 +152,16 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>For 6, 2, 9, 4, 9 find the mean, median, mode and range.</li>
-            <li>Which of mean or median is pulled more by one very large value?</li>
-            <li>Which graph would you use to show how a household budget is split?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>
-              Mean = {sum(q)} ÷ 5 = {sa(mean(q))}; in order {qs.join(', ')}, median = {median(q)}; mode = {modes(q)[0]}; range = {range(q).max} − {range(q).min} = {range(q).range}.
-            </li>
-            <li>The mean.</li>
-            <li>A pie chart, because the parts make up one whole budget.</li>
-          </ol>
-        }
+        questions={[
+          <>For 6, 2, 9, 4, 9 find the mean, median, mode and range.</>,
+          <>Which of mean or median is pulled more by one very large value?</>,
+          <>Which graph would you use to show how a household budget is split?</>,
+        ]}
+        answers={[
+          <>Mean = {sum(q)} ÷ 5 = {sa(mean(q))}; in order {qs.join(', ')}, median = {median(q)}; mode = {modes(q)[0]}; range = {range(q).max} − {range(q).min} = {range(q).range}.</>,
+          <>The mean.</>,
+          <>A pie chart, because the parts make up one whole budget.</>,
+        ]}
       />,
     ),
   },

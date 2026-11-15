@@ -110,22 +110,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>In the point (4, 1), what is the y-coordinate?</li>
-            <li>On which axis does (0, 6) lie?</li>
-            <li>The rule is y = 3x. Which ordered pair belongs on the graph for x = 4?</li>
-            <li>Which kind of graph shows how a temperature changes during a day?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>1, the second number.</li>
-            <li>The {check.on}, because x = 0.</li>
-            <li>y = 3 × 4 = {check.y}, so (4, {check.y}).</li>
-            <li>A line graph, because it shows change over time.</li>
-          </ol>
-        }
+        questions={[
+          <>In the point (4, 1), what is the y-coordinate?</>,
+          <>On which axis does (0, 6) lie?</>,
+          <>The rule is y = 3x. Which ordered pair belongs on the graph for x = 4?</>,
+          <>Which kind of graph shows how a temperature changes during a day?</>,
+        ]}
+        answers={[
+          <>1, the second number.</>,
+          <>The {check.on}, because x = 0.</>,
+          <>y = 3 × 4 = {check.y}, so (4, {check.y}).</>,
+          <>A line graph, because it shows change over time.</>,
+        ]}
       />,
     ),
   },

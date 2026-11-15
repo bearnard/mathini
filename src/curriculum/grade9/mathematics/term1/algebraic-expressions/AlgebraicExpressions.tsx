@@ -162,22 +162,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Simplify 4a + 3b − a + b.</li>
-            <li>Expand 5(x − 2). Factorise 4x + 12.</li>
-            <li>Solve 3x + 4 = 19.</li>
-            <li>Factorise x{sq} + 8x + 15.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{formatTerms(c1)}</li>
-            <li>{c2.a}x {plus(c2.b)}; {c2b.f}(x + {c2b.q})</li>
-            <li>3x = {c3.rhs}, so x = {s(c3.x)}.</li>
-            <li>(x + {c4?.p})(x + {c4?.q}), because {c4?.p} × {c4?.q} = 15 and {c4?.p} + {c4?.q} = 8.</li>
-          </ol>
-        }
+        questions={[
+          <>Simplify 4a + 3b − a + b.</>,
+          <>Expand 5(x − 2). Factorise 4x + 12.</>,
+          <>Solve 3x + 4 = 19.</>,
+          <>Factorise x{sq} + 8x + 15.</>,
+        ]}
+        answers={[
+          <>{formatTerms(c1)}</>,
+          <>{c2.a}x {plus(c2.b)}; {c2b.f}(x + {c2b.q})</>,
+          <>3x = {c3.rhs}, so x = {s(c3.x)}.</>,
+          <>(x + {c4?.p})(x + {c4?.q}), because {c4?.p} × {c4?.q} = 15 and {c4?.p} + {c4?.q} = 8.</>,
+        ]}
       />,
     ),
   },

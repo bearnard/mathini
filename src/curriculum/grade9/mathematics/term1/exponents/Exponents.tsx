@@ -115,22 +115,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Simplify {pw('y', 6)} ÷ {pw('y', 2)}.</li>
-            <li>Simplify ({pw('x', 2)}y){<S>3</S>}.</li>
-            <li>Write {pw(2, '−3')} as a fraction.</li>
-            <li>Write {pw(9, 2)} as a power of 3, and give its value.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{pw('y', c1)}</li>
-            <li>{pw('x', c2[0])}{pw('y', c2[1])}</li>
-            <li>1/{c3.den}</li>
-            <li>{pw(9, 2)} = ({pw(3, 2)}){<S>2</S>} = {pw(3, c4.exp)} = {c4.value}</li>
-          </ol>
-        }
+        questions={[
+          <>Simplify {pw('y', 6)} ÷ {pw('y', 2)}.</>,
+          <>Simplify ({pw('x', 2)}y){<S>3</S>}.</>,
+          <>Write {pw(2, '−3')} as a fraction.</>,
+          <>Write {pw(9, 2)} as a power of 3, and give its value.</>,
+        ]}
+        answers={[
+          <>{pw('y', c1)}</>,
+          <>{pw('x', c2[0])}{pw('y', c2[1])}</>,
+          <>1/{c3.den}</>,
+          <>{pw(9, 2)} = ({pw(3, 2)}){<S>2</S>} = {pw(3, c4.exp)} = {c4.value}</>,
+        ]}
       />,
     ),
   },

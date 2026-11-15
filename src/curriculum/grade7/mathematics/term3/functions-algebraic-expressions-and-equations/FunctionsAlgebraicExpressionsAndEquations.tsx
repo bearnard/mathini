@@ -93,22 +93,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Write “seven more than k” as an expression.</li>
-            <li>Evaluate 3b − 2 when b = 5.</li>
-            <li>Simplify 5a + 2b − a.</li>
-            <li>Solve 2x + 5 = 17.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>k + 7.</li>
-            <li>3 × 5 = 15, then 15 − 2 = {check.b}.</li>
-            <li>5a − a = 4a, so {check.simp}.</li>
-            <li>17 − 5 = {check.eq.afterB}, then {check.eq.afterB} ÷ 2 = {check.eq.x}. Check: 2 × {check.eq.x} + 5 = 17 ✓</li>
-          </ol>
-        }
+        questions={[
+          <>Write “seven more than k” as an expression.</>,
+          <>Evaluate 3b − 2 when b = 5.</>,
+          <>Simplify 5a + 2b − a.</>,
+          <>Solve 2x + 5 = 17.</>,
+        ]}
+        answers={[
+          <>k + 7.</>,
+          <>3 × 5 = 15, then 15 − 2 = {check.b}.</>,
+          <>5a − a = 4a, so {check.simp}.</>,
+          <>17 − 5 = {check.eq.afterB}, then {check.eq.afterB} ÷ 2 = {check.eq.x}. Check: 2 × {check.eq.x} + 5 = 17 ✓</>,
+        ]}
       />,
     ),
   },

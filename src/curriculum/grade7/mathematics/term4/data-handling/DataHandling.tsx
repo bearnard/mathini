@@ -130,22 +130,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>For 5, 9, 7, 9, 10 find the mean, median, mode and range.</li>
-            <li>6 of 24 learners walk to school. What percentage is that?</li>
-            <li>A scale goes up in 10s and a bar reaches 3 intervals. What is its value?</li>
-            <li>What fraction of a pie chart is a 135° sector?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Mean 40 ÷ 5 = {check.data.mean}. In order {check.data.sorted.join(', ')}: median {check.data.median}, mode {check.data.modes.join(', ')}, range 10 − 5 = {check.data.range}.</li>
-            <li>6 ÷ 24 × 100 = {check.pct}%.</li>
-            <li>3 × 10 = {check.bar}.</li>
-            <li>135/360 = {check.fr.n}/{check.fr.d}.</li>
-          </ol>
-        }
+        questions={[
+          <>For 5, 9, 7, 9, 10 find the mean, median, mode and range.</>,
+          <>6 of 24 learners walk to school. What percentage is that?</>,
+          <>A scale goes up in 10s and a bar reaches 3 intervals. What is its value?</>,
+          <>What fraction of a pie chart is a 135° sector?</>,
+        ]}
+        answers={[
+          <>Mean 40 ÷ 5 = {check.data.mean}. In order {check.data.sorted.join(', ')}: median {check.data.median}, mode {check.data.modes.join(', ')}, range 10 − 5 = {check.data.range}.</>,
+          <>6 ÷ 24 × 100 = {check.pct}%.</>,
+          <>3 × 10 = {check.bar}.</>,
+          <>135/360 = {check.fr.n}/{check.fr.d}.</>,
+        ]}
       />,
     ),
   },

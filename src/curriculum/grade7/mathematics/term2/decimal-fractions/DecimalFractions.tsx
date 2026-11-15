@@ -113,22 +113,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which is greater: {dec(0.6)} or {dec(0.59)}?</li>
-            <li>Calculate {dec(5.7)} + {dec(1.35)}.</li>
-            <li>Calculate {dec(0.3)} × {dec(0.8)}.</li>
-            <li>Round {dec(6.248)} to the nearest tenth.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{dec(0.6)}, because {dec(0.6, 2)} &gt; {dec(0.59, 2)}.</li>
-            <li>{dec(check.sum, 2)}.</li>
-            <li>3 × 8 = 24, two decimal places: {dec(check.prod, 2)}.</li>
-            <li>The next digit is 4, so round down: {dec(check.round)}.</li>
-          </ol>
-        }
+        questions={[
+          <>Which is greater: {dec(0.6)} or {dec(0.59)}?</>,
+          <>Calculate {dec(5.7)} + {dec(1.35)}.</>,
+          <>Calculate {dec(0.3)} × {dec(0.8)}.</>,
+          <>Round {dec(6.248)} to the nearest tenth.</>,
+        ]}
+        answers={[
+          <>{dec(0.6)}, because {dec(0.6, 2)} &gt; {dec(0.59, 2)}.</>,
+          <>{dec(check.sum, 2)}.</>,
+          <>3 × 8 = 24, two decimal places: {dec(check.prod, 2)}.</>,
+          <>The next digit is 4, so round down: {dec(check.round)}.</>,
+        ]}
       />,
     ),
   },

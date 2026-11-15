@@ -151,22 +151,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Order from smallest to biggest: 4, {S(-7)}, 0, {S(-1)}.</li>
-            <li>Calculate {S(-6)} + 10.</li>
-            <li>Calculate 3 − 8.</li>
-            <li>Calculate ({S(-5)}) × 4.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{c1.map(S).join(', ')}</li>
-            <li>{S(c2)}: start at {S(-6)} and move 10 right.</li>
-            <li>{S(c3)}: start at 3 and move 8 left.</li>
-            <li>{S(c4)}: different signs, so negative; 5 × 4 = 20.</li>
-          </ol>
-        }
+        questions={[
+          <>Order from smallest to biggest: 4, {S(-7)}, 0, {S(-1)}.</>,
+          <>Calculate {S(-6)} + 10.</>,
+          <>Calculate 3 − 8.</>,
+          <>Calculate ({S(-5)}) × 4.</>,
+        ]}
+        answers={[
+          <>{c1.map(S).join(', ')}</>,
+          <>{S(c2)}: start at {S(-6)} and move 10 right.</>,
+          <>{S(c3)}: start at 3 and move 8 left.</>,
+          <>{S(c4)}: different signs, so negative; 5 × 4 = 20.</>,
+        ]}
       />,
     ),
   },

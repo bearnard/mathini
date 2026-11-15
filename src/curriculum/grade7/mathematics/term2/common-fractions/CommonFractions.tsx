@@ -146,22 +146,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which is bigger, <F n={5} d={6} /> or <F n={7} d={9} />?</li>
-            <li>Calculate <F n={3} d={4} /> − <F n={1} d={6} />.</li>
-            <li>Find <F n={2} d={3} /> of 12.</li>
-            <li>Calculate <M w={1} n={3} d={4} /> + <M w={2} n={1} d={2} />.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li><F n={q1.a} d={q1.d} /> and <F n={q1.b} d={q1.d} />, so <F n={5} d={6} /> is bigger.</li>
-            <li><F n={q2.a} d={q2.d} /> − <F n={q2.b} d={q2.d} /> = <F n={q2.simplest.n} d={q2.simplest.d} />.</li>
-            <li>12 ÷ 3 = {q3.one}, and 2 × {q3.one} = {q3.result}.</li>
-            <li>Wholes 3; fractions <F n={q4.fraction.n} d={q4.fraction.d} /> = 1<F n={1} d={4} />; total <M w={q4.result.whole} n={q4.result.n} d={q4.result.d} />.</li>
-          </ol>
-        }
+        questions={[
+          <>Which is bigger, <F n={5} d={6} /> or <F n={7} d={9} />?</>,
+          <>Calculate <F n={3} d={4} /> − <F n={1} d={6} />.</>,
+          <>Find <F n={2} d={3} /> of 12.</>,
+          <>Calculate <M w={1} n={3} d={4} /> + <M w={2} n={1} d={2} />.</>,
+        ]}
+        answers={[
+          <><F n={q1.a} d={q1.d} /> and <F n={q1.b} d={q1.d} />, so <F n={5} d={6} /> is bigger.</>,
+          <><F n={q2.a} d={q2.d} /> − <F n={q2.b} d={q2.d} /> = <F n={q2.simplest.n} d={q2.simplest.d} />.</>,
+          <>12 ÷ 3 = {q3.one}, and 2 × {q3.one} = {q3.result}.</>,
+          <>Wholes 3; fractions <F n={q4.fraction.n} d={q4.fraction.d} /> = 1<F n={1} d={4} />; total <M w={q4.result.whole} n={q4.result.n} d={q4.result.d} />.</>,
+        ]}
       />,
     ),
   },

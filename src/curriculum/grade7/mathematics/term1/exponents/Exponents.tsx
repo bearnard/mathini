@@ -127,22 +127,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Write 6 × 6 × 6 × 6 as a power, and find its value.</li>
-            <li>Simplify {pw(2, 4)} × {pw(2, 3)} and give the value.</li>
-            <li>Simplify {pw(5, 6)} ÷ {pw(5, 4)} and give the value.</li>
-            <li>Simplify ({pw(3, 2)})<sup className="text-[0.75em] font-bold">2</sup> and give the value.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{pw(6, 4)} = {nb(c1)}.</li>
-            <li>{pw(2, c2.exp)} = {c2.value}.</li>
-            <li>{pw(5, c3.exp)} = {c3.value}.</li>
-            <li>{pw(3, c4.exp)} = {c4.value}.</li>
-          </ol>
-        }
+        questions={[
+          <>Write 6 × 6 × 6 × 6 as a power, and find its value.</>,
+          <>Simplify {pw(2, 4)} × {pw(2, 3)} and give the value.</>,
+          <>Simplify {pw(5, 6)} ÷ {pw(5, 4)} and give the value.</>,
+          <>Simplify ({pw(3, 2)})<sup className="text-[0.75em] font-bold">2</sup> and give the value.</>,
+        ]}
+        answers={[
+          <>{pw(6, 4)} = {nb(c1)}.</>,
+          <>{pw(2, c2.exp)} = {c2.value}.</>,
+          <>{pw(5, c3.exp)} = {c3.value}.</>,
+          <>{pw(3, c4.exp)} = {c4.value}.</>,
+        ]}
       />,
     ),
   },

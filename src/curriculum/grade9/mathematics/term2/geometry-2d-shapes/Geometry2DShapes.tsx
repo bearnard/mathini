@@ -114,22 +114,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Two angles lie on a straight line. One is 112°. Find the other.</li>
-            <li>Two parallel lines are cut by a transversal. One angle is 74°. Find its co-interior angle.</li>
-            <li>A right-angled triangle has a 38° angle. Find the third angle.</li>
-            <li>Find the sum of the angles of a hexagon, and each angle of a regular hexagon.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>180° − 112° = {c1}°</li>
-            <li>180° − 74° = {c2}°</li>
-            <li>180° − 90° − 38° = {c3}°</li>
-            <li>(6 − 2) × 180° = {c4.sum}°; {c4.sum}° ÷ 6 = {c4.each}°</li>
-          </ol>
-        }
+        questions={[
+          <>Two angles lie on a straight line. One is 112°. Find the other.</>,
+          <>Two parallel lines are cut by a transversal. One angle is 74°. Find its co-interior angle.</>,
+          <>A right-angled triangle has a 38° angle. Find the third angle.</>,
+          <>Find the sum of the angles of a hexagon, and each angle of a regular hexagon.</>,
+        ]}
+        answers={[
+          <>180° − 112° = {c1}°</>,
+          <>180° − 74° = {c2}°</>,
+          <>180° − 90° − 38° = {c3}°</>,
+          <>(6 − 2) × 180° = {c4.sum}°; {c4.sum}° ÷ 6 = {c4.each}°</>,
+        ]}
       />,
     ),
   },

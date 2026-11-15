@@ -148,22 +148,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Solve 3x − 5 = 16.</li>
-            <li>Solve 10 − 3x = 1.</li>
-            <li>Solve 4(x + 2) = 20.</li>
-            <li>Solve 5x − 3 = 2x + 9 and check your answer.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>3x = {c1.rhs}, so x = {c1.x}.</li>
-            <li>−3x = {S(c2.rhs)}, so x = {c2.x}.</li>
-            <li>x + 2 = {c3.each}, so x = {c3.x}.</li>
-            <li>{c4.coef}x − 3 = 9, {c4.coef}x = {c4.rhs}, x = {c4.x}. Check: 5 × {c4.x} − 3 = {5 * c4.x - 3} and 2 × {c4.x} + 9 = {2 * c4.x + 9} ✓.</li>
-          </ol>
-        }
+        questions={[
+          <>Solve 3x − 5 = 16.</>,
+          <>Solve 10 − 3x = 1.</>,
+          <>Solve 4(x + 2) = 20.</>,
+          <>Solve 5x − 3 = 2x + 9 and check your answer.</>,
+        ]}
+        answers={[
+          <>3x = {c1.rhs}, so x = {c1.x}.</>,
+          <>−3x = {S(c2.rhs)}, so x = {c2.x}.</>,
+          <>x + 2 = {c3.each}, so x = {c3.x}.</>,
+          <>{c4.coef}x − 3 = 9, {c4.coef}x = {c4.rhs}, x = {c4.x}. Check: 5 × {c4.x} − 3 = {5 * c4.x - 3} and 2 × {c4.x} + 9 = {2 * c4.x + 9} ✓.</>,
+        ]}
       />,
     ),
   },

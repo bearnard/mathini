@@ -140,20 +140,16 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A fair die is rolled. What is the probability of a 5 or a 6?</li>
-            <li>A bag has 4 red and 6 white beads. Find P(red) as a decimal and a percentage.</li>
-            <li>How many outcomes are there when three coins are tossed?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li><F n={2} d={6} /> = <F n={c1.n} d={c1.d} />.</li>
-            <li><F n={4} d={10} /> = {dc(c2.decimal)} = {c2.percent}%.</li>
-            <li>{c3.length}: {c3.join(', ')}.</li>
-          </ol>
-        }
+        questions={[
+          <>A fair die is rolled. What is the probability of a 5 or a 6?</>,
+          <>A bag has 4 red and 6 white beads. Find P(red) as a decimal and a percentage.</>,
+          <>How many outcomes are there when three coins are tossed?</>,
+        ]}
+        answers={[
+          <><F n={2} d={6} /> = <F n={c1.n} d={c1.d} />.</>,
+          <><F n={4} d={10} /> = {dc(c2.decimal)} = {c2.percent}%.</>,
+          <>{c3.length}: {c3.join(', ')}.</>,
+        ]}
       />,
     ),
   },

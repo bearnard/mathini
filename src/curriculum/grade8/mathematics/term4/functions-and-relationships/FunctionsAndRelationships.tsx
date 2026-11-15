@@ -116,20 +116,16 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>If y = 2x − 3, find y when x = 7.</li>
-            <li>If y = 3x + 4, find x when y = 19.</li>
-            <li>Find the rule for x: 1, 2, 3 and y: 7, 11, 15.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>y = 2 × 7 − 3 = {c1}.</li>
-            <li>3x + 4 = 19, 3x = {c2.rhs}, x = {c2.x}.</li>
-            <li>y goes up {c3.m} each time: {ruleText(c3.m, c3.c)} (check x = 3: 4 × 3 + 3 = 15).</li>
-          </ol>
-        }
+        questions={[
+          <>If y = 2x − 3, find y when x = 7.</>,
+          <>If y = 3x + 4, find x when y = 19.</>,
+          <>Find the rule for x: 1, 2, 3 and y: 7, 11, 15.</>,
+        ]}
+        answers={[
+          <>y = 2 × 7 − 3 = {c1}.</>,
+          <>3x + 4 = 19, 3x = {c2.rhs}, x = {c2.x}.</>,
+          <>y goes up {c3.m} each time: {ruleText(c3.m, c3.c)} (check x = 3: 4 × 3 + 3 = 15).</>,
+        ]}
       />,
     ),
   },
