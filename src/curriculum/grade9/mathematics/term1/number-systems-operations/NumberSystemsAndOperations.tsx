@@ -96,7 +96,7 @@ export const learnSteps: LearnStep[] = [
             <>(−2)<sup className="text-[0.75em] font-bold">3</sup> = (−2) × (−2) × (−2) = 4 × (−2) = <strong>{S(cube)}</strong>.</>,
           ]}
         />
-        <Mistake>({S(mul.a)}) × ({S(mul.b)}) is not {S(-mul.r)}. Two negatives multiply to a positive. Only addition of two negatives stays negative.</Mistake>
+        <Mistake>({S(mul.a)}) × ({S(mul.b)}) is not {S(-mul.r)}. Two negatives multiply to a positive. Do not mix this up with adding: ({S(mul.a)}) + ({S(mul.b)}) = {S(mul.a + mul.b)}.</Mistake>
       </>,
     ),
   },

@@ -80,6 +80,8 @@ test('Number Systems: the worked numbers are true and appear in the slides', () 
   assert.match(numbers[2].text, /6 × 4 = 24/);
   assert.match(numbers[2].text, /so −4/);
   assert.match(numbers[2].text, /= −8/);
+  assert.match(numbers[2].text, /is not −24. Two negatives multiply to a positive. Do not mix this up with adding: \(−6\) \+ \(−4\) = −10\./);
+  assert.doesNotMatch(numbers[2].text, /Only addition/);
   assert.match(numbers[3].text, /2 \+ 12 = 14/);
   assert.match(numbers[3].text, /20 − 18 = 2/);
   assert.match(numbers[4].text, /3\/8 = 0,375/);
