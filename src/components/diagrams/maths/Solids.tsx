@@ -125,7 +125,22 @@ export const solidsAria = (names: SolidName[]): string =>
     })
     .join('. ') + '.';
 
-const SolidsRow = ({ names, className }: { names: SolidName[]; className?: string }) => {
+const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
+
+/**
+ * The three count lines under a solid. By default they follow the Grade 6 convention (a curved surface counts as a face).
+ * With `flatFaces` a curved solid shows its flat faces, its curved surface and its vertices, matching lessons that define a face as flat.
+ */
+export const solidCountLines = (nm: SolidName, flatFaces = false): [string, string, string] => {
+  const f = SOLIDS[nm];
+  if (flatFaces && !f.flat) {
+    const flat = nm === 'cylinder' ? 2 : nm === 'cone' ? 1 : 0;
+    return [plural(flat, 'flat face', 'flat faces'), '1 curved surface', plural(f.vertices, 'vertex', 'vertices')];
+  }
+  return [plural(f.faces, 'face', 'faces'), plural(f.edges, 'edge', 'edges'), plural(f.vertices, 'vertex', 'vertices')];
+};
+
+const SolidsRow = ({ names, flatFaces, className }: { names: SolidName[]; flatFaces?: boolean; className?: string }) => {
   const n = names.length;
   const w = 120 / n;
   return (
@@ -138,7 +153,7 @@ const SolidsRow = ({ names, className }: { names: SolidName[]; className?: strin
     >
       {names.map((nm, i) => {
         const cx = w * i + w / 2;
-        const f = SOLIDS[nm];
+        const lines = solidCountLines(nm, flatFaces);
         return (
           <g key={nm}>
             {draw(nm, cx, 20)}
@@ -152,10 +167,10 @@ const SolidsRow = ({ names, className }: { names: SolidName[]; className?: strin
                 <tspan x={cx} y={43}>{LABEL[nm]}</tspan>
               )}
             </text>
-            <g fontSize={4.8} fontWeight={800} textAnchor="middle" transform={LABEL[nm].includes(' ') ? 'translate(0 6)' : undefined}>
-              <text x={cx} y={50} fill="#5eead4">{f.faces} face{f.faces === 1 ? '' : 's'}</text>
-              <text x={cx} y={57} fill={EDGE}>{f.edges} edge{f.edges === 1 ? '' : 's'}</text>
-              <text x={cx} y={64} fill={VERT}>{f.vertices} vert{f.vertices === 1 ? 'ex' : 'ices'}</text>
+            <g fontSize={flatFaces ? 4.2 : 4.8} fontWeight={800} textAnchor="middle" transform={LABEL[nm].includes(' ') ? 'translate(0 6)' : undefined}>
+              <text x={cx} y={50} fill="#5eead4">{lines[0]}</text>
+              <text x={cx} y={57} fill={EDGE}>{lines[1]}</text>
+              <text x={cx} y={64} fill={VERT}>{lines[2]}</text>
             </g>
           </g>
         );

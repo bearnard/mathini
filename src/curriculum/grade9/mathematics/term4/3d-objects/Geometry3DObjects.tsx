@@ -86,7 +86,7 @@ export const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>Cylinders, cones and spheres have curved surfaces, so they are not polyhedra. A cylinder has 2 circular faces and 1 curved surface; a cone has 1 circular face, a curved surface and 1 apex; a sphere is one curved surface.</Rule>
-        <SolidsRow names={['cylinder', 'cone', 'sphere']} />
+        <SolidsRow names={['cylinder', 'cone', 'sphere']} flatFaces />
         <Worked
           steps={[
             <>One circular face and one vertex (apex): a <strong>cone</strong>.</>,
