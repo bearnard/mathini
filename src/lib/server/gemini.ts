@@ -101,6 +101,32 @@ export async function generateItems(prompt: string, apiKey?: string): Promise<Ge
   );
 }
 
+/**
+ * One Gemini call that must answer with JSON matching `schema` (Gemini structured output). Returns the PARSED value, unvalidated:
+ * the caller checks the shape. Throws on a network error, a non-2xx status, an empty reply, a timeout or text that is not JSON.
+ */
+export async function generateJson(
+  prompt: string,
+  schema: object,
+  opts: { apiKey?: string; temperature?: number; timeoutMs?: number } = {},
+): Promise<unknown> {
+  const key = opts.apiKey ?? getGeminiKey();
+  const res = await fetch(`${BASE}/gemini-3.5-flash:generateContent?key=${key}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    signal: AbortSignal.timeout(opts.timeoutMs ?? 25_000),
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: { responseMimeType: 'application/json', responseSchema: schema, temperature: opts.temperature ?? 0.2 },
+    }),
+  });
+  if (!res.ok) throw new Error(`Gemini error: ${res.status}`);
+  const data = (await res.json()) as { candidates?: { content?: { parts?: { text?: string }[] } }[] };
+  const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+  if (!text) throw new Error('Gemini returned no content');
+  return JSON.parse(text);
+}
+
 /** Calls Gemini TTS and returns 24kHz mono 16-bit PCM bytes. */
 export async function synthesizePcm(text: string): Promise<Uint8Array> {
   const key = getGeminiKey();
