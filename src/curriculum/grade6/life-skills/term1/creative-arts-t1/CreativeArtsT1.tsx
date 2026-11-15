@@ -74,7 +74,7 @@ const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>What is a line? Which is a shape? What is a 2D artwork?</li>
-            <li>How can colour help an artwork?</li>
+            <li>In what way does an artist’s choice of colour add to a picture?</li>
             <li>What is rhythm, and what is a steady beat?</li>
             <li>What is body percussion, a drama game and a movement phrase?</li>
           </ol>

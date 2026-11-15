@@ -77,7 +77,7 @@ const learnSteps: LearnStep[] = [
           steps={[
             <>Think about what you enjoy and do well: “I like caring for people.”</>,
             <>Find a community role that matches: a nurse.</>,
-            <>A learner who likes caring for people and wants to be a nurse is linking a strength to a possible future career.</>,
+            <>Take a learner who wants to be a nurse because she likes caring for people: she is matching a strength to a career she may choose.</>,
             <>Reflecting like this helps you set goals, such as helping with community service now.</>,
           ]}
         />
@@ -91,7 +91,7 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What does puberty mean? What is a healthy way to manage a strong emotion?</li>
+            <li>What does puberty mean? How can you handle a very strong feeling in a healthy way?</li>
             <li>Which behaviour shows respect for privacy?</li>
             <li>Can you get HIV from hugging or sharing a desk? What is stigma?</li>
             <li>What is community service and career awareness? Why reflect on your strengths and interests?</li>

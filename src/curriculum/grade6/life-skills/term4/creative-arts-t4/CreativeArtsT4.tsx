@@ -11,7 +11,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          A good first step before building a 3D model is to make a simple design plan or sketch. A design plan helps you organise ideas, materials and steps. Useful materials are cardboard, glue and recycled boxes.
+          Before you build a 3D model, make a simple design plan or sketch first. A design plan helps you organise ideas, materials and steps. Useful materials are cardboard, glue and recycled boxes.
         </Rule>
         <Worked
           title="Start a model house"
@@ -31,7 +31,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          A balanced structure with a firm base helps a sculpture or model stay stable. Texture describes how a surface feels, such as rough or smooth.
+          A model stays stable when its structure is balanced and sits on a firm base. Texture describes how a surface feels, such as rough or smooth.
         </Rule>
         <StableModel />
         <Worked
@@ -93,9 +93,9 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a good first step before building a 3D model? Which materials are useful?</li>
-            <li>What helps a model stay stable? What does texture describe?</li>
-            <li>What does dance-drama integration mean? Why rehearse?</li>
+            <li>What should you do before you start building a 3D model, and which materials suit the job?</li>
+            <li>What keeps a model standing up, and what do we mean by the texture of a surface?</li>
+            <li>What do we mean by combining dance with drama in one performance, and why does a group rehearse?</li>
             <li>Give an example of helpful peer feedback. What can go in a portfolio? What matters most in a final performance?</li>
           </ol>
         }

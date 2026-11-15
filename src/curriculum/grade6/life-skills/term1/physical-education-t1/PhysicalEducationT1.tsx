@@ -89,7 +89,7 @@ const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Why do we warm up? Which routine is safest before starting?</li>
-            <li>Give an example of a locomotor and a non-locomotor movement.</li>
+            <li>Name one movement that travels from place to place and one that stays on the spot.</li>
             <li>What helps you keep balance, and what does coordination mean?</li>
             <li>What is your main job in a target game? Which throw suits a beanbag and hoop, and what is good teamwork?</li>
           </ol>

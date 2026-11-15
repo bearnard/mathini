@@ -104,10 +104,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Why warm up before athletics? What should you do after vigorous exercise?</li>
-            <li>Which action shows safe jumping technique?</li>
-            <li>What is important in a relay race? Why are indigenous games valuable?</li>
-            <li>What does flexibility help you do? What is reaction time, cooperation and fair play?</li>
+            <li>Why warm up before athletics? How do you finish a hard session safely?</li>
+            <li>How should you land after a jump to protect your body?</li>
+            <li>What must a runner do carefully in a relay, and why are indigenous games worth playing?</li>
+            <li>Say what flexibility lets your body do. Then explain reaction time, cooperation and fair play.</li>
           </ol>
         }
         answer={

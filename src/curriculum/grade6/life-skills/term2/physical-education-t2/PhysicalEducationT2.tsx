@@ -11,7 +11,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          In an invasion game the main aim is to move into space and try to score. Moving into an open space helps a teammate receive a pass more easily.
+          In an invasion game the main aim is to move into space and try to score. Moving into an open space makes it easier for a teammate to receive a pass.
         </Rule>
         <InvasionGame />
         <Worked
@@ -92,10 +92,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the main aim in an invasion game? Which action helps a teammate receive a pass?</li>
+            <li>What are you trying to do in an invasion game, and what can you do to make a pass to you easier?</li>
             <li>What is good defending, and what should you do if a defender blocks you?</li>
-            <li>What does agility mean? Why repeat catching and passing drills? What is a small-sided game?</li>
-            <li>What does teamwork look like in a small-sided game, and which behaviour is fair play?</li>
+            <li>Explain agility, say why drills are repeated, and describe a game with fewer players on each team.</li>
+            <li>How do players show teamwork in a game with fewer players on each side, and what is an example of fair play?</li>
           </ol>
         }
         answer={
