@@ -1,48 +1,134 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { MathematicsItem, LearnStep } from '../../_shared/types';
-import ProbabilitySimulator from '@/components/subjects/ProbabilitySimulator';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { BallBag, DieFaces, ProbabilityScale, SPACE_COLORS, TwoStageTree } from '../../../../../components/diagrams/maths/Grade9SpaceData';
+import { complement, outcomePairs, probability, sa } from '../../../../../components/diagrams/maths/grade9SpaceDataHelpers';
 
-const learnSteps: LearnStep[] = [
+// Every number in the slides below comes from these tested helpers (grade9SpaceDataHelpers.test.ts, lessonsMaths10.test.ts).
+const { indigo: I, green: E, amber: A, rose: R } = SPACE_COLORS;
+const frac = (p: { n: number; d: number }) => `${p.n}/${p.d}`;
+
+// slide 1: one event
+const die3 = probability(1, 6);
+const red = probability(3, 5);
+const hearts = probability(13, 52);
+
+// slide 2: the scale and the complement
+const pA = 0.3;
+const notA = complement(pA);
+const notRed = probability(5 - 3, 5);
+
+// slide 3: two coins
+const coins = outcomePairs(['H', 'T'], ['H', 'T']);
+const hh = probability(1, coins.length);
+const oneEach = probability(coins.filter((o) => o === 'HT' || o === 'TH').length, coins.length);
+
+// slide 4: mutually exclusive, relative frequency
+const even = probability(3, 6);
+const five = probability(1, 6);
+const evenOrFive = probability(3 + 1, 6);
+const rf = probability(23, 50);
+
+// "Check yourself"
+const q1 = probability(4, 10);
+const q2 = complement(0.85);
+const q3 = outcomePairs(['H', 'T'], ['1', '2', '3', '4', '5', '6']);
+const q3p = probability(1, q3.length);
+const q4 = probability(4, 52);
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Simple Probability Events',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Calculate probabilities of simple events using counting principles and theoretical reasoning.
-        </p>
-      </div>
+    title: 'Probability = favourable outcomes ÷ possible outcomes',
+    content: slide(
+      <>
+        <Rule>When all outcomes are equally likely, P(event) = number of favourable outcomes ÷ total number of possible outcomes. Simplify the fraction.</Rule>
+        <BallBag groups={[{ count: 3, color: R, label: 'red' }, { count: 2, color: I, label: 'blue' }]} />
+        <Worked
+          steps={[
+            <>A fair die, P(3): one favourable outcome out of 6. P = <strong>{frac(die3.simplest)}</strong>.</>,
+            <>3 red and 2 blue balls, P(red) = 3 ÷ 5 = <strong>{frac(red.simplest)}</strong>.</>,
+            <>A deck of 52 cards has 13 hearts: P(heart) = 13/52 = <strong>{frac(hearts.simplest)}</strong>.</>,
+          ]}
+        />
+        <Mistake>Comparing red with blue: 3/2 is not a probability. Divide by the total number of balls, {red.d}, so the answer is between 0 and 1.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Compound Probability',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Use tree diagrams and tables to find probabilities of compound events and independent events.
-        </p>
-      </div>
+    title: 'The probability scale and the complement',
+    content: slide(
+      <>
+        <Rule>Every probability lies from 0 (impossible) to 1 (certain). An event either happens or it does not, so P(not A) = 1 − P(A).</Rule>
+        <ProbabilityScale marks={[{ p: pA, label: `P(A) = ${sa(pA)}`, color: I }, { p: notA, label: `P(not A) = ${sa(notA)}`, color: E }]} />
+        <Worked
+          steps={[
+            <>P(A) = {sa(pA)}, so P(not A) = 1 − {sa(pA)} = <strong>{sa(notA)}</strong>.</>,
+            <>From the bag: P(not red) = 1 − {frac(red)} = <strong>{frac(notRed)}</strong>, the same as P(blue).</>,
+            <>Rolling a 7 on a normal die is impossible: P = <strong>0</strong>.</>,
+          ]}
+        />
+        <Mistake>A probability cannot be more than 1 or less than 0. If your answer is 1,2 or −0,3, check the working.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Probability Simulator',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Run repeated experiments and compare theoretical probability with experimental results to see how dice data
-          approaches expected values.
-        </p>
-        <ProbabilitySimulator defaultMode="dice" />
-      </div>
+    title: 'Two events: tree diagrams',
+    content: slide(
+      <>
+        <Rule>For two events, list every outcome with a tree diagram or a table. Each path through the tree is one outcome; count the paths that you want.</Rule>
+        <TwoStageTree first={['H', 'T']} second={['H', 'T']} />
+        <Worked
+          title="A coin is tossed twice"
+          steps={[
+            <>The tree has {coins.length} outcomes: {coins.join(', ')}.</>,
+            <>Two heads is one of them: P(HH) = <strong>{frac(hh.simplest)}</strong>.</>,
+            <>One head and one tail: HT and TH, so P = {frac(oneEach)} = <strong>{frac(oneEach.simplest)}</strong>.</>,
+          ]}
+        />
+        <Mistake>Saying there are 3 outcomes (two heads, two tails, one of each). HT and TH are different outcomes, so there are {coins.length}.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Interpreting Probability',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Explain likelihood in context, compare outcomes, and understand relative frequency.
-        </p>
-      </div>
+    title: 'Mutually exclusive events and relative frequency',
+    content: slide(
+      <>
+        <Rule>Mutually exclusive events cannot happen at the same time: P(A and B) = 0, and P(A or B) = P(A) + P(B). Relative frequency = times an event happened ÷ number of trials.</Rule>
+        <DieFaces groups={[{ values: [2, 4, 6], color: E, name: 'even' }, { values: [5], color: A, name: 'a 5' }]} />
+        <Worked
+          steps={[
+            <>On one roll, &quot;even&quot; and &quot;a 5&quot; cannot both happen: P(even and 5) = <strong>0</strong>.</>,
+            <>P(even or 5) = {frac(even)} + {frac(five)} = {frac(evenOrFive)} = <strong>{frac(evenOrFive.simplest)}</strong>.</>,
+            <>Lerato tosses a coin 50 times and gets 23 heads: relative frequency = 23/50 = <strong>{sa(rf.decimal)}</strong>, close to 0,5.</>,
+          ]}
+        />
+        <Mistake>Adding probabilities of events that can happen together. &quot;Even&quot; and &quot;more than 3&quot; share 4 and 6, so their probabilities cannot simply be added.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>A box has 4 green and 6 yellow counters. Find P(green).</li>
+            <li>The probability of rain tomorrow is 0,85. What is the probability of no rain?</li>
+            <li>A coin is tossed and a die is rolled. How many outcomes are there, and what is P(H and 6)?</li>
+            <li>What is the probability of drawing an ace from a deck of 52 cards?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>4/10 = {frac(q1.simplest)}</li>
+            <li>1 − 0,85 = {sa(q2)}</li>
+            <li>2 × 6 = {q3.length} outcomes; P(H6) = {frac(q3p.simplest)}</li>
+            <li>4/52 = {frac(q4.simplest)}</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
