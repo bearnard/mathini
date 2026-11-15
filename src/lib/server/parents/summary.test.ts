@@ -7,7 +7,7 @@ import { createLimiter } from '../adultAuth/rateLimit';
 import { MOCK_PROGRESS } from '../../shared/progressMock';
 import type { ProgressResponse } from '../../shared/progressTypes';
 import { isSummaryDay, MAX_ATTEMPTS, budgetOf, runWeeklySummary, type SummaryDeps } from './summaryJob';
-import { buildSummary, childLines, childWeekFrom, escapeHtml, isSendDay, makeUnsubscribeToken, sastDate, verifyUnsubscribeToken, weekKey, type ChildWeek } from './summaryEmail';
+import { buildSummary, childLines, childWeekFrom, escapeHtml, isSendDay, LEGACY_TOKEN_UNTIL, makeUnsubscribeToken, sastDate, TOKEN_TTL_DAYS, verifyUnsubscribeToken, weekKey, type ChildWeek } from './summaryEmail';
 import { handleSummaryPrefGet, handleSummaryPrefSet, handleUnsubscribe, type SummaryHttpDeps } from './summaryHttp';
 import { addAdult, addStudent, openParentsDb, type ParentsTestDb } from './testDb';
 
@@ -101,13 +101,44 @@ test('the message: plain text and simple HTML say the same, escape every name, c
 
 test('the unsubscribe token: only we can make one, it names the parent, a learner session token or another secret never passes', async () => {
   const id = '11111111-2222-4333-8444-555555555555';
-  const t = await makeUnsubscribeToken(id, SECRET);
-  assert.equal(await verifyUnsubscribeToken(t, SECRET), id);
-  assert.equal(await verifyUnsubscribeToken(t, 'other-secret'), null);
-  assert.equal(await verifyUnsubscribeToken(`${id}2.${t.split('.')[1]}`, SECRET), null, 'a different id with the same signature');
-  assert.equal(await verifyUnsubscribeToken(t.slice(0, -1) + (t.endsWith('0') ? '1' : '0'), SECRET), null, 'one character changed');
-  assert.equal(await verifyUnsubscribeToken(await signSession(id, SECRET), SECRET), null, 'the learner-session signature over the same id is not an unsubscribe token');
-  for (const bad of ['', 'nodot', '.', `${id}.`, `.${t.split('.')[1]}`, 'x'.repeat(300), null, undefined, 42, { a: 1 }, `${id}.${'g'.repeat(64)}`]) assert.equal(await verifyUnsubscribeToken(bad, SECRET), null, String(bad));
+  const t = await makeUnsubscribeToken(id, SECRET, SUN);
+  assert.match(t, /^11111111-2222-4333-8444-555555555555\.\d+\.[0-9a-f]{64}$/);
+  assert.equal(await verifyUnsubscribeToken(t, SECRET, SUN), id);
+  assert.equal(await verifyUnsubscribeToken(t, 'other-secret', SUN), null);
+  const [uid, exp, sig] = t.split('.');
+  assert.equal(await verifyUnsubscribeToken(`${uid}2.${exp}.${sig}`, SECRET, SUN), null, 'a different id with the same signature');
+  assert.equal(await verifyUnsubscribeToken(`${uid}.${Number(exp) + 1}.${sig}`, SECRET, SUN), null, 'the expiry is signed: a longer one cannot be written in');
+  assert.equal(await verifyUnsubscribeToken(t.slice(0, -1) + (t.endsWith('0') ? '1' : '0'), SECRET, SUN), null, 'one character changed');
+  assert.equal(await verifyUnsubscribeToken(await signSession(id, SECRET), SECRET, SUN), null, 'the learner-session signature over the same id is not an unsubscribe token');
+  for (const bad of ['', 'nodot', '.', `${id}.`, `.${sig}`, 'x'.repeat(300), null, undefined, 42, { a: 1 }, `${id}.${'g'.repeat(64)}`, `${id}.abc.${sig}`, `${id}.${exp}`.slice(0, 40)]) assert.equal(await verifyUnsubscribeToken(bad, SECRET, SUN), null, String(bad));
+});
+
+test('an unsubscribe link works for a year after the email, and not a day longer', async () => {
+  const id = '11111111-2222-4333-8444-555555555555';
+  const t = await makeUnsubscribeToken(id, SECRET, SUN);
+  assert.equal(TOKEN_TTL_DAYS, 365);
+  assert.equal(await verifyUnsubscribeToken(t, SECRET, SUN + DAY), id, 'the next day');
+  assert.equal(await verifyUnsubscribeToken(t, SECRET, SUN + 364 * DAY), id, 'a year less a day');
+  assert.equal(await verifyUnsubscribeToken(t, SECRET, SUN + 365 * DAY), id, 'the last valid day');
+  assert.equal(await verifyUnsubscribeToken(t, SECRET, SUN + 367 * DAY), null, 'expired');
+  assert.equal(await verifyUnsubscribeToken(t, SECRET, SUN + 3 * 365 * DAY), null);
+  // each weekly email carries a fresh one, so a parent who keeps getting emails always has a working link
+  const next = await makeUnsubscribeToken(id, SECRET, SUN + 200 * DAY);
+  assert.equal(await verifyUnsubscribeToken(next, SECRET, SUN + 500 * DAY), id);
+  assert.notEqual(next, t);
+});
+
+test('the first emails\' tokens (no expiry inside) still work until a year after the weekly email went live, then not', async () => {
+  const id = '11111111-2222-4333-8444-555555555555';
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(SECRET), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  const legacySig = [...new Uint8Array(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`weekly-summary-unsubscribe:v1:${id}`)))].map((b) => b.toString(16).padStart(2, '0')).join('');
+  const legacy = `${id}.${legacySig}`;
+  assert.equal(await verifyUnsubscribeToken(legacy, SECRET, SUN), id);
+  assert.equal(await verifyUnsubscribeToken(legacy, SECRET, LEGACY_TOKEN_UNTIL - 1), id);
+  assert.equal(await verifyUnsubscribeToken(legacy, SECRET, LEGACY_TOKEN_UNTIL), null, 'after the cut-off date a token with no expiry is refused');
+  assert.equal(await verifyUnsubscribeToken(legacy, 'other-secret', SUN), null);
+  assert.equal(await verifyUnsubscribeToken(`${id}.${'0'.repeat(64)}`, SECRET, SUN), null);
+  assert.ok(LEGACY_TOKEN_UNTIL - SUN <= 366 * DAY, 'the legacy window is one year');
 });
 
 // ---------- the job ----------
@@ -159,8 +190,8 @@ test('the job emails each parent with a consenting linked child, about that pare
     assert.ok(m.headers && /^<https:\/\/scholar\.hibbins\.org\/api\/unsubscribe\?token=[^>]+>$/.test(m.headers['List-Unsubscribe']) && m.headers['List-Unsubscribe-Post'] === 'List-Unsubscribe=One-Click');
   }
   const tokenOf = (m: Mail) => /unsubscribe\?token=([^>]+)>/.exec(m.headers?.['List-Unsubscribe'] ?? '')![1];
-  assert.equal(await verifyUnsubscribeToken(tokenOf(mum), SECRET), w.mum.userId, "mum's link unsubscribes mum");
-  assert.equal(await verifyUnsubscribeToken(tokenOf(dad), SECRET), w.dad.userId);
+  assert.equal(await verifyUnsubscribeToken(tokenOf(mum), SECRET, SUN), w.mum.userId, "mum's link unsubscribes mum");
+  assert.equal(await verifyUnsubscribeToken(tokenOf(dad), SECRET, SUN), w.dad.userId);
   assert.ok(mum.text.includes(`${ORIGIN}/unsubscribe#${tokenOf(mum)}`), 'the page link carries the same token');
   console.log(`weekly summary: 2 parents, 2 children, ${res.ops} calls`);
 });
@@ -302,12 +333,12 @@ const sh = (x: ParentsTestDb, over: Partial<SummaryHttpDeps> = {}): SummaryHttpD
 
 test('one-click unsubscribe works from the page (token in the body) and from a mail client (token in the query, form body), and only by POST', async (t0) => {
   const w = await world(); if (!w) return t0.skip('node:sqlite unavailable');
-  const tok = await makeUnsubscribeToken(w.mum.userId, SECRET);
+  const tok = await makeUnsubscribeToken(w.mum.userId, SECRET, SUN);
   const viaPage = await handleUnsubscribe(new Request(`${ORIGIN}/api/unsubscribe`, { method: 'POST', body: JSON.stringify({ token: tok }) }), sh(w));
   assert.equal(viaPage.status, 200);
   const row = () => w.raw.prepare('SELECT unsubscribed_at, updated_at FROM summary_prefs WHERE user_id = ?').get(w.mum.userId) as { unsubscribed_at: number; updated_at: number };
   assert.equal(row().unsubscribed_at, SUN);
-  const dadTok = await makeUnsubscribeToken(w.dad.userId, SECRET);
+  const dadTok = await makeUnsubscribeToken(w.dad.userId, SECRET, SUN);
   const oneClick = await handleUnsubscribe(new Request(`${ORIGIN}/api/unsubscribe?token=${dadTok}`, { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: 'List-Unsubscribe=One-Click' }), sh(w, { now: SUN + 5 }));
   assert.equal(oneClick.status, 200);
   const again = await handleUnsubscribe(new Request(`${ORIGIN}/api/unsubscribe`, { method: 'POST', body: JSON.stringify({ token: tok }) }), sh(w, { now: SUN + 999 }));
@@ -321,8 +352,8 @@ test('one-click unsubscribe works from the page (token in the body) and from a m
 test('unsubscribe refuses forged, foreign and malformed tokens (400), a missing secret (503) and floods (429), and changes nothing', async (t0) => {
   const w = await world(); if (!w) return t0.skip('node:sqlite unavailable');
   const post = (body: unknown, url = `${ORIGIN}/api/unsubscribe`) => new Request(url, { method: 'POST', body: typeof body === 'string' ? body : JSON.stringify(body) });
-  const good = await makeUnsubscribeToken(w.mum.userId, SECRET);
-  for (const bad of [{ token: await makeUnsubscribeToken(w.mum.userId, 'other') }, { token: await signSession(w.mum.userId, SECRET) }, { token: `${w.mum.userId}.${'0'.repeat(64)}` }, { token: 5 }, {}, 'not json']) {
+  const good = await makeUnsubscribeToken(w.mum.userId, SECRET, SUN);
+  for (const bad of [{ token: await makeUnsubscribeToken(w.mum.userId, 'other', SUN) }, { token: await signSession(w.mum.userId, SECRET) }, { token: `${w.mum.userId}.${'0'.repeat(64)}` }, { token: 5 }, {}, 'not json']) {
     const res = await handleUnsubscribe(post(bad), sh(w));
     assert.equal(res.status, 400, JSON.stringify(bad));
   }
@@ -333,6 +364,17 @@ test('unsubscribe refuses forged, foreign and malformed tokens (400), a missing 
   const codes: number[] = [];
   for (let i = 0; i < 4; i++) codes.push((await handleUnsubscribe(post({ token: 'nope' }), sh(w, { limiter: lim }))).status);
   assert.deepEqual(codes, [400, 400, 429, 429]);
+});
+
+test('an expired unsubscribe link is refused (400) by the handler and changes nothing; the parent can still use the switch on /parent', async (t0) => {
+  const w = await world(); if (!w) return t0.skip('node:sqlite unavailable');
+  const old = await makeUnsubscribeToken(w.mum.userId, SECRET, SUN - 400 * DAY);
+  const res = await handleUnsubscribe(new Request(`${ORIGIN}/api/unsubscribe`, { method: 'POST', body: JSON.stringify({ token: old }) }), sh(w));
+  assert.equal(res.status, 400);
+  assert.match((await res.json() as { error: string }).error, /not valid or has expired/);
+  assert.equal((w.raw.prepare('SELECT COUNT(*) AS n FROM summary_prefs').get() as { n: number }).n, 0);
+  const fresh = await makeUnsubscribeToken(w.mum.userId, SECRET, SUN - 300 * DAY);
+  assert.equal((await handleUnsubscribe(new Request(`${ORIGIN}/api/unsubscribe`, { method: 'POST', body: JSON.stringify({ token: fresh }) }), sh(w))).status, 200, 'a link from 300 days ago still works');
 });
 
 test('a signed-in parent can switch the weekly email off and on; teachers and signed-out visitors cannot; writes need the header and Origin', async (t0) => {

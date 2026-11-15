@@ -22,7 +22,7 @@ export function depsFromEnv(): SummaryHttpDeps {
   return { db: d1Adapter(env.DB as never), now: Date.now(), secret: (env as unknown as { SESSION_SECRET?: string }).SESSION_SECRET, limiter: unsubLimiter };
 }
 
-const BAD_LINK = 'This unsubscribe link is not valid. Sign in and use the switch on your children page instead.';
+const BAD_LINK = 'This unsubscribe link is not valid or has expired. Sign in and use the switch on your children page instead.';
 const ip = (req: Request) => req.headers.get('cf-connecting-ip') ?? req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
 
 export const unsubscribeStatement = (userId: string, now: number) => ({
@@ -49,7 +49,7 @@ export async function handleUnsubscribe(req: Request, deps: SummaryHttpDeps): Pr
         token = null;
       }
     }
-    const userId = await verifyUnsubscribeToken(token, deps.secret);
+    const userId = await verifyUnsubscribeToken(token, deps.secret, deps.now);
     if (!userId) return authJson({ error: BAD_LINK }, 400);
     await deps.db.batch([unsubscribeStatement(userId, deps.now)]);
     return authJson({ ok: true });

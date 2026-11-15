@@ -111,7 +111,8 @@ export async function startRun(db: AdminDb, studentId: string, input: StartRunIn
 
   const existing = await db.all<DbRun>(`SELECT ${COLS} FROM runs WHERE id = ?`, [input.id]);
   if (existing[0]) {
-    if (existing[0].student_id !== studentId) return { ok: false, status: 409, error: 'Run id already used' };
+    // Someone else's run id looks exactly like one that does not exist (finishRun answers the same): the id is never confirmed.
+    if (existing[0].student_id !== studentId) return { ok: false, status: 404, error: 'Run not found' };
     return { ok: true, run: toRow(existing[0]), created: false };
   }
 
@@ -132,7 +133,7 @@ export async function startRun(db: AdminDb, studentId: string, input: StartRunIn
     params: [input.id as string, studentId, input.kind as string, grade, subject, scopeKey, label, startedAt, nItems, version],
   }]);
   const row = (await db.all<DbRun>(`SELECT ${COLS} FROM runs WHERE id = ?`, [input.id]))[0];
-  if (!row || row.student_id !== studentId) return { ok: false, status: 409, error: 'Run id already used' };
+  if (!row || row.student_id !== studentId) return { ok: false, status: 404, error: 'Run not found' };
   return { ok: true, run: toRow(row), created: true };
 }
 

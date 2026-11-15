@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { openSchoolsDb, addUser, NOW, newTestId, type SchoolsTestDb } from './testDb';
-import { applyAsTeacher, decideApplication, getOwnApplication, listApplications, maskSace } from './teachers';
+import { applyAsTeacher, decideApplication, getOwnApplication, listApplications, maskSace, REAPPLY_COOLDOWN_MS } from './teachers';
 
 const good = { saceNumber: '12345678', schoolName: 'Bay Primary', province: 'Western Cape', subjectsNote: 'NST' };
 const roles = (t: SchoolsTestDb, id: string) => (t.raw.prepare('SELECT role FROM user_roles WHERE user_id = ? ORDER BY role').all(id) as { role: string }[]).map((r) => r.role);
@@ -25,7 +25,7 @@ test('apply validates the SACE number, the school and the province', async (ctx)
   assert.equal((await t.db.all('SELECT 1 FROM teacher_applications')).length, 0);
 });
 
-test('one pending application per adult; a rejected one can be sent again; a teacher cannot apply', async (ctx) => {
+test('one pending application per adult; a rejected one can be sent again after 30 days; a teacher cannot apply', async (ctx) => {
   const t = await openSchoolsDb(); if (!t) return ctx.skip('node:sqlite unavailable');
   const u = addUser(t, 'a@example.invalid');
   assert.ok((await applyAsTeacher(t.db, u, good, NOW)).ok);
@@ -33,7 +33,9 @@ test('one pending application per adult; a rejected one can be sent again; a tea
   assert.deepEqual([again.ok, !again.ok && again.status], [false, 409]);
   await decideApplication(t.db, u, { decision: 'reject', note: 'Check the number' }, 'admin@example.invalid', NOW + 2);
   assert.equal((await getOwnApplication(t.db, u))?.note, 'Check the number');
-  assert.ok((await applyAsTeacher(t.db, u, { ...good, saceNumber: '87654321' }, NOW + 3)).ok);
+  const tooSoon = await applyAsTeacher(t.db, u, { ...good, saceNumber: '87654321' }, NOW + 3);
+  assert.deepEqual([tooSoon.ok, !tooSoon.ok && tooSoon.status], [false, 429], 'a rejected application waits 30 days');
+  assert.ok((await applyAsTeacher(t.db, u, { ...good, saceNumber: '87654321' }, NOW + 2 + REAPPLY_COOLDOWN_MS)).ok);
   const own = await getOwnApplication(t.db, u);
   assert.deepEqual([own?.status, own?.note, own?.decidedAt], ['pending', null, null]);
   const teacher = addUser(t, 't@example.invalid', ['parent', 'teacher']);
@@ -129,4 +131,31 @@ test('maskSace hides all but the last three characters', () => {
   assert.equal(maskSace('12345678'), '*****678');
   assert.equal(maskSace('12'), '***');
   assert.equal(maskSace('1234'), '***234');
+});
+
+test('the 30-day cooldown after a rejection: the exact boundary, the date in the message, the applicant\'s own view, and a revoked teacher waits too', async (ctx) => {
+  const t = await openSchoolsDb(); if (!t) return ctx.skip('node:sqlite unavailable');
+  const u = addUser(t, 'cool@example.invalid');
+  assert.ok((await applyAsTeacher(t.db, u, good, NOW)).ok);
+  assert.equal((await getOwnApplication(t.db, u))?.canApplyAgainAt, null, 'pending: no cooldown');
+  await decideApplication(t.db, u, { decision: 'reject', note: 'Check the number' }, 'admin@example.invalid', NOW + 1000);
+  const decided = NOW + 1000;
+  assert.equal((await getOwnApplication(t.db, u))?.canApplyAgainAt, decided + REAPPLY_COOLDOWN_MS);
+  const early = await applyAsTeacher(t.db, u, good, decided + REAPPLY_COOLDOWN_MS - 1);
+  assert.equal(early.ok, false);
+  assert.match(!early.ok ? early.error : '', /^Your last application was not approved\. You can send a new one on \d{4}-\d{2}-\d{2}\.$/);
+  const day = new Date(decided + REAPPLY_COOLDOWN_MS + 2 * 3_600_000).toISOString().slice(0, 10);
+  assert.ok(!early.ok && early.error.includes(day), 'the date it names is the cooldown end, in South African time');
+  assert.equal((await applyAsTeacher(t.db, u, good, decided + 1)).ok, false, 'a day later');
+  assert.equal((await t.db.all<{ n: number }>('SELECT COUNT(*) AS n FROM teacher_applications WHERE user_id = ?', [u]))[0].n, 1, 'and nothing was written');
+  assert.ok((await applyAsTeacher(t.db, u, good, decided + REAPPLY_COOLDOWN_MS)).ok, 'exactly at the end it works');
+  // a teacher whose role is revoked becomes a rejected application, so the same wait applies
+  const v = addUser(t, 'revoked@example.invalid');
+  assert.ok((await applyAsTeacher(t.db, v, good, NOW)).ok);
+  await decideApplication(t.db, v, { decision: 'approve' }, 'admin@example.invalid', NOW + 10);
+  await decideApplication(t.db, v, { decision: 'revoke', note: 'Left the school' }, 'admin@example.invalid', NOW + 20);
+  assert.equal((await applyAsTeacher(t.db, v, good, NOW + 30)).ok, false);
+  assert.ok((await applyAsTeacher(t.db, v, good, NOW + 20 + REAPPLY_COOLDOWN_MS)).ok);
+  // someone who has never applied is not delayed
+  assert.ok((await applyAsTeacher(t.db, addUser(t, 'new@example.invalid'), good, NOW)).ok);
 });

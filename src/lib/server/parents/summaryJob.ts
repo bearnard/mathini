@@ -142,7 +142,7 @@ export async function runWeeklySummary(deps: SummaryDeps): Promise<SummaryResult
           result.skipped += 1;
           continue;
         }
-        const token = await makeUnsubscribeToken(parent.user_id, deps.secret);
+        const token = await makeUnsubscribeToken(parent.user_id, deps.secret, now);
         const mail = buildSummary(weeks, { siteUrl: site, unsubscribeUrl: `${site}/unsubscribe#${token}` });
         b.use(); // the mail call is a subrequest too
         try {

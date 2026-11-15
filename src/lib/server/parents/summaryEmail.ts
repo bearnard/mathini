@@ -138,28 +138,48 @@ export function buildSummary(children: ChildWeek[], ctx: SummaryContext): BuiltS
 
 /** Domain separation: this key can only ever sign unsubscribe tokens, even though it is derived from the same secret as the learner sessions. */
 const TOKEN_PURPOSE = 'weekly-summary-unsubscribe:v1:';
+const TOKEN_PURPOSE_V2 = 'weekly-summary-unsubscribe:v2:';
 
-const hmacHex = async (secret: string, message: string): Promise<string> => {
+/** An unsubscribe link works for a year after the email it came in was sent. */
+export const TOKEN_TTL_DAYS = 365;
+/** The first emails carried a token with no expiry in it (`<user id>.<signature>`). Those are still accepted until this date, a year after the weekly email went live, and then not. */
+export const LEGACY_TOKEN_UNTIL = Date.UTC(2027, 10, 15);
+const dayNumber = (ms: number): number => Math.floor(ms / DAY_MS);
+
+const hmacHex = async (secret: string, message: string, purpose = TOKEN_PURPOSE): Promise<string> => {
   const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-  const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(TOKEN_PURPOSE + message));
+  const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(purpose + message));
   return [...new Uint8Array(sig)].map((b) => b.toString(16).padStart(2, '0')).join('');
 };
 
-/** `<user id>.<signature>`: it says which parent, and only we can have made it. It never expires (the only thing it can do is stop the email). */
-export async function makeUnsubscribeToken(userId: string, secret: string): Promise<string> {
-  return `${userId}.${await hmacHex(secret, userId)}`;
+/** `<user id>.<last valid day>.<signature>`: it says which parent and until when, and only we can have made it. The only thing it can do is stop the email. */
+export async function makeUnsubscribeToken(userId: string, secret: string, now: number): Promise<string> {
+  const exp = dayNumber(now) + TOKEN_TTL_DAYS;
+  return `${userId}.${exp}.${await hmacHex(secret, `${userId}:${exp}`, TOKEN_PURPOSE_V2)}`;
 }
 
-/** The user id inside a valid token, or null. The comparison is constant-time. */
-export async function verifyUnsubscribeToken(token: unknown, secret: string): Promise<string | null> {
+const sameHex = (a: string, b: string): boolean => {
+  let diff = a.length ^ b.length;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ (b.charCodeAt(i) || 0);
+  return diff === 0;
+};
+
+/** The user id inside a valid, unexpired token, or null. The comparison is constant-time. Tokens from the first emails (no expiry inside) work until LEGACY_TOKEN_UNTIL. */
+export async function verifyUnsubscribeToken(token: unknown, secret: string, now: number): Promise<string | null> {
   if (typeof token !== 'string' || token.length > 200) return null;
-  const dot = token.lastIndexOf('.');
-  if (dot < 1) return null;
-  const userId = token.slice(0, dot);
-  const sig = token.slice(dot + 1);
-  if (!/^[A-Za-z0-9-]{8,64}$/.test(userId) || !/^[0-9a-f]{64}$/.test(sig)) return null;
-  const want = await hmacHex(secret, userId);
-  let diff = want.length ^ sig.length;
-  for (let i = 0; i < want.length; i++) diff |= want.charCodeAt(i) ^ (sig.charCodeAt(i) || 0);
-  return diff === 0 ? userId : null;
+  const parts = token.split('.');
+  const ID = /^[A-Za-z0-9-]{8,64}$/;
+  const SIG = /^[0-9a-f]{64}$/;
+  if (parts.length === 3) {
+    const [userId, exp, sig] = parts;
+    if (!ID.test(userId) || !/^\d{1,7}$/.test(exp) || !SIG.test(sig)) return null;
+    if (!sameHex(await hmacHex(secret, `${userId}:${Number(exp)}`, TOKEN_PURPOSE_V2), sig)) return null;
+    return Number(exp) >= dayNumber(now) ? userId : null;
+  }
+  if (parts.length === 2) {
+    const [userId, sig] = parts;
+    if (!ID.test(userId) || !SIG.test(sig) || now >= LEGACY_TOKEN_UNTIL) return null;
+    return sameHex(await hmacHex(secret, userId), sig) ? userId : null;
+  }
+  return null;
 }

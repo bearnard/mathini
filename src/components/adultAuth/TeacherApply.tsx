@@ -2,7 +2,7 @@
 // ADR 0003 phase 3: a signed-in adult asks for the teacher role. The role is granted only when the owner approves; this form never grants anything.
 import { useEffect, useState } from 'react';
 
-interface Application { status: 'pending' | 'approved' | 'rejected'; schoolName: string; saceMasked: string; submittedAt: number; note: string | null }
+interface Application { status: 'pending' | 'approved' | 'rejected'; schoolName: string; saceMasked: string; submittedAt: number; note: string | null; canApplyAgainAt: number | null }
 
 const PROVINCES = ['Eastern Cape', 'Free State', 'Gauteng', 'KwaZulu-Natal', 'Limpopo', 'Mpumalanga', 'Northern Cape', 'North West', 'Western Cape'];
 const field = 'mt-1 block min-h-12 w-full rounded-xl border border-slate-300 bg-white px-3 text-base text-slate-900';
@@ -54,6 +54,10 @@ export default function TeacherApply({ roles }: { roles: string[] }) {
     );
   }
   if (app === undefined) return null;
+  // After a rejection there is a 30-day wait (the server enforces it; this only says so instead of offering a form that would be refused).
+  const own = app && app !== 'error' ? app : null;
+  const waiting = !!own && own.status === 'rejected' && own.canApplyAgainAt !== null && Date.now() < own.canApplyAgainAt;
+  const waitDate = waiting && own && own.canApplyAgainAt !== null ? new Date(own.canApplyAgainAt).toLocaleDateString('en-ZA', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Africa/Johannesburg' }) : '';
   return (
     <section className="mt-6 border-t border-slate-200 pt-5" aria-label="Apply as a teacher">
       <h2 className="text-lg font-bold text-slate-900">Are you a teacher?</h2>
@@ -62,9 +66,9 @@ export default function TeacherApply({ roles }: { roles: string[] }) {
         <p className="mt-2 text-slate-700" role="status">Thank you. Your application for {app.schoolName} (SACE {app.saceMasked}) is waiting to be checked. We will approve it once we have confirmed your details.</p>
       )}
       {app && app !== 'error' && app.status === 'rejected' && (
-        <p className="mt-2 text-slate-700" role="status">Your last application was not approved{app.note ? `: ${app.note}` : '.'} You can send a new one.</p>
+        <p className="mt-2 text-slate-700" role="status">Your last application was not approved{app.note ? `: ${app.note}` : '.'} {waiting ? `You can send a new one on ${waitDate}.` : 'You can send a new one.'}</p>
       )}
-      {(!app || (app !== 'error' && app.status === 'rejected')) && !open && (
+      {(!app || (app !== 'error' && app.status === 'rejected' && !waiting)) && !open && (
         <>
           {!app && <p className="mt-2 text-slate-600">Teachers can create classes, set the exam scope and see how their class is doing. We check every teacher before turning this on.</p>}
           <button onClick={() => setOpen(true)} className="mt-3 min-h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-base font-semibold text-slate-800">Apply as a teacher</button>
