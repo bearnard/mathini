@@ -1,63 +1,85 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { PlanBar, Zones } from '../../../../../components/diagrams/lo/PswPictures';
+import { PassingSpace } from '../../../../../components/diagrams/lo/PePictures';
+import { planSegments } from '../../../../../components/diagrams/lo/pswHelpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+const intervalParts = [
+  { label: 'Run', minutes: 2, kind: 'study' as const },
+  { label: 'Walk', minutes: 1, kind: 'break' as const },
+  { label: 'Run', minutes: 2, kind: 'study' as const },
+  { label: 'Walk', minutes: 1, kind: 'break' as const },
+];
+const intervalTotal = planSegments(intervalParts).total;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Apply sport skills in modified games',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          This term focuses on <strong>sport-specific skills</strong> such as passing, receiving, movement into space,
-          and applying rules in real game situations.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <p className="font-bold text-blue-700">Passing</p>
-            <p className="text-slate-600">accurate release to a teammate</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-bold text-emerald-700">Receiving</p>
-            <p className="text-slate-600">control the ball with balance</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-bold text-amber-700">Stamina</p>
-            <p className="text-slate-600">sustain effort over time</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Rules</p>
-            <p className="text-slate-600">play safely and fairly</p>
-          </div>
-        </div>
-      </div>
+    title: 'Passing and receiving',
+    content: slide(
+      <>
+        <Rule>In a small game, pass to a teammate in open space. To receive well, watch the ball and control it softly.</Rule>
+        <PassingSpace aria="A top view of a pitch. You have the ball. A solid arrow goes to a teammate in open space. A dashed arrow to a covered teammate is marked wrong because a defender stands next to them." />
+        <Worked
+          title="Choose the pass"
+          steps={[<>Look up: who is in open space?</>, <>Pass to that teammate, not to the one with a defender beside them.</>, <>The receiver watches the ball and controls it softly.</>]}
+        />
+        <Mistake>Passing to a covered teammate, or hitting the ball hard at someone who is not ready. Pass into space and receive with a soft touch.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Show leadership, discipline, and fair competition',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Good players are also good leaders. Learners should communicate, follow decisions, and compete with
-          <strong> fair play</strong> during small games.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-bold text-rose-700">Leadership</p>
-            <p className="text-slate-600">organise and encourage teammates</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-bold text-cyan-700">Discipline</p>
-            <p className="text-slate-600">control actions and follow instructions</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-bold text-lime-700">Officiating</p>
-            <p className="text-slate-600">apply rules and make fair calls</p>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Review</p>
-            <p className="text-slate-600">identify what to improve next session</p>
-          </div>
-        </div>
-      </div>
+    title: 'Stamina and interval running',
+    content: slide(
+      <>
+        <Rule>Stamina is the ability to keep going. Regular aerobic training, such as interval running, helps your body sustain effort.</Rule>
+        <PlanBar parts={intervalParts} aria={`One interval set as a bar: run ${intervalParts[0].minutes} minutes, walk ${intervalParts[1].minutes}, run ${intervalParts[2].minutes}, walk ${intervalParts[3].minutes}, ${intervalTotal} minutes in total.`} />
+        <Worked
+          title="One interval set"
+          steps={[<>Run for {intervalParts[0].minutes} minutes.</>, <>Walk for {intervalParts[1].minutes} minute to recover.</>, <>Repeat the run and the walk once more.</>, <>The set takes {intervalTotal} minutes. Practise regularly.</>]}
+        />
+        <Mistake>Expecting your stamina to improve after one session. Stamina grows with regular practice over weeks.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Rules and fair competition',
+    content: slide(
+      <>
+        <Rule>Game rules keep play safe and organised. Fair competition means playing by the rules and respecting opponents. An official applies the rules in the same way to both teams.</Rule>
+        <Zones zones={[{ title: 'Player', line: 'Plays by the rules' }, { title: 'Opponent', line: 'Is treated with respect' }, { title: 'Official', line: 'Same rules for both teams' }]} aria="Three roles in a fair game: the player plays by the rules, the opponent is treated with respect, the official applies the same rules to both teams." />
+        <Worked
+          title="You officiate a small game"
+          steps={[<>A player from each team pushes. </>, <>Apply the same rule to both.</>, <>Explain the call calmly.</>]}
+        />
+        <Mistake>Giving your own team the benefit of the doubt, or ignoring a rule because your team is losing. That is not fair.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Leadership and discipline',
+    content: slide(
+      <>
+        <Rule>A leader encourages teammates and organises positions. Discipline means following instructions even when you are tired.</Rule>
+        <Worked
+          title="Ayanda captains a small game"
+          steps={[<>She places each player in a position.</>, <>After a mistake she says, “Good try, next one.”</>, <>Late in the game she is tired but still follows the teacher's instructions.</>]}
+        />
+        <Mistake>Thinking a leader is the one who shouts the most, or that discipline is only needed when the teacher is watching. Leaders encourage; discipline continues all the time.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is the best passing choice in a small game, and how do you receive well?" answer="Pass to a teammate in open space. Watch the ball and control it softly." />
+        <Check question="Which activity improves stamina?" answer="Regular interval running practice (aerobic training)." />
+        <Check question="What does fair competition mean, and how should an official apply the rules?" answer="Playing by the rules and respecting opponents. An official applies the rules in the same way to both teams." />
+        <Check question="Name one way to show leadership and one way to show discipline." answer="Leadership: encourage teammates and organise positions. Discipline: follow instructions even when tired." />
+      </>,
     ),
   },
 ];
