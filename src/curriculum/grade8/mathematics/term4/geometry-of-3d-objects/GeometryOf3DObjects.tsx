@@ -70,7 +70,7 @@ export const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>A cylinder, a cone and a sphere have curved surfaces. An edge is where two surfaces meet; a sphere has one curved surface, so it has no edges and no vertices.</Rule>
-        <SolidsRow names={['cylinder', 'cone', 'sphere']} />
+        <SolidsRow names={['cylinder', 'cone', 'sphere']} flatAndCurved />
         <Worked
           steps={[
             <>Cylinder: <strong>{cyl.flat} circular faces and {cyl.curved} curved surface</strong>, {cyl.edges} circular edges, {cyl.vertices} vertices.</>,
