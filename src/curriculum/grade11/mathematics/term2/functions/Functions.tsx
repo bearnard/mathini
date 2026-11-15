@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { MathematicsItem, LearnStep } from '../../_shared/types';
 import Formula from '../../../../../components/subjects/Formula';
+import { TransformationsShift } from '@/components/diagrams/maths/TransformationsShift';
 import FunctionGraph from '../../../../../components/subjects/FunctionGraph';
 
 const learnSteps: LearnStep[] = [
@@ -13,14 +14,7 @@ const learnSteps: LearnStep[] = [
           <Formula block>{String.raw`y = a(x-p)^2 + q`}</Formula>
           <Formula block>{String.raw`y = \frac{a}{x-p} + q`}</Formula>
         </div>
-        <FunctionGraph
-          curves={[
-            { fn: (x: number) => x ** 2, label: 'y = x²', color: '#94a3b8' },
-            { fn: (x: number) => (x - 2) ** 2 + 1, label: 'y = (x - 2)² + 1', color: '#6366f1' },
-          ]}
-          xRange={[-4, 6]}
-          yRange={[-1, 12]}
-        />
+        <TransformationsShift />
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-indigo-50 p-4">
             <p className="text-sm text-slate-600">In <Formula>{String.raw`y = (x-2)^2 + 1`}</Formula>, the parabola moves <Formula>{String.raw`2`}</Formula> units right and <Formula>{String.raw`1`}</Formula> unit up.</p>
