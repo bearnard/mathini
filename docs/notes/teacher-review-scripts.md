@@ -31,4 +31,4 @@ node --import tsx scripts/import-teacher-check.ts [--md ../audit/teacher-check.m
 - Output in `--out`: one idempotent `pack-NN-<key>.sql` per pack (safe to run twice; it finds the pack by title) and `report.md` with every unresolved item and why.
 - `--include-repeated` also makes items for sentences that occur more than once in their file (`context.repeated = true`). A teacher can still check them, but `apply-review-changes.ts` refuses to change them, so a person has to.
 - The SQL is tested against the real `migrations/0012_review.sql` in `node:sqlite`. The NST scope item is stored as a `lesson_line` with file `scope:nst-exam-scope` (the table requires a file); the apply script never treats it as a path.
-- Questions that exist twice in D1 (same prompt and key) are listed with both ids in the report so one can be retired.
+- A question that exists in two grades' topics (same prompt and key, different D1 `task`) resolves to the one whose task matches the bank file's grade, term and topic folder (`gr9-grammar-reporting-t2`; a plain slug for Grade 6). If that still leaves more than one, the report lists the ids with their tasks.

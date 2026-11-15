@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
 import { norm, parseTeacherCheck, quotedStrings, segments } from './teacherCheckParse';
 import { checkPath } from './applyChanges';
-import { SCOPE_FILE, d1Key, packOf, packSql, planPacks, reportMarkdown, resolveItems, type BankQuestion, type Item, type ResolveEnv } from './teacherCheckResolve';
+import { SCOPE_FILE, d1Key, narrowByTask, packOf, packSql, planPacks, reportMarkdown, resolveItems, type BankQuestion, type Item, type ResolveEnv } from './teacherCheckResolve';
 
 const MD = [
   '# Items for a teacher to check',
@@ -110,8 +110,8 @@ test('resolveItems: repeated text, bank-only text, ellipsis, no file and ambiguo
   assert.match(why('Ons sal aandete eet'), /occurs 2 times/);
   assert.match(why('Ek sal nooit kom'), /ellipsis/);
   assert.match(why('Karla'), /names no file/);
-  assert.match(why('Ek sal tee maak'), /matches 2 D1 ids \(same prompt and key; ids q2, q3\)/);
-  assert.match(reportMarkdown(res, []), /Duplicate questions in D1[^]*ids q2, q3/); // a bank prompt quoted in the note, but D1 holds it twice
+  assert.match(why('Ek sal tee maak'), /matches 2 D1 ids \(same prompt and key; q2 in \?, q3 in \?\)/);
+  assert.match(reportMarkdown(res, []), /Duplicate questions in D1[^]*q2 in \?, q3 in \?/); // a bank prompt quoted in the note, but D1 holds it twice
   assert.ok(!res.items.some((i) => i.kind === 'lesson_line' && i.anchor === 'Ons sal aandete eet'));
   const withRepeated = resolveItems(parseTeacherCheck(MD), env(), { allowRepeated: true });
   const rep = withRepeated.items.find((i) => i.kind === 'lesson_line' && i.anchor === 'Ons sal aandete eet') as Extract<Item, { kind: 'lesson_line' }>;
@@ -175,4 +175,32 @@ test('reportMarkdown lists the counts and every unresolved item with its reason'
   const md = reportMarkdown({ items: [lessonItem(1)], unresolved: [{ mdLine: 5, section: 'H', kind: 'quoted', file: 'a/B.tsx', text: 'x | y', reason: 'text not found in the file' }] }, planPacks([lessonItem(1)]));
   assert.match(md, /1 items resolved \(0 questions, 1 lesson lines, 0 scope\), in 1 packs. 1 unresolved/);
   assert.match(md, /\| 5 \| H \| quoted \| `a\/B.tsx` \| x \\\| y \| text not found in the file \|/);
+});
+
+test('narrowByTask picks the question of the file\'s own grade and topic when a prompt exists in two topics', () => {
+  const two = [{ id: 'a', versionId: 1, task: 'gr8-grammar-reporting-coherence-t2' }, { id: 'b', versionId: 2, task: 'gr9-grammar-reporting-t2' }];
+  assert.deepEqual(narrowByTask(two, 'grade9/afrikaans/term2/grammar-reporting/GrammarReporting.tsx').map((c) => c.id), ['b']);
+  assert.deepEqual(narrowByTask(two, 'grade8/afrikaans/term2/grammar-reporting-coherence/G.tsx').map((c) => c.id), ['a']);
+  // tier 2: the task is not the exact name, but it is the right grade and contains the topic
+  const t2 = [{ id: 'c', versionId: 1, task: 'gr7-word-sentence-grammar-t1' }, { id: 'd', versionId: 2, task: 'gr9-word-sentence-grammar-t1' }];
+  assert.deepEqual(narrowByTask(t2, 'grade7/afrikaans/term3/word-sentence-grammar/W.tsx').map((c) => c.id), ['c']);
+  // Grade 6 tasks are plain slugs
+  const g6 = [{ id: 'e', versionId: 1, task: 'begripstoets' }, { id: 'f', versionId: 2, task: 'gr7-begripstoets-t2' }];
+  assert.deepEqual(narrowByTask(g6, 'grade6/afrikaans/term2/begripstoets/B.tsx').map((c) => c.id), ['e']);
+  // two questions in the same grade stay ambiguous, and a candidate list without tasks is untouched
+  const same = [{ id: 'g', versionId: 1, task: 'gr9-x-t1' }, { id: 'h', versionId: 2, task: 'gr9-y-t1' }];
+  assert.equal(narrowByTask(same, 'grade9/afrikaans/term1/z/Z.tsx').length, 2);
+  assert.equal(narrowByTask([{ id: 'i', versionId: 1 }, { id: 'j', versionId: 2 }], 'grade9/afrikaans/term1/z/Z.tsx').length, 2);
+});
+
+test('resolveItems: a question in two topics resolves to the one in the file\'s own grade; same grade twice is reported with both tasks', () => {
+  const b9 = bq('grade9/afrikaans/term2/grammar-reporting/G.tsx', 'Idioom?', 'k');
+  const d1 = new Map([[d1Key('Idioom?', 'k'), [{ id: 'q8', versionId: 1, task: 'gr8-grammar-reporting-coherence-t2' }, { id: 'q9', versionId: 2, task: 'gr9-grammar-reporting-t2' }]]]);
+  const raw = [{ kind: 'row' as const, section: 'D', mdLine: 1, file: b9.file, text: 'Idioom?', answer: 'k', doubt: 'd' }];
+  const read = (f: string) => (f === b9.file ? 'x' : null);
+  const ok = resolveItems(raw, env({ read, banks: [b9], d1 }));
+  assert.deepEqual(ok.items.map((i) => (i as { questionId: string }).questionId), ['q9']);
+  const twice = new Map([[d1Key('Idioom?', 'k'), [{ id: 'x1', versionId: 1, task: 'gr9-a-t2' }, { id: 'x2', versionId: 2, task: 'gr9-b-t2' }]]]);
+  const amb = resolveItems(raw, env({ read, banks: [b9], d1: twice }));
+  assert.match(amb.unresolved[0].reason, /x1 in gr9-a-t2, x2 in gr9-b-t2/);
 });
