@@ -41,7 +41,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          Meshing gears turn in opposite directions. If a small gear drives a larger gear, the output has lower speed and greater turning force.
+          Meshing gears turn in opposite directions. A small gear turning a bigger one gives slower output but more turning force.
         </Rule>
         <GearPair driver={10} driven={20} />
         <Worked
@@ -52,7 +52,7 @@ const learnSteps: LearnStep[] = [
             <>A bicycle uses a gear system with a chain to change speed and force: a small gear at the back is fast and a large gear is easier to pedal.</>,
           ]}
         />
-        <Mistake>Thinking both gears turn the same way. Two meshing gears always turn in opposite directions. A chain makes both turn the same way.</Mistake>
+        <Mistake>Thinking both gears turn the same way. Gears that mesh always spin against each other. A chain makes both turn the same way.</Mistake>
       </>,
     ),
   },
@@ -103,9 +103,9 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which simple machine is an axe head? What does a wheel and axle mainly do?</li>
-            <li>Two meshing gears turn in which way? If a small gear drives a larger gear, what does the output have?</li>
-            <li>A cam usually changes rotary motion into what? What is the main job of a crank?</li>
+            <li>Name the simple machine a chisel is an example of. Why do we fit wheels on axles to move loads?</li>
+            <li>In which direction does a gear turn when it meshes with another? A small gear drives a large one: what happens to the output speed and force?</li>
+            <li>What kind of motion does a cam make from a spinning shaft? What does a crank do?</li>
             <li>What does mechanical advantage mean? Which mechanism changes speed and force on a bicycle?</li>
           </ol>
         }

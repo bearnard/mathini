@@ -63,7 +63,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          A question mark belongs at the end of a question. Use a capital letter, a comma after a name you speak to, and a full stop. Edit your own writing to correct mistakes and improve meaning.
+          End a sentence that asks something with a question mark. Use a capital letter, a comma after a name you speak to, and a full stop. Edit your own writing to correct mistakes and improve meaning.
         </Rule>
         <Worked
           title="Punctuate and edit"
@@ -84,17 +84,17 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Give a synonym for “happy” and an antonym for “ancient”.</li>
-            <li>What does “break the ice” mean, and which word replaces “said” in “She said softly”?</li>
-            <li>Which keeps the tense consistent: “Lebo packed her bag and hurried to the gate.” or a sentence that mixes tenses?</li>
+            <li>Give a synonym for “big” and an antonym for “brave”.</li>
+            <li>What does “spill the beans” mean, and which word replaces “walked” in “He walked slowly home”?</li>
+            <li>Which stays in one tense: “Sipho opened the door and greeted his gran.” or “Sipho opened the door and greets his gran.”?</li>
             <li>Which mark ends a question? Punctuate: thandi please bring your book. Why edit?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Glad; modern.</li>
-            <li>Start a friendly conversation. Whispered.</li>
-            <li>“Lebo packed her bag and hurried to the gate.” (both verbs are past tense)</li>
+            <li>Large (or huge); cowardly (or fearful).</li>
+            <li>Tell a secret by accident. Strolled (or trudged).</li>
+            <li>“Sipho opened the door and greeted his gran.” (both verbs are past tense)</li>
             <li>A question mark. “Thandi, please bring your book.” To correct mistakes and improve meaning.</li>
           </ol>
         }

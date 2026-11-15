@@ -5,9 +5,9 @@ import { ChargeForces, FrictionBlock, RaceBars, SpeedTriangle } from '../../../.
 import { speed } from '../../../../../components/diagrams/science/motionHelpers';
 
 // Every speed below comes from a tested helper (motionMatter.test.ts).
-const cyclist = speed(120, 20);
-const run1 = speed(400, 80);
-const run2 = speed(400, 100);
+const cyclist = speed(150, 30);
+const run1 = speed(200, 40);
+const run2 = speed(200, 50);
 
 const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
@@ -19,13 +19,13 @@ const learnSteps: LearnStep[] = [
         <Rule>
           Average speed is found by dividing the distance travelled by the time taken. Speed = distance ÷ time.
         </Rule>
-        <SpeedTriangle d={120} t={20} />
+        <SpeedTriangle d={150} t={30} />
         <Worked
-          title="A cyclist travels 120 m in 20 s"
+          title="A cyclist travels 150 m in 30 s"
           steps={[
             <>Write the formula: speed = distance ÷ time.</>,
-            <>Put in the numbers: speed = 120 m ÷ 20 s.</>,
-            <>120 ÷ 20 = {cyclist}, so the average speed is <strong>{cyclist} m/s</strong>.</>,
+            <>Put in the numbers: speed = 150 m ÷ 30 s.</>,
+            <>150 ÷ 30 = {cyclist}, so the average speed is <strong>{cyclist} m/s</strong>.</>,
           ]}
         />
         <Mistake>Dividing the other way round, time ÷ distance. Speed tells you how far you go in each second, so distance goes on top.</Mistake>
@@ -37,12 +37,12 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>For equal distances, the shorter time means the greater average speed.</Rule>
-        <RaceBars distanceM={400} times={[80, 100]} />
+        <RaceBars distanceM={200} times={[40, 50]} />
         <Worked
-          title="A learner runs 400 m in 80 s, then 400 m in 100 s"
+          title="A learner runs 200 m in 40 s, then 200 m in 50 s"
           steps={[
-            <>First run: 400 ÷ 80 = {run1} m/s.</>,
-            <>Second run: 400 ÷ 100 = {run2} m/s.</>,
+            <>First run: 200 ÷ 40 = {run1} m/s.</>,
+            <>Second run: 200 ÷ 50 = {run2} m/s.</>,
             <>{run1} is greater than {run2}, so the first run has the greater average speed.</>,
           ]}
         />
@@ -55,7 +55,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          Friction is the force that opposes motion between two surfaces in contact. The rougher the surfaces, the greater the friction.
+          Friction resists the sliding of one surface over another where they touch. The rougher the surfaces, the greater the friction.
         </Rule>
         <FrictionBlock />
         <Worked
@@ -75,7 +75,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          Some forces act without touching. Gravitational force pulls objects toward Earth. A magnet exerts a force on magnetic materials. Opposite electric charges attract; like charges repel.
+          Some forces act without touching. Gravitational force draws every object down towards the ground. A magnet exerts a force on magnetic materials. Opposite electric charges attract; like charges repel.
         </Rule>
         <ChargeForces />
         <Worked
@@ -96,15 +96,15 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the formula for average speed? A cyclist travels 120 m in 20 s: what is the average speed?</li>
-            <li>A learner runs 400 m in 80 s, then 400 m in 100 s. Which statement is true?</li>
-            <li>Which force opposes motion between surfaces in contact? Why do rough tyres improve grip?</li>
-            <li>Which force pulls objects toward Earth? What do opposite charges do?</li>
+            <li>How do you calculate average speed? A scooter travels 200 m in 25 s: what is its average speed?</li>
+            <li>A learner runs 300 m in 60 s, then 300 m in 75 s. Which run has the greater average speed?</li>
+            <li>Which force resists sliding between surfaces that touch? Why do rough tyres improve grip?</li>
+            <li>Which force makes a dropped ball fall? What do opposite charges do?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Speed = distance ÷ time. 6 m/s.</li>
+            <li>Speed = distance ÷ time. 200 ÷ 25 = 8 m/s.</li>
             <li>The first run has the greater average speed.</li>
             <li>Friction. They increase friction.</li>
             <li>Gravitational force. They attract each other.</li>

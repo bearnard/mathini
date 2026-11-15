@@ -43,7 +43,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          Different transport modes suit different goods. Rail is usually best for moving heavy bulk goods over long distances on land. Air transport is usually preferred when goods are high-value, light or urgently needed.
+          Different transport modes suit different goods. Rail usually suits heavy bulk goods that must travel far over land. Air transport is usually preferred when goods are high-value, light or urgently needed.
         </Rule>
         <Terms
           rows={[
@@ -105,10 +105,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Why do countries trade with one another? What is an import? What is an export?</li>
-            <li>Which transport mode is usually best for moving heavy bulk goods over long distances on land?</li>
-            <li>Which South African harbour is one of the busiest container ports? How do transport networks support trade?</li>
-            <li>Which option best describes urban commuter transport? When is air transport usually preferred for trade?</li>
+            <li>Why do countries buy and sell goods across borders? What is an import? What is an export?</li>
+            <li>Which transport mode is best for hauling heavy bulk goods across the country by land?</li>
+            <li>Name a busy South African container port. How do roads, rail and ports help trade?</li>
+            <li>How would you describe commuter transport in a city? When would a business send goods by air?</li>
           </ol>
         }
         answer={

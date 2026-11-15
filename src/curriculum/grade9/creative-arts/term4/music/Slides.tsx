@@ -94,7 +94,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Listening analysis and music careers',
     content: slide(
       <>
-        <Rule>Listening analysis for a final assessment names the style, form, instruments and your emotional response. Music careers include performer, composer, teacher, sound engineer or therapist.</Rule>
+        <Rule>In a final listening analysis, name the style, the form, the instruments and how the music made you feel. Music careers include performer, composer, teacher, sound engineer or therapist.</Rule>
         <Worked
           title="Which career?"
           steps={['Balancing the microphones at a live show: sound engineer.', 'Writing new pieces for others to play: composer.', 'Helping people feel better through music: music therapist.']}

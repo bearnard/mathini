@@ -91,16 +91,16 @@ const learnSteps: LearnStep[] = [
           <ol className="list-decimal space-y-2 pl-5">
             <li>What should you think about before planning? What does audience awareness mean?</li>
             <li>What makes a strong opening in a talk, and a good ending in extended writing?</li>
-            <li>What does a narrative essay need, and which detail makes a book review stronger?</li>
-            <li>Which note card is best for an oral response, and which interview question is the most useful?</li>
+            <li>What should a story you write for class include, and what makes a film review more convincing?</li>
+            <li>How should the cards for a speech look, and which question would get a guest to say the most?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Audience and purpose. Choosing words and details that suit the listeners or readers.</li>
             <li>A hook that grabs attention and names the topic. A clear closing that sums up the main idea.</li>
-            <li>Events organised in a logical order. Specific reasons and examples from the book.</li>
-            <li>Short key words instead of a full script. “How did that event change the way you felt?”</li>
+            <li>Events organised in a logical order, with a beginning, middle and end. Specific reasons and scenes from the film.</li>
+            <li>Short key words instead of a full script. “What was the hardest moment, and how did you cope?”</li>
           </ol>
         }
       />,

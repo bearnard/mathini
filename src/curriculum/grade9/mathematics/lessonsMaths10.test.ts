@@ -49,8 +49,8 @@ test('3D objects: the counts appear in the slides', () => {
   assert.match(solids[3].text, /2 flat, 1 curved/);
   assert.match(solids[3].text, /0 flat, 1 curved/);
   assert.doesNotMatch(solids[3].text, /3 faces|1 face\b/);
-  assert.match(solids[5].text, /8 faces, 18 edges, 12 vertices/);
-  assert.match(solids[5].text, /6 faces: 1 pentagon/);
+  assert.match(solids[5].text, /7 faces, 15 edges, 10 vertices/);
+  assert.match(solids[5].text, /7 faces: 1 hexagon/);
 });
 
 test('Data handling: the worked numbers are true and appear in the slides', () => {

@@ -124,7 +124,7 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the first step in the accounting cycle?</li>
+            <li>Which step starts the accounting cycle, before anything is recorded in a journal?</li>
             <li>Add the cash receipts: {q2.entries.map(rand).join(', ')}.</li>
             <li>Which factor of production earns wages?</li>
             <li>Sipho sells {SOLD_Q} vetkoek at {rand(5)}, each costing {rand(2)}. What is his profit?</li>

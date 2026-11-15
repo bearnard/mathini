@@ -24,7 +24,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Visual literacy: reading an artwork',
     content: slide(
       <>
-        <Rule>Visual literacy is the ability to read and interpret visual messages. Context also matters: where and when the work was made.</Rule>
+        <Rule>Being visually literate means you can read and make sense of the messages in images. Context also matters: where and when the work was made.</Rule>
         <NumberedSteps
           label="Four steps for reading an artwork"
           heading="Read an artwork"

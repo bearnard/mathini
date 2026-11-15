@@ -97,7 +97,7 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the main purpose of most brochures?</li>
+            <li>Why does a tourism office hand out brochures?</li>
             <li>Which strategy do you use to find the price of a ticket?</li>
             <li>Which is an inference: &quot;The brochure has two photos&quot; or &quot;The brochure is probably for tourists&quot;?</li>
             <li>Why is white space useful?</li>

@@ -103,7 +103,7 @@ const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>What does biodiversity mean?</li>
-            <li>Why do scientists classify living things?</li>
+            <li>What is the purpose of sorting organisms into groups such as plants and animals?</li>
             <li>Name one difference between sexual and asexual reproduction.</li>
             <li>Which seed is best for wind dispersal: a lightweight seed with wings, or a heavy seed with a thick shell?</li>
           </ol>

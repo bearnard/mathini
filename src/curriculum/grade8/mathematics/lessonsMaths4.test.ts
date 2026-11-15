@@ -40,7 +40,7 @@ test('Whole Numbers and Integers: worked numbers', () => {
   assert.match(integers[0].text, /−12, −2, 0, 7/);
   assert.match(integers[1].text, /you land on 5/);
   assert.match(integers[1].text, /2 − 8 = −6/);
-  assert.match(integers[2].text, /The additive inverse of 15 is −15/);
+  assert.match(integers[2].text, /The additive inverse of 18 is −18/);
   assert.match(integers[2].text, /\|−17\| = 17/);
   assert.match(integers[2].text, /5 \+ 3 = 8/);
   assert.match(integers[3].text, /the answer is −28/);
@@ -139,7 +139,7 @@ test('Algebraic Equations: worked numbers', () => {
   assert.match(equations[0].text, /x = 4 \+ 9 = 13/);
   assert.match(equations[0].text, /x = 5 × 3 = 15/);
   assert.match(equations[1].text, /4 × 4 \+ 2 = 18/);
-  assert.match(equations[1].text, /3 × 4 \+ 1 = 13/);
+  assert.match(equations[1].text, /2 × 5 \+ 3 = 13/);
   assert.match(equations[2].text, /= −12/);
   assert.match(equations[2].text, /5 − 2 × 6 = −7/);
   assert.match(equations[3].text, /x − 1 = 4, so x = 5/);

@@ -73,8 +73,8 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a line? Which is a shape? What is a 2D artwork?</li>
-            <li>How can colour help an artwork?</li>
+            <li>What is a line? Which is a shape? What is a drawing on flat paper called?</li>
+            <li>Why would an artist paint a stormy sky in dark greys and blues?</li>
             <li>What is rhythm, and what is a steady beat?</li>
             <li>What is body percussion, a drama game and a movement phrase?</li>
           </ol>
@@ -82,7 +82,7 @@ const learnSteps: LearnStep[] = [
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>A mark that can be straight, curved or zigzag. A triangle. A flat artwork made on a surface.</li>
-            <li>It can create mood and contrast.</li>
+            <li>Dark, cool colours set a gloomy mood.</li>
             <li>A pattern of sounds and beats. An even pulse that stays regular.</li>
             <li>Clapping and stamping a pattern. A short acting activity that uses imagination. A short sequence of planned movements.</li>
           </ol>

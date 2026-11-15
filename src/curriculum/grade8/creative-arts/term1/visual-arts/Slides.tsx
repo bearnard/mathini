@@ -18,7 +18,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Line: a mark that makes us feel something',
     content: slide(
       <>
-        <Rule>Line is an element of art. In observational drawing you draw from a real object you can see, and you choose lines that match what you want the viewer to feel.</Rule>
+        <Rule>Line is an element of art. An observational drawing is made while studying a real object placed in front of you, and you choose lines that match what you want the viewer to feel.</Rule>
         <LineTypes />
         <Worked
           title="Draw a football rolling across the grass"
@@ -32,7 +32,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Shape, form and value',
     content: slide(
       <>
-        <Rule>A shape is flat and two-dimensional. A form looks solid. Value is how light or dark a colour looks, and shading with value turns a shape into a form.</Rule>
+        <Rule>A shape is flat and two-dimensional. A form looks solid. Value is the lightness or darkness of a colour, and shading with value turns a shape into a form.</Rule>
         <ShapeFormValue />
         <Worked
           title="Turn a circle into a ball"
@@ -90,7 +90,7 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which element of art describes how light or dark a colour looks?</li>
+            <li>Pale yellow and deep navy differ most in which element of art?</li>
             <li>Name two marks that show texture in a drawing.</li>
             <li>Which colour is the complement of orange on the wheel?</li>
             <li>Objects nearest the viewer are in which part of a picture?</li>

@@ -96,7 +96,7 @@ test('Area, Perimeter, Surface Area and Volume: worked numbers', () => {
   assert.match(measure[4].text, /6 × 4 = 24 cm²/);
   assert.match(measure[4].text, /= 52 cm²/);
   assert.match(measure[5].text, /= 22 m; A = 7 × 4 = 28 m²/);
-  assert.match(measure[5].text, /= 30 cm²/);
+  assert.match(measure[5].text, /½ × 9 × 6 = 27 m²/);
   assert.match(measure[5].text, /= 30 cm³/);
   assert.match(measure[5].text, /= 150 cm²/);
 });

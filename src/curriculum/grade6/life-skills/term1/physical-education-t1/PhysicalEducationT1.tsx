@@ -89,7 +89,7 @@ const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Why do we warm up? Which routine is safest before starting?</li>
-            <li>Give an example of a locomotor and a non-locomotor movement.</li>
+            <li>Name one movement that travels (locomotor) and one that stays in place (non-locomotor).</li>
             <li>What helps you keep balance, and what does coordination mean?</li>
             <li>What is your main job in a target game? Which throw suits a beanbag and hoop, and what is good teamwork?</li>
           </ol>
@@ -97,7 +97,7 @@ const learnSteps: LearnStep[] = [
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>To get the body ready to move safely. Checking your space before you start.</li>
-            <li>Skipping across the court. Bending and stretching on the spot.</li>
+            <li>Hopping across the court. Twisting and reaching on the spot.</li>
             <li>Keeping your body steady and eyes focused. Body parts working together smoothly.</li>
             <li>Aim accurately at the target. Underarm throw. Taking turns and encouraging others.</li>
           </ol>

@@ -103,10 +103,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the purpose of transactional writing? Which text type uses imagery and feelings?</li>
+            <li>Why do we write a formal letter or an email to someone? Which text type uses imagery and feelings?</li>
             <li>What do you do first in the writing process, and after the first draft? Why redraft?</li>
             <li>What belongs in a play script, and how is dialogue organised?</li>
-            <li>Which opening suits a note to your teacher, and what is coherence?</li>
+            <li>Which greeting suits a short note to your principal, and what is coherence?</li>
           </ol>
         }
         answer={
@@ -114,7 +114,7 @@ const learnSteps: LearnStep[] = [
             <li>To communicate clearly for a specific purpose. A poem.</li>
             <li>Plan your ideas. Read it again and improve it. Redrafting helps you improve content and language.</li>
             <li>Speaker names and stage directions. Each speaker takes a clear turn.</li>
-            <li>“Dear Ms Naidoo,”. Coherence means ideas link together clearly.</li>
+            <li>“Dear Mr Dlamini,”. Coherence means ideas link together clearly.</li>
           </ol>
         }
       />,

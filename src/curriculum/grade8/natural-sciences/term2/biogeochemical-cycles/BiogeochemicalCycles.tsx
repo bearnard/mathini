@@ -114,7 +114,7 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which process moves water vapour from liquid water into the atmosphere? What forms clouds?</li>
+            <li>Which process turns the water in a puddle into vapour in the air? What forms clouds?</li>
             <li>Match: precipitation. How do plants remove carbon dioxide? Which activity quickly raises carbon dioxide?</li>
             <li>What do decomposers do? What do nitrogen-fixing bacteria do?</li>
             <li>Why are biogeochemical cycles important?</li>

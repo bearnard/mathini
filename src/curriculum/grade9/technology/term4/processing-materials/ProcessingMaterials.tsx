@@ -90,8 +90,8 @@ const learnSteps: LearnStep[] = [
           <ol className="list-decimal space-y-2 pl-5">
             <li>What is corrosion? How does galvanising protect metal?</li>
             <li>What is electroplating? Why is food preservation important?</li>
-            <li>Name some common food preservation methods. What is plastic processing?</li>
-            <li>Why is recycling important for plastic materials? How do processing choices affect the environment?</li>
+            <li>Name some ways of keeping food from spoiling. What is plastic processing?</li>
+            <li>Why should plastic be recycled? In what ways can the way we process materials affect the environment?</li>
           </ol>
         }
         answer={

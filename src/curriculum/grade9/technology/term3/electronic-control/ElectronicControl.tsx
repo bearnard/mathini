@@ -91,8 +91,8 @@ const learnSteps: LearnStep[] = [
           <ol className="list-decimal space-y-2 pl-5">
             <li>What is a diode? What is an LED?</li>
             <li>What does an LDR do? What is a thermistor?</li>
-            <li>What is a transistor&apos;s primary function in a control circuit?</li>
-            <li>What is an AND gate? What is an OR gate? In PAT 2, what must an electronic system demonstrate?</li>
+            <li>What job does a transistor do in a control circuit?</li>
+            <li>What is an AND gate? What is an OR gate? What must your PAT 2 electronic system show?</li>
           </ol>
         }
         answer={

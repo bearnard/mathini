@@ -89,18 +89,18 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which action shows a healthy friendship? What is the safest response to a dare to break a school rule?</li>
-            <li>What is a good first step in a disagreement, and which sentence helps solve a conflict fairly?</li>
-            <li>Who is a trusted adult? What do you do if someone you do not know offers you a lift? What if a situation feels unsafe?</li>
-            <li>Which behaviour shows responsibility at school, and which study habit helps before a test?</li>
+            <li>Is a healthy friend someone who shares their snack, or someone who laughs at your mistakes? What is the safest response to a dare to sneak out of class?</li>
+            <li>What should you do first when you and a friend start to argue, and which sentence settles it fairly?</li>
+            <li>Who is a trusted adult? What do you do if someone you do not know offers you a lift? What should you do if a place starts to feel unsafe?</li>
+            <li>Is handing in homework on time, or leaving it for a friend to copy, the responsible choice at school? Which study habit helps before a test?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Listening respectfully when a friend speaks. Say no and choose the responsible action.</li>
+            <li>Someone who shares their snack. Say no and choose the responsible action.</li>
             <li>Calm down and listen. “Let us each explain what happened.”</li>
             <li>A teacher who helps you stay safe. Say no and tell a trusted adult. Tell a trusted adult as soon as you can.</li>
-            <li>Packing your books and homework the night before. Reviewing your notes over several days.</li>
+            <li>Handing in homework on time. Reviewing your notes over several days.</li>
           </ol>
         }
       />,

@@ -89,7 +89,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Reflecting on your growth',
     content: slide(
       <>
-        <Rule>Reflection helps you spot strengths and set next steps. A useful end-of-year question is: how did my artistic choices improve over time?</Rule>
+        <Rule>Reflection helps you spot strengths and set next steps. At the end of the year ask yourself: how did my artistic choices improve over time?</Rule>
         <Worked
           title="Compare your first and last drawing"
           steps={['Place a Term 1 drawing next to a Term 4 drawing.', 'Name two things that improved, such as shading or composition.', 'Choose one next step to practise.']}
@@ -104,7 +104,7 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What should a strong portfolio selection show?</li>
+            <li>What do the pieces you choose for a strong portfolio need to demonstrate?</li>
             <li>Name one finishing technique.</li>
             <li>What does exhibition planning mainly involve?</li>
             <li>What should an artist statement explain?</li>

@@ -110,7 +110,7 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the climax of a short story?</li>
+            <li>At which point in a plot does the climax occur?</li>
             <li>Which pronouns does a first-person narrator use?</li>
             <li>Why is conflict important in a story?</li>
             <li>Why might a writer use a flashback?</li>
@@ -118,7 +118,7 @@ export const learnSteps: LearnStep[] = [
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>The point of highest tension.</li>
+            <li>At the point of highest tension.</li>
             <li>I and we.</li>
             <li>It drives the plot forward.</li>
             <li>To reveal background that deepens the current events.</li>

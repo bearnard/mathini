@@ -116,7 +116,7 @@ export const learnSteps: LearnStep[] = [
             <li>The point (2, 3) is translated 5 right and 1 down. Where is its image?</li>
             <li>The point (3, 4) is reflected in the line x = 5. Where is its image?</li>
             <li>A 3 × 2 rectangle is enlarged by a factor of 3. How long are its sides?</li>
-            <li>How many edges does a cube have?</li>
+            <li>How many edges does a square pyramid have?</li>
           </ol>
         }
         answer={
@@ -124,7 +124,7 @@ export const learnSteps: LearnStep[] = [
             <li>{pt(translate([[2, 3]], 5, -1)[0])}.</li>
             <li>It is 2 units left of the line, so 2 units right: {pt(reflectInVertical([[3, 4]], 5)[0])}.</li>
             <li>{3 * 3} by {2 * 3}.</li>
-            <li>{cube.edges}.</li>
+            <li>{pyramid.edges}.</li>
           </ol>
         }
       />,

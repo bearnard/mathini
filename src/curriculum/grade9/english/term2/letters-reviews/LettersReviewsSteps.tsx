@@ -5,6 +5,7 @@ import { REGISTER_PAIRS, closingFor } from '../../../../../components/diagrams/e
 
 // The closings and register pairs come from the tested helpers in grade9.ts (grade9.test.ts).
 const named = closingFor('Dear Mr Dlamini,');
+const closeNaidoo = closingFor('Dear Ms Naidoo,');
 const unknown = closingFor('Dear Sir or Madam,');
 const [r1, r2] = REGISTER_PAIRS;
 
@@ -90,7 +91,7 @@ export const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Check question={<>Name three things a formal letter has at the top before the greeting.</>} answer={<>The sender&rsquo;s address, the date and the recipient&rsquo;s address.</>} />
-        <Check question={<>How do you close a formal letter to Mr Dlamini?</>} answer={<>{named}</>} />
+        <Check question={<>A formal letter begins &ldquo;Dear Ms Naidoo,&rdquo;. Which closing goes before your name?</>} answer={<>{closeNaidoo}</>} />
         <Check question={<>Rewrite &ldquo;Hi! Can u send me the forms asap?&rdquo; in a formal register.</>} answer={<>{r1.formal}</>} />
         <Check question={<>Which is a criterion: &ldquo;I liked it&rdquo; or &ldquo;The service was quick&rdquo;?</>} answer={<>&ldquo;The service was quick&rdquo; gives a reason that can be judged.</>} />
       </>,

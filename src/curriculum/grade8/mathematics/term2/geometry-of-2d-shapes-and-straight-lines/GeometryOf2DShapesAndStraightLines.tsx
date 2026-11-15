@@ -43,7 +43,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Parallel lines and a transversal',
     content: slide(
       <>
-        <Rule>When a transversal cuts two parallel lines: corresponding angles are equal, alternate angles are equal, and co-interior angles add up to 180°.</Rule>
+        <Rule>A line crossing a pair of parallel lines creates equal corresponding angles, equal alternate angles and co-interior angles that add up to 180°.</Rule>
         <ParallelLines a={par.corresponding} />
         <Worked
           title={`The angle at the top crossing is ${par.corresponding}°`}
@@ -61,7 +61,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Angles of a triangle and the exterior angle',
     content: slide(
       <>
-        <Rule>The interior angles of a triangle add up to 180°. An exterior angle equals the sum of the two interior angles opposite it.</Rule>
+        <Rule>The three angles inside any triangle always total 180°. An exterior angle equals the sum of the two interior angles opposite it.</Rule>
         <TriangleExterior a={tri.a} b={tri.b} />
         <Worked
           title={`A triangle has angles ${tri.a}° and ${tri.b}°`}

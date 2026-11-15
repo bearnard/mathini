@@ -18,7 +18,7 @@ const order = [7, -2, -12, 0];
 const sorted = ascending(order);
 const add = { a: -8, b: 13, r: -8 + 13, move: jump(-8, -8 + 13) };
 const sub = { a: 2, b: 8, ...subtractAsAdd(2, 8) };
-const inv = additiveInverse(15);
+const inv = additiveInverse(18);
 const abs = absolute(-17);
 const subNeg = { a: 5, b: -3, ...subtractAsAdd(5, -3) };
 const mul = { a: -4, b: 7, r: -4 * 7, sign: productSign(-4, 7) };
@@ -91,18 +91,18 @@ export const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          A number and its additive inverse add up to 0, for example 15 and {S(inv)}. The absolute value |n| is the distance from 0, so it is never negative.
+          A number and its additive inverse add up to 0, for example 18 and {S(inv)}. The absolute value |n| is the distance from 0, so it is never negative.
         </Rule>
         <NumberLine
-          min={-17}
-          max={17}
-          marks={[{ value: inv, label: S(inv), color: P }, { value: 15, label: '15', color: G }]}
-          jumps={[{ from: 0, to: 15, label: '15 units', color: G }, { from: 0, to: inv, label: '15 units', color: P }]}
-          aria={`A number line from minus 17 to 17. 15 and minus 15 are both 15 units from 0, on opposite sides.`}
+          min={-20}
+          max={20}
+          marks={[{ value: inv, label: S(inv), color: P }, { value: 18, label: '18', color: G }]}
+          jumps={[{ from: 0, to: 18, label: '18 units', color: G }, { from: 0, to: inv, label: '18 units', color: P }]}
+          aria={`A number line from minus 20 to 20. 18 and minus 18 are both 18 units from 0, on opposite sides.`}
         />
         <Worked
           steps={[
-            <>The additive inverse of 15 is {S(inv)}, because 15 + ({S(inv)}) = {15 + inv}.</>,
+            <>The additive inverse of 18 is {S(inv)}, because 18 + ({S(inv)}) = {18 + inv}.</>,
             <>|{S(-17)}| = <strong>{abs}</strong>: {S(-17)} is {abs} units from 0.</>,
             <>Subtracting a number is adding its inverse: {subNeg.a} − ({S(subNeg.b)}) = {subNeg.a} + {subNeg.inverse} = <strong>{subNeg.result}</strong>.</>,
           ]}

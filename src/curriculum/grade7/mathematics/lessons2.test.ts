@@ -42,6 +42,7 @@ test('Surface area and volume: nets, surface areas and volumes are true', () => 
   assert.deepEqual(prismSurface(5, 3, 2), { lb: 15, lh: 10, bh: 6, surface: 62, volume: 30 });
   assert.deepEqual(prismSurface(4, 2, 3), { lb: 8, lh: 12, bh: 6, surface: 52, volume: 24 });
   assert.deepEqual(cubeMeasures(3), { face: 9, surface: 54, volume: 27 });
+  assert.deepEqual(cubeMeasures(5), { face: 25, surface: 150, volume: 125 });
   assert.equal(volumeScale(3), 27);
   assert.match(solids[0].text, /6 squares/);
   assert.match(solids[1].text, /6 × 4 = 24 cm²/);
@@ -49,7 +50,8 @@ test('Surface area and volume: nets, surface areas and volumes are true', () => 
   assert.match(solids[3].text, /15 × 2 = 30 cm³/);
   assert.match(solids[4].text, /4 × 4 × 4 = 64 cm³/);
   assert.match(solids[4].text, /64 ÷ 8 = 8/);
-  assert.match(solids[5].text, /= 54 cm²/);
+  assert.match(solids[5].text, /= 150 cm²/);
+  assert.match(solids[5].text, /= 125 cm³/);
   assert.match(solids[5].text, /= 52 cm²/);
   assert.match(solids[5].text, /= 24 cm³/);
   assert.match(solids[5].text, /27 times/);
@@ -64,7 +66,7 @@ test('Algebraic expressions and equations: substitution, like terms and solution
   assert.equal(solveLinear(2, 5, 17).x, 6);
   assert.match(algebra[0].text, /n − 5/);
   assert.match(algebra[1].text, /8 \+ 3 = 11/);
-  assert.match(algebra[1].text, /2 × 5 = 10/);
+  assert.match(algebra[1].text, /3 × 4 = 12/);
   assert.match(algebra[1].text, /= 14/);
   assert.match(algebra[2].text, /so 5x/);
   assert.match(algebra[2].text, /stays: 2y \+ 3/);

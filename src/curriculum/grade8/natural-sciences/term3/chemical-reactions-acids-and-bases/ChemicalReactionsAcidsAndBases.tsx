@@ -64,7 +64,7 @@ const learnSteps: LearnStep[] = [
           steps={[
             <>Blue litmus turns {blueInAcid}: the solution is acidic (pH below 7).</>,
             <>Red litmus turns {redInBase}: the solution is basic (pH above 7).</>,
-            <>A colour change with an indicator is useful in experiments, because it shows whether a solution is an acid or a base.</>,
+            <>Indicators help in experiments, because their colour shows whether a solution is an acid or a base.</>,
           ]}
         />
         <Mistake>Thinking pH 7 is acidic. pH 7 is neutral. Below 7 is acidic and above 7 is basic.</Mistake>
@@ -97,10 +97,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which observation is evidence of a chemical reaction? What is true about chemical change?</li>
-            <li>Which process is usually a physical change? Which method separates sand from water?</li>
-            <li>What does universal indicator show? If blue litmus turns red, what is the solution?</li>
-            <li>A neutralisation reaction is between what?</li>
+            <li>Which sign shows that a chemical reaction has happened? What is true about chemical change?</li>
+            <li>Which is a physical change: melting wax or burning wax? Which method separates sand from water?</li>
+            <li>What does universal indicator show? Blue litmus paper turns red in a solution. What kind of solution is it?</li>
+            <li>Which two kinds of substance react in neutralisation?</li>
           </ol>
         }
         answer={

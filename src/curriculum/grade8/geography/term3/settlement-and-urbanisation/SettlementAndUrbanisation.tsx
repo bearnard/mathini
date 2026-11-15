@@ -96,16 +96,16 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is an urban settlement? Which feature is most typical of a rural settlement?</li>
-            <li>What is the CBD in a city? What is an aerial photograph?</li>
-            <li>Give a push factor for moving from rural to urban areas and a pull factor attracting people to cities.</li>
-            <li>What is one effect of rapid urbanisation when planning does not keep pace? How did apartheid-era planning affect South African urban areas?</li>
+            <li>What defines an urban settlement? Name one feature of a rural settlement.</li>
+            <li>What does CBD stand for? What is an aerial photograph?</li>
+            <li>Name one reason people leave farms for the city, and one thing in the city that draws them there.</li>
+            <li>What can happen when a city grows faster than it is planned? How did apartheid planning shape South African cities?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>A town or city with high population density and many services. Low population density and larger areas of open land.</li>
-            <li>The central business district, where services and firms cluster. An image of Earth&apos;s surface taken from above.</li>
+            <li>A town or city with high population density and many services. Few people spread over large areas of open land.</li>
+            <li>Central business district, where services and firms cluster. An image of Earth&apos;s surface taken from above.</li>
             <li>Push: lack of local job opportunities. Pull: more jobs and service opportunities.</li>
             <li>Growth of informal settlements. It created unequal and separated residential spaces.</li>
           </ol>

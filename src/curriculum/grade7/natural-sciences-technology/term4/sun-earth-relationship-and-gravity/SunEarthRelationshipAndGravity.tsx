@@ -27,7 +27,7 @@ const learnSteps: LearnStep[] = [
           ]}
         />
         <Mistake>
-          Thinking summer is when Earth is closest to the Sun. Earth is closest in early January, which is summer in the south but winter in the north. The tilt, not the distance, causes the seasons.
+          Thinking summer is when Earth is closest to the Sun. Earth is closest in early January, which is summer in the south but winter in the north. It is the tilt, not the distance, that gives us seasons.
         </Mistake>
       </>,
     ),
@@ -57,7 +57,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          The gravity of the Moon and the Sun pulls on the oceans. Spring tides are strongest when the Sun, Earth and Moon are aligned. Neap tides happen when the Sun and Moon are at right angles relative to Earth.
+          The gravity of the Moon and the Sun pulls on the oceans. The biggest (spring) tides come when the Sun, Earth, and Moon are aligned. The smallest (neap) tides arrive when the Moon and the Sun pull at right angles relative to Earth.
         </Rule>
         <MoonOrbit show="tides" />
         <Worked
@@ -96,17 +96,17 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What mainly causes the seasons on Earth?</li>
-            <li>What causes the phases of the Moon?</li>
-            <li>When are spring tides strongest? When do neap tides happen?</li>
-            <li>What keeps planets in orbit around the Sun? In a lunar eclipse, which body is between the Sun and the Moon?</li>
+            <li>Why is it summer in one hemisphere while it is winter in the other?</li>
+            <li>Why do we see a thin crescent one night and a bright circle two weeks later?</li>
+            <li>When are the biggest tides, and when are the smallest?</li>
+            <li>Which force keeps the planets moving around the Sun? During an eclipse of the Moon, which body casts the shadow?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Earth&apos;s axial tilt as it orbits the Sun.</li>
             <li>Different portions of the lit Moon are visible from Earth.</li>
-            <li>Spring tides: when the Sun, Earth and Moon are aligned. Neap tides: when the Sun and Moon are at right angles relative to Earth.</li>
+            <li>The biggest are spring tides: the Sun, Earth and Moon line up. The smallest are neap tides: the Sun and Moon pull at right angles.</li>
             <li>Gravity. Earth.</li>
           </ol>
         }

@@ -76,7 +76,7 @@ const learnSteps: LearnStep[] = [
         />
         <Worked
           title="Choose the healthy habit"
-          steps={[<>Which choice promotes a healthy circulatory system? Regular exercise.</>, <>Which supports the respiratory system? Regular exercise in fresh air.</>]}
+          steps={[<>Which habit keeps the heart and blood vessels strong? Regular exercise.</>, <>Which supports the respiratory system? Regular exercise in fresh air.</>]}
         />
         <Mistake>Thinking health habits only affect one system. The systems work together, so exercise helps the heart, the lungs and the whole body.</Mistake>
       </>,
@@ -88,17 +88,17 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the main role of the digestive system? Which system transports oxygen?</li>
-            <li>What does the respiratory system remove? Which organs are part of the excretory system?</li>
-            <li>What is homeostasis? What does the reproductive system do?</li>
-            <li>Name a choice that supports a healthy circulatory system. How do the lungs and blood work together?</li>
+            <li>How does the digestive system treat the food you eat? Which system carries oxygen round the body?</li>
+            <li>Which waste gas do the lungs get rid of? Name two organs of the excretory system.</li>
+            <li>What word describes the body keeping its inside conditions stable? What is the reproductive system for?</li>
+            <li>Give one habit that keeps your heart and blood vessels healthy. How do the lungs and blood work as a team?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Break food down into small nutrients. The circulatory system.</li>
             <li>Carbon dioxide. Kidneys and bladder.</li>
-            <li>The body keeping its inside conditions stable. It makes the sex cells needed to form a new life.</li>
+            <li>Homeostasis. It makes the sex cells needed to form a new life.</li>
             <li>Regular exercise. The lungs take in oxygen; the blood carries it to cells.</li>
           </ol>
         }

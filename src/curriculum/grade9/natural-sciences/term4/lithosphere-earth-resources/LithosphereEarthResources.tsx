@@ -117,10 +117,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a mineral? Which layer of the Earth is thickest?</li>
+            <li>What is a mineral? Which of the crust, mantle and core is the thickest layer?</li>
             <li>How do igneous rocks form? What are tectonic plates? What causes earthquakes?</li>
-            <li>What is mining? What is an environmental impact of mining?</li>
-            <li>What are fossil fuels? Why are they non-renewable? Which is a renewable resource?</li>
+            <li>What is mining? Name one way mining harms the environment.</li>
+            <li>What are fossil fuels? Why can we run out of them? Name a renewable resource.</li>
           </ol>
         }
         answer={

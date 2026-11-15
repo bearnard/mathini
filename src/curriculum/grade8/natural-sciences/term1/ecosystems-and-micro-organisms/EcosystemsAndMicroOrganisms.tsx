@@ -108,7 +108,7 @@ const learnSteps: LearnStep[] = [
           <ol className="list-decimal space-y-2 pl-5">
             <li>Which of these is an abiotic factor: sunlight or a frog? What are biotic factors?</li>
             <li>What do decomposers do? What is true about many fungi?</li>
-            <li>Which group of organisms makes yoghurt? Why are viruses usually not classified as living cells?</li>
+            <li>Which group of organisms turns milk into yoghurt? Why is a virus not counted as a living cell?</li>
             <li>If a top predator is removed from a food web, what may happen? Give an example of conservation.</li>
           </ol>
         }
@@ -116,7 +116,7 @@ const learnSteps: LearnStep[] = [
           <ol className="list-decimal space-y-2 pl-5">
             <li>Sunlight. Biotic factors are the living components of an ecosystem.</li>
             <li>They break down dead material and recycle nutrients. Many fungi are decomposers in ecosystems.</li>
-            <li>Bacteria. They cannot reproduce independently without a host cell.</li>
+            <li>Bacteria. They cannot reproduce without a host cell.</li>
             <li>Some prey populations may increase too much. Protecting wetlands and limiting pollution.</li>
           </ol>
         }

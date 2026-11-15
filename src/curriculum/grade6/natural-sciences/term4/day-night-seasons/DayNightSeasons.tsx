@@ -22,7 +22,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          The Sun seems to move across the sky because <strong>Earth rotates</strong>. The Sun does not travel around Earth each day.
+          From the ground the Sun appears to travel from east to west, but it is <strong>Earth rotating</strong> that makes it look that way. The Sun does not travel around Earth each day.
         </p>
         <p className="rounded-xl bg-amber-50 p-5 font-semibold text-amber-800">
           Earth spins towards the east, so the Sun appears to <strong>rise in the east</strong>, be highest at midday, and <strong>set in the west</strong>.
@@ -74,7 +74,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          When it is summer in South Africa, it is winter in countries like Canada and the United Kingdom, because they are in the <strong>other half</strong> of Earth.
+          In December we have long, hot days, while countries like Canada and the United Kingdom have winter, because they are in the <strong>other half</strong> of Earth.
         </p>
         <div className="rounded-xl bg-slate-50 p-5 font-semibold text-slate-700">
           South Africa: summer is about December to February. Winter is about June to August.

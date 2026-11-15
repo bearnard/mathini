@@ -51,7 +51,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Rehearsal discipline and backstage teamwork',
     content: slide(
       <>
-        <Rule>Rehearsal discipline is shown when actors arrive prepared and follow the rehearsal plan. Backstage teamwork supports smooth transitions and focus.</Rule>
+        <Rule>Actors show discipline in rehearsal by coming prepared and sticking to the rehearsal plan. Backstage teamwork supports smooth transitions and focus.</Rule>
         <TermGrid terms={BACKSTAGE} cols={2} aria="Four backstage roles in boxes: stage manager (calls the cues), props (move the objects), lights and sound (effects on cue) and costumes (quick changes)." />
         <Worked
           title="A scene change"

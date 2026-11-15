@@ -60,7 +60,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          A map scale shows how map distance relates to real distance. Using scale is the most helpful skill when comparing two routes by distance.
+          Every map has a scale that links a length on paper to a length on the ground. Measuring with the scale lets you work out which of two routes is shorter.
         </Rule>
         <NeighbourhoodMap routes />
         <Worked
@@ -113,18 +113,18 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the main purpose of a map scale? Which map is most useful for finding a route between two streets in town?</li>
-            <li>What does a sketch map usually show? What is an atlas?</li>
-            <li>If a clinic is east of a school, where is the school from the clinic?</li>
-            <li>What are latitude and longitude used for? Which map-reading skill helps when comparing two routes by distance? Why is route finding important?</li>
+            <li>Why does a map have a scale bar? Which map would help a visitor walk from the library to the station?</li>
+            <li>What would you draw on a sketch map of your school grounds? What is an atlas?</li>
+            <li>If a library is north of a park, where is the park from the library?</li>
+            <li>How do we give the exact position of a place on Earth? Which map-reading skill helps when comparing the lengths of two routes? Why is route finding important?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>To show how map distance relates to real distance. A street map.</li>
-            <li>A simple drawing of key places and routes. A collection of maps in one book.</li>
-            <li>West.</li>
-            <li>To give exact position on Earth. Using scale. It helps people find their way efficiently and safely.</li>
+            <li>The main buildings and paths, simplified. A collection of maps in one book.</li>
+            <li>South.</li>
+            <li>Latitude and longitude. Using scale. It helps people find their way efficiently and safely.</li>
           </ol>
         }
       />,

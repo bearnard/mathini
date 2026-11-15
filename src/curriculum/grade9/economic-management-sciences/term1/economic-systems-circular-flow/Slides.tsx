@@ -102,7 +102,7 @@ export const learnSteps: LearnStep[] = [
             <li>In which kind of economy does the government control production and distribution?</li>
             <li>A household earns {rand(flowQ.income)}, pays {rand(flowQ.tax)} tax and saves {rand(flowQ.saved)}. How much is left to spend?</li>
             <li>Name the four factors of production.</li>
-            <li>Why do mixed economies combine planned and market elements?</li>
+            <li>What is the benefit of an economy that blends government planning with free markets?</li>
           </ol>
         }
         answer={

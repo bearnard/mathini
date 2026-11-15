@@ -97,7 +97,7 @@ export const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>In &quot;The learners read quietly&quot;, which word is the adverb?</li>
-            <li>Which is in the future tense: &quot;They presented&quot; or &quot;They will present&quot;?</li>
+            <li>Which shows the future: &quot;She cooked&quot; or &quot;She will cook&quot;?</li>
             <li>What is a stereotype?</li>
             <li>How would you edit &quot;Those learners are always lazy&quot; to be fairer?</li>
           </ol>
@@ -105,7 +105,7 @@ export const learnSteps: LearnStep[] = [
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>{wordsOfClass('The learners read quietly', 'adverb')[0]}</li>
-            <li>&quot;They will present&quot;, because &quot;will&quot; marks the future.</li>
+            <li>&quot;She will cook&quot;, because &quot;will&quot; marks the future.</li>
             <li>An oversimplified belief about a group.</li>
             <li>Replace the stereotype with specific, evidence-based wording.</li>
           </ol>

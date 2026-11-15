@@ -90,17 +90,17 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is conduction? Which is an example of convection? How does heat from the Sun reach Earth?</li>
-            <li>What is an insulator? Which is a good insulator? Why do we use insulation in buildings?</li>
-            <li>What does an exothermic reaction do? Is combustion exothermic or endothermic?</li>
-            <li>What does temperature measure? What is the difference between heat and temperature?</li>
+            <li>What is conduction? Name a place in daily life where convection happens. By which type of transfer does sunlight warm the Earth?</li>
+            <li>What is an insulator? Name a material that is a good insulator. How does insulation help a building?</li>
+            <li>In an exothermic reaction, is heat released or absorbed? Is burning wood exothermic or endothermic?</li>
+            <li>What does temperature tell you about the particles? How are heat and temperature different?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Heat moving through a solid from particle to particle. Hot air rising in a room. Radiation.</li>
             <li>Something that slows down heat transfer. Wool. To keep heat in during winter and out in summer.</li>
-            <li>Releases heat. Exothermic.</li>
+            <li>It goes out: heat is released. Exothermic.</li>
             <li>How fast particles move. Heat is energy moving from hot to cold; temperature shows how fast particles move.</li>
           </ol>
         }

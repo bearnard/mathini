@@ -47,7 +47,7 @@ const learnSteps: LearnStep[] = [
     title: 'Choosing a joining method',
     content: slide(
       <>
-        <Rule>Choosing glue, screws or rivets is mainly about selecting a suitable joining method for the material and the load.</Rule>
+        <Rule>Pick glue, screws or rivets by asking which joining method suits the material and the load.</Rule>
         <Terms
           rows={[
             ['Glue', 'good for wood, card and paper in light models. It needs time to set.'],
@@ -88,9 +88,9 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a prototype? Why is accurate measuring important when making a model?</li>
-            <li>Which is a safe workshop practice? Choosing glue, screws or rivets is mainly about what?</li>
-            <li>What are evaluation criteria used to do? After testing shows a weakness, what is the best next step?</li>
+            <li>What is a prototype? Why measure carefully before cutting the parts of a model?</li>
+            <li>Name one safe habit in a workshop. What is the choice between glue, screws and rivets mostly about?</li>
+            <li>What do evaluation criteria let you judge? If testing exposes a weakness, what should you do next?</li>
             <li>What should a process record include? Which tool smooths a wooden piece before joining?</li>
           </ol>
         }

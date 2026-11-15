@@ -53,7 +53,7 @@ const learnSteps: LearnStep[] = [
     title: 'Preserving food',
     content: slide(
       <>
-        <Rule>Drying is a common food-preservation method. Drying removes moisture and slows spoilage.</Rule>
+        <Rule>Drying meat or fruit in the sun is a common way to preserve food. Drying removes moisture and slows spoilage.</Rule>
         <Worked
           title="Drying fruit"
           steps={[
@@ -71,7 +71,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          Different methods suit different materials and needs. A sustainable process choice should consider environmental impact and resource use.
+          Different methods suit different materials and needs. Choose processes sustainably by weighing their impact on the environment and the resources they use.
         </Rule>
         <Compare
           left={{ title: 'Indigenous methods', tone: 'amber', rows: ['developed locally over time', 'use available materials', 'example: drying meat to make biltong'] }}
@@ -92,8 +92,8 @@ const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>What is galvanising? Painting metal helps mainly by doing what?</li>
-            <li>Electroplating is used to do what? Which is a common food-preservation method?</li>
-            <li>Why is indigenous knowledge important in technology? A sustainable process choice should consider what?</li>
+            <li>What is electroplating used for? Name one traditional way of preserving food.</li>
+            <li>What value does indigenous knowledge add to technology? What should a sustainable process choice take into account?</li>
             <li>For steel fencing near the sea, which rust prevention is a good choice? Which statement best compares methods?</li>
           </ol>
         }

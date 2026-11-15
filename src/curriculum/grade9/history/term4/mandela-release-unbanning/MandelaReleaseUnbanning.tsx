@@ -42,7 +42,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          On February 2, 1990, President <strong>F. W. de Klerk</strong> announced the unbanning of the ANC and other 
+          On February 2, 1990, President <strong>F. W. de Klerk</strong> lifted the ban on the ANC and other 
           organizations. This shocking reversal showed apartheid was ending. The ANC, banned for 30 years, could operate openly again. 
           De Klerk also announced that Mandela would be released.
         </p>

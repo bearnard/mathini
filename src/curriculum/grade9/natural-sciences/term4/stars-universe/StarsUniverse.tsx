@@ -111,10 +111,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a star? What keeps a star together? How does a star produce energy?</li>
-            <li>What is the first stage in a star&apos;s life cycle? In what stage is our Sun? What happens to a star after the main sequence?</li>
-            <li>What is a galaxy? What is the name of our galaxy? How many galaxies are in the observable universe?</li>
-            <li>Why does light from distant stars take so long to reach Earth?</li>
+            <li>What is a star? What force holds a star together? What process gives a star its energy?</li>
+            <li>Where does a star begin its life? Which stage is the Sun in now? What does a star turn into once it leaves the main sequence?</li>
+            <li>What is a galaxy? Which galaxy do we live in? Roughly how many galaxies can we observe in the universe?</li>
+            <li>Why do we see distant stars as they were long ago?</li>
           </ol>
         }
         answer={

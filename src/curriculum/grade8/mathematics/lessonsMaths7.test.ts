@@ -33,8 +33,8 @@ test('Geometry of 3D Objects: worked numbers', () => {
   assert.match(solids[2].text, /0 edges/);
   assert.match(solids[3].text, /8 − 12 \+ 6 = 2/);
   assert.match(solids[3].text, /6 − 9 \+ 5 = 2/);
-  assert.match(solids[5].text, /7 faces \(2 pentagons, 5 rectangles\), 15 edges, 10 vertices/);
-  assert.match(solids[5].text, /10 − 15 \+ 7 = 2/);
+  assert.match(solids[5].text, /8 faces \(2 hexagons, 6 rectangles\), 18 edges, 12 vertices/);
+  assert.match(solids[5].text, /12 − 18 \+ 8 = 2/);
   assert.match(solids[5].text, /4 faces/);
 });
 
@@ -78,7 +78,7 @@ test('Transformation Geometry: worked numbers', () => {
   assert.match(transf[3].text, /4 × 6 = 24/);
   assert.match(transf[4].text, /\(2; 2\)\./);
   assert.match(transf[4].text, /\(−2; −5\)\./);
-  assert.match(transf[4].text, /\(1; −3\)\./);
+  assert.match(transf[4].text, /\(−3; −5\)\./);
   assert.match(transf[4].text, /9 cm by 3 cm/);
 });
 

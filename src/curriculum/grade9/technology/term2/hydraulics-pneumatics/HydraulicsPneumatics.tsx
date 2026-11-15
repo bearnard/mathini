@@ -96,17 +96,17 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the key difference between hydraulic and pneumatic systems? What is Pascal&apos;s principle?</li>
-            <li>How do syringes demonstrate these principles? What is force multiplication in a hydraulic system?</li>
-            <li>If the output piston has twice the area of the input piston and the pressure is constant, what happens to force?</li>
-            <li>Why are hydraulic systems preferred in heavy machinery? What is the advantage of pneumatic systems? How is pressure measured?</li>
+            <li>How do hydraulic and pneumatic systems differ in what they use? State Pascal&apos;s principle.</li>
+            <li>How can two connected syringes show these principles? How does a hydraulic system multiply force?</li>
+            <li>A hydraulic jack’s output piston has three times the area of its input piston. The pressure is the same. What happens to the force?</li>
+            <li>Why do diggers and cranes use hydraulics? What is the advantage of pneumatic systems? In what units is pressure measured?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Hydraulic systems use liquid; pneumatic systems use compressed air. Pressure on a trapped fluid is passed on equally in all directions.</li>
             <li>Pushing one syringe moves the fluid or air and so pushes the other. Different piston sizes make the output force bigger than the input.</li>
-            <li>Output force is doubled.</li>
+            <li>Output force is three times as big.</li>
             <li>They give strong force and can be controlled very exactly. Pneumatic systems are cleaner, with no fluid leaks to clean up. In pascals (Pa) or bars; it is force per unit area.</li>
           </ol>
         }

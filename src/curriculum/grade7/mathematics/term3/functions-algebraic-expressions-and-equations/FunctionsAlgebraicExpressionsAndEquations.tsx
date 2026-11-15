@@ -6,7 +6,7 @@ import { AlgebraTiles, LessThanBar } from '../../../../../components/diagrams/ma
 import { collectLike, evalLinear, evaluate, solveLinear, termsText, type Term } from '../../../../../components/diagrams/maths/grade7Helpers2';
 
 // Every number in the slides below comes from tested helpers (grade7Helpers2.test.ts, lessons2.test.ts).
-const sub = { a: evaluate([{ coef: 2, letter: 'a' }, { coef: 3, letter: '' }], 4), wrong: 2 * (4 + 3), y: evalLinear(2, 0, 5) };
+const sub = { a: evaluate([{ coef: 2, letter: 'a' }, { coef: 3, letter: '' }], 4), wrong: 2 * (4 + 3), y: evalLinear(3, 0, 4) };
 const like1: Term[] = [{ coef: 3, letter: 'x' }, { coef: 2, letter: 'x' }];
 const like2: Term[] = [{ coef: 4, letter: 'y' }, { coef: 3, letter: '' }, { coef: -2, letter: 'y' }];
 const add = solveLinear(1, 7, 15);
@@ -48,7 +48,7 @@ export const learnSteps: LearnStep[] = [
             <>Replace a: 2 × 4 + 3.</>,
             <>Multiply first: 2 × 4 = 8.</>,
             <>Then add: 8 + 3 = <strong>{sub.a}</strong>.</>,
-            <>In the same way, if y = 2x and x = 5, then y = 2 × 5 = <strong>{sub.y}</strong>.</>,
+            <>In the same way, if y = 3x and x = 4, then y = 3 × 4 = <strong>{sub.y}</strong>.</>,
           ]}
         />
         <Mistake>Adding first: 2 × (4 + 3) = {sub.wrong}. In 2a + 3 only the a is multiplied by 2, so multiply first and then add 3.</Mistake>

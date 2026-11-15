@@ -53,7 +53,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Performance revision and warm-up',
     content: slide(
       <>
-        <Rule>Revise a performance by working on the difficult sections again and again. A warm-up before singing or playing prepares your technique and reduces strain.</Rule>
+        <Rule>Revise a performance by working on the difficult sections again and again. Warming up your voice or hands before you perform gets your technique ready and eases strain.</Rule>
         <NumberedSteps
           label="How to revise a prepared item"
           heading="Revise in order"
@@ -90,7 +90,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Stage etiquette and self-evaluation',
     content: slide(
       <>
-        <Rule>Good stage etiquette includes entering and exiting respectfully. After a performance, self-evaluation should include one success and one improvement goal.</Rule>
+        <Rule>Good stage etiquette means walking on and off respectfully. When you evaluate yourself afterwards, name one success and one improvement goal.</Rule>
         <NumberedSteps
           label="From stage entrance to self-evaluation"
           heading="A performance from start to finish"

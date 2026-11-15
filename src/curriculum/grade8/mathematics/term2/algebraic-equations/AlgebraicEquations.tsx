@@ -15,7 +15,7 @@ const two = solveLinear(2, 0, 18); // 2x = 18
 const third = 5 * 3; // x/3 = 5: multiply both sides by 3
 const step2 = solveLinear(4, 2, 18); // 4x + 2 = 18
 const chk2 = checkSolution(4, 2, 18, step2.x);
-const chk4 = checkSolution(3, 1, 13, 4); // is x = 4 a solution of 3x + 1 = 13?
+const chk4 = checkSolution(2, 3, 13, 5); // does x = 5 satisfy 2x + 3 = 13?
 const wrongStep2 = 18 / 4 - 2; // the mistake: dividing before taking away 2
 const negJump = jump(5, -7); // 5 − 2x = −7: from 5 to −7 is a jump of −12
 const neg = solveLinear(-2, 5, -7);
@@ -72,7 +72,7 @@ export const learnSteps: LearnStep[] = [
           steps={[
             <>Subtract 2 from both sides: 4x = {step2.rhs}.</>,
             <>Divide both sides by 4: x = <strong>{step2.x}</strong>.</>,
-            <>Check: 4 × {step2.x} + 2 = {chk2.left} ✓. In the same way x = 4 solves 3x + 1 = 13, because 3 × 4 + 1 = {chk4.left}.</>,
+            <>Check: 4 × {step2.x} + 2 = {chk2.left} ✓. In the same way x = 5 solves 2x + 3 = 13, because 2 × 5 + 3 = {chk4.left}.</>,
           ]}
         />
         <Mistake>Dividing first: 18 ÷ 4 − 2 = {String(wrongStep2).replace('.', ',')}. The 2 was added last, so it must be undone first.</Mistake>

@@ -35,7 +35,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Social responsibility and customers',
     content: slide(
       <>
-        <Rule>Corporate social responsibility means operating ethically and contributing positively to society and the environment. A responsible business also deals with customer complaints promptly.</Rule>
+        <Rule>Social responsibility means operating ethically and contributing positively to society and the environment. A responsible business also deals with customer complaints promptly.</Rule>
         <NumberedSteps
           label="Handling a customer complaint"
           heading="Handling a complaint"
@@ -82,7 +82,7 @@ export const learnSteps: LearnStep[] = [
           title="Why does it matter to Lerato?"
           steps={['She wants to open a spaza shop.', 'In an open system she can choose her goods and prices.', 'In a tightly controlled system she may not be allowed to start.']}
         />
-        <Mistake>Thinking entrepreneurs work outside the economic system. The system shapes what they may do.</Mistake>
+        <Mistake>Thinking entrepreneurs work outside the economic system. The system limits the choices a business can make.</Mistake>
       </>,
     ),
   },
@@ -111,7 +111,7 @@ export const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Name two things a business owes its employees.</li>
-            <li>What does corporate social responsibility mean?</li>
+            <li>What does it mean for a business to be socially responsible?</li>
             <li>Name one reason a business keeps honest records.</li>
             <li>A shop has {rand(q4.income)} income and {rand(q4.spending)} spending. Surplus or deficit, and how much?</li>
           </ol>

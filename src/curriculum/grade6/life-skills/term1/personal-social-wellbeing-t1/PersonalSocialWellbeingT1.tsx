@@ -85,7 +85,7 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What does self-image mean? Which choice shows a personal strength?</li>
+            <li>What does self-image mean? Which of these is a personal strength: being patient with a younger sibling, or copying a friend’s homework?</li>
             <li>Which is a healthy habit, and which action shows respect?</li>
             <li>What is peer pressure? Give a good refusal sentence and say what to do if it continues.</li>
             <li>Which learner acts like a supportive friend? What is an example of a simple goal?</li>
@@ -93,7 +93,7 @@ const learnSteps: LearnStep[] = [
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>How you see and feel about yourself. Helping a classmate patiently.</li>
+            <li>How you see and feel about yourself. Being patient with a younger sibling.</li>
             <li>Washing your hands before eating. Listening when another learner is speaking.</li>
             <li>Pressure from others to do something. “No thanks, I do not want to do that.” Tell a trusted adult.</li>
             <li>A learner who includes a new classmate in a game. “I will pack my homework every night this week.”</li>

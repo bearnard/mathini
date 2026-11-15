@@ -28,7 +28,7 @@ test('Numeric and geometric patterns: terms, rules and the tile count are true',
   assert.equal(5 + 6 * 4, 29); // the wrong answer named in the mistake
   assert.deepEqual(geometricTerms(2, 2, 5), [2, 4, 8, 16, 32]);
   assert.equal(5 * 5, 25);
-  assert.match(patterns[0].text, /21 \+ 7 = 28/);
+  assert.match(patterns[0].text, /24 \+ 8 = 32/);
   assert.match(patterns[0].text, /27 − 30 = −3/);
   assert.match(patterns[0].text, /subtract 3 each time/);
   assert.match(patterns[0].text, /21 − 3 = 18/);
@@ -41,7 +41,7 @@ test('Numeric and geometric patterns: terms, rules and the tile count are true',
   assert.match(patterns[5].text, /19 \+ 4 = 23/);
   assert.match(patterns[5].text, /Tn = 4n \+ 1/);
   assert.match(patterns[5].text, /5 × 20 − 2 = 98/);
-  assert.match(patterns[5].text, /27 × 3 = 81/);
+  assert.match(patterns[5].text, /18 × 3 = 54/);
 });
 
 test('Transformation geometry: images and the 3D counts are true', () => {

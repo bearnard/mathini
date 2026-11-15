@@ -58,7 +58,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          The periodic table organises the elements. They are arranged by increasing atomic number, which is the number of protons in the atom.
+          The periodic table organises the elements. Their order follows increasing atomic number, which is the number of protons in the atom.
         </Rule>
         <PeriodicStrip />
         <Worked
@@ -102,7 +102,7 @@ const learnSteps: LearnStep[] = [
             <li>Which is an element: water or oxygen? What is water (H₂O) classified as?</li>
             <li>What is true about mixtures? What is a solution?</li>
             <li>Which is a heterogeneous mixture: salt water, or sand and iron filings?</li>
-            <li>How are the elements arranged in the periodic table? What is brass?</li>
+            <li>What decides the order of the elements in the periodic table? What is brass?</li>
           </ol>
         }
         answer={

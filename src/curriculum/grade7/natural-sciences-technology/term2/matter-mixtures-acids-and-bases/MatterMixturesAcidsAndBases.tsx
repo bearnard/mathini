@@ -23,7 +23,7 @@ const learnSteps: LearnStep[] = [
         <Worked
           title="A block of ice melts, then boils"
           steps={[
-            <>Ice is a solid: the particles are close together and vibrating in fixed positions.</>,
+            <>In ice the particles sit tightly packed, each one jiggling in place without moving away.</>,
             <>Melted, it is a liquid: the particles are still close but can slide past each other.</>,
             <>Boiled, it is a gas: the particles are far apart and move freely.</>,
           ]}
@@ -114,7 +114,7 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Describe the particles of a solid.</li>
+            <li>How are the particles arranged in a block of ice?</li>
             <li>What is a solution?</li>
             <li>What does blue litmus paper do in an acid? And red litmus in a base?</li>
             <li>Which method separates sand from water? What observation suggests a chemical change?</li>

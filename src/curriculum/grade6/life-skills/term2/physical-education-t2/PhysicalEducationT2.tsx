@@ -11,7 +11,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          In an invasion game the main aim is to move into space and try to score. Moving into an open space helps a teammate receive a pass more easily.
+          In an invasion game each team works the ball towards its goal. By moving into an open space, a player becomes the easiest team-mate to pass to.
         </Rule>
         <InvasionGame />
         <Worked
@@ -92,17 +92,17 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the main aim in an invasion game? Which action helps a teammate receive a pass?</li>
+            <li>In an invasion game such as netball or hockey, what is the team trying to do? How can you make it easy for a teammate to pass to you?</li>
             <li>What is good defending, and what should you do if a defender blocks you?</li>
-            <li>What does agility mean? Why repeat catching and passing drills? What is a small-sided game?</li>
-            <li>What does teamwork look like in a small-sided game, and which behaviour is fair play?</li>
+            <li>What does agility mean? Why repeat catching and passing drills? What is a 3-against-3 game an example of?</li>
+            <li>How do good teammates behave in a 3-against-3 match, and which behaviour is fair play?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Move into space and try to score. Moving into an open space.</li>
+            <li>Move the ball into space and score. Stand free of defenders, in an open space.</li>
             <li>Staying between the attacker and the goal. Pass to an open teammate.</li>
-            <li>Changing direction quickly with control. To improve skill and fitness. A game with fewer players on each team.</li>
+            <li>Changing direction quickly with control. To improve skill and fitness. A small-sided game: fewer players on each team.</li>
             <li>Communicating and supporting others. Admitting the ball went out off your hand.</li>
           </ol>
         }

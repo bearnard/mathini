@@ -7,7 +7,7 @@ import { signed } from '../../../../../components/diagrams/maths/grade7Helpers';
 import { commonDifference, commonRatio, geometricTerms, linearRule, linearTerms, plusStage } from '../../../../../components/diagrams/maths/grade7Helpers2';
 
 // Every number in the slides below comes from tested helpers (grade7Helpers2.test.ts, lessons3.test.ts).
-const sevens = linearTerms(7, 0, 5);
+const eights = linearTerms(8, 0, 5);
 const down = [30, 27, 24, 21];
 const downStep = commonDifference(down) ?? 0;
 const fives = linearTerms(3, 2, 4);
@@ -20,7 +20,7 @@ const check = {
   next: linearTerms(4, 3, 5),
   rule: linearRule([1, 2, 3, 4], linearTerms(4, 1, 4)) ?? { m: 0, c: 0 },
   t20: linearTerms(5, -2, 20)[19],
-  geo: geometricTerms(3, 3, 4),
+  geo: geometricTerms(2, 3, 4),
 };
 const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
@@ -30,11 +30,11 @@ export const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>Many patterns add or subtract the same number every time. Find that difference, then use it to get the next or a missing term.</Rule>
-        <TermRow terms={sevens} mode="difference" hide={3} />
+        <TermRow terms={eights} mode="difference" hide={3} />
         <Worked
-          title="7, 14, 21, __, 35 and 30, 27, 24, 21, ..."
+          title="8, 16, 24, __, 40 and 30, 27, 24, 21, ..."
           steps={[
-            <>14 − 7 = 7 and 21 − 14 = 7, so add 7: 21 + 7 = <strong>{sevens[3]}</strong>. Check: {sevens[3]} + 7 = {sevens[4]} ✓</>,
+            <>16 − 8 = 8 and 24 − 16 = 8, so add 8: 24 + 8 = <strong>{eights[3]}</strong>. Check: {eights[3]} + 8 = {eights[4]} ✓</>,
             <>27 − 30 = {signed(downStep)}: the rule is <strong>subtract 3 each time</strong>, so the next term is 21 − 3 = {21 + downStep}.</>,
           ]}
         />
@@ -121,7 +121,7 @@ export const learnSteps: LearnStep[] = [
             <li>What is the next term in 7, 11, 15, 19, ...?</li>
             <li>Find the rule for 5, 9, 13, 17, ...</li>
             <li>If Tn = 5n − 2, what is T20?</li>
-            <li>What is the next term in 3, 9, 27, ...?</li>
+            <li>What is the next term in 2, 6, 18, ...?</li>
           </ol>
         }
         answer={
@@ -129,7 +129,7 @@ export const learnSteps: LearnStep[] = [
             <li>Add 4: 19 + 4 = {check.next[4]}.</li>
             <li>Up by 4, and 4 × 1 + 1 = 5, so Tn = {check.rule.m}n + {check.rule.c}.</li>
             <li>5 × 20 − 2 = {check.t20}.</li>
-            <li>Multiply by 3: 27 × 3 = {check.geo[3]}.</li>
+            <li>Multiply by 3: 18 × 3 = {check.geo[3]}.</li>
           </ol>
         }
       />,

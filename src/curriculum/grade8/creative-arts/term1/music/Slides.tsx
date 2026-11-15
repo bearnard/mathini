@@ -55,7 +55,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Pitch on the staff',
     content: slide(
       <>
-        <Rule>Pitch tells us whether a sound is high or low. On the staff, the higher a note sits, the higher its pitch.</Rule>
+        <Rule>A sound can be high, like a whistle, or low, like a drum: that is its pitch. On the staff, the higher a note sits, the higher its pitch.</Rule>
         <StaffNotes notes={['E4', 'G4', 'B4']} aria="A five-line staff with three notes rising from the bottom line to the middle line. The notes are named E, G and B, and each is higher on the staff and higher in pitch than the one before." />
         <Worked
           title="Which is higher, E or B?"

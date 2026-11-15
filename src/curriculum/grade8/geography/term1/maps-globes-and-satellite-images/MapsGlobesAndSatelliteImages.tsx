@@ -110,17 +110,17 @@ const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>In which direction do lines of latitude run? What is 0° longitude called?</li>
-            <li>A map has a ratio scale of 1:50 000. What does 1 cm on the map represent in reality?</li>
-            <li>How much time difference is there between places about 15° apart in longitude? What usually happens when you cross the International Date Line from east to west?</li>
-            <li>What is the main reason Earth has seasons? Why are satellite images useful in geography? What is an atlas mainly used for?</li>
+            <li>On a map with a ratio scale of 1:25 000, how far in reality is a road that measures 3 cm?</li>
+            <li>Two towns are 45° apart in longitude. What is the time difference between them? What happens to the date when you travel west across the International Date Line?</li>
+            <li>Why is it winter in Cape Town while it is summer in London? How can satellite images help to track a flood? What would you use an atlas to look up?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>East to west. The Prime Meridian.</li>
-            <li>500 m.</li>
-            <li>About 1 hour. You add one day.</li>
-            <li>Earth is tilted on its axis as it orbits the Sun. They show real-time or recent views of Earth&apos;s surface. To access different maps and geographic information.</li>
+            <li>750 m.</li>
+            <li>About 3 hours. The date moves forward by one day.</li>
+            <li>Earth is tilted on its axis as it orbits the Sun. They show recent views of large areas from above. To look up maps and place information.</li>
           </ol>
         }
       />,

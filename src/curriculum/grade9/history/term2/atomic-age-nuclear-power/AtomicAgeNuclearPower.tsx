@@ -72,8 +72,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
           People lived with fear of nuclear war. Schools held nuclear drills, families built bomb shelters, 
-          and popular culture was filled with nuclear anxiety. The closest the world came to nuclear war was 
-          during the 1962 Cuban Missile Crisis, when the USA and USSR nearly clashed over Soviet missiles in Cuba.
+          and popular culture carried deep nuclear anxiety. The world came closest to nuclear war in 1962, when the USA and USSR nearly clashed over Soviet missiles in Cuba, a standoff known as the Cuban Missile Crisis.
         </p>
         <div className="bg-indigo-50 p-6 rounded-xl inline-block text-slate-700">
           <strong>Crisis:</strong> Cuban Missile Crisis 1962—world held its breath

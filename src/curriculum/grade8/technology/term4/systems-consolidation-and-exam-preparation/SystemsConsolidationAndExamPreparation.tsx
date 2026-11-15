@@ -14,7 +14,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          A technology system joins mechanical, structural and electrical parts. When revising mixed-system diagrams, first identify what each part does in the system. A system with sensor, controller and buzzer is an input-process-output control system.
+          A technology system joins mechanical, structural and electrical parts. Start revising a mixed-system diagram by working out the job of each part. A system with sensor, controller and buzzer is an input-process-output control system.
         </Rule>
         <IpoFlow id="sys" input="sensor" process="controller" output="buzzer" />
         <Worked
@@ -53,7 +53,7 @@ const learnSteps: LearnStep[] = [
     title: 'Electrical parts and circuit diagrams',
     content: slide(
       <>
-        <Rule>In an electrical diagram, a cell is mainly the energy source. Cells supply electrical energy to a circuit.</Rule>
+        <Rule>On an electrical diagram the cell supplies the energy. Cells supply electrical energy to a circuit.</Rule>
         <CircuitSymbols />
         <Worked
           title="Label a circuit diagram"
@@ -81,7 +81,7 @@ const learnSteps: LearnStep[] = [
           title="A PAT reflection"
           steps={[<>Describe a test you did on the prototype.</>, <>Say what the test showed, and what you changed.</>, <>That is evidence of how testing improved the design.</>]}
         />
-        <Mistake>Revising only by re-reading. A strong exam-preparation strategy is to practise past-style questions and check key terms.</Mistake>
+        <Mistake>Revising only by re-reading. Prepare well for exams by practising past-style questions and checking key terms.</Mistake>
       </>,
     ),
   },
@@ -91,10 +91,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which pair are both mechanical components? Which pair are both structural terms?</li>
-            <li>In an electrical diagram, what is a cell mainly? How is a system with sensor, controller and buzzer best described?</li>
-            <li>Why should exam answers in Technology be concise and labelled clearly? Which is a useful PAT reflection question?</li>
-            <li>When revising mixed-system diagrams, what do you identify first? What is a strong exam-preparation strategy?</li>
+            <li>Name two mechanical components. Name two structural terms.</li>
+            <li>What does the cell do in an electrical diagram? How would you describe a system where a sensor feeds a controller that sounds a buzzer?</li>
+            <li>Why should Technology exam answers be short and labelled? Give a good reflection question for your PAT.</li>
+            <li>What should you work out first when revising a mixed-system diagram? How should you prepare for an exam?</li>
           </ol>
         }
         answer={

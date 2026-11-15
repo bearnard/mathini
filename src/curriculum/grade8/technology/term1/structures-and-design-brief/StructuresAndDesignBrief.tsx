@@ -38,7 +38,7 @@ const learnSteps: LearnStep[] = [
         </Rule>
         <StructureTypes />
         <Worked
-          title="Which is mainly a frame structure?"
+          title="Spot the frame structure"
           steps={[<>A cellphone tower is made of joined bars: a frame structure.</>, <>A cooldrink can or an egg is a thin skin that encloses a space: a shell structure.</>, <>A concrete block is solid all through: a solid structure.</>]}
         />
         <Mistake>Calling anything hollow a shell. A shell gets its strength from its curved or folded skin. A frame is hollow because it is made of bars with gaps between them.</Mistake>
@@ -97,17 +97,17 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which is mainly a frame structure? What is a shell structure best described as?</li>
+            <li>Is a cellphone tower a frame or a shell structure? How would you describe a shell structure?</li>
             <li>What does compression usually do to materials? And tension?</li>
-            <li>What is a dead load? Which example is a live load?</li>
-            <li>In IDMEC, what does &quot;I&quot; stand for? Why are triangles used in frame structures?</li>
+            <li>What kind of load is the weight of a footbridge’s own beams? What kind of load is learners walking across it?</li>
+            <li>What does the first letter of IDMEC stand for? What makes triangles so useful in a frame?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>A cellphone tower. A hollow outer surface that encloses a space.</li>
+            <li>A frame structure. A hollow outer surface that encloses a space.</li>
             <li>Pushes them together. Pulls them apart.</li>
-            <li>The permanent weight of the structure itself. Learners walking on a footbridge.</li>
+            <li>A dead load: the permanent weight of the structure itself. A live load.</li>
             <li>Investigate. They improve rigidity and reduce shape distortion.</li>
           </ol>
         }
