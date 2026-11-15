@@ -265,3 +265,74 @@ test('injected validateMath: a failing $...$ run is latex_parse (reject); absent
   assert.equal(checkQuestion(x, { validateMath: err }).ok, false);
   lacks(clean, 'latex_parse', { validateMath: err });
 });
+
+// ---- AI-generated G7-12 numeric audit (2026-11-15): equal values, self-correction tells, "what is the mistake" ------------------------
+import { equalNumericOptions, optionQuantity } from './questionQuality';
+
+test('equal_numeric_options: the key and another option have the same value (TRUE positives, real rows)', () => {
+  has(q('A spinner has 8 equal sections: 3 red, 3 blue, 2 green. What is the probability of landing on green?', ['1/4', '3/8', '2/8', '1/2'], '2/8'), 'equal_numeric_options');
+  has(q('Which answer correctly shows $4.2 ÷ 2$?', ['$2.11$', '$2.10$', '$2.1$', '$2$'], '$2.1$'), 'equal_numeric_options');
+  has(q('Divide $\\frac{3}{4}$ by 3', ['$\\frac{1}{4}$', '$\\frac{9}{4}$', '$\\frac{3}{12}$', '$\\frac{1}{3}$'], '$\\frac{1}{4}$'), 'equal_numeric_options');
+  has(q('What is the minimum length of one side of a cube tank that holds $1000\\ L$?', ['$10\\ cm$', '$100\\ cm$', '$1000\\ cm$', '$10\\ dm$'], '$10\\ dm$'), 'equal_numeric_options');
+  has(q('A model car has scale 1:24. If the model is 18 cm long, what is the real length?', ['4.32 m', '43.2 cm', '432 cm', '75 cm'], '432 cm'), 'equal_numeric_options');
+  has(q('Simply evaluate $(2^3)^2$', ['$2^6$', '$2^5$', '$64$', '$8$'], '$2^6$'), 'equal_numeric_options');
+  has(q('What is the missing side of a right triangle with legs 5 and 12 and hypotenuse c?', ['$12$ m', '$\\sqrt{144}$ m', '$\\sqrt{169}$ m', '$8$ m'], '$12$ m'), 'equal_numeric_options');
+  has(q('Solve $10 - 3m = 1$', ['$-3$', '$2$', '$3$', '$\\frac{9}{3}$'], '$3$'), 'equal_numeric_options');
+  has(q('What is $7^2 + 3^3$?', ['$49 + 27 = 76$', '$76$', '$147$', '$28$'], '$76$'), 'equal_numeric_options');
+  has(q('What is the actual distance for 3 cm on a 1:10 000 map?', ['3 mm', '0.3 cm', '30 m', '300 m'], '0.3 cm'), 'equal_numeric_options');
+});
+
+test('equal_numeric_options: NOT flagged (precision)', () => {
+  // equal values only among the distractors: weak, but the key is not ambiguous
+  lacks(q('A bag has 5 green pens, 3 blue pens and 2 red pens. What is P(green)?', ['$\\frac{3}{10}$', '$\\frac{5}{10}$', '$\\frac{1}{3}$', '$\\frac{2}{6}$'], '$\\frac{5}{10}$'), 'equal_numeric_options');
+  // ranges are not subtractions; thousands separators are not decimals
+  lacks(q('Which age range is most common for victims?', ['15-35', '35-55', '55-75', '75-95'], '15-35'), 'equal_numeric_options');
+  lacks(q('How many is seven thousand?', ['7,000', '7,000,000', '700', '70 000'], '7,000'), 'equal_numeric_options');
+  // a false statement is not a value
+  lacks(q('Which exponential statement is equivalent to log₂ 8 = 3?', ['2³ = 8', '3² = 8', '8² = 3', '2⁸ = 3'], '2³ = 8'), 'equal_numeric_options');
+  // prompts where equal values are the point
+  lacks(q('Simplify 18/24.', ['3/4', '6/8', '9/12', '2/3'], '3/4'), 'equal_numeric_options');
+  lacks(q('Which fraction is NOT equivalent to 2/3?', ['4/6', '6/9', '8/12', '5/9'], '5/9'), 'equal_numeric_options');
+  lacks(q('What is the prime factorisation of 84?', ['2 × 2 × 3 × 7', '2 × 3 × 14', '4 × 21', '2 × 42'], '2 × 2 × 3 × 7'), 'equal_numeric_options');
+  lacks(q('Which time signature has two beats in a bar?', ['3/4', '6/8', '2/4', '4/4'], '2/4'), 'equal_numeric_options');
+  // different dimensions, different values
+  lacks(q('What is the actual kitchen area?', ['20 m²', '2000 m²', '20 cm²', '200 m²'], '20 m²'), 'equal_numeric_options');
+  lacks(q('What is the distance?', ['1,5 km', '150 km', '15 km', '1,5 m'], '1,5 km'), 'equal_numeric_options');
+  // algebra and words are not numbers
+  lacks(q('Which expression equals 2x + 4?', ['$2(x + 2)$', '$2x + 2$', '$x + 4$', '$4x$'], '$2(x + 2)$'), 'equal_numeric_options');
+});
+
+test('optionQuantity / equalNumericOptions read fractions, units, powers and statements', () => {
+  assert.deepEqual(optionQuantity('$\\frac{3}{12}$'), { dim: 'num', v: 0.25 });
+  assert.deepEqual(optionQuantity('50%'), { dim: 'num', v: 0.5 });
+  assert.equal(optionQuantity('R1 250,50')?.v, 1250.5);
+  assert.equal(optionQuantity('x = 5'), null);
+  assert.equal(optionQuantity('$2^{3}$')?.v, 8);
+  assert.equal(optionQuantity('$1\\frac{1}{2}$')?.v, 1.5);
+  assert.deepEqual(equalNumericOptions(['0,5', '1/2', '50%', '5']), [[0, 1], [0, 2], [1, 2]]);
+  assert.deepEqual(equalNumericOptions(['0,5', '1/2', '5'], 2), []);
+});
+
+test('explanation self-correction tells are rejected (real rows)', () => {
+  has(q('Monthly sales: 45, 38, 52, 49, 56, 41 (R000). What is the mean?', ['R46 500', 'R47 500', 'R46 000', 'R47 000'], 'R46 500', 'Sum = 281. Mean = 281 ÷ 6 = 46,83 ≈ R46 833. Closest: R47 500. Actually: 281÷6 = 46,833 × R1 000 = R46 833. Closest option is R46 500.'), 'explanation_scratchpad');
+  has(q('A deposit earns 9% for 2 years on R6 000 compound. What is the interest?', ['R1 080', 'R1 124,40', 'R1 200', 'R920'], 'R1 124,40', 'A = 6000 × 1,1881 = R7 128,60. Interest = R1 128,60. Closest option: R1 124,40.'), 'explanation_scratchpad');
+  has(q('How long is the break-even?', ['120 items', '133 items', '140 items', '100 items'], '133 items', 'Break-even = R800 ÷ R6 = 133,3 → 134 items. Closest given answer: 133 items.'), 'explanation_scratchpad');
+  has(q('Calculate the value of $54 ÷ 9 + 7 - 3$.', ['$10$', '$8$', '$13$', '$6$'], '$8$', '$54 ÷ 9 = 6$. Then $6 + 7 = 13$. Then $13 - 3 = 10$. No, wait, let us check again.'), 'explanation_scratchpad');
+  has(q('Tariff A: R30 + R5/unit. Tariff B: R10 + R8/unit. When equal?', ['5 units', '8 units', '10 units', '12 units'], '8 units', 'Set equal: 30 + 5n = 10 + 8n → n ≈ 6,7. Actually solving: 20 = 3n → n = 6,67. None exact, so choose 8.'), 'explanation_scratchpad');
+  // legitimate "Actually," in a misconception explanation (no working shown) is NOT a tell
+  lacks(q('Which statement is a misconception about trade unions?', ['Most people were against them', 'They fought for better pay', 'They protected safety', 'They organised workers'], 'Most people were against them', 'Actually, people often supported trade unions since they fought for better pay and safety, not opposed them.'), 'explanation_scratchpad');
+  lacks(q('Which statement about speed and distance is false?', ['Time increases when you go faster', 'Distance = speed x time', 'Faster speed saves time', 'Speed is distance over time'], 'Time increases when you go faster', 'Actually, the faster you go, the less time it takes to cover the same distance.'), 'explanation_scratchpad');
+  lacks(q('How many compound words are in "We bought a big new car yesterday"?', ['0', '1', '2', '3'], '0', 'None of these words form compound words; they are simple, individual words.'), 'explanation_scratchpad');
+});
+
+test('mistake_key_is_correct: the prompt asks for a mistake but the explanation says the keyed option is correct', () => {
+  has(q('If a student says $x = 10$ in $x + 6 = 16$, what is their error?', ['They added 6', 'They subtracted incorrectly from both sides', 'They multiplied', 'They divided'], 'They subtracted incorrectly from both sides', 'To solve $x + 6 = 16$ subtract 6 from both sides. This gives $x = 10$. So, no mistake in final value.'), 'mistake_key_is_correct');
+  has(q('In solving $4(x + 3) = 24$, what is the mistake?', ['Expanding to $4x + 12 = 24$', 'Dividing by 4 first', 'Adding 3', 'Using 24'], 'Expanding to $4x + 12 = 24$', 'It is correct to expand to $4x + 12 = 24$. So the option says it is a mistake - it is actually correct.'), 'mistake_key_is_correct');
+  has(q('What is a common misunderstanding about what happens to the output?', ['It changes according to the operation', 'It always becomes bigger', 'It never gets smaller', 'It stays the same'], 'It changes according to the operation', 'This reflects correct understanding. When we apply a rule, the output often changes.'), 'mistake_key_is_correct');
+  // a keyed option that itself says "they are correct" is consistent with the explanation
+  lacks(q('If someone says 7 times 3 equals 21 but then claims 21 divided by 3 equals 7, what is the error?', ['They are correct', 'Adding rather than subtracting', 'Using division backwards', 'Misreading the symbols'], 'They are correct', 'This example actually shows correct thinking: division and multiplication are inverse operations.'), 'mistake_key_is_correct');
+  // an explanation that names the correct method is not an admission
+  lacks(q('What is a common mistake when solving $5(x - 3) = 20$?', ['$5x - 15 = 20$', '$5x + 15 = 20$', '$x - 3 = 4$', '$x = 5$'], '$5x + 15 = 20$', 'Incorrectly expanding gives $5x + 15$, when the correct expansion is $5x - 15$. So this is a common error.'), 'mistake_key_is_correct');
+  // prompts that do not ask for a mistake are not checked
+  lacks(q('What does the expansion of $4(x + 3)$ give?', ['$4x + 12$', '$4x + 3$', '$x + 12$', '$7x$'], '$4x + 12$', 'It is correct to expand to $4x + 12$.'), 'mistake_key_is_correct');
+});

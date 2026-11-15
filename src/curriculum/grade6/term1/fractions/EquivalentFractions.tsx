@@ -53,7 +53,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: 'To find an equivalent fraction for 3/5, you multiply both top and bottom by 3. What do you get?',
-    options: ['6/10', '9/15', '9/10', '3/5'],
+    options: ['6/8', '9/15', '9/10', '3/15'],
     answer: '9/15',
     explanation: '3 × 3 = 9 and 5 × 3 = 15, so 3/5 = 9/15.',
   },
