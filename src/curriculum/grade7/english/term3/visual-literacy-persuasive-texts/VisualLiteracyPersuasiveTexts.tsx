@@ -1,56 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import AnnotatedText from '@/components/subjects/AnnotatedText';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Analyse visual and persuasive texts',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Visual literacy in Term 3 focuses on advertisements and posters. Learners identify persuasive language, image
-          choices, and layout features that influence readers.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: "Annotated extract",
-    content: (
-      <AnnotatedText
-        title={"From \"House Divided\" — Abraham Lincoln"}
-        text={"A house divided against itself cannot stand. I do not expect the house to fall, but I do expect it will cease to be divided."}
-        annotations={[
-          { start: 0, end: 30, device: "metaphor", note: "The nation is compared to a split house to make political conflict easy to visualise." },
-          { start: 31, end: 43, device: "imagery", note: "The image of a collapsing building strengthens the warning." },
-          { start: 104, end: 123, device: "tone", note: "The closing phrase shifts the passage toward a determined, corrective tone." },
-        ]}
-      />
-    ),
-  },
-  {
-    title: 'Identify audience and purpose',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Every persuasive text targets a specific audience. Good analysis explains who the text is aimed at and what
-          response it wants from that audience.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Evaluate hooks, slogans and design choices',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Strong posters use eye-catching hooks, memorable slogans, and deliberate layout to attract attention and
-          drive action.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './lesson';
 
 const bank: CapsItem[] = [
   {

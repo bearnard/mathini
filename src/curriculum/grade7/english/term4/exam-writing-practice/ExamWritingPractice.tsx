@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Prepare for exam writing under time limits',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Exam writing practice focuses on selecting suitable text types, planning quickly, and producing accurate work
-          within limited time.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Plan before writing',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A short plan saves time later. Decide on structure, audience, tone, and main points before drafting essays or
-          transactional texts.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Edit for clarity, format and accuracy',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Final checks should target grammar, punctuation, format requirements, and whether each paragraph supports the
-          task purpose.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './lesson';
 
 const bank: CapsItem[] = [
   {
