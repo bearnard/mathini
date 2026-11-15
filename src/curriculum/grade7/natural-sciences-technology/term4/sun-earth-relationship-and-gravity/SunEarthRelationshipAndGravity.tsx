@@ -1,17 +1,116 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { EclipseLines, MoonOrbit, SeasonsTilt } from '../../../../../components/diagrams/science/SciencePictures2';
+import { litFraction, phaseName, tideType } from '../../../../../components/diagrams/science/systemsHelpers';
+
+// Phase and tide at the four main points of the Moon's orbit come from tested helpers (systemsHelpers.test.ts).
+const points = [0, 90, 180, 270].map((deg) => ({ phase: phaseName(deg), lit: litFraction(deg), tide: tideType(deg) }));
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Model seasons, phases, tides, and gravity',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          The relative positions of the <strong>Sun, Earth, and Moon</strong> explain seasons, Moon phases, and
-          tides. Learners connect these patterns to <strong>gravity</strong>, which keeps celestial objects in
-          predictable orbits.
-        </p>
-      </div>
+    title: 'Why we have seasons',
+    content: slide(
+      <>
+        <Rule>
+          Seasons are caused by Earth&apos;s axial tilt as it orbits the Sun. The tilt changes the angle and the length of sunlight in each part of the world over a year.
+        </Rule>
+        <SeasonsTilt />
+        <Worked
+          title="December and June in South Africa"
+          steps={[
+            <>In December the southern hemisphere leans towards the Sun: summer in South Africa, with higher Sun and longer days.</>,
+            <>Half an orbit later, in June, the southern hemisphere leans away: winter, with a lower Sun and shorter days.</>,
+            <>The axis keeps pointing the same way in space, so the north has the opposite season at the same time.</>,
+          ]}
+        />
+        <Mistake>
+          Thinking summer is when Earth is closest to the Sun. Earth is closest in early January, which is summer in the south but winter in the north. The tilt, not the distance, causes the seasons.
+        </Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Phases of the Moon',
+    content: slide(
+      <>
+        <Rule>
+          The Moon always has one half lit by the Sun. As it orbits Earth, we see different portions of the lit Moon from Earth. These are the phases.
+        </Rule>
+        <MoonOrbit show="phases" />
+        <Worked
+          title="Read the four main phases"
+          steps={[
+            <>{points[0].phase}: the lit half faces away from us, so we see none of it ({points[0].lit * 100}%).</>,
+            <>{points[1].phase} and {points[3].phase}: we see half of the lit half ({points[1].lit * 100}% of the face).</>,
+            <>{points[2].phase}: the whole lit face points at us ({points[2].lit * 100}%).</>,
+          ]}
+        />
+        <Mistake>Saying the phases are Earth&apos;s shadow on the Moon. The shadow only falls on the Moon in a lunar eclipse. Phases come from our view of the lit half.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Tides',
+    content: slide(
+      <>
+        <Rule>
+          The gravity of the Moon and the Sun pulls on the oceans. Spring tides are strongest when the Sun, Earth and Moon are aligned. Neap tides happen when the Sun and Moon are at right angles relative to Earth.
+        </Rule>
+        <MoonOrbit show="tides" />
+        <Worked
+          title="Match the tide to the Moon"
+          steps={[
+            <>At {points[0].phase} and {points[2].phase} the three bodies are in a line: {points[0].tide} tides, with the largest tidal range.</>,
+            <>At the quarters the Sun and Moon pull at right angles and partly cancel: {points[1].tide} tides, with the smallest range.</>,
+          ]}
+        />
+        <Mistake>Thinking spring tides only happen in the season of spring. They happen about every two weeks, in every season.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Gravity and eclipses',
+    content: slide(
+      <>
+        <Rule>
+          Gravity is the pull between objects. The Sun&apos;s gravitational pull keeps the planets in orbit, and Earth&apos;s keeps the Moon in orbit.
+        </Rule>
+        <EclipseLines />
+        <Worked
+          title="Which body is in the middle?"
+          steps={[
+            <>Lunar eclipse: Earth is between the Sun and the Moon, so Earth blocks sunlight from reaching the Moon.</>,
+            <>Solar eclipse: the Moon is between the Sun and the Earth, so the Moon blocks sunlight from reaching part of the Earth.</>,
+          ]}
+        />
+        <Mistake>Thinking planets stay in orbit because they are pushed round. Gravity keeps them in orbit, pulling them towards the Sun.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What mainly causes the seasons on Earth?</li>
+            <li>What causes the phases of the Moon?</li>
+            <li>When are spring tides strongest? When do neap tides happen?</li>
+            <li>What keeps planets in orbit around the Sun? In a lunar eclipse, which body is between the Sun and the Moon?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Earth&apos;s axial tilt as it orbits the Sun.</li>
+            <li>Different portions of the lit Moon are visible from Earth.</li>
+            <li>Spring tides: when the Sun, Earth and Moon are aligned. Neap tides: when the Sun and Moon are at right angles relative to Earth.</li>
+            <li>Gravity. Earth.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

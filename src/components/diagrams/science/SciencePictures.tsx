@@ -7,17 +7,17 @@ import { particleLayout, type State } from './scienceHelpers';
  * directions) come from scienceHelpers.ts or from the numbers passed in.
  */
 
-const INK = '#0f172a';
-const SOFT = '#cbd5e1';
-const cls = 'mx-auto block w-full max-w-lg rounded-2xl';
-const st = { background: INK, fontFamily: 'inherit' } as const;
+export const INK = '#0f172a';
+export const SOFT = '#cbd5e1';
+export const cls = 'mx-auto block w-full max-w-lg rounded-2xl';
+export const st = { background: INK, fontFamily: 'inherit' } as const;
 
-const T = ({ x, y, children, fill = '#e2e8f0', size = 5.6, anchor = 'middle' }: { x: number; y: number; children: React.ReactNode; fill?: string; size?: number; anchor?: 'start' | 'middle' | 'end' }) => (
+export const T = ({ x, y, children, fill = '#e2e8f0', size = 5.6, anchor = 'middle' }: { x: number; y: number; children: React.ReactNode; fill?: string; size?: number; anchor?: 'start' | 'middle' | 'end' }) => (
   <text x={x} y={y} textAnchor={anchor} fontSize={size} fontWeight={800} fill={fill}>{children}</text>
 );
 
 /** A straight arrow from (x1, y1) to (x2, y2) with a computed head. */
-const Arrow = ({ x1, y1, x2, y2, color, w = 1.3 }: { x1: number; y1: number; x2: number; y2: number; color: string; w?: number }) => {
+export const Arrow = ({ x1, y1, x2, y2, color, w = 1.3 }: { x1: number; y1: number; x2: number; y2: number; color: string; w?: number }) => {
   const a = Math.atan2(y2 - y1, x2 - x1);
   const h = 4.2;
   const p = (ang: number) => `${r3(x2 - h * Math.cos(a + ang))},${r3(y2 - h * Math.sin(a + ang))}`;

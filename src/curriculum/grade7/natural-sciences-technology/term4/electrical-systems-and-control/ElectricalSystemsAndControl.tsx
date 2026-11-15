@@ -1,17 +1,105 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { CircuitPair, IpoFlow } from '../../../../../components/diagrams/science/SciencePictures2';
+import { FAULT_STEPS } from '../../../../../components/diagrams/science/steps';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Design safe electrical systems with control logic',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Electrical systems use components in <strong>series</strong> or <strong>parallel</strong> paths.
-          Learners apply <strong>inputs, processes, and outputs</strong> to control circuits and practise
-          electrical safety while troubleshooting faults.
-        </p>
-      </div>
+    title: 'Series and parallel circuits',
+    content: slide(
+      <>
+        <Rule>
+          A <strong>series</strong> circuit has one path for current: all the parts are in a single loop. A <strong>parallel</strong> circuit has separate paths, with each bulb on its own branch.
+        </Rule>
+        <CircuitPair />
+        <Worked
+          title="One bulb stops working"
+          steps={[
+            <>Series: the loop is broken at that bulb, so there is no path for current and all the bulbs go out.</>,
+            <>Parallel: the other branches still form complete loops with the cell, so the other bulbs stay on.</>,
+            <>This is why house lights are connected in parallel.</>,
+          ]}
+        />
+        <Mistake>Thinking current flows when there is a gap. Current needs a complete, closed path.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Inputs, processes and outputs',
+    content: slide(
+      <>
+        <Rule>
+          In a control system, a switch is most often the <strong>input device</strong>. The circuit is the process, and the result is the <strong>output</strong>, such as sound, light or movement.
+        </Rule>
+        <IpoFlow id="elec" input="press the switch" process="current flows" output="buzzer sounds" />
+        <Worked
+          title="A buzzer alarm"
+          steps={[
+            <>Input: someone opens the door and the switch closes.</>,
+            <>Process: current flows round the closed circuit.</>,
+            <>Output: the buzzer sounds. The sound produced is the output.</>,
+          ]}
+        />
+        <Mistake>Saying the sound is the input. Inputs enter the system. Outputs are the results it produces.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Electrical safety',
+    content: slide(
+      <>
+        <Rule>Electricity can hurt. Safe habits protect you and the wiring.</Rule>
+        <Worked
+          title="Practise safe habits"
+          steps={[
+            <>Pull a plug out by holding the plug body, never the cord. This prevents cord damage and shocks.</>,
+            <>Keep water and wet hands away from plugs and sockets.</>,
+            <>Tell an adult about a damaged cord. Do not touch bare wires.</>,
+          ]}
+        />
+        <Mistake>Tugging the cord to unplug something. This loosens the wires inside the plug and can cause a shock or a fire.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Finding a fault',
+    content: slide(
+      <>
+        <Rule>If a simple circuit does not work, first check whether the switch is closed and the path is complete.</Rule>
+        <NumberedSteps steps={FAULT_STEPS} tone="teal" label="Checks for a circuit that does not work" />
+        <Worked
+          title="A bulb that will not light"
+          steps={[<>The switch is open, so there is a gap in the loop. Close it.</>, <>The bulb lights. The fault was an incomplete path, not a broken bulb.</>]}
+        />
+        <Mistake>Replacing the bulb straight away. Check the cheap and easy things first: the switch, the cell and the connections.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>How many paths for current does a series circuit have?</li>
+            <li>In a parallel circuit, if one bulb fails, what do the others usually do?</li>
+            <li>In a buzzer alarm, what is the sound? What is the switch?</li>
+            <li>Name a safe electrical practice. What do you check first in a circuit that does not work?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>One path for current.</li>
+            <li>They stay on.</li>
+            <li>The sound is the output. The switch is the input device.</li>
+            <li>Pull a plug out by holding the plug body. Check that the switch is closed and the path is complete.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
