@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PRIVACY_SECTIONS } from '../../lib/privacyNotice';
+import { pageMeta } from '../../lib/seo/pageMeta';
+import { breadcrumbLd, homeCrumb } from '../../lib/seo/structuredData';
+import { JsonLd } from '../../components/seo/PublicShell';
 
-export const metadata: Metadata = {
-  title: 'Privacy',
-  description: 'What PrepPals collects, why, and who can see it.',
-};
+export const metadata: Metadata = pageMeta({ title: 'Privacy', description: 'What PrepPals collects, why, and who can see it.', path: '/privacy' });
 
 export default function PrivacyPage() {
   return (
     <main className="mx-auto max-w-2xl px-4 py-10">
+      <JsonLd data={breadcrumbLd([homeCrumb, { name: 'Privacy', path: '/privacy' }])} />
       <Link href="/" className="text-sm font-bold text-[#3285bc] hover:underline">
         ← Back to PrepPals
       </Link>

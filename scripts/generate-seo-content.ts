@@ -22,33 +22,9 @@
 import { writeFileSync } from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { grade5 } from '../src/curriculum/grade5';
-import { grade6 } from '../src/curriculum/grade6';
-import { grade7 } from '../src/curriculum/grade7';
-import { grade8 } from '../src/curriculum/grade8';
-import { grade9 } from '../src/curriculum/grade9';
-import { grade10 } from '../src/curriculum/grade10';
-import { grade11 } from '../src/curriculum/grade11';
-import { grade12 } from '../src/curriculum/grade12';
-import type { Grade } from '../src/types/curriculum';
+import { buildSeoContent } from './lib/seoContent';
 
-const ALL_GRADES: Grade[] = [grade5, grade6, grade7, grade8, grade9, grade10, grade11, grade12];
-
-const output = ALL_GRADES.map((grade) => ({
-  id: grade.id,
-  title: grade.title,
-  subjects: grade.subjects.map((subject) => ({
-    id: subject.id,
-    title: subject.title,
-    terms: subject.terms.map((term) => ({
-      title: term.title,
-      topics: term.topics.map((topic) => ({
-        title: topic.title,
-        description: topic.description ?? null,
-      })),
-    })),
-  })),
-}));
+const output = buildSeoContent();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outPath = path.resolve(__dirname, '../src/lib/seo/curriculum-content.generated.json');

@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { loadRetired } from './lib/client/retired';
 import type { Curriculum, Grade, Subject, Term, Topic } from './types/curriculum';
 import CurriculumSelector from './components/CurriculumSelector';
@@ -13,6 +13,7 @@ import AppHeader from './components/layout/AppHeader';
 import TopicHeader from './components/layout/TopicHeader';
 import { StudentProvider, useStudent } from './lib/client/StudentContext';
 import { track } from './lib/client/analytics';
+import { resolveDeepLink } from './lib/client/deepLink';
 import { grade5 } from './curriculum/grade5';
 import { grade6 } from './curriculum/grade6';
 import { grade7 } from './curriculum/grade7';
@@ -44,6 +45,20 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
   const reviewQuestions = useReviewPreview(status === 'active' && student?.grade === 6 && view === 'home', view);
 
   useEffect(() => { void loadRetired(); }, []);
+
+  // A "Practise now" link from a public page (/app?grade=6&subject=math&topic=...) opens that topic once, when the learner is in.
+  const deepLinkDone = useRef(false);
+  useEffect(() => {
+    if (status !== 'active' || deepLinkDone.current) return;
+    deepLinkDone.current = true;
+    const link = resolveDeepLink(curriculumData, new URLSearchParams(window.location.search));
+    if (!link) return;
+    setSelectedGrade(link.grade);
+    setSelectedSubject(link.subject);
+    setSelectedTerm(link.term);
+    setSelectedTopic(link.topic);
+    window.history.replaceState(null, '', '/app');
+  }, [status]);
 
   useEffect(() => {
     if (selectedTopic) track('topic_open', { grade: selectedGrade?.id, subject: selectedSubject?.id, topic: selectedTopic.id });

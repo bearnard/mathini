@@ -7,10 +7,13 @@ import { gradeAccent } from '../lib/brand';
 import { SEO_GRADES } from '../lib/seo/curriculumIndex';
 import { SITE_DESCRIPTION } from '../lib/seo/site';
 import { ctaOutline, ctaPrimary } from '../lib/seo/ctaStyles';
+import { pageMeta } from '../lib/seo/pageMeta';
+import { homeLd } from '../lib/seo/structuredData';
+import { JsonLd } from '../components/seo/PublicShell';
 
 export const metadata: Metadata = {
-  title: 'PrepPals — CAPS Practice for Grades 5–12',
-  description: SITE_DESCRIPTION,
+  ...pageMeta({ title: 'PrepPals — CAPS Practice for Grades 5–12', description: SITE_DESCRIPTION, path: '/' }),
+  title: { absolute: 'PrepPals — CAPS Practice for Grades 5–12' },
 };
 
 export default async function HomePage() {
@@ -26,6 +29,7 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+      <JsonLd data={homeLd()} />
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
           <span className="text-lg font-black text-slate-800">PrepPals</span>

@@ -126,6 +126,7 @@ test('the reviewer page is noindex and sends no referrer', () => {
 });
 
 test('the link is kept out of analytics, robots.txt and the sitemap', () => {
-  assert.equal(fs.readFileSync(path.join(SRC, 'app', 'robots.ts'), 'utf8').includes("'/teacher-review'"), true);
+  assert.equal(fs.readFileSync(path.join(SRC, 'lib', 'seo', 'publicPaths.ts'), 'utf8').includes("'/teacher-review'"), true);
+  assert.equal(fs.readFileSync(path.join(SRC, 'app', 'robots.ts'), 'utf8').includes('PRIVATE_PREFIXES'), true);
   assert.ok(!fs.readFileSync(path.join(SRC, 'app', 'sitemap.ts'), 'utf8').includes('teacher-review'));
 });
