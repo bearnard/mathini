@@ -4,6 +4,9 @@
 //   2. question pool top-up with the quality validator (ADR 0003 section 1a), under a per-run budget (Worker CPU and API cost).
 //      Daily is safe: the top-up only works on pools BELOW target and stops at its caps (maxTasks 8, maxAccepted 60, maxApiCalls 200,
 //      maxOps 45), so a full pool costs one query and the worst case is bounded per run.
+//   2a. learner progress (ADR 0005 part 2): refresh the topic_progress cache for learner-and-task pairs with new attempts (at most 150, most recent
+//       first) and abandon runs left open for more than 2 hours. ONE read and ONE batch, so 2 more of the 50 subrequests; it runs before the housekeeping
+//       steps below, which are the ones that retry tomorrow if the limit is hit.
 //   2b. teacher-review personal data (ADR 0004): names, contact notes and free-text reasons of reviewers 90 days after their pack closed (bounded,
 //       no API; last in the job, one read plus one batch only when there is something to scrub)
 //   2c. adult sign-in housekeeping (ADR 0003): old links, long-expired sessions and rate counters, one batch
@@ -17,6 +20,7 @@ import { d1Adapter } from './admin/db';
 import { refreshItemFlags } from './questions/itemAnalysis';
 import { trDbOfD1 } from './teacherReview/db';
 import { scrubReviewerPersonalData } from './teacherReview/retention';
+import { refreshNightly } from './progress/topicProgress';
 import { purgeAuthData } from './adultAuth/purge';
 
 export interface ScheduledEnv {
@@ -46,6 +50,8 @@ export interface ScheduledResult {
   /** Reviewers whose personal fields were scrubbed this run, and how many free-text reasons that scrub changed; null if the step failed. */
   reviewersScrubbed: number | null;
   reasonsScrubbed: number | null;
+  /** topic_progress rows refreshed this run, or null if the step failed (the table may not exist yet: migration 0014). */
+  topicsRefreshed: number | null;
 }
 
 const intVar = (v: string | undefined): number | undefined => {
@@ -66,7 +72,7 @@ export function limitsFromEnv(env: ScheduledEnv, overrides: Partial<TopUpLimits>
 
 export async function runScheduled(env: ScheduledEnv, deps: ScheduledDeps = {}): Promise<ScheduledResult> {
   const log = deps.log ?? ((line: string) => console.log(line));
-  const result: ScheduledResult = { topUp: null, topUpSkipped: null, eventsPurged: null, flags: null, reviewersScrubbed: null, reasonsScrubbed: null };
+  const result: ScheduledResult = { topUp: null, topUpSkipped: null, eventsPurged: null, flags: null, reviewersScrubbed: null, reasonsScrubbed: null, topicsRefreshed: null };
 
   try {
     result.eventsPurged = await purgeOldEventsBounded(env.DB as never, deps.now?.() ?? Date.now());
@@ -103,6 +109,12 @@ export async function runScheduled(env: ScheduledEnv, deps: ScheduledDeps = {}):
   }
 
   try {
+    result.topicsRefreshed = (await refreshNightly(d1Adapter(env.DB as never), deps.now?.() ?? Date.now())).refreshed;
+  } catch {
+    result.topicsRefreshed = null; // migration 0014 not applied yet, or a limit was hit: tomorrow's run tries again
+  }
+
+  try {
     const scrubbed = await scrubReviewerPersonalData(trDbOfD1(env.DB as never), deps.now?.() ?? Date.now());
     result.reviewersScrubbed = scrubbed.reviewers;
     result.reasonsScrubbed = scrubbed.reasons;
@@ -119,7 +131,7 @@ export async function runScheduled(env: ScheduledEnv, deps: ScheduledDeps = {}):
 
   const t = result.topUp;
   log(
-    `scheduled: ${t ? `top-up stored ${t.accepted}, rejected ${t.rejected}, pools below target ${t.poolsBelowTarget}, api calls ${t.apiCalls}, ops ${t.ops}${t.stoppedBy ? ` (stopped by ${t.stoppedBy})` : ''}` : `top-up skipped (${result.topUpSkipped})`}; events purged ${result.eventsPurged ?? 'n/a'}; item flags ${result.flags ?? 'n/a'}; reviewers scrubbed ${result.reviewersScrubbed ?? 'n/a'} (reasons ${result.reasonsScrubbed ?? 'n/a'})`,
+    `scheduled: ${t ? `top-up stored ${t.accepted}, rejected ${t.rejected}, pools below target ${t.poolsBelowTarget}, api calls ${t.apiCalls}, ops ${t.ops}${t.stoppedBy ? ` (stopped by ${t.stoppedBy})` : ''}` : `top-up skipped (${result.topUpSkipped})`}; events purged ${result.eventsPurged ?? 'n/a'}; item flags ${result.flags ?? 'n/a'}; topics refreshed ${result.topicsRefreshed ?? 'n/a'}; reviewers scrubbed ${result.reviewersScrubbed ?? 'n/a'} (reasons ${result.reasonsScrubbed ?? 'n/a'})`,
   );
   return result;
 }
