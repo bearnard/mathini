@@ -54,13 +54,13 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg leading-8 text-slate-600">
           Strong answers connect the threat to the matching control instead of listing random security terms.
         </p>
-        <div className="overflow-hidden rounded-2xl border border-slate-200">
-          <div className="grid grid-cols-3 bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-700">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200">
+          <div className="grid min-w-[28rem] grid-cols-3 bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-700">
             <p>Threat</p>
             <p>Best control</p>
             <p>Why it helps</p>
           </div>
-          <div className="grid grid-cols-3 text-sm text-slate-600">
+          <div className="grid min-w-[28rem] grid-cols-3 text-sm text-slate-600">
             <p className="border-r border-t border-slate-200 px-4 py-3">Phishing</p>
             <p className="border-r border-t border-slate-200 px-4 py-3">User training + MFA</p>
             <p className="border-t border-slate-200 px-4 py-3">Reduces stolen-password risk</p>
