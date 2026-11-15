@@ -1,63 +1,125 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, TaggedBoxes, WordBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
     title: 'Direct and indirect speech',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Reporting what someone said requires tense and pronoun adjustments.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">direkte rede <SpeakButton text="direkte rede" /></span>
-          <span className="inline-flex items-center">indirekte rede <SpeakButton text="indirekte rede" /></span>
-          <span className="inline-flex items-center">voornaamwoorde <SpeakButton text="voornaamwoorde" /></span>
-        </div>
-      </div>
+    content: slide(
+      <>
+        <Rule>Direct speech repeats the exact words in quotation marks, after a colon. Indirect speech reports them with <Af>dat</Af> and no quotation marks.</Rule>
+        <TaggedBoxes
+          items={[{ word: "Sy sê: 'Ek leer nou.'", tag: 'direk' }, { word: 'Sy sê dat sy nou leer.', tag: 'indirek' }]}
+          aria="The same words in two forms: direct speech Sy sê: Ek leer nou in quotation marks, and indirect speech Sy sê dat sy nou leer."
+        />
+        <Worked
+          title="Change direct to indirect"
+          steps={[
+            <><Af>Sy sê: 'Ek leer nou.'</Af> becomes <Af>Sy sê dat sy nou leer.</Af> <SpeakButton text="Sy sê dat sy nou leer." /></>,
+            <>Direct speech with a question: <Af>Hy vra: 'Wanneer begin die toets?'</Af> <En>He asks: When does the test begin?</En></>,
+          ]}
+        />
+        <Mistake>Keeping the quotation marks or the original pronoun. <Af>Sy sê dat ek nou leer</Af> is wrong: the speaker is <Af>sy</Af>.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Concord and pronouns',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Subject-verb agreement and correct pronouns make reporting accurate.
-        </p>
-        <p className="text-xl text-slate-700">Check who performs the action before choosing forms.</p>
-      </div>
+    title: 'Pronouns change with the speaker',
+    content: slide(
+      <>
+        <Rule>When you report speech, the pronouns change to fit the new speaker. <Af>ek</Af> becomes <Af>sy</Af> or <Af>hy</Af>; <Af>julle</Af> becomes <Af>hulle</Af>.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['ek', 'sy / hy'], ['julle', 'hulle'], ['Lebo en Anna', 'hulle']]}
+          aria="Three words and the pronoun that replaces them in reported speech: ek becomes sy or hy, julle becomes hulle, Lebo en Anna becomes hulle."
+        />
+        <Worked
+          title="Choose the pronoun"
+          steps={[
+            <><Af>Mnr. Naidoo sê: 'Julle moet stil wees.'</Af> becomes <Af>Mnr. Naidoo sê dat hulle stil moet wees.</Af> <SpeakButton text="Mnr. Naidoo sê dat hulle stil moet wees." /></>,
+            <><Af>Lebo en Anna bring hulle boeke.</Af> <En>Lebo and Anna bring their books.</En> Two people: <Af>hulle</Af>.</>,
+          ]}
+        />
+        <Mistake>Keeping <Af>julle</Af> in the report. <Af>Mnr. Naidoo sê dat julle stil moet wees</Af> speaks to the class, but the report talks about them.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Build coherent sentences',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Coherence improves when ideas connect logically with correct linking words.
-        </p>
-        <p className="text-slate-500">Avoid abrupt jumps between unrelated sentences.</p>
-      </div>
+    title: 'Time words change too',
+    content: slide(
+      <>
+        <Rule>In indirect speech time words often change: <Af>môre</Af> becomes <Af>die volgende dag</Af>, because the report looks back.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['môre', 'die volgende dag'], ['gister', 'die vorige dag'], ['vandag', 'daardie dag']]}
+          aria="Three time words and how they change in a report: môre becomes die volgende dag, gister becomes die vorige dag, vandag becomes daardie dag."
+        />
+        <Worked
+          title="Report the plan"
+          steps={[
+            <><Af>'Ek gaan môre oefen,' sê Karla.</Af> <En>I am going to practise tomorrow, says Karla.</En></>,
+            <><Af>Karla sê sy gaan die volgende dag oefen.</Af> <SpeakButton text="Karla sê sy gaan die volgende dag oefen." /></>,
+          ]}
+        />
+        <Mistake>Leaving <Af>môre</Af> in the report. The pronoun changes to <Af>sy</Af> and the time word changes to <Af>die volgende dag</Af>.</Mistake>
+      </>,
     ),
   },
-
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these noun and article words aloud so grammar labels connect with familiar examples.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"die"} phonetic={"[di]"} meaning={"the"} lang="af" />
-          <PronunciationPlayer word={"'n"} phonetic={"[ə]"} meaning={"a / an"} lang="af" />
-          <PronunciationPlayer word={"boek"} phonetic={"[buk]"} meaning={"book"} lang="af" />
-          <PronunciationPlayer word={"tafel"} phonetic={"[ˈtɑːfəl]"} meaning={"table"} lang="af" />
-          <PronunciationPlayer word={"hond"} phonetic={"[hɔnt]"} meaning={"dog"} lang="af" />
-          <PronunciationPlayer word={"kind"} phonetic={"[kənt]"} meaning={"child"} lang="af" />
-        </div>
-      </div>
+    title: 'Concord: one verb form',
+    content: slide(
+      <>
+        <Rule>In Afrikaans the verb does not change for different subjects. <Af>ek skryf</Af>, <Af>die leerders skryf</Af>. Add no endings, and keep an adverb plain: <Af>netjies</Af>.</Rule>
+        <WordBoxes
+          words={['Die leerders', 'skryf', 'netjies']}
+          hot={[1]}
+          aria="The sentence Die leerders skryf netjies as three boxes, with the plain verb skryf highlighted."
+        />
+        <Worked
+          title="Check the sentence"
+          steps={[
+            <><Af>Die leerders skryf netjies.</Af> <En>The learners write neatly.</En> <SpeakButton text="Die leerders skryf netjies." /></>,
+            <>The same verb form for one subject or many: <Af>Die klas werk stil.</Af></>,
+          ]}
+        />
+        <Mistake>Adding endings: <Af>skryfte</Af>, <Af>werke</Af> and <Af>netjiese</Af> are wrong here. In the past use <Af>het</Af> plus <Af>geskryf</Af>, not <Af>het skryf</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Coherence: dus, want, maar',
+    content: slide(
+      <>
+        <Rule>Coherence means the ideas follow each other clearly. <Af>Samehang</Af> matters in a report because <Af>Dit help die leser om idees maklik te volg</Af> <En>it helps the reader follow the ideas easily</En>.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['dus', 'therefore'], ['want', 'because'], ['maar', 'but']]}
+          aria="Three Afrikaans linking words with their English meaning: dus is therefore, want is because, maar is but."
+        />
+        <Worked
+          title="Show the result"
+          steps={[
+            <><Af>Hy het hard gewerk, dus het hy geslaag.</Af> <En>He worked hard, so he passed.</En> <SpeakButton text="Hy het hard gewerk, dus het hy geslaag." /></>,
+            <><Af>dus</Af> shows a logical result. After <Af>dus</Af> the verb comes before the subject.</>,
+          ]}
+        />
+        <Mistake>Using <Af>maar</Af> or <Af>of</Af> for a result. <Af>maar</Af> shows contrast. A result needs <Af>dus</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Change to indirect speech: <Af>Sy sê: 'Ek leer nou.'</Af></>} answer={<><Af>Sy sê dat sy nou leer.</Af></>} />
+        <Check question={<>Fill in: <Af>Lebo en Anna bring ___ boeke.</Af></>} answer={<><Af>hulle</Af>.</>} />
+        <Check question={<>Choose the linking word: <Af>Hy het hard gewerk, ___ het hy geslaag.</Af></>} answer={<><Af>dus</Af>.</>} />
+        <Check question={<>Report this: <Af>'Ek gaan môre oefen,' sê Karla.</Af></>} answer={<><Af>Karla sê sy gaan die volgende dag oefen.</Af></>} />
+      </>,
     ),
   },
 ];
@@ -112,6 +174,8 @@ const bank: AfrikaansItem[] = [
     explanation: "Time words often shift in reported speech.",
   },
 ];
+
+export { bank };
 
 const GrammarReportingCoherence = () => (
   <AfrikaansTopic
