@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
   import type { CapsItem } from '@/components/CapsSubjectTopic';
   import type { MathematicsItem, LearnStep } from '../../_shared/types';
 import Formula from '@/components/subjects/Formula';
+import { TrigToolChoice } from '@/components/diagrams/maths/TrigToolChoice';
 import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
 
   const learnSteps: LearnStep[] = [
@@ -13,6 +14,7 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
           Start by deciding whether the triangle is right-angled or not. That choice tells you whether basic trig
           ratios, the sine rule, the cosine rule or the area rule is the best method.
         </p>
+        <TrigToolChoice />
         <Formula block>{String.raw`\tan \theta = \frac{\text{opposite}}{\text{adjacent}}`}</Formula>
       </>
     ),
