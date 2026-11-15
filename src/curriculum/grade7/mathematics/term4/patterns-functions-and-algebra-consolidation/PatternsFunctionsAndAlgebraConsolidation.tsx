@@ -94,7 +94,7 @@ export const learnSteps: LearnStep[] = [
             <>x/4 = 3: multiply both sides by 4: x = 3 × 4 = <strong>{quarter}</strong>.</>,
           ]}
         />
-        <Mistake>Dividing first: 11 ÷ 2 = 5,5, and the + 3 is still there. Undo the last step first: − 3 gives {back[0].value}, then ÷ 2 gives {back[1].value}.</Mistake>
+        <Mistake>Dividing only some of the terms: 11 ÷ 2 = 5,5 and 2x ÷ 2 = x, giving x + 3 = 5,5 (the 3 was not divided). Instead undo the last step first: − 3 gives {back[0].value}, then ÷ 2 gives {back[1].value}.</Mistake>
       </>,
     ),
   },
