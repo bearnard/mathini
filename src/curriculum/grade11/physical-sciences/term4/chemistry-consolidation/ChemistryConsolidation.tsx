@@ -114,10 +114,10 @@ const bank: PSItem[] = [
     explanation: 'In MnO₄⁻, Mn has oxidation number +7. In Mn²⁺, it is +2. The oxidation number decreases (gain of electrons = reduction).',
   },
   {
-    prompt: 'A galvanic cell uses Cu (E° = +0.34 V) as cathode and Fe (E° = −0.44 V) as anode. What is E°_cell?',
-    options: ['−0.78 V', '+0.78 V', '+0.10 V', '−0.10 V'],
-    answer: '+0.78 V',
-    explanation: 'E°_cell = E°_cathode − E°_anode = +0.34 − (−0.44) = +0.34 + 0.44 = +0.78 V.',
+    prompt: 'A galvanic cell uses Cu (E° = +0,34 V) as cathode and Fe (E° = −0,44 V) as anode. What is E°_cell?',
+    options: ['−0,78 V', '+0,78 V', '+0,10 V', '−0,10 V'],
+    answer: '+0,78 V',
+    explanation: 'E°_cell = E°_cathode − E°_anode = +0,34 − (−0,44) = +0,34 + 0,44 = +0,78 V.',
   },
   {
     prompt: 'Which functional group is characteristic of esters?',

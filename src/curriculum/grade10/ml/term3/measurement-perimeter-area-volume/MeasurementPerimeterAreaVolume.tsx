@@ -87,7 +87,7 @@ const learnSteps: LearnStep[] = [
           <p className="font-medium mb-2">Example: Paint costs R80 per litre, covering 10 m² per litre. A wall is 6 m × 3 m. How much will it cost?</p>
           <div className="space-y-1 text-sm">
             <Formula block>{String.raw`\text{Area} = 6 \times 3 = 18 \text{ m}^2`}</Formula>
-            <Formula block>{String.raw`\text{Paint needed} = 18 \div 10 = 1.8 \text{ litres} \approx 2 \text{ litres}`}</Formula>
+            <Formula block>{String.raw`\text{Paint needed} = 18 \div 10 = 1{,}8 \text{ litres} \approx 2 \text{ litres}`}</Formula>
             <Formula block>{String.raw`\text{Cost} = 2 \times 80 = \text{R}160`}</Formula>
           </div>
         </div>
@@ -123,9 +123,9 @@ const learnSteps: LearnStep[] = [
           </div>
         </div>
         <div className="bg-blue-50 p-4 rounded-lg">
-          <p className="font-medium mb-2">Example: A swimming pool is 10 m × 5 m × 1.5 m deep. How many litres does it hold?</p>
+          <p className="font-medium mb-2">Example: A swimming pool is 10 m × 5 m × 1,5 m deep. How many litres does it hold?</p>
           <div className="space-y-1 text-sm">
-            <Formula block>{String.raw`V = 10 \times 5 \times 1.5 = 75 \text{ m}^3`}</Formula>
+            <Formula block>{String.raw`V = 10 \times 5 \times 1{,}5 = 75 \text{ m}^3`}</Formula>
             <p>Since 1 m³ = 1000 ℓ:</p>
             <Formula block>{String.raw`75 \times 1000 = 75\,000 \text{ litres}`}</Formula>
           </div>
@@ -205,16 +205,16 @@ const bank: MathematicalLiteracyItem[] = [
     explanation: 'Volume = side³ = 5³ = 125 cm³',
   },
   {
-    prompt: 'A circular pizza has diameter 30 cm. What is its area? (Use π ≈ 3.14)',
-    options: ['706.5 cm²', '94.2 cm²', '2826 cm²', '353.25 cm²'],
-    answer: '706.5 cm²',
-    explanation: 'Radius = 15 cm. Area = πr² = 3.14 × 15² = 3.14 × 225 = 706.5 cm²',
+    prompt: 'A circular pizza has diameter 30 cm. What is its area? (Use π ≈ 3,14)',
+    options: ['706,5 cm²', '94,2 cm²', '2826 cm²', '353,25 cm²'],
+    answer: '706,5 cm²',
+    explanation: 'Radius = 15 cm. Area = πr² = 3,14 × 15² = 3,14 × 225 = 706,5 cm²',
   },
   {
-    prompt: 'A rectangular water tank is 2 m × 1.5 m × 1 m. How many litres does it hold?',
-    options: ['3000 ℓ', '300 ℓ', '30 ℓ', '4.5 ℓ'],
+    prompt: 'A rectangular water tank is 2 m × 1,5 m × 1 m. How many litres does it hold?',
+    options: ['3000 ℓ', '300 ℓ', '30 ℓ', '4,5 ℓ'],
     answer: '3000 ℓ',
-    explanation: 'Volume = 2 × 1.5 × 1 = 3 m³. Since 1 m³ = 1000 ℓ, capacity = 3000 ℓ',
+    explanation: 'Volume = 2 × 1,5 × 1 = 3 m³. Since 1 m³ = 1000 ℓ, capacity = 3000 ℓ',
   },
 ];
 

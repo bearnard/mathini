@@ -92,7 +92,7 @@ const learnSteps: LearnStep[] = [
         <div className="bg-red-50 p-4 rounded-lg border border-red-200">
           <h4 className="font-semibold text-red-900 mb-2">Free Fall</h4>
           <p className="text-slate-700">
-            Objects falling under gravity: a = g = 9.8 m/s² (downward). Use same equations with a = ±9.8 m/s².
+            Objects falling under gravity: a = g = 9,8 m/s² (downward). Use same equations with a = ±9,8 m/s².
           </p>
         </div>
       </div>
@@ -112,17 +112,17 @@ const learnSteps: LearnStep[] = [
             Energy of motion. <em>m</em> = mass (kg), <em>v</em> = velocity (m/s), E<sub>k</sub> in joules (J).
           </p>
           <p className="text-slate-700 mt-2">
-            <strong>Example:</strong> A 4 kg object moving at 3 m/s: E<sub>k</sub> = 0.5 × 4 × 3² = 18 J.
+            <strong>Example:</strong> A 4 kg object moving at 3 m/s: E<sub>k</sub> = 0,5 × 4 × 3² = 18 J.
           </p>
         </div>
         <div className="bg-teal-50 p-4 rounded-lg border border-teal-200">
           <h4 className="font-semibold text-teal-900 mb-2">Gravitational Potential Energy (PE)</h4>
           <Formula block>{String.raw`E_p = mgh`}</Formula>
           <p className="text-sm text-slate-600 mt-2">
-            Energy due to position. <em>m</em> = mass (kg), <em>g</em> = 9.8 m/s², <em>h</em> = height (m), E<sub>p</sub> in joules.
+            Energy due to position. <em>m</em> = mass (kg), <em>g</em> = 9,8 m/s², <em>h</em> = height (m), E<sub>p</sub> in joules.
           </p>
           <p className="text-slate-700 mt-2">
-            <strong>Example:</strong> A 5 kg object at 10 m height: E<sub>p</sub> = 5 × 9.8 × 10 = 490 J.
+            <strong>Example:</strong> A 5 kg object at 10 m height: E<sub>p</sub> = 5 × 9,8 × 10 = 490 J.
           </p>
         </div>
         <div className="bg-pink-50 p-4 rounded-lg border border-pink-200">
@@ -167,7 +167,7 @@ const learnSteps: LearnStep[] = [
           <p className="text-slate-700">
             <strong>Example:</strong> A v-t graph shows a straight line from 0 to 20 m/s over 5 s.
             <br />Acceleration = slope = 20/5 = 4 m/s².
-            <br />Displacement = area = 0.5 × 5 × 20 = 50 m.
+            <br />Displacement = area = 0,5 × 5 × 20 = 50 m.
           </p>
         </div>
       </div>
@@ -183,10 +183,10 @@ const bank: PhysicalSciencesItem[] = [
     explanation: 'Speed is scalar, velocity is vector. Temperature is scalar, force is vector.',
   },
   {
-    prompt: 'What is the kinetic energy of a 2 kg object moving at 5 m/s? (Use KE = 0.5mv²)',
+    prompt: 'What is the kinetic energy of a 2 kg object moving at 5 m/s? (Use KE = 0,5mv²)',
     options: ['5 J', '10 J', '25 J', '50 J'],
     answer: '25 J',
-    explanation: 'KE = 0.5 × 2 × 5² = 0.5 × 2 × 25 = 25 J',
+    explanation: 'KE = 0,5 × 2 × 5² = 0,5 × 2 × 25 = 25 J',
   },
   {
     prompt: 'A car accelerates from rest to 20 m/s in 4 seconds. What is the acceleration?',

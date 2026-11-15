@@ -86,7 +86,7 @@ const bank: MathematicsItem[] = [
     prompt: 'In △ABC, b = 3, c = 4, A = 60°. Using the cosine rule, a equals:',
     options: ['5', '√7', '√19', '√13'],
     answer: '√13',
-    explanation: 'a² = 9 + 16 − 2(3)(4) cos 60° = 25 − 24(0.5) = 25 − 12 = 13. So a = √13.',
+    explanation: 'a² = 9 + 16 − 2(3)(4) cos 60° = 25 − 24(0,5) = 25 − 12 = 13. So a = √13.',
   },
   {
     prompt: 'The sine rule should be used when:',
@@ -98,7 +98,7 @@ const bank: MathematicsItem[] = [
     prompt: 'The area of a triangle with sides 6 and 8, and included angle 30°, is:',
     options: ['48', '12', '24', '6'],
     answer: '12',
-    explanation: 'Area = ½(6)(8) sin 30° = 24 × 0.5 = 12.',
+    explanation: 'Area = ½(6)(8) sin 30° = 24 × 0,5 = 12.',
   },
   {
     prompt: 'In the ambiguous case of the sine rule (SSA), what is the greatest number of different triangles the given information can form?',
@@ -116,7 +116,7 @@ const bank: MathematicsItem[] = [
     prompt: 'A triangle has sides a = 4, b = 6 and included angle C = 30°. Its area is:',
     options: ['12', '8', '6', '3'],
     answer: '6',
-    explanation: 'Area = ½(4)(6) sin 30° = 12 × 0.5 = 6.',
+    explanation: 'Area = ½(4)(6) sin 30° = 12 × 0,5 = 6.',
   },
 ];
 

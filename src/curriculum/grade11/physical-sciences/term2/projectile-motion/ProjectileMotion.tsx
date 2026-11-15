@@ -17,7 +17,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-blue-50 p-4">
             <strong className="text-blue-700">Sign Convention</strong>
-            <Formula block>{String.raw`g = -9.8\text{ m·s}^{-2}`}</Formula>
+            <Formula block>{String.raw`g = -9{,}8\text{ m·s}^{-2}`}</Formula>
             <p className="text-slate-600">If upward is chosen as positive, gravity is negative because it acts downward.</p>
           </div>
           <div className="rounded-xl bg-green-50 p-4">
@@ -61,7 +61,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-3 md:grid-cols-3 text-left">
           <div className="rounded-xl bg-purple-50 p-4">
             <strong className="text-purple-700">Going Up</strong>
-            <p className="text-slate-600">Speed decreases by 9.8 m/s every second as gravity acts opposite to the motion.</p>
+            <p className="text-slate-600">Speed decreases by 9,8 m/s every second as gravity acts opposite to the motion.</p>
           </div>
           <div className="rounded-xl bg-yellow-50 p-4">
             <strong className="text-yellow-700">At Top</strong>
@@ -85,7 +85,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-blue-50 p-4">
             <strong className="text-blue-700">Upward throw (positive up)</strong>
-            <p className="text-slate-600">The gradient is <Formula>{String.raw`g = -9.8\text{ m·s}^{-2}`}</Formula>. The line starts at +v_i, passes through zero, and continues to negative values while the projectile falls.</p>
+            <p className="text-slate-600">The gradient is <Formula>{String.raw`g = -9{,}8\text{ m·s}^{-2}`}</Formula>. The line starts at +v_i, passes through zero, and continues to negative values while the projectile falls.</p>
           </div>
           <div className="rounded-xl bg-orange-50 p-4">
             <strong className="text-orange-700">Area under graph</strong>
@@ -99,40 +99,40 @@ const learnSteps: LearnStep[] = [
 
 const bank: PSItem[] = [
   {
-    prompt: 'A ball is dropped from rest. What is its velocity after 3 s? (g = 9.8 m/s²)',
-    options: ['3 m/s downward', '9.8 m/s downward', '29.4 m/s downward', '88.2 m/s downward'],
-    answer: '29.4 m/s downward',
-    explanation: 'v = v_i + gΔt = 0 + 9.8 × 3 = 29.4 m/s downward.',
+    prompt: 'A ball is dropped from rest. What is its velocity after 3 s? (g = 9,8 m/s²)',
+    options: ['3 m/s downward', '9,8 m/s downward', '29,4 m/s downward', '88,2 m/s downward'],
+    answer: '29,4 m/s downward',
+    explanation: 'v = v_i + gΔt = 0 + 9,8 × 3 = 29,4 m/s downward.',
   },
   {
-    prompt: 'A ball is thrown upward at 19.6 m/s. What is the maximum height reached? (g = 9.8 m/s²)',
-    options: ['9.8 m', '19.6 m', '39.2 m', '4 m'],
-    answer: '19.6 m',
-    explanation: 'At max height v = 0. Using v² = v_i² + 2gΔy: 0 = 19.6² − 2×9.8×Δy → Δy = 384.16/19.6 = 19.6 m.',
+    prompt: 'A ball is thrown upward at 19,6 m/s. What is the maximum height reached? (g = 9,8 m/s²)',
+    options: ['9,8 m', '19,6 m', '39,2 m', '4 m'],
+    answer: '19,6 m',
+    explanation: 'At max height v = 0. Using v² = v_i² + 2gΔy: 0 = 19,6² − 2×9,8×Δy → Δy = 384,16/19,6 = 19,6 m.',
   },
   {
     prompt: 'What is the acceleration of a projectile at its maximum height (ignoring air resistance)?',
-    options: ['0 m/s²', '9.8 m/s² upward', '9.8 m/s² downward', 'It depends on the initial speed'],
-    answer: '9.8 m/s² downward',
-    explanation: 'Gravitational acceleration is always 9.8 m/s² downward, even at the top of the trajectory where velocity = 0.',
+    options: ['0 m/s²', '9,8 m/s² upward', '9,8 m/s² downward', 'It depends on the initial speed'],
+    answer: '9,8 m/s² downward',
+    explanation: 'Gravitational acceleration is always 9,8 m/s² downward, even at the top of the trajectory where velocity = 0.',
   },
   {
-    prompt: 'A ball is thrown upward at 14.7 m/s. How long does it take to reach maximum height? (g = 9.8 m/s²)',
-    options: ['0.67 s', '1.5 s', '3 s', '2 s'],
-    answer: '1.5 s',
-    explanation: 'At max height, v = 0. v = v_i − gΔt → 0 = 14.7 − 9.8Δt → Δt = 14.7/9.8 = 1.5 s.',
+    prompt: 'A ball is thrown upward at 14,7 m/s. How long does it take to reach maximum height? (g = 9,8 m/s²)',
+    options: ['0,67 s', '1,5 s', '3 s', '2 s'],
+    answer: '1,5 s',
+    explanation: 'At max height, v = 0. v = v_i − gΔt → 0 = 14,7 − 9,8Δt → Δt = 14,7/9,8 = 1,5 s.',
   },
   {
-    prompt: 'An object is dropped from a height of 44.1 m. How long does it take to reach the ground? (g = 9.8 m/s²)',
-    options: ['4.5 s', '3 s', '4 s', '9 s'],
+    prompt: 'An object is dropped from a height of 44,1 m. How long does it take to reach the ground? (g = 9,8 m/s²)',
+    options: ['4,5 s', '3 s', '4 s', '9 s'],
     answer: '3 s',
-    explanation: 'Δy = ½gΔt² → 44.1 = ½ × 9.8 × Δt² → Δt² = 9 → Δt = 3 s.',
+    explanation: 'Δy = ½gΔt² → 44,1 = ½ × 9,8 × Δt² → Δt² = 9 → Δt = 3 s.',
   },
   {
     prompt: 'On a velocity-time graph for a ball thrown upward (upward positive), the gradient of the line represents:',
-    options: ['The displacement of the ball in the air', 'The initial velocity of the ball', 'Gravitational acceleration (−9.8 m/s²)', 'The time of flight of the ball'],
-    answer: 'Gravitational acceleration (−9.8 m/s²)',
-    explanation: 'The slope of a v-t graph is acceleration. For a projectile, a = −g = −9.8 m/s² (negative because downward when upward is positive).',
+    options: ['The displacement of the ball in the air', 'The initial velocity of the ball', 'Gravitational acceleration (−9,8 m/s²)', 'The time of flight of the ball'],
+    answer: 'Gravitational acceleration (−9,8 m/s²)',
+    explanation: 'The slope of a v-t graph is acceleration. For a projectile, a = −g = −9,8 m/s² (negative because downward when upward is positive).',
   },
   {
     prompt: 'A ball thrown upward returns to its starting height. How does its final speed compare to its initial speed (ignoring air resistance)?',
@@ -141,16 +141,16 @@ const bank: PSItem[] = [
     explanation: 'By conservation of energy (or using v² = v_i² + 2gΔy with Δy = 0), the speed on return equals the launch speed.',
   },
   {
-    prompt: 'A stone is thrown vertically downward at 5 m/s. What is its velocity after 2 s? (g = 9.8 m/s², downward positive)',
-    options: ['14.6 m/s downward', '24.6 m/s downward', '19.6 m/s downward', '10 m/s downward'],
-    answer: '24.6 m/s downward',
-    explanation: 'v = v_i + gΔt = 5 + 9.8 × 2 = 5 + 19.6 = 24.6 m/s downward.',
+    prompt: 'A stone is thrown vertically downward at 5 m/s. What is its velocity after 2 s? (g = 9,8 m/s², downward positive)',
+    options: ['14,6 m/s downward', '24,6 m/s downward', '19,6 m/s downward', '10 m/s downward'],
+    answer: '24,6 m/s downward',
+    explanation: 'v = v_i + gΔt = 5 + 9,8 × 2 = 5 + 19,6 = 24,6 m/s downward.',
   },
   {
     prompt: 'Which quantity remains constant throughout the entire flight of a vertical projectile (ignoring air resistance)?',
     options: ['Velocity', 'Speed', 'Displacement', 'Acceleration'],
     answer: 'Acceleration',
-    explanation: 'Gravitational acceleration (g = 9.8 m/s² downward) is constant throughout the flight. Velocity and speed change continuously.',
+    explanation: 'Gravitational acceleration (g = 9,8 m/s² downward) is constant throughout the flight. Velocity and speed change continuously.',
   },
 ];
 

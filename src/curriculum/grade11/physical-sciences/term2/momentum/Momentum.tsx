@@ -90,7 +90,7 @@ const learnSteps: LearnStep[] = [
 const bank: PSItem[] = [
   {
     prompt: 'What is the momentum of a 4 kg object moving at 5 m/s east?',
-    options: ['1.25 kg·m/s east', '9 kg·m/s east', '20 kg·m/s east', '0.8 kg·m/s east'],
+    options: ['1,25 kg·m/s east', '9 kg·m/s east', '20 kg·m/s east', '0,8 kg·m/s east'],
     answer: '20 kg·m/s east',
     explanation: 'p = mv = 4 × 5 = 20 kg·m/s east (same direction as velocity).',
   },
@@ -102,7 +102,7 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'A force of 10 N acts on an object for 3 s. What is the impulse?',
-    options: ['0.33 N·s', '3.33 N·s', '30 N·s', '13 N·s'],
+    options: ['0,33 N·s', '3,33 N·s', '30 N·s', '13 N·s'],
     answer: '30 N·s',
     explanation: 'Impulse J = FΔt = 10 × 3 = 30 N·s.',
   },

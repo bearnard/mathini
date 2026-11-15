@@ -46,7 +46,7 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-green-50 p-4">
             <strong className="text-green-700">Gravitational PE</strong>
             <Formula block>{String.raw`E_p = mgh`}</Formula>
-            <p className="text-slate-600">m in kg, <Formula>{String.raw`g = 9.8\text{ m·s}^{-2}`}</Formula>, h in m, and energy in J.</p>
+            <p className="text-slate-600">m in kg, <Formula>{String.raw`g = 9{,}8\text{ m·s}^{-2}`}</Formula>, h in m, and energy in J.</p>
           </div>
         </div>
       </div>
@@ -111,10 +111,10 @@ const bank: PSItem[] = [
     explanation: 'KE = ½mv² = ½ × 2 × 6² = ½ × 2 × 36 = 36 J.',
   },
   {
-    prompt: 'What is the gravitational PE of a 5 kg object held 4 m above the ground? (g = 9.8 m/s²)',
+    prompt: 'What is the gravitational PE of a 5 kg object held 4 m above the ground? (g = 9,8 m/s²)',
     options: ['20 J', '49 J', '196 J', '200 J'],
     answer: '196 J',
-    explanation: 'PE = mgh = 5 × 9.8 × 4 = 196 J.',
+    explanation: 'PE = mgh = 5 × 9,8 × 4 = 196 J.',
   },
   {
     prompt: 'The work-energy theorem states that net work done on an object equals:',
@@ -123,10 +123,10 @@ const bank: PSItem[] = [
     explanation: 'W_net = ΔKE = KE_final − KE_initial. Net work either increases or decreases the object\'s kinetic energy.',
   },
   {
-    prompt: 'A ball of mass 0.5 kg is at rest at 10 m height. It falls to 2 m height. What is its KE at 2 m? (g = 9.8 m/s²)',
-    options: ['39.2 J', '49 J', '9.8 J', '4.9 J'],
-    answer: '39.2 J',
-    explanation: 'Using conservation of energy: KE = ΔPE = mg(h_i − h_f) = 0.5 × 9.8 × (10 − 2) = 0.5 × 9.8 × 8 = 39.2 J.',
+    prompt: 'A ball of mass 0,5 kg is at rest at 10 m height. It falls to 2 m height. What is its KE at 2 m? (g = 9,8 m/s²)',
+    options: ['39,2 J', '49 J', '9,8 J', '4,9 J'],
+    answer: '39,2 J',
+    explanation: 'Using conservation of energy: KE = ΔPE = mg(h_i − h_f) = 0,5 × 9,8 × (10 − 2) = 0,5 × 9,8 × 8 = 39,2 J.',
   },
   {
     prompt: 'What is the SI unit of power?',

@@ -103,7 +103,7 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'A net force of 24 N acts on a 6 kg object. What is the acceleration?',
-    options: ['144 m/s²', '0.25 m/s²', '4 m/s²', '18 m/s²'],
+    options: ['144 m/s²', '0,25 m/s²', '4 m/s²', '18 m/s²'],
     answer: '4 m/s²',
     explanation: 'F_net = ma → a = F_net ÷ m = 24 ÷ 6 = 4 m/s².',
   },
@@ -126,10 +126,10 @@ const bank: PSItem[] = [
     explanation: 'Inertia is the property of matter that causes objects to resist changes in their velocity. It is directly proportional to mass.',
   },
   {
-    prompt: 'An object is on a horizontal surface with a coefficient of kinetic friction μ_k = 0.3. If the normal force is 40 N, what is the kinetic friction force?',
-    options: ['12 N', '40 N', '133 N', '0.3 N'],
+    prompt: 'An object is on a horizontal surface with a coefficient of kinetic friction μ_k = 0,3. If the normal force is 40 N, what is the kinetic friction force?',
+    options: ['12 N', '40 N', '133 N', '0,3 N'],
     answer: '12 N',
-    explanation: 'f_k = μ_k × N = 0.3 × 40 = 12 N.',
+    explanation: 'f_k = μ_k × N = 0,3 × 40 = 12 N.',
   },
   {
     prompt: 'Which is typically greater: the coefficient of static friction or kinetic friction?',
@@ -138,14 +138,14 @@ const bank: PSItem[] = [
     explanation: 'μ_s > μ_k for the same surfaces. More force is needed to start an object moving than to keep it moving.',
   },
   {
-    prompt: 'A 10 kg object rests on a flat surface (g = 9.8 m/s²). What is the normal force on it?',
-    options: ['10 N', '9.8 N', '98 N', '4.9 N'],
+    prompt: 'A 10 kg object rests on a flat surface (g = 9,8 m/s²). What is the normal force on it?',
+    options: ['10 N', '9,8 N', '98 N', '4,9 N'],
     answer: '98 N',
-    explanation: 'On a horizontal surface, N = mg = 10 × 9.8 = 98 N. The normal force balances the object\'s weight.',
+    explanation: 'On a horizontal surface, N = mg = 10 × 9,8 = 98 N. The normal force balances the object\'s weight.',
   },
   {
     prompt: 'A 3 kg object accelerates at 2 m/s² to the right. What is the net force?',
-    options: ['1.5 N right', '6 N right', '0.67 N right', '5 N right'],
+    options: ['1,5 N right', '6 N right', '0,67 N right', '5 N right'],
     answer: '6 N right',
     explanation: 'F_net = ma = 3 × 2 = 6 N, in the direction of acceleration (right).',
   },

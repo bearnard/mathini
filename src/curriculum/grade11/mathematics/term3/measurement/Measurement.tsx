@@ -55,7 +55,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-rose-50 p-4">
             <h4 className="font-semibold text-rose-700">Decimal form</h4>
-            <Formula block>{String.raw`V \approx 169.65\,\text{cm}^3`}</Formula>
+            <Formula block>{String.raw`V \approx 169{,}65\,\text{cm}^3`}</Formula>
           </div>
         </div>
       </div>
@@ -83,10 +83,10 @@ const bank: MathematicsItem[] = [
     explanation: 'SA = 4πr² = 4π(4²) = 4π(16) = 64π.',
   },
   {
-    prompt: 'Convert 2.5 km² to m²:',
+    prompt: 'Convert 2,5 km² to m²:',
     options: ['25 000', '250 000', '2 500 000', '25 000 000'],
     answer: '2 500 000',
-    explanation: '1 km² = (1 000)² m² = 1 000 000 m². So 2.5 km² = 2.5 × 1 000 000 = 2 500 000 m².',
+    explanation: '1 km² = (1 000)² m² = 1 000 000 m². So 2,5 km² = 2,5 × 1 000 000 = 2 500 000 m².',
   },
   {
     prompt: 'The area of a triangle with base 8 cm and height 6 cm is:',

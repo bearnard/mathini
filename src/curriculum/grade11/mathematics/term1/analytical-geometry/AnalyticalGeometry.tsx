@@ -15,7 +15,7 @@ const learnSteps: LearnStep[] = [
         </div>
         <FunctionGraph equalAxes
           curves={[
-            { fn: (x: number) => 0.75 * x + 1, label: 'y = 0.75x + 1', color: '#6366f1' },
+            { fn: (x: number) => 0.75 * x + 1, label: 'y = 0,75x + 1', color: '#6366f1' },
           ]}
           xRange={[-4, 4]}
           yRange={[-3, 5]}

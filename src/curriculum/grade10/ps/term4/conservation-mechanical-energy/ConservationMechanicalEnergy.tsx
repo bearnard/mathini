@@ -23,8 +23,8 @@ const learnSteps: LearnStep[] = [
             A 2 kg ball is dropped from 10 m. Find velocity just before hitting the ground (ignore air resistance).
           </p>
           <p className="text-slate-700 mt-2">
-            <strong>Initial:</strong> E<sub>k</sub> = 0 (at rest), E<sub>p</sub> = 2 × 9.8 × 10 = 196 J
-            <br /><strong>Final:</strong> E<sub>k</sub> = 0.5 × 2 × v², E<sub>p</sub> = 0 (ground level)
+            <strong>Initial:</strong> E<sub>k</sub> = 0 (at rest), E<sub>p</sub> = 2 × 9,8 × 10 = 196 J
+            <br /><strong>Final:</strong> E<sub>k</sub> = 0,5 × 2 × v², E<sub>p</sub> = 0 (ground level)
             <br />196 = v² → v = 14 m/s
           </p>
         </div>
@@ -79,8 +79,8 @@ const learnSteps: LearnStep[] = [
           </p>
           <p className="text-slate-700 mt-2">
             W = FΔx = 50 × 4 = 200 J
-            <br />W = ΔE<sub>k</sub> = 0.5 × 5 × v² − 0 = 200
-            <br />v² = 80 → v = 8.9 m/s
+            <br />W = ΔE<sub>k</sub> = 0,5 × 5 × v² − 0 = 200
+            <br />v² = 80 → v = 8,9 m/s
           </p>
         </div>
       </div>
@@ -108,7 +108,7 @@ const learnSteps: LearnStep[] = [
           <h4 className="font-semibold text-teal-900 mb-2">Example Calculations</h4>
           <p className="text-slate-700">
             <strong>1.</strong> Lift 20 kg to 5 m height in 4 seconds. Find power.
-            <br />W = mgh = 20 × 9.8 × 5 = 980 J
+            <br />W = mgh = 20 × 9,8 × 5 = 980 J
             <br />P = W/t = 980/4 = 245 W
           </p>
           <p className="text-slate-700 mt-3">
@@ -147,10 +147,10 @@ const learnSteps: LearnStep[] = [
             A 5 kg object starts from rest and slides 20 m down a ramp that is 10 m high. Friction force = 20 N. Find velocity at bottom.
           </p>
           <p className="text-slate-700 mt-2">
-            Initial PE = 5 × 9.8 × 10 = 490 J
+            Initial PE = 5 × 9,8 × 10 = 490 J
             <br />Energy lost to friction = f × distance along the ramp = 20 × 20 = 400 J
             <br />Final KE = 490 − 400 = 90 J
-            <br />0.5 × 5 × v² = 90 → v² = 36 → v = 6 m/s
+            <br />0,5 × 5 × v² = 90 → v² = 36 → v = 6 m/s
           </p>
         </div>
         <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">

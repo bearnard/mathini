@@ -68,8 +68,8 @@ const learnSteps: LearnStep[] = [
         <div>
           <p className="font-medium mb-2">Example: Invest R10000 at 8% p.a. compound interest for 2 years</p>
           <div className="space-y-1 text-sm">
-            <Formula block>{String.raw`A = 10\,000(1 + 0.08)^2 = 10\,000(1.08)^2`}</Formula>
-            <Formula block>{String.raw`= 10\,000 \times 1.1664 = \text{R}11\,664`}</Formula>
+            <Formula block>{String.raw`A = 10\,000(1 + 0{,}08)^2 = 10\,000(1{,}08)^2`}</Formula>
+            <Formula block>{String.raw`= 10\,000 \times 1{,}1664 = \text{R}11\,664`}</Formula>
             <Formula block>{String.raw`\text{Interest} = 11\,664 - 10\,000 = \text{R}1664`}</Formula>
           </div>
         </div>
@@ -116,7 +116,7 @@ const learnSteps: LearnStep[] = [
           <h4 className="font-semibold mb-2">Tax Deductions from Salary</h4>
           <ul className="space-y-2 text-sm">
             <li><strong>PAYE:</strong> Pay As You Earn (income tax)</li>
-            <li><strong>UIF:</strong> Unemployment Insurance Fund (1% of salary, up to a ceiling of R17 712 per month, so at most R177.12)</li>
+            <li><strong>UIF:</strong> Unemployment Insurance Fund (1% of salary, up to a ceiling of R17 712 per month, so at most R177,12)</li>
             <li><strong>Pension/Provident Fund:</strong> Retirement savings</li>
             <li><strong>Medical Aid:</strong> Health insurance contributions</li>
           </ul>
@@ -126,9 +126,9 @@ const learnSteps: LearnStep[] = [
           <div className="space-y-1 text-sm">
             <p>Gross salary: R18 000</p>
             <p>PAYE (tax): R2 500</p>
-            <p>UIF: R177.12 (1% of the R17 712 ceiling, because R18 000 is above it)</p>
+            <p>UIF: R177,12 (1% of the R17 712 ceiling, because R18 000 is above it)</p>
             <p>Pension: R1 800 (10%)</p>
-            <Formula block>{String.raw`\text{Net salary} = 18\,000 - 2500 - 177.12 - 1800 = \text{R}13\,522.88`}</Formula>
+            <Formula block>{String.raw`\text{Net salary} = 18\,000 - 2500 - 177{,}12 - 1800 = \text{R}13\,522{,}88`}</Formula>
           </div>
         </div>
         <div className="bg-green-50 p-4 rounded-lg text-sm">
@@ -169,25 +169,25 @@ const bank: MathematicalLiteracyItem[] = [
     prompt: 'What is simple interest earned on R5000 at 8% per annum for 2 years?',
     options: ['R400', 'R800', 'R1000', 'R1600'],
     answer: 'R800',
-    explanation: 'Simple Interest = Principal × Rate × Time = 5000 × 0.08 × 2 = R800',
+    explanation: 'Simple Interest = Principal × Rate × Time = 5000 × 0,08 × 2 = R800',
   },
   {
     prompt: 'If income tax is 18% on a salary of R30000, what is the tax amount?',
     options: ['R5400', 'R6000', 'R2400', 'R24600'],
     answer: 'R5400',
-    explanation: 'Tax = 18% of R30000 = 0.18 × 30000 = R5400',
+    explanation: 'Tax = 18% of R30000 = 0,18 × 30000 = R5400',
   },
   {
     prompt: 'R8000 is invested at 10% compound interest for 2 years. What is the final amount?',
     options: ['R9600', 'R9680', 'R10000', 'R8800'],
     answer: 'R9680',
-    explanation: 'A = 8000(1.10)² = 8000 × 1.21 = R9680',
+    explanation: 'A = 8000(1,10)² = 8000 × 1,21 = R9680',
   },
   {
-    prompt: 'Gross salary is R25000. Deductions: PAYE R3500, UIF R250, Pension R2500. What is net salary?',
-    options: ['R18750', 'R21500', 'R19000', 'R20000'],
-    answer: 'R18750',
-    explanation: 'Net = 25000 - 3500 - 250 - 2500 = R18750',
+    prompt: 'Gross salary is R25 000 a month. PAYE is R3 500 and the pension is R2 500. UIF is 1% of salary, up to a ceiling of R17 712 a month. What is the net salary?',
+    options: ['R18 822,88', 'R18 750', 'R19 000', 'R21 500'],
+    answer: 'R18 822,88',
+    explanation: 'The salary is above the ceiling, so UIF = 1% of R17 712 = R177,12 (not 1% of R25 000). Net = 25 000 − 3 500 − 2 500 − 177,12 = R18 822,88.',
   },
 ];
 

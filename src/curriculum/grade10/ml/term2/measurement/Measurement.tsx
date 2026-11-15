@@ -104,8 +104,8 @@ const learnSteps: LearnStep[] = [
           </div>
         </div>
         <div className="bg-blue-50 p-4 rounded-lg">
-          <p className="font-medium mb-2">Example: A water tank is cylindrical with radius 1.5 m and height 2 m. What's its capacity? (Use π ≈ 3.14)</p>
-          <Formula>{String.raw`V = \pi r^2 h = 3.14 \times 1.5^2 \times 2 = 3.14 \times 2.25 \times 2 = 14.13 \text{ m}^3`}</Formula>
+          <p className="font-medium mb-2">Example: A water tank is cylindrical with radius 1,5 m and height 2 m. What's its capacity? (Use π ≈ 3,14)</p>
+          <Formula>{String.raw`V = \pi r^2 h = 3{,}14 \times 1{,}5^2 \times 2 = 3{,}14 \times 2{,}25 \times 2 = 14{,}13 \text{ m}^3`}</Formula>
           <p className="text-sm mt-2">Since 1 m³ = 1000 ℓ, the tank holds about 14 130 litres</p>
         </div>
       </div>
@@ -145,10 +145,10 @@ const bank: MathematicalLiteracyItem[] = [
     explanation: 'Area = length × width = 8 × 5 = 40 m²',
   },
   {
-    prompt: 'A circular garden has a radius of 7 m. What is its area? (Use π ≈ 3.14)',
-    options: ['21.98 m²', '43.96 m²', '153.86 m²', '307.72 m²'],
-    answer: '153.86 m²',
-    explanation: 'Area = πr² = 3.14 × 7² = 3.14 × 49 ≈ 153.86 m²',
+    prompt: 'A circular garden has a radius of 7 m. What is its area? (Use π ≈ 3,14)',
+    options: ['21,98 m²', '43,96 m²', '153,86 m²', '307,72 m²'],
+    answer: '153,86 m²',
+    explanation: 'Area = πr² = 3,14 × 7² = 3,14 × 49 ≈ 153,86 m²',
   },
   {
     prompt: 'What is the perimeter of a square with side 9 cm?',

@@ -1,5 +1,5 @@
 {
-  "checked": 7895,
+  "checked": 7967,
   "counts": {
     "g6-other": {
       "near_duplicate": 5
@@ -7,5 +7,11 @@
     "g8": {
       "near_duplicate": 2
     }
+  },
+  "decimalPoints": {
+    "g12": 59,
+    "g7": 12,
+    "g8": 8,
+    "g9": 12
   }
 }

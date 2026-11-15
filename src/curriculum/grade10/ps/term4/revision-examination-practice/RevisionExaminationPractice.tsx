@@ -51,7 +51,7 @@ const learnSteps: LearnStep[] = [
         </div>
         <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
           <h4 className="font-semibold text-yellow-900 mb-2">Chemistry Review</h4>
-          <p className="text-slate-700"><strong>Mole:</strong> n = m/M, N = n × N<sub>A</sub> (N<sub>A</sub> = 6.022 × 10²³)</p>
+          <p className="text-slate-700"><strong>Mole:</strong> n = m/M, N = n × N<sub>A</sub> (N<sub>A</sub> = 6,022 × 10²³)</p>
           <p className="text-slate-700"><strong>Bonding:</strong> Ionic (transfer), Covalent (sharing), Metallic (delocalized e⁻)</p>
         </div>
         <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
@@ -87,7 +87,7 @@ const learnSteps: LearnStep[] = [
             </div>
             <div>
               <Formula block>{String.raw`E_p = mgh`}</Formula>
-              <p className="text-sm text-slate-600">Potential energy (g = 9.8 m/s²)</p>
+              <p className="text-sm text-slate-600">Potential energy (g = 9,8 m/s²)</p>
             </div>
             <div>
               <Formula block>{String.raw`W = F\Delta x \cos\theta`}</Formula>
@@ -174,7 +174,7 @@ const bank: PhysicalSciencesItem[] = [
   },
   {
     prompt: 'In a series circuit with resistors 10 Ω and 20 Ω, what is total resistance?',
-    options: ['10 Ω', '20 Ω', '30 Ω', '6.67 Ω'],
+    options: ['10 Ω', '20 Ω', '30 Ω', '6,67 Ω'],
     answer: '30 Ω',
     explanation: 'Series: R_total = R₁ + R₂ = 10 + 20 = 30 Ω',
   },

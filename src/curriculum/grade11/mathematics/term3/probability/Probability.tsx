@@ -16,7 +16,7 @@ const learnSteps: LearnStep[] = [
         </div>
         <FunctionGraph
           curves={[
-            { fn: (x: number) => 0.5 * x, label: 'P(A ∩ B) when P(B)=0.5', color: '#6366f1' },
+            { fn: (x: number) => 0.5 * x, label: 'P(A ∩ B) when P(B)=0,5', color: '#6366f1' },
           ]}
           xRange={[0, 1]}
           yRange={[0, 1]}
@@ -85,10 +85,10 @@ const bank: MathematicsItem[] = [
     explanation: 'All probabilities sum to 1, so the complement of A has probability 1 − P(A).',
   },
   {
-    prompt: 'If P(A) = 0.4 and P(B) = 0.3 and the events are independent, then P(A and B) = ?',
-    options: ['0.7', '0.12', '0.1', '0.58'],
-    answer: '0.12',
-    explanation: 'P(A and B) = P(A) × P(B) = 0.4 × 0.3 = 0.12.',
+    prompt: 'If P(A) = 0,4 and P(B) = 0,3 and the events are independent, then P(A and B) = ?',
+    options: ['0,7', '0,12', '0,1', '0,58'],
+    answer: '0,12',
+    explanation: 'P(A and B) = P(A) × P(B) = 0,4 × 0,3 = 0,12.',
   },
   {
     prompt: 'P(A or B) = P(A) + P(B) − P(A and B) is called the:',
@@ -115,10 +115,10 @@ const bank: MathematicsItem[] = [
     explanation: '6 outcomes for the die × 2 for the coin = 12 equally likely outcomes.',
   },
   {
-    prompt: "If P(A) = 0.65, then P(A') = ?",
-    options: ['0.65', '1.65', '0.25', '0.35'],
-    answer: '0.35',
-    explanation: "P(A') = 1 − 0.65 = 0.35.",
+    prompt: "If P(A) = 0,65, then P(A') = ?",
+    options: ['0,65', '1,65', '0,25', '0,35'],
+    answer: '0,35',
+    explanation: "P(A') = 1 − 0,65 = 0,35.",
   },
   {
     prompt: 'Drawing cards from a deck with replacement makes successive draws:',

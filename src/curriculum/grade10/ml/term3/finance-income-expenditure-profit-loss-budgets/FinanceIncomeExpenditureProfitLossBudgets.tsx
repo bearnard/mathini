@@ -25,7 +25,7 @@ const learnSteps: LearnStep[] = [
         <div>
           <p className="font-medium mb-2">Example: A shop assistant earns R8000 salary + 5% commission on R20000 sales. What's the total income?</p>
           <div className="space-y-1 text-sm">
-            <Formula block>{String.raw`\text{Commission} = 20\,000 \times 0.05 = \text{R}1000`}</Formula>
+            <Formula block>{String.raw`\text{Commission} = 20\,000 \times 0{,}05 = \text{R}1000`}</Formula>
             <Formula block>{String.raw`\text{Total income} = 8000 + 1000 = \text{R}9000`}</Formula>
           </div>
         </div>

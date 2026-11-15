@@ -16,7 +16,7 @@ const learnSteps: LearnStep[] = [
           <ul className="space-y-2 text-sm">
             <li>Probability is always between 0 and 1 (or 0% and 100%)</li>
             <li><strong>0 (0%):</strong> Impossible event</li>
-            <li><strong>0.5 (50%):</strong> Equally likely to happen or not</li>
+            <li><strong>0,5 (50%):</strong> Equally likely to happen or not</li>
             <li><strong>1 (100%):</strong> Certain event</li>
           </ul>
         </div>
@@ -29,7 +29,7 @@ const learnSteps: LearnStep[] = [
           <div className="space-y-1 text-sm">
             <p>Red cards (hearts + diamonds) = 26</p>
             <p>Total cards = 52</p>
-            <Formula block>{String.raw`P(\text{red}) = \frac{26}{52} = \frac{1}{2} = 0.5 = 50\%`}</Formula>
+            <Formula block>{String.raw`P(\text{red}) = \frac{26}{52} = \frac{1}{2} = 0{,}5 = 50\%`}</Formula>
           </div>
         </div>
       </div>
@@ -46,14 +46,14 @@ const learnSteps: LearnStep[] = [
           <h4 className="font-semibold mb-3">Complementary Events</h4>
           <p className="text-sm mb-2">The probability that an event does NOT happen:</p>
           <Formula block>{String.raw`P(\text{not A}) = 1 - P(A)`}</Formula>
-          <p className="text-xs mt-2">Example: If probability of rain is 30%, probability of no rain = 1 - 0.3 = 0.7 = 70%</p>
+          <p className="text-xs mt-2">Example: If probability of rain is 30%, probability of no rain = 1 - 0,3 = 0,7 = 70%</p>
         </div>
         <div className="bg-amber-50 p-4 rounded-lg">
           <p className="font-medium mb-2">Example: A bag contains 5 red, 3 blue, and 2 green balls. What's the probability of NOT drawing a blue ball?</p>
           <div className="space-y-1 text-sm">
             <p>Total balls = 5 + 3 + 2 = 10</p>
             <Formula block>{String.raw`P(\text{blue}) = \frac{3}{10}`}</Formula>
-            <Formula block>{String.raw`P(\text{not blue}) = 1 - \frac{3}{10} = \frac{7}{10} = 0.7 = 70\%`}</Formula>
+            <Formula block>{String.raw`P(\text{not blue}) = 1 - \frac{3}{10} = \frac{7}{10} = 0{,}7 = 70\%`}</Formula>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@ const learnSteps: LearnStep[] = [
         </div>
         <div>
           <p className="font-medium mb-2">Example: In a quality control test, 2 out of 50 items are defective. What's the probability a random item is NOT defective?</p>
-          <Formula block>{String.raw`P(\text{not defective}) = \frac{48}{50} = \frac{24}{25} = 0.96 = 96\%`}</Formula>
+          <Formula block>{String.raw`P(\text{not defective}) = \frac{48}{50} = \frac{24}{25} = 0{,}96 = 96\%`}</Formula>
         </div>
       </div>
     ),
@@ -102,7 +102,7 @@ const learnSteps: LearnStep[] = [
           type="line"
         />
         <p className="text-sm text-slate-600">
-          The graph approaching 0.5 shows why larger samples usually give a more reliable estimate of the probability of heads on a fair coin.
+          The graph approaching 0,5 shows why larger samples usually give a more reliable estimate of the probability of heads on a fair coin.
         </p>
       </div>
     ),
@@ -123,10 +123,10 @@ const bank: MathematicalLiteracyItem[] = [
     explanation: 'Total balls = 8. Red balls = 5. Probability = 5/8',
   },
   {
-    prompt: 'If the probability of an event is 0.35, what is the probability that the event does NOT occur?',
-    options: ['0.35', '0.65', '0.70', '1.35'],
-    answer: '0.65',
-    explanation: 'P(not event) = 1 - P(event) = 1 - 0.35 = 0.65',
+    prompt: 'If the probability of an event is 0,35, what is the probability that the event does NOT occur?',
+    options: ['0,35', '0,65', '0,70', '1,35'],
+    answer: '0,65',
+    explanation: 'P(not event) = 1 - P(event) = 1 - 0,35 = 0,65',
   },
   {
     prompt: 'A spinner has 8 equal sections: 3 red, 3 blue, 2 green. What is the probability of landing on green?',

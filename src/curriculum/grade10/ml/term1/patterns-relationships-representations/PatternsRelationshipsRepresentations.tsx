@@ -46,9 +46,9 @@ const learnSteps: LearnStep[] = [
           </ul>
         </div>
         <div>
-          <p className="font-medium mb-2">Example: Eskom charges R150 monthly service fee + R2.50 per kWh</p>
-          <Formula block>{String.raw`\text{Cost} = 2.50 \times \text{kWh} + 150`}</Formula>
-          <p className="text-sm mt-2">If you use 200 kWh: Cost = 2.50(200) + 150 = R650</p>
+          <p className="font-medium mb-2">Example: Eskom charges R150 monthly service fee + R2,50 per kWh</p>
+          <Formula block>{String.raw`\text{Cost} = 2{,}50 \times \text{kWh} + 150`}</Formula>
+          <p className="text-sm mt-2">If you use 200 kWh: Cost = 2,50(200) + 150 = R650</p>
         </div>
       </div>
     ),

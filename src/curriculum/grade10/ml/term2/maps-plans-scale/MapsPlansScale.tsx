@@ -122,13 +122,13 @@ const bank: MathematicalLiteracyItem[] = [
   },
   {
     prompt: 'On a plan with scale 1:100, a wall measures 15 cm. What is the actual wall length?',
-    options: ['1.5 m', '15 m', '150 m', '1500 m'],
+    options: ['1,5 m', '15 m', '150 m', '1500 m'],
     answer: '15 m',
     explanation: '15 cm × 100 = 1500 cm = 15 m',
   },
   {
     prompt: 'A hiking trail is 12 km long. On a map with scale 1:200 000, how long will it appear?',
-    options: ['6 cm', '60 cm', '0.6 cm', '600 cm'],
+    options: ['6 cm', '60 cm', '0,6 cm', '600 cm'],
     answer: '6 cm',
     explanation: '12 km = 1 200 000 cm. Map distance = 1 200 000 ÷ 200 000 = 6 cm',
   },

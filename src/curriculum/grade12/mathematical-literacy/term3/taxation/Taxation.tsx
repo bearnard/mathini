@@ -25,19 +25,19 @@ const learnSteps: LearnStep[] = [
           type="bar"
           xKey="bracket"
           data={[
-            { bracket: 'R0–237.1k', rate: 18 },
-            { bracket: 'R237.1–370.5k', rate: 26 },
-            { bracket: 'R370.5–512.8k', rate: 31 },
-            { bracket: 'R512.8–673k', rate: 36 },
-            { bracket: 'R673–857.9k', rate: 39 },
-            { bracket: 'R857.9k–1.817m', rate: 41 },
-            { bracket: 'R1.817m+', rate: 45 },
+            { bracket: 'R0–245,1k', rate: 18 },
+            { bracket: 'R245,1–383,1k', rate: 26 },
+            { bracket: 'R383,1–530,2k', rate: 31 },
+            { bracket: 'R530,2–695,8k', rate: 36 },
+            { bracket: 'R695,8–887k', rate: 39 },
+            { bracket: 'R887k–1,879m', rate: 41 },
+            { bracket: 'R1,879m+', rate: 45 },
           ]}
           series={[{ key: 'rate', label: 'Tax rate (%)', color: '#ef4444' }]}
           yLabel="Rate (%)"
           height={220}
         />
-        <p className="text-lg leading-8 text-slate-600">These are the SARS brackets for the 2025 and 2026 tax years (1 March 2024 to 28 February 2026): 18% up to R237 100, then 26%, 31%, 36%, 39%, 41% and 45% above R1 817 000. Tax tables change with each Budget, so in an exam always use the table given in the question.</p>
+        <p className="text-lg leading-8 text-slate-600">These are the SARS brackets for the 2026/27 tax year (1 March 2026 to 28 February 2027): 18% of taxable income up to R245 100, then R44 118 + 26% above R245 100, R79 998 + 31% above R383 100, R125 599 + 36% above R530 200, R185 215 + 39% above R695 800, R259 783 + 41% above R887 000, and R666 339 + 45% above R1 878 600. Tax tables change with each Budget, so in an exam always use the table given in the question.</p>
       </div>
     ),
   },
@@ -47,7 +47,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">PAYE, UIF and other deductions reduce the amount that reaches the employee. In Mathematical Literacy, you may need to compare gross pay, tax, rebates and net pay on the same document.</p>
         <Formula block>{String.raw`\text{Net pay} = \text{gross pay} - \text{total deductions}`}</Formula>
-        <p className="text-lg leading-8 text-slate-600">For the 2025 and 2026 tax years the primary rebate is R17 235, with an extra secondary rebate of R9 444 from age 65 and a further tertiary rebate of R3 145 from age 75. Use the rebates given in the exam source if they differ.</p>
+        <p className="text-lg leading-8 text-slate-600">For the 2026/27 tax year the primary rebate is R17 820, with an extra secondary rebate of R9 765 from age 65 and a further tertiary rebate of R3 249 from age 75. This is why a person under 65 pays no tax on taxable income up to R99 000 (18% of R99 000 = R17 820). Use the rebates given in the exam source if they differ.</p>
       </div>
     ),
   },

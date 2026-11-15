@@ -29,7 +29,7 @@ const learnSteps: LearnStep[] = [
             <p>3 items @ R120 each = R360</p>
             <p>2 items @ R80 each = R160</p>
             <Formula>{String.raw`\text{Subtotal} = 360 + 160 = \text{R}520`}</Formula>
-            <Formula>{String.raw`\text{VAT (15\%)} = 520 \times 0.15 = \text{R}78`}</Formula>
+            <Formula>{String.raw`\text{VAT (15\%)} = 520 \times 0{,}15 = \text{R}78`}</Formula>
             <Formula>{String.raw`\text{Total} = 520 + 78 = \text{R}598`}</Formula>
           </div>
         </div>
@@ -59,7 +59,7 @@ const learnSteps: LearnStep[] = [
         <div className="bg-amber-50 p-4 rounded-lg">
           <p className="font-medium mb-2">Example: MTN Data Plan</p>
           <p className="text-sm">Base fee: R149/month + R2 per MB over 1GB</p>
-          <p className="text-sm mb-2">Usage: 1.5 GB = 1500 MB (500 MB over limit)</p>
+          <p className="text-sm mb-2">Usage: 1,5 GB = 1500 MB (500 MB over limit)</p>
           <Formula>{String.raw`\text{Total} = 149 + (2 \times 500) = 149 + 1000 = \text{R}1149`}</Formula>
         </div>
       </div>
@@ -88,13 +88,13 @@ const learnSteps: LearnStep[] = [
           <p className="text-xs mb-2">Real tariffs differ per municipality and change every July; free basic water is often only for registered indigent households.</p>
           <div className="space-y-2 text-sm">
             <p>0-6 kℓ: R0 (free basic allocation)</p>
-            <p>6-10.5 kℓ: R10.50 per kℓ</p>
-            <p>10.5-35 kℓ: R23.12 per kℓ</p>
+            <p>6-10,5 kℓ: R10,50 per kℓ</p>
+            <p>10,5-35 kℓ: R23,12 per kℓ</p>
             <p className="mt-3 font-medium">If you use 12 kℓ in a month:</p>
             <p>• First 6 kℓ: Free = R0</p>
-            <p>• Next 4.5 kℓ: 4.5 × R10.50 = R47.25</p>
-            <p>• Next 1.5 kℓ: 1.5 × R23.12 = R34.68</p>
-            <Formula>{String.raw`\text{Total} = 0 + 47.25 + 34.68 = \text{R}81.93`}</Formula>
+            <p>• Next 4,5 kℓ: 4,5 × R10,50 = R47,25</p>
+            <p>• Next 1,5 kℓ: 1,5 × R23,12 = R34,68</p>
+            <Formula>{String.raw`\text{Total} = 0 + 47{,}25 + 34{,}68 = \text{R}81{,}93`}</Formula>
           </div>
         </div>
       </div>
@@ -146,10 +146,10 @@ const bank: MathematicalLiteracyItem[] = [
     explanation: 'Shirts: 4 × R85 = R340. Jeans: 2 × R250 = R500. Subtotal = R340 + R500 = R840',
   },
   {
-    prompt: 'Electricity costs R2.80 per kWh. If a household uses 450 kWh in a month, what is the usage cost?',
+    prompt: 'Electricity costs R2,80 per kWh. If a household uses 450 kWh in a month, what is the usage cost?',
     options: ['R1260', 'R1125', 'R1400', 'R1620'],
     answer: 'R1260',
-    explanation: 'Cost = 450 × R2.80 = R1260',
+    explanation: 'Cost = 450 × R2,80 = R1260',
   },
 ];
 

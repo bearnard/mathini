@@ -41,13 +41,13 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6">
         <p className="text-slate-700">
-          A <strong>mole</strong> is 6.022 × 10²³ particles (Avogadro's number). It connects atomic scale to measurable quantities.
+          A <strong>mole</strong> is 6,022 × 10²³ particles (Avogadro's number). It connects atomic scale to measurable quantities.
         </p>
         <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
           <h4 className="font-semibold text-purple-900 mb-2">Number of Particles</h4>
           <Formula block>{String.raw`N = n \times N_A`}</Formula>
           <p className="text-sm text-slate-600 mt-2">
-            <em>N</em> = number of particles, <em>n</em> = moles, N<sub>A</sub> = 6.022 × 10²³ mol⁻¹.
+            <em>N</em> = number of particles, <em>n</em> = moles, N<sub>A</sub> = 6,022 × 10²³ mol⁻¹.
           </p>
         </div>
         <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
@@ -63,9 +63,9 @@ const learnSteps: LearnStep[] = [
         </div>
         <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
           <h4 className="font-semibold text-orange-900 mb-2">Gas Volume (at STP)</h4>
-          <Formula block>{String.raw`V = n \times 22.4 \text{ L}`}</Formula>
+          <Formula block>{String.raw`V = n \times 22{,}4 \text{ L}`}</Formula>
           <p className="text-sm text-slate-600 mt-2">
-            At STP (0°C, 1 atm), 1 mole of any gas occupies 22.4 L.
+            At STP (0°C, 1 atm), 1 mole of any gas occupies 22,4 L.
           </p>
         </div>
       </div>
@@ -103,8 +103,8 @@ const learnSteps: LearnStep[] = [
             How many grams of NH₃ form from 14 g of N₂?
             <br /><strong>Solution:</strong>
             <br />M(N₂) = 28 g/mol, M(NH₃) = 17 g/mol
-            <br />n(N₂) = 14/28 = 0.5 mol
-            <br />From ratio: n(NH₃) = 0.5 × 2 = 1 mol
+            <br />n(N₂) = 14/28 = 0,5 mol
+            <br />From ratio: n(NH₃) = 0,5 × 2 = 1 mol
             <br />m(NH₃) = 1 × 17 = 17 g
           </p>
         </div>
@@ -172,10 +172,10 @@ const bank: PhysicalSciencesItem[] = [
     explanation: 'n = m/M = 36/18 = 2 mol',
   },
   {
-    prompt: 'What volume does 0.5 moles of gas occupy at STP?',
-    options: ['11.2 L', '22.4 L', '44.8 L', '5.6 L'],
-    answer: '11.2 L',
-    explanation: 'V = n × 22.4 = 0.5 × 22.4 = 11.2 L',
+    prompt: 'What volume does 0,5 moles of gas occupy at STP?',
+    options: ['11,2 L', '22,4 L', '44,8 L', '5,6 L'],
+    answer: '11,2 L',
+    explanation: 'V = n × 22,4 = 0,5 × 22,4 = 11,2 L',
   },
 ];
 

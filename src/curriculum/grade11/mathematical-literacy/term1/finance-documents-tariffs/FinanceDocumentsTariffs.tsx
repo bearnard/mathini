@@ -37,10 +37,10 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">VAT is a tax added to the price of most goods and services in South Africa. The current VAT rate is <strong>15%</strong>.</p>
         <div className="bg-indigo-50 p-6 rounded-xl text-left space-y-3">
           <Formula block>{String.raw`\text{VAT} = \frac{15}{100} \times \text{price}`}</Formula>
-          <Formula block>{String.raw`\text{VAT-inclusive price} = \text{price} \times 1.15`}</Formula>
-          <Formula block>{String.raw`\text{Excluding VAT price} = \frac{\text{VAT-inclusive price}}{1.15}`}</Formula>
+          <Formula block>{String.raw`\text{VAT-inclusive price} = \text{price} \times 1{,}15`}</Formula>
+          <Formula block>{String.raw`\text{Excluding VAT price} = \frac{\text{VAT-inclusive price}}{1{,}15}`}</Formula>
           <p className="text-slate-700 mt-2">Item costs R200 excl. VAT</p>
-          <Formula block>{String.raw`200 \times 1.15 = 230`}</Formula>
+          <Formula block>{String.raw`200 \times 1{,}15 = 230`}</Formula>
           <p className="text-slate-700">If the total is R230 incl. VAT, divide by 1,15 to recover the original price of R200.</p>
         </div>
       </div>
@@ -55,7 +55,7 @@ const learnSteps: LearnStep[] = [
           <Formula block>{String.raw`\text{Total cost} = \text{Fixed charge} + (\text{Rate} \times \text{Units used})`}</Formula>
           <p className="text-slate-700 mt-2">Example — Electricity tariff:</p>
           <p className="text-slate-700 text-sm">Fixed charge: R85/month + R1,50 per kWh used.</p>
-          <Formula block>{String.raw`85 + (1.5 \times 200) = 385`}</Formula>
+          <Formula block>{String.raw`85 + (1{,}5 \times 200) = 385`}</Formula>
         </div>
         <p className="text-sm text-slate-500">You may need to compare two tariff options to decide which is cheaper for a given level of use.</p>
       </div>

@@ -44,6 +44,6 @@ test('both lessons show the picture, and use the same sign convention as the pic
   const g11 = read('grade11/physical-sciences/term2/projectile-motion/ProjectileMotion.tsx');
   for (const lesson of [g12, g11]) {
     assert.ok(lesson.includes('VerticalVelocityGraph'));
-    assert.ok(lesson.includes('-9.8'), 'the lesson still says g = -9.8 with upward positive');
+    assert.match(lesson, /-9(?:\.|,|\{,\})8/, 'the lesson still says g = -9,8 (decimal comma) with upward positive');
   }
 });
