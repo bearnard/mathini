@@ -35,7 +35,7 @@ const field = 'w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text
 const api = (token: string, action: 'load' | 'save' | 'done', body?: unknown) =>
   fetch(`/api/teacher-review${action === 'save' ? '/response' : action === 'done' ? '/done' : ''}`, {
     method: action === 'load' ? 'GET' : 'POST',
-    headers: { 'X-Review-Action': action, 'X-Review-Token': token, ...(body === undefined ? {} : { 'Content-Type': 'application/json' }) },
+    headers: { 'X-Review-Action': action, Authorization: `Bearer ${token}`, ...(body === undefined ? {} : { 'Content-Type': 'application/json' }) },
     body: body === undefined ? undefined : JSON.stringify(body),
     cache: 'no-store',
     referrerPolicy: 'no-referrer',
@@ -136,6 +136,10 @@ export default function ReviewApp() {
           const j = (await res.json().catch(() => ({}))) as { error?: string };
           setHint((h) => ({ ...h, [itemId]: j.error ?? 'This answer could not be saved.' }));
           return setSaveState((s) => ({ ...s, [itemId]: 'idle' }));
+        }
+        if (res.status === 429) {
+          setHint((h) => ({ ...h, [itemId]: 'Too many saves for now. Wait a few minutes, or ask the person who sent you this link.' }));
+          return setSaveState((s) => ({ ...s, [itemId]: 'error' }));
         }
         if (res.status === 410 || res.status === 404) return setLoad({ s: 'error', kind: await errorKind(res) });
         throw new Error('save failed');

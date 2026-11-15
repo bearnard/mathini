@@ -10,8 +10,16 @@ import type { ReviewPackRow, ReviewerRow } from './types';
 
 /** The header every review API call must carry. A cross-site page cannot set a custom header without a CORS preflight. */
 export const REVIEW_ACTION_HEADER = 'x-review-action';
-/** The link's token travels in this header on API calls, not in the URL: platform request logs record URLs, not headers. */
+/** The link's token travels in a header on API calls, not in the URL: platform request logs record URLs. The page sends it as
+ * `Authorization: Bearer <token>`, which Cloudflare redacts in its logs; `X-Review-Token` is still accepted. */
 export const REVIEW_TOKEN_HEADER = 'x-review-token';
+
+/** The token from `Authorization: Bearer ...` or `X-Review-Token`, or '' when neither is there. */
+export function tokenFromRequest(req: Request): string {
+  const auth = req.headers.get('authorization');
+  const m = auth ? /^Bearer\s+(\S+)$/i.exec(auth.trim()) : null;
+  return m ? m[1] : (req.headers.get(REVIEW_TOKEN_HEADER) ?? '');
+}
 export const REVIEW_ACTIONS = ['load', 'save', 'done'] as const;
 export type ReviewAction = (typeof REVIEW_ACTIONS)[number];
 
@@ -34,7 +42,8 @@ export function createLimiter(limit: number, windowMs: number, maxKeys = 5000): 
   const buckets = new Map<string, { start: number; count: number }>();
   return {
     allow(key, now) {
-      if (buckets.size > maxKeys) buckets.clear();
+      // Over the cap: forget the OLDEST key only. Clearing everything would let one client flush every limit by sending many keys.
+      if (buckets.size >= maxKeys && !buckets.has(key)) buckets.delete(buckets.keys().next().value as string);
       const b = buckets.get(key);
       if (!b || now - b.start >= windowMs) {
         buckets.set(key, { start: now, count: 1 });
@@ -53,6 +62,30 @@ export const WINDOW_MS = 10 * 60 * 1000;
 const tokenLimiter = createLimiter(TOKEN_LIMIT, WINDOW_MS);
 const unknownLimiter = createLimiter(UNKNOWN_LIMIT, WINDOW_MS);
 export const MAX_BODY_BYTES = 8192;
+
+/** The body as text, or null when it is over `max` bytes. Looks at Content-Length first and never buffers more than `max` bytes. */
+export async function readCapped(req: Request, max: number): Promise<string | null> {
+  const declared = Number(req.headers.get('content-length'));
+  if (Number.isFinite(declared) && declared > max) return null;
+  if (!req.body) return '';
+  const reader = req.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let size = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    size += value.byteLength;
+    if (size > max) {
+      await reader.cancel().catch(() => undefined);
+      return null;
+    }
+    chunks.push(value);
+  }
+  const all = new Uint8Array(size);
+  let at = 0;
+  for (const c of chunks) { all.set(c, at); at += c.byteLength; }
+  return new TextDecoder().decode(all);
+}
 
 export interface ReviewDeps {
   db: TrDb;
@@ -81,7 +114,7 @@ export async function handleReview(
 ): Promise<Response> {
   try {
     if (req.headers.get(REVIEW_ACTION_HEADER) !== action) return reviewJson({ error: 'missing action header' }, 403);
-    const token = req.headers.get(REVIEW_TOKEN_HEADER) ?? '';
+    const token = tokenFromRequest(req);
     const now = deps?.now ?? Date.now();
     const clientKey = `ip:${req.headers.get('cf-connecting-ip') ?? req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'}`;
     const unknownL = deps?.unknownLimiter ?? unknownLimiter;
@@ -108,8 +141,8 @@ export async function handleReview(
 
     let body: unknown = null;
     if (req.method !== 'GET' && req.method !== 'HEAD') {
-      const text = await req.text();
-      if (text.length > MAX_BODY_BYTES) return reviewJson({ error: 'request too large' }, 413);
+      const text = await readCapped(req, MAX_BODY_BYTES);
+      if (text === null) return reviewJson({ error: 'request too large' }, 413);
       try {
         body = text ? JSON.parse(text) : null;
       } catch {

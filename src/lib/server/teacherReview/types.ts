@@ -97,6 +97,7 @@ export interface ReviewerRow {
   last_seen_at: number | null;
   done_at: number | null;
   created_at: number;
+  save_count: number;
 }
 
 export interface ReviewResponseRow {

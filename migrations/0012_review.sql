@@ -9,6 +9,7 @@
 --   review_decisions.chosen_reviewer_id  "Accept reviewer X's version" must record which reviewer
 --   review_decisions.outcome          "each item gets a status (verified / changed / still unsure)" when a pack is finished
 --   created_at on reviewers and lesson_change_queue
+--   reviewers.save_count               a durable cap on saves per link, so a leaked link cannot burn the shared D1 write budget (security review)
 
 -- A pack: a set of review items sent to one or more reviewers.
 CREATE TABLE IF NOT EXISTS review_packs (
@@ -49,7 +50,8 @@ CREATE TABLE IF NOT EXISTS reviewers (
   revoked_at   INTEGER,
   last_seen_at INTEGER,
   done_at      INTEGER,
-  created_at   INTEGER NOT NULL
+  created_at   INTEGER NOT NULL,
+  save_count   INTEGER NOT NULL DEFAULT 0                       -- saves made with this link; capped (see store.ts MAX_SAVES_PER_LINK)
 );
 CREATE INDEX IF NOT EXISTS idx_reviewers_pack ON reviewers (pack_id);
 
