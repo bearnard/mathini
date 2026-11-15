@@ -1,78 +1,126 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Everyday greetings',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Afrikaans greetings help us start and end conversations politely. Use <strong>Hallo</strong>, <strong>Goeiemôre</strong>, and <strong>Totsiens</strong> often.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-flex flex-wrap justify-center gap-4 text-xl font-bold">
-          <span className="inline-flex items-center">Hallo <SpeakButton text="Hallo" /></span>
-          <span className="inline-flex items-center">Goeiemôre <SpeakButton text="Goeiemôre" /></span>
-          <span className="inline-flex items-center">Totsiens <SpeakButton text="Totsiens" /></span>
-        </div>
-        <p className="text-slate-500">Hello • Good morning • Goodbye</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Polite words',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Polite words show respect. Say <strong>Dankie</strong> for thank you and <strong>Asseblief</strong> for please.
-        </p>
-        <div className="bg-indigo-50 p-6 rounded-xl inline-flex items-center gap-3 text-2xl font-bold">
-          <span className="inline-flex items-center text-indigo-600">Dankie <SpeakButton text="Dankie" /></span>
-          <span className="text-slate-400">+</span>
-          <span className="inline-flex items-center text-indigo-600">Asseblief <SpeakButton text="Asseblief" /></span>
-        </div>
-        <p className="text-slate-500">Thank you and please make your Afrikaans friendly.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Useful classroom nouns',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Learn common nouns by matching the Afrikaans word to its English meaning.
-        </p>
-        <div className="grid grid-cols-2 gap-3 bg-slate-50 p-6 rounded-xl text-lg font-bold">
-          <span className="inline-flex items-center justify-center">kat <SpeakButton text="kat" /> = cat</span>
-          <span className="inline-flex items-center justify-center">hond <SpeakButton text="hond" /> = dog</span>
-          <span className="inline-flex items-center justify-center">huis <SpeakButton text="huis" /> = house</span>
-          <span className="inline-flex items-center justify-center">skool <SpeakButton text="skool" /> = school</span>
-          <span className="inline-flex items-center justify-center">boek <SpeakButton text="boek" /> = book</span>
-          <span className="inline-flex items-center justify-center">water <SpeakButton text="water" /> = water</span>
-        </div>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these greeting phrases aloud so that everyday Afrikaans conversation feels natural and confident.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Goeiemore"} phonetic={"[ɣujəˈmɔːrə]"} meaning={"Good morning"} lang="af" />
-          <PronunciationPlayer word={"Goedag"} phonetic={"[ɣuˈdax]"} meaning={"Good day"} lang="af" />
-          <PronunciationPlayer word={"Totsiens"} phonetic={"[tɔtˈsins]"} meaning={"Goodbye"} lang="af" />
-          <PronunciationPlayer word={"Dankie"} phonetic={"[ˈdaŋki]"} meaning={"Thank you"} lang="af" />
-          <PronunciationPlayer word={"Asseblief"} phonetic={"[asəˈblif]"} meaning={"Please"} lang="af" />
-          <PronunciationPlayer word={"Verskoon my"} phonetic={"[fərˈskoːn mɛi]"} meaning={"Excuse me"} lang="af" />
-          <PronunciationPlayer word={"Hoe gaan dit?"} phonetic={"[huː χɑːn dət]"} meaning={"How are you?"} lang="af" />
-          <PronunciationPlayer word={"Baie goed"} phonetic={"[ˈbɑːiə χut]"} meaning={"Very well"} lang="af" />
-        </div>
-      </div>
+    title: 'Greetings through the day',
+    content: slide(
+      <>
+        <Rule>The Afrikaans greeting changes with the time of day. <Af>Goeie</Af> means good: <Af>môre</Af> is morning, <Af>dag</Af> is day and <Af>aand</Af> is evening.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['Goeiemôre', 'Good morning'], ['Goeiedag', 'Good day'], ['Goeienaand', 'Good evening']]}
+          aria="Three Afrikaans greetings with their English meaning: Goeiemôre is good morning, Goeiedag is good day, Goeienaand is good evening."
+        />
+        <Worked
+          title="Choose the greeting"
+          steps={[
+            <>It is 7 o&apos;clock in the morning: <Af>Goeiemôre!</Af> <SpeakButton text="Goeiemôre" /></>,
+            <>It is 8 o&apos;clock at night: <Af>Goeienaand!</Af> <En>Good evening</En> <SpeakButton text="Goeienaand" /></>,
+          ]}
+        />
+        <Mistake>Saying <Af>Goeiemôre</Af> in the evening, or leaving off the hat on the <Af>ô</Af>. In the evening say <Af>Goeienaand</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Hello, goodbye, how are you?',
+    content: slide(
+      <>
+        <Rule>Use <Af>Hallo</Af> to start and <Af>Totsiens</Af> to end. To ask how someone is, say <Af>Hoe gaan dit?</Af></Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['Hallo', 'Hello'], ['Totsiens', 'Goodbye'], ['Baie goed', 'Very well']]}
+          aria="Three Afrikaans phrases with their English meaning: Hallo is hello, Totsiens is goodbye, Baie goed is very well."
+        />
+        <Worked
+          title="A short chat"
+          steps={[
+            <><Af>Hallo, Sipho! Hoe gaan dit?</Af> <En>Hello, Sipho! How are you?</En></>,
+            <><Af>Baie goed, dankie. Totsiens!</Af> <En>Very well, thank you. Goodbye!</En> <SpeakButton text="Baie goed, dankie. Totsiens!" /></>,
+          ]}
+        />
+        <Mistake>Using <Af>Totsiens</Af> to say hello. It means goodbye, so use it when you leave.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Polite words: Dankie and Asseblief',
+    content: slide(
+      <>
+        <Rule>Polite words make your Afrikaans friendly. <Af>Dankie</Af> says thank you. <Af>Asseblief</Af> asks nicely.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['Dankie', 'Thank you'], ['Asseblief', 'Please'], ['Verskoon my', 'Excuse me']]}
+          aria="Three polite Afrikaans phrases with their English meaning: Dankie is thank you, Asseblief is please, Verskoon my is excuse me."
+        />
+        <Worked
+          title="Ask nicely, then say thanks"
+          steps={[
+            <><Af>Gee my die boek, asseblief.</Af> <En>Give me the book, please.</En></>,
+            <><Af>Dankie!</Af> <En>Thank you!</En> <SpeakButton text="Gee my die boek, asseblief. Dankie!" /></>,
+          ]}
+        />
+        <Mistake>Mixing the two up. <Af>Asseblief</Af> means please, not thank you. Thank you is <Af>Dankie</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Nouns: animals and places',
+    content: slide(
+      <>
+        <Rule>A noun names an animal, place or thing. Learn each Afrikaans noun with its English meaning.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['kat', 'cat'], ['hond', 'dog'], ['huis', 'house']]}
+          aria="Three Afrikaans nouns with their English meaning: kat is cat, hond is dog, huis is house."
+        />
+        <Worked
+          title="Say it in a sentence"
+          steps={[
+            <><Af>Die kat slaap.</Af> <En>The cat sleeps.</En></>,
+            <><Af>Die hond is in die huis.</Af> <En>The dog is in the house.</En> <SpeakButton text="Die hond is in die huis." /></>,
+          ]}
+        />
+        <Mistake>Mixing up <Af>hond</Af> and <Af>huis</Af> because both start with h. <Af>hond</Af> is the dog; <Af>huis</Af> is the house.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Nouns: school and things',
+    content: slide(
+      <>
+        <Rule>More nouns for your day. Some look like English, but the spelling is Afrikaans.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['skool', 'school'], ['boek', 'book'], ['water', 'water']]}
+          aria="Three Afrikaans nouns with their English meaning: skool is school, boek is book, water is water."
+        />
+        <Worked
+          title="Say it in a sentence"
+          steps={[
+            <><Af>Ek lees 'n boek by die skool.</Af> <En>I read a book at school.</En></>,
+            <><Af>Ek drink water.</Af> <En>I drink water.</En> <SpeakButton text="Ek drink water." /></>,
+          ]}
+        />
+        <Mistake>Writing <Af>book</Af> for <Af>boek</Af>. The Afrikaans word is spelt with <strong>oe</strong>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>What does <Af>Goeienaand</Af> mean?</>} answer={<><Af>Good evening</Af>.</>} />
+        <Check question={<>Which greeting do you say in the morning?</>} answer={<><Af>Goeiemôre</Af> <En>good morning</En>.</>} />
+        <Check question={<>What does <Af>Dankie</Af> mean?</>} answer={<>Thank you. <Af>Asseblief</Af> is please.</>} />
+        <Check question={<>What is the Afrikaans word for <em>dog</em>?</>} answer={<><Af>hond</Af>.</>} />
+      </>,
     ),
   },
 ];
