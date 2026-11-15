@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
   import type { CapsItem } from '@/components/CapsSubjectTopic';
   import type { MathematicsItem, LearnStep } from '../../_shared/types';
 import Formula from '@/components/subjects/Formula';
+import { VerticalLineTest } from '@/components/diagrams/maths/VerticalLineTest';
 import FunctionGraph from '@/components/subjects/FunctionGraph';
 
   const learnSteps: LearnStep[] = [
@@ -14,6 +15,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
           whether a graph represents a function. Domain and range remain important because they describe the set
           of allowed inputs and outputs.
         </p>
+        <VerticalLineTest />
         <Formula block>{String.raw`y = f(x)`}</Formula>
       </>
     ),
