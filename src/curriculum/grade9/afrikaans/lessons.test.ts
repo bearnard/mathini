@@ -10,10 +10,14 @@ import * as grammarReporting from './term2/grammar-reporting/GrammarReporting';
 import * as journalism from './term2/journalism-media/JournalismMedia';
 import * as creativeWriting from './term3/creative-personal-writing/CreativePersonalWriting';
 import * as literature from './term3/literature-study/LiteratureStudy';
+import * as voice from './term3/sentence-structure-voice/SentenceStructureVoice';
+import * as examWriting from './term4/exam-writing-practice/ExamWritingPractice';
+import * as grammarConsolidation from './term4/grammar-consolidation/GrammarConsolidation';
+import * as synoptic from './term4/synoptic-revision/SynopticRevision';
 
 // Lesson standard (docs/notes/lesson-standard.md): 4-6 slides, the last one "Check yourself", every slide renders, and the topic's
 // practice bank can be answered from the slides. The banks themselves are byte-identical to before (checked in the branch).
-const lessons = { advertising, structures, transactional, correspondence, grammarReporting, journalism, creativeWriting, literature } as const;
+const lessons = { advertising, structures, transactional, correspondence, grammarReporting, journalism, creativeWriting, literature, voice, examWriting, grammarConsolidation, synoptic } as const;
 
 const text = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 const slideText = (step: { content: React.ReactNode }) => text(renderToStaticMarkup(createElement('div', null, step.content)));

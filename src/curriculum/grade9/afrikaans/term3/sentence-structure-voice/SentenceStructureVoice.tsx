@@ -1,56 +1,105 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, TaggedBoxes, WordBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Learn key concepts',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Grade 9 Afrikaans FAL builds on foundational skills.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Develop deeper understanding',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Mastering these concepts prepares you for advanced language study.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Apply learning in context',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Practice strengthens your command of Afrikaans language and literature.
-        </p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Repeat these sentence-structure words aloud before changing voice or improving editing accuracy.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"onderwerp"} phonetic={"[ˈɔndərvɛrp]"} meaning={"subject"} lang="af" />
-          <PronunciationPlayer word={"werkwoord"} phonetic={"[ˈvɛrkvuərt]"} meaning={"verb"} lang="af" />
-          <PronunciationPlayer word={"voorwerp"} phonetic={"[ˈfoːrvɛrp]"} meaning={"object"} lang="af" />
-          <PronunciationPlayer word={"bedrywende vorm"} phonetic={"[bəˈdrɛivəndə fɔrm]"} meaning={"active voice"} lang="af" />
-          <PronunciationPlayer word={"lydende vorm"} phonetic={"[ˈlœidəndə fɔrm]"} meaning={"passive voice"} lang="af" />
-          <PronunciationPlayer word={"sinsbou"} phonetic={"[ˈsənsboʊ]"} meaning={"sentence structure"} lang="af" />
-        </div>
-      </div>
+    title: 'Onderwerp, werkwoord, voorwerp',
+    content: slide(
+      <>
+        <Rule>A simple sentence has an <Af>onderwerp</Af> <En>subject</En>, a <Af>werkwoord</Af> <En>verb</En> and often a <Af>voorwerp</Af> <En>object</En>. The subject does the action; the object receives it.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'Die hond', tag: 'onderwerp' }, { word: 'jaag', tag: 'werkwoord' }, { word: 'die kat', tag: 'voorwerp' }]}
+          aria="The sentence Die hond jaag die kat in three boxes: Die hond is the onderwerp (subject), jaag is the werkwoord (verb), die kat is the voorwerp (object)."
+        />
+        <Worked
+          title="Find the parts"
+          steps={[
+            <><Af>Die hond jaag die kat.</Af> <En>The dog chases the cat.</En> <SpeakButton text="Die hond jaag die kat." /></>,
+            <>Who chases? <Af>Die hond</Af>: the subject. What is chased? <Af>die kat</Af>: the object.</>,
+          ]}
+        />
+        <Mistake>Taking the first word group for the object. The subject comes first and does the action; the object is the thing it acts on.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Active voice: bedrywende vorm',
+    content: slide(
+      <>
+        <Rule>In the <Af>bedrywende vorm</Af> <En>active voice</En> the subject does the action: subject, verb, object.</Rule>
+        <WordBoxes
+          words={['Die hond', 'jaag', 'die kat']}
+          hot={[0]}
+          aria="The sentence Die hond jaag die kat as three boxes, with the subject Die hond highlighted as the one who acts."
+        />
+        <Worked
+          title="Make active sentences"
+          steps={[
+            <><Af>Die kinders eet die appels.</Af> <En>The children eat the apples.</En></>,
+            <>The children do the eating, so the subject acts: active voice.</>,
+          ]}
+        />
+        <Mistake>Looking only at the verb. Always ask who does the action. If the subject does it, the sentence is active.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Passive voice: lydende vorm',
+    content: slide(
+      <>
+        <Rule>In the <Af>lydende vorm</Af> <En>passive voice</En> the subject receives the action. Use <Af>word</Af> (or <Af>is</Af> in the past), <Af>deur</Af> <En>by</En> and the <Af>ge-</Af> verb at the end.</Rule>
+        <WordBoxes
+          words={['Die kat', 'word', 'deur', 'die hond', 'gejaag']}
+          hot={[0]}
+          aria="The passive sentence Die kat word deur die hond gejaag as five boxes, with the subject Die kat highlighted as the one who receives the action."
+        />
+        <Worked
+          title="Turn active into passive"
+          steps={[
+            <>Active: <Af>Die hond jaag die kat.</Af></>,
+            <>Passive: <Af>Die kat word deur die hond gejaag.</Af> <En>The cat is chased by the dog.</En> <SpeakButton text="Die kat word deur die hond gejaag." /></>,
+            <>Past passive: <Af>Die kat is deur die hond gejaag.</Af> <En>The cat was chased by the dog.</En></>,
+          ]}
+        />
+        <Mistake>Leaving out <Af>deur</Af> or the <Af>ge-</Af>: <Af>Die kat word die hond jaag</Af> is wrong.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Sinsbou: sentence patterns and editing',
+    content: slide(
+      <>
+        <Rule><Af>Sinsbou</Af> is the way a sentence is built. In a statement the verb is in second place. Edit by checking the order of the parts.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['sinsbou', 'structure'], ['werkwoord', 'verb']]}
+          aria="Two Afrikaans grammar words with their English meaning: sinsbou is sentence structure (sentence building), werkwoord is verb."
+        />
+        <Worked
+          title="Edit the order"
+          steps={[
+            <>Wrong: <Af>Vandag die hond jaag die kat.</Af></>,
+            <>Right: <Af>Vandag jaag die hond die kat.</Af> <En>Today the dog chases the cat.</En> The verb stays second.</>,
+          ]}
+        />
+        <Mistake>Keeping the subject in front of the verb after a time word. The verb stays second: <Af>Vandag jaag die hond</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Which word means <em>subject</em> of a sentence?</>} answer={<><Af>onderwerp</Af>.</>} />
+        <Check question={<>Which word means <em>object</em>?</>} answer={<><Af>voorwerp</Af>.</>} />
+        <Check question={<>Which term means <em>active voice</em>?</>} answer={<><Af>bedrywende vorm</Af>.</>} />
+        <Check question={<>Which term means <em>passive voice</em>?</>} answer={<><Af>lydende vorm</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -93,6 +142,8 @@ const bank: AfrikaansItem[] = [
     explanation: "'Sinsbou' means 'sentence structure'.",
   },
 ];
+
+export { bank };
 
 const SentenceStructureVoice = () => (
   <AfrikaansTopic
