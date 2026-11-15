@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { MathematicsItem, LearnStep } from '../../_shared/types';
 import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import ProbabilityExperiment from '../../../../../components/diagrams/maths/ProbabilityExperiment';
 import { BallBag, DieFaces, ProbabilityScale, SPACE_COLORS, TwoStageTree } from '../../../../../components/diagrams/maths/Grade9SpaceData';
 import { complement, outcomePairs, probability, sa } from '../../../../../components/diagrams/maths/grade9SpaceDataHelpers';
 
@@ -105,6 +106,15 @@ export const learnSteps: LearnStep[] = [
           ]}
         />
         <Mistake>Adding probabilities of events that can happen together. &quot;Even&quot; and &quot;more than 3&quot; share 4 and 6, so their probabilities cannot simply be added.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Try it yourself: roll a die (optional)',
+    content: slide(
+      <>
+        <p className="text-slate-700">Roll the die 10 times, then 50 more, and watch the relative frequency of each face. The theoretical probability of every face is 1/6, about 0,17. With few rolls the bars are uneven. With more rolls they usually even out.</p>
+        <ProbabilityExperiment kind="die" />
       </>,
     ),
   },

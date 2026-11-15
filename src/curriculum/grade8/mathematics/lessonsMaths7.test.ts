@@ -15,7 +15,9 @@ test('batch 7 lessons have the standard shape', () => {
   for (const slides of [solids, graphs, prob, transf]) assertLessonShape(slides);
   assert.equal(solids.length, 6);
   assert.equal(graphs.length, 5);
-  assert.equal(prob.length, 6);
+  assert.equal(prob.length, 7); // five teaching slides, the optional experiment and Check yourself
+  assert.match(prob[5].title, /^Try it yourself/);
+  assert.match(prob[5].text, /settles near 0,5/);
   assert.equal(transf.length, 5);
 });
 
@@ -59,8 +61,8 @@ test('Probability: worked numbers', () => {
   assert.match(prob[3].text, /= 0,2 = 20%/);
   assert.match(prob[4].text, /= 0,46 \(46%\)/);
   assert.match(prob[4].text, /about 25 heads/);
-  assert.match(prob[5].text, /= 0,4 = 40%/);
-  assert.match(prob[5].text, /8: HHH/);
+  assert.match(prob[6].text, /= 0,4 = 40%/);
+  assert.match(prob[6].text, /8: HHH/);
 });
 
 test('Transformation Geometry: worked numbers', () => {

@@ -77,10 +77,12 @@ test('Probability: the worked numbers are true and appear in the slides', () => 
   assert.match(prob[2].text, /2\/4 = 1\/2/);
   assert.match(prob[3].text, /3\/6 \+ 1\/6 = 4\/6 = 2\/3/);
   assert.match(prob[3].text, /23\/50 = 0,46/);
-  assert.match(prob[4].text, /4\/10 = 2\/5/);
-  assert.match(prob[4].text, /1 − 0,85 = 0,15/);
-  assert.match(prob[4].text, /12 outcomes; P\(H6\) = 1\/12/);
-  assert.match(prob[4].text, /4\/52 = 1\/13/);
+  assert.match(prob[4].title, /^Try it yourself/);
+  assert.match(prob[4].text, /about 0,17/);
+  assert.match(prob[5].text, /4\/10 = 2\/5/);
+  assert.match(prob[5].text, /1 − 0,85 = 0,15/);
+  assert.match(prob[5].text, /12 outcomes; P\(H6\) = 1\/12/);
+  assert.match(prob[5].text, /4\/52 = 1\/13/);
 });
 
 test('Transformations: the image points appear in the slides', () => {

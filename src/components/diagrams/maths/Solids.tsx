@@ -111,6 +111,20 @@ const LABEL: Record<SolidName, string> = {
   sphere: 'Sphere',
 };
 
+/** The spoken description of a row of solids. Curved solids are described the way the lessons teach them (flat circular faces and a curved surface), not as a bare face count. */
+export const solidsAria = (names: SolidName[]): string =>
+  names
+    .map((nm) => {
+      const f = SOLIDS[nm];
+      const edges = `${f.edges} edge${f.edges === 1 ? '' : 's'}`;
+      const verts = `${f.vertices} vert${f.vertices === 1 ? 'ex' : 'ices'}`;
+      if (nm === 'cylinder') return `${LABEL[nm]}: 2 circular faces and 1 curved surface, ${edges}, ${verts}`;
+      if (nm === 'cone') return `${LABEL[nm]}: 1 circular face and 1 curved surface, ${edges}, ${verts}`;
+      if (nm === 'sphere') return `${LABEL[nm]}: 1 curved surface, ${edges}, ${verts}`;
+      return `${LABEL[nm]}: ${f.faces} face${f.faces === 1 ? '' : 's'}, ${edges}, ${verts}`;
+    })
+    .join('. ') + '.';
+
 const SolidsRow = ({ names, className }: { names: SolidName[]; className?: string }) => {
   const n = names.length;
   const w = 120 / n;
@@ -118,7 +132,7 @@ const SolidsRow = ({ names, className }: { names: SolidName[]; className?: strin
     <svg
       viewBox="0 0 120 76"
       role="img"
-      aria-label={names.map((nm) => `${LABEL[nm]}: ${SOLIDS[nm].faces} face${SOLIDS[nm].faces === 1 ? '' : 's'}, ${SOLIDS[nm].edges} edge${SOLIDS[nm].edges === 1 ? '' : 's'}, ${SOLIDS[nm].vertices} vert${SOLIDS[nm].vertices === 1 ? 'ex' : 'ices'}`).join('. ') + '.'}
+      aria-label={solidsAria(names)}
       className={`mx-auto block w-full max-w-md rounded-2xl ${className ?? ''}`}
       style={{ background: INK, fontFamily: 'inherit' }}
     >

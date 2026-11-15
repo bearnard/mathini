@@ -3,6 +3,7 @@ import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectT
 import Formula from '../../../../../components/subjects/Formula';
 import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
 import { CoinGrid, CounterBag, ExperimentBar, ProbScale } from '../../../../../components/diagrams/maths/Grade8Space';
+import ProbabilityExperiment from '../../../../../components/diagrams/maths/ProbabilityExperiment';
 import { coinOutcomes, probability } from '../../../../../components/diagrams/maths/grade8SpaceHelpers';
 
 // Every number in the slides below comes from these tested helpers (grade8SpaceHelpers) and
@@ -123,6 +124,15 @@ export const learnSteps: LearnStep[] = [
           ]}
         />
         <Mistake>Thinking the coin is unfair because 23 is not exactly 25. Small experiments vary; only over many trials does the relative frequency settle near <F n={1} d={2} />.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Try it yourself: repeat the experiment (optional)',
+    content: slide(
+      <>
+        <p className="text-slate-700">Toss the coin 10 times, then 50 more, and watch the relative frequency of heads. With few tosses it can be far from 0,5. With more tosses it usually settles near 0,5.</p>
+        <ProbabilityExperiment kind="coin" />
       </>,
     ),
   },
