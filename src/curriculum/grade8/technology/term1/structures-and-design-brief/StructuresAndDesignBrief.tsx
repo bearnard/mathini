@@ -1,16 +1,117 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { BracedFrame, StructureTypes, TensionCompression } from '../../../../../components/diagrams/science/SciencePictures';
+import { LoadsBridge } from '../../../../../components/diagrams/science/SciencePictures5';
+import { IDMEC_STEPS } from '../../../../../components/diagrams/science/steps';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Analyse structures and respond to a design brief',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Technology design starts with a brief and uses structure knowledge to solve a problem. You identify shell,
-          frame, and solid structures, then reason about tension, compression, and different loads.
-        </p>
-      </div>
+    title: 'The design brief and IDMEC',
+    content: slide(
+      <>
+        <Rule>
+          Technology design starts with a <strong>brief</strong>: a short statement of the problem to solve. In IDMEC, the &quot;I&quot; stands for Investigate, which starts with the problem and its context.
+        </Rule>
+        <NumberedSteps steps={IDMEC_STEPS} tone="blue" label="The IDMEC process" />
+        <Worked
+          title="A brief for a footbridge"
+          steps={[
+            <>The brief: learners need a safe way to cross a stream next to the school.</>,
+            <>Investigate: how wide is the stream, how many learners will cross, and what materials can we use?</>,
+            <>Only then design, make, evaluate and communicate.</>,
+          ]}
+        />
+        <Mistake>Starting to draw a solution before investigating. The brief and the investigation tell you what the solution must do.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Shell, frame and solid structures',
+    content: slide(
+      <>
+        <Rule>
+          A frame structure uses joined members to form a strong skeleton. A shell structure is a hollow outer surface that encloses a space. A solid structure is solid all through.
+        </Rule>
+        <StructureTypes />
+        <Worked
+          title="Which is mainly a frame structure?"
+          steps={[<>A cellphone tower is made of joined bars: a frame structure.</>, <>A cooldrink can or an egg is a thin skin that encloses a space: a shell structure.</>, <>A concrete block is solid all through: a solid structure.</>]}
+        />
+        <Mistake>Calling anything hollow a shell. A shell gets its strength from its curved or folded skin. A frame is hollow because it is made of bars with gaps between them.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Tension and compression',
+    content: slide(
+      <>
+        <Rule>
+          Compression usually pushes materials together. Tension usually pulls materials apart.
+        </Rule>
+        <TensionCompression />
+        <Worked
+          title="Name the force in each part"
+          steps={[<>The cables of a suspension bridge are stretched: tension.</>, <>The tower legs and pillars are squeezed by the weight above: compression.</>]}
+        />
+        <Mistake>Thinking a part is only ever in one kind of force. A beam bent by a load is squeezed on one side and stretched on the other.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Dead loads and live loads',
+    content: slide(
+      <>
+        <Rule>
+          A <strong>dead load</strong> is the permanent weight of the structure itself. A <strong>live load</strong> changes, such as people, furniture or vehicles.
+        </Rule>
+        <LoadsBridge />
+        <Worked
+          title="Sort the loads on a footbridge"
+          steps={[<>The weight of the beams and the deck is a dead load: it stays constant.</>, <>Learners walking on the footbridge are a live load: the number and position change.</>, <>The structure must carry both the dead load and the largest live load.</>]}
+        />
+        <Mistake>Thinking a dead load means something that has stopped working. It simply means a load that does not change.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Triangles and rigidity',
+    content: slide(
+      <>
+        <Rule>Triangles are used in frame structures because they improve rigidity and reduce shape distortion.</Rule>
+        <BracedFrame />
+        <Worked
+          title="Brace a frame"
+          steps={[<>A square frame can be pushed into a slanted shape.</>, <>A diagonal brace splits it into two triangles.</>, <>This triangulation limits unwanted movement and strengthens the frame.</>]}
+        />
+        <Mistake>Thinking a thicker bar fixes a wobbly frame. Triangulation does more than thicker bars.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Which is mainly a frame structure? What is a shell structure best described as?</li>
+            <li>What does compression usually do to materials? And tension?</li>
+            <li>What is a dead load? Which example is a live load?</li>
+            <li>In IDMEC, what does &quot;I&quot; stand for? Why are triangles used in frame structures?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>A cellphone tower. A hollow outer surface that encloses a space.</li>
+            <li>Pushes them together. Pulls them apart.</li>
+            <li>The permanent weight of the structure itself. Learners walking on a footbridge.</li>
+            <li>Investigate. They improve rigidity and reduce shape distortion.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

@@ -1,63 +1,119 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Compare } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { CellPair, LevelsRow, SizeScale } from '../../../../../components/diagrams/science/SciencePictures5';
+import { CELL_MM, LEVELS, mmToMicrometres } from '../../../../../components/diagrams/science/lifeTechHelpers';
+
+// The sizes and levels come from tested helpers (lifeTech.test.ts).
+const sa = (n: number) => String(n).replace('.', ',');
+const small = sa(CELL_MM[0]);
+const big = sa(CELL_MM[1]);
+const microLow = mmToMicrometres(CELL_MM[0]);
+const microHigh = mmToMicrometres(CELL_MM[1]);
+const levelNames = LEVELS.slice(0, 4);
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Cell structure: The basic unit of life',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          All living things are made of <strong>cells</strong>. A cell is the smallest unit of life.
-          Most cells are too small to see without a microscope.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Plant and animal cells look different but share some organelles.</p>
-        </div>
-      </div>
+    title: 'The cell: the basic unit of life',
+    content: slide(
+      <>
+        <Rule>
+          A cell is the basic unit of life. All living things are made of cells. A typical plant or animal cell is about {small} to {big} mm across.
+        </Rule>
+        <SizeScale />
+        <Worked
+          title="Why do we need a microscope?"
+          steps={[
+            <>A cell is about {small} to {big} mm, which is {microLow} to {microHigh} micrometres across.</>,
+            <>The smallest thing the naked eye can see is about {big} mm, so most cells are at or below the limit.</>,
+            <>So we need a microscope to see most cells clearly.</>,
+          ]}
+        />
+        <Mistake>Thinking a cell is just a bit of a living thing. A cell is itself alive and carries out the jobs of life. It is the basic unit of life.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Organelles and their functions',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Cells contain small parts called <strong>organelles</strong> that do different jobs:
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Nucleus</strong>
-            <p className="text-slate-600">Controls cell activities and contains DNA.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Mitochondria</strong>
-            <p className="text-slate-600">Releases energy from food.</p>
-          </div>
-          <div className="rounded-xl bg-yellow-50 p-4">
-            <strong className="text-yellow-700">Chloroplast</strong>
-            <p className="text-slate-600">(Plant only) Captures sunlight for photosynthesis.</p>
-          </div>
-          <div className="rounded-xl bg-purple-50 p-4">
-            <strong className="text-purple-700">Cell wall</strong>
-            <p className="text-slate-600">(Plant only) Provides rigid support and protection.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Organelles and their jobs',
+    content: slide(
+      <>
+        <Rule>
+          Organelles are small parts inside a cell that do different jobs. The nucleus controls cell activities and contains DNA. Mitochondria release energy from food.
+        </Rule>
+        <CellPair />
+        <Worked
+          title="Match the organelle to its job"
+          steps={[
+            <>Nucleus: controls the cell&apos;s activities.</>,
+            <>Mitochondria: break down food and release usable energy.</>,
+            <>Chloroplast (plant cells only): captures sunlight for photosynthesis. Cell wall (plant cells only): gives rigid support and protection.</>,
+          ]}
+        />
+        <Mistake>Thinking the mitochondria make energy from nothing. They release the energy that is stored in food, in respiration.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'From cells to tissues to organs',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Cells group together to form <strong>tissues</strong>. Tissues work together to form
-          <strong> organs</strong>. Organs work together to form <strong>systems</strong>.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Organisation in living things:</p>
-          <p className="text-slate-600">Cells → Tissues → Organs → Systems → Organism</p>
-        </div>
-      </div>
+    title: 'Plant and animal cells compared',
+    content: slide(
+      <>
+        <Rule>Plant and animal cells look different but share some organelles. Both have a nucleus.</Rule>
+        <Compare
+          left={{ title: 'Both plant and animal cells', tone: 'sky', rows: ['nucleus controls cell activities', 'mitochondria release energy', 'cell membrane and cytoplasm'] }}
+          right={{ title: 'Only plant cells', tone: 'emerald', rows: ['cell wall: rigid support', 'chloroplasts: capture sunlight', 'a large vacuole'] }}
+        />
+        <Worked
+          title="Which cell is it?"
+          steps={[<>A cell with chloroplasts is a plant cell, because the chloroplast is only found in plant cells.</>, <>A cell with a nucleus but no cell wall is probably an animal cell.</>]}
+        />
+        <Mistake>Believing that animal cells have no nucleus. Both plant and animal cells have a nucleus.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'From cells to organ systems',
+    content: slide(
+      <>
+        <Rule>
+          Cells group to form tissues, tissues form organs, and organs form systems. A tissue is a group of similar cells working together. The order is {levelNames.join(' → ')}.
+        </Rule>
+        <LevelsRow levels={levelNames} />
+        <Worked
+          title="Follow the heart"
+          steps={[
+            <>Muscle cells are cells.</>,
+            <>Many muscle cells working together form muscle tissue.</>,
+            <>Muscle and other tissues form an organ, the heart. The heart, blood and blood vessels form the circulatory system.</>,
+          ]}
+        />
+        <Mistake>Mixing up the order. An organ is made of tissues, not the other way round.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is a cell? What is the typical size of a plant or animal cell?</li>
+            <li>Which organelle controls cell activities? Where is energy released in a cell?</li>
+            <li>Which organelle is only found in plant cells? What does the cell wall do?</li>
+            <li>What is a tissue? What is the correct order of organisation?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>The basic unit of life. About 0,01 to 0,1 mm.</li>
+            <li>The nucleus. In the mitochondria.</li>
+            <li>The chloroplast. It provides rigid support.</li>
+            <li>A group of similar cells working together. Cells → Tissues → Organs → Systems.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
