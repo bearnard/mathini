@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
   import type { CapsItem } from '@/components/CapsSubjectTopic';
   import type { MathematicsItem, LearnStep } from '../../_shared/types';
 import Formula from '@/components/subjects/Formula';
+import { HorizontalLineTest } from '@/components/diagrams/maths/HorizontalLineTest';
 import { VerticalLineTest } from '@/components/diagrams/maths/VerticalLineTest';
 import FunctionGraph from '@/components/subjects/FunctionGraph';
 
@@ -29,6 +30,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
           whether each output value is produced once, and remember that many quadratics need a restricted domain
           before they can have an inverse.
         </p>
+        <HorizontalLineTest />
         <Formula block>{String.raw`x \ge 0 \text{ for } f(x)=x^2`}</Formula>
       </>
     ),
