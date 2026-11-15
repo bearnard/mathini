@@ -296,7 +296,7 @@ export const TriangleInRect = ({ base, height, apex, unit, className }: { base: 
   const bl = { x: x0, y: y0 + hh };
   const br = { x: x0 + w, y: y0 + hh };
   return (
-    <Panel h={r3(y0 + hh + 22)} className={className} aria={`A triangle with base ${base} ${unit} and height ${height} ${unit} drawn inside a rectangle ${base} by ${height}. The two pieces outside the triangle fit together to make another triangle the same size, so the triangle is half of ${base} × ${height}: ${(base * height) / 2} square ${unit}.`}>
+    <Panel h={r3(y0 + hh + 22)} className={className} aria={`A triangle with base ${base} ${unit} and height ${height} ${unit} drawn inside a rectangle ${base} by ${height}. The two pieces outside the triangle together have the same total area as the triangle, so the triangle is half of ${base} × ${height}: ${(base * height) / 2} square ${unit}.`}>
       <rect x={r3(x0)} y={y0} width={r3(w)} height={r3(hh)} fill="rgba(148,163,184,0.12)" stroke={MUTED} strokeWidth={0.7} strokeDasharray="2 1.6" />
       <path d={`M${P(bl)} L${P(br)} L${P(top)} Z`} fill="rgba(129,140,248,0.45)" stroke={I} strokeWidth={1} />
       <line x1={r3(top.x)} y1={y0} x2={r3(top.x)} y2={r3(y0 + hh)} stroke={A} strokeWidth={0.9} strokeDasharray="2 1.4" />
