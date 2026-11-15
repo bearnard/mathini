@@ -160,7 +160,7 @@ test('packSql runs against the real migration 0012, escapes quotes, and running 
   db.exec(sql);
   db.exec(sql);
   const packRow = db.prepare('SELECT title, created_by, created_at, status FROM review_packs').all() as Record<string, unknown>[];
-  assert.deepEqual(packRow.map((r) => ({ ...r })), [{ title: 'Afrikaans Grade 6', created_by: 'import-teacher-check', created_at: 1000, status: 'draft' }]);
+  assert.deepEqual(packRow.map((r) => ({ ...r })), [{ title: 'Afrikaans Grade 6', created_by: 'import-teacher-check', created_at: 1000, status: 'open' }]);
   const items = db.prepare('SELECT kind, question_id, version_id, file, anchor_text, doubt, sort FROM review_pack_items ORDER BY sort').all() as Record<string, unknown>[];
   assert.equal(items.length, 4);
   const by = (k: string) => items.find((x) => x.kind === k)!;
