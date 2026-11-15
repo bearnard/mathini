@@ -1,87 +1,123 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
+import { FlowDiagram } from '../../../../../components/diagrams/science/SciencePictures4';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Different text types have different jobs',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Creative writing</strong> lets you imagine and express ideas. <strong>Transactional
-          writing</strong> helps you communicate clearly for a real purpose. In this term you practise
-          poems, dialogues, play scripts, and messages.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-pink-50 p-4">
-            <p className="font-bold text-pink-700">Poem</p>
-            <p className="text-slate-600">feelings, images, and carefully chosen words</p>
-          </div>
-          <div className="rounded-xl bg-sky-50 p-4">
-            <p className="font-bold text-sky-700">Dialogue / script</p>
-            <p className="text-slate-600">speakers, turns, and clear action</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4">
-            <p className="font-bold text-emerald-700">Message</p>
-            <p className="text-slate-600">short, clear, and written for a purpose</p>
-          </div>
-        </div>
-      </div>
+    title: 'Creative and transactional writing',
+    content: slide(
+      <>
+        <Rule>
+          Creative writing lets you imagine and express ideas; a poem often uses imagery and feelings to create an effect. Transactional writing is practical: its main purpose is to communicate clearly for a specific purpose.
+        </Rule>
+        <Worked
+          title="Match the text to the job"
+          steps={[
+            <>A poem about the rain: creative, because it uses images and feelings.</>,
+            <>A note asking your teacher for a book: transactional, because it has a clear audience and purpose.</>,
+            <>A play script: creative, with imagined people and events.</>,
+          ]}
+        />
+        <Mistake>Using long imaginative language in a practical message. Transactional writing must be clear for its purpose.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Use the full writing process',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Strong writers do not stop after one try. They <strong>plan</strong>, <strong>draft</strong>,
-          <strong> revise</strong>, and <strong>redraft</strong> so the final piece matches its audience
-          and purpose.
-        </p>
-        <div className="grid gap-3 md:grid-cols-4">
-          <div className="rounded-xl bg-amber-50 p-4">
-            <p className="font-bold text-amber-700">Plan</p>
-            <p className="text-slate-600">collect ideas and order them</p>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4">
-            <p className="font-bold text-indigo-700">Draft</p>
-            <p className="text-slate-600">write the first version</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4">
-            <p className="font-bold text-violet-700">Revise</p>
-            <p className="text-slate-600">improve meaning and detail</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4">
-            <p className="font-bold text-lime-700">Redraft</p>
-            <p className="text-slate-600">fix language and present neatly</p>
-          </div>
-        </div>
-      </div>
+    title: 'The writing process and redrafting',
+    content: slide(
+      <>
+        <Rule>
+          Planning ideas comes first. After the first draft, read it again and improve it. Redrafting helps you improve content and language.
+        </Rule>
+        <FlowDiagram
+          id="cw"
+          title="From plan to redraft"
+          desc="Four steps: plan, draft, revise, redraft."
+          nodes={[
+            { id: 'p', label: 'plan', x: 22, y: 50, color: '#7dd3fc' },
+            { id: 'd', label: 'draft', x: 58, y: 50, color: '#fcd34d' },
+            { id: 'r', label: 'revise', x: 96, y: 50, color: '#86efac' },
+            { id: 'g', label: 'redraft', x: 136, y: 50, color: '#fda4af' },
+          ]}
+          edges={[
+            { from: 'p', to: 'd', label: '' },
+            { from: 'd', to: 'r', label: '' },
+            { from: 'r', to: 'g', label: '' },
+          ]}
+        />
+        <Worked
+          title="Improve a first draft"
+          steps={[
+            <>Plan: collect ideas and put them in order.</>,
+            <>Draft: write the first version.</>,
+            <>Read it again: improve the meaning and detail (revise).</>,
+            <>Redraft: fix the language and present it neatly. Now both content and language are better.</>,
+          ]}
+        />
+        <Mistake>Handing in the first draft. Writers read their work again and improve it.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Think about audience, register, and coherence',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Before you write, ask: <strong>Who will read this?</strong> and <strong>Why am I writing it?</strong>
-          Your language should suit the audience, and your ideas should stay linked so each paragraph or
-          turn makes sense.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-cyan-50 p-4">
-            <p className="font-bold text-cyan-700">Audience</p>
-            <p className="text-slate-600">friend, teacher, class, or principal</p>
-          </div>
-          <div className="rounded-xl bg-rose-50 p-4">
-            <p className="font-bold text-rose-700">Register</p>
-            <p className="text-slate-600">formal or informal language</p>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4">
-            <p className="font-bold text-fuchsia-700">Coherence</p>
-            <p className="text-slate-600">ideas connect in a clear order</p>
-          </div>
-        </div>
-      </div>
+    title: 'Scripts and dialogue',
+    content: slide(
+      <>
+        <Rule>A play script shows speaker names and stage directions, so we know who is speaking and what happens on stage. In dialogue each speaker takes a clear turn.</Rule>
+        <Worked
+          title="Set out a short script"
+          steps={[
+            <>Write the speaker’s name, then what they say: <strong>Thandi:</strong> Where is my book?</>,
+            <>Add a stage direction in brackets so we know the action: (Thandi looks under the desk.)</>,
+            <>Give the next speaker a new line and their own name: <strong>Sipho:</strong> It is on the shelf.</>,
+          ]}
+        />
+        <Mistake>Writing all the speakers’ words in one block. Each speaker takes a separate turn so the dialogue is easy to follow.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Audience, register and coherence',
+    content: slide(
+      <>
+        <Rule>
+          Ask: who will read this, and why am I writing it? Your audience decides your register (formal or informal). Coherence means ideas link together clearly, from one idea to the next.
+        </Rule>
+        <Worked
+          title="Open a note to your teacher"
+          steps={[
+            <>Audience: a teacher. Purpose: ask or tell something. Register: polite and formal.</>,
+            <>The best opening is “Dear Ms Naidoo,” (a polite opening that matches the audience).</>,
+            <>Keep each idea in order so the message stays focused and makes sense: that is coherence.</>,
+          ]}
+        />
+        <Mistake>Using the same informal language for everyone. A friend can get “Hi Zinzi!” but a teacher needs a polite opening.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is the purpose of transactional writing? Which text type uses imagery and feelings?</li>
+            <li>What do you do first in the writing process, and after the first draft? Why redraft?</li>
+            <li>What belongs in a play script, and how is dialogue organised?</li>
+            <li>Which opening suits a note to your teacher, and what is coherence?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>To communicate clearly for a specific purpose. A poem.</li>
+            <li>Plan your ideas. Read it again and improve it. Redrafting helps you improve content and language.</li>
+            <li>Speaker names and stage directions. Each speaker takes a clear turn.</li>
+            <li>“Dear Ms Naidoo,”. Coherence means ideas link together clearly.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

@@ -1,148 +1,124 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
+import { FlowDiagram } from '../../../../../components/diagrams/science/SciencePictures4';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Process writing works step by step',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Strong writing grows through a process. We <strong>plan</strong>, <strong>draft</strong>,
-          <strong> revise</strong>, and <strong>edit</strong> so the final piece is clear and well organised.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <strong className="text-sky-800">Plan</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-sky-700">
-              <span className="rounded-full bg-white px-3 py-1">ideas</span>
-              <span className="rounded-full bg-white px-3 py-1">purpose</span>
-              <span className="rounded-full bg-white px-3 py-1">order</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <strong className="text-amber-800">Draft</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-amber-700">
-              <span className="rounded-full bg-white px-3 py-1">first version</span>
-              <span className="rounded-full bg-white px-3 py-1">full sentences</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <strong className="text-emerald-800">Revise</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-emerald-700">
-              <span className="rounded-full bg-white px-3 py-1">improve ideas</span>
-              <span className="rounded-full bg-white px-3 py-1">better paragraphs</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <strong className="text-rose-800">Edit</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-rose-700">
-              <span className="rounded-full bg-white px-3 py-1">spelling</span>
-              <span className="rounded-full bg-white px-3 py-1">punctuation</span>
-              <span className="rounded-full bg-white px-3 py-1">grammar</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'The writing process',
+    content: slide(
+      <>
+        <Rule>Good writing grows in steps: plan, draft, revise, edit. Always plan your ideas first, because planning decides your purpose, your topic and the order of your ideas.</Rule>
+        <FlowDiagram
+          id="write"
+          title="The writing process"
+          desc="Four steps in a row: plan, draft, revise, edit."
+          nodes={[
+            { id: 'p', label: 'plan', x: 24, y: 50, color: '#7dd3fc' },
+            { id: 'd', label: 'draft', x: 62, y: 50, color: '#fcd34d' },
+            { id: 'r', label: 'revise', x: 100, y: 50, color: '#86efac' },
+            { id: 'e', label: 'edit', x: 138, y: 50, color: '#fda4af' },
+          ]}
+          edges={[
+            { from: 'p', to: 'd', label: '' },
+            { from: 'd', to: 'r', label: '' },
+            { from: 'r', to: 'e', label: '' },
+          ]}
+        />
+        <Worked
+          title="Write about a school trip"
+          steps={[
+            <>Plan: decide the purpose and list your ideas in order.</>,
+            <>Draft: write the first version in full sentences.</>,
+            <>Revise: improve the ideas and paragraphs.</>,
+            <>Edit: check spelling, punctuation and grammar.</>,
+          ]}
+        />
+        <Mistake>Starting to write before you plan, or fixing spelling before the ideas are right. Plan first; edit last.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Choose the right text type for the job',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Writers choose a text type that matches the task. Summaries are short, narratives tell events,
-          descriptions paint pictures, friendly letters speak to a person, and dialogue shows spoken words.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <strong className="text-blue-800">Summary</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-blue-700">
-              <span className="rounded-full bg-white px-3 py-1">main points</span>
-              <span className="rounded-full bg-white px-3 py-1">brief</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-purple-50 p-4 text-left">
-            <strong className="text-purple-800">Narrative essay</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-purple-700">
-              <span className="rounded-full bg-white px-3 py-1">story</span>
-              <span className="rounded-full bg-white px-3 py-1">characters</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <strong className="text-teal-800">Descriptive essay</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-teal-700">
-              <span className="rounded-full bg-white px-3 py-1">senses</span>
-              <span className="rounded-full bg-white px-3 py-1">detail</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <strong className="text-orange-800">Friendly letter</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-orange-700">
-              <span className="rounded-full bg-white px-3 py-1">greeting</span>
-              <span className="rounded-full bg-white px-3 py-1">sign-off</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <strong className="text-indigo-800">Dialogue</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-700">
-              <span className="rounded-full bg-white px-3 py-1">spoken words</span>
-              <span className="rounded-full bg-white px-3 py-1">quotation marks</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Text types',
+    content: slide(
+      <>
+        <Rule>
+          A summary is a short version with only the main points. A narrative essay tells a story. A descriptive essay uses detail and the senses to create a picture. A friendly letter is personal and has a greeting and a sign-off.
+        </Rule>
+        <Worked
+          title="Choose the text type"
+          steps={[
+            <>A story about a lost puppy that finds its way home: a narrative essay, because it tells a sequence of events.</>,
+            <>The sights and sounds of a busy market: a descriptive essay, because it uses detail and the senses.</>,
+            <>A short version of a long article: a summary, because it keeps only the main points.</>,
+            <>A letter to a cousin: a friendly letter, with a greeting (“Dear Sipho,”) and a sign-off (“Love, Ayanda”).</>,
+          ]}
+        />
+        <Mistake>Putting every detail into a summary. A summary leaves out extra detail and keeps only the main points.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Grammar and paragraphing make writing clear',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Good grammar helps readers follow ideas. We use nouns, pronouns, conjunctions, and adverbs well,
-          and we organise ideas into clear paragraphs with correct punctuation.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <strong className="text-lime-800">Noun</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-lime-700">
-              <span className="rounded-full bg-white px-3 py-1">person</span>
-              <span className="rounded-full bg-white px-3 py-1">place</span>
-              <span className="rounded-full bg-white px-3 py-1">thing</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <strong className="text-fuchsia-800">Pronoun</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-fuchsia-700">
-              <span className="rounded-full bg-white px-3 py-1">he</span>
-              <span className="rounded-full bg-white px-3 py-1">she</span>
-              <span className="rounded-full bg-white px-3 py-1">they</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <strong className="text-cyan-800">Conjunction</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-cyan-700">
-              <span className="rounded-full bg-white px-3 py-1">and</span>
-              <span className="rounded-full bg-white px-3 py-1">but</span>
-              <span className="rounded-full bg-white px-3 py-1">because</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-red-50 p-4 text-left">
-            <strong className="text-red-800">Adverb</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-red-700">
-              <span className="rounded-full bg-white px-3 py-1">how</span>
-              <span className="rounded-full bg-white px-3 py-1">when</span>
-              <span className="rounded-full bg-white px-3 py-1">where</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <strong className="text-violet-800">Paragraphing</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-violet-700">
-              <span className="rounded-full bg-white px-3 py-1">one main idea</span>
-              <span className="rounded-full bg-white px-3 py-1">clear order</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Dialogue and paragraphs',
+    content: slide(
+      <>
+        <Rule>Quotation marks show the exact words a speaker says. Each paragraph has one main idea, and the paragraphs follow a clear order.</Rule>
+        <Worked
+          title="Punctuate speech"
+          steps={[
+            <>Spoken words: I am ready to go.</>,
+            <>Put quotation marks round the exact words: “I am ready to go,” said Thandi.</>,
+            <>When a new person speaks, begin a new line.</>,
+            <>Keep one main idea in each paragraph, and put the paragraphs in a clear order.</>,
+          ]}
+        />
+        <Mistake>Leaving out the quotation marks, so the reader cannot tell what was said and what was written about it.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Nouns, pronouns, conjunctions and adverbs',
+    content: slide(
+      <>
+        <Rule>
+          A noun is a word that names a person, place or thing. A pronoun replaces a noun (he, she, it, they). A conjunction joins words or ideas (and, but, because). An adverb tells us how an action is done.
+        </Rule>
+        <Worked
+          title="Label “The choir sang beautifully”"
+          steps={[
+            <>“choir” names a group of people: it is a noun.</>,
+            <>“sang” is the action. Ask: how did the choir sing?</>,
+            <>“beautifully” answers how: it is the adverb.</>,
+            <>Replace “the choir” with “they” (a pronoun) and join two ideas with “because” (a conjunction).</>,
+          ]}
+        />
+        <Mistake>Thinking every describing word is an adjective. A word that tells how an action is done, such as beautifully, is an adverb.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What do you do first in the writing process? What is a summary?</li>
+            <li>Which text type tells a story about a lost puppy, and which helps readers imagine a busy market?</li>
+            <li>What marks show spoken words, and what two things belong in a friendly letter?</li>
+            <li>In “The choir sang beautifully”, which word is the adverb? What is a noun, and what does a pronoun do?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Plan your ideas. A summary is a short version with only the main points.</li>
+            <li>A narrative essay tells the story; a descriptive essay creates the picture.</li>
+            <li>Quotation marks. A greeting and a sign-off.</li>
+            <li>“beautifully”. A noun names a person, place or thing; a pronoun replaces a noun.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
