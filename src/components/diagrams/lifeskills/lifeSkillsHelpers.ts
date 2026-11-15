@@ -11,3 +11,11 @@ export const starts = (pattern: Sound[]): number[] => pattern.map((_, i) => beat
 
 /** The pattern drawn in the rhythm picture: long, short, short, long, long = 4 beats. */
 export const DEMO_PATTERN: Sound[] = ['long', 'short', 'short', 'long', 'long'];
+
+/** A repeating pattern: the unit of shapes repeated this many times. */
+export const PATTERN_UNIT = ['circle', 'square', 'triangle'] as const;
+export const PATTERN_REPEATS = 3;
+
+/** The shapes of the full pattern, in order. */
+export const patternShapes = (unit: readonly string[] = PATTERN_UNIT, repeats: number = PATTERN_REPEATS): string[] =>
+  Array.from({ length: repeats }, () => unit).flat();

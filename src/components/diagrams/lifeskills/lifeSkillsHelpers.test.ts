@@ -13,3 +13,12 @@ test('each sound starts where the one before it ends', () => {
 test('two short sounds take the time of one long sound', () => {
   assert.equal(beatsIn(['short', 'short']), beatsIn(['long']));
 });
+
+import { PATTERN_REPEATS, PATTERN_UNIT, patternShapes } from './lifeSkillsHelpers';
+
+test('a pattern is its unit repeated: 3 shapes x 3 repeats = 9 shapes, starting again each unit', () => {
+  const all = patternShapes();
+  assert.equal(all.length, PATTERN_UNIT.length * PATTERN_REPEATS);
+  assert.deepEqual(all.slice(0, 3), [...PATTERN_UNIT]);
+  assert.deepEqual(all.slice(3, 6), [...PATTERN_UNIT]);
+});
