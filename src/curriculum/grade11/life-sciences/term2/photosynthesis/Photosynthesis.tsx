@@ -65,7 +65,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-orange-50 p-4">
             <strong className="text-orange-700">Temperature</strong>
-            <p className="text-slate-600">Enzyme-controlled; rate rises up to ~35°C then falls sharply as enzymes denature. Very low temperatures slow reactions.</p>
+            <p className="text-slate-600">Enzyme-controlled; rate rises up to its optimum (about 25-35°C), then falls sharply as enzymes denature above about 40°C. Very low temperatures slow reactions.</p>
           </div>
         </div>
       </div>

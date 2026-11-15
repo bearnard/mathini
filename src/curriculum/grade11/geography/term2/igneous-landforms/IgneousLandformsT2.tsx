@@ -127,9 +127,9 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'The Cape Granite Suite forms part of which major South African landscape?',
-    options: ['The Drakensberg escarpment in the east', 'The Cape Fold Mountains and the Cape Peninsula', 'The flat Karoo plains of the interior', 'The Highveld plateau around Johannesburg'],
-    answer: 'The Cape Fold Mountains and the Cape Peninsula',
-    explanation: 'The Cape Granite Suite is a series of batholithic granites forming prominent features like the Cape Peninsula mountains and parts of the Swartberg.',
+    options: ['The Drakensberg escarpment in the east', 'The Cape Peninsula and nearby parts of the Western Cape', 'The flat Karoo plains of the interior', 'The Highveld plateau around Johannesburg'],
+    answer: 'The Cape Peninsula and nearby parts of the Western Cape',
+    explanation: 'The Cape Granite Suite is a series of batholithic granites (about 550 million years old) that underlie the Cape Peninsula and outcrop around Saldanha and Stellenbosch.',
   },
   {
     prompt: 'How do dolerite koppies form on the Karoo plains?',

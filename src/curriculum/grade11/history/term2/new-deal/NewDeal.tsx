@@ -78,7 +78,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-green-50 p-4">
             <strong className="text-green-700">FDIC (Federal Deposit Insurance):</strong>
-            <p className="text-slate-600">Guaranteed bank deposits up to $5000 — restoring public confidence in the banking system.</p>
+            <p className="text-slate-600">Guaranteed bank deposits (first up to $2 500, raised to $5 000 in 1934) — restoring public confidence in the banking system.</p>
           </div>
           <div className="rounded-xl bg-amber-50 p-4">
             <strong className="text-amber-700">Social Security Act (1935):</strong>

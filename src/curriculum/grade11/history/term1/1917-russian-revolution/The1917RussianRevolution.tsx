@@ -45,12 +45,12 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          In February 1917 (March in the Western calendar), women workers in Petrograd went on strike demanding bread. The strikes spread rapidly and soldiers refused to fire on protesters, joining the revolution instead.
+          In February 1917 (old Russian calendar; March in the Western calendar), women workers in Petrograd went on strike demanding bread. The strikes spread rapidly and soldiers refused to fire on protesters, joining the revolution instead.
         </p>
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-blue-50 p-4">
             <strong className="text-blue-700">Outcome:</strong>
-            <p className="text-slate-600">Tsar Nicholas II abdicated on 2 March 1917, ending over 300 years of Romanov rule.</p>
+            <p className="text-slate-600">Tsar Nicholas II abdicated on 2 March 1917 (old calendar; 15 March in the Western calendar), ending over 300 years of Romanov rule.</p>
           </div>
           <div className="rounded-xl bg-amber-50 p-4">
             <strong className="text-amber-700">The Provisional Government:</strong>

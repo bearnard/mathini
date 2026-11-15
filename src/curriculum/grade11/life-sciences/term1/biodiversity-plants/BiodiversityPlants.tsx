@@ -42,7 +42,7 @@ const learnSteps: LearnStep[] = [
             <strong>Bryophytes → Pteridophytes:</strong> Development of vascular tissue (xylem and phloem) enables water and food transport over longer distances.
           </p>
           <p className="text-slate-700">
-            <strong>Pteridophytes → Gymnosperms:</strong> Seeds replace spores — better survival rate, dormancy capability, and dispersal over long distances.
+            <strong>Pteridophytes → Gymnosperms:</strong> Seeds replace exposed spores as the way plants spread — better survival rate, dormancy capability, dispersal over long distances, and fertilisation that no longer needs external water.
           </p>
           <p className="text-slate-700">
             <strong>Gymnosperms → Angiosperms:</strong> Seeds enclosed in fruit; flowers attract pollinators; successful colonisation of almost all habitats.

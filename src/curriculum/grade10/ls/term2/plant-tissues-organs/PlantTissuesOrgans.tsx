@@ -27,7 +27,7 @@ const learnSteps: LearnStep[] = [
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <h4 className="font-semibold text-blue-900 mb-2">🚰 Vascular Tissue</h4>
             <ul className="space-y-1 text-sm text-blue-800">
-              <li><strong>Xylem:</strong> Transports water and minerals upward (roots → leaves)</li>
+              <li><strong>Xylem:</strong> Transports water and minerals upward (roots → leaves); its lignified walls also give support</li>
               <li><strong>Phloem:</strong> Transports sugars and nutrients (bidirectional)</li>
               <li><strong>Cambium:</strong> Produces new xylem and phloem</li>
             </ul>
@@ -196,10 +196,10 @@ const bank: LifeSciencesItem[] = [
     explanation: 'Phloem tissues transport sugars produced in leaves to other plant parts.',
   },
   {
-    prompt: 'Which tissue type provides structural support in plants?',
+    prompt: 'Which plant tissue has lignified walls that carry water and also support the plant?',
     options: ['Phloem', 'Epidermis', 'Xylem', 'Parenchyma'],
     answer: 'Xylem',
-    explanation: 'Xylem vessels provide structural support and water transport.',
+    explanation: 'Xylem vessels have lignified walls, so they carry water and also give the plant support.',
   },
   {
     prompt: 'What is the function of stomata in leaves?',

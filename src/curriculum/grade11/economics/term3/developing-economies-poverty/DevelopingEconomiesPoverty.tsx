@@ -153,7 +153,7 @@ const bank: EconomicsItem[] = [
     explanation: 'Bantu Education (1953) provided deliberately inferior schooling to black learners, creating a skills and opportunity gap that persists today.',
   },
   {
-    prompt: "South Africa's HDI of approximately 0.71 places it in which category?",
+    prompt: "South Africa's HDI of approximately 0.74 places it in which category?",
     options: ['Very high human development', 'High human development', 'Medium human development', 'Low human development'],
     answer: 'High human development',
     explanation: 'HDI above 0.700 is classified as "high" human development — SA sits in this band, though with significant internal inequality.',
@@ -162,7 +162,7 @@ const bank: EconomicsItem[] = [
     prompt: 'NSFAS (National Student Financial Aid Scheme) addresses poverty by:',
     options: ['Providing housing for the homeless poor', 'Funding tertiary study for poor students', 'Creating new jobs in the government', 'Subsidising the price of food in shops'],
     answer: 'Funding tertiary study for poor students',
-    explanation: 'NSFAS provides bursaries and loans for university and TVET studies, helping break the poverty cycle through education.',
+    explanation: 'NSFAS provides bursaries (full-cost study funding) to qualifying students at universities and TVET colleges, helping break the poverty cycle through education.',
   },
 ];
 

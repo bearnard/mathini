@@ -161,7 +161,7 @@ const bank: ITItem[] = [
     explanation: 'Delphi uses the reserved word "Self" to refer to the current object inside a method.',
   },
   {
-    prompt: 'If a class has both a default and a parameterised constructor, which one runs when you write: myDog = new Dog("Rex", "Lab", 3)?',
+    prompt: 'If a class has both a default and a parameterised constructor, which one runs when you write: myDog := TDog.Create(\'Rex\', \'Lab\', 3)?',
     options: [
       'The default constructor, because it always runs first',
       'Both constructors run in sequence',

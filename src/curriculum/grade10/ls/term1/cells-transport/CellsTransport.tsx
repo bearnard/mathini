@@ -70,8 +70,8 @@ const learnSteps: LearnStep[] = [
         />
         <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
           <p className="text-sm text-amber-900">
-            <strong>Tonicity effects:</strong> In a hypotonic solution, cells swell (water enters). 
-            In a hypertonic solution, cells shrink (water leaves). In an isotonic solution, no net water movement.
+            <strong>Tonicity effects:</strong> In a hypotonic solution, animal cells swell and may burst (plant cells become turgid). 
+            In a hypertonic solution, cells shrink (plant cells plasmolyse). In an isotonic solution, no net water movement.
           </p>
         </div>
       </div>

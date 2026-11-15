@@ -124,15 +124,15 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Approximately what percentage of South Africa\'s electricity is generated from coal?',
-    options: ['20%', '40%', '60%', '80%'],
-    answer: '80%',
-    explanation: 'Eskom\'s coal power stations provide approximately 80% of South Africa\'s electricity, making the country highly carbon-intensive.',
+    options: ['20%', '40%', '50%', '70-80%'],
+    answer: '70-80%',
+    explanation: 'Eskom\'s coal power stations provide roughly 70-80% of South Africa\'s electricity (about 70% in recent years), making the country highly carbon-intensive.',
   },
   {
     prompt: 'Which South African nuclear power station is located near Cape Town?',
     options: ['Pelindaba', 'Koeberg', 'Medupi', 'Kusile'],
     answer: 'Koeberg',
-    explanation: 'Koeberg Nuclear Power Station near Cape Town is Africa\'s only commercial nuclear plant, providing about 6% of South Africa\'s electricity.',
+    explanation: 'Koeberg Nuclear Power Station near Cape Town is Africa\'s only commercial nuclear plant, providing about 4-5% of South Africa\'s electricity.',
   },
   {
     prompt: 'What is the main environmental disadvantage of burning coal for electricity?',
@@ -147,7 +147,7 @@ const bank: CapsItem[] = [
     explanation: 'Eskom implements load shedding (rotational power cuts) when available generating capacity falls short of national electricity demand.',
   },
   {
-    prompt: 'Which renewable energy source uses the kinetic energy of flowing water to generate electricity?',
+    prompt: 'Which renewable energy source uses the energy of falling or flowing water to generate electricity?',
     options: ['Geothermal', 'Solar PV', 'Hydroelectricity', 'Biomass'],
     answer: 'Hydroelectricity',
     explanation: 'Hydroelectric plants use the gravitational potential energy of water flowing through turbines to generate electricity.',

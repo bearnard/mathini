@@ -51,7 +51,7 @@ const items = [
   },
   {
     prompt: "Which spreadsheet function is best for finding a price from a code in a lookup table?",
-    options: ['COUNT applied to the code column', 'VLOOKUP or XLOOKUP', 'LOWER applied to the code column', 'TODAY applied to the price column'],
+    options: ['COUNT applied to the code column', 'VLOOKUP or HLOOKUP', 'LOWER applied to the code column', 'TODAY applied to the price column'],
     answer: 1,
     explanation: "Lookup functions search a table and return related information, such as a price for a code.",
   },

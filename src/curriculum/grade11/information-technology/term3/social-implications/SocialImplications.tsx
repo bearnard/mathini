@@ -132,7 +132,7 @@ const bank: ITItem[] = [
     prompt: 'Which POPIA principle states that organisations should only collect personal information that is necessary for their stated purpose?',
     options: ['Consent', 'Data minimisation', 'Security safeguards', 'Data subject rights'],
     answer: 'Data minimisation',
-    explanation: 'Data minimisation (or purpose specification) means collecting only the minimum personal data needed — no excess information.',
+    explanation: 'Data minimisation (called minimality in POPIA\'s processing limitation condition) means collecting only the minimum personal data needed — no excess information.',
   },
   {
     prompt: 'What is two-factor authentication (2FA)?',

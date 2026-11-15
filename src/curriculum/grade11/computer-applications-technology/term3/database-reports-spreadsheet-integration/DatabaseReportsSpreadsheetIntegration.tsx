@@ -116,7 +116,7 @@ const bank: CATItem[] = [
     explanation: 'The Detail section repeats for every record in the report\'s record source, displaying individual data rows.',
   },
   {
-    prompt: 'A learner needs to show how each of five provinces contributes to the national total. Which chart type is MOST appropriate?',
+    prompt: 'A learner needs to show how each of the nine provinces contributes to the national total. Which chart type is MOST appropriate?',
     options: ['Line graph', 'Scatter plot', 'Pie chart', 'Bar chart'],
     answer: 'Pie chart',
     explanation: 'Pie charts are ideal for showing how parts make up a whole (proportions), such as each province\'s share of the total.',

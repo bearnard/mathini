@@ -182,7 +182,7 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'A query uses: WHERE Name LIKE \'%son\'. Which name would it match?',
-    options: ['Sonkosi', 'Nelson', 'Petersen', 'Anderson'],
+    options: ['Sonkosi', 'Nelly', 'Petersen', 'Anderson'],
     answer: 'Anderson',
     explanation: '\'%son\' matches any string ending in "son". Anderson ends in "son"; the others do not.',
   },

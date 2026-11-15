@@ -152,15 +152,15 @@ const bank: AccountingItem[] = [
   },
   {
     "id": "cfl-4",
-    "question": "Dividends paid are normally shown as a(n):",
+    "question": "In the Grade 12 cash flow statement, dividends paid are shown as a(n):",
     "options": [
-      "financing outflow",
+      "operating outflow",
       "investing outflow",
-      "operating inflow",
+      "financing inflow",
       "non-cash expense"
     ],
     "answer": 0,
-    "explanation": "Dividends paid are distributions to shareholders and appear as financing outflows."
+    "explanation": "Dividends paid are cash paid out. They are shown with interest paid and tax paid in the operating activities section, below cash generated from operations."
   },
   {
     "id": "cfl-5",

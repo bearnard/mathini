@@ -179,7 +179,7 @@ const bank: CapsItem[] = [
     prompt: 'A 1930s Soviet poster shows American workers starving outside closed factories with the caption "This is capitalism". Which statement about this source is most accurate?',
     options: ['Communist propaganda using the Depression to discredit capitalism', 'An unbiased statistical source on US unemployment', 'American government propaganda about communism', 'A neutral historical document with no ideological view'],
     answer: 'Communist propaganda using the Depression to discredit capitalism',
-    explanation: 'Identifying the ideological origin and purpose of sources is a core CAPS History skill — sources produced by a state are never neutral.',
+    explanation: 'Identifying the origin, purpose and bias of a source is a core CAPS History skill — this poster clearly serves communist propaganda.',
   },
   {
     prompt: 'Which statement correctly contrasts the US and USSR economic systems in the 1930s?',

@@ -345,7 +345,7 @@ end;`} />
 
 const bank: ITItem[] = [
   {
-    prompt: 'What is the first phase of the systems development lifecycle?',
+    prompt: 'Which pair of phases comes first in the systems development lifecycle?',
     options: ['Testing of the finished system', 'Planning and Analysis', 'Coding of the program for the system', 'Deployment of the system to the users'],
     answer: 'Planning and Analysis',
     explanation: 'The first phase involves understanding requirements and planning the system design.',

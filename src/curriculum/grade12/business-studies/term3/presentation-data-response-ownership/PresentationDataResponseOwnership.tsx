@@ -44,7 +44,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-purple-50 p-4">
             <strong className="text-purple-700">Private company</strong>
-            <p className="text-slate-600 mt-1">Separate legal personality with limited liability and better growth potential.</p>
+            <p className="text-slate-600 mt-1">Separate legal personality with limited liability; its shares are not offered to the public.</p>
           </div>
           <div className="rounded-xl bg-blue-50 p-4">
             <strong className="text-blue-700">Co-operative</strong>

@@ -93,7 +93,7 @@ const bank: CapsItem[] = [
     explanation: "Tributaries feed water into the main river channel.",
   },
   {
-    prompt: "Which process describes a river carrying sand and pebbles by rolling them along the bed?",
+    prompt: "Which process describes a river carrying larger pebbles and boulders by rolling them along the bed?",
     options: [
       "Suspension",
       "Traction",

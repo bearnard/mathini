@@ -174,8 +174,8 @@ const bank: LSItem[] = [
   },
   {
     prompt: 'Sponges (Porifera) are unique among animals because they:',
-    options: ['They have radial symmetry like jellyfish do', 'They lack true tissues, organs and body symmetry', 'They are the only animals that filter feed', 'They reproduce by sexual reproduction only'],
-    answer: 'They lack true tissues, organs and body symmetry',
+    options: ['have radial symmetry like jellyfish do', 'lack true tissues, organs and body symmetry', 'are the only animals that filter feed', 'reproduce by sexual reproduction only'],
+    answer: 'lack true tissues, organs and body symmetry',
     explanation: 'Sponges are the simplest animals — their cells are loosely organised with no true tissues or organs, and they show no body symmetry.',
   },
   {

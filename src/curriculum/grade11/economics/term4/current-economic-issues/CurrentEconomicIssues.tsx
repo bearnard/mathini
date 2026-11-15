@@ -88,7 +88,7 @@ const learnSteps: LearnStep[] = [
 
 const bank: EconomicsItem[] = [
   {
-    prompt: "SA's unemployment rate of 33%+ is mainly classified as:",
+    prompt: "SA's unemployment rate of over 30% is mainly classified as:",
     options: ['Cyclical unemployment', 'Frictional unemployment', 'Structural unemployment', 'Seasonal unemployment'],
     answer: 'Structural unemployment',
     explanation: "SA's unemployment is primarily structural — a persistent mismatch between the skills workers have and the skills employers need, not just a business cycle effect.",
