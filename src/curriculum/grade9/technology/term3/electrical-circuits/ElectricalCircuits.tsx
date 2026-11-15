@@ -90,7 +90,7 @@ const bank: CapsItem[] = [
 
 const ElectricalCircuits = () => (
   <CapsSubjectTopic
-    title="Electrical Circuits and Ohm\'s Law"
+    title="Electrical Circuits and Ohm's Law"
     subtitle="Current, voltage, resistance, series and parallel circuits, V=IR, resistor colour codes"
     learnSteps={learnSteps}
     task="gr9-electrical-circuits-t3"

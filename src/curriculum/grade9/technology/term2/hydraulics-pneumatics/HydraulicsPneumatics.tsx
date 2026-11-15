@@ -168,8 +168,8 @@ const bank: CapsItem[] = [
 
 const HydraulicsPneumatics = () => (
   <CapsSubjectTopic
-    title="Hydraulics, Pneumatics and Pascal\'s Principle"
-    subtitle="Fluid pressure, syringes, pneumatic systems, hydraulic systems, force multiplication, Pascal\'s principle"
+    title="Hydraulics, Pneumatics and Pascal's Principle"
+    subtitle="Fluid pressure, syringes, pneumatic systems, hydraulic systems, force multiplication, Pascal's principle"
     learnSteps={learnSteps}
     task="gr9-hydraulics-pneumatics-t2"
     bank={bank}
