@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { checkSchematic } from '../schematic';
-import { HTML_TREE, LAN_WAN, TABLE, TABLE_DESC, TABLE_LABELS } from './cat12Pictures';
+import { HTML_TREE, LAN_WAN, NESTED_IF, TABLE, TABLE_DESC, TABLE_LABELS } from './cat12Pictures';
 import { textWidth } from '../schematic';
 
 test('table picture: 4 labels, the record row, field column and bad cell are all real cells, and labels fit the frame', () => {
@@ -29,12 +29,36 @@ test('HTML tree: html holds head and body; head holds title; body holds the cont
   assert.ok(x('title') < x('body') && x('head') < x('body'));
 });
 
-test('LAN and WAN: devices join a switch, the switch joins a router, the router joins the WAN', () => {
+test('LAN and WAN: devices join a switch inside the LAN; the router is outside it and is the only way to the WAN', () => {
   assert.deepEqual(checkSchematic(LAN_WAN), []);
   const into = (id: string) => LAN_WAN.arrows.filter((a) => a.to === id).map((a) => a.from);
-  assert.deepEqual(into('switch'), ['pc1', 'pc2', 'print']);
+  assert.deepEqual(into('switch'), ['pc', 'print']);
   assert.deepEqual(into('router'), ['switch']);
   assert.deepEqual(into('wan'), ['router']);
-  // the WAN is the only thing past the router, so the LAN does not reach it except through the router
-  assert.equal(LAN_WAN.arrows.filter((a) => a.to === 'wan' || a.from === 'wan').every((a) => a.from === 'router' || a.to === 'router'), true);
+  const zone = LAN_WAN.zones![0];
+  const inside = (id: string) => { const b = LAN_WAN.boxes.find((x) => x.id === id)!; return b.x >= zone.x && b.x + b.w <= zone.x + zone.w; };
+  assert.deepEqual(['pc', 'print', 'switch'].map(inside), [true, true, true]);
+  assert.deepEqual(['router', 'wan'].map(inside), [false, false]);
+  // nothing in the LAN is joined to the WAN except through the router
+  assert.equal(LAN_WAN.arrows.some((a) => (a.from === 'wan' || a.to === 'wan') && a.from !== 'router' && a.to !== 'router'), false);
+  assert.ok(LAN_WAN.labels.some((l) => l.text === 'LAN'));
+});
+
+test('nested IF: two tests, three results; TRUE gives that test\'s result, FALSE moves on; every result has exactly one way in', () => {
+  assert.deepEqual(checkSchematic(NESTED_IF), []);
+  const truth = (from: string) => NESTED_IF.arrows.find((a) => a.from === from && !a.dashed)?.to;
+  const falsy = (from: string) => NESTED_IF.arrows.find((a) => a.from === from && a.dashed)?.to;
+  assert.equal(truth('t1'), 'r1');
+  assert.equal(falsy('t1'), 't2');
+  assert.equal(truth('t2'), 'r2');
+  assert.equal(falsy('t2'), 'r3');
+  // results are the leaves: nothing leaves them, and each is reached by exactly one arrow
+  for (const r of ['r1', 'r2', 'r3']) {
+    assert.equal(NESTED_IF.arrows.filter((a) => a.from === r).length, 0);
+    assert.equal(NESTED_IF.arrows.filter((a) => a.to === r).length, 1);
+  }
+  const tests = NESTED_IF.boxes.filter((b) => b.id.startsWith('t')).length;
+  assert.equal(NESTED_IF.boxes.length - tests, tests + 1, 'a nested IF with n tests has n + 1 results');
+  // the first test is the top-left box: it is checked first
+  assert.deepEqual(NESTED_IF.boxes.filter((b) => b.id.startsWith('t')).sort((a, b) => a.y - b.y).map((b) => b.id), ['t1', 't2']);
 });

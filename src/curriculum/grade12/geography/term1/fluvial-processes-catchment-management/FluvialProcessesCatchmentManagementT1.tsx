@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
+import { DrainageBasin } from '@/components/diagrams/geography/Geo12Pictures';
 import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
@@ -9,6 +10,7 @@ const learnSteps = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">{"A drainage basin is the area drained by a main river and its tributaries. The edge of the basin is the watershed, and the point where two streams meet is called a confluence."}</p>
+        <DrainageBasin />
         <p className="text-lg leading-8 text-slate-600">{"Other key ideas include source, mouth, tributary, distributary, catchment area and stream order. These features are often tested in mapwork and labelled diagrams."}</p>
       </div>
     ),

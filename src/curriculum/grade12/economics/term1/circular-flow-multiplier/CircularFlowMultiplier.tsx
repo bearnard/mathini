@@ -1,6 +1,7 @@
 
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
+import { OpenCircularFlow } from '@/components/diagrams/economics/OpenCircularFlow';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
 
 type RawEconomicsItem = {
@@ -24,6 +25,7 @@ const learnSteps: LearnStep[] = [
             savings, imports and exports.
           </p>
         </div>
+        <OpenCircularFlow />
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-xl border border-slate-200 p-4">
             <p className="font-semibold text-slate-800">Real flow</p>
