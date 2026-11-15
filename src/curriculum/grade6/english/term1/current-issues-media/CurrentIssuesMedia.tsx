@@ -1,136 +1,106 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'How media texts explain current issues',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Media texts</strong> help us understand issues happening now. We read newspaper articles and
-          listen to radio reports to find the <strong>main idea</strong>, key details, and different viewpoints.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <strong className="text-sky-800">Newspaper article</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-sky-700">
-              <span className="rounded-full bg-white px-3 py-1">headline</span>
-              <span className="rounded-full bg-white px-3 py-1">paragraphs</span>
-              <span className="rounded-full bg-white px-3 py-1">details</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <strong className="text-emerald-800">Radio report</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-emerald-700">
-              <span className="rounded-full bg-white px-3 py-1">spoken news</span>
-              <span className="rounded-full bg-white px-3 py-1">careful listening</span>
-              <span className="rounded-full bg-white px-3 py-1">tone</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <strong className="text-amber-800">Main idea</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-amber-700">
-              <span className="rounded-full bg-white px-3 py-1">what it is mostly about</span>
-              <span className="rounded-full bg-white px-3 py-1">big picture</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <strong className="text-violet-800">Current issue</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-violet-700">
-              <span className="rounded-full bg-white px-3 py-1">real problem</span>
-              <span className="rounded-full bg-white px-3 py-1">community topic</span>
-              <span className="rounded-full bg-white px-3 py-1">reasons</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Media texts and the main idea',
+    content: slide(
+      <>
+        <Rule>
+          A newspaper article is a written media text: a headline above organised paragraphs. A radio report is a media text you listen to. The main idea tells you what the text is mostly about.
+        </Rule>
+        <Worked
+          title="Find the main idea of an invented news story"
+          steps={[
+            <>Headline: “Ward 12 opens new park on Saturday”. The headline names the topic.</>,
+            <>Paragraph 1 says who, what and when: the ward is opening a park at 10 a.m. on Saturday.</>,
+            <>The other paragraphs add details: the swings, the trees and who may use the park.</>,
+            <>Main idea: a new park is opening. It is what the whole text is mostly about, not one small detail.</>,
+          ]}
+        />
+        <Mistake>Choosing one detail (such as the swings) as the main idea. A detail is only one part; the main idea covers the whole text.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Spot fact, opinion, inference and evidence',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Good readers ask, <strong>Can I prove this?</strong> Facts can be checked, opinions show what someone
-          thinks, and inferences are smart ideas we make from clues. Evidence supports a claim.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <strong className="text-blue-800">Fact</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-blue-700">
-              <span className="rounded-full bg-white px-3 py-1">can be checked</span>
-              <span className="rounded-full bg-white px-3 py-1">date</span>
-              <span className="rounded-full bg-white px-3 py-1">name</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <strong className="text-rose-800">Opinion</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-rose-700">
-              <span className="rounded-full bg-white px-3 py-1">belief</span>
-              <span className="rounded-full bg-white px-3 py-1">judgement</span>
-              <span className="rounded-full bg-white px-3 py-1">viewpoint</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <strong className="text-lime-800">Inference</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-lime-700">
-              <span className="rounded-full bg-white px-3 py-1">clues</span>
-              <span className="rounded-full bg-white px-3 py-1">thinking</span>
-              <span className="rounded-full bg-white px-3 py-1">probable meaning</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <strong className="text-orange-800">Evidence</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-orange-700">
-              <span className="rounded-full bg-white px-3 py-1">quote</span>
-              <span className="rounded-full bg-white px-3 py-1">detail</span>
-              <span className="rounded-full bg-white px-3 py-1">proof</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Fact or opinion?',
+    content: slide(
+      <>
+        <Rule>A fact can be checked and proved. An opinion is a belief or judgement: words like “best”, “worst” and “beautiful” are clues.</Rule>
+        <Worked
+          title="Sort two sentences"
+          steps={[
+            <>“The report says the meeting starts at 3 p.m.” Ask: can I check it? Yes, in the report or the notice. It is a fact.</>,
+            <>“The new park is the best place in town.” Ask: can everyone prove it? No, “best” is a judgement. It is an opinion.</>,
+            <>Another person might disagree with an opinion, but nobody can disagree about a checked fact.</>,
+          ]}
+        />
+        <Mistake>Thinking that everything printed in a newspaper is a fact. Articles and letters often contain opinions too, so ask: can I prove this?</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Listen critically and discuss viewpoints',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          When we discuss a current issue, we should <strong>listen carefully</strong>, compare viewpoints, and
-          give reasons backed by evidence. If one side is over-emphasised, we should think about possible bias.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <strong className="text-indigo-800">Viewpoint</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-700">
-              <span className="rounded-full bg-white px-3 py-1">who is speaking</span>
-              <span className="rounded-full bg-white px-3 py-1">what they believe</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <strong className="text-teal-800">Reasons</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-teal-700">
-              <span className="rounded-full bg-white px-3 py-1">explain your answer</span>
-              <span className="rounded-full bg-white px-3 py-1">use support</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <strong className="text-fuchsia-800">Bias</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-fuchsia-700">
-              <span className="rounded-full bg-white px-3 py-1">one-sided</span>
-              <span className="rounded-full bg-white px-3 py-1">missing facts</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <strong className="text-cyan-800">Critical listening</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-cyan-700">
-              <span className="rounded-full bg-white px-3 py-1">notice tone</span>
-              <span className="rounded-full bg-white px-3 py-1">check evidence</span>
-              <span className="rounded-full bg-white px-3 py-1">ask questions</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Inference and evidence',
+    content: slide(
+      <>
+        <Rule>An inference is a sensible idea you work out from clues in the text. Evidence is the detail that supports a claim, such as a quoted witness statement and a photo caption.</Rule>
+        <Worked
+          title="Make an inference"
+          steps={[
+            <>Read: “Umbrellas filled the taxi rank as dark clouds gathered.”</>,
+            <>Spot the clues: umbrellas and dark clouds.</>,
+            <>Join the clues: it was probably about to rain. That is the best inference.</>,
+            <>Back it up with evidence: a quoted witness statement and a photo caption can prove what the report says.</>,
+          ]}
+        />
+        <Mistake>Treating an inference as a fact, or making one with no clue. An opinion repeated many times is not evidence either.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Viewpoints, bias and discussion',
+    content: slide(
+      <>
+        <Rule>
+          Every speaker has a viewpoint. Listen critically: notice the tone and check the evidence. If a speaker gives only one side and ignores other facts, think about possible bias. In a discussion, support your opinion with evidence from the text.
+        </Rule>
+        <Worked
+          title="Check a one-sided report"
+          steps={[
+            <>A speaker praises a plan and mentions only its benefits.</>,
+            <>Ask: whose viewpoint is this, and which facts are missing?</>,
+            <>Only one side is given and other facts are ignored, so there may be bias.</>,
+            <>In class, give your own view with a reason from the text, for example: “The report says … so I think …”.</>,
+          ]}
+        />
+        <Mistake>Giving an answer with no reason, or ignoring what everyone else says. A strong discussion uses reasons and evidence from the text.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Which media text is read in paragraphs under a headline, and which do you mainly listen to?</li>
+            <li>What does the main idea of a text tell you?</li>
+            <li>“The new park is the best place in town.” Fact or opinion? Why?</li>
+            <li>A speaker gives only one side of an issue. What should you think about, and how should you discuss it?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>A newspaper article is read; a radio report is listened to.</li>
+            <li>What the text is mostly about.</li>
+            <li>An opinion: “best” is a judgement that cannot be proved.</li>
+            <li>Possible bias. Support your opinion with evidence from the text.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

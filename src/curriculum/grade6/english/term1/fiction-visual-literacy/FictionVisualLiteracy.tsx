@@ -1,147 +1,109 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
 import AnnotatedText from '@/components/subjects/AnnotatedText';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Stories and visuals both send meaning',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          In English HL we read <strong>fiction</strong> and <strong>visual texts</strong>. We look at the
-          setting, the plot, and the message so that words and pictures both make sense.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-purple-50 p-4 text-left">
-            <strong className="text-purple-800">Speculative fiction</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-purple-700">
-              <span className="rounded-full bg-white px-3 py-1">imagined worlds</span>
-              <span className="rounded-full bg-white px-3 py-1">future ideas</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <strong className="text-sky-800">Setting</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-sky-700">
-              <span className="rounded-full bg-white px-3 py-1">where</span>
-              <span className="rounded-full bg-white px-3 py-1">when</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <strong className="text-amber-800">Plot</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-amber-700">
-              <span className="rounded-full bg-white px-3 py-1">events</span>
-              <span className="rounded-full bg-white px-3 py-1">problem</span>
-              <span className="rounded-full bg-white px-3 py-1">solution</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <strong className="text-emerald-800">Message</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-emerald-700">
-              <span className="rounded-full bg-white px-3 py-1">idea</span>
-              <span className="rounded-full bg-white px-3 py-1">theme</span>
-              <span className="rounded-full bg-white px-3 py-1">meaning</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Fiction: setting and plot',
+    content: slide(
+      <>
+        <Rule>
+          The setting tells you where and when a story happens. The plot is the events that happen in the story. Speculative fiction is a story that imagines unusual worlds or events.
+        </Rule>
+        <Worked
+          title="Break down one line"
+          steps={[
+            <>Read: “Lebo crept through the silent house.”</>,
+            <>Setting: a quiet house (where). The text gives the place, so we know where Lebo is.</>,
+            <>Plot: Lebo is creeping through the house. This is one event, and the next events will follow.</>,
+            <>If the house were on a distant planet or the people could fly, it would be speculative fiction: an imagined, unusual world.</>,
+          ]}
+        />
+        <Mistake>Mixing up setting and plot. The setting is the place and time; the plot is what happens.</Mistake>
+      </>,
     ),
   },
   {
-    title: "Annotated extract",
-    content: (
-      <AnnotatedText
-        title={"From \"Alice's Adventures in Wonderland\" — Lewis Carroll"}
-        text={"\"Curiouser and curiouser!\" cried Alice. \"Now I'm opening out like the largest telescope that ever was! Goodbye, feet!\""}
-        annotations={[
-          { start: 1, end: 25, device: "tone", note: "The excited exclamation creates a playful, astonished tone at the start of the moment." },
-          { start: 61, end: 87, device: "simile", note: "Alice explains her growth through a vivid comparison that a young reader can picture immediately." },
-          { start: 103, end: 117, device: "personification", note: "She speaks to her own feet as though they could listen, adding comic fantasy to the scene." },
-        ]}
-      />
+    title: 'Word meaning from context',
+    content: slide(
+      <>
+        <Rule>When you meet a hard word, use the context clues around it: the words and sentences nearby help you work out its meaning.</Rule>
+        <Worked
+          title="What does “crept” mean?"
+          steps={[
+            <>Read: “Lebo crept through the silent house.”</>,
+            <>Look at the clue next to the word: “silent house”.</>,
+            <>A silent house suggests quiet, careful movement.</>,
+            <>So “crept” most nearly means moved quietly and carefully.</>,
+          ]}
+        />
+        <Mistake>Guessing a word from how it looks and ignoring the clues around it. “Crept” is not about creeping insects; the silent house is the clue.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Use skimming, scanning and visualising',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Different reading strategies help for different jobs. We <strong>skim</strong> for the general idea,
-          <strong> scan</strong> for one detail, and <strong>visualise</strong> to build a picture in our minds.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <strong className="text-blue-800">Skimming</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-blue-700">
-              <span className="rounded-full bg-white px-3 py-1">quick overview</span>
-              <span className="rounded-full bg-white px-3 py-1">general idea</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <strong className="text-cyan-800">Scanning</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-cyan-700">
-              <span className="rounded-full bg-white px-3 py-1">find one fact</span>
-              <span className="rounded-full bg-white px-3 py-1">specific word</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <strong className="text-rose-800">Visualising</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-rose-700">
-              <span className="rounded-full bg-white px-3 py-1">mind picture</span>
-              <span className="rounded-full bg-white px-3 py-1">use clues</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <strong className="text-lime-800">Vocabulary in context</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-lime-700">
-              <span className="rounded-full bg-white px-3 py-1">nearby words</span>
-              <span className="rounded-full bg-white px-3 py-1">sentence clues</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Reading strategies: skim, scan, visualise',
+    content: slide(
+      <>
+        <Rule>
+          Skim to get the general idea quickly. Scan to find a specific detail quickly. Visualise: make a picture in your mind of the people, place and action.
+        </Rule>
+        <Worked
+          title="Choose the strategy"
+          steps={[
+            <>You want to know what a text is mostly about: skim it. Read the title and the first lines without reading every word.</>,
+            <>You need one name, date or word: scan. Run your eyes over the page until you see it.</>,
+            <>You are reading a story: visualise. Imagine Lebo, the dark house and the quiet steps.</>,
+          ]}
+        />
+        <Mistake>Reading every word slowly when you only need one fact. Scan for the detail instead.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Adverts are made for a purpose',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Visual literacy means noticing how pictures, colour, and layout help an advert speak to a
-          <strong> target audience</strong>. Good readers ask what the advert wants us to do and who it is meant for.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <strong className="text-fuchsia-800">Purpose</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-fuchsia-700">
-              <span className="rounded-full bg-white px-3 py-1">inform</span>
-              <span className="rounded-full bg-white px-3 py-1">persuade</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <strong className="text-orange-800">Target audience</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-orange-700">
-              <span className="rounded-full bg-white px-3 py-1">who it is for</span>
-              <span className="rounded-full bg-white px-3 py-1">age group</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <strong className="text-teal-800">Visual clues</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-teal-700">
-              <span className="rounded-full bg-white px-3 py-1">colour</span>
-              <span className="rounded-full bg-white px-3 py-1">picture</span>
-              <span className="rounded-full bg-white px-3 py-1">size</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <strong className="text-indigo-800">Reader thinking</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-700">
-              <span className="rounded-full bg-white px-3 py-1">Who?</span>
-              <span className="rounded-full bg-white px-3 py-1">Why?</span>
-              <span className="rounded-full bg-white px-3 py-1">What message?</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Visual texts: adverts and audience',
+    content: slide(
+      <>
+        <Rule>
+          Advert makers choose pictures, colours and words on purpose. Bright colours and large pictures attract attention and support the message. The style and language show the target audience.
+        </Rule>
+        <Worked
+          title="Find the target audience"
+          steps={[
+            <>An advert for a new game uses cartoon heroes and simple language.</>,
+            <>Cartoons and simple words suit young readers.</>,
+            <>So the target audience is children.</>,
+            <>The bright colours and big pictures are there to attract attention and persuade.</>,
+          ]}
+        />
+        <Mistake>Thinking pictures in an advert are only decoration. Every choice is made to catch attention and send the message.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What does the setting tell you, and what is the plot?</li>
+            <li>Why do readers skim, and why do they scan?</li>
+            <li>In “Lebo crept through the silent house”, what does “crept” mean?</li>
+            <li>An advert for a game uses cartoon heroes and simple language. Who is the target audience, and why use bright colours?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>The setting tells where and when the story happens. The plot is the events that happen in the story.</li>
+            <li>Skim for the general idea quickly. Scan to find a specific detail quickly.</li>
+            <li>Moved quietly and carefully (clue: silent house).</li>
+            <li>Children. Bright colours attract attention and support the message.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

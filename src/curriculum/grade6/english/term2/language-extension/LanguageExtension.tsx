@@ -1,75 +1,104 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
 import { TenseCheck, TenseTimeline } from '@/components/diagrams/english/TenseDiagrams';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Grow your vocabulary with word relationships',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Language extension</strong> helps you choose stronger words. Build vocabulary by
-          learning <strong>synonyms</strong>, <strong>antonyms</strong>, and <strong>idioms</strong>
-          so that you understand meaning in context.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-sky-50 p-4">
-            <p className="font-bold text-sky-700">Synonyms</p>
-            <p className="text-slate-600">words with similar meanings</p>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4">
-            <p className="font-bold text-orange-700">Antonyms</p>
-            <p className="text-slate-600">words with opposite meanings</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4">
-            <p className="font-bold text-emerald-700">Idioms</p>
-            <p className="text-slate-600">phrases with special meanings</p>
-          </div>
-        </div>
-      </div>
+    title: 'Synonyms and antonyms',
+    content: slide(
+      <>
+        <Rule>A synonym is a word with a similar meaning. An antonym is a word with the opposite meaning. Knowing both helps you choose stronger words.</Rule>
+        <Worked
+          title="Find a synonym and an antonym"
+          steps={[
+            <>Synonym for “happy”: glad. It has a similar meaning.</>,
+            <>Antonym for “ancient”: modern. It is the opposite of ancient.</>,
+            <>Check with a sentence: “The glad children saw a modern building.”</>,
+          ]}
+        />
+        <Mistake>Mixing the two up. Synonym = same meaning; antonym = opposite meaning.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Control tense so meaning stays clear',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Writers must keep the <strong>tense</strong> clear. If you start in the past, do not jump
-          into the present by mistake. Accurate tense helps the reader follow time and action.
-        </p>
-        <TenseTimeline verb="walk" plural tenses={['past', 'present', 'future']} before="We" after="to school." />
-        <TenseCheck which="lebo" />
-      </div>
+    title: 'Idioms and precise words',
+    content: slide(
+      <>
+        <Rule>An idiom is a phrase whose meaning is not the meaning of its separate words. “Break the ice” means start a friendly conversation. Choose precise words: “whispered” shows how someone spoke.</Rule>
+        <Worked
+          title="Understand and improve"
+          steps={[
+            <>“Break the ice” does not mean to smash ice. It means to make people feel relaxed and ready to talk.</>,
+            <>Read: “She said softly.”</>,
+            <>Which word best replaces “said”? “Whispered”, because it shows how she spoke.</>,
+            <>“She whispered” is more precise than “She said softly”.</>,
+          ]}
+        />
+        <Mistake>Reading an idiom word for word. “Break the ice” is not about real ice.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Edit punctuation, spelling, and word choice',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Careful editing makes writing easier to read. Check <strong>capital letters</strong>,
-          <strong> punctuation</strong>, <strong>spelling</strong>, and whether your chosen words are
-          precise enough for the sentence.
-        </p>
-        <div className="grid gap-3 md:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4">
-            <p className="font-bold text-rose-700">Capitals</p>
-            <p className="text-slate-600">start sentences and names correctly</p>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4">
-            <p className="font-bold text-indigo-700">Punctuation</p>
-            <p className="text-slate-600">full stops, commas, question marks</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4">
-            <p className="font-bold text-amber-700">Spelling</p>
-            <p className="text-slate-600">check each word carefully</p>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4">
-            <p className="font-bold text-fuchsia-700">Word choice</p>
-            <p className="text-slate-600">pick the clearest, strongest word</p>
-          </div>
-        </div>
-      </div>
+    title: 'Keep the tense consistent',
+    content: slide(
+      <>
+        <Rule>The past tense shows an action that already happened. Keep the tense consistent: use the same tense for the actions in one sentence.</Rule>
+        <Worked
+          title="Check the tense"
+          steps={[
+            <>“We walked to school yesterday.” Walked shows the action already happened: past tense.</>,
+            <>“Lebo packed her bag and hurried to the gate.” Packed and hurried are both past tense, so the tense is consistent.</>,
+            <>“Lebo packed her bag and hurries to the gate” mixes past and present, so it is not consistent.</>,
+          ]}
+        />
+        <Mistake>Switching between past and present in one sentence. Choose one tense and keep it.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Punctuation and editing',
+    content: slide(
+      <>
+        <Rule>
+          A question mark belongs at the end of a question. Use a capital letter, a comma after a name you speak to, and a full stop. Edit your own writing to correct mistakes and improve meaning.
+        </Rule>
+        <Worked
+          title="Punctuate and edit"
+          steps={[
+            <>“Where is my bag” asks something, so end with a question mark: “Where is my bag?”</>,
+            <>“thandi please bring your book” needs a capital letter, a comma after the name and a full stop.</>,
+            <>Corrected: “Thandi, please bring your book.”</>,
+            <>Read it again: edit to correct mistakes and choose clearer language.</>,
+          ]}
+        />
+        <Mistake>Skipping the edit because the writing “feels done”. Editing helps you fix errors and improve meaning.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Give a synonym for “happy” and an antonym for “ancient”.</li>
+            <li>What does “break the ice” mean, and which word replaces “said” in “She said softly”?</li>
+            <li>Which keeps the tense consistent: “Lebo packed her bag and hurried to the gate.” or a sentence that mixes tenses?</li>
+            <li>Which mark ends a question? Punctuate: thandi please bring your book. Why edit?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Glad; modern.</li>
+            <li>Start a friendly conversation. Whispered.</li>
+            <li>“Lebo packed her bag and hurried to the gate.” (both verbs are past tense)</li>
+            <li>A question mark. “Thandi, please bring your book.” To correct mistakes and improve meaning.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
