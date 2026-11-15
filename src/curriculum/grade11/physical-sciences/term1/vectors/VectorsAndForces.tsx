@@ -2,6 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import Formula from '@/components/subjects/Formula';
 import ProjectileMotion from '@/components/subjects/PhysicsSim/ProjectileMotion';
 import type { PSItem, LearnStep } from '../../_shared/types';
+import { DistanceDisplacement } from '@/components/diagrams/physics/DistanceDisplacement';
 
 const learnSteps: LearnStep[] = [
   {
@@ -21,6 +22,7 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Displacement, velocity, acceleration, force, weight, momentum.</p>
           </div>
         </div>
+        <DistanceDisplacement />
       </div>
     ),
   },

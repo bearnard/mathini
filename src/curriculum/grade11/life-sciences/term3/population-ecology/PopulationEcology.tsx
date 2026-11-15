@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { LSItem, LearnStep } from '../../_shared/types';
+import { PopulationChangeDiagram } from '@/components/diagrams/lifesci/PopulationChangeDiagram';
 import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
@@ -25,6 +26,7 @@ const learnSteps: LearnStep[] = [
         <div className="bg-slate-50 p-4 rounded-xl text-left">
           <p className="text-slate-700 font-medium">ΔN = (Natality + Immigration) − (Mortality + Emigration)</p>
         </div>
+        <PopulationChangeDiagram />
       </div>
     ),
   },

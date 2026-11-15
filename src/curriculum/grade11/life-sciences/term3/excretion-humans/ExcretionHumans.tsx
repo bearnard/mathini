@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { LSItem, LearnStep } from '../../_shared/types';
+import { KidneySection } from '@/components/diagrams/lifesci/KidneySection';
 import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
@@ -24,6 +25,7 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Funnel-shaped cavity where urine collects before draining into the ureter and then the bladder.</p>
           </div>
         </div>
+        <KidneySection />
         <p className="text-sm text-slate-600">Each kidney contains approximately one million nephrons — the microscopic functional units of the kidney.</p>
       </div>
     ),

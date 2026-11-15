@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { LSItem, LearnStep } from '../../_shared/types';
+import { PhotosynthesisFlow } from '@/components/diagrams/lifesci/PhotosynthesisFlow';
 
 const learnSteps: LearnStep[] = [
   {
@@ -23,6 +24,7 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Glucose (C₆H₁₂O₆) — stored as starch; oxygen (O₂) — released as a by-product through stomata.</p>
           </div>
         </div>
+        <PhotosynthesisFlow />
       </div>
     ),
   },
