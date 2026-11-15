@@ -1,53 +1,130 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import AnnotatedText from '@/components/subjects/AnnotatedText';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StepFlow, StoryArc } from '../../../../../components/diagrams/english/Grade8Pictures';
+import { viewpointOf } from '../../../../../components/diagrams/english/grade8';
 
-const learnSteps: LearnStep[] = [
+// Which person a narrator uses is decided by a tested helper (grade8.test.ts).
+const n1 = 'I stepped into the cold water and my heart pounded.';
+const n2 = 'Thandi stepped into the cold water and her heart pounded.';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Analyse core narrative structure',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Short stories rely on clear structure. Track exposition, rising action, climax, and resolution to understand
-          how the writer builds impact.
-        </p>
-      </div>
+    title: 'Conflict and climax',
+    content: slide(
+      <>
+        <Rule>Conflict is the struggle that drives the plot forward. The climax is the point of highest tension, where the conflict peaks.</Rule>
+        <StoryArc aria="A line that rises from the opening, through conflict that builds, to a high peak labelled climax, then falls through the falling action to the ending." />
+        <Worked
+          title="A short invented story"
+          steps={[
+            <>Opening: Thandi must reach the clinic, but a stream has flooded the path.</>,
+            <>Conflict: Thandi against the water. It builds tension as she tries other routes and fails.</>,
+            <>Climax: she steps into the stream. The tension is highest here. Afterwards she reaches the far bank and the story winds down.</>,
+          ]}
+        />
+        <Mistake>Calling the opening description the climax. The opening sets the scene; the climax is the turning point where tension peaks.</Mistake>
+      </>,
     ),
   },
   {
-    title: "Annotated extract",
-    content: (
-      <AnnotatedText
-        title={"From \"The Fall of the House of Usher\" — Edgar Allan Poe"}
-        text={"During the whole of a dull, dark, and soundless day in the autumn of the year, I had been passing alone, on horseback, through a singularly dreary tract of country."}
-        annotations={[
-          { start: 22, end: 47, device: "diction", note: "The repeated gloomy adjectives show how word choice shapes atmosphere." },
-          { start: 90, end: 117, device: "imagery", note: "The narrator’s lonely movement gives readers a clear visual entry into the setting." },
-          { start: 129, end: 163, device: "tone", note: "The description establishes the bleak tone that drives the story forward." },
-        ]}
-      />
+    title: 'Narrator and viewpoint',
+    content: slide(
+      <>
+        <Rule>A first-person narrator uses I and we. A third-person narrator uses he, she and they. A limited viewpoint means the narrator knows only one character&apos;s thoughts.</Rule>
+        <StepFlow
+          items={[
+            { label: 'First person', note: 'I, we' },
+            { label: 'Third person', note: 'he, she, they' },
+            { label: 'Limited viewpoint', note: 'only one character’s thoughts' },
+          ]}
+          aria="Three narrator types: first person uses I and we, third person uses he, she and they, and limited viewpoint means the narrator knows only one character's thoughts."
+        />
+        <Worked
+          title="Same moment, two narrators"
+          steps={[
+            <>&ldquo;{n1}&rdquo; The pronoun I tells us: {viewpointOf(n1)}.</>,
+            <>&ldquo;{n2}&rdquo; Thandi and her: {viewpointOf(n2)}.</>,
+            <>If the narrator tells only Thandi&apos;s fears and never what the others think, the viewpoint is limited.</>,
+          ]}
+        />
+        <Mistake>Thinking that any story with &ldquo;you&rdquo; or &ldquo;they&rdquo; is first person. First person means the narrator uses I and we, as part of the story.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Evaluate narrator viewpoint and sequencing',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Narrator perspective affects what readers know and feel. Sequencing choices also shape suspense and
-          understanding.
-        </p>
-      </div>
+    title: 'Sequencing and flashback',
+    content: slide(
+      <>
+        <Rule>Putting events in order helps readers understand cause and effect. A flashback rearranges the sequence to reveal background that deepens the present events.</Rule>
+        <StepFlow
+          items={[
+            { label: 'Event 1', note: 'the rain falls all night' },
+            { label: 'Event 2', note: 'the stream floods' },
+            { label: 'Event 3', note: 'the path is blocked' },
+          ]}
+          aria="Three events in order. The rain falls all night, so the stream floods, so the path is blocked. Each event causes the next."
+        />
+        <Worked
+          title="Order the events and spot the cause"
+          steps={[
+            <>The rain fell, so the stream flooded. The flood caused the blocked path. The order shows the chain of cause and effect.</>,
+            <>Flashback: while she stands at the water, Thandi remembers her grandmother teaching her to swim.</>,
+            <>The flashback gives background that explains why she dares to cross.</>,
+          ]}
+        />
+        <Mistake>Thinking a flashback only slows the story or removes tension. A well-placed flashback adds depth and meaning to what is happening now.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Use textual evidence for characterisation',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Characterisation is shown through actions, speech, and choices. Evidence-based answers explain how details
-          reveal personality and motivation.
-        </p>
-      </div>
+    title: 'Characterisation and evidence',
+    content: slide(
+      <>
+        <Rule>Characterisation shows who a character is through actions, words and thoughts. Support every claim with evidence from the text: specific words and details.</Rule>
+        <StepFlow
+          items={[
+            { label: 'Claim', note: 'Sipho is generous.' },
+            { label: 'Evidence', note: 'He shares his food though he is hungry.' },
+            { label: 'Explain', note: 'Giving up food shows kindness.' },
+          ]}
+          aria="Three boxes in order: a claim that Sipho is generous, evidence that he shares food though hungry, and an explanation that giving up food shows kindness."
+        />
+        <Worked
+          title="Prove a claim about the narrator's attitude"
+          steps={[
+            <>&ldquo;She stared at the miserable little shed.&rdquo; The words &ldquo;miserable&rdquo; and &ldquo;little&rdquo; carry feeling.</>,
+            <>Claim: the narrator dislikes the shed. Evidence: those specific words.</>,
+            <>If the story said &ldquo;the cosy little shed&rdquo;, the attitude would change. Word choice reveals attitude.</>,
+          ]}
+        />
+        <Mistake>Using evidence that proves nothing, such as the number of pages, the date on the cover or the title position. Evidence must come from what the characters do and how events are described.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is the climax of a short story?</li>
+            <li>Which pronouns does a first-person narrator use?</li>
+            <li>Why is conflict important in a story?</li>
+            <li>Why might a writer use a flashback?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>The point of highest tension.</li>
+            <li>I and we.</li>
+            <li>It drives the plot forward.</li>
+            <li>To reveal background that deepens the current events.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
