@@ -35,7 +35,7 @@ const lesson: XhLesson = {
         { xh: 'Wena uyilanga lam.', en: 'You are my sun. (metaphor)' },
         { xh: 'Ndidiniwe, ndifuna ukulala.', en: 'I am tired, I want to sleep. (ndidiniwe is the clue to the meaning of ukulala)' },
       ],
-      mistake: 'Do not read a metaphor literally. Wena uyilanga lam does not mean the person is a star.',
+      mistake: 'Do not read a metaphor literally. Wena uyilanga lam does not mean the person is really the sun. It says she is very important to the speaker.',
     },
     {
       title: 'Message and quoting from the text',
