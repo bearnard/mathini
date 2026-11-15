@@ -31,7 +31,7 @@ const lesson: XhLesson = {
       workedTitle: 'Annotate a poster (English description; teacher to supply an isiXhosa poster)',
       examples: [
         { xh: 'Imibala', en: 'Colours: what feeling does each colour give?' },
-        { xh: 'Umfanekiso', en: 'Composition: the largest picture shows what matters most.' },
+        { xh: 'Umfanekiso', en: 'Picture: in the composition, the largest picture shows what matters most.' },
         { xh: 'Isibhengezo', en: 'Poster: teacher to supply an isiXhosa poster; annotate its colour, layout and symbols.' },
       ],
       mistake: 'Do not annotate every word. Mark only the key ideas, or the page becomes useless.',
@@ -42,7 +42,7 @@ const lesson: XhLesson = {
       workedTitle: 'Three questions on the story of Sipho',
       examples: [
         { xh: 'Kutheni uSipho uyavuya?', en: 'Why is Sipho happy? (interpret meaning)' },
-        { xh: 'USipho uyavuya.', en: 'Evidence: the words uyavuya (is happy) show the tone.' },
+        { xh: 'UThando uyamnceda.', en: 'Evidence: quote the text. Thando helps him, so he is happy. (the reason)' },
         { xh: 'Ibali lithetha ngani?', en: 'What is the story about? (the theme)' },
       ],
       mistake: 'Do not answer from memory of a similar story. Use evidence from the text in front of you.',

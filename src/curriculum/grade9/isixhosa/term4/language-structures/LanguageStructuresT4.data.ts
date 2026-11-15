@@ -23,7 +23,7 @@ const lesson: XhLesson = {
         { xh: 'Abantwana bayadlala.', en: 'The children play.' },
         { xh: 'Incwadi ihle. Iincwadi zihle.', en: 'The book is nice. The books are nice.' },
       ],
-      mistake: 'Do not write Abantwana uyadlala. A plural subject needs the plural marker ba-.',
+      mistake: 'Do not write Abantwana uyadlala. A plural subject needs a plural marker: ba- for abantwana, zi- for iincwadi.',
     },
     {
       title: 'Common sentence errors',

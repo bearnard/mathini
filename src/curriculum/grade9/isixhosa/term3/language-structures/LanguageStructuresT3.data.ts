@@ -25,11 +25,11 @@ const lesson: XhLesson = {
         { xh: 'Ndigulile. Andiyi esikolweni.', en: 'I am sick. I am not going to school.' },
         { xh: 'Ndigulile, ngoko andiyi esikolweni.', en: 'I am sick, so I am not going to school. (result)' },
       ],
-      mistake: 'Do not join unrelated ideas, or choose a conjunction that changes the meaning. Kodwa (but) is wrong for a reason.',
+      mistake: 'Do not join unrelated ideas, or choose a conjunction that changes the meaning. Kodwa (but) would be wrong here: being sick is the reason for staying home, not a contrast.',
     },
     {
       title: 'Punctuation: comma, semicolon, quotation marks',
-      rule: 'Use a comma after an opening clause and between items in a list. A semicolon (;) links two related independent clauses or separates items in a list. Use quotation marks around direct speech and a hyphen before a number: ngo-7.',
+      rule: 'Use a comma after an opening clause and between items in a list. A semicolon (;) links two related independent clauses or separates items in a list. Use quotation marks around direct speech and a hyphen before a number: ngo-7 (at 7 o’clock).',
       workedTitle: 'Marks in isiXhosa sentences',
       examples: [
         { xh: 'Ndithanda ukufunda, ukubhala nokucula.', en: 'I like reading, writing and singing. (commas in a list)' },
@@ -45,7 +45,7 @@ const lesson: XhLesson = {
       examples: [
         { xh: 'Ndi funda incwadi. → Ndifunda incwadi.', en: 'I read a book. (join the marker to the verb)' },
         { xh: 'Ndithanda ukufunda, ukubhala nokucula.', en: 'I like to read, to write and to sing. (parallel: all start with uku-)' },
-        { xh: 'Ndonwabile kakhulu.', en: 'I am very happy. (more precise than a plain “good”)' },
+        { xh: 'Ndonwabile kakhulu.', en: 'I am very happy. (a precise feeling word, better than a vague one)' },
       ],
       mistake: 'Do not submit without checking. Do not mix forms in a series, such as ukufunda, ukubhala nabahlobo.',
     },
