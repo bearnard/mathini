@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Read brochure layout with purpose in mind',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Brochures combine short text, headings, and visuals to inform or persuade. Always ask who the brochure is
-          for and what action it wants the reader to take.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Use skimming, scanning and inference',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Skim to get the main idea, scan for details like times or prices, and infer meaning from image choices,
-          colour, and word emphasis.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Match audience, message and design',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Strong brochure analysis links layout decisions to audience needs. A clear structure and relevant visuals
-          help the message land quickly.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './BrochuresVisualLiteracySlides';
 
 const bank: CapsItem[] = [
   {
