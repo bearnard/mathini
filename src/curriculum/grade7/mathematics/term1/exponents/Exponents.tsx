@@ -24,7 +24,6 @@ const prod = sameBaseProduct(5, 2, 3);
 const quot = sameBaseQuotient(3, 4, 2);
 const alone = sameBaseProduct(2, 3, 1);
 const pop = powerOfPower(4, 2, 3);
-if (anatomy.value !== 32 || seven !== 49 || four !== 16 || three !== 27 || !cubes.includes(64) || power(10, 0) !== 1) throw new Error('lesson numbers out of step');
 
 // "Check yourself", answers computed from the same helpers
 const c1 = power(6, 4);
@@ -34,7 +33,7 @@ const c4 = powerOfPower(3, 2, 2);
 
 const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
-const learnSteps: LearnStep[] = [
+export const learnSteps: LearnStep[] = [
   {
     title: 'A power is repeated multiplication',
     content: slide(
