@@ -137,7 +137,7 @@ const bank: CapsItem[] = [
     prompt: 'Which country became independent under Kwame Nkrumah in 1957?',
     options: ['Ghana', 'Algeria', 'Kenya', 'Angola'],
     answer: 'Ghana',
-    explanation: 'Ghana was the first sub-Saharan African colony to gain independence in the post-war era.',
+    explanation: 'Ghana (the former Gold Coast) won independence from Britain in March 1957, the first British colony in sub-Saharan Africa to do so.',
   },
   {
     prompt: 'Why was Ghana\'s independence historically important?',

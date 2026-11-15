@@ -95,7 +95,7 @@ const items = [
   {
     prompt: 'What do labour rights aim to protect?',
     options: [
-      'Unfair treatment and unsafe working conditions',
+      'Workers against unfair treatment and unsafe conditions',
       'Employers from all questions',
       'Only permanent workers',
       'Dishonest behaviour',

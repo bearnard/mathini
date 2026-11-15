@@ -109,7 +109,7 @@ const bank: CapsItem[] = [
     options: [
       'Factories produced more goods than consumers could afford to buy',
       'The government printed too much money',
-      'Farmers grew too many crops, flooding world markets',
+      'Consumers bought more goods than the factories could make',
       'Workers produced goods too slowly',
     ],
     answer: 'Factories produced more goods than consumers could afford to buy',

@@ -144,7 +144,7 @@ const bank: CapsItem[] = [
       'To pay off the national debt caused by the Depression',
     ],
     answer: 'To guarantee bank deposits, restoring public confidence in the banking system',
-    explanation: 'The FDIC guaranteed deposits up to $5000, ending bank runs and restoring trust in the banking system.',
+    explanation: 'The FDIC guaranteed deposits (first up to \\$2,500, raised to \\$5,000 in 1934), ending bank runs and restoring trust in the banking system.',
   },
   {
     prompt: 'When was the Social Security Act passed, and what did it create?',

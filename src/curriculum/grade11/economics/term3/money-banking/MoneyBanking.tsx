@@ -61,7 +61,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6">
         <p className="text-lg leading-8 text-slate-600">
-          The SARB is the central bank. It issues money, acts as banker to government and commercial banks, and aims to keep inflation within the 3–6% target band.
+          The SARB is the central bank. It issues money, acts as banker to government and commercial banks, and aims to keep inflation at its target (3% with a ±1 percentage-point band since November 2025; the range was 3–6% before that).
         </p>
         <DataChart
           data={monetaryData}
@@ -116,13 +116,13 @@ const bank: EconomicsItem[] = [
     prompt: "The South African Reserve Bank's primary mandate is:",
     options: ['Maximising employment', 'Providing home loans to low-income households', 'Maintaining price stability through inflation targeting', 'Financing government budget deficits'],
     answer: 'Maintaining price stability through inflation targeting',
-    explanation: "The SARB's primary constitutional mandate is price stability. It targets inflation within the 3–6% band.",
+    explanation: "The SARB's primary constitutional mandate is price stability. It targets inflation of 3% with a ±1 percentage-point band (2–4%). Until November 2025 the target range was 3–6%.",
   },
   {
-    prompt: "SA's inflation target band set by the SARB is:",
-    options: ['1–3%', '3–6%', '5–8%', '0–2%'],
-    answer: '3–6%',
-    explanation: "The SARB's Monetary Policy Committee aims to keep CPI inflation within the 3–6% target range.",
+    prompt: "SA's current inflation target is:",
+    options: ['1–3%', '3–6%', '5–8%', '3% (±1 point)'],
+    answer: '3% (±1 point)',
+    explanation: "The SARB's Monetary Policy Committee aims to keep CPI inflation at the 3% target, with a tolerance band of ±1 percentage point (2–4%). Until November 2025 the target range was 3–6%.",
   },
   {
     prompt: 'The repo rate is the interest rate at which:',
