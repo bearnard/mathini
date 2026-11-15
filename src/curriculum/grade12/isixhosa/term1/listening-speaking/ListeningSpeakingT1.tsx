@@ -191,7 +191,7 @@ const rawItems: RawItem[] = [
   {
     id: 'ls5',
     question: 'Which response shows good discussion etiquette?',
-    options: ['I respectfully disagree because the poem gives a different idea in stanza 2.', 'That is nonsense and you are wrong.', 'I will interrupt now before you finish.', 'My opinion is enough; I do not need evidence.'],
+    options: ['I disagree respectfully because stanza 2 shows another idea.', 'You are clearly wrong about this poem so please stop talking.', 'Let me interrupt you now before you finish your point.', 'My opinion is enough so I need no evidence for it.'],
     answer: 0,
     explanation: 'A critical discussion needs respectful language and a reason supported by evidence.',
   },
@@ -212,7 +212,7 @@ const rawItems: RawItem[] = [
   {
     id: 'ls8',
     question: 'Which sentence is the best explanation part of P-E-E?',
-    options: ['This quotation proves the character values honesty more than popularity.', 'The quotation is in the book.', 'I like the quotation very much.', 'The line is short and easy to read.'],
+    options: ['This quotation shows the character values honesty over popularity.', 'The quotation is on page ten where the main character first speaks.', 'I like this quotation because it is very memorable.', 'The line is short and easy for readers to understand.'],
     answer: 0,
     explanation: 'The explanation must show how the evidence supports the point you made.',
   },

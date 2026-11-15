@@ -106,12 +106,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "presentation-data-response-ownership-3",
     "question": "In a data-response question, the learner should first:",
-    "options": [
-      "Ignore the source and guess",
-      "Read the source carefully and identify relevant evidence",
-      "Write a conclusion before reading",
-      "Skip the figures"
-    ],
+    "options": ['Ignore the source and guess an answer from memory of the topic', 'Read the source carefully and identify relevant evidence', 'Write a conclusion before reading', 'Skip the figures in the source'],
     "answer": 1,
     "explanation": "Good data responses start by extracting the relevant facts from the source."
   },

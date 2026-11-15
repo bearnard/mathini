@@ -163,14 +163,14 @@ const rawItems: RawItem[] = [
   {
     id: 'lang5',
     question: 'If a passage says a speaker was “reluctant” and then explains that she hesitated to answer, which clue helps most?',
-    options: ['A definition or explanation clue', 'A rhyme clue', 'A page-number clue', 'A colour clue'],
+    options: ['A definition or explanation clue', 'A rhyme clue at the end of a line', 'A page-number clue in the margin', 'A colour clue from the cover image'],
     answer: 0,
     explanation: 'The explanation in the sentence gives enough context to infer the word’s meaning.',
   },
   {
     id: 'lang6',
     question: 'What does connotation refer to?',
-    options: ['The feeling or association attached to a word', 'The number of letters in a word', 'The translation of a word only', 'The part of speech alone'],
+    options: ['The feeling or association a word carries', 'The literal dictionary definition of the word', 'The number of syllables in the word', 'The part of speech the word belongs to'],
     answer: 0,
     explanation: 'Connotation is the positive, negative, or neutral feeling a word carries.',
   },

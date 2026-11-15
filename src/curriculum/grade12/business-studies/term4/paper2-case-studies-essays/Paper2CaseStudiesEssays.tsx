@@ -103,24 +103,14 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "paper2-case-studies-essays-4",
     "question": "Why is essay planning important?",
-    "options": [
-      "It wastes time",
-      "It helps organise points and stay on topic",
-      "It replaces content knowledge",
-      "It is only for mathematics"
-    ],
+    "options": ['It wastes time during the exam without improving the answer', 'It helps organise points and stay on topic', 'It replaces content knowledge', 'It is meant for mathematics papers'],
     "answer": 1,
     "explanation": "A short plan helps structure the response and prevents repetition or drift."
   },
   {
     "id": "paper2-case-studies-essays-5",
     "question": "If a question asks learners to evaluate a strategy, they should:",
-    "options": [
-      "Only define the term",
-      "Weigh strengths and weaknesses before giving a judgement",
-      "List random facts",
-      "Ignore the scenario"
-    ],
+    "options": ['Define the term in one sentence and then move to the next question', 'Weigh strengths and weaknesses before giving a judgement', 'List unrelated facts about the topic', 'Ignore the scenario given'],
     "answer": 1,
     "explanation": "Evaluation requires judgement supported by balanced reasoning."
   },
@@ -151,12 +141,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "paper2-case-studies-essays-8",
     "question": "A learner loses marks in essays mainly because they:",
-    "options": [
-      "Use a clear structure",
-      "Drift away from the question focus",
-      "Plan briefly",
-      "Read the command words"
-    ],
+    "options": ['Use a clear structure for each paragraph of the essay', 'Drift away from the question focus', 'Plan briefly', 'Read the command words'],
     "answer": 1,
     "explanation": "Going off-topic weakens relevance and reduces marks even if the writing is long."
   }

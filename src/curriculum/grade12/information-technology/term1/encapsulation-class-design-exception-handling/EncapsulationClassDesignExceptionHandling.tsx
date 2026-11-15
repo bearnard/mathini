@@ -128,13 +128,13 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What is the main benefit of validating data inside a setter method?",
-    options: ["It makes the code run without any inputs", "It ensures invalid values are rejected before changing the object", "It automatically creates a database table", "It replaces the need for constructors"],
+    options: ['It makes the code run without needing any input', 'It ensures invalid values are rejected before changing the object', 'It automatically creates a table in the database', 'It replaces the need for a constructor in the class definition before the object is created'],
     answer: 1,
     explanation: "A setter can check rules such as ranges or formats before updating a private attribute.",
   },
   {
     prompt: "Which situation is best handled with an exception handler?",
-    options: ["Choosing a class name during planning", "A user enters letters where a number is required at runtime", "Drawing a UML diagram", "Deciding whether to use inheritance"],
+    options: ['Choosing a class name during the planning stage', 'A user enters letters where a number is required at runtime', 'Drawing a UML diagram of the classes', 'Deciding whether the design should use inheritance or not in a class'],
     answer: 1,
     explanation: "An exception handler is for runtime problems, such as a conversion failing when the program is already running.",
   },
@@ -152,7 +152,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "When should a program raise or throw an exception deliberately?",
-    options: ["When invalid data breaks an important rule that the caller must handle", "Whenever a loop finishes normally", "Only when a class diagram is missing", "To replace every if statement in the program"],
+    options: ['When invalid data breaks an important rule that the caller must handle', 'Whenever a loop finishes in the normal way', 'When a class diagram is missing from the plan of the program or the report is too long to read in class', 'To replace every if statement in the program'],
     answer: 0,
     explanation: "Throwing an exception is appropriate when a serious invalid state must be reported clearly to calling code.",
   },
@@ -164,7 +164,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What should a constructor do with essential inputs such as an account number?",
-    options: ["Ignore them until the object is used later", "Store or validate them so the object starts in a sensible state", "Make them public global variables", "Replace them with random values"],
+    options: ['Ignore them until the object is used later on', 'Store or validate them so the object starts in a sensible state', 'Make them public global variables so any part can change them and the object can be edited', 'Replace them with generated values at the start'],
     answer: 1,
     explanation: "Constructors should help establish a correct initial state instead of leaving essential data unset.",
   },

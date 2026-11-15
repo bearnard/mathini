@@ -121,13 +121,13 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What is a zero-day vulnerability?",
-    options: ["A flaw that is unknown or unpatched when attackers start exploiting it", "A bug that appears only after ten years", "A virus that deletes backups first", "A type of network cable"],
+    options: ['A flaw that is unknown or unpatched when attackers start exploiting it', 'A bug that appears only after ten years of use', 'A virus that deletes the backups of a system as its first step and then locks the user out of the server', 'A type of cable used in a network'],
     answer: 0,
     explanation: "A zero-day vulnerability is dangerous because defenders may not yet have a fix available.",
   },
   {
     prompt: "What is a possible risk of AI systems?",
-    options: ["They can never make decisions", "They may reflect bias present in training data", "They remove all privacy concerns", "They only work offline"],
+    options: ['They cannot make decisions of any kind', 'They may reflect bias present in training data', 'They remove the privacy concerns that users have about data', 'They work offline and need no data'],
     answer: 1,
     explanation: "AI can inherit bias from the data and choices used to build or train the system.",
   },
@@ -139,13 +139,13 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What is a major benefit of cloud computing?",
-    options: ["Guaranteed zero risk", "Scalable access to storage or services over the internet", "The permanent end of all local devices", "No need for any user accounts"],
+    options: ['A guarantee that stored data is protected from loss or attack', 'Scalable access to storage or services over the internet', 'The permanent end of all local devices', 'No need for any user accounts to be created'],
     answer: 1,
     explanation: "Cloud computing allows flexible access to computing resources without all infrastructure being local.",
   },
   {
     prompt: "Which measure best secures remote access to organisational resources?",
-    options: ["Using open public Wi-Fi with no extra protection", "Sharing one password among all staff", "Using encrypted connections such as a VPN with strong authentication", "Disabling all backups"],
+    options: ['Using open public Wi-Fi with no extra protection added and a shared password that is posted on the office wall', 'Sharing one password among all of the staff', 'Using encrypted connections such as a VPN with strong authentication', 'Disabling the backups to save storage space'],
     answer: 2,
     explanation: "Remote access should use encrypted channels and strong identity checks to reduce interception and misuse.",
   },

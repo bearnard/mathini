@@ -119,13 +119,13 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What is a common mistake when filtering for a text value?",
-    options: ["Using ORDER BY after SELECT", "Forgetting the quotes around the text literal", "Using a primary key", "Typing the field name correctly"],
+    options: ['Using ORDER BY after the SELECT statement', 'Forgetting the quotes around the text literal', 'Using a primary key in the table', 'Typing the field name in the same case as the table'],
     answer: 1,
     explanation: "Text values normally need quotes in SQL, so forgetting them can cause errors or incorrect results.",
   },
   {
     prompt: "What is the purpose of HAVING?",
-    options: ["It filters grouped results after GROUP BY has been applied", "It creates a new table relationship", "It changes a field type permanently", "It opens the query in design view only"],
+    options: ['It filters grouped results after GROUP BY has been applied', 'It creates a new relationship between tables', 'It creates a new relationship between two tables in the database', 'It opens the query in design view for editing'],
     answer: 0,
     explanation: "HAVING is used to filter groups, such as showing only categories with totals above a threshold.",
   },

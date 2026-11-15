@@ -51,19 +51,19 @@ const items = [
   },
   {
     prompt: "What is the first step when answering a CAT case-study question?",
-    options: ["Identify what the scenario is actually asking", "Rewrite the whole case study", "Ignore the facts and guess", "Choose the longest option"],
+    options: ['Identify what the scenario is actually asking', 'Rewrite the whole case study in your own words', 'Ignore the facts and guess the answer', 'Choose the longest option on the page'],
     answer: 0,
     explanation: "Understanding the exact issue in the scenario is the first step to selecting the right concept.",
   },
   {
     prompt: "Which action is an example of troubleshooting?",
-    options: ["Checking whether a printer is connected before reinstalling software", "Changing all headings to bold", "Adding more animations to slides", "Sorting a table alphabetically for no reason"],
+    options: ['Checking whether a printer is connected before reinstalling software', 'Changing the headings in a document to a bold font style at the end or colour', 'Adding more animations to a slide presentation', 'Sorting a table alphabetically to improve its look'],
     answer: 0,
     explanation: "Troubleshooting begins with likely simple causes before more drastic solutions.",
   },
   {
     prompt: "Why are mixed revision questions useful before the NSC exam?",
-    options: ["They help learners apply several CAT concepts together", "They reduce the need to study", "They only test memory of definitions", "They remove all practical skills"],
+    options: ['They help learners apply several CAT concepts together', 'They reduce the need to study the other topics', 'They test memory of definitions and ignore applied scenarios', 'They remove the need for practical skills'],
     answer: 0,
     explanation: "The final exams often mix topics, so learners need practice linking concepts.",
   },
@@ -81,7 +81,7 @@ const items = [
   },
   {
     prompt: "What makes a CAT theory answer strong?",
-    options: ["It applies the concept directly to the scenario and justifies the answer", "It gives a memorised definition only", "It avoids all examples", "It repeats the question without adding meaning"],
+    options: ['It applies the concept directly to the scenario and justifies the answer', 'It gives a memorised definition without any link to the scenario given in the exam', 'It avoids examples so the answer stays short', 'It repeats the question without adding any meaning'],
     answer: 0,
     explanation: "Strong CAT answers show understanding by linking the concept clearly to the given scenario.",
   },

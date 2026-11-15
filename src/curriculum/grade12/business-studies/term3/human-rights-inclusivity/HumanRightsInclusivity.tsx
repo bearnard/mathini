@@ -85,12 +85,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "human-rights-inclusivity-2",
     "question": "Which workplace action BEST supports inclusivity?",
-    "options": [
-      "Ignoring accessibility needs",
-      "Providing reasonable accommodation for employees with disabilities",
-      "Allowing harassment jokes",
-      "Excluding new staff from meetings"
-    ],
+    "options": ['Ignoring the accessibility needs of staff members with disabilities', 'Providing reasonable accommodation for employees with disabilities', 'Allowing harassment jokes in the office', 'Excluding new staff from meetings'],
     "answer": 1,
     "explanation": "Reasonable accommodation helps employees participate fully and fairly."
   },
@@ -109,24 +104,14 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "human-rights-inclusivity-4",
     "question": "Diversity refers to:",
-    "options": [
-      "People being identical",
-      "Differences among people in the workplace",
-      "Only cultural events",
-      "Only age differences"
-    ],
+    "options": ['People being identical in the workplace in culture and age', 'Differences among people in the workplace', 'Cultural events held once a year', 'Differences in age between workers'],
     "answer": 1,
     "explanation": "Diversity includes the many differences among employees and stakeholders."
   },
   {
     "id": "human-rights-inclusivity-5",
     "question": "Which practice is most likely to reduce prejudice in a business?",
-    "options": [
-      "Diversity awareness and inclusion training",
-      "Ignoring complaints",
-      "Promoting stereotypes",
-      "Hiding company policies"
-    ],
+    "options": ['Diversity awareness and inclusion training', 'Ignoring complaints from employees about unfair treatment', 'Promoting stereotypes about groups', 'Hiding company policies from staff'],
     "answer": 0,
     "explanation": "Training can build awareness, respect and better relationships among staff."
   },
@@ -145,24 +130,14 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "human-rights-inclusivity-7",
     "question": "A business that values different viewpoints is likely to improve:",
-    "options": [
-      "Innovation and problem solving",
-      "Conflict for no reason",
-      "Unfair discrimination",
-      "Staff turnover only"
-    ],
+    "options": ['Innovation and problem solving', 'Conflict between staff members', 'Unfair discrimination in hiring', 'Staff turnover in the business'],
     "answer": 0,
     "explanation": "Inclusive environments often lead to broader thinking and better ideas."
   },
   {
     "id": "human-rights-inclusivity-8",
     "question": "Which statement about inclusivity is CORRECT?",
-    "options": [
-      "It matters only for customers",
-      "It helps people feel they belong and can contribute",
-      "It prevents all disagreement",
-      "It replaces labour legislation"
-    ],
+    "options": ['It matters for customers rather than for staff or managers', 'It helps people feel they belong and can contribute', 'It prevents any disagreement in a team', 'It replaces labour legislation'],
     "answer": 1,
     "explanation": "Inclusivity supports belonging, participation and contribution in the workplace."
   }

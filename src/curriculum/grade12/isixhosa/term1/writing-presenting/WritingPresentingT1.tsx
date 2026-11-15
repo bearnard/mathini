@@ -170,7 +170,7 @@ const rawItems: RawItem[] = [
   {
     id: 'wp7',
     question: 'Which closing is most suitable for a formal letter?',
-    options: ['Ngokwenu / Yours faithfully', 'See you soon', 'Lots of love', 'Cheers'],
+    options: ['Ngokwenu / Yours faithfully', 'Hamba kakuhle / See you soon', 'Ngothando / Lots of love', 'Sala kakuhle / Cheers'],
     answer: 0,
     explanation: 'Formal endings match the respectful tone expected in transactional writing.',
   },

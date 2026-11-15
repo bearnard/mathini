@@ -122,12 +122,7 @@ const bank: AccountingItem[] = [
   {
     "id": "cfl-1",
     "question": "In the cash flow statement, depreciation is usually:",
-    "options": [
-      "deducted as a financing activity",
-      "added back in the reconciliation of cash generated from operations",
-      "recorded as an investing inflow",
-      "ignored completely"
-    ],
+    "options": ['deducted from profit as an outflow in the financing activities section', 'added back in the reconciliation of cash generated from operations', 'recorded as an investing activity inflow', 'shown as a cash receipt from customers'],
     "answer": 1,
     "explanation": "Depreciation reduces accounting profit but does not use cash, so it is added back in the indirect reconciliation."
   },
@@ -206,12 +201,7 @@ const bank: AccountingItem[] = [
   {
     "id": "cfl-8",
     "question": "An increase in trade payables is usually added in the operating section because the business:",
-    "options": [
-      "collected cash from debtors faster",
-      "paid less cash to suppliers than the expense incurred",
-      "bought more fixed assets",
-      "issued more shares"
-    ],
+    "options": ['collected more cash from debtors than the credit sales for the period', 'paid less cash to suppliers than the expense incurred', 'bought more fixed assets for cash', 'issued more shares for cash'],
     "answer": 1,
     "explanation": "If payables increased, some purchases or expenses were not yet paid in cash, so cash outflow was lower."
   }

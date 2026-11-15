@@ -77,7 +77,7 @@ import ProbabilitySimulator from '@/components/subjects/ProbabilitySimulator';
 {
   id: "prob-3",
   question: "Which formula gives P(A ∪ B)?",
-  options: ["P(A) + P(B)", "P(A)P(B)", "P(A) + P(B) − P(A ∩ B)", "1 − P(A)"],
+  options: ['P(A) + P(B) + P(A ∩ B)', 'P(A)P(B)', 'P(A) + P(B) − P(A ∩ B)', '1 − P(A)'],
   answer: 2,
   explanation: "Subtract the overlap once so it is not counted twice.",
 },

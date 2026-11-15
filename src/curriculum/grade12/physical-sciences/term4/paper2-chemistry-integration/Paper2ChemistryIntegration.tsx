@@ -114,12 +114,7 @@ const items: PhysicalSciencesItem[] = [
   {
     "id": "paper2-chemistry-integration-4",
     "question": "If product is removed from a system at equilibrium, the equilibrium position tends to shift:",
-    "options": [
-      "toward more product",
-      "toward more reactant",
-      "nowhere",
-      "randomly"
-    ],
+    "options": ['toward more product', 'toward more reactant', 'nowhere because equilibrium is fixed', 'toward the side with fewer particles'],
     "answer": 0,
     "explanation": "The system responds by producing more of the removed product."
   },

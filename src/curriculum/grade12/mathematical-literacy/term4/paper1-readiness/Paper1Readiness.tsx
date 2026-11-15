@@ -91,12 +91,7 @@ const items: MathematicalLiteracyItem[] = [
   {
     "id": "paper1-readiness-4",
     "question": "Which graph is most likely to mislead readers?",
-    "options": [
-      "A graph with labelled axes and a zero baseline",
-      "A graph with a vertical axis starting at 95 to exaggerate differences",
-      "A graph with a clear title",
-      "A graph with equal intervals"
-    ],
+    "options": ['A graph with labelled axes and a zero baseline for the vertical axis scale', 'A graph with a vertical axis starting at 95 to exaggerate differences', 'A graph with a clear title, units and a source acknowledged', 'A graph with equal intervals on the axes'],
     "answer": 1,
     "explanation": "A truncated axis can exaggerate differences and mislead the reader."
   },

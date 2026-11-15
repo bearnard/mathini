@@ -39,12 +39,7 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: 'Why is lifelong fitness important?',
-    options: [
-      'It only matters while at school',
-      'It supports ongoing physical and mental wellbeing',
-      'It guarantees sports success',
-      'It replaces medical care completely',
-    ],
+    options: ['It secures a place in a professional team', 'It supports lasting physical and mental health', 'It matters mainly while learners are at school', 'It replaces medical check-ups in adult life'],
     answer: 1,
     explanation: 'Regular activity remains important throughout adult life.',
   },
@@ -61,12 +56,7 @@ const items = [
   },
   {
     prompt: 'What should healthy routines include besides exercise?',
-    options: [
-      'Only competition',
-      'Sleep, hydration and nutrition',
-      'Constant screen time',
-      'Skipping recovery',
-    ],
+    options: ['Competition and weekly rankings', 'Sleep, hydration and nutrition', 'Late-night screen time for relaxation', 'Extra training with no rest days'],
     answer: 1,
     explanation: 'Balanced routines support overall wellbeing, not just movement alone.',
   },
@@ -105,23 +95,13 @@ const items = [
   },
   {
     prompt: 'What should learners avoid when planning long-term fitness?',
-    options: [
-      'Realistic scheduling',
-      'Extreme routines they cannot maintain',
-      'Safe activity choices',
-      'Reviewing progress',
-    ],
+    options: ['Gradual plans that suit their schedule', 'Extreme routines they cannot maintain', 'Activities that match their ability', 'Regular reviews of their progress'],
     answer: 1,
     explanation: 'Unsustainable extremes usually lead to inconsistency or injury.',
   },
   {
     prompt: 'How does physical activity support adult life?',
-    options: [
-      'By removing all stress forever',
-      'By contributing to health, routine and emotional balance',
-      'By guaranteeing employment',
-      'By replacing social support',
-    ],
+    options: ['By removing work stress from adult life', 'By supporting health, routine and balance', 'By guaranteeing a job right after school ends', 'By replacing family and friend support'],
     answer: 1,
     explanation: 'Activity supports a balanced and healthy adult lifestyle.',
   },

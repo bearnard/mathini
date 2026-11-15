@@ -86,24 +86,14 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "quality-management-systems-2",
     "question": "Quality assurance mainly aims to:",
-    "options": [
-      "Prevent defects during the process",
-      "Ignore customer needs",
-      "Cut all training costs",
-      "Replace leadership"
-    ],
+    "options": ['Prevent defects during the process', 'Ignore customer needs and complaints', 'Cut training costs to save money', 'Replace leadership in the business'],
     "answer": 0,
     "explanation": "Quality assurance focuses on building quality into the process to prevent problems."
   },
   {
     "id": "quality-management-systems-3",
     "question": "A quality circle is best described as:",
-    "options": [
-      "A group of customers who protest",
-      "A small employee group solving quality problems",
-      "A machine used in production",
-      "A once-off job interview panel"
-    ],
+    "options": ['A group of customers who protest outside a retail shop', 'A small employee group solving quality problems', 'A machine used in production', 'A once-off job interview panel'],
     "answer": 1,
     "explanation": "Quality circles are small groups of employees who meet to improve quality and processes."
   },
@@ -158,12 +148,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "quality-management-systems-8",
     "question": "Continuous improvement means a business should:",
-    "options": [
-      "Stop reviewing processes",
-      "Keep refining systems and reducing waste",
-      "Ignore customer complaints",
-      "Use only one idea forever"
-    ],
+    "options": ['Stop reviewing its processes once a system is in place', 'Keep refining systems and reducing waste', 'Ignore customer complaints', 'Use one idea without change'],
     "answer": 1,
     "explanation": "Continuous improvement is about ongoing refinement of processes and service."
   }

@@ -92,24 +92,14 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "labour-legislation-compliance-2",
     "question": "The main purpose of the Employment Equity Act is to:",
-    "options": [
-      "Increase advertising budgets",
-      "Eliminate unfair discrimination and improve equity",
-      "Control product quality",
-      "Set exchange rates"
-    ],
+    "options": ['Increase the advertising budgets of large firms in the country', 'Eliminate unfair discrimination and improve equity', 'Control the quality of products', 'Set the exchange rate for the rand'],
     "answer": 1,
     "explanation": "The Employment Equity Act promotes equal opportunity and fair representation in the workplace."
   },
   {
     "id": "labour-legislation-compliance-3",
     "question": "BBBEE mainly aims to:",
-    "options": [
-      "Reduce all taxes for firms",
-      "Increase black economic participation",
-      "Replace labour laws",
-      "Ban foreign investment"
-    ],
+    "options": ['Reduce the company taxes paid by large firms', 'Increase black economic participation', 'Replace the labour laws of the country', 'Ban foreign investment in local firms'],
     "answer": 1,
     "explanation": "BBBEE focuses on broadening economic participation for black South Africans."
   },
@@ -128,12 +118,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "labour-legislation-compliance-5",
     "question": "Which workplace action BEST supports Employment Equity compliance?",
-    "options": [
-      "Ignoring discrimination complaints",
-      "Using only family members in recruitment",
-      "Setting fair representation targets and monitoring progress",
-      "Refusing to train new staff"
-    ],
+    "options": ['Ignoring discrimination complaints made by staff members at work', 'Using family members in recruitment', 'Setting fair representation targets and monitoring progress', 'Refusing to train new staff members'],
     "answer": 2,
     "explanation": "Employment equity requires fair representation and active steps to remove unfair barriers."
   },
@@ -164,12 +149,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "labour-legislation-compliance-8",
     "question": "Which clue in a case study would MOST likely point to BBBEE rather than the Skills Development Act?",
-    "options": [
-      "The firm introduces workplace coaching",
-      "The firm registers a learnership",
-      "The firm improves supplier-development and ownership targets",
-      "The firm sends workers on a short course"
-    ],
+    "options": ['The firm introduces workplace coaching for its junior staff members', 'The firm registers a learnership', 'The firm improves supplier-development and ownership targets', 'The firm sends workers on a short course'],
     "answer": 2,
     "explanation": "Ownership and supplier development are key BBBEE indicators, not just general training activities."
   }

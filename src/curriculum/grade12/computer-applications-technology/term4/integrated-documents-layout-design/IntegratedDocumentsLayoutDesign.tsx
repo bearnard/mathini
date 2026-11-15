@@ -39,7 +39,7 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: "What is the main aim of an integrated document?",
-    options: ["To combine different types of content into one useful output", "To remove all graphics from a report", "To replace the need for data", "To avoid using headings"],
+    options: ['To combine different types of content into one useful output', 'To remove graphics from a long report so that it is shorter than before', 'To replace the need for data in a report', 'To avoid using headings in the document'],
     answer: 0,
     explanation: "Integrated documents bring together text, graphics and data to communicate clearly.",
   },
@@ -57,7 +57,7 @@ const items = [
   },
   {
     prompt: "What should be checked after inserting a chart into a final report?",
-    options: ["That the chart is accurate, labelled and fits the layout", "That the keyboard volume increased", "That the Wi-Fi password changed", "That the operating system restarted"],
+    options: ['That the chart is accurate, labelled and fits the layout', 'That the keyboard volume has increased', 'That the Wi-Fi password has been changed', 'That the operating system has restarted itself after the insert'],
     answer: 0,
     explanation: "Integrated elements must remain accurate and visually suitable in the document.",
   },
@@ -69,7 +69,7 @@ const items = [
   },
   {
     prompt: "Why is alignment important in a professional document?",
-    options: ["It creates visual order and a neat appearance", "It increases storage space", "It changes formula logic", "It stops backups from running"],
+    options: ['It creates visual order and a neat appearance', 'It increases the storage space of the hard disk drive', 'It changes the logic of the formulas used', 'It stops the backups from running on time'],
     answer: 0,
     explanation: "Consistent alignment makes the page look organised and easier to follow.",
   },
@@ -81,7 +81,7 @@ const items = [
   },
   {
     prompt: "Which statement about final practical revision is best?",
-    options: ["It focuses on combining earlier CAT skills into polished outputs", "It only covers hardware theory", "It avoids layout decisions completely", "It requires no proofreading"],
+    options: ['It focuses on combining earlier CAT skills into polished outputs', 'It covers hardware theory and little else', 'It avoids layout decisions and concentrates on typing speed in the exam', 'It requires no proofreading before submission'],
     answer: 0,
     explanation: "Term 4 practical revision consolidates skills from across the year into final-quality work.",
   },

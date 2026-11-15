@@ -123,14 +123,14 @@ const rawItems: RawItem[] = [
   {
     id: 'rv1',
     question: 'When reading literature analytically, which evidence is most useful?',
-    options: ['A quotation or paraphrased event from the text', 'Only your personal opinion', 'The cover design alone', 'A rumour about the author'],
+    options: ['A quotation or event from the text', 'Your personal opinion about the main character', 'A rumour about the author’s private life', 'The cover design of the prescribed book'],
     answer: 0,
     explanation: 'Analytical answers must be grounded in the text itself through quotations or accurate references to events.',
   },
   {
     id: 'rv2',
     question: 'Which step should happen before writing a summary?',
-    options: ['Read the full passage to understand the main idea', 'Copy random sentences immediately', 'Write your own opinion first', 'Underline only difficult words'],
+    options: ['Read the passage to find the main idea', 'Copy the first sentence of each paragraph', 'Write your own opinion of the topic first', 'Underline the difficult words in the passage'],
     answer: 0,
     explanation: 'You need an overview of the full text before choosing the most important points.',
   },
@@ -165,7 +165,7 @@ const rawItems: RawItem[] = [
   {
     id: 'rv7',
     question: 'Which statement is an opinion rather than a fact?',
-    options: ['The novel is the most inspiring text in the syllabus.', 'The novel has 12 chapters.', 'The photograph shows three learners.', 'The advert was published in June.'],
+    options: ['The novel is the most inspiring text we read.', 'The novel has twelve chapters in total.', 'The photograph shows three learners at a desk.', 'The advert was published in the June edition.'],
     answer: 0,
     explanation: 'An opinion expresses a judgement and cannot be proved true in the same way as a factual statement.',
   },

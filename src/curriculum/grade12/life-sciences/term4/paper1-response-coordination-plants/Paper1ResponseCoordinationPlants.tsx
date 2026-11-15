@@ -203,12 +203,7 @@ const items: LifeSciencesItem[] = [
   {
     "id": "paper1-response-coordination-plants-4",
     "question": "Which structure of the ear is responsible for balance?",
-    "options": [
-      "Cochlea",
-      "Semicircular canals",
-      "Pinna",
-      "Eardrum"
-    ],
+    "options": ['Cochlea', 'Semicircular canals', 'Pinna', 'Round window membrane'],
     "answer": 1,
     "explanation": "The semicircular canals help detect movement and maintain balance."
   },

@@ -51,7 +51,7 @@ const items = [
   },
   {
     prompt: "Which spreadsheet function is best for finding a price from a code in a lookup table?",
-    options: ["COUNT", "VLOOKUP or XLOOKUP", "LOWER", "TODAY"],
+    options: ['COUNT applied to the code column', 'VLOOKUP or XLOOKUP', 'LOWER applied to the code column', 'TODAY applied to the price column'],
     answer: 1,
     explanation: "Lookup functions search a table and return related information, such as a price for a code.",
   },
@@ -63,7 +63,7 @@ const items = [
   },
   {
     prompt: "Why is version control important during the PAT?",
-    options: ["It helps you identify the latest correct file and avoid overwriting work", "It makes the computer run faster", "It replaces the need for backups", "It changes formulas into text"],
+    options: ['It helps you identify the latest correct file and avoid overwriting work', 'It makes the computer run faster while you work', 'It replaces the need for making backup copies of the PAT files on a drive', 'It changes formulas into plain text in the files'],
     answer: 0,
     explanation: "Clear versioning helps you keep track of updates and prevents confusion between old and new files.",
   },

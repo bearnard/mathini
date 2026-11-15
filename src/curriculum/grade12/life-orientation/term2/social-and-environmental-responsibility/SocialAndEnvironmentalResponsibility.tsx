@@ -39,12 +39,7 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: 'Why are environmental issues also social issues?',
-    options: [
-      'They only affect animals',
-      'They can harm health, safety and quality of life',
-      'They matter only in rural areas',
-      'They never connect to human rights',
-    ],
+    options: ['They affect wildlife but not communities', 'They can harm health, safety and well-being', 'They matter in rural areas but not towns', 'They are unrelated to constitutional rights'],
     answer: 1,
     explanation: 'Environmental harm affects communities directly through health, living conditions and access to resources.',
   },
@@ -61,12 +56,7 @@ const items = [
   },
   {
     prompt: 'Why is legislation important in environmental health?',
-    options: [
-      'It makes action unnecessary',
-      'It provides rules and protection for communities',
-      'It only benefits businesses',
-      'It replaces citizen responsibility',
-    ],
+    options: ['It makes citizen action unnecessary', 'It sets rules that protect communities', 'It mainly serves the interests of businesses', 'It replaces the role of citizens'],
     answer: 1,
     explanation: 'Legislation sets standards and creates accountability when health or safety is threatened.',
   },
@@ -94,12 +84,7 @@ const items = [
   },
   {
     prompt: 'What is accountability in a social issue context?',
-    options: [
-      'Avoiding responsibility for harm',
-      'Answering for actions and correcting harmful practices',
-      'Hiding information from the public',
-      'Assuming laws do not apply locally',
-    ],
+    options: ['Blaming others for the harm that occurred', 'Answering for actions and fixing harm', 'Keeping reports of harm from the public', 'Assuming national laws do not apply locally'],
     answer: 1,
     explanation: 'Accountability means people and institutions must explain and improve their actions.',
   },
@@ -116,12 +101,7 @@ const items = [
   },
   {
     prompt: 'What should learners do before proposing an intervention?',
-    options: [
-      'Copy any idea from the internet',
-      'Understand the issue, causes and people affected',
-      'Assume the solution is obvious',
-      'Wait until the problem disappears',
-    ],
+    options: ['Copy a solution used somewhere else', 'Study the issue and who it affects', 'Choose the idea that is cheapest', 'Wait for authorities to propose something'],
     answer: 1,
     explanation: 'Good interventions begin with informed analysis of the actual problem.',
   },

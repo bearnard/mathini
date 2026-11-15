@@ -79,7 +79,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 {
   id: "func-2",
   question: "Why is f(x) = x² not one-to-one on all real numbers?",
-  options: ["It has no inverse relation", "Different x-values can give the same y-value", "Its graph is not continuous", "Its gradient is always positive"],
+  options: ['It has no inverse relation of any kind on the real numbers', 'Different x-values can give the same y-value', 'Its graph is not continuous', 'Its gradient is positive everywhere'],
   answer: 1,
   explanation: "For example, 2² = 4 and (−2)² = 4, so different inputs produce the same output.",
 },

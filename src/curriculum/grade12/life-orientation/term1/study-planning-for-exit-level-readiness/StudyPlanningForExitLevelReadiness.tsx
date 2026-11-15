@@ -39,12 +39,7 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: 'What is the main benefit of a revision timetable?',
-    options: [
-      'It removes the need to attend class',
-      'It helps distribute study time in a realistic way',
-      'It guarantees full marks',
-      'It replaces practice papers',
-    ],
+    options: ['It removes the need to attend class', 'It spreads study time realistically', 'It guarantees a pass in the final exam', 'It replaces the need for past papers'],
     answer: 1,
     explanation: 'A revision timetable helps learners organise workload and avoid last-minute cramming.',
   },
@@ -105,12 +100,7 @@ const items = [
   },
   {
     prompt: 'What does accountability mean in study planning?',
-    options: [
-      'Depending on others to do your work',
-      'Taking responsibility for following through on your plan',
-      'Changing goals every day',
-      'Avoiding feedback',
-    ],
+    options: ['Letting a friend complete your tasks', 'Taking responsibility for your own plan', 'Changing your goals whenever it gets hard', 'Waiting for teachers to remind you to study'],
     answer: 1,
     explanation: 'Accountability means owning your commitments and monitoring your progress.',
   },

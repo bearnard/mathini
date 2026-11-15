@@ -116,7 +116,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 {
   id: "calc-8",
   question: "The derivative of a function represents its ...",
-  options: ["average value", "instantaneous rate of change", "x-intercept", "domain"],
+  options: ['average value of the function', 'instantaneous rate of change', 'x-intercept of the graph', 'domain of the function'],
   answer: 1,
   explanation: "The derivative gives the instantaneous rate of change, or gradient, at a point.",
 }

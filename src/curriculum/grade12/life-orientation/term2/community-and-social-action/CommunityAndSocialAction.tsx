@@ -39,12 +39,7 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: 'What is the main purpose of volunteerism?',
-    options: [
-      'To gain power over others',
-      'To contribute time and effort to help meet community needs',
-      'To avoid personal responsibility',
-      'To replace all government services',
-    ],
+    options: ['To earn a salary from a local project', 'To give time and effort to the community', 'To gain status over other community members', 'To replace the work of municipalities'],
     answer: 1,
     explanation: 'Volunteerism is about service and meaningful contribution to others.',
   },
@@ -72,12 +67,7 @@ const items = [
   },
   {
     prompt: 'Which quality is most important in a community leader?',
-    options: [
-      'Manipulation',
-      'Listening and responsibility',
-      'Popularity only',
-      'Aggression',
-    ],
+    options: ['Winning arguments in meetings', 'Listening and responsibility', 'Having many followers online', 'Having a loud, forceful voice'],
     answer: 1,
     explanation: 'Community leadership requires listening, planning and ethical responsibility.',
   },

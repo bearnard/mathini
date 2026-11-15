@@ -39,12 +39,7 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: 'Why is regular physical activity important during Grade 12?',
-    options: [
-      'It removes the need for rest',
-      'It supports wellbeing, energy and stress management',
-      'It should replace study time',
-      'It only matters for athletes',
-    ],
+    options: ['It can replace study time before exams', 'It supports energy, mood and stress control', 'It only benefits learners in sports teams', 'It makes extra revision unnecessary before exams'],
     answer: 1,
     explanation: 'Physical activity supports both physical health and emotional balance during a demanding year.',
   },
@@ -61,12 +56,7 @@ const items = [
   },
   {
     prompt: 'Which fitness component is most linked to the heart and lungs working efficiently?',
-    options: [
-      'Flexibility',
-      'Cardiovascular endurance',
-      'Reaction time',
-      'Body image',
-    ],
+    options: ['Muscular flexibility', 'Cardiovascular endurance', 'Reaction speed and agility', 'Muscular strength'],
     answer: 1,
     explanation: 'Cardiovascular endurance reflects how well the heart and lungs support activity.',
   },
@@ -83,34 +73,19 @@ const items = [
   },
   {
     prompt: 'Why is hydration important during exercise?',
-    options: [
-      'It is only needed after sport',
-      'It supports safe body functioning and performance',
-      'It replaces the need for warm-up',
-      'It is only important in summer',
-    ],
+    options: ['It is needed after sport ends, not during play', 'It supports body function and performance', 'It replaces the need to warm up first', 'It matters in summer but not in winter'],
     answer: 1,
     explanation: 'Hydration helps regulate temperature and supports safe physical performance.',
   },
   {
     prompt: 'Which action shows safe participation?',
-    options: [
-      'Ignoring pain to impress others',
-      'Using correct technique and listening to instructions',
-      'Competing without rest or water',
-      'Wearing unsafe footwear',
-    ],
+    options: ['Skipping the warm-up to save time', 'Using correct technique and following coaching', 'Playing through exhaustion without rest or water', 'Ignoring pain to impress other players'],
     answer: 1,
     explanation: 'Correct technique and following safety guidance reduce risk.',
   },
   {
     prompt: 'How can physical activity help academic performance?',
-    options: [
-      'By reducing all responsibility',
-      'By improving mood, focus and stress control',
-      'By replacing revision',
-      'By removing the need for sleep',
-    ],
+    options: ['By reducing the amount of homework given', 'By improving mood, focus and stress control', 'By replacing revision time with sport', 'By making sleep less necessary for learning'],
     answer: 1,
     explanation: 'Activity can improve concentration and emotional regulation, which helps learning.',
   },

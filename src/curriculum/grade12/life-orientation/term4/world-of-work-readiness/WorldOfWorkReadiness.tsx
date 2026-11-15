@@ -39,12 +39,7 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: 'What is the main purpose of a CV?',
-    options: [
-      'To entertain employers',
-      'To summarise your qualifications and suitability',
-      'To replace an interview completely',
-      'To list private family problems',
-    ],
+    options: ['To replace an interview with an employer', 'To summarise your skills and qualifications', 'To tell your whole life story in full detail', 'To list your hobbies and family problems'],
     answer: 1,
     explanation: 'A CV gives employers a clear overview of relevant information.',
   },
@@ -61,12 +56,7 @@ const items = [
   },
   {
     prompt: 'How should a learner prepare for an interview?',
-    options: [
-      'Arrive without knowing the job',
-      'Practise responses and research the opportunity',
-      'Memorise false answers',
-      'Wear anything without thinking',
-    ],
+    options: ['Memorise a script and avoid eye contact', 'Practise answers and research the employer', 'Arrive early and ask about pay first', 'Rely on natural charm and skip preparation'],
     answer: 1,
     explanation: 'Preparation improves confidence and shows seriousness.',
   },
@@ -94,12 +84,7 @@ const items = [
   },
   {
     prompt: 'What do labour rights aim to protect?',
-    options: [
-      'Workers against unfair treatment and unsafe conditions',
-      'Employers from all questions',
-      'Only permanent workers',
-      'Dishonest behaviour',
-    ],
+    options: ['Workers from unfair treatment and unsafe work', 'Employers from paying taxes and fees', 'Permanent staff, but not casual or contract workers', 'Businesses against competition from rivals'],
     answer: 0,
     explanation: 'Labour rights help protect fairness, dignity and safety at work.',
   },

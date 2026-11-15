@@ -127,7 +127,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "Why should user input be validated before saving a record?",
-    options: ["To make the screen brighter", "To reduce invalid or incomplete data entering the system", "To stop all events from firing", "To remove the need for classes"],
+    options: ['To make the screen brighter for the user', 'To reduce invalid or incomplete data entering the system', 'To stop events from firing on the form while data is typed', 'To remove the need for classes in the program'],
     answer: 1,
     explanation: "Validation checks data before it is stored so that errors are caught early.",
   },
@@ -145,7 +145,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What is the advantage of showing an error message immediately after invalid input?",
-    options: ["It gives the user quick feedback so the problem can be fixed at once", "It guarantees the database is already correct", "It removes the need for testing", "It converts the text box into a label"],
+    options: ['It gives the user quick feedback so the problem can be fixed at once', 'It guarantees that the data in the database is already correct as soon as it appears', 'It removes the need for testing the program', 'It converts the text box into a label'],
     answer: 0,
     explanation: "Immediate feedback helps the user correct mistakes before moving on.",
   },

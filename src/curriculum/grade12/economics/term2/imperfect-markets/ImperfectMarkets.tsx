@@ -149,12 +149,7 @@ const items: RawEconomicsItem[] = [
   {
     "id": "im-6",
     "question": "Price discrimination happens when a firm charges ...",
-    "options": [
-      "one price in every market",
-      "different prices for the same product",
-      "no price at all",
-      "only marginal cost"
-    ],
+    "options": ['a single price in each market regardless of the type of customer', 'different prices for the same product', 'no price for the product', 'a price set equal to the marginal cost of one unit'],
     "answer": 1,
     "explanation": "Price discrimination means charging different customers different prices for the same good or service."
   },

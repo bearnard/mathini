@@ -113,7 +113,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What does the digital divide describe?",
-    options: ["A type of network cable", "The gap between people who do and do not have effective access to digital technology", "A programming language difference", "A split screen on a monitor"],
+    options: ['A type of cable used in a computer network', 'The gap between people who do and do not have effective access to digital technology', 'A difference in speed between two programming languages used by learners at school and in industry', 'A split screen that is shown on a monitor'],
     answer: 1,
     explanation: "The digital divide is the inequality in access to devices, connectivity and digital skills.",
   },
@@ -137,7 +137,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "Why is biometric data usually treated as especially sensitive?",
-    options: ["It is always public already", "It is linked closely to a person's identity and is hard to change if exposed", "It can only be stored on paper", "It is less accurate than a username"],
+    options: ['It is public already and anyone can use it', 'It is linked closely to a person\'s identity and is hard to change if exposed', 'It can be stored on paper and nowhere else', 'It is less accurate than a username and password for identifying people today'],
     answer: 1,
     explanation: "Biometric data such as fingerprints is strongly linked to identity, so exposure can create serious risks.",
   },

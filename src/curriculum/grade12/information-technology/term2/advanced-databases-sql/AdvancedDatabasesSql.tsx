@@ -116,13 +116,13 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What does a foreign key do?",
-    options: ["It changes a number into a date", "It links a record in one table to a related record in another table", "It deletes duplicate rows automatically", "It hides fields from forms"],
+    options: ['It changes a number into a date value', 'It links a record in one table to a related record in another table', 'It deletes duplicate rows from a table automatically each night or turns text into numbers when saved', 'It hides fields from the forms of users'],
     answer: 1,
     explanation: "A foreign key stores a value that refers to a primary key in another table.",
   },
   {
     prompt: "What is the role of the WHERE clause in SQL?",
-    options: ["It filters rows according to a condition", "It groups rows into totals", "It creates a new database", "It renames every field"],
+    options: ['It filters rows according to a condition', 'It groups the rows into totals for each category', 'It creates a new database on the server', 'It renames every field in the result'],
     answer: 0,
     explanation: "WHERE is used to limit the result to rows that match the stated condition.",
   },
@@ -152,7 +152,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "When is GROUP BY needed?",
-    options: ["When a summary such as a total must be calculated for each category", "When a table needs a new primary key", "When records must be deleted permanently", "When a form is being designed"],
+    options: ['When a summary such as a total must be calculated for each category', 'When a table needs a new primary key added', 'When records must be deleted from the table', 'When a form is being designed for capturing data from users to the user\'s screen'],
     answer: 0,
     explanation: "GROUP BY is used with aggregate functions when you need separate summaries for each group.",
   },

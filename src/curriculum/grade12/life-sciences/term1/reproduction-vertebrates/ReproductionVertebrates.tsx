@@ -167,12 +167,7 @@ const items: LifeSciencesItem[] = [
   {
     "id": "reproduction-vertebrates-3",
     "question": "In ovipary, the embryo develops:",
-    "options": [
-      "Inside the placenta only",
-      "Inside an egg outside the mother’s body",
-      "By binary fission",
-      "Without a food supply"
-    ],
+    "options": ['Inside the placenta of the mother after fertilisation', 'Inside an egg outside the mother’s body', 'By binary fission in the water', 'Without any food supply at all'],
     "answer": 1,
     "explanation": "Oviparous animals lay eggs and the embryo develops outside the mother."
   },
@@ -203,12 +198,7 @@ const items: LifeSciencesItem[] = [
   {
     "id": "reproduction-vertebrates-6",
     "question": "Why do many fish produce a very large number of eggs?",
-    "options": [
-      "Because each egg is fertilised internally",
-      "Because little parental care means many offspring will not survive",
-      "Because fish embryos always develop in a uterus",
-      "Because fish do not produce sperm"
-    ],
+    "options": ['Because each egg is fertilised internally inside the female fish body', 'Because little parental care means many offspring will not survive', 'Because fish embryos develop in a uterus', 'Because fish do not produce sperm cells'],
     "answer": 1,
     "explanation": "Where survival is low and parental care is limited, producing many eggs increases the chance that some offspring survive."
   },

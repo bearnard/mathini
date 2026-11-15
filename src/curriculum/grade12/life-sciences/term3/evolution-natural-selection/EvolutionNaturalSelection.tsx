@@ -152,12 +152,7 @@ const items: LifeSciencesItem[] = [
   {
     "id": "evolution-natural-selection-3",
     "question": "Lamarck suggested that giraffes evolved long necks because:",
-    "options": [
-      "Long-necked giraffes left more offspring",
-      "They stretched their necks and passed the acquired trait on",
-      "Mutations were directed by choice",
-      "They had no competition"
-    ],
+    "options": ['Long-necked giraffes left more offspring in each generation', 'They stretched their necks and passed the acquired trait on', 'Mutations were directed by choice', 'They had no competition for food'],
     "answer": 1,
     "explanation": "Lamarck argued that use and disuse produced acquired characteristics that were inherited."
   },
@@ -188,12 +183,7 @@ const items: LifeSciencesItem[] = [
   {
     "id": "evolution-natural-selection-6",
     "question": "Punctuated equilibrium proposes that evolution often occurs as:",
-    "options": [
-      "A perfectly constant rate",
-      "Only in one generation",
-      "Long periods of stability interrupted by short bursts of rapid change",
-      "No change at all"
-    ],
+    "options": ['A perfectly constant rate of change from one generation to the next one', 'Within one generation of organisms', 'Long periods of stability interrupted by short bursts of rapid change', 'No change over millions of years'],
     "answer": 2,
     "explanation": "Punctuated equilibrium suggests evolutionary change is not always gradual and steady."
   },

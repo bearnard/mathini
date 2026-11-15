@@ -50,34 +50,19 @@ const items = [
   },
   {
     prompt: 'Why are informed choices important in reproductive health?',
-    options: [
-      'They remove all consequences',
-      'They are based on facts, consent and responsibility',
-      'They depend only on peer approval',
-      'They matter only after school',
-    ],
+    options: ['They guarantee that no pregnancy or infection can occur', 'They rest on facts, consent and responsibility', 'They follow what most friends are doing', 'They are made by the older partner'],
     answer: 1,
     explanation: 'Responsible decisions require accurate information, consent and awareness of consequences.',
   },
   {
     prompt: 'Which source is most reliable for sexual health information?',
-    options: [
-      'Rumours on social media',
-      'A qualified health worker or clinic',
-      'Pressure from a partner',
-      'Jokes from friends',
-    ],
+    options: ['A friend who once had a similar problem', 'A qualified health worker or clinic', 'Posts by influencers on social media', 'A partner who says it is safe'],
     answer: 1,
     explanation: 'Health professionals provide factual and safe information.',
   },
   {
     prompt: 'Which response is the healthiest way to manage ongoing stress?',
-    options: [
-      'Skipping sleep to study more',
-      'Using alcohol to relax',
-      'Planning work and talking to a trusted adult',
-      'Ignoring the problem completely',
-    ],
+    options: ['Cutting back on sleep to fit in more study', 'Using alcohol on weekends to relax and forget', 'Planning work and speaking to a trusted adult', 'Avoiding friends and family until exams end'],
     answer: 2,
     explanation: 'Planning and support help reduce stress without creating new risks.',
   },
@@ -94,12 +79,7 @@ const items = [
   },
   {
     prompt: 'What is a warning sign of an unhealthy relationship?',
-    options: [
-      'Mutual trust',
-      'Shared decision-making',
-      'Controlling who someone may talk to',
-      'Respecting personal space',
-    ],
+    options: ['Respecting each other\'s different opinions', 'Making big decisions together', 'Controlling who someone may talk to', 'Sharing worries without fear of ridicule'],
     answer: 2,
     explanation: 'Controlling behaviour limits freedom and can become emotionally abusive.',
   },

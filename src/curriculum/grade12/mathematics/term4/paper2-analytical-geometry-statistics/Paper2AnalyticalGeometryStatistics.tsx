@@ -87,7 +87,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 {
   id: "rev3-4",
   question: "A strong negative correlation means ...",
-  options: ["the variables increase together closely", "the variables decrease together closely", "as one variable increases, the other tends to decrease closely", "there is no clear trend"],
+  options: ['the variables increase together closely, so a rise in one means a rise in the other', 'the variables decrease together closely', 'as one variable increases, the other tends to decrease closely', 'there is no clear trend between them'],
   answer: 2,
   explanation: "Negative correlation means one increases while the other tends to decrease; “strong” means the pattern is close to a line.",
 },

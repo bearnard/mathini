@@ -116,12 +116,7 @@ const items: RawEconomicsItem[] = [
   {
     "id": "ep-4",
     "question": "Tourism can support growth because it ...",
-    "options": [
-      "destroys all jobs",
-      "earns foreign exchange and creates employment",
-      "eliminates seasonality",
-      "removes leakages automatically"
-    ],
+    "options": ['destroys jobs in the economy and lowers local incomes', 'earns foreign exchange and creates employment', 'eliminates seasonality in demand', 'removes leakages from the economy'],
     "answer": 1,
     "explanation": "Tourism brings in spending, jobs and foreign exchange."
   },
@@ -152,12 +147,7 @@ const items: RawEconomicsItem[] = [
   {
     "id": "ep-7",
     "question": "A good contemporary-issues answer should ...",
-    "options": [
-      "avoid evidence",
-      "apply theory to a current South African case",
-      "list memorised definitions only",
-      "ignore policy"
-    ],
+    "options": ['avoid using evidence and rely on opinion alone', 'apply theory to a current South African case', 'list memorised definitions', 'ignore policy'],
     "answer": 1,
     "explanation": "The paper rewards learners who apply economics accurately to present South African issues."
   },

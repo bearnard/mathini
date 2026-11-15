@@ -225,24 +225,14 @@ const items: LifeSciencesItem[] = [
   {
     "id": "human-reproduction-6",
     "question": "A major function of the placenta is to:",
-    "options": [
-      "Produce sperm",
-      "Allow exchange of nutrients and wastes between mother and foetus",
-      "Digest food for the foetus",
-      "Pump blood through the foetus"
-    ],
+    "options": ['Produce sperm for fertilisation in the mother\'s uterus and oviduct system', 'Allow exchange of nutrients and wastes between mother and foetus', 'Digest food for the foetus in the womb', 'Pump blood through the foetus'],
     "answer": 1,
     "explanation": "The placenta is the exchange organ between the mother and the developing foetus."
   },
   {
     "id": "human-reproduction-7",
     "question": "Menstruation occurs if:",
-    "options": [
-      "Fertilisation definitely takes place",
-      "The endometrium breaks down when pregnancy does not occur",
-      "The placenta enlarges rapidly",
-      "All ovarian follicles are destroyed"
-    ],
+    "options": ['Fertilisation takes place in the oviduct soon after ovulation', 'The endometrium breaks down when pregnancy does not occur', 'The placenta enlarges rapidly in the uterus', 'Ovarian follicles are destroyed in the ovary'],
     "answer": 1,
     "explanation": "If there is no implantation, hormone levels fall and the thickened endometrium is shed."
   },

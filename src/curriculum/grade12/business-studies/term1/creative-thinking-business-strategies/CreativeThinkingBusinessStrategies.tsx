@@ -191,12 +191,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "creative-thinking-business-strategies-8",
     "question": "Strategic planning mainly helps a business to:",
-    "options": [
-      "Avoid all risk forever",
-      "Set direction and allocate resources purposefully",
-      "Replace every manager immediately",
-      "Ignore environmental changes"
-    ],
+    "options": ['Remove the risk from the business in the future', 'Set direction and allocate resources purposefully', 'Replace the managers of the business in the short term', 'Ignore changes in the environment'],
     "answer": 1,
     "explanation": "Strategic planning gives the business a deliberate long-term direction."
   }

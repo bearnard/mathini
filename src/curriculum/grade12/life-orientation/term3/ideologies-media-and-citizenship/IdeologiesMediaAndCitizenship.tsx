@@ -39,34 +39,19 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: 'What is an ideology?',
-    options: [
-      'A random opinion with no pattern',
-      'A set of ideas that shapes social and political views',
-      'A school regulation only',
-      'A scientific experiment',
-    ],
+    options: ['A passing opinion held by one person', 'A set of beliefs that shapes political views', 'A rule set out in the school\'s code of conduct', 'A law passed by a municipal council'],
     answer: 1,
     explanation: 'Ideologies are broader belief systems that influence how people interpret society.',
   },
   {
     prompt: 'Which statement best describes media bias?',
-    options: [
-      'All media is always neutral',
-      'Media can favour certain viewpoints through selection and language',
-      'Bias only exists in advertising',
-      'Bias means the facts are always false',
-    ],
+    options: ['Media must report events with no viewpoint', 'Media can favour a view through choice of words', 'Bias appears in advertising but not in news reports', 'Bias means that the reported facts are false'],
     answer: 1,
     explanation: 'Bias often appears in what is included, omitted or emphasised.',
   },
   {
     prompt: 'What is a common goal of propaganda?',
-    options: [
-      'Balanced analysis only',
-      'Strong persuasion through emotional or selective messaging',
-      'Neutral reporting without influence',
-      'Providing all sides equally',
-    ],
+    options: ['Balanced analysis that weighs several views', 'Persuasion through emotional or selective messages', 'Neutral reporting that avoids influencing the audience', 'Detailed proof presented with full context'],
     answer: 1,
     explanation: 'Propaganda is designed to shape opinion strongly, often without balanced evidence.',
   },
@@ -83,23 +68,13 @@ const items = [
   },
   {
     prompt: 'Why should citizens compare sources?',
-    options: [
-      'One source is always enough',
-      'Different sources help reveal bias and improve judgement',
-      'It wastes time',
-      'It removes the need for evidence',
-    ],
+    options: ['The first source read is usually enough', 'Different sources reveal bias and aid judgement', 'Comparing sources wastes time without improving accuracy', 'Well-known sources do not need checking'],
     answer: 1,
     explanation: 'Comparing sources improves accuracy and reduces manipulation.',
   },
   {
     prompt: 'How can social movements contribute to democracy?',
-    options: [
-      'By preventing public discussion',
-      'By drawing attention to justice issues and mobilising action',
-      'By replacing the Constitution',
-      'By making evidence unnecessary',
-    ],
+    options: ['By stopping open debate on important public issues', 'By raising justice issues and mobilising people', 'By taking over the role of Parliament', 'By replacing elections with street protest'],
     answer: 1,
     explanation: 'Social movements can raise awareness and encourage civic participation.',
   },

@@ -39,12 +39,7 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: 'How can physical activity help with stress?',
-    options: [
-      'By creating more conflict',
-      'By supporting emotional release and wellbeing',
-      'By removing all responsibilities',
-      'By replacing healthy sleep',
-    ],
+    options: ['By giving you extra time to worry', 'By releasing tension and lifting mood', 'By keeping you away from friends and family', 'By replacing the need for rest'],
     answer: 1,
     explanation: 'Movement can reduce tension and improve mood when used in a balanced way.',
   },
@@ -94,12 +89,7 @@ const items = [
   },
   {
     prompt: 'What should a learner do after noticing low participation levels?',
-    options: [
-      'Ignore the pattern',
-      'Reflect and adjust the routine or goal',
-      'Blame others only',
-      'Stop all physical activity',
-    ],
+    options: ['Continue as before and hope it improves', 'Reflect and adjust the routine or goal', 'Blame the weather or timetable', 'Drop the goal and stop exercising'],
     answer: 1,
     explanation: 'Reflection should lead to realistic improvement steps.',
   },

@@ -141,12 +141,7 @@ const items: RawEconomicsItem[] = [
   {
     "id": "te-5",
     "question": "Sustainable development means meeting present needs without ...",
-    "options": [
-      "creating any jobs",
-      "harming future generations’ ability to meet theirs",
-      "using technology",
-      "allowing tourism"
-    ],
+    "options": ['creating jobs in the economy for the current generation', 'harming future generations’ ability to meet theirs', 'using modern technology', 'allowing tourism to grow'],
     "answer": 1,
     "explanation": "This is the standard sustainability idea used in economics and environmental policy."
   },
@@ -177,12 +172,7 @@ const items: RawEconomicsItem[] = [
   {
     "id": "te-8",
     "question": "Carrying capacity refers to the ...",
-    "options": [
-      "maximum visitors an area can handle sustainably",
-      "number of airlines in a country",
-      "price of a hotel room",
-      "size of the fiscal deficit"
-    ],
+    "options": ['maximum visitors an area can handle sustainably', 'number of airlines that operate in a country each year', 'price of a hotel room', 'size of the fiscal deficit'],
     "answer": 0,
     "explanation": "Carrying capacity is the level of use that an environment can sustain without serious damage."
   }

@@ -135,12 +135,7 @@ const items: PhysicalSciencesItem[] = [
   {
     "id": "paper1-electrodynamics-optics-skills-5",
     "question": "An emission spectrum is identified by:",
-    "options": [
-      "dark lines only",
-      "bright lines at specific wavelengths",
-      "all colours equally",
-      "no relation to atoms"
-    ],
+    "options": ['dark lines in a continuous spectrum of light', 'bright lines at specific wavelengths', 'all colours equally bright', 'a smooth continuous band of colours'],
     "answer": 1,
     "explanation": "Emission spectra show bright lines corresponding to allowed electron transitions."
   },
@@ -171,12 +166,7 @@ const items: PhysicalSciencesItem[] = [
   {
     "id": "paper1-electrodynamics-optics-skills-8",
     "question": "The photoelectric effect shows that light can behave as:",
-    "options": [
-      "a liquid",
-      "particles called photons",
-      "a resistor",
-      "a neutral salt"
-    ],
+    "options": ['a liquid flowing in a tube', 'particles called photons', 'a resistor in a circuit', 'a neutral salt in solution'],
     "answer": 1,
     "explanation": "Photoelectric emission is explained by photons transferring discrete packets of energy."
   }

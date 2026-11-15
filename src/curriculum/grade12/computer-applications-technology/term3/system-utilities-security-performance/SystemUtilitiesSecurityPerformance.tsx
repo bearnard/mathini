@@ -39,7 +39,7 @@ const learnSteps: LearnStep[] = [
 const items = [
   {
     prompt: "What is the main purpose of backup software?",
-    options: ["To recover important files after loss or damage", "To make the monitor brighter", "To connect to Wi-Fi automatically", "To format paragraphs in a report"],
+    options: ['To recover important files after loss or damage', 'To make the monitor brighter and clearer', 'To connect the computer to a Wi-Fi network automatically', 'To format paragraphs in a written report'],
     answer: 0,
     explanation: "Backups create extra copies so files can be restored if something goes wrong.",
   },
@@ -51,31 +51,31 @@ const items = [
   },
   {
     prompt: "Which action is most likely to improve a slow computer that has very little free storage space?",
-    options: ["Deleting unnecessary files and freeing storage", "Changing the desktop background", "Printing the files", "Turning off the keyboard"],
+    options: ['Deleting unnecessary files and freeing storage', 'Changing the desktop background to a lighter picture', 'Printing out the files stored on the computer', 'Turning off the keyboard to save processing power'],
     answer: 0,
     explanation: "Insufficient free storage can slow performance, so removing unnecessary files may help.",
   },
   {
     prompt: "What is an antivirus program designed to do?",
-    options: ["Detect and deal with malicious software", "Design websites", "Replace spreadsheets", "Create database reports"],
+    options: ['Detect and deal with malicious software', 'Design websites for a school or business', 'Replace spreadsheets used for calculations', 'Create database reports from stored records'],
     answer: 0,
     explanation: "Antivirus utilities help identify, quarantine and remove malware.",
   },
   {
     prompt: "Why is it risky to rely on only one copy of a PAT file?",
-    options: ["One copy is always faster to open", "If that copy is lost or corrupted, the work may be gone", "Moderators reject all single files", "One copy uses too much RAM"],
+    options: ['One copy is faster to open than many copies', 'If that copy is lost or corrupted, the work may be gone', 'Moderators reject the work if the file exists as a single copy', 'One copy uses too much RAM while it is open'],
     answer: 1,
     explanation: "A single copy offers no protection if the file is accidentally deleted or damaged.",
   },
   {
     prompt: "Which user habit best supports system security?",
-    options: ["Opening every attachment immediately", "Using strong passwords and keeping software updated", "Ignoring warning messages", "Sharing login details with friends"],
+    options: ['Opening every attachment as soon as it arrives', 'Using strong passwords and keeping software updated', 'Ignoring the warning messages shown by the computer', 'Sharing login details with friends to save time'],
     answer: 1,
     explanation: "Strong passwords and updates reduce the chance of unauthorised access and exploitation.",
   },
   {
     prompt: "What is file compression useful for?",
-    options: ["Reducing file size for easier storage or transfer", "Improving battery life on a mouse", "Changing a report into a query", "Sorting data alphabetically only"],
+    options: ['Reducing file size for easier storage or transfer', 'Improving the battery life of a wireless mouse or keyboard', 'Changing a report into a database query', 'Sorting data alphabetically and nothing else'],
     answer: 0,
     explanation: "Compression reduces the size of files so they are easier to store or send.",
   },

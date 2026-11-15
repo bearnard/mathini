@@ -115,12 +115,7 @@ const bank: AccountingItem[] = [
   {
     "id": "vat-2",
     "question": "Input VAT may generally be claimed on:",
-    "options": [
-      "purchases from a registered vendor supported by a valid tax invoice",
-      "drawings by the owner",
-      "dividends paid",
-      "unrecorded cash shortages"
-    ],
+    "options": ['purchases from a registered vendor supported by a valid tax invoice', 'dividends paid to shareholders out of retained income during the year', 'interest paid on a long-term bank loan', 'unrecorded cash shortages found at the till'],
     "answer": 0,
     "explanation": "A valid tax invoice from a registered vendor is normally required to claim input VAT."
   },
@@ -175,12 +170,7 @@ const bank: AccountingItem[] = [
   {
     "id": "vat-7",
     "question": "A credit sale by a registered vendor will normally:",
-    "options": [
-      "create output VAT even though cash has not yet been received",
-      "create only input VAT",
-      "have no VAT effect at all",
-      "reduce trade receivables"
-    ],
+    "options": ['create output VAT even though cash has not yet been received', 'create input VAT only, claimable from SARS', 'have no VAT effect until the debtor eventually pays the amount owing', 'reduce trade receivables when the sale is made'],
     "answer": 0,
     "explanation": "VAT is charged on taxable sales, including credit sales, even before cash is collected."
   },

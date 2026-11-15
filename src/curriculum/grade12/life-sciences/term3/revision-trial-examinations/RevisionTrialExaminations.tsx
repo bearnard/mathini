@@ -182,12 +182,7 @@ const items: LifeSciencesItem[] = [
   {
     "id": "revision-trial-examinations-4",
     "question": "The placenta is important because it:",
-    "options": [
-      "Produces sperm",
-      "Allows exchange between mother and foetus",
-      "Stores urine",
-      "Controls hearing"
-    ],
+    "options": ['Produces sperm for fertilisation in the uterus', 'Allows exchange between mother and foetus', 'Stores urine for the foetus', 'Controls hearing in the foetus'],
     "answer": 1,
     "explanation": "The placenta enables exchange of oxygen, nutrients and wastes during pregnancy."
   },

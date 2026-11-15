@@ -116,7 +116,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "What is phishing?",
-    options: ["A backup strategy using cloud storage", "A social engineering attack that tricks users into revealing information", "A method of joining tables in SQL", "A type of monitor cable"],
+    options: ['A backup strategy that uses cloud storage', 'A social engineering attack that tricks users into revealing information', 'A method of joining two tables on a shared field using a foreign key in SQL', 'A type of cable used to connect a monitor'],
     answer: 1,
     explanation: "Phishing attacks use fake messages or websites to trick users into sharing credentials or other sensitive data.",
   },
@@ -134,7 +134,7 @@ const items: Array<{ prompt: string; options: string[]; answer: number; explanat
   },
   {
     prompt: "Why do integrated systems often use an API?",
-    options: ["To let different applications exchange data and services in a controlled way", "To remove the need for any security", "To convert all tables into images", "To stop databases from storing text"],
+    options: ['To let different applications exchange data and services in a controlled way', 'To remove the need for any security', 'To convert all of the tables into images', 'To store the data of each application in one shared text file without tables'],
     answer: 0,
     explanation: "An API provides a defined way for one system to request or send data to another.",
   },
