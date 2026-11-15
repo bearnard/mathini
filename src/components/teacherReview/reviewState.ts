@@ -85,3 +85,9 @@ export function formatExpiry(ms: number, now: number): string {
   if (days <= 0) return 'today';
   return days === 1 ? 'tomorrow' : `in ${days} days`;
 }
+
+/** The small chips above an item. A lesson line gets ONE ("Lesson line: <slide title>"); a question gets its subject, grade and topic, then "Question". */
+export function itemChips(kind: ReviewItemKind, ctx: { subject?: string; grade?: number; topic?: string; slideTitle?: string } | null): string[] {
+  if (kind === 'lesson_line') return [ctx?.slideTitle ? `Lesson line: ${ctx.slideTitle}` : 'Lesson line'];
+  return [ctx?.subject, ctx?.grade ? `Grade ${ctx.grade}` : null, ctx?.topic, 'Question'].filter((c): c is string => !!c);
+}

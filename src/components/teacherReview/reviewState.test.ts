@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { contentFromDraft, counts, draftFromContent, formatExpiry, initialDraft, progressPercent, resumeIndex, saveDecision, type ItemDraft, type QuestionDraft } from './reviewState';
+import { contentFromDraft, counts, draftFromContent, formatExpiry, initialDraft, itemChips, progressPercent, resumeIndex, saveDecision, type ItemDraft, type QuestionDraft } from './reviewState';
 import type { ReviewerItemView } from '../../lib/server/teacherReview/types';
 
 const q: ReviewerItemView = {
@@ -63,4 +63,13 @@ test('counts, resume point, progress and expiry wording', () => {
   assert.equal(formatExpiry(1000 + 3 * 86_400_000, 1000), 'in 3 days');
   assert.equal(formatExpiry(1000 + 86_400_000, 1000), 'tomorrow');
   assert.equal(formatExpiry(999, 1000), 'today');
+});
+
+test('a lesson line gets one chip, a question gets its context and then Question (no duplicate kind chips)', () => {
+  assert.deepEqual(itemChips('lesson_line', { slideTitle: 'Tyd' }), ['Lesson line: Tyd']);
+  assert.deepEqual(itemChips('lesson_line', null), ['Lesson line']);
+  assert.deepEqual(itemChips('lesson_line', {}), ['Lesson line']);
+  assert.deepEqual(itemChips('question', { subject: 'Afrikaans', grade: 7, topic: 'Woordeskat' }), ['Afrikaans', 'Grade 7', 'Woordeskat', 'Question']);
+  assert.deepEqual(itemChips('question', null), ['Question']);
+  for (const kind of ['question', 'lesson_line'] as const) assert.equal(new Set(itemChips(kind, { subject: 'X', grade: 1, topic: 'Y', slideTitle: 'Z' })).size, itemChips(kind, { subject: 'X', grade: 1, topic: 'Y', slideTitle: 'Z' }).length);
 });

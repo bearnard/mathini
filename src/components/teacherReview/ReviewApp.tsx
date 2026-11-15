@@ -6,7 +6,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import {
-  counts, draftFromContent, formatExpiry, initialDraft, progressPercent, resumeIndex, saveDecision,
+  counts, draftFromContent, formatExpiry, initialDraft, itemChips, progressPercent, resumeIndex, saveDecision,
   type ItemDraft, type LineDraft, type QuestionDraft,
 } from './reviewState';
 import { LIMITS } from '../../lib/server/teacherReview/proposal';
@@ -334,14 +334,13 @@ function ItemCard({ item, draft, hint, state, onChange, onRetry }: {
   ];
   const conf: { v: ReviewConfidence; label: string }[] = [{ v: 'sure', label: 'Sure' }, { v: 'fairly_sure', label: 'Fairly sure' }];
   const ctx = item.context as (QuestionItemContext & LessonLineItemContext) | null;
-  const chips = item.kind === 'question' ? [ctx?.subject, ctx?.grade ? `Grade ${ctx.grade}` : null, ctx?.topic] : [ctx?.slideTitle ? `Lesson: ${ctx.slideTitle}` : 'Lesson'];
+  const chips = itemChips(item.kind, ctx);
 
   return (
     <article className="space-y-4">
       <section className="rounded-2xl bg-white p-4 shadow-sm" aria-label="As a learner sees it">
         <div className="mb-3 flex flex-wrap gap-2 text-xs font-semibold text-slate-600">
-          {chips.filter(Boolean).map((c) => <span key={String(c)} className="rounded-full bg-slate-100 px-2 py-1">{c}</span>)}
-          <span className="rounded-full bg-slate-100 px-2 py-1">{item.kind === 'question' ? 'Question' : 'Lesson line'}</span>
+          {chips.map((c) => <span key={c} className="rounded-full bg-slate-100 px-2 py-1">{c}</span>)}
         </div>
         {item.kind === 'question' ? <QuestionView q={item.content as QuestionContent} /> : <LineView text={(item.content as LineDraft).text} ctx={ctx} />}
       </section>
