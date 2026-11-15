@@ -9,7 +9,7 @@ export interface DatedEvent { year: number; label: string; detail: string }
 /** Grade 7, Term 4: the Cape frontiers, 1795 to 1836. */
 export const CAPE_EVENTS: DatedEvent[] = [
   { year: 1795, label: 'Britain occupies the Cape', detail: 'Britain seized the Cape Colony during the wars with revolutionary France' },
-  { year: 1811, label: 'Fourth Frontier War', detail: '1811 to 1812: British-led forces expelled many Xhosa west of the Fish River' },
+  { year: 1811, label: 'Fourth Frontier War', detail: '1811 to 1812: British-led forces drove many Xhosa out of the Zuurveld, across the Fish River to the east' },
   { year: 1819, label: 'Nxele attacks Grahamstown', detail: 'Xhosa forces led by Maqana Nxele resisted colonial expansion' },
   { year: 1820, label: 'British settlers arrive', detail: 'thousands of settlers placed in the eastern Cape' },
   { year: 1834, label: 'Slavery abolished', detail: 'legally abolished at the Cape; freed people still faced inequality' },

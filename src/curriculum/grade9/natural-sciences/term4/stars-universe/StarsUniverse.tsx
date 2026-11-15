@@ -40,7 +40,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-gray-50 p-4">
             <strong className="text-gray-700">Death</strong>
-            <p className="text-slate-600">Red giant, then white dwarf or neutron star.</p>
+            <p className="text-slate-600">A star like the Sun swells into a red giant, then shrinks to a white dwarf. A much bigger star explodes as a supernova and leaves a neutron star or a black hole.</p>
           </div>
         </div>
       </div>

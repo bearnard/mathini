@@ -53,7 +53,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
           Chemical reactions can <strong>release heat</strong> (exothermic) or <strong>absorb heat</strong>
-          (endothermic). Temperature measures how fast particles move.
+          (endothermic). Temperature tells you how fast the particles move on average: the hotter it is, the faster they move.
         </p>
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-orange-50 p-4">

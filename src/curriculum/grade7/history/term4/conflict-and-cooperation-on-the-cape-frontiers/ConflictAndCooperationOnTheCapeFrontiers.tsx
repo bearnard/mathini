@@ -43,7 +43,7 @@ const learnSteps: LearnStep[] = [
         />
         <Worked
           title="The Fourth Frontier War, 1811 to 1812"
-          steps={[<>British-led forces expelled many Xhosa west of the Fish River.</>, <>The war was driven by land, cattle and colonial control.</>, <>In 1820 thousands of British settlers arrived in the eastern Cape, which increased the pressure on land.</>]}
+          steps={[<>British-led forces drove many Xhosa out of the Zuurveld, the land west of the Great Fish River, and across the river to its east.</>, <>The war was driven by land, cattle and colonial control.</>, <>In 1820 thousands of British settlers arrived in the eastern Cape, which increased the pressure on land.</>]}
         />
         <Mistake>Thinking the frontier wars were only random fighting. They were closely linked to land and resource control.</Mistake>
       </>,
