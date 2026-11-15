@@ -1,38 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './ReadingViewingT4.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Revise mixed reading genres and summary choices',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Reading revision covers <strong>stories, poems, media texts, comprehension,</strong> and summary skills.
-        </p>
-        <p className="text-slate-600">Practise switching strategies across mixed-genre exam-style questions.</p>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Keep these comprehension words ready while revising stories, visual texts, and summary skills.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Ibali"} phonetic={"[i'baːli]"} meaning={"Story"} lang="xh" />
-          <PronunciationPlayer word={"Umbongo"} phonetic={"[um'bɔŋgɔ]"} meaning={"Poem"} lang="xh" />
-          <PronunciationPlayer word={"Isibhengezo"} phonetic={"[isi.bhɛŋ'gɛːzo]"} meaning={"Advert / poster"} lang="xh" />
-          <PronunciationPlayer word={"Isishwankathelo"} phonetic={"[isiʃwaŋka'tʰeːlɔ]"} meaning={"Summary"} lang="xh" />
-          <PronunciationPlayer word={"Ingcinga"} phonetic={"[iŋ'ciŋga]"} meaning={"Idea / thought"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {
