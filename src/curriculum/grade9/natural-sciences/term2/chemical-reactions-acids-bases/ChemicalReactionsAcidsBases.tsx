@@ -1,67 +1,144 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { PhBar } from '../../../../../components/diagrams/science/SciencePictures';
+import { FlowDiagram, NeutralisationBeakers } from '../../../../../components/diagrams/science/SciencePictures4';
+import { MassBars } from '../../../../../components/diagrams/science/SciencePictures9';
+import { litmus, phZone } from '../../../../../components/diagrams/science/scienceHelpers';
+import { massTotal } from '../../../../../components/diagrams/science/science9Helpers';
+
+// Litmus colours, pH zones and the masses come from tested helpers (scienceHelpers.test.ts, science9.test.ts).
+const redInAcid = litmus('blue', phZone(2));
+const blueInBase = litmus('red', phZone(11));
+const total = massTotal([10, 15]);
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'What happens during a chemical reaction',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A <strong>chemical reaction</strong> happens when substances change into new substances. The
-          starting substances are called <strong>reactants</strong> and the new substances are called
-          <strong> products</strong>.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl">
-          <p className="font-bold text-slate-800 mb-2">Signs a chemical reaction happened:</p>
-          <div className="grid gap-2 md:grid-cols-2 text-left">
-            <p className="text-slate-600">• Colour change</p>
-            <p className="text-slate-600">• Gas bubbles form</p>
-            <p className="text-slate-600">• Temperature change</p>
-            <p className="text-slate-600">• Precipitate forms</p>
-          </div>
-        </div>
-      </div>
+    title: 'Reactants, products and signs of a reaction',
+    content: slide(
+      <>
+        <Rule>
+          In a chemical reaction the starting substances, the reactants, change into new substances, the products. Signs include a colour change or a gas given off.
+        </Rule>
+        <FlowDiagram
+          id="rx"
+          title="A chemical reaction"
+          desc="The reactants, the starting substances, change into the products, the new substances."
+          nodes={[
+            { id: 'r', label: 'reactants', x: 34, y: 54, color: '#7dd3fc' },
+            { id: 'p', label: 'products', x: 126, y: 54, color: '#6ee7b7' },
+          ]}
+          edges={[{ from: 'r', to: 'p', label: 'chemical reaction', bend: 0, lx: 80, ly: 46 }]}
+        />
+        <Terms
+          rows={[
+            ['Colour change', 'a new colour appears'],
+            ['Gas bubbles', 'a gas is given off'],
+            ['Temperature change', 'the mixture gets hotter or colder'],
+            ['Solid forms', 'a precipitate appears in a clear solution'],
+          ]}
+        />
+        <Worked
+          title="Vinegar and baking soda"
+          steps={[<>The reactants are vinegar and baking soda.</>, <>Bubbles of gas appear: a sign of a reaction.</>, <>New substances, the products, have formed, including the gas.</>]}
+        />
+        <Mistake>Mixing up the two sides. Reactants are the starting substances, products are what they form.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Acids, bases, and pH',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Acids turn blue litmus paper red and bases turn red litmus paper blue. Common acids taste sour and common bases feel slippery, but never taste or touch unknown chemicals: use an indicator.
-          <strong> pH</strong> measures how acidic or basic a substance is.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3 text-left">
-          <div className="rounded-xl bg-red-50 p-4">
-            <strong className="text-red-700">Acids (pH &lt; 7)</strong>
-            <p className="text-slate-600">Lemon juice, vinegar, stomach acid.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Neutral (pH = 7)</strong>
-            <p className="text-slate-600">Pure water, salt solution.</p>
-          </div>
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Bases (pH &gt; 7)</strong>
-            <p className="text-slate-600">Soap, ammonia, bleach.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Acids and bases',
+    content: slide(
+      <>
+        <Rule>
+          Acids turn litmus paper red and bases turn it blue. Common acids taste sour and common bases feel slippery and taste bitter, but never taste or touch unknown chemicals: use an indicator.
+        </Rule>
+        <Terms
+          rows={[
+            ['Acids', 'lemon juice (it contains citric acid), vinegar, stomach acid'],
+            ['Bases', 'soap, ammonia, bleach: alkaline substances that turn litmus blue'],
+          ]}
+        />
+        <Worked
+          title="Test two solutions with litmus paper"
+          steps={[<>Solution A turns blue litmus {redInAcid}: it is an acid.</>, <>Solution B turns red litmus {blueInBase}: it is a base.</>, <>Lemon juice is an example of an acid; soap is an example of a base.</>]}
+        />
+        <Mistake>Tasting a liquid to find out whether it is an acid. Many acids and bases burn. Use litmus paper or another indicator.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Neutralisation and conservation of mass',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          When an acid and base react, they <strong>neutralise</strong> each other to form a salt and
-          water. No mass is lost or gained in a chemical reaction in a closed system (if a gas escapes, the mass you measure drops).
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Key principle:</p>
-          <p className="text-slate-600">Mass of reactants = Mass of products</p>
-          <p className="text-sm text-slate-500 font-mono">Acid + Base → Salt + Water</p>
-        </div>
-      </div>
+    title: 'The pH scale',
+    content: slide(
+      <>
+        <Rule>
+          pH is a scale that measures how acidic or basic a thing is. Acids have pH below 7, bases above 7, and pure water has a pH of 7: it is neutral.
+        </Rule>
+        <PhBar />
+        <Worked
+          title="Place the substances"
+          steps={[<>Lemon juice has a pH of about 2, which is below 7: an {phZone(2)}.</>, <>Pure water: exactly 7 ({phZone(7)}).</>, <>Soap has a pH above 7, for example 10: a {phZone(10)}.</>]}
+        />
+        <Mistake>Thinking pH 7 is acidic or that a bigger pH means more acid. Below 7 is acidic, above 7 is basic, and the lower the number the more acidic.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Neutralisation',
+    content: slide(
+      <>
+        <Rule>
+          When an acid and a base react they neutralise each other, forming a salt and water. Acid + Base → Salt + Water.
+        </Rule>
+        <NeutralisationBeakers acidPh={2} basePh={12} />
+        <Worked
+          title="Neutralise stomach acid"
+          steps={[<>Too much stomach acid causes heartburn.</>, <>An antacid tablet contains a base that reacts with the acid.</>, <>They neutralise each other and form a salt and water, so the acid is used up.</>]}
+        />
+        <Mistake>Thinking neutralisation makes the acid vanish. The acid and base react to make new substances, a salt and water.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Conservation of mass',
+    content: slide(
+      <>
+        <Rule>
+          The law of conservation of mass: the mass of the reactants equals the mass of the products. No mass is lost or gained in a chemical reaction in a closed system.
+        </Rule>
+        <MassBars reactants={[10, 15]} />
+        <Worked
+          title="10 g of one reactant and 15 g of another"
+          steps={[<>Total mass of the reactants = 10 + 15 = {total} g.</>, <>In a closed system the products have the same mass: {total} g.</>, <>If a gas escapes from an open container, the mass you measure drops, but the gas still has mass.</>]}
+        />
+        <Mistake>Believing that mass disappears when something burns or fizzes. The atoms are rearranged, and a gas that escapes carries its mass away.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What are reactants? Which is a sign that a chemical reaction has occurred?</li>
+            <li>What does an acid turn litmus paper? What is a base?</li>
+            <li>What is pH? What is the pH of pure water?</li>
+            <li>What happens when an acid and base react? What is the law of conservation of mass? Give an example of an acid and of a base.</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>The starting substances. A colour change or a gas given off.</li>
+            <li>Red. A substance that feels slippery and tastes bitter (it turns litmus blue).</li>
+            <li>A scale that measures how acidic or basic a thing is. 7.</li>
+            <li>They neutralise each other, forming a salt and water. The mass of the reactants equals the mass of the products. Lemon juice is an acid; soap is a base.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

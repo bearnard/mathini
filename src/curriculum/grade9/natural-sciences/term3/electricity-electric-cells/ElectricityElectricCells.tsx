@@ -1,69 +1,142 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Compare, Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { CircuitPair } from '../../../../../components/diagrams/science/SciencePictures2';
+import { CircuitSymbols } from '../../../../../components/diagrams/science/SciencePictures6';
+import { WireResistance } from '../../../../../components/diagrams/science/SciencePictures9';
+import { current } from '../../../../../components/diagrams/science/electronicsHelpers';
+import { wireResistance } from '../../../../../components/diagrams/science/science9Helpers';
+
+// The Ohm's law example and the wire resistances come from tested helpers (electronics.test.ts, science9.test.ts).
+const amps = current(12, 3);
+const sa = (n: number) => String(n).replace('.', ',');
+const rShort = wireResistance(1, 1);
+const rLong = wireResistance(2, 1);
+const rThin = wireResistance(2, 0.5);
+const amps6 = current(12, 6);
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Electric current and circuits',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Electric current</strong> is the flow of electrons through a conductor. A simple
-          circuit includes a power source (cell), wires, and a load (like a bulb).
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block text-left">
-          <p className="font-bold text-slate-800 mb-2">Parts of a circuit:</p>
-          <div className="space-y-1 text-slate-600">
-            <p><strong>Power source:</strong> Provides energy (cell or battery)</p>
-            <p><strong>Conductor:</strong> Allows current to flow (wire)</p>
-            <p><strong>Load:</strong> Uses the current (bulb, motor)</p>
-            <p><strong>Switch:</strong> Opens or closes the circuit</p>
-          </div>
-        </div>
-      </div>
+    title: 'Current and the parts of a circuit',
+    content: slide(
+      <>
+        <Rule>
+          Electric current is the flow of electrons through a conductor, such as a wire. A power source, a cell or battery, gives the energy that pushes the current round the circuit.
+        </Rule>
+        <CircuitSymbols />
+        <Terms
+          rows={[
+            ['Power source', 'a cell or battery: gives the energy that pushes the current round'],
+            ['Conductor', 'a wire: lets current flow'],
+            ['Load', 'a bulb or motor: uses the energy'],
+            ['Switch', 'opens or closes the circuit'],
+          ]}
+        />
+        <Worked
+          title="Follow the current"
+          steps={[<>The cell pushes electrons out into the wire.</>, <>The electrons flow through the closed circuit and through the bulb, which uses the energy and lights.</>, <>Open the switch and the path is broken, so the current stops.</>]}
+        />
+        <Mistake>Thinking the bulb uses up the electrons. The electrons keep flowing round the circuit. The bulb changes electrical energy into light and heat.</Mistake>
+      </>,
     ),
   },
   {
     title: 'Series and parallel circuits',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Circuits can be arranged in different ways:
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Series Circuit</strong>
-            <p className="text-slate-600">Components in one path; current flows through each in order.</p>
-            <p className="text-xs text-slate-500 mt-1">If one breaks, all stop working.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Parallel Circuit</strong>
-            <p className="text-slate-600">Components have separate paths; current can split.</p>
-            <p className="text-xs text-slate-500 mt-1">If one breaks, others still work.</p>
-          </div>
-        </div>
-      </div>
+    content: slide(
+      <>
+        <Rule>
+          In a series circuit all the components are in one path. In a parallel circuit each component has its own path, so if one path breaks, the other paths still work.
+        </Rule>
+        <CircuitPair />
+        <Compare
+          left={{ title: 'Series', tone: 'sky', rows: ['one path for the current', 'if one bulb breaks, all bulbs go out', 'adding more bulbs makes the bulbs dimmer'] }}
+          right={{ title: 'Parallel', tone: 'emerald', rows: ['each bulb has its own path', 'if one path breaks, the other paths still work', 'house lights are wired in parallel'] }}
+        />
+        <Worked
+          title="One bulb breaks"
+          steps={[<>Series: the single path is broken, so all the bulbs go out.</>, <>Parallel: only the broken path stops. The other bulbs stay on.</>, <>Adding more bulbs in series adds more resistance, which reduces the current, so every bulb gets dimmer.</>]}
+        />
+        <Mistake>Believing that a parallel circuit has no complete loop. Each branch makes its own complete loop with the cell.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Potential difference and resistance',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Potential difference</strong> (voltage) pushes current through a circuit.
-          <strong> Resistance</strong> opposes the flow of current.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-3">
-          <div>
-            <p className="font-bold text-slate-800">Potential Difference (V)</p>
-            <p className="text-slate-600">Measured in volts; higher voltage pushes more current.</p>
-          </div>
-          <div>
-            <p className="font-bold text-slate-800">Resistance (Ω)</p>
-            <p className="text-slate-600">Measured in ohms; thinner or longer wires have more resistance.</p>
-          </div>
-          <p className="text-sm text-slate-500">V = I × R (Ohm's Law)</p>
-        </div>
-      </div>
+    title: 'Potential difference',
+    content: slide(
+      <>
+        <Rule>
+          Potential difference, or voltage, is the push that drives the current. It is measured in volts (V).
+        </Rule>
+        <Terms
+          rows={[
+            ['Potential difference', 'the push that drives current: measured in volts (V)'],
+            ['Higher voltage', 'pushes more current through the same circuit'],
+            ['A cell', 'about 1,5 V; a battery is cells joined together, so it gives a larger voltage'],
+          ]}
+        />
+        <Worked
+          title="Name the quantity"
+          steps={[<>What pushes electrons through the circuit? The potential difference.</>, <>What unit measures potential difference? Volts.</>, <>If the same bulb is connected to a bigger voltage, more current flows.</>]}
+        />
+        <Mistake>Thinking voltage is the amount of current. Voltage is the push, and current is the flow it causes.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Resistance',
+    content: slide(
+      <>
+        <Rule>
+          Resistance is the opposition to the flow of current. Making a wire longer and thinner increases its resistance. Resistance is measured in ohms (Ω).
+        </Rule>
+        <WireResistance />
+        <Worked
+          title="Compare three wires (relative units)"
+          steps={[<>A short, thick wire has resistance {sa(rShort)}.</>, <>Doubling the length doubles the resistance: {sa(rLong)}.</>, <>Making that wire half as thick doubles it again: {sa(rThin)}. Longer and thinner means more resistance.</>]}
+        />
+        <Mistake>Thinking a thicker wire resists more because there is more material. A thick wire gives the electrons more room, so its resistance is lower.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: "Ohm's law",
+    content: slide(
+      <>
+        <Rule>
+          Ohm&apos;s law links the three quantities: V = I × R, so the current I = V ÷ R. V is in volts, I in amperes (A) and R in ohms (Ω).
+        </Rule>
+        <Worked
+          title="A 12 V source and a 3 Ω resistor"
+          steps={[<>Write the law: I = V ÷ R.</>, <>Put in the numbers: I = 12 ÷ 3.</>, <>I = <strong>{amps} A</strong>. With a 6 Ω resistor the current would be 12 ÷ 6 = {amps6} A: more resistance, less current.</>]}
+        />
+        <Mistake>Multiplying instead of dividing. To find the current you divide the voltage by the resistance, I = V ÷ R.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is electric current? What does a power source do in a circuit?</li>
+            <li>In a series circuit, if one bulb breaks, what happens? What is an advantage of a parallel circuit? What happens to brightness when you add more bulbs in series?</li>
+            <li>What is potential difference? Which unit measures it?</li>
+            <li>What is resistance? Which factor increases the resistance of a wire? What does a 12 V source give through a 3 Ω resistor?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>The flow of electrons. It gives the energy that pushes the current round.</li>
+            <li>All bulbs go out. If one path breaks, the other paths still work. It gets dimmer.</li>
+            <li>The push that drives current. Volts.</li>
+            <li>The opposition to the flow of current. Making it longer and thinner. 4 A.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

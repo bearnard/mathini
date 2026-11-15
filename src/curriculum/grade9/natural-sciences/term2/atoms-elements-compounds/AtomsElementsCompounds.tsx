@@ -1,70 +1,145 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Compare, Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { MatterKinds, PeriodicStrip } from '../../../../../components/diagrams/science/SciencePictures4';
+import { AtomModel } from '../../../../../components/diagrams/science/SciencePictures9';
+import { ELEMENTS } from '../../../../../components/diagrams/science/matterHelpers';
+import { countAtoms, electronShells, subscripts } from '../../../../../components/diagrams/science/science9Helpers';
+
+// Counts, shells and symbols come from tested helpers (science9.test.ts, motionMatter.test.ts).
+const shells = electronShells(6).join(', ');
+const water = countAtoms('H2O');
+const co2 = countAtoms('CO2');
+const el = (symbol: string) => ELEMENTS.find((e) => e.symbol === symbol)!;
+const na = el('Na');
+const cl = el('Cl');
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Atomic structure and elements',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          All matter is made of tiny particles called <strong>atoms</strong>. An atom contains a
-          <strong> nucleus</strong> (with protons and neutrons) surrounded by <strong>electrons</strong>.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block text-left">
-          <p className="font-bold text-slate-800 mb-2">Key parts of an atom:</p>
-          <div className="space-y-1 text-slate-600">
-            <p><strong>Protons:</strong> Positively charged; in the nucleus; they add mass</p>
-            <p><strong>Neutrons:</strong> Neutral; in the nucleus; they add mass</p>
-            <p><strong>Electrons:</strong> Negatively charged; orbit the nucleus</p>
-          </div>
-        </div>
-      </div>
+    title: 'Inside an atom',
+    content: slide(
+      <>
+        <Rule>
+          An atom is the smallest particle of an element. It has a nucleus, with protons and neutrons, and electrons that move around the nucleus.
+        </Rule>
+        <AtomModel z={6} neutrons={6} name="carbon" />
+        <Worked
+          title="Count the particles in a carbon atom"
+          steps={[
+            <>Protons are positively charged and are found in the nucleus: carbon has 6.</>,
+            <>Neutrons have no charge. They are in the nucleus and add mass: carbon here has 6.</>,
+            <>Electrons are negatively charged and orbit the nucleus: 6, in shells of {shells}. 6 positive and 6 negative charges cancel, so the atom is neutral.</>,
+          ]}
+        />
+        <Mistake>Thinking the electrons are inside the nucleus. The nucleus holds only protons and neutrons. The electrons move around it.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Elements, compounds, and mixtures',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Matter can be classified by the particles it contains:
-        </p>
-        <div className="grid gap-3 md:grid-cols-3 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Element</strong>
-            <p className="text-slate-600">Pure substance with only one type of atom (e.g., oxygen, carbon).</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Compound</strong>
-            <p className="text-slate-600">Two or more elements chemically bonded (e.g., water H₂O).</p>
-          </div>
-          <div className="rounded-xl bg-purple-50 p-4">
-            <strong className="text-purple-700">Mixture</strong>
-            <p className="text-slate-600">Two or more substances not chemically bonded (e.g., salt water).</p>
-          </div>
-        </div>
-      </div>
+    title: 'Elements',
+    content: slide(
+      <>
+        <Rule>An element is a pure substance made of one type of atom, such as oxygen gas or carbon.</Rule>
+        <MatterKinds />
+        <Worked
+          title="Is it an element?"
+          steps={[<>Oxygen gas contains only oxygen atoms: an element.</>, <>Carbon (as in a diamond or charcoal) contains only carbon atoms: an element.</>, <>Water has hydrogen and oxygen atoms: not an element.</>]}
+        />
+        <Mistake>Saying that oxygen gas is a compound because its particles contain two atoms. Both atoms are oxygen, so it is still one type of atom: an element.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'The periodic table and chemical symbols',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          The <strong>periodic table</strong> organises all known elements. Each element has a
-          <strong> symbol</strong> (like H for hydrogen, O for oxygen).
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl">
-          <p className="font-bold text-slate-800 mb-3">Common chemical symbols:</p>
-          <div className="grid grid-cols-3 gap-2 text-slate-600">
-            <p>H = Hydrogen</p>
-            <p>O = Oxygen</p>
-            <p>C = Carbon</p>
-            <p>N = Nitrogen</p>
-            <p>Na = Sodium</p>
-            <p>Cl = Chlorine</p>
-          </div>
-        </div>
-      </div>
+    title: 'Compounds and mixtures',
+    content: slide(
+      <>
+        <Rule>
+          A compound is two or more elements joined by chemical bonds. In a mixture the substances are not chemically bonded.
+        </Rule>
+        <Compare
+          left={{ title: 'Compound', tone: 'emerald', rows: ['elements joined by chemical bonds', 'example: water, H₂O', 'cannot be separated by physical means'] }}
+          right={{ title: 'Mixture', tone: 'amber', rows: ['substances mixed, not chemically bonded', 'example: salt water', 'the parts keep their own properties'] }}
+        />
+        <Worked
+          title="Water or salt water?"
+          steps={[<>Water is a compound: hydrogen and oxygen atoms are bonded together in every particle.</>, <>Salt water is a mixture: salt particles are mixed with water particles but not chemically joined to them.</>, <>That is the difference between a mixture and a compound.</>]}
+        />
+        <Mistake>Calling any two substances mixed together a compound. A compound needs chemical bonds between its elements.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Symbols and formulas',
+    content: slide(
+      <>
+        <Rule>
+          A chemical symbol stands for an element: O is oxygen. A formula shows the atoms in a compound: the chemical formula for water is H₂O.
+        </Rule>
+        <Terms
+          rows={[
+            ['H', 'hydrogen'],
+            ['O', 'oxygen'],
+            ['C', 'carbon'],
+            ['N', 'nitrogen'],
+            [`${na.symbol} and ${cl.symbol}`, `${na.name} and ${cl.name}`],
+          ]}
+        />
+        <Worked
+          title="Read formulas"
+          steps={[
+            <>{subscripts('H2O')}: {water.H} atoms of hydrogen and {water.O} atom of oxygen. Water is a compound made of {water.H} hydrogen atoms and {water.O} oxygen atom.</>,
+            <>{subscripts('CO2')}: {co2.C} atom of carbon and {co2.O} atoms of oxygen.</>,
+            <>The small number after a symbol tells how many atoms of that element: no number means 1.</>,
+          ]}
+        />
+        <Mistake>Reading {subscripts('H2O')} as two separate substances. The small 2 only says there are two hydrogen atoms, joined to one oxygen atom.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'The periodic table',
+    content: slide(
+      <>
+        <Rule>
+          The periodic table organises all known elements. Each element has a symbol, and the elements are arranged by increasing atomic number.
+        </Rule>
+        <PeriodicStrip />
+        <Worked
+          title="Find an element"
+          steps={[
+            <>{na.name} has the symbol {na.symbol} and atomic number {na.n}.</>,
+            <>{cl.name} has the symbol {cl.symbol} and atomic number {cl.n}.</>,
+            <>The atomic number is the number of protons in the atom. Sodium chloride, table salt, is a compound of {na.name} and {cl.name}.</>,
+          ]}
+        />
+        <Mistake>Assuming a symbol is always the first letter of the English name. Sodium is Na, not S.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is an atom? Where are protons found? What is the charge of an electron?</li>
+            <li>What do neutrons do in an atom?</li>
+            <li>What is an element? What is a compound? Which is an example of an element: oxygen gas, water or salt water?</li>
+            <li>What is the difference between a mixture and a compound? What does the symbol O represent? What is the formula for water?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>The smallest particle of an element. In the nucleus. Negative.</li>
+            <li>They add mass but are neutral.</li>
+            <li>A pure substance made of one type of atom. Two or more elements joined by chemical bonds. Oxygen gas.</li>
+            <li>In a mixture, the substances are not chemically bonded. Oxygen. H₂O.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
