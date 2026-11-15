@@ -4,7 +4,8 @@
 //   2. question pool top-up with the quality validator (ADR 0003 section 1a), under a per-run budget (Worker CPU and API cost).
 //      Daily is safe: the top-up only works on pools BELOW target and stops at its caps (maxTasks 8, maxAccepted 60, maxApiCalls 200,
 //      maxOps 45), so a full pool costs one query and the worst case is bounded per run.
-//   2b. teacher-review personal data (ADR 0004): names and contact notes of reviewers 90 days after their pack closed (bounded, no API)
+//   2b. teacher-review personal data (ADR 0004): names, contact notes and free-text reasons of reviewers 90 days after their pack closed (bounded,
+//       no API; last in the job, one read plus one batch only when there is something to scrub)
 //   3. item analysis (ADR 0003 section 5): 3 D1 round trips, no external API. Together with the top-up's maxOps 45 that is
 //      48 of the 50 subrequests a free-plan invocation allows.
 // With no GEMINI_API_KEY the top-up is a no-op; retention still runs.
@@ -40,8 +41,9 @@ export interface ScheduledResult {
   eventsPurged: number | null;
   /** Open item-analysis flags written this run, or null if the step failed. */
   flags: number | null;
-  /** Reviewers whose personal fields were scrubbed this run, or null if the step failed. */
+  /** Reviewers whose personal fields were scrubbed this run, and how many free-text reasons that scrub changed; null if the step failed. */
   reviewersScrubbed: number | null;
+  reasonsScrubbed: number | null;
 }
 
 const intVar = (v: string | undefined): number | undefined => {
@@ -62,7 +64,7 @@ export function limitsFromEnv(env: ScheduledEnv, overrides: Partial<TopUpLimits>
 
 export async function runScheduled(env: ScheduledEnv, deps: ScheduledDeps = {}): Promise<ScheduledResult> {
   const log = deps.log ?? ((line: string) => console.log(line));
-  const result: ScheduledResult = { topUp: null, topUpSkipped: null, eventsPurged: null, flags: null, reviewersScrubbed: null };
+  const result: ScheduledResult = { topUp: null, topUpSkipped: null, eventsPurged: null, flags: null, reviewersScrubbed: null, reasonsScrubbed: null };
 
   try {
     result.eventsPurged = await purgeOldEventsBounded(env.DB as never, deps.now?.() ?? Date.now());
@@ -99,14 +101,17 @@ export async function runScheduled(env: ScheduledEnv, deps: ScheduledDeps = {}):
   }
 
   try {
-    result.reviewersScrubbed = await scrubReviewerPersonalData(trDbOfD1(env.DB as never), deps.now?.() ?? Date.now());
+    const scrubbed = await scrubReviewerPersonalData(trDbOfD1(env.DB as never), deps.now?.() ?? Date.now());
+    result.reviewersScrubbed = scrubbed.reviewers;
+    result.reasonsScrubbed = scrubbed.reasons;
   } catch {
     result.reviewersScrubbed = null; // the table may not exist yet (migration 0012 not applied)
+    result.reasonsScrubbed = null; // this step runs last, so a subrequest-limit failure here never costs the top-up; it retries tomorrow
   }
 
   const t = result.topUp;
   log(
-    `scheduled: ${t ? `top-up stored ${t.accepted}, rejected ${t.rejected}, pools below target ${t.poolsBelowTarget}, api calls ${t.apiCalls}, ops ${t.ops}${t.stoppedBy ? ` (stopped by ${t.stoppedBy})` : ''}` : `top-up skipped (${result.topUpSkipped})`}; events purged ${result.eventsPurged ?? 'n/a'}; item flags ${result.flags ?? 'n/a'}; reviewers scrubbed ${result.reviewersScrubbed ?? 'n/a'}`,
+    `scheduled: ${t ? `top-up stored ${t.accepted}, rejected ${t.rejected}, pools below target ${t.poolsBelowTarget}, api calls ${t.apiCalls}, ops ${t.ops}${t.stoppedBy ? ` (stopped by ${t.stoppedBy})` : ''}` : `top-up skipped (${result.topUpSkipped})`}; events purged ${result.eventsPurged ?? 'n/a'}; item flags ${result.flags ?? 'n/a'}; reviewers scrubbed ${result.reviewersScrubbed ?? 'n/a'} (reasons ${result.reasonsScrubbed ?? 'n/a'})`,
   );
   return result;
 }
