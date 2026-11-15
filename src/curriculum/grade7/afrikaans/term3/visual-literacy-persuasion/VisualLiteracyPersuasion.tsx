@@ -11,7 +11,7 @@ export const learnSteps: LearnStep[] = [
     title: 'What an advertisement is for',
     content: slide(
       <>
-        <Rule>The main purpose of an <Af>advertensie</Af> is <Af>Om mense te oortuig om iets te doen of koop</Af> <En>to persuade people to do or buy something</En>.</Rule>
+        <Rule>The main purpose of an <Af>advertensie</Af> is <Af>Om mense te oortuig om iets te doen of te koop</Af> <En>to persuade people to do or buy something</En>.</Rule>
         <MeaningPairs
           kind="becomes"
           pairs={[['advertensie', 'oortuig'], ['plakkaat', 'aandag']]}
@@ -114,7 +114,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <>
-        <Check question={<>What is the main purpose of an advertisement?</>} answer={<><Af>Om mense te oortuig om iets te doen of koop</Af>.</>} />
+        <Check question={<>What is the main purpose of an advertisement?</>} answer={<><Af>Om mense te oortuig om iets te doen of te koop</Af>.</>} />
         <Check question={<>In AIDA, what does the last A stand for?</>} answer={<>Action.</>} />
         <Check question={<>What is a <Af>slagspreuk</Af>?</>} answer={<><Af>Kort, onthoubare frase vir die produk of boodskap</Af>.</>} />
         <Check question={<>Which question helps you find the audience?</>} answer={<><Af>Vir wie is hierdie advertensie bedoel?</Af></>} />
@@ -126,8 +126,8 @@ export const learnSteps: LearnStep[] = [
 const bank: AfrikaansItem[] = [
   {
     prompt: "Wat is die hoofdoel van 'n advertensie?",
-    options: ['Om mense te oortuig om iets te doen of koop', "Om 'n storie in hoofstukke te vertel", 'Om net grammatika te toets', 'Om rymwoorde te lys'],
-    answer: 'Om mense te oortuig om iets te doen of koop',
+    options: ['Om mense te oortuig om iets te doen of te koop', "Om 'n storie in hoofstukke te vertel", 'Om net grammatika te toets', 'Om rymwoorde te lys'],
+    answer: 'Om mense te oortuig om iets te doen of te koop',
     explanation: 'Adverts are designed to persuade.',
   },
   {
