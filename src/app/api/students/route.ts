@@ -4,6 +4,8 @@ import { hashPin, generateLoginCode, generatePin } from '../../../lib/server/ide
 import { signSession, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from '../../../lib/server/session';
 import { parseRegistration } from '../../../lib/server/consent';
 import { CONSENT_VERSION } from '../../../lib/privacyNotice';
+import { d1Adapter } from '../../../lib/server/admin/db';
+import { clientIp, signupAllowed, SIGNUP_LIMITED } from '../../../lib/server/learnerGuards';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,6 +21,10 @@ export async function POST(req: NextRequest) {
     const { env } = getCloudflareContext();
     const db = env.DB;
     const now = Date.now();
+    // Security review: sign-up is open to everyone, so it is limited per connection (generous: a whole class behind one school connection fits).
+    if (!(await signupAllowed(d1Adapter(db as never), clientIp(req), now))) {
+      return NextResponse.json({ error: SIGNUP_LIMITED }, { status: 429 });
+    }
     const studentId = crypto.randomUUID();
 
     // Generate identity — retry on unique collision
@@ -73,7 +79,7 @@ export async function POST(req: NextRequest) {
     return response;
   } catch (err) {
     console.error('Onboarding error:', err);
-    return NextResponse.json({ error: 'Internal server error: ' + (err instanceof Error ? err.message : String(err)) }, { status: 500 });
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 }); // never the error text: it can carry SQL and schema details
   }
 }
 

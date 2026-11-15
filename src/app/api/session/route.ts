@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { verifyPin } from '../../../lib/server/identity';
+import { d1Adapter } from '../../../lib/server/admin/db';
+import { burnPinCheck, LOGIN_FAILED, loginBlocked, noteLoginFailure } from '../../../lib/server/learnerGuards';
 import { signSession, verifySession, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from '../../../lib/server/session';
 
 export const dynamic = 'force-dynamic';
@@ -31,6 +33,14 @@ export async function POST(req: NextRequest) {
 
     const { env } = getCloudflareContext();
     const db = env.DB;
+    const guard = d1Adapter(db as never);
+
+    // Security review: a durable per-code limit (the in-memory one above resets with every Worker isolate). A blocked code gets the same
+    // answer, and costs the same time, as a wrong PIN, so it cannot be told apart from a code that does not exist.
+    if (await loginBlocked(guard, loginCode, now)) {
+      await burnPinCheck(pin);
+      return NextResponse.json({ error: LOGIN_FAILED }, { status: 401 });
+    }
 
     const student = await db
       .prepare('SELECT id, pin_hash, pin_salt, display_name, grade, avatar, parent_consent_at FROM students WHERE login_code = ?')
@@ -38,14 +48,17 @@ export async function POST(req: NextRequest) {
       .first<{ id: string; pin_hash: string; pin_salt: string; display_name: string; grade: number; avatar: string; parent_consent_at: number | null }>();
 
     if (!student) {
+      await burnPinCheck(pin); // an unknown code takes as long as a wrong PIN
       incrementRateLimit(limitKey);
-      return NextResponse.json({ error: 'Invalid login code' }, { status: 401 });
+      await noteLoginFailure(guard, loginCode, now);
+      return NextResponse.json({ error: LOGIN_FAILED }, { status: 401 });
     }
 
     const valid = await verifyPin(pin, student.pin_salt, student.pin_hash);
     if (!valid) {
       incrementRateLimit(limitKey);
-      return NextResponse.json({ error: 'Invalid PIN' }, { status: 401 });
+      await noteLoginFailure(guard, loginCode, now);
+      return NextResponse.json({ error: LOGIN_FAILED }, { status: 401 });
     }
 
     // Reset rate limit on success
