@@ -27,6 +27,23 @@
       "index_name": "preppals-questions"
     }
   ],
+  // Edge rate limits (Workers Rate Limiting binding, src/lib/server/edgeLimit.ts). Counters are shared by every isolate in a Cloudflare
+  // location; they are approximate and per location, and the code fails open when a binding is absent. namespace_id is a positive integer
+  // in a string, unique within the Cloudflare ACCOUNT: change these if another project on the account already uses them. period is 10 or 60.
+  "ratelimits": [
+    {
+      // a whole class behind one school IP: 120 calls per 10 seconds per route
+      "name": "EDGE_PER_IP",
+      "namespace_id": "5301",
+      "simple": { "limit": 120, "period": 10 }
+    },
+    {
+      // one signed-in learner: 60 calls per 10 seconds per route
+      "name": "EDGE_PER_LEARNER",
+      "namespace_id": "5302",
+      "simple": { "limit": 60, "period": 10 }
+    }
+  ],
   "triggers": {
     "crons": ["0 3 * * *"]
   },

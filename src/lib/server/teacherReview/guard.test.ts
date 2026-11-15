@@ -17,6 +17,9 @@ const ROOTS = [
   LIB,
   path.join(SRC, 'components', 'teacherReview'),
 ];
+// One neutral file may be used by the reviewer side: the edge rate limiter. It imports nothing at all (a test below proves it), so it cannot
+// reach learner, attempt or admin data.
+const EDGE_LIMIT = path.join(SRC, 'lib', 'server', 'edgeLimit');
 const ALLOWED_PACKAGES = [/^react(\/|$)/, /^react-dom(\/|$)/, /^next(\/|$)/, /^@opennextjs\/cloudflare$/, /^node:/];
 
 function files(dir: string): string[] {
@@ -50,7 +53,10 @@ const inRoots = (target: string) => {
   return ROOTS.some((r) => target === r || target.startsWith(r + path.sep));
 };
 export const isAllowedImport = (fromFile: string, spec: string): boolean => {
-  if (spec.startsWith('.')) return inRoots(path.resolve(path.dirname(fromFile), spec));
+  if (spec.startsWith('.')) {
+    const target = path.resolve(path.dirname(fromFile), spec);
+    return target === EDGE_LIMIT || inRoots(target);
+  }
   if (spec.startsWith('@/')) return false;
   return ALLOWED_PACKAGES.some((re) => re.test(spec));
 };
@@ -59,6 +65,14 @@ test('every import is a package on the allow list, or a file inside the teacher-
   for (const f of production) {
     for (const spec of importsOf(fs.readFileSync(f, 'utf8'))) assert.ok(isAllowedImport(f, spec), `${path.relative(process.cwd(), f)} imports ${spec}`);
   }
+});
+
+test('the one neutral file the reviewer side may use, the edge rate limiter, imports nothing', () => {
+  const src = fs.readFileSync(EDGE_LIMIT + '.ts', 'utf8');
+  assert.deepEqual(importsOf(src), []);
+  // and the reviewer side reaches it only through that exact path, not a sibling such as edgeLimitRoute (which imports the Worker context)
+  assert.equal(isAllowedImport(path.join(LIB, 'http.ts'), '../edgeLimit'), true);
+  assert.equal(isAllowedImport(path.join(LIB, 'http.ts'), '../edgeLimitRoute'), false);
 });
 
 test('the guard really catches a learner, admin or events import', () => {

@@ -9,6 +9,11 @@ Run through this when merging. The code-only gates (`npx tsc --noEmit`, the full
 - [ ] **Question tables or migrations:** any new migration is applied to production by hand, with `wrangler d1 execute --remote --file`, before the code that reads it is deployed; and a backup is taken first.
 - [ ] **Write budget:** anything that writes many rows (a sync, a backfill, a regeneration) stays under the free-plan day budget; check the chunk estimate and `meta.rows_written`.
 
+## Edge rate limits
+
+- [ ] **First deploy with the `ratelimits` bindings (`EDGE_PER_IP`, `EDGE_PER_LEARNER` in wrangler.jsonc):** Cloudflare's docs do not say whether the Workers Rate Limiting binding is on the Free plan. If `wrangler deploy` rejects the config, remove the `ratelimits` block: the code fails open without the bindings and the durable D1 counters still apply. `namespace_id` must be unique in the Cloudflare account (5301, 5302 today). The limits are approximate and per Cloudflare location, so they stop a runaway client, not a determined script.
+- [ ] A 429 from `/api/attempts` is not retried by the client: keep the per-learner limit above one practice screen's burst (up to 50 answers at once).
+
 ## Lessons
 
 - [ ] A lesson rewritten to the lesson standard does not repeat a bank question word for word (the overlap guard enforces it; a failing guard means reword the lesson, not the baseline).

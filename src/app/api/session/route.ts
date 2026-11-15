@@ -4,6 +4,7 @@ import { verifyPin } from '../../../lib/server/identity';
 import { d1Adapter } from '../../../lib/server/admin/db';
 import { burnPinCheck, LOGIN_FAILED, loginBlocked, noteLoginFailure } from '../../../lib/server/learnerGuards';
 import { signSession, verifySession, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from '../../../lib/server/session';
+import { routeLimited } from '../../../lib/server/edgeLimitRoute';
 
 export const dynamic = 'force-dynamic';
 
@@ -15,6 +16,8 @@ const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
 
 export async function POST(req: NextRequest) {
   try {
+    const limited = await routeLimited(req, 'session');
+    if (limited) return limited;
     const body = (await req.json()) as { loginCode?: string; pin?: string };
     const loginCode = (body.loginCode ?? '').toString().trim().toUpperCase();
     const pin = (body.pin ?? '').toString().trim();

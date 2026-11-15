@@ -4,6 +4,7 @@ import { hashPin, generateLoginCode, generatePin } from '../../../lib/server/ide
 import { signSession, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from '../../../lib/server/session';
 import { parseRegistration } from '../../../lib/server/consent';
 import { CONSENT_VERSION } from '../../../lib/privacyNotice';
+import { routeLimited } from '../../../lib/server/edgeLimitRoute';
 import { d1Adapter } from '../../../lib/server/admin/db';
 import { clientIp, signupAllowed, SIGNUP_LIMITED } from '../../../lib/server/learnerGuards';
 
@@ -11,6 +12,8 @@ export const dynamic = 'force-dynamic';
 
 export async function POST(req: NextRequest) {
   try {
+    const limited = await routeLimited(req, 'students');
+    if (limited) return limited;
     const parsed = parseRegistration(await req.json().catch(() => null));
     // Rejected unless a parent/guardian agreement came with the request (not just a UI check).
     if (!parsed.ok) {

@@ -3,6 +3,7 @@
 // token is never logged. This file imports nothing from the admin, learner or events code.
 
 import { getCloudflareContext } from '@opennextjs/cloudflare';
+import { edgeAllow, EDGE_LIMITED_MESSAGE, ipOf, type EdgeLimitEnv } from '../edgeLimit';
 import { trDbOfD1, type TrDb } from './db';
 import { loadPack } from './store';
 import { findReviewerByToken, hashToken, isWellFormedToken } from './reviewerLink';
@@ -90,6 +91,8 @@ export async function readCapped(req: Request, max: number): Promise<string | nu
 export interface ReviewDeps {
   db: TrDb;
   now: number;
+  /** The edge rate-limit bindings (tests pass fakes; production reads them from the Worker env). */
+  edge?: EdgeLimitEnv | null;
   tokenLimiter?: Limiter;
   unknownLimiter?: Limiter;
 }
@@ -117,6 +120,9 @@ export async function handleReview(
     const token = tokenFromRequest(req);
     const now = deps?.now ?? Date.now();
     const clientKey = `ip:${req.headers.get('cf-connecting-ip') ?? req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'}`;
+    // Edge rate limit (Cloudflare binding, shared by every isolate in a location): by hashed IP, before any token or database work. Fails open.
+    const edgeEnv = deps && 'edge' in deps ? deps.edge : (() => { try { return getCloudflareContext().env as unknown as EdgeLimitEnv; } catch { return null; } })();
+    if (!(await edgeAllow(edgeEnv, 'teacher-review', { ip: ipOf(req) }))) return reviewJson({ error: EDGE_LIMITED_MESSAGE }, 429);
     const unknownL = deps?.unknownLimiter ?? unknownLimiter;
     const tokenL = deps?.tokenLimiter ?? tokenLimiter;
 
