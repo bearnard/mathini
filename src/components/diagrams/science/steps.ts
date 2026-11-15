@@ -31,3 +31,12 @@ export const DECAY_STEPS: readonly Step[] = [
   { lead: 'Nutrients', text: ' are released into the soil' },
   { lead: 'Plants', text: ' take up the nutrients and grow' },
 ];
+
+/** The nitrogen cycle as a loop of steps. */
+export const NITROGEN_STEPS: readonly Step[] = [
+  { lead: 'Nitrogen gas', text: ' makes up most of the air, but plants cannot use it' },
+  { lead: 'Nitrogen-fixing bacteria', text: ' turn it into usable compounds in the soil' },
+  { lead: 'Plants', text: ' take up the compounds through their roots' },
+  { lead: 'Animals', text: ' eat the plants' },
+  { lead: 'Decomposers', text: ' return nutrients to the soil when living things die' },
+];

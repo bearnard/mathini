@@ -1,17 +1,117 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { FiltrationSetup, PhBar } from '../../../../../components/diagrams/science/SciencePictures';
+import { NeutralisationBeakers } from '../../../../../components/diagrams/science/SciencePictures4';
+import { litmus, phZone } from '../../../../../components/diagrams/science/scienceHelpers';
+
+// Litmus results come from a tested helper (scienceHelpers.test.ts).
+const blueInAcid = litmus('blue', phZone(3));
+const redInBase = litmus('red', phZone(11));
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Identify chemical change, acids, bases, and neutralisation',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Chemical reactions make new substances and can be identified by signs such as gas production, colour
-          change, or temperature change. Indicators help identify <strong>acids</strong> and <strong>bases</strong>,
-          and neutralisation happens when an acid reacts with a base.
-        </p>
-      </div>
+    title: 'Chemical change',
+    content: slide(
+      <>
+        <Rule>
+          In a chemical change new substances are formed, with new properties. Signs are gas bubbles forming, a colour change or a temperature change.
+        </Rule>
+        <Worked
+          title="Which observation is evidence of a chemical reaction?"
+          steps={[
+            <>Gas bubbles forming when you add vinegar to baking soda: a new gas is made, so this is evidence of a reaction.</>,
+            <>Iron going from grey to a red-brown rust: a new substance, so a colour change that shows a reaction.</>,
+            <>A reaction that makes the test tube hot or cold shows a temperature change.</>,
+          ]}
+        />
+        <Mistake>Taking any change as a chemical change. Only a change that makes new substances counts. Check for new properties, not just for a change in appearance.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Physical change and separating mixtures',
+    content: slide(
+      <>
+        <Rule>
+          In a physical change no new substance is made. Melting wax is usually a physical change. Filtration separates an insoluble solid from a liquid.
+        </Rule>
+        <FiltrationSetup />
+        <Worked
+          title="Melting wax and sand in water"
+          steps={[
+            <>Melting wax changes its state from solid to liquid, but it is still wax. Cool it and it goes hard again: a physical change.</>,
+            <>Sand does not dissolve in water. Pour the mixture through filter paper.</>,
+            <>The paper traps the sand and the water passes through. Filtration is the best method for sand and water.</>,
+          ]}
+        />
+        <Mistake>Using filtration to remove something that has dissolved. Dissolved particles pass through the paper.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Acids, bases and indicators',
+    content: slide(
+      <>
+        <Rule>
+          Indicators show whether a solution is an acid or a base. Universal indicator shows whether a substance is acidic, neutral or basic, on the pH scale from 0 to 14. Blue litmus turns red in an acid.
+        </Rule>
+        <PhBar />
+        <Worked
+          title="Read the indicators"
+          steps={[
+            <>Blue litmus turns {blueInAcid}: the solution is acidic (pH below 7).</>,
+            <>Red litmus turns {redInBase}: the solution is basic (pH above 7).</>,
+            <>A colour change with an indicator is useful in experiments, because it shows whether a solution is an acid or a base.</>,
+          ]}
+        />
+        <Mistake>Thinking pH 7 is acidic. pH 7 is neutral. Below 7 is acidic and above 7 is basic.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Neutralisation',
+    content: slide(
+      <>
+        <Rule>
+          A neutralisation reaction is between an acid and a base. It generally forms a salt and water, and the pH moves towards 7.
+        </Rule>
+        <NeutralisationBeakers acidPh={2} basePh={12} />
+        <Worked
+          title="Acid meets base"
+          steps={[
+            <>Start with an acid (pH 2, red) and a base (pH 12, purple-blue).</>,
+            <>Add them together in the right amounts: the acid and the base react.</>,
+            <>They form a salt and water. The mixture is neutral, pH 7, and universal indicator turns green.</>,
+          ]}
+        />
+        <Mistake>Believing that neutralisation makes the acid disappear. The acid reacts with the base to make a salt and water, which are new substances.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Which observation is evidence of a chemical reaction? What is true about chemical change?</li>
+            <li>Which process is usually a physical change? Which method separates sand from water?</li>
+            <li>What does universal indicator show? If blue litmus turns red, what is the solution?</li>
+            <li>A neutralisation reaction is between what?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Gas bubbles forming. New substances are formed.</li>
+            <li>Melting wax. Filtration.</li>
+            <li>Whether a substance is acidic, neutral or basic. Acidic.</li>
+            <li>An acid and a base.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
