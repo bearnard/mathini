@@ -1,4 +1,4 @@
-// The weekly parent summary job (ADR 0005 section 4). It runs from its own cron trigger (WEEKLY_CRON: Sunday, Monday and Tuesday, 05:30 South African
+// The weekly parent summary job (ADR 0005 section 4). The single daily cron (03:00 UTC) runs it on Sunday, Monday and Tuesday in South African time (isSummaryDay); the free plan allows only 5 cron triggers per account.
 // time) so it has a whole invocation's subrequests to itself; the daily job's top-up already uses most of its own. Only on those days does it do anything.
 //
 // Safe to run again: each parent is CLAIMED in `summary_sent` for the week (the Sunday's date) before anything is sent, so no run, retry or overlap can send a
@@ -12,7 +12,10 @@ import { buildProgress } from '../progress/progressApi';
 import { buildSummary, childWeekFrom, isSendDay, makeUnsubscribeToken, weekKey, WEEK_MS, type ChildWeek } from './summaryEmail';
 
 /** Must equal the cron in wrangler.jsonc (a test compares them). */
-export const WEEKLY_CRON = '30 3 * * SUN,MON,TUE';
+/** Weekly summary days, in South African time (UTC+2): Sunday, Monday, Tuesday. The daily 03:00 UTC cron runs the summary on these days. */
+export const SUMMARY_WEEKDAYS_SAST = [0, 1, 2] as const;
+export const isSummaryDay = (epochMs: number): boolean =>
+  (SUMMARY_WEEKDAYS_SAST as readonly number[]).includes(new Date(epochMs + 2 * 3600_000).getUTCDay());
 export const MAX_PARENTS_PER_RUN = 12;
 export const MAX_ATTEMPTS = 3;
 export const DEFAULT_MAX_OPS = 44; // of the 50 subrequests a free-plan invocation allows, leaving a few for housekeeping

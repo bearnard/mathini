@@ -5,7 +5,7 @@
 // @ts-ignore generated at build time by `opennextjs-cloudflare build`
 import openNext from '../.open-next/worker.js';
 import { runScheduled } from './lib/server/scheduled';
-import { runWeeklySummaryFromEnv, WEEKLY_CRON, type SummaryEnv } from './lib/server/parents/summaryJob';
+import { runWeeklySummaryFromEnv, isSummaryDay, type SummaryEnv } from './lib/server/parents/summaryJob';
 
 // OpenNext's worker also exports its Durable Object classes. No bindings use them today; re-exporting keeps them available
 // if a feature that needs them is enabled later.
@@ -19,8 +19,10 @@ export default {
     return (openNext as { fetch: (r: Request, e: unknown, c: ExecutionContext) => Promise<Response> }).fetch(request, env, ctx);
   },
   async scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
-    // The weekly parent summary has its own trigger (and so its own subrequest budget); every other trigger is the daily job.
-    if (controller.cron === WEEKLY_CRON) ctx.waitUntil(runWeeklySummaryFromEnv(env as unknown as SummaryEnv).then(() => undefined, () => undefined));
+    // The free plan allows only 5 cron triggers per account, so there is ONE daily trigger. On the weekly-summary days
+    // (Sunday, Monday, Tuesday in South African time) that invocation runs the parent summary with the whole subrequest
+    // budget; on every other day it runs the daily job (pool top-up, retention, item flags).
+    if (isSummaryDay(controller.scheduledTime)) ctx.waitUntil(runWeeklySummaryFromEnv(env as unknown as SummaryEnv).then(() => undefined, () => undefined));
     else ctx.waitUntil(runScheduled(env));
   },
 };

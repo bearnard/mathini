@@ -6,7 +6,7 @@ import { RefusingMailer, type Mail, type Mailer } from '../adultAuth/mailer';
 import { createLimiter } from '../adultAuth/rateLimit';
 import { MOCK_PROGRESS } from '../../shared/progressMock';
 import type { ProgressResponse } from '../../shared/progressTypes';
-import { WEEKLY_CRON, MAX_ATTEMPTS, budgetOf, runWeeklySummary, type SummaryDeps } from './summaryJob';
+import { isSummaryDay, MAX_ATTEMPTS, budgetOf, runWeeklySummary, type SummaryDeps } from './summaryJob';
 import { buildSummary, childLines, childWeekFrom, escapeHtml, isSendDay, makeUnsubscribeToken, sastDate, verifyUnsubscribeToken, weekKey, type ChildWeek } from './summaryEmail';
 import { handleSummaryPrefGet, handleSummaryPrefSet, handleUnsubscribe, type SummaryHttpDeps } from './summaryHttp';
 import { addAdult, addStudent, openParentsDb, type ParentsTestDb } from './testDb';
@@ -283,11 +283,17 @@ test('the budget counter counts every call and refuses past the limit', async ()
   await b.raw.batch([]); // the uncounted handle still works, to give a claim back
 });
 
-test('the cron is wired: wrangler lists WEEKLY_CRON, and the worker sends that trigger to the summary job and every other one to the daily job', () => {
+test('the cron is wired: one daily trigger; Sunday to Tuesday (SAST) run the summary, other days the daily job', () => {
   const wr = fs.readFileSync('wrangler.jsonc', 'utf8');
-  assert.ok(wr.includes(`"${WEEKLY_CRON}"`) && wr.includes('"0 3 * * *"'));
+  assert.ok(wr.includes('"crons": ["0 3 * * *"]'), 'free plan: a single cron trigger');
   const worker = fs.readFileSync('src/worker.ts', 'utf8');
-  assert.ok(worker.includes('controller.cron === WEEKLY_CRON') && worker.includes('runWeeklySummaryFromEnv') && worker.includes('runScheduled(env)'));
+  assert.ok(worker.includes('isSummaryDay(controller.scheduledTime)') && worker.includes('runWeeklySummaryFromEnv') && worker.includes('runScheduled(env)'));
+  // 2026-11-15 is a Sunday; 03:00 UTC is 05:00 SAST
+  assert.equal(isSummaryDay(Date.UTC(2026, 10, 15, 3)), true);
+  assert.equal(isSummaryDay(Date.UTC(2026, 10, 16, 3)), true);
+  assert.equal(isSummaryDay(Date.UTC(2026, 10, 17, 3)), true);
+  assert.equal(isSummaryDay(Date.UTC(2026, 10, 18, 3)), false);
+  assert.equal(isSummaryDay(Date.UTC(2026, 10, 21, 3)), false);
 });
 
 // ---------- the switches ----------
