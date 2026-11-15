@@ -1,19 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Perform and compare South African music styles',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 2 music includes style comparison, melody work, texture awareness, and ensemble balance. Learners use
-          call-and-response and listening logs to discuss similarities and differences in local musical traditions.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {

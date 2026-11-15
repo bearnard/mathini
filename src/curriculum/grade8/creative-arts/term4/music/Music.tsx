@@ -1,19 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Refine final performances with aural and genre revision',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Music in Term 4 revises practical and theory content through performance preparation, genre comparison, and
-          aural recall. Learners also apply respectful stage etiquette in showcases.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {

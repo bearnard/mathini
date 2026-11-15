@@ -1,19 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Compose short ideas using form and ostinato',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          In Term 3 music, learners identify binary and ternary form, compose simple motifs, and use ostinato
-          patterns. Listening analysis supports decisions about structure and expression.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {

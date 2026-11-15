@@ -1,19 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Build music literacy through beat, rhythm, and listening',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          In Term 1 music you identify beat, rhythm, metre, pitch, and dynamics while reading basic notation. You
-          also practise attentive listening and accurate response to short patterns.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {
