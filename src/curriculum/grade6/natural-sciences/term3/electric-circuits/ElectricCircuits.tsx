@@ -99,7 +99,7 @@ const learnSteps: LearnStep[] = [
           <span>1. Is the switch closed?</span>
           <span>2. Are all the wires joined tightly, with no gaps?</span>
           <span>3. Is the bulb screwed in properly, and is its filament unbroken?</span>
-          <span>4. Is the cell flat or turned the wrong way round?</span>
+          <span>4. Is the cell flat? If you use more than one cell, do they all face the same way?</span>
         </div>
       </div>
     ),
