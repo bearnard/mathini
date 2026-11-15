@@ -13,13 +13,14 @@ import path from 'node:path';
 import { registerHooks } from 'node:module';
 import { makeQkey } from '../src/lib/shared/qkey';
 import { extractCuratedBanks } from '../src/test-support/curatedBanks';
+import { checkQuestion } from '../src/lib/shared/questionQuality';
 
 registerHooks({ resolve: (specifier, context, next) => (specifier.endsWith('.css') ? { url: 'data:text/javascript,export default {}', shortCircuit: true } : next(specifier, context)) });
 
 // --- rows written per registration (docs/notes/d1-serving-plan.md section 5.2) ---
 export const ROWS = { newCurated: 7, newAi: 8, newVersion: 4 } as const; // a new version: row + 2 indexes + the pointer update
 
-export interface ProdQuestion { id: string; task: string; source: string; status: string; current_version_id: number | null }
+export interface ProdQuestion { id: string; task: string; source: string; status: string; current_version_id: number | null; legacy_item_id?: number | null }
 export interface ProdVersion { id: number | string; question_id: string; version_no: number | string; qkey: string; prompt: string; options: string; answer: string; explanation: string; extra: string; author: string }
 export interface Content { prompt: string; options: string[]; answer: string; explanation: string; extra: string }
 export interface CodeQuestion extends Content { task: string; id: string; grade: number }
@@ -88,6 +89,28 @@ export function classify(code: CodeQuestion[], prodCurated: Map<string, { q: Pro
   }
   for (const p of leftover) if (!taken.has(p.q.id) && p.q.source === 'curated') r.goneFromCode.push({ id: p.q.id, task: p.q.task, prompt: p.cur.prompt });
   return r;
+}
+
+export interface StaleRow { itemId: number; questionId: string; grade: number; task: string; kind: 'edited' | 'reworded-exact' | 'reworded-similar' | 'conflict'; oldPrompt: string; codePrompt: string; codeUsable: boolean }
+
+/**
+ * The item_cache rows (ids in item_cache, not question ids) that still serve OLD text for a question whose code wording now differs:
+ * the production question matched to each edited / reworded / conflicting code question, when it is linked to a pool row
+ * (questions.legacy_item_id). A reworded match by similarity is listed apart from the exact kinds so it can be spot-checked.
+ */
+export function staleRows(results: { grade: number; c: Classified }[], prod: Map<string, { q: ProdQuestion; cur: Content & { author: string } }>): StaleRow[] {
+  const out: StaleRow[] = [];
+  const add = (q: ProdQuestion | undefined, cur: Content | undefined, code: CodeQuestion, grade: number, kind: StaleRow['kind']) => {
+    if (!q || q.legacy_item_id == null || !cur) return;
+    const usable = checkQuestion({ prompt: code.prompt, options: code.options, answer: code.answer, explanation: code.explanation }).ok;
+    out.push({ itemId: Number(q.legacy_item_id), questionId: q.id, grade, task: code.task, kind, oldPrompt: cur.prompt, codePrompt: code.prompt, codeUsable: usable });
+  };
+  for (const r of results) {
+    for (const e of r.c.editedSamePrompt) { const p = prod.get(e.code.id); add(p?.q, p?.cur, e.code, r.grade, 'edited'); }
+    for (const e of r.c.conflict) { const p = prod.get(e.code.id); add(p?.q, p?.cur, e.code, r.grade, 'conflict'); }
+    for (const e of r.c.reworded) { const p = prod.get(e.oldId); add(p?.q, p?.cur, e.code, r.grade, e.how === 'answer+options' ? 'reworded-exact' : 'reworded-similar'); }
+  }
+  return out;
 }
 
 export interface Plan { night: string; what: string; questions: number; rows: number }
@@ -268,6 +291,23 @@ async function main() {
   L.push('', aiRemaining === null ? `Rows in \`item_cache\` were not supplied (\`--item-cache-rows <n>\`), so any AI rows still to register are not in the table. ${fmt(ai)} AI questions are registered.` : '', 'Stop rule from the plan: do not start a chunk if the day\'s rows written plus the chunk would pass 55 000.', '');
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, L.join('\n') + '\n');
+  {
+    const stale = staleRows(results, prod);
+    const ids = [...new Set(stale.map((x) => x.itemId))].sort((a, b) => a - b);
+    fs.writeFileSync(path.join(path.dirname(out), 'stale-pool-retire_ids.txt'), ids.join('\n') + '\n');
+    const csv = ['item_cache_id,question_id,grade,task,kind,code_version_passes_validator,old_prompt,code_prompt', ...stale.map((x) => [x.itemId, x.questionId, x.grade, x.task, x.kind, x.codeUsable, JSON.stringify(x.oldPrompt), JSON.stringify(x.codePrompt)].join(','))];
+    fs.writeFileSync(path.join(path.dirname(out), 'stale-pool-retire_detail.csv'), csv.join('\n') + '\n');
+    // Effect on a practice run: top-up only fills a pool that has fewer than MIN_PRACTICE_ITEMS (10) questions.
+    const retiredSet = new Set(ids);
+    const poolByTask = new Map<string, number>();
+    for (const q of prodQ) if (q.source === 'ai' && q.status === 'active' && !(q.legacy_item_id != null && retiredSet.has(Number(q.legacy_item_id)))) poolByTask.set(q.task, (poolByTask.get(q.task) ?? 0) + 1);
+    const tasksTouched = [...new Set(stale.map((x) => x.task))];
+    const remaining = tasksTouched.map((t) => ({ task: t, remaining: poolByTask.get(t) ?? 0 }));
+    const kinds = stale.reduce<Record<string, number>>((m, x) => ((m[x.kind] = (m[x.kind] ?? 0) + 1), m), {});
+    const usable = stale.filter((x) => x.codeUsable).length;
+    console.log(JSON.stringify({ staleItemIds: ids.length, kinds, codeVersionPassesValidator: usable, tasksTouched: tasksTouched.length, tasksLeftWithFewerThan10: remaining.filter((r) => r.remaining < 10).length, tasksWithNoPoolLeft: remaining.filter((r) => r.remaining === 0).length }));
+    fs.writeFileSync(path.join(path.dirname(out), 'stale-pool-retire_summary.json'), JSON.stringify({ ids: ids.length, kinds, codeVersionPassesValidator: usable, byGrade: Object.fromEntries(results.map((r) => [r.grade, stale.filter((x) => x.grade === r.grade).length])), tasksTouched: tasksTouched.length, remainingPoolPerTouchedTask: remaining }, null, 2));
+  }
   const summary = { prod: { questions: prodQ.length, curated: cur, ai, retired, humanEdits: edited }, grades: results.map((r) => ({ grade: r.grade, code: r.code, unknownTask: r.unknownTask, identical: r.c.identical.length, editedCurated: r.c.editedSamePrompt.filter((e) => e.source === 'curated').length, editedAi: r.c.editedSamePrompt.filter((e) => e.source === 'ai').length, reworded: r.c.reworded.length, ambiguous: r.c.ambiguous.length, new: r.c.newInCode.length, conflict: r.c.conflict.length, gone: r.c.goneFromCode.length, fieldCounts: r.fieldCounts })), plan, nights, totalRows: total };
   if (jsonOut) fs.writeFileSync(jsonOut, JSON.stringify(summary, null, 2));
   console.log(`wrote ${out}`);
