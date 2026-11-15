@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { ctaOutline, ctaPrimary } from '../../lib/seo/ctaStyles';
 
 /**
- * Three ways in, for the home page: learners, parents and teachers. Only learners have accounts today (ADR 0003: a login code and a PIN), so the
- * parent and teacher cards say "coming soon" and point at what is real now. No sign-up for a feature that does not exist.
+ * Three ways in, for the home page: learners (login code and PIN), parents (email sign-in, then link a child) and teachers (email sign-in, apply,
+ * and we check the SACE registration before approving). Every button goes to something that works; the teacher card says approval is not instant.
  */
 export default function HomePaths() {
   return (
@@ -22,28 +22,24 @@ export default function HomePaths() {
         </article>
 
         <article id="parents" className="flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h3 className="flex flex-wrap items-center gap-2 text-lg font-bold text-slate-800">
-            Parents
-            <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-800">Coming soon</span>
-          </h3>
+          <h3 className="text-lg font-bold text-slate-800">Parents</h3>
           <p className="mt-2 flex-1 text-slate-600">
-            Parent accounts are not live yet. They are planned to let you follow your child&apos;s progress and help if a PIN is forgotten. Today, your child sets up their own account and confirms that you agree to it.
+            See how your child is doing, give or withdraw consent, reset a forgotten PIN and get a short weekly summary. You sign in with your email, no password.
           </p>
-          <div className="mt-4">
-            <Link href="/privacy" className="font-bold text-[#3285bc] hover:underline">What we collect and why</Link>
+          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+            <Link href="/sign-in" className={ctaPrimary}>Sign in as a parent</Link>
+            <Link href="/for-parents" className="font-bold text-[#3285bc] hover:underline">How it works</Link>
           </div>
         </article>
 
         <article id="teachers" className="flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h3 className="flex flex-wrap items-center gap-2 text-lg font-bold text-slate-800">
-            Teachers
-            <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-800">Coming soon</span>
-          </h3>
+          <h3 className="text-lg font-bold text-slate-800">Teachers</h3>
           <p className="mt-2 flex-1 text-slate-600">
-            Teacher accounts are not live yet. You can already see exactly what each grade and subject covers, topic by topic, and point learners to it.
+            Create classes with a join code, set the exam scope and date, and see how your class is doing. We check every teacher&apos;s SACE registration before approving, so it is not instant.
           </p>
-          <div className="mt-4">
-            <Link href="#browse" className="font-bold text-[#3285bc] hover:underline">Browse every grade and subject</Link>
+          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+            <Link href="/sign-in" className={ctaPrimary}>Apply as a teacher</Link>
+            <Link href="/for-teachers" className="font-bold text-[#3285bc] hover:underline">How it works</Link>
           </div>
         </article>
       </div>

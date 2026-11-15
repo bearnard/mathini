@@ -4,10 +4,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { Metadata } from 'next';
 import { buildSeoContent } from '../../../scripts/lib/seoContent';
+import { ADULT_PAGES } from './adultPages';
 import { SEO_GRADES, allSeoTopics, findSeoTopic, gradePath, practiseHref, subjectPath, topicPath } from './curriculumIndex';
-import { MAX_DESCRIPTION, fitDescription, gradeMeta, subjectMeta, topicMeta } from './pageMeta';
+import { MAX_DESCRIPTION, adultPageMeta, fitDescription, gradeMeta, subjectMeta, topicMeta } from './pageMeta';
 import { PRIVATE_PREFIXES, publicPaths } from './publicPaths';
-import { breadcrumbLd, courseLd, gradeCrumbs, homeLd, jsonLdText, learningResourceLd, subjectCrumbs, topicCrumbs } from './structuredData';
+import { adultPageLd, breadcrumbLd, courseLd, gradeCrumbs, homeLd, jsonLdText, learningResourceLd, subjectCrumbs, topicCrumbs } from './structuredData';
 import { SITE_DESCRIPTION, SITE_URL } from './site';
 import sitemap from '../../app/sitemap';
 import robots from '../../app/robots';
@@ -132,7 +133,7 @@ test('sitemap: every public page once, absolute URLs, nothing private; robots: p
   const urls = entries.map((e) => e.url);
   assert.equal(new Set(urls).size, urls.length, 'duplicate sitemap URLs');
   assert.deepEqual(new Set(urls), new Set(publicPaths().map((p) => (p.path === '/' ? SITE_URL : `${SITE_URL}${p.path}`))));
-  assert.equal(urls.length, 2 + SEO_GRADES.length + SEO_GRADES.reduce((n, g) => n + g.subjects.length, 0) + allSeoTopics().length);
+  assert.equal(urls.length, 2 + ADULT_PAGES.length + SEO_GRADES.length + SEO_GRADES.reduce((n, g) => n + g.subjects.length, 0) + allSeoTopics().length);
   for (const u of urls) {
     assert.ok(u.startsWith(`${SITE_URL}`), u);
     const p = u.slice(SITE_URL.length) || '/';
@@ -164,4 +165,32 @@ test('every "Practise now" link opens exactly the topic (or subject) it names in
   assert.equal(resolveDeepLink(curriculum, new URLSearchParams('grade=6')), null);
   const odd = resolveDeepLink(curriculum, new URLSearchParams(`grade=6&subject=${SEO_GRADES[1].subjects[0].subjectId}&topic=nope`));
   assert.deepEqual([odd?.topic, odd?.term], [null, null]);
+});
+
+test('the /for-parents and /for-teachers pages have the same metadata and structured data as every other public page, and are in the sitemap', () => {
+  const urls = new Set(sitemap().map((e) => e.url));
+  for (const p of ADULT_PAGES) {
+    const m = adultPageMeta(p);
+    assert.ok(urls.has(`${SITE_URL}${p.path}`), `${p.path} is in the sitemap`);
+    assert.equal((m.alternates as { canonical?: string }).canonical, p.path);
+    assert.ok(typeof m.title === 'string' && m.title.length >= 8 && m.title.length <= 75, `${p.path}: title ${String(m.title).length}`);
+    const d = String(m.description);
+    assert.ok(d.length >= 50 && d.length <= MAX_DESCRIPTION, `${p.path}: description ${d.length}`);
+    assert.equal((m.openGraph as { url?: string }).url, `${SITE_URL}${p.path}`);
+    const [page, faq] = adultPageLd(p) as unknown as [{ '@type': string; url: string }, { '@type': string; mainEntity: { name: string; acceptedAnswer: { text: string } }[] }];
+    assert.deepEqual([page['@type'], page.url, faq['@type']], ['WebPage', `${SITE_URL}${p.path}`, 'FAQPage']);
+    assert.equal(faq.mainEntity.length, p.faq.length);
+    assert.ok(p.faq.every((f) => f.q.endsWith('?') && f.a.length > 20));
+    assert.ok(!jsonLdText(faq).includes('<'));
+  }
+});
+
+test('the adult landing pages name the real entry points and make no promise that is not built', () => {
+  for (const p of ADULT_PAGES) {
+    assert.equal(p.cta.href, '/sign-in');
+    const all = JSON.stringify(p).toLowerCase();
+    for (const banned of ['coming soon', 'password reset', 'whatsapp', 'sms', 'free for schools']) assert.ok(!all.includes(banned), `${p.path} mentions "${banned}"`);
+  }
+  const teachers = JSON.stringify(ADULT_PAGES.find((p) => p.path === '/for-teachers')).toLowerCase();
+  assert.ok(teachers.includes('sace') && teachers.includes('check'), 'teacher approval is stated honestly');
 });

@@ -5,7 +5,7 @@
 // tell which notice a learner agreed to. The server stores it with the consent.
 
 /** Version of the notice + tick-box text. Bump whenever either changes. */
-export const CONSENT_VERSION = 'privacy-2026-11-14-v2';
+export const CONSENT_VERSION = 'privacy-2026-11-15-v3';
 
 /** The required sign-up tick-box (and the one-time prompt for existing learners). */
 export const CONSENT_CHECKBOX_LABEL =
@@ -41,13 +41,26 @@ export const PRIVACY_SECTIONS: PrivacySection[] = [
   },
   {
     heading: 'Who can see it',
-    body: ['Only the owner of PrepPals can see this information. It is kept for up to 400 days.'],
+    body: [
+      'The owner of PrepPals can see how the app is used. This information is kept for up to 400 days.',
+      'A parent or guardian who has linked their child to their own PrepPals account can see their child\'s progress, practice and consent setting. If a learner joins a class with a code from their teacher, that teacher sees the learner\'s nickname and progress in that class. The learner is told this before joining and can leave at any time.',
+      'Nobody else can see a learner\'s activity.',
+    ],
   },
   {
     heading: 'Parent or guardian agreement',
     body: [
       'To create an account, a learner ticks a box to confirm that their parent or guardian agrees that PrepPals may record their activity and approximate town or city. Learners who already had an account are asked the same question once, and can choose "Not now" and keep learning.',
       'Without that agreement we do not link activity to the learner and we do not record their town or city. We only count that a visit happened, with the country and province it came from.',
+    ],
+  },
+  {
+    heading: 'Parent and teacher accounts',
+    body: [
+      'Parents and teachers sign in with their email address. We keep the address, a record of their sign-ins, and for a parent the children they have linked and their weekly-email setting.',
+      'A teacher also gives their SACE registration number, school and province. We use them only to check the teacher before approving the account, and they are deleted with the account.',
+      'Sign-in links and the optional weekly summary are delivered by our email provider, Resend. It is the only other company that handles any of this, and the emails only contain a sign-in link or a learner\'s practice results.',
+      'A parent can give or withdraw consent for their child at any time, and a parent\'s consent replaces the tick-box the learner ticked.',
     ],
   },
   {
@@ -60,6 +73,7 @@ export const PRIVACY_SECTIONS: PrivacySection[] = [
     heading: 'Your rights',
     body: [
       'You, or your parent or guardian, can ask us to delete your account and everything linked to it. Contact the person who gave you access to PrepPals.',
+      'Parents and teachers can delete their own account at any time from their account page. That removes the account, the links to children, a teacher\'s application and SACE number, and a teacher\'s classes. It does not delete any learner\'s account.',
     ],
   },
 ];

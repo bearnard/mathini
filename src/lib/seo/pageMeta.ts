@@ -62,3 +62,5 @@ export const topicMeta = (g: SeoGrade, s: SeoSubject, term: SeoTerm, t: SeoTopic
     description: `${t.description ? `${t.description} ` : ''}Practise ${t.title} (${g.title} ${s.title}, ${term.title}) with instant feedback. Free, CAPS-aligned.`,
     path: topicPath(g, s, t),
   });
+
+export const adultPageMeta = (p: { title: string; description: string; path: string }): Metadata => pageMeta(p);
