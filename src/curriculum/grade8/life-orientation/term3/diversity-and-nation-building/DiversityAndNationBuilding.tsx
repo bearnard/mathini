@@ -1,27 +1,88 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Branches, Hub, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { countUnique } from '../../../../../components/diagrams/lo/lo6Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// The idea count in the Heritage Day example comes from this tested helper (lo6Helpers.test.ts).
+const ideas = ['Food', 'Music', 'Dance', 'Stories'];
+const idea = countUnique(ideas);
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Value diversity and inclusion',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Diversity and nation-building covers culture, inclusion, prejudice, stereotypes, and ubuntu in school and
-          community life.
-        </p>
-      </div>
+    title: 'Diversity and culture',
+    content: slide(
+      <>
+        <Rule>Diversity means people of different backgrounds living and learning together. It includes differences in culture, language, beliefs and identity.</Rule>
+        <Hub centre="Our community" spokes={['Culture', 'Language', 'Beliefs', 'Identity']} aria="A circle labelled Our community with four kinds of difference around it: culture, language, beliefs and identity." />
+        <Worked
+          title="A class speaks isiZulu, Afrikaans and Tshivenda"
+          steps={[<>Spot the diversity: three home languages in one class.</>, <>Value it: each learner brings a different view.</>, <>Respect it: ask about their words and customs.</>]}
+        />
+        <Mistake>Thinking everyone must be the same, that only one culture is acceptable, or that you should avoid people who are different. Diversity is valued, not removed.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Challenge prejudice respectfully',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Nation-building grows when learners celebrate differences, reject harmful labels, and work together for the
-          common good.
-        </p>
-      </div>
+    title: 'Stereotypes and prejudice',
+    content: slide(
+      <>
+        <Rule>A stereotype is an unfair fixed idea about a group. Prejudice means judging someone before you know them. Both shrink when we use respectful facts and talk to each other.</Rule>
+        <Branches
+          problem="Someone says: “People from that group are all the same”"
+          options={[
+            { choice: 'Laugh along', outcome: 'The label spreads and someone is hurt.' },
+            { choice: 'Correct it with facts', outcome: 'The false idea is challenged.' },
+          ]}
+          aria="A decision tree. Someone says people from a group are all the same. Choice one: laugh along, and the label spreads and someone is hurt. Choice two: correct it with facts, and the false idea is challenged."
+        />
+        <Worked
+          title="Someone says: “Boys cannot cook”"
+          steps={[<>Spot the fixed idea about a group.</>, <>Ask: is it true of every person?</>, <>Give a respectful fact: many boys and men cook well.</>]}
+        />
+        <Mistake>Repeating hurtful labels, avoiding the conversation, or joining in the discrimination to fit in. Each one keeps the prejudice alive.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Inclusion and ubuntu',
+    content: slide(
+      <>
+        <Rule>Inclusion means everyone feels accepted and valued. Ubuntu is the value of shared humanity and care for others, as in the Nguni saying “umuntu ngumuntu ngabantu”: a person is a person through other people.</Rule>
+        <StepFlow steps={['Invite others in.', 'Listen with respect.', 'Let everyone share ideas safely.', 'Value each person.']} aria="Four steps for inclusion in order: invite others in, listen with respect, let everyone share ideas safely, value each person." />
+        <Worked
+          title="A new learner stands alone at break"
+          steps={[<>Invite her to join your game.</>, <>Listen when she speaks, even if her accent is new to you.</>, <>Ask for her ideas.</>]}
+        />
+        <Mistake>Leaving out classmates who seem different, making jokes about names or accents, or ranking cultures as better or worse.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Nation-building and teamwork',
+    content: slide(
+      <>
+        <Rule>Nation-building means people from different groups working together for unity and the common good. Young people are active citizens. Inclusive teams solve problems better because they see more than one point of view.</Rule>
+        <Hub centre="Heritage Day" spokes={ideas} aria="A circle labelled Heritage Day with four ideas from four learners: food, music, dance and stories." />
+        <Worked
+          title="Four learners plan a Heritage Day display"
+          steps={[<>Each learner offers one idea: {ideas.join(', ').toLowerCase()}.</>, <>That gives {idea} different ideas.</>, <>Combine them into one programme.</>]}
+        />
+        <Mistake>Thinking nation-building is only for government workers, or that unity means everyone gives up their own identity. Unity grows from respected differences.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What does diversity mean?" answer="People of different backgrounds living and learning together." />
+        <Check question="What is a stereotype, and how can you challenge prejudice?" answer="A stereotype is an unfair fixed idea about a group. Challenge prejudice by correcting false assumptions with respectful facts." />
+        <Check question="What is ubuntu, and how can you promote inclusion at school?" answer="Ubuntu is a value of shared humanity and care for others. Invite others into activities and listen with respect." />
+        <Check question="Why does an inclusive team often solve problems better?" answer="Because people with different perspectives bring different ideas." />
+      </>,
     ),
   },
 ];
