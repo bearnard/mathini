@@ -137,6 +137,36 @@ const SCHEMAS = {
   },
 } as const;
 
+// ---- Scrubbing the free-text reasons before they go to Gemini ----
+// A reviewer can type anything into the reason box ("Hi, it's Mrs Naidoo, call me on 082 555 0100"). Reasons are scrubbed here, on the way out,
+// whatever the caller passes. It is a best-effort filter for the common patterns, not a guarantee: the owner must not paste personal data
+// into packs either. Removed text becomes a placeholder so the sentence still reads.
+const EMAIL_RE = /[^\s@<>()[\]"',;:]+@[^\s@<>()[\]"',;]+\.[A-Za-z]{2,}/g;
+const LINK_RE = /\b(?:https?:\/\/|www\.)[^\s)]+/gi;
+/** A run of digits with the usual separators; it counts as a phone number when it holds 9 or more digits (South African numbers have 10). */
+const PHONE_RE = /\+?\(?\d[\d\s().-]{6,}\d/g;
+const TITLES = 'Mrs|Mr|Ms|Miss|Mx|Dr|Prof|Mev|Mevr|Mnr|Mej';
+const NAME_WORD = "[A-Z][\\p{L}'’-]+";
+/** "Mrs Naidoo", "Mr. J. Dlamini", "Dr Anna van der Merwe" (the surname particles stay lowercase). */
+const TITLE_NAME_RE = new RegExp(`\\b(?:${TITLES})\\.?\\s+(?:[A-Z]\\.?\\s+)*${NAME_WORD}(?:\\s+(?:van|der|de|du|le|la|von|ten|ter)){0,2}(?:\\s+${NAME_WORD})?`, 'gu');
+/** "I am Sipho", "I'm Thandi Mokoena", "my name is Ms N.", "my naam is Pieter". "I am sure" is not a name: it needs a capital letter, and common capitalised words are skipped. */
+const SELF_INTRO_RE = new RegExp(`\\b(?:I am|I'm|I’m|my name is|my naam is)\\s+(?:(?:${TITLES})\\.?\\s+)?${NAME_WORD}(?:\\s+${NAME_WORD}){0,2}`, 'gu');
+const NOT_A_NAME = new Set(['Afrikaans', 'English', 'Xhosa', 'IsiXhosa', 'Zulu', 'IsiZulu', 'South', 'African', 'Grade', 'Sure', 'Not', 'Fairly', 'Certain', 'Unsure', 'Happy', 'Confident', 'Wrong', 'Correct', 'Right', 'Teacher', 'Head', 'Principal', 'Sorry', 'Aware', 'Afraid']);
+
+/** Replaces emails, links, phone numbers, titled names ("Mrs X") and self-introductions ("I am X") in a reviewer's free text with [email], [link], [phone] and [name]. */
+export function scrubReason(text: string): string {
+  return text
+    .replace(EMAIL_RE, '[email]')
+    .replace(LINK_RE, '[link]')
+    .replace(PHONE_RE, (m) => (m.replace(/\D/g, '').length >= 9 ? '[phone]' : m))
+    .replace(TITLE_NAME_RE, '[name]')
+    .replace(SELF_INTRO_RE, (m) => {
+      const words = m.split(/\s+/);
+      const first = words.findIndex((w, i) => i >= 2 && /^[A-Z]/.test(w) && !TITLES.split('|').includes(w.replace(/\.$/, '')));
+      return first !== -1 && NOT_A_NAME.has(words[first].split(/[-’']/)[0].replace(/[^\p{L}]/gu, '')) ? m : m.replace(/^(I am|I'm|I’m|my name is|my naam is)\s+.*$/su, '$1 [name]');
+    });
+}
+
 const show = (kind: MergeKind, c: MergeContent): string =>
   kind === 'question'
     ? JSON.stringify({ prompt: (c as QuestionContent).prompt, options: (c as QuestionContent).options, answer: (c as QuestionContent).answer, explanation: (c as QuestionContent).explanation }, null, 2)
@@ -148,7 +178,7 @@ export function buildMergePrompt(input: MergeInput, original: MergeContent): str
     const who = `Reviewer ${String.fromCharCode(65 + (i % 26))}`;
     const parts = [`${who}: verdict = ${r.verdict}`];
     if (typeof r.confidence === 'string' && r.confidence) parts.push(`confidence = ${r.confidence.slice(0, 40)}`);
-    if (typeof r.reason === 'string' && r.reason.trim()) parts.push(`reason = ${JSON.stringify(r.reason.trim().slice(0, MAX_REASON_CHARS))}`);
+    if (typeof r.reason === 'string' && r.reason.trim()) parts.push(`reason = ${JSON.stringify(scrubReason(r.reason.trim()).slice(0, MAX_REASON_CHARS))}`);
     if (r.verdict === 'change') {
       const p = normalise(input.kind, r.proposal, original);
       parts.push(p ? `suggested version =\n${show(input.kind, p)}` : 'suggested version = (none given)');
@@ -173,6 +203,7 @@ export function buildMergePrompt(input: MergeInput, original: MergeContent): str
       : `- Keep it one sentence or example of about the same length.`,
     `- rationale: one short line saying why you merged it this way.`,
     `- disagreements: every point where reviewers disagree (for example two different corrections, or one says correct while another changes it), one short sentence each, naming reviewers by letter. Empty list if none.`,
+    `- Personal details in the reviewers' reasons were removed and show as [name], [email], [phone] or [link]; ignore those placeholders.`,
     `- Answer with JSON only.`,
   ].join('\n');
 }
