@@ -33,7 +33,7 @@ export const CircleCentreRadius = ({ a = 2, b = -1, r = 3 }: { a?: number; b?: n
       className="mx-auto block w-full max-w-md rounded-2xl"
       style={{ background: INK, fontFamily: 'inherit' }}
     >
-      <title id="ccr-t">A circle with centre {f.centre} and radius {r}</title>
+      <title id="ccr-t">{`A circle with centre ${f.centre} and radius ${r}`}</title>
       <desc id="ccr-d">
         The circle {f.equation} has its centre at {f.centre} and a radius of {r}, because the right-hand side {r * r} is r squared.
       </desc>

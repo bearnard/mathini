@@ -33,7 +33,7 @@ export const CountingTree = ({ m = 3, n = 2 }: { m?: number; n?: number }) => {
       className="mx-auto block w-full max-w-md rounded-2xl"
       style={{ background: INK, fontFamily: 'inherit' }}
     >
-      <title id="ct-t">Counting tree: {m} ways then {n} ways gives {total} outcomes</title>
+      <title id="ct-t">{`Counting tree: ${m} ways then ${n} ways gives ${total} outcomes`}</title>
       <desc id="ct-d">
         The first choice can happen in {m} ways. After each of these, the second choice can happen in {n} ways. Counting the ends of the branches gives {total} outcomes, which is {m} times {n}.
       </desc>
