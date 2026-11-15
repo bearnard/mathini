@@ -1,16 +1,132 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { AnglesOnLine, CrossingLines, ParallelTransversal, QuadSplit, RegularPolygonAngles } from '../../../../../components/diagrams/maths/Grade7Geometry';
+import { missingAngle, polygonAngleSum, polygonName, regularExterior, regularInterior } from '../../../../../components/diagrams/maths/grade7Helpers';
 
-const learnSteps: LearnStep[] = [
+// Every number in the slides below comes from tested helpers (grade7Helpers.test.ts, geometryLessons.test.ts).
+const line = { a: 65, b: missingAngle([65], 180) };
+const cross = { a: 50, b: missingAngle([50], 180) };
+const par = { a: 70, b: missingAngle([70], 180) };
+const quad = { known: [90, 80, 100], fourth: missingAngle([90, 80, 100], 360) };
+const penta = { n: 5, sum: polygonAngleSum(5), each: regularInterior(5), ext: regularExterior(5) };
+const octa = { n: 8, sum: polygonAngleSum(8), each: regularInterior(8) };
+const check = {
+  line: { a: 130, b: missingAngle([130], 180) },
+  hex: { n: 6, sum: polygonAngleSum(6), each: regularInterior(6), ext: regularExterior(6) },
+  tri: missingAngle([55, 65], 180),
+  opposite: 35,
+};
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Use shape properties and line-angle facts',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Geometry of 2D shapes includes classifying triangles and quadrilaterals and applying angle facts for
-          intersecting and parallel lines.
-        </p>
-      </div>
+    title: 'Angles on a straight line',
+    content: slide(
+      <>
+        <Rule>Angles that share a straight line add up to 180°.</Rule>
+        <AnglesOnLine a={line.a} />
+        <Worked
+          title={`One angle is ${line.a}°`}
+          steps={[
+            <>The two angles sit on one straight line, so they add to 180°.</>,
+            <>180° − {line.a}° = <strong>{line.b}°</strong>.</>,
+          ]}
+        />
+        <Mistake>Using 90° or 360°. A right angle is 90°. A full turn is 360°. A straight line is half a turn, 180°.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Vertically opposite angles',
+    content: slide(
+      <>
+        <Rule>When two straight lines cross, the angles opposite each other are equal.</Rule>
+        <CrossingLines a={cross.a} />
+        <Worked
+          title={`One angle is ${cross.a}°`}
+          steps={[
+            <>The opposite angle is also <strong>{cross.a}°</strong>.</>,
+            <>The angles beside it are on a straight line: 180° − {cross.a}° = {cross.b}°. The other opposite pair is {cross.b}° and {cross.b}°.</>,
+          ]}
+        />
+        <Mistake>Thinking opposite angles add to 180°. It is the angles side by side that add to 180°. Opposite angles are equal.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Parallel lines: corresponding angles',
+    content: slide(
+      <>
+        <Rule>When parallel lines are cut by a transversal, corresponding angles are equal.</Rule>
+        <ParallelTransversal a={par.a} />
+        <Worked
+          title={`The top angle is ${par.a}°`}
+          steps={[
+            <>The angle in the same position at the other line is its corresponding angle: <strong>{par.a}°</strong>.</>,
+            <>The angle next to it is on a straight line: 180° − {par.a}° = {par.b}°.</>,
+          ]}
+        />
+        <Mistake>Using the rule when the lines are not parallel. The angles are equal only if the lines are parallel.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Triangles and quadrilaterals: angle sums',
+    content: slide(
+      <>
+        <Rule>The angles of a triangle add up to 180°. The angles of a quadrilateral add up to 360°, because it splits into two triangles.</Rule>
+        <QuadSplit />
+        <Worked
+          steps={[
+            <>Quadrilateral with angles {quad.known.join('°, ')}°: the fourth is 360° − {quad.known.reduce((a, b) => a + b, 0)}° = <strong>{quad.fourth}°</strong>.</>,
+            <>An equilateral triangle has three equal sides and three equal angles: 180° ÷ 3 = {180 / 3}° each.</>,
+          ]}
+        />
+        <Mistake>Using 180° for a quadrilateral. It has four angles and two triangles inside, so the sum is 360°.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Polygons: names and angles',
+    content: slide(
+      <>
+        <Rule>A polygon with n sides has angles adding to (n − 2) × 180°. In a regular polygon, divide by n.</Rule>
+        <RegularPolygonAngles n={penta.n} />
+        <Worked
+          title={`Regular ${polygonName(penta.n)} (${penta.n} sides)`}
+          steps={[
+            <>({penta.n} − 2) × 180° = {penta.sum}°.</>,
+            <>{penta.sum}° ÷ {penta.n} = <strong>{penta.each}°</strong> each interior angle.</>,
+            <>The exterior angle makes a straight line with it: 180° − {penta.each}° = {penta.ext}°.</>,
+            <>Names: 5 sides pentagon, 6 hexagon, 7 heptagon, <strong>8 {polygonName(octa.n)}</strong>.</>,
+          ]}
+        />
+        <Mistake>Mixing up the names. An octagon has 8 sides, not 6 or 7. Its regular interior angle is {octa.each}°.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Two angles on a straight line: one is {check.line.a}°. Find the other.</li>
+            <li>Two lines cross and one angle is {check.opposite}°. What is the angle opposite it?</li>
+            <li>A triangle has angles of 55° and 65°. What is the third?</li>
+            <li>Find each interior and exterior angle of a regular {polygonName(check.hex.n)}.</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>180° − {check.line.a}° = {check.line.b}°.</li>
+            <li>{check.opposite}°, because vertically opposite angles are equal.</li>
+            <li>180° − {55 + 65}° = {check.tri}°.</li>
+            <li>({check.hex.n} − 2) × 180° ÷ {check.hex.n} = {check.hex.each}° interior, and {check.hex.ext}° exterior.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
