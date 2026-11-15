@@ -93,7 +93,7 @@ test('FAQ: every question is shown and published as FAQPage data from the same l
 
 test('the page puts the sections in the order of the brief and imports the owned slots', () => {
   const src = fs.readFileSync('src/app/page.tsx', 'utf8');
-  const order = ['<Hero />', '<TryItDemo />', '<HowItWorks />', '<ProgressShowcase />', '<GradeExplorer />', '<HomePaths />', '<AudienceSamples />', '<Trust />', '<HomeFaq />'];
+  const order = ['<Hero />', '<TryItDemo />', '<HowItWorks />', '<ProgressShowcase />', '<GradeExplorer topicsPerSubject={5} />', '<HomePaths />', '<AudienceSamples />', '<Trust />', '<HomeFaq />'];
   let at = -1;
   for (const tag of order) { const i = src.indexOf(tag); assert.ok(i > at, `${tag} is out of order or missing`); at = i; }
   assert.match(src, /faqLd\(HOME_FAQ\)/);

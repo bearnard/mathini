@@ -59,7 +59,7 @@ export default async function HomePage() {
         <TryItDemo />
         <HowItWorks />
         <ProgressShowcase />
-        <div className="mx-auto max-w-5xl px-4 pt-16"><GradeExplorer /></div>
+        <div className="mx-auto max-w-5xl px-4 pt-16"><GradeExplorer topicsPerSubject={5} /></div>
         <HomePaths />
         <AudienceSamples />
         <Trust />
