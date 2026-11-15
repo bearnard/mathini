@@ -2,6 +2,8 @@ import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 import ClimateGraph from '@/components/subjects/ClimateGraph';
 
 
+import { MidLatitudeCyclone } from '@/components/diagrams/geography/Geo12Pictures';
+
 const learnSteps = [
   {
     title: "Where mid-latitude cyclones form",
@@ -9,6 +11,7 @@ const learnSteps = [
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">{"Mid-latitude cyclones develop along the polar front where cold polar air meets warmer subtropical air in the belt of westerlies. They usually move from west to east and are an important source of winter rainfall for the south-western parts of South Africa."}</p>
         <p className="text-lg leading-8 text-slate-600">{"On a synoptic chart, the cyclone is linked to a low-pressure cell with fronts attached. The warm front usually moves ahead of the low, while the cold front catches up more quickly from behind."}</p>
+        <MidLatitudeCyclone />
       </div>
     ),
   },

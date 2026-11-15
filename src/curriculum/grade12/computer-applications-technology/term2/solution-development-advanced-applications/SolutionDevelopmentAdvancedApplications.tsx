@@ -2,12 +2,15 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
 import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
+import { ToolChoice } from '../../../../../components/diagrams/cat/Cat12Pictures';
+
 const learnSteps: LearnStep[] = [
   {
     title: "Thinking like a solution developer",
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"Solution development means choosing the right application feature to solve the problem efficiently. A spreadsheet is ideal for calculations and modelling, a database is best for storing structured records and a word processor is used to communicate polished findings. Grade 12 learners should justify not just how a task is done, but why that tool is appropriate."</p>
+        <ToolChoice />
       </div>
     ),
   },

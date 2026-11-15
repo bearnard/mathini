@@ -3,12 +3,15 @@ import DataChart from '@/components/subjects/DataChart';
 import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
+import { EconomicSectorsPicture } from '@/components/diagrams/geography/Geo12Pictures';
+
 const learnSteps = [
   {
     title: "Revise sector classification",
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">{"Start by making sure you can classify activities into primary, secondary, tertiary and quaternary sectors quickly. This is the foundation for interpreting diagrams about employment, GDP and value chains."}</p>
+        <EconomicSectorsPicture />
         <p className="text-lg leading-8 text-slate-600">{"Also revise the difference between the formal and informal sector because exam questions often ask learners to compare job security, regulation and economic contribution."}</p>
       </div>
     ),
