@@ -1,16 +1,94 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { IpoFlow } from '../../../../../components/diagrams/science/SciencePictures2';
+import { LogicSwitches, TruthTable } from '../../../../../components/diagrams/science/SciencePictures6';
+import { and, or } from '../../../../../components/diagrams/science/techHelpers';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Apply logic and control ideas in PAT design',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Logic systems use inputs and outputs to control devices. In PAT design work, AND/OR logic and truth tables
-          help you communicate reliable control solutions such as panic-button scenarios.
-        </p>
-      </div>
+    title: 'Inputs, outputs and control',
+    content: slide(
+      <>
+        <Rule>
+          Logic systems use inputs and outputs to control devices. In control systems, a switch is usually an input. In a simple alarm system, a buzzer is usually the output.
+        </Rule>
+        <IpoFlow id="pat" input="switch" process="logic" output="buzzer" />
+        <Worked
+          title="A simple alarm"
+          steps={[<>Input: a switch gives the input signal to the control system.</>, <>Process: the logic decides whether to act.</>, <>Output: the buzzer produces the action or response of the system.</>]}
+        />
+        <Mistake>Calling the buzzer the input. Inputs are signals entering the system; the buzzer is what the system does in response, so it is the output.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'AND logic',
+    content: slide(
+      <>
+        <Rule>An AND gate gives output 1 only when both inputs are 1. AND needs every required condition to be true.</Rule>
+        <LogicSwitches />
+        <TruthTable gate={and} name="AND gate" />
+        <Worked
+          title="Two safety switches before a machine starts"
+          steps={[<>The machine must start only if both safety switches are on, so both conditions must be true.</>, <>Switches in series behave like AND: if either is open, the path is broken.</>, <>So an AND gate fits. In the truth table the output is 1 in one row only.</>]}
+        />
+        <Mistake>Thinking AND gives 1 if one input is 1. That is OR. AND needs both.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'OR logic',
+    content: slide(
+      <>
+        <Rule>An OR gate gives output 1 when at least one input is 1. OR becomes true if any input is true.</Rule>
+        <TruthTable gate={or} name="OR gate" />
+        <Worked
+          title="A school alarm with several panic buttons"
+          steps={[<>The alarm must sound if any panic button is pressed.</>, <>Any one button should activate the output, which matches OR logic.</>, <>Switches in parallel behave like OR: either path completes the circuit.</>]}
+        />
+        <Mistake>Thinking OR means exactly one input is 1. OR is also 1 when both inputs are 1.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Communicating the design',
+    content: slide(
+      <>
+        <Rule>
+          A truth table shows all input combinations and the resulting output. PAT design sketches should be labelled clearly to show the ideas and how the system works.
+        </Rule>
+        <Worked
+          title="Label a sketch"
+          steps={[<>Name each component: the switch inputs, the logic, the output device.</>, <>Show how the parts connect, with arrows for the signal.</>, <>Clear labels show components, inputs, outputs and how parts connect, so someone else can follow your ideas.</>]}
+        />
+        <Mistake>Handing in a sketch with no labels. A marker cannot see your thinking, only the lines.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>An AND gate gives output 1 only when what? An OR gate gives output 1 when what?</li>
+            <li>What does a truth table show?</li>
+            <li>A school alarm must sound if any panic button is pressed. Which logic? Two safety switches must be on before a machine starts. Which gate?</li>
+            <li>In control systems, a switch is usually an input or an output? What is a buzzer? Why label PAT sketches clearly?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Both inputs are 1. At least one input is 1.</li>
+            <li>All input combinations and the resulting output.</li>
+            <li>OR logic. An AND gate.</li>
+            <li>An input. An output. To show the ideas and how the system works.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

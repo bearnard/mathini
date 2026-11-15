@@ -1,16 +1,114 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { CircuitPair } from '../../../../../components/diagrams/science/SciencePictures2';
+import { CircuitSymbols } from '../../../../../components/diagrams/science/SciencePictures6';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Build safe circuits and compare layouts',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Electrical systems use cells, switches, conductors, and safety devices. You compare series and parallel
-          circuits and explain how fuses, circuit breakers, and earthing reduce danger.
-        </p>
-      </div>
+    title: 'Parts of a circuit',
+    content: slide(
+      <>
+        <Rule>
+          Electrical systems use a cell, switches, conductors and safety devices. An open switch breaks the circuit, so the circuit stops conducting current.
+        </Rule>
+        <CircuitSymbols />
+        <Worked
+          title="Why does the bulb not light?"
+          steps={[
+            <>The cell is the energy source: it supplies electrical energy to the circuit.</>,
+            <>The switch is open, so there is a gap in the path and the circuit stops conducting current.</>,
+            <>Wires are made of a good conductor. Metals such as copper let electrical current pass easily.</>,
+          ]}
+        />
+        <Mistake>Thinking that current flows to a bulb through an open switch. The path must be complete and closed.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Series and parallel layouts',
+    content: slide(
+      <>
+        <Rule>
+          In a series circuit the components are connected in one path. A parallel circuit has more than one path for current.
+        </Rule>
+        <CircuitPair />
+        <Worked
+          title="Compare the layouts"
+          steps={[
+            <>Series circuits have a single route for current, so one failed bulb breaks the whole loop.</>,
+            <>Parallel branches allow current to flow through multiple paths, so each bulb has its own route.</>,
+            <>Houses use parallel wiring so that one light can be off while the others stay on.</>,
+          ]}
+        />
+        <Mistake>Thinking a parallel circuit has no complete loop. Each branch makes its own complete loop with the cell.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Fuses and circuit breakers',
+    content: slide(
+      <>
+        <Rule>
+          A fuse melts and breaks the circuit when current is too high. A circuit breaker does the same job but it can be reset after tripping.
+        </Rule>
+        <Terms
+          rows={[
+            ['Fuse', 'a thin wire that melts and breaks the circuit when the current is too high. It must be replaced.'],
+            ['Circuit breaker', 'a switch that trips when the current is too high. It can be switched back on once the fault is fixed.'],
+          ]}
+        />
+        <Worked
+          title="Protect the wiring"
+          steps={[<>Too much current heats wires and can start a fire.</>, <>A fuse protects the wiring by interrupting the dangerous overcurrent.</>, <>A circuit breaker trips instead. After the fault is fixed, it can be reset: this is the difference from a fuse.</>]}
+        />
+        <Mistake>Replacing a fuse with a thicker wire or a nail. The fuse must melt at the right current, or the wiring is no longer protected.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Earthing and safe working',
+    content: slide(
+      <>
+        <Rule>
+          Earthing helps safety by giving fault current a low-resistance path to the ground. When working on household wiring, switch off power before touching wires.
+        </Rule>
+        <Worked
+          title="A fault in an appliance"
+          steps={[
+            <>A loose wire touches the metal case of a kettle, so the case could become live.</>,
+            <>The earth wire gives the fault current a low-resistance path to ground, instead of through a person.</>,
+            <>Always isolate the power first, by switching it off, before touching household wires, to prevent electric shock.</>,
+          ]}
+        />
+        <Mistake>Thinking a switched-off appliance is safe to open while it is plugged in. Switch off power at the supply first.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>In a series circuit, components are connected in how many paths? What is true about a parallel circuit?</li>
+            <li>An open switch causes a circuit to do what? Which material is usually a good conductor?</li>
+            <li>What is the main job of a fuse? How is a circuit breaker different?</li>
+            <li>How does earthing help safety? Which practice is safest when working on household wiring?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>In one path. It has more than one path for current.</li>
+            <li>Stop conducting current. Copper.</li>
+            <li>Melt and break the circuit when current is too high. It can be reset after tripping.</li>
+            <li>Giving fault current a low-resistance path. Switch off power before touching wires.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

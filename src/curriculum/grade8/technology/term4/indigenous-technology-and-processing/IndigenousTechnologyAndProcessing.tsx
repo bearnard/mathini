@@ -1,16 +1,111 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Compare, Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { ProtectionLayers } from '../../../../../components/diagrams/science/SciencePictures6';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Compare indigenous and modern processing methods',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Indigenous technology shows practical local solutions developed over time. You compare methods such as
-          galvanising, painting, electroplating, and food preservation, and discuss sustainability and context.
-        </p>
-      </div>
+    title: 'Indigenous technology',
+    content: slide(
+      <>
+        <Rule>
+          Indigenous technology shows practical local solutions developed over time. Indigenous knowledge is important because it provides locally tested solutions suited to context.
+        </Rule>
+        <Worked
+          title="Local solutions to keep food"
+          steps={[
+            <>Biltong is meat that is dried and spiced: drying keeps it from spoiling.</>,
+            <>Amasi is milk that has been left to ferment: it keeps longer and was made from the materials people had.</>,
+            <>Local knowledge often reflects the available materials and the environment, so these solutions fit the place.</>,
+          ]}
+        />
+        <Mistake>Thinking indigenous technology is simply old-fashioned. It was tested by people over many years, and it still works.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Protecting metals from rust',
+    content: slide(
+      <>
+        <Rule>
+          Galvanising coats steel with zinc to reduce rusting. Painting metal helps mainly by blocking water and oxygen from the surface. Electroplating coats an object with a thin metal layer using electricity.
+        </Rule>
+        <ProtectionLayers />
+        <Terms
+          rows={[
+            ['Galvanising', 'steel coated with zinc. Zinc protects the steel as a protective layer.'],
+            ['Painting', 'paint forms a barrier that slows corrosion by blocking water and oxygen.'],
+            ['Electroplating', 'a thin metal layer put on using electricity, for corrosion resistance or for appearance.'],
+          ]}
+        />
+        <Worked
+          title="Steel fencing near the sea"
+          steps={[<>Coastal moisture and salt increase corrosion, so protection is essential.</>, <>A good rust-prevention choice is galvanising and regular painting.</>]}
+        />
+        <Mistake>Thinking paint makes steel rust-proof for ever. Scratched or old paint lets water and oxygen in, which is why regular painting is needed.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Preserving food',
+    content: slide(
+      <>
+        <Rule>Drying is a common food-preservation method. Drying removes moisture and slows spoilage.</Rule>
+        <Worked
+          title="Drying fruit"
+          steps={[
+            <>Spoilage organisms need moisture to grow.</>,
+            <>Spread thin slices in the sun or a warm, airy place. The water leaves the fruit.</>,
+            <>With the moisture removed, spoilage slows and the fruit keeps for much longer.</>,
+          ]}
+        />
+        <Mistake>Thinking dried food can never spoil. Drying slows spoilage; it must be kept dry afterwards.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Comparing and choosing methods',
+    content: slide(
+      <>
+        <Rule>
+          Different methods suit different materials and needs. A sustainable process choice should consider environmental impact and resource use.
+        </Rule>
+        <Compare
+          left={{ title: 'Indigenous methods', tone: 'amber', rows: ['developed locally over time', 'use available materials', 'example: drying meat to make biltong'] }}
+          right={{ title: 'Modern methods', tone: 'sky', rows: ['use factories and machines', 'example: galvanising, electroplating', 'faster and more uniform'] }}
+        />
+        <Worked
+          title="Decide with the criteria"
+          steps={[<>Material: steel or food? Each needs a different method.</>, <>Context, cost and purpose: how long must it last, and what is available?</>, <>Sustainability: how much of a resource does it use, and what harm does it do to the environment?</>]}
+        />
+        <Mistake>Believing one method is always best. Technology decisions depend on context, cost, materials and purpose.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is galvanising? Painting metal helps mainly by doing what?</li>
+            <li>Electroplating is used to do what? Which is a common food-preservation method?</li>
+            <li>Why is indigenous knowledge important in technology? A sustainable process choice should consider what?</li>
+            <li>For steel fencing near the sea, which rust prevention is a good choice? Which statement best compares methods?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Coating steel with zinc to reduce rusting. Blocking water and oxygen from the surface.</li>
+            <li>Coat an object with a thin metal layer using electricity. Drying.</li>
+            <li>It provides locally tested solutions suited to context. Environmental impact and resource use.</li>
+            <li>Galvanising and regular painting. Different methods suit different materials and needs.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

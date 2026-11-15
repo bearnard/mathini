@@ -57,3 +57,12 @@ export const BREATHING_STEPS: readonly Step[] = [
   { lead: 'Return', text: ': the blood carries carbon dioxide back to the lungs' },
   { lead: 'Breathe out', text: ': the respiratory system removes the carbon dioxide' },
 ];
+
+/** Making and evaluating a prototype, in order. */
+export const PROTOTYPE_STEPS: readonly Step[] = [
+  { lead: 'Measure and mark', text: ' accurately, so parts fit and work' },
+  { lead: 'Make and join', text: ' safely, with the right tool and joining method' },
+  { lead: 'Test', text: ' the prototype against the criteria' },
+  { lead: 'Record', text: ': steps followed, problems found, improvements made' },
+  { lead: 'Modify and retest', text: ' where testing shows a weakness' },
+];
