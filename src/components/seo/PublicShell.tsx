@@ -44,6 +44,8 @@ export function PublicShell({ children, jsonLd }: { children: ReactNode; jsonLd?
       <footer className="border-t border-slate-200 bg-white py-8">
         <div className="mx-auto max-w-4xl px-4 text-center text-sm text-slate-500">
           PrepPals — interactive CAPS practice. ·{' '}
+          <Link href="/for-parents" className="underline hover:text-slate-700">For parents</Link> ·{' '}
+          <Link href="/for-teachers" className="underline hover:text-slate-700">For teachers</Link> ·{' '}
           <Link href="/privacy" className="underline hover:text-slate-700">Privacy</Link>
         </div>
       </footer>

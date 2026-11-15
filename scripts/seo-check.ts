@@ -7,7 +7,7 @@ import { SITE_URL } from '../src/lib/seo/site';
 
 const base = (process.argv[2] ?? 'http://localhost:3000').replace(/\/$/, '');
 const all = process.argv.includes('--all');
-const paths = ['/', '/privacy', ...SEO_GRADES.map(gradePath), ...SEO_GRADES.flatMap((g) => g.subjects.map((s) => subjectPath(g, s)))];
+const paths = ['/', '/for-parents', '/for-teachers', '/privacy', ...SEO_GRADES.map(gradePath), ...SEO_GRADES.flatMap((g) => g.subjects.map((s) => subjectPath(g, s)))];
 const topics = allSeoTopics();
 const step = all ? 1 : Math.max(1, Math.floor(topics.length / 40));
 topics.forEach(({ grade, subject, topic }, i) => { if (i % step === 0) paths.push(topicPath(grade, subject, topic)); });

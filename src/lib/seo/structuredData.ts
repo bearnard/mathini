@@ -75,3 +75,11 @@ export function homeLd() {
 
 /** The text of a <script type="application/ld+json">. "<" is escaped so no field can close the script tag. */
 export const jsonLdText = (data: unknown): string => JSON.stringify(data).replace(/</g, '\\u003c');
+
+/** A landing page for parents or teachers: a WebPage and a FAQPage built from the same copy the page shows. */
+export function adultPageLd(page: { path: string; h1: string; description: string; faq: { q: string; a: string }[] }) {
+  return [
+    { '@context': CONTEXT, '@type': 'WebPage', '@id': `${abs(page.path)}#page`, name: page.h1, description: page.description, url: abs(page.path), isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL }, inLanguage: 'en-ZA' },
+    { '@context': CONTEXT, '@type': 'FAQPage', mainEntity: page.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+  ];
+}

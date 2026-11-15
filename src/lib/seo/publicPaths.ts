@@ -7,6 +7,8 @@ export interface PublicPath { path: string; changeFrequency: 'weekly' | 'monthly
 export function publicPaths(): PublicPath[] {
   return [
     { path: '/', changeFrequency: 'weekly', priority: 1 },
+    { path: '/for-parents', changeFrequency: 'monthly', priority: 0.6 },
+    { path: '/for-teachers', changeFrequency: 'monthly', priority: 0.6 },
     { path: '/privacy', changeFrequency: 'monthly', priority: 0.2 },
     ...SEO_GRADES.map((g) => ({ path: gradePath(g), changeFrequency: 'monthly' as const, priority: 0.8 })),
     ...SEO_GRADES.flatMap((g) => g.subjects.map((s) => ({ path: subjectPath(g, s), changeFrequency: 'monthly' as const, priority: 0.7 }))),

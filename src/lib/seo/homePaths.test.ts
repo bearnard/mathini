@@ -4,13 +4,19 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import HomePaths from '../../components/seo/HomePaths';
 
-test('the home page offers a path for learners, parents and teachers, and is honest that adult accounts are not live', () => {
+test('the home page has a real path for learners, parents and teachers, with nothing marked coming soon', () => {
   const html = renderToStaticMarkup(createElement(HomePaths));
   for (const id of ['learners', 'parents', 'teachers']) assert.match(html, new RegExp(`id="${id}"`));
-  assert.equal((html.match(/Coming soon/g) ?? []).length, 2, 'parents and teachers are both marked coming soon');
+  assert.ok(!/coming soon/i.test(html), 'parent and teacher accounts are live');
   assert.match(html, /href="\/app\?start=register"/);
   assert.match(html, /href="\/app\?start=resume"/);
-  // Nothing on the parent or teacher card may send an adult to a sign-up or login that does not exist.
-  const adult = html.slice(html.indexOf('id="parents"'));
-  assert.ok(!/start=register|start=resume|sign up|log ?in/i.test(adult), 'no adult sign-up or login links');
+  const parents = html.slice(html.indexOf('id="parents"'), html.indexOf('id="teachers"'));
+  const teachers = html.slice(html.indexOf('id="teachers"'));
+  assert.match(parents, /Sign in as a parent/);
+  assert.match(parents, /href="\/sign-in"/);
+  assert.match(parents, /href="\/for-parents"/);
+  assert.match(teachers, /Apply as a teacher/);
+  assert.match(teachers, /href="\/for-teachers"/);
+  assert.match(teachers, /SACE/);
+  assert.match(teachers, /not instant/, 'honest that approval takes a check');
 });
