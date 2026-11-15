@@ -232,7 +232,7 @@ export default function ClassDashboard({ classId, endpoint, extras }: ClassDashb
     <div className="space-y-4">
       <ClassTiles p={p} />
       <DashboardGrid>
-        <GridItem span="wide"><TopicHeatmap p={p} /></GridItem>
+        <GridItem span="wide" className={p.topics.length === 0 ? 'self-start' : ''}><TopicHeatmap p={p} /></GridItem>
         <GridItem className="flex flex-col gap-4 [&>section]:h-auto">
           {extras?.actions ?? null}
           <ImprovementCard p={p} since={since} onSince={load} err={err} />

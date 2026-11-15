@@ -3,6 +3,7 @@
 // Learners appear by nickname only. Every action is checked again on the server by role; hiding a button is not a permission.
 import { useEffect, useState } from 'react';
 import ClassDashboard from './ClassDashboard';
+import ClassList, { ClassTiles, normaliseClasses } from './ClassList';
 import { DashboardPage, EmptyState, PageHeader, SectionCard, SkeletonCard, StatTileRow, plural } from '../dashboard';
 
 interface ClassSummary { id: string; name: string; grade: number; subjects: string[]; joinCode: string; status: 'active' | 'archived'; members: number; createdAt: number; schoolName: string }
@@ -194,7 +195,7 @@ function ClassView({ id, onBack, onChanged, onNewClass }: { id: string; onBack: 
         back={<button onClick={onBack} className="min-h-11 text-sm font-semibold text-indigo-700 underline">← All classes</button>}
         eyebrow="PrepPals teacher"
         title={c.name}
-        subtitle={`Grade ${c.grade} · ${c.schoolName}${active ? '' : ' · archived'}`}
+        subtitle={[`Grade ${c.grade}`, c.schoolName, active ? '' : 'archived'].filter(Boolean).join(' · ')}
         actions={active ? <><button className={btn} onClick={copy}>{copied ? 'Copied' : `Copy code ${show(c.joinCode)}`}</button><button className={btnPrimary} onClick={toExams}>Set exam scope</button></> : undefined}
       />
       <ClassDashboard classId={id} extras={{ actions, roster, exams: <Exams classId={id} grade={c.grade} active={active} /> }} />
@@ -288,7 +289,8 @@ export default function TeacherArea() {
     );
   }
 
-  const learners = (classes ?? []).reduce((n, c) => n + c.members, 0);
+  const cards = normaliseClasses(classes ?? []);
+  const lostSome = Array.isArray(classes) && classes.length > cards.length;
   return (
     <div className="min-h-screen bg-slate-50">
       <DashboardPage>
@@ -303,40 +305,14 @@ export default function TeacherArea() {
             {notices.total === 1 ? '1 new learner has' : `${notices.total} new learners have`} joined your {notices.classes.length === 1 ? 'class' : 'classes'}.
           </p>
         )}
-        {classes && classes.length > 0 && (
-          <div className="mb-4">
-            <StatTileRow label="Your classes at a glance" tiles={[
-              { label: 'Classes', value: String(classes.length), note: `${classes.filter((c) => c.status === 'active').length} active` },
-              { label: 'Learners', value: String(learners), note: 'across your classes' },
-              { label: 'New this visit', value: String(notices.total), note: notices.total === 0 ? 'no new learners' : 'learners joined', tone: notices.total > 0 ? 'good' : 'neutral' },
-            ]} />
-          </div>
+        {lostSome && <p className="mb-4 rounded-2xl bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-900" role="alert">Some of your classes could not be shown. Reload the page, and tell us if it happens again.</p>}
+        {classes === null && <SkeletonCard lines={3} label="Loading your classes" />}
+        {classes !== null && (
+          <>
+            {cards.length > 0 && <div className="mb-4"><ClassTiles cards={cards} newLearners={notices.total} /></div>}
+            <ClassList cards={cards} notices={notices.classes} onOpen={setOpen} extra={<NewClass onCreated={(id) => { loadClasses(); setOpen(id); }} />} />
+          </>
         )}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {classes === null && <SkeletonCard lines={3} label="Loading your classes" />}
-          {classes && classes.length === 0 && (
-            <div className="md:col-span-2 xl:col-span-2"><EmptyState title="You have no classes yet">Make one and share its code with your learners.</EmptyState></div>
-          )}
-          {classes?.map((c) => {
-            const fresh = notices.classes.find((n) => n.classId === c.id)?.count ?? 0;
-            return (
-              <button key={c.id} onClick={() => setOpen(c.id)} className="flex min-h-36 min-w-0 flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:border-indigo-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-indigo-600">
-                <span className="min-w-0">
-                  <strong className="block break-words text-lg font-extrabold text-slate-900">{c.name}</strong>
-                  <span className="mt-0.5 block text-sm text-slate-600">Grade {c.grade} · {plural(c.members, 'learner')}{c.status === 'archived' ? ' · archived' : ''}</span>
-                </span>
-                <span className="mt-4 flex items-center justify-between gap-2">
-                  {c.status === 'active' ? <span className="rounded-lg bg-indigo-50 px-2 py-1 text-sm font-bold tracking-widest text-indigo-900">{show(c.joinCode)}</span> : <span />}
-                  <span className="flex items-center gap-2">
-                    {fresh > 0 && <span className="rounded-full bg-emerald-500 px-2 py-0.5 text-xs font-bold text-white">{fresh} new</span>}
-                    <span className="text-sm font-bold text-indigo-700">Open →</span>
-                  </span>
-                </span>
-              </button>
-            );
-          })}
-          <NewClass onCreated={(id) => { loadClasses(); setOpen(id); }} />
-        </div>
       </DashboardPage>
     </div>
   );
