@@ -11,7 +11,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          Poetry is usually written in lines and may use rhyme or rhythm. A play is written for performance, so it has dialogue and stage directions. A novel or novelette tells a longer story.
+          Poems are set out in short lines, often with rhyme or a steady beat. A play is written for performance, so it has dialogue and stage directions. A novel or novelette tells a longer story.
         </Rule>
         <Worked
           title="Name the genre"
@@ -102,7 +102,7 @@ const learnSteps: LearnStep[] = [
           <ol className="list-decimal space-y-2 pl-5">
             <li>Which genre is written in lines and may use rhyme, and which has dialogue and stage directions?</li>
             <li>In a poem, who is the speaker? “Her smile was as bright as the sun” is what kind of expression?</li>
-            <li>What is the theme of a text, and what does viewpoint tell the reader?</li>
+            <li>What do we call the main message of a story, and what does the narrator’s viewpoint show?</li>
             <li>How do you describe a character, and why use evidence from the text?</li>
           </ol>
         }
@@ -110,7 +110,7 @@ const learnSteps: LearnStep[] = [
           <ol className="list-decimal space-y-2 pl-5">
             <li>Poetry; a play.</li>
             <li>The voice that speaks the poem. A simile (figurative language).</li>
-            <li>The main idea or message. Who is telling or seeing the events.</li>
+            <li>The theme: the main idea or message. Who is telling or seeing the events.</li>
             <li>By what they say, do and feel. It shows that your answer comes from the text.</li>
           </ol>
         }

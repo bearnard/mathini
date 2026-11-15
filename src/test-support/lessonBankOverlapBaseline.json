@@ -1,12 +1,3 @@
 {
- "repeated": [
-  "grade6/english/term2/literary-genres/LiteraryGenres.tsx::What does viewpoint tell the reader?",
-  "grade6/english/term2/literary-genres/LiteraryGenres.tsx::What is the theme of a literary text?",
-  "grade6/english/term2/literary-genres/LiteraryGenres.tsx::Which genre is usually written in lines and may use rhyme or rhythm?",
-  "grade6/english/term3/deeper-literature-response/DeeperLiteratureResponse.tsx::If a story feels tense and frightening, what is the mood?",
-  "grade6/english/term3/deeper-literature-response/DeeperLiteratureResponse.tsx::What does mood tell the reader?",
-  "grade6/english/term3/deeper-literature-response/DeeperLiteratureResponse.tsx::What is a theme in a story?",
-  "grade6/english/term3/deeper-literature-response/DeeperLiteratureResponse.tsx::Which sentence best states a theme?",
-  "grade6/geography/term2/fair-trade/FairTrade.tsx::How can consumers support fair trade?"
- ]
+ "repeated": []
 }

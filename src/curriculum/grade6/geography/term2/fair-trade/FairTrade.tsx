@@ -43,7 +43,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          Consumers can support fair trade by asking where products come from, avoiding waste, and
+          Shoppers help fair trade by asking where products come from, avoiding waste, and
           choosing goods from businesses that treat workers and the environment responsibly.
         </p>
         <div className="grid gap-3 md:grid-cols-3">

@@ -16,7 +16,7 @@ const learnSteps: LearnStep[] = [
         <Worked
           title="Name a mood and state a theme"
           steps={[
-            <>A story feels tense and frightening: the mood is suspenseful.</>,
+            <>A scene is dark and quiet while a character hears footsteps behind her: the mood is suspenseful.</>,
             <>Mood answers “what feeling does the reader get?”. Look at the words that create it.</>,
             <>A theme is a broad message that applies beyond one event: “Honesty builds trust, even when the truth is hard.”</>,
             <>Compare: “Lebo hid a letter” is only an event, not a theme.</>,
@@ -97,16 +97,16 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a theme, and what does mood tell the reader?</li>
-            <li>A story feels tense and frightening. What is the mood? Which sentence best states a theme?</li>
+            <li>What do we call the big message in a story, and what atmosphere do the words create?</li>
+            <li>A scene is bright, with children laughing at a picnic. What is the mood? Which of these is a theme: “Sharing makes a day happier” or “Thabo packed a basket”?</li>
             <li>Which detail shows motivation: a character who practises every day to make the team?</li>
             <li>What should a review include, and which sentence uses textual support?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>The big idea or message. The feeling or atmosphere created by the story.</li>
-            <li>Suspenseful. “Honesty builds trust, even when the truth is hard.”</li>
+            <li>The theme: the big idea or message. The feeling or atmosphere created by the story.</li>
+            <li>Cheerful (happy). “Sharing makes a day happier.”</li>
             <li>Yes: the action and the reason together show motivation.</li>
             <li>An opinion supported by reasons and examples. “The hero is brave because he helps his friend in chapter 3.”</li>
           </ol>
