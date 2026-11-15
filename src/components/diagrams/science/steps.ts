@@ -40,3 +40,20 @@ export const NITROGEN_STEPS: readonly Step[] = [
   { lead: 'Animals', text: ' eat the plants' },
   { lead: 'Decomposers', text: ' return nutrients to the soil when living things die' },
 ];
+
+/** Nutrients on their way to the cells: digestive and circulatory systems working together. */
+export const NUTRIENT_STEPS: readonly Step[] = [
+  { lead: 'Eat', text: ': food enters the digestive system' },
+  { lead: 'Digest', text: ': the digestive system breaks food down into small nutrients' },
+  { lead: 'Absorb', text: ': the nutrients pass into the blood' },
+  { lead: 'Carry', text: ': the circulatory system carries the nutrients to every cell' },
+];
+
+/** Oxygen and carbon dioxide: respiratory and circulatory systems working together. */
+export const BREATHING_STEPS: readonly Step[] = [
+  { lead: 'Breathe in', text: ': the lungs take in oxygen' },
+  { lead: 'Transfer', text: ': oxygen passes from the lungs into the blood' },
+  { lead: 'Carry', text: ': the blood carries oxygen to the cells, where it is used to release energy' },
+  { lead: 'Return', text: ': the blood carries carbon dioxide back to the lungs' },
+  { lead: 'Breathe out', text: ': the respiratory system removes the carbon dioxide' },
+];
