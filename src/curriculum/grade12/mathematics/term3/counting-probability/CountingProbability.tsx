@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
   import type { CapsItem } from '@/components/CapsSubjectTopic';
   import type { MathematicsItem, LearnStep } from '../../_shared/types';
 import Formula from '@/components/subjects/Formula';
+import { CountingTree } from '@/components/diagrams/maths/CountingTree';
 import ProbabilitySimulator from '@/components/subjects/ProbabilitySimulator';
 
   const learnSteps: LearnStep[] = [
@@ -15,6 +16,7 @@ import ProbabilitySimulator from '@/components/subjects/ProbabilitySimulator';
           ways. When order matters, permutations are useful; when order does not matter, combinations are the
           better model.
         </p>
+        <CountingTree />
         <Formula block>{String.raw`{}^nP_r = \frac{n!}{(n-r)!},\quad \binom{n}{r} = \frac{n!}{r!(n-r)!}`}</Formula>
       </>
     ),
