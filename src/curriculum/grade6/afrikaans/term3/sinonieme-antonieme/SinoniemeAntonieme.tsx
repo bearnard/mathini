@@ -1,65 +1,100 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Sinonieme mean the same',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Sinonieme</strong> are words with the same or almost the same meaning.
-        </p>
-        <span className="inline-flex items-center text-2xl font-bold text-indigo-600">
-          bly = gelukkig <SpeakButton text="bly, gelukkig" />
-        </span>
-      </div>
-    ),
-  },
-  {
-    title: 'Antonieme are opposites',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Antonieme</strong> or <strong>teenoorgesteldes</strong> have opposite meanings.
-        </p>
-        <span className="inline-flex items-center text-2xl font-bold text-indigo-600">
-          groot ↔ klein <SpeakButton text="groot, klein" />
-        </span>
-      </div>
-    ),
-  },
-  {
-    title: 'Use meaning clues',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Read the question carefully: it may ask for a word that is the same or the opposite.
-        </p>
-        <span className="inline-flex items-center text-2xl font-bold text-indigo-600">
-          warm ↔ koud <SpeakButton text="warm, koud" />
-        </span>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these vocabulary labels and example words aloud to strengthen meaning relationships.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"sinoniem"} phonetic={"[sənoˈnim]"} meaning={"synonym"} lang="af" />
-          <PronunciationPlayer word={"antoniem"} phonetic={"[antoˈnim]"} meaning={"antonym"} lang="af" />
-          <PronunciationPlayer word={"bly"} phonetic={"[blɛi]"} meaning={"happy"} lang="af" />
-          <PronunciationPlayer word={"hartseer"} phonetic={"[ˈhartsɪər]"} meaning={"sad"} lang="af" />
-          <PronunciationPlayer word={"vinnig"} phonetic={"[ˈfənəχ]"} meaning={"fast"} lang="af" />
-          <PronunciationPlayer word={"stadig"} phonetic={"[ˈstɑːdəχ]"} meaning={"slow"} lang="af" />
-        </div>
-      </div>
+    title: 'Sinonieme: words with the same meaning',
+    content: slide(
+      <>
+        <Rule><Af>Sinonieme</Af> are words that mean the same, or almost the same. A synonym can replace the other word in a sentence.</Rule>
+        <MeaningPairs
+          kind="same"
+          pairs={[['bly', 'gelukkig'], ['vinnig', 'gou'], ['kwaad', 'boos']]}
+          aria="Three pairs of Afrikaans synonyms joined by an equals sign: bly and gelukkig (happy), vinnig and gou (fast), kwaad and boos (angry)."
+        />
+        <Worked
+          title={<>A synonym for <Af>praat</Af> <En>talk</En></>}
+          steps={[
+            <>Ask: which word means the same as <Af>praat</Af>?</>,
+            <><Af>gesels</Af> <En>chat</En> also means to talk. <SpeakButton text="praat, gesels" /></>,
+            <>So <Af>praat</Af> and <Af>gesels</Af> are synonyms. Also: <Af>mooi</Af> = <Af>pragtig</Af> <En>pretty, beautiful</En>.</>,
+          ]}
+        />
+        <Mistake>Choosing the opposite. <Af>mooi</Af> and <Af>lelik</Af> <En>ugly</En> are not synonyms. <Af>pragtig</Af> is the synonym.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Antonieme: opposites',
+    content: slide(
+      <>
+        <Rule><Af>Antonieme</Af> (also <Af>teenoorgesteldes</Af>) are words with opposite meanings.</Rule>
+        <MeaningPairs
+          kind="opposite"
+          pairs={[['groot', 'klein'], ['warm', 'koud'], ['oop', 'toe']]}
+          aria="Three pairs of Afrikaans antonyms joined by a double arrow: groot and klein (big and small), warm and koud (warm and cold), oop and toe (open and closed)."
+        />
+        <Worked
+          title={<>An antonym for <Af>lank</Af> <En>long</En></>}
+          steps={[
+            <>Think of the opposite length.</>,
+            <>The opposite of <Af>lank</Af> is <Af>kort</Af> <En>short</En>. <SpeakButton text="lank, kort" /></>,
+            <>Also: <Af>stadig</Af> <En>slow</En> ↔ <Af>vinnig</Af> <En>fast</En>; <Af>bly</Af> <En>happy</En> ↔ <Af>hartseer</Af> <En>sad</En>.</>,
+          ]}
+        />
+        <Mistake>Choosing a stronger word, not the opposite. <Af>heet</Af> <En>hot</En> is close to <Af>warm</Af>. The opposite of <Af>warm</Af> is <Af>koud</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Same or opposite? Read the question',
+    content: slide(
+      <>
+        <Rule>First decide what the question asks: a word that means the same (<Af>sinoniem</Af>) or the opposite (<Af>antoniem</Af>).</Rule>
+        <Worked
+          title="Sort these pairs"
+          steps={[
+            <><Af>kwaad</Af> and <Af>boos</Af>: same meaning, so a <strong>synonym</strong> pair.</>,
+            <><Af>oop</Af> and <Af>toe</Af>: opposite meaning, so an <strong>antonym</strong> pair.</>,
+            <><Af>vinnig</Af> and <Af>gou</Af>: same meaning, so a <strong>synonym</strong> pair.</>,
+            <><Af>stadig</Af> and <Af>vinnig</Af>: opposite meaning, so an <strong>antonym</strong> pair.</>,
+          ]}
+        />
+        <Mistake>Answering with a word that only goes with the first word. <Af>warm</Af> goes with <Af>son</Af> <En>sun</En>, but that is not a synonym or an antonym.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Swap words in a sentence',
+    content: slide(
+      <>
+        <Rule>A good synonym keeps the sentence meaning. A good antonym turns the meaning round.</Rule>
+        <Worked
+          title="Change one word"
+          steps={[
+            <><Af>Die kind is bly.</Af> <En>The child is happy.</En></>,
+            <>Synonym: <Af>Die kind is gelukkig.</Af> The meaning stays the same.</>,
+            <>Antonym: <Af>Die kind is hartseer.</Af> <En>The child is sad.</En> The meaning is the opposite. <SpeakButton text="Die kind is gelukkig. Die kind is hartseer." /></>,
+          ]}
+        />
+        <Mistake>Changing the word and forgetting the rest of the sentence. Only the one word changes: <Af>Die hond is groot</Af> becomes <Af>Die hond is klein</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Give a synonym for <Af>kwaad</Af> <En>angry</En>.</>} answer={<><Af>boos</Af> (also <Af>kwaad</Af> = <Af>boos</Af>).</>} />
+        <Check question={<>Give the antonym of <Af>oop</Af> <En>open</En>.</>} answer={<><Af>toe</Af> <En>closed</En>.</>} />
+        <Check question={<>Give a synonym for <Af>vinnig</Af> <En>fast</En>.</>} answer={<><Af>gou</Af> <En>quick</En>.</>} />
+        <Check question={<>Give the antonym of <Af>lank</Af> <En>long</En>.</>} answer={<><Af>kort</Af> <En>short</En>.</>} />
+      </>,
     ),
   },
 ];

@@ -1,73 +1,94 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, PluralPair } from '@/components/diagrams/afrikaans/AfrikaansPictures';
+import { PLURALS, pluralRule } from '@/components/diagrams/afrikaans/afrikaansHelpers';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'What are plurals?',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A plural (<strong>meervoud</strong>) means more than one. Many Afrikaans nouns add <strong>-e</strong>.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-flex items-center gap-3 text-2xl font-bold">
-          <span className="inline-flex items-center">hond <SpeakButton text="hond" /></span>
-          <span className="text-slate-400">→</span>
-          <span className="inline-flex items-center text-indigo-600">honde <SpeakButton text="honde" /></span>
-        </div>
-        <p className="text-slate-500">one dog → many dogs</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Adding -s',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Some Afrikaans nouns make the plural with <strong>-s</strong>, especially many words ending in vowels or unstressed syllables.
-        </p>
-        <div className="bg-indigo-50 p-6 rounded-xl inline-flex items-center gap-3 text-2xl font-bold">
-          <span className="inline-flex items-center">tafel <SpeakButton text="tafel" /></span>
-          <span className="text-slate-400">→</span>
-          <span className="inline-flex items-center text-indigo-600">tafels <SpeakButton text="tafels" /></span>
-        </div>
-        <p className="text-slate-500">Learn common examples by listening and practising.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Spelling changes and special plurals',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Some plurals change spelling. A short vowel often needs a doubled consonant, and some words are special.
-        </p>
-        <div className="grid gap-3 bg-slate-50 p-6 rounded-xl text-2xl font-bold">
-          <span className="inline-flex items-center justify-center">kop <SpeakButton text="kop" /> <span className="mx-3 text-slate-400">→</span> koppe <SpeakButton text="koppe" /></span>
-          <span className="inline-flex items-center justify-center">kind <SpeakButton text="kind" /> <span className="mx-3 text-slate-400">→</span> kinders <SpeakButton text="kinders" /></span>
-        </div>
-        <p className="text-slate-500">Practise high-confidence examples first.</p>
-      </div>
-    ),
-  },
+const P = Object.fromEntries(PLURALS.map((p) => [p.sg, p]));
+const note = (sg: string) => ({ e: 'add -e', 'double-e': 'double the last letter, add -e', s: 'add -s', special: 'learn the word' })[pluralRule(P[sg].sg, P[sg].pl)];
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say singular and plural forms aloud to notice the sound changes that happen in meervoude.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"boek / boeke"} phonetic={"[buk / ˈbukə]"} meaning={"book / books"} lang="af" />
-          <PronunciationPlayer word={"hond / honde"} phonetic={"[hɔnt / ˈhɔndə]"} meaning={"dog / dogs"} lang="af" />
-          <PronunciationPlayer word={"kind / kinders"} phonetic={"[kənt / ˈkəndərs]"} meaning={"child / children"} lang="af" />
-          <PronunciationPlayer word={"huis / huise"} phonetic={"[ɦœys / ˈɦœysə]"} meaning={"house / houses"} lang="af" />
-          <PronunciationPlayer word={"dag / dae"} phonetic={"[dax / dɑːi]"} meaning={"day / days"} lang="af" />
-          <PronunciationPlayer word={"blom / blomme"} phonetic={"[blɔm / ˈblɔmə]"} meaning={"flower / flowers"} lang="af" />
-        </div>
-      </div>
+    title: 'Most plurals add -e',
+    content: slide(
+      <>
+        <Rule>The <Af>meervoud</Af> (plural) of most Afrikaans nouns is made by adding <Af>-e</Af> to the singular.</Rule>
+        <PluralPair sg={P.hond.sg} pl={P.hond.pl} note={note('hond')} aria="One dot with the word hond, an arrow, then three dots with the word honde. The plural adds e." />
+        <Worked
+          title="Make the plural"
+          steps={[
+            <><Af>{P.hond.sg}</Af> <En>dog</En> + <Af>-e</Af> = <Af>{P.hond.pl}</Af></>,
+            <><Af>{P.boek.sg}</Af> <En>book</En> + <Af>-e</Af> = <Af>{P.boek.pl}</Af></>,
+            <><Af>{P.huis.sg}</Af> <En>house</En> + <Af>-e</Af> = <Af>{P.huis.pl}</Af> <SpeakButton text="honde, boeke, huise" /></>,
+          ]}
+        />
+        <Mistake>Adding <Af>-s</Af> to every noun. <Af>honds</Af>, <Af>boeks</Af> and <Af>huiss</Af> are wrong. These words take <Af>-e</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Short vowel: double the last letter',
+    content: slide(
+      <>
+        <Rule>When the vowel is short and the word ends in one consonant, <strong>double</strong> that consonant before <Af>-e</Af>.</Rule>
+        <PluralPair sg={P.kat.sg} pl={P.kat.pl} note={note('kat')} aria="One dot with the word kat, an arrow, then three dots with the word katte. The t is doubled before e." />
+        <Worked
+          title="Double the letter, then add -e"
+          steps={[
+            <><Af>{P.kat.sg}</Af> <En>cat</En>: double the <Af>t</Af> and add <Af>-e</Af> = <Af>{P.kat.pl}</Af></>,
+            <><Af>{P.kop.sg}</Af> <En>head</En>: double the <Af>p</Af> = <Af>{P.kop.pl}</Af></>,
+            <><Af>{P.blom.sg}</Af> <En>flower</En>: double the <Af>m</Af> = <Af>{P.blom.pl}</Af> <SpeakButton text="katte, koppe, blomme" /></>,
+          ]}
+        />
+        <Mistake>Forgetting to double. <Af>kate</Af> and <Af>kope</Af> are wrong, because the vowel would then sound long. Write <Af>katte</Af> and <Af>koppe</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Words ending in -el take -s',
+    content: slide(
+      <>
+        <Rule>Many nouns that end in <Af>-el</Af> take <Af>-s</Af> in the plural.</Rule>
+        <PluralPair sg={P.tafel.sg} pl={P.tafel.pl} note={note('tafel')} aria="One dot with the word tafel, an arrow, then three dots with the word tafels. The plural adds s." />
+        <Worked
+          title="Add -s"
+          steps={[
+            <><Af>{P.tafel.sg}</Af> <En>table</En> + <Af>-s</Af> = <Af>{P.tafel.pl}</Af></>,
+            <><Af>{P.appel.sg}</Af> <En>apple</En> + <Af>-s</Af> = <Af>{P.appel.pl}</Af> <SpeakButton text="tafels, appels" /></>,
+          ]}
+        />
+        <Mistake>Adding <Af>-e</Af> here. <Af>tafele</Af> and <Af>appele</Af> are wrong. These take <Af>-s</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Words you must learn: kind, dag',
+    content: slide(
+      <>
+        <Rule>Some plurals do not follow a rule. Learn them as new words.</Rule>
+        <PluralPair sg={P.kind.sg} pl={P.kind.pl} note={note('kind')} aria="One dot with the word kind, an arrow, then three dots with the word kinders. This plural is a special form." />
+        <Worked
+          title="Two special plurals"
+          steps={[
+            <><Af>{P.kind.sg}</Af> <En>child</En> → <Af>{P.kind.pl}</Af> <En>children</En></>,
+            <><Af>{P.dag.sg}</Af> <En>day</En> → <Af>{P.dag.pl}</Af> <En>days</En> <SpeakButton text="kinders, dae" /></>,
+          ]}
+        />
+        <Mistake>Using a rule on <Af>kind</Af>. <Af>kinde</Af> and <Af>kinds</Af> are wrong. The plural is <Af>kinders</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>What is the plural of <Af>hond</Af> <En>dog</En>?</>} answer={<><Af>{P.hond.pl}</Af> (add <Af>-e</Af>).</>} />
+        <Check question={<>What is the plural of <Af>kat</Af> <En>cat</En>?</>} answer={<><Af>{P.kat.pl}</Af> (double the <Af>t</Af>).</>} />
+        <Check question={<>What is the plural of <Af>tafel</Af> <En>table</En>?</>} answer={<><Af>{P.tafel.pl}</Af> (add <Af>-s</Af>).</>} />
+        <Check question={<>What is the plural of <Af>kind</Af> <En>child</En>?</>} answer={<><Af>{P.kind.pl}</Af> (a special form).</>} />
+      </>,
     ),
   },
 ];
