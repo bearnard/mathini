@@ -1,38 +1,122 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { Compare, Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { FlowDiagram } from '../../../../../components/diagrams/science/SciencePictures4';
+import { PAT_STEPS } from '../../../../../components/diagrams/science/steps';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Synthesize knowledge of integrated systems',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Technology systems integrate mechanical, electrical, and material components. Understanding how systems interact 
-          prepares you to design and troubleshoot real-world solutions in transportation, energy, construction, and manufacturing.
-        </p>
-      </div>
+    title: 'Technology systems',
+    content: slide(
+      <>
+        <Rule>
+          A technology system is made of mechanical, electrical and material parts working towards a goal. Systems thinking helps you see how the different technologies interact in real-world applications.
+        </Rule>
+        <FlowDiagram
+          id="tsys"
+          title="A technology system"
+          desc="Mechanical, electrical and material parts all work towards the goal of the system."
+          nodes={[
+            { id: 'mech', label: 'mechanical parts', x: 36, y: 24, color: '#7dd3fc' },
+            { id: 'elec', label: 'electrical parts', x: 124, y: 24, color: '#fde047' },
+            { id: 'mat', label: 'material parts', x: 80, y: 84, color: '#6ee7b7' },
+            { id: 'goal', label: 'the goal', x: 80, y: 54, color: '#f8fafc' },
+          ]}
+          edges={[
+            { from: 'mech', to: 'goal', label: '' },
+            { from: 'elec', to: 'goal', label: '' },
+            { from: 'mat', to: 'goal', label: '' },
+          ]}
+        />
+        <Worked
+          title="A bicycle-powered phone charger"
+          steps={[<>Mechanical: pedals and gears turn a generator.</>, <>Electrical: the generator and wires carry the current.</>, <>Material: the metal frame and plastic case. All the parts work towards one goal: charging a phone.</>]}
+        />
+        <Mistake>Studying each part alone. A system works because its parts are chosen to fit together.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Evaluate sustainability and societal impact',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Technology affects environment, economy, and society. Sustainable design minimizes resource use and waste. 
-          Safety considerations protect users. Clear communication of designs ensures understanding and successful implementation.
-        </p>
-      </div>
+    title: 'Sustainability and money',
+    content: slide(
+      <>
+        <Rule>
+          Sustainable design uses fewer resources and makes less waste and pollution. Responsible environmental choices often save money in the long run.
+        </Rule>
+        <Compare
+          left={{ title: 'Environment', tone: 'emerald', rows: ['use fewer resources', 'make less waste and pollution', 'protects the place for the future'] }}
+          right={{ title: 'Economy', tone: 'amber', rows: ['lower energy and material bills', 'less money spent on clean-up', 'product that lasts longer'] }}
+        />
+        <Worked
+          title="A solar water heater"
+          steps={[<>It uses sunlight instead of electricity: fewer resources and less pollution.</>, <>It lowers the household electricity bill over many years.</>, <>So the environmental choice also saves money in the long run.</>]}
+        />
+        <Mistake>Thinking green choices always cost more. Sustainable technology balances environmental protection with economic viability.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Consolidate PAT work and prepare for exams',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Review and refine all PAT projects (structures, electronic systems). Practice exam-style responses: diagrams, 
-          calculations, design justifications, and structured written answers. Connect theory to practical work for comprehensive understanding.
-        </p>
-      </div>
+    title: 'Safety and communication',
+    content: slide(
+      <>
+        <Rule>
+          Safety protects users from harm and makes products dependable. Clear communication helps people understand and use designs well.
+        </Rule>
+        <Terms
+          rows={[
+            ['Safety', 'find the hazards and add safeguards, such as guards, insulation and warning labels'],
+            ['Communication', 'effective diagrams, instructions and specifications enable correct use'],
+          ]}
+        />
+        <Worked
+          title="A drill"
+          steps={[<>Hazards: a spinning bit and a live cable.</>, <>Safeguards: a guard, insulation and a safety label.</>, <>Clear instructions and diagrams help people use the drill correctly.</>]}
+        />
+        <Mistake>Adding safety as an afterthought. Design must identify hazards from the start and put safeguards in place to prevent injuries.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'PAT projects and exam answers',
+    content: slide(
+      <>
+        <Rule>
+          A complete PAT project includes a design brief, research, sketches, a model, test results and an evaluation. In exam-style responses, use neat labelled diagrams, show calculations and give reasons for choices.
+        </Rule>
+        <NumberedSteps steps={PAT_STEPS} tone="blue" label="What a PAT project contains" />
+        <Worked
+          title="Revise all four terms"
+          steps={[<>Review the key ideas of each term.</>, <>Practise sums, redraw designs and do past papers.</>, <>Active revision strategies deepen understanding and prepare you for varied exam formats.</>]}
+        />
+        <Mistake>Giving an answer with no diagram, no working and no reasons. Structured, detailed responses earn the marks.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is a technology system? Why is sustainability important in technology?</li>
+            <li>What is the importance of safety in technology design? How does clear communication affect technology adoption?</li>
+            <li>What should a complete PAT project include? How do you present technical information in exam-style responses?</li>
+            <li>What is the relationship between environmental and economic considerations? How should you approach revision of all four terms?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Mechanical, electrical and material parts working towards a goal. Sustainable design uses fewer resources and makes less waste and pollution.</li>
+            <li>Safety protects users from harm and makes products dependable. Clear communication helps people understand and use designs well.</li>
+            <li>Design brief, research, sketches, model, test results and evaluation. Use neat labelled diagrams, show calculations and give reasons for choices.</li>
+            <li>Responsible environmental choices often save money in the long run. Review key ideas, practise sums, redraw designs and do past papers.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

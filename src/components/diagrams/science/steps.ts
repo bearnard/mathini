@@ -66,3 +66,21 @@ export const PROTOTYPE_STEPS: readonly Step[] = [
   { lead: 'Record', text: ': steps followed, problems found, improvements made' },
   { lead: 'Modify and retest', text: ' where testing shows a weakness' },
 ];
+
+/** Plastic processing, then recycling. */
+export const PLASTIC_STEPS: readonly Step[] = [
+  { lead: 'Heat', text: ': raw plastic is melted' },
+  { lead: 'Mould or shape', text: ': it is injected, extruded or thermoformed into a product' },
+  { lead: 'Cool', text: ': the plastic sets in its new shape' },
+  { lead: 'Recycle', text: ' at the end of use: cuts waste and saves resources' },
+];
+
+/** What a complete PAT project contains, in order. */
+export const PAT_STEPS: readonly Step[] = [
+  { lead: 'Design brief', text: ': the problem and what a good solution must do' },
+  { lead: 'Research', text: ' into the need and existing solutions' },
+  { lead: 'Sketches', text: ' of possible designs' },
+  { lead: 'Model', text: ' made and tested' },
+  { lead: 'Test results', text: ' recorded' },
+  { lead: 'Evaluation', text: ' against the brief' },
+];
