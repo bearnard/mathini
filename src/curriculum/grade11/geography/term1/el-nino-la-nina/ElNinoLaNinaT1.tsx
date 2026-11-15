@@ -146,7 +146,7 @@ const bank: CapsItem[] = [
     options: [
       'Severe drought and water shortages',
       'Above-normal rainfall and potential flooding',
-      'Cooler than normal sea temperatures',
+      'Colder winters across the whole country',
       'Reduced tropical cyclone activity',
     ],
     answer: 'Above-normal rainfall and potential flooding',

@@ -75,7 +75,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which layer of Earth is thickest?',
-    options: ['Crust', 'Mantle', 'Core', 'Lithosphere'],
+    options: ['Crust', 'Mantle', 'Inner core', 'Lithosphere'],
     answer: 'Mantle',
     explanation: 'The mantle is the thickest layer, between the crust and core.',
   },

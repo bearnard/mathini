@@ -96,7 +96,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is an example of physical weathering?',
-    options: ['Acid rain that eats into limestone', 'Plant roots that grow into cracks in rock', 'Frost-shattering by freezing and thawing cycles', 'A chemical change that turns iron into rust'],
+    options: ['Acid rain that eats into limestone', 'Lichen that releases acids onto rock', 'Frost-shattering by freezing and thawing cycles', 'A chemical change that turns iron into rust'],
     answer: 'Frost-shattering by freezing and thawing cycles',
     explanation: 'Water entering rock cracks freezes, expands, and splits rocks apart without chemical change.',
   },

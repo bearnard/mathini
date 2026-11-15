@@ -134,10 +134,10 @@ const bank: CapsItem[] = [
     explanation: 'Steep slopes are unsuitable for building; gentle slopes allow better drainage and safer construction.',
   },
   {
-    prompt: 'If a contour interval is 50 m and you count 8 lines between two points, what is the elevation difference?',
+    prompt: 'The contour interval is 50 m. Two points are 8 contour intervals apart in height. What is the elevation difference?',
     options: ['50 m', '100 m', '250 m', '400 m'],
     answer: '400 m',
-    explanation: '8 lines × 50 m per interval = 400 m elevation difference.',
+    explanation: '8 intervals × 50 m per interval = 400 m elevation difference.',
   },
 ];
 

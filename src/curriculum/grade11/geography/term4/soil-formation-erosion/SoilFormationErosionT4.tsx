@@ -172,7 +172,7 @@ const bank: CapsItem[] = [
     prompt: 'Which soil horizon consists of solid unweathered bedrock?',
     options: ['O horizon', 'A horizon', 'B horizon', 'R horizon'],
     answer: 'R horizon',
-    explanation: 'The R horizon (regolith) is the unweathered parent rock underlying all other soil horizons.',
+    explanation: 'The R horizon is the solid, unweathered bedrock (parent rock) beneath all the other soil horizons. Regolith is the loose, weathered layer that lies above it.',
   },
   {
     prompt: 'What is the most SEVERE type of water erosion?',

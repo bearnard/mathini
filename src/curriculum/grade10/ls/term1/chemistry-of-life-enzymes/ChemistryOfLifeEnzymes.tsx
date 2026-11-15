@@ -148,9 +148,9 @@ const bank: LifeSciencesItem[] = [
   },
   {
     prompt: 'Which element is essential for protein synthesis?',
-    options: ['Carbon', 'Nitrogen', 'Oxygen', 'Phosphorus'],
+    options: ['Calcium', 'Nitrogen', 'Sodium', 'Iron'],
     answer: 'Nitrogen',
-    explanation: 'Nitrogen is a key component of amino acids that form proteins.',
+    explanation: 'Nitrogen is part of the amino group in every amino acid, so it is needed to build proteins. Calcium, sodium and iron are not part of the amino acids themselves.',
   },
   {
     prompt: 'What happens to an enzyme when it is denatured?',

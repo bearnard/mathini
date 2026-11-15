@@ -118,10 +118,10 @@ const bank: CapsItem[] = [
     explanation: 'Mitochondria break down food and release usable energy for the cell.',
   },
   {
-    prompt: 'How many times smaller is a cell than the eye can see?',
-    options: ['2-5 times', '10-100 times', '1000+ times', 'Cells are visible to the eye'],
-    answer: '1000+ times',
-    explanation: 'Most cells are microscopic and require a microscope to see them clearly.',
+    prompt: 'What is the typical size of a plant or animal cell?',
+    options: ['About 0,01 to 0,1 mm', 'About 1 to 10 mm', 'About 1 to 10 cm', 'About 0,0001 mm'],
+    answer: 'About 0,01 to 0,1 mm',
+    explanation: 'Most plant and animal cells are 0,01 to 0,1 mm (10 to 100 micrometres) across. The smallest thing the naked eye can see is about 0,1 mm, so we need a microscope to see most cells clearly.',
   },
 ];
 
