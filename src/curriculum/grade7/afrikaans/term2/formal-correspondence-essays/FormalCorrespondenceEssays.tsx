@@ -1,64 +1,126 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, LetterLayout, MeaningPairs, OrderTiles } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Formal letter structure',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A formele brief needs sender details, date, greeting, body and formal closing.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">Geagte ... <SpeakButton text="Geagte" /></span>
-          <span className="inline-flex items-center">Die uwe <SpeakButton text="Die uwe" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Register and tone',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Use polite, formal language. Avoid slang and chat-style abbreviations.
-        </p>
-        <p className="text-xl text-slate-700">
-          Clear and respectful writing shows control.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Essay planning',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          For essays, plan ideas first, then write an introduction, body and conclusion.
-        </p>
-        <p className="text-slate-500">Stay on topic and support each point with an example.</p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these formal-writing words aloud so register and structure feel more natural on the page.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Geagte"} phonetic={"[χəˈɑxtə]"} meaning={"Dear / respected"} lang="af" />
-          <PronunciationPlayer word={"Onderwerp"} phonetic={"[ˈɔndərvɛrp]"} meaning={"Subject"} lang="af" />
-          <PronunciationPlayer word={"Adres"} phonetic={"[aˈdrɛs]"} meaning={"Address"} lang="af" />
-          <PronunciationPlayer word={"Datum"} phonetic={"[ˈdɑːtəm]"} meaning={"Date"} lang="af" />
-          <PronunciationPlayer word={"Handtekening"} phonetic={"[ˈhanttɛikəneŋ]"} meaning={"Signature"} lang="af" />
-          <PronunciationPlayer word={"Vriendelik"} phonetic={"[ˈfriəndələk]"} meaning={"Kind / friendly"} lang="af" />
-        </div>
-      </div>
+    title: 'Parts of a formal letter',
+    content: slide(
+      <>
+        <Rule>A formal letter has an <Af>Adres</Af> and <Af>Datum</Af> at the top, then the greeting, the <Af>Onderwerp</Af> <En>subject</En>, the content, the closing and the <Af>Handtekening</Af> <En>signature</En>.</Rule>
+        <LetterLayout
+          parts={['adres, datum', 'Geagte Meneer', 'inhoud', 'Die uwe', 'handtekening']}
+          aria="A formal letter drawn as five strips from top to bottom: adres and datum, the greeting Geagte Meneer, the inhoud (content, the biggest strip), the closing Die uwe, and the handtekening (signature)."
+        />
+        <Worked
+          title="Put the parts in order"
+          steps={[
+            <>Address and date first. Then <Af>Geagte Meneer</Af> <En>Dear Sir</En>.</>,
+            <>A short <Af>Onderwerp</Af> line says what the letter is about.</>,
+            <>Then the content, <Af>Die uwe</Af> <En>yours faithfully</En>, and your signature.</>,
+          ]}
+        />
+        <Mistake>Leaving out the greeting or closing. Every formal letter needs both, and the content comes after the greeting.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Greeting and closing: formal words',
+    content: slide(
+      <>
+        <Rule>Use a formal greeting and a formal closing. <Af>Geagte Meneer</Af> is a formal greeting, and <Af>Die uwe</Af> is a formal closing.</Rule>
+        <MeaningPairs
+          kind="opposite"
+          pairs={[['Geagte Meneer', 'Haai maat'], ['Die uwe', 'Cheers']]}
+          aria="Two pairs of opposites: the formal greeting Geagte Meneer against the informal Haai maat, and the formal closing Die uwe against the informal Cheers."
+        />
+        <Worked
+          title="Choose the formal word"
+          steps={[
+            <>Greeting: <Af>Geagte Meneer</Af>, not <Af>Yo vriend</Af> or <Af>Hey julle</Af>. <SpeakButton text="Geagte Meneer" /></>,
+            <>Closing: <Af>Die uwe</Af>, not <Af>Sien jou later</Af> or <Af>Liefde en liggies</Af>.</>,
+          ]}
+        />
+        <Mistake>Using a friendly closing in a formal letter. <Af>Sien jou later</Af> is for a friend, not for a principal or an official.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Content and register',
+    content: slide(
+      <>
+        <Rule>After the greeting comes <Af>Die inhoud of paragrawe van die brief</Af> <En>the content, in paragraphs</En>. The register must be <Af>Formeel en respekvol</Af> <En>formal and respectful</En>.</Rule>
+        <OrderTiles
+          tiles={['Groet', 'Inhoud', 'Afsluiting']}
+          aria="Three parts of a formal letter in order: Groet (greeting), Inhoud (content), Afsluiting (closing)."
+        />
+        <Worked
+          title="Check the register"
+          steps={[
+            <>Informal: <Af>Haai, ek wil net sê...</Af></>,
+            <>Formal: <Af>Ek skryf om te vra of ek...</Af> <En>I am writing to ask whether I...</En></>,
+            <>Avoid <Af>Informele afkortings soos 'lol' en 'btw'</Af> <En>informal short forms such as lol and btw</En>.</>,
+          ]}
+        />
+        <Mistake>Using slang, jokes, SMS language or emoji. Formal writing is neat, polite and in clear paragraphs.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Plan your essay',
+    content: slide(
+      <>
+        <Rule>Plan before you write an essay. <Af>Dit help jou idees logies organiseer</Af> <En>it helps you organise ideas in a logical order</En>.</Rule>
+        <OrderTiles
+          tiles={['Idees', 'Volgorde', 'Skryf']}
+          aria="Three planning steps in order: Idees (ideas), Volgorde (order), Skryf (write)."
+        />
+        <Worked
+          title="A quick plan"
+          steps={[
+            <>Write down your ideas on the topic.</>,
+            <>Put them in order: opening, middle, closing.</>,
+            <>Then write, using one paragraph for each idea.</>,
+          ]}
+        />
+        <Mistake>Thinking a plan only makes the essay longer. A plan does not change the topic and does not replace editing. It keeps your ideas in order.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Essay openings and closings',
+    content: slide(
+      <>
+        <Rule>A descriptive essay opens with what you see, hear or smell. A narrative essay closes with what you learnt.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['beskrywend', 'sintuie'], ['narratief', 'les']]}
+          aria="Two essay types and what they use: a beskrywende opstel (descriptive essay) uses the senses (sintuie), a narratiewe opstel (narrative essay) ends with a lesson (les)."
+        />
+        <Worked
+          title="Open and close"
+          steps={[
+            <>Opening: <Af>Die oggendlug het vars geruik toe ons by die strand aankom.</Af> <En>The morning air smelled fresh when we reached the beach.</En></>,
+            <>Closing: <Af>Uiteindelik het ek besef hoe belangrik moed is.</Af> <En>In the end I realised how important courage is.</En> <SpeakButton text="Uiteindelik het ek besef hoe belangrik moed is." /></>,
+          ]}
+        />
+        <Mistake>Opening with a line about the paper, such as <Af>Die papier waarop ek skryf is wit en skoon</Af>. Open with the scene.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Which greeting is formal: <Af>Geagte Meneer</Af> or <Af>Haai maat</Af>?</>} answer={<><Af>Geagte Meneer</Af>.</>} />
+        <Check question={<>Which closing is formal: <Af>Die uwe</Af> or <Af>Cheers</Af>?</>} answer={<><Af>Die uwe</Af>.</>} />
+        <Check question={<>Which register must a formal letter use?</>} answer={<><Af>Formeel en respekvol</Af>.</>} />
+        <Check question={<>Why plan an essay first?</>} answer={<><Af>Dit help jou idees logies organiseer</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -113,6 +175,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'Chat abbreviations are not suitable in formal writing.',
   },
 ];
+
+export { bank };
 
 const FormalCorrespondenceEssays = () => (
   <AfrikaansTopic
