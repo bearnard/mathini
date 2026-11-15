@@ -33,7 +33,7 @@ async function check(p: string): Promise<void> {
   if (/<meta name="robots" content="[^"]*noindex/.test(html)) fail('noindex');
   const ld = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map((m) => { try { return JSON.parse(m[1]); } catch { fail('invalid JSON-LD'); return null; } });
   if (p !== '/' && !ld.some((x) => x?.['@type'] === 'BreadcrumbList')) fail('no BreadcrumbList');
-  if (p === '/' && !ld.some((x) => x?.['@type'] === 'Organization')) fail('no Organization JSON-LD');
+  if (p === '/' && !(ld.some((x) => x?.['@type'] === 'Organization') && ld.some((x) => x?.['@type'] === 'FAQPage'))) fail('home needs Organization and FAQPage JSON-LD');
   for (const m of html.matchAll(/<img\b[^>]*>/g)) if (!/\balt="/.test(m[0])) fail('image without alt');
   for (const m of html.matchAll(/<a [^>]*href="(\/[^"#?]*)(?:\?[^"]*)?"/g)) linkSeen.set(m[1], (linkSeen.get(m[1]) ?? 0) + 1);
 }
