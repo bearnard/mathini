@@ -1,19 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Polish scripted performance and evaluate techniques',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 4 drama prepares learners for final performance through disciplined rehearsal, cue accuracy, and
-          audience etiquette. Reflection focuses on how dramatic techniques shaped meaning.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {
