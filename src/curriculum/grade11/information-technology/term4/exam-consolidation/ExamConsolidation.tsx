@@ -1,96 +1,6 @@
-import CodeBlock from '@/components/subjects/CodeBlock';
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { ITItem, LearnStep } from '../../_shared/types';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'OOP and file handling revision',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Review the key OOP and file handling concepts for the year-end examinations:
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">OOP essentials</strong>
-            <p className="text-slate-600">Class = blueprint; object = instance. Encapsulation: private attributes, public getters/setters. Constructors initialise objects. UML: 3-section diagram. Access modifiers: public/private.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">File handling essentials</strong>
-            <p className="text-slate-600">Text files use "r", "w", "a" modes. Write overwrites; append preserves. Always close files. Read line-by-line with a loop; strip() removes newlines.</p>
-          </div>
-        </div>
-        <div className="bg-amber-50 p-4 rounded-xl text-left">
-          <strong className="text-amber-700">Common exam trap:</strong>
-          <p className="text-slate-600 text-sm">Opening a file in write ("w") mode when you meant append ("a") will erase all existing data!</p>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'SQL and databases revision',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Key SQL and database concepts tested in the year-end theory paper:
-        </p>
-        <CodeBlock language="sql" code={`-- Common exam patterns:
-SELECT Name, Mark FROM Results
-  WHERE Mark >= 50 ORDER BY Mark DESC;
-
-INSERT INTO Students (ID, Name) VALUES (10, 'Thabo');
-
-UPDATE Students SET Grade = 11 WHERE ID = 10;
-
-DELETE FROM Students WHERE ID = 10;
-
-SELECT COUNT(*), AVG(Mark) FROM Results;`} />
-        <p className="text-sm text-slate-600">Remember: primary key = unique identifier; foreign key = link between tables. LIKE 'A%' matches strings starting with A.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Networks and social implications revision',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Review the most frequently examined network and social implications content:
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-indigo-50 p-4">
-            <strong className="text-indigo-700">Networks checklist</strong>
-            <p className="text-slate-600">LAN/MAN/WAN. Topologies: bus, star, ring, mesh. TCP = reliable delivery; IP = addressing/routing. Protocols: HTTP(S), FTP, SMTP, POP3/IMAP, DNS. Wired (twisted pair, fibre) vs wireless (Wi-Fi, Bluetooth, 4G/5G).</p>
-          </div>
-          <div className="rounded-xl bg-red-50 p-4">
-            <strong className="text-red-700">Social implications checklist</strong>
-            <p className="text-slate-600">POPIA: lawful purpose, minimisation, consent, data subject rights. Cybercrime: phishing, ransomware, identity theft. Security: strong passwords, 2FA, firewall, antivirus, VPN, encryption. Digital divide. Copyright and plagiarism.</p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Exam strategy and common errors',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Exam success depends on technique as much as knowledge. Avoid these common errors:
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-red-50 p-4">
-            <strong className="text-red-700">Common mistakes to avoid</strong>
-            <p className="text-slate-600">Confusing class and object; writing UPDATE without WHERE; confusing SMTP (send) with POP3/IMAP (receive); claiming bus topology has no single point of failure (the cable IS the single point).</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Exam technique tips</strong>
-            <p className="text-slate-600">Read questions twice. Allocate time per mark (≈1 min/mark). For code questions, trace through manually. Answer definition questions using keywords. Check SQL syntax carefully.</p>
-          </div>
-        </div>
-        <p className="text-sm text-slate-600 mt-2">Use past papers from NSC and CAPS to practise mixed questions under timed conditions.</p>
-      </div>
-    ),
-  },
-];
+import type { ITItem } from '../../_shared/types';
+import { learnSteps } from './Slides';
 
 const bank: ITItem[] = [
   {
@@ -111,10 +21,10 @@ const bank: ITItem[] = [
     explanation: 'Encapsulation hides internal data (private balance) and provides controlled access through public methods.',
   },
   {
-    prompt: 'What does range(2, 6) produce in Python?',
-    options: ['[2, 3, 4, 5, 6]', '[2, 3, 4, 5]', '[1, 2, 3, 4, 5, 6]', '[3, 4, 5]'],
-    answer: '[2, 3, 4, 5]',
-    explanation: 'range(start, stop) generates integers from start up to but NOT including stop. range(2,6) → 2, 3, 4, 5.',
+    prompt: 'A Delphi loop is written for i := 2 to 5 do and each time round it adds i to iTotal, which starts at 0. What is iTotal when the loop ends?',
+    options: ['14', '20', '15', '9'],
+    answer: '14',
+    explanation: 'A Delphi for loop includes both the start and the end value, so i takes 2, 3, 4 and 5 and 2 + 3 + 4 + 5 = 14.',
   },
   {
     prompt: 'Which protocol would a company mail server use to receive incoming emails from other mail servers on the internet?',
@@ -123,10 +33,10 @@ const bank: ITItem[] = [
     explanation: 'SMTP is used to transfer email between mail servers (as well as from mail client to server for sending).',
   },
   {
-    prompt: 'A program opens "records.txt" in write mode, then immediately closes it. What is the state of the file?',
-    options: ['Unchanged, as nothing was written to it', 'Empty: opening in write mode erased all of the old content', 'Deleted from the system after it was closed', 'Locked, so that it cannot be opened again'],
-    answer: 'Empty: opening in write mode erased all of the old content',
-    explanation: 'Opening in write ("w") mode truncates (empties) the file immediately, even before any write() calls.',
+    prompt: 'A program opens "records.txt" with AssignFile and Rewrite, then immediately calls CloseFile. What is the state of the file?',
+    options: ['Unchanged, as nothing was written to it', 'Empty: Rewrite erased all of the old content', 'Deleted from the system after it was closed', 'Locked, so that it cannot be opened again'],
+    answer: 'Empty: Rewrite erased all of the old content',
+    explanation: 'Rewrite creates the file afresh and empties it immediately, even before any WriteLn call.',
   },
   {
     prompt: 'In a star topology, what is the single point of failure?',
@@ -164,9 +74,9 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'A program reads an integer from a file but the line contains "N/A". Using exception handling, which exception should be caught?',
-    options: ['IndexError', 'ZeroDivisionError', 'ValueError', 'FileNotFoundError'],
-    answer: 'ValueError',
-    explanation: 'int("N/A") raises a ValueError because "N/A" cannot be converted to an integer.',
+    options: ['ERangeError', 'EDivByZero', 'EConvertError', 'EInOutError'],
+    answer: 'EConvertError',
+    explanation: 'StrToInt(\'N/A\') raises EConvertError because N/A cannot be converted to an integer. EInOutError is for file problems.',
   },
 ];
 
