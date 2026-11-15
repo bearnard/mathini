@@ -1,63 +1,75 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Hub, PairLinks, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Respect diversity and protect human rights',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          This term explores <strong>diversity</strong>, inclusion, and human rights. Learners identify stereotypes and
-          practise respectful ways to challenge unfair assumptions.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <p className="font-bold text-sky-700">Diversity</p>
-            <p className="text-slate-600">differences in people and identities</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-bold text-amber-700">Human rights</p>
-            <p className="text-slate-600">fair treatment and dignity for all</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-bold text-emerald-700">Stereotypes</p>
-            <p className="text-slate-600">oversimplified and unfair labels</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Inclusion</p>
-            <p className="text-slate-600">ensuring everyone belongs and participates</p>
-          </div>
-        </div>
-      </div>
+    title: 'Diversity: different people, one school',
+    content: slide(
+      <>
+        <Rule>Diversity means people with different backgrounds learning and living together. Diversity recognises and values differences such as language, culture, religion and ability.</Rule>
+        <Hub centre="Our school" spokes={['Languages', 'Cultures', 'Religions', 'Abilities']} aria="A circle labelled Our school with four kinds of difference around it: languages, cultures, religions and abilities." />
+        <Worked
+          title="A new learner speaks isiXhosa and most of the class speaks Sesotho"
+          steps={[<>Greet the new learner and ask their name.</>, <>Invite them to join your group.</>, <>Ask them to teach the class a word.</>]}
+        />
+        <Mistake>Thinking diversity means everyone must be the same, or that differences are a problem. Different backgrounds are valued, not removed.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Connect strengths to future pathways',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Career awareness begins with interests, values, and strengths. Social change also creates new opportunities
-          for contribution in communities.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-bold text-rose-700">Interests</p>
-            <p className="text-slate-600">activities you enjoy and care about</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-bold text-cyan-700">Strengths</p>
-            <p className="text-slate-600">skills you do well and can grow</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-bold text-lime-700">Pathways</p>
-            <p className="text-slate-600">possible study and career directions</p>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Social change</p>
-            <p className="text-slate-600">community shifts that shape opportunities</p>
-          </div>
-        </div>
-      </div>
+    title: 'Human rights and responsibilities',
+    content: slide(
+      <>
+        <Rule>The Bill of Rights in the South African Constitution protects everyone's equality (section 9), dignity (section 10) and basic education (section 29). Every right comes with a responsibility.</Rule>
+        <PairLinks pairs={[{ right: 'Education', duty: 'Attend class and respect learning time' }, { right: 'Dignity', duty: 'Treat others with dignity' }, { right: 'Equality', duty: 'Treat all learners fairly' }]} aria="Three rights matched with a responsibility: education with attending class and respecting learning time, dignity with treating others with dignity, equality with treating all learners fairly." />
+        <Worked
+          title="The right to education"
+          steps={[<>The right: you may learn at school.</>, <>The responsibility: arrive on time and attend class.</>, <>Also respect learning time so others can learn too.</>]}
+        />
+        <Mistake>Thinking that having a right means you can do whatever you want. Your rights go together with responsibilities, and you must respect other people's rights.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Stereotypes and inclusion',
+    content: slide(
+      <>
+        <Rule>A stereotype is an unfair assumption about a group of people. You can challenge one respectfully by questioning the assumption and including everyone in opportunities.</Rule>
+        <Worked
+          title="Someone says: “Girls cannot play soccer”"
+          steps={[<>Spot the assumption: all girls are the same.</>, <>Ask: is that true for every person?</>, <>Give an example calmly, such as a girl you know who plays well.</>, <>Invite everyone to join the game.</>]}
+        />
+        <Mistake>Calling a stereotype “just a joke”, or mocking the person who said it. Challenge the idea, listen to other viewpoints in a debate, and keep everyone included.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Careers and social change',
+    content: slide(
+      <>
+        <Rule>Career awareness means linking your interests and strengths to possible future work. Positive social change makes society fairer, such as equal sports opportunities for all learners.</Rule>
+        <StepFlow steps={['Know your interests.', 'Know your strengths.', 'Find jobs that fit both.', 'Find out more about them.']} aria="Four steps for career awareness in order: know your interests, know your strengths, find jobs that fit both, find out more about them." />
+        <Worked
+          title="Sam loves animals and is good at science and caring"
+          steps={[<>Interest: animals.</>, <>Strengths: science and caring.</>, <>Jobs that could fit: vet or animal nurse.</>, <>Next: find out what they study and do.</>]}
+        />
+        <Mistake>Choosing a job only because a friend chose it. Start with your own interests and strengths.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What does diversity mean in a school community?" answer="People with different backgrounds learning together. Diversity recognises and values differences." />
+        <Check question="Name the right to education and one responsibility that goes with it." answer="Everyone has the right to a basic education (section 29). The responsibility is to attend class and respect learning time." />
+        <Check question="What is a stereotype, and how can you challenge one respectfully?" answer="An unfair assumption about a group of people. Question the assumption and include everyone in opportunities." />
+        <Check question="How does career awareness begin?" answer="By linking your interests and strengths to possible future work." />
+      </>,
     ),
   },
 ];

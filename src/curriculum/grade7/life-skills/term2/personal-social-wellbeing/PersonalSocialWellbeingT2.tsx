@@ -1,63 +1,75 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Hub, StepFlow, Zones } from '../../../../../components/diagrams/lo/PswPictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Handle peer influence with assertive communication',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          In this term, learners examine <strong>peer influence</strong> and practise assertive communication. Assertive
-          language is calm, respectful, and clear.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <p className="font-bold text-sky-700">Peer influence</p>
-            <p className="text-slate-600">pressure from friends or media</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-bold text-amber-700">Assertive response</p>
-            <p className="text-slate-600">say no without aggression</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-bold text-emerald-700">Empathy</p>
-            <p className="text-slate-600">understand another person's feelings</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Online safety</p>
-            <p className="text-slate-600">protect privacy and report harm</p>
-          </div>
-        </div>
-      </div>
+    title: 'Peer influence: friends and media',
+    content: slide(
+      <>
+        <Rule>Peer influence is pressure from friends or media to act in certain ways. It can be positive, like friends who study together, or negative, like pressure to try something risky.</Rule>
+        <Hub centre="My choices" spokes={['Friends', 'Classmates', 'Social media', 'TV and adverts']} aria="A circle labelled My choices with four influences around it: friends, classmates, social media, and TV and adverts." />
+        <Worked
+          title="A friend says: “Everyone is doing it”"
+          steps={[<>Notice the pressure.</>, <>Ask: is it safe, and does it fit my values?</>, <>Question what media and friends show before you copy it.</>, <>Choose for yourself.</>]}
+        />
+        <Mistake>Believing that “everyone is doing it” makes something safe or normal. Media can make risky behaviour look normal, so check it before copying it.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Choose safer behaviour online and offline',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Learners evaluate risky situations, including substance abuse messages and unsafe digital behaviour. Healthy
-          choices require thinking ahead and asking for support.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-bold text-rose-700">Substance awareness</p>
-            <p className="text-slate-600">recognise and avoid harmful substances</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-bold text-cyan-700">Digital footprint</p>
-            <p className="text-slate-600">posts can affect future opportunities</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-bold text-lime-700">Trusted support</p>
-            <p className="text-slate-600">parents, teachers, caregivers</p>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Decision check</p>
-            <p className="text-slate-600">is it safe, respectful, and legal?</p>
-          </div>
-        </div>
-      </div>
+    title: 'Saying no assertively',
+    content: slide(
+      <>
+        <Rule>Being assertive means saying clearly, calmly and respectfully what you will not do. Substance abuse means misusing harmful substances such as alcohol, cigarettes or drugs.</Rule>
+        <Zones zones={[{ title: 'Passive', line: 'Gives in quietly' }, { title: 'Assertive', line: 'Clear, calm and respectful' }, { title: 'Aggressive', line: 'Loud, rude or threatening' }]} aria="Three styles of communication side by side: passive gives in quietly, assertive is clear, calm and respectful, aggressive is loud, rude or threatening." />
+        <Worked
+          title="A friend offers you a harmful substance"
+          steps={[<>Stay calm and look at your friend.</>, <>Say: “No thanks, that is not a safe choice for me.”</>, <>Leave the situation.</>, <>Tell a trusted adult if the pressure continues.</>]}
+        />
+        <Mistake>Answering with insults, or saying yes just to fit in. Being assertive is firm and polite. It is neither passive nor aggressive.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Staying safe online',
+    content: slide(
+      <>
+        <Rule>Keep personal details private: your full name, address, school, phone number and passwords. If you see cyberbullying, do not join in. Save the evidence and tell a trusted adult.</Rule>
+        <StepFlow steps={['Do not reply or forward it.', 'Save the evidence (a screenshot).', 'Tell a trusted adult.', 'Block and report the account.']} aria="Four steps when you see cyberbullying in order: do not reply, save the evidence, tell a trusted adult, block and report." />
+        <Worked
+          title="A stranger online asks where you live and which school you go to"
+          steps={[<>Do not answer. Your address and school stay private.</>, <>Tell a trusted adult.</>, <>Block the person.</>]}
+        />
+        <Mistake>Sharing private details with online “friends” you have never met, or deleting a bullying message before anyone has seen it. Keep the evidence.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Empathy and calm communication',
+    content: slide(
+      <>
+        <Rule>Empathy means trying to understand another person's feelings. In a conflict, listen first, then speak calmly about the problem.</Rule>
+        <Worked
+          title="Two friends argue about a lost pen"
+          steps={[<>Listen without interrupting.</>, <>Say what you heard: “You felt upset when it went missing.”</>, <>Say how you feel, calmly: “I feel worried that you blame me.”</>, <>Look for a fair solution together.</>]}
+        />
+        <Mistake>Thinking empathy means you must agree, or that shouting makes your point stronger. You can understand someone's feelings and still disagree politely.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is peer influence, and how can media affect your choices?" answer="Peer influence is pressure from friends or media to act in certain ways. Media can make risky behaviour look normal, so question it." />
+        <Check question="Write one assertive way to say no to something unsafe." answer="For example: “No thanks, that is not a safe choice for me.” It is clear, calm and respectful." />
+        <Check question="You see cyberbullying online. What do you do?" answer="Do not join in. Save the evidence and report it to a trusted adult." />
+        <Check question="What does empathy mean, and how do you speak in a conflict?" answer="Empathy is trying to understand another person's feelings. Listen first and speak calmly about the problem." />
+      </>,
     ),
   },
 ];

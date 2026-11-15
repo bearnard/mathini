@@ -1,63 +1,86 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { PlanBar, StepFlow, WeekBars } from '../../../../../components/diagrams/lo/PswPictures';
+import { planSegments, weekPlan } from '../../../../../components/diagrams/lo/pswHelpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// The numbers in the pictures and the worked examples come from these helpers (pswHelpers.test.ts).
+const week = weekPlan([30, 30, 30, 30, 30]);
+const hoursMinutes = (m: number) => `${Math.floor(m / 60)} h ${m % 60} min`;
+const sessionParts = [
+  { label: 'Maths', minutes: 30, kind: 'study' as const },
+  { label: 'Stretch', minutes: 5, kind: 'break' as const },
+  { label: 'English', minutes: 30, kind: 'study' as const },
+];
+const session = planSegments(sessionParts);
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Set goals and manage exam stress',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 4 focuses on realistic goal setting, healthy routines, and stress management. Strong routines improve
-          wellbeing and learning during busy assessment periods.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <p className="font-bold text-sky-700">Goal setting</p>
-            <p className="text-slate-600">specific and achievable targets</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-bold text-amber-700">Stress management</p>
-            <p className="text-slate-600">healthy coping strategies</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-bold text-emerald-700">Healthy routines</p>
-            <p className="text-slate-600">sleep, nutrition, study balance</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Future planning</p>
-            <p className="text-slate-600">next steps linked to interests</p>
-          </div>
-        </div>
-      </div>
+    title: 'Setting a realistic goal',
+    content: slide(
+      <>
+        <Rule>A good goal is specific and realistic. It says what you will do, for how long and how often.</Rule>
+        <WeekBars days={['Mon', 'Tue', 'Wed', 'Thu', 'Fri']} minutes={[30, 30, 30, 30, 30]} aria="Five bars for Monday to Friday, each showing 30 minutes of maths revision, 150 minutes in the week." />
+        <Worked
+          title="“Do better at maths” becomes a goal"
+          steps={[<>Specific: which subject? Maths.</>, <>Realistic: 30 minutes, not five hours.</>, <>When: every weekday.</>, <>Goal: revise maths for 30 minutes every weekday. In a week that is 5 × 30 = {week.total} minutes, or {hoursMinutes(week.total)}.</>]}
+        />
+        <Mistake>A vague goal such as “study more”, or an unrealistic one such as “study all night”. If you cannot measure it or keep it up, it will not help.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Link responsible habits to community and future',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Responsible learners care for themselves and their communities. Community contribution, reflection, and
-          planning support confident transitions to future grades and pathways.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-bold text-rose-700">Community responsibility</p>
-            <p className="text-slate-600">actions that support others</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-bold text-cyan-700">Study planner</p>
-            <p className="text-slate-600">organise tasks and deadlines</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-bold text-lime-700">Help-seeking</p>
-            <p className="text-slate-600">ask support before stress grows</p>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Reflection</p>
-            <p className="text-slate-600">review what works and improve</p>
-          </div>
-        </div>
-      </div>
+    title: 'A study planner and exam stress',
+    content: slide(
+      <>
+        <Rule>A study planner organises your revision so you avoid last-minute panic. A timetable with short movement breaks helps you manage exam stress.</Rule>
+        <PlanBar parts={sessionParts} aria="One study session as a bar: 30 minutes of maths, a 5 minute stretch break, then 30 minutes of English, 65 minutes in total." />
+        <Worked
+          title="Plan one afternoon"
+          steps={[<>Maths for {sessionParts[0].minutes} minutes.</>, <>Stretch for {sessionParts[1].minutes} minutes.</>, <>English for {sessionParts[2].minutes} minutes.</>, <>Total: {session.total} minutes, or {hoursMinutes(session.total)}.</>]}
+        />
+        <Mistake>Leaving all your revision for the night before the exam. A planner spreads the work over many days.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Healthy routines and asking for help',
+    content: slide(
+      <>
+        <Rule>Regular sleep and balanced meals support your memory, energy and mood. Ask for support as soon as stress feels hard to manage.</Rule>
+        <Worked
+          title="Lwazi cannot concentrate before exams"
+          steps={[<>Notice the signs: tired and worried.</>, <>Keep a regular bedtime and eat balanced meals.</>, <>Take a short walk between study blocks.</>, <>Talk to a parent, teacher or school counsellor early.</>]}
+        />
+        <Mistake>Waiting until stress feels unbearable before telling someone. Early support stops stress from becoming overwhelming.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Future planning and community',
+    content: slide(
+      <>
+        <Rule>A good first step in future planning is to identify your interests and strengths. Responsible habits include helping your community, for example by joining a clean-up. Reflection helps you improve your routines.</Rule>
+        <StepFlow steps={['Identify your interests and strengths.', 'Choose a goal that fits them.', 'Try it and keep a short log.', 'Reflect, then change what did not work.']} aria="Four steps for planning ahead in order: identify interests and strengths, choose a goal, try it and keep a log, reflect and change what did not work." />
+        <Worked
+          title="A reflection after a study week"
+          steps={[<>Log: studied at 16:00 and felt focused.</>, <>Log: studied at 21:00 and felt tired.</>, <>Learn: afternoons work better for me.</>, <>Change: move revision to the afternoon.</>]}
+        />
+        <Mistake>Using reflection only to blame yourself. Reflection means learning from experience so you can improve.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="Which goal is better: “study more” or “revise maths for 30 minutes every weekday”? Why?" answer="The second. It is specific and realistic, so it is easy to follow and measure." />
+        <Check question="Name two things that help you manage exam stress." answer="For example: use a timetable and take short movement breaks. Regular sleep and balanced meals help too." />
+        <Check question="When should you ask for support with stress?" answer="As soon as it feels hard to manage." />
+        <Check question="What is a good first step in future planning, and what does reflection help you do?" answer="Identify your interests and strengths. Reflection helps you improve your routines by learning from experience." />
+      </>,
     ),
   },
 ];
