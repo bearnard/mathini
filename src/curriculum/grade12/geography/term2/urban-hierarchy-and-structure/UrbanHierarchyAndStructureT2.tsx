@@ -2,12 +2,15 @@ import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 
 
+import { SettlementHierarchyPicture } from '@/components/diagrams/geography/Geo12Pictures';
+
 const learnSteps = [
   {
     title: "The settlement hierarchy",
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">{"Settlements are arranged in a hierarchy from small hamlets and villages to towns, cities and metropolitan areas. Higher-order settlements offer more specialised services and serve a much larger surrounding area than lower-order settlements."}</p>
+        <SettlementHierarchyPicture />
         <p className="text-lg leading-8 text-slate-600">{"A large city may contain universities, specialist hospitals and major financial services, while a small town mainly offers basic goods such as groceries, fuel and primary schooling."}</p>
       </div>
     ),

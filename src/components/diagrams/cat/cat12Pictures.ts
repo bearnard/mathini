@@ -92,3 +92,26 @@ export const NESTED_IF: SchematicSpec = {
   ],
   labels: [{ x: 66, y: 83, text: 'dashed = FALSE', tone: 'amber' }],
 };
+
+// ---- Choosing the right tool: each application suits one kind of job ----
+export const TOOL_CHOICE: SchematicSpec = {
+  id: 'cat12-tools',
+  title: 'Choosing the right tool',
+  desc: 'A schematic. A spreadsheet suits calculations and modelling. A database suits storing structured records. A word processor suits communicating polished findings. A solution developer matches the tool to the job and can explain why.',
+  width: 170,
+  height: 84,
+  boxes: [
+    { id: 'sheet', x: 4, y: 6, w: 58, h: 18, lines: ['spreadsheet'], tone: 'green' },
+    { id: 'db', x: 4, y: 33, w: 58, h: 18, lines: ['database'], tone: 'sky' },
+    { id: 'wp', x: 4, y: 60, w: 58, h: 18, lines: ['word processor'], tone: 'amber' },
+    { id: 'calc', x: 94, y: 6, w: 72, h: 18, lines: ['calculations'], tone: 'green' },
+    { id: 'records', x: 94, y: 33, w: 72, h: 18, lines: ['structured records'], tone: 'sky' },
+    { id: 'findings', x: 94, y: 60, w: 72, h: 18, lines: ['polished findings'], tone: 'amber' },
+  ],
+  arrows: [
+    { from: 'sheet', to: 'calc' },
+    { from: 'db', to: 'records' },
+    { from: 'wp', to: 'findings' },
+  ],
+  labels: [],
+};

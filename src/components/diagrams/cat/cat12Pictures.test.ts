@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { checkSchematic } from '../schematic';
-import { HTML_TREE, LAN_WAN, NESTED_IF, TABLE, TABLE_DESC, TABLE_LABELS } from './cat12Pictures';
+import { HTML_TREE, LAN_WAN, NESTED_IF, TABLE, TABLE_DESC, TABLE_LABELS, TOOL_CHOICE } from './cat12Pictures';
 import { textWidth } from '../schematic';
 
 test('table picture: 4 labels, the record row, field column and bad cell are all real cells, and labels fit the frame', () => {
@@ -61,4 +61,13 @@ test('nested IF: two tests, three results; TRUE gives that test\'s result, FALSE
   assert.equal(NESTED_IF.boxes.length - tests, tests + 1, 'a nested IF with n tests has n + 1 results');
   // the first test is the top-left box: it is checked first
   assert.deepEqual(NESTED_IF.boxes.filter((b) => b.id.startsWith('t')).sort((a, b) => a.y - b.y).map((b) => b.id), ['t1', 't2']);
+});
+
+test('tool choice: each of the three applications points to its own job, one to one', () => {
+  assert.deepEqual(checkSchematic(TOOL_CHOICE), []);
+  const label = (id: string) => TOOL_CHOICE.boxes.find((b) => b.id === id)!.lines![0];
+  const pairs = TOOL_CHOICE.arrows.map((a) => `${label(a.from)} > ${label(a.to)}`);
+  assert.deepEqual(pairs, ['spreadsheet > calculations', 'database > structured records', 'word processor > polished findings']);
+  assert.equal(new Set(TOOL_CHOICE.arrows.map((a) => a.to)).size, 3);
+  assert.equal(new Set(TOOL_CHOICE.arrows.map((a) => a.from)).size, 3);
 });
