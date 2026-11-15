@@ -207,7 +207,7 @@ test('a parent sees only safe fields of a child: never the login code, PIN hash,
   const list = await (await handleListChildren(get('/api/parent/children', x.mum.cookie), dps)).text();
   const prog = await (await handleChildProgress(get('/p', x.mum.cookie), dps, 'student-0001')).text();
   for (const body of [list, prog]) assert.ok(!/TIGER-4821|pin_hash|pin_salt|Real Name Secret|Secret School|real_name|login_code/.test(body), body);
-  assert.deepEqual(Object.keys((JSON.parse(list) as { children: Record<string, unknown>[] }).children[0]).sort(), ['avatar', 'consent', 'consentVersion', 'displayName', 'grade', 'id', 'lastSeenAt', 'linkedAt']);
+  assert.deepEqual(Object.keys((JSON.parse(list) as { children: Record<string, unknown>[] }).children[0]).sort(), ['activity', 'avatar', 'consent', 'consentVersion', 'displayName', 'grade', 'id', 'lastSeenAt', 'linkedAt']);
   assert.ok(!/real_name|school|pin_|login_code|Real Name/.test(prog), 'the progress response carries nothing private either');
 });
 
@@ -350,4 +350,25 @@ test('the parent progress view renders every part of a ProgressResponse in the t
   assert.ok(MOCK_PROGRESS.tests.length === 0 || text.includes('Recent tests'));
   assert.ok(text.includes(MOCK_PROGRESS.nextStep.title));
   assert.ok(!/\b(you|your)\b/i.test(text.replace(MOCK_PROGRESS.nextStep.title, '').replace(MOCK_PROGRESS.nextStep.reason, '')), 'no learner-voice wording of its own');
+});
+
+test('the children list carries each child\'s activity (answers this week, days practised, last practised) from the answers themselves', async (ctx) => {
+  const x = await openParentsDb(); if (!x) return ctx.skip('node:sqlite unavailable');
+  const { withActivity, listChildren } = await import('./links');
+  await addStudent(x, 'child-0001', 'TIGER-4821', '4821', { name: 'Tiger Kid' });
+  await addStudent(x, 'child-0002', 'EAGLE-1111', '1111', { name: 'Eagle Kid' });
+  const mum = await addAdult(x, 'mum@example.com', ['parent']);
+  for (const s of ['child-0001', 'child-0002']) x.raw.prepare("INSERT INTO parent_links (user_id, student_id, method, linked_at) VALUES (?, ?, 'pin', 1)").run(mum.userId, s);
+  const D = 86_400_000;
+  const ins = x.raw.prepare("INSERT INTO attempts (student_id, task, section, grade, subject, topic, is_correct, xp_awarded, streak_at, created_at) VALUES ('child-0001', 'electric-circuits', 'general', 6, 'nst', 't', 1, 0, 0, ?)");
+  ins.run(NOW - 1 * D); ins.run(NOW - 1 * D + 1000); ins.run(NOW - 3 * D); ins.run(NOW - 10 * D); ins.run(NOW - 40 * D);
+  const kids = await withActivity(x.db, await listChildren(x.db, mum.userId), NOW);
+  const by = Object.fromEntries(kids.map((k) => [k.id, k.activity]));
+  assert.deepEqual(by['child-0001'], { answersThisWeek: 3, daysPractisedLast14: 3, lastPractisedAt: NOW - 1 * D + 1000 });
+  assert.deepEqual(by['child-0002'], { answersThisWeek: 0, daysPractisedLast14: 0, lastPractisedAt: null }, 'no answers: zeros and not yet, not missing');
+  // a read failure leaves the list as it was (no activity), never an error
+  const broken = { all: async () => { throw new Error('boom'); }, batch: async () => undefined };
+  const plain = await withActivity(broken, await listChildren(x.db, mum.userId), NOW);
+  assert.equal(plain.length, 2);
+  assert.ok(plain.every((k) => k.activity === undefined));
 });

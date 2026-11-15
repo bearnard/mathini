@@ -47,11 +47,12 @@ SELECT 'l', x.student_id, x.task, 0, '', '', 0, MAX(x.created_at), 0
   FROM attempts x JOIN due d ON d.s = x.student_id AND d.t = x.task GROUP BY x.student_id, x.task`;
 }
 
+// Due at night: a pair with NO cached row at all (history from before the cache existed, whatever its age: the self-heal for learners without runs),
+// or a pair with attempts from the last 3 days that are newer than its cached row.
 const DUE_NIGHTLY = `SELECT a.student_id AS s, a.task AS t FROM attempts a
   LEFT JOIN topic_progress p ON p.student_id = a.student_id AND p.task = a.task
-  WHERE a.created_at >= ?
   GROUP BY a.student_id, a.task
-  HAVING p.updated_at IS NULL OR MAX(a.created_at) > p.updated_at
+  HAVING p.updated_at IS NULL OR (MAX(a.created_at) >= ? AND MAX(a.created_at) > p.updated_at)
   ORDER BY MAX(a.created_at) DESC
   LIMIT ?`;
 const DUE_STUDENT = 'SELECT ? AS s, value AS t FROM json_each(?)';
@@ -118,6 +119,16 @@ export async function refreshForRun(db: AdminDb, studentId: string, tasks: reado
   if (rows.length === 0) return 0;
   await db.batch(rows.map((r) => upsertStatement(r, now)));
   return rows.length;
+}
+
+/**
+ * A learner with answers but no cached rows at all (their history is older than the cache, or they never finished a run): builds their rows now, so
+ * the first view of their progress is right instead of "nothing practised yet". One small read when there is nothing to do; otherwise one read and one
+ * batch for at most 30 tasks (the nightly job picks up the rest). Returns the rows written.
+ */
+export async function ensureProgressRows(db: AdminDb, studentId: string, now: number): Promise<number> {
+  const tasks = await db.all<{ task: string }>('SELECT task FROM attempts WHERE student_id = ? GROUP BY task ORDER BY MAX(created_at) DESC LIMIT 30', [studentId]);
+  return refreshForRun(db, studentId, tasks.map((t) => t.task), now);
 }
 
 /**

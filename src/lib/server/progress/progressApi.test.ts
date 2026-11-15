@@ -178,3 +178,32 @@ test('the exam scope lists exactly the topics of the Grade 6 NST exam practice p
   const tasks = [...src.matchAll(/task: '([a-z-]+)'/g)].map((m) => m[1]);
   assert.deepEqual([...EXAM_SCOPES[0].tasks], tasks);
 });
+
+// ---------- the owner's bug: answers but no topic_progress rows and no runs (Anfervio: 20 answers, "No topics practised yet") ----------
+test('a learner with answers but NO cached rows and NO runs is built on the first view, not shown as "nothing practised"', async (ctx) => {
+  const t = await setup(); if (!t) return ctx.skip('node:sqlite unavailable');
+  practise(t, 'electric-circuits', '1101110110011101110', { start: NOW - 2 * D, stepMs: 600_000 }); // 19 answers on one topic, no run
+  practise(t, 'electric-circuits', '1', { start: NOW - 2 * D + 20 * 600_000 });
+  assert.equal(Number((await t.db.all<{ n: number }>('SELECT COUNT(*) AS n FROM topic_progress'))[0].n), 0, 'precondition: the cache is empty');
+  assert.equal(Number((await t.db.all<{ n: number }>('SELECT COUNT(*) AS n FROM runs'))[0].n), 0, 'precondition: no runs');
+  const p = await buildProgress(t.db, 's1', NOW);
+  assert.ok(p);
+  assert.ok(p.subjects.length > 0, 'subjects are shown');
+  assert.ok(p.subjects.flatMap((s) => s.topics).some((x) => x.task === 'electric-circuits' && x.attempts === 20));
+  assert.ok(p.exam && p.exam.topicsPractised >= 1, 'exam readiness has something to go on');
+  assert.equal(Number((await t.db.all<{ n: number }>('SELECT COUNT(*) AS n FROM topic_progress'))[0].n), 1, 'the cache now has the row');
+  assert.ok((p.recentSessions ?? []).length === 1 && p.recentSessions![0].answered === 20, 'one session of 20 answers');
+  // other learners are untouched
+  assert.equal(Number((await t.db.all<{ n: number }>("SELECT COUNT(*) AS n FROM topic_progress WHERE student_id = 's2'"))[0].n), 0);
+});
+
+test('recent sessions: one per run, or per topic per day outside a run; newest first, at most 5, scores rounded', async () => {
+  const { recentSessionsOf } = await import('./progressApi');
+  const r = (task: string, ok: number, at: number, run: string | null = null) => ({ task, is_correct: ok, created_at: at, run_id: run });
+  const rows = [r('electric-circuits', 1, NOW), r('electric-circuits', 0, NOW - 1000), r('electric-circuits', 1, NOW - 2000), r('mains-electricity', 1, NOW - 3 * D), r('x', 1, NOW - 4 * D, 'run-1'), r('mains-electricity', 0, NOW - 4 * D - 1000, 'run-1')];
+  const s = recentSessionsOf(rows, 6);
+  assert.equal(s.length, 3);
+  assert.deepEqual([s[0].answered, s[0].correct, s[0].scorePct], [3, 2, 67]);
+  assert.match(s[2].label, / and 1 more$/);
+  assert.equal(recentSessionsOf(Array.from({ length: 12 }, (_, i) => r('a', 1, NOW - i * 2 * D)), 6).length, 5);
+});

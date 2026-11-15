@@ -109,9 +109,10 @@ test('nightly: refreshes learner-and-task pairs with attempts newer than their c
   assert.equal((await refreshNightly(t.db, now + 3 * D, 0)).refreshed, 0);
 });
 
-test('nightly ignores activity older than the look-back (it was refreshed when it happened)', async (ctx) => {
+test('nightly ignores activity older than the look-back when the pair already has a cached row (it was refreshed when it happened)', async (ctx) => {
   const t = await setup(); if (!t) return ctx.skip('node:sqlite unavailable');
   seed(t, { bits: '11', start: T0 });
+  assert.equal(await refreshForRun(t.db, 's1', ['electric-circuits'], T0 + 1000), 1);
   assert.equal((await refreshNightly(t.db, T0 + 10 * D)).refreshed, 0);
 });
 
@@ -170,4 +171,25 @@ test('statementToSql quotes strings, escapes quotes, writes NULL and numbers, an
   t.raw.exec(sql); // idempotent
   assert.equal((await t.db.all('SELECT 1 FROM topic_progress')).length, 1);
   assert.equal(statementToSql({ sql: 'SELECT ?, ?, ?', params: [null, 3, "a'b"] }), "SELECT NULL, 3, 'a''b';");
+});
+
+test('the nightly job also builds rows for OLD history that has no cached row (learners who never finished a run), at most `limit` of them', async (ctx) => {
+  const t = await setup(); if (!t) return ctx.skip('node:sqlite unavailable');
+  const old = T0 - 90 * D; // far outside the 3-day lookback
+  seed(t, { bits: '1101', start: old, task: 'electric-circuits' });
+  seed(t, { bits: '1', start: old, task: 'mains-electricity' });
+  seed(t, { student: 's2', bits: '10', start: old, task: 'electric-circuits' });
+  assert.equal((await refreshNightly(t.db, T0, 2)).refreshed, 2, 'the limit holds');
+  assert.equal((await refreshNightly(t.db, T0 + 1000)).refreshed, 1, 'the rest follow the next night');
+  assert.equal((await refreshNightly(t.db, T0 + 2000)).refreshed, 0, 'and then nothing is due: old history with a row is not redone');
+  assert.equal(Number((await t.db.all<{ n: number }>('SELECT COUNT(*) AS n FROM topic_progress'))[0].n), 3);
+});
+
+test('ensureProgressRows builds one learner\'s rows, does nothing for a learner without answers, and is a no-op the second time', async (ctx) => {
+  const t = await setup(); if (!t) return ctx.skip('node:sqlite unavailable');
+  const { ensureProgressRows } = await import('./topicProgress');
+  seed(t, { bits: '110', start: T0 - 60 * D });
+  assert.equal(await ensureProgressRows(t.db, 's2', T0), 0);
+  assert.equal(await ensureProgressRows(t.db, 's1', T0), 1);
+  assert.equal((await progress(t))?.attempts, 3);
 });

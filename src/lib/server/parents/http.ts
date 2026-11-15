@@ -7,7 +7,7 @@ import { readCapped } from '../adultAuth/http';
 import { authJson, checkWriteRequest, requireRole } from '../adultAuth/roles';
 import { verifyLiveSession, SESSION_COOKIE_NAME } from '../session';
 import { setParentConsent } from './consent';
-import { createInvite, isLinked, linkByInvite, linkByPin, listChildren, unlink } from './links';
+import { createInvite, isLinked, linkByInvite, linkByPin, listChildren, unlink, withActivity } from './links';
 import { resetChildPin } from './pinReset';
 import { loadChildProgress } from './progressSeam';
 
@@ -56,7 +56,7 @@ export async function handleListChildren(req: Request, deps: ParentDeps): Promis
   try {
     const g = await requireRole(req, deps.db, ['parent'], deps.now);
     if (!g.ok) return g.response;
-    return authJson({ children: await listChildren(deps.db, g.session.user.id) });
+    return authJson({ children: await withActivity(deps.db, await listChildren(deps.db, g.session.user.id), deps.now) });
   } catch (err) {
     return failed(deps, 'list', err);
   }
