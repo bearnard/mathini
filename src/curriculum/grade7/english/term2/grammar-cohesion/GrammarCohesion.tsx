@@ -7,7 +7,6 @@ import { LINKS, POSTER, REVISED, SPEAKER, linkSentence, taggedText, toAdverb } f
 // Adverb forms and linked sentences come from grade7english.ts (tested).
 const adverbs = ['careful', 'quick', 'happy'].map((a) => `${a} → ${toAdverb(a)}`);
 const because = LINKS[0];
-const therefore = LINKS[2];
 
 const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
@@ -34,7 +33,7 @@ const learnSteps: LearnStep[] = [
     title: 'Adverbs describe actions',
     content: slide(
       <>
-        <Rule>An <strong>adverb</strong> tells us how an action happens. Many adverbs are made by adding -ly to an adjective: {adverbs.join('; ')}.</Rule>
+        <Rule>An <strong>adverb</strong> tells us how, when or where an action happens. Many adverbs are made by adding -ly to an adjective: {adverbs.join('; ')}.</Rule>
         <TaggedSentence tokens={SPEAKER} roles={['noun', 'verb', 'adverb']} />
         <Worked
           title="“She explained the rule ___ so everyone understood.”"
@@ -77,7 +76,7 @@ const learnSteps: LearnStep[] = [
           steps={[
             <>Strong evidence is the cause. Accepting the argument is what followed.</>,
             <>A result needs “<strong>therefore</strong>”, not “instead”, “meanwhile” or “perhaps”.</>,
-            <>“{linkSentence(therefore)}”</>,
+            <>“The evidence was strong; <strong>therefore</strong>, the class accepted the argument.”</>,
           ]}
         />
         <Mistake>Using a random word as a link: “Banana, their passing improved.” A link must be a real connecting word that fits the meaning.</Mistake>

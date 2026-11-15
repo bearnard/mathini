@@ -9,7 +9,7 @@ export const isComplete = (a: FeatureAnswer): boolean => [a.feature, a.evidence,
 
 export const SHORT: FeatureAnswer = {
   feature: 'Short sentences',
-  evidence: 'Thandi froze. The door creaked. Footsteps.',
+  evidence: 'Thandi froze. The door creaked. Steps came.',
   effect: 'create urgency and match her panic',
 };
 

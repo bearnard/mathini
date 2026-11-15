@@ -24,7 +24,7 @@ const learnSteps: LearnStep[] = [
           steps={[
             <>Look for the gap between groups of lines. That marks a new stanza.</>,
             <>Stanza 1 is lines 1 to 4. Stanza 2 is lines 5 to 8.</>,
-            <>Stanza 1 is about a quiet morning walk. Stanza 2 shows the speaker arriving at Gogo’s gate.</>,
+            <>Stanza 1 is about a quiet morning walk. Stanza 2 shows Gogo waiting at the gate while the speaker walks on, sure of not being late.</>,
           ]}
         />
         <Mistake>Calling the whole poem a stanza. The stanza is one group of lines; a poem usually has several.</Mistake>
@@ -93,7 +93,7 @@ const learnSteps: LearnStep[] = [
           steps={[
             <>Poem theme: the speaker feels hopeful and loved because someone waits at the gate.</>,
             <>Story theme: honesty and responsibility solve problems.</>,
-            <>Link: both texts show characters facing a task. This poem is cheerful, while the story begins with worry. Quote evidence from each.</>,
+            <>Link: both texts show characters facing a task. This poem is cheerful, while the story builds tension before the relief at the end. Quote evidence from each.</>,
           ]}
         />
         <Mistake>Turning the comparison into a retelling or skipping evidence. Name the themes, compare them, and support each point from the texts.</Mistake>

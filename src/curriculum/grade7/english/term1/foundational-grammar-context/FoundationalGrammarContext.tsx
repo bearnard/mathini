@@ -36,7 +36,7 @@ const learnSteps: LearnStep[] = [
             <>“The {pluralOf('learner')} are reading quietly.”</>,
           ]}
         />
-        <Mistake>Writing “The team are ready.” because a team has many people. A team is one group, so it takes the singular verb: “The team {beForm(false)} ready for the debate.”</Mistake>
+        <Mistake>Treating a team as many separate people: “The team are ready.” When the team acts as one group, use the singular verb: “The team {beForm(false)} ready for the debate.”</Mistake>
       </>,
     ),
   },

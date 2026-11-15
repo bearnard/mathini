@@ -38,13 +38,13 @@ export const learnSteps: LearnStep[] = [
     title: 'Bullying and abuse: warning signs',
     content: slide(
       <>
-        <Rule>Bullying is repeated harmful behaviour toward someone. Abuse is when a person repeatedly threatens and controls another. One disagreement is not bullying.</Rule>
-        <Zones zones={[{ title: 'Argument', line: 'A single disagreement' }, { title: 'Bullying', line: 'Repeated harm' }, { title: 'Abuse', line: 'Threats and control' }]} aria="Three situations side by side: an argument is a single disagreement, bullying is repeated harm, abuse is threats and control." />
+        <Rule>Bullying is repeated harmful behaviour toward someone. Abuse is when a person harms, threatens or controls another, and it can happen once or many times. One disagreement is not bullying.</Rule>
+        <Zones zones={[{ title: 'Argument', line: 'A single disagreement' }, { title: 'Bullying', line: 'Repeated harm' }, { title: 'Abuse', line: 'Harm, threats, control' }]} aria="Three situations side by side: an argument is a single disagreement, bullying is repeated harm, abuse is harm, threats or control." />
         <Worked
           title="A classmate mocks Naledi's lunch every day and takes her pens"
           steps={[<>Is it harmful? Yes.</>, <>Is it repeated? Yes, every day.</>, <>So it is bullying, not a joke.</>, <>Naledi should tell a trusted adult.</>]}
         />
-        <Mistake>Treating helpful feedback, a coach explaining safety rules or a friend asking for homework help as bullying or abuse. Look for harm that repeats, with threats or control.</Mistake>
+        <Mistake>Treating helpful feedback, a coach explaining safety rules or a friend asking for homework help as bullying or abuse. Look for harm, threats or control. Repetition marks bullying, but one serious act of abuse must still be reported.</Mistake>
       </>,
     ),
   },

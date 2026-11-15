@@ -5,8 +5,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { CONTEXT, SHORT, isComplete, sentenceLengths, wordCount } from './featureEffect';
 import { learnSteps } from '../../../curriculum/grade9/english/term4/grammar-literature-consolidation/GrammarLiteratureConsolidationSlides';
 
-test('the short-sentence evidence really has short sentences (2, 3 and 1 words)', () => {
-  assert.deepEqual(sentenceLengths(SHORT.evidence), [2, 3, 1]);
+test('the short-sentence evidence really has short sentences (2, 3 and 2 words)', () => {
+  assert.deepEqual(sentenceLengths(SHORT.evidence), [2, 3, 2]);
   assert.equal(wordCount('  one  two '), 2);
 });
 
