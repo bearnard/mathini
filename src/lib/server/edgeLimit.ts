@@ -24,7 +24,7 @@ export const EDGE_LIMITED_MESSAGE = 'You are going a little fast. Please wait a 
 export const EDGE_RETRY_AFTER_SECONDS = 10;
 
 /** The named routes that are limited (part of every key). */
-export const EDGE_ROUTES = ['attempts', 'students', 'session', 'auth-request', 'runs', 'teacher-review'] as const;
+export const EDGE_ROUTES = ['attempts', 'students', 'session', 'auth-request', 'runs', 'teacher-review', 'demo'] as const;
 export type EdgeRoute = (typeof EDGE_ROUTES)[number];
 
 /** The client address Cloudflare saw, or 'unknown'. */
