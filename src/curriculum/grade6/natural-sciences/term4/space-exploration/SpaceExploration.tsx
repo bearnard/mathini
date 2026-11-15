@@ -58,7 +58,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          A <strong>rocket</strong> burns fuel and shoots hot gas downwards. This pushes the rocket <strong>upwards</strong>, fast enough to escape Earth&apos;s gravity.
+          A <strong>rocket</strong> burns fuel and shoots hot gas downwards. This pushes the rocket <strong>upwards</strong>, fast enough to climb up through the air and reach space.
         </p>
         <p className="rounded-xl bg-rose-50 p-5 font-semibold text-rose-700">
           There is no air in space, so a rocket carries its own oxygen to burn its fuel.

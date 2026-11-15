@@ -28,7 +28,7 @@ const learnSteps: LearnStep[] = [
         <p className="rounded-xl bg-slate-50 p-5 text-slate-700">
           Make up a sentence to remember them, such as <em>My Very Eager Mother Just Served Us Noodles</em>.
         </p>
-        <p className="text-slate-500">Mercury is closest to the Sun. Neptune is the farthest planet.</p>
+        <p className="text-slate-500">Mercury is closest to the Sun. Neptune is the farthest planet. The picture is not to scale: the real distances are huge.</p>
       </div>
     ),
   },
@@ -56,7 +56,7 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-sky-50 p-5 text-sky-800">
             <strong>Outer planets</strong>
             <br />Jupiter, Saturn, Uranus, Neptune
-            <br />Very large <strong>gas giants</strong>, with no solid surface to stand on
+            <br />Very large <strong>gas giants</strong> (Uranus and Neptune are icier), with no solid surface to stand on
           </div>
         </div>
         <p className="text-slate-500">The <strong>asteroid belt</strong> lies between Mars and Jupiter.</p>
