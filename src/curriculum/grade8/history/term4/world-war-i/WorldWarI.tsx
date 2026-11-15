@@ -1,37 +1,125 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import Timeline from '@/components/subjects/Timeline';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { Compare, Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { TimelineStrip, TrenchSection } from '../../../../../components/diagrams/history/HistoryPictures';
+import { WW1_EVENTS } from '../../../../../components/diagrams/history/historyHelpers';
+import { WW1_CAUSE_STEPS } from '../../../../../components/diagrams/history/steps';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Key Events — Timeline',
-    content: (
-      <div className="space-y-4">
-        <p className="text-lg text-slate-600 text-center">Follow the sequence of key events for this topic:</p>
-        <Timeline
-          events={[
-            {"date": "28 Jun 1914", "title": "Archduke Franz Ferdinand assassinated", "description": "The heir to the Austro-Hungarian throne was assassinated in Sarajevo. The killing triggered the alliance crisis that led to world war."},
-            {"date": "Aug 1914", "title": "War spreads across Europe", "description": "Alliance commitments drew many countries into the conflict after Austria-Hungary declared war on Serbia. What began as a regional crisis became a global war."},
-            {"date": "1914–1918", "title": "Trench warfare dominates", "description": "On the Western Front, armies fought from long trench systems defended by machine guns and artillery. Soldiers endured mud, disease, fear, and stalemate."},
-            {"date": "Jul 1916", "title": "Battle of Delville Wood", "description": "South African troops fought in a devastating battle during the Somme offensive in France. Delville Wood became a key symbol of South African sacrifice."},
-            {"date": "21 Feb 1917", "title": "SS Mendi sinks", "description": "The SS Mendi sank in the English Channel while carrying members of the South African Native Labour Corps. More than 600 Black South Africans died in the disaster."},
-            {"date": "11 Nov 1918", "title": "Armistice signed", "description": "Germany agreed to an armistice and fighting stopped on the Western Front. The war ended, but its human and political consequences continued."},
-            {"date": "1919", "title": "Treaty of Versailles signed", "description": "The peace treaty imposed harsh terms on Germany, including territorial losses and reparations. Many historians see it as a source of later tension in Europe."},
-          ]}
+    title: 'World War I: a timeline',
+    content: slide(
+      <>
+        <Rule>
+          World War I took place mainly between 1914 and 1918. The Treaty of Versailles followed in 1919.
+        </Rule>
+        <TimelineStrip events={WW1_EVENTS} id="ww1" title="World War I, 1914 to 1919" />
+        <Worked
+          title="Place the events"
+          steps={[<>28 June 1914: Archduke Franz Ferdinand is assassinated in Sarajevo, and the war follows within weeks.</>, <>11 November 1918: Germany agrees to an armistice and the fighting stops on the Western Front.</>, <>1919: the Treaty of Versailles. The war lasted from 1914 to 1918.</>]}
         />
-      </div>
+        <Mistake>Saying the war ended with the Treaty of Versailles. Fighting stopped with the armistice in 1918. The treaty followed in 1919.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'A global war with local South African links',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          World War I was shaped by nationalism, alliance systems, and industrial warfare. Learners investigate trench
-          life, propaganda, women&apos;s contributions, and South African stories including Delville Wood and the SS
-          Mendi, then connect the war to the Treaty of Versailles.
-        </p>
-      </div>
+    title: 'Nationalism and alliances',
+    content: slide(
+      <>
+        <Rule>
+          Nationalism is strong loyalty to a nation, which can unite people but also raise rivalry. Alliances drew more countries into the war after the initial conflicts.
+        </Rule>
+        <NumberedSteps steps={WW1_CAUSE_STEPS} tone="amber" label="How a crisis became a world war" />
+        <Worked
+          title="Explain the spread of the war"
+          steps={[<>A regional conflict started when Austria-Hungary declared war on Serbia.</>, <>Alliance commitments meant that other countries had promised to support their allies.</>, <>So a regional conflict became a broader war.</>]}
+        />
+        <Mistake>Thinking nationalism only unites people. It can unite people inside a country but also intensify tensions between countries.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Trench warfare',
+    content: slide(
+      <>
+        <Rule>
+          On the Western Front, soldiers fought from long ditches called trenches, in harsh conditions. Trenches were defensive systems marked by mud, danger and long stalemates.
+        </Rule>
+        <TrenchSection />
+        <Worked
+          title="Why was movement so slow?"
+          steps={[<>Both armies dug long trench systems defended by machine guns and artillery.</>, <>The land between the trenches, no man&apos;s land, was dangerous to cross.</>, <>So neither side could easily advance: a stalemate. Soldiers also endured mud, disease and fear.</>]}
+        />
+        <Mistake>Picturing trenches as short shelters. They were long defensive systems, stretching along the Western Front.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Propaganda and women',
+    content: slide(
+      <>
+        <Rule>
+          A main purpose of wartime propaganda was to sway public opinion and support for the war effort. Many women took up factory, transport and nursing work.
+        </Rule>
+        <Compare
+          left={{ title: 'Propaganda', tone: 'amber', rows: ['governments used posters and media', 'aim: to sway public opinion and support for the war effort', 'shaped attitudes and behaviour'] }}
+          right={{ title: 'Women at work', tone: 'emerald', rows: ['factory work', 'transport work', 'nursing and other support services'] }}
+        />
+        <Worked
+          title="Read a propaganda poster"
+          steps={[<>Ask who made it: a government wanting support for the war.</>, <>Ask what it wants you to do or feel.</>, <>Remember it is not a neutral record: its purpose is to influence the public.</>]}
+        />
+        <Mistake>Believing women played no part in the war. Women contributed widely to industry, healthcare and support services.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'South Africa and the end of the war',
+    content: slide(
+      <>
+        <Rule>
+          South Africans took part in the war. Delville Wood and the SS Mendi are key parts of South African war history. The Treaty of Versailles (1919) gave Germany harsh terms and territorial losses.
+        </Rule>
+        <Terms
+          rows={[
+            ['Delville Wood, July 1916', 'South African troops fought in a major and costly battle during the Somme offensive in France. It is a key memory site.'],
+            ['SS Mendi, 21 February 1917', 'the ship sank in the English Channel carrying members of the South African Native Labour Corps. More than 600 Black South Africans died.'],
+            ['Treaty of Versailles, 1919', 'Germany faced harsh terms, territorial losses and reparations. Many historians see it as a source of later tension.'],
+          ]}
+        />
+        <Worked
+          title="Link South Africa to the war"
+          steps={[<>Delville Wood was fought in France in 1916, so South Africans fought far from home.</>, <>The SS Mendi sank in 1917 while carrying Black South African troops.</>, <>After the war, the treaty shaped later tensions in Europe.</>]}
+        />
+        <Mistake>Thinking the war was only a European story. South African troops and labourers took part, and their sacrifice is remembered.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>World War I took place mainly between which years? What does nationalism refer to in this topic?</li>
+            <li>How did alliances affect the spread of the war? What best describes trench warfare on the Western Front?</li>
+            <li>What was a main purpose of wartime propaganda? Which statement about women in the war is most accurate?</li>
+            <li>Why is Delville Wood important? Why is the SS Mendi remembered? What was a major result of the Treaty of Versailles?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>1914 to 1918. Strong loyalty to a nation that can raise rivalry.</li>
+            <li>They drew more countries into war after initial conflicts. Soldiers fought from long ditches in harsh conditions.</li>
+            <li>To sway public opinion and support for the war effort. Many women took up factory, transport and nursing work.</li>
+            <li>South African troops fought there in a major and costly battle. It sank in 1917 while carrying many Black South African troops. Germany faced harsh terms and territorial losses after the war.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
