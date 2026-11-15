@@ -24,6 +24,6 @@ test('the public analytics block carries the before-paint marker and the slot CS
   const h = renderToStaticMarkup(createElement(PublicAnalytics));
   assert.match(h, /pp-ads-on/);
   assert.match(h, /\.pp-ad\{display:none\}/);
-  assert.ok(!/pagead2|adsbygoogle\.js/.test(h), 'the AdSense script is added by the loader only after Accept');
+  assert.ok(!/pagead2|adsbygoogle\.js/.test(h), 'the AdSense script is added by AdSlot only after Accept, never by this block');
   assert.match(h, /GTM-MNM3XGLP/, 'the Tag Manager noscript is still there');
 });
