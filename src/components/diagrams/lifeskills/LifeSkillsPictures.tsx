@@ -99,3 +99,27 @@ export const InvasionGame = () => (
     <T x={52} y={34} size={5} fill="#fef08a">pass</T>
   </svg>
 );
+
+/** Mixed media: three different materials layered in one artwork. */
+export const MixedMedia = () => (
+  <svg viewBox="0 0 160 84" role="img" aria-labelledby="ls-mm-t ls-mm-d" className={cls} style={st}>
+    <title id="ls-mm-t">Mixed media: more than one material in one artwork</title>
+    <desc id="ls-mm-d">Three layers overlap in one artwork: a smooth layer of paint, a rough layer of torn collage paper and a layer of woven fabric.</desc>
+    <rect x={10} y={10} width={80} height={52} rx={3} fill="#38bdf8" />
+    <path d="M50 22 L82 18 L96 32 L88 50 L64 56 L46 46 Z" fill="#fde68a" stroke="#f59e0b" strokeWidth={1} strokeDasharray="3 2" />
+    <g stroke="#7c2d12" strokeWidth={1}>
+      {[0, 1, 2, 3, 4].map((i) => (
+        <line key={i} x1={r3(72 + i * 7)} y1={30} x2={r3(72 + i * 7)} y2={74} />
+      ))}
+      {[0, 1, 2, 3, 4].map((i) => (
+        <line key={i} x1={72} y1={r3(30 + i * 11)} x2={100} y2={r3(30 + i * 11)} />
+      ))}
+    </g>
+    <rect x={72} y={30} width={28} height={44} fill="#fb923c" opacity={0.55} />
+    <T x={36} y={77} size={5.2} fill="#bae6fd">paint</T>
+    <T x={122} y={29} size={5.2} fill="#fde68a">collage paper</T>
+    <T x={122} y={63} size={5.2} fill="#fdba74">fabric</T>
+    <line x1={92} y1={27} x2={106} y2={27} stroke="#fde68a" strokeWidth={0.8} />
+    <line x1={100} y1={62} x2={108} y2={62} stroke="#fdba74" strokeWidth={0.8} />
+  </svg>
+);

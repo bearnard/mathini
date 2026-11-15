@@ -1,140 +1,113 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { MixedMedia } from '../../../../../components/diagrams/lifeskills/LifeSkillsPictures';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'South African cultural art tells stories',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Creative Arts learners explore how South African cultures express ideas through pattern, colour, song,
-          movement, and storytelling. Art can celebrate heritage while also showing personal creativity.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <strong className="text-sky-800">Cultural art</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-sky-700">
-              <span className="rounded-full bg-white px-3 py-1">heritage</span>
-              <span className="rounded-full bg-white px-3 py-1">symbols</span>
-              <span className="rounded-full bg-white px-3 py-1">meaning</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <strong className="text-emerald-800">Observation</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-emerald-700">
-              <span className="rounded-full bg-white px-3 py-1">look closely</span>
-              <span className="rounded-full bg-white px-3 py-1">notice pattern</span>
-              <span className="rounded-full bg-white px-3 py-1">see colour choices</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <strong className="text-amber-800">Respect</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-amber-700">
-              <span className="rounded-full bg-white px-3 py-1">learn context</span>
-              <span className="rounded-full bg-white px-3 py-1">value traditions</span>
-              <span className="rounded-full bg-white px-3 py-1">avoid mockery</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <strong className="text-violet-800">Expression</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-violet-700">
-              <span className="rounded-full bg-white px-3 py-1">share ideas</span>
-              <span className="rounded-full bg-white px-3 py-1">show feeling</span>
-              <span className="rounded-full bg-white px-3 py-1">tell a story</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'South African cultural art and respect',
+    content: slide(
+      <>
+        <Rule>
+          One purpose of South African cultural art is to express heritage, ideas and stories. To show respect, find out what the symbols and traditions mean.
+        </Rule>
+        <Worked
+          title="Look at a cultural artwork respectfully"
+          steps={[
+            <>Observe: look closely, notice the patterns and the colour choices.</>,
+            <>Ask: what do the symbols mean, and which tradition do they come from? Finding out the meaning shows respect.</>,
+            <>Learn the context and value the tradition. Do not mock it.</>,
+            <>The artwork expresses heritage, ideas and stories: it shares identity and lived experience.</>,
+          ]}
+        />
+        <Mistake>Judging a cultural artwork only by whether you like it. Respect starts with finding out what its symbols and traditions mean.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Mixed media combines materials and techniques',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Mixed media</strong> artworks use more than one material, such as paint, crayon, collage paper,
-          pencil, fabric, or found objects. Learners choose materials that help communicate texture, colour, and mood.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <strong className="text-blue-800">Materials</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-blue-700">
-              <span className="rounded-full bg-white px-3 py-1">paint</span>
-              <span className="rounded-full bg-white px-3 py-1">paper</span>
-              <span className="rounded-full bg-white px-3 py-1">fabric</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <strong className="text-rose-800">Texture</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-rose-700">
-              <span className="rounded-full bg-white px-3 py-1">smooth</span>
-              <span className="rounded-full bg-white px-3 py-1">rough</span>
-              <span className="rounded-full bg-white px-3 py-1">layered</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <strong className="text-lime-800">Composition</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-lime-700">
-              <span className="rounded-full bg-white px-3 py-1">arrangement</span>
-              <span className="rounded-full bg-white px-3 py-1">balance</span>
-              <span className="rounded-full bg-white px-3 py-1">focus point</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <strong className="text-orange-800">Creative choices</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-orange-700">
-              <span className="rounded-full bg-white px-3 py-1">colour</span>
-              <span className="rounded-full bg-white px-3 py-1">shape</span>
-              <span className="rounded-full bg-white px-3 py-1">pattern</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Mixed media and texture',
+    content: slide(
+      <>
+        <Rule>
+          Mixed media means using more than one material in one artwork, such as paint, collage paper and fabric. Artists layer rough and smooth materials to create texture and visual interest.
+        </Rule>
+        <MixedMedia />
+        <Worked
+          title="Plan a mixed-media artwork"
+          steps={[
+            <>Choose different materials: paint, collage paper and fabric.</>,
+            <>Layer them in one artwork, as in the picture.</>,
+            <>Put rough paper next to smooth paint: this creates texture and visual interest.</>,
+            <>Arrange the layers with balance and a focus point.</>,
+          ]}
+        />
+        <Mistake>Using one material and calling it mixed media. Mixed media needs more than one material in the same artwork.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Choral verse, singing, and movement work together',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Creative Arts also includes performance. Learners rehearse choral verse, songs, rhythm, and movement so the
-          group can present a short piece with confidence, timing, and expression.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <strong className="text-indigo-800">Choral verse</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-700">
-              <span className="rounded-full bg-white px-3 py-1">speak together</span>
-              <span className="rounded-full bg-white px-3 py-1">clear diction</span>
-              <span className="rounded-full bg-white px-3 py-1">shared rhythm</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <strong className="text-teal-800">Singing</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-teal-700">
-              <span className="rounded-full bg-white px-3 py-1">pitch</span>
-              <span className="rounded-full bg-white px-3 py-1">breathing</span>
-              <span className="rounded-full bg-white px-3 py-1">blend</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <strong className="text-fuchsia-800">Movement</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-fuchsia-700">
-              <span className="rounded-full bg-white px-3 py-1">body shapes</span>
-              <span className="rounded-full bg-white px-3 py-1">timing</span>
-              <span className="rounded-full bg-white px-3 py-1">space awareness</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <strong className="text-cyan-800">Rehearsal</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-cyan-700">
-              <span className="rounded-full bg-white px-3 py-1">practise again</span>
-              <span className="rounded-full bg-white px-3 py-1">improve timing</span>
-              <span className="rounded-full bg-white px-3 py-1">build confidence</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Choral verse and group performance',
+    content: slide(
+      <>
+        <Rule>
+          Choral verse is a group speaking lines together with rhythm and expression. A group performance sounds strong when you listen to each other and keep good timing.
+        </Rule>
+        <Worked
+          title="Perform a verse as a group"
+          steps={[
+            <>Choose a short poem and divide the lines.</>,
+            <>Speak together with clear diction and a shared rhythm.</>,
+            <>Listen to each other and keep good timing, so nobody rushes ahead.</>,
+            <>Add expression: change your voice to show the feeling of each line.</>,
+          ]}
+        />
+        <Mistake>Speaking as loudly and as fast as you can. Ensemble work depends on shared rhythm, listening and coordination.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Movement and rehearsal',
+    content: slide(
+      <>
+        <Rule>
+          Movement can show mood, rhythm and important ideas in a song or spoken piece. We rehearse to improve confidence, timing and expression.
+        </Rule>
+        <Worked
+          title="Add movement and rehearse"
+          steps={[
+            <>Choose a movement for an important idea, for example open arms for “welcome”.</>,
+            <>Match the movement to the mood and the rhythm of the piece.</>,
+            <>Rehearse again and again: practise and improve together.</>,
+            <>Each rehearsal builds confidence, timing and expression.</>,
+          ]}
+        />
+        <Mistake>Skipping rehearsal because you know the words. Rehearsal improves timing and confidence for the whole group.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is one purpose of South African cultural art? Which action shows respect?</li>
+            <li>What does mixed media mean? Why layer rough and smooth materials?</li>
+            <li>What is choral verse, and what helps a group performance sound strong?</li>
+            <li>How can movement add meaning? Why rehearse?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>To express heritage, ideas and stories. Finding out what the symbols and traditions mean.</li>
+            <li>Using more than one material in one artwork (paint, collage paper and fabric). To create texture and visual interest.</li>
+            <li>A group speaking lines together with rhythm and expression. Listening to each other and keeping good timing.</li>
+            <li>It can show mood, rhythm and important ideas. To improve confidence, timing and expression.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

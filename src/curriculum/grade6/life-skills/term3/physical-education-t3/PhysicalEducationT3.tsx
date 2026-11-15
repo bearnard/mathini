@@ -1,140 +1,124 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { FlowDiagram } from '../../../../../components/diagrams/science/SciencePictures4';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Moving safely in athletics',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Athletics activities such as running, jumping, and relays help learners build strength, coordination, and
-          endurance. Safe movement starts with warm-ups, controlled technique, and attention to space.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <strong className="text-sky-800">Warm-up</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-sky-700">
-              <span className="rounded-full bg-white px-3 py-1">raise heart rate</span>
-              <span className="rounded-full bg-white px-3 py-1">prepare muscles</span>
-              <span className="rounded-full bg-white px-3 py-1">prevent injury</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <strong className="text-emerald-800">Running</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-emerald-700">
-              <span className="rounded-full bg-white px-3 py-1">steady rhythm</span>
-              <span className="rounded-full bg-white px-3 py-1">forward focus</span>
-              <span className="rounded-full bg-white px-3 py-1">safe spacing</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <strong className="text-amber-800">Jumping</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-amber-700">
-              <span className="rounded-full bg-white px-3 py-1">bend knees</span>
-              <span className="rounded-full bg-white px-3 py-1">swing arms</span>
-              <span className="rounded-full bg-white px-3 py-1">soft landing</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <strong className="text-violet-800">Technique</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-violet-700">
-              <span className="rounded-full bg-white px-3 py-1">control</span>
-              <span className="rounded-full bg-white px-3 py-1">balance</span>
-              <span className="rounded-full bg-white px-3 py-1">practice</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Warm up and cool down',
+    content: slide(
+      <>
+        <Rule>
+          Warm up before athletics to prepare the body and lower the risk of injury: warm-ups increase blood flow and get muscles ready. After vigorous exercise, cool down with slower movement and gentle stretches.
+        </Rule>
+        <FlowDiagram
+          id="pe3"
+          title="A safe PE session"
+          desc="Three steps in order: warm up, main activity, cool down."
+          nodes={[
+            { id: 'w', label: 'warm up', x: 28, y: 50, color: '#fcd34d' },
+            { id: 'a', label: 'activity', x: 80, y: 50, color: '#86efac' },
+            { id: 'c', label: 'cool down', x: 132, y: 50, color: '#7dd3fc' },
+          ]}
+          edges={[
+            { from: 'w', to: 'a', label: '' },
+            { from: 'a', to: 'c', label: '' },
+          ]}
+        />
+        <Worked
+          title="Run a safe session"
+          steps={[
+            <>Warm up: raise your heart rate with gentle jogging and prepare your muscles.</>,
+            <>Do the main activity, such as running or jumping.</>,
+            <>Cool down: slow your movement and breathing and do gentle stretches.</>,
+            <>This helps the body recover safely after exercise.</>,
+          ]}
+        />
+        <Mistake>Stopping suddenly after hard exercise. Cool down with slower movement and gentle stretches.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Relays and indigenous games need teamwork',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          In relays and indigenous games, learners need to cooperate, wait for their turn, follow the rules, and
-          encourage one another. Team success depends on fair play and clear communication.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <strong className="text-blue-800">Relay</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-blue-700">
-              <span className="rounded-full bg-white px-3 py-1">baton pass</span>
-              <span className="rounded-full bg-white px-3 py-1">take turns</span>
-              <span className="rounded-full bg-white px-3 py-1">team timing</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <strong className="text-rose-800">Indigenous games</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-rose-700">
-              <span className="rounded-full bg-white px-3 py-1">local heritage</span>
-              <span className="rounded-full bg-white px-3 py-1">skill and fun</span>
-              <span className="rounded-full bg-white px-3 py-1">shared rules</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <strong className="text-lime-800">Cooperation</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-lime-700">
-              <span className="rounded-full bg-white px-3 py-1">encourage others</span>
-              <span className="rounded-full bg-white px-3 py-1">communicate</span>
-              <span className="rounded-full bg-white px-3 py-1">share roles</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <strong className="text-orange-800">Fair play</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-orange-700">
-              <span className="rounded-full bg-white px-3 py-1">honesty</span>
-              <span className="rounded-full bg-white px-3 py-1">respect rules</span>
-              <span className="rounded-full bg-white px-3 py-1">sportsmanship</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Running and jumping safely',
+    content: slide(
+      <>
+        <Rule>A safe jumping technique is to land softly with bent knees, which helps absorb impact and protects the body. When running, keep a steady rhythm and safe spacing.</Rule>
+        <Worked
+          title="Jump and land"
+          steps={[
+            <>Check you have safe spacing from others.</>,
+            <>Bend your knees and swing your arms to jump.</>,
+            <>Land softly with bent knees. Bending the knees absorbs the impact.</>,
+            <>Keep your balance and control, and practise.</>,
+          ]}
+        />
+        <Mistake>Landing with straight, stiff legs. Bent knees protect your body.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Flexibility and reaction time improve performance',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Flexibility helps muscles move through a full range, while reaction time helps the body respond quickly to a
-          signal. Both are important for safe, controlled movement in games and athletics.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <strong className="text-indigo-800">Flexibility</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-700">
-              <span className="rounded-full bg-white px-3 py-1">stretch safely</span>
-              <span className="rounded-full bg-white px-3 py-1">reach better</span>
-              <span className="rounded-full bg-white px-3 py-1">move freely</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <strong className="text-teal-800">Reaction time</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-teal-700">
-              <span className="rounded-full bg-white px-3 py-1">quick response</span>
-              <span className="rounded-full bg-white px-3 py-1">listen for signals</span>
-              <span className="rounded-full bg-white px-3 py-1">watch carefully</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <strong className="text-fuchsia-800">Body control</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-fuchsia-700">
-              <span className="rounded-full bg-white px-3 py-1">balance</span>
-              <span className="rounded-full bg-white px-3 py-1">coordination</span>
-              <span className="rounded-full bg-white px-3 py-1">focus</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <strong className="text-cyan-800">Recovery</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-cyan-700">
-              <span className="rounded-full bg-white px-3 py-1">cool down</span>
-              <span className="rounded-full bg-white px-3 py-1">slow breathing</span>
-              <span className="rounded-full bg-white px-3 py-1">gentle stretch</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Relays and indigenous games',
+    content: slide(
+      <>
+        <Rule>
+          In a relay race, pass the baton carefully to the next runner. A smooth baton pass keeps the team safe and moving well. Indigenous games are valuable because they build skill while connecting learners to local heritage.
+        </Rule>
+        <Worked
+          title="Pass the baton"
+          steps={[
+            <>Wait in your place and watch the runner come.</>,
+            <>Take turns: start when the runner reaches you.</>,
+            <>Pass the baton carefully, with a smooth baton pass.</>,
+            <>Indigenous games also build skill and fun, with shared rules, while connecting you to local heritage.</>,
+          ]}
+        />
+        <Mistake>Throwing the baton or rushing the pass. A careful pass keeps the team safe and moving well.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Flexibility, reaction time and fair play',
+    content: slide(
+      <>
+        <Rule>
+          Flexibility helps you move muscles and joints through a full range. Reaction time is how quickly you respond to a signal. Cooperation is encouraging teammates and following the plan. Fair play is being honest and respecting the rules.
+        </Rule>
+        <Worked
+          title="Match the skill"
+          steps={[
+            <>Reaching to touch your toes safely: flexibility, moving muscles and joints through a full range.</>,
+            <>Starting to run when you hear the whistle: reaction time, how quickly you respond to a signal.</>,
+            <>Encouraging teammates and following the plan: cooperation.</>,
+            <>Being honest and respecting the rules, with good sportsmanship: fair play.</>,
+          ]}
+        />
+        <Mistake>Thinking reaction time means how fast you run. It is how quickly you respond after seeing or hearing a cue.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Why warm up before athletics? What should you do after vigorous exercise?</li>
+            <li>Which action shows safe jumping technique?</li>
+            <li>What is important in a relay race? Why are indigenous games valuable?</li>
+            <li>What does flexibility help you do? What is reaction time, cooperation and fair play?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>To prepare the body and lower the risk of injury. Cool down with slower movement and gentle stretches.</li>
+            <li>Landing softly with bent knees.</li>
+            <li>Passing the baton carefully to the next runner. They build skill while connecting learners to local heritage.</li>
+            <li>Move muscles and joints through a full range. How quickly you respond to a signal. Encouraging teammates and following the plan. Being honest and respecting the rules.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

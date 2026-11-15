@@ -1,140 +1,111 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Respecting diversity in our communities',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          People in South Africa may have different <strong>cultures</strong>, languages, religions, and family
-          traditions. We build stronger communities when we respect differences and treat every person with dignity.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <strong className="text-sky-800">Diversity</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-sky-700">
-              <span className="rounded-full bg-white px-3 py-1">different identities</span>
-              <span className="rounded-full bg-white px-3 py-1">many viewpoints</span>
-              <span className="rounded-full bg-white px-3 py-1">shared respect</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <strong className="text-emerald-800">Culture</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-emerald-700">
-              <span className="rounded-full bg-white px-3 py-1">traditions</span>
-              <span className="rounded-full bg-white px-3 py-1">beliefs</span>
-              <span className="rounded-full bg-white px-3 py-1">customs</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <strong className="text-amber-800">Religion</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-amber-700">
-              <span className="rounded-full bg-white px-3 py-1">faith</span>
-              <span className="rounded-full bg-white px-3 py-1">worship</span>
-              <span className="rounded-full bg-white px-3 py-1">tolerance</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <strong className="text-violet-800">Stereotypes</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-violet-700">
-              <span className="rounded-full bg-white px-3 py-1">unfair labels</span>
-              <span className="rounded-full bg-white px-3 py-1">hurt feelings</span>
-              <span className="rounded-full bg-white px-3 py-1">must be challenged</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Diversity, culture and religion',
+    content: slide(
+      <>
+        <Rule>
+          Diversity means people have different backgrounds and identities. Show respect for another person’s culture or religion by listening politely and asking questions.
+        </Rule>
+        <Worked
+          title="Respect a classmate’s tradition"
+          steps={[
+            <>A classmate celebrates a festival that you do not know.</>,
+            <>Listen politely while they explain.</>,
+            <>Ask questions about their customs and beliefs.</>,
+            <>Treat their beliefs and customs with care and kindness: a shared respect that works with many viewpoints.</>,
+          ]}
+        />
+        <Mistake>Making fun of customs you do not know. Differences should be respected, not mocked.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Rights and responsibilities go together',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          A <strong>right</strong> protects people and helps them live well. A <strong>responsibility</strong> is what
-          we should do so that everyone can enjoy those rights fairly and safely.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <strong className="text-blue-800">Right</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-blue-700">
-              <span className="rounded-full bg-white px-3 py-1">education</span>
-              <span className="rounded-full bg-white px-3 py-1">safety</span>
-              <span className="rounded-full bg-white px-3 py-1">respect</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <strong className="text-rose-800">Responsibility</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-rose-700">
-              <span className="rounded-full bg-white px-3 py-1">follow rules</span>
-              <span className="rounded-full bg-white px-3 py-1">do your work</span>
-              <span className="rounded-full bg-white px-3 py-1">care for others</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <strong className="text-lime-800">Respectful choices</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-lime-700">
-              <span className="rounded-full bg-white px-3 py-1">listen fairly</span>
-              <span className="rounded-full bg-white px-3 py-1">share space</span>
-              <span className="rounded-full bg-white px-3 py-1">help others</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <strong className="text-orange-800">Community life</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-orange-700">
-              <span className="rounded-full bg-white px-3 py-1">fairness</span>
-              <span className="rounded-full bg-white px-3 py-1">cooperation</span>
-              <span className="rounded-full bg-white px-3 py-1">belonging</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Stereotypes',
+    content: slide(
+      <>
+        <Rule>
+          Stereotypes are harmful because they unfairly judge people without knowing them. They are unfair labels that hurt feelings and can divide communities.
+        </Rule>
+        <Worked
+          title="Challenge a stereotype"
+          steps={[
+            <>Someone says, “All people from that group are the same.” That is a stereotype.</>,
+            <>It judges people without knowing them.</>,
+            <>Challenge it: “I know people from that group and each one is different.”</>,
+            <>Get to know each person as an individual.</>,
+          ]}
+        />
+        <Mistake>Thinking a stereotype is harmless if it sounds like a joke. It is an unfair label that can hurt people.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Substance abuse awareness and healthy choices',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Harmful substances such as alcohol, tobacco, and drugs can damage the body, mind, and community. Good
-          decisions, strong boundaries, and asking trusted adults for help can keep learners safe.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <strong className="text-indigo-800">Harmful substances</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-700">
-              <span className="rounded-full bg-white px-3 py-1">alcohol</span>
-              <span className="rounded-full bg-white px-3 py-1">tobacco</span>
-              <span className="rounded-full bg-white px-3 py-1">drugs</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <strong className="text-teal-800">Warning signs</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-teal-700">
-              <span className="rounded-full bg-white px-3 py-1">poor judgement</span>
-              <span className="rounded-full bg-white px-3 py-1">risk-taking</span>
-              <span className="rounded-full bg-white px-3 py-1">health harm</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <strong className="text-fuchsia-800">Peer pressure</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-fuchsia-700">
-              <span className="rounded-full bg-white px-3 py-1">say no</span>
-              <span className="rounded-full bg-white px-3 py-1">walk away</span>
-              <span className="rounded-full bg-white px-3 py-1">choose wisely</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <strong className="text-cyan-800">Support</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-cyan-700">
-              <span className="rounded-full bg-white px-3 py-1">trusted adult</span>
-              <span className="rounded-full bg-white px-3 py-1">teacher</span>
-              <span className="rounded-full bg-white px-3 py-1">health worker</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Rights and responsibilities',
+    content: slide(
+      <>
+        <Rule>
+          A right protects people and helps them live well. A responsibility is something you should do to help others and follow rules. Rights work best when people also act responsibly, and a respectful, responsible community becomes stronger when people feel safe, included and willing to cooperate.
+        </Rule>
+        <Worked
+          title="Match a right to a responsibility"
+          steps={[
+            <>Right: the right to education.</>,
+            <>Responsibility: attend school and do your best.</>,
+            <>A right with a responsibility works best together.</>,
+            <>When everyone does this, people feel safe, included and willing to cooperate, so the community grows stronger.</>,
+          ]}
+        />
+        <Mistake>Claiming a right and ignoring the matching responsibility. Rights and responsibilities go together.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Harmful substances and saying no',
+    content: slide(
+      <>
+        <Rule>
+          Substance abuse is dangerous: alcohol, tobacco and drugs can harm health, judgement and relationships. If someone pressures you, say no firmly and move away to a safe place. If you are worried, talk to a trusted adult.
+        </Rule>
+        <Worked
+          title="Respond to pressure"
+          steps={[
+            <>Someone pressures you to try a harmful substance.</>,
+            <>Say no firmly.</>,
+            <>Move away to a safe place: refusing clearly and leaving protects your health and safety.</>,
+            <>Talk to a trusted adult, such as a parent, teacher or counsellor, who can give support and help.</>,
+          ]}
+        />
+        <Mistake>Staying in the group to avoid being laughed at. Say no and leave; your health and safety come first.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What does diversity mean in a community? Which action shows respect for another person’s culture or religion?</li>
+            <li>Why are stereotypes harmful?</li>
+            <li>Give a right with a matching responsibility. What does a responsibility mean? How does a respectful community become stronger?</li>
+            <li>Why is substance abuse dangerous? What do you do if pressured, and who do you talk to if worried?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>People have different backgrounds and identities. Listening politely and asking questions.</li>
+            <li>They unfairly judge people without knowing them.</li>
+            <li>Right to education: attend school and do your best. Something you should do to help others and follow rules. People feel safe, included and willing to cooperate.</li>
+            <li>It can harm health, judgement and relationships. Say no firmly and move away to a safe place. A trusted adult.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
