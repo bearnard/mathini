@@ -1,17 +1,115 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { EnergyHill, HeatTransfer } from '../../../../../components/diagrams/science/SciencePictures';
+import { efficiency, wasted } from '../../../../../components/diagrams/science/scienceHelpers';
+
+// The kettle example: every number comes from tested helpers (scienceHelpers.test.ts).
+const energyIn = 1000;
+const energyUseful = 800;
+const kettle = efficiency(energyUseful, energyIn);
+const lost = wasted(energyUseful, energyIn);
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Track energy transfer in heat and motion systems',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Energy can be stored as <strong>kinetic</strong> or <strong>potential</strong> and transferred by
-          <strong> conduction, convection,</strong> and <strong>radiation</strong>. Learners evaluate insulation
-          ideas and explain why efficiency matters in real systems.
-        </p>
-      </div>
+    title: 'Kinetic and potential energy',
+    content: slide(
+      <>
+        <Rule>
+          <strong>Kinetic</strong> energy is the energy an object has because of its motion. <strong>Potential</strong> energy is energy stored, for example by raising an object.
+        </Rule>
+        <EnergyHill />
+        <Worked
+          title="A ball rolls down a slope"
+          steps={[
+            <>At the top the ball is high up and still: it has the most potential energy.</>,
+            <>As it rolls down, it speeds up: its kinetic energy grows.</>,
+            <>Kinetic energy increases when an object moves faster.</>,
+          ]}
+        />
+        <Mistake>Saying a ball at rest has no energy. A raised ball stores potential energy that can turn into movement.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'How heat travels',
+    content: slide(
+      <>
+        <Rule>
+          Heat moves in three ways: by <strong>conduction</strong> through touching particles in solids, by <strong>convection</strong> in moving liquids and gases, and by <strong>radiation</strong>.
+        </Rule>
+        <HeatTransfer />
+        <Worked
+          title="Name the way heat travels"
+          steps={[
+            <>A spoon gets hot in a pot of soup: conduction, heat moves through direct contact in the solid.</>,
+            <>Warm air rises in a room: convection, because the air itself moves.</>,
+            <>Sunlight warms the Earth: radiation. It can travel through empty space without particles.</>,
+          ]}
+        />
+        <Mistake>Saying that heat rises. It is the warm air or water that rises, and that is convection.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Insulators and conductors',
+    content: slide(
+      <>
+        <Rule>A thermal <strong>conductor</strong> lets heat pass easily. A thermal <strong>insulator</strong> slows heat transfer. Foam is commonly used as an insulator because it traps air.</Rule>
+        <Worked
+          title="Keeping a drink hot"
+          steps={[
+            <>Metal is a good conductor, so a metal cup loses heat quickly to your hand and the air.</>,
+            <>A foam cup traps air, and trapped air slows the transfer of heat.</>,
+            <>So the drink stays warm for longer in the foam cup.</>,
+          ]}
+        />
+        <Mistake>Thinking insulators make things cold. An insulator only slows heat transfer, so it also keeps a cold drink cold.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Why efficiency matters',
+    content: slide(
+      <>
+        <Rule>
+          Efficiency compares the useful energy out with the total energy put in. An efficient kettle uses less electrical energy to heat the same water.
+        </Rule>
+        <Worked
+          title="A kettle uses 1 000 J of electrical energy"
+          steps={[
+            <>{energyUseful} J of it heats the water: that is the useful part.</>,
+            <>The other {lost} J is wasted as heat in the kettle and the air.</>,
+            <>{energyUseful} out of {energyIn} is <strong>{kettle}%</strong> efficient. A kettle that wastes less is more efficient.</>,
+          ]}
+        />
+        <Mistake>Thinking an efficient machine is a powerful one. Efficient means little energy is wasted.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Kinetic energy is the energy an object has because of what?</li>
+            <li>Name the three ways heat travels. Which one is warm air rising in a room?</li>
+            <li>How does heat from the Sun reach Earth? Name a material used as an insulator.</li>
+            <li>What is an efficient kettle?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Its motion.</li>
+            <li>Conduction, convection and radiation. Warm air rising is convection.</li>
+            <li>By radiation. Foam is an insulator.</li>
+            <li>One that uses less electrical energy to heat the same water.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

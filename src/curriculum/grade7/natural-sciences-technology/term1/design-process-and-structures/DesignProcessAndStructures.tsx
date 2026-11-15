@@ -1,17 +1,113 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
+import { BracedFrame, StructureTypes, TensionCompression } from '../../../../../components/diagrams/science/SciencePictures';
+import { IDMEC_STEPS } from '../../../../../components/diagrams/science/steps';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Use IDMEC to design stronger structures',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Technology tasks use the <strong>IDMEC</strong> process: investigate, design, make, evaluate, and
-          communicate. Learners compare <strong>frame, shell,</strong> and <strong>solid structures</strong> and
-          explain how <strong>tension</strong> and <strong>compression</strong> affect stability.
-        </p>
-      </div>
+    title: 'The IDMEC design process',
+    content: slide(
+      <>
+        <Rule>
+          Technology uses the <strong>IDMEC</strong> process: Investigate, Design, Make, Evaluate, Communicate. You always start by investigating the problem.
+        </Rule>
+        <NumberedSteps steps={IDMEC_STEPS} tone="blue" label="The IDMEC process" />
+        <Worked
+          title="A school needs a shelter for bicycles"
+          steps={[
+            <>Investigate the problem: how many bicycles, how much space, and what it must keep out (rain, sun).</>,
+            <>Design: sketch ideas and choose the best one.</>,
+            <>Make a model. Then evaluate: during evaluate you check the model against the design criteria, for example &quot;keeps the rain off&quot;.</>,
+          ]}
+        />
+        <Mistake>Starting to build before investigating. Design begins with understanding the needs, the limits and the context.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Frame, shell and solid structures',
+    content: slide(
+      <>
+        <Rule>
+          A <strong>frame</strong> structure is bars joined together. A <strong>shell</strong> structure is a thin outer surface that holds its shape and load. A <strong>solid</strong> structure is solid all the way through.
+        </Rule>
+        <StructureTypes />
+        <Worked
+          title="Sort three structures"
+          steps={[
+            <>A bicycle frame is made of joined bars: a frame structure.</>,
+            <>A cooldrink can is a thin metal surface, hollow inside: a shell structure.</>,
+            <>A concrete block is the same material right through: a solid structure.</>,
+          ]}
+        />
+        <Mistake>Thinking a shell is solid. A can is a thin surface with air inside, and the surface does the work of holding the load.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Tension and compression',
+    content: slide(
+      <>
+        <Rule>
+          <strong>Tension</strong> is a force that pulls and stretches a structure. <strong>Compression</strong> is a force that squeezes it, pushing inward.
+        </Rule>
+        <TensionCompression />
+        <Worked
+          title="Name the force"
+          steps={[
+            <>The chain of a swing is pulled by the seat and the bolt: tension.</>,
+            <>A pillar holding up a roof is pushed down by the roof and up by the ground: compression.</>,
+          ]}
+        />
+        <Mistake>Mixing the two up. They are opposites: tension pulls apart and stretches, compression pushes together and shortens.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Triangles make frames rigid',
+    content: slide(
+      <>
+        <Rule>
+          Triangles increase rigidity and reduce wobbling. A frame made of triangles keeps its shape under force, and a wide base makes a structure more stable.
+        </Rule>
+        <BracedFrame />
+        <Worked
+          title="Stop a square gate from folding"
+          steps={[
+            <>A square frame can fold sideways into a slanted shape when pushed.</>,
+            <>Add a diagonal brace from one corner to the opposite corner.</>,
+            <>The brace splits the square into two triangles, and a triangle cannot change shape without bending a bar.</>,
+          ]}
+        />
+        <Mistake>Thinking a thicker bar fixes wobble. A brace that makes triangles works better than only making the bars thicker.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is usually the first step of IDMEC?</li>
+            <li>In IDMEC, when do you check whether the design met the criteria?</li>
+            <li>What is the force that pulls and stretches? And the force that squeezes?</li>
+            <li>Why are triangles used in frame structures?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Investigate the problem.</li>
+            <li>During evaluate.</li>
+            <li>Tension pulls and stretches. Compression squeezes.</li>
+            <li>They increase rigidity and reduce wobbling.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
