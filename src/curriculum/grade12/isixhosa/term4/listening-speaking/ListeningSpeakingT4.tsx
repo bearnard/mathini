@@ -1,77 +1,8 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
-import type { LearnStep } from '@/components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './ListeningSpeakingT4.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Final oral SBA: evidence and self-assessment',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Final oral preparation should be guided by the rubric and by evidence from your previous tasks.</p>
-        <div className="grid gap-3 text-left md:grid-cols-2">
-          <div className="rounded-xl bg-indigo-50 p-4"><strong className="text-indigo-700">Use the mark sheet</strong><p className="text-slate-600">Check criteria such as content, pronunciation, fluency, and register.</p></div>
-          <div className="rounded-xl bg-emerald-50 p-4"><strong className="text-emerald-700">Review evidence</strong><p className="text-slate-600">Listen to recordings, read feedback, and note what improved or still needs work.</p></div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Listening comprehension revision: recall strategies',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Revision listening tasks become easier when information is organised mentally.</p>
-        <div className="grid gap-3 text-left md:grid-cols-3">
-          <div className="rounded-xl bg-blue-50 p-4"><strong className="text-blue-700">Chunking</strong><p className="text-slate-600">Group details into smaller units.</p></div>
-          <div className="rounded-xl bg-purple-50 p-4"><strong className="text-purple-700">Signal words</strong><p className="text-slate-600">Listen for firstly, however, finally, and similar markers.</p></div>
-          <div className="rounded-xl bg-amber-50 p-4"><strong className="text-amber-700">Past papers</strong><p className="text-slate-600">Practise with exam-style recordings and questions.</p></div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Spoken fluency: reducing hesitation and error',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Fluency improves when you pause strategically and recover from mistakes calmly.</p>
-        <div className="grid gap-3 text-left md:grid-cols-2">
-          <div className="rounded-xl bg-rose-50 p-4"><strong className="text-rose-700">Formulaic phrases</strong><p className="text-slate-600">Use phrases like &quot;Ndiyathetha malunga ne...&quot; to begin smoothly.</p></div>
-          <div className="rounded-xl bg-slate-100 p-4"><strong className="text-slate-700">Self-correction</strong><p className="text-slate-600">Correct the error briefly and continue, rather than stopping completely.</p></div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Register control in final oral tasks',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Final oral tasks should sound formal, accurate, and appropriate to an exam setting.</p>
-        <div className="grid gap-3 text-left md:grid-cols-2">
-          <div className="rounded-xl bg-amber-50 p-4"><strong className="text-amber-700">Avoid</strong><p className="text-slate-600">Slang, code-switching, and unfinished sentences in assessed responses.</p></div>
-          <div className="rounded-xl bg-emerald-50 p-4"><strong className="text-emerald-700">Aim for</strong><p className="text-slate-600">Controlled vocabulary, clear sentence structure, and accurate pronunciation.</p></div>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these formal oral-task words before speeches, interviews, summaries, or discussions.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Intetho"} phonetic={"[in'tɛːtʰɔ]"} meaning={"Speech"} lang="xh" />
-          <PronunciationPlayer word={"Ingxoxo"} phonetic={"[iŋ'xɔxɔ]"} meaning={"Discussion"} lang="xh" />
-          <PronunciationPlayer word={"Udliwano-ndlebe"} phonetic={"[udli'wanɔ ndlɛbɛ]"} meaning={"Interview"} lang="xh" />
-          <PronunciationPlayer word={"Phulaphula"} phonetic={"[pʰula'pʰula]"} meaning={"Listen"} lang="xh" />
-          <PronunciationPlayer word={"Thetha"} phonetic={"[tɛta]"} meaning={"Speak"} lang="xh" />
-          <PronunciationPlayer word={"Isishwankathelo"} phonetic={"[isiʃwaŋka'tʰeːlɔ]"} meaning={"Summary"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 type RawItem = { id: string; question: string; options: string[]; answer: number; explanation: string };
 
