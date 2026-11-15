@@ -32,6 +32,7 @@ import { numericOkFor, FACT_GUARD } from "../src/lib/server/topUp";
 import { batchesFor, BATCH_INSTRUCTIONS } from "../src/lib/server/caps/batches";
 import { usableScope } from "../src/lib/server/caps/scope";
 import { decimalPolicyFor } from "../src/lib/server/caps/formatPolicy";
+import { registerAiStatements } from "../src/lib/server/questions/register";
 import {
   AuthAbort, AuthError, HttpError, RunStats, createAuthGuard, isAuthStatus, parseOauthToken, processTaskItems, retryTransient, taskOutcome,
 } from "../src/lib/server/seedRuntime";
@@ -638,6 +639,12 @@ async function d1Insert(
     }),
   });
   if (!res.ok) throw new HttpError(res.status, `D1 insert: ${await res.text()}`);
+  // Register the stored row in questions / question_versions so it is served from D1 at once (idempotent statements, one REST call each).
+  // Best effort: a failure only means the row is registered later (first answer, or scripts/question-register-pool.ts).
+  for (const st of registerAiStatements({ task: item.task, section, prompt: item.prompt, options: item.options, answer: item.answer, explanation: item.explanation })) {
+    const r = await cf(`${CF_BASE}/d1/database/${D1_DATABASE_ID}/query`, { method: "POST", body: JSON.stringify({ sql: st.sql, params: st.params }) });
+    if (!r.ok) { console.warn(`  (registration skipped: ${r.status})`); break; }
+  }
 }
 
 async function d1Query<T>(sql: string, params: unknown[] = []): Promise<T[]> {

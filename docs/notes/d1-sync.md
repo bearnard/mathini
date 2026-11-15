@@ -46,3 +46,18 @@ Per edited or reworded question: 6 (version row 3 with its two indexes, pointer 
 ## Tests
 
 `src/lib/server/questions/questionSync.test.ts` (13, real migrations over node:sqlite): a sync edit, idempotence, human edit wins, retired skipped, reword keeps the id and its alias resolves (clash refused), AI row becomes curated (and `--keep-source`), Grade 6 hold and `--reset-reviews` (counts, retired rows, other questions), wording-only Grade 6, `planSync` skips and the rename map, chunk sizes and ledger, the row-estimate arithmetic, a fresh export after a sync plans nothing, and a later change to a reworded question edits the original id.
+
+## Keeping code and D1 in step ("bank edit → sync")
+
+D1 is what learners see (flag `serve_from_d1`), so **a change to a bank in code reaches them only after a sync**. This slipped once: the Grade 11 IT banks were switched to Delphi after the first sync, and three Python questions kept being served until a second sync. CI cannot see production, so this is a human step:
+
+1. **Any merge that edits, rewords, adds or removes a curated bank question** (anything under `src/curriculum/**` that changes a `prompt`, `options`, `answer` or `explanation` of a multiple-choice item) needs a sync afterwards. Run `node --import tsx scripts/question-drift.ts` on a fresh export: it lists exactly what differs, per grade. Zero drift = nothing to do.
+2. Re-export `questions` and `question_versions`, run `node --import tsx scripts/question-sync.ts --tag <short name> --write`, back up, apply the chunks, re-export and confirm the plan is empty. The tag keeps this run's ledger steps apart from earlier runs.
+3. Prefer fixing a single reported question with the admin editor (`/admin/questions`, [question-edit.md](question-edit.md)) instead of editing code: a human edit is never overwritten by a later sync.
+4. A reworded prompt in code is matched to its old question automatically (same answer and options, or a unique 0.8 similarity); anything ambiguous is listed for a rename map. Never delete and re-add a question to reword it.
+
+See also [merge-checklist.md](merge-checklist.md).
+
+## AI pool rows are registered when they are stored
+
+`runTopUp` (the nightly job), `persistItems` (`gemini.ts`) and `scripts/seed-questions.ts` now register every accepted AI row in `questions` + `question_versions` (source `ai`, version 1, id = qkey, pool row linked) **in the same batch** as the `item_cache` insert (`src/lib/server/questions/register.ts`). The statements are idempotent, and if the question tables are missing the plain insert still runs, so generation never breaks. Rows stored before this existed are registered once by `scripts/question-register-pool.ts` (dry-run chunks from an item_cache export, expected file name in its header).
