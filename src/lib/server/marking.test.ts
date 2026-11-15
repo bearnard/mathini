@@ -118,6 +118,21 @@ test('scopeProblem: reviews, tests and exam practice must be scopes the app has;
   assert.ok(scopeProblem('practice', REVIEW_SCOPE_KEY, 6, 'nst', 10), 'or as a review');
 });
 
+test('teacher-set exam scopes (bron\'s exam_scopes) are not affected: their key is only how the progress page names the scope, learners practise their tasks as ordinary runs', () => {
+  const classKey = 'class-scope:0f8fad5b-d9cb-469f-a165-70867728950e';
+  // practice runs use the TASK as the scope key; a class scope never becomes a run scope key today
+  assert.equal(scopeProblem('practice', 'electric-circuits', 6, 'nst', 12), null);
+  assert.equal(scopeProblem('practice', classKey, 6, 'nst', 12), null, 'even if a client one day used it for practice');
+  assert.equal(scopeProblem('quiz', classKey, 6, 'nst', 12), null);
+  // the class view and the progress page find a class's practice tests by KIND and subject (kind IN mock_test, exam_practice), not by scope key
+  const view = fs.readFileSync('src/lib/server/schools/classProgress.ts', 'utf8');
+  assert.ok(/kind IN \('mock_test', 'exam_practice'\)/.test(view) && !/scope_key/.test(view), 'the class view counts runs by kind');
+  const api = fs.readFileSync('src/lib/server/progress/progressApi.ts', 'utf8');
+  assert.ok(/isMock\(r\) && r\.subject === teacherScope\.subject/.test(api), 'a teacher scope\'s latest mock is any mock or exam run in its subject');
+  // and a test that does use a built-in scope keeps working for every learner, whatever class they are in
+  assert.equal(scopeProblem('mock_test', 'nst-term3-mock', 6, 'nst', 20), null);
+});
+
 test('starting a run refuses a made-up test or a one-question mock (400) and still accepts every scope the app really uses', async (t0) => {
   const t = await world(); if (!t) return t0.skip('node:sqlite unavailable');
   const id = (n: number) => `00000000-0000-4000-8000-${String(n).padStart(12, '0')}`;
