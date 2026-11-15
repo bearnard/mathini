@@ -94,7 +94,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <>
-        <Check question={<>Where do you write the date in a friendly letter?</>} answer={<><Af>bo-aan die brief</Af> <En>at the top</En>.</>} />
+        <Check question={<>Does the date go at the top or at the bottom of a friendly letter?</>} answer={<><Af>bo-aan die brief</Af> <En>at the top</En>.</>} />
         <Check question={<>Which greeting suits a letter to Sara: <Af>Liewe Sara</Af> or <Af>Geagte Meneer</Af>?</>} answer={<><Af>Liewe Sara</Af>.</>} />
         <Check question={<>What comes after the closing?</>} answer={<><Af>jou naam</Af> <En>your name</En>.</>} />
         <Check question={<>Put the five parts in order.</>} answer={<><Af>datum, groet, liggaam, afsluiting, naam</Af>.</>} />

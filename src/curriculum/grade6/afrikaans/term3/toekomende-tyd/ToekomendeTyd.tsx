@@ -104,7 +104,7 @@ export const learnSteps: LearnStep[] = [
       <>
         <Check question={<>Put in the future: <Af>{S(presentWords('ons', 'aandete', 'eet'))}</Af></>} answer={<><Af>{S(futureWords('ons', 'aandete', 'eet'))}</Af></>} />
         <Check question={<>Put in the future: <Af>{S(presentWords('die hond', '', 'slaap'))}</Af></>} answer={<><Af>{S(futureWords('die hond', '', 'slaap'))}</Af></>} />
-        <Check question={<>Which word shows the future tense in Afrikaans?</>} answer={<><Af>sal</Af> <En>will</En> (<Af>gaan</Af> is another future helper).</>} />
+        <Check question={<>Which small word goes before the main verb when you talk about tomorrow?</>} answer={<><Af>sal</Af> <En>will</En> (<Af>gaan</Af> is another future helper).</>} />
         <Check question={<>Is <Af>Sy sal 'n boek lees</Af> correct word order?</>} answer={<>Yes. <Af>sal</Af> is second and the verb <Af>lees</Af> is last.</>} />
       </>,
     ),

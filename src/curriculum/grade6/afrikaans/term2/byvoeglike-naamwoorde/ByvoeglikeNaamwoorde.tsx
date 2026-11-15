@@ -98,7 +98,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <>
-        <Check question={<>Which word is the adjective in <Af>'n groot huis</Af>?</>} answer={<><Af>groot</Af>.</>} />
+        <Check question={<>Which word is the adjective in <Af>'n warm dag</Af> <En>a warm day</En>?</>} answer={<><Af>warm</Af>.</>} />
         <Check question={<>Choose the phrase for <em>a pretty flower</em>: <Af>'n mooi blom</Af> or <Af>'n blom mooi</Af>?</>} answer={<><Af>'n mooi blom</Af>.</>} />
         <Check question={<>Fill in: <Af>'n ___ boek</Af> (a good book): <Af>goed</Af> or <Af>goeie</Af>?</>} answer={<><Af>goeie</Af>.</>} />
         <Check question={<>Which word is an adjective: <Af>vinnig</Af>, <Af>kat</Af> or <Af>spring</Af>?</>} answer={<><Af>vinnig</Af>.</>} />

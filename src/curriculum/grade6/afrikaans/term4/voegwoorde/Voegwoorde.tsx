@@ -35,18 +35,18 @@ export const learnSteps: LearnStep[] = [
       <>
         <Rule><Af>maar</Af> means <em>but</em>. It joins two ideas that are different, or that do not go together as you would expect.</Rule>
         <WordBoxes
-          words={['Hy', 'is', 'klein', 'maar', 'sterk']}
-          hot={[3]}
-          aria="The sentence Hy is klein maar sterk as five boxes, with the joining word maar highlighted between small and strong."
+          words={['Die', 'hond', 'is', 'klein', 'maar', 'dapper']}
+          hot={[4]}
+          aria="The sentence Die hond is klein maar dapper as six boxes, with the joining word maar highlighted between small and brave."
         />
         <Worked
           title="Join two ideas with maar"
           steps={[
-            <><Af>Hy is klein, maar hy is sterk.</Af> <En>He is small, but he is strong.</En> <SpeakButton text="Hy is klein, maar hy is sterk." /></>,
-            <><Af>Ek hou van sokker, maar ek speel vandag nie.</Af> <En>I like soccer, but I am not playing today.</En></>,
+            <><Af>Die hond is klein, maar hy is dapper.</Af> <En>The dog is small, but he is brave.</En> <SpeakButton text="Die hond is klein, maar hy is dapper." /></>,
+            <><Af>Ek wil swem, maar die water is koud.</Af> <En>I want to swim, but the water is cold.</En></>,
           ]}
         />
-        <Mistake>Using <Af>en</Af> when the ideas clash. <Af>Hy is klein en hy is sterk</Af> misses the surprise. Say <Af>Hy is klein, maar hy is sterk</Af>.</Mistake>
+        <Mistake>Using <Af>en</Af> when the ideas clash. <Af>Die hond is klein en dapper</Af> misses the surprise. Say <Af>Die hond is klein, maar hy is dapper</Af>.</Mistake>
       </>,
     ),
   },
@@ -63,12 +63,12 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Give the reason"
           steps={[
-            <><Af>Ons bly binne, want dit reën.</Af> <En>We stay inside because it rains.</En> <SpeakButton text="Ons bly binne, want dit reën." /></>,
-            <><Af>Ek dra 'n jas, want dit is koud.</Af> <En>I wear a coat because it is cold.</En> The verb <Af>is</Af> keeps its place.</>,
+            <><Af>Ek bly tuis, want ek is siek.</Af> <En>I stay at home because I am sick.</En> <SpeakButton text="Ek bly tuis, want ek is siek." /></>,
+            <><Af>Ons eet nou, want ons is honger.</Af> <En>We eat now because we are hungry.</En> The verb <Af>is</Af> keeps its place.</>,
             <><Af>Ek is moeg omdat ek hard gewerk het.</Af> <En>I am tired because I worked hard.</En> The verb <Af>het</Af> goes last.</>,
           ]}
         />
-        <Mistake>Using <Af>of</Af> or <Af>en</Af> for a reason. <Af>Ons bly binne, en dit reën</Af> does not say why. A reason needs <Af>want</Af> or <Af>omdat</Af>.</Mistake>
+        <Mistake>Using <Af>of</Af> or <Af>en</Af> for a reason. <Af>Ek bly tuis, en ek is siek</Af> does not say why. A reason needs <Af>want</Af> or <Af>omdat</Af>.</Mistake>
       </>,
     ),
   },
@@ -85,7 +85,7 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Choose the joiner"
           steps={[
-            <><Af>Wil jy appels of pere hê?</Af> <En>Do you want apples or pears?</En> A choice, so <Af>of</Af>. <SpeakButton text="Wil jy appels of pere hê?" /></>,
+            <><Af>Wil jy tee of koffie hê?</Af> <En>Do you want tea or coffee?</En> A choice, so <Af>of</Af>. <SpeakButton text="Wil jy tee of koffie hê?" /></>,
             <><Af>Kom jy vandag of môre?</Af> <En>Are you coming today or tomorrow?</En> Again a choice: <Af>of</Af>.</>,
           ]}
         />
@@ -98,8 +98,8 @@ export const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Check question={<>Fill in: <Af>Sy sing ___ sy dans.</Af> (and)</>} answer={<><Af>en</Af>.</>} />
-        <Check question={<>Fill in: <Af>Hy is klein, ___ hy is sterk.</Af> (but)</>} answer={<><Af>maar</Af>.</>} />
-        <Check question={<>Fill in: <Af>Ons bly binne, ___ dit reën.</Af> (because)</>} answer={<><Af>want</Af>.</>} />
+        <Check question={<>Fill in: <Af>Die tas is oud, ___ dit is sterk.</Af> (but)</>} answer={<><Af>maar</Af>.</>} />
+        <Check question={<>Fill in: <Af>Sy huil, ___ sy is hartseer.</Af> (because)</>} answer={<><Af>want</Af>.</>} />
         <Check question={<>Fill in: <Af>Kom jy vandag ___ môre?</Af> (or)</>} answer={<><Af>of</Af>.</>} />
       </>,
     ),

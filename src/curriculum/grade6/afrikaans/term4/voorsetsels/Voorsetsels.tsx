@@ -19,9 +19,9 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Say where it is"
           steps={[
-            <><Af>Die boek lê op die tafel.</Af> <En>The book lies on the table.</En> <SpeakButton text="Die boek lê op die tafel." /></>,
-            <><Af>Die leerders sit in die klas.</Af> <En>The learners sit in the class.</En></>,
-            <><Af>Die hond slaap onder die bed.</Af> <En>The dog sleeps under the bed.</En></>,
+            <><Af>Die koppie staan op die rak.</Af> <En>The cup stands on the shelf.</En> <SpeakButton text="Die koppie staan op die rak." /></>,
+            <><Af>Die vis swem in die water.</Af> <En>The fish swims in the water.</En></>,
+            <><Af>Die skoene is onder die stoel.</Af> <En>The shoes are under the chair.</En></>,
           ]}
         />
         <Mistake>Swapping <Af>op</Af> and <Af>onder</Af>. Picture the ball: on top is <Af>op</Af>, below is <Af>onder</Af>.</Mistake>
@@ -40,9 +40,9 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Say where it is"
           steps={[
-            <><Af>Die motor staan voor die huis.</Af> <En>The car stands in front of the house.</En> <SpeakButton text="Die motor staan voor die huis." /></>,
-            <><Af>Die tuin is agter die skool.</Af> <En>The garden is behind the school.</En></>,
-            <><Af>My maat sit langs my.</Af> <En>My friend sits next to me.</En></>,
+            <><Af>Die fiets staan voor die winkel.</Af> <En>The bicycle stands in front of the shop.</En> <SpeakButton text="Die fiets staan voor die winkel." /></>,
+            <><Af>Die speelgrond is agter die kerk.</Af> <En>The playground is behind the church.</En></>,
+            <><Af>Ma staan langs Pa.</Af> <En>Mom stands next to Dad.</En></>,
           ]}
         />
         <Mistake><Af>voor</Af> looks like the English word <em>for</em>, but it means <em>in front of</em>. Do not mix it up with <Af>agter</Af>.</Mistake>
@@ -61,8 +61,8 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Say where it is"
           steps={[
-            <><Af>Die bal is tussen die twee stoele.</Af> <En>The ball is between the two chairs.</En> <SpeakButton text="Die bal is tussen die twee stoele." /></>,
-            <><Af>Ons wag by die hek.</Af> <En>We wait at the gate.</En></>,
+            <><Af>Die kat is tussen die twee bokse.</Af> <En>The cat is between the two boxes.</En> <SpeakButton text="Die kat is tussen die twee bokse." /></>,
+            <><Af>Ek wag by die deur.</Af> <En>I wait at the door.</En></>,
           ]}
         />
         <Mistake>Using <Af>tussen</Af> with one thing. <Af>tussen</Af> needs two or more things, such as <Af>die twee stoele</Af>. For one place or person use <Af>by</Af>.</Mistake>
@@ -82,9 +82,9 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Use the hint"
           steps={[
-            <><Af>Die tuin is ___ die skool.</Af> (behind)</>,
+            <><Af>Die sak is ___ die deur.</Af> (behind)</>,
             <>Hint: behind. The word is <Af>agter</Af>.</>,
-            <><Af>Die tuin is agter die skool.</Af> <En>The garden is behind the school.</En> <SpeakButton text="Die tuin is agter die skool." /></>,
+            <><Af>Die sak is agter die deur.</Af> <En>The bag is behind the door.</En> <SpeakButton text="Die sak is agter die deur." /></>,
           ]}
         />
         <Mistake>Choosing a word that fits the sentence in English but not the hint. If the hint says <em>under</em>, the answer is <Af>onder</Af>, not <Af>op</Af>.</Mistake>
@@ -95,10 +95,10 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <>
-        <Check question={<>Fill in: <Af>Die boek lê ___ die tafel.</Af> (on)</>} answer={<><Af>op</Af>.</>} />
-        <Check question={<>Fill in: <Af>Die motor staan ___ die huis.</Af> (in front of)</>} answer={<><Af>voor</Af>.</>} />
-        <Check question={<>Fill in: <Af>Die bal is ___ die twee stoele.</Af> (between)</>} answer={<><Af>tussen</Af>.</>} />
-        <Check question={<>Fill in: <Af>My maat sit ___ my.</Af> (next to)</>} answer={<><Af>langs</Af>.</>} />
+        <Check question={<>Fill in: <Af>Die appel lê ___ die bord.</Af> (on)</>} answer={<><Af>op</Af>.</>} />
+        <Check question={<>Fill in: <Af>Die bus staan ___ die skool.</Af> (in front of)</>} answer={<><Af>voor</Af>.</>} />
+        <Check question={<>Fill in: <Af>Die pen is ___ die twee boeke.</Af> (between)</>} answer={<><Af>tussen</Af>.</>} />
+        <Check question={<>Fill in: <Af>Pa sit ___ my.</Af> (next to)</>} answer={<><Af>langs</Af>.</>} />
       </>,
     ),
   },
