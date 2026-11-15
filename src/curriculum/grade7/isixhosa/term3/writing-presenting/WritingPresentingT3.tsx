@@ -1,48 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './WritingPresentingT3.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Write invitations, reports, directions, and recounts',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 3 writing develops <strong>invitations, short reports, direction texts, cultural paragraphs,</strong> and
-          recount writing with peer feedback.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2">
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-semibold text-amber-800">Functional formats</p>
-            <p className="text-slate-600">Check layout for invitation, report, and message styles.</p>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-semibold text-indigo-800">Paragraph quality</p>
-            <p className="text-slate-600">Use clear topic sentence, details, and simple conclusion.</p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these connected-writing words before producing invitations, reports, directions, and paragraphs.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Isimemo"} phonetic={"[isi'meːmɔ]"} meaning={"Invitation"} lang="xh" />
-          <PronunciationPlayer word={"Ileta"} phonetic={"[i'lɛta]"} meaning={"Letter"} lang="xh" />
-          <PronunciationPlayer word={"Ingxelo"} phonetic={"[iŋ'xelo]"} meaning={"Report"} lang="xh" />
-          <PronunciationPlayer word={"Umhlathi"} phonetic={"[um'ɬaːti]"} meaning={"Paragraph"} lang="xh" />
-          <PronunciationPlayer word={"Indlela"} phonetic={"[in'dlɛla]"} meaning={"Direction / route"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {
