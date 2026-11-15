@@ -10,10 +10,14 @@ import * as formal from './term2/formal-correspondence-essays/FormalCorresponden
 import * as poetry from './term2/poetry-text-study/PoetryTextStudy';
 import * as creative from './term3/creative-writing-project/CreativeWritingProject';
 import * as reinforcement from './term3/language-reinforcement/LanguageReinforcement';
+import * as visual from './term3/visual-literacy-persuasion/VisualLiteracyPersuasion';
+import * as examWriting from './term4/exam-writing-practice/ExamWritingPractice';
+import * as consolidation from './term4/language-consolidation/LanguageConsolidation';
+import * as revision from './term4/revision-genres-skills/RevisionGenresSkills';
 
 // Lesson standard (docs/notes/lesson-standard.md): 4-6 slides, the last one "Check yourself", every slide renders, and the topic's
 // practice bank can be answered from the slides. The banks themselves are byte-identical to before (checked in the branch).
-const lessons = { extended, stories, grammar, assessment, formal, poetry, creative, reinforcement } as const;
+const lessons = { extended, stories, grammar, assessment, formal, poetry, creative, reinforcement, visual, examWriting, consolidation, revision } as const;
 
 const text = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 const slideText = (step: { content: React.ReactNode }) => text(renderToStaticMarkup(createElement('div', null, step.content)));
