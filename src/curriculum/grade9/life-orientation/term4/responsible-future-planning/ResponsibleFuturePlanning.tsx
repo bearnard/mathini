@@ -1,56 +1,91 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Branches, StepFlow, WeekBars } from '../../../../../components/diagrams/lo/PswPictures';
+import { WideHub } from '../../../../../components/diagrams/lo/Lo11Pictures';
+import { gapToGoal, weeklyMinutes } from '../../../../../components/diagrams/lo/lo11Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// Numbers in the slides come from these helpers (lo11Helpers.test.ts).
+const mark = { now: 54, goal: 60 };
+const gap = gapToGoal(mark.now, mark.goal);
+const plan = { minutes: 20, days: 4 };
+const planTotal = weeklyMinutes(plan.minutes, plan.days);
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Reviewing Your Progress',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Goal review</strong> means looking back at what you set out to achieve and how you did.
-          Reflection helps you understand your progress and what you learned.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Reviewing progress builds confidence and guides future planning.</p>
-        </div>
-      </div>
+    title: 'Goal review and reflection',
+    content: slide(
+      <>
+        <Rule>Goal review means looking back at your goals and how well you met them. Reflection helps you see your progress and growth, and what to do next.</Rule>
+        <StepFlow steps={['What did I plan?', 'What did I achieve?', 'What helped or got in the way?', 'What will I change?']} aria="Four questions for a goal review in order: what did I plan, what did I achieve, what helped or got in the way, what will I change." />
+        <Worked
+          title={`Goal: reach ${mark.goal}% in Mathematics`}
+          steps={[<>Plan: {mark.goal}%. Achieved: {mark.now}%.</>, <>Gap: {mark.goal} − {mark.now} = {gap} percentage points short.</>, <>Helped: I did past questions. Got in the way: I skipped revision before the test.</>, <>Change: revise before every test.</>]}
+        />
+        <Mistake>Skipping the review when the results are good, or giving up when you miss a goal. Look at what happened and change your approach.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Resilience and Support Networks',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Resilience</strong> is the ability to bounce back from challenges.
-          <strong> Support networks</strong> are people and resources that help you succeed.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Resilience</strong>
-            <p className="text-slate-600">Strength, persistence, adaptability.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Support networks</strong>
-            <p className="text-slate-600">Family, friends, counsellors, mentors.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Resilience and support networks',
+    content: slide(
+      <>
+        <Rule>Resilience is the ability to bounce back from problems and keep going. It is a skill you can build. A support network is the people and resources that give help, guidance and encouragement.</Rule>
+        <WideHub centre="Me" spokes={['Family', 'Friends', 'Teachers', 'Counsellors']} aria="A circle labelled Me with four sources of support around it: family, friends, teachers and counsellors." />
+        <Worked
+          title="Kagiso fails a test"
+          steps={[<>It is fine to feel disappointed.</>, <>He asks his teacher what went wrong.</>, <>He makes a plan and asks a friend to revise with him.</>, <>He tries again: that is resilience.</>]}
+        />
+        <Mistake>Thinking resilience is something you are born with, or that asking for help shows weakness. Mentors and other helpers are part of a smart plan.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Action Planning and Motivation',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Action plans</strong> break down your goals into steps. <strong>Motivation</strong> keeps you moving forward.
-          Decision-making shapes your future.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Planning for the next phase:</p>
-          <p className="text-slate-600">Set clear goals, make action plans, stay motivated, and use your support network.</p>
-        </div>
-      </div>
+    title: 'Action plans and motivation',
+    content: slide(
+      <>
+        <Rule>An action plan breaks a goal into steps. Keep your motivation up by remembering why the goal matters and celebrating small wins.</Rule>
+        <WeekBars days={['Mon', 'Tue', 'Wed', 'Thu', 'Fri']} minutes={[plan.minutes, plan.minutes, plan.minutes, plan.minutes, 0]} aria={`Bars for Monday to Friday: ${plan.minutes} minutes of maths revision on four days and none on Friday, ${planTotal} minutes in the week.`} />
+        <Worked
+          title={`Action plan to go from ${mark.now}% to ${mark.goal}%`}
+          steps={[<>Revise Mathematics for {plan.minutes} minutes on {plan.days} days: {plan.days} × {plan.minutes} = {planTotal} minutes a week.</>, <>Ask the teacher about anything you did not understand.</>, <>Celebrate each small win.</>]}
+        />
+        <Mistake>Waiting for inspiration to come back, or forcing yourself with no reason. Remember why the goal matters and keep your plan simple.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Decisions and the move to FET',
+    content: slide(
+      <>
+        <Rule>Your choices today shape your chances tomorrow. As you enter the FET phase (Grades 10 to 12), sharpen your goals, build good habits and ask for support.</Rule>
+        <Branches
+          problem="Grade 10 starts soon"
+          options={[
+            { choice: 'Wait and see', outcome: 'Good habits start late.' },
+            { choice: 'Plan now', outcome: 'You start with a plan.' },
+          ]}
+          aria="A decision tree. Grade 10 starts soon. Choice one: wait and see, and good habits start late. Choice two: plan now, and you start with a plan."
+        />
+        <Worked
+          title="A plan before Grade 10"
+          steps={[<>Review your goals.</>, <>Fix one habit, such as a set study time.</>, <>Name two people who can support you.</>, <>Talk to a counsellor about your subjects.</>]}
+        />
+        <Mistake>Expecting Grade 10 to be just like Grade 9, or thinking small decisions do not count. Your daily choices add up.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is goal review, and why is reflection important?" answer="Looking back at your goals and how well you met them. Reflection helps you see your progress and growth." />
+        <Check question="What is resilience, and who can be in your support network?" answer="The ability to bounce back from problems and keep going. Family, friends, teachers, counsellors and mentors." />
+        <Check question="What is an action plan, and how do you stay motivated?" answer="A plan that breaks a goal into steps. Remember why the goal matters and celebrate small wins." />
+        <Check question="You did not reach a goal. What do you do?" answer="Look at what happened and change your approach. A setback is a chance to learn." />
+      </>,
     ),
   },
 ];
