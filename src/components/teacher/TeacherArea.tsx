@@ -2,8 +2,9 @@
 // ADR 0003 phase 3: the teacher's area. Make a class, share its code, see who joined, remove a learner, make a new code, archive.
 // Learners appear by nickname only. Every action is checked again on the server by role; hiding a button is not a permission.
 import { useEffect, useState } from 'react';
-import ClassDashboard from './ClassDashboard';
+import ClassDashboard, { OpenLearnerLink } from './ClassDashboard';
 import ClassList, { ClassTiles, normaliseClasses } from './ClassList';
+import LearnerView from './LearnerView';
 import { DashboardPage, EmptyState, PageHeader, SectionCard, SkeletonCard, StatTileRow, plural } from '../dashboard';
 
 interface ClassSummary { id: string; name: string; grade: number; subjects: string[]; joinCode: string; status: 'active' | 'archived'; members: number; createdAt: number; schoolName: string }
@@ -127,7 +128,7 @@ function Exams({ classId, grade, active }: { classId: string; grade: number; act
   );
 }
 
-function ClassView({ id, onBack, onChanged, onNewClass }: { id: string; onBack: () => void; onChanged: () => void; onNewClass: () => void }) {
+function ClassView({ id, onBack, onChanged, onNewClass, onOpenLearner }: { id: string; onBack: () => void; onChanged: () => void; onNewClass: () => void; onOpenLearner: (studentId: string) => void }) {
   const [c, setC] = useState<ClassDetail | null | 'error'>(null);
   const [msg, setMsg] = useState('');
   const [copied, setCopied] = useState(false);
@@ -180,7 +181,7 @@ function ClassView({ id, onBack, onChanged, onNewClass }: { id: string; onBack: 
         <ul className="divide-y divide-slate-100">
           {c.roster.map((m) => (
             <li key={m.studentId} className="flex items-center justify-between gap-3 py-0.5">
-              <span className="min-w-0 break-words font-semibold text-slate-900">{m.nickname}{m.isNew && <span className="ml-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-900">New</span>}</span>
+              <span className="min-w-0 break-words font-semibold text-slate-900"><OpenLearnerLink nickname={m.nickname} onOpen={() => onOpenLearner(m.studentId)} />{m.isNew && <span className="ml-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-900">New</span>}</span>
               {active && <button className="min-h-11 shrink-0 px-2 text-sm font-semibold text-red-700 underline" onClick={() => void act(`/api/teacher/classes/${id}/members/${m.studentId}/remove`, 'class-remove', `Remove ${m.nickname} from this class? They can join again with the code.`, `${m.nickname} removed.`)}>Remove</button>}
             </li>
           ))}
@@ -198,7 +199,7 @@ function ClassView({ id, onBack, onChanged, onNewClass }: { id: string; onBack: 
         subtitle={[`Grade ${c.grade}`, c.schoolName, active ? '' : 'archived'].filter(Boolean).join(' · ')}
         actions={active ? <><button className={btn} onClick={copy}>{copied ? 'Copied' : `Copy code ${show(c.joinCode)}`}</button><button className={btnPrimary} onClick={toExams}>Set exam scope</button></> : undefined}
       />
-      <ClassDashboard classId={id} extras={{ actions, roster, exams: <Exams classId={id} grade={c.grade} active={active} /> }} />
+      <ClassDashboard classId={id} onOpenLearner={onOpenLearner} extras={{ actions, roster, exams: <Exams classId={id} grade={c.grade} active={active} /> }} />
     </>
   );
 }
@@ -244,13 +245,18 @@ export default function TeacherArea() {
   const [notices, setNotices] = useState<Notices>({ total: 0, classes: [] });
 
   // /teacher?class=<id> opens that class (so a class view can be linked to and reloaded); the address follows the screen.
-  const setOpen = (id: string | null) => {
+  const [learner, setLearnerState] = useState<string | null>(null);
+  const setOpen = (id: string | null, learnerId: string | null = null) => {
     setOpenState(id);
-    window.history.replaceState(null, '', id ? `/teacher?class=${encodeURIComponent(id)}` : '/teacher');
+    setLearnerState(id ? learnerId : null);
+    window.history.replaceState(null, '', id ? `/teacher?class=${encodeURIComponent(id)}${learnerId ? `&learner=${encodeURIComponent(learnerId)}` : ''}` : '/teacher');
+    window.scrollTo?.(0, 0);
   };
   useEffect(() => {
-    const id = new URLSearchParams(window.location.search).get('class');
-    if (id && /^[A-Za-z0-9_-]{1,64}$/.test(id)) setOpenState(id);
+    const q = new URLSearchParams(window.location.search);
+    const id = q.get('class');
+    const sid = q.get('learner');
+    if (id && /^[A-Za-z0-9_-]{1,64}$/.test(id)) { setOpenState(id); if (sid && /^[A-Za-z0-9-]{8,64}$/.test(sid)) setLearnerState(sid); }
     void api<Me>('/api/auth/me').then((r) => setMe(r.ok ? r.data : 'error'));
   }, []);
   const isTeacher = !!me && me !== 'error' && !!me.user && me.roles.includes('teacher');
@@ -283,7 +289,9 @@ export default function TeacherArea() {
     return (
       <div className="min-h-screen bg-slate-50">
         <DashboardPage>
-          <ClassView id={open} onBack={() => setOpen(null)} onChanged={loadClasses} onNewClass={() => { setOpen(null); setTimeout(() => document.getElementById('new-class')?.scrollIntoView({ behavior: 'smooth' }), 50); }} />
+          {learner
+            ? <LearnerView classId={open} studentId={learner} onBack={() => setOpen(open)} />
+            : <ClassView id={open} onBack={() => setOpen(null)} onChanged={loadClasses} onOpenLearner={(sid) => setOpen(open, sid)} onNewClass={() => { setOpen(null); setTimeout(() => document.getElementById('new-class')?.scrollIntoView({ behavior: 'smooth' }), 50); }} />}
         </DashboardPage>
       </div>
     );

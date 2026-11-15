@@ -1,4 +1,4 @@
-// A linked child's progress for a PARENT, from the same ProgressResponse the learner's own page gets (ADR 0005). Every number is the server's; this
+// A linked child's progress for a PARENT (and, with `step`, for a TEACHER looking at one learner of their class), from the same ProgressResponse the learner's own page gets (ADR 0005). Every number is the server's; this
 // only formats it. The cards are the learner's own cards (ExamCard, SubjectCard, TestsCard, RetentionCard) in a third-person, read-only voice
 // (`who` = the child's name), laid out on the dashboard kit grid: one column on a phone, two from md, three from xl.
 import type { ProgressResponse } from '../../lib/shared/progressTypes';
@@ -34,21 +34,22 @@ export function RecentActivityCard({ p }: { p: ProgressResponse }) {
   );
 }
 
-export function NextStepSummary({ p, who }: { p: ProgressResponse; who: string }) {
+export function NextStepSummary({ p, who, step }: { p: ProgressResponse; who: string; step?: { title: string; reason: string } }) {
+  const s = step ?? p.parentNextStep ?? p.nextStep;
   return (
     <SectionCard title={`How to help ${who}`} id="next-step">
-      <p className="font-bold text-slate-900">{(p.parentNextStep ?? p.nextStep).title}</p>
-      <p className="mt-1 text-slate-700">{(p.parentNextStep ?? p.nextStep).reason}</p>
+      <p className="font-bold text-slate-900">{s.title}</p>
+      <p className="mt-1 text-slate-700">{s.reason}</p>
     </SectionCard>
   );
 }
 
 /** Everything under the child's header strip, as a responsive grid. Pure: no state, so it renders on the server as well. */
-export function ChildProgressCards({ p, who }: { p: ProgressResponse; who: string }) {
+export function ChildProgressCards({ p, who, step }: { p: ProgressResponse; who: string; step?: { title: string; reason: string } }) {
   return (
     <DashboardGrid>
       <GridItem span="wide"><ExamCard exam={p.exam} who={who} /></GridItem>
-      <GridItem><NextStepSummary p={p} who={who} /></GridItem>
+      <GridItem><NextStepSummary p={p} who={who} step={step} /></GridItem>
       <GridItem><RecentActivityCard p={p} /></GridItem>
       {p.subjects.map((s) => <GridItem key={s.subject}><SubjectCard s={s} who={who} /></GridItem>)}
       <GridItem span="wide"><TestsCard tests={p.tests} series={p.testSeries} who={who} /></GridItem>

@@ -239,3 +239,15 @@ export function parentNextStep(args: { dueCount: number; weakestInScope: { label
   if (args.untried) return { title: `Ask ${who} to try ${args.untried.label}`, reason: 'A new topic. Their progress will appear here.' };
   return { title: `${who} is all caught up`, reason: 'Nothing is due. Any topic they practise today is a bonus.' };
 }
+
+/** The same recommendation worded for a TEACHER looking at one learner: "Encourage Anfervio to do their 5 review cards". The nickname and "their", never a gendered pronoun. */
+export function teacherNextStep(args: { dueCount: number; weakestInScope: { label: string } | null; untried: { label: string } | null; name: string | null }): { title: string; reason: string } {
+  const who = args.name?.trim() || 'this learner';
+  if (args.dueCount > 0) {
+    const one = args.dueCount === 1;
+    return { title: `Encourage ${who} to do their ${one ? 'review card' : `${args.dueCount} review cards`}`, reason: 'A few minutes of review helps them remember what they have learned, ready for the exam.' };
+  }
+  if (args.weakestInScope) return { title: `Help ${who} practise ${args.weakestInScope.label}`, reason: 'This is the topic where a little practice helps most right now.' };
+  if (args.untried) return { title: `Suggest ${who} try ${args.untried.label}`, reason: 'A topic they have not started yet.' };
+  return { title: `${who} is all caught up`, reason: 'Nothing is due. Any topic they practise today is a bonus.' };
+}

@@ -6,7 +6,7 @@
 import type { AdminDb } from '../admin/db';
 import type { ConsistencyProgress, MasteryLevel, ProgressResponse, RecentSession, RetentionProgress, SubjectProgress, TestResult, TestSeries, TopicProgress } from '../../shared/progressTypes';
 import {
-  consistency, examReadiness, improvementPoints, nextBestStep, parentNextStep, retentionPct, sastDayNumber, sortWeakestFirst, subjectMastery, trendPoints, type TrendAttempt,
+  consistency, examReadiness, improvementPoints, nextBestStep, parentNextStep, teacherNextStep, retentionPct, sastDayNumber, sortWeakestFirst, subjectMastery, trendPoints, type TrendAttempt,
 } from '../../shared/progressMeasures';
 import { examScopeForGrade } from '../../shared/examScopes';
 import { dailyPlan, dayNumberOf, daysUntil, type PlanTopic } from '../../shared/dailyPlan';
@@ -244,9 +244,9 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
   });
   if (tp.length === 0 && dueCount === 0 && !teacherScope) {
     // A learner who has not started: encourage, never an empty "all caught up".
-    return { generatedAt: iso(now), grade, displayName: student.display_name || null, exam: null, subjects: [], tests, testSeries, retention, consistency: cons, recentSessions, parentNextStep: { title: `Ask ${student.display_name?.trim() || 'your child'} to try their first topic`, reason: 'They can pick any topic. Their progress will appear here.' }, nextStep: { kind: 'new_topic', title: 'Try your first topic', reason: 'Pick any topic. Your progress will appear here.', href: APP_HREF, cta: 'Choose a topic' } };
+    return { generatedAt: iso(now), grade, displayName: student.display_name || null, exam: null, subjects: [], tests, testSeries, retention, consistency: cons, recentSessions, parentNextStep: { title: `Ask ${student.display_name?.trim() || 'your child'} to try their first topic`, reason: 'They can pick any topic. Their progress will appear here.' }, teacherNextStep: { title: `Suggest ${student.display_name?.trim() || 'this learner'} try a first topic`, reason: 'They can pick any topic. Their progress will appear here.' }, nextStep: { kind: 'new_topic', title: 'Try your first topic', reason: 'Pick any topic. Your progress will appear here.', href: APP_HREF, cta: 'Choose a topic' } };
   }
-  return { generatedAt: iso(now), grade, displayName: student.display_name || null, exam, subjects, tests, testSeries, retention, consistency: cons, nextStep, recentSessions, parentNextStep: parentNextStep({ dueCount, weakestInScope: scope ? weakestInScope : weakestOverall(subjects), untried: untriedInScope ?? (untriedAll[0] ? { label: untriedAll[0].label } : null), name: student.display_name }) };
+  return { generatedAt: iso(now), grade, displayName: student.display_name || null, exam, subjects, tests, testSeries, retention, consistency: cons, nextStep, recentSessions, parentNextStep: parentNextStep({ dueCount, weakestInScope: scope ? weakestInScope : weakestOverall(subjects), untried: untriedInScope ?? (untriedAll[0] ? { label: untriedAll[0].label } : null), name: student.display_name }), teacherNextStep: teacherNextStep({ dueCount, weakestInScope: scope ? weakestInScope : weakestOverall(subjects), untried: untriedInScope ?? (untriedAll[0] ? { label: untriedAll[0].label } : null), name: student.display_name }) };
 }
 
 /** With no exam scope for the grade: the weakest practised topic that is not yet mastered, across subjects. */

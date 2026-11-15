@@ -121,6 +121,7 @@ export async function buildClassProgress(db: AdminDb, owner: ClassOwner, classId
     const mine = memberTopics.filter((t) => t.studentId === m.student_id && t.level !== 'not_started' && t.accuracyPct !== null);
     const lastAt = tpRows.filter((r) => r.student_id === m.student_id && tasksSet.has(r.task)).reduce((mx, r) => Math.max(mx, Number(r.last_attempt_at)), 0);
     return {
+      studentId: m.student_id,
       nickname: m.display_name,
       topicsPractised: mine.length,
       avgAccuracyPct: mine.length === 0 ? null : round1(mine.reduce((s, t) => s + (t.accuracyPct as number), 0) / mine.length),

@@ -146,6 +146,8 @@ export interface ProgressResponse {
   nextStep: NextBestStep;
   /** The same recommendation worded for a parent, using the child's name and "their" (shown on /parent). */
   parentNextStep?: { title: string; reason: string };
+  /** The same, worded for a teacher looking at this learner (the nickname and "their"). */
+  teacherNextStep?: { title: string; reason: string };
   /** The last practice sessions, newest first (at most 5). */
   recentSessions?: RecentSession[];
 }

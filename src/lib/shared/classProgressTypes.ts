@@ -45,6 +45,8 @@ export interface ImprovementSince {
 }
 
 export interface ClassLearner {
+  /** The learner's id, so the teacher can open their page. Never shown. */
+  studentId: string;
   nickname: string;
   /** Topics practised (in the class's view). */
   topicsPractised: number;

@@ -195,6 +195,20 @@ export const handleClassProgress = (req: Request, deps: SchoolsDeps, classId: st
     return r.ok ? authJson(r.progress) : authJson({ error: r.error }, r.status);
   });
 
+// ---------- one learner (teacher view) ----------
+import { loadLearnerDetail } from './learnerDetail';
+
+export const LEARNER_VIEWS_PER_WINDOW = 120;
+export const LEARNER_VIEW_WINDOW_MS = 10 * 60 * 1000;
+
+/** GET: one learner of one of THEIR active classes, still a member: the same progress the learner sees, by nickname only. 120 views per teacher per 10 minutes (durable). */
+export const handleLearnerProgress = (req: Request, deps: SchoolsDeps, classId: string, studentId: string) =>
+  asTeacher(req, deps, null, async (tid) => {
+    if (!(await allowDurable(deps.db, `teacher-learner:${tid}`, LEARNER_VIEWS_PER_WINDOW, LEARNER_VIEW_WINDOW_MS, deps.now))) return authJson({ error: 'Too many views. Wait a few minutes.' }, 429);
+    const r = await loadLearnerDetail(deps.db, tid, classId, studentId, deps.now);
+    return r.ok ? authJson(r.detail) : authJson({ error: r.error }, r.status);
+  });
+
 // ---------- new-learner notices (part 6) ----------
 import { joinNotices, markJoinsSeen, seenAt } from './notices';
 

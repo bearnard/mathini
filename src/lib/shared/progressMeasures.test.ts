@@ -170,3 +170,18 @@ test('parentNextStep follows nextBestStep branch for branch, uses the name and "
   assert.equal(parentNextStep({ ...cases[3], name: null }).title, 'Ask your child to try Mains');
   for (const o of out) assert.ok(!/\b(he|she|his|her|him|you|your)\b/i.test(`${o.title} ${o.reason}`), `${o.title} ${o.reason}`);
 });
+
+test('teacherNextStep: the nickname and "their", every branch, never a gendered pronoun', async () => {
+  const { teacherNextStep } = await import('./progressMeasures');
+  const w = { label: 'Electric circuits' }; const u = { label: 'Mains' };
+  const out = [
+    teacherNextStep({ dueCount: 5, weakestInScope: w, untried: u, name: 'Anfervio' }),
+    teacherNextStep({ dueCount: 1, weakestInScope: null, untried: null, name: 'Anfervio' }),
+    teacherNextStep({ dueCount: 0, weakestInScope: w, untried: u, name: 'Anfervio' }),
+    teacherNextStep({ dueCount: 0, weakestInScope: null, untried: u, name: 'Anfervio' }),
+    teacherNextStep({ dueCount: 0, weakestInScope: null, untried: null, name: 'Anfervio' }),
+  ];
+  assert.deepEqual(out.map((o) => o.title), ['Encourage Anfervio to do their 5 review cards', 'Encourage Anfervio to do their review card', 'Help Anfervio practise Electric circuits', 'Suggest Anfervio try Mains', 'Anfervio is all caught up']);
+  assert.equal(teacherNextStep({ dueCount: 0, weakestInScope: null, untried: u, name: null }).title, 'Suggest this learner try Mains');
+  for (const o of out) assert.ok(!/\b(he|she|his|her|him|you|your)\b/i.test(`${o.title} ${o.reason}`));
+});
