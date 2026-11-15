@@ -16,7 +16,7 @@ const lesson: XhLesson = {
       mistake: 'Do not read the label as part of the speech or mix up the speakers. The name before the colon shows who talks.',
     },
     {
-      title: 'Conflict in a scene',
+      title: 'What drives a scene',
       rule: 'Conflict is the central tension or problem. Ask why a character says these words here, and what the character wants.',
       workedTitle: 'Find the tension',
       examples: [
@@ -50,7 +50,7 @@ const lesson: XhLesson = {
   ],
   checks: [
     { q: 'What do speaker labels in a drama script do?', a: 'They show who is talking.' },
-    { q: 'What is conflict in a drama scene?', a: 'The central tension or problem.' },
+    { q: 'What keeps the audience interested in a play?', a: 'A central problem or tension, called conflict.' },
     { q: 'What is mood in poetry?', a: 'The feeling created for the reader.' },
     { q: 'What should a literary response include?', a: 'A personal view supported by the text.' },
   ],

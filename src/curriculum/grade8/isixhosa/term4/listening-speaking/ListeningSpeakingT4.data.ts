@@ -39,7 +39,7 @@ const lesson: XhLesson = {
   ],
   checks: [
     { q: 'What do listening quizzes usually test?', a: 'Recall of key details from what you hear.' },
-    { q: 'How should a strong final oral answer be built?', a: 'State the point clearly and briefly support it.' },
+    { q: 'What makes the end of an oral answer strong?', a: 'State the point clearly and briefly support it.' },
     { q: 'Say “Please repeat the question.”', a: 'Nceda uphinde umbuzo.' },
     { q: 'What should you do when a listening text is replayed?', a: 'Check and refine your first answers.' },
   ],

@@ -17,7 +17,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Writing a summary',
-      rule: 'A summary of a text should be brief, accurate and cover the main ideas, in your own words. Leave out examples and small details. Skim for the main ideas, then write fewer words than the original.',
+      rule: 'Keep a summary brief and accurate, and cover the main ideas in your own words. Leave out examples and small details. Skim for the main ideas, then write fewer words than the original.',
       workedTitle: 'Text and summary',
       examples: [
         { xh: 'USipho akanayo incwadi. UThando uyamnceda. USipho uyavuya.', en: 'The text: Sipho has no book. Thando helps him. Sipho is happy.' },
@@ -27,7 +27,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Visual comprehension and annotation',
-      rule: 'Visual comprehension means understanding colour, composition and symbols and the meaning they carry. Annotation during revision reading helps you mark key ideas and make a reference for later study: underline key words and write short notes in the margin.',
+      rule: 'Visual comprehension means understanding colour, composition and symbols and the meaning they carry. When you reread to revise, annotate: mark key ideas and build a reference for later study by underlining key words and writing short notes in the margin.',
       workedTitle: 'Annotate a poster (English description; teacher to supply an isiXhosa poster)',
       examples: [
         { xh: 'Imibala', en: 'Colours: what feeling does each colour give?' },
@@ -38,7 +38,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Exam reading strategy',
-      rule: 'A reading strategy for exam practice is to skim first, then read carefully, then summarise. Exam-style questions about texts typically ask you to interpret meaning, analyse language and give evidence from the text.',
+      rule: 'When you practise for an exam, skim first, then read carefully, then summarise. Questions in an exam ask you to interpret meaning, analyse language and give evidence from the text.',
       workedTitle: 'Three questions on the story of Sipho',
       examples: [
         { xh: 'Kutheni uSipho uyavuya?', en: 'Why is Sipho happy? (interpret meaning)' },
@@ -50,7 +50,7 @@ const lesson: XhLesson = {
   ],
   checks: [
     { q: 'What should you review when you revise literature?', a: 'Themes, characters and key quotes from each text.' },
-    { q: 'What should a summary of a text be?', a: 'Brief, accurate and covering the main ideas.' },
+    { q: 'What three qualities does a good summary have?', a: 'Brief, accurate and covering the main ideas.' },
     { q: 'What does annotation help you do?', a: 'Mark key ideas and make a reference for later study.' },
     { q: 'What is a good reading strategy for exam practice?', a: 'Skim first, then read carefully, then summarise.' },
   ],

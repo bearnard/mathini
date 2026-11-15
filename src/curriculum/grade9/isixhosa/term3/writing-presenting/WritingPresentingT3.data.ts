@@ -6,7 +6,7 @@ const lesson: XhLesson = {
   slides: [
     {
       title: 'The discursive paragraph',
-      rule: 'A discursive paragraph presents a topic, weighs several views and reaches a conclusion. Evidence is best when it is specific, relevant and from reliable sources. Linking words show which view you are giving.',
+      rule: 'A discursive paragraph presents a topic, weighs several views and reaches a conclusion. The best evidence is specific, relevant and from reliable sources. Linking words show which view you are giving.',
       workedTitle: 'Two views and a conclusion',
       examples: [
         { xh: 'Iifowuni zinceda abafundi.', en: 'Phones help learners. (one view)' },
@@ -29,7 +29,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Articles and switching styles',
-      rule: 'An article for publication is written to inform, entertain or persuade a specific audience. When you switch between writing styles, match your tone and vocabulary to the new context and audience: reflective for a diary, formal for a letter.',
+      rule: 'Published articles inform, entertain or persuade a specific audience. When you switch between writing styles, match your tone and vocabulary to the new context and audience: reflective for a diary, formal for a letter.',
       workedTitle: 'Same topic, two styles',
       examples: [
         { xh: 'Isihloko: Imfundo yethu', en: 'Title: Our education (an article headline)' },
@@ -40,7 +40,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Project writing and presentation',
-      rule: 'An academic project should show research, original thinking, organisation and effort. The purpose of a presentation is to communicate information or ideas well to an audience: arrange content logically, use visuals well and invite questions.',
+      rule: 'An academic project should show research, original thinking, organisation and effort. A presentation should communicate information or ideas well to an audience: arrange content logically, use visuals well and invite questions.',
       workedTitle: 'Presenting a project',
       examples: [
         { xh: 'Molweni nonke. Namhlanje ndiza kuthetha ngeprojekthi yam.', en: 'Hello everyone. Today I will speak about my project.' },

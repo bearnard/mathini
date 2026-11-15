@@ -56,7 +56,7 @@ const lesson: XhLesson = {
     { q: 'Which word is a pronoun: thina or isikolo?', a: 'thina (we)' },
     { q: 'Put in the future: Ndifunda ngoku.', a: 'Ndiza kufunda ngomso.' },
     { q: 'Which mark ends a question?', a: '?' },
-    { q: 'What is the best proofreading strategy?', a: 'Read each sentence and fix one error at a time.' },
+    { q: 'How should you check your writing for mistakes?', a: 'Read each sentence and fix one error at a time.' },
   ],
 };
 

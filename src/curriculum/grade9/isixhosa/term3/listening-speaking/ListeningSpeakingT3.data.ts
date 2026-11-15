@@ -5,7 +5,7 @@ const lesson: XhLesson = {
   slides: [
     {
       title: 'Debate: claim, evidence, reasoning',
-      rule: 'A debate is a formal discussion where two sides present arguments and counter-arguments. A strong argument has a clear claim, supporting evidence and logical reasoning. Say the claim first, give the evidence, then explain why it proves the claim.',
+      rule: 'A debate has two sides, who formally present arguments and counter-arguments. A good argument has a clear claim, supporting evidence and logical reasoning. Say the claim first, give the evidence, then explain why it proves the claim.',
       workedTitle: 'Claim, evidence, reasoning',
       examples: [
         { xh: 'Imfundo ibalulekile.', en: 'Education is important. (claim)' },
@@ -38,7 +38,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Panel discussion',
-      rule: 'A panel discussion differs from a debate: several experts discuss a topic from different views, and they do not have to defeat each other. Listening to the other speakers helps you build on ideas, find common ground and ask good questions.',
+      rule: 'Unlike a debate, a panel brings together several experts who discuss a topic from different views, and they do not have to defeat each other. When others speak, you can build on their ideas, find common ground and ask good questions.',
       workedTitle: 'Useful phrases for a panel',
       examples: [
         { xh: 'Ndiyavuma kwaye ndifuna ukongeza.', en: 'I agree and I want to add. (build on an idea)' },
@@ -49,7 +49,7 @@ const lesson: XhLesson = {
     },
   ],
   checks: [
-    { q: 'What does a strong argument include?', a: 'A clear claim, supporting evidence and logical reasoning.' },
+    { q: 'What makes an argument convincing?', a: 'A clear claim, supporting evidence and logical reasoning.' },
     { q: 'How should you respond to an opposing view in a debate?', a: 'Acknowledge the point, then refute it politely with evidence.' },
     { q: 'What does a quotation do in an oral response?', a: 'It supports your interpretation with direct evidence.' },
     { q: 'How does a panel discussion differ from a debate?', a: 'Several experts discuss a topic from different views; it is not a contest between two sides.' },

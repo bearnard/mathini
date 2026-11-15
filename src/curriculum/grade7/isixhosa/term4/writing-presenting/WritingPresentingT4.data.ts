@@ -54,7 +54,7 @@ const lesson: XhLesson = {
   checks: [
     { q: 'What does a personal recount describe?', a: 'An event you experienced.' },
     { q: 'Link with kuba: Le ncwadi inomdla. Abalinganiswa bacacile.', a: 'Le ncwadi inomdla kuba abalinganiswa bacacile.' },
-    { q: 'What should a school message include?', a: 'A clear purpose and the key detail.' },
+    { q: 'Which details must you put in a message to your school?', a: 'A clear purpose and the key detail.' },
     { q: 'Which edit helps most before you submit?', a: 'Correcting spelling errors.' },
   ],
 };

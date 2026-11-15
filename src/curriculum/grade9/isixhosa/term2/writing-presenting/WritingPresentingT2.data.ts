@@ -29,7 +29,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Reviews',
-      rule: 'A review of a product or service includes a description, your personal opinion and supporting reasons. Be honest and specific. Compliments only, exaggeration or a few vague words do not make a good review.',
+      rule: 'In a review you describe the product or service, give your own opinion and back it with reasons. Be honest and specific. Compliments only, exaggeration or a few vague words do not make a good review.',
       workedTitle: 'Opinion with a reason',
       examples: [
         { xh: 'Ndiyayithanda le ncwadi kuba ibali limnandi.', en: 'I like this book because the story is nice. (opinion + reason)' },

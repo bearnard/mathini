@@ -6,7 +6,7 @@ const lesson: XhLesson = {
   slides: [
     {
       title: 'Theme and supporting evidence',
-      rule: 'The theme (umxholo) is the main message or big idea of a story. To find it, look for patterns and ideas that repeat. Prove your theme with specific evidence: a quotation or description from the text, not what you wish the story said.',
+      rule: 'Every story has a theme (umxholo): the big idea or message the author wants you to take away. To find it, look for patterns and ideas that repeat. Prove your theme with specific evidence: a quotation or description from the text, not what you wish the story said.',
       workedTitle: 'A short story, its theme and its evidence',
       examples: [
         { xh: 'USipho akanayo incwadi. UThando uyamnceda. USipho uyavuya.', en: 'Sipho does not have a book. Thando helps him. Sipho is happy.' },
@@ -50,8 +50,8 @@ const lesson: XhLesson = {
     },
   ],
   checks: [
-    { q: 'What is the theme of a story?', a: 'The main message or big idea (umxholo).' },
-    { q: 'What do you use as supporting evidence for a theme?', a: 'Specific quotes or descriptions from the text, for example UThando uyamnceda.' },
+    { q: 'Which word names the big idea or message of a story?', a: 'Umxholo (the theme).' },
+    { q: 'How do you prove that a story has a certain theme?', a: 'Specific quotes or descriptions from the text, for example UThando uyamnceda.' },
     { q: 'What is the conflict in the story about Sipho?', a: 'Sipho does not have a book (USipho akanayo incwadi).' },
     { q: 'Name the first things to notice in a visual text.', a: 'Colours, size, layout and the main image.' },
   ],

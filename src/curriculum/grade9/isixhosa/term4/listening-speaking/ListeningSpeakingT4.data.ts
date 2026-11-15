@@ -27,7 +27,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Oral feedback and self-assessment',
-      rule: 'Oral feedback from peers or teachers should focus on specific strengths and areas for improvement, not just “good” or “bad”. In self-assessment, reflect on what went well and what needs work. Asking for clarification shows a wish to improve and learn.',
+      rule: 'Useful oral feedback names specific strengths and areas for improvement, not just “good” or “bad”. In self-assessment, reflect on what went well and what needs work. Asking for clarification shows a wish to improve and learn.',
       workedTitle: 'Feedback phrases',
       examples: [
         { xh: 'Wathetha kakuhle.', en: 'You spoke well. (a strength)' },

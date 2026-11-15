@@ -55,7 +55,7 @@ const lesson: XhLesson = {
   ],
   checks: [
     { q: 'What does a timetable help you find?', a: 'Times and schedules.' },
-    { q: 'What is a key feature of a folk story (intsomi)?', a: 'A moral or lesson (isifundo).' },
+    { q: 'What does an intsomi (folk story) usually teach at the end?', a: 'A moral or lesson (isifundo).' },
     { q: 'Which reading action finds one detail fast: scanning or reading every word?', a: 'Scanning.' },
     { q: 'What do you look for when you compare two texts?', a: 'Similarities and differences.' },
   ],

@@ -24,7 +24,7 @@ const lesson: XhLesson = {
         { xh: 'Ndifunda iincwadi ezinkulu.', en: 'I read big books. (supports the idea)' },
         { xh: 'Ndifunda ebusuku.', en: 'I read at night. (supports the idea)' },
       ],
-      mistake: 'Do not add a sentence about football in a paragraph about reading. It breaks the unity.',
+      mistake: 'Do not slip in a line about football when the paragraph is about reading. It breaks the unity.',
     },
     {
       title: 'Descriptive and narrative writing',

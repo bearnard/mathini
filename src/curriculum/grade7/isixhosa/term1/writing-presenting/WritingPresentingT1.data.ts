@@ -55,10 +55,10 @@ const lesson: XhLesson = {
     },
   ],
   checks: [
-    { q: 'Which greeting suits a friendly letter: Mhlobo wam othandekayo, or INJONGO YEBALI?', a: 'Mhlobo wam othandekayo,' },
+    { q: 'You write to your best friend. Which opening is right: Mhlobo wam othandekayo, or INJONGO YEBALI?', a: 'Mhlobo wam othandekayo,' },
     { q: 'Join the ideas with kuba: Ndithanda ibhola. Ndinabahlobo apho.', a: 'Ndithanda ibhola kuba ndinabahlobo apho.' },
     { q: 'In a dialogue, where does a new speaker start?', a: 'On a new line.' },
-    { q: 'Which punctuation mark ends a question?', a: '?' },
+    { q: 'How do you finish a sentence that asks something?', a: 'With a question mark (?).' },
   ],
 };
 

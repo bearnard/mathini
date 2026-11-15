@@ -40,7 +40,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Editing: word form, parallel structure and vocabulary',
-      rule: 'Editing your own work catches errors and improves clarity before you submit. Check the word form: markers are joined to the verb (ndifunda, not ndi funda). Keep items in a series in the same form. Refine vocabulary by choosing a more precise word.',
+      rule: 'When you edit what you wrote, you catch errors and make it clearer before you submit. Check the word form: markers are joined to the verb (ndifunda, not ndi funda). Keep items in a series in the same form. Refine vocabulary by choosing a more precise word.',
       workedTitle: 'Error and correction',
       examples: [
         { xh: 'Ndi funda incwadi. → Ndifunda incwadi.', en: 'I read a book. (join the marker to the verb)' },

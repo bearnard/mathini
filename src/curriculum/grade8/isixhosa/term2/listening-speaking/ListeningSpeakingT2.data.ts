@@ -28,7 +28,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Everyday transactions',
-      rule: 'Transaction language is used when you buy something or ask for a service. Greet, ask politely, ask the price, and say thank you.',
+      rule: 'You use transaction language to buy something or to ask for a service. Greet, ask politely, ask the price, and say thank you.',
       workedTitle: 'At the shop',
       examples: [
         { xh: 'Molo, ndicela isonka.', en: 'Hello, I would like bread.' },

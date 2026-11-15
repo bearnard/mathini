@@ -52,7 +52,7 @@ const lesson: XhLesson = {
     },
   ],
   checks: [
-    { q: 'Which phrase introduces an opinion: Ndicinga ukuba or Ndiyahamba?', a: 'Ndicinga ukuba (I think that)' },
+    { q: 'You want to say what you think. Which words do you start with: Ndicinga ukuba or Ndiyahamba?', a: 'Ndicinga ukuba (I think that)' },
     { q: 'What comes first in a folktale retell?', a: 'The beginning of the story.' },
     { q: 'What follows a good interview answer?', a: 'A follow-up question, after waiting and listening.' },
     { q: 'What does intlonipho mean?', a: 'Respect.' },

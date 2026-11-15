@@ -21,7 +21,7 @@ const lesson: XhLesson = {
       examples: [
         { xh: 'Imenyu', en: 'Menu: find the cost of food (ixabiso, price).' },
         { xh: 'Ixesha', en: 'Time: a timetable shows when the school bus leaves.' },
-        { xh: 'Isaziso', en: 'Notice: “Meeting at 14:00 in Hall B” means you must go to Hall B.' },
+        { xh: 'Isaziso', en: 'Notice: “Concert at 18:00 in the school hall” tells you the time and the place.' },
       ],
       mistake: 'Using a menu to find a time or a timetable to find a price. Match the text to the question.',
     },
@@ -54,9 +54,9 @@ const lesson: XhLesson = {
     },
   ],
   checks: [
-    { q: 'What does the main idea of a short story tell you?', a: 'What the story is mostly about.' },
-    { q: 'Which text is best for finding the cost of food?', a: 'A menu.' },
-    { q: 'A notice says “Meeting at 14:00 in Hall B”. Where must you go?', a: 'Hall B.' },
+    { q: 'Why do readers look for the main idea of a story?', a: 'What the story is mostly about.' },
+    { q: 'You want to know how much a pie costs. Which text do you read?', a: 'A menu.' },
+    { q: 'A notice says “Sports day at 09:00 on the field”. Where must you go?', a: 'The field.' },
     { q: 'What do you do first when you read instructions?', a: 'Find step 1 and start there.' },
   ],
 };

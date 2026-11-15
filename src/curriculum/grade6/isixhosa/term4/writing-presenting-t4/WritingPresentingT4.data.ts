@@ -51,8 +51,8 @@ const lesson: XhLesson = {
     },
   ],
   checks: [
-    { q: 'What should a personal paragraph begin with?', a: 'A clear topic sentence.' },
-    { q: 'Which tone is best for a school message to a teacher?', a: 'Polite and respectful.' },
+    { q: 'How should a paragraph about yourself start?', a: 'With a clear topic sentence.' },
+    { q: 'How should you sound when you write to your teacher?', a: 'Polite and respectful.' },
     { q: 'What does a simple review include?', a: 'An opinion and a reason.' },
     { q: 'What do you look at first in picture writing?', a: 'The people, the place and the action.' },
   ],

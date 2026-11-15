@@ -27,7 +27,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'A formal letter',
-      rule: 'A formal letter has the sender’s address, the date, a formal greeting, a subject line, the body and a formal closing. The tone is polite and the language is suitable for the reader.',
+      rule: 'Letters to adults or officials follow a set layout: the sender’s address, the date, a formal greeting, a subject line, the body and a polite sign-off. The tone is polite and the language is suitable for the reader.',
       workedTitle: 'Formal greeting and closing',
       examples: [
         { xh: 'Mhlekazi,', en: 'Dear Sir, (greeting)' },
