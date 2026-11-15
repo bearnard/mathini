@@ -27,12 +27,12 @@ export const TopicContainer: React.FC<TopicContainerProps> = ({
     return (
         <div className={cn("flex flex-col items-center w-full space-y-6 px-4 py-6", className)}>
             <header className="w-full max-w-4xl flex flex-col md:flex-row justify-between items-center gap-4">
-                <div className="flex items-center gap-3 min-w-0">
+                <div className="flex w-full min-w-0 items-center gap-3 md:w-auto">
                     <div className="bg-brand-blue p-3 rounded-xl shadow-lg shrink-0">
                         <BookOpen className="text-white w-6 h-6" />
                     </div>
                     <div className="min-w-0">
-                        <h1 className="text-xl md:text-2xl font-bold text-slate-800 truncate">{title}</h1>
+                        <h1 className="text-xl md:text-2xl font-bold text-slate-800 break-words md:truncate">{title}</h1>
                         {subtitle && <p className="text-slate-500 text-sm">{subtitle}</p>}
                     </div>
                 </div>
