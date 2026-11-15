@@ -1927,6 +1927,26 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Weather, Climate and Vegetation",
   "Geography"
  ],
+ "5|gr5-life-skills-environment": [
+  "Local Environmental Problems",
+  "Life Skills"
+ ],
+ "5|gr5-life-skills-festivals": [
+  "Festivals and Customs",
+  "Life Skills"
+ ],
+ "5|gr5-life-skills-healthy-eating": [
+  "Healthy Eating",
+  "Life Skills"
+ ],
+ "5|gr5-life-skills-substance-abuse": [
+  "Substance Abuse",
+  "Life Skills"
+ ],
+ "5|gr5-life-skills-tb-hiv": [
+  "TB and HIV",
+  "Life Skills"
+ ],
  "6|ancient-medicine": [
   "Medicine in Ancient Times",
   "History"
@@ -3866,6 +3886,7 @@ export const SUBJECT_TITLES: Record<string, string> = {
  "5|his": "History",
  "5|history": "History",
  "5|life-skills": "Life Skills",
+ "5|lsk": "Life Skills",
  "5|math": "Mathematics",
  "6|afr": "Afrikaans (FAL)",
  "6|eng": "English HL",

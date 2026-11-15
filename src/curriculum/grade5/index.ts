@@ -76,6 +76,60 @@ export const grade5: Grade = {
                     title: "Life Skills",
                     terms: [
                         {
+                            id: 1,
+                            title: "Term 1",
+                            topics: [
+                                {
+                                    id: "life-skills-festivals",
+                                    title: "Festivals and Customs",
+                                    description: "Why we celebrate, festivals of different faiths and respect.",
+                                    component: lazy(() => import('./term1/life-skills/FestivalsCustoms'))
+                                }
+                            ]
+                        },
+                        {
+                            id: 2,
+                            title: "Term 2",
+                            topics: [
+                                {
+                                    id: "life-skills-healthy-eating",
+                                    title: "Healthy Eating",
+                                    description: "Food groups, a balanced diet and drinking water.",
+                                    component: lazy(() => import('./term2/life-skills/HealthyEating'))
+                                }
+                            ]
+                        },
+                        {
+                            id: 3,
+                            title: "Term 3",
+                            topics: [
+                                {
+                                    id: "life-skills-environment",
+                                    title: "Local Environmental Problems",
+                                    description: "Litter, pollution, trees and soil.",
+                                    component: lazy(() => import('./term3/life-skills/LocalEnvironment'))
+                                }
+                            ]
+                        },
+                        {
+                            id: 4,
+                            title: "Term 4",
+                            topics: [
+                                {
+                                    id: "life-skills-substance-abuse",
+                                    title: "Substance Abuse",
+                                    description: "What it is, how it harms and how to say no.",
+                                    component: lazy(() => import('./term4/life-skills/SubstanceAbuse'))
+                                },
+                                {
+                                    id: "life-skills-tb-hiv",
+                                    title: "TB and HIV",
+                                    description: "Tuberculosis, HIV and treating people with respect.",
+                                    component: lazy(() => import('./term4/life-skills/TbHiv'))
+                                }
+                            ]
+                        },
+                        {
                             id: 5,
                             title: "Final Assessment",
                             topics: [
