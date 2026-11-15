@@ -5,7 +5,7 @@ import { d1Adapter, type AdminDb } from '../admin/db';
 import { authJson, checkWriteRequest, requireRole } from '../adultAuth/roles';
 import { readCapped } from '../adultAuth/http';
 import { applyAsTeacher, getOwnApplication } from './teachers';
-import { verifySession } from '../session';
+import { verifyLiveSession } from '../session';
 import { allowDurable, createLimiter, type Limiter } from '../adultAuth/rateLimit';
 import { archiveClass, createClass, getClass, joinClass, leaveClass, listClasses, myClasses, regenerateCode, removeMember } from './classes';
 
@@ -121,7 +121,7 @@ async function asLearner(req: Request, deps: ClassDeps, action: string | null, r
   }
   try {
     const cookie = /(?:^|;\s*)pp_session=([^;]+)/.exec(req.headers.get('cookie') ?? '')?.[1];
-    const studentId = await verifySession(cookie ? decodeURIComponent(cookie) : undefined, deps.sessionSecret);
+    const studentId = await verifyLiveSession(deps.db, cookie ? decodeURIComponent(cookie) : undefined, deps.sessionSecret);
     if (!studentId) return authJson({ error: 'Sign in first' }, 401);
     const b = action ? await body(req) : {};
     if (!b) return authJson({ error: 'invalid request' }, 400);

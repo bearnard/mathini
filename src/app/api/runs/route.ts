@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
+import { verifyLiveSession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
 import { d1Adapter } from '../../../lib/server/admin/db';
 import { startRun } from '../../../lib/server/progress/runs';
 import { runStartLimiter } from '../../../lib/server/learnerGuards';
@@ -15,7 +15,7 @@ export const dynamic = 'force-dynamic';
 export async function POST(req: NextRequest) {
   try {
     const { env } = getCloudflareContext();
-    const studentId = await verifySession(req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
+    const studentId = await verifyLiveSession(d1Adapter(env.DB as never), req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
     if (!studentId) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
     if (!runStartLimiter.allow(studentId, Date.now())) return NextResponse.json({ error: 'Too many runs too fast' }, { status: 429, headers: { 'Retry-After': '60' } });
     let body: Record<string, unknown>;

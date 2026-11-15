@@ -6,7 +6,7 @@ import { parseTaskSlug } from '../../../lib/server/caps/slug';
 import { makeQkey, isQkey } from '../../../lib/shared/qkey';
 import { recordReviewAnswer } from '../../../lib/server/review/store';
 import { identifyAttempt } from '../../../lib/server/questions/store';
-import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
+import { verifyLiveSession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
 import { d1Adapter } from '../../../lib/server/admin/db';
 import { runIdForAttempt } from '../../../lib/server/progress/runs';
 import { attemptInsertPlans } from '../../../lib/server/progress/attemptPlans';
@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
     const db = env.DB;
 
     // Read session from cookie
-    const studentId = await verifySession(req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
+    const studentId = await verifyLiveSession(d1Adapter(env.DB as never), req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
     if (!studentId) {
       return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
     }

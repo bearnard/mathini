@@ -3,7 +3,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { verifyPin } from '../../../lib/server/identity';
 import { d1Adapter } from '../../../lib/server/admin/db';
 import { burnPinCheck, LOGIN_FAILED, loginBlocked, noteLoginFailure } from '../../../lib/server/learnerGuards';
-import { signSession, verifySession, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from '../../../lib/server/session';
+import { currentSessionVersion, signSessionV, verifyLiveSession, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from '../../../lib/server/session';
 
 export const dynamic = 'force-dynamic';
 
@@ -71,7 +71,8 @@ export async function POST(req: NextRequest) {
       .run();
 
     // Set session cookie so the browser stays signed in across reloads
-    const token = await signSession(student.id, env.SESSION_SECRET);
+    // The cookie carries the learner's CURRENT session version, so it stops working if a parent resets the PIN (see session.ts).
+    const token = await signSessionV(student.id, (await currentSessionVersion(guard, student.id)) ?? 0, env.SESSION_SECRET);
     const response = NextResponse.json({
       studentId: student.id,
       displayName: student.display_name,
@@ -95,7 +96,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
   const { env } = getCloudflareContext();
-  const session = await verifySession(req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
+  const session = await verifyLiveSession(d1Adapter(env.DB as never), req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
   if (!session) {
     return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
   }

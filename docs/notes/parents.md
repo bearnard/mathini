@@ -14,7 +14,7 @@ A parent's consent **replaces** the learner's tick: `students.parent_consent_at`
 
 ## PIN reset
 
-`POST /api/parent/children/<id>/reset-pin`: a new 4-digit PIN made on the server, shown to the parent once (`no-store`), stored as a salted PBKDF2 hash, logged in `pin_resets` without the PIN. 3 a day per child, 5 a day per parent. A learner who is already signed in keeps their `pp_session` cookie (it is a signature, not a stored session); only the next login needs the new PIN.
+`POST /api/parent/children/<id>/reset-pin`: a new 4-digit PIN made on the server, shown to the parent once (`no-store`), stored as a salted PBKDF2 hash, logged in `pin_resets` without the PIN. 3 a day per child, 5 a day per parent. A PIN reset also bumps the learner's **session version** (`students.session_version`, migration 0019), so every device that was already signed in is signed out at once: the cookie carries the version (`<id>.<version>.<signature>`) and every learner route checks it against the database (`verifyLiveSession`). Cookies made before 0019 count as version 0, so the rollout signs nobody out. A deleted learner's cookie stops working too.
 
 ## Who sees what
 

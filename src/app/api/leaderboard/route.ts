@@ -1,6 +1,7 @@
+import { d1Adapter } from '../../../lib/server/admin/db';
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
+import { verifyLiveSession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
 
 export const dynamic = 'force-dynamic';
 
@@ -34,7 +35,7 @@ export async function GET(req: NextRequest) {
     const db = env.DB;
 
     // Identify the requesting student (if signed in) so the UI can highlight their row
-    const sessionStudentId = await verifySession(req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
+    const sessionStudentId = await verifyLiveSession(d1Adapter(env.DB as never), req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
 
     const result = await db
       .prepare(

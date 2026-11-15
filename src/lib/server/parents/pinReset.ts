@@ -13,9 +13,13 @@ export async function resetChildPin(db: AdminDb, userId: string, studentId: stri
   if (!(await allowDurable(db, `pinreset:user:${userId}`, RESETS_PER_PARENT_PER_DAY, DAY_MS, now))) return { ok: false, error: 'Too many PIN resets today. Try again tomorrow.' };
   const pin = generatePin();
   const { hash, salt } = await hashPin(pin);
-  await db.batch([
-    { sql: 'UPDATE students SET pin_hash = ?, pin_salt = ? WHERE id = ?', params: [hash, salt, studentId] },
-    { sql: 'INSERT INTO pin_resets (student_id, user_id, created_at) VALUES (?, ?, ?)', params: [studentId, userId, now] },
-  ]);
+  const log = { sql: 'INSERT INTO pin_resets (student_id, user_id, created_at) VALUES (?, ?, ?)', params: [studentId, userId, now] };
+  try {
+    // The new PIN also bumps the learner's session version: every device that was already signed in is signed out (migration 0019).
+    await db.batch([{ sql: 'UPDATE students SET pin_hash = ?, pin_salt = ?, session_version = session_version + 1 WHERE id = ?', params: [hash, salt, studentId] }, log]);
+  } catch {
+    // 0019 not applied yet: the PIN still changes, the other devices just stay signed in until it is.
+    await db.batch([{ sql: 'UPDATE students SET pin_hash = ?, pin_salt = ? WHERE id = ?', params: [hash, salt, studentId] }, log]);
+  }
   return { ok: true, pin };
 }

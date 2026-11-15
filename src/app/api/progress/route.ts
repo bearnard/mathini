@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
+import { verifyLiveSession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
 import { d1Adapter } from '../../../lib/server/admin/db';
 import { buildProgress } from '../../../lib/server/progress/progressApi';
 
@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
   const headers = { 'Cache-Control': 'private, no-store' };
   try {
     const { env } = getCloudflareContext();
-    const studentId = await verifySession(req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
+    const studentId = await verifyLiveSession(d1Adapter(env.DB as never), req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
     if (!studentId) return NextResponse.json({ error: 'Not authenticated' }, { status: 401, headers });
     const body = await buildProgress(d1Adapter(env.DB as never), studentId, Date.now());
     if (!body) return NextResponse.json({ error: 'Not found' }, { status: 404, headers });
