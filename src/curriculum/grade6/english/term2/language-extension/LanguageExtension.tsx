@@ -82,22 +82,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Give a synonym for “big” and an antonym for “brave”.</li>
-            <li>What does “spill the beans” mean, and which word replaces “walked” in “He walked slowly home”?</li>
-            <li>Which stays in one tense: “Sipho opened the door and greeted his gran.” or “Sipho opened the door and greets his gran.”?</li>
-            <li>Which mark ends a question? Punctuate: thandi please bring your book. Why edit?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Large (or huge); cowardly (or fearful).</li>
-            <li>Tell a secret by accident. Strolled (or trudged).</li>
-            <li>“Sipho opened the door and greeted his gran.” (both verbs are past tense)</li>
-            <li>A question mark. “Thandi, please bring your book.” To correct mistakes and improve meaning.</li>
-          </ol>
-        }
+        questions={[
+          <>Give a synonym for “big” and an antonym for “brave”.</>,
+          <>What does “spill the beans” mean, and which word replaces “walked” in “He walked slowly home”?</>,
+          <>Which stays in one tense: “Sipho opened the door and greeted his gran.” or “Sipho opened the door and greets his gran.”?</>,
+          <>Which mark ends a question? Punctuate: thandi please bring your book. Why edit?</>,
+        ]}
+        answers={[
+          <>Large (or huge); cowardly (or fearful).</>,
+          <>Tell a secret by accident. Strolled (or trudged).</>,
+          <>“Sipho opened the door and greeted his gran.” (both verbs are past tense)</>,
+          <>A question mark. “Thandi, please bring your book.” To correct mistakes and improve meaning.</>,
+        ]}
       />,
     ),
   },

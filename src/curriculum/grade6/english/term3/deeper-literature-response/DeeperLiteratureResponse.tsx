@@ -95,22 +95,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What do we call the big message in a story, and what atmosphere do the words create?</li>
-            <li>A scene is bright, with children laughing at a picnic. What is the mood? Which of these is a theme: “Sharing makes a day happier” or “Thabo packed a basket”?</li>
-            <li>Which detail shows motivation: a character who practises every day to make the team?</li>
-            <li>What should a review include, and which sentence uses textual support?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The theme: the big idea or message. The feeling or atmosphere created by the story.</li>
-            <li>Cheerful (happy). “Sharing makes a day happier.”</li>
-            <li>Yes: the action and the reason together show motivation.</li>
-            <li>An opinion supported by reasons and examples. “The hero is brave because he helps his friend in chapter 3.”</li>
-          </ol>
-        }
+        questions={[
+          <>What do we call the big message in a story, and what atmosphere do the words create?</>,
+          <>A scene is bright, with children laughing at a picnic. What is the mood? Which of these is a theme: “Sharing makes a day happier” or “Thabo packed a basket”?</>,
+          <>Which detail shows motivation: a character who practises every day to make the team?</>,
+          <>What should a review include, and which sentence uses textual support?</>,
+        ]}
+        answers={[
+          <>The theme: the big idea or message. The feeling or atmosphere created by the story.</>,
+          <>Cheerful (happy). “Sharing makes a day happier.”</>,
+          <>Yes: the action and the reason together show motivation.</>,
+          <>An opinion supported by reasons and examples. “The hero is brave because he helps his friend in chapter 3.”</>,
+        ]}
       />,
     ),
   },

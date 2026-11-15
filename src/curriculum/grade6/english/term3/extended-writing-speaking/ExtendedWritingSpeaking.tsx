@@ -87,22 +87,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What should you think about before planning? What does audience awareness mean?</li>
-            <li>What makes a strong opening in a talk, and a good ending in extended writing?</li>
-            <li>What should a story you write for class include, and what makes a film review more convincing?</li>
-            <li>How should the cards for a speech look, and which question would get a guest to say the most?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Audience and purpose. Choosing words and details that suit the listeners or readers.</li>
-            <li>A hook that grabs attention and names the topic. A clear closing that sums up the main idea.</li>
-            <li>Events organised in a logical order, with a beginning, middle and end. Specific reasons and scenes from the film.</li>
-            <li>Short key words instead of a full script. “What was the hardest moment, and how did you cope?”</li>
-          </ol>
-        }
+        questions={[
+          <>What should you think about before planning? What does audience awareness mean?</>,
+          <>What makes a strong opening in a talk, and a good ending in extended writing?</>,
+          <>What should a story you write for class include, and what makes a film review more convincing?</>,
+          <>How should the cards for a speech look, and which question would get a guest to say the most?</>,
+        ]}
+        answers={[
+          <>Audience and purpose. Choosing words and details that suit the listeners or readers.</>,
+          <>A hook that grabs attention and names the topic. A clear closing that sums up the main idea.</>,
+          <>Events organised in a logical order, with a beginning, middle and end. Specific reasons and scenes from the film.</>,
+          <>Short key words instead of a full script. “What was the hardest moment, and how did you cope?”</>,
+        ]}
       />,
     ),
   },

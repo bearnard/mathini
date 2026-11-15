@@ -106,22 +106,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which action shows good teamwork and which shows good communication? What does fair play mean?</li>
-            <li>What is a fitness circuit? Why warm up before vigorous exercise?</li>
-            <li>Which activity improves coordination? In what way does exercising often keep you healthy?</li>
-            <li>What do you do if you feel dizzy or sore? What is self-assessment?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Passing to a teammate in a better position. Calling a teammate’s name before a pass. Following the rules and respecting others.</li>
-            <li>A set of exercise stations done one after another. To prepare the body for movement safely.</li>
-            <li>Jumping rope with steady rhythm. It helps build fitness and gives the body more energy.</li>
-            <li>Tell the teacher and stop to recover safely. Thinking about how you participated and what to improve.</li>
-          </ol>
-        }
+        questions={[
+          <>Which action shows good teamwork and which shows good communication? What does fair play mean?</>,
+          <>What is a fitness circuit? Why warm up before vigorous exercise?</>,
+          <>Which activity improves coordination? In what way does exercising often keep you healthy?</>,
+          <>What do you do if you feel dizzy or sore? What is self-assessment?</>,
+        ]}
+        answers={[
+          <>Passing to a teammate in a better position. Calling a teammate’s name before a pass. Following the rules and respecting others.</>,
+          <>A set of exercise stations done one after another. To prepare the body for movement safely.</>,
+          <>Jumping rope with steady rhythm. It helps build fitness and gives the body more energy.</>,
+          <>Tell the teacher and stop to recover safely. Thinking about how you participated and what to improve.</>,
+        ]}
       />,
     ),
   },

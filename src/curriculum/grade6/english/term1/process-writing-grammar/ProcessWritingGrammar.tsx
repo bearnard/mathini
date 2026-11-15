@@ -102,22 +102,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What do you do first in the writing process? What is a summary?</li>
-            <li>Which text type tells a story about a lost puppy, and which helps readers imagine a busy market?</li>
-            <li>What marks show spoken words, and what two things belong in a friendly letter?</li>
-            <li>In “The choir sang beautifully”, which word is the adverb? What is a noun, and what does a pronoun do?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Plan your ideas. A summary is a short version with only the main points.</li>
-            <li>A narrative essay tells the story; a descriptive essay creates the picture.</li>
-            <li>Quotation marks. A greeting and a sign-off.</li>
-            <li>“beautifully”. A noun names a person, place or thing; a pronoun replaces a noun.</li>
-          </ol>
-        }
+        questions={[
+          <>What do you do first in the writing process? What is a summary?</>,
+          <>Which text type tells a story about a lost puppy, and which helps readers imagine a busy market?</>,
+          <>What marks show spoken words, and what two things belong in a friendly letter?</>,
+          <>In “The choir sang beautifully”, which word is the adverb? What is a noun, and what does a pronoun do?</>,
+        ]}
+        answers={[
+          <>Plan your ideas. A summary is a short version with only the main points.</>,
+          <>A narrative essay tells the story; a descriptive essay creates the picture.</>,
+          <>Quotation marks. A greeting and a sign-off.</>,
+          <>“beautifully”. A noun names a person, place or thing; a pronoun replaces a noun.</>,
+        ]}
       />,
     ),
   },

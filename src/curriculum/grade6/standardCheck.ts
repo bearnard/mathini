@@ -40,7 +40,7 @@ export const checkLessons = (lessons: Record<string, LessonSpec>) => {
 
     test(`${name}: the Check yourself slide has 4 questions with answers`, () => {
       const check = slides.slice(slides.lastIndexOf("title: 'Check yourself'"));
-      assert.equal((check.match(/<li>/g) ?? []).length, 8);
+      assert.equal((check.split('answers={')[0].match(/^\s*<>/gm) ?? []).length, 4, 'four questions, each with its own answer');
     });
   }
 };

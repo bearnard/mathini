@@ -87,22 +87,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>In “The teacher praised the class”, which word is a noun? In “the noisy classroom”, which is an adjective?</li>
-            <li>Which of “They walk to school” and “They walked to school” is past tense, and which sentence keeps one tense throughout?</li>
-            <li>Which sentence quotes the exact words spoken, and which one reports them?</li>
-            <li>Why do we use punctuation? How can you check spelling?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>teacher; noisy.</li>
-            <li>“They walked to school yesterday.” “We revised the poem and answered the questions.”</li>
-            <li>Mia said, “I am ready.” (quotes the exact words) Sam said that he was tired. (reports them)</li>
-            <li>To make meaning clear for the reader. Look, cover, write, compare.</li>
-          </ol>
-        }
+        questions={[
+          <>In “The teacher praised the class”, which word is a noun? In “the noisy classroom”, which is an adjective?</>,
+          <>Which of “They walk to school” and “They walked to school” is past tense, and which sentence keeps one tense throughout?</>,
+          <>Which sentence quotes the exact words spoken, and which one reports them?</>,
+          <>Why do we use punctuation? How can you check spelling?</>,
+        ]}
+        answers={[
+          <>teacher; noisy.</>,
+          <>“They walked to school yesterday.” “We revised the poem and answered the questions.”</>,
+          <>Mia said, “I am ready.” (quotes the exact words) Sam said that he was tired. (reports them)</>,
+          <>To make meaning clear for the reader. Look, cover, write, compare.</>,
+        ]}
       />,
     ),
   },

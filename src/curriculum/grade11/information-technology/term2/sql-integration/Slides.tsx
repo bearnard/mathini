@@ -111,22 +111,18 @@ qryStudents.Open;`} />
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which TADOQuery method runs a DELETE statement?</li>
-            <li>Using the same five-row table, which learners does WHERE Mark &gt;= 80 return?</li>
-            <li>After UPDATE Students SET Mark = Mark + 5 WHERE Mark &lt; 73, how many rows changed?</li>
-            <li>Why is ParamByName safer than joining text into the SQL string?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>ExecSQL.</li>
-            <li>{q1.map((r) => `${r.name} (${r.mark})`).join(', ')}.</li>
-            <li>{q2.changed} rows.</li>
-            <li>The typed text is only ever a value, so it can not change the SQL command.</li>
-          </ol>
-        }
+        questions={[
+          <>Which TADOQuery method runs a DELETE statement?</>,
+          <>Using the same five-row table, which learners does WHERE Mark &gt;= 80 return?</>,
+          <>After UPDATE Students SET Mark = Mark + 5 WHERE Mark &lt; 73, how many rows changed?</>,
+          <>Why is ParamByName safer than joining text into the SQL string?</>,
+        ]}
+        answers={[
+          <>ExecSQL.</>,
+          <>{q1.map((r) => `${r.name} (${r.mark})`).join(', ')}.</>,
+          <>{q2.changed} rows.</>,
+          <>The typed text is only ever a value, so it can not change the SQL command.</>,
+        ]}
       />,
     ),
   },

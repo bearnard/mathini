@@ -110,22 +110,18 @@ mark := StrToInt(Copy(line, p + 1, Length(line)));`} />
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A file holds R120 and R80. A program opens it with Append and writes R45. What lines does it hold?</li>
-            <li>A file has 4 lines and is read with while not Eof(f). How many times does the loop body run?</li>
-            <li>Which procedure opens an existing file only for reading?</li>
-            <li>What are the name and the value when Sipho,5 is split with Pos and Copy?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{q1.join(', ')}.</li>
-            <li>{q2.iterations} times; the total of the numbers is {q2.total}.</li>
-            <li>Reset.</li>
-            <li>Name {q4.name} and value {q4.value} (the comma is at position {q4.p}).</li>
-          </ol>
-        }
+        questions={[
+          <>A file holds R120 and R80. A program opens it with Append and writes R45. What lines does it hold?</>,
+          <>A file has 4 lines and is read with while not Eof(f). How many times does the loop body run?</>,
+          <>Which procedure opens an existing file only for reading?</>,
+          <>What are the name and the value when Sipho,5 is split with Pos and Copy?</>,
+        ]}
+        answers={[
+          <>{q1.join(', ')}.</>,
+          <>{q2.iterations} times; the total of the numbers is {q2.total}.</>,
+          <>Reset.</>,
+          <>Name {q4.name} and value {q4.value} (the comma is at position {q4.p}).</>,
+        ]}
       />,
     ),
   },

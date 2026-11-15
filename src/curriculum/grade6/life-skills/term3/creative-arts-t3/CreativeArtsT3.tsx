@@ -91,22 +91,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Why do people make South African cultural art, and how do you show respect when you look at it?</li>
-            <li>What does mixed media mean? Why layer rough and smooth materials?</li>
-            <li>Describe choral verse, and say how a group makes its performance work well together.</li>
-            <li>How can movement add meaning? Why rehearse?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>To express heritage, ideas and stories. Finding out what the symbols and traditions mean.</li>
-            <li>Using more than one material in one artwork (paint, collage paper and fabric). To create texture and visual interest.</li>
-            <li>A group speaking lines together with rhythm and expression. Listening to each other and keeping good timing.</li>
-            <li>It can show mood, rhythm and important ideas. To improve confidence, timing and expression.</li>
-          </ol>
-        }
+        questions={[
+          <>Why do people make South African cultural art, and how do you show respect when you look at it?</>,
+          <>What does mixed media mean? Why layer rough and smooth materials?</>,
+          <>Describe choral verse, and say how a group makes its performance work well together.</>,
+          <>How can movement add meaning? Why rehearse?</>,
+        ]}
+        answers={[
+          <>To express heritage, ideas and stories. Finding out what the symbols and traditions mean.</>,
+          <>Using more than one material in one artwork (paint, collage paper and fabric). To create texture and visual interest.</>,
+          <>A group speaking lines together with rhythm and expression. Listening to each other and keeping good timing.</>,
+          <>It can show mood, rhythm and important ideas. To improve confidence, timing and expression.</>,
+        ]}
       />,
     ),
   },

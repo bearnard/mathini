@@ -36,7 +36,7 @@ for (const [name, steps] of Object.entries(lessons)) {
       assert.ok(!python.test(h), `${s.title}: Python token`);
     });
     const last = html(steps[steps.length - 1].content);
-    assert.equal((last.match(/<li>/g) ?? []).length, 8, 'four questions and four answers');
+    assert.equal((last.match(/<details/g) ?? []).length, 4, 'four questions, each with its own answer');
   });
 }
 

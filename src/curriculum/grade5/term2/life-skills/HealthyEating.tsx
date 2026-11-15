@@ -71,22 +71,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which foods give energy?</li>
-            <li>Which mineral builds strong bones and teeth, and where do we get it?</li>
-            <li>Give an example of a healthy snack.</li>
-            <li>What can too much sugar do to your teeth?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Carbohydrates such as bread, rice and pap.</li>
-            <li>Calcium, from milk and cheese.</li>
-            <li>An apple (or another fruit or vegetable).</li>
-            <li>Cause tooth decay.</li>
-          </ol>
-        }
+        questions={[
+          <>Which foods give energy?</>,
+          <>Which mineral builds strong bones and teeth, and where do we get it?</>,
+          <>Give an example of a healthy snack.</>,
+          <>What can too much sugar do to your teeth?</>,
+        ]}
+        answers={[
+          <>Carbohydrates such as bread, rice and pap.</>,
+          <>Calcium, from milk and cheese.</>,
+          <>An apple (or another fruit or vegetable).</>,
+          <>Cause tooth decay.</>,
+        ]}
       />,
     ),
   },

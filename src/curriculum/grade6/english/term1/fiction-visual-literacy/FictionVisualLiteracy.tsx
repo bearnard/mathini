@@ -87,22 +87,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does the setting tell you, and what is the plot?</li>
-            <li>Why do readers skim, and why do they scan?</li>
-            <li>In “Lebo crept through the silent house”, what does “crept” mean?</li>
-            <li>A magazine advert for retirement homes shows a calm garden and uses formal, careful wording. Who is the target audience, and why use soft colours?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The setting tells where and when the story happens. The plot is the events that happen in the story.</li>
-            <li>Skim for the general idea quickly. Scan to find a specific detail quickly.</li>
-            <li>Moved quietly and carefully (clue: silent house).</li>
-            <li>Older adults. Soft colours create a calm, trustworthy mood that supports the message.</li>
-          </ol>
-        }
+        questions={[
+          <>What does the setting tell you, and what is the plot?</>,
+          <>Why do readers skim, and why do they scan?</>,
+          <>In “Lebo crept through the silent house”, what does “crept” mean?</>,
+          <>A magazine advert for retirement homes shows a calm garden and uses formal, careful wording. Who is the target audience, and why use soft colours?</>,
+        ]}
+        answers={[
+          <>The setting tells where and when the story happens. The plot is the events that happen in the story.</>,
+          <>Skim for the general idea quickly. Scan to find a specific detail quickly.</>,
+          <>Moved quietly and carefully (clue: silent house).</>,
+          <>Older adults. Soft colours create a calm, trustworthy mood that supports the message.</>,
+        ]}
       />,
     ),
   },

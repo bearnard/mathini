@@ -97,22 +97,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Give two reasons physical activity still matters in adult life.</li>
-            <li>Name the four things a sustainable activity choice should be.</li>
-            <li>Name three parts of a healthy routine besides exercise.</li>
-            <li>A log reads 3, 1, 3, 3 sessions for four weeks and the goal is 3 a week. In how many weeks was it met?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>For example: it supports health and mental wellbeing, and gives routine and balance.</li>
-            <li>Safe, affordable, enjoyable and accessible.</li>
-            <li>Sleep, hydration (water), nutrition (food) and recovery.</li>
-            <li>{check.weeksHit} of 4 weeks (all except the week with 1 session).</li>
-          </ol>
-        }
+        questions={[
+          <>Give two reasons physical activity still matters in adult life.</>,
+          <>Name the four things a sustainable activity choice should be.</>,
+          <>Name three parts of a healthy routine besides exercise.</>,
+          <>A log reads 3, 1, 3, 3 sessions for four weeks and the goal is 3 a week. In how many weeks was it met?</>,
+        ]}
+        answers={[
+          <>For example: it supports health and mental wellbeing, and gives routine and balance.</>,
+          <>Safe, affordable, enjoyable and accessible.</>,
+          <>Sleep, hydration (water), nutrition (food) and recovery.</>,
+          <>{check.weeksHit} of 4 weeks (all except the week with 1 session).</>,
+        ]}
       />,
     ),
   },

@@ -84,22 +84,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which media text is set out in paragraphs under a headline, and which is spoken news from a presenter?</li>
-            <li>What does the main idea of a text tell you?</li>
-            <li>“The new park is the best place in town.” Fact or opinion? Why?</li>
-            <li>A speaker gives only one side of an issue. What should you think about, and how should you discuss it?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A newspaper article is read; a radio report is listened to.</li>
-            <li>What the text is mostly about.</li>
-            <li>An opinion: “best” is a judgement that cannot be proved.</li>
-            <li>Possible bias. Support your opinion with evidence from the text.</li>
-          </ol>
-        }
+        questions={[
+          <>Which media text is set out in paragraphs under a headline, and which is spoken news from a presenter?</>,
+          <>What does the main idea of a text tell you?</>,
+          <>“The new park is the best place in town.” Fact or opinion? Why?</>,
+          <>A speaker gives only one side of an issue. What should you think about, and how should you discuss it?</>,
+        ]}
+        answers={[
+          <>A newspaper article is read; a radio report is listened to.</>,
+          <>What the text is mostly about.</>,
+          <>An opinion: “best” is a judgement that cannot be proved.</>,
+          <>Possible bias. Support your opinion with evidence from the text.</>,
+        ]}
       />,
     ),
   },

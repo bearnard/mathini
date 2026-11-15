@@ -98,22 +98,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which genre is written in lines and may use rhyme, and which has dialogue and stage directions?</li>
-            <li>In a poem, who is the speaker? “Her smile was as bright as the sun” is what kind of expression?</li>
-            <li>What do we call the main message of a story, and what does the narrator’s viewpoint show?</li>
-            <li>How do you describe a character, and why use evidence from the text?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Poetry; a play.</li>
-            <li>The voice that speaks the poem. A simile (figurative language).</li>
-            <li>The theme: the main idea or message. Who is telling or seeing the events.</li>
-            <li>By what they say, do and feel. It shows that your answer comes from the text.</li>
-          </ol>
-        }
+        questions={[
+          <>Which genre is written in lines and may use rhyme, and which has dialogue and stage directions?</>,
+          <>In a poem, who is the speaker? “Her smile was as bright as the sun” is what kind of expression?</>,
+          <>What do we call the main message of a story, and what does the narrator’s viewpoint show?</>,
+          <>How do you describe a character, and why use evidence from the text?</>,
+        ]}
+        answers={[
+          <>Poetry; a play.</>,
+          <>The voice that speaks the poem. A simile (figurative language).</>,
+          <>The theme: the main idea or message. Who is telling or seeing the events.</>,
+          <>By what they say, do and feel. It shows that your answer comes from the text.</>,
+        ]}
       />,
     ),
   },

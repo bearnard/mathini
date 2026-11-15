@@ -102,22 +102,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Why warm up before athletics? How do you finish a hard session safely?</li>
-            <li>How should you land after a jump to protect your body?</li>
-            <li>What must a runner do carefully in a relay, and why are indigenous games worth playing?</li>
-            <li>Say what flexibility lets your body do. Then explain reaction time, cooperation and fair play.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>To prepare the body and lower the risk of injury. Cool down with slower movement and gentle stretches.</li>
-            <li>Landing softly with bent knees.</li>
-            <li>Passing the baton carefully to the next runner. They build skill while connecting learners to local heritage.</li>
-            <li>Move muscles and joints through a full range. How quickly you respond to a signal. Encouraging teammates and following the plan. Being honest and respecting the rules.</li>
-          </ol>
-        }
+        questions={[
+          <>Why warm up before athletics? How do you finish a hard session safely?</>,
+          <>How should you land after a jump to protect your body?</>,
+          <>What must a runner do carefully in a relay, and why are indigenous games worth playing?</>,
+          <>Say what flexibility lets your body do. Then explain reaction time, cooperation and fair play.</>,
+        ]}
+        answers={[
+          <>To prepare the body and lower the risk of injury. Cool down with slower movement and gentle stretches.</>,
+          <>Landing softly with bent knees.</>,
+          <>Passing the baton carefully to the next runner. They build skill while connecting learners to local heritage.</>,
+          <>Move muscles and joints through a full range. How quickly you respond to a signal. Encouraging teammates and following the plan. Being honest and respecting the rules.</>,
+        ]}
       />,
     ),
   },

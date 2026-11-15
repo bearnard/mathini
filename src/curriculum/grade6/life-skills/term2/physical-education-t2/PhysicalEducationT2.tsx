@@ -90,22 +90,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What are you trying to do in an invasion game, and what can you do to make a pass to you easier?</li>
-            <li>What is good defending, and what should you do if a defender blocks you?</li>
-            <li>Explain agility, say why drills are repeated, and describe a game with fewer players on each team.</li>
-            <li>How do players show teamwork in a game with fewer players on each side, and what is an example of fair play?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Move into space and try to score. Moving into an open space.</li>
-            <li>Staying between the attacker and the goal. Pass to an open teammate.</li>
-            <li>Changing direction quickly with control. To improve skill and fitness. A game with fewer players on each team.</li>
-            <li>Communicating and supporting others. Admitting the ball went out off your hand.</li>
-          </ol>
-        }
+        questions={[
+          <>What are you trying to do in an invasion game, and what can you do to make a pass to you easier?</>,
+          <>What is good defending, and what should you do if a defender blocks you?</>,
+          <>Explain agility, say why drills are repeated, and describe a game with fewer players on each team.</>,
+          <>How do players show teamwork in a game with fewer players on each side, and what is an example of fair play?</>,
+        ]}
+        answers={[
+          <>Move into space and try to score. Moving into an open space.</>,
+          <>Staying between the attacker and the goal. Pass to an open teammate.</>,
+          <>Changing direction quickly with control. To improve skill and fitness. A game with fewer players on each team.</>,
+          <>Communicating and supporting others. Admitting the ball went out off your hand.</>,
+        ]}
       />,
     ),
   },

@@ -35,13 +35,44 @@ export const Mistake = ({ children }: { children: ReactNode }) => (
   </div>
 );
 
-export const Check = ({ question, answer }: { question: ReactNode; answer: ReactNode }) => (
-  <div className="rounded-xl bg-amber-50 p-4 text-left">
-    <p className="text-xs font-bold uppercase tracking-wide text-amber-700">Check yourself</p>
-    <div className="mt-1 text-lg text-slate-800">{question}</div>
-    <details className="mt-3 rounded-lg bg-white/70 p-3">
-      <summary className="cursor-pointer font-semibold text-amber-800">Show the answer</summary>
-      <div className="mt-2 text-slate-700">{answer}</div>
-    </details>
-  </div>
-);
+/**
+ * A "Check yourself" block. Two shapes:
+ *  - one question: `<Check question={...} answer={...} />`
+ *  - several questions: `<Check questions={[<>Q1</>, <>Q2</>]} answers={[<>A1</>, <>A2</>]} />`: ONE hidden answer per question, so the learner
+ *    can try each question and reveal only its own answer. The lists must have the same length.
+ * Never put a list of questions under one answer (src/checkPerQuestion.test.ts fails on that).
+ */
+export const Check = (
+  props: { question: ReactNode; answer: ReactNode; questions?: undefined; answers?: undefined } | { questions: ReactNode[]; answers: ReactNode[]; question?: undefined; answer?: undefined },
+) => {
+  const header = <p className="text-xs font-bold uppercase tracking-wide text-amber-700">Check yourself</p>;
+  if (props.questions) {
+    const answers = props.answers;
+    return (
+      <div className="rounded-xl bg-amber-50 p-4 text-left">
+        {header}
+        <ol className="mt-1 list-decimal space-y-4 pl-5 text-lg text-slate-800">
+          {props.questions.map((q, i) => (
+            <li key={i}>
+              <div>{q}</div>
+              <details className="mt-2 rounded-lg bg-white/70 p-3 text-base">
+                <summary className="cursor-pointer font-semibold text-amber-800">Show the answer</summary>
+                <div className="mt-2 text-slate-700">{answers[i]}</div>
+              </details>
+            </li>
+          ))}
+        </ol>
+      </div>
+    );
+  }
+  return (
+    <div className="rounded-xl bg-amber-50 p-4 text-left">
+      {header}
+      <div className="mt-1 text-lg text-slate-800">{props.question}</div>
+      <details className="mt-3 rounded-lg bg-white/70 p-3">
+        <summary className="cursor-pointer font-semibold text-amber-800">Show the answer</summary>
+        <div className="mt-2 text-slate-700">{props.answer}</div>
+      </details>
+    </div>
+  );
+};

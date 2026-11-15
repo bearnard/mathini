@@ -92,22 +92,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>On which continent is Egypt, and which river gave the Egyptians their water?</li>
-            <li>What did the yearly flood leave on the land, and why did it matter?</li>
-            <li>What was a pharaoh, and why were pyramids built?</li>
-            <li>What is hieroglyphics, who were scribes, and what was papyrus?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Africa (the north-east). The River Nile.</li>
-            <li>Rich black silt, which made the soil fertile for farming.</li>
-            <li>The ruler or king. As tombs to protect a pharaoh’s body.</li>
-            <li>Picture writing. People trained to read and write. A reed used to make paper.</li>
-          </ol>
-        }
+        questions={[
+          <>On which continent is Egypt, and which river gave the Egyptians their water?</>,
+          <>What did the yearly flood leave on the land, and why did it matter?</>,
+          <>What was a pharaoh, and why were pyramids built?</>,
+          <>What is hieroglyphics, who were scribes, and what was papyrus?</>,
+        ]}
+        answers={[
+          <>Africa (the north-east). The River Nile.</>,
+          <>Rich black silt, which made the soil fertile for farming.</>,
+          <>The ruler or king. As tombs to protect a pharaoh’s body.</>,
+          <>Picture writing. People trained to read and write. A reed used to make paper.</>,
+        ]}
       />,
     ),
   },

@@ -87,22 +87,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is one thing a good friend does that shows a healthy friendship? What is the safest answer to a dare to break a school rule?</li>
-            <li>When two friends start to disagree, what should each do first, and what can they say so that both get a turn?</li>
-            <li>Who is a trusted adult? What do you do if someone you do not know offers you a lift? What if a situation feels unsafe?</li>
-            <li>Give one way to be responsible at school and one habit that helps you study for a test.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Listening respectfully when a friend speaks. Say no and choose the responsible action.</li>
-            <li>Calm down and listen. “Let us each explain what happened.”</li>
-            <li>A teacher who helps you stay safe. Say no and tell a trusted adult. Tell a trusted adult as soon as you can.</li>
-            <li>Packing your books and homework the night before. Reviewing your notes over several days.</li>
-          </ol>
-        }
+        questions={[
+          <>What is one thing a good friend does that shows a healthy friendship? What is the safest answer to a dare to break a school rule?</>,
+          <>When two friends start to disagree, what should each do first, and what can they say so that both get a turn?</>,
+          <>Who is a trusted adult? What do you do if someone you do not know offers you a lift? What if a situation feels unsafe?</>,
+          <>Give one way to be responsible at school and one habit that helps you study for a test.</>,
+        ]}
+        answers={[
+          <>Listening respectfully when a friend speaks. Say no and choose the responsible action.</>,
+          <>Calm down and listen. “Let us each explain what happened.”</>,
+          <>A teacher who helps you stay safe. Say no and tell a trusted adult. Tell a trusted adult as soon as you can.</>,
+          <>Packing your books and homework the night before. Reviewing your notes over several days.</>,
+        ]}
       />,
     ),
   },

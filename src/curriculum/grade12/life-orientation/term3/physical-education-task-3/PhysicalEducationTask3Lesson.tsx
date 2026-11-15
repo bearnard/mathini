@@ -99,22 +99,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which keeps fitness better: one intense session a term or regular sessions? Why?</li>
-            <li>Name two ways teammates can support different ability levels.</li>
-            <li>You attended 6 of 8 planned sessions. What is your attendance percentage?</li>
-            <li>Your consistency is poor. What should you do?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Regular sessions. Fitness is maintained through consistent activity over time.</li>
-            <li>For example: share turns and give kind, clear help, so no one is excluded.</li>
-            <li>6 ÷ 8 × 100 = {check.pct}%. You missed {check.missed} sessions.</li>
-            <li>Reflect honestly and set a realistic improvement target.</li>
-          </ol>
-        }
+        questions={[
+          <>Which keeps fitness better: one intense session a term or regular sessions? Why?</>,
+          <>Name two ways teammates can support different ability levels.</>,
+          <>You attended 6 of 8 planned sessions. What is your attendance percentage?</>,
+          <>Your consistency is poor. What should you do?</>,
+        ]}
+        answers={[
+          <>Regular sessions. Fitness is maintained through consistent activity over time.</>,
+          <>For example: share turns and give kind, clear help, so no one is excluded.</>,
+          <>6 ÷ 8 × 100 = {check.pct}%. You missed {check.missed} sessions.</>,
+          <>Reflect honestly and set a realistic improvement target.</>,
+        ]}
       />,
     ),
   },

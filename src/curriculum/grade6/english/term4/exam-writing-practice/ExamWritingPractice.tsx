@@ -92,22 +92,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the best first step in an exam writing task, and why does time management matter?</li>
-            <li>Which text is transactional, and what must you remember about the audience?</li>
-            <li>How should an essay begin, and why should one paragraph stick to a single point?</li>
-            <li>What is an editing checklist for, and what is the safest strategy under pressure?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Plan your ideas and structure quickly. It gives you time to plan, write and edit.</li>
-            <li>A formal letter to the principal. Choose the tone and format that suit the reader.</li>
-            <li>Introduce the topic clearly. It makes the writing easier to follow.</li>
-            <li>To spot and fix mistakes before handing in. Follow your plan and tick off your checklist.</li>
-          </ol>
-        }
+        questions={[
+          <>What is the best first step in an exam writing task, and why does time management matter?</>,
+          <>Which text is transactional, and what must you remember about the audience?</>,
+          <>How should an essay begin, and why should one paragraph stick to a single point?</>,
+          <>What is an editing checklist for, and what is the safest strategy under pressure?</>,
+        ]}
+        answers={[
+          <>Plan your ideas and structure quickly. It gives you time to plan, write and edit.</>,
+          <>A formal letter to the principal. Choose the tone and format that suit the reader.</>,
+          <>Introduce the topic clearly. It makes the writing easier to follow.</>,
+          <>To spot and fix mistakes before handing in. Follow your plan and tick off your checklist.</>,
+        ]}
       />,
     ),
   },

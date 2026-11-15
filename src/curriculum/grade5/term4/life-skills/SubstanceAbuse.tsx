@@ -69,22 +69,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What do we call using alcohol, tobacco or drugs in a way that harms body and mind?</li>
-            <li>Which organ does too much alcohol damage?</li>
-            <li>What do we call breathing in smoke from someone else’s cigarette?</li>
-            <li>What should you do if someone offers you drugs?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Substance abuse.</li>
-            <li>The liver.</li>
-            <li>Passive smoking.</li>
-            <li>Say no firmly, walk away and tell a trusted adult.</li>
-          </ol>
-        }
+        questions={[
+          <>What do we call using alcohol, tobacco or drugs in a way that harms body and mind?</>,
+          <>Which organ does too much alcohol damage?</>,
+          <>What do we call breathing in smoke from someone else’s cigarette?</>,
+          <>What should you do if someone offers you drugs?</>,
+        ]}
+        answers={[
+          <>Substance abuse.</>,
+          <>The liver.</>,
+          <>Passive smoking.</>,
+          <>Say no firmly, walk away and tell a trusted adult.</>,
+        ]}
       />,
     ),
   },

@@ -69,22 +69,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>On which date is Heritage Day?</li>
-            <li>Which festival is the Hindu Festival of Lights, and what does it celebrate?</li>
-            <li>Which Muslim festival ends the month of fasting?</li>
-            <li>How do we show respect for another family’s customs?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>24 September.</li>
-            <li>Diwali: the victory of light over darkness.</li>
-            <li>Eid al-Fitr.</li>
-            <li>By listening politely and asking questions.</li>
-          </ol>
-        }
+        questions={[
+          <>On which date is Heritage Day?</>,
+          <>Which festival is the Hindu Festival of Lights, and what does it celebrate?</>,
+          <>Which Muslim festival ends the month of fasting?</>,
+          <>How do we show respect for another family’s customs?</>,
+        ]}
+        answers={[
+          <>24 September.</>,
+          <>Diwali: the victory of light over darkness.</>,
+          <>Eid al-Fitr.</>,
+          <>By listening politely and asking questions.</>,
+        ]}
       />,
     ),
   },

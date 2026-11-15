@@ -95,22 +95,18 @@ for i := 1 to 4 do
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>For num := 37, how many passes does while num &gt;= 10 do num := num - 10 make, and what is num at the end?</li>
-            <li>With result := 1 first, what is result after for i := 1 to 3 do result := result * 3?</li>
-            <li>Which kind of error is a program that runs and prints a wrong total?</li>
-            <li>Which key sets a breakpoint in Delphi?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{q2.length} passes; num ends at {q2[q2.length - 1].num}.</li>
-            <li>{power[power.length - 1].result}.</li>
-            <li>A logic error.</li>
-            <li>F5.</li>
-          </ol>
-        }
+        questions={[
+          <>For num := 37, how many passes does while num &gt;= 10 do num := num - 10 make, and what is num at the end?</>,
+          <>With result := 1 first, what is result after for i := 1 to 3 do result := result * 3?</>,
+          <>Which kind of error is a program that runs and prints a wrong total?</>,
+          <>Which key sets a breakpoint in Delphi?</>,
+        ]}
+        answers={[
+          <>{q2.length} passes; num ends at {q2[q2.length - 1].num}.</>,
+          <>{power[power.length - 1].result}.</>,
+          <>A logic error.</>,
+          <>F5.</>,
+        ]}
       />,
     ),
   },

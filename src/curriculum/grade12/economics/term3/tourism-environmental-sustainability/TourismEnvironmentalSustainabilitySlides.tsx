@@ -86,22 +86,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a tourism leakage? Give one example.</li>
-            <li>In the example, a tourist spends R{EXAMPLE.initial} and {keptPct}% is re-spent. How much is spent in round 2?</li>
-            <li>What does carrying capacity mean?</li>
-            <li>What is ecotourism?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Income that leaves the local economy, for example profits sent to a foreign owner or imported goods.</li>
-            <li>R{EXAMPLE.initial} × {keptPct}% = R{rs[1].spent}.</li>
-            <li>The maximum number of visitors an area can handle sustainably, without serious damage.</li>
-            <li>Responsible travel that emphasises conservation and supports local communities.</li>
-          </ol>
-        }
+        questions={[
+          <>What is a tourism leakage? Give one example.</>,
+          <>In the example, a tourist spends R{EXAMPLE.initial} and {keptPct}% is re-spent. How much is spent in round 2?</>,
+          <>What does carrying capacity mean?</>,
+          <>What is ecotourism?</>,
+        ]}
+        answers={[
+          <>Income that leaves the local economy, for example profits sent to a foreign owner or imported goods.</>,
+          <>R{EXAMPLE.initial} × {keptPct}% = R{rs[1].spent}.</>,
+          <>The maximum number of visitors an area can handle sustainably, without serious damage.</>,
+          <>Responsible travel that emphasises conservation and supports local communities.</>,
+        ]}
       />,
     ),
   },

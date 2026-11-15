@@ -121,22 +121,18 @@ CloseFile(f);`} />
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which validation check is Pos(&apos;@&apos;, sEmail) &gt; 0?</li>
-            <li>Which exception does StrToInt raise for the text abc?</li>
-            <li>An array holds 12, 18 and 9. What are the total and the average?</li>
-            <li>Does the text 7a pass a presence check and does it pass a type check?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A format check.</li>
-            <li>EConvertError.</li>
-            <li>Total {q1.total} and average {dec(q1.avg)}.</li>
-            <li>It passes the presence check ({String(presenceCheck('7a'))}) but fails the type check.</li>
-          </ol>
-        }
+        questions={[
+          <>Which validation check is Pos(&apos;@&apos;, sEmail) &gt; 0?</>,
+          <>Which exception does StrToInt raise for the text abc?</>,
+          <>An array holds 12, 18 and 9. What are the total and the average?</>,
+          <>Does the text 7a pass a presence check and does it pass a type check?</>,
+        ]}
+        answers={[
+          <>A format check.</>,
+          <>EConvertError.</>,
+          <>Total {q1.total} and average {dec(q1.avg)}.</>,
+          <>It passes the presence check ({String(presenceCheck('7a'))}) but fails the type check.</>,
+        ]}
       />,
     ),
   },

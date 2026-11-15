@@ -89,22 +89,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does texture describe? What is a pattern?</li>
-            <li>Which activity is printmaking? What is a collage?</li>
-            <li>Which order tells a clear puppet story? How can you show two puppets are different characters?</li>
-            <li>What is a rhythm pattern? Why rehearse? What does Creative Arts combine this term?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>How a surface feels or looks. A design that repeats.</li>
-            <li>Pressing a painted shape onto paper again and again. An artwork made by joining different pieces.</li>
-            <li>Beginning, middle and end. Use different voices and movements.</li>
-            <li>A repeated sequence of beats or sounds. It helps the performance become smoother. Making prints and telling a story with puppets.</li>
-          </ol>
-        }
+        questions={[
+          <>What does texture describe? What is a pattern?</>,
+          <>Which activity is printmaking? What is a collage?</>,
+          <>Which order tells a clear puppet story? How can you show two puppets are different characters?</>,
+          <>What is a rhythm pattern? Why rehearse? What does Creative Arts combine this term?</>,
+        ]}
+        answers={[
+          <>How a surface feels or looks. A design that repeats.</>,
+          <>Pressing a painted shape onto paper again and again. An artwork made by joining different pieces.</>,
+          <>Beginning, middle and end. Use different voices and movements.</>,
+          <>A repeated sequence of beats or sounds. It helps the performance become smoother. Making prints and telling a story with puppets.</>,
+        ]}
       />,
     ),
   },
