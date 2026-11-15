@@ -1,60 +1,82 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StepFlow, WeekBars } from '../../../../../components/diagrams/lo/PswPictures';
+import { SessionBar } from '../../../../../components/diagrams/lo/Lo9Pictures';
+import { BUILD_UP, SESSION, buildUpTotal, sessionPlan } from '../../../../../components/diagrams/lo/lo9Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// Numbers in the pictures and slides come from lo9Helpers (tested in lo9Helpers.test.ts).
+const session = sessionPlan();
+const buildUp = buildUpTotal();
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Sport Skills and Technique',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Sport skills</strong> are techniques and movements specific to each sport or activity.
-          Developing skills requires practice and feedback.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Good technique prevents injury and improves performance.</p>
-        </div>
-      </div>
+    title: 'Sport skills and technique',
+    content: slide(
+      <>
+        <Rule>Sport skills are the techniques and movements of each sport. Good technique improves your performance and helps prevent injury.</Rule>
+        <StepFlow steps={['Hands behind the ball, fingers spread.', 'Hold the ball at your chest.', 'Step forward and push through your arms.', 'Aim at your teammate\'s chest.']} aria="Four steps of a netball chest pass in order: hands behind the ball with fingers spread, hold at the chest, step forward and push through the arms, aim at a teammate's chest." />
+        <Worked
+          title="Learn a chest pass, then use it in a game"
+          steps={[<>Practise the four steps slowly with a partner.</>, <>Focus on technique before speed.</>, <>In a game, watch where the defenders stand.</>, <>Adapt: pass to the open teammate.</>]}
+        />
+        <Mistake>Playing fast with poor technique. You build bad habits and risk injury. Practise the technique first, then add speed.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Endurance, Flexibility, and Fair Play',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Endurance</strong> is your ability to keep going during activity.
-          <strong> Flexibility</strong> is your range of movement. <strong>Fair play</strong> means following rules and respecting others.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Endurance</strong>
-            <p className="text-slate-600">Stamina and persistence.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Flexibility</strong>
-            <p className="text-slate-600">Range of motion and stretch.</p>
-          </div>
-          <div className="rounded-xl bg-yellow-50 p-4">
-            <strong className="text-yellow-700">Fair play</strong>
-            <p className="text-slate-600">Rules and respect for all.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Endurance and flexibility',
+    content: slide(
+      <>
+        <Rule>Endurance is the ability to keep going in an activity for a long time. Flexibility is your range of movement, and it helps prevent injury.</Rule>
+        <WeekBars days={BUILD_UP.days} minutes={BUILD_UP.minutes} aria="Three bars for Monday, Wednesday and Friday showing easy running of 15, 20 and 25 minutes, 60 minutes in the week." />
+        <Worked
+          title="Build endurance a little at a time"
+          steps={[<>Monday: run easily for {BUILD_UP.minutes[0]} minutes.</>, <>Wednesday: {BUILD_UP.minutes[1]} minutes.</>, <>Friday: {BUILD_UP.minutes[2]} minutes.</>, <>Total: {BUILD_UP.minutes.join(' + ')} = {buildUp} minutes. Stretch gently after each run.</>]}
+        />
+        <Mistake>Thinking flexibility only matters for gymnasts. Every sport uses your range of movement, so everyone should stretch regularly.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Competitive and Recreational Activity',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Competitive activity involves competing against others or standards.
-          Recreational activity is for enjoyment and fitness, not necessarily to win.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Both types are valuable:</p>
-          <p className="text-slate-600">Competition builds skills and drive; recreation builds joy and lifelong fitness habits.</p>
-        </div>
-      </div>
+    title: 'Fair play and staying safe',
+    content: slide(
+      <>
+        <Rule>Fair play means following the rules and respecting all players. To stay safe in competitive sport, use good technique, follow the rules, warm up and cool down.</Rule>
+        <SessionBar aria="One practice as a bar: 10 minutes warm-up, 20 minutes skills, 25 minutes game and 5 minutes cool-down, 60 minutes in total." />
+        <Worked
+          title="Plan a safe practice"
+          steps={[<>Warm-up: {SESSION[0].minutes} minutes.</>, <>Skills: {SESSION[1].minutes} minutes.</>, <>Game: {SESSION[2].minutes} minutes, played by the rules.</>, <>Cool-down: {SESSION[3].minutes} minutes. Total: {session.total} minutes.</>]}
+        />
+        <Mistake>Skipping the warm-up and cool-down, or breaking the rules to win. Fair play respects the other players as well as your own team.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Recreation, competition and injuries',
+    content: slide(
+      <>
+        <Rule>Recreational activity is activity you do for fun and health, not to win. Competition builds skills, motivation and personal growth.</Rule>
+        <StepFlow steps={['Stop playing.', 'Check the injury.', 'Tell your teacher or coach.', 'Get medical help if needed.']} aria="Four steps if you are injured in sport, in order: stop playing, check the injury, tell your teacher or coach, get medical help if needed." />
+        <Worked
+          title="Neo twists an ankle in a match"
+          steps={[<>She stops playing at once.</>, <>She checks the ankle: it hurts to stand on it.</>, <>She tells the coach.</>, <>She gets medical help before she plays again.</>]}
+        />
+        <Mistake>Playing on through pain so you do not let the team down. A small injury can become a serious one.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="Why is proper technique important in sport?" answer="It improves performance and prevents injury." />
+        <Check question="What is the difference between endurance and flexibility?" answer="Endurance is the ability to keep going for a long time. Flexibility is your range of movement, and it helps prevent injury." />
+        <Check question="Name three things that keep you safe in competitive sport." answer="Any three of: good technique, following the rules, warming up, cooling down." />
+        <Check question="You are injured during a match. What do you do?" answer="Stop, check the injury and get medical help if needed." />
+      </>,
     ),
   },
 ];
