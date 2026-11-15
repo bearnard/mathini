@@ -1,131 +1,128 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { FlowDiagram } from '../../../../../components/diagrams/science/SciencePictures4';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Team games combine skills and fair play',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          In <strong>team games</strong>, learners use movement skills together. Passing, receiving, moving into space,
-          and following rules all matter, but so do <strong>fair play</strong> and encouragement.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-blue-50 p-4 text-left">
-            <strong className="text-blue-800">Movement</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-blue-700">
-              <span className="rounded-full bg-white px-3 py-1">run</span>
-              <span className="rounded-full bg-white px-3 py-1">change direction</span>
-              <span className="rounded-full bg-white px-3 py-1">balance</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <strong className="text-emerald-800">Ball skills</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-emerald-700">
-              <span className="rounded-full bg-white px-3 py-1">pass</span>
-              <span className="rounded-full bg-white px-3 py-1">catch</span>
-              <span className="rounded-full bg-white px-3 py-1">control</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <strong className="text-amber-800">Fair play</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-amber-700">
-              <span className="rounded-full bg-white px-3 py-1">follow rules</span>
-              <span className="rounded-full bg-white px-3 py-1">respect others</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <strong className="text-violet-800">Teamwork</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-violet-700">
-              <span className="rounded-full bg-white px-3 py-1">communicate</span>
-              <span className="rounded-full bg-white px-3 py-1">encourage</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Teamwork, communication and fair play',
+    content: slide(
+      <>
+        <Rule>
+          Good teamwork in a game means passing to a teammate in a better position. Good communication includes calling a teammate’s name before a pass. Fair play means following the rules and respecting others.
+        </Rule>
+        <Worked
+          title="Play as a team"
+          steps={[
+            <>You have the ball and a teammate is in a better position.</>,
+            <>Call a teammate’s name before the pass, so they are ready.</>,
+            <>Pass to the teammate in the better position: team games work best when players share and make choices that help the whole team.</>,
+            <>Follow the rules and respect others: that is fair play.</>,
+          ]}
+        />
+        <Mistake>Keeping the ball to score yourself. Team games work best when you share and help the whole team.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Fitness circuits review strength, speed, and coordination',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          A <strong>fitness circuit</strong> uses stations to practise different skills. One station may build strength,
-          another may build stamina, and another may improve <strong>coordination</strong> or balance.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <strong className="text-rose-800">Warm-up</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-rose-700">
-              <span className="rounded-full bg-white px-3 py-1">prepare muscles</span>
-              <span className="rounded-full bg-white px-3 py-1">increase heartbeat</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <strong className="text-cyan-800">Stations</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-cyan-700">
-              <span className="rounded-full bg-white px-3 py-1">different exercises</span>
-              <span className="rounded-full bg-white px-3 py-1">take turns</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <strong className="text-lime-800">Coordination</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-lime-700">
-              <span className="rounded-full bg-white px-3 py-1">timing</span>
-              <span className="rounded-full bg-white px-3 py-1">control</span>
-              <span className="rounded-full bg-white px-3 py-1">rhythm</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <strong className="text-orange-800">Cool-down</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-orange-700">
-              <span className="rounded-full bg-white px-3 py-1">slow down</span>
-              <span className="rounded-full bg-white px-3 py-1">stretch safely</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'A fitness circuit',
+    content: slide(
+      <>
+        <Rule>A fitness circuit is a set of exercise stations done one after another. Warm up before vigorous exercise to prepare the body for movement safely, and cool down afterwards.</Rule>
+        <FlowDiagram
+          id="circuit"
+          title="A fitness circuit"
+          desc="Warm up, then three exercise stations one after another, then cool down."
+          nodes={[
+            { id: 'w', label: 'warm up', x: 28, y: 26, color: '#fcd34d' },
+            { id: 's1', label: 'station 1', x: 80, y: 26, color: '#86efac' },
+            { id: 's2', label: 'station 2', x: 132, y: 26, color: '#86efac' },
+            { id: 's3', label: 'station 3', x: 132, y: 74, color: '#86efac' },
+            { id: 'c', label: 'cool down', x: 80, y: 74, color: '#7dd3fc' },
+          ]}
+          edges={[
+            { from: 'w', to: 's1', label: '' },
+            { from: 's1', to: 's2', label: '' },
+            { from: 's2', to: 's3', label: '' },
+            { from: 's3', to: 'c', label: '' },
+          ]}
+        />
+        <Worked
+          title="Do a circuit"
+          steps={[
+            <>Warm up: prepare your muscles and increase your heartbeat.</>,
+            <>Move through the stations one after another, taking turns at each different exercise.</>,
+            <>Each station practises a different fitness skill.</>,
+            <>Cool down: slow down and stretch safely.</>,
+          ]}
+        />
+        <Mistake>Starting the circuit cold. A warm-up gets muscles and heart ready and helps reduce injury risk.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Recreation and health go together',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Recreation</strong> includes enjoyable physical activity that supports health. Learners can review how
-          they participated, notice what went well, and set a simple goal for their next PE lesson.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <strong className="text-indigo-800">Health</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-700">
-              <span className="rounded-full bg-white px-3 py-1">strong heart</span>
-              <span className="rounded-full bg-white px-3 py-1">more energy</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <strong className="text-teal-800">Safety</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-teal-700">
-              <span className="rounded-full bg-white px-3 py-1">drink water</span>
-              <span className="rounded-full bg-white px-3 py-1">report pain</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <strong className="text-fuchsia-800">Self-assessment</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-fuchsia-700">
-              <span className="rounded-full bg-white px-3 py-1">what improved</span>
-              <span className="rounded-full bg-white px-3 py-1">what to practise</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-yellow-50 p-4 text-left">
-            <strong className="text-yellow-800">Participation</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-yellow-700">
-              <span className="rounded-full bg-white px-3 py-1">join in</span>
-              <span className="rounded-full bg-white px-3 py-1">try your best</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Coordination and health',
+    content: slide(
+      <>
+        <Rule>
+          Coordination improves when you control movement, timing and rhythm together, for example jumping rope with steady rhythm. Regular physical activity helps build fitness and gives the body more energy.
+        </Rule>
+        <Worked
+          title="Practise coordination"
+          steps={[
+            <>Jump rope: turn the rope and jump at the same moment.</>,
+            <>Keep a steady rhythm: control, timing and rhythm work together.</>,
+            <>Practise regularly: it builds strength and stamina and gives the body more energy.</>,
+            <>Activity also helps you feel good, and supports general well-being.</>,
+          ]}
+        />
+        <Mistake>Thinking exercise only helps once. Regular activity builds fitness over time.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Safety and self-assessment',
+    content: slide(
+      <>
+        <Rule>
+          If you feel dizzy or sore during PE, tell the teacher and stop to recover safely. Self-assessment is thinking about how you participated and what to improve.
+        </Rule>
+        <Worked
+          title="Stay safe and reflect"
+          steps={[
+            <>You feel dizzy. Stop and tell the teacher straight away.</>,
+            <>Recover safely: drink water and rest.</>,
+            <>After the lesson, think about how you participated: did you join in and try your best?</>,
+            <>Decide what improved and what to practise next time.</>,
+          ]}
+        />
+        <Mistake>Carrying on when you feel pain or dizziness. Report it straight away.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Which action shows good teamwork and which shows good communication? What does fair play mean?</li>
+            <li>What is a fitness circuit? Why warm up before vigorous exercise?</li>
+            <li>Which activity improves coordination? How does regular activity help health?</li>
+            <li>What do you do if you feel dizzy or sore? What is self-assessment?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Passing to a teammate in a better position. Calling a teammate’s name before a pass. Following the rules and respecting others.</li>
+            <li>A set of exercise stations done one after another. To prepare the body for movement safely.</li>
+            <li>Jumping rope with steady rhythm. It helps build fitness and gives the body more energy.</li>
+            <li>Tell the teacher and stop to recover safely. Thinking about how you participated and what to improve.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

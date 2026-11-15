@@ -1,133 +1,111 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Growing and managing change respectfully',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          As children move through <strong>puberty</strong>, their bodies, feelings, and interests can change.
-          Respect, privacy, and support from <strong>trusted adults</strong> help learners handle these changes in a healthy way.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <strong className="text-rose-800">Puberty</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-rose-700">
-              <span className="rounded-full bg-white px-3 py-1">growing up</span>
-              <span className="rounded-full bg-white px-3 py-1">body changes</span>
-              <span className="rounded-full bg-white px-3 py-1">new feelings</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <strong className="text-sky-800">Emotions</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-sky-700">
-              <span className="rounded-full bg-white px-3 py-1">name the feeling</span>
-              <span className="rounded-full bg-white px-3 py-1">pause and breathe</span>
-              <span className="rounded-full bg-white px-3 py-1">talk it through</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <strong className="text-amber-800">Privacy</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-amber-700">
-              <span className="rounded-full bg-white px-3 py-1">knock first</span>
-              <span className="rounded-full bg-white px-3 py-1">respect space</span>
-              <span className="rounded-full bg-white px-3 py-1">be considerate</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <strong className="text-emerald-800">Support</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-emerald-700">
-              <span className="rounded-full bg-white px-3 py-1">trusted adult</span>
-              <span className="rounded-full bg-white px-3 py-1">kind words</span>
-              <span className="rounded-full bg-white px-3 py-1">safe choices</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Puberty and strong emotions',
+    content: slide(
+      <>
+        <Rule>
+          Puberty is a stage when a child grows into an adolescent: the body and emotions begin to change. To manage a strong emotion in a healthy way, pause, breathe, and talk to a trusted adult.
+        </Rule>
+        <Worked
+          title="Handle a strong feeling"
+          steps={[
+            <>You feel very angry or upset. Name the feeling.</>,
+            <>Pause and breathe.</>,
+            <>Talk it through with a trusted adult.</>,
+            <>Calming down and asking for support helps you handle emotions safely during the changes of puberty.</>,
+          ]}
+        />
+        <Mistake>Thinking changing feelings mean something is wrong with you. New feelings are a normal part of growing up; ask a trusted adult for support.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Know the facts and challenge stigma',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>HIV and AIDS awareness</strong> includes learning true facts, showing care, and never treating others unfairly.
-          Casual contact like sharing space, talking, or hugging does <strong>not</strong> spread HIV.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <strong className="text-violet-800">Awareness</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-violet-700">
-              <span className="rounded-full bg-white px-3 py-1">learn facts</span>
-              <span className="rounded-full bg-white px-3 py-1">ask safely</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <strong className="text-cyan-800">Respect</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-cyan-700">
-              <span className="rounded-full bg-white px-3 py-1">include others</span>
-              <span className="rounded-full bg-white px-3 py-1">speak kindly</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <strong className="text-lime-800">Healthy choices</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-lime-700">
-              <span className="rounded-full bg-white px-3 py-1">listen to adults</span>
-              <span className="rounded-full bg-white px-3 py-1">care for your body</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <strong className="text-orange-800">No stigma</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-orange-700">
-              <span className="rounded-full bg-white px-3 py-1">no teasing</span>
-              <span className="rounded-full bg-white px-3 py-1">no rumours</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Privacy and respect',
+    content: slide(
+      <>
+        <Rule>
+          Respecting privacy during puberty means giving people personal space and treating them with dignity, for example knocking before entering a private space.
+        </Rule>
+        <Worked
+          title="Respect privacy"
+          steps={[
+            <>The bathroom or bedroom door is closed.</>,
+            <>Knock before entering a private space.</>,
+            <>Wait to be invited in. Be considerate of other people’s space.</>,
+            <>This shows people dignity.</>,
+          ]}
+        />
+        <Mistake>Walking into a private space because you are in a hurry. Knock first and respect the person’s space.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Serve your community and dream about careers',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Community service</strong> helps others and builds responsibility. <strong>Career awareness</strong>
-          starts when learners notice their strengths, interests, and the different jobs people do in the community.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <strong className="text-indigo-800">Community service</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-700">
-              <span className="rounded-full bg-white px-3 py-1">helping others</span>
-              <span className="rounded-full bg-white px-3 py-1">volunteering</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <strong className="text-teal-800">Community roles</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-teal-700">
-              <span className="rounded-full bg-white px-3 py-1">nurse</span>
-              <span className="rounded-full bg-white px-3 py-1">teacher</span>
-              <span className="rounded-full bg-white px-3 py-1">firefighter</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <strong className="text-fuchsia-800">Strengths</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-fuchsia-700">
-              <span className="rounded-full bg-white px-3 py-1">what you enjoy</span>
-              <span className="rounded-full bg-white px-3 py-1">what you do well</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-yellow-50 p-4 text-left">
-            <strong className="text-yellow-800">Goals</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-yellow-700">
-              <span className="rounded-full bg-white px-3 py-1">future plans</span>
-              <span className="rounded-full bg-white px-3 py-1">helpful habits</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'HIV awareness and stigma',
+    content: slide(
+      <>
+        <Rule>
+          HIV is not spread by everyday casual contact: you cannot get HIV from hugging or sharing a desk. Stigma is treating someone unfairly because of an illness. People should be treated kindly and fairly.
+        </Rule>
+        <Worked
+          title="Respond with facts and kindness"
+          steps={[
+            <>A classmate says, “Do not sit near her, you will get HIV.”</>,
+            <>Check the facts: you cannot get HIV from hugging or sharing a desk.</>,
+            <>That teasing is stigma: it treats someone unfairly because of an illness.</>,
+            <>Include others, speak kindly, and ask a trusted adult or teacher for correct facts.</>,
+          ]}
+        />
+        <Mistake>Believing rumours about illness and excluding people. Learn the facts; stigma hurts people.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Community service and careers',
+    content: slide(
+      <>
+        <Rule>
+          Community service means giving time and effort to improve life for others, such as helping clean a park with other volunteers. Career awareness is learning about jobs and how they match your interests. Reflecting on your strengths and interests helps you set goals and think about suitable careers.
+        </Rule>
+        <Worked
+          title="Link a strength to a career"
+          steps={[
+            <>Think about what you enjoy and do well: “I like caring for people.”</>,
+            <>Find a community role that matches: a nurse.</>,
+            <>A learner who likes caring for people and wants to be a nurse is linking a strength to a possible future career.</>,
+            <>Reflecting like this helps you set goals, such as helping with community service now.</>,
+          ]}
+        />
+        <Mistake>Choosing a career only because of the pay or because a friend chose it. Start with your strengths and interests.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What does puberty mean? What is a healthy way to manage a strong emotion?</li>
+            <li>Which behaviour shows respect for privacy?</li>
+            <li>Can you get HIV from hugging or sharing a desk? What is stigma?</li>
+            <li>What is community service and career awareness? Why reflect on your strengths and interests?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>A stage when a child grows into an adolescent. Pause, breathe, and talk to a trusted adult.</li>
+            <li>Knocking before entering a private space.</li>
+            <li>No: you cannot get HIV from hugging or sharing a desk. Treating someone unfairly because of an illness.</li>
+            <li>Helping clean a park with other volunteers. Learning about jobs and how they match your interests. It helps you set goals and think about suitable careers.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

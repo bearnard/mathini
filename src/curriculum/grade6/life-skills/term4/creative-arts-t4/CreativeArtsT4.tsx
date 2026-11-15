@@ -1,134 +1,113 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { StableModel } from '../../../../../components/diagrams/lifeskills/LifeSkillsPictures';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Plan before you build in 3D',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          Strong <strong>3D construction</strong> begins with a simple plan. Learners sketch ideas, choose materials,
-          and think about shape, <strong>texture</strong>, and how to keep the model or sculpture stable.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-pink-50 p-4 text-left">
-            <strong className="text-pink-800">Design plan</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-pink-700">
-              <span className="rounded-full bg-white px-3 py-1">sketch</span>
-              <span className="rounded-full bg-white px-3 py-1">idea</span>
-              <span className="rounded-full bg-white px-3 py-1">materials</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <strong className="text-sky-800">Form</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-sky-700">
-              <span className="rounded-full bg-white px-3 py-1">height</span>
-              <span className="rounded-full bg-white px-3 py-1">width</span>
-              <span className="rounded-full bg-white px-3 py-1">shape</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <strong className="text-amber-800">Texture</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-amber-700">
-              <span className="rounded-full bg-white px-3 py-1">smooth</span>
-              <span className="rounded-full bg-white px-3 py-1">rough</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <strong className="text-emerald-800">Stability</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-emerald-700">
-              <span className="rounded-full bg-white px-3 py-1">wide base</span>
-              <span className="rounded-full bg-white px-3 py-1">balanced parts</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Plan and build a 3D model',
+    content: slide(
+      <>
+        <Rule>
+          A good first step before building a 3D model is to make a simple design plan or sketch. A design plan helps you organise ideas, materials and steps. Useful materials are cardboard, glue and recycled boxes.
+        </Rule>
+        <Worked
+          title="Start a model house"
+          steps={[
+            <>Sketch your idea and note the height, width and shape.</>,
+            <>List the materials: cardboard, glue and recycled boxes.</>,
+            <>Decide how to join the parts: glue, tape or tabs.</>,
+            <>Check your work against the plan and improve weak parts.</>,
+          ]}
+        />
+        <Mistake>Starting to glue before you have a plan. A simple sketch saves time and materials.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Build, test, and improve your construction',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          When building a model or sculpture, learners cut, fold, join, and shape materials carefully.
-          They test whether the work stands well and make changes if parts feel loose or unbalanced.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <strong className="text-violet-800">Joining</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-violet-700">
-              <span className="rounded-full bg-white px-3 py-1">glue</span>
-              <span className="rounded-full bg-white px-3 py-1">tape</span>
-              <span className="rounded-full bg-white px-3 py-1">tabs</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <strong className="text-cyan-800">Materials</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-cyan-700">
-              <span className="rounded-full bg-white px-3 py-1">cardboard</span>
-              <span className="rounded-full bg-white px-3 py-1">clay</span>
-              <span className="rounded-full bg-white px-3 py-1">recycled items</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <strong className="text-lime-800">Check</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-lime-700">
-              <span className="rounded-full bg-white px-3 py-1">does it stand?</span>
-              <span className="rounded-full bg-white px-3 py-1">does it match the plan?</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-left">
-            <strong className="text-orange-800">Improve</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-orange-700">
-              <span className="rounded-full bg-white px-3 py-1">strengthen weak parts</span>
-              <span className="rounded-full bg-white px-3 py-1">refine details</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Stability, form and texture',
+    content: slide(
+      <>
+        <Rule>
+          A balanced structure with a firm base helps a sculpture or model stay stable. Texture describes how a surface feels, such as rough or smooth.
+        </Rule>
+        <StableModel />
+        <Worked
+          title="Read the picture and test your model"
+          steps={[
+            <>Left model: a wide base with the parts centred above it. It is stable.</>,
+            <>Right model: a narrow base with a heavy block to one side. It will topple.</>,
+            <>Test yours: does it stand? If not, widen the base or balance the parts.</>,
+            <>Texture: add rough or smooth surfaces to make your model more interesting.</>,
+          ]}
+        />
+        <Mistake>Making the top big and heavy on a narrow base. A firm, wide base with balanced parts keeps a model standing.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Use movement and drama in a final presentation',
-    content: (
-      <div className="space-y-5 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Dance-drama integration</strong> combines movement, expression, and simple storytelling.
-          Rehearsal, teamwork, and feedback help learners prepare a confident end-of-year showcase or portfolio.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <strong className="text-indigo-800">Movement</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-700">
-              <span className="rounded-full bg-white px-3 py-1">space</span>
-              <span className="rounded-full bg-white px-3 py-1">timing</span>
-              <span className="rounded-full bg-white px-3 py-1">levels</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-teal-50 p-4 text-left">
-            <strong className="text-teal-800">Drama</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-teal-700">
-              <span className="rounded-full bg-white px-3 py-1">facial expression</span>
-              <span className="rounded-full bg-white px-3 py-1">character</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-left">
-            <strong className="text-fuchsia-800">Rehearsal</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-fuchsia-700">
-              <span className="rounded-full bg-white px-3 py-1">practise together</span>
-              <span className="rounded-full bg-white px-3 py-1">fix timing</span>
-            </div>
-          </div>
-          <div className="rounded-xl bg-yellow-50 p-4 text-left">
-            <strong className="text-yellow-800">Portfolio</strong>
-            <div className="mt-3 flex flex-wrap gap-2 text-sm text-yellow-700">
-              <span className="rounded-full bg-white px-3 py-1">sketches</span>
-              <span className="rounded-full bg-white px-3 py-1">photos</span>
-              <span className="rounded-full bg-white px-3 py-1">feedback notes</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    title: 'Dance-drama and rehearsal',
+    content: slide(
+      <>
+        <Rule>
+          Dance-drama integration means using movement and acting together to tell a story. Rehearsal improves timing, confidence and teamwork.
+        </Rule>
+        <Worked
+          title="Prepare a dance-drama"
+          steps={[
+            <>Choose a story, for example a market day.</>,
+            <>Use movement (space, timing, levels) and drama (facial expression, character) together to tell it.</>,
+            <>Rehearse with your group: practise together and fix the timing.</>,
+            <>Each rehearsal improves timing, confidence and teamwork.</>,
+          ]}
+        />
+        <Mistake>Doing the dance and the acting separately. Integration means movement and acting work together to tell one story.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Feedback, portfolio and final performance',
+    content: slide(
+      <>
+        <Rule>
+          Helpful peer feedback is kind, specific and gives a clear suggestion for improvement. A Creative Arts portfolio can hold sketches, photos of work and feedback notes. In a final integrated performance the most important thing is communicating the idea clearly with confident teamwork.
+        </Rule>
+        <Worked
+          title="Give feedback and collect evidence"
+          steps={[
+            <>Peer feedback: “Speak a little louder and hold the final pose longer.” It is kind, specific and gives a suggestion.</>,
+            <>“It was bad” is not helpful because it is not specific.</>,
+            <>Add your sketches, photos of your work and the feedback notes to your portfolio: evidence of planning, making, presenting and reflecting.</>,
+            <>In the final performance, communicate the idea clearly and work confidently as a team.</>,
+          ]}
+        />
+        <Mistake>Giving feedback such as “it was bad”. Helpful feedback is kind and specific and says how to improve.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is a good first step before building a 3D model? Which materials are useful?</li>
+            <li>What helps a model stay stable? What does texture describe?</li>
+            <li>What does dance-drama integration mean? Why rehearse?</li>
+            <li>Give an example of helpful peer feedback. What can go in a portfolio? What matters most in a final performance?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Make a simple design plan or sketch. Cardboard, glue and recycled boxes.</li>
+            <li>A balanced structure with a firm base. How a surface feels, such as rough or smooth.</li>
+            <li>Using movement and acting together to tell a story. It improves timing, confidence and teamwork.</li>
+            <li>“Speak a little louder and hold the final pose longer.” Sketches, photos of work and feedback notes. Communicating the idea clearly with confident teamwork.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
