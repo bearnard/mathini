@@ -90,22 +90,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which is a phrase: “The rain stopped suddenly” or “under the old bridge”?</li>
-            <li>What does a conjunction do? Which sentence is compound: “Zinzi packed her lunch, and she walked to school”?</li>
-            <li>In “After the storm passed, the farmers checked the fields,” which words form the dependent clause? Name a word that starts one.</li>
-            <li>Fix this run-on: “Thandi finished her homework she went outside.” Why vary sentence types?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>“under the old bridge” is a phrase. (“The rain stopped suddenly” is an independent clause.)</li>
-            <li>It joins words, phrases or clauses. Yes: two complete ideas joined by “and”.</li>
-            <li>“After the storm passed” (the clause beginning with “After”). For example although, because, when.</li>
-            <li>“Thandi finished her homework, and she went outside.” To make writing smoother and more interesting.</li>
-          </ol>
-        }
+        questions={[
+          <>Which is a phrase: “The rain stopped suddenly” or “under the old bridge”?</>,
+          <>What does a conjunction do? Which sentence is compound: “Zinzi packed her lunch, and she walked to school”?</>,
+          <>In “After the storm passed, the farmers checked the fields,” which words form the dependent clause? Name a word that starts one.</>,
+          <>Fix this run-on: “Thandi finished her homework she went outside.” Why vary sentence types?</>,
+        ]}
+        answers={[
+          <>“under the old bridge” is a phrase. (“The rain stopped suddenly” is an independent clause.)</>,
+          <>It joins words, phrases or clauses. Yes: two complete ideas joined by “and”.</>,
+          <>“After the storm passed” (the clause beginning with “After”). For example although, because, when.</>,
+          <>“Thandi finished her homework, and she went outside.” To make writing smoother and more interesting.</>,
+        ]}
       />,
     ),
   },

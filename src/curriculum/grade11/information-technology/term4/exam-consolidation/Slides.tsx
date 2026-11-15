@@ -123,22 +123,18 @@ qryResults.Open;`} />
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which Delphi keyword pair makes a block run its clean-up code whether or not an error occurs?</li>
-            <li>A file holds 5, x, 8 and a blank line. Using try..except around StrToInt, what is the total and how many lines are skipped?</li>
-            <li>Which TADOQuery method runs an UPDATE statement?</li>
-            <li>What does the constructor of a class do?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>try..finally.</li>
-            <li>Total {q2.total}; {q2.skipped} lines skipped.</li>
-            <li>ExecSQL (Open is for SELECT).</li>
-            <li>It runs when an object is created and sets its starting values.</li>
-          </ol>
-        }
+        questions={[
+          <>Which Delphi keyword pair makes a block run its clean-up code whether or not an error occurs?</>,
+          <>A file holds 5, x, 8 and a blank line. Using try..except around StrToInt, what is the total and how many lines are skipped?</>,
+          <>Which TADOQuery method runs an UPDATE statement?</>,
+          <>What does the constructor of a class do?</>,
+        ]}
+        answers={[
+          <>try..finally.</>,
+          <>Total {q2.total}; {q2.skipped} lines skipped.</>,
+          <>ExecSQL (Open is for SELECT).</>,
+          <>It runs when an object is created and sets its starting values.</>,
+        ]}
       />,
     ),
   },

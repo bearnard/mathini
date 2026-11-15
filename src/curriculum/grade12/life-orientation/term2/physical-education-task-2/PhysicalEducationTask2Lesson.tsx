@@ -102,22 +102,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A learner rates stress 7 out of 10 before a game and 4 after. What is the drop?</li>
-            <li>Is &ldquo;get fitter&rdquo; a good goal? Say why, or rewrite it.</li>
-            <li>Name two behaviours that show fair play.</li>
-            <li>You planned {goal.perWeek} sessions a week for {goal.weeks} weeks. How many sessions is that, and what should you do if you fall behind?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>7 − 4 = {check.drop} points.</li>
-            <li>No, it is not measurable. Better: walk 30 minutes, 3 times a week, for 4 weeks.</li>
-            <li>For example: respecting the rules and encouraging teammates (also honesty, controlling frustration).</li>
-            <li>{goal.perWeek} × {goal.weeks} = {check.perWeek} sessions. Reflect and adjust the routine or goal; do not quit.</li>
-          </ol>
-        }
+        questions={[
+          <>A learner rates stress 7 out of 10 before a game and 4 after. What is the drop?</>,
+          <>Is &ldquo;get fitter&rdquo; a good goal? Say why, or rewrite it.</>,
+          <>Name two behaviours that show fair play.</>,
+          <>You planned {goal.perWeek} sessions a week for {goal.weeks} weeks. How many sessions is that, and what should you do if you fall behind?</>,
+        ]}
+        answers={[
+          <>7 − 4 = {check.drop} points.</>,
+          <>No, it is not measurable. Better: walk 30 minutes, 3 times a week, for 4 weeks.</>,
+          <>For example: respecting the rules and encouraging teammates (also honesty, controlling frustration).</>,
+          <>{goal.perWeek} × {goal.weeks} = {check.perWeek} sessions. Reflect and adjust the routine or goal; do not quit.</>,
+        ]}
       />,
     ),
   },

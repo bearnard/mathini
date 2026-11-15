@@ -89,22 +89,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Define active citizenship in one sentence.</li>
-            <li>Give two qualities of an ethical leader.</li>
-            <li>What is social cohesion, and why does a democracy need diversity?</li>
-            <li>Put these in order: act lawfully, consult, reflect, plan.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Informed, ongoing involvement in community life, with respect and action when problems arise.</li>
-            <li>For example: serves others fairly, listens, includes others, takes responsibility.</li>
-            <li>Social cohesion is belonging and cooperation despite differences. Diversity brings different experiences and strengthens inclusion.</li>
-            <li>{planSteps.join(', ').toLowerCase()}. Consultation and planning come before action.</li>
-          </ol>
-        }
+        questions={[
+          <>Define active citizenship in one sentence.</>,
+          <>Give two qualities of an ethical leader.</>,
+          <>What is social cohesion, and why does a democracy need diversity?</>,
+          <>Put these in order: act lawfully, consult, reflect, plan.</>,
+        ]}
+        answers={[
+          <>Informed, ongoing involvement in community life, with respect and action when problems arise.</>,
+          <>For example: serves others fairly, listens, includes others, takes responsibility.</>,
+          <>Social cohesion is belonging and cooperation despite differences. Diversity brings different experiences and strengthens inclusion.</>,
+          <>{planSteps.join(', ').toLowerCase()}. Consultation and planning come before action.</>,
+        ]}
       />,
     ),
   },

@@ -101,22 +101,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Why do we write a formal letter or an email to someone? Which text type uses imagery and feelings?</li>
-            <li>What do you do first in the writing process, and after the first draft? Why redraft?</li>
-            <li>What belongs in a play script, and how is dialogue organised?</li>
-            <li>Which greeting suits a short note to your principal, and what is coherence?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>To communicate clearly for a specific purpose. A poem.</li>
-            <li>Plan your ideas. Read it again and improve it. Redrafting helps you improve content and language.</li>
-            <li>Speaker names and stage directions. Each speaker takes a clear turn.</li>
-            <li>“Dear Mr Dlamini,”. Coherence means ideas link together clearly.</li>
-          </ol>
-        }
+        questions={[
+          <>Why do we write a formal letter or an email to someone? Which text type uses imagery and feelings?</>,
+          <>What do you do first in the writing process, and after the first draft? Why redraft?</>,
+          <>What belongs in a play script, and how is dialogue organised?</>,
+          <>Which greeting suits a short note to your principal, and what is coherence?</>,
+        ]}
+        answers={[
+          <>To communicate clearly for a specific purpose. A poem.</>,
+          <>Plan your ideas. Read it again and improve it. Redrafting helps you improve content and language.</>,
+          <>Speaker names and stage directions. Each speaker takes a clear turn.</>,
+          <>“Dear Mr Dlamini,”. Coherence means ideas link together clearly.</>,
+        ]}
       />,
     ),
   },

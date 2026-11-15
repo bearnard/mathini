@@ -86,22 +86,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which feature shows a poem? Which genre has a headline, a photo and a caption?</li>
-            <li>What do you do when a question asks for evidence? Which skill works out what is not said directly?</li>
-            <li>What makes a good summary? How do you prepare for oral recall?</li>
-            <li>Why might a song writer repeat a chorus? What should you do first with a mixed-genre question?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Stanzas and repeated lines. A media text.</li>
-            <li>Use a detail from the text to support your answer. Inference.</li>
-            <li>It includes only the main ideas in a shorter form. Listen for keywords and sequence.</li>
-            <li>To stress an important idea or feeling. Identify the genre and what the question asks.</li>
-          </ol>
-        }
+        questions={[
+          <>Which feature shows a poem? Which genre has a headline, a photo and a caption?</>,
+          <>What do you do when a question asks for evidence? Which skill works out what is not said directly?</>,
+          <>What makes a good summary? How do you prepare for oral recall?</>,
+          <>Why might a song writer repeat a chorus? What should you do first with a mixed-genre question?</>,
+        ]}
+        answers={[
+          <>Stanzas and repeated lines. A media text.</>,
+          <>Use a detail from the text to support your answer. Inference.</>,
+          <>It includes only the main ideas in a shorter form. Listen for keywords and sequence.</>,
+          <>To stress an important idea or feeling. Identify the genre and what the question asks.</>,
+        ]}
       />,
     ),
   },

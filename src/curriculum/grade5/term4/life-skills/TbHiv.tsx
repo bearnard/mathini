@@ -69,22 +69,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which illness is called TB, and which part of the body does it mainly affect?</li>
-            <li>How does TB spread?</li>
-            <li>What does HIV attack in the body?</li>
-            <li>How should we treat people who have TB or HIV?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Tuberculosis; the lungs.</li>
-            <li>Through the air when a sick person coughs or sneezes.</li>
-            <li>The immune system.</li>
-            <li>With care, respect and support.</li>
-          </ol>
-        }
+        questions={[
+          <>Which illness is called TB, and which part of the body does it mainly affect?</>,
+          <>How does TB spread?</>,
+          <>What does HIV attack in the body?</>,
+          <>How should we treat people who have TB or HIV?</>,
+        ]}
+        answers={[
+          <>Tuberculosis; the lungs.</>,
+          <>Through the air when a sick person coughs or sneezes.</>,
+          <>The immune system.</>,
+          <>With care, respect and support.</>,
+        ]}
       />,
     ),
   },

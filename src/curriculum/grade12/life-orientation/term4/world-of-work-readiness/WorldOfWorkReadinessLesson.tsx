@@ -97,22 +97,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the main purpose of a CV, and what must be true about its content?</li>
-            <li>Name three things to do before submitting an application.</li>
-            <li>How should you prepare for an interview?</li>
-            <li>Why is a contract important, and what do labour rights protect?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>To summarise your skills and qualifications. Everything must be honest and accurate.</li>
-            <li>Review spelling, accuracy and relevance (also: formal tone, contact details).</li>
-            <li>Research the employer, practise answers, dress appropriately and answer honestly.</li>
-            <li>A contract explains duties and working conditions. Labour rights protect workers from unfair treatment and unsafe work.</li>
-          </ol>
-        }
+        questions={[
+          <>What is the main purpose of a CV, and what must be true about its content?</>,
+          <>Name three things to do before submitting an application.</>,
+          <>How should you prepare for an interview?</>,
+          <>Why is a contract important, and what do labour rights protect?</>,
+        ]}
+        answers={[
+          <>To summarise your skills and qualifications. Everything must be honest and accurate.</>,
+          <>Review spelling, accuracy and relevance (also: formal tone, contact details).</>,
+          <>Research the employer, practise answers, dress appropriately and answer honestly.</>,
+          <>A contract explains duties and working conditions. Labour rights protect workers from unfair treatment and unsafe work.</>,
+        ]}
       />,
     ),
   },

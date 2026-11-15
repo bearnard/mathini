@@ -86,22 +86,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Why do we warm up? Which routine is safest before starting?</li>
-            <li>Name one movement that travels from place to place and one that stays on the spot.</li>
-            <li>What helps you keep balance, and what does coordination mean?</li>
-            <li>What is your main job in a target game? Which throw suits a beanbag and hoop, and what is good teamwork?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>To get the body ready to move safely. Checking your space before you start.</li>
-            <li>Skipping across the court. Bending and stretching on the spot.</li>
-            <li>Keeping your body steady and eyes focused. Body parts working together smoothly.</li>
-            <li>Aim accurately at the target. Underarm throw. Taking turns and encouraging others.</li>
-          </ol>
-        }
+        questions={[
+          <>Why do we warm up? Which routine is safest before starting?</>,
+          <>Name one movement that travels from place to place and one that stays on the spot.</>,
+          <>What helps you keep balance, and what does coordination mean?</>,
+          <>What is your main job in a target game? Which throw suits a beanbag and hoop, and what is good teamwork?</>,
+        ]}
+        answers={[
+          <>To get the body ready to move safely. Checking your space before you start.</>,
+          <>Skipping across the court. Bending and stretching on the spot.</>,
+          <>Keeping your body steady and eyes focused. Body parts working together smoothly.</>,
+          <>Aim accurately at the target. Underarm throw. Taking turns and encouraging others.</>,
+        ]}
       />,
     ),
   },

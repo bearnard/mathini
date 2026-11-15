@@ -71,22 +71,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which land feature is the steep slope between low land and high land?</li>
-            <li>What is the highest mountain range in South Africa?</li>
-            <li>Which is the longest river in South Africa, and which ocean does it flow into?</li>
-            <li>Give the order of the features going inland from the sea.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The escarpment.</li>
-            <li>The Drakensberg.</li>
-            <li>The Orange River (Gariep); the Atlantic Ocean.</li>
-            <li>Coastal plain, escarpment, plateau.</li>
-          </ol>
-        }
+        questions={[
+          <>Which land feature is the steep slope between low land and high land?</>,
+          <>What is the highest mountain range in South Africa?</>,
+          <>Which is the longest river in South Africa, and which ocean does it flow into?</>,
+          <>Give the order of the features going inland from the sea.</>,
+        ]}
+        answers={[
+          <>The escarpment.</>,
+          <>The Drakensberg.</>,
+          <>The Orange River (Gariep); the Atlantic Ocean.</>,
+          <>Coastal plain, escarpment, plateau.</>,
+        ]}
       />,
     ),
   },

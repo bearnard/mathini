@@ -33,8 +33,8 @@ for (const [name, l] of Object.entries(lessons)) {
     for (const s of l.steps) assert.ok(html(s.content).length > 200, s.title);
     const last = html(l.steps[l.steps.length - 1].content);
     assert.ok(last.includes('Check yourself') && last.includes('Show the answer'));
-    const checks = (last.match(/<li>/g) ?? []).length;
-    assert.equal(checks, 8, 'four questions and four answers');
+    const checks = (last.match(/<details/g) ?? []).length;
+    assert.equal(checks, 4, 'four questions, each with its own answer');
   });
 
   test(`${name}: teaching slides have Rule/Worked/Mistake blocks and prose near the 40-80 word standard`, () => {

@@ -89,22 +89,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Explain what diversity means in a community, and give one way to show respect for someone’s culture or religion.</li>
-            <li>Why are stereotypes harmful?</li>
-            <li>Give a right with a matching responsibility. What does a responsibility mean? What makes a community that shows respect and takes responsibility grow stronger?</li>
-            <li>Why is substance abuse dangerous? What do you do if pressured, and who do you talk to if worried?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>People have different backgrounds and identities. Listening politely and asking questions.</li>
-            <li>They unfairly judge people without knowing them.</li>
-            <li>Right to education: attend school and do your best. Something you should do to help others and follow rules. People feel safe, included and willing to cooperate.</li>
-            <li>It can harm health, judgement and relationships. Say no firmly and move away to a safe place. A trusted adult.</li>
-          </ol>
-        }
+        questions={[
+          <>Explain what diversity means in a community, and give one way to show respect for someone’s culture or religion.</>,
+          <>Why are stereotypes harmful?</>,
+          <>Give a right with a matching responsibility. What does a responsibility mean? What makes a community that shows respect and takes responsibility grow stronger?</>,
+          <>Why is substance abuse dangerous? What do you do if pressured, and who do you talk to if worried?</>,
+        ]}
+        answers={[
+          <>People have different backgrounds and identities. Listening politely and asking questions.</>,
+          <>They unfairly judge people without knowing them.</>,
+          <>Right to education: attend school and do your best. Something you should do to help others and follow rules. People feel safe, included and willing to cooperate.</>,
+          <>It can harm health, judgement and relationships. Say no firmly and move away to a safe place. A trusted adult.</>,
+        ]}
       />,
     ),
   },

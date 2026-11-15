@@ -71,22 +71,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What do we call dropping rubbish on the ground instead of in a bin?</li>
-            <li>What are the three Rs?</li>
-            <li>Name two things that cause air pollution.</li>
-            <li>What do we call wind or water washing away the top layer of soil?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Littering.</li>
-            <li>Reduce, reuse, recycle.</li>
-            <li>Smoke from factories and from cars.</li>
-            <li>Soil erosion.</li>
-          </ol>
-        }
+        questions={[
+          <>What do we call dropping rubbish on the ground instead of in a bin?</>,
+          <>What are the three Rs?</>,
+          <>Name two things that cause air pollution.</>,
+          <>What do we call wind or water washing away the top layer of soil?</>,
+        ]}
+        answers={[
+          <>Littering.</>,
+          <>Reduce, reuse, recycle.</>,
+          <>Smoke from factories and from cars.</>,
+          <>Soil erosion.</>,
+        ]}
       />,
     ),
   },

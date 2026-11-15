@@ -91,22 +91,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What should you do before you start building a 3D model, and which materials suit the job?</li>
-            <li>What keeps a model standing up, and what do we mean by the texture of a surface?</li>
-            <li>What do we mean by combining dance with drama in one performance, and why does a group rehearse?</li>
-            <li>Give an example of helpful peer feedback. What can go in a portfolio? What matters most in a final performance?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Make a simple design plan or sketch. Cardboard, glue and recycled boxes.</li>
-            <li>A balanced structure with a firm base. How a surface feels, such as rough or smooth.</li>
-            <li>Using movement and acting together to tell a story. It improves timing, confidence and teamwork.</li>
-            <li>“Speak a little louder and hold the final pose longer.” Sketches, photos of work and feedback notes. Communicating the idea clearly with confident teamwork.</li>
-          </ol>
-        }
+        questions={[
+          <>What should you do before you start building a 3D model, and which materials suit the job?</>,
+          <>What keeps a model standing up, and what do we mean by the texture of a surface?</>,
+          <>What do we mean by combining dance with drama in one performance, and why does a group rehearse?</>,
+          <>Give an example of helpful peer feedback. What can go in a portfolio? What matters most in a final performance?</>,
+        ]}
+        answers={[
+          <>Make a simple design plan or sketch. Cardboard, glue and recycled boxes.</>,
+          <>A balanced structure with a firm base. How a surface feels, such as rough or smooth.</>,
+          <>Using movement and acting together to tell a story. It improves timing, confidence and teamwork.</>,
+          <>“Speak a little louder and hold the final pose longer.” Sketches, photos of work and feedback notes. Communicating the idea clearly with confident teamwork.</>,
+        ]}
       />,
     ),
   },

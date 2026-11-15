@@ -112,22 +112,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Rule × 6, input 7. What is the output?</li>
-            <li>Rule + 8, output 20. What is the input?</li>
-            <li>The pairs are 2 → 10 and 3 → 15. What is the rule?</li>
-            <li>Rule × 3, then + 2, input 4. What is the output?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>7 × 6 = {check.a}.</li>
-            <li>20 − 8 = {check.b}.</li>
-            <li>2 × 5 = 10 and 3 × 5 = 15, so the rule is {check.c.op} {check.c.n}.</li>
-            <li>4 × 3 = 12, then 12 + 2 = {check.d}.</li>
-          </ol>
-        }
+        questions={[
+          <>Rule × 6, input 7. What is the output?</>,
+          <>Rule + 8, output 20. What is the input?</>,
+          <>The pairs are 2 → 10 and 3 → 15. What is the rule?</>,
+          <>Rule × 3, then + 2, input 4. What is the output?</>,
+        ]}
+        answers={[
+          <>7 × 6 = {check.a}.</>,
+          <>20 − 8 = {check.b}.</>,
+          <>2 × 5 = 10 and 3 × 5 = 15, so the rule is {check.c.op} {check.c.n}.</>,
+          <>4 × 3 = 12, then 12 + 2 = {check.d}.</>,
+        ]}
       />,
     ),
   },

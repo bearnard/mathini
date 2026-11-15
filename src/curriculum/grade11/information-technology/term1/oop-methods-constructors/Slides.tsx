@@ -119,22 +119,18 @@ end;`} />
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which section of a class should hold the attributes?</li>
-            <li>Which keyword starts the declaration of an object-creating method in Delphi?</li>
-            <li>A dog has age {kept} and SetAge(-1) is called. What is its age afterwards?</li>
-            <li>What does Self mean inside a method?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The private section.</li>
-            <li>constructor, usually with the name Create.</li>
-            <li>{setAgeValidated(kept, -1)}, because the negative value is rejected.</li>
-            <li>The current object, the one the method was called on.</li>
-          </ol>
-        }
+        questions={[
+          <>Which section of a class should hold the attributes?</>,
+          <>Which keyword starts the declaration of an object-creating method in Delphi?</>,
+          <>A dog has age {kept} and SetAge(-1) is called. What is its age afterwards?</>,
+          <>What does Self mean inside a method?</>,
+        ]}
+        answers={[
+          <>The private section.</>,
+          <>constructor, usually with the name Create.</>,
+          <>{setAgeValidated(kept, -1)}, because the negative value is rejected.</>,
+          <>The current object, the one the method was called on.</>,
+        ]}
       />,
     ),
   },

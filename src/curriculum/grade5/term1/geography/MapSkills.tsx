@@ -92,22 +92,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which ocean is on the west coast of South Africa, and which is on the east coast?</li>
-            <li>What is the opposite of south-west?</li>
-            <li>A map scale says 1 cm = 50 km. A distance measures 4 cm. How far is it on the ground?</li>
-            <li>Which city is the legislative capital?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Atlantic (west); Indian (east).</li>
-            <li>North-east.</li>
-            <li>4 × 50 = 200 km.</li>
-            <li>Cape Town.</li>
-          </ol>
-        }
+        questions={[
+          <>Which ocean is on the west coast of South Africa, and which is on the east coast?</>,
+          <>What is the opposite of south-west?</>,
+          <>A map scale says 1 cm = 50 km. A distance measures 4 cm. How far is it on the ground?</>,
+          <>Which city is the legislative capital?</>,
+        ]}
+        answers={[
+          <>Atlantic (west); Indian (east).</>,
+          <>North-east.</>,
+          <>4 × 50 = 200 km.</>,
+          <>Cape Town.</>,
+        ]}
       />,
     ),
   },

@@ -91,22 +91,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Is “it is cloudy today” weather or climate?</li>
-            <li>Which instrument measures rainfall, and in which unit?</li>
-            <li>Which part of South Africa has winter rain?</li>
-            <li>Which plants live in the dry Karoo, and which crop grows on the KwaZulu-Natal coast?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Weather.</li>
-            <li>A rain gauge; millimetres (mm).</li>
-            <li>The south-western Cape (Western Cape).</li>
-            <li>Succulents and small bushes; sugar cane.</li>
-          </ol>
-        }
+        questions={[
+          <>Is “it is cloudy today” weather or climate?</>,
+          <>Which instrument measures rainfall, and in which unit?</>,
+          <>Which part of South Africa has winter rain?</>,
+          <>Which plants live in the dry Karoo, and which crop grows on the KwaZulu-Natal coast?</>,
+        ]}
+        answers={[
+          <>Weather.</>,
+          <>A rain gauge; millimetres (mm).</>,
+          <>The south-western Cape (Western Cape).</>,
+          <>Succulents and small bushes; sugar cane.</>,
+        ]}
       />,
     ),
   },

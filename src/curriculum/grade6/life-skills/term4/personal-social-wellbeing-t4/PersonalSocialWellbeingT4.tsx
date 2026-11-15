@@ -89,22 +89,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does puberty mean? How can you handle a very strong feeling in a healthy way?</li>
-            <li>Which behaviour shows respect for privacy?</li>
-            <li>Can you get HIV from hugging or sharing a desk? What is stigma?</li>
-            <li>What is community service and career awareness? Why reflect on your strengths and interests?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A stage when a child grows into an adolescent. Pause, breathe, and talk to a trusted adult.</li>
-            <li>Knocking before entering a private space.</li>
-            <li>No: you cannot get HIV from hugging or sharing a desk. Treating someone unfairly because of an illness.</li>
-            <li>Helping clean a park with other volunteers. Learning about jobs and how they match your interests. It helps you set goals and think about suitable careers.</li>
-          </ol>
-        }
+        questions={[
+          <>What does puberty mean? How can you handle a very strong feeling in a healthy way?</>,
+          <>Which behaviour shows respect for privacy?</>,
+          <>Can you get HIV from hugging or sharing a desk? What is stigma?</>,
+          <>What is community service and career awareness? Why reflect on your strengths and interests?</>,
+        ]}
+        answers={[
+          <>A stage when a child grows into an adolescent. Pause, breathe, and talk to a trusted adult.</>,
+          <>Knocking before entering a private space.</>,
+          <>No: you cannot get HIV from hugging or sharing a desk. Treating someone unfairly because of an illness.</>,
+          <>Helping clean a park with other volunteers. Learning about jobs and how they match your interests. It helps you set goals and think about suitable careers.</>,
+        ]}
       />,
     ),
   },

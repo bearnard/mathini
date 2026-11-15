@@ -111,22 +111,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What do we call a natural substance found in rocks? Name two examples.</li>
-            <li>What is the difference between open-pit and shaft mining?</li>
-            <li>Why is the province Gauteng called “place of gold”?</li>
-            <li>Is coal renewable? What does rehabilitation mean?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A mineral, for example gold, coal, diamonds or iron ore.</li>
-            <li>Open-pit: a big hole dug from the surface. Shaft: a vertical shaft and tunnels deep underground.</li>
-            <li>Johannesburg grew up around the gold mines.</li>
-            <li>No, it is a non-renewable fossil fuel. Repairing the land after mining.</li>
-          </ol>
-        }
+        questions={[
+          <>What do we call a natural substance found in rocks? Name two examples.</>,
+          <>What is the difference between open-pit and shaft mining?</>,
+          <>Why is the province Gauteng called “place of gold”?</>,
+          <>Is coal renewable? What does rehabilitation mean?</>,
+        ]}
+        answers={[
+          <>A mineral, for example gold, coal, diamonds or iron ore.</>,
+          <>Open-pit: a big hole dug from the surface. Shaft: a vertical shaft and tunnels deep underground.</>,
+          <>Johannesburg grew up around the gold mines.</>,
+          <>No, it is a non-renewable fossil fuel. Repairing the land after mining.</>,
+        ]}
       />,
     ),
   },

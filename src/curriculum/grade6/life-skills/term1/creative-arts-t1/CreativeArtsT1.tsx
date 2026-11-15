@@ -71,22 +71,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a line? Which is a shape? What is a 2D artwork?</li>
-            <li>In what way does an artist’s choice of colour add to a picture?</li>
-            <li>What is rhythm, and what is a steady beat?</li>
-            <li>What is body percussion, a drama game and a movement phrase?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A mark that can be straight, curved or zigzag. A triangle. A flat artwork made on a surface.</li>
-            <li>It can create mood and contrast.</li>
-            <li>A pattern of sounds and beats. An even pulse that stays regular.</li>
-            <li>Clapping and stamping a pattern. A short acting activity that uses imagination. A short sequence of planned movements.</li>
-          </ol>
-        }
+        questions={[
+          <>What is a line? Which is a shape? What is a 2D artwork?</>,
+          <>In what way does an artist’s choice of colour add to a picture?</>,
+          <>What is rhythm, and what is a steady beat?</>,
+          <>What is body percussion, a drama game and a movement phrase?</>,
+        ]}
+        answers={[
+          <>A mark that can be straight, curved or zigzag. A triangle. A flat artwork made on a surface.</>,
+          <>It can create mood and contrast.</>,
+          <>A pattern of sounds and beats. An even pulse that stays regular.</>,
+          <>Clapping and stamping a pattern. A short acting activity that uses imagination. A short sequence of planned movements.</>,
+        ]}
       />,
     ),
   },
