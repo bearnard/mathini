@@ -175,7 +175,7 @@ const items: MathematicalLiteracyItem[] = [
       "R1 180"
     ],
     "answer": 2,
-    "explanation": "18% of R5 000 = 0.18 × R5 000 = R900."
+    "explanation": "18% of R5 000 = 0,18 × R5 000 = R900."
   }
 ];
 

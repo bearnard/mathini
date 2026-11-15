@@ -175,9 +175,9 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'The circumference of a circle with radius 5 cm is approximately:',
-    options: ['15.7 cm', '31.4 cm', '78.5 cm', '10 cm'],
-    answer: '31.4 cm',
-    explanation: 'Circumference = 2πr = 2 × π × 5 ≈ 31.4 cm.',
+    options: ['15,7 cm', '31,4 cm', '78,5 cm', '10 cm'],
+    answer: '31,4 cm',
+    explanation: 'Circumference = 2πr = 2 × π × 5 ≈ 31,4 cm.',
   },
   {
     prompt: 'A composite figure consists of a rectangle (6 × 4) and a triangle (base 6, height 3) stacked on top. What is the total area?',
@@ -192,10 +192,10 @@ const bank: MathematicsItem[] = [
     explanation: 'Perimeter = 2(length + width); 20 = 2(8 + w); w = 2 m.',
   },
   {
-    prompt: 'What is the area of a circle with radius 3 cm (use π ≈ 3.14)?',
-    options: ['6.28 cm²', '9.42 cm²', '28.26 cm²', '18.84 cm²'],
-    answer: '28.26 cm²',
-    explanation: 'Area = πr² = 3.14 × 3² = 3.14 × 9 ≈ 28.26 cm².',
+    prompt: 'What is the area of a circle with radius 3 cm (use π ≈ 3,14)?',
+    options: ['6,28 cm²', '9,42 cm²', '28,26 cm²', '18,84 cm²'],
+    answer: '28,26 cm²',
+    explanation: 'Area = πr² = 3,14 × 3² = 3,14 × 9 ≈ 28,26 cm².',
   },
   {
     prompt: 'A parallelogram has a base of 12 cm and a height of 5 cm. Its area is:',

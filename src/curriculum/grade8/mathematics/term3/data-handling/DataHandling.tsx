@@ -183,7 +183,7 @@ const bank: CapsItem[] = [
     prompt: 'If 6 learners out of 30 prefer option A, what is the relative frequency?',
     options: ['20%', '6%', '24%', '50%'],
     answer: '20%',
-    explanation: '6/30 = 0.2 = 20%.',
+    explanation: '6/30 = 0,2 = 20%.',
   },
   {
     prompt: 'A stem-and-leaf plot is useful because it...',

@@ -16,7 +16,7 @@ const learnSteps: LearnStep[] = [
           Vertical motion is just one-dimensional motion, but signs matter. If upward is positive, gravity is
           negative because it always acts downward near Earth.
         </p>
-        <Formula block>{String.raw`g = -9.8\ \text{m·s}^{-2}`}</Formula>
+        <Formula block>{String.raw`g = -9{,}8\ \text{m·s}^{-2}`}</Formula>
         <VerticalVelocityGraph />
         <div className="rounded-2xl bg-slate-50 p-4 text-lg leading-8 text-slate-600">
           Use the same positive direction in every velocity, displacement and acceleration term. Most mistakes
@@ -84,20 +84,20 @@ const items: PhysicalSciencesItem[] = [
     "question": "What is the acceleration of an object thrown vertically upward while it is still in flight near Earth?",
     "options": [
       "0 m/s²",
-      "9.8 m/s² upward",
-      "9.8 m/s² downward",
+      "9,8 m/s² upward",
+      "9,8 m/s² downward",
       "it depends on the mass"
     ],
     "answer": 2,
-    "explanation": "Gravity acts downward throughout the motion, so the acceleration is 9.8 m/s² downward."
+    "explanation": "Gravity acts downward throughout the motion, so the acceleration is 9,8 m/s² downward."
   },
   {
     "id": "vertical-projectile-motion-2",
     "question": "At the maximum height of a vertical projectile, the velocity is:",
     "options": [
-      "9.8 m/s upward",
+      "9,8 m/s upward",
       "0 m/s",
-      "9.8 m/s downward",
+      "9,8 m/s downward",
       "equal to the launch velocity"
     ],
     "answer": 1,
@@ -105,7 +105,7 @@ const items: PhysicalSciencesItem[] = [
   },
   {
     "id": "vertical-projectile-motion-3",
-    "question": "A ball is projected upward at 19.6 m/s. Ignoring air resistance, how long does it take to reach maximum height?",
+    "question": "A ball is projected upward at 19,6 m/s. Ignoring air resistance, how long does it take to reach maximum height?",
     "options": [
       "1 s",
       "2 s",
@@ -113,26 +113,26 @@ const items: PhysicalSciencesItem[] = [
       "4 s"
     ],
     "answer": 1,
-    "explanation": "Using v = u + at with v = 0 gives 0 = 19.6 - 9.8t, so t = 2 s."
+    "explanation": "Using v = u + at with v = 0 gives 0 = 19,6 - 9,8t, so t = 2 s."
   },
   {
     "id": "vertical-projectile-motion-4",
     "question": "Taking upward as positive, what is the displacement of an object dropped from rest after 3 s?",
     "options": [
-      "+44.1 m",
-      "-44.1 m",
-      "+29.4 m",
-      "-29.4 m"
+      "+44,1 m",
+      "-44,1 m",
+      "+29,4 m",
+      "-29,4 m"
     ],
     "answer": 1,
-    "explanation": "Δy = ut + 0.5at² = 0 + 0.5(-9.8)(3²) = -44.1 m."
+    "explanation": "Δy = ut + 0,5at² = 0 + 0,5(-9,8)(3²) = -44,1 m."
   },
   {
     "id": "vertical-projectile-motion-5",
     "question": "Which equation is most directly used to find final velocity after a known time interval?",
     "options": [
       "v = u + at",
-      "Δy = ut + 0.5at²",
+      "Δy = ut + 0,5at²",
       "v² = u² + 2aΔy",
       "P = Fv"
     ],
@@ -167,8 +167,8 @@ const items: PhysicalSciencesItem[] = [
     "id": "vertical-projectile-motion-8",
     "question": "If upward is chosen as the positive direction, the value of g is:",
     "options": [
-      "+9.8 m/s²",
-      "-9.8 m/s²",
+      "+9,8 m/s²",
+      "-9,8 m/s²",
       "0 m/s²",
       "depends on launch speed"
     ],

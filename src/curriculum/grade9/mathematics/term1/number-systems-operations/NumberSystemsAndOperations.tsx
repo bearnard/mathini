@@ -169,9 +169,9 @@ export const learnSteps: LearnStep[] = [
 const bank: MathematicsItem[] = [
   {
     prompt: 'Which number is rational?',
-    options: ['√2', '0.25', 'π', 'e'],
-    answer: '0.25',
-    explanation: '0.25 = 1/4 can be expressed as a fraction of integers.',
+    options: ['√2', '0,25', 'π', 'e'],
+    answer: '0,25',
+    explanation: '0,25 = 1/4 can be expressed as a fraction of integers.',
   },
   {
     prompt: 'Simplify: -5 + (-3)',
@@ -187,9 +187,9 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'Convert 3/8 to a decimal.',
-    options: ['0.325', '0.375', '0.385', '0.425'],
-    answer: '0.375',
-    explanation: '3 ÷ 8 = 0.375, because dividing 3 by 8 gives 375 thousandths.',
+    options: ['0,325', '0,375', '0,385', '0,425'],
+    answer: '0,375',
+    explanation: '3 ÷ 8 = 0,375, because dividing 3 by 8 gives 375 thousandths.',
   },
   {
     prompt: 'Which is the correct classification for -7?',
@@ -207,7 +207,7 @@ const bank: MathematicsItem[] = [
     prompt: 'Which fraction is larger: 2/3 or 5/8?',
     options: ['2/3', '5/8', 'They are equal', 'Cannot compare'],
     answer: '2/3',
-    explanation: '2/3 ≈ 0.667 and 5/8 = 0.625, so 2/3 > 5/8.',
+    explanation: '2/3 ≈ 0,667 and 5/8 = 0,625, so 2/3 > 5/8.',
   },
   {
     prompt: 'Solve: 12 ÷ (-3)',

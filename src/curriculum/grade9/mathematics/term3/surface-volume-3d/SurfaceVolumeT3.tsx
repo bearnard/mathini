@@ -145,10 +145,10 @@ const bank: MathematicsItem[] = [
     explanation: 'Volume = (side)³ = 2³ = 8 cm³.',
   },
   {
-    prompt: 'The volume of a cylinder with radius 2 cm and height 10 cm is (use π ≈ 3.14):',
-    options: ['62.8 cm³', '125.6 cm³', '20 cm³', '31.4 cm³'],
-    answer: '125.6 cm³',
-    explanation: 'Volume = πr²h = 3.14 × 2² × 10 = 3.14 × 4 × 10 = 125.6 cm³.',
+    prompt: 'The volume of a cylinder with radius 2 cm and height 10 cm is (use π ≈ 3,14):',
+    options: ['62,8 cm³', '125,6 cm³', '20 cm³', '31,4 cm³'],
+    answer: '125,6 cm³',
+    explanation: 'Volume = πr²h = 3,14 × 2² × 10 = 3,14 × 4 × 10 = 125,6 cm³.',
   },
   {
     prompt: 'How many faces does a rectangular prism have?',

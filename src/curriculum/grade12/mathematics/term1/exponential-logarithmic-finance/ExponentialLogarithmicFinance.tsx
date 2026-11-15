@@ -109,7 +109,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
   question: "R5 000 is invested at 8% per year, compounded annually, for 2 years. What is the future value?",
   options: ["R5 400", "R5 800", "R5 832", "R5 900"],
   answer: 2,
-  explanation: "A = 5000(1.08)² = 5000(1.1664) = R5 832.",
+  explanation: "A = 5000(1,08)² = 5000(1,1664) = R5 832.",
 },
 {
   id: "exp-7",

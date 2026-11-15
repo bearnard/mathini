@@ -100,7 +100,7 @@ const items: PhysicalSciencesItem[] = [
   },
   {
     "id": "electric-circuits-internal-resistance-3",
-    "question": "A cell has emf 12 V, internal resistance 0.5 Ω and current 2 A. What is the terminal potential difference?",
+    "question": "A cell has emf 12 V, internal resistance 0,5 Ω and current 2 A. What is the terminal potential difference?",
     "options": [
       "10 V",
       "11 V",
@@ -108,7 +108,7 @@ const items: PhysicalSciencesItem[] = [
       "13 V"
     ],
     "answer": 1,
-    "explanation": "V = ε - Ir = 12 - (2 × 0.5) = 11 V."
+    "explanation": "V = ε - Ir = 12 - (2 × 0,5) = 11 V."
   },
   {
     "id": "electric-circuits-internal-resistance-4",
@@ -126,7 +126,7 @@ const items: PhysicalSciencesItem[] = [
     "id": "electric-circuits-internal-resistance-5",
     "question": "What is the equivalent resistance of 2 Ω and 3 Ω resistors connected in series?",
     "options": [
-      "1.2 Ω",
+      "1,2 Ω",
       "5 Ω",
       "6 Ω",
       "8 Ω"
@@ -141,7 +141,7 @@ const items: PhysicalSciencesItem[] = [
       "12 Ω",
       "6 Ω",
       "3 Ω",
-      "1.5 Ω"
+      "1,5 Ω"
     ],
     "answer": 2,
     "explanation": "For two equal resistors in parallel, Req is half of one resistor, so 3 Ω."

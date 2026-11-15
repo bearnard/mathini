@@ -100,13 +100,13 @@ const items: PhysicalSciencesItem[] = [
     "id": "paper1-electrodynamics-optics-skills-2",
     "question": "If the peak current is 10 A, the RMS current is about:",
     "options": [
-      "5.0 A",
-      "7.1 A",
+      "5,0 A",
+      "7,1 A",
       "10 A",
-      "14.1 A"
+      "14,1 A"
     ],
     "answer": 1,
-    "explanation": "Irms = Imax/√2 = 10/√2 ≈ 7.1 A."
+    "explanation": "Irms = Imax/√2 = 10/√2 ≈ 7,1 A."
   },
   {
     "id": "paper1-electrodynamics-optics-skills-3",

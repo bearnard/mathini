@@ -156,15 +156,15 @@ export const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'What is 3/4 as a decimal?',
-    options: ['0.75', '0.34', '0.8', '0.7'],
-    answer: '0.75',
-    explanation: 'Divide the numerator by the denominator: 3 ÷ 4 = 0.75.',
+    options: ['0,75', '0,34', '0,8', '0,7'],
+    answer: '0,75',
+    explanation: 'Divide the numerator by the denominator: 3 ÷ 4 = 0,75.',
   },
   {
-    prompt: 'Write 0.6 as a simplified fraction.',
+    prompt: 'Write 0,6 as a simplified fraction.',
     options: ['3/5', '6/5', '6/10', '1/6'],
     answer: '3/5',
-    explanation: '0.6 = 6/10, which simplifies to 3/5.',
+    explanation: '0,6 = 6/10, which simplifies to 3/5.',
   },
   {
     prompt: 'Calculate 1/2 + 1/4.',
@@ -173,9 +173,9 @@ const bank: CapsItem[] = [
     explanation: 'Use a common denominator: 2/4 + 1/4 = 3/4.',
   },
   {
-    prompt: 'Calculate 2.5 + 0.37.',
-    options: ['2.87', '2.77', '2.53', '2.13'],
-    answer: '2.87',
+    prompt: 'Calculate 2,5 + 0,37.',
+    options: ['2,87', '2,77', '2,53', '2,13'],
+    answer: '2,87',
     explanation: 'Align decimal places and add.',
   },
   {
@@ -185,8 +185,8 @@ const bank: CapsItem[] = [
     explanation: '(5/8) × 40 = 5 × 5 = 25.',
   },
   {
-    prompt: 'What is 1.2 × 10?',
-    options: ['12', '1.2', '0.12', '120'],
+    prompt: 'What is 1,2 × 10?',
+    options: ['12', '1,2', '0,12', '120'],
     answer: '12',
     explanation: 'Multiplying by 10 shifts the decimal one place right.',
   },
@@ -197,10 +197,10 @@ const bank: CapsItem[] = [
     explanation: 'Convert 3/5 to 6/10, then 6/10 - 1/10 = 5/10 = 1/2.',
   },
   {
-    prompt: 'In 0.04, the digit 4 represents...',
+    prompt: 'In 0,04, the digit 4 represents...',
     options: ['4 hundredths', '4 tenths', '4 thousandths', '4 ones'],
     answer: '4 hundredths',
-    explanation: '0.04 means four parts out of one hundred.',
+    explanation: '0,04 means four parts out of one hundred.',
   },
 ];
 

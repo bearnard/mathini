@@ -169,9 +169,9 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'Express 10⁻³ as a decimal.',
-    options: ['1000', '100', '0.001', '0.01'],
-    answer: '0.001',
-    explanation: '10⁻³ = 1/10³ = 1/1000 = 0.001.',
+    options: ['1000', '100', '0,001', '0,01'],
+    answer: '0,001',
+    explanation: '10⁻³ = 1/10³ = 1/1000 = 0,001.',
   },
   {
     prompt: 'Simplify: (a²b³)²',

@@ -30,10 +30,10 @@ const learnSteps: LearnStep[] = [
     title: 'Add or remove VAT correctly',
     content: (
       <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">VAT is currently 15% in South Africa. To add VAT, multiply the VAT-exclusive amount by 1.15. To remove VAT from an inclusive price, divide by 1.15.</p>
-        <Formula block>{String.raw`\text{VAT inclusive price} = \text{VAT exclusive price} \times 1.15`}</Formula>
-        <Formula block>{String.raw`\text{VAT exclusive price} = \frac{\text{VAT inclusive price}}{1.15}`}</Formula>
-        <p className="text-lg leading-8 text-slate-600">If an item costs R460 excluding VAT, then the inclusive price is <Formula>{String.raw`460 \times 1.15 = 529`}</Formula>, so the customer pays R529.</p>
+        <p className="text-lg leading-8 text-slate-600">VAT is currently 15% in South Africa. To add VAT, multiply the VAT-exclusive amount by 1,15. To remove VAT from an inclusive price, divide by 1,15.</p>
+        <Formula block>{String.raw`\text{VAT inclusive price} = \text{VAT exclusive price} \times 1{,}15`}</Formula>
+        <Formula block>{String.raw`\text{VAT exclusive price} = \frac{\text{VAT inclusive price}}{1{,}15}`}</Formula>
+        <p className="text-lg leading-8 text-slate-600">If an item costs R460 excluding VAT, then the inclusive price is <Formula>{String.raw`460 \times 1{,}15 = 529`}</Formula>, so the customer pays R529.</p>
       </div>
     ),
   },
@@ -82,11 +82,11 @@ const items: MathematicalLiteracyItem[] = [
       "R1 000"
     ],
     "answer": 2,
-    "explanation": "R800 × 1.15 = R920."
+    "explanation": "R800 × 1,15 = R920."
   },
   {
     "id": "finance-documents-tariffs-3",
-    "question": "An electricity tariff charges a fixed fee of R60 plus R7.50 per unit for 12 units. What is the total bill?",
+    "question": "An electricity tariff charges a fixed fee of R60 plus R7,50 per unit for 12 units. What is the total bill?",
     "options": [
       "R90",
       "R120",
@@ -94,11 +94,11 @@ const items: MathematicalLiteracyItem[] = [
       "R210"
     ],
     "answer": 2,
-    "explanation": "R60 + (R7.50 × 12) = R60 + R90 = R150."
+    "explanation": "R60 + (R7,50 × 12) = R60 + R90 = R150."
   },
   {
     "id": "finance-documents-tariffs-4",
-    "question": "Cellphone Tariff A costs R120 plus R1.20 per minute. Tariff B costs R45 plus R2.00 per minute. For 100 minutes, which tariff is cheaper?",
+    "question": "Cellphone Tariff A costs R120 plus R1,20 per minute. Tariff B costs R45 plus R2,00 per minute. For 100 minutes, which tariff is cheaper?",
     "options": [
       "Tariff A",
       "Tariff B",
@@ -142,7 +142,7 @@ const items: MathematicalLiteracyItem[] = [
       "R560"
     ],
     "answer": 1,
-    "explanation": "R575 ÷ 1.15 = R500."
+    "explanation": "R575 ÷ 1,15 = R500."
   },
   {
     "id": "finance-documents-tariffs-8",

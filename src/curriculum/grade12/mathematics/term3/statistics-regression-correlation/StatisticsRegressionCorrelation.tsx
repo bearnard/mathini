@@ -61,7 +61,7 @@ import FunctionGraph from '@/components/subjects/FunctionGraph';
 },
 {
   id: "stat-2",
-  question: "A correlation coefficient of r = −0.92 indicates ...",
+  question: "A correlation coefficient of r = −0,92 indicates ...",
   options: ["strong positive correlation", "weak negative correlation", "strong negative correlation", "no correlation"],
   answer: 2,
   explanation: "Because r is close to −1, the negative linear relationship is strong.",

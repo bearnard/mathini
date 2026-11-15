@@ -54,18 +54,18 @@ const items: MathematicalLiteracyItem[] = [
     "question": "On a map with scale 1:50 000, two towns are 3 cm apart. What is the actual distance?",
     "options": [
       "150 m",
-      "1.5 km",
+      "1,5 km",
       "15 km",
       "150 km"
     ],
     "answer": 1,
-    "explanation": "3 cm × 50 000 = 150 000 cm = 1.5 km."
+    "explanation": "3 cm × 50 000 = 150 000 cm = 1,5 km."
   },
   {
     "id": "maps-plans-scale-2",
     "question": "A room measures 4 cm on a plan with scale 1:100. What is the actual length?",
     "options": [
-      "0.4 m",
+      "0,4 m",
       "4 m",
       "40 m",
       "400 m"
@@ -107,7 +107,7 @@ const items: MathematicalLiteracyItem[] = [
       "60 min"
     ],
     "answer": 1,
-    "explanation": "Time = distance ÷ speed = 18 ÷ 60 h = 0.3 h = 18 minutes."
+    "explanation": "Time = distance ÷ speed = 18 ÷ 60 h = 0,3 h = 18 minutes."
   },
   {
     "id": "maps-plans-scale-6",
@@ -125,13 +125,13 @@ const items: MathematicalLiteracyItem[] = [
     "id": "maps-plans-scale-7",
     "question": "A line scale shows that 2 cm represents 500 m. What actual distance does 7 cm represent?",
     "options": [
-      "1.25 km",
-      "1.75 km",
-      "2.5 km",
-      "3.5 km"
+      "1,25 km",
+      "1,75 km",
+      "2,5 km",
+      "3,5 km"
     ],
     "answer": 1,
-    "explanation": "7 cm is 3.5 times 2 cm, so the real distance is 3.5 × 500 m = 1 750 m = 1.75 km."
+    "explanation": "7 cm is 3,5 times 2 cm, so the real distance is 3,5 × 500 m = 1 750 m = 1,75 km."
   },
   {
     "id": "maps-plans-scale-8",

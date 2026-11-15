@@ -52,25 +52,25 @@ const items: MathematicalLiteracyItem[] = [
     "id": "maps-plans-models-1",
     "question": "A desk is 3 cm long on a plan drawn at scale 1:50. What is the actual length?",
     "options": [
-      "0.6 m",
-      "1.5 m",
+      "0,6 m",
+      "1,5 m",
       "15 m",
       "150 m"
     ],
     "answer": 1,
-    "explanation": "3 cm × 50 = 150 cm = 1.5 m."
+    "explanation": "3 cm × 50 = 150 cm = 1,5 m."
   },
   {
     "id": "maps-plans-models-2",
     "question": "A model car is 22 cm long at a scale of 1:20. What is the actual length of the car?",
     "options": [
-      "1.1 m",
-      "2.2 m",
-      "4.4 m",
+      "1,1 m",
+      "2,2 m",
+      "4,4 m",
       "44 m"
     ],
     "answer": 2,
-    "explanation": "22 cm × 20 = 440 cm = 4.4 m."
+    "explanation": "22 cm × 20 = 440 cm = 4,4 m."
   },
   {
     "id": "maps-plans-models-3",
@@ -134,7 +134,7 @@ const items: MathematicalLiteracyItem[] = [
   },
   {
     "id": "maps-plans-models-8",
-    "question": "A wall thickness is 0.2 cm on a plan with scale 1:100. What is the actual wall thickness?",
+    "question": "A wall thickness is 0,2 cm on a plan with scale 1:100. What is the actual wall thickness?",
     "options": [
       "2 cm",
       "20 cm",
@@ -142,7 +142,7 @@ const items: MathematicalLiteracyItem[] = [
       "20 m"
     ],
     "answer": 1,
-    "explanation": "0.2 cm × 100 = 20 cm."
+    "explanation": "0,2 cm × 100 = 20 cm."
   }
 ];
 

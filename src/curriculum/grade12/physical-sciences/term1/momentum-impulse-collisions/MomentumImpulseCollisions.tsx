@@ -120,7 +120,7 @@ const items: PhysicalSciencesItem[] = [
   },
   {
     "id": "momentum-impulse-collisions-2",
-    "question": "A 0.5 kg ball changes velocity from 10 m/s east to 6 m/s west. Taking east as positive, what is the change in momentum?",
+    "question": "A 0,5 kg ball changes velocity from 10 m/s east to 6 m/s west. Taking east as positive, what is the change in momentum?",
     "options": [
       "-8 kg·m/s",
       "-2 kg·m/s",
@@ -128,19 +128,19 @@ const items: PhysicalSciencesItem[] = [
       "8 kg·m/s"
     ],
     "answer": 0,
-    "explanation": "Δp = m(vf - vi) = 0.5(-6 - 10) = -8 kg·m/s."
+    "explanation": "Δp = m(vf - vi) = 0,5(-6 - 10) = -8 kg·m/s."
   },
   {
     "id": "momentum-impulse-collisions-3",
-    "question": "A net force of 15 N acts on an object for 0.4 s. What impulse is delivered?",
+    "question": "A net force of 15 N acts on an object for 0,4 s. What impulse is delivered?",
     "options": [
       "3 N·s",
       "6 N·s",
       "15 N·s",
-      "37.5 N·s"
+      "37,5 N·s"
     ],
     "answer": 1,
-    "explanation": "J = FΔt = 15 × 0.4 = 6 N·s."
+    "explanation": "J = FΔt = 15 × 0,4 = 6 N·s."
   },
   {
     "id": "momentum-impulse-collisions-4",

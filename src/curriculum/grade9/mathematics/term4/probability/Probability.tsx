@@ -176,15 +176,15 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'The probability of an impossible event is:',
-    options: ['0', '0.5', '1', 'Undefined'],
+    options: ['0', '0,5', '1', 'Undefined'],
     answer: '0',
     explanation: 'An impossible event has a probability of 0.',
   },
   {
-    prompt: 'If P(A) = 0.3, what is P(not A)?',
-    options: ['0.3', '0.5', '0.7', 'Cannot determine'],
-    answer: '0.7',
-    explanation: 'P(not A) = 1 - P(A) = 1 - 0.3 = 0.7.',
+    prompt: 'If P(A) = 0,3, what is P(not A)?',
+    options: ['0,3', '0,5', '0,7', 'Cannot determine'],
+    answer: '0,7',
+    explanation: 'P(not A) = 1 - P(A) = 1 - 0,3 = 0,7.',
   },
   {
     prompt: 'In a deck of 52 playing cards, the probability of drawing a heart is:',

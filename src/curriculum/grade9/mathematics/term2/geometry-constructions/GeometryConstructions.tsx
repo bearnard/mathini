@@ -151,7 +151,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'To construct an equilateral triangle with side length 5 cm, what is the compass width?',
-    options: ['2.5 cm', '5 cm', '10 cm', 'Varies'],
+    options: ['2,5 cm', '5 cm', '10 cm', 'Varies'],
     answer: '5 cm',
     explanation: 'All sides of an equilateral triangle are equal, so the compass width equals the side length.',
   },

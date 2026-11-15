@@ -61,7 +61,7 @@ const learnSteps: LearnStep[] = [
 const items: MathematicalLiteracyItem[] = [
   {
     "id": "exchange-rates-1",
-    "question": "The bank selling rate is US$1 = R18.50. How many US dollars can be bought with R3 700?",
+    "question": "The bank selling rate is US$1 = R18,50. How many US dollars can be bought with R3 700?",
     "options": [
       "$180",
       "$185",
@@ -69,11 +69,11 @@ const items: MathematicalLiteracyItem[] = [
       "$370"
     ],
     "answer": 2,
-    "explanation": "R3 700 ÷ R18.50 = $200."
+    "explanation": "R3 700 ÷ R18,50 = $200."
   },
   {
     "id": "exchange-rates-2",
-    "question": "The bank buying rate is €1 = R20.40. How many rand will you receive for €250?",
+    "question": "The bank buying rate is €1 = R20,40. How many rand will you receive for €250?",
     "options": [
       "R4 100",
       "R5 000",
@@ -81,7 +81,7 @@ const items: MathematicalLiteracyItem[] = [
       "R5 400"
     ],
     "answer": 2,
-    "explanation": "€250 × R20.40 = R5 100."
+    "explanation": "€250 × R20,40 = R5 100."
   },
   {
     "id": "exchange-rates-3",
@@ -109,7 +109,7 @@ const items: MathematicalLiteracyItem[] = [
   },
   {
     "id": "exchange-rates-5",
-    "question": "A traveller needs A\\$400 at a rate of A\\$1 = R12.50 and must also pay a fee of R80. What is the total rand cost?",
+    "question": "A traveller needs A\\$400 at a rate of A\\$1 = R12,50 and must also pay a fee of R80. What is the total rand cost?",
     "options": [
       "R4 800",
       "R5 000",
@@ -117,7 +117,7 @@ const items: MathematicalLiteracyItem[] = [
       "R5 400"
     ],
     "answer": 2,
-    "explanation": "A$400 × R12.50 = R5 000, then add R80 to get R5 080."
+    "explanation": "A$400 × R12,50 = R5 000, then add R80 to get R5 080."
   },
   {
     "id": "exchange-rates-6",
@@ -145,7 +145,7 @@ const items: MathematicalLiteracyItem[] = [
   },
   {
     "id": "exchange-rates-8",
-    "question": "An online item costs \\$50 and the exchange rate is \\$1 = R17.20. What is the rand price before fees?",
+    "question": "An online item costs \\$50 and the exchange rate is \\$1 = R17,20. What is the rand price before fees?",
     "options": [
       "R760",
       "R810",
@@ -153,7 +153,7 @@ const items: MathematicalLiteracyItem[] = [
       "R1 220"
     ],
     "answer": 2,
-    "explanation": "$50 × R17.20 = R860."
+    "explanation": "$50 × R17,20 = R860."
   }
 ];
 

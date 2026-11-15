@@ -8,10 +8,5 @@
       "near_duplicate": 2
     }
   },
-  "decimalPoints": {
-    "g12": 59,
-    "g7": 12,
-    "g8": 8,
-    "g9": 12
-  }
+  "decimalPoints": {}
 }

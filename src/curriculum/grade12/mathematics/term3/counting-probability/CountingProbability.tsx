@@ -97,10 +97,10 @@ import ProbabilitySimulator from '@/components/subjects/ProbabilitySimulator';
 },
 {
   id: "prob-6",
-  question: "If P(A) = 0.72, then P(not A) = ...",
-  options: ["0.18", "0.22", "0.28", "0.38"],
+  question: "If P(A) = 0,72, then P(not A) = ...",
+  options: ["0,18", "0,22", "0,28", "0,38"],
   answer: 2,
-  explanation: "Use the complement rule: 1 − 0.72 = 0.28.",
+  explanation: "Use the complement rule: 1 − 0,72 = 0,28.",
 },
 {
   id: "prob-7",

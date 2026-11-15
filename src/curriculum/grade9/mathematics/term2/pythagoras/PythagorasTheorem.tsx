@@ -169,7 +169,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'In a right triangle with legs 7 cm and 24 cm, the hypotenuse is approximately:',
-    options: ['25 cm', '26 cm', '24.5 cm', '31 cm'],
+    options: ['25 cm', '26 cm', '24,5 cm', '31 cm'],
     answer: '25 cm',
     explanation: '7² + 24² = 49 + 576 = 625, so c = 25 cm.',
   },

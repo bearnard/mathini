@@ -11,7 +11,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Paper 1 often includes documents such as payslips, bills, tables, adverts and bank information. The challenge is to read accurately before calculating, because the correct figure may be hidden in a label or note.</p>
         <Formula block>{String.raw`\text{Net salary} = \text{gross salary} - \text{deductions}`}</Formula>
-        <Formula block>{String.raw`\text{VAT inclusive} = \text{exclusive} \times 1.15`}</Formula>
+        <Formula block>{String.raw`\text{VAT inclusive} = \text{exclusive} \times 1{,}15`}</Formula>
       </div>
     ),
   },
@@ -86,7 +86,7 @@ const items: MathematicalLiteracyItem[] = [
       "R880"
     ],
     "answer": 2,
-    "explanation": "R800 × 1.05 = R840."
+    "explanation": "R800 × 1,05 = R840."
   },
   {
     "id": "paper1-readiness-4",
@@ -117,7 +117,7 @@ const items: MathematicalLiteracyItem[] = [
       "R445"
     ],
     "answer": 0,
-    "explanation": "R460 ÷ 1.15 = R400."
+    "explanation": "R460 ÷ 1,15 = R400."
   },
   {
     "id": "paper1-readiness-7",
@@ -129,7 +129,7 @@ const items: MathematicalLiteracyItem[] = [
       "R3 540"
     ],
     "answer": 1,
-    "explanation": "Simple interest = 3 000 × 0.09 × 2 = R540."
+    "explanation": "Simple interest = 3 000 × 0,09 × 2 = R540."
   },
   {
     "id": "paper1-readiness-8",

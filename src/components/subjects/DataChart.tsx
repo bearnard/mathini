@@ -16,6 +16,7 @@ import {
   Area,
   AreaChart,
 } from 'recharts';
+import { commaText } from './graphTicks';
 import { PHONE_PLOT, axisHeight, edgePadding, needsRotationAt, rotatedFont, wrapLabel } from './wrapLabel';
 
 export type ChartType = 'bar' | 'line' | 'area' | 'climate';
@@ -59,12 +60,12 @@ const WrapTick = ({ x = 0, y = 0, payload, width = 0, visibleTicksCount = 1, lab
     return (
       <g transform={`translate(${x},${y})`}>
         <text transform="rotate(-90)" x={-6} y={4} textAnchor="end" fill="#666" fontSize={rotatedFont(slot)}>
-          {String(payload?.value ?? '')}
+          {commaText(payload?.value)}
         </text>
       </g>
     );
   }
-  const { lines, fontSize } = wrapLabel(String(payload?.value ?? ''), slot);
+  const { lines, fontSize } = wrapLabel(commaText(payload?.value), slot);
   return (
     <g transform={`translate(${x},${y})`}>
       <text textAnchor="middle" fill="#666" fontSize={fontSize}>
@@ -111,7 +112,7 @@ const DataChart = ({
   }, []);
   const dual = type === 'climate';
   const plot = boxWidth > 0 ? Math.max(60, boxWidth - (dual ? 100 : 70)) : dual ? PHONE_PLOT.dual : PHONE_PLOT.single;
-  const categoryLabels = data.map((d) => String(d[xKey]));
+  const categoryLabels = data.map((d) => commaText(d[xKey]));
   const xAxisProps = {
     dataKey: xKey,
     interval: 0 as const,
@@ -129,9 +130,9 @@ const DataChart = ({
         <ComposedChart data={data}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
           <XAxis {...xAxisProps} />
-          <YAxis yAxisId="left" domain={rainDomain} tick={{ fontSize: 12 }} label={{ value: 'Rainfall (mm)', angle: -90, position: 'insideLeft', fontSize: 12 }} />
-          <YAxis yAxisId="right" domain={tempDomain} orientation="right" tick={{ fontSize: 12 }} label={{ value: 'Temp (°C)', angle: 90, position: 'insideRight', fontSize: 12 }} />
-          <Tooltip />
+          <YAxis tickFormatter={commaText} yAxisId="left" domain={rainDomain} tick={{ fontSize: 12 }} label={{ value: 'Rainfall (mm)', angle: -90, position: 'insideLeft', fontSize: 12 }} />
+          <YAxis tickFormatter={commaText} yAxisId="right" domain={tempDomain} orientation="right" tick={{ fontSize: 12 }} label={{ value: 'Temp (°C)', angle: 90, position: 'insideRight', fontSize: 12 }} />
+          <Tooltip formatter={(value) => commaText(value)} />
           <Legend />
           {series.map((s, i) =>
             s.type === 'line' ? (
@@ -149,8 +150,8 @@ const DataChart = ({
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
           <XAxis {...xAxisProps} {...edgeRoom} />
-          <YAxis tick={{ fontSize: 12 }} label={yLabel ? { value: yLabel, angle: -90, position: 'insideLeft', fontSize: 12 } : undefined} />
-          <Tooltip />
+          <YAxis tickFormatter={commaText} tick={{ fontSize: 12 }} label={yLabel ? { value: yLabel, angle: -90, position: 'insideLeft', fontSize: 12 } : undefined} />
+          <Tooltip formatter={(value) => commaText(value)} />
           <Legend />
           {series.map((s, i) => (
             <Line key={s.key} type="monotone" dataKey={s.key} name={s.label} stroke={colours[i]} strokeWidth={2} dot />
@@ -164,8 +165,8 @@ const DataChart = ({
         <AreaChart data={data}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
           <XAxis {...xAxisProps} {...edgeRoom} />
-          <YAxis tick={{ fontSize: 12 }} label={yLabel ? { value: yLabel, angle: -90, position: 'insideLeft', fontSize: 12 } : undefined} />
-          <Tooltip />
+          <YAxis tickFormatter={commaText} tick={{ fontSize: 12 }} label={yLabel ? { value: yLabel, angle: -90, position: 'insideLeft', fontSize: 12 } : undefined} />
+          <Tooltip formatter={(value) => commaText(value)} />
           <Legend />
           {series.map((s, i) => (
             <Area key={s.key} type="monotone" dataKey={s.key} name={s.label} stroke={colours[i]} fill={colours[i]} fillOpacity={0.15} />
@@ -178,8 +179,8 @@ const DataChart = ({
       <BarChart data={data}>
         <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
         <XAxis {...xAxisProps} />
-        <YAxis tick={{ fontSize: 12 }} label={yLabel ? { value: yLabel, angle: -90, position: 'insideLeft', fontSize: 12 } : undefined} />
-        <Tooltip />
+        <YAxis tickFormatter={commaText} tick={{ fontSize: 12 }} label={yLabel ? { value: yLabel, angle: -90, position: 'insideLeft', fontSize: 12 } : undefined} />
+        <Tooltip formatter={(value) => commaText(value)} />
         <Legend />
         {series.map((s, i) => (
           <Bar key={s.key} dataKey={s.key} name={s.label} fill={colours[i]} radius={[3, 3, 0, 0]} />
