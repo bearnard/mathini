@@ -38,7 +38,7 @@ const learnSteps: LearnStep[] = [
 
 const items = [
   {
-    prompt: "A learner cannot open a document because they only have read permission. What is the most likely issue?",
+    prompt: "A learner cannot edit or save changes to a document because they only have read permission. What is the most likely issue?",
     options: ["A network cable is unplugged", "Their access rights do not allow editing", "The monitor is too dim", "The document needs more pictures"],
     answer: 1,
     explanation: "Read permission allows viewing but not editing, so the issue is access rights.",

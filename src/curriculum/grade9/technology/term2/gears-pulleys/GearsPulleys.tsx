@@ -66,7 +66,7 @@ const bank: CapsItem[] = [
     prompt: 'What is a worm gear system used for?',
     options: ['big speed reduction and high torque in a small space', 'high speed output with little torque at all', 'sending drive along two parallel shafts', 'changing straight-line motion into rotation'],
     answer: 'big speed reduction and high torque in a small space',
-    explanation: 'Worm gears (screw-like) engage with spur gears for efficient power transmission at extreme ratios.',
+    explanation: 'A worm (screw-like) engages a worm wheel to give a very large speed reduction and high torque in a small space. Much energy is lost to friction, so worm drives are not very efficient.',
   },
   {
     prompt: 'How does a rack-and-pinion system work?',
@@ -76,9 +76,9 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'If a driving gear has 20 teeth and a driven gear has 40 teeth, what is the speed ratio?',
-    options: ['1:2 (the driven gear turns at half the speed)', '2:1 (the driven gear turns twice as fast)', '1:1 (both gears turn at the same speed)', '1:4 (the driven gear turns at a quarter of the speed)'],
-    answer: '1:2 (the driven gear turns at half the speed)',
-    explanation: 'Speed ratio = number of driving teeth ÷ number of driven teeth.',
+    options: ['2:1 (the driven gear turns at half the speed)', '1:2 (the driven gear turns twice as fast)', '1:1 (both gears turn at the same speed)', '4:1 (the driven gear turns at a quarter of the speed)'],
+    answer: '2:1 (the driven gear turns at half the speed)',
+    explanation: 'In the South African textbook convention, gear ratio = teeth on the driven gear ÷ teeth on the driving gear = 40 ÷ 20 = 2:1, so the driven gear turns at half the speed of the driver.',
   },
   {
     prompt: 'How can you predict the direction of rotation in a gear train?',

@@ -133,7 +133,7 @@ const bank: CATItem[] = [
     prompt: 'A student downloads and installs a cracked version of Microsoft Office without paying. This is:',
     options: ['Acceptable if the software is older than 5 years', 'Software piracy — a violation of copyright law', 'Legal if used only for school work', 'Permitted under the open-source licence'],
     answer: 'Software piracy — a violation of copyright law',
-    explanation: 'Installing software without a valid licence is software piracy, which is illegal under South African copyright and the Cybercrime Act.',
+    explanation: 'Installing software without a valid licence is software piracy, which is illegal under South African copyright law (the Copyright Act 98 of 1978).',
   },
   {
     prompt: 'E-waste should be disposed of by:',

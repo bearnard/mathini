@@ -53,8 +53,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'World music includes styles such as...',
-    options: ['Jazz, Latin, Indian, Asian and Middle Eastern music', 'Western classical music and nothing else', 'Music that has no tradition behind it', 'Music of a single genre from one country'],
-    answer: 'Jazz, Latin, Indian, Asian and Middle Eastern music',
+    options: ['African, Latin, Indian, Asian and Middle Eastern music', 'Western classical music and nothing else', 'Music that has no tradition behind it', 'Music of a single genre from one country'],
+    answer: 'African, Latin, Indian, Asian and Middle Eastern music',
     explanation: 'World music encompasses diverse cultural musical traditions.',
   },
   {

@@ -27,7 +27,7 @@ const bank: CapsItem[] = [
     prompt: 'Which property is most important for a metal ruler edge?',
     options: ['Hardness', 'Sweetness', 'Transparency only', 'Low mass only'],
     answer: 'Hardness',
-    explanation: 'A hard edge resists bending and wear during use.',
+    explanation: 'A hard edge resists wear and scratching, so the ruler stays straight and accurate during use.',
   },
   {
     prompt: 'Why are plastic or wooden handles used on cooking pots?',

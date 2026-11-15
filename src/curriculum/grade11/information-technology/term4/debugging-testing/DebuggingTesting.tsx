@@ -128,10 +128,10 @@ const bank: ITItem[] = [
     explanation: 'Logic errors produce incorrect results without crashing. The algorithm is flawed — perhaps dividing by the wrong denominator.',
   },
   {
-    prompt: 'A learner writes "pritn("Hello")" in Python. The interpreter reports an error before the program runs. What error type is this?',
+    prompt: 'A learner writes print("Hello" in Python, forgetting the closing bracket. The interpreter reports an error before the program runs. What error type is this?',
     options: ['Runtime error', 'Logic error', 'Syntax error', 'Semantic error'],
     answer: 'Syntax error',
-    explanation: '"pritn" is a misspelled function name — a syntax/name error caught before execution begins.',
+    explanation: 'A missing bracket breaks the rules of the language, so Python reports a SyntaxError before any code runs. (A misspelled function name such as pritn would only fail when that line runs, as a NameError.)',
   },
   {
     prompt: 'What is the purpose of a breakpoint in an IDE debugger?',

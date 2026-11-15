@@ -63,7 +63,7 @@ const bank: CapsItem[] = [
     explanation: 'Light construction lines help create accurate drawings and are often erased or not reproduced in final prints.',
   },
   {
-    prompt: 'How many standard views make up a complete orthographic projection?',
+    prompt: 'How many views are normally drawn in a basic orthographic drawing of an object?',
     options: ['front, top and side (3 views)', 'front and back only (2 views)', 'top and bottom only (2 views)', 'six views, one for each face'],
     answer: 'front, top and side (3 views)',
     explanation: 'The three main orthographic views provide sufficient information to understand most 3D objects.',
