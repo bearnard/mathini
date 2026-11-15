@@ -1,63 +1,122 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, OrderTiles, TaggedBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Read the purpose of the advert',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Visual texts combine words and design to persuade a specific audience.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">slagspreuk <SpeakButton text="slagspreuk" /></span>
-          <span className="inline-flex items-center">teikengehoor <SpeakButton text="teikengehoor" /></span>
-          <span className="inline-flex items-center">uitleg <SpeakButton text="uitleg" /></span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Connect language to impact',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Emotive words and bold slogans are used to influence feelings and choices.
-        </p>
-        <p className="text-xl text-slate-700">Ask: “How does this wording make the reader react?”</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Evaluate design choices',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Layout, image size and call-to-action placement guide what we notice first.
-        </p>
-        <p className="text-slate-500">Strong answers mention both visuals and language evidence.</p>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Use these past-tense words aloud to notice the common het ge- pattern in Afrikaans.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"het"} phonetic={"[hɛt]"} meaning={"has / had (auxiliary)"} lang="af" />
-          <PronunciationPlayer word={"ge-"} phonetic={"[χə]"} meaning={"past-tense prefix"} lang="af" />
-          <PronunciationPlayer word={"gespeel"} phonetic={"[χəˈspeəl]"} meaning={"played"} lang="af" />
-          <PronunciationPlayer word={"gelees"} phonetic={"[χəˈleəs]"} meaning={"read (past)"} lang="af" />
-          <PronunciationPlayer word={"geskryf"} phonetic={"[χəˈskrɛif]"} meaning={"wrote / written"} lang="af" />
-          <PronunciationPlayer word={"gekook"} phonetic={"[χəˈkuək]"} meaning={"cooked"} lang="af" />
-        </div>
-      </div>
+    title: 'Audience: teikengehoor and doelgroep',
+    content: slide(
+      <>
+        <Rule>The <Af>Teikengehoor</Af> <En>target audience</En> names who must read the message. Words that point to a group, such as a grade, show the <Af>Doelgroep</Af> <En>target group</En>.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'Perfek vir Graad 8-leerders', tag: 'doelgroep' }]}
+          aria="A line from an advertisement in one box, Perfek vir Graad 8-leerders, tagged doelgroep (target group)."
+        />
+        <Worked
+          title="Find the audience"
+          steps={[
+            <><Af>Perfek vir Graad 8-leerders</Af> <En>Perfect for Grade 8 learners</En>. <SpeakButton text="Perfek vir Graad 8-leerders" /></>,
+            <>The words name a group of people, so they show the <Af>doelgroep</Af>.</>,
+          ]}
+        />
+        <Mistake>Calling the audience the product or the price. The audience is the group of people the advert is aimed at.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Language: slagspreuk and persuasive words',
+    content: slide(
+      <>
+        <Rule>The main purpose of a <Af>slagspreuk</Af> <En>slogan</En> is <Af>Om die produk maklik te onthou</Af> <En>to make the product easy to remember</En>. <Af>Oorredende taal</Af> <En>persuasive language</En> pushes you to act.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'slagspreuk', tag: 'onthou' }, { word: 'Moenie uitmis nie!', tag: 'oorreding' }]}
+          aria="Two parts of an advertisement: the slagspreuk (slogan) helps you remember, and Moenie uitmis nie is persuasive language (oorreding)."
+        />
+        <Worked
+          title="Spot the technique"
+          steps={[
+            <><Af>Moenie uitmis nie!</Af> <En>Don&apos;t miss out!</En> It pressures the reader to act now: persuasive language.</>,
+            <>A slogan is short and catchy, so it is easy to remember.</>,
+          ]}
+        />
+        <Mistake>Thinking a slogan is there to give the price or to list rules. It is there so you remember the product.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Layout: where does the eye go first?',
+    content: slide(
+      <>
+        <Rule>To analyse the <Af>uitleg</Af> <En>layout</En> ask: <Af>Waar val jou oog eerste?</Af> Big pictures and bold headlines usually catch the eye first.</Rule>
+        <OrderTiles
+          tiles={['Beeld', 'Opskrif', 'Teks']}
+          aria="Three parts of a layout in the order the eye usually moves: Beeld (picture), Opskrif (headline), Teks (small text)."
+        />
+        <Worked
+          title="Read the layout"
+          steps={[
+            <>Look at the page for a second. What do you see first?</>,
+            <>Then ask why: it is big, bright, or in the middle.</>,
+          ]}
+        />
+        <Mistake>Only reading the small print. The designer chose what the eye sees first, so start with the picture and headline.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Call to action and question headlines',
+    content: slide(
+      <>
+        <Rule>A call to action tells the reader what to do, for example <Af>Koop vandag en spaar 20%</Af>. A question as a headline is used <Af>Om nuuskierigheid te skep</Af> <En>to create curiosity</En>.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['Koop vandag!', 'aksie'], ['vraag-opskrif', 'nuuskierig']]}
+          aria="Two advertising features and their effect: Koop vandag is a call to action (aksie), a question headline makes the reader curious (nuuskierig)."
+        />
+        <Worked
+          title="Spot the call to action"
+          steps={[
+            <><Af>Koop vandag en spaar 20%</Af> <En>Buy today and save 20%</En> says what to do and why. <SpeakButton text="Koop vandag en spaar 20%" /></>,
+            <>A headline that asks a question makes you want to read on to find the answer.</>,
+          ]}
+        />
+        <Mistake>Choosing a line that only describes, like <Af>Die hemel is blou</Af>. A call to action asks you to do something.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Evaluate: what makes an advert persuasive',
+    content: slide(
+      <>
+        <Rule>The most persuasive advert combines <Af>Duidelike beeld en sterk woorde</Af> <En>a clear picture and strong words</En>. Evaluate the choices: does each part help the message?</Rule>
+        <OrderTiles
+          tiles={['Beeld', 'Woorde', 'Uitleg']}
+          aria="Three design choices to evaluate: Beeld (picture), Woorde (words), Uitleg (layout)."
+        />
+        <Worked
+          title="Evaluate"
+          steps={[
+            <>Is the picture clear and linked to the product?</>,
+            <>Are the words strong? Does the layout lead the eye to the message?</>,
+          ]}
+        />
+        <Mistake>Judging only by colour. A crowded page with weak words and a blurred picture is not persuasive.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Which word names who must read the advertisement?</>} answer={<><Af>Teikengehoor</Af>.</>} />
+        <Check question={<>What is the purpose of a slogan?</>} answer={<><Af>Om die produk maklik te onthou</Af>.</>} />
+        <Check question={<><Af>Moenie uitmis nie!</Af> Which technique is this?</>} answer={<><Af>Oorredende taal</Af> <En>persuasive language</En>.</>} />
+        <Check question={<>Which is a good call to action?</>} answer={<><Af>Koop vandag en spaar 20%</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -112,6 +171,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'It specifies exactly who the advert is for.',
   },
 ];
+
+export { bank };
 
 const VisualLiteracyAdvertisements = () => (
   <AfrikaansTopic

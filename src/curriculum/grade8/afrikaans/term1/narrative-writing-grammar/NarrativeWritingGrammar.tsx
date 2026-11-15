@@ -1,63 +1,124 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, MeaningPairs, OrderTiles, StoryArc, WordBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Plan narrative structure',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Strong narratives have an opening, conflict and clear ending.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">inleiding <SpeakButton text="inleiding" /></span>
-          <span className="inline-flex items-center">konflik <SpeakButton text="konflik" /></span>
-          <span className="inline-flex items-center">slot <SpeakButton text="slot" /></span>
-        </div>
-      </div>
+    title: 'Plan the story: inleiding first',
+    content: slide(
+      <>
+        <Rule>A story has a beginning, a problem, a high point and an end. The <Af>Inleiding</Af> <En>introduction</En> introduces the character and the place.</Rule>
+        <StoryArc
+          points={['Inleiding', 'Probleem', 'Hoogtepunt', 'Einde']}
+          aria="A story drawn as a hill with four points: Inleiding (introduction), Probleem (problem), Hoogtepunt (high point), Einde (end)."
+        />
+        <Worked
+          title="Open with action"
+          steps={[
+            <><Af>Toe die klok lui, hardloop ek na die saal.</Af> <En>When the bell rang, I ran to the hall.</En> <SpeakButton text="Toe die klok lui, hardloop ek na die saal." /></>,
+            <>This opening shows the character (<Af>ek</Af>), the place (<Af>die saal</Af>) and an action.</>,
+          ]}
+        />
+        <Mistake>Opening with a dull fact such as <Af>Die teks gebruik swart ink</Af>. Start with the scene, the character or an action.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Keep tense and grammar consistent',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Use one tense consistently unless the context clearly changes.
-        </p>
-        <p className="text-xl text-slate-700">Check nouns, adjectives and punctuation while editing.</p>
-      </div>
+    title: 'Paragraphs and punctuation',
+    content: slide(
+      <>
+        <Rule>Paragraphs matter because <Af>Hulle organiseer idees en gebeure</Af> <En>they organise ideas and events</En>. Punctuation is there <Af>Om betekenis duidelik te maak</Af> <En>to make meaning clear</En>.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['paragraaf', 'idees'], ['leesteken', 'betekenis']]}
+          aria="Two writing tools and what they do: a paragraaf (paragraph) organises idees (ideas), a leesteken (punctuation mark) makes betekenis (meaning) clear."
+        />
+        <Worked
+          title="Use both"
+          steps={[
+            <>New idea or event: start a new paragraph.</>,
+            <><Af>Ek hou van lees, skryf en teken.</Af> <En>I like reading, writing and drawing.</En> The commas show the three items.</>,
+          ]}
+        />
+        <Mistake>Writing one long block with no paragraphs, or leaving out punctuation. The reader can no longer follow the events or the meaning.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Keep the tense the same',
+    content: slide(
+      <>
+        <Rule>Choose one tense and keep it. A story about yesterday uses the past (<Af>was</Af>, <Af>het</Af>). A story told as it happens uses the present.</Rule>
+        <WordBoxes
+          words={['Gister', 'was', 'ons', 'laat']}
+          hot={[1]}
+          aria="The sentence Gister was ons laat as four boxes, with the past-tense verb was highlighted."
+        />
+        <Worked
+          title="Check the tense"
+          steps={[
+            <><Af>Gister was ons laat by die huis.</Af> <En>Yesterday we were late at home.</En> <Af>Gister</Af> asks for the past: <Af>was</Af>.</>,
+            <>Present: <Af>Ek stap skool toe en groet my vriend.</Af> <En>I walk to school and greet my friend.</En> Both verbs are present.</>,
+          ]}
+        />
+        <Mistake>Mixing tenses in one sentence, such as <Af>Ek stap skool toe en het my vriend gegroet</Af>. Keep both verbs in the same tense.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Describe with adjectives',
+    content: slide(
+      <>
+        <Rule>An adjective makes the picture clearer. After <Af>'n</Af> many adjectives take an <Af>-e</Af> before the noun.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['spannend', 'spannende'], ['vriendelik', 'vriendelike'], ['koud', 'koue']]}
+          aria="Three adjectives and the form used before a noun: spannend becomes spannende, vriendelik becomes vriendelike, koud becomes koue."
+        />
+        <Worked
+          title="Choose the form"
+          steps={[
+            <><Af>Dit was 'n spannende dag.</Af> <En>It was an exciting day.</En> <SpeakButton text="Dit was 'n spannende dag." /></>,
+            <><Af>'n vriendelike onderwyser</Af> <En>a friendly teacher</En>, <Af>'n koue oggend</Af> <En>a cold morning</En>.</>,
+          ]}
+        />
+        <Mistake>Leaving the adjective bare before the noun: <Af>Dit was 'n spannend dag</Af> is wrong. Write <Af>spannende</Af>.</Mistake>
+      </>,
     ),
   },
   {
     title: 'Edit for clarity',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Final drafts should have accurate sentence control and clear paragraph links.
-        </p>
-        <p className="text-slate-500">Read each sentence aloud to catch awkward wording.</p>
-      </div>
+    content: slide(
+      <>
+        <Rule>Good editing is to <Af>Verbeter spelling en sinsbou in elke paragraaf</Af> <En>improve spelling and sentence structure in every paragraph</En>.</Rule>
+        <OrderTiles
+          tiles={['Skryf', 'Lees', 'Verbeter']}
+          aria="Three steps in order: Skryf (write), Lees (read it again), Verbeter (improve spelling and sentences)."
+        />
+        <Worked
+          title="Edit one paragraph"
+          steps={[
+            <>Read the paragraph aloud and listen for sentences that do not flow.</>,
+            <>Fix the spelling, the word order and the punctuation. Then go to the next paragraph.</>,
+          ]}
+        />
+        <Mistake>Editing only the first paragraph, or only checking the spelling. Check every paragraph, spelling and sentences.</Mistake>
+      </>,
     ),
   },
-
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Repeat these present-tense verbs aloud before using them in simple Afrikaans sentences.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"lees"} phonetic={"[leəs]"} meaning={"read"} lang="af" />
-          <PronunciationPlayer word={"skryf"} phonetic={"[skrɛif]"} meaning={"write"} lang="af" />
-          <PronunciationPlayer word={"praat"} phonetic={"[prɑːt]"} meaning={"speak / talk"} lang="af" />
-          <PronunciationPlayer word={"speel"} phonetic={"[speəl]"} meaning={"play"} lang="af" />
-          <PronunciationPlayer word={"eet"} phonetic={"[eət]"} meaning={"eat"} lang="af" />
-          <PronunciationPlayer word={"loop"} phonetic={"[loəp]"} meaning={"walk"} lang="af" />
-        </div>
-      </div>
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Which part of a story introduces the character and the place?</>} answer={<><Af>Inleiding</Af>.</>} />
+        <Check question={<>Fill in: <Af>Gister ___ ons laat by die huis.</Af></>} answer={<><Af>was</Af>.</>} />
+        <Check question={<>Fill in: <Af>Dit was 'n ___ dag.</Af> (exciting)</>} answer={<><Af>spannende</Af>.</>} />
+        <Check question={<>Why are paragraphs important in a story?</>} answer={<><Af>Hulle organiseer idees en gebeure</Af>.</>} />
+      </>,
     ),
   },
 ];
@@ -112,6 +173,8 @@ const bank: AfrikaansItem[] = [
     explanation: 'Both verbs are in present tense.',
   },
 ];
+
+export { bank };
 
 const NarrativeWritingGrammar = () => (
   <AfrikaansTopic
