@@ -77,7 +77,7 @@ const learnSteps: LearnStep[] = [
 ];
 
 export const bank: NstItem[] = [
-  { prompt: 'In a torch, which part is the input of the system?', options: ['The switch being pressed', 'The bulb giving light', 'The cell inside the case', 'The plastic case'], answer: 'The switch being pressed', explanation: 'Pressing the switch starts the system. The bulb lighting is the output.' },
+  { prompt: 'In a torch, which part is the input of the system?', options: ['The switch being pressed', 'The bulb giving light', 'The wires inside the case', 'The plastic case'], answer: 'The switch being pressed', explanation: 'Pressing the switch starts the system. The bulb lighting is the output.' },
   { prompt: 'In a doorbell circuit, what is the output?', options: ['The ringing sound', 'Pressing the doorbell button', 'The wires behind the wall', 'The cell in the box that gives energy'], answer: 'The ringing sound', explanation: 'The output is what the system does: it makes a sound.' },
   { prompt: 'What does a technologist do first when solving a problem?', options: ['Investigate the problem and the need', 'Build the first idea that comes to mind', 'Test the finished product', 'Present the solution to the class'], answer: 'Investigate the problem and the need', explanation: 'You must understand the problem before you can design a solution.' },
   { prompt: 'Which list shows the steps of the design process in the right order?', options: ['Investigate, design, make, evaluate, communicate', 'Design, investigate, evaluate, make, communicate', 'Make, design, investigate, communicate, evaluate', 'Investigate, make, design, communicate, evaluate'], answer: 'Investigate, design, make, evaluate, communicate', explanation: 'You find out, plan, build, test, and then share.' },

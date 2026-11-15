@@ -103,7 +103,7 @@ export const bank: CapsItem[] = [
     },
     {
         prompt: 'Which unit is best for measuring the mass of a car?',
-        options: ['grams', 'kilograms', 'tonnes', 'milligrams'],
+        options: ['grams', 'millilitres', 'tonnes', 'milligrams'],
         answer: 'tonnes',
         explanation: 'A car has a very large mass, so tonnes is the most appropriate unit.'
     },
