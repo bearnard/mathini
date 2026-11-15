@@ -73,7 +73,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Evidence and inference',
     content: slide(
       <>
-        <Rule>An inference question asks you to use clues to work out an implied meaning. Back your answer with evidence: the words from the text that gave you the clue.</Rule>
+        <Rule>Answer an inference question by finding clues in the text and working out what is meant but not said. Back your answer with evidence: the words from the text that gave you the clue.</Rule>
         <Worked
           title="Read, infer, prove"
           steps={[

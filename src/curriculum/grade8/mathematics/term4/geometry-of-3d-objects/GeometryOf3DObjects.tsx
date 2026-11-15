@@ -24,7 +24,7 @@ const eulerRows = [
 ];
 
 // "Check yourself", answers computed from the same helpers
-const c1 = prismCounts(5);
+const c1 = prismCounts(6);
 const c2 = pyramidCounts(3);
 const c3 = euler(c1.vertices, c1.edges, c1.faces);
 
@@ -139,15 +139,15 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>How many faces, edges and vertices does a pentagonal prism have?</li>
-            <li>How many faces does a triangular pyramid have?</li>
+            <li>Count the faces, edges and vertices of a hexagonal prism.</li>
+            <li>Count the faces of a triangular pyramid.</li>
             <li>Check your answer to question 1 with Euler&apos;s formula.</li>
             <li>Which solid has 2 circular faces and 1 curved surface?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>{c1.faces} faces (2 pentagons, 5 rectangles), {c1.edges} edges, {c1.vertices} vertices.</li>
+            <li>{c1.faces} faces (2 hexagons, 6 rectangles), {c1.edges} edges, {c1.vertices} vertices.</li>
             <li>{c2.faces} faces (1 triangular base and 3 triangles).</li>
             <li>{c1.vertices} − {c1.edges} + {c1.faces} = {c3} ✓.</li>
             <li>A cylinder.</li>

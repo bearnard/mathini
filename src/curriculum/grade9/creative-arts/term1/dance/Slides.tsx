@@ -127,7 +127,7 @@ export const learnSteps: LearnStep[] = [
             <li>What does alignment mean in dance?</li>
             <li>Is a skip travelling or non-locomotor? What about a twist on the spot?</li>
             <li>A phrase has slide for {q3.moves[0].counts} counts, bend for {q3.moves[1].counts} and turn for {q3.moves[2].counts}. How many counts is that?</li>
-            <li>What is contrast in a dance piece?</li>
+            <li>Why would a choreographer put a slow, smooth movement next to a fast, sharp one?</li>
           </ol>
         }
         answer={
@@ -135,7 +135,7 @@ export const learnSteps: LearnStep[] = [
             <li>Holding the body correctly to prevent injury and move well.</li>
             <li>A skip is travelling; a twist on the spot is non-locomotor.</li>
             <li>{q3.moves.map((m) => m.counts).join(' + ')} = {q3.total} counts, or {q3.eights.full} eights.</li>
-            <li>Different movements, speeds or energy placed side by side.</li>
+            <li>For contrast: different movements, speeds or energy placed side by side.</li>
           </ol>
         }
       />,

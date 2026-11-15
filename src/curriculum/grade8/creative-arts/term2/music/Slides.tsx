@@ -55,7 +55,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Call-and-response',
     content: slide(
       <>
-        <Rule>Call-and-response is a musical structure where one phrase is answered by another. The leader gives the call and the group gives the response.</Rule>
+        <Rule>In call-and-response music, a phrase from one voice is answered by a second phrase. The leader gives the call and the group gives the response.</Rule>
         <CallResponse sequence={dialogue} aria={`Four blocks taking turns: a call, a response, a call and a response. The phrases alternate, they do not play at the same time.`} />
         <Worked
           title="Perform two pairs"

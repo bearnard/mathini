@@ -39,7 +39,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          Gears have teeth that mesh. If a small driving gear turns a larger driven gear, the driven gear turns more slowly with greater turning force. Meshing gears turn in opposite directions.
+          Gears have teeth that mesh. A bigger gear that is driven by a smaller one turns more slowly with greater turning force. Meshing gears turn in opposite directions.
         </Rule>
         <GearPair driver={10} driven={20} />
         <Worked
@@ -59,7 +59,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          A fixed pulley can change the direction of a pulling force. A linkage can convert rotary motion into back-and-forth motion.
+          Pull down on a fixed pulley and the load goes up: it can change the direction of a pulling force. A linkage can turn circular motion into a back-and-forth one.
         </Rule>
         <FixedPulley />
         <Worked
@@ -78,7 +78,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          A system has an <strong>input</strong>, a <strong>process</strong> and an <strong>output</strong>. In a simple control system, pressing a switch is usually the input.
+          A system has an <strong>input</strong>, a <strong>process</strong> and an <strong>output</strong>. Pressing a doorbell button is the input that starts the system.
         </Rule>
         <IpoFlow id="mech" input="press the switch" process="circuit to bell" output="bell rings" />
         <Worked
@@ -95,17 +95,17 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the pivot point of a lever called?</li>
-            <li>A small driving gear turns a larger driven gear. What does the driven gear do?</li>
-            <li>What can a fixed pulley do? What can a linkage convert rotary motion into?</li>
-            <li>What does mechanical advantage mean? In a control system, pressing a switch is usually the what?</li>
+            <li>On a see-saw, what do we call the point it balances and turns on?</li>
+            <li>A large driving gear turns a small driven gear. What does the driven gear do?</li>
+            <li>How does a pulley at the top of a flagpole help you raise the flag? What can a crank-and-slider linkage turn a circular motion into?</li>
+            <li>What does mechanical advantage mean? In a doorbell system, pressing the button is the what?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>The fulcrum.</li>
-            <li>It turns more slowly with greater turning force.</li>
-            <li>It can change the direction of a pulling force. A linkage converts rotary motion into back-and-forth motion.</li>
+            <li>It turns faster with less turning force.</li>
+            <li>It changes the direction of the pull, so you pull down to lift up. Back-and-forth motion.</li>
             <li>A machine helps you use less effort force for a task. The input.</li>
           </ol>
         }

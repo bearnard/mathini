@@ -102,9 +102,9 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a technology system? Why is sustainability important in technology?</li>
-            <li>What is the importance of safety in technology design? How does clear communication affect technology adoption?</li>
-            <li>What should a complete PAT project include? How do you present technical information in exam-style responses?</li>
+            <li>What is a technology system? Why does technology need to be sustainable?</li>
+            <li>Why must safety be considered when designing technology? How does clear communication influence whether people adopt a technology?</li>
+            <li>What should be in a finished PAT project? How should technical information be presented in an exam answer?</li>
             <li>What is the relationship between environmental and economic considerations? How should you approach revision of all four terms?</li>
           </ol>
         }

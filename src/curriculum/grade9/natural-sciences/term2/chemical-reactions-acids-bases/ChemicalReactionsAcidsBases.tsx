@@ -64,7 +64,7 @@ const learnSteps: LearnStep[] = [
         />
         <Worked
           title="Test two solutions with litmus paper"
-          steps={[<>Solution A turns blue litmus {redInAcid}: it is an acid.</>, <>Solution B turns red litmus {blueInBase}: it is a base.</>, <>Lemon juice is an example of an acid; soap is an example of a base.</>]}
+          steps={[<>Solution A turns blue litmus {redInAcid}: it is an acid.</>, <>Solution B turns red litmus {blueInBase}: it is a base.</>, <>Lemon juice is acidic, while soap is a base.</>]}
         />
         <Mistake>Tasting a liquid to find out whether it is an acid. Many acids and bases burn. Use litmus paper or another indicator.</Mistake>
       </>,
@@ -124,15 +124,15 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What are reactants? Which is a sign that a chemical reaction has occurred?</li>
-            <li>What does an acid turn litmus paper? What is a base?</li>
-            <li>What is pH? What is the pH of pure water?</li>
-            <li>What happens when an acid and base react? What is the law of conservation of mass? Give an example of an acid and of a base.</li>
+            <li>What do we call the starting substances in a reaction? Name one sign that a reaction has happened.</li>
+            <li>Blue litmus paper is dipped in an acid: what colour does it become? Describe a base.</li>
+            <li>What does the pH scale measure? What pH does pure water have?</li>
+            <li>What do an acid and a base form when they react? State the law of conservation of mass. Name one acid and one base found at home.</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>The starting substances. A colour change or a gas given off.</li>
+            <li>The reactants. A colour change or a gas given off.</li>
             <li>Red. A substance that feels slippery and tastes bitter (it turns litmus blue).</li>
             <li>A scale that measures how acidic or basic a thing is. 7.</li>
             <li>They neutralise each other, forming a salt and water. The mass of the reactants equals the mass of the products. Lemon juice is an acid; soap is a base.</li>

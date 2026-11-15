@@ -60,7 +60,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Narrative and reflective essays',
     content: slide(
       <>
-        <Rule>A narrative essay tells what happened, in order. A reflective essay focuses on personal experience and insight: what the experience meant and what you learned.</Rule>
+        <Rule>A narrative essay tells what happened, in order. A reflective essay looks inward at your own experience: what it meant to you and what you learned.</Rule>
         <TwoColumns
           left={{ title: 'Narrative', lines: ['tells the event', 'in order'] }}
           right={{ title: 'Reflective', lines: ['personal experience', 'insight gained'] }}
@@ -126,7 +126,7 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What should an introduction mainly do?</li>
+            <li>What job does the opening paragraph of an essay have?</li>
             <li>What does paragraph coherence mean?</li>
             <li>Which kind of essay focuses on personal experience and insight?</li>
             <li>During revision, what is the most important check?</li>

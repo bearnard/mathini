@@ -33,7 +33,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          Floods are the hazard most directly linked to overflowing rivers after heavy rain. Flooding can happen when rain raises river levels beyond the channel capacity. Rainfall, drainage and land use shape floods.
+          A river that bursts its banks after days of rain causes a flood. Flooding can happen when rain raises river levels beyond the channel capacity. Rainfall, drainage and land use shape floods.
         </Rule>
         <FloodPlain />
         <Worked
@@ -52,12 +52,12 @@ const learnSteps: LearnStep[] = [
           Disaster risk reduction aims to reduce damage and protect lives before hazards strike. Preparedness and planning reduce vulnerability and losses.
         </Rule>
         <Compare
-          left={{ title: 'Prepare', tone: 'sky', rows: ['a warning system helps communities act early and safely: preparedness', 'an emergency kit with a torch with batteries, because power can be cut after a hazard event'] }}
+          left={{ title: 'Prepare', tone: 'sky', rows: ['a warning siren helps communities act early and safely: preparedness', 'an emergency kit with a torch with batteries, because power can be cut after a hazard event'] }}
           right={{ title: 'Plan', tone: 'emerald', rows: ['keep drainage clear and avoid building on floodplains', 'good planning and maintenance reduce flood exposure'] }}
         />
         <Worked
           title="Get a family ready for an earthquake"
-          steps={[<>Pack an emergency kit. The most useful item for a power cut is a torch with batteries.</>, <>Agree where to meet and how to get a warning: a warning system is an example of preparedness.</>, <>Do this before the hazard, not after.</>]}
+          steps={[<>Pack an emergency kit with a torch and spare batteries for when the lights go out.</>, <>Agree where to meet and how you will hear a warning. Knowing the siren and the meeting place is preparedness.</>, <>Do this before the hazard, not after.</>]}
         />
         <Mistake>Thinking disaster risk reduction is only rescue after a disaster. Most of the work is done before the hazard arrives.</Mistake>
       </>,
@@ -69,15 +69,15 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What causes most earthquakes and volcanoes? Why are some places called volcanic zones?</li>
-            <li>Which hazard is most directly linked to overflowing rivers after heavy rain? Which map best shows global earthquake-prone areas?</li>
-            <li>What does disaster risk reduction aim to do? What is a warning system an example of?</li>
-            <li>Which item is most useful in an earthquake emergency kit? How can settlements reduce flood impact?</li>
+            <li>What is the main reason earthquakes and volcanoes happen? What do we call an area with many volcanoes?</li>
+            <li>Which hazard happens when a river bursts its banks after a storm? Which map shows where earthquakes are most likely around the world?</li>
+            <li>What is the aim of disaster risk reduction? A siren that alerts a town to a coming flood is an example of what?</li>
+            <li>Which item in a kit helps most when the power goes off? What can a town do to lessen the damage floods cause?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Movement of tectonic plates. They are areas where volcanoes are common.</li>
+            <li>Movement of tectonic plates. A volcanic zone.</li>
             <li>Floods. A tectonic plate map.</li>
             <li>Reduce damage and protect lives before hazards strike. Preparedness.</li>
             <li>A torch with batteries. Keep drainage clear and avoid building on floodplains.</li>

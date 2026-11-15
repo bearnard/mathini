@@ -21,7 +21,7 @@ const wrongAdd = { n: 3 + 2, d: 4 + 2 }; // the mistake: 3/4 -> 5/6
 const cmp = biggerFraction(3, 4, 5, 8);
 const sum = addFractions(2, 3, 1, 6);
 const diff = subtractFractions(7, 10, 2, 5);
-const mix = addMixed({ whole: 1, n: 1, d: 2 }, { whole: 2, n: 1, d: 4 });
+const mix = addMixed({ whole: 1, n: 1, d: 4 }, { whole: 2, n: 1, d: 8 });
 const carry = addMixed({ whole: 2, n: 2, d: 3 }, { whole: 1, n: 1, d: 2 });
 const of1 = fractionOf(3, 4, 8);
 const of2 = fractionOf(3, 5, 35);
@@ -104,18 +104,18 @@ export const learnSteps: LearnStep[] = [
         <Rule>Add the wholes, add the fractions, then carry if the fractions make a whole or more.</Rule>
         <MixedBars
           rows={[
-            { whole: 1, n: 1, d: 2, color: '#818cf8' },
-            { whole: 2, n: 1, d: 4, color: '#34d399' },
+            { whole: 1, n: 1, d: 4, color: '#818cf8' },
+            { whole: 2, n: 1, d: 8, color: '#34d399' },
             { whole: mix.result.whole, n: mix.result.n, d: mix.result.d, color: '#fbbf24' },
           ]}
           signs={['+', '=']}
-          aria="Three rows of bars. The first row shows one whole and a half. The second shows two wholes and a quarter. Joined together they make three wholes and three quarters."
+          aria="Three rows of bars. The first row shows one whole and a quarter. The second shows two wholes and an eighth. Joined together they make three wholes and three eighths."
         />
         <Worked
-          title={<><M w={1} n={1} d={2} /> + <M w={2} n={1} d={4} /></>}
+          title={<><M w={1} n={1} d={4} /> + <M w={2} n={1} d={8} /></>}
           steps={[
             <>Wholes: 1 + 2 = {mix.wholes}.</>,
-            <>Fractions: <F n={1} d={2} /> + <F n={1} d={4} /> = <F n={mix.fraction.a} d={mix.fraction.d} /> + <F n={mix.fraction.b} d={mix.fraction.d} /> = <F n={mix.fraction.n} d={mix.fraction.d} />.</>,
+            <>Fractions: <F n={1} d={4} /> + <F n={1} d={8} /> = <F n={mix.fraction.a} d={mix.fraction.d} /> + <F n={mix.fraction.b} d={mix.fraction.d} /> = <F n={mix.fraction.n} d={mix.fraction.d} />.</>,
             <>Join them: <M w={mix.result.whole} n={mix.result.n} d={mix.result.d} />.</>,
           ]}
         />

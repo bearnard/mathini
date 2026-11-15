@@ -88,7 +88,7 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which story element tells you where and when it happens?</li>
+            <li>A story takes place in a fishing village in winter in the 1950s. Which story element is this?</li>
             <li>In “The Whistle”, which stage is the climax?</li>
             <li>A character gives away food even when hungry. Which trait does this show?</li>
             <li>Why does the order of events matter?</li>

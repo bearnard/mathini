@@ -105,10 +105,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>World War I took place mainly between which years? What does nationalism refer to in this topic?</li>
-            <li>How did alliances affect the spread of the war? What best describes trench warfare on the Western Front?</li>
-            <li>What was a main purpose of wartime propaganda? Which statement about women in the war is most accurate?</li>
-            <li>Why is Delville Wood important? Why is the SS Mendi remembered? What was a major result of the Treaty of Versailles?</li>
+            <li>In which years was World War I fought? What does nationalism mean in this topic?</li>
+            <li>Why did a fight between two countries pull in many others? How would you describe life in the trenches of the Western Front?</li>
+            <li>Why did governments print recruiting posters and slogans during the war? What work did many women do while the men were away?</li>
+            <li>Why is Delville Wood important? Why is the SS Mendi remembered? What did the 1919 Treaty of Versailles do to Germany?</li>
           </ol>
         }
         answer={

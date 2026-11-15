@@ -41,7 +41,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          An inclined plane mainly helps by reducing the force needed over a longer distance. A ramp spreads the work over distance.
+          An inclined plane lets you use less force by moving the load over a longer distance. A ramp spreads the work over distance.
         </Rule>
         <RampPicture load={100} height={1} length={4} />
         <Worked
@@ -61,7 +61,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          A wedge can be described as two inclined planes joined together. It redirects force to split, cut or hold materials. A door knob is a wheel-and-axle machine.
+          A wedge is really two inclined planes back to back. It redirects force to split, cut or hold materials. A door knob is a wheel-and-axle machine.
         </Rule>
         <WedgePicture />
         <WheelAxlePicture wheel={20} axle={5} />
@@ -79,15 +79,15 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the pivot point of a lever called? Why does a longer lever arm often need less effort?</li>
-            <li>An inclined plane mainly helps by doing what? Which situation best uses one?</li>
-            <li>A wedge can be described as what? Which everyday item is a wheel-and-axle machine?</li>
-            <li>What does force multiplication mean? A bottle opener works mainly as which machine?</li>
+            <li>What is the point a lever turns on called? Why is it easier to push a door open far from its hinges?</li>
+            <li>How does a ramp make lifting easier? Which situation best uses one?</li>
+            <li>What two simple machines make up a wedge? Which household object works by turning a wheel on an axle?</li>
+            <li>What does it mean when a machine multiplies force? Which simple machine is a bottle opener?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>The fulcrum. It increases the turning effect (moment).</li>
+            <li>The fulcrum. A longer arm increases the turning effect (moment).</li>
             <li>Reducing force needed over a longer distance. Loading boxes up a ramp into a truck.</li>
             <li>Two inclined planes joined together. A door knob.</li>
             <li>A machine gives a larger output force than input force. A lever.</li>

@@ -63,8 +63,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          In <strong>1967</strong>, Dr <strong>Christiaan Barnard</strong> performed the first human
-          heart transplant in <strong>Cape Town, South Africa</strong>. It was an important moment
+          In <strong>1967</strong>, Dr <strong>Christiaan Barnard</strong> led the surgical team in
+          Cape Town, South Africa, that carried out the world's first transplant of a human heart. It was an important moment
           in world medical history.
         </p>
         <div className="rounded-xl bg-red-50 p-6 text-lg text-slate-700">

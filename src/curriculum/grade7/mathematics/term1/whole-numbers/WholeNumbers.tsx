@@ -45,7 +45,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Divisibility: use the digit sum',
     content: slide(
       <>
-        <Rule>A number is divisible by 9 if its digit sum is divisible by 9. The same works for 3.</Rule>
+        <Rule>Add up the digits of a number: when the total is a multiple of 9, 9 divides the number exactly. The same test works for 3.</Rule>
         <DigitSumPicture n={div.yes} by={9} />
         <Worked
           title={`Is ${spaced(div.yes)} divisible by 9?`}

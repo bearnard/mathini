@@ -38,7 +38,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
           A <strong>large-scale map</strong> shows a small area with lots of detail, like a school map.
-          A <strong>small-scale map</strong> shows a large area with less detail, like a map of Africa.
+          A <strong>small-scale map</strong> covers a huge area but only a little detail, like a map of the whole world.
         </p>
         <div className="grid gap-3 md:grid-cols-2">
           <div className="rounded-xl bg-green-50 p-4"><strong>Large-scale</strong><br />small area, more detail</div>

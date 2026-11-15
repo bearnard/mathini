@@ -71,7 +71,7 @@ export const learnSteps: LearnStep[] = [
             <>Co-interior angle: 180° − {par.given}° = <strong>{par.co}°</strong> {r('co-int ∠s, lines ∥')}.</>,
           ]}
         />
-        <Mistake>Co-interior angles are not equal. They lie on the same side of the transversal, between the lines, and add up to 180°.</Mistake>
+        <Mistake>Co-interior angles are usually not equal. Look for two angles between the lines on one side of the transversal: together they make 180°.</Mistake>
       </>,
     ),
   },

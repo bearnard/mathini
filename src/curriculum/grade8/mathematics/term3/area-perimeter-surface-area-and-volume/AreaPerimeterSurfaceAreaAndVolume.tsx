@@ -18,7 +18,7 @@ const boxSa = prismSurface(4, 3, 2);
 
 // "Check yourself", answers computed from the same helpers
 const c1 = { p: rectPerimeter(7, 4), a: rectArea(7, 4) };
-const c2 = triangleArea(12, 5);
+const c2 = triangleArea(9, 6);
 const c3 = prismVolume(5, 2, 3);
 const c4 = cubeSurface(5);
 
@@ -116,7 +116,7 @@ export const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>A rectangle is 7 m by 4 m. Find its perimeter and its area.</li>
-            <li>Find the area of a triangle with base 12 cm and height 5 cm.</li>
+            <li>A triangular sail has a base of 9 m and a height of 6 m. Find its area.</li>
             <li>Find the volume of a box 5 cm × 2 cm × 3 cm.</li>
             <li>Find the surface area of a cube with sides of 5 cm.</li>
           </ol>
@@ -124,7 +124,7 @@ export const learnSteps: LearnStep[] = [
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>P = 2(7 + 4) = {c1.p} m; A = 7 × 4 = {c1.a} m².</li>
-            <li>½ × 12 × 5 = {c2} cm².</li>
+            <li>½ × 9 × 6 = {c2} m².</li>
             <li>5 × 2 × 3 = {c3} cm³.</li>
             <li>6 × 5² = 6 × 25 = {c4} cm².</li>
           </ol>

@@ -26,7 +26,7 @@ const big = rect.map((p) => enlarge(p, 2));
 // "Check yourself", answers computed from the same helpers
 const c1 = translate([-3, 4], 5, -2);
 const c2 = reflectInX([-2, 5]);
-const c3 = rotate90cw([3, 1]);
+const c3 = rotate90cw([5, -3]);
 const c4 = { w: 3 * 3, h: 1 * 3 };
 
 const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
@@ -138,7 +138,7 @@ export const learnSteps: LearnStep[] = [
           <ol className="list-decimal space-y-2 pl-5">
             <li>Translate {pt(-3, 4)} by 5 right and 2 down.</li>
             <li>Reflect {pt(-2, 5)} in the x-axis.</li>
-            <li>Rotate {pt(3, 1)} 90° clockwise about the origin.</li>
+            <li>Turn {pt(5, -3)} through 90° clockwise about the origin.</li>
             <li>A 3 cm by 1 cm rectangle is enlarged by scale factor 3. Give the new sides.</li>
           </ol>
         }

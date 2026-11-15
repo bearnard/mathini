@@ -103,7 +103,7 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which stage comes first in a creative writing project?</li>
+            <li>Before you write any scenes for your story project, which stage must you finish?</li>
             <li>What is redrafting?</li>
             <li>Why do writers think about their audience?</li>
             <li>Our plan has {PROJECT_PLAN.length} stages. How many school days does it need in total?</li>

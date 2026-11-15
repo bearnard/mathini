@@ -32,7 +32,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Ternary form (ABA)',
     content: slide(
       <>
-        <Rule>Ternary form has three sections and is written ABA. The piece returns to its opening section at the end.</Rule>
+        <Rule>Ternary form has three sections and is written ABA. The opening section comes back to close the piece.</Rule>
         <FormBlocks sections="ABA" aria={`Three blocks, A then B then A again. The music returns to its opening section, so this is ${formName('ABA')} form, written ABA.`} />
         <Worked
           title="Spot the return"
@@ -60,7 +60,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Composing: motif and contrast',
     content: slide(
       <>
-        <Rule>A useful first step in composition is to create a short motif. Then repeat it and change dynamics to shape expression and contrast.</Rule>
+        <Rule>Begin composing by creating a short motif. Then repeat it and change dynamics to shape expression and contrast.</Rule>
         <RhythmBars rows={[{ sig: '4/4', bar: motif, total: totalBeats(motif) }]} aria={`A one-bar motif drawn to scale: two crotchets and a minim, ${totalBeats(motif)} beats in 4/4.`} />
         <NumberedSteps
           label="Steps in composing a short piece"
@@ -85,7 +85,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Listening analysis and peer feedback',
     content: slide(
       <>
-        <Rule>Listening analysis helps you identify form and structure in examples. Peer feedback is most useful when it is specific and linked to the music heard.</Rule>
+        <Rule>Listening analysis helps you identify form and structure in examples. Comments from classmates help most when they are specific and point to something heard in the music.</Rule>
         <NumberedSteps
           label="How to analyse a piece by listening"
           heading="Analyse by listening"
@@ -111,15 +111,15 @@ export const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>How is binary form written, and how is ternary form written?</li>
-            <li>A piece returns to its opening section at the end. Which form is it likely to be?</li>
+            <li>A song goes verse, chorus, verse. Which form is it likely to be?</li>
             <li>An ostinato of 2 notes is repeated 5 times. How many notes are played?</li>
-            <li>What is a useful first step in composing?</li>
+            <li>What should you do before writing a whole tune?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Binary: AB. Ternary: ABA.</li>
-            <li>Ternary form, because A comes back.</li>
+            <li>Ternary form, because the first section comes back.</li>
             <li>2 × 5 = {q3.length} notes, the same pattern each time.</li>
             <li>Create a short motif.</li>
           </ol>

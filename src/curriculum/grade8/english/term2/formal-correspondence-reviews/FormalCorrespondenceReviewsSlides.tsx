@@ -111,7 +111,7 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which text type suits feedback to a school principal?</li>
+            <li>Which text type should you write to complain to the municipality about a broken street light?</li>
             <li>Which closing goes with &quot;Dear Sir or Madam&quot;?</li>
             <li>Rewrite &quot;Reply asap!&quot; in formal register.</li>
             <li>What must a review give besides an opinion?</li>

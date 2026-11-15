@@ -93,8 +93,8 @@ const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Which is a phrase: “The rain stopped suddenly” or “under the old bridge”?</li>
-            <li>What does a conjunction do? Which sentence is compound: “Lebo packed his bag, and he ran to the taxi”?</li>
-            <li>In “When the bell rang, the class cheered,” which words form the dependent clause? Name a word that starts one.</li>
+            <li>What does a conjunction do? Which sentence is compound: “Zinzi packed her lunch, and she walked to school”?</li>
+            <li>In “After the storm passed, the farmers checked the fields,” which words form the dependent clause? Name a word that starts one.</li>
             <li>Fix this run-on: “Thandi finished her homework she went outside.” Why vary sentence types?</li>
           </ol>
         }
@@ -102,7 +102,7 @@ const learnSteps: LearnStep[] = [
           <ol className="list-decimal space-y-2 pl-5">
             <li>“under the old bridge” is a phrase. (“The rain stopped suddenly” is an independent clause.)</li>
             <li>It joins words, phrases or clauses. Yes: two complete ideas joined by “and”.</li>
-            <li>“When the bell rang” (the clause beginning with “When”). For example although, because, when.</li>
+            <li>“After the storm passed” (the clause beginning with “After”). For example although, because, when.</li>
             <li>“Thandi finished her homework, and she went outside.” To make writing smoother and more interesting.</li>
           </ol>
         }

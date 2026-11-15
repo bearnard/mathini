@@ -101,18 +101,18 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the difference between weather and climate? What does a climate graph usually show?</li>
-            <li>How does altitude usually affect temperature? How can mountains affect rainfall on opposite slopes?</li>
-            <li>Which ocean current contributes to cool, drier conditions on South Africa&apos;s west coast?</li>
-            <li>Which pattern matches a Mediterranean climate? Which region is hot and very wet throughout the year near the Equator? What is a key feature of hot deserts?</li>
+            <li>How are weather and climate different? What can you read from a climate graph?</li>
+            <li>Does it get warmer or cooler as you climb a mountain? Why can one side of a mountain be wetter than the other?</li>
+            <li>Which cold ocean current cools the west coast of South Africa and keeps it dry?</li>
+            <li>Which climate has hot, dry summers and mild, wet winters? Which region near the Equator is hot and rainy all year? What is a key feature of hot deserts?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Weather is short-term conditions; climate is long-term average patterns. Average monthly temperature and rainfall.</li>
-            <li>Temperature decreases as altitude increases. Windward slopes are wetter, and leeward slopes are drier.</li>
+            <li>Cooler: temperature decreases as altitude increases. The side facing the wind is wetter, and the far side is drier.</li>
             <li>The Benguela Current.</li>
-            <li>Hot, dry summers and mild, wet winters. Tropical rainforest climate. Very low annual rainfall.</li>
+            <li>The Mediterranean climate. Tropical rainforest climate. Very low annual rainfall.</li>
           </ol>
         }
       />,

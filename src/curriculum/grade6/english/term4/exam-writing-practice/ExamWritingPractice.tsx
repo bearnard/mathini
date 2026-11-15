@@ -96,7 +96,7 @@ const learnSteps: LearnStep[] = [
           <ol className="list-decimal space-y-2 pl-5">
             <li>What is the best first step in an exam writing task, and why does time management matter?</li>
             <li>Which text is transactional, and what must you remember about the audience?</li>
-            <li>What should a strong introduction do, and why does each paragraph have one main idea?</li>
+            <li>How should an essay begin, and why should one paragraph stick to a single point?</li>
             <li>What is an editing checklist for, and what is the safest strategy under pressure?</li>
           </ol>
         }

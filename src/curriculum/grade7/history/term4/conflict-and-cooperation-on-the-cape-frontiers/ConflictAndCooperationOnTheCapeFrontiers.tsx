@@ -32,7 +32,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          Britain gained control of the Cape in the early 1800s. The Cape frontier wars were mainly about land, cattle and political control.
+          From 1806 the Cape was ruled by Britain, which took it from the Dutch. The Cape frontier wars were mainly about land, cattle and political control.
         </Rule>
         <Terms
           rows={[
@@ -111,18 +111,18 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which power gained control of the Cape in the early 1800s? What were the Cape frontier wars mainly about?</li>
-            <li>How should Xhosa resistance best be understood in this period?</li>
-            <li>What happened to slavery under British rule at the Cape? Which movement is linked to some settlers leaving the Cape Colony in the 1830s?</li>
-            <li>What does cooperation on frontiers include? Which timeline order is correct? Which topic sentence fits this unit best?</li>
+            <li>After the Dutch East India Company, which country took over the Cape in 1806? What were the frontier wars fought over?</li>
+            <li>Why is it wrong to call Xhosa fighting on the frontier simple raiding?</li>
+            <li>When did British law end slavery at the Cape? What do we call the journey of settlers who left the colony for the interior in the 1830s?</li>
+            <li>Name two ways people worked together across the frontier. Which timeline order is correct? Which topic sentence fits this unit best?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Britain. Land, cattle and political control.</li>
-            <li>As organised efforts to defend communities, land and independence.</li>
-            <li>It was legally abolished in 1834. The Great Trek.</li>
-            <li>Trade, negotiation and local exchange between groups. British control strengthens → slavery abolished in 1834 → Great Trek begins. The Cape frontiers changed through conflict and economic cooperation.</li>
+            <li>It was organised defence of communities, land and independence.</li>
+            <li>In 1834 (it was legally abolished). The Great Trek.</li>
+            <li>Trade and negotiation, with local exchange between groups. British control strengthens → slavery abolished in 1834 → Great Trek begins. The Cape frontiers changed through conflict and economic cooperation.</li>
           </ol>
         }
       />,

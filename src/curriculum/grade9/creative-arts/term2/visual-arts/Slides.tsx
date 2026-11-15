@@ -100,7 +100,7 @@ export const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>What does the design process begin with?</li>
-            <li>What should an artist&apos;s research notes include?</li>
+            <li>What would you collect in a sketchbook while researching a theme?</li>
             <li>In relief printing, which parts of the block print?</li>
             <li>Name two craft techniques.</li>
           </ol>

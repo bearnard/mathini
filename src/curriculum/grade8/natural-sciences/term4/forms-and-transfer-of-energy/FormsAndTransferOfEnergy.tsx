@@ -76,7 +76,7 @@ const learnSteps: LearnStep[] = [
           steps={[
             <>Heat reaches your hand through a metal spoon in hot soup: conduction. Direct particle collisions pass the heat along in a solid.</>,
             <>In liquids and gases, warmer, less dense fluid rises and cooler fluid sinks, so the movement of particles carries heat: convection.</>,
-            <>The Sun warms Earth through radiation. Electromagnetic waves carry the energy and need no medium.</>,
+            <>Sunlight reaches Earth by radiation. Electromagnetic waves carry the energy and need no medium.</>,
           ]}
         />
         <Mistake>Thinking radiation needs air. The energy of the Sun crosses empty space to reach Earth.</Mistake>
@@ -109,9 +109,9 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Give an example of chemical energy. Which sequence shows the energy transfer in a torch?</li>
+            <li>Give an example of chemical energy. Write the energy transfer in a torch as a chain.</li>
             <li>How is heat mostly transferred through a metal spoon? Through liquids and gases by the movement of particles?</li>
-            <li>How does the Sun warm Earth? What does conservation of energy mean?</li>
+            <li>By which kind of heat transfer does sunlight reach us? What happens to the total amount of energy when it changes form?</li>
             <li>Name a good thermal insulator. Why does a black surface heat up faster in sunlight?</li>
           </ol>
         }

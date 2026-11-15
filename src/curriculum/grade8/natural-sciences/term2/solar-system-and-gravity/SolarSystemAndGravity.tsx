@@ -98,10 +98,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which object is at the centre of our solar system? Which planet is known for its prominent rings?</li>
-            <li>What keeps planets in orbit around the Sun? What is gravity?</li>
-            <li>What is a natural satellite of Earth? How are comets different from planets?</li>
-            <li>Why does an astronaut feel lighter on the Moon? Which order starts correctly from the Sun outward?</li>
+            <li>What sits at the centre of our solar system? Which planet has the most famous rings?</li>
+            <li>Which force keeps the planets circling the Sun? What is gravity?</li>
+            <li>Name Earth’s natural satellite. How are comets different from planets?</li>
+            <li>Why can an astronaut jump higher on the Moon? List the four inner planets in order, starting nearest the Sun.</li>
           </ol>
         }
         answer={

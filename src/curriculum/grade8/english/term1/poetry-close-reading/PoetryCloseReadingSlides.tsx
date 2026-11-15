@@ -60,7 +60,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Tone and tone shifts',
     content: slide(
       <>
-        <Rule>Tone is the attitude or feeling in the poem. A shift from joyful words to dark images (or the other way round) signals a tone change.</Rule>
+        <Rule>Tone is the attitude or feeling in the poem. When the words turn from joyful to gloomy (or from gloomy to joyful) the tone is changing.</Rule>
         <Worked
           title="Follow the tone"
           steps={[
@@ -116,7 +116,7 @@ export const learnSteps: LearnStep[] = [
           <ol className="list-decimal space-y-2 pl-5">
             <li>What is a stanza?</li>
             <li>A poem repeats the word &quot;alone&quot;. What does this highlight?</li>
-            <li>The poem moves from joyful words to dark images. What does this signal?</li>
+            <li>The first verse of a poem is full of sunshine and laughter, but the last is about empty streets and cold rain. What does this signal?</li>
             <li>Give a good way to answer: &quot;How does the poet show the storm is loud?&quot;</li>
           </ol>
         }

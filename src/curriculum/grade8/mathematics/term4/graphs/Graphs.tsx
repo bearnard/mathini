@@ -26,7 +26,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Plotting points and the four quadrants',
     content: slide(
       <>
-        <Rule>In the ordered pair (x; y) the first number is the x-coordinate (across) and the second is the y-coordinate (up or down). The axes cut the plane into four quadrants.</Rule>
+        <Rule>Every ordered pair (x; y) names a point: the x-coordinate says how far across to go and the y-coordinate how far up or down. The axes cut the plane into four quadrants.</Rule>
         <CoordGrid
           x={[-5, 5]}
           y={[-4, 6]}

@@ -121,7 +121,7 @@ export const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Name two traits of a successful entrepreneur.</li>
-            <li>What is the first step in finding a business opportunity?</li>
+            <li>Where does spotting a business opportunity begin?</li>
             <li>Start-up costs are {rand(2_000)}, {rand(500)} and {rand(250)}. What capital is needed?</li>
             <li>Name two things that make an opportunity viable.</li>
           </ol>

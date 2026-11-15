@@ -34,7 +34,7 @@ export const learnSteps: LearnStep[] = [
     title: 'The hypotenuse and the theorem',
     content: slide(
       <>
-        <Rule>In a right-angled triangle the hypotenuse c is the longest side, opposite the right angle. The theorem: c² = a² + b², where a and b are the two shorter sides.</Rule>
+        <Rule>The hypotenuse c, the longest side of a right-angled triangle, sits opposite the right angle. The theorem: c² = a² + b², where a and b are the two shorter sides.</Rule>
         <RightTriangle a={3} b={4} labels={['3', '4', '5']} squares aria={`A right-angled triangle with sides 3, 4 and 5 and a square drawn on each side. The squares hold ${t345.a2}, ${t345.b2} and ${t345.c2} unit squares: ${t345.a2} + ${t345.b2} = ${t345.c2}.`} />
         <Worked
           title="Sides 3, 4 and 5"

@@ -60,8 +60,8 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
           On <strong>27 April 1994</strong>, South Africans voted in the first democratic election.
-          This day is celebrated as <strong>Freedom Day</strong>. <strong>Nelson Mandela</strong> became
-          the first democratically elected President of South Africa.
+          This day is celebrated as <strong>Freedom Day</strong>. <strong>Nelson Mandela</strong> was
+          sworn in as President after that first election open to all adult citizens.
         </p>
         <div className="rounded-xl bg-emerald-50 p-5 text-slate-700">
           Long voting queues showed that many people were ready to take part as equal citizens.

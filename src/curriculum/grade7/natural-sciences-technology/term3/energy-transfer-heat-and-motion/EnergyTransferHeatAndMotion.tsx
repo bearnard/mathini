@@ -20,7 +20,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          <strong>Kinetic</strong> energy is the energy an object has because of its motion. <strong>Potential</strong> energy is energy stored, for example by raising an object.
+          <strong>Kinetic</strong> energy belongs to anything that is moving: the faster it moves, the more it has. <strong>Potential</strong> energy is energy stored, for example by raising an object.
         </Rule>
         <EnergyHill />
         <Worked
@@ -97,9 +97,9 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Kinetic energy is the energy an object has because of what?</li>
+            <li>A rolling ball has kinetic energy. What gives it that energy?</li>
             <li>Name the three ways heat travels. Which one is warm air rising in a room?</li>
-            <li>How does heat from the Sun reach Earth? Name a material used as an insulator.</li>
+            <li>By which way of heat transfer does a campfire warm your hands across the gap? Name a material used as an insulator.</li>
             <li>What is an efficient kettle?</li>
           </ol>
         }

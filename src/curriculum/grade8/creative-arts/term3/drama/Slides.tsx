@@ -32,7 +32,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Hot-seating',
     content: slide(
       <>
-        <Rule>Hot-seating is an activity where a learner answers questions while in role as a character. It deepens understanding of the character&apos;s thoughts and motives.</Rule>
+        <Rule>In hot-seating, a learner answers the class’s questions while in role as a character. It deepens understanding of the character&apos;s thoughts and motives.</Rule>
         <Worked
           title="Hot-seat Sipho, who forgot to collect his sister"
           steps={['Sit in the chair, take on Sipho’s voice and posture.', 'The class asks: "Why were you late?"', 'Answer in role, in the first person: "I was at practice and lost track of time."', 'Add a feeling: "I feel terrible."']}
@@ -93,7 +93,7 @@ export const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>What does characterisation mean?</li>
-            <li>What is hot-seating?</li>
+            <li>What happens when a character is placed in the hot seat?</li>
             <li>What does conflict do in a scene?</li>
             <li>What does staging refer to?</li>
           </ol>
@@ -101,7 +101,7 @@ export const learnSteps: LearnStep[] = [
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Building believable characters through choices.</li>
-            <li>A learner answers questions while in role as a character.</li>
+            <li>A learner answers the class’s questions while staying in role as that character.</li>
             <li>It drives the action of the scene.</li>
             <li>How actors and action are placed on stage.</li>
           </ol>

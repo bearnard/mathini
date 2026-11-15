@@ -41,7 +41,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Points on the axes',
     content: slide(
       <>
-        <Rule>Moving right makes x bigger, moving up makes y bigger. A point on the x-axis has y = 0. A point on the y-axis has x = 0.</Rule>
+        <Rule>Moving right makes x bigger, moving up makes y bigger. Along the x-axis the height is zero, so y = 0. Along the y-axis the sideways distance is zero, so x = 0.</Rule>
         <CoordGrid
           max={5}
           axisGlow="both"

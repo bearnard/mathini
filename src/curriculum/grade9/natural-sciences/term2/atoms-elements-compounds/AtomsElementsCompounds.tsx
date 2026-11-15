@@ -65,7 +65,7 @@ const learnSteps: LearnStep[] = [
         />
         <Worked
           title="Water or salt water?"
-          steps={[<>Water is a compound: hydrogen and oxygen atoms are bonded together in every particle.</>, <>Salt water is a mixture: salt particles are mixed with water particles but not chemically joined to them.</>, <>That is the difference between a mixture and a compound.</>]}
+          steps={[<>Water is a compound: hydrogen and oxygen atoms are bonded together in every particle.</>, <>Salt water is a mixture: salt particles are mixed with water particles but not chemically joined to them.</>, <>Bonds join the atoms in a compound; a mixture has no bonds.</>]}
         />
         <Mistake>Calling any two substances mixed together a compound. A compound needs chemical bonds between its elements.</Mistake>
       </>,
@@ -76,7 +76,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          A chemical symbol stands for an element: O is oxygen. A formula shows the atoms in a compound: the chemical formula for water is H₂O.
+          A symbol is shorthand for an element: O is oxygen. A formula shows which atoms make up a compound: H₂O tells us water has two hydrogen atoms and one oxygen atom.
         </Rule>
         <Terms
           rows={[
@@ -125,18 +125,18 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is an atom? Where are protons found? What is the charge of an electron?</li>
-            <li>What do neutrons do in an atom?</li>
-            <li>What is an element? What is a compound? Which is an example of an element: oxygen gas, water or salt water?</li>
-            <li>What is the difference between a mixture and a compound? What does the symbol O represent? What is the formula for water?</li>
+            <li>What is an atom? In which part of the atom are protons found? Is an electron positive or negative?</li>
+            <li>Do neutrons carry charge, and what do they add to an atom?</li>
+            <li>What is an element? What is a compound? Which of nitrogen gas, carbon dioxide or sea water is an element?</li>
+            <li>How is a mixture different from a compound? What does the symbol N represent? Write the chemical formula for carbon dioxide.</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>The smallest particle of an element. In the nucleus. Negative.</li>
-            <li>They add mass but are neutral.</li>
-            <li>A pure substance made of one type of atom. Two or more elements joined by chemical bonds. Oxygen gas.</li>
-            <li>In a mixture, the substances are not chemically bonded. Oxygen. H₂O.</li>
+            <li>No, they are neutral; they add mass.</li>
+            <li>A pure substance made of one type of atom. Two or more elements joined by chemical bonds. Nitrogen gas.</li>
+            <li>In a mixture, the substances are not chemically bonded. Nitrogen. CO₂.</li>
           </ol>
         }
       />,

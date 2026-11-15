@@ -104,8 +104,8 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which section of a business plan describes the product and the market?</li>
-            <li>What does the purchasing function manage?</li>
+            <li>Which part of a business plan tells the reader what you sell and who will buy it?</li>
+            <li>What is the job of the purchasing function in a business?</li>
             <li>A shop expects {rand(q3.income)} income and {rand(q3.spending)} spending. Surplus or deficit?</li>
             <li>Is company culture an internal or an external factor?</li>
           </ol>

@@ -11,7 +11,7 @@ const small = cubeMeasures(2);
 const big = cubeMeasures(4);
 const box = prismSurface(5, 3, 2);
 const layers = prismMeasures(5, 3, 2);
-const check = { cube: cubeMeasures(3), prism: prismSurface(4, 2, 3), scale: volumeScale(3) };
+const check = { cube: cubeMeasures(5), prism: prismSurface(4, 2, 3), scale: volumeScale(3) };
 const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 export const learnSteps: LearnStep[] = [
@@ -109,7 +109,7 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Find the surface area and the volume of a cube with side 3 cm.</li>
+            <li>A cube-shaped gift box has edges of 5 cm. Find its surface area and its volume.</li>
             <li>Find the surface area of a box 4 cm × 2 cm × 3 cm.</li>
             <li>Find the volume of the same box.</li>
             <li>Every edge of a cube is made 3 times as long. How many times as big is the volume?</li>
@@ -117,7 +117,7 @@ export const learnSteps: LearnStep[] = [
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>SA = 6 × 3 × 3 = {check.cube.surface} cm². Volume = 3 × 3 × 3 = {check.cube.volume} cm³.</li>
+            <li>SA = 6 × 5 × 5 = {check.cube.surface} cm². Volume = 5 × 5 × 5 = {check.cube.volume} cm³.</li>
             <li>2 × ({check.prism.lb} + {check.prism.lh} + {check.prism.bh}) = {check.prism.surface} cm².</li>
             <li>4 × 2 × 3 = {check.prism.volume} cm³.</li>
             <li>3 × 3 × 3 = {check.scale} times.</li>

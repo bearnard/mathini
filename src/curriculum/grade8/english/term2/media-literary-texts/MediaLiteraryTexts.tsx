@@ -118,7 +118,7 @@ export const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Is this a fact or an opinion? &ldquo;{c3}&rdquo;</li>
-            <li>Which text type usually gives verified current information?</li>
+            <li>Where would you look for checked facts about yesterday’s events: a news report or a diary entry?</li>
             <li>What does the headline &ldquo;Community Fights Back&rdquo; mainly try to do?</li>
             <li>What is the conflict in a story?</li>
           </ol>

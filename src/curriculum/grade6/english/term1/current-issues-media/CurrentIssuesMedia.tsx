@@ -86,7 +86,7 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>Which media text is read in paragraphs under a headline, and which do you mainly listen to?</li>
+            <li>Which media text is set out in paragraphs under a headline, and which is spoken news from a presenter?</li>
             <li>What does the main idea of a text tell you?</li>
             <li>“The new park is the best place in town.” Fact or opinion? Why?</li>
             <li>A speaker gives only one side of an issue. What should you think about, and how should you discuss it?</li>

@@ -16,9 +16,9 @@ const eTri = euler(tri);
 const ePyr = euler(pyr);
 
 // "Check yourself"
-const hex = prismCounts(6);
+const prism5 = prismCounts(5);
 const tet = POLYHEDRA['triangular pyramid'];
-const pent = pyramidCounts(5);
+const hexPyr = pyramidCounts(6);
 
 const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
@@ -85,11 +85,11 @@ export const learnSteps: LearnStep[] = [
     title: 'Solids with curved surfaces',
     content: slide(
       <>
-        <Rule>Cylinders, cones and spheres have curved surfaces, so they are not polyhedra. A cylinder has 2 circular faces and 1 curved surface; a cone has 1 circular face, a curved surface and 1 apex; a sphere is one curved surface.</Rule>
+        <Rule>Cylinders, cones and spheres have curved surfaces, so they are not polyhedra. A cylinder has two circular ends joined by one curved side; a cone has a single circular base, a curved side and an apex; a sphere is one curved surface.</Rule>
         <SolidsRow names={['cylinder', 'cone', 'sphere']} flatAndCurved />
         <Worked
           steps={[
-            <>One circular face and one vertex (apex): a <strong>cone</strong>.</>,
+            <>A single circular base that narrows to a point: a <strong>cone</strong>.</>,
             <>Two circular faces and one curved surface: a <strong>cylinder</strong>.</>,
             <>Not a polyhedron: the <strong>sphere</strong>, because it has no flat faces.</>,
           ]}
@@ -121,17 +121,17 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>How many faces, edges and vertices does a hexagonal prism have?</li>
+            <li>Count the faces, edges and vertices of a pentagonal prism.</li>
             <li>Check Euler&apos;s formula for a triangular pyramid (4 faces, 4 vertices, 6 edges).</li>
-            <li>A pyramid has a pentagon (5 sides) as its base. How many faces does it have?</li>
-            <li>Which solid has 2 circular faces and 1 curved surface?</li>
+            <li>A pyramid stands on a hexagon (6 sides). Count its faces.</li>
+            <li>Which solid has two circular ends joined by one curved side?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>{hex.faces} faces, {hex.edges} edges, {hex.vertices} vertices.</li>
+            <li>{prism5.faces} faces, {prism5.edges} edges, {prism5.vertices} vertices.</li>
             <li>F + V = {tet.faces} + {tet.vertices} = {euler(tet).left}; E + 2 = {tet.edges} + 2 = {euler(tet).right}. It holds.</li>
-            <li>{pent.faces} faces: 1 pentagon + 5 triangles.</li>
+            <li>{hexPyr.faces} faces: 1 hexagon + 6 triangles.</li>
             <li>A cylinder.</li>
           </ol>
         }

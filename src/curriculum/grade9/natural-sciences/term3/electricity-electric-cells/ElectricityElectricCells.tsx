@@ -122,10 +122,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is electric current? What does a power source do in a circuit?</li>
-            <li>In a series circuit, if one bulb breaks, what happens? What is an advantage of a parallel circuit? What happens to brightness when you add more bulbs in series?</li>
+            <li>What is electric current? Why does a circuit need a battery or cell?</li>
+            <li>A bulb breaks in a series circuit. What happens to the others? Why is a parallel circuit better for home lighting? How does the brightness change as more bulbs are added one after another?</li>
             <li>What is potential difference? Which unit measures it?</li>
-            <li>What is resistance? Which factor increases the resistance of a wire? What does a 12 V source give through a 3 Ω resistor?</li>
+            <li>What is resistance? Name one change that increases a wire’s resistance. What does a 12 V source give through a 3 Ω resistor?</li>
           </ol>
         }
         answer={

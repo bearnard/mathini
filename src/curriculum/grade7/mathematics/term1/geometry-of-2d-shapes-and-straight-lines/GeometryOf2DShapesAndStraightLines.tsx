@@ -58,7 +58,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Parallel lines: corresponding angles',
     content: slide(
       <>
-        <Rule>When parallel lines are cut by a transversal, corresponding angles are equal.</Rule>
+        <Rule>A transversal across a pair of parallel lines makes pairs of corresponding angles that are equal.</Rule>
         <ParallelTransversal a={par.a} />
         <Worked
           title={`The top angle is ${par.a}°`}

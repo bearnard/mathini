@@ -13,7 +13,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          Logic systems use inputs and outputs to control devices. In control systems, a switch is usually an input. In a simple alarm system, a buzzer is usually the output.
+          Logic systems use inputs and outputs to control devices. A switch is normally an input to a control system. In an alarm, the buzzer is the output.
         </Rule>
         <IpoFlow id="pat" input="switch" process="logic" output="buzzer" />
         <Worked
@@ -28,7 +28,7 @@ const learnSteps: LearnStep[] = [
     title: 'AND logic',
     content: slide(
       <>
-        <Rule>An AND gate gives output 1 only when both inputs are 1. AND needs every required condition to be true.</Rule>
+        <Rule>An AND gate outputs 1 only if both of its inputs are 1. AND needs every required condition to be true.</Rule>
         <LogicSwitches />
         <TruthTable gate={and} name="AND gate" />
         <Worked
@@ -43,7 +43,7 @@ const learnSteps: LearnStep[] = [
     title: 'OR logic',
     content: slide(
       <>
-        <Rule>An OR gate gives output 1 when at least one input is 1. OR becomes true if any input is true.</Rule>
+        <Rule>An OR gate outputs 1 if one input, or both, is 1. OR becomes true if any input is true.</Rule>
         <TruthTable gate={or} name="OR gate" />
         <Worked
           title="A school alarm with several panic buttons"
@@ -74,10 +74,10 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>An AND gate gives output 1 only when what? An OR gate gives output 1 when what?</li>
-            <li>What does a truth table show?</li>
+            <li>When does an AND gate output 1? When does an OR gate output 1?</li>
+            <li>What information is listed in a truth table?</li>
             <li>A school alarm must sound if any panic button is pressed. Which logic? Two safety switches must be on before a machine starts. Which gate?</li>
-            <li>In control systems, a switch is usually an input or an output? What is a buzzer? Why label PAT sketches clearly?</li>
+            <li>Is a push button in a control system an input or an output? What is a buzzer? Why label PAT sketches clearly?</li>
           </ol>
         }
         answer={

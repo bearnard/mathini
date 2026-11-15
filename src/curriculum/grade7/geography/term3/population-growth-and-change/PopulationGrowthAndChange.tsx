@@ -20,7 +20,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          Birth rate describes the number of live births in a population over time. Death rate describes the number of deaths. If death rates fall while birth rates stay high, the population grows quickly.
+          Birth rate describes the number of live births in a population over time. Death rate describes the number of deaths. When fewer people die each year but just as many babies are born, the population grows quickly.
         </Rule>
         <GrowthLines />
         <Worked
@@ -62,7 +62,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          A country with a high birth rate and low life expectancy is likely to have a younger population structure. More births and shorter average lifespan usually mean a younger population.
+          Many births and short lives together give a country a younger population structure. More births and shorter average lifespan usually mean a younger population.
         </Rule>
         <AgeShapes />
         <Worked
@@ -78,7 +78,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          A pandemic can strongly change population patterns worldwide: it can affect death rates, migration and long-term growth. A line graph is the best tool to compare population change over many years. Population growth and change are best understood by using data, graphs and case studies together.
+          A global disease outbreak can change death rates, migration and long-term growth. To follow change across decades, plot the numbers as a line graph. Combine data, graphs and case studies for the fullest picture.
         </Rule>
         <Worked
           title="Explain a change in population"
@@ -94,17 +94,17 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What does birth rate describe? If death rates fall while birth rates stay high, what usually happens to the population?</li>
+            <li>What does birth rate describe? When fewer people die each year but as many babies are born, what usually happens to the population?</li>
             <li>What is infant mortality? What does life expectancy mean?</li>
-            <li>Which event can strongly change population patterns worldwide? Which tool best compares population change over many years?</li>
-            <li>A country with a high birth rate and low life expectancy is likely to have what? What helps you understand population growth and change best?</li>
+            <li>Name one kind of event that can change populations worldwide. Which graph best shows change across decades?</li>
+            <li>A country with many births and short lives is likely to have what kind of population? How do you get the fullest picture of population change?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>The number of live births in a population over time. It grows quickly.</li>
             <li>Deaths of babies under one year old. The average number of years a person may live.</li>
-            <li>A pandemic. A line graph.</li>
+            <li>A pandemic (for example). A line graph.</li>
             <li>A younger population structure. Data, graphs and case studies together.</li>
           </ol>
         }

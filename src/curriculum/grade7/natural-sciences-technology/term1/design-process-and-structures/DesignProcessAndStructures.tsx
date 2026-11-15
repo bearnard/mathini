@@ -53,7 +53,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          <strong>Tension</strong> is a force that pulls and stretches a structure. <strong>Compression</strong> is a force that squeezes it, pushing inward.
+          <strong>Tension</strong> pulls and stretches a structure, like a rope pulled tight. <strong>Compression</strong> squeezes it, like the roof pressing down on a pillar.
         </Rule>
         <TensionCompression />
         <Worked
@@ -93,17 +93,17 @@ const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is usually the first step of IDMEC?</li>
-            <li>In IDMEC, when do you check whether the design met the criteria?</li>
-            <li>What is the force that pulls and stretches? And the force that squeezes?</li>
-            <li>Why are triangles used in frame structures?</li>
+            <li>Which IDMEC stage comes before you design anything?</li>
+            <li>Which IDMEC stage is for testing the finished product against the brief?</li>
+            <li>Name the force on a rope pulled tight, and the force on a pillar that carries a roof.</li>
+            <li>What makes a triangle a good shape for a bridge truss?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>Investigate the problem.</li>
-            <li>During evaluate.</li>
-            <li>Tension pulls and stretches. Compression squeezes.</li>
+            <li>The evaluate stage.</li>
+            <li>Tension (the rope). Compression (the pillar).</li>
             <li>They increase rigidity and reduce wobbling.</li>
           </ol>
         }

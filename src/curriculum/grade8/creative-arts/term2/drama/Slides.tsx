@@ -19,7 +19,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Story structure',
     content: slide(
       <>
-        <Rule>A clear dramatic story has a beginning, a middle and an ending. Tension rises through the middle to a climax, then the ending settles the problem.</Rule>
+        <Rule>A clear dramatic story is built from three parts: a beginning, a middle and an ending. Tension rises through the middle to a climax, then the ending settles the problem.</Rule>
         <StoryArc aria={`A tension curve over ${arc.length} moments. It starts low in the beginning, climbs through the middle to a climax at moment ${climax.beat}, then falls in the ending.`} />
         <Worked
           title="Shape the scene: The Lost Phone"
@@ -114,7 +114,7 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What three parts does a clear dramatic story have?</li>
+            <li>Which three parts should every scene you perform be built from?</li>
             <li>What is tension in drama?</li>
             <li>What does blocking mean?</li>
             <li>What are cue cards used for?</li>

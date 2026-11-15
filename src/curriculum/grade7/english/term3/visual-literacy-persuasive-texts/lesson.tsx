@@ -95,15 +95,15 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the purpose of persuasive language in an advert?</li>
+            <li>Why does a cereal advert say “Join thousands of happy families”?</li>
             <li>What does the first A in AIDA stand for?</li>
-            <li>Why is layout important in a poster?</li>
-            <li>Which question checks audience and purpose?</li>
+            <li>How does a clear layout help someone who reads a poster?</li>
+            <li>Which question should you ask before designing a flyer?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>To influence the audience to think or act.</li>
+            <li>To influence the audience to think or act (here, to buy).</li>
             <li>Attention.</li>
             <li>It guides the viewer’s eye to the key information.</li>
             <li>“Who is this text for, and what does it want them to do?”</li>

@@ -109,7 +109,7 @@ export const learnSteps: LearnStep[] = [
       <Check
         question={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>What should you do first in an exam writing task?</li>
+            <li>You are given a writing topic in an exam. What should you do before writing a word?</li>
             <li>Is a formal letter an essay or a transactional text?</li>
             <li>Which is the formal sentence: “Hey, fix this!” or “I would appreciate your response.”?</li>
             <li>Correct: The learners was excited.</li>

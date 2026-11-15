@@ -63,7 +63,7 @@ const learnSteps: LearnStep[] = [
           <strong> 27 April 1994</strong>, now celebrated as <strong>Freedom Day</strong>.
         </p>
         <div className="rounded-xl bg-rose-50 p-5 text-slate-700">
-          <strong>Remember:</strong> Nelson Mandela became South Africa's first democratically elected President.
+          <strong>Remember:</strong> After the 1994 election open to every adult, Nelson Mandela took office as President.
         </div>
       </div>
     ),

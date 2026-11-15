@@ -88,7 +88,7 @@ const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>What should you do before writing a full first draft?</li>
-            <li>Name the key feature of a review.</li>
+            <li>What must a good book or film review contain to convince readers?</li>
             <li>What is the structure of an essay?</li>
             <li>What does a reflective essay ask you to do?</li>
           </ol>

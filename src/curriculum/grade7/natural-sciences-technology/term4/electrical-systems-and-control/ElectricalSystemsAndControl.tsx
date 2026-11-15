@@ -33,7 +33,7 @@ const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>
-          In a control system, a switch is most often the <strong>input device</strong>. The circuit is the process, and the result is the <strong>output</strong>, such as sound, light or movement.
+          A switch usually plays the part of the <strong>input device</strong>. The circuit is the process, and the result is the <strong>output</strong>, such as sound, light or movement.
         </Rule>
         <IpoFlow id="elec" input="press the switch" process="current flows" output="buzzer sounds" />
         <Worked
@@ -69,7 +69,7 @@ const learnSteps: LearnStep[] = [
     title: 'Finding a fault',
     content: slide(
       <>
-        <Rule>If a simple circuit does not work, first check whether the switch is closed and the path is complete.</Rule>
+        <Rule>When a simple circuit fails, begin by seeing if the switch is closed and the path is complete.</Rule>
         <NumberedSteps steps={FAULT_STEPS} tone="teal" label="Checks for a circuit that does not work" />
         <Worked
           title="A bulb that will not light"
@@ -86,16 +86,16 @@ const learnSteps: LearnStep[] = [
         question={
           <ol className="list-decimal space-y-2 pl-5">
             <li>How many paths for current does a series circuit have?</li>
-            <li>In a parallel circuit, if one bulb fails, what do the others usually do?</li>
-            <li>In a buzzer alarm, what is the sound? What is the switch?</li>
-            <li>Name a safe electrical practice. What do you check first in a circuit that does not work?</li>
+            <li>Two bulbs are wired in parallel and one burns out. What happens to the other?</li>
+            <li>In a door alarm, the siren is which part of the system? What is the pressure pad that starts it?</li>
+            <li>Give one safe way to use a plug socket at home. What do you check first in a circuit that does not work?</li>
           </ol>
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
             <li>One path for current.</li>
-            <li>They stay on.</li>
-            <li>The sound is the output. The switch is the input device.</li>
+            <li>It stays on.</li>
+            <li>The siren is the output. The pad is the input device.</li>
             <li>Pull a plug out by holding the plug body. Check that the switch is closed and the path is complete.</li>
           </ol>
         }
