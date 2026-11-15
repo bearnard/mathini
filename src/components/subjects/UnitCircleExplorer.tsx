@@ -109,7 +109,7 @@ export default function UnitCircleExplorer({
 
       <div className="space-y-6 p-4 sm:p-6">
         <div className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(18rem,1fr)]">
-          <div className="space-y-4">
+          <div className="min-w-0 space-y-4">
             <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
               <svg viewBox="0 0 300 300" className="h-auto w-full">
                 <defs>
@@ -209,7 +209,7 @@ export default function UnitCircleExplorer({
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="min-w-0 space-y-4">
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
               {[
                 { label: 'sin θ', value: formatDecimal(sinValue), tone: 'bg-pink-500' },

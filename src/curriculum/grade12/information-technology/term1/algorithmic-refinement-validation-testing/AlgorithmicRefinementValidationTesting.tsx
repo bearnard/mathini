@@ -98,14 +98,14 @@ end;`} />
         <p className="text-lg leading-8 text-slate-600">
           Strong testing uses normal, abnormal and boundary values. A trace table gives evidence that the refined algorithm behaves correctly.
         </p>
-        <div className="overflow-hidden rounded-2xl border border-slate-200">
-          <div className="grid grid-cols-4 bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-700">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200">
+          <div className="grid min-w-[30rem] grid-cols-4 bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-700">
             <p>Test type</p>
             <p>Example input</p>
             <p>Expected result</p>
             <p>Reason</p>
           </div>
-          <div className="grid grid-cols-4 gap-y-0 border-t border-slate-200 text-sm text-slate-600">
+          <div className="grid min-w-[30rem] grid-cols-4 gap-y-0 border-t border-slate-200 text-sm text-slate-600">
             <p className="border-r border-slate-200 px-4 py-3">Normal</p>
             <p className="border-r border-slate-200 px-4 py-3">75</p>
             <p className="border-r border-slate-200 px-4 py-3">Accepted</p>

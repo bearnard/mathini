@@ -47,20 +47,20 @@ const TAccount = ({ title, debit, credit, className }: TAccountProps) => {
               {debit.map((e, i) => (
                 <tr key={i} className="border-b border-slate-100">
                   <td className="break-words px-2 py-1.5 text-slate-700 min-[560px]:px-3">{e.description}</td>
-                  <td className="w-[7.5rem] whitespace-nowrap px-2 py-1.5 text-right font-mono tabular-nums text-slate-800 min-[560px]:px-3">{fmt(e.amount)}</td>
+                  <td className="w-[9.5rem] whitespace-nowrap px-2 py-1.5 text-right font-mono tabular-nums text-slate-800 min-[560px]:px-3">{fmt(e.amount)}</td>
                 </tr>
               ))}
               {fillers(debit.length, credit.length).map((i) => (
                 <tr key={`fill-${i}`} aria-hidden className="hidden border-b border-slate-100 min-[560px]:table-row">
                   <td className="px-3 py-1.5">&nbsp;</td>
-                  <td className="w-[7.5rem] px-3 py-1.5">&nbsp;</td>
+                  <td className="w-[9.5rem] px-3 py-1.5">&nbsp;</td>
                 </tr>
               ))}
             </tbody>
             <tfoot>
               <tr className="bg-blue-50 font-semibold">
                 <td className="px-2 py-1.5 text-blue-700 min-[560px]:px-3">Total</td>
-                <td className="w-[7.5rem] whitespace-nowrap px-2 py-1.5 text-right font-mono tabular-nums text-blue-700 min-[560px]:px-3">{fmt(debitTotal)}</td>
+                <td className="w-[9.5rem] whitespace-nowrap px-2 py-1.5 text-right font-mono tabular-nums text-blue-700 min-[560px]:px-3">{fmt(debitTotal)}</td>
               </tr>
             </tfoot>
           </table>
@@ -75,20 +75,20 @@ const TAccount = ({ title, debit, credit, className }: TAccountProps) => {
               {credit.map((e, i) => (
                 <tr key={i} className="border-b border-slate-100">
                   <td className="break-words px-2 py-1.5 text-slate-700 min-[560px]:px-3">{e.description}</td>
-                  <td className="w-[7.5rem] whitespace-nowrap px-2 py-1.5 text-right font-mono tabular-nums text-slate-800 min-[560px]:px-3">{fmt(e.amount)}</td>
+                  <td className="w-[9.5rem] whitespace-nowrap px-2 py-1.5 text-right font-mono tabular-nums text-slate-800 min-[560px]:px-3">{fmt(e.amount)}</td>
                 </tr>
               ))}
               {fillers(credit.length, debit.length).map((i) => (
                 <tr key={`fill-${i}`} aria-hidden className="hidden border-b border-slate-100 min-[560px]:table-row">
                   <td className="px-3 py-1.5">&nbsp;</td>
-                  <td className="w-[7.5rem] px-3 py-1.5">&nbsp;</td>
+                  <td className="w-[9.5rem] px-3 py-1.5">&nbsp;</td>
                 </tr>
               ))}
             </tbody>
             <tfoot>
               <tr className="bg-red-50 font-semibold">
                 <td className="px-2 py-1.5 text-red-700 min-[560px]:px-3">Total</td>
-                <td className="w-[7.5rem] whitespace-nowrap px-2 py-1.5 text-right font-mono tabular-nums text-red-700 min-[560px]:px-3">{fmt(creditTotal)}</td>
+                <td className="w-[9.5rem] whitespace-nowrap px-2 py-1.5 text-right font-mono tabular-nums text-red-700 min-[560px]:px-3">{fmt(creditTotal)}</td>
               </tr>
             </tfoot>
           </table>
