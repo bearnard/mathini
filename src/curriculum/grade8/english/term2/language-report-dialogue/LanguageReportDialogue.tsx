@@ -72,9 +72,9 @@ export const learnSteps: LearnStep[] = [
             { label: 'because', note: 'gives a reason (cause)' },
             { label: 'although', note: 'shows a contrast' },
             { label: 'unless', note: 'sets a condition' },
-            { label: 'meanwhile', note: 'links things at the same time' },
+            { label: 'while', note: 'links things at the same time' },
           ]}
-          aria="Four conjunctions and their jobs: because gives a reason, although shows contrast, unless sets a condition, meanwhile links events at the same time."
+          aria="Four conjunctions and their jobs: because gives a reason, although shows contrast, unless sets a condition, while links events at the same time."
         />
         <Worked
           title="Link the two ideas: the match was cancelled / it rained"
@@ -91,7 +91,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Active and passive voice',
     content: slide(
       <>
-        <Rule>Active: the doer comes first. Passive: the thing acted on is the subject, with was/were + the past participle, and &ldquo;by&rdquo; names the doer if needed.</Rule>
+        <Rule>Active: the doer comes first. Passive: the thing acted on is the subject, with was/were + the past participle (in the past tense; other tenses use other forms of &ldquo;be&rdquo;), and &ldquo;by&rdquo; names the doer if needed.</Rule>
         <TwoColumns
           left={{ title: 'Active', lines: ['doer first', 'wrote'] }}
           right={{ title: 'Passive', lines: ['receiver first', 'was written by'] }}

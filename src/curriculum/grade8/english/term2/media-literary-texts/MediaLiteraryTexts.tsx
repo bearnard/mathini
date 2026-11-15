@@ -42,7 +42,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Fact or opinion?',
     content: slide(
       <>
-        <Rule>A fact can be checked. An opinion is a personal judgement. Words such as &ldquo;most&rdquo;, &ldquo;best&rdquo;, &ldquo;inspiring&rdquo; and &ldquo;should&rdquo; signal opinion.</Rule>
+        <Rule>A fact can be checked. An opinion is a personal judgement. Judgement words such as &ldquo;best&rdquo;, &ldquo;inspiring&rdquo; and &ldquo;should&rdquo; signal opinion.</Rule>
         <TwoColumns
           left={{ title: 'Fact', lines: ['can be checked', 'published on Monday'] }}
           right={{ title: 'Opinion', lines: ['personal judgement', 'most inspiring'] }}

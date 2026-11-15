@@ -39,7 +39,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Consent, pregnancy and waiting',
     content: slide(
       <>
-        <Rule>Consent means freely agreeing to something without any pressure. Teenage pregnancy is more likely with poor education, no protection and pressure from others. Delaying sex gives time for emotional readiness and finishing school.</Rule>
+        <Rule>Consent means freely agreeing to something without any pressure. In South Africa the age of consent for sex is 16. Teenage pregnancy is more likely with poor education, no protection and pressure from others. Delaying sex gives time for emotional readiness and finishing school.</Rule>
         <Worked
           title="“If you loved me, you would”"
           steps={[<>Spot it: this is pressure, not consent.</>, <>Remember: you can say no, and you can change your mind.</>, <>Say clearly: “No, I am not ready.”</>, <>Talk to a trusted adult.</>]}

@@ -47,9 +47,9 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Name the picture"
           steps={[
-            <>{personification.ref}: &quot;{personification.quote}&quot; The thunder is given a voice, like an animal. That is personification.</>,
+            <>{personification.ref}: &quot;{personification.quote}&quot; The thunder is described as if it were alive, with a voice that roars. Treating a non-living thing as a living being is personification.</>,
             <>{simile.ref}: &quot;{simile.quote}&quot; The word &quot;like&quot; compares puddles to coins. That is a simile, and it shows how bright they are.</>,
-            <>Repetition: in the line &quot;alone in the dark, alone in the rain&quot;, repeating &quot;alone&quot; stresses loneliness.</>,
+            <>Repetition: if a poet wrote &quot;alone in the dark, alone in the rain&quot; (an invented example, not from this poem), repeating &quot;alone&quot; would stress loneliness.</>,
           ]}
         />
         <Mistake>Only naming the device. &quot;It is a simile&quot; earns little. Say what the comparison makes you see or feel.</Mistake>

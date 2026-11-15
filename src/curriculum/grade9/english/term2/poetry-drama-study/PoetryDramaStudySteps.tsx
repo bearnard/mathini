@@ -36,7 +36,7 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Name the devices"
           steps={[
-            <>&ldquo;The wind whispered over the hill.&rdquo; Wind cannot whisper, so this is <strong>personification</strong>.</>,
+            <>&ldquo;The wind whispered over the sleeping hill.&rdquo; Wind cannot whisper, so this is <strong>personification</strong>.</>,
             <>&ldquo;The moon hung like a silver coin.&rdquo; Compares with &ldquo;like&rdquo;: a <strong>simile</strong>, which also gives a picture (imagery).</>,
             <>&ldquo;Bright, bubbling, bold.&rdquo; Repeats the b sound: <strong>alliteration</strong>.</>,
             <>Say the effect: the whisper makes the evening gentle and calm.</>,

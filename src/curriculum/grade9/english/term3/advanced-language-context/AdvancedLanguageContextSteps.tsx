@@ -69,7 +69,7 @@ export const learnSteps: LearnStep[] = [
             <>The same idea: &ldquo;I will come&rdquo; becomes &ldquo;She said she would come.&rdquo;</>,
           ]}
         />
-        <Mistake>Leaving the verb unchanged: &ldquo;He said he is tired.&rdquo; In the reported speech taught here, the verb after &ldquo;said&rdquo; steps back in time: &ldquo;He said he was tired.&rdquo;</Mistake>
+        <Mistake>Leaving the verb unchanged: &ldquo;He said he is tired.&rdquo; In the reported speech taught here, a past reporting verb such as &ldquo;said&rdquo; makes the verb step back in time: &ldquo;He said he was tired.&rdquo;</Mistake>
       </>,
     ),
   },
@@ -77,7 +77,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Figurative language',
     content: slide(
       <>
-        <Rule>Figurative language says one thing to suggest another. A metaphor says one thing IS another. A simile says it is LIKE another. Hyperbole is extreme exaggeration for emphasis or humour.</Rule>
+        <Rule>Figurative language says one thing to suggest another. A metaphor says one thing IS another. A simile says it is LIKE (or AS) another. Hyperbole is extreme exaggeration for emphasis or humour.</Rule>
         <Worked
           title="Name each figure"
           steps={[
