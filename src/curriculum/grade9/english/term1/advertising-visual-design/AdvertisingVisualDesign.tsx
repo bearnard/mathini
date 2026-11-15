@@ -1,38 +1,106 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StepFlow } from '../../../../../components/diagrams/english/WritingPictures';
+import { AIDA, aidaInitials } from '../../../../../components/diagrams/english/writing';
+
+// The AIDA stages and their order come from AIDA (writing.test.ts).
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Identify persuasive techniques in advertisements',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Advertisements use AIDA (Attention, Interest, Desire, Action) to persuade. Look for emotive language, 
-          colour choices, and design that work together to attract and influence a target audience.
-        </p>
-      </div>
+    title: 'AIDA: how an advert persuades',
+    content: slide(
+      <>
+        <Rule>{aidaInitials()} stands for Attention, Interest, Desire, Action. Advertisements move the reader through these four steps.</Rule>
+        <StepFlow
+          steps={AIDA.map((s) => ({ label: s.word, color: s.color, sub: s.letter }))}
+          aria="Four boxes in a row: Attention, Interest, Desire, Action, labelled A, I, D, A."
+        />
+        <Worked
+          title="Invented poster for “Sunny” juice"
+          steps={[
+            <>Attention: a bold orange splash across the poster.</>,
+            <>Interest: “Made with real naartjies.”</>,
+            <>Desire: “Taste the sunshine.”</>,
+            <>Action: “Buy two for R20 this Saturday.”</>,
+          ]}
+        />
+        <Mistake>Thinking the Action stage only describes the product. Action motivates the reader to buy or respond.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Analyse tone and visual elements',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Tone (the attitude conveyed) shifts between friendly, urgent, formal or playful. Visual elements like 
-          images, font sizes, and layout reinforce the message and appeal to specific audiences.
-        </p>
-      </div>
+    title: 'Emotive language and tone',
+    content: slide(
+      <>
+        <Rule>Emotive language creates an emotional connection with viewers. Tone is the attitude the advert sets, such as friendly, urgent, formal or playful, and it shapes whether readers engage.</Rule>
+        <Worked
+          title="Compare two versions"
+          steps={[
+            <>Neutral and factual: “Juice. 500 ml.”</>,
+            <>Emotive: “Feel the sunshine in every sip!”</>,
+            <>The second version stirs feeling, and its tone is playful and friendly.</>,
+          ]}
+        />
+        <Mistake>
+          Thinking emotive language only gives facts, or that tone is just volume. Tone is an attitude, and it works in print too.
+        </Mistake>
+      </>,
     ),
   },
   {
-    title: 'Match advertising strategies to audience',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Strong advertising analysis connects design choices to audience needs and values. Understanding the 
-          target audience helps explain why certain colours, words, and images are selected.
-        </p>
-      </div>
+    title: 'Visual choices match the audience',
+    content: slide(
+      <>
+        <Rule>Colours, images, fonts and layout work with the words. The target audience decides which choices work best.</Rule>
+        <div className="grid grid-cols-1 gap-3 text-left sm:grid-cols-2">
+          <div className="rounded-xl p-3" style={{ background: '#fde047' }}>
+            <p className="font-extrabold text-slate-900">Teenagers</p>
+            <p className="text-sm font-semibold text-slate-800">Bright colours, informal language, relatable imagery.</p>
+          </div>
+          <div className="rounded-xl p-3" style={{ background: '#1e293b' }}>
+            <p className="font-extrabold text-amber-200">Luxury goods</p>
+            <p className="text-sm font-semibold text-slate-100">Elegant design, high-quality imagery, sophisticated colours.</p>
+          </div>
+        </div>
+        <Worked
+          title="Why would a watch advert use dark colours and one large photograph?"
+          steps={[
+            <>The product is luxury, so the image must look expensive.</>,
+            <>Dark, sophisticated colours and a quality photograph suit that image.</>,
+          ]}
+        />
+        <Mistake>Using cartoons and bright primary colours for a luxury product. The design must match the product image and the target market.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Analyse: technique and effect',
+    content: slide(
+      <>
+        <Rule>Analysis names a specific technique and explains its effect on the reader. Describing what is on the page is not analysis.</Rule>
+        <Worked
+          title="“The ad uses a famous celebrity to make the product seem desirable.”"
+          steps={[
+            <>Technique: a famous celebrity features in the advert.</>,
+            <>Effect: the product seems desirable, so it works on the Desire stage of AIDA.</>,
+            <>That links technique to effect, so it is analysis.</>,
+          ]}
+        />
+        <Mistake>Writing “The ad has a picture of the product.” This only describes. Say what the picture does to the reader.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What does AIDA stand for?" answer="Attention, Interest, Desire, Action." />
+        <Check question="What does emotive language aim to do?" answer="Create an emotional connection with viewers." />
+        <Check question="Which choices suit an advert aimed at teenagers?" answer="Bright colours, informal language and relatable imagery." />
+        <Check question="Which statement shows analysis of a persuasive technique?" answer="One that names the technique and its effect, such as: the ad uses a famous celebrity to make the product seem desirable." />
+      </>,
     ),
   },
 ];
