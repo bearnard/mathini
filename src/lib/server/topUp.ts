@@ -14,17 +14,13 @@ import { acceptItems, checkBatch, NUMERIC_SUBJECTS } from '../shared/questionQua
 import { registry } from './caps/registry';
 import { TASK_INDEX } from './caps/taskIndex.generated';
 import { decimalPolicyFor } from './caps/formatPolicy';
+import { BATCH_INSTRUCTIONS, BATCH_ORDER, batchesFor, calculationsOkFor, misconceptionsOkFor, type BatchType } from './caps/batches';
+import { scopeFor } from './caps/scope';
 import type { GeneratedItem } from './gemini';
 
-export type BatchType = 'definitions' | 'calculations' | 'application' | 'misconceptions';
-
-export const BATCH_INSTRUCTIONS: Record<BatchType, string> = {
-  definitions: 'Generate 10 multiple-choice questions testing DEFINITIONS and TERMINOLOGY. Focus on vocabulary and conceptual understanding. Avoid calculations.',
-  calculations: 'Generate 10 multiple-choice questions requiring CALCULATIONS or step-by-step NUMERICAL REASONING. Check every calculation before writing the item.',
-  application: 'Generate 10 multiple-choice questions that apply the topic to everyday situations that learners know. Use generic, plausible South African situations; do not state facts about specific real places, institutions or statistics.',
-  misconceptions: 'Generate 10 multiple-choice questions targeting common MISCONCEPTIONS. Wrong options must be the typical student errors. Ask each as a direct question; do not use a "a student says" frame.',
-};
-export const BATCH_ORDER: BatchType[] = ['definitions', 'calculations', 'application', 'misconceptions'];
+// The batch types, their wording and the per-subject selection live in caps/batches.ts (re-exported here for existing callers).
+export { BATCH_INSTRUCTIONS, BATCH_ORDER, batchesFor, calculationsOkFor, misconceptionsOkFor };
+export type { BatchType };
 
 export interface TopUpLimits {
   /** Pools to work on per run, biggest deficit first. */
@@ -72,7 +68,10 @@ export interface TopUpSummary {
   /** Every external operation counted against maxOps. */
   ops: number;
   regenerated: number;
+  /** Pools whose task is not in the task index (no subject code, so no prompt can be built). */
   skippedNoIndex: string[];
+  /** Pools whose task is indexed but has no usable scope text: never generated from a bare slug. */
+  skippedNoScope: string[];
   stoppedBy: 'maxApiCalls' | 'maxAccepted' | 'maxOps' | null;
 }
 
@@ -93,18 +92,26 @@ export function numericOkFor(task: string, code: string): boolean {
   return NUMERIC_SUBJECTS.has(code);
 }
 
-/** The generation prompt for one task and batch type: registry preamble (with the quality rules) + CAPS scope. */
+/** Facts in generated items must come from the scope: this stops invented counts, section numbers, dates, names and places. */
+export const FACT_GUARD =
+  'SCOPE RULE: use ONLY the content, terms, rules, examples and facts given in the topic scope above (plus plain common knowledge a learner at this grade is taught). Do NOT invent or guess numbers, counts, dates, section or article numbers, names, places or statistics. If the scope does not give a fact, do not ask about it.';
+
+/**
+ * The generation prompt for one task and batch type: registry preamble (with the quality rules) + CAPS scope + the scope rule.
+ * Returns null when the task has no usable scope text or the batch type is not allowed for the subject: a prompt is NEVER built
+ * from a bare slug.
+ */
 export function buildTopUpPrompt(task: string, batch: BatchType): string | null {
-  const spec = TASK_INDEX[task];
-  if (!spec) return null;
-  const [code, grade] = spec;
-  const cfg = registry[code];
-  const instruction = cfg?.tasks[task];
-  if (!cfg || !instruction) return null;
-  const preamble = cfg.getPreamble(grade).replace(/\{count\}/g, '10');
+  const grounded = scopeFor(task);
+  if (!grounded) return null;
+  if (!batchesFor(task, grounded.code).includes(batch)) return null;
+  const cfg = registry[grounded.code];
+  const preamble = cfg.getPreamble(grounded.grade).replace(/\{count\}/g, '10');
   return `${preamble}
 
-Topic "${task}": ${instruction}
+Topic "${task}": ${grounded.scope}
+
+${FACT_GUARD}
 
 ${BATCH_INSTRUCTIONS[batch]}
 
@@ -130,7 +137,7 @@ export async function runTopUp(deps: TopUpDeps, limits: TopUpLimits = DEFAULT_LI
   const { db, generate, embed, vector } = deps;
   const now = deps.now ?? Date.now;
   const log = deps.log ?? (() => {});
-  const summary: TopUpSummary = { poolsBelowTarget: 0, tasksWorked: 0, accepted: 0, rejected: 0, rejectedByReason: {}, apiCalls: 0, ops: 0, regenerated: 0, skippedNoIndex: [], stoppedBy: null };
+  const summary: TopUpSummary = { poolsBelowTarget: 0, tasksWorked: 0, accepted: 0, rejected: 0, rejectedByReason: {}, apiCalls: 0, ops: 0, regenerated: 0, skippedNoIndex: [], skippedNoScope: [], stoppedBy: null };
 
   summary.ops++; // the pools query
   const below = await poolsBelowTarget(db);
@@ -145,7 +152,8 @@ export async function runTopUp(deps: TopUpDeps, limits: TopUpLimits = DEFAULT_LI
   for (const pool of below) {
     if (summary.tasksWorked >= limits.maxTasks || !budgetLeft()) break;
     const spec = TASK_INDEX[pool.task];
-    if (!spec) { summary.skippedNoIndex.push(pool.task); continue; }
+    if (!spec) { summary.skippedNoIndex.push(pool.task); log(`top-up: SKIPPED ${pool.task}: not in the task index (no subject code)`); continue; }
+    if (!scopeFor(pool.task)) { summary.skippedNoScope.push(pool.task); log(`top-up: SKIPPED ${pool.task}: no usable scope text, refusing to generate from a bare slug`); continue; }
     summary.tasksWorked++;
     let need = pool.target - pool.servable;
     summary.ops++;
@@ -155,7 +163,7 @@ export async function runTopUp(deps: TopUpDeps, limits: TopUpLimits = DEFAULT_LI
     const numericOk = numericOkFor(pool.task, spec[0]);
     const decimalComma = decimalPolicyFor(pool.task, spec[0]);
 
-    for (const batchType of BATCH_ORDER) {
+    for (const batchType of batchesFor(pool.task, spec[0])) {
       if (need <= 0 || !budgetLeft()) break;
       const prompt = buildTopUpPrompt(pool.task, batchType);
       if (!prompt) break;
@@ -170,7 +178,7 @@ export async function runTopUp(deps: TopUpDeps, limits: TopUpLimits = DEFAULT_LI
         items = attempt === limits.maxRegenerate ? items : [];
       }
 
-      const { accepted, rejected } = acceptItems(items, { existingPrompts: prompts, numericOk, decimalComma, validateMath: katexError });
+      const { accepted, rejected } = acceptItems(items, { existingPrompts: prompts, numericOk, decimalComma, validateMath: katexError, rejectFalseStatementStems: true });
       for (const r of rejected) {
         summary.rejected++;
         for (const x of r.reasons.filter((y) => y.severity === 'reject')) summary.rejectedByReason[x.code] = (summary.rejectedByReason[x.code] ?? 0) + 1;
@@ -213,7 +221,7 @@ export async function runTopUp(deps: TopUpDeps, limits: TopUpLimits = DEFAULT_LI
     }
   }
 
-  log(`top-up: ${summary.poolsBelowTarget} pools below target, worked ${summary.tasksWorked}, stored ${summary.accepted}, rejected ${summary.rejected}, api calls ${summary.apiCalls}, ops ${summary.ops}${summary.stoppedBy ? `, stopped by ${summary.stoppedBy}` : ''}`);
+  log(`top-up: ${summary.poolsBelowTarget} pools below target, worked ${summary.tasksWorked}, skipped ${summary.skippedNoIndex.length + summary.skippedNoScope.length} without scope, stored ${summary.accepted}, rejected ${summary.rejected}, api calls ${summary.apiCalls}, ops ${summary.ops}${summary.stoppedBy ? `, stopped by ${summary.stoppedBy}` : ''}`);
   return summary;
 }
 

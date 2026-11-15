@@ -1,4 +1,6 @@
 import type { SubjectConfig } from '../caps/types';
+import geoGr6Facts from './tasks/geo-gr6-facts.json';
+import { withLessonFacts } from './lessonFacts';
 import geoGr7Term1 from './tasks/geo-gr7-term1.json';
 import geoGr7Term2 from './tasks/geo-gr7-term2.json';
 import geoGr7Term3 from './tasks/geo-gr7-term3.json';
@@ -30,6 +32,8 @@ export const geo: SubjectConfig = {
     );
   },
   tasks: {
+    // Grade 6 scopes carry the lesson's own facts too (stops invented rivers, scales and climate facts).
+    ...withLessonFacts({
     'map-skills':
       'Topic: Map skills and the globe. Cover the globe, the Equator, the North and South Poles, the four main compass directions (north, south, east, west) and the intermediate directions, what an atlas is and how to use it, and the difference between a map and a globe. Ask about directions, the globe, or using an atlas.',
     'latitude-longitude':
@@ -62,6 +66,7 @@ export const geo: SubjectConfig = {
       'Topic: Migration, push and pull factors. Cover that migration is people moving from one place to live in another, types of migration (rural to urban, urban to urban), push factors (reasons people leave, e.g. no jobs, drought, conflict) and pull factors (reasons people are attracted, e.g. jobs, better schools, safety). Ask to classify a push or pull factor or define migration.',
     'migration-impact':
       'Topic: The impact of migration. Cover the effects of migration on people, families, communities and places, both positive (new opportunities, skills, money sent home) and negative (overcrowding in cities, pressure on services, families separated). Ask about an effect of migration on people or places.',
+    }, geoGr6Facts.facts),
     ...geoGr7Term1.tasks,
     ...geoGr7Term2.tasks,
     ...geoGr7Term3.tasks,

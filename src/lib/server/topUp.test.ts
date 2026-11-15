@@ -67,12 +67,12 @@ test('a pool purged to zero is refilled; a task NOT in pool_tasks (deliberately 
 });
 
 test('the prompt is the registry preamble + the task CAPS instruction + the quality rules, for the right grade', async () => {
-  const p = buildTopUpPrompt('what-is-history', 'misconceptions');
+  const p = buildTopUpPrompt('what-is-history', 'definitions');
   assert.ok(p);
   assert.ok(p.includes('what-is-history'));
   assert.ok(p.includes(QUALITY_RULES), 'quality rules are in the prompt');
   assert.ok(/Grade 6/.test(p), 'grade 6 preamble');
-  assert.ok(p.includes('MISCONCEPTIONS'));
+  assert.ok(p.includes('DEFINITIONS'));
   assert.ok(!p.includes('{count}'));
   const g7 = Object.entries((await import('./caps/taskIndex.generated')).TASK_INDEX).find(([, v]) => v[1] === 7 && v[0] !== 'grade6');
   assert.ok(g7);
