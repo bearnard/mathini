@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import CodeBlock from '../../../../../components/subjects/CodeBlock';
+import { AdoLink } from '../../../../../components/diagrams/it/G11DataPictures';
 import type { LearnStep } from '../../_shared/types';
 import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
 import { countAndAverage, rangeCheck, selectMarkAtLeast, updateBump } from '../../../../../components/diagrams/it/g11delphi';
@@ -28,6 +29,7 @@ export const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>A Delphi program reaches a database through ADO components. A TADOConnection holds the link to the database file, and a TADOQuery sends SQL through that connection.</Rule>
+        <AdoLink />
         <CodeBlock language="pascal" code={`qryStudents.Connection := ADOConnection1;
 ADOConnection1.Connected := True;`} />
         <Worked

@@ -2,12 +2,15 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
 import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
+import { FieldsRecords } from '../../../../../components/diagrams/cat/Cat12Pictures';
+
 const learnSteps: LearnStep[] = [
   {
     title: "Fields, records and data quality",
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"A database stores information in tables made up of fields and records. Good design uses sensible field names, suitable data types and validation rules so that the stored information stays accurate and useful. Learners should recognise that poor data quality leads to incorrect reports, duplicated information and unreliable decisions."</p>
+        <FieldsRecords />
       </div>
     ),
   },

@@ -2,12 +2,15 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
 import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
+import { HtmlTree } from '../../../../../components/diagrams/cat/Cat12Pictures';
+
 const learnSteps: LearnStep[] = [
   {
     title: "HTML structure and common tags",
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"A valid web page is built with a clear structure, including the html, head and body sections. Within the body, headings, paragraphs, images, links, lists and tables organise the content. Grade 12 CAT questions often ask you to identify incorrect syntax, missing closing tags or the tag that best matches a given purpose."</p>
+        <HtmlTree />
       </div>
     ),
   },
