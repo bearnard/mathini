@@ -38,7 +38,7 @@ type Phase = 'round1' | 'reask' | 'results';
  * re-ask round). Nothing is sent to the server, unless `run` is given: then the first-attempt answers of a signed-in learner are recorded as one
  * run (ADR 0005). They are sent without a question key, so a mock test never feeds the spaced-review schedule.
  */
-const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0, run }: NstMockTestProps) => {
+const NstMockTestInner = ({ title, subtitle, groups, count = 20, explainCount = 0, run }: NstMockTestProps) => {
   const { student } = useStudent();
   const tracker = useRunTracker();
   // The server and the first client render must build the SAME test, or React reports a hydration mismatch. So the first test
@@ -291,6 +291,16 @@ const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0, ru
       </div>
     </div>
   );
+};
+
+/**
+ * The question draw is random (Math.random), so the first render differs between the server and the browser and React reported a hydration
+ * mismatch (found by the phone sweep). The test is drawn only in the browser: the server and the first client render show the same short placeholder.
+ */
+const NstMockTest = (props: NstMockTestProps) => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  return mounted ? <NstMockTestInner {...props} /> : <p role="status" className="p-4 text-slate-600">Getting your test ready…</p>;
 };
 
 export default NstMockTest;

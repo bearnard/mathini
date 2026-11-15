@@ -25,8 +25,8 @@ const learnSteps: LearnStep[] = [
         content: (
             <div className="space-y-6 text-center">
                 <p className="text-lg text-slate-600">In every polygon, the number of sides is the same as the number of angles.</p>
-                <div className="bg-emerald-50 p-6 rounded-xl inline-block border border-emerald-100">
-                    <svg viewBox="0 0 160 140" className="w-56 h-44 mx-auto" aria-label="Hexagon with six corners">
+                <div className="bg-emerald-50 p-4 sm:p-6 rounded-xl inline-block max-w-full border border-emerald-100">
+                    <svg viewBox="0 0 160 140" className="w-full max-w-56 h-auto mx-auto" aria-label="Hexagon with six corners">
                         <polygon points="80,12 134,43 134,97 80,128 26,97 26,43" fill="#d1fae5" stroke="#059669" strokeWidth="6" />
                         {[['80', '12'], ['134', '43'], ['134', '97'], ['80', '128'], ['26', '97'], ['26', '43']].map(([cx, cy]) => (
                             <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="6" fill="#4f46e5" />
