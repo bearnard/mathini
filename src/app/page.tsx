@@ -3,21 +3,32 @@ import Link from 'next/link';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { SESSION_COOKIE_NAME } from '../lib/server/session';
-import { gradeAccent } from '../lib/brand';
-import { SEO_GRADES } from '../lib/seo/curriculumIndex';
 import { SITE_DESCRIPTION } from '../lib/seo/site';
 import { ctaOutline, ctaPrimary } from '../lib/seo/ctaStyles';
 import { pageMeta } from '../lib/seo/pageMeta';
-import { homeLd } from '../lib/seo/structuredData';
+import { faqLd, homeLd } from '../lib/seo/structuredData';
+import { HOME_FAQ } from '../lib/seo/homeFaq';
 import { JsonLd } from '../components/seo/PublicShell';
 import HomePaths from '../components/seo/HomePaths';
-import { gradePath } from '../lib/seo/curriculumIndex';
+import Hero from '../components/landing/Hero';
+import TryItDemo from '../components/landing/TryItDemo';
+import HowItWorks from '../components/landing/HowItWorks';
+import ProgressShowcase from '../components/landing/ProgressShowcase';
+import GradeExplorer from '../components/landing/GradeExplorer';
+import AudienceSamples from '../components/landing/AudienceSamples';
+import Trust from '../components/landing/Trust';
+import HomeFaq from '../components/landing/HomeFaq';
 
 export const metadata: Metadata = {
   ...pageMeta({ title: 'PrepPals — CAPS Practice for Grades 5–12', description: SITE_DESCRIPTION, path: '/' }),
   title: { absolute: 'PrepPals — CAPS Practice for Grades 5–12' },
 };
 
+/**
+ * The landing page (brief: audit/landing-brief.md). Server-rendered sections, in the order a visitor reads them: the promise, a try-it demo,
+ * how it works, the progress a learner sees, the explorer of every grade and subject, who it is for, why to trust it, the questions people ask.
+ * Sections 2 (TryItDemo), 5 (GradeExplorer) and the numbers in 7 (SiteStats, inside Trust) are separate components with their own owners.
+ */
 export default async function HomePage() {
   // Returning students with a session cookie skip the marketing page and
   // go straight back into the app — same as today's behaviour at "/". This
@@ -31,64 +42,37 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
-      <JsonLd data={homeLd()} />
+      <JsonLd data={[...homeLd(), faqLd(HOME_FAQ)]} />
       <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-4">
           <span className="text-lg font-black text-slate-800">PrepPals</span>
-          <Link href="/app?start=resume" className="text-sm font-bold text-[#3285bc] hover:underline">
-            I have a login code
-          </Link>
+          <nav aria-label="Sign in" className="flex items-center gap-4 text-sm font-bold">
+            <Link href="/for-parents" className="hidden text-slate-600 hover:underline sm:inline">Parents</Link>
+            <Link href="/for-teachers" className="hidden text-slate-600 hover:underline sm:inline">Teachers</Link>
+            <Link href="/app?start=resume" className="text-[#3285bc] hover:underline">I have a login code</Link>
+          </nav>
         </div>
       </header>
 
       <main>
-        <section className="mx-auto max-w-5xl px-4 py-16 text-center">
-          <h1 className="text-4xl font-black text-slate-900 sm:text-5xl">
-            CAPS practice that feels like a game
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">{SITE_DESCRIPTION}</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link href="/app?start=register" className={`${ctaPrimary} text-lg px-8 py-3`}>
-              Get started — it&apos;s free
-            </Link>
-            <Link href="/app?start=resume" className={`${ctaOutline} text-lg px-8 py-3`}>
-              I have a login code
-            </Link>
-          </div>
-        </section>
-
+        <Hero />
+        <TryItDemo />
+        <HowItWorks />
+        <ProgressShowcase />
+        <div className="mx-auto max-w-5xl px-4 pt-16"><GradeExplorer /></div>
         <HomePaths />
+        <AudienceSamples />
+        <Trust />
+        <HomeFaq />
 
-        <section id="browse" className="mx-auto max-w-5xl px-4 pb-20">
-          <h2 className="text-center text-2xl font-black text-slate-900">
-            Every subject, every grade from 5 to 12
-          </h2>
-          <p className="mx-auto mt-2 max-w-xl text-center text-slate-600">
-            Pick a grade and subject to see what&apos;s covered, or jump straight in.
-          </p>
-
-          <div className="mt-10 space-y-10">
-            {SEO_GRADES.map((grade) => {
-              const accent = gradeAccent(grade.gradeId);
-              return (
-                <div key={grade.gradeSlug}>
-                  <h3 className={`text-lg font-bold ${accent.text}`}>
-                    <Link href={gradePath(grade)} className="hover:underline">{grade.title}</Link>
-                  </h3>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {grade.subjects.map((subject) => (
-                      <Link
-                        key={subject.slug}
-                        href={`/${grade.gradeSlug}/${subject.slug}`}
-                        className={`rounded-full border px-3 py-1.5 text-sm font-medium ${accent.border} ${accent.soft} ${accent.text} hover:opacity-80`}
-                      >
-                        {subject.title}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
+        <section className="bg-[#3285bc] py-14 text-center text-white" aria-labelledby="final-h">
+          <div className="mx-auto max-w-3xl px-4">
+            <h2 id="final-h" className="text-3xl font-black">Ready to start?</h2>
+            <p className="mt-2 text-lg text-white/90">Pick a topic and answer your first question in a minute. It is free.</p>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <Link href="/app?start=register" className={`${ctaPrimary} text-lg px-8 py-3`}>Start practising free</Link>
+              <Link href="/app?start=resume" className={`${ctaOutline} text-lg px-8 py-3`}>I have a login code</Link>
+            </div>
           </div>
         </section>
       </main>
@@ -96,17 +80,9 @@ export default async function HomePage() {
       <footer className="border-t border-slate-200 bg-white py-8">
         <div className="mx-auto max-w-5xl px-4 text-center text-sm text-slate-500">
           PrepPals — interactive CAPS practice. ·{' '}
-          <Link href="/for-parents" className="underline hover:text-slate-700">
-            For parents
-          </Link>{' '}
-          ·{' '}
-          <Link href="/for-teachers" className="underline hover:text-slate-700">
-            For teachers
-          </Link>{' '}
-          ·{' '}
-          <Link href="/privacy" className="underline hover:text-slate-700">
-            Privacy
-          </Link>
+          <Link href="/for-parents" className="underline hover:text-slate-700">For parents</Link> ·{' '}
+          <Link href="/for-teachers" className="underline hover:text-slate-700">For teachers</Link> ·{' '}
+          <Link href="/privacy" className="underline hover:text-slate-700">Privacy</Link>
         </div>
       </footer>
     </div>
