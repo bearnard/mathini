@@ -60,15 +60,27 @@ const Sw = ({ x, y, closed = true }: { x: number; y: number; closed?: boolean })
   </g>
 );
 
+/** A cell across a vertical wire: long thin plate = positive (top), short thick plate = negative. */
+const CellV = ({ x, y }: { x: number; y: number }) => (
+  <g>
+    <rect x={x - 3} y={y - 2.4} width={6} height={4.8} fill="#0f172a" />
+    <line x1={x - 6} y1={y - 2.2} x2={x + 6} y2={y - 2.2} stroke="#e2e8f0" strokeWidth={1} />
+    <line x1={x - 3} y1={y + 2.2} x2={x + 3} y2={y + 2.2} stroke="#e2e8f0" strokeWidth={2} />
+  </g>
+);
+
 export const LogicSwitches = () => (
   <svg viewBox="0 0 160 76" role="img" aria-labelledby="lsw-t lsw-d" className={cls} style={st}>
     <title id="lsw-t">AND and OR logic from switches</title>
-    <desc id="lsw-d">Two switches in series make an AND gate: the lamp is on only when both switches are closed. Two switches in parallel make an OR gate: the lamp is on when at least one switch is closed.</desc>
+    <desc id="lsw-d">Two switches in series make an AND gate: the lamp is on only when both switches are closed. Two switches in parallel make an OR gate: the lamp is on when at least one switch is closed. Each circuit has a cell.</desc>
     <g stroke="#94a3b8" strokeWidth={1} fill="none">
       <polyline points="8,16 72,16 72,46 8,46 8,16" />
     </g>
-    <rect x={20} y={11} width={24} height={10} fill="#0f172a" />
-    <Sw x={32} y={16} /><rect x={48} y={11} width={22} height={10} fill="#0f172a" /><Sw x={58} y={16} />
+    <rect x={27} y={11} width={10} height={10} fill="#0f172a" />
+    <Sw x={32} y={16} />
+    <rect x={53} y={11} width={10} height={10} fill="#0f172a" />
+    <Sw x={58} y={16} />
+    <CellV x={8} y={31} />
     <circle cx={40} cy={46} r={5} fill="#fde047" stroke="#a16207" strokeWidth={0.8} />
     <T x={40} y={62} size={6.2} fill="#7dd3fc">AND</T>
     <T x={40} y={70} size={4.6}>both switches closed</T>
@@ -76,10 +88,11 @@ export const LogicSwitches = () => (
       <polyline points="92,16 150,16 150,50 92,50 92,16" />
       <polyline points="108,16 108,30 140,30 140,16" />
     </g>
-    <rect x={100} y={11} width={16} height={10} fill="#0f172a" />
-    <Sw x={108} y={16} />
-    <rect x={118} y={25} width={16} height={10} fill="#0f172a" />
-    <Sw x={126} y={30} />
+    <rect x={119} y={11} width={10} height={10} fill="#0f172a" />
+    <Sw x={124} y={16} />
+    <rect x={119} y={25} width={10} height={10} fill="#0f172a" />
+    <Sw x={124} y={30} />
+    <CellV x={92} y={33} />
     <circle cx={122} cy={50} r={5} fill="#fde047" stroke="#a16207" strokeWidth={0.8} />
     <T x={122} y={62} size={6.2} fill="#6ee7b7">OR</T>
     <T x={122} y={70} size={4.6}>at least one closed</T>

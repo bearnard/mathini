@@ -9,6 +9,8 @@ const energyIn = 1000;
 const energyUseful = 800;
 const kettle = efficiency(energyUseful, energyIn);
 const lost = wasted(energyUseful, energyIn);
+// SA style: a space between groups of three digits (1 000).
+const sa = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
 const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
@@ -78,11 +80,11 @@ const learnSteps: LearnStep[] = [
           Efficiency compares the useful energy out with the total energy put in. An efficient kettle uses less electrical energy to heat the same water.
         </Rule>
         <Worked
-          title="A kettle uses 1 000 J of electrical energy"
+          title={`A kettle uses ${sa(energyIn)} J of electrical energy`}
           steps={[
             <>{energyUseful} J of it heats the water: that is the useful part.</>,
             <>The other {lost} J is wasted as heat in the kettle and the air.</>,
-            <>{energyUseful} out of {energyIn} is <strong>{kettle}%</strong> efficient. A kettle that wastes less is more efficient.</>,
+            <>{energyUseful} out of {sa(energyIn)} is <strong>{kettle}%</strong> efficient. A kettle that wastes less is more efficient.</>,
           ]}
         />
         <Mistake>Thinking an efficient machine is a powerful one. Efficient means little energy is wasted.</Mistake>

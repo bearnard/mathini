@@ -80,7 +80,7 @@ const learnSteps: LearnStep[] = [
         <Rule>
           A system has an <strong>input</strong>, a <strong>process</strong> and an <strong>output</strong>. In a simple control system, pressing a switch is usually the input.
         </Rule>
-        <IpoFlow id="mech" input="press the switch" process="mechanism" output="bell rings" />
+        <IpoFlow id="mech" input="press the switch" process="circuit to bell" output="bell rings" />
         <Worked
           title="A doorbell"
           steps={[<>Input: you press the button (the switch).</>, <>Process: the circuit sends current to the bell.</>, <>Output: the bell rings. The output is the result the system produces.</>]}
