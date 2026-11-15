@@ -1,16 +1,111 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { IpoFlow } from '../../../../../components/diagrams/science/SciencePictures2';
+import { TensionCompression } from '../../../../../components/diagrams/science/SciencePictures';
+import { CircuitSymbols } from '../../../../../components/diagrams/science/SciencePictures6';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Integrate systems knowledge for exam readiness',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 4 revision combines mechanical, structural, and electrical ideas. You practise reading mixed diagrams,
-          using accurate design vocabulary, and writing concise PAT-informed exam answers.
-        </p>
-      </div>
+    title: 'Reading a mixed system: function first',
+    content: slide(
+      <>
+        <Rule>
+          A technology system joins mechanical, structural and electrical parts. When revising mixed-system diagrams, first identify what each part does in the system. A system with sensor, controller and buzzer is an input-process-output control system.
+        </Rule>
+        <IpoFlow id="sys" input="sensor" process="controller" output="buzzer" />
+        <Worked
+          title="Read a burglar alarm"
+          steps={[<>The sensor detects a door opening: it gives the input.</>, <>The controller decides what to do: the process.</>, <>The buzzer gives the output. Reading by function connects each component to the system purpose.</>]}
+        />
+        <Mistake>Naming parts without saying what they do. Marks go to the function of each part, not only its name.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Mechanical and structural terms',
+    content: slide(
+      <>
+        <Rule>
+          Gears and cams are both mechanical components: mechanisms that transfer or change motion. Tension and compression are both structural terms: they describe forces acting in structures.
+        </Rule>
+        <TensionCompression />
+        <Terms
+          rows={[
+            ['Gear', 'toothed wheel that passes on motion and changes speed and turning force'],
+            ['Cam', 'turns and pushes a follower, so rotary motion becomes up-and-down motion'],
+            ['Tension', 'a pulling force that stretches'],
+            ['Compression', 'a pushing force that squeezes'],
+          ]}
+        />
+        <Worked
+          title="Which pair belongs together?"
+          steps={[<>Gear and cam: both are mechanical components.</>, <>Tension and compression: both are structural terms.</>]}
+        />
+        <Mistake>Mixing the groups. Tension is a force in a structure, not a mechanism.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Electrical parts and circuit diagrams',
+    content: slide(
+      <>
+        <Rule>In an electrical diagram, a cell is mainly the energy source. Cells supply electrical energy to a circuit.</Rule>
+        <CircuitSymbols />
+        <Worked
+          title="Label a circuit diagram"
+          steps={[<>Cell: the energy source.</>, <>Switch: an input that opens or closes the path.</>, <>Bulb or buzzer: an output. Fuse: a safety device.</>]}
+        />
+        <Mistake>Calling the bulb the energy source. The cell supplies the energy; the bulb uses it.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Exam answers and PAT reflection',
+    content: slide(
+      <>
+        <Rule>
+          Clear communication earns marks for correct understanding. Exam answers should be concise and labelled clearly. A useful PAT reflection question is: How did testing improve my design?
+        </Rule>
+        <Terms
+          rows={[
+            ['Do', 'use short answers, neat labels and the correct design vocabulary'],
+            ['Do', 'practise past-style questions and check key terms'],
+            ['Avoid', 'long paragraphs with no labels, or diagrams with no names on the parts'],
+          ]}
+        />
+        <Worked
+          title="A PAT reflection"
+          steps={[<>Describe a test you did on the prototype.</>, <>Say what the test showed, and what you changed.</>, <>That is evidence of how testing improved the design.</>]}
+        />
+        <Mistake>Revising only by re-reading. A strong exam-preparation strategy is to practise past-style questions and check key terms.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Which pair are both mechanical components? Which pair are both structural terms?</li>
+            <li>In an electrical diagram, what is a cell mainly? How is a system with sensor, controller and buzzer best described?</li>
+            <li>Why should exam answers in Technology be concise and labelled clearly? Which is a useful PAT reflection question?</li>
+            <li>When revising mixed-system diagrams, what do you identify first? What is a strong exam-preparation strategy?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Gear and cam. Tension and compression.</li>
+            <li>The energy source. An input-process-output control system.</li>
+            <li>Clear communication earns marks for correct understanding. How did testing improve my design?</li>
+            <li>What each part does in the system. Practise past-style questions and check key terms.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

@@ -1,38 +1,107 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { GearPair } from '../../../../../components/diagrams/science/SciencePictures2';
+import { GearTrain, GearTypes, PulleySystems } from '../../../../../components/diagrams/science/SciencePictures7';
+import { gearRatio, pulleyEffort, trainDirection } from '../../../../../components/diagrams/science/tech9Helpers';
+
+// Every number comes from tested helpers (tech9.test.ts).
+const ratio = gearRatio(20, 40);
+const e1 = pulleyEffort(100, 1);
+const e2 = pulleyEffort(100, 2);
+const e4 = pulleyEffort(100, 4);
+const dirs = [0, 1, 2].map((i) => trainDirection(i, 'clockwise'));
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Understand pulley systems and mechanical advantage',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Fixed pulleys change direction of force, while movable pulleys reduce the effort needed. A block and tackle 
-          combines multiple pulleys to achieve significant mechanical advantage for lifting heavy objects with less force.
-        </p>
-      </div>
+    title: 'Pulleys and block and tackle',
+    content: slide(
+      <>
+        <Rule>
+          A fixed pulley changes direction; a movable pulley cuts the effort. A block and tackle is pulleys combined to lift heavy loads with little effort.
+        </Rule>
+        <PulleySystems load={100} />
+        <Worked
+          title="Lift a 100 N load (ignoring friction)"
+          steps={[
+            <>Fixed pulley: one rope holds the load, so the effort is {e1} N. It only changes the direction of the pull.</>,
+            <>Movable pulley: two rope segments share the load, so the effort is 100 ÷ 2 = {e2} N.</>,
+            <>Block and tackle: four rope segments share the load, so the effort is 100 ÷ 4 = {e4} N. Rope is spread across multiple segments.</>,
+          ]}
+        />
+        <Mistake>Believing a fixed pulley reduces the effort. It does not: it only makes pulling down possible, which is convenient.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Explore gear types and their functions',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Spur gears transfer motion between parallel shafts, bevel gears transfer motion between angled shafts, 
-          worm gears achieve large speed ratios, and rack-and-pinion systems convert rotary to linear motion.
-        </p>
-      </div>
+    title: 'Types of gears',
+    content: slide(
+      <>
+        <Rule>
+          Spur gears pass rotation between shafts that lie parallel to each other. Bevel gears pass motion between shafts that meet at an angle. A worm gear gives big speed reduction and high torque in a small space. A rack-and-pinion turns a small gear (pinion) to move a toothed bar (rack) in a line.
+        </Rule>
+        <GearTypes />
+        <Terms
+          rows={[
+            ['Spur', 'straight teeth: the most common gear for basic gear transmission'],
+            ['Bevel', 'angled teeth for shafts that are not parallel'],
+            ['Worm', 'a screw-like worm turns a worm wheel. Much energy is lost to friction, so worm drives are not very efficient.'],
+            ['Rack-and-pinion', 'steering systems and jacks'],
+          ]}
+        />
+        <Worked
+          title="Choose the gear"
+          steps={[<>Two parallel shafts that must turn together: spur gears.</>, <>Shafts meeting at a corner: bevel gears.</>, <>A big slow-down in a small space: a worm gear. Turning a wheel to move a bar in a line: rack-and-pinion.</>]}
+        />
+        <Mistake>Using spur gears for shafts at an angle. Spur gears need parallel shafts.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Predict direction and speed changes',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          By studying gear sizes and rotation, you can predict how mechanisms will behave. Larger driven gears rotate 
-          slower but with more torque, while smaller gears increase speed. Choosing the right mechanism solves practical problems.
-        </p>
-      </div>
+    title: 'Gear ratio and direction',
+    content: slide(
+      <>
+        <Rule>
+          In the South African textbook convention, gear ratio = teeth on the driven gear ÷ teeth on the driving gear. Neighbouring gears turn in opposite ways, so count the gears.
+        </Rule>
+        <GearPair driver={20} driven={40} />
+        <GearTrain teeth={[12, 20, 12]} />
+        <Worked
+          title="A 20-tooth driving gear and a 40-tooth driven gear"
+          steps={[
+            <>Gear ratio = 40 ÷ 20 = {ratio}, written {ratio}:1.</>,
+            <>A ratio of {ratio}:1 means the driven gear turns at half the speed.</>,
+            <>In a train of three gears, if the first turns {dirs[0]}, the second turns {dirs[1]} and the third {dirs[2]}.</>,
+          ]}
+        />
+        <Mistake>Dividing the driving gear by the driven gear. The convention is driven ÷ driving.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is the main difference between fixed and movable pulleys? What is a block and tackle?</li>
+            <li>What do spur gears do? When would you use bevel gears?</li>
+            <li>What is a worm gear system used for? How does a rack-and-pinion system work?</li>
+            <li>A driving gear has 20 teeth and a driven gear has 40 teeth: what is the speed ratio? How can you predict the direction of rotation in a gear train?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>A fixed pulley changes direction; a movable pulley cuts the effort. Pulleys combined to lift heavy loads with little effort.</li>
+            <li>Pass rotation between shafts that lie parallel to each other. To pass motion between shafts that meet at an angle.</li>
+            <li>Big speed reduction and high torque in a small space. A small gear (pinion) turns and moves a toothed bar (rack) in a line.</li>
+            <li>2:1 (the driven gear turns at half the speed). Neighbouring gears turn in opposite ways, so count the gears.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

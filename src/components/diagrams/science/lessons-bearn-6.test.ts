@@ -1,0 +1,49 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { uncoveredAnswers } from './scienceHelpers';
+
+const here = path.dirname(fileURLToPath(import.meta.url));
+const root = path.join(here, '../../../curriculum');
+
+const LESSONS: Record<string, { slides: number; uses: string[] }> = {
+  'grade8/technology/term4/systems-consolidation-and-exam-preparation/SystemsConsolidationAndExamPreparation.tsx': { slides: 5, uses: ['IpoFlow', 'TensionCompression', 'CircuitSymbols', 'Terms'] },
+  'grade9/technology/term1/graphic-orthographic-drawing/GraphicOrthographicDrawing.tsx': { slides: 5, uses: ['OrthographicViews', 'LineTypes', 'realLength(', 'Compare'] },
+  'grade9/technology/term1/structures-accessible-design/StructuresAccessibleDesign.tsx': { slides: 6, uses: ['Compare', 'BendingTorsion', 'IDMEC_STEPS', 'Terms', 'BracedFrame'] },
+  'grade9/technology/term2/gears-pulleys/GearsPulleys.tsx': { slides: 4, uses: ['PulleySystems', 'GearTypes', 'GearPair', 'GearTrain', 'gearRatio(', 'pulleyEffort('] },
+  'grade9/technology/term2/hydraulics-pneumatics/HydraulicsPneumatics.tsx': { slides: 5, uses: ['Compare', 'PascalPicture', 'SyringePair', 'outputForce(', 'toPascals('] },
+};
+
+for (const [file, want] of Object.entries(LESSONS)) {
+  const name = path.basename(file, '.tsx');
+  const src = fs.readFileSync(path.join(root, file), 'utf8');
+  const slides = src.slice(0, src.indexOf('const bank'));
+
+  test(`${name}: ${want.slides} slides, the last one is "Check yourself"`, () => {
+    const titles = [...slides.matchAll(/^\s{4}title: (['"])(.+?)\1,/gm)].map((m) => m[2]);
+    assert.equal(titles.length, want.slides);
+    assert.equal(titles[titles.length - 1], 'Check yourself');
+  });
+
+  test(`${name}: every slide but the last has a rule, a worked example and a common mistake`, () => {
+    const body = slides.slice(slides.indexOf('const learnSteps'));
+    const parts = body.split(/\n\s{2}\{\n\s{4}title:/).slice(1, -1);
+    assert.equal(parts.length, want.slides - 1);
+    for (const p of parts) for (const tag of ['<Rule>', '<Worked', '<Mistake>']) assert.ok(p.includes(tag), `${tag} missing in a slide`);
+  });
+
+  test(`${name}: the lesson uses its pictures and helpers`, () => {
+    for (const u of want.uses) assert.ok(slides.includes(u), `${u} not used`);
+  });
+
+  test(`${name}: every bank answer can be answered from the slides`, () => {
+    assert.deepEqual(uncoveredAnswers(src), []);
+  });
+
+  test(`${name}: the Check yourself slide has 4 questions with answers`, () => {
+    const check = slides.slice(slides.lastIndexOf("title: 'Check yourself'"));
+    assert.equal((check.match(/<li>/g) ?? []).length, 8);
+  });
+}

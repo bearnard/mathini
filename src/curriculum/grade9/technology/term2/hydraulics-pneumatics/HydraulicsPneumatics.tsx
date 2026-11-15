@@ -1,38 +1,116 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Compare } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { PascalPicture, SyringePair } from '../../../../../components/diagrams/science/SciencePictures7';
+import { BAR, outputForce, pressure, toPascals } from '../../../../../components/diagrams/science/tech9Helpers';
+
+// Every number comes from tested helpers (tech9.test.ts).
+const p = pressure(50, 5);
+const f2 = outputForce(50, 5, 10);
+const f2b = outputForce(50, 5, 20);
+const nb = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+const pa = nb(toPascals(p));
+const bar = nb(BAR);
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Explore hydraulic and pneumatic systems',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Hydraulic systems use incompressible fluids (like oil) to transmit force, while pneumatic systems use 
-          compressed air. Both can multiply force and transfer power over distances using tubes and valves.
-        </p>
-      </div>
+    title: 'Hydraulic and pneumatic systems',
+    content: slide(
+      <>
+        <Rule>
+          Hydraulic systems use liquid, such as oil, which cannot be squashed. Pneumatic systems use compressed air, which can be squashed.
+        </Rule>
+        <Compare
+          left={{ title: 'Hydraulic', tone: 'sky', rows: ['uses an incompressible liquid (oil)', 'gives greater force', 'used in heavy machinery'] }}
+          right={{ title: 'Pneumatic', tone: 'emerald', rows: ['uses compressed air', 'air is compressible', 'cleaner: no fluid leaks'] }}
+        />
+        <Worked
+          title="Name the system"
+          steps={[<>A car jack that uses oil is hydraulic.</>, <>A dentist&apos;s drill or a bus door worked by air is pneumatic.</>, <>The key difference: hydraulic systems use liquid; pneumatic systems use compressed air.</>]}
+        />
+        <Mistake>Thinking that a hydraulic system works with air. Hydraulic means liquid; pneumatic means air.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Understand Pascal\'s principle and pressure transfer',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Pascal's principle states that pressure applied to a confined fluid is transmitted uniformly in all directions. 
-          This allows simple devices like syringes to multiply force and perform work in hydraulic and pneumatic systems.
-        </p>
-      </div>
+    title: "Pascal's principle and force multiplication",
+    content: slide(
+      <>
+        <Rule>
+          Pascal&apos;s principle: pressure on a trapped fluid is passed on equally in all directions. Different piston sizes make the output force bigger than the input.
+        </Rule>
+        <PascalPicture force={50} a1={5} a2={10} />
+        <Worked
+          title="50 N on a 5 cm² piston, and a 10 cm² output piston"
+          steps={[
+            <>Pressure = force ÷ area = 50 ÷ 5 = {p} N/cm².</>,
+            <>The same pressure acts everywhere in the fluid, so the large piston is pushed with {p} × 10 = <strong>{f2} N</strong>: force = pressure × area.</>,
+            <>With twice the area, the output force is doubled. With 20 cm² it would be {f2b} N.</>,
+          ]}
+        />
+        <Mistake>Thinking the machine gives out more energy than you put in. Force is multiplied, but the big piston moves less far than the small one.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Calculate mechanical advantage',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Using different piston sizes, you can calculate how much force is multiplied in hydraulic systems. 
-          Understanding force multiplication helps predict system behaviour and design efficient machines.
-        </p>
-      </div>
+    title: 'Measuring pressure',
+    content: slide(
+      <>
+        <Rule>
+          Pressure is force per unit area, measured in pascals (Pa) or bars. Pressure = force ÷ area.
+        </Rule>
+        <Worked
+          title="Convert the pressure"
+          steps={[
+            <>In the press above, the pressure is {p} N/cm².</>,
+            <>1 N/cm² is 10 000 pascals, so {p} N/cm² = {pa} Pa.</>,
+            <>1 bar is {bar} Pa, so this pressure is 1 bar.</>,
+          ]}
+        />
+        <Mistake>Leaving out the area. The same force on a small area gives a much higher pressure than on a large area.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Syringes and choosing a system',
+    content: slide(
+      <>
+        <Rule>
+          Pushing one syringe moves the fluid or air and so pushes the other. Hydraulic systems give strong force and can be controlled very exactly. Pneumatic systems are cleaner, with no fluid leaks to clean up.
+        </Rule>
+        <SyringePair />
+        <Worked
+          title="Choose a system"
+          steps={[<>A digger arm must lift a heavy load with exact control: hydraulic.</>, <>A food factory wants no oil leaks near the food: pneumatic is cleaner.</>, <>Air systems are friendly to the environment and cost less to maintain than fluid systems.</>]}
+        />
+        <Mistake>Thinking pneumatic systems can lift the heaviest loads. Air can be squashed, so for very high force and exact control, hydraulics are preferred.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is the key difference between hydraulic and pneumatic systems? What is Pascal&apos;s principle?</li>
+            <li>How do syringes demonstrate these principles? What is force multiplication in a hydraulic system?</li>
+            <li>If the output piston has twice the area of the input piston and the pressure is constant, what happens to force?</li>
+            <li>Why are hydraulic systems preferred in heavy machinery? What is the advantage of pneumatic systems? How is pressure measured?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Hydraulic systems use liquid; pneumatic systems use compressed air. Pressure on a trapped fluid is passed on equally in all directions.</li>
+            <li>Pushing one syringe moves the fluid or air and so pushes the other. Different piston sizes make the output force bigger than the input.</li>
+            <li>Output force is doubled.</li>
+            <li>They give strong force and can be controlled very exactly. Pneumatic systems are cleaner, with no fluid leaks to clean up. In pascals (Pa) or bars; it is force per unit area.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
