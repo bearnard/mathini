@@ -109,7 +109,7 @@ const items: MathematicalLiteracyItem[] = [
   },
   {
     "id": "exchange-rates-5",
-    "question": "A traveller needs A$400 at a rate of A$1 = R12.50 and must also pay a fee of R80. What is the total rand cost?",
+    "question": "A traveller needs A\\$400 at a rate of A\\$1 = R12.50 and must also pay a fee of R80. What is the total rand cost?",
     "options": [
       "R4 800",
       "R5 000",
@@ -145,7 +145,7 @@ const items: MathematicalLiteracyItem[] = [
   },
   {
     "id": "exchange-rates-8",
-    "question": "An online item costs $50 and the exchange rate is $1 = R17.20. What is the rand price before fees?",
+    "question": "An online item costs \\$50 and the exchange rate is \\$1 = R17.20. What is the rand price before fees?",
     "options": [
       "R760",
       "R810",

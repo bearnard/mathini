@@ -297,13 +297,13 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
                 <Feedback
                   isCorrect={isCorrect}
                   correctMessage={
-                    current?.explanation ? <>Correct! {current.explanation}</> : 'Correct! Well done!'
+                    current?.explanation ? <>Correct! <MathText>{current.explanation}</MathText></> : 'Correct! Well done!'
                   }
                   incorrectMessage={
                     current ? (
                       <>
                         Not quite. The answer is &ldquo;<MathText>{current.answer}</MathText>&rdquo;.
-                        {current.explanation ? ` ${current.explanation}` : ''}
+                        {current.explanation ? <> <MathText>{current.explanation}</MathText></> : null}
                       </>
                     ) : (
                       'Not quite.'

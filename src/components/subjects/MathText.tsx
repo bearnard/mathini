@@ -1,6 +1,7 @@
 'use client';
 
 import Formula from './Formula';
+import { splitMath } from './mathSegments';
 
 interface MathTextProps {
   /** Text that may contain inline math delimited by $...$  */
@@ -12,6 +13,8 @@ interface MathTextProps {
  * Renders a string that may contain inline LaTeX math wrapped in $...$.
  * Plain text segments are rendered as-is; $...$ segments are rendered with KaTeX.
  *
+ * `\$` is a literal dollar sign (see mathSegments.ts).
+ *
  * Example: "Solve $x^2 + 3x = 0$ for x." → "Solve [KaTeX x²+3x=0] for x."
  */
 const MathText = ({ children, className }: MathTextProps) => {
@@ -20,17 +23,11 @@ const MathText = ({ children, className }: MathTextProps) => {
     return <span className={className}>{children}</span>;
   }
 
-  const parts = children.split(/(\$[^$]+\$)/g);
-
   return (
     <span className={className}>
-      {parts.map((part, i) => {
-        if (part.startsWith('$') && part.endsWith('$') && part.length > 2) {
-          const latex = part.slice(1, -1);
-          return <Formula key={i}>{latex}</Formula>;
-        }
-        return <span key={i}>{part}</span>;
-      })}
+      {splitMath(children).map((seg, i) =>
+        seg.math ? <Formula key={i}>{seg.text}</Formula> : <span key={i}>{seg.text}</span>,
+      )}
     </span>
   );
 };

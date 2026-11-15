@@ -39,7 +39,10 @@ export type ReasonCode =
   | 'misconception_frame'
   | 'decimal_point'
   | 'all_none_of_the_above'
-  | 'explanation_skips_key';
+  | 'explanation_skips_key'
+  | 'latex_control_char'
+  | 'latex_doubled_backslash'
+  | 'latex_parse';
 
 export interface Reason {
   code: ReasonCode;
@@ -67,6 +70,11 @@ export interface QualityContext {
    * (IT/CAT code, versions, IP addresses, other subjects).
    */
   decimalComma?: DecimalPolicy;
+  /**
+   * Optional KaTeX check, injected on the insert path only (this module stays dependency-free). Called with the source of each
+   * `$...$` run in the prompt, options and answer; return an error message when it does not parse, else null.
+   */
+  validateMath?: (latex: string) => string | null;
 }
 
 export interface QualityResult {
@@ -194,6 +202,20 @@ export function optionNumber(option: string): number | null {
 }
 
 /** Checks one question. Pure. */
+// C0 control characters except newline. A single-backslash \t, \f, \r or \b in model JSON decodes to one of these, so \times, \text,
+// \frac, \right, \beta lose their backslash and the learner sees "imes", "ext", "rac".
+const CONTROL_CHAR_RE = /[\x00-\x09\x0b-\x1f]/;
+/** The `\$` escape (a literal dollar, see MathText) is hidden first so currency never opens a maths run. */
+const ESCAPED_DOLLAR_RE = /\\\$/g;
+const MATH_RUN_RE = /\$[^$]+\$/g;
+/** `\\` followed by a letter inside a maths run: KaTeX reads a line break then plain letters ("\\times" shows as "times"). */
+const DOUBLED_BACKSLASH_RE = /\\\\[A-Za-z]/;
+
+/** The `$...$` runs of a learner-visible string, as MathText would split them. */
+export function mathRunsIn(text: string): string[] {
+  return (text.replace(ESCAPED_DOLLAR_RE, '\uE000').match(MATH_RUN_RE) ?? []).map((m) => m.slice(1, -1));
+}
+
 export function checkQuestion(q: QuestionLike, ctx: QualityContext = {}): QualityResult {
   const reasons: Reason[] = [];
   const add = (code: ReasonCode, severity: 'reject' | 'warn', detail: string) => reasons.push({ code, severity, detail });
@@ -206,6 +228,21 @@ export function checkQuestion(q: QuestionLike, ctx: QualityContext = {}): Qualit
   if (!prompt.trim() || options.length < 2 || !answer) {
     add('bad_shape', 'reject', 'missing prompt, options or answer');
     return { ok: false, score: 0, reasons };
+  }
+
+  // Broken LaTeX / escapes in anything rendered as maths (prompt, options, answer). Raw values: trim() would hide a leading TAB.
+  const visible: string[] = [q.prompt, ...(Array.isArray(q.options) ? q.options : []), q.answer].filter((v): v is string => typeof v === 'string');
+  if (visible.some((v) => CONTROL_CHAR_RE.test(v))) {
+    add('latex_control_char', 'reject', 'a control character (tab, form feed, ...) sits in the prompt, options or answer: a single-backslash LaTeX command was eaten');
+  }
+  const runs = visible.flatMap(mathRunsIn);
+  if (runs.some((r) => DOUBLED_BACKSLASH_RE.test(r))) {
+    add('latex_doubled_backslash', 'reject', 'doubled backslash inside $...$: KaTeX shows a line break then plain letters');
+  } else if (ctx.validateMath && !visible.some((v) => CONTROL_CHAR_RE.test(v))) {
+    for (const r of runs) {
+      const err = ctx.validateMath(r);
+      if (err) { add('latex_parse', 'reject', `a $...$ run does not parse: ${err}`); break; }
+    }
   }
 
   const keyIndex = options.indexOf(answer);

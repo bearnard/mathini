@@ -1,5 +1,6 @@
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { Mp3Encoder } from '@breezystack/lamejs';
+import { katexError } from './latexCheck';
 import { acceptItems } from '../shared/questionQuality';
 
 /**
@@ -281,7 +282,7 @@ export async function persistItems(task: string, items: GeneratedItem[]): Promis
 
   try {
     const existing = await db.prepare('SELECT prompt FROM item_cache WHERE task = ?').bind(task).all<{ prompt: string }>();
-    const { accepted } = acceptItems(items, { existingPrompts: (existing.results ?? []).map((r) => r.prompt) });
+    const { accepted } = acceptItems(items, { existingPrompts: (existing.results ?? []).map((r) => r.prompt), validateMath: katexError });
     if (accepted.length === 0) return;
     const now = Date.now();
     const stmt = db.prepare(
