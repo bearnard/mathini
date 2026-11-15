@@ -120,6 +120,16 @@ export interface NextBestStep {
   cta: string;
 }
 
+/** One practice session: the answers in one run, or in one topic on one day. Newest first, at most 5 (the parent's "Recent activity"). */
+export interface RecentSession {
+  /** ISO 8601 time of the last answer. */
+  at: string;
+  label: string;
+  answered: number;
+  correct: number;
+  scorePct: number;
+}
+
 export interface ProgressResponse {
   generatedAt: string;
   grade: number;
@@ -134,4 +144,6 @@ export interface ProgressResponse {
   retention: RetentionProgress;
   consistency: ConsistencyProgress;
   nextStep: NextBestStep;
+  /** The last practice sessions, newest first (at most 5). */
+  recentSessions?: RecentSession[];
 }

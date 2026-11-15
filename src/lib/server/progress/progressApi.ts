@@ -4,7 +4,7 @@
 // Cost: at most 8 reads per request, all for ONE learner (the route checks the session; there is no way to ask for anyone else).
 // Sections that depend on tables a deployment may not have yet (review_items, runs) degrade to "no data" instead of failing the page.
 import type { AdminDb } from '../admin/db';
-import type { ConsistencyProgress, MasteryLevel, ProgressResponse, RetentionProgress, SubjectProgress, TestResult, TestSeries, TopicProgress } from '../../shared/progressTypes';
+import type { ConsistencyProgress, MasteryLevel, ProgressResponse, RecentSession, RetentionProgress, SubjectProgress, TestResult, TestSeries, TopicProgress } from '../../shared/progressTypes';
 import {
   consistency, examReadiness, improvementPoints, nextBestStep, retentionPct, sastDayNumber, sortWeakestFirst, subjectMastery, trendPoints, type TrendAttempt,
 } from '../../shared/progressMeasures';
@@ -12,6 +12,7 @@ import { examScopeForGrade } from '../../shared/examScopes';
 import { dailyPlan, dayNumberOf, daysUntil, type PlanTopic } from '../../shared/dailyPlan';
 import { scopesForStudent } from '../schools/scopes';
 import { sastDay } from '../review/scheduler';
+import { ensureProgressRows } from './topicProgress';
 import { SUBJECT_TITLES, TOPIC_NAMES } from '../../../components/admin/topicNames.generated';
 import { prettifySlug } from '../../../components/admin/names';
 
@@ -46,20 +47,48 @@ const safe = async <T,>(f: () => Promise<T>, fallback: T): Promise<T> => {
 const subjectLabel = (code: string, grade: number): string => SUBJECT_TITLES[`${grade}|${code}`] ?? Object.entries(SUBJECT_TITLES).find(([k]) => k.endsWith(`|${code}`))?.[1] ?? code;
 const topicLabel = (grade: number, task: string): string => TOPIC_NAMES[`${grade}|${task}`]?.[0] ?? prettifySlug(task);
 
+/** The last practice sessions from the latest answers (newest first in `rows`): one per run, or one per topic per day for answers outside a run. Pure. */
+export function recentSessionsOf(rows: readonly { task: string; is_correct: number; created_at: number; run_id: string | null }[], grade: number, limit = 5): RecentSession[] {
+  const groups = new Map<string, { at: number; tasks: Map<string, number>; answered: number; correct: number }>();
+  for (const r of rows) {
+    const key = r.run_id ?? `${r.task}|${Math.floor((Number(r.created_at) + 7_200_000) / 86_400_000)}`;
+    const g = groups.get(key) ?? { at: 0, tasks: new Map(), answered: 0, correct: 0 };
+    g.at = Math.max(g.at, Number(r.created_at));
+    g.tasks.set(r.task, Math.max(g.tasks.get(r.task) ?? 0, Number(r.created_at)));
+    g.answered += 1;
+    g.correct += Number(r.is_correct) === 1 ? 1 : 0;
+    groups.set(key, g);
+  }
+  return [...groups.values()].sort((a, b) => b.at - a.at).slice(0, limit).map((g) => {
+    const tasks = [...g.tasks.entries()].sort((a, b) => b[1] - a[1]).map(([t]) => t);
+    return {
+      at: new Date(g.at).toISOString(),
+      label: tasks.length === 1 ? topicLabel(grade, tasks[0]) : `${topicLabel(grade, tasks[0])} and ${tasks.length - 1} more`,
+      answered: g.answered,
+      correct: g.correct,
+      scorePct: Math.round((g.correct / g.answered) * 100),
+    };
+  });
+}
+
 export async function buildProgress(db: AdminDb, studentId: string, now: number): Promise<ProgressResponse | null> {
   const student = (await db.all<{ grade: number; display_name: string }>('SELECT grade, display_name FROM students WHERE id = ?', [studentId]))[0];
   if (!student) return null;
   const grade = Number(student.grade);
 
   // --- topics (the cache) and their trends (a bounded look at the latest attempts)
-  const tp = await db.all<TpRow>(
+  const readTp = () => db.all<TpRow>(
     'SELECT task, grade, subject, topic, attempts, last20_pct, first10_pct, last10_pct, mastery, last_attempt_at FROM topic_progress WHERE student_id = ? ORDER BY last_attempt_at DESC LIMIT 400',
     [studentId],
   );
+  let tp = await readTp();
+  // Answers but no cached rows (history from before the cache, or no finished run yet): build them now, once. A failure here only leaves the page as it was.
+  if (tp.length === 0 && (await safe(() => ensureProgressRows(db, studentId, now), 0)) > 0) tp = await readTp();
   const recent = await safe(
     () => db.all<{ task: string; is_correct: number; created_at: number; run_id: string | null }>('SELECT task, is_correct, created_at, run_id FROM attempts WHERE student_id = ? ORDER BY id DESC LIMIT ?', [studentId, TREND_ATTEMPTS_READ]),
     [],
   );
+  const recentSessions = recentSessionsOf(recent, grade);
   const byTask = new Map<string, TrendAttempt[]>();
   for (const a of [...recent].reverse()) {
     const list = byTask.get(a.task) ?? [];
@@ -215,9 +244,9 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
   });
   if (tp.length === 0 && dueCount === 0 && !teacherScope) {
     // A learner who has not started: encourage, never an empty "all caught up".
-    return { generatedAt: iso(now), grade, displayName: student.display_name || null, exam: null, subjects: [], tests, testSeries, retention, consistency: cons, nextStep: { kind: 'new_topic', title: 'Try your first topic', reason: 'Pick any topic. Your progress will appear here.', href: APP_HREF, cta: 'Choose a topic' } };
+    return { generatedAt: iso(now), grade, displayName: student.display_name || null, exam: null, subjects: [], tests, testSeries, retention, consistency: cons, recentSessions, nextStep: { kind: 'new_topic', title: 'Try your first topic', reason: 'Pick any topic. Your progress will appear here.', href: APP_HREF, cta: 'Choose a topic' } };
   }
-  return { generatedAt: iso(now), grade, displayName: student.display_name || null, exam, subjects, tests, testSeries, retention, consistency: cons, nextStep };
+  return { generatedAt: iso(now), grade, displayName: student.display_name || null, exam, subjects, tests, testSeries, retention, consistency: cons, nextStep, recentSessions };
 }
 
 /** With no exam scope for the grade: the weakest practised topic that is not yet mastered, across subjects. */

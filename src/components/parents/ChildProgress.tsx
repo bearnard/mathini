@@ -21,10 +21,43 @@ export function ProgressStats({ p }: { p: ProgressResponse }) {
   );
 }
 
+/** The plain activity numbers. They come from the answers themselves, so they show even when the full progress could not be loaded. */
+export function ActivityLine({ a, now }: { a?: { answersThisWeek: number; daysPractisedLast14: number; lastPractisedAt: number | null }; now: number }) {
+  if (!a) return null;
+  const last = a.lastPractisedAt == null ? 'not yet' : (() => { const d = Math.floor((now - a.lastPractisedAt) / 86_400_000); return d <= 0 ? 'today' : d === 1 ? 'yesterday' : `${d} days ago`; })();
+  return (
+    <dl className="mt-3 grid grid-cols-3 gap-2" aria-label="Activity">
+      <Stat label="Answers this week" value={numText(a.answersThisWeek)} />
+      <Stat label="Days practised, of 14" value={numText(a.daysPractisedLast14)} />
+      <Stat label="Last practised" value={last} />
+    </dl>
+  );
+}
+
+/** The last practice sessions: when, which topic, and how it went. */
+export function RecentActivity({ p }: { p: ProgressResponse }) {
+  const list = p.recentSessions ?? [];
+  if (list.length === 0) return null;
+  return (
+    <section aria-label="Recent activity">
+      <h3 className="text-sm font-bold text-slate-900">Recent activity</h3>
+      <ul className="mt-1 space-y-1">
+        {list.map((r, i) => (
+          <li key={`${r.at}-${i}`} className="flex items-center justify-between gap-3 text-sm text-slate-700">
+            <span className="min-w-0 break-words">{shortDate(r.at)} · {r.label}</span>
+            <span className="shrink-0">{numText(r.correct)} of {numText(r.answered)} right · {pctText(r.scorePct)}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 /** Subjects with their weakest topics, recent tests and review cards. */
 export function ProgressDetails({ p }: { p: ProgressResponse }) {
   return (
     <div className="mt-3 space-y-4 border-t border-slate-200 pt-3">
+      <RecentActivity p={p} />
       <p className="text-sm text-slate-800"><strong>Next step:</strong> {p.nextStep.title}. {p.nextStep.reason}</p>
       {p.exam && (
         <p className="text-sm text-slate-800">

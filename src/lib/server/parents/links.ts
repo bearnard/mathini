@@ -86,6 +86,13 @@ export async function unlink(db: AdminDb, userId: string, studentId: string, now
 
 export type ConsentState = 'none' | 'learner' | 'parent';
 
+/** The plain activity numbers on a child's card. They come from the answers themselves, so they show even when the full progress cannot be built. */
+export interface ChildActivity {
+  answersThisWeek: number;
+  daysPractisedLast14: number;
+  lastPractisedAt: number | null;
+}
+
 export interface ChildSummary {
   id: string;
   displayName: string;
@@ -96,6 +103,8 @@ export interface ChildSummary {
   /** none = no consent; learner = the learner's own tick (until a parent gives consent); parent = a parent's recorded consent. */
   consent: ConsentState;
   consentVersion: string | null;
+  /** Filled by withActivity (the list handler); absent when it could not be read. */
+  activity?: ChildActivity;
 }
 
 /** The children linked to this adult. Only fields a parent should see: never the login code, the PIN hash or the learner's real name. */
@@ -113,4 +122,30 @@ export async function listChildren(db: AdminDb, userId: string): Promise<ChildSu
     consent: r.parent_consent_at == null ? 'none' : r.last_event === 'given' ? 'parent' : 'learner',
     consentVersion: r.parent_consent_at == null ? null : r.consent_version,
   }));
+}
+
+const DAY = 86_400_000;
+
+/** Adds the activity numbers to each child: one small read for all of them. A failure leaves the list as it was (no activity), never an error. */
+export async function withActivity(db: AdminDb, children: ChildSummary[], now: number): Promise<ChildSummary[]> {
+  if (children.length === 0) return children;
+  try {
+    const ids = children.map((c) => c.id);
+    const marks = ids.map(() => '?').join(',');
+    const rows = await db.all<{ student_id: string; week: number; days: number; last: number | null }>(
+      `SELECT student_id,
+              SUM(CASE WHEN created_at >= ? THEN 1 ELSE 0 END) AS week,
+              COUNT(DISTINCT CASE WHEN created_at >= ? THEN (created_at + 7200000) / 86400000 END) AS days,
+              MAX(created_at) AS last
+         FROM attempts WHERE student_id IN (${marks}) GROUP BY student_id`,
+      [now - 7 * DAY, now - 14 * DAY, ...ids],
+    );
+    const by = new Map(rows.map((r) => [r.student_id, r]));
+    return children.map((c) => {
+      const r = by.get(c.id);
+      return { ...c, activity: { answersThisWeek: Number(r?.week ?? 0), daysPractisedLast14: Number(r?.days ?? 0), lastPractisedAt: r?.last == null ? null : Number(r.last) } };
+    });
+  } catch {
+    return children;
+  }
 }

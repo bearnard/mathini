@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { ProgressResponse } from '../../lib/shared/progressTypes';
 import { ago, call, CONSENT_TEXT, type ChildSummary } from './api';
-import { ProgressDetails, ProgressStats } from './ChildProgress';
+import { ActivityLine, ProgressDetails, ProgressStats } from './ChildProgress';
 
 type Me = { user: { email: string } | null; roles: string[] };
 
@@ -13,6 +13,8 @@ const field = 'mt-1 min-h-11 w-full rounded-lg border border-slate-300 px-3 py-2
 
 function ChildCard({ child, now, onChanged }: { child: ChildSummary; now: number; onChanged: () => void }) {
   const [progress, setProgress] = useState<ProgressResponse | null>(null);
+  const [state, setState] = useState<'loading' | 'ready' | 'error'>('loading');
+  const [tries, setTries] = useState(0);
   const [more, setMore] = useState(false);
   const [note, setNote] = useState('');
   const [pin, setPin] = useState<string | null>(null);
@@ -20,9 +22,14 @@ function ChildCard({ child, now, onChanged }: { child: ChildSummary; now: number
 
   useEffect(() => {
     let live = true;
-    void call<{ progress: ProgressResponse }>(`/api/parent/children/${child.id}/progress`).then((r) => { if (live && r.ok) setProgress(r.data.progress); });
+    setState('loading');
+    void call<{ progress: ProgressResponse }>(`/api/parent/children/${child.id}/progress`).then((r) => {
+      if (!live) return;
+      if (r.ok && r.data.progress) { setProgress(r.data.progress); setState('ready'); } else setState('error');
+    });
     return () => { live = false; };
-  }, [child.id]);
+  }, [child.id, tries]);
+  const practised = (child.activity?.lastPractisedAt ?? null) !== null || (progress?.subjects.length ?? 0) > 0;
 
   const act = async (path: string, action: string, body: unknown, done: (d: Record<string, unknown>) => void) => {
     setBusy(true); setNote('');
@@ -35,7 +42,20 @@ function ChildCard({ child, now, onChanged }: { child: ChildSummary; now: number
     <section className="rounded-2xl bg-white p-4 shadow-sm" aria-label={child.displayName}>
       <h2 className="text-lg font-bold text-slate-900">{child.displayName} <span className="text-sm font-semibold text-slate-600">Grade {child.grade}</span></h2>
       <p className="mt-1 text-sm text-slate-600">Last on PrepPals: {ago(child.lastSeenAt, now)}</p>
-      {progress && (
+      <ActivityLine a={child.activity} now={now} />
+      {state === 'loading' && <p className="mt-3 text-sm text-slate-600" role="status">Loading progress…</p>}
+      {state === 'error' && (
+        <p className="mt-3 text-sm text-slate-800" role="alert">
+          We couldn&apos;t load progress right now.{' '}
+          <button type="button" className="font-semibold text-indigo-700 underline" onClick={() => setTries((n) => n + 1)}>Try again</button>
+        </p>
+      )}
+      {state === 'ready' && !practised && (
+        <p className="mt-3 rounded-xl bg-slate-50 p-3 text-sm text-slate-800" role="status">
+          {child.displayName} has not practised yet. Ask them to open PrepPals, pick a topic and answer a few questions. Their progress will appear here.
+        </p>
+      )}
+      {state === 'ready' && progress && practised && (
         <>
           <ProgressStats p={progress} />
           <button className="mt-2 text-sm font-semibold text-indigo-700 underline" aria-expanded={more} onClick={() => setMore((m) => !m)}>{more ? 'Hide details' : 'Show details'}</button>
