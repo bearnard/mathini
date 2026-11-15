@@ -5,7 +5,7 @@
 // tell which notice a learner agreed to. The server stores it with the consent.
 
 /** Version of the notice + tick-box text. Bump whenever either changes. */
-export const CONSENT_VERSION = 'privacy-2026-11-15-v3';
+export const CONSENT_VERSION = 'privacy-2026-11-15-v4';
 
 /** The required sign-up tick-box (and the one-time prompt for existing learners). */
 export const CONSENT_CHECKBOX_LABEL =
@@ -32,7 +32,7 @@ export const PRIVACY_SECTIONS: PrivacySection[] = [
     heading: 'What we do not collect',
     body: [
       'We never store your IP address, and we do not keep your full browser details.',
-      'We do not use advertising or third-party analytics, and we do not sell or share this information.',
+      'We do not use advertising, and we do not use third-party analytics inside the app or the learner, parent and teacher areas. We do not sell or share this information.',
     ],
   },
   {
@@ -61,6 +61,14 @@ export const PRIVACY_SECTIONS: PrivacySection[] = [
       'A teacher also gives their SACE registration number, school and province. We use them only to check the teacher before approving the account, and they are deleted with the account.',
       'Sign-in links and the optional weekly summary are delivered by our email provider, Resend. It is the only other company that handles any of this, and the emails only contain a sign-in link or a learner\'s practice results.',
       'A parent can give or withdraw consent for their child at any time, and a parent\'s consent replaces the tick-box the learner ticked.',
+    ],
+  },
+  {
+    heading: 'Google Tag Manager and Analytics on the public pages',
+    body: [
+      'The public pages (the home page, the grade, subject and topic pages, For parents, For teachers and this page) can use Google Tag Manager and Google Analytics to count visits. They only run if you press Accept in the banner. If you press Decline, or your browser sends Do Not Track or Global Privacy Control, they do not.',
+      'We do not use them for advertising: ad storage is switched off. Your choice is kept in your browser for six months, and you can change it at any time with the button below.',
+      'They are never loaded inside the app, or in the learner, parent or teacher areas, the admin or the review pages.',
     ],
   },
   {

@@ -35,7 +35,7 @@ export const FOR_PARENTS: AdultPage = {
   privacy: [
     'You only ever see children you have linked yourself. You never see their login code, PIN, real name, school or age.',
     'Other learners, other parents and other teachers never see your child’s progress through you.',
-    'We do not use advertising or third-party analytics, and we do not sell or share this information. The weekly email is delivered by our email provider, and it only uses your child’s practice results.',
+    'We do not use advertising or third-party analytics in the parent area, and we do not sell or share this information. The weekly email is delivered by our email provider, and it only uses your child’s practice results.',
     'You can delete your own account at any time from your account page. Your child’s account and progress stay as they are.',
   ],
   faq: [
@@ -69,7 +69,7 @@ export const FOR_TEACHERS: AdultPage = {
     'Before a learner joins your class they are told what you will see: their nickname and their progress in the class. They can leave at any time.',
     'You only see learners in your own classes. You never see their login code, PIN, real name or school, and you cannot see other teachers’ classes.',
     'Your SACE number is used only to check your application. It is deleted if you delete your account, along with your classes.',
-    'We do not use advertising or third-party analytics, and we do not sell or share this information.',
+    'We do not use advertising or third-party analytics in the teacher area, and we do not sell or share this information.',
   ],
   faq: [
     { q: 'Why do you check teachers?', a: 'Teachers see learners’ progress, so we confirm each teacher’s SACE registration and school before turning teacher tools on.' },

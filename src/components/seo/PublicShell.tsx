@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { ctaPrimarySmall } from '../../lib/seo/ctaStyles';
 import { jsonLdText, type Crumb } from '../../lib/seo/structuredData';
+import PublicAnalytics from '../analytics/PublicAnalytics';
 
 /** Structured data for a public page: one <script type="application/ld+json"> per object. */
 export function JsonLd({ data }: { data: unknown | unknown[] }) {
@@ -34,6 +35,7 @@ export function PublicShell({ children, jsonLd }: { children: ReactNode; jsonLd?
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       {jsonLd ? <JsonLd data={jsonLd} /> : null}
+      <PublicAnalytics />
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
           <Link href="/" className="text-lg font-black text-slate-800">PrepPals</Link>
