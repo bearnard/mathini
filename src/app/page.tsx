@@ -10,6 +10,8 @@ import { ctaOutline, ctaPrimary } from '../lib/seo/ctaStyles';
 import { pageMeta } from '../lib/seo/pageMeta';
 import { homeLd } from '../lib/seo/structuredData';
 import { JsonLd } from '../components/seo/PublicShell';
+import HomePaths from '../components/seo/HomePaths';
+import { gradePath } from '../lib/seo/curriculumIndex';
 
 export const metadata: Metadata = {
   ...pageMeta({ title: 'PrepPals — CAPS Practice for Grades 5–12', description: SITE_DESCRIPTION, path: '/' }),
@@ -55,7 +57,9 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-4 pb-20">
+        <HomePaths />
+
+        <section id="browse" className="mx-auto max-w-5xl px-4 pb-20">
           <h2 className="text-center text-2xl font-black text-slate-900">
             Every subject, every grade from 5 to 12
           </h2>
@@ -68,7 +72,9 @@ export default async function HomePage() {
               const accent = gradeAccent(grade.gradeId);
               return (
                 <div key={grade.gradeSlug}>
-                  <h3 className={`text-lg font-bold ${accent.text}`}>{grade.title}</h3>
+                  <h3 className={`text-lg font-bold ${accent.text}`}>
+                    <Link href={gradePath(grade)} className="hover:underline">{grade.title}</Link>
+                  </h3>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {grade.subjects.map((subject) => (
                       <Link
