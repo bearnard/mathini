@@ -18,7 +18,7 @@ const opText = (r: Rule) => `${r.op} ${r.n}`;
 // ---------- input-output table ----------
 
 /** A two-row table of x and y, with the step between neighbouring values drawn under each row. */
-export const FunctionTable = ({ xs, ys, rule, className }: { xs: number[]; ys: number[]; rule?: string; className?: string }) => {
+export const FunctionTable = ({ xs, ys, rule, heads = ['x', 'y'], className }: { xs: number[]; ys: number[]; rule?: string; heads?: [string, string]; className?: string }) => {
   const n = xs.length;
   const W = Math.min(22, 92 / n);
   const head = (120 - (18 + n * W)) / 2;
@@ -28,11 +28,11 @@ export const FunctionTable = ({ xs, ys, rule, className }: { xs: number[]; ys: n
   const dy = differences(ys);
   const h = rule ? 74 : 64;
   return (
-    <Panel h={h} className={className} aria={`A table of values. x: ${xs.join(', ')}. y: ${ys.join(', ')}. Each time x goes up by ${dx[0]}, y goes up by ${dy[0]}.${rule ? ` The rule is ${rule}.` : ''}`}>
+    <Panel h={h} className={className} aria={`A table of values. ${heads[0]}: ${xs.join(', ')}. ${heads[1]}: ${ys.join(', ')}. Each time ${heads[0]} goes up by ${dx[0]}, ${heads[1]} goes up by ${dy[0]}.${rule ? ` The rule is ${rule}.` : ''}`}>
       {[0, 1].map((row) => (
         <g key={row}>
           <rect x={r3(head)} y={r3(8 + row * 26)} width={16} height={14} rx={2} fill={row ? 'rgba(52,211,153,0.25)' : 'rgba(129,140,248,0.25)'} stroke={row ? E : I} strokeWidth={0.8} />
-          <T x={head + 8} y={8 + row * 26 + 9.6} fill={row ? E : I} size={7}>{row ? 'y' : 'x'}</T>
+          <T x={head + 8} y={8 + row * 26 + 9.6} fill={row ? E : I} size={heads[row].length > 1 ? 6 : 7}>{heads[row]}</T>
           {(row ? ys : xs).map((v, i) => (
             <g key={i}>
               <rect x={r3(x0 + i * W + 1)} y={r3(8 + row * 26)} width={r3(W - 2)} height={14} rx={2} fill="#1e293b" stroke="#64748b" strokeWidth={0.7} />
@@ -123,11 +123,14 @@ export const LessThanBar = ({ letter, less, className }: { letter: string; less:
  */
 export const AlgebraTiles = ({ terms, value, className }: { terms: Term[]; value?: number; className?: string }) => {
   const simplified = collectLike(terms);
-  const BAR_W = value === undefined ? 7 : 9;
+  // shrink everything (but the bar height) when many tiles would not fit in the 120-unit panel
+  const raw = terms.reduce((sum, t) => sum + Math.abs(t.coef) * ((t.letter ? (value === undefined ? 7 : 9) : 7) + 2) - 2, 0) + 10 * (terms.length - 1);
+  const k = Math.min(1, 108 / raw);
+  const BAR_W = r3((value === undefined ? 7 : 9) * k);
   const BAR_H = 26;
-  const SQ = 7;
-  const GAP = 2;
-  const GROUP_GAP = 10;
+  const SQ = r3(7 * k);
+  const GAP = r3(2 * k);
+  const GROUP_GAP = r3(10 * k);
   const groupW = (t: Term) => Math.abs(t.coef) * ((t.letter ? BAR_W : SQ) + GAP) - GAP;
   const total = terms.reduce((s, t) => s + groupW(t), 0) + GROUP_GAP * (terms.length - 1);
   let x = 60 - total / 2;
