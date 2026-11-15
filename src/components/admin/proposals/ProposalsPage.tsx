@@ -2,6 +2,7 @@
 // ADR 0003 sections 1 and 4: the owner's queue of teacher proposals, and the moderator groups. Until a group has 5 moderators the owner decides
 // its proposals; every approve or reject needs a reason. Approving applies the change through the normal edit pipeline.
 import { useState } from 'react';
+import AdminDiscussion from './AdminDiscussion';
 import { useAdminData } from '../useAdminData';
 import { postJson, when } from '../reviews/api';
 import { SOURCE_LABEL, MODERATOR_THRESHOLD, type SourceKind } from '../../../lib/shared/moderation';
@@ -24,6 +25,7 @@ function Card({ p, onDone }: { p: ProposalView; onDone: () => void }) {
   const [reason, setReason] = useState('');
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
+  const [talk, setTalk] = useState(false);
   const decide = async (decision: 'approve' | 'reject') => {
     if (!window.confirm(decision === 'approve' ? 'Approve and apply this change to the question bank?' : 'Reject this proposal?')) return;
     setBusy(true); setErr('');
@@ -52,6 +54,8 @@ function Card({ p, onDone }: { p: ProposalView; onDone: () => void }) {
           <button type="button" className="admin-btn-danger" disabled={busy || reason.trim().length < 3} onClick={() => void decide('reject')}>Reject</button>
         </div>
       ) : p.decisionReason ? <p style={{ fontSize: 14 }}><strong>Decision ({p.decidedBy}):</strong> {p.decisionReason}</p> : null}
+      <button type="button" className="admin-btn" style={{ marginTop: 6 }} aria-expanded={talk} onClick={() => setTalk((t) => !t)}>{talk ? 'Hide discussion' : 'Discussion'}</button>
+      {talk && <AdminDiscussion target={{ proposal: p.id }} />}
       {err && <p role="alert" style={{ fontSize: 13, marginTop: 6 }}>{err}</p>}
     </li>
   );

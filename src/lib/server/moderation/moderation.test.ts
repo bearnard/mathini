@@ -23,6 +23,7 @@ const SRC = { sourceKind: 'caps', sourceRef: 'CAPS NST Gr 6 p. 41', reason: 'The
 async function world() {
   const t = await openQuestionsDb(); if (!t) return null;
   t.raw.exec(fs.readFileSync('migrations/0013_adult_auth.sql', 'utf8'));
+  t.raw.exec(fs.readFileSync('migrations/0016_schools.sql', 'utf8'));
   t.raw.exec(fs.readFileSync('migrations/0020_moderation.sql', 'utf8'));
   t.raw.exec(registerQuestionSql({ task: TASK, section: 'general', kind: 'mcq', source: 'curated', prompt: P, options: ['Aloe', 'Rubber', 'Plastic', 'Cement'], answer: 'Aloe', explanation: 'Aloe was used for burns and skin problems.', extra: {}, author: 'seed' }).join('\n'));
   const db = adminDbOf(t);
@@ -263,4 +264,25 @@ test('candidates and the group list show adults and points only; appointing need
   await removeModerator(w.db, GROUP, teacher);
   assert.equal(n(w.t, "SELECT COUNT(*) AS n FROM user_roles WHERE user_id = ? AND role IN ('moderator')", [teacher]), 0);
   assert.equal(n(w.t, "SELECT COUNT(*) AS n FROM user_roles WHERE user_id = ? AND role = 'teacher'", [teacher]), 1);
+});
+
+test('owner finishers: the question detail shows the verified mark for the current version only; the owner reads and removes any comment, audited with their email', async (t0) => {
+  const w = await world(); if (!w) return t0.skip('node:sqlite unavailable');
+  const { questionDetail, editQuestion } = await import('../questions/edit');
+  const { postComment, listCommentsForOwner, removeComment } = await import('./discussion');
+  assert.equal((await questionDetail(w.db, qid()))!.verified, null);
+  assert.equal((await verifyQuestion(w.db, OWNER, qid(), 500)).ok, true);
+  assert.deepEqual((await questionDetail(w.db, qid()))!.verified, { at: 500, via: 'review', by: 'owner' });
+  await editQuestion(w.db, qid(), { expectedVersionId: w.v(), prompt: P, options: ['Aloe', 'Rubber', 'Plastic', 'Cement'], answer: 'Aloe', explanation: 'Aloe was used on burns and also other skin problems.', sourceNote: 'owner fix', changeKind: 'wording', acknowledgeWarnings: false }, 'o@e.org', 600);
+  assert.equal((await questionDetail(w.db, qid()))!.verified, null, 'a later edit makes it unverified');
+  const teacher = w.user(1, ['teacher']);
+  const c = await postComment(w.db, teacher, { questionId: qid() }, 'a comment that must go', 700) as { ok: true; id: string };
+  const seen = await listCommentsForOwner(w.db, { questionId: qid() });
+  assert.equal(seen.ok && seen.comments.length, 1);
+  assert.ok(!JSON.stringify(seen).includes(teacher), 'no user id even for the owner');
+  assert.equal((await removeComment(w.db, { owner: 'owner@example.org' }, c.id, 800)).ok, true);
+  assert.deepEqual({ ...(w.t.raw.prepare('SELECT removed_at, removed_by FROM discussion_comments WHERE id = ?').get(c.id) as object) }, { removed_at: 800, removed_by: 'owner:owner@example.org' });
+  const after = await listCommentsForOwner(w.db, { questionId: qid() });
+  assert.deepEqual(after.ok && after.comments.map((x) => [x.body, x.removed]), [['', true]]);
+  assert.equal((await removeComment(w.db, { owner: 'owner@example.org' }, c.id, 900) as { status: number }).status, 404, 'already removed');
 });
