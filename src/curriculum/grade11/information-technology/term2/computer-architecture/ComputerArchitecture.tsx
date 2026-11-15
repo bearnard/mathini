@@ -51,7 +51,7 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Ultra-fast, tiny storage inside the CPU. Key registers: Program Counter (PC), Instruction Register (IR), Accumulator (ACC).</p>
           </div>
         </div>
-        <p className="text-sm text-slate-600">Clock speed (GHz) measures how many fetch-decode-execute cycles the CPU completes per second.</p>
+        <p className="text-sm text-slate-600">Clock speed (GHz) measures how many clock cycles the CPU completes per second. More cycles per second lets it carry out more instructions.</p>
       </div>
     ),
   },

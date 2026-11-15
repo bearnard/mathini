@@ -92,7 +92,7 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg leading-8 text-slate-600">
           Factor mobility explains how easily resources move from one job, region or industry to another. Labour and capital can move; land usually cannot.
         </p>
-        <SupplyDemand title="Labour Market" eqPrice={35} eqQty={5} showShifts={true} />
+        <SupplyDemand title="Labour Market (illustration)" showShifts={true} />
         <div className="grid gap-4 text-left md:grid-cols-2">
           <div className="rounded-xl bg-slate-50 p-4">
             <p className="font-semibold text-slate-800">Derived demand</p>

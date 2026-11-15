@@ -44,7 +44,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-teal-50 p-4">
             <strong className="text-teal-700">Co-operative</strong>
-            <p className="text-slate-600">Member-owned, profits shared equally, democratic decision-making, registered under Co-operatives Act.</p>
+            <p className="text-slate-600">Member-owned, democratic decision-making (one member, one vote), surplus shared in proportion to each member's use, registered under the Co-operatives Act.</p>
           </div>
           <div className="rounded-xl bg-slate-100 p-4">
             <strong className="text-slate-700">Sole proprietor / Partnership</strong>

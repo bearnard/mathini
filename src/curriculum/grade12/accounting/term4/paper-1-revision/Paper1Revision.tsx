@@ -21,7 +21,7 @@ const learnSteps: LearnStep[] = [
               heading: 'Performance and position',
               lines: [
                 { label: 'Net profit after tax', amount: 1162000 },
-                { label: 'Ordinary share capital', amount: 2100000 },
+                { label: 'Ordinary share capital', amount: 2120000 },
                 { label: 'Retained income', amount: 1326000 },
                 { label: 'Cash generated from operations', amount: 1624000 },
               ],

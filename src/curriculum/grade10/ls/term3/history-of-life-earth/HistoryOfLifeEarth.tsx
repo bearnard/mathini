@@ -85,7 +85,7 @@ const learnSteps: LearnStep[] = [
             {
               label: '600 MYA - Multicellular Life',
               description: 'Complex organisms',
-              detail: 'First multicellular organisms (sponges, jellyfish). Ediacaran fauna. Cambrian explosion (540 MYA): rapid diversification of animal phyla.',
+              detail: 'Large, complex multicellular animals appear (the Ediacaran biota). Cambrian explosion (540 MYA): rapid diversification of animal phyla.',
               icon: '🪸',
             },
             {
@@ -97,7 +97,7 @@ const learnSteps: LearnStep[] = [
             {
               label: '230 MYA - Age of Reptiles',
               description: 'Dinosaurs dominate',
-              detail: 'Dinosaurs, pterosaurs, marine reptiles. First mammals and birds appear. K-Pg extinction (66 MYA) - asteroid impact ends dinosaur era.',
+              detail: 'Dinosaurs, pterosaurs, marine reptiles. First mammals appear (about 230 MYA); the first birds appear later, about 150 MYA. K-Pg extinction (66 MYA) - asteroid impact ends dinosaur era.',
               icon: '🦕',
             },
             {
@@ -150,7 +150,7 @@ const learnSteps: LearnStep[] = [
             South Africa is rich in fossils. The <strong>Cradle of Humankind</strong> (Sterkfontein Caves) contains 
             early hominin fossils (Australopithecus africanus - "Mrs. Ples", Homo naledi). 
             The <strong>Karoo Basin</strong> has extensive Permian-Triassic fossils showing the transition from 
-            reptile-like mammals to true mammals.
+            mammal-like reptiles to true mammals.
           </p>
         </div>
       </div>

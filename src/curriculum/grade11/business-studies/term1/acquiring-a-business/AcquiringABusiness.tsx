@@ -20,7 +20,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-yellow-50 p-4">
             <strong className="text-yellow-700">3. Buy a franchise</strong>
-            <p className="text-slate-600">Pay for the right to use a proven brand and system (e.g. Steers, Nandos, Clicks).</p>
+            <p className="text-slate-600">Pay for the right to use a proven brand and system (e.g. Steers, Nando's, Debonairs Pizza).</p>
           </div>
           <div className="rounded-xl bg-purple-50 p-4">
             <strong className="text-purple-700">4. Family business / inheritance</strong>
@@ -76,7 +76,7 @@ const learnSteps: LearnStep[] = [
             <li>Lower risk than starting from scratch — proven model</li>
           </ul>
         </div>
-        <p className="text-sm text-slate-500">Examples in SA: Steers, Nandos, Spar, Clicks, Debonairs Pizza</p>
+        <p className="text-sm text-slate-500">Examples in SA: Steers, Nando's, Debonairs Pizza</p>
       </div>
     ),
   },

@@ -38,7 +38,7 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Many objects — <code>myDog</code>, <code>herDog</code> — each with their own name, breed and age values.</p>
           </div>
         </div>
-        <CodeBlock language="pascal" code={`myDog = new Dog("Rex", "Labrador", 3)`} />
+        <CodeBlock language="pascal" code={`myDog := TDog.Create('Rex', 'Labrador', 3);`} />
       </div>
     ),
   },
@@ -52,7 +52,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-3 md:grid-cols-3 text-left">
           <div className="rounded-xl bg-red-50 p-4">
             <strong className="text-red-700">private</strong>
-            <p className="text-slate-600">Accessible only inside the class. Attributes should be private.</p>
+            <p className="text-slate-600">Accessible only inside the class (in Delphi, private members are also visible to other code in the same unit; strict private is class-only). Attributes should be private.</p>
           </div>
           <div className="rounded-xl bg-yellow-50 p-4">
             <strong className="text-yellow-700">public</strong>

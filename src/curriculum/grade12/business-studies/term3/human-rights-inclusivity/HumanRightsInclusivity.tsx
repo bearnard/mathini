@@ -39,7 +39,7 @@ const learnSteps: LearnStep[] = [
           strengths={['Supportive HR policy', 'Diverse staff base', 'Committed manager']}
           weaknesses={['Limited accessibility tools', 'Bias in some teams', 'Weak reporting channels']}
           opportunities={['Inclusion training', 'Wider talent pool', 'Stronger innovation']}
-          threats={['Discrimination complaints', 'Low morale', 'Reputation damage']}
+          threats={['Discrimination complaints', 'Penalties under the Employment Equity Act', 'Reputation damage']}
         />
       </div>
     ),

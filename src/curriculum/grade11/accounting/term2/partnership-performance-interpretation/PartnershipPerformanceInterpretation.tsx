@@ -119,7 +119,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-purple-50 p-4">
             <strong className="text-purple-700">Profitability concern:</strong>
-            <p className="text-slate-600">"Net profit % fell from 15% to 10%. The partners should review their expense structure, particularly the increase in salary expense, to identify areas for cost reduction."</p>
+            <p className="text-slate-600">"If net profit % falls, the partners should review their expense structure, for example salary expense, to identify areas for cost reduction."</p>
           </div>
         </div>
       </div>

@@ -95,7 +95,8 @@ begin
     'B': WriteLn('Good (70-79%)');
     'C': WriteLn('Satisfactory (60-69%)');
     'D': WriteLn('Pass (50-59%)');
-    'E', 'F': WriteLn('Fail (Below 50%)');
+    'E': WriteLn('Pass (40-49%)');
+    'F': WriteLn('Fail (Below 40%)');
   else
     WriteLn('Invalid grade');
   end;

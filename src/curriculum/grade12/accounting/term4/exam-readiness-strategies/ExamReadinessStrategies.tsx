@@ -43,12 +43,10 @@ const learnSteps: LearnStep[] = [
         <TAccount
           title="Bank Account Checkpoint"
           debit={[
-            { description: 'Outstanding deposit recorded', amount: 18600 },
             { description: 'Direct deposit by debtor', amount: 12850 },
           ]}
           credit={[
             { description: 'Bank charges', amount: 780 },
-            { description: 'Unpresented cheque no. 426', amount: 12820 },
           ]}
         />
         <p className="text-base leading-7 text-slate-600">

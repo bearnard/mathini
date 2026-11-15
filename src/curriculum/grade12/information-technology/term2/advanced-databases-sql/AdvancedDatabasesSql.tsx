@@ -66,7 +66,7 @@ ORDER BY OrderDate DESC;`} />
           Aggregate functions summarise many rows into a smaller result. When the question asks for totals per category,
           <strong>GROUP BY</strong> is essential.
         </p>
-        <CodeBlock language="sql" code={`SELECT Province, COUNT(*) AS NumCustomers, AVG(Amount) AS AvgOrder
+        <CodeBlock language="sql" code={`SELECT Province, COUNT(*) AS NumOrders, AVG(Amount) AS AvgOrder
 FROM Customers
 INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
 GROUP BY Province
@@ -88,7 +88,7 @@ ORDER BY AvgOrder DESC;`} />
           Data-changing queries must respect validation rules, required fields and referential integrity so that later forms and reports remain accurate.
         </p>
         <CodeBlock language="sql" code={`INSERT INTO Orders (CustomerID, OrderDate, Amount)
-VALUES (12, '2025-05-10', 899.95);
+VALUES (12, #2025-05-10#, 899.95);
 
 UPDATE Orders
 SET Amount = 949.95

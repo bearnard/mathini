@@ -52,8 +52,8 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6">
         <p className="text-lg leading-8 text-slate-600">
-          Over time, the South African economy has shifted from stronger reliance on primary production to greater
-          importance of manufacturing and especially services. Structural change affects jobs, training needs and regional development.
+          Over time, the South African economy has shifted from stronger reliance on primary production (agriculture and
+          mining) to mainly services, while manufacturing's share of GDP has declined since the 1990s. Structural change affects jobs, training needs and regional development.
         </p>
         <div className="rounded-xl bg-slate-50 p-5 text-slate-700">
           Structural change is not only about sectors growing or shrinking. It also changes the skills needed in the labour market.

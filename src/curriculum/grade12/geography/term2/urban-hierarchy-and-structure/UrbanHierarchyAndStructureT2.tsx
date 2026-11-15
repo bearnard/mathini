@@ -46,15 +46,15 @@ const learnSteps = [
         <p className="text-lg text-slate-600">Urban hierarchy can be illustrated by comparing city populations. Larger metropolitan areas usually offer a wider range of high-order functions and services.</p>
         <DataChart
           data={[
-                        { city: 'Johannesburg', population: 6.0 },
-                        { city: 'Cape Town', population: 4.9 },
+                        { city: 'Johannesburg', population: 4.8 },
+                        { city: 'Cape Town', population: 4.7 },
                         { city: 'Ekurhuleni', population: 4.1 },
-                        { city: 'eThekwini', population: 3.9 },
-                        { city: 'Tshwane', population: 3.4 },
+                        { city: 'eThekwini', population: 4.0 },
+                        { city: 'Tshwane', population: 4.0 },
                       ]}
           xKey="city"
           series={[
-                        { key: 'population', label: 'Metro population (millions)', type: 'bar', color: '#2563eb' },
+                        { key: 'population', label: 'Metro population (millions, Census 2022, approximate)', type: 'bar', color: '#2563eb' },
                       ]}
           yLabel="Millions"
           height={240}

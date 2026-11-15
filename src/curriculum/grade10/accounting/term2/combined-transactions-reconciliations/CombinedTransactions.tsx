@@ -23,7 +23,7 @@ const learnSteps: LearnStep[] = [
             { description: 'Returns by debtors', amount: 2100 },
           ]}
         />
-        <p className="text-sm text-slate-500">This control account summarises transactions from the Debtors Journal, CRJ, DAJ and CAJ.</p>
+        <p className="text-sm text-slate-500">This control account summarises transactions from the Debtors Journal, CRJ and DAJ.</p>
       </div>
     ),
   },
@@ -47,9 +47,9 @@ const learnSteps: LearnStep[] = [
             {
               heading: 'List of debtors balances',
               lines: [
-                { label: 'Total according to debtors ledger', amount: 80250 },
+                { label: 'Total according to debtors ledger', amount: 78950 },
                 { label: 'Add: Invoice omitted from Sipho Traders', amount: 2400 },
-                { label: 'Less: Credit note posted twice', amount: -650 },
+                { label: 'Add: Credit note posted twice', amount: 650 },
                 { label: 'Corrected debtors ledger total', amount: 82000, isTotal: true },
               ],
             },
@@ -88,7 +88,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-6 text-center">
         <p className="text-lg leading-8 text-slate-600">
-          The bank reconciliation explains why the balance in the Cash Book differs from the balance on the bank statement at month-end.
+          The bank reconciliation explains why the balance in the Cash Book differs from the balance on the bank statement at month-end. Items already on the statement but missing from the cash book, such as bank charges, are entered in the cash book first.
         </p>
         <FinancialStatement
           title="Bank Reconciliation Statement"
@@ -105,8 +105,7 @@ const learnSteps: LearnStep[] = [
               lines: [
                 { label: 'Add: Outstanding deposit', amount: 4600 },
                 { label: 'Less: Unpresented cheque no. 518', amount: -3250 },
-                { label: 'Less: Bank charges not yet in cash book', amount: -180 },
-                { label: 'Adjusted balance per cash book', amount: 29920, isTotal: true },
+                { label: 'Updated cash book balance', amount: 30100, isTotal: true },
               ],
             },
           ]}

@@ -106,7 +106,7 @@ const learnSteps: LearnStep[] = [
             {
               label: 'Essay Questions',
               description: 'Detailed explanations (8-12 marks)',
-              detail: 'Plan before writing. Use introduction, body paragraphs, conclusion structure. Include: definitions, facts, processes, examples, diagrams if helpful. Be logical and organized. Check marks - aim for 1-2 marks per minute.',
+              detail: 'Plan before writing. Use introduction, body paragraphs, conclusion structure. Include: definitions, facts, processes, examples, diagrams if helpful. Be logical and organized. Check marks - aim for about 1 minute per mark.',
               icon: '📝',
             },
           ]}

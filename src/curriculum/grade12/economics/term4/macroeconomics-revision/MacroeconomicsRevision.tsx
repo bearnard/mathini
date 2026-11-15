@@ -57,7 +57,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-6">
         <div className="grid gap-4 md:grid-cols-3">
           <div className="rounded-xl border border-slate-200 p-4 text-sm text-slate-600">Leakages: savings, taxes, imports</div>
-          <div className="rounded-xl border border-slate-200 p-4 text-sm text-slate-600">Injections: investment, spending, exports</div>
+          <div className="rounded-xl border border-slate-200 p-4 text-sm text-slate-600">Injections: investment, government spending, exports</div>
           <div className="rounded-xl border border-slate-200 p-4 text-sm text-slate-600">Currency: appreciation vs depreciation</div>
         </div>
       </div>

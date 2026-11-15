@@ -30,7 +30,7 @@ const learnSteps: LearnStep[] = [
               lines: [
                 { label: 'Closing inventory', amount: 269500 },
                 { label: 'Cost of finished goods produced', amount: 1006000 },
-                { label: 'VAT payable to SARS', amount: 38400 },
+                { label: 'VAT payable to SARS', amount: 22050 },
               ],
             },
           ]}
@@ -53,10 +53,10 @@ const learnSteps: LearnStep[] = [
           debit={[
             { description: 'Input VAT on purchases', amount: 64800 },
             { description: 'Input VAT on stationery', amount: 3750 },
+            { description: 'VAT paid over to SARS', amount: 12000 },
           ]}
           credit={[
             { description: 'Output VAT on cash and credit sales', amount: 102600 },
-            { description: 'VAT payable settled', amount: 12000 },
           ]}
         />
         <p className="text-base leading-7 text-slate-600">

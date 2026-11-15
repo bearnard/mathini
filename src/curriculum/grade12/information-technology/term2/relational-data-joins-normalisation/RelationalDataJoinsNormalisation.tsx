@@ -16,7 +16,7 @@ const learnSteps: LearnStep[] = [
         </p>
         <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 font-mono text-sm text-slate-700">
           <p>Customers (1) ────&lt; Orders (Many)</p>
-          <p>Learners (Many) &gt;──── Enrolments ────&lt; Subjects (Many)</p>
+          <p>Learners (1) ────&lt; Enrolments (Many) &gt;──── (1) Subjects</p>
         </div>
         <div className="rounded-xl bg-blue-50 border border-blue-200 p-4">
           <p className="font-semibold text-blue-800">Key Concept: Junction table</p>

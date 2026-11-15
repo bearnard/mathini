@@ -173,7 +173,7 @@ const learnSteps: LearnStep[] = [
             <div className="bg-white p-3 rounded border border-green-100">
               <h5 className="font-bold text-green-800 text-sm mb-2">Safe Browsing</h5>
               <ul className="text-xs text-slate-700 space-y-1">
-                <li>✓ Look for HTTPS (padlock icon) on websites</li>
+                <li>✓ HTTPS (padlock) means the connection is encrypted, but it does not prove a site is trustworthy</li>
                 <li>✓ Avoid suspicious links and attachments</li>
                 <li>✓ Use reputable websites for downloads</li>
                 <li>✓ Be skeptical of "too good to be true" offers</li>
@@ -235,8 +235,8 @@ const learnSteps: LearnStep[] = [
             <div className="bg-white p-3 rounded border border-yellow-100">
               <p className="font-bold text-yellow-800 text-sm">POPI Act (Protection of Personal Information Act)</p>
               <p className="text-xs text-slate-600">
-                Regulates how personal information is processed. Organizations must protect your data 
-                and get consent before using it. You have rights to access and correct your information.
+                Regulates how personal information is processed. Organizations must protect your data, 
+                have a lawful reason to use it (often your consent) and use it only for a stated purpose. You have rights to access and correct your information.
               </p>
             </div>
             <div className="bg-white p-3 rounded border border-yellow-100">

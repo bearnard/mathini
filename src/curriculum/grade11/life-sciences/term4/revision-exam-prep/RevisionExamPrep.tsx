@@ -41,7 +41,7 @@ const learnSteps: LearnStep[] = [
           <p className="text-slate-700"><strong>1. Use pencil</strong> only — no shading or colour unless instructed.</p>
           <p className="text-slate-700"><strong>2. Clear lines</strong> — no sketching; lines must be single, continuous, and accurate.</p>
           <p className="text-slate-700"><strong>3. Labels</strong> — use horizontal lines to clearly indicate each structure; never use arrows pointing vaguely at shaded areas.</p>
-          <p className="text-slate-700"><strong>4. Title</strong> — write a clear, descriptive title above the diagram (e.g. "Transverse section of a nephron").</p>
+          <p className="text-slate-700"><strong>4. Title</strong> — write a clear, descriptive title above the diagram (e.g. "Longitudinal section of a kidney").</p>
           <p className="text-slate-700"><strong>5. Magnification</strong> — if asked, calculate: Drawing size ÷ Actual size = ×N.</p>
           <p className="text-slate-700"><strong>6. Proportion</strong> — parts should be roughly to scale relative to each other.</p>
         </div>

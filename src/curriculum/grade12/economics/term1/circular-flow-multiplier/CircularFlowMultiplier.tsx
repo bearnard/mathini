@@ -48,7 +48,7 @@ const learnSteps: LearnStep[] = [
             { flow: 'Imports', amount: 16 },
             { flow: 'Investment', amount: 20 },
             { flow: 'Govt spending', amount: 24 },
-            { flow: 'Exports', amount: 14 },
+            { flow: 'Exports', amount: 12 },
           ]}
           series={[{ key: 'amount', label: 'R bn', color: '#10b981' }]}
           xKey="flow"

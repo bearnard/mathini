@@ -45,7 +45,7 @@ const learnSteps: LearnStep[] = [
           strengths={['Strong topic knowledge', 'Good vocabulary', 'Knows essay structure']}
           weaknesses={['Repeats points', 'Weak planning habit', 'Sometimes ignores command words']}
           opportunities={['Essay outlines', 'Memo analysis', 'Timed practice essays']}
-          threats={['Going off-topic', 'Running out of time', 'Missing evaluation marks']}
+          threats={['A harder-than-expected paper', 'Load-shedding while revising', 'Distractions at home']}
         />
       </div>
     ),

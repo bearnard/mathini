@@ -224,6 +224,7 @@ const learnSteps: LearnStep[] = [
               </ul>
             </li>
           </ol>
+          <p className="mt-3 text-xs text-slate-600">This is a simplified key. Yeast is a unicellular fungus and some moulds are simple multicellular fungi, so also check for a cell wall of chitin and feeding by absorption before settling on Protista.</p>
         </div>
       </div>
     ),

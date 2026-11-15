@@ -75,7 +75,7 @@ end.`} />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div className="bg-blue-50 p-3 rounded">
               <p className="font-bold text-blue-700 text-sm">Integer</p>
-              <p className="text-xs text-slate-600">Whole numbers: -32768 to 32767</p>
+              <p className="text-xs text-slate-600">Whole numbers: -2 147 483 648 to 2 147 483 647</p>
               <code className="text-xs bg-blue-100 px-1 rounded">var age: Integer;</code>
             </div>
             <div className="bg-green-50 p-3 rounded">

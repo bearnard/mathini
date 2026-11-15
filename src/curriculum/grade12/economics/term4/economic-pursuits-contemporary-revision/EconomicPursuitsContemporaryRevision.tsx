@@ -33,8 +33,8 @@ const learnSteps: LearnStep[] = [
         <DataChart
           data={[
             { year: '2020', inflation: 3.3, unemployment: 32.5 },
-            { year: '2021', inflation: 4.5, unemployment: 34.9 },
-            { year: '2022', inflation: 6.9, unemployment: 33.9 },
+            { year: '2021', inflation: 4.5, unemployment: 35.3 },
+            { year: '2022', inflation: 6.9, unemployment: 32.7 },
             { year: '2023', inflation: 6.0, unemployment: 32.1 },
           ]}
           series={[

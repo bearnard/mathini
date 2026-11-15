@@ -45,8 +45,9 @@ const learnSteps: LearnStep[] = [
           credit={[
             { description: 'PAYE payable', amount: 7200 },
             { description: 'UIF payable', amount: 972 },
+            { description: 'SDL payable', amount: 486 },
             { description: 'Medical aid payable', amount: 2500 },
-            { description: 'Bank (net salaries paid)', amount: 38900 },
+            { description: 'Bank (net salaries paid)', amount: 38414 },
           ]}
         />
       </div>

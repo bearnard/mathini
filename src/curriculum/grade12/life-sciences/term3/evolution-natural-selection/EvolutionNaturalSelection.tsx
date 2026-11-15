@@ -108,8 +108,7 @@ const learnSteps: LearnStep[] = [
               { label: 'Homologous structures', description: 'Reveal common ancestry through similar underlying anatomy.' },
               { label: 'Biogeography', description: 'Explains distribution patterns of organisms on Earth.' },
               { label: 'Molecular evidence', description: 'DNA and protein similarities support relatedness.' },
-              { label: 'Punctuated equilibrium', description: 'Suggests long periods of little change interrupted by rapid change.' },
-            ],
+                          ],
           }}
         />
         <div className="rounded-xl bg-amber-50 border border-amber-200 p-4">

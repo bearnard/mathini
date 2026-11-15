@@ -28,8 +28,8 @@ const learnSteps: LearnStep[] = [
           data={[
             { year: '2019', unemployment: 29.1, gini: 0.63 },
             { year: '2020', unemployment: 32.5, gini: 0.63 },
-            { year: '2021', unemployment: 34.9, gini: 0.63 },
-            { year: '2022', unemployment: 33.9, gini: 0.62 },
+            { year: '2021', unemployment: 35.3, gini: 0.63 },
+            { year: '2022', unemployment: 32.7, gini: 0.62 },
             { year: '2023', unemployment: 32.1, gini: 0.62 },
           ]}
           series={[

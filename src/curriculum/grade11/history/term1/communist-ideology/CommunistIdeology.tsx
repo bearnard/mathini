@@ -56,7 +56,7 @@ const learnSteps: LearnStep[] = [
           <p className="font-bold text-indigo-700">Leninist additions to Marxism:</p>
           <ul className="list-disc list-inside text-slate-600 space-y-1 mt-2">
             <li><strong>Vanguard party:</strong> the Bolsheviks as professional revolutionaries</li>
-            <li><strong>Dictatorship of the proletariat:</strong> temporary party rule to crush opposition</li>
+            <li><strong>Party-led state:</strong> Lenin argued the party must rule on the workers' behalf after the revolution</li>
             <li><strong>Imperialism:</strong> Lenin argued capitalism exported itself through colonial empire</li>
           </ul>
         </div>

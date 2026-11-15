@@ -55,9 +55,9 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-6">
         <DataChart
           data={[
-            { year: '2020', current: -2.4, financial: 3.1 },
+            { year: '2020', current: 2.0, financial: 3.1 },
             { year: '2021', current: 3.7, financial: -1.2 },
-            { year: '2022', current: 0.5, financial: 1.6 },
+            { year: '2022', current: -0.5, financial: 1.6 },
             { year: '2023', current: -1.6, financial: 2.4 },
           ]}
           series={[

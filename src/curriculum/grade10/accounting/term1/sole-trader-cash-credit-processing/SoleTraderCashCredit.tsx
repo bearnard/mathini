@@ -17,7 +17,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-2xl bg-emerald-50 p-5">
             <h3 className="font-semibold text-emerald-700">Credit journals</h3>
-            <p className="mt-2 text-slate-600"><strong>DJ</strong> records credit sales and <strong>PCJ</strong> records credit purchases of trading stock.</p>
+            <p className="mt-2 text-slate-600"><strong>DJ</strong> records credit sales and <strong>PCJ</strong> (the purchases or creditors journal) records credit purchases of trading stock.</p>
           </div>
           <div className="rounded-2xl bg-amber-50 p-5">
             <h3 className="font-semibold text-amber-700">Adjustment journals</h3>

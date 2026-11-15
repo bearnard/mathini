@@ -82,7 +82,7 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Minimal government intervention; let the market correct itself. Workers must be self-reliant.</p>
           </div>
           <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Keynesian/New Deal capitalism (FDR):</strong>
+            <strong className="text-blue-700">New Deal capitalism (FDR):</strong>
             <p className="text-slate-600">Government should spend during recessions to stimulate demand and provide welfare — but keep private ownership.</p>
           </div>
         </div>
