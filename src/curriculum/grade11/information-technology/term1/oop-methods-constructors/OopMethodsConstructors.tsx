@@ -94,10 +94,10 @@ const bank: ITItem[] = [
     explanation: 'A constructor runs automatically at object creation and sets up initial attribute values.',
   },
   {
-    prompt: 'What makes a constructor different from a regular method?',
+    prompt: 'In Java, what makes a constructor different from a regular method?',
     options: ['It has a return type of integer', 'It can be called only once in a program', 'It has the same name as the class and no return type', 'It must always be declared as private'],
     answer: 'It has the same name as the class and no return type',
-    explanation: 'Constructors are named identically to their class and declare no return type (not even void).',
+    explanation: 'In Java a constructor is named identically to its class and declares no return type (not even void). In Delphi it is declared with the keyword constructor and is usually named Create.',
   },
   {
     prompt: 'What is a parameterised constructor?',

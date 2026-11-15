@@ -28,7 +28,7 @@ const bank: CapsItem[] = [
     explanation: 'Accurate proportion ensures body parts, objects, or architectural elements relate correctly in size.',
   },
   {
-    prompt: 'Which shading technique uses parallel lines placed close together?',
+    prompt: 'Which shading technique uses a single set of parallel lines placed close together?',
     options: ['Hatching', 'Blending', 'Stippling', 'Crosshatching'],
     answer: 'Hatching',
     explanation: 'Hatching creates tone and texture using repeated parallel lines.',
@@ -61,7 +61,7 @@ const bank: CapsItem[] = [
     prompt: 'Atmospheric perspective creates depth by...',
     options: ['Making distant objects fainter and hazier', 'Drawing distant objects larger than near ones', 'Using thick dark outlines for far objects', 'Adding bright colours to the far objects'],
     answer: 'Making distant objects fainter and hazier',
-    explanation: 'Objects farther away appear hazier, smaller, and less detailed due to atmospheric conditions.',
+    explanation: 'Air and dust between the viewer and distant objects make them look hazier, paler and less detailed.',
   },
 ];
 

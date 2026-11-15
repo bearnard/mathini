@@ -19,7 +19,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
           Inclusive design considers users with different abilities. Features like wheelchair ramps, handrails, and 
-          step dimensions must meet safety standards and accessibility guidelines (IDMEC principles). These design choices 
+          step dimensions must meet safety standards and accessibility guidelines (applied through the IDMEC design process). These design choices 
           improve usability for everyone.
         </p>
       </div>
@@ -64,10 +64,10 @@ const bank: CapsItem[] = [
     explanation: 'Accessible ramps meet gradient standards and allow independent access for wheelchair users and others with walking difficulties.',
   },
   {
-    prompt: 'What is IDMEC in the context of accessible design?',
-    options: ["Inclusive Design, Meeting Everyone's Capabilities (principles for universal accessibility)", 'Interior Decoration and Material Engineering Commission (a trade body for builders)', 'Industrial Design Materials Engineering Code (a rulebook for factory machines)', 'Internal Dimensions and Emergency Codes (rules for the sizes of fire exits)'],
-    answer: "Inclusive Design, Meeting Everyone's Capabilities (principles for universal accessibility)",
-    explanation: 'IDMEC guides designers to create environments and products that are usable by everyone, regardless of ability.',
+    prompt: 'What does IDMEC stand for in the CAPS Technology design process?',
+    options: ['Investigate, Design, Make, Evaluate, Communicate', 'Identify, Draw, Measure, Estimate, Correct', 'Imagine, Develop, Manufacture, Examine, Complete', 'Investigate, Develop, Market, Evaluate, Conclude'],
+    answer: 'Investigate, Design, Make, Evaluate, Communicate',
+    explanation: 'IDMEC is the design process used in Technology: Investigate the need, Design a solution, Make it, Evaluate it against the brief, and Communicate the result. Applying it to accessible design helps learners create products and spaces that everyone can use.',
   },
   {
     prompt: 'What should a design brief include?',
@@ -92,7 +92,7 @@ const bank: CapsItem[] = [
 const StructuresAccessibleDesign = () => (
   <CapsSubjectTopic
     title="Structures and Accessible Design"
-    subtitle="Static and dynamic forces, bending, torsion, material properties, stairs, ramps, IDMEC principles"
+    subtitle="Static and dynamic forces, bending, torsion, material properties, stairs, ramps, the IDMEC design process"
     learnSteps={learnSteps}
     task="gr9-structures-accessible-design-t1"
     bank={bank}

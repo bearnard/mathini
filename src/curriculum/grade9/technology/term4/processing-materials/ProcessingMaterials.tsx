@@ -66,7 +66,7 @@ const bank: CapsItem[] = [
     prompt: 'What are common food preservation methods?',
     options: ['freezing, canning, drying, salting and smoking', 'boiling, baking, frying, mixing and grating', 'chopping, peeling, blending, mashing and slicing', 'sweetening, colouring, flavouring, whipping and rolling'],
     answer: 'freezing, canning, drying, salting and smoking',
-    explanation: 'Each method removes water or lowers temperature to inhibit microbial growth.',
+    explanation: 'These methods stop food spoiling by removing water, lowering the temperature, or sealing and treating the food so that microbes cannot grow.',
   },
   {
     prompt: 'What is plastic processing?',

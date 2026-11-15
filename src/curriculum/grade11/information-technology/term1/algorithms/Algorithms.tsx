@@ -107,9 +107,9 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'How many comparisons does binary search need to find a value in a sorted array of 16 elements (worst case)?',
-    options: ['16', '8', '4', '2'],
-    answer: '4',
-    explanation: 'Binary search is O(log₂ n). log₂(16) = 4, so at most 4 comparisons are needed.',
+    options: ['16', '8', '5', '4'],
+    answer: '5',
+    explanation: 'The worst case is ⌊log₂ n⌋ + 1 comparisons. The search space halves 16 → 8 → 4 → 2 → 1, which takes 4 halvings, and the last remaining element must still be compared, so 5 comparisons. (log₂ 16 = 4 is the number of halvings, not the number of comparisons.)',
   },
   {
     prompt: 'Which searching algorithm works on both sorted and unsorted arrays?',

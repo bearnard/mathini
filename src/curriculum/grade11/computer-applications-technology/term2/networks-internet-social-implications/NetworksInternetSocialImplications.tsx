@@ -175,7 +175,7 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'What type of network connects devices within a single building using Wi-Fi?',
-    options: ['WAN', 'MAN', 'LAN', 'WLAN'],
+    options: ['WAN', 'MAN', 'PAN', 'WLAN'],
     answer: 'WLAN',
     explanation: 'A WLAN (Wireless Local Area Network) is a LAN that uses wireless (Wi-Fi) connections instead of physical cables.',
   },
