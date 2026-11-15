@@ -41,7 +41,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-gray-50 p-4">
             <strong className="text-gray-700">Poor insulators (Conductors):</strong>
-            <p className="text-slate-600">Metals, glass, water.</p>
+            <p className="text-slate-600">Metals such as copper, iron and aluminium.</p>
           </div>
         </div>
       </div>
@@ -79,7 +79,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which is an example of convection?',
-    options: ['A heated spoon', 'Hot air rising in a room', 'Sunlight warming you', 'Boiling water'],
+    options: ['A heated spoon', 'Hot air rising in a room', 'Sunlight warming you', 'A hot plate warming a pot'],
     answer: 'Hot air rising in a room',
     explanation: 'Convection is heat transfer by moving fluids (air or water).',
   },
@@ -97,7 +97,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which is a good insulator?',
-    options: ['Copper wire', 'Wool', 'Glass', 'Aluminum'],
+    options: ['Copper wire', 'Wool', 'An iron nail', 'Aluminum'],
     answer: 'Wool',
     explanation: 'Wool is a good insulator; metals conduct heat well.',
   },
@@ -127,9 +127,9 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What is the difference between heat and temperature?',
-    options: ['Heat is the same as temperature, but with a different unit', 'Heat is total energy; temperature shows how fast the particles move', 'Heat is how cold a thing is; temperature is how hot it is', 'Temperature is the total energy; heat is how fast particles move'],
-    answer: 'Heat is total energy; temperature shows how fast the particles move',
-    explanation: 'Heat is energy transfer; temperature measures how energetic particles are.',
+    options: ['Heat is the same as temperature, but it is measured in a different unit', 'Heat is energy moving from hot to cold; temperature shows how fast particles move', 'Heat is how cold a thing is, while temperature is how hot a thing is', 'Temperature is the total energy, while heat is how fast particles move'],
+    answer: 'Heat is energy moving from hot to cold; temperature shows how fast particles move',
+    explanation: 'Heat is energy that is transferred because of a temperature difference. Temperature measures how fast the particles move, which is how energetic they are.',
   },
 ];
 

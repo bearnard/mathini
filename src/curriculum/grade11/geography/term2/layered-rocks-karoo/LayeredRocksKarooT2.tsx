@@ -165,7 +165,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'What makes the Karoo Supergroup internationally important to palaeontologists?',
-    options: ['It holds the oldest gold deposits in the world', 'It preserves famous Permian reptile and therapsid fossils', 'It has active volcanoes that scientists study', 'It holds the oldest known dinosaur eggs'],
+    options: ['It holds the oldest gold deposits in the world', 'It preserves famous Permian reptile and therapsid fossils', 'It has active volcanoes that scientists study', 'It holds the oldest known human fossils'],
     answer: 'It preserves famous Permian reptile and therapsid fossils',
     explanation: 'The Karoo\'s fine-grained shale and mudstone preserved an exceptional fossil record of early land vertebrates from the Permian period.',
   },

@@ -154,8 +154,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'At which latitude are the westerlies found?',
-    options: ['0°', '30°', '60°', '90°'],
-    answer: '60°',
+    options: ['0° to 30°', '30° to 60°', '60° to 90°', '0° to 15°'],
+    answer: '30° to 60°',
     explanation: 'Westerlies blow between 30° and 60° in both hemispheres, from the subtropical high toward the sub-polar low.',
   },
   {

@@ -44,7 +44,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-slate-50 p-4">
             <strong className="text-slate-700">Nitrogen Fixation</strong>
-            <p className="text-slate-600">Rhizobium bacteria in root nodules convert atmospheric N₂ into usable nitrates for plants.</p>
+            <p className="text-slate-600">Rhizobium bacteria in root nodules fix atmospheric N₂ into usable ammonia for plants.</p>
           </div>
           <div className="rounded-xl bg-slate-50 p-4">
             <strong className="text-slate-700">Food Production</strong>
@@ -142,7 +142,7 @@ const bank: LSItem[] = [
     prompt: 'Rhizobium bacteria found in root nodules of legumes perform which ecological role?',
     options: ['Decomposition', 'Nitrogen fixation', 'Fermentation', 'Photosynthesis'],
     answer: 'Nitrogen fixation',
-    explanation: 'Rhizobium converts atmospheric N₂ into nitrates that plants can absorb, enriching the soil.',
+    explanation: 'Rhizobium fixes atmospheric N₂ into ammonia that plants can use, enriching the soil. Other soil bacteria can then change the ammonia into nitrates.',
   },
   {
     prompt: 'Which micro-organism causes malaria?',
