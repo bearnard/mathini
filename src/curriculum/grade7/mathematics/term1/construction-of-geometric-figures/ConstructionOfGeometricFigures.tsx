@@ -73,7 +73,7 @@ export const learnSteps: LearnStep[] = [
           ]}
         />
         <Mistake>
-          A compass width of {minWidth - 1} cm or less. The arcs never meet, so there is nothing to join.
+          A compass width of {minWidth} cm (half of AB) or less. The arcs only touch at the midpoint or never meet, so there are no two crossing points to join.
         </Mistake>
       </>,
     ),
@@ -91,7 +91,7 @@ export const learnSteps: LearnStep[] = [
             <>If two angles are {tri.known[0]}° and {tri.known[1]}°, the third is 180° − {tri.known[0] + tri.known[1]}° = <strong>{third}°</strong>.</>,
           ]}
         />
-        <Mistake>Calling 5, 5, 8 equilateral. Only two sides match, and a triangle can be isosceles without a right angle.</Mistake>
+        <Mistake>Calling 5, 5, 8 equilateral. Only two sides match, so it is isosceles. Equilateral needs all three sides equal.</Mistake>
       </>,
     ),
   },
