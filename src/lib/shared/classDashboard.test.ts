@@ -7,7 +7,7 @@ import type { ClassProgress } from './classProgressTypes';
 import { AttentionCard, ClassTiles, ImprovementCard, LearnersCard, ScoreCard, TopicHeatmap } from '../../components/teacher/ClassDashboard';
 
 const topic = (i: number, a: number | null, lv: [number, number, number, number]) => ({ task: `t${i}`, label: `Topic ${i}`, practised: lv[1] + lv[2] + lv[3], avgAccuracyPct: a, levels: { not_started: lv[0], learning: lv[1], getting_there: lv[2], mastered: lv[3] } });
-const learner = (nickname: string, avg: number | null, change: number | null, due = 0, last: string | null = '2026-11-14') => ({ nickname, topicsPractised: avg === null ? 0 : 4, avgAccuracyPct: avg, dueCount: due, changePoints: change, lastPractisedDay: last });
+const learner = (nickname: string, avg: number | null, change: number | null, due = 0, last: string | null = '2026-11-14') => ({ studentId: `id-${nickname}`, nickname, topicsPractised: avg === null ? 0 : 4, avgAccuracyPct: avg, dueCount: due, changePoints: change, lastPractisedDay: last });
 const P: ClassProgress = {
   generatedAt: '2026-11-15T08:00:00.000Z', classId: 'c1', className: '6B Natural Sciences', grade: 6, memberCount: 5,
   exam: { title: 'Term 3 and 4 test', examDate: '2026-11-27', daysLeft: 12 },

@@ -184,8 +184,15 @@ export function ImprovementCard({ p, since, onSince, err }: { p: ClassProgress; 
   );
 }
 
-const learnerColumns: Column<ClassLearner>[] = [
-  { key: 'nickname', label: 'Nickname', sortValue: (l) => l.nickname, className: 'max-w-[10rem] break-words' },
+/** The nickname as a link-looking button with a chevron: the keyboard route into the learner's page (the whole row is clickable with the mouse). */
+export const OpenLearnerLink = ({ nickname, onOpen }: { nickname: string; onOpen: () => void }) => (
+  <button type="button" onClick={(e) => { e.stopPropagation(); onOpen(); }} className="inline-flex min-h-11 items-center gap-1 break-words text-left font-semibold text-indigo-700 underline decoration-indigo-300 underline-offset-2 hover:text-indigo-900 focus-visible:outline-2 focus-visible:outline-indigo-600" aria-label={`Open ${nickname}'s progress`}>
+    {nickname}<span aria-hidden="true" className="text-indigo-400">›</span>
+  </button>
+);
+
+const learnerColumns = (onOpen?: (studentId: string) => void): Column<ClassLearner>[] => [
+  { key: 'nickname', label: 'Nickname', sortValue: (l) => l.nickname, className: 'max-w-[10rem] break-words', render: onOpen ? (l) => <OpenLearnerLink nickname={l.nickname} onOpen={() => onOpen(l.studentId)} /> : undefined },
   { key: 'topics', label: 'Topics', align: 'right', sortValue: (l) => l.topicsPractised },
   { key: 'avg', label: 'Average', align: 'right', sortValue: (l) => l.avgAccuracyPct, render: (l) => pctText(l.avgAccuracyPct, '–') },
   { key: 'change', label: 'Change', align: 'right', sortValue: (l) => l.changePoints, render: (l) => signedText(l.changePoints) },
@@ -194,10 +201,10 @@ const learnerColumns: Column<ClassLearner>[] = [
 ];
 
 /** Alphabetical to start with (the server's order); a teacher can sort any column, but no rank or position is ever shown. */
-export function LearnersCard({ p }: { p: ClassProgress }) {
+export function LearnersCard({ p, onOpenLearner }: { p: ClassProgress; onOpenLearner?: (studentId: string) => void }) {
   return (
-    <SectionCard id="learners" title="Learners" subtitle="Nicknames only. Click a heading to sort.">
-      <SortableTable caption="Learners in the class" columns={learnerColumns} rows={p.learners} rowKey={(l) => l.nickname} defaultSort={{ key: 'nickname', dir: 'asc' }} empty={<EmptyState title="No learners yet">Share the class code and they will appear here.</EmptyState>} />
+    <SectionCard id="learners" title="Learners" subtitle={onOpenLearner ? 'Nicknames only. Click a learner to see their progress, or a heading to sort.' : 'Nicknames only. Click a heading to sort.'}>
+      <SortableTable caption="Learners in the class" columns={learnerColumns(onOpenLearner)} onRowClick={onOpenLearner ? (l) => onOpenLearner(l.studentId) : undefined} rows={p.learners} rowKey={(l) => l.studentId} defaultSort={{ key: 'nickname', dir: 'asc' }} empty={<EmptyState title="No learners yet">Share the class code and they will appear here.</EmptyState>} />
     </SectionCard>
   );
 }
@@ -222,9 +229,11 @@ export interface ClassDashboardProps {
   endpoint?: string;
   /** The teacher area's own cards, placed in the grid. */
   extras?: { actions?: ReactNode; roster?: ReactNode; exams?: ReactNode };
+  /** Opens one learner's page (teacher area only). */
+  onOpenLearner?: (studentId: string) => void;
 }
 
-export default function ClassDashboard({ classId, endpoint, extras }: ClassDashboardProps) {
+export default function ClassDashboard({ classId, endpoint, extras, onOpenLearner }: ClassDashboardProps) {
   const { p, since, load, err } = useClassProgress(classId, endpoint);
   if (p === null) return <ClassDashboardSkeleton />;
   if (p === 'error') return <p className="text-red-700" role="alert">Could not load the class progress.</p>;
@@ -240,7 +249,7 @@ export default function ClassDashboard({ classId, endpoint, extras }: ClassDashb
         <GridItem><ScoreCard p={p} /></GridItem>
         <GridItem><AttentionCard p={p} /></GridItem>
         {extras?.exams ? <GridItem>{extras.exams}</GridItem> : null}
-        <GridItem span="wide"><LearnersCard p={p} /></GridItem>
+        <GridItem span="wide"><LearnersCard p={p} onOpenLearner={onOpenLearner} /></GridItem>
         {extras?.roster ? <GridItem>{extras.roster}</GridItem> : null}
       </DashboardGrid>
     </div>

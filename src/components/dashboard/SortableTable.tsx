@@ -19,13 +19,15 @@ export interface Column<T> {
  * A table whose headers sort it. Keyboard and screen-reader friendly: each sortable header is a button, the header cell says aria-sort, and the
  * table has a caption (hidden, for screen readers). On a phone it scrolls sideways inside its own box instead of widening the page.
  */
-export default function SortableTable<T>({ columns, rows, rowKey, caption, defaultSort, empty }: {
+export default function SortableTable<T>({ columns, rows, rowKey, caption, defaultSort, empty, onRowClick }: {
   columns: Column<T>[];
   rows: readonly T[];
   rowKey: (row: T) => string;
   caption: string;
   defaultSort?: { key: string; dir?: SortDir };
   empty?: ReactNode;
+  /** Makes the whole row clickable with the mouse. Keyboard users get the same action from a button inside the row (give one in a column's `render`). */
+  onRowClick?: (row: T) => void;
 }) {
   const [sort, setSort] = useState<SortState | null>(defaultSort ? { key: defaultSort.key, dir: defaultSort.dir ?? 'asc' } : null);
   const shown = useMemo(() => {
@@ -58,7 +60,7 @@ export default function SortableTable<T>({ columns, rows, rowKey, caption, defau
         </thead>
         <tbody className="divide-y divide-slate-100">
           {shown.map((row) => (
-            <tr key={rowKey(row)} className="hover:bg-slate-50">
+            <tr key={rowKey(row)} className={`hover:bg-slate-50 ${onRowClick ? 'cursor-pointer' : ''}`} onClick={onRowClick ? () => onRowClick(row) : undefined}>
               {columns.map((c, i) => (
                 <td key={c.key} className={`px-3 py-2.5 text-slate-800 ${c.align === 'right' ? 'text-right tabular-nums' : ''} ${i === 0 ? 'font-semibold text-slate-900' : ''} ${c.className ?? ''}`}>
                   {c.render ? c.render(row) : String(c.sortValue?.(row) ?? '')}
