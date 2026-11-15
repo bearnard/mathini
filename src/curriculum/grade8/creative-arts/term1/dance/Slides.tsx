@@ -117,22 +117,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which is locomotor: skipping across the room or twisting on one spot?</li>
-            <li>{phraseTotal} counts are how many bars of 4?</li>
-            <li>Why do dancers change level?</li>
-            <li>Name two parts of a safe rehearsal.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Skipping across the room, because the dancer travels.</li>
-            <li>{phraseTotal} ÷ 4 = {barsOf(phraseTotal)} bars.</li>
-            <li>It uses the space in a new way and adds visual interest.</li>
-            <li>Any two of: warm-up, good posture, controlled stretching, cool-down.</li>
-          </ol>
-        }
+        questions={[
+          <>Which is locomotor: skipping across the room or twisting on one spot?</>,
+          <>{phraseTotal} counts are how many bars of 4?</>,
+          <>Why do dancers change level?</>,
+          <>Name two parts of a safe rehearsal.</>,
+        ]}
+        answers={[
+          <>Skipping across the room, because the dancer travels.</>,
+          <>{phraseTotal} ÷ 4 = {barsOf(phraseTotal)} bars.</>,
+          <>It uses the space in a new way and adds visual interest.</>,
+          <>Any two of: warm-up, good posture, controlled stretching, cool-down.</>,
+        ]}
       />,
     ),
   },

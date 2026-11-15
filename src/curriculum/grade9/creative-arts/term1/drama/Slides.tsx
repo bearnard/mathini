@@ -92,22 +92,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is devised drama?</li>
-            <li>Name two things performers use to build mood.</li>
-            <li>A route goes from {route.names[0]} to {route.names[1]} to {route.names[2]}. How many moves is that?</li>
-            <li>What does physical theatre emphasise?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Theatre made by the performers from ideas, without a written script.</li>
-            <li>Any two of: tone, pace, tension, the performers&apos; choices.</li>
-            <li>{route.totalSteps} moves.</li>
-            <li>Movement, gesture and body expression more than dialogue.</li>
-          </ol>
-        }
+        questions={[
+          <>What is devised drama?</>,
+          <>Name two things performers use to build mood.</>,
+          <>A route goes from {route.names[0]} to {route.names[1]} to {route.names[2]}. How many moves is that?</>,
+          <>What does physical theatre emphasise?</>,
+        ]}
+        answers={[
+          <>Theatre made by the performers from ideas, without a written script.</>,
+          <>Any two of: tone, pace, tension, the performers&apos; choices.</>,
+          <>{route.totalSteps} moves.</>,
+          <>Movement, gesture and body expression more than dialogue.</>,
+        ]}
       />,
     ),
   },

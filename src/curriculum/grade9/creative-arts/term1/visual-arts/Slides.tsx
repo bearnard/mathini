@@ -93,22 +93,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which kind of perspective has all receding lines meeting at one point?</li>
-            <li>You enlarge a {Q.cols} by {Q.rows} grid of {Q.cell} cm squares four times. How wide is each new square and how wide is the new grid?</li>
-            <li>Which shading method uses two sets of crossing lines?</li>
-            <li>What does atmospheric perspective do to distant objects?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>One-point perspective.</li>
-            <li>Each square is {Q.bigCell} cm; the grid is {Q.bigWidth} cm wide and {Q.bigHeight} cm high.</li>
-            <li>Cross-hatching.</li>
-            <li>It makes them fainter and hazier.</li>
-          </ol>
-        }
+        questions={[
+          <>Which kind of perspective has all receding lines meeting at one point?</>,
+          <>You enlarge a {Q.cols} by {Q.rows} grid of {Q.cell} cm squares four times. How wide is each new square and how wide is the new grid?</>,
+          <>Which shading method uses two sets of crossing lines?</>,
+          <>What does atmospheric perspective do to distant objects?</>,
+        ]}
+        answers={[
+          <>One-point perspective.</>,
+          <>Each square is {Q.bigCell} cm; the grid is {Q.bigWidth} cm wide and {Q.bigHeight} cm high.</>,
+          <>Cross-hatching.</>,
+          <>It makes them fainter and hazier.</>,
+        ]}
       />,
     ),
   },

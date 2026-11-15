@@ -98,22 +98,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is choreographic intent?</li>
-            <li>In the pattern {PATTERN}, how many times does motif A appear?</li>
-            <li>Three dancers do a canon of an {LENGTH}-count phrase, 4 counts apart. On which count does the last one finish?</li>
-            <li>What does a formation describe?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The purpose or message the choreographer wants to share.</li>
-            <li>{pc.A} times.</li>
-            <li>Starts {q2.join(', ')}; the last starts at {q2[2]} and finishes at {q2[2]} + {LENGTH} = {q2End}.</li>
-            <li>How the dancers are arranged and placed on the stage.</li>
-          </ol>
-        }
+        questions={[
+          <>What is choreographic intent?</>,
+          <>In the pattern {PATTERN}, how many times does motif A appear?</>,
+          <>Three dancers do a canon of an {LENGTH}-count phrase, 4 counts apart. On which count does the last one finish?</>,
+          <>What does a formation describe?</>,
+        ]}
+        answers={[
+          <>The purpose or message the choreographer wants to share.</>,
+          <>{pc.A} times.</>,
+          <>Starts {q2.join(', ')}; the last starts at {q2[2]} and finishes at {q2[2]} + {LENGTH} = {q2End}.</>,
+          <>How the dancers are arranged and placed on the stage.</>,
+        ]}
       />,
     ),
   },

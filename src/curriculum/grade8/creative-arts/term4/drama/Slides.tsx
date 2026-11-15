@@ -111,22 +111,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does a scripted performance require?</li>
-            <li>Why does clear articulation help?</li>
-            <li>What does cue accuracy mean?</li>
-            <li>What should a post-performance reflection include?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Interpreting written dialogue and stage directions.</li>
-            <li>It makes spoken lines easier to understand.</li>
-            <li>Coming in or speaking at the right moment.</li>
-            <li>Evidence from specific moments in the scene.</li>
-          </ol>
-        }
+        questions={[
+          <>What does a scripted performance require?</>,
+          <>Why does clear articulation help?</>,
+          <>What does cue accuracy mean?</>,
+          <>What should a post-performance reflection include?</>,
+        ]}
+        answers={[
+          <>Interpreting written dialogue and stage directions.</>,
+          <>It makes spoken lines easier to understand.</>,
+          <>Coming in or speaking at the right moment.</>,
+          <>Evidence from specific moments in the scene.</>,
+        ]}
       />,
     ),
   },

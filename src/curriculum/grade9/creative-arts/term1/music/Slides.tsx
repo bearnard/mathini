@@ -98,22 +98,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does improvisation mean?</li>
-            <li>Which note is the seventh note of the G major scale?</li>
-            <li>A bar of 4/4 has a crotchet, a crotchet and a minim. Is it full?</li>
-            <li>Which marking asks the group to get gradually faster?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Creating music on the spot within a set structure.</li>
-            <li>{names[6]} (F sharp).</li>
-            <li>1 + 1 + 2 = {q3.total}, so it is {q3.status}.</li>
-            <li>Accelerando.</li>
-          </ol>
-        }
+        questions={[
+          <>What does improvisation mean?</>,
+          <>Which note is the seventh note of the G major scale?</>,
+          <>A bar of 4/4 has a crotchet, a crotchet and a minim. Is it full?</>,
+          <>Which marking asks the group to get gradually faster?</>,
+        ]}
+        answers={[
+          <>Creating music on the spot within a set structure.</>,
+          <>{names[6]} (F sharp).</>,
+          <>1 + 1 + 2 = {q3.total}, so it is {q3.status}.</>,
+          <>Accelerando.</>,
+        ]}
       />,
     ),
   },

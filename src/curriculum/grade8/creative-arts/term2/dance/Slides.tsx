@@ -127,22 +127,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a motif?</li>
-            <li>A {motifTotal}-count motif is repeated once. How many counts is that?</li>
-            <li>{DANCERS} dancers stand in rows of {COLS}. How many rows?</li>
-            <li>Why are partner moves agreed and counted together?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A short movement idea that a dance is built from.</li>
-            <li>{motifTotal} × 2 = {v.repeated.counts} counts.</li>
-            <li>{DANCERS} ÷ {COLS} = {block.rows} rows.</li>
-            <li>It keeps the movement safe: clear communication, control and shared timing.</li>
-          </ol>
-        }
+        questions={[
+          <>What is a motif?</>,
+          <>A {motifTotal}-count motif is repeated once. How many counts is that?</>,
+          <>{DANCERS} dancers stand in rows of {COLS}. How many rows?</>,
+          <>Why are partner moves agreed and counted together?</>,
+        ]}
+        answers={[
+          <>A short movement idea that a dance is built from.</>,
+          <>{motifTotal} × 2 = {v.repeated.counts} counts.</>,
+          <>{DANCERS} ÷ {COLS} = {block.rows} rows.</>,
+          <>It keeps the movement safe: clear communication, control and shared timing.</>,
+        ]}
       />,
     ),
   },

@@ -102,22 +102,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What do the pieces you choose for a strong portfolio need to demonstrate?</li>
-            <li>Name one finishing technique.</li>
-            <li>What does exhibition planning mainly involve?</li>
-            <li>What should an artist statement explain?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Range, skill development and effort.</li>
-            <li>Cleaning edges or mounting neatly.</li>
-            <li>Arranging artworks for clear viewing and flow.</li>
-            <li>Your ideas, choices and techniques.</li>
-          </ol>
-        }
+        questions={[
+          <>What do the pieces you choose for a strong portfolio need to demonstrate?</>,
+          <>Name one finishing technique.</>,
+          <>What does exhibition planning mainly involve?</>,
+          <>What should an artist statement explain?</>,
+        ]}
+        answers={[
+          <>Range, skill development and effort.</>,
+          <>Cleaning edges or mounting neatly.</>,
+          <>Arranging artworks for clear viewing and flow.</>,
+          <>Your ideas, choices and techniques.</>,
+        ]}
       />,
     ),
   },

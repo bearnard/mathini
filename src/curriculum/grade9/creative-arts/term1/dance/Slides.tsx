@@ -122,22 +122,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does alignment mean in dance?</li>
-            <li>Is a skip travelling or non-locomotor? What about a twist on the spot?</li>
-            <li>A phrase has slide for {q3.moves[0].counts} counts, bend for {q3.moves[1].counts} and turn for {q3.moves[2].counts}. How many counts is that?</li>
-            <li>Why would a choreographer put a slow, smooth movement next to a fast, sharp one?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Holding the body correctly to prevent injury and move well.</li>
-            <li>A skip is travelling; a twist on the spot is non-locomotor.</li>
-            <li>{q3.moves.map((m) => m.counts).join(' + ')} = {q3.total} counts, or {q3.eights.full} eights.</li>
-            <li>For contrast: different movements, speeds or energy placed side by side.</li>
-          </ol>
-        }
+        questions={[
+          <>What does alignment mean in dance?</>,
+          <>Is a skip travelling or non-locomotor? What about a twist on the spot?</>,
+          <>A phrase has slide for {q3.moves[0].counts} counts, bend for {q3.moves[1].counts} and turn for {q3.moves[2].counts}. How many counts is that?</>,
+          <>Why would a choreographer put a slow, smooth movement next to a fast, sharp one?</>,
+        ]}
+        answers={[
+          <>Holding the body correctly to prevent injury and move well.</>,
+          <>A skip is travelling; a twist on the spot is non-locomotor.</>,
+          <>{q3.moves.map((m) => m.counts).join(' + ')} = {q3.total} counts, or {q3.eights.full} eights.</>,
+          <>For contrast: different movements, speeds or energy placed side by side.</>,
+        ]}
       />,
     ),
   },

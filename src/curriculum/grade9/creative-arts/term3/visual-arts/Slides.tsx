@@ -85,22 +85,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does symbolism mean in art?</li>
-            <li>What does mixed media mean?</li>
-            <li>What does an artist statement explain?</li>
-            <li>List the steps for planning a themed artwork.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Using images or colours to stand for ideas or feelings.</li>
-            <li>Combining several materials or techniques in one artwork.</li>
-            <li>The artist&apos;s aim, inspiration and the meaning of the work.</li>
-            <li>Research, develop ideas, choose materials and sketch.</li>
-          </ol>
-        }
+        questions={[
+          <>What does symbolism mean in art?</>,
+          <>What does mixed media mean?</>,
+          <>What does an artist statement explain?</>,
+          <>List the steps for planning a themed artwork.</>,
+        ]}
+        answers={[
+          <>Using images or colours to stand for ideas or feelings.</>,
+          <>Combining several materials or techniques in one artwork.</>,
+          <>The artist&apos;s aim, inspiration and the meaning of the work.</>,
+          <>Research, develop ideas, choose materials and sketch.</>,
+        ]}
       />,
     ),
   },

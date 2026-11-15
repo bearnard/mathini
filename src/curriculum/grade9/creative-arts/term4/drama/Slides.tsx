@@ -85,22 +85,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name three technical theatre roles.</li>
-            <li>An actor scores {Q2.join(', ')} out of 5 on four criteria. Give the total out of {q2.outOf}.</li>
-            <li>What are design choices?</li>
-            <li>Give two careers in drama.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Any three of: lighting, sound, set design, costume, stage management.</li>
-            <li>{q2.total} out of {q2.outOf}, which is {q2.percent}%.</li>
-            <li>The costume, lighting, set and props that support the production&apos;s vision.</li>
-            <li>Any two of: actor, director, playwright, dramaturge, drama therapist.</li>
-          </ol>
-        }
+        questions={[
+          <>Name three technical theatre roles.</>,
+          <>An actor scores {Q2.join(', ')} out of 5 on four criteria. Give the total out of {q2.outOf}.</>,
+          <>What are design choices?</>,
+          <>Give two careers in drama.</>,
+        ]}
+        answers={[
+          <>Any three of: lighting, sound, set design, costume, stage management.</>,
+          <>{q2.total} out of {q2.outOf}, which is {q2.percent}%.</>,
+          <>The costume, lighting, set and props that support the production&apos;s vision.</>,
+          <>Any two of: actor, director, playwright, dramaturge, drama therapist.</>,
+        ]}
       />,
     ),
   },

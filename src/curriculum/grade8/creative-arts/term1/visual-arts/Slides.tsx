@@ -88,22 +88,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Pale yellow and deep navy differ most in which element of art?</li>
-            <li>Name two marks that show texture in a drawing.</li>
-            <li>Which colour is the complement of orange on the wheel?</li>
-            <li>Objects nearest the viewer are in which part of a picture?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Value.</li>
-            <li>Hatching and stippling (or cross-hatching).</li>
-            <li>{orangeComplement[0].toUpperCase() + orangeComplement.slice(1)}.</li>
-            <li>The foreground.</li>
-          </ol>
-        }
+        questions={[
+          <>Pale yellow and deep navy differ most in which element of art?</>,
+          <>Name two marks that show texture in a drawing.</>,
+          <>Which colour is the complement of orange on the wheel?</>,
+          <>Objects nearest the viewer are in which part of a picture?</>,
+        ]}
+        answers={[
+          <>Value.</>,
+          <>Hatching and stippling (or cross-hatching).</>,
+          <>{orangeComplement[0].toUpperCase() + orangeComplement.slice(1)}.</>,
+          <>The foreground.</>,
+        ]}
       />,
     ),
   },

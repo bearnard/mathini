@@ -114,22 +114,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does aural recall mean?</li>
-            <li>Bars 3 to 4 are practised 5 times. How many bars of practice is that?</li>
-            <li>How long do 2 bars of 3/4 last at 60 beats a minute?</li>
-            <li>What should a self-evaluation include?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Remembering and naming sounds by listening.</li>
-            <li>2 bars × 5 = {barsPracticed(3, 4, 5)} bars.</li>
-            <li>1 second a beat, 3 beats a bar, so 2 bars last {q3} seconds.</li>
-            <li>One success and one improvement goal.</li>
-          </ol>
-        }
+        questions={[
+          <>What does aural recall mean?</>,
+          <>Bars 3 to 4 are practised 5 times. How many bars of practice is that?</>,
+          <>How long do 2 bars of 3/4 last at 60 beats a minute?</>,
+          <>What should a self-evaluation include?</>,
+        ]}
+        answers={[
+          <>Remembering and naming sounds by listening.</>,
+          <>2 bars × 5 = {barsPracticed(3, 4, 5)} bars.</>,
+          <>1 second a beat, 3 beats a bar, so 2 bars last {q3} seconds.</>,
+          <>One success and one improvement goal.</>,
+        ]}
       />,
     ),
   },
