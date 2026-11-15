@@ -1,41 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './WritingPresentingT2.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Formal email, review, report, dialogue, and transactional writing',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 2 Writing & Presenting focuses on <strong>formal email, review, report, dialogue,</strong>{' '}
-          and transactional writing.
-        </p>
-        <p className="text-slate-600">
-          Learners write formal transactional texts while maintaining correct register and format.
-        </p>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practise these formal-writing words before composing emails, reports, speeches, and other transactional texts.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"I-imeyile"} phonetic={"[i i'meːjile]"} meaning={"Email"} lang="xh" />
-          <PronunciationPlayer word={"Ingxelo"} phonetic={"[iŋ'xelo]"} meaning={"Report"} lang="xh" />
-          <PronunciationPlayer word={"Inqaku"} phonetic={"[inqaku]"} meaning={"Article / note"} lang="xh" />
-          <PronunciationPlayer word={"Ileta"} phonetic={"[i'lɛta]"} meaning={"Letter"} lang="xh" />
-          <PronunciationPlayer word={"Intetho"} phonetic={"[in'tɛːtʰɔ]"} meaning={"Speech"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {

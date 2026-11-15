@@ -1,42 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './ListeningSpeakingT2.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Prepared talks, interviews, summarising, group discussion, and role play',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 2 Listening & Speaking focuses on <strong>prepared talks, interviews, summarising spoken information,</strong>{' '}
-          group discussion, and role play.
-        </p>
-        <p className="text-slate-600">
-          Learners summarise and communicate confidently in formal and informal situations.
-        </p>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Practice these formal oral-task words before speeches, interviews, summaries, or discussions.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Intetho"} phonetic={"[in'tɛːtʰɔ]"} meaning={"Speech"} lang="xh" />
-          <PronunciationPlayer word={"Ingxoxo"} phonetic={"[iŋ'xɔxɔ]"} meaning={"Discussion"} lang="xh" />
-          <PronunciationPlayer word={"Udliwano-ndlebe"} phonetic={"[udli'wanɔ ndlɛbɛ]"} meaning={"Interview"} lang="xh" />
-          <PronunciationPlayer word={"Phulaphula"} phonetic={"[pʰula'pʰula]"} meaning={"Listen"} lang="xh" />
-          <PronunciationPlayer word={"Thetha"} phonetic={"[tɛta]"} meaning={"Speak"} lang="xh" />
-          <PronunciationPlayer word={"Isishwankathelo"} phonetic={"[isiʃwaŋka'tʰeːlɔ]"} meaning={"Summary"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {
