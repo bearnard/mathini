@@ -102,7 +102,7 @@ const bank: CapsItem[] = [
   {
     prompt: 'Which of the following demonstrates correct subject-verb agreement?',
     options: [
-      '"The group of learners were excited."',
+      '"The learners in the class was excited."',
       '"Each of the boys have finished their work."',
       '"The committee has made its decision."',
       '"Neither the teacher nor the learners was prepared."',

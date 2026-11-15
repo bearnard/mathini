@@ -82,7 +82,7 @@ const bank: AfrikaansItem[] = [
     explanation: 'Verb form and sentence structure are correct.',
   },
   {
-    prompt: "Watter voegwoord verbeter samehang hier: 'Hy het hard gewerk, ___ hy geslaag.'",
+    prompt: "Watter voegwoord verbeter samehang hier: 'Hy het hard gewerk, ___ het hy geslaag.'",
     options: ['dus', 'maar', 'of', 'alhoewel'],
     answer: 'dus',
     explanation: "'Dus' shows logical result.",

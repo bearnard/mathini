@@ -145,7 +145,7 @@ const bank: CapsItem[] = [
     explanation: '"Abantwana" belongs to the aba- noun class. Its subject concord is "ba-", e.g. "Abantwana bayafunda."',
   },
   {
-    prompt: 'Complete the sentence with the correct concord: "Inja _____ gijima."',
+    prompt: 'Complete the sentence with the correct verb form: "Inja _____." (The dog runs.)',
     options: ['iyagijima', 'bayagijima', 'uyagijima', 'ziyagijima'],
     answer: 'iyagijima',
     explanation: '"Inja" (dog) takes the "i-" subject concord, giving "Inja iyagijima."',

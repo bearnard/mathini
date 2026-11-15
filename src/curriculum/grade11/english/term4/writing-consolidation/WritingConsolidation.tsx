@@ -142,10 +142,10 @@ const bank: CapsItem[] = [
     explanation: 'A strong conclusion brings the essay to a satisfying close — it does not introduce new evidence but reflects on what has been argued.',
   },
   {
-    prompt: 'What is the difference between proofreading and editing?',
-    options: ['The two are identical processes', 'Proofreading fixes surface errors; editing improves content and structure', 'Proofreading is done before drafting and editing during it', 'Editing is for novels and proofreading is for essays'],
-    answer: 'Proofreading fixes surface errors; editing improves content and structure',
-    explanation: 'Editing is deeper revision of content and argument. Proofreading is the final surface-level check. Both are important before submitting written work.',
+    prompt: 'What is the difference between revising and editing?',
+    options: ['Revising checks spelling and punctuation; editing adds new ideas and paragraphs', 'Revising improves content and structure; editing corrects grammar, spelling and punctuation', 'Revising happens before drafting begins, and editing happens while the writer is drafting', 'Editing is only used for novels, while revising is only used for essay writing tasks'],
+    answer: 'Revising improves content and structure; editing corrects grammar, spelling and punctuation',
+    explanation: 'Revising looks at ideas, organisation and structure. Editing corrects language errors, and proofreading is the final surface-level check. Both are important before submitting written work.',
   },
   {
     prompt: 'What is the correct salutation in a formal letter to an unknown person?',
