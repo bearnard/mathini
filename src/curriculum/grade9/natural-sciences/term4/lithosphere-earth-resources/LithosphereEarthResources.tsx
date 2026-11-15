@@ -1,68 +1,137 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Compare, Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { EarthLayers, PlateMotions } from '../../../../../components/diagrams/science/SciencePictures10';
+import { LAYERS, thickestLayer, thickness } from '../../../../../components/diagrams/science/science9bHelpers';
+
+// The layer thicknesses come from a tested helper (science9b.test.ts), using standard values in km.
+const nb = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+const mantleKm = nb(thickness('mantle'));
+const outerKm = nb(thickness('outer core'));
+const crustKm = thickness('crust');
+const centreKm = nb(LAYERS[LAYERS.length - 1].to);
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Rocks, minerals, and Earth structure',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Minerals</strong> are natural, crystalline solids. <strong>Rocks</strong> are made
-          of minerals. The Earth has layers: <strong>crust</strong>, <strong>mantle</strong>, and
-          <strong> core</strong>. The <strong>lithosphere</strong> is the crust together with the
-          rigid top part of the mantle; tectonic plates are pieces of it.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl text-left">
-          <p className="font-bold text-slate-800 mb-2">Three types of rocks:</p>
-          <div className="space-y-2">
-            <p className="text-slate-600"><strong>Igneous:</strong> Form when molten rock cools (e.g., granite, basalt).</p>
-            <p className="text-slate-600"><strong>Sedimentary:</strong> Form from compressed sediment (e.g., sandstone).</p>
-            <p className="text-slate-600"><strong>Metamorphic:</strong> Form under heat and pressure (e.g., marble).</p>
-          </div>
-        </div>
-      </div>
+    title: 'The layers of the Earth',
+    content: slide(
+      <>
+        <Rule>
+          The Earth has layers: the crust, the mantle and the core. The mantle is the thickest layer, between the crust and the core. The lithosphere is the crust together with the rigid top of the mantle.
+        </Rule>
+        <EarthLayers />
+        <Worked
+          title="Compare the layers (standard values)"
+          steps={[<>The crust is very thin: about {crustKm} km on average.</>, <>The mantle is about {mantleKm} km thick: the thickest layer.</>, <>The outer core, about {outerKm} km thick, is liquid, and the inner core in the middle is solid. The centre is about {centreKm} km down. The {thickestLayer()} is the thickest layer.</>]}
+        />
+        <Mistake>Thinking the core is the thickest layer because it is at the centre. The mantle is thicker than the outer core, and thicker than the inner core&apos;s radius.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Plate tectonics and mining',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          The Earth's crust is divided into <strong>tectonic plates</strong> that move slowly. This
-          causes earthquakes and volcanoes. <strong>Mining</strong> extracts valuable minerals and fossil fuels.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Plate movement:</strong>
-            <p className="text-slate-600">Plates diverge (move apart), converge (collide), or slide past each other.</p>
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4">
-            <strong className="text-orange-700">Mining impacts:</strong>
-            <p className="text-slate-600">Job creation but environmental damage, pollution, habitat loss.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Minerals and rocks',
+    content: slide(
+      <>
+        <Rule>
+          A mineral is a natural solid with a crystal structure. Rocks are made of minerals. Igneous rocks form when molten rock cools; sedimentary rocks form from compressed sediment; metamorphic rocks form under heat and pressure.
+        </Rule>
+        <Terms
+          rows={[
+            ['Mineral', 'a naturally occurring crystalline solid substance'],
+            ['Igneous', 'molten rock (magma or lava) cools and solidifies: granite, basalt'],
+            ['Sedimentary', 'sediment is compressed and cemented: sandstone'],
+            ['Metamorphic', 'rock changed by heat and pressure: marble'],
+          ]}
+        />
+        <Worked
+          title="Name the rock type"
+          steps={[<>Basalt formed when lava cooled: igneous.</>, <>Sandstone formed from compressed sand: sedimentary.</>, <>Marble formed when rock was changed by heat and pressure: metamorphic.</>]}
+        />
+        <Mistake>Thinking minerals and rocks are the same thing. A rock is made of one or more minerals.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Fossil fuels and Earth resources',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Fossil fuels</strong> (coal, oil, gas) formed from ancient organisms. They are
-          <strong> non-renewable</strong> — once used, they cannot be replaced quickly.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-gray-50 p-4">
-            <strong className="text-gray-700">Fossil Fuels:</strong>
-            <p className="text-slate-600">Coal, oil, natural gas. Burned for energy.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Renewable Resources:</strong>
-            <p className="text-slate-600">Solar, wind, water, biofuel. Naturally replaced.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Tectonic plates',
+    content: slide(
+      <>
+        <Rule>
+          Tectonic plates are large sections of the crust (the lithosphere) that slowly move. The movement of tectonic plates causes earthquakes and volcanoes.
+        </Rule>
+        <PlateMotions />
+        <Worked
+          title="Plates and their effects"
+          steps={[<>Plates can diverge (move apart), converge (collide) or slide past each other.</>, <>When plates suddenly shift, they release energy: an earthquake.</>, <>At some boundaries rock melts and rises to form volcanoes.</>]}
+        />
+        <Mistake>Thinking the plates move fast enough to see. They move slowly, a few centimetres a year, but over millions of years this builds mountains and oceans.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Mining',
+    content: slide(
+      <>
+        <Rule>
+          Mining is taking minerals and fuels out of the ground. It can cause pollution, loss of habitat and dirty water.
+        </Rule>
+        <Compare
+          left={{ title: 'Benefits', tone: 'emerald', rows: ['jobs', 'minerals and fuels we use every day', 'money for the economy'] }}
+          right={{ title: 'Environmental costs', tone: 'amber', rows: ['pollution of air and land', 'loss of habitat', 'dirty water'] }}
+        />
+        <Worked
+          title="Weigh up a new mine"
+          steps={[<>List the benefits: jobs and income.</>, <>List the costs: pollution, loss of habitat and dirty water.</>, <>Mining has significant environmental costs despite its economic benefits, so careful planning and clean-up matter.</>]}
+        />
+        <Mistake>Looking only at the jobs a mine creates. The environmental impact is part of the full picture.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Fossil fuels and renewable resources',
+    content: slide(
+      <>
+        <Rule>
+          Fossil fuels are non-renewable fuels that came from ancient life. They are non-renewable because they take millions of years to form and we use them faster. Solar energy is renewable.
+        </Rule>
+        <Terms
+          rows={[
+            ['Fossil fuels', 'coal, oil and natural gas, formed from ancient organisms and burned for energy'],
+            ['Non-renewable', 'they take millions of years to form, and we use them much faster'],
+            ['Renewable', 'solar, wind, water and biofuel: naturally replaced; the Sun continuously provides solar energy'],
+          ]}
+        />
+        <Worked
+          title="Renewable or not?"
+          steps={[<>Coal formed over millions of years from ancient plants: non-renewable.</>, <>Sunlight is provided by the Sun all the time: solar energy is renewable.</>, <>We burn fuels far faster than nature makes them, so they will run out.</>]}
+        />
+        <Mistake>Calling a fuel renewable because there is a lot of it. Renewable means it is naturally replaced as fast as we use it.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is a mineral? Which layer of the Earth is thickest?</li>
+            <li>How do igneous rocks form? What are tectonic plates? What causes earthquakes?</li>
+            <li>What is mining? What is an environmental impact of mining?</li>
+            <li>What are fossil fuels? Why are they non-renewable? Which is a renewable resource?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>A natural solid with a crystal structure. The mantle.</li>
+            <li>When molten rock cools. Large sections of the crust that slowly move. Movement of tectonic plates.</li>
+            <li>Taking minerals and fuels out of the ground. It can cause pollution, loss of habitat and dirty water.</li>
+            <li>Non-renewable fuels that came from ancient life. They take millions of years to form and we use them faster. Solar energy.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
