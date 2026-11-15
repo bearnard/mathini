@@ -1,57 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import AnnotatedText from '@/components/subjects/AnnotatedText';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Read poems line by line for meaning',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Close reading means slowing down and noticing how each line contributes to meaning. Pay attention to stanza
-          structure, rhyme, and repeated language.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: "Annotated extract",
-    content: (
-      <AnnotatedText
-        title={"From \"I Wandered Lonely as a Cloud\" — William Wordsworth"}
-        text={"I wandered lonely as a cloud that floats on high o'er vales and hills, when all at once I saw a crowd, a host, of golden daffodils."}
-        annotations={[
-          { start: 11, end: 28, device: "simile", note: "The speaker compares himself to a drifting cloud to show isolation and movement." },
-          { start: 94, end: 109, device: "hyperbole", note: "The flowers are described in enlarged terms to emphasise their abundance." },
-          { start: 114, end: 130, device: "imagery", note: "The bright colour makes the natural scene vivid and memorable." },
-          { start: 34, end: 48, device: "tone", note: "The gentle phrase creates a calm, reflective tone before the joyful discovery." },
-        ]}
-      />
-    ),
-  },
-  {
-    title: 'Track imagery, tone and theme',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Imagery creates pictures in the mind, tone shows attitude, and theme expresses the central idea of the
-          poem.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Support answers with line references',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Strong poetry responses point to exact words or lines. Evidence from the text makes interpretations clearer
-          and more convincing.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './PoetryCloseReadingSlides';
 
 const bank: CapsItem[] = [
   {

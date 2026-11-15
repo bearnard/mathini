@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Revise all genres for integrated understanding',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 4 revision combines novel, poetry, drama, and media texts. Learners switch strategies according to
-          genre and question type.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Apply comprehension strategies flexibly',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Strong revision includes skimming for gist, scanning for detail, finding evidence, and making supported
-          inferences across mixed texts.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Practise summary and mixed-genre responses',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Effective summaries keep key ideas only. Mixed-genre questions reward careful reading, precise retrieval, and
-          clear explanation.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './RevisionAllGenresSlides';
 
 const bank: CapsItem[] = [
   {

@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Revise language structures in context',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Grammar works best when learned in real sentences. Grade 8 learners identify nouns, verbs, adjectives,
-          adverbs, and tense choices while checking punctuation accuracy.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Notice bias, prejudice and stereotypes',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Loaded language can push unfair viewpoints. Readers should question stereotypes, compare perspectives, and
-          ask whether claims are supported by evidence.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Edit language for fairness and clarity',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Careful editing improves both grammar and meaning. Replace biased wording with precise language and check
-          punctuation so the message is clear and respectful.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './LanguageStructuresBiasSlides';
 
 const bank: CapsItem[] = [
   {

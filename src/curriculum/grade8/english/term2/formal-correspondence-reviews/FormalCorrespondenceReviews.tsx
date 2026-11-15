@@ -1,41 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Choose correct correspondence format',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Formal and informal letters, emails, and reviews each have clear conventions. Correct format helps readers
-          understand purpose immediately.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Use register that suits audience',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Register means language style. Formal writing uses respectful, precise phrasing, while semi-formal writing
-          can be warmer but still controlled.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Write balanced reviews with evidence',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Good reviews include judgement supported by examples. A clear recommendation should match the reasons given
-          in the response.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './FormalCorrespondenceReviewsSlides';
 
 const bank: CapsItem[] = [
   {
