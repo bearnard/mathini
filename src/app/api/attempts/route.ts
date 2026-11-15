@@ -10,6 +10,7 @@ import { verifySession, SESSION_COOKIE_NAME } from '../../../lib/server/session'
 import { d1Adapter } from '../../../lib/server/admin/db';
 import { runIdForAttempt } from '../../../lib/server/progress/runs';
 import { attemptInsertPlans } from '../../../lib/server/progress/attemptPlans';
+import { attemptsLimiter } from '../../../lib/server/learnerGuards';
 
 export const dynamic = 'force-dynamic';
 
@@ -46,6 +47,11 @@ export async function POST(req: NextRequest) {
     const studentId = await verifySession(req.cookies.get(SESSION_COOKIE_NAME)?.value, env.SESSION_SECRET);
     if (!studentId) {
       return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
+    }
+
+    // Security review: a burst limit per learner (a runaway client or script must not be able to spend the shared D1 write budget).
+    if (!attemptsLimiter.allow(studentId, Date.now())) {
+      return NextResponse.json({ error: 'Too many answers too fast. Slow down for a moment.' }, { status: 429, headers: { 'Retry-After': '30' } });
     }
 
     // Parse task slug for denormalised fields
