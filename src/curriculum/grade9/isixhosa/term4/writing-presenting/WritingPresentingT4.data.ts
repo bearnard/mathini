@@ -26,7 +26,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Summarising a passage',
-      rule: 'Summarising a passage in an exam means capturing the main ideas in fewer words, clearly. Find the main idea of each paragraph, write them in your own words and leave out examples.',
+      rule: 'In an exam summary, capture the main ideas in fewer words and write them clearly. Find the main idea of each paragraph, write them in your own words and leave out examples.',
       workedTitle: 'From passage to summary',
       examples: [
         { xh: 'Namhlanje sifunda ngemfundo. Imfundo iyasinceda. Siyayithanda.', en: 'Today we learn about education. Education helps us. We love it.' },
@@ -36,7 +36,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Proofreading and transactional writing',
-      rule: 'Proofreading means checking spelling, grammar, punctuation and sense errors. Reviewing your own essay before submission helps you catch errors, improve phrasing and check completeness. For transactional writing, focus on format conventions, suitable register and a clear message.',
+      rule: 'Proofreading means checking spelling, grammar, punctuation and sense errors. Before you hand in your essay, review it: you will catch errors, improve phrasing and check completeness. For transactional writing, focus on format conventions, suitable register and a clear message.',
       workedTitle: 'Proofreading corrections',
       examples: [
         { xh: 'Ndi funda → Ndifunda', en: 'Join the marker to the verb. (spelling)' },

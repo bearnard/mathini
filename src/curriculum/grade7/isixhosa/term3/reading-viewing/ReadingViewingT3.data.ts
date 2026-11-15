@@ -56,7 +56,7 @@ const lesson: XhLesson = {
   ],
   checks: [
     { q: 'In poetry, what does mood mean?', a: 'The feeling that the poem creates.' },
-    { q: 'Which question checks the message of a folktale?', a: 'What lesson does the story teach?' },
+    { q: 'To find the message of an intsomi, which question do you ask?', a: 'What lesson does the story teach?' },
     { q: 'Name two key details in a factual text.', a: 'For example names, places, numbers or dates.' },
     { q: 'To find one detail in a short factual text, what do you do?', a: 'Read the question first, then scan the text.' },
   ],

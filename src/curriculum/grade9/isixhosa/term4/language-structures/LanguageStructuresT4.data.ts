@@ -4,7 +4,7 @@ import type { XhLesson } from '../../../../../components/subjects/lesson/xhosaLe
 const lesson: XhLesson = {
   slides: [
     {
-      title: 'Tense consistency',
+      title: 'Keeping one tense',
       rule: 'Within a paragraph, keep to the same tense unless the meaning needs a change. Present: ndifunda. Past: ndifundile. Future: ndiza kufunda. A time word such as izolo or ngomso tells you which tense to use.',
       workedTitle: 'A consistent paragraph and a needed change',
       examples: [
@@ -50,7 +50,7 @@ const lesson: XhLesson = {
     },
   ],
   checks: [
-    { q: 'What does tense consistency mean?', a: 'Keeping to the same tense unless the meaning needs a change.' },
+    { q: 'Why should the verbs in one paragraph keep the same tense?', a: 'So the reader can follow when things happen; change tense only when the meaning needs it.' },
     { q: 'Correct this: Abantwana uyadlala.', a: 'Abantwana bayadlala. (plural subject, plural marker)' },
     { q: 'What is a sentence fragment? Give an example from this lesson.', a: 'An incomplete sentence, for example Kuba ndifuna ukuphumelela.' },
     { q: 'List three things to look for when you correct your own grammar.', a: 'Tense errors, agreement problems and punctuation mistakes.' },

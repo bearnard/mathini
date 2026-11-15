@@ -28,7 +28,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Poetic devices and context clues',
-      rule: 'Poetic devices like metaphor and simile create vivid images and express emotion in few words. Context clues in a poem help you understand unfamiliar words and the poet’s intended meaning: read the words around the one you do not know.',
+      rule: 'Poetic devices like metaphor and simile create vivid images and express emotion in few words. When a poem has a word you do not know, read the words around it. These context clues also point to the poet’s intended meaning.',
       workedTitle: 'Devices and a clue',
       examples: [
         { xh: 'Ubuso bakhe bukhanya njengelanga.', en: 'Her face shines like the sun. (simile)' },
@@ -39,7 +39,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Message and quoting from the text',
-      rule: 'The message of a short story is often implied, not stated, and is shown through plot and theme. When you quote to support analysis, choose relevant quotes and explain why they matter. A quote without an explanation proves nothing.',
+      rule: 'A short story seldom states its message outright. It is implied and shown through plot and theme. When you quote to support analysis, choose relevant quotes and explain why they matter. A quote without an explanation proves nothing.',
       workedTitle: 'A message with a quotation and an explanation',
       examples: [
         { xh: 'Umyalezo: ukuncedana kubalulekile.', en: 'Message: helping one another is important. (implied, not stated)' },

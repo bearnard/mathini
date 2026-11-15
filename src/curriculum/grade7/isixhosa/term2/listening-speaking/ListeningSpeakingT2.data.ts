@@ -22,7 +22,7 @@ const lesson: XhLesson = {
         { xh: 'Jika ngasekunene.', en: 'Turn right.' },
         { xh: 'Jika ngasekhohlo.', en: 'Turn left.' },
         { xh: 'Qhubeka ngqo.', en: 'Go straight on.' },
-        { xh: 'Isikhululo sikufuphi nevenkile.', en: 'The station is near the shop.' },
+        { xh: 'Iposi likufuphi nesikolo.', en: 'The post office is near the school.' },
       ],
       mistake: 'Mixing up left and right. Listen for ekunene (right) and ekhohlo (left) and write each step down in order.',
     },
@@ -57,7 +57,7 @@ const lesson: XhLesson = {
     },
   ],
   checks: [
-    { q: 'What does “Malini le nto?” ask?', a: 'The price: how much is this?' },
+    { q: 'You point at a hat and say “Malini?” What do you want to know?', a: 'The price: how much is this?' },
     { q: 'Someone says “Jika ngasekunene.” Which way do you turn?', a: 'Right.' },
     { q: 'Say “Please show me the way.”', a: 'Nceda undibonise indlela.' },
     { q: 'How do you thank someone for their help?', a: 'Enkosi ngoncedo lwakho.' },

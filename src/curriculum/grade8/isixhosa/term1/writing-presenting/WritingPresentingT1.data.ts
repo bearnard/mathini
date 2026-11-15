@@ -51,7 +51,7 @@ const lesson: XhLesson = {
     { q: 'What should a narrative paragraph include?', a: 'A sequence of events (in order, with time words).' },
     { q: 'Name two parts of a friendly letter.', a: 'Any two of: greeting, message, sign-off / closing, date.' },
     { q: 'How do you show speaker turns in a dialogue?', a: 'Put each speaker on a new line with their name, e.g. UAyanda: ...' },
-    { q: 'What is the purpose of drafting?', a: 'To shape ideas before the final writing; redrafting then fixes clarity and errors.' },
+    { q: 'Why do writers draft before the final copy?', a: 'To shape ideas before the final writing; redrafting then fixes clarity and errors.' },
   ],
 };
 

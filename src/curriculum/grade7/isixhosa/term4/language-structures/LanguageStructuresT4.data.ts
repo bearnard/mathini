@@ -58,7 +58,7 @@ const lesson: XhLesson = {
     { q: 'Put in the future: Ndibhala uvavanyo.', a: 'Ndiza kubhala uvavanyo.' },
     { q: 'Complete: Bona ___ yadlala ebaleni (bayadlala or uyadlala).', a: 'bayadlala' },
     { q: 'Ask a group where they live (use nina).', a: 'Nihlala phi nina?' },
-    { q: 'What is the aim of proofreading?', a: 'To find and fix language errors.' },
+    { q: 'Why do we proofread a text before handing it in?', a: 'To find and fix language errors.' },
   ],
 };
 

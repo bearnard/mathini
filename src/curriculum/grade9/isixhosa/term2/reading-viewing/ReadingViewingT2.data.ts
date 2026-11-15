@@ -39,7 +39,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Media texts and visual literacy',
-      rule: 'Media texts such as advertisements use words, images, colours and layout to persuade and attract attention. Visual literacy is the ability to understand and interpret images and designs. Every design choice serves the message.',
+      rule: 'Media texts such as advertisements use words, images, colours and layout to persuade and attract attention. Visual literacy means you can read and make sense of images and designs. Every design choice serves the message.',
       workedTitle: 'Reading an advert (English description; teacher to supply an isiXhosa advert)',
       examples: [
         { xh: 'Thenga namhlanje!', en: 'Buy today! (a command that persuades)' },
@@ -53,7 +53,7 @@ const lesson: XhLesson = {
     { q: 'How is characterisation developed?', a: 'Through actions, dialogue, thoughts and description.' },
     { q: 'What does character growth mean?', a: 'A character changes or learns through the events.' },
     { q: 'What question helps you find a character’s motivation?', a: 'Why does this character act this way?' },
-    { q: 'What do media texts like advertisements use visual elements for?', a: 'To persuade and attract attention.' },
+    { q: 'Why does an advertisement use pictures and colours?', a: 'To persuade and attract attention.' },
   ],
 };
 

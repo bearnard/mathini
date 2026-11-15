@@ -50,7 +50,7 @@ const lesson: XhLesson = {
   ],
   checks: [
     { q: 'What are the three parts of a short speech?', a: 'An introduction, a body and a conclusion.' },
-    { q: 'Which is the best question for an interview about daily life: Ngubani igama lakho? or Wenza ntoni emva kwesikolo?', a: 'Wenza ntoni emva kwesikolo? (it is open and invites a full answer)' },
+    { q: 'You interview a classmate about their day. Which question gets a longer answer: Ngubani igama lakho? or Wenza ntoni emva kwesikolo?', a: 'Wenza ntoni emva kwesikolo? (it is open and invites a full answer)' },
     { q: 'You do not understand a question in an interview. What do you do?', a: 'Ask the speaker to repeat or explain, for example Nceda uphinde.' },
     { q: 'What is your first goal when listening to a speech?', a: 'To identify the main ideas and take notes of key words.' },
   ],

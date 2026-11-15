@@ -52,9 +52,9 @@ const lesson: XhLesson = {
     },
   ],
   checks: [
-    { q: 'What is the first step in a comprehension task?', a: 'Read the passage carefully.' },
+    { q: 'Before you answer a comprehension task, what must you do first?', a: 'Read the passage carefully.' },
     { q: 'What does a good summary include?', a: 'The main points only.' },
-    { q: 'A notice says “Meeting at 13:30 in Hall B”. What can you extract?', a: 'The time and the venue.' },
+    { q: 'A notice says “Sports day on Friday at 09:00 on the field”. What details can you take from it?', a: 'The day, the time and the place.' },
     { q: 'What does choosing the best heading test?', a: 'Main idea understanding.' },
   ],
 };
