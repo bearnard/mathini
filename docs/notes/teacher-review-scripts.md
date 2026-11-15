@@ -28,6 +28,7 @@ node --import tsx scripts/import-teacher-check.ts [--md ../audit/teacher-check.m
 
 - Question items resolve to a D1 question id and current version id (matched on prompt and key in the D1 exports `questions.json` and `question_versions.json`). Lesson items resolve to `{file, anchor_text}` and must occur exactly once in the file. Scope items (the NST exam scope) have no file.
 - Packs: `isixhosa-gN`, `afrikaans-gN`, `afrikaans-g9-new-questions` (items 7 to 12 of every G9 Afrikaans bank), `nst-exam-scope`; split into packs of at most `--size` items.
+- Packs are created with status `open` (a `draft` pack cannot be used: no invite form, and the reviewer link answers not found).
 - Output in `--out`: one idempotent `pack-NN-<key>.sql` per pack (safe to run twice; it finds the pack by title) and `report.md` with every unresolved item and why.
 - `--include-repeated` also makes items for sentences that occur more than once in their file (`context.repeated = true`). A teacher can still check them, but `apply-review-changes.ts` refuses to change them, so a person has to.
 - The SQL is tested against the real `migrations/0012_review.sql` in `node:sqlite`. The NST scope item is stored as a `lesson_line` with file `scope:nst-exam-scope` (the table requires a file); the apply script never treats it as a path.
