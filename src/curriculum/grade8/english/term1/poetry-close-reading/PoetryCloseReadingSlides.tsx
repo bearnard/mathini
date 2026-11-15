@@ -1,6 +1,6 @@
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
 import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
-import { PoemLines } from '../../../../../components/diagrams/english/LessonPictures';
+import { PoemLines } from '../../../../../components/diagrams/english/EnglishLayoutPictures';
 import { POEM, POEM_KEYS, lineRef, rhymeScheme } from '../../../../../components/diagrams/english/lessonSkills';
 
 // The practice poem, rhyme scheme and line references come from lessonSkills.ts (tested).

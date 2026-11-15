@@ -8,7 +8,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import {
   POEM, POEM_KEYS, classify, endMark, genreOfClue, letterFraming, lineRef, rhymeScheme, simpleFuture, strategyFor, wordCount, wordsOfClass,
 } from './lessonSkills';
-import { BrochureLayout, ClueCards, LetterLayout, PoemLines, WordChips } from './LessonPictures';
+import { BrochureLayout, ClueCards, LetterLayout, PoemLines, WordChips } from './EnglishLayoutPictures';
 import { learnSteps as g7Revision } from '../../../curriculum/grade7/english/term4/revision-all-genres/RevisionAllGenresSlides';
 import { learnSteps as brochures } from '../../../curriculum/grade8/english/term1/brochures-visual-literacy/BrochuresVisualLiteracySlides';
 import { learnSteps as language } from '../../../curriculum/grade8/english/term1/language-structures-bias/LanguageStructuresBiasSlides';

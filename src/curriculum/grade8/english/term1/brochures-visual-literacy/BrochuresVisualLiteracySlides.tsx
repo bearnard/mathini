@@ -1,6 +1,6 @@
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
 import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
-import { BrochureLayout, ClueCards } from '../../../../../components/diagrams/english/LessonPictures';
+import { BrochureLayout, ClueCards } from '../../../../../components/diagrams/english/EnglishLayoutPictures';
 import { strategyFor } from '../../../../../components/diagrams/english/lessonSkills';
 
 // The strategy names shown come from lessonSkills.ts (tested).

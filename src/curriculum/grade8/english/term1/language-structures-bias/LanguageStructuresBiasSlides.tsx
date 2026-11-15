@@ -1,6 +1,6 @@
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
 import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
-import { WordChips } from '../../../../../components/diagrams/english/LessonPictures';
+import { WordChips } from '../../../../../components/diagrams/english/EnglishLayoutPictures';
 import { endMark, simpleFuture, wordsOfClass } from '../../../../../components/diagrams/english/lessonSkills';
 
 // Word classes, future forms and end marks shown below come from lessonSkills.ts (tested).

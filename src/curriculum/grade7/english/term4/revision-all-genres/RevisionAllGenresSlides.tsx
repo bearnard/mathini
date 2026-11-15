@@ -1,6 +1,6 @@
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
 import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
-import { ClueCards } from '../../../../../components/diagrams/english/LessonPictures';
+import { ClueCards } from '../../../../../components/diagrams/english/EnglishLayoutPictures';
 import { GENRE_CLUES, genreOfClue, strategyFor, wordCount } from '../../../../../components/diagrams/english/lessonSkills';
 
 // Answers below come from the tested helpers in lessonSkills.ts (lessonSkills.test.ts).

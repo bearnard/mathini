@@ -1,6 +1,6 @@
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
 import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
-import { ClueCards, LetterLayout } from '../../../../../components/diagrams/english/LessonPictures';
+import { ClueCards, LetterLayout } from '../../../../../components/diagrams/english/EnglishLayoutPictures';
 import { letterFraming } from '../../../../../components/diagrams/english/lessonSkills';
 
 // Greetings and closings come from lessonSkills.ts (tested).
