@@ -249,3 +249,13 @@ CREATE TABLE IF NOT EXISTS migration_ledger (id INTEGER PRIMARY KEY AUTOINCREMEN
 3. For a "meaning" edit, reset review boxes for learners who have it scheduled? (4.2, default: yes.)
 4. Are you happy with the pilot order (Grade 6, Bay Primary class, then 7 to 12), or should another grade go first?
 5. Is the 60,000 a day ceiling the number you want, or should the migration go slower and stay further from the limit?
+
+## 11. Addendum 2026-11-15: what the drift report found
+
+`scripts/question-drift.ts` (read-only; exports of `questions` and `question_versions`) replaces several guesses in sections 5.3 and 9. Full report: `audit/d1-serving/drift-report.md` (outside the repo).
+
+- **The Grade 6 seed was applied** (1,203 curated, all `author = 'seed'`) **and the AI pool is already registered** (15,687 AI questions). So the planned ~136,000 rows for the pool are already spent; there are **no human edits yet** (no version above v1, nothing retired).
+- **The real drift is in grades 7 to 12.** About **2,300 AI-pool rows hold older text than the code banks** (the bank questions were saved into the pool as seeds; later bank fixes changed their options and keys). **Learners are served the pool row, so they still see the old text.** Grade 6 has 66 edited curated questions and 1 reworded one.
+- Rewords found: 93 (mostly decimal point to decimal comma, matched automatically); none ambiguous. New in code: 790 (Grade 5: 50).
+- **Revised write estimate: about 15,000 rows in total, one night**, not 190,000 to 230,000 over six. The cap of 40,000 a night is no longer binding. The unknown that remains is AI rows not yet registered (needs the `item_cache` row count).
+- The sync is therefore mostly **"bring stale AI-pool versions up to the code wording"** (class 2 against AI rows), which the plan's classes already cover; no change of design.
