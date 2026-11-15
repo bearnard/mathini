@@ -5,8 +5,8 @@ const lesson: XhLesson = {
   slides: [
     {
       title: 'Present tense: the action is happening now',
-      rule: 'Join the subject marker and the verb: ndi- (I), u- (you, he, she), si- (we), ba- (they). Add -ya- when the verb ends the sentence.',
-      wordParts: { word: 'Ndiyafunda', en: 'I am reading', parts: [{ t: 'ndi', label: 'I' }, { t: 'ya', label: 'now' }, { t: 'fund', label: 'read' }, { t: 'a', label: 'ending' }] },
+      rule: 'Join the subject marker and the verb: ndi- (I), u- (you, he, she), si- (we), ba- (they). Add -ya- when nothing follows the verb, or only an adverb such as kakuhle.',
+      wordParts: { word: 'Ndiyafunda', en: 'I am reading', parts: [{ t: 'ndi', label: 'I' }, { t: 'ya', label: 'present' }, { t: 'fund', label: 'read' }, { t: 'a', label: 'ending' }] },
       workedTitle: 'Present tense with ndi-, u-, si-, ba-',
       examples: [
         { xh: 'Ndiyafunda.', en: 'I am reading.' },
@@ -18,7 +18,7 @@ const lesson: XhLesson = {
     },
     {
       title: 'Past tense: the action is finished',
-      rule: 'For something that has just happened, change the ending -a to -ile. For long ago, put a- after the subject marker.',
+      rule: 'For a finished action (today or yesterday), change the ending -a to -ile. For long ago, put a- after the subject marker.',
       wordParts: { word: 'Ndifundile', en: 'I read / I have read', parts: [{ t: 'ndi', label: 'I' }, { t: 'fund', label: 'read' }, { t: 'ile', label: 'finished' }] },
       workedTitle: 'Recent past (-ile) and long ago (a-)',
       examples: [

@@ -8,7 +8,7 @@ const lesson: XhLesson = {
       rule: 'A formal invitation must show the date (umhla), the time (ixesha) and the venue (indawo). Open with a warm line.',
       workedTitle: 'An invitation',
       examples: [
-        { xh: 'Umenywa ngokufudumeleyo kumnyhadala wenkcubeko.', en: 'You are warmly invited to our cultural day celebration.' },
+        { xh: 'Umenywa ngokufudumeleyo kumnyhadala wenkcubeko.', en: 'You are warmly invited to the cultural celebration.' },
         { xh: 'Umhla:', en: 'Date:' },
         { xh: 'Ixesha:', en: 'Time:' },
         { xh: 'Indawo:', en: 'Venue:' },

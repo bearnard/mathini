@@ -58,7 +58,7 @@ const lesson: XhLesson = {
     { q: 'Say “I will study tomorrow.”', a: 'Ndiza kufunda ngomso.' },
     { q: 'Which word means because: kuba or kodwa?', a: 'kuba' },
     { q: 'Which question word asks for a reason?', a: 'Kutheni (why).' },
-    { q: 'Complete: Abafundi ___ yafunda (bayafunda or uyafunda).', a: 'bayafunda' },
+    { q: 'Complete: Abafundi ___ (bayafunda or uyafunda).', a: 'bayafunda' },
   ],
 };
 
