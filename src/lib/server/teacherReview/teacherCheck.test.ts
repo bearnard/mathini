@@ -1,8 +1,10 @@
 import test from 'node:test';
+import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
 import { norm, parseTeacherCheck, quotedStrings, segments } from './teacherCheckParse';
-import { d1Key, packOf, packSql, planPacks, reportMarkdown, resolveItems, type BankQuestion, type Item, type ResolveEnv } from './teacherCheckResolve';
+import { checkPath } from './applyChanges';
+import { SCOPE_FILE, d1Key, packOf, packSql, planPacks, reportMarkdown, resolveItems, type BankQuestion, type Item, type ResolveEnv } from './teacherCheckResolve';
 
 const MD = [
   '# Items for a teacher to check',
@@ -108,7 +110,8 @@ test('resolveItems: repeated text, bank-only text, ellipsis, no file and ambiguo
   assert.match(why('Ons sal aandete eet'), /occurs 2 times/);
   assert.match(why('Ek sal nooit kom'), /ellipsis/);
   assert.match(why('Karla'), /names no file/);
-  assert.match(why('Ek sal tee maak'), /matches 2 D1 ids/); // a bank prompt quoted in the note, but D1 holds it twice
+  assert.match(why('Ek sal tee maak'), /matches 2 D1 ids \(same prompt and key; ids q2, q3\)/);
+  assert.match(reportMarkdown(res, []), /Duplicate questions in D1[^]*ids q2, q3/); // a bank prompt quoted in the note, but D1 holds it twice
   assert.ok(!res.items.some((i) => i.kind === 'lesson_line' && i.anchor === 'Ons sal aandete eet'));
   const withRepeated = resolveItems(parseTeacherCheck(MD), env(), { allowRepeated: true });
   const rep = withRepeated.items.find((i) => i.kind === 'lesson_line' && i.anchor === 'Ons sal aandete eet') as Extract<Item, { kind: 'lesson_line' }>;
@@ -149,21 +152,22 @@ test('planPacks chunks by size and merges a tail of fewer than 10 into the previ
   assert.equal(planPacks([lessonItem(1, 'isixhosa-g7')], 20)[0].title, 'isiXhosa Grade 7');
 });
 
-test('packSql runs in SQLite, escapes quotes, and running it twice adds nothing', () => {
+test('packSql runs against the real migration 0012, escapes quotes, and running it twice adds nothing', () => {
   const db = new DatabaseSync(':memory:');
-  db.exec(`CREATE TABLE review_packs (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, created_by TEXT, created_at INTEGER, status TEXT);
-    CREATE TABLE review_pack_items (id INTEGER PRIMARY KEY AUTOINCREMENT, pack_id INTEGER NOT NULL, kind TEXT NOT NULL, question_id TEXT, version_id INTEGER, file TEXT, anchor_text TEXT, context TEXT, doubt TEXT, sort INTEGER NOT NULL);`);
+  db.exec(fs.readFileSync('migrations/0012_review.sql', 'utf8'));
   const pack = planPacks([lessonItem(1), lessonItem(2), { kind: 'question', pack: 'afrikaans-g6', file: 'grade6/afrikaans/a/A.tsx', questionId: 'q1', versionId: 3, prompt: "Wat's dit?", doubt: 'd', sources: [3], sections: ['D'] }, { kind: 'scope', pack: 'afrikaans-g6', text: 'scope', doubt: 'd', sources: [4], sections: ['E'] }], 40)[0];
   const sql = packSql(pack, 1000);
   db.exec(sql);
   db.exec(sql);
-  assert.equal((db.prepare('SELECT COUNT(*) c FROM review_packs').get() as { c: number }).c, 1);
+  const packRow = db.prepare('SELECT title, created_by, created_at, status FROM review_packs').all() as Record<string, unknown>[];
+  assert.deepEqual(packRow.map((r) => ({ ...r })), [{ title: 'Afrikaans Grade 6', created_by: 'import-teacher-check', created_at: 1000, status: 'draft' }]);
   const items = db.prepare('SELECT kind, question_id, version_id, file, anchor_text, doubt, sort FROM review_pack_items ORDER BY sort').all() as Record<string, unknown>[];
   assert.equal(items.length, 4);
   const by = (k: string) => items.find((x) => x.kind === k)!;
   assert.deepEqual([items.find((x) => x.anchor_text === "Sin 1's")!.doubt, items.map((x) => x.sort)], ["it's", [1, 2, 3, 4]]);
   assert.deepEqual([by('question').question_id, by('question').version_id], ['q1', 3]);
-  assert.equal(items.find((x) => x.anchor_text === 'scope')!.file, null);
+  assert.equal(items.find((x) => x.anchor_text === 'scope')!.file, SCOPE_FILE, 'the scope item needs a file value: the table requires one for a lesson_line');
+  assert.equal(checkPath(SCOPE_FILE) === null, false, 'apply-review-changes must never treat the scope item as a file');
   assert.match(sql, /DRY RUN/);
 });
 

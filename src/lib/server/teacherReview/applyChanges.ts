@@ -15,6 +15,12 @@ export interface QueueRow {
   new_text: string;
   item_id?: number | string | null;
   status?: string | null;
+  /**
+   * How many times `old_text` must occur. Default 1. A sentence that the lesson repeats (review item context.repeated) has the count the
+   * import recorded (context.occurrences); then ALL occurrences are replaced, and the change is refused if the count differs.
+   * Export it with: json_extract(review_pack_items.context, '$.occurrences') AS expected_count, joined on item_id.
+   */
+  expected_count?: number | null;
 }
 
 export type Outcome = 'applied' | 'refused' | 'skipped';
@@ -24,6 +30,7 @@ export interface ChangeResult {
   file: string;
   outcome: Outcome;
   reason: string; // 'ok' for applied
+  replaced?: number; // applied: how many occurrences were replaced
 }
 
 export interface ApplyResult {
@@ -31,6 +38,13 @@ export interface ApplyResult {
   /** New content for each file that has at least one applied change. */
   files: Map<string, string>;
 }
+
+const expectedOf = (v: unknown, i: number): number | null => {
+  if (v === undefined || v === null || v === '') return null;
+  const n = Number(v);
+  if (!Number.isInteger(n) || n < 1 || n > 50) throw new Error(`row ${i}: expected_count must be a whole number from 1 to 50`);
+  return n;
+};
 
 /** Accepts a plain array of rows, `{results: [...]}` (wrangler d1 --json shape) or `[{results: [...]}]`. */
 export const parseQueueExport = (raw: unknown): QueueRow[] => {
@@ -57,6 +71,7 @@ export const parseQueueExport = (raw: unknown): QueueRow[] => {
       new_text: o.new_text,
       item_id: (o.item_id ?? null) as number | string | null,
       status: (o.status ?? 'pending') as string,
+      expected_count: expectedOf(o.expected_count, i),
     };
   });
 };
@@ -89,7 +104,7 @@ export const applyChanges = (rows: QueueRow[], read: (file: string) => string | 
   const current = new Map<string, string | null>();
   const changed = new Set<string>();
   const results: ChangeResult[] = [];
-  const done = (r: QueueRow, outcome: Outcome, reason: string) => results.push({ id: r.id, file: r.file, outcome, reason });
+  const done = (r: QueueRow, outcome: Outcome, reason: string, replaced?: number) => results.push({ id: r.id, file: r.file, outcome, reason, ...(replaced ? { replaced } : {}) });
 
   for (const r of ordered) {
     if ((r.status ?? 'pending') !== 'pending') {
@@ -116,15 +131,15 @@ export const applyChanges = (rows: QueueRow[], read: (file: string) => string | 
       continue;
     }
     const n = countOccurrences(text, r.old_text);
-    if (n !== 1) {
-      done(r, 'refused', n === 0 ? 'old text not found' : `old text occurs ${n} times (must be exactly once)`);
+    const want = r.expected_count ?? 1;
+    if (n !== want) {
+      done(r, 'refused', n === 0 ? 'old text not found' : want === 1 ? `old text occurs ${n} times (must be exactly once)` : `old text occurs ${n} times but the import recorded ${want}`);
       continue;
     }
-    // Replace by index, not by String.replace, so "$&" and similar sequences in the new text stay literal.
-    const i = text.indexOf(r.old_text);
-    current.set(r.file, text.slice(0, i) + r.new_text + text.slice(i + r.old_text.length));
+    // split/join, not String.replace, so "$&" and similar sequences in the new text stay literal.
+    current.set(r.file, text.split(r.old_text).join(r.new_text));
     changed.add(r.file);
-    done(r, 'applied', 'ok');
+    done(r, 'applied', n === 1 ? 'ok' : `ok, replaced all ${n} occurrences`, n);
   }
 
   const files = new Map<string, string>();
@@ -140,7 +155,7 @@ export const statusSql = (results: ChangeResult[], appliedCommit: string | null)
   for (const r of results) {
     if (r.outcome === 'skipped' || !/^\d+$/.test(String(r.id))) continue;
     if (r.outcome === 'applied') {
-      lines.push(`UPDATE lesson_change_queue SET status = 'applied', applied_commit = ${appliedCommit ? sqlStr(appliedCommit) : 'NULL'} WHERE id = ${r.id} AND status = 'pending';`);
+      lines.push(`UPDATE lesson_change_queue SET status = 'applied', applied_commit = ${appliedCommit ? sqlStr(appliedCommit) : 'NULL'} WHERE id = ${r.id} AND status = 'pending';${r.replaced && r.replaced > 1 ? ` -- replaced ${r.replaced} occurrences` : ''}`);
     } else {
       lines.push(`UPDATE lesson_change_queue SET status = 'failed' WHERE id = ${r.id} AND status = 'pending'; -- ${r.reason.replace(/[\r\n]/g, ' ')}`);
     }
@@ -155,9 +170,9 @@ export const reportMarkdown = (results: ChangeResult[], mode: 'dry-run' | 'apply
     '',
     `${results.length} queue rows: ${n('applied')} ${mode === 'apply' ? 'applied' : 'would apply'}, ${n('refused')} refused, ${n('skipped')} skipped.`,
     '',
-    '| Queue id | File | Outcome | Reason |',
-    '|---|---|---|---|',
-    ...results.map((r) => `| ${r.id} | \`${r.file}\` | ${r.outcome} | ${r.reason.replace(/\|/g, '\\|')} |`),
+    '| Queue id | File | Outcome | Occurrences replaced | Reason |',
+    '|---|---|---|---:|---|',
+    ...results.map((r) => `| ${r.id} | \`${r.file}\` | ${r.outcome} | ${r.replaced ?? ''} | ${r.reason.replace(/\|/g, '\\|')} |`),
     '',
   ];
   return out.join('\n');

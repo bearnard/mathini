@@ -108,7 +108,7 @@ export const resolveItems = (raw: RawItem[], env: ResolveEnv, opts: ResolveOptio
     const hits = env.d1.get(d1Key(b.prompt, b.answer)) ?? [];
     if (hits.length === 0) return bad(r, `question not in the D1 export: ${b.prompt.slice(0, 70)}`);
     const ids = new Set(hits.map((h) => h.id));
-    if (ids.size > 1) return bad(r, `question matches ${ids.size} D1 ids (same prompt and key): ${b.prompt.slice(0, 70)}`);
+    if (ids.size > 1) return bad(r, `question matches ${ids.size} D1 ids (same prompt and key; ids ${[...ids].join(', ')}): ${b.prompt.slice(0, 70)}`);
     const h = hits[0];
     add(`q:${h.id}`, { kind: 'question', pack: packOf(b.file, newQ), file: b.file, questionId: h.id, versionId: h.versionId, prompt: b.prompt, doubt: r.doubt, sources: [r.mdLine], sections: [r.section] });
   };
@@ -200,6 +200,8 @@ export const planPacks = (items: Item[], size = 40): Pack[] => {
 
 const q = (s: string) => `'${s.replace(/'/g, "''")}'`;
 const CREATED_BY = 'import-teacher-check';
+/** Not a path apply-review-changes.ts will touch (no .ts/.tsx extension): the scope item is a question for the school, not lesson text. */
+export const SCOPE_FILE = 'scope:nst-exam-scope';
 
 /** Idempotent SQL for one pack: re-running it adds nothing (the pack is found by title, each item by its sort number). */
 export const packSql = (pack: Pack, nowMs: number): string => {
@@ -212,7 +214,7 @@ export const packSql = (pack: Pack, nowMs: number): string => {
     let cols: string;
     if (it.kind === 'question') cols = `'question', ${q(it.questionId)}, ${it.versionId}, NULL, NULL, ${q(JSON.stringify({ file: it.file, prompt: it.prompt }))}`;
     else if (it.kind === 'lesson_line') cols = `'lesson_line', NULL, NULL, ${q(it.file)}, ${q(it.anchor)}, ${q(JSON.stringify(it.context))}`;
-    else cols = `'lesson_line', NULL, NULL, NULL, ${q(it.text)}, ${q(JSON.stringify({ scope: true }))}`;
+    else cols = `'lesson_line', NULL, NULL, ${q(SCOPE_FILE)}, ${q(it.text)}, ${q(JSON.stringify({ scope: true }))}`; // migration 0012 requires file and anchor_text for a lesson_line
     lines.push(
       `INSERT INTO review_pack_items (pack_id, kind, question_id, version_id, file, anchor_text, context, doubt, sort) SELECT p.id, ${cols}, ${q(it.doubt)}, ${sort} FROM review_packs p WHERE p.title = ${q(pack.title)} AND p.created_by = ${q(CREATED_BY)} AND NOT EXISTS (SELECT 1 FROM review_pack_items x WHERE x.pack_id = p.id AND x.sort = ${sort});`,
     );
@@ -225,6 +227,11 @@ export const reportMarkdown = (res: Resolution, packs: Pack[]): string => {
   const n = (f: (i: Item) => boolean) => res.items.filter(f).length;
   out.push(`${res.items.length} items resolved (${n((i) => i.kind === 'question')} questions, ${n((i) => i.kind === 'lesson_line')} lesson lines, ${n((i) => i.kind === 'scope')} scope), in ${packs.length} packs. ${res.unresolved.length} unresolved.`, '', '## Packs', '', '| Pack | Items |', '|---|---:|');
   for (const p of packs) out.push(`| ${p.title} | ${p.items.length} |`);
+  const dups = res.unresolved.filter((u) => /D1 ids/.test(u.reason));
+  if (dups.length) {
+    out.push('', '## Duplicate questions in D1 (same prompt and key; one of each pair can be retired)', '');
+    for (const u of dups) out.push(`- ${u.reason.replace(/^question matches \d+ D1 ids \(same prompt and key; /, '').replace(/\):/, ':')}`);
+  }
   out.push('', '## Unresolved', '');
   const byReason = new Map<string, Unresolved[]>();
   for (const u of res.unresolved) {

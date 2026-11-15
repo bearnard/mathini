@@ -49,6 +49,27 @@ test('changes to one file run in id order and each sees the result of the one be
   assert.equal(r.files.get('a/B.tsx'), 'B B');
 });
 
+test('expected_count > 1: replaces ALL occurrences when the count matches, refuses when it differs', () => {
+  const files = reader({ 'a/B.tsx': 'Die kat. <Speak text="Die kat." /> en Die kat.' });
+  const ok = applyChanges([row({ id: 1, old_text: 'Die kat.', new_text: 'Die hond.', expected_count: 3 })], files);
+  assert.deepEqual([ok.results[0].outcome, ok.results[0].replaced, ok.results[0].reason], ['applied', 3, 'ok, replaced all 3 occurrences']);
+  assert.equal(ok.files.get('a/B.tsx'), 'Die hond. <Speak text="Die hond." /> en Die hond.');
+  const fewer = applyChanges([row({ id: 2, old_text: 'Die kat.', new_text: 'x', expected_count: 2 })], files).results[0];
+  assert.match(fewer.reason, /occurs 3 times but the import recorded 2/);
+  const none = applyChanges([row({ id: 3, old_text: 'Die kat.', new_text: 'x' })], files).results[0];
+  assert.match(none.reason, /occurs 3 times \(must be exactly once\)/);
+  assert.match(statusSql(ok.results, 'abc'), /status = 'applied', applied_commit = 'abc' WHERE id = 1 AND status = 'pending'; -- replaced 3 occurrences/);
+  assert.match(reportMarkdown(ok.results, 'apply'), /\| 1 \| `a\/B.tsx` \| applied \| 3 \|/);
+});
+
+test('parseQueueExport reads expected_count and rejects a bad one', () => {
+  const base = { id: 1, file: 'a.tsx', old_text: 'o', new_text: 'n' };
+  assert.equal(parseQueueExport([{ ...base, expected_count: '3' }])[0].expected_count, 3);
+  assert.equal(parseQueueExport([{ ...base, expected_count: null }])[0].expected_count, null);
+  assert.equal(parseQueueExport([base])[0].expected_count, null);
+  for (const bad of [0, -1, 1.5, 'x', 99]) assert.throws(() => parseQueueExport([{ ...base, expected_count: bad }]), /expected_count/);
+});
+
 test('only pending rows are processed', () => {
   const r = applyChanges([row({ id: 1, status: 'applied' }), row({ id: 2, status: 'failed' })], reader({ 'a/B.tsx': 'x' }));
   assert.deepEqual(r.results.map((x) => x.outcome), ['skipped', 'skipped']);
