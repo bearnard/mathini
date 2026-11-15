@@ -139,9 +139,9 @@ const learnSteps: LearnStep[] = [
           <PronunciationPlayer word={"Molo"} phonetic={"[mɔ:lɔ]"} meaning={"Hello (to one person)"} lang="xh" />
           <PronunciationPlayer word={"Molweni"} phonetic={"[mɔl'wɛni]"} meaning={"Hello (to more than one person)"} lang="xh" />
           <PronunciationPlayer word={"Unjani?"} phonetic={"[un'dʒani]"} meaning={"How are you?"} lang="xh" />
-          <PronunciationPlayer word={"Ndingu..."} phonetic={"[ndiŋ'gu]"} meaning={"I am ... / My name is ..."} lang="xh" />
+          <PronunciationPlayer word={"Ndingu..."} phonetic={"[ndiŋ'gu]"} meaning={"I am ..."} lang="xh" />
           <PronunciationPlayer word={"Isikolo"} phonetic={"[isi'kɔlɔ]"} meaning={"School"} lang="xh" />
-          <PronunciationPlayer word={"Ithishala"} phonetic={"[iti'ʃala]"} meaning={"Teacher"} lang="xh" />
+          <PronunciationPlayer word={"Utitshala"} phonetic={"[uti'tʃala]"} meaning={"Teacher"} lang="xh" />
           <PronunciationPlayer word={"Enkosi"} phonetic={"[ɛŋ'kɔsi]"} meaning={"Thank you"} lang="xh" />
           <PronunciationPlayer word={"Uxolo"} phonetic={"[u'xɔlɔ]"} meaning={"Sorry / Peace"} lang="xh" />
         </div>

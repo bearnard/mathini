@@ -12,9 +12,9 @@ const learnSteps: LearnStep[] = [
           Visual texts use short words, pictures and prices. Read the most important words first.
         </p>
         <div className="flex flex-wrap justify-center gap-3 text-2xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">vars <SpeakButton text="vars" /></span>
-          <span className="inline-flex items-center">gratis <SpeakButton text="gratis" /></span>
-          <span className="inline-flex items-center">oop <SpeakButton text="oop" /></span>
+          <span className="inline-flex items-center">vars (fresh) <SpeakButton text="vars" /></span>
+          <span className="inline-flex items-center">gratis (free) <SpeakButton text="gratis" /></span>
+          <span className="inline-flex items-center">oop (open) <SpeakButton text="oop" /></span>
         </div>
       </div>
     ),
@@ -24,12 +24,12 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          Signs often give instructions. Words like <strong>moenie</strong>, <strong>stilte</strong> and <strong>gevaar</strong> tell you what to do.
+          Signs give instructions or warnings. <strong>moenie</strong> means do not, <strong>stilte</strong> means silence and <strong>gevaar</strong> means danger.
         </p>
         <div className="flex flex-wrap justify-center gap-3 text-2xl font-bold text-indigo-600">
-          <span className="inline-flex items-center">moenie <SpeakButton text="moenie" /></span>
-          <span className="inline-flex items-center">stilte <SpeakButton text="stilte" /></span>
-          <span className="inline-flex items-center">gevaar <SpeakButton text="gevaar" /></span>
+          <span className="inline-flex items-center">moenie (do not) <SpeakButton text="moenie" /></span>
+          <span className="inline-flex items-center">stilte (silence) <SpeakButton text="stilte" /></span>
+          <span className="inline-flex items-center">gevaar (danger) <SpeakButton text="gevaar" /></span>
         </div>
       </div>
     ),

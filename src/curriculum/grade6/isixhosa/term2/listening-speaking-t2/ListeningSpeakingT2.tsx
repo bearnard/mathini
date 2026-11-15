@@ -13,7 +13,7 @@ const learnSteps: LearnStep[] = [
         </p>
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <p className="font-bold text-sky-700">Kusasa</p>
+            <p className="font-bold text-sky-700">Ekuseni</p>
             <p className="text-slate-600">morning routines before school</p>
           </div>
           <div className="rounded-xl bg-emerald-50 p-4 text-left">
@@ -71,7 +71,7 @@ const learnSteps: LearnStep[] = [
         </p>
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Hamba tye</p>
+            <p className="font-bold text-indigo-700">Hamba ngqo</p>
             <p className="text-slate-600">go straight ahead</p>
           </div>
           <div className="rounded-xl bg-orange-50 p-4 text-left">
