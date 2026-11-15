@@ -3,6 +3,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import ElasticityPicture from '@/components/subjects/ElasticityPicture';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const revenueTestData = [
   { price: 'R10', elasticTR: 1000, inelasticTR: 1000 },
@@ -104,6 +105,16 @@ const learnSteps: LearnStep[] = [
           yLabel="Revenue"
         />
         <p className="text-sm text-slate-500">When demand is elastic, a price increase cuts revenue. When demand is inelastic, a price increase raises revenue. (Made-up numbers for two pretend goods, not the ones on the first slide.)</p>
+      </div>
+    ),
+  },
+  {
+    title: "How strongly buyers and sellers react",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Demand is elastic when its elasticity is greater than 1 in size, inelastic when below 1. Necessities such as life-saving medicine are inelastic. Given more time, buyers find substitutes and firms adjust capacity, so both demand and supply respond more. A crop already planted cannot be changed this season."}</GapRule>
+        <GapWorked title={"Interpret the numbers"} steps={["Medicine: buyers pay the higher price anyway, so quantity hardly changes.", "Over years, petrol users can move to electric cars or trains, so demand becomes more elastic.", "A farmer cannot grow extra maize mid-season: supply is highly inelastic.", "With unit elasticity a 10% price rise cuts quantity by about 10% and revenue stays roughly the same."]} />
+        <GapMistake>{"Reading inelastic as buyers not responding at all."}</GapMistake>
       </div>
     ),
   },

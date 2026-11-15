@@ -3,6 +3,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import SupplyDemand from '@/components/subjects/SupplyDemand';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const lendingChannelData = [
   { channel: 'Formal bank', averageLoan: 120000, approval: 35 },
@@ -84,6 +85,16 @@ const learnSteps: LearnStep[] = [
             <p className="mt-1 text-slate-600">High interest, multiple loans and aggressive collection methods can worsen hardship.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Small loans, group pressure and stokvels",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Banks usually ask for security. Microfinance reaches poor borrowers who have none by lending to small groups whose members vouch for each other. Muhammad Yunus began this in Bangladesh and received a Nobel Peace Prize. South African stokvel members pool savings and take turns to receive the pot."}</GapRule>
+        <GapWorked title={"Weigh the benefits and the risks"} steps={["Group members repay because they do not want to let the others down.", "A loan used to buy stock for a stall can raise income.", "If interest is steep, borrowers sink into debt they cannot repay.", "Fair rules and affordable rates decide whether it helps or harms."]} />
+        <GapMistake>{"Assuming any small loan reduces poverty."}</GapMistake>
       </div>
     ),
   },

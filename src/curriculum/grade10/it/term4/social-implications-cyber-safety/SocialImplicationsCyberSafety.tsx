@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -292,6 +293,16 @@ const learnSteps: LearnStep[] = [
             <li>Use technology for learning, creativity, and positive connections</li>
           </ul>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Fake messages and the second lock on your login",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Criminals send messages that imitate a bank or shop to trick you into handing over passwords or PINs. A second step at login, such as a one-time PIN sent to your phone, stops a stolen password from being enough."}</GapRule>
+        <GapWorked title={"Handle a suspicious email"} steps={["The email looks like it is from your bank and asks you to confirm your PIN.", "Delete it and open the bank's own app or website instead.", "Switch on the extra login step so a thief with your password still cannot get in."]} />
+        <GapMistake>{"Replying because the sender's logo looks right."}</GapMistake>
       </div>
     ),
   },

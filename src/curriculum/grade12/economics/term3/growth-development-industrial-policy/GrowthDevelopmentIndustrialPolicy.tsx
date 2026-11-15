@@ -2,6 +2,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 type RawEconomicsItem = {
   id: string;
@@ -78,6 +79,16 @@ const learnSteps: LearnStep[] = [
             firms forever, it may raise costs without delivering broad development.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Development, growth and SEZs",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Growth only counts extra output (real GDP). Development also asks whether people are healthier, better educated and better off. Special zones such as Coega give firms incentives so investment flows to chosen regions."}</GapRule>
+        <GapWorked title={"Compare the terms"} steps={["Growth: an increase in real GDP.", "Development: better health, education and living standards as well.", "A zone like Coega offers incentives to draw investment to a targeted area."]} />
+        <GapMistake>{"Treating growth and development as the same thing."}</GapMistake>
       </div>
     ),
   },

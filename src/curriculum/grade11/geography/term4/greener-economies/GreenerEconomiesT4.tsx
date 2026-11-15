@@ -1,6 +1,7 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../_shared/types';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps: LearnStep[] = [
@@ -106,6 +107,16 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">Countries with higher emissions have a bigger task in shifting to cleaner energy and production systems.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Pricing carbon and planning sites",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A carbon tax makes a firm pay for each tonne it emits above a set level, which pushes it to reduce emissions. Mapping software can overlay sunshine, wind speed and power-line access to choose a good site for a solar farm."}</GapRule>
+        <GapWorked title={"Apply the tools"} steps={["A cement works pays more if it emits more, so it looks for cleaner methods.", "A map layer shows where the sun shines most and where lines already run.", "The best site has both."]} />
+        <GapMistake>{"Thinking the tax simply bans emitting."}</GapMistake>
       </div>
     ),
   },

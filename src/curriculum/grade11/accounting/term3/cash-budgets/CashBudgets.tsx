@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import FinancialStatement from '../../../../../components/subjects/FinancialStatement';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -132,6 +133,16 @@ const learnSteps: LearnStep[] = [
             </ul>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Using a cash budget",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A large surplus in a month lets management consider investing the surplus or paying off costly debt."}</GapRule>
+        <GapWorked title={"Respond to the budget"} steps={["November closing balance: R90 000 positive, far more than needed.", "Option 1: invest the surplus short term to earn interest.", "Option 2: pay off an expensive loan to save interest."]} />
+        <GapMistake>{"Leaving large surpluses idle in the bank."}</GapMistake>
       </div>
     ),
   },

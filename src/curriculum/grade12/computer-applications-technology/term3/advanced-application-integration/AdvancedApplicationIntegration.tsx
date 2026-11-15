@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -31,6 +32,16 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"Integrated tasks can fail when links break, old data is used or formatting is lost during transfer. Learners should verify figures after import, keep source files organised and test outputs before submission. Integration is successful only when the final document is accurate, not merely when the transfer process was completed."</p>
+      </div>
+    ),
+  },
+  {
+    title: "Linked files and organisation",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A link stores only the location of the source file. If the file is moved or renamed, the link breaks. Keeping all files in one tidy project folder avoids this."}</GapRule>
+        <GapWorked title={"Link a spreadsheet chart into a report"} steps={["Save the spreadsheet and the report in the same project folder.", "Link the chart: it updates when the spreadsheet changes.", "If a source file is moved or renamed, the link breaks."]} />
+        <GapMistake>{"Moving or renaming a linked file after creating the link."}</GapMistake>
       </div>
     ),
   },

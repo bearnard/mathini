@@ -1,6 +1,7 @@
 import CodeBlock from '@/components/subjects/CodeBlock';
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -80,6 +81,16 @@ procedure setAge(a: integer)
   if a >= 0 then
     age := a`} />
         <p className="text-sm text-slate-600">Setters can reject invalid data (e.g. negative age), protecting the object's state.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Validating inside a setter",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A setter such as if a >= 0 then age := a validates input and stops a negative age being stored."}</GapRule>
+        <GapWorked title={"Protect an attribute"} steps={["The attribute fAge is private.", "SetAge(a) checks a >= 0 before storing it.", "A call with -5 is rejected, so the object keeps a valid age."]} />
+        <GapMistake>{"Letting other code assign the attribute directly."}</GapMistake>
       </div>
     ),
   },

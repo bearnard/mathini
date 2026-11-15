@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -90,6 +91,16 @@ const learnSteps: LearnStep[] = [
             Check unanswered items, vague wording, missing examples and whether each recommendation actually matches the scenario.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Theory exam technique",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Marks usually match points: for three marks give three separate ideas, or one idea explained in full. If you are unsure of a multiple-choice answer, cross out what is clearly wrong and pick from the rest. Tie security advice to the risk named in the scenario. Revise theory and practical ideas together, because NSC papers join conceptual knowledge to applied scenarios."}</GapRule>
+        <GapWorked title={"Answer well"} steps={["Three marks: three different points, not the same point three times.", "Multiple choice: cross out options that are clearly wrong, then choose the best.", "Scenario: name the risk, then give advice that addresses it."]} />
+        <GapMistake>{"Repeating one point three times."}</GapMistake>
       </div>
     ),
   },

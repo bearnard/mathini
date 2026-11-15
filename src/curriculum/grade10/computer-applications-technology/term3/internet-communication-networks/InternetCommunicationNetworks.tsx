@@ -2,6 +2,7 @@
 
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -73,6 +74,16 @@ const learnSteps: LearnStep[] = [
           <li>Be cautious with public Wi-Fi networks.</li>
           <li>Log out of shared devices after use.</li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    title: "Open Wi-Fi in a caf\u00e9",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A network anyone can join lets strangers on the same network try to read unprotected traffic. Treat open hotspots as untrusted places."}</GapRule>
+        <GapWorked title={"Be careful out in public"} steps={["You connect to the free Wi-Fi at a mall.", "Another user runs a tool that captures unencrypted traffic.", "Do your banking on mobile data, or switch on a VPN."]} />
+        <GapMistake>{"Entering passwords on any free network."}</GapMistake>
       </div>
     ),
   },

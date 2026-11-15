@@ -2,6 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import FinancialStatement from '../../../../../components/subjects/FinancialStatement';
 import TAccount from '../../../../../components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -126,6 +127,16 @@ const learnSteps: LearnStep[] = [
           </ol>
         </div>
         <p className="text-sm text-slate-500">All these adjustments flow through the <strong>appropriation account</strong> before updating each partner's current account.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Advantages of a partnership",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A partnership has more capital and varied skills from several owners than a sole trader. The partners share the work, the profit and the risk."}</GapRule>
+        <GapWorked title={"Sole trader or partnership?"} steps={["A sole trader has limited capital and must have all the skills alone.", "Two partners add their capital and their different skills (for example sales and bookkeeping).", "The partners share profit as agreed, and decisions are made together."]} />
+        <GapMistake>{"Thinking a partnership has no disadvantages. Partners share the profit and can disagree."}</GapMistake>
       </div>
     ),
   },

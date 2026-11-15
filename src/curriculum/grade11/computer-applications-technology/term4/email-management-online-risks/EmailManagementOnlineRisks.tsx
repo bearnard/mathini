@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -96,6 +97,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Avoid sensitive transactions (banking, logins) on unencrypted public Wi-Fi. Use a VPN if you must connect.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Ransomware and backups",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Ransomware encrypts files and demands payment. The best defence is regular, tested backups kept off-site or in the cloud."}</GapRule>
+        <GapWorked title={"Recover from ransomware"} steps={["Ransomware encrypts every file on the school network.", "Do not pay: restore the files from a backup.", "Backups must be regular and tested, and kept off-site or in the cloud so the ransomware cannot reach them."]} />
+        <GapMistake>{"Keeping the only backup on the same network."}</GapMistake>
       </div>
     ),
   },

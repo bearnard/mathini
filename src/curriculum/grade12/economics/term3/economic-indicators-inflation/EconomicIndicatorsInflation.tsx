@@ -2,6 +2,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 type RawEconomicsItem = {
   id: string;
@@ -84,6 +85,16 @@ const learnSteps: LearnStep[] = [
             excessive demand, while fiscal discipline and better supply conditions also help.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "The unemployment rate",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The unemployment rate measures the share of the labour force without work but seeking work."}</GapRule>
+        <GapWorked title={"Calculate it"} steps={["Labour force = employed + unemployed, such as 16 million + 8 million = 24 million.", "Unemployed people seeking work: 8 million.", "Rate = 8 \u00f7 24 \u00d7 100 = 33,3%."]} />
+        <GapMistake>{"Dividing by the total population instead of the labour force."}</GapMistake>
       </div>
     ),
   },

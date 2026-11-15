@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -102,6 +103,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Farmers suffered falling crop prices throughout the 1920s. African Americans and immigrants faced discrimination and poor wages.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Boom, bans and a flapping fashion",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The 1920s brought a ban on alcohol that gave gangsters a huge market. Young women who cut their hair and danced the Charleston, the flappers, challenged old rules. Great wealth sat beside racism and farm poverty."}</GapRule>
+        <GapWorked title={"Connect boom and bust"} steps={["Rising share prices made buying look risky-free, and many borrowed to buy.", "Factories made more than people could afford, and speculation inflated a bubble.", "When confidence cracked in 1929 the bubble burst."]} />
+        <GapMistake>{"Picturing a decade of wealth for all."}</GapMistake>
       </div>
     ),
   },

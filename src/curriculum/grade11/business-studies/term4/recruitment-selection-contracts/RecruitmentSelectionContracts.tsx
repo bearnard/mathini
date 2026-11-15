@@ -2,6 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
 import { SELECTION_STEPS } from '../../../../../components/diagrams/business/steps';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -79,6 +80,16 @@ const learnSteps: LearnStep[] = [
             <li><strong>Skills Development Act (SDA):</strong> requires employers to invest in staff training</li>
           </ul>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Selection steps and checking references",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"After shortlisting, the next step in selection is conducting tests and interviews. Checking references verifies a candidate's qualifications and work history."}</GapRule>
+        <GapWorked title={"The selection process"} steps={["Advertise the post and receive applications.", "Shortlist the best candidates.", "Conduct tests and interviews.", "Check references to verify qualifications and work history, then make the offer."]} />
+        <GapMistake>{"Making an offer before checking references."}</GapMistake>
       </div>
     ),
   },

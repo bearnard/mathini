@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import SwotMatrix from '@/components/subjects/SwotMatrix';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -65,6 +66,16 @@ const learnSteps: LearnStep[] = [
           <li>They identify causes of workplace problems.</li>
           <li>They suggest practical solutions and monitor improvement.</li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    title: "TQM, ISO 9001 and ongoing improvement",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Total Quality Management means everyone in the organisation, not just inspectors, takes responsibility for quality, listens to customers and keeps improving. ISO 9001 is an international standard that firms are certified against for their quality systems."}</GapRule>
+        <GapWorked title={"Apply it to a bakery"} steps={["Every worker, not only the quality controller, is responsible for quality.", "Ask customers what they expect and track complaints.", "Review the process regularly and cut waste such as spoiled dough.", "ISO 9001 certification shows customers the bakery follows an accepted international system."]} />
+        <GapMistake>{"Treating quality as the job of one department."}</GapMistake>
       </div>
     ),
   },

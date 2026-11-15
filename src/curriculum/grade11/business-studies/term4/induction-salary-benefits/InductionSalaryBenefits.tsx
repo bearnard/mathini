@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -103,6 +104,16 @@ const learnSteps: LearnStep[] = [
           </ul>
         </div>
         <p className="text-sm text-slate-500">Total remuneration = basic salary + benefits + incentives (bonuses, commission).</p>
+      </div>
+    ),
+  },
+  {
+    title: "Minimum wage and benefits",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The National Minimum Wage establishes the lowest wage any employer may legally pay. Businesses offer benefits such as pension funds and medical aid because they attract and keep staff by giving long-term security."}</GapRule>
+        <GapWorked title={"Why offer benefits?"} steps={["Employer pays less than the national minimum wage: this is illegal.", "A pension fund gives long-term security for retirement.", "Medical aid covers health costs, so staff stay loyal."]} />
+        <GapMistake>{"Treating benefits as a replacement for the minimum wage."}</GapMistake>
       </div>
     ),
   },

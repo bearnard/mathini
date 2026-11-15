@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -88,6 +89,16 @@ ELSE it is your own original work`} />
             Avoid vague answers like “care for the environment”. Name concrete actions such as power-saving modes, fewer printouts and proper e-waste disposal.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Anonymising data and biometric data",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Strip names and ID numbers from data you share for research. Fingerprints and face scans need extra care: they are tied to who you are, and unlike a password you cannot change them after a leak."}</GapRule>
+        <GapWorked title={"Share data responsibly"} steps={["Remove names and ID numbers from a research dataset.", "A leaked password can be changed.", "A leaked fingerprint cannot be changed, so biometric data needs extra protection."]} />
+        <GapMistake>{"Sharing a dataset with names still in it because the research is harmless."}</GapMistake>
       </div>
     ),
   },

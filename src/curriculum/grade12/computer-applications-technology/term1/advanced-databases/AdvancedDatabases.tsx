@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -31,6 +32,16 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"During the PAT, database work must support the overall investigation. Tables should be relevant to the problem, fields should capture meaningful data and outputs should answer the research question. A well-designed database is not just technically correct; it helps the learner analyse information and communicate findings clearly."</p>
+      </div>
+    ),
+  },
+  {
+    title: "Grouping and calculated fields in reports",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Grouping gathers related records under a heading so that subtotals are easy to find. A calculated field works out values like totals or percentages itself, so nothing is typed by hand."}</GapRule>
+        <GapWorked title={"Report on sales by province"} steps={["Group the records by Province.", "Add a calculated field: Total = Quantity * UnitPrice.", "The report shows each province's records and a total for the group."]} />
+        <GapMistake>{"Typing totals by hand instead of using a calculated field."}</GapMistake>
       </div>
     ),
   },

@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -90,6 +91,16 @@ const learnSteps: LearnStep[] = [
             Integration improves efficiency, but it also increases the need for access control, compatibility and secure data sharing.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Secure pages, scams and the second login step",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Pages that begin with https scramble the data on its way across the network, so eavesdroppers see nonsense. Scammers pretend to be someone you trust to get you to hand over details. A second, independent check at login stops a stolen password from being enough."}</GapRule>
+        <GapWorked title={"Protect an account"} steps={["Use https pages for log in so data is encrypted in transit.", "Do not click a link in an email that asks for your password.", "Turn on the extra login check so a stolen password is not enough."]} />
+        <GapMistake>{"Thinking https proves a site is honest."}</GapMistake>
       </div>
     ),
   },

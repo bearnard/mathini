@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -87,6 +88,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Class diagrams, data dictionary, module descriptions, algorithm explanations — for a developer who might maintain the system.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Documenting tests",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Every test in the test plan gets a number, the data you typed in, what you expected, what really happened and a verdict. Screenshots prove the test was run."}</GapRule>
+        <GapWorked title={"Fill a row"} steps={["Test 3: input \u22125 for mark; expected: warning message.", "Actual: warning shown. Verdict: passed.", "Paste a screenshot showing the warning."]} />
+        <GapMistake>{"Recording only the expected result."}</GapMistake>
       </div>
     ),
   },

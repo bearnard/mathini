@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -108,6 +109,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Responsible, ethical behaviour online: respecting others, protecting privacy, avoiding cyberbullying.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Everyday objects online",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Devices that send data over the internet by themselves belong to the Internet of Things. In a home, an electricity meter that sends readings to the municipality is a good case."}</GapRule>
+        <GapWorked title={"Is it IoT?"} steps={["Smart electricity meter: sends readings automatically.", "Smart plug controlled by an app: yes.", "A pocket calculator never connects: no."]} />
+        <GapMistake>{"Calling a gadget IoT just because it uses electricity."}</GapMistake>
       </div>
     ),
   },

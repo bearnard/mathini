@@ -4,6 +4,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import FinancialStatement from '@/components/subjects/FinancialStatement';
 import TAccount from '@/components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -135,6 +136,16 @@ const learnSteps: LearnStep[] = [
         <p className="text-base leading-7 text-slate-600">
           Whenever you see a note like this, connect the movement to the financing section of the cash flow statement and to equity in the statement of financial position.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: "Cash and cash equivalents",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Cash and cash equivalents include cash on hand, bank balances and a bank overdraft that is repayable on demand. Such an overdraft is deducted from the bank balance."}</GapRule>
+        <GapWorked title={"Work out the net figure"} steps={["Bank balance R85 000 and an overdraft repayable on demand of R20 000.", "Cash and cash equivalents = R85 000 \u2212 R20 000 = R65 000.", "A long-term loan is not included: it is a financing item."]} />
+        <GapMistake>{"Leaving an overdraft that is repayable on demand out of cash and cash equivalents."}</GapMistake>
       </div>
     ),
   },

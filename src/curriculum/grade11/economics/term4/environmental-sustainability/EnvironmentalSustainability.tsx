@@ -3,6 +3,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import SupplyDemand from '@/components/subjects/SupplyDemand';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const energyTransitionData = [
   { year: '2019', emissions: 470, renewables: 11 },
@@ -89,6 +90,16 @@ const learnSteps: LearnStep[] = [
             <p className="mt-1 text-slate-600">Kyoto and Paris coordinate international action to limit warming and emissions.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Spillovers, commons and climate policy",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A spillover cost lands on people who had no say, such as a river polluted by a mine. A spillover benefit, such as a neighbour's vaccination, is under-supplied because the maker is not paid for it. Common resources get overused when no one is responsible for them."}</GapRule>
+        <GapWorked title={"Policies and impacts"} steps={["Carbon tax: polluters pay per tonne and cleaner technology becomes cheaper by comparison.", "REIPPPP: private wind and solar farms sell power to the grid.", "Paris: each country sets its own target to keep warming well under 2 \u00b0C and aims for 1.5 \u00b0C.", "Kyoto (1997) was the first treaty to bind rich countries to cut emissions.", "Cape Town's Day Zero showed that drought threatens farming, food security and business."]} />
+        <GapMistake>{"Assuming the market already supplies enough of goods with spillover benefits."}</GapMistake>
       </div>
     ),
   },

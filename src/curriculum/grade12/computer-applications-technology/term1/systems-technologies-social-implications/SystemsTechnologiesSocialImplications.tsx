@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -31,6 +32,16 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"Technology decisions also have social and environmental consequences. E-waste, energy use, recycling, ergonomics, digital divide issues and the ethical use of devices often appear in CAT theory questions. Strong answers show both benefits and risks, for example that mobile devices increase access to information but can deepen inequality if learners cannot afford data or reliable hardware."</p>
+      </div>
+    ),
+  },
+  {
+    title: "E-waste",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"E-waste can contain hazardous materials, so it should be recycled responsibly."}</GapRule>
+        <GapWorked title={"Handle old devices"} steps={["Old phones and computers contain lead, mercury and other hazardous materials.", "Dumping them pollutes soil and water.", "Take them to a recycler or collection point."]} />
+        <GapMistake>{"Throwing old devices in the normal rubbish bin."}</GapMistake>
       </div>
     ),
   },

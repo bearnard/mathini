@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -84,6 +85,16 @@ qryOrders.Open;`} />
             <div className="rounded-xl bg-white p-3 shadow-sm">4. Confirm in report</div>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Reports, combo boxes and layered validation",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A report turns records into a clear printout, usually grouped with totals. A combo box lets the user pick only from stored values. Checking data in the form and again in the database is safest, since each layer catches different mistakes."}</GapRule>
+        <GapWorked title={"Build a data entry form"} steps={["A combo box for Category lets the user choose from the stored values only.", "The form checks the entry before it is saved.", "The database field rules are a second check.", "A report groups the records by category with totals."]} />
+        <GapMistake>{"Relying on only one layer of validation."}</GapMistake>
       </div>
     ),
   },

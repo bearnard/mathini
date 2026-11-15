@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -89,6 +90,16 @@ end;`} />
         <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 font-mono text-sm text-slate-700">
           <p>Planning → Implementation → Integration → Testing → Reflection → Final evidence</p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Planning and testing a PAT",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Sketch the classes, their fields, their actions and how they connect before you code. Let a real or typical user try the finished program to judge whether it does the job. Use the same names for fields and variables everywhere to avoid mapping slips."}</GapRule>
+        <GapWorked title={"Plan, build, test"} steps={["Draw a class diagram first: attributes, methods and relationships.", "Name database fields and variables consistently, for example StudentName in both.", "Ask the intended user to try the program and note problems."]} />
+        <GapMistake>{"Starting to code without a plan and using different names for the same field."}</GapMistake>
       </div>
     ),
   },

@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { LSItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -117,6 +118,16 @@ const learnSteps: LearnStep[] = [
           </div>
         </div>
         <p className="text-sm text-slate-600">Kidney failure symptoms: uraemia (urea in blood), fluid retention, hypertension, and fatigue.</p>
+      </div>
+    ),
+  },
+  {
+    title: "More about the nephron and kidney failure",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Glucose and amino acids are reabsorbed in the proximal convoluted tubule (PCT). The loop of Henle builds a concentration gradient in the medulla. ADH (anti-diuretic hormone) makes the collecting duct more permeable to water, so the urine is more concentrated."}</GapRule>
+        <GapWorked title={"Link the part to its job"} steps={["PCT: reabsorbs all the glucose and amino acids and most of the water and salts.", "Loop of Henle: builds the concentration gradient in the medulla.", "Collecting duct: ADH raises its permeability to water, producing concentrated urine.", "Glucose in the urine (glycosuria) points to high blood glucose, possibly diabetes mellitus.", "Haemodialysis artificially filters the blood and removes urea when the kidneys fail."]} />
+        <GapMistake>{"Saying ADH makes the kidney produce more urine. ADH makes more water return to the blood, so less urine is produced."}</GapMistake>
       </div>
     ),
   },

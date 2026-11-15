@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -75,6 +76,16 @@ const learnSteps: LearnStep[] = [
           <p className="text-slate-700">Eskom load-shedding (macro) reduces store trading hours (market) and forces businesses to invest in generators or solar panels (micro) to keep operating.</p>
         </div>
         <p className="text-slate-600">When analysing a case study, always identify <em>which environment</em> the factor belongs to before suggesting a response.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Quality control and quality assurance",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Quality control checks the final product, while quality assurance monitors the whole process to prevent defects."}</GapRule>
+        <GapWorked title={"Control or assurance?"} steps={["Inspecting finished bags before they are packed: quality control.", "Training staff and checking each production step: quality assurance.", "Assurance aims to prevent defects, control finds them."]} />
+        <GapMistake>{"Using the two terms as if they mean the same."}</GapMistake>
       </div>
     ),
   },

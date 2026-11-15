@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -31,6 +32,16 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"Final exam consolidation means revisiting the whole Grade 12 CAT syllabus in a connected way. Instead of studying topics in isolation, learners should practise mixed questions that combine systems, applications, networks, information management and digital citizenship. This builds the flexible thinking needed in the NSC papers."</p>
+      </div>
+    ),
+  },
+  {
+    title: "Choosing a communication tool",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Pick a tool by asking who you are writing to and why. A formal request to a principal suits a proper email; a quick question to a friend suits a message."}</GapRule>
+        <GapWorked title={"Pick the tool"} steps={["Audience: the principal. Purpose: a formal request. Tool: email.", "Audience: friends. Purpose: a quick question. Tool: instant message.", "The tool must fit the audience and purpose."]} />
+        <GapMistake>{"Choosing the newest tool instead of the one that fits."}</GapMistake>
       </div>
     ),
   },

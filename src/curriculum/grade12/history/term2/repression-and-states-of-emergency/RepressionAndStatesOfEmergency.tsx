@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem, type LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -68,6 +69,16 @@ const learnSteps: LearnStep[] = [
           <li>{"Repression damaged the regime's legitimacy at home and abroad."}</li>
           <li>{"The crisis pushed South Africa closer to negotiations rather than back to stable minority rule."}</li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    title: "Held without trial",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Emergency laws let police arrest a person and keep them locked up without bringing them before a court. Families often did not know where the detainee was."}</GapRule>
+        <GapWorked title={"What it meant"} steps={["Police could detain a person without charging them.", "The person did not appear in court.", "Families often did not know where the person was.", "The states of emergency of 1985 and 1986 widened these powers."]} />
+        <GapMistake>{"Thinking detainees had the right to a quick trial."}</GapMistake>
       </div>
     ),
   },

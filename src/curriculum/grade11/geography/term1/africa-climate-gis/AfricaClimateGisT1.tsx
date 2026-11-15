@@ -1,6 +1,7 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../_shared/types';
 import ClimateGraph from '@/components/subjects/ClimateGraph';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps: LearnStep[] = [
@@ -135,6 +136,16 @@ const learnSteps: LearnStep[] = [
         </div>
 
         <p className="text-sm text-slate-500">Using climate data with maps and GIS layers helps geographers explain vegetation, river flow, farming, and settlement patterns.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Spreading deserts, satellites and the rain belt",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Fertile land can become desert-like when overgrazing, cutting trees and drought work together. Satellites and aircraft let us study land without visiting it. Tropical Africa's wet and dry seasons follow the rain belt as it moves with the overhead Sun each year."}</GapRule>
+        <GapWorked title={"Use each idea"} steps={["Overgrazed grass on dry soil is lost, and the ground turns bare.", "A satellite picture compares green cover over several years.", "The rain belt (ITCZ) moves north and south with the Sun, so rain arrives in turn."]} />
+        <GapMistake>{"Blaming deserts only on climate."}</GapMistake>
       </div>
     ),
   },

@@ -4,6 +4,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import FinancialStatement from '@/components/subjects/FinancialStatement';
 import TAccount from '@/components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -82,6 +83,16 @@ const learnSteps: LearnStep[] = [
         <p className="text-base leading-7 text-slate-600">
           Ethical practice means reporting deficits honestly and valuing damaged stock realistically. Inflating stock figures to improve profit is misleading and can damage the credibility of the business.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: "When the count is lower than the records",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"If a physical count finds fewer units than the books show, the gap may come from theft, damaged goods, wastage or a mistake in the records. Find the cause before writing the difference off."}</GapRule>
+        <GapWorked title={"Investigate a shortfall"} steps={["Books: 500 units. Count: 480 units. Missing: 20.", "Check the paperwork, the damaged-goods shelf and the security records.", "Tighten control by separating duties and counting regularly."]} />
+        <GapMistake>{"Writing the loss off without asking why."}</GapMistake>
       </div>
     ),
   },

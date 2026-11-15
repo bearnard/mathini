@@ -2,6 +2,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 type RawEconomicsItem = {
   id: string;
@@ -71,6 +72,16 @@ const learnSteps: LearnStep[] = [
             provided that and depends on. Those phrases turn description into evaluation.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Development, sustainability and applied answers",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Development means people's wellbeing improves, not just GDP. Sustainable growth leaves resources for later generations. Strong answers use a current South African example to show how a theory plays out."}</GapRule>
+        <GapWorked title={"Apply the three ideas"} steps={["Development: higher living standards, not only higher GDP.", "Sustainability: use resources so later generations can also grow.", "Link theory to an SA case such as load-shedding and its effect on production."]} />
+        <GapMistake>{"Giving theory without an SA example."}</GapMistake>
       </div>
     ),
   },

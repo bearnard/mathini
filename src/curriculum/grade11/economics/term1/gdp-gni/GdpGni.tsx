@@ -2,6 +2,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const outputTrendData = [
   { year: '2019', gdp: 0.3, gni: 0.1 },
@@ -129,6 +130,16 @@ const learnSteps: LearnStep[] = [
           </div>
         </div>
         <p className="text-sm text-slate-500">GDP per capita = GDP ÷ population, but this average can hide inequality.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Gross value added and double-counting",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Gross value added (GVA) is the value of output minus the cost of the intermediate goods used. GDP at market prices = GVA of all industries + taxes on products \u2212 subsidies on products. Intermediate goods are left out of GDP to avoid double-counting value already in the final goods."}</GapRule>
+        <GapWorked title={"Wheat, flour and bread"} steps={["The farmer sells wheat for R20: value added R20.", "The miller sells flour for R35: value added R35 \u2212 R20 = R15.", "The baker sells bread for R50: value added R50 \u2212 R35 = R15.", "Total value added = R20 + R15 + R15 = R50, the price of the final bread."]} />
+        <GapMistake>{"Adding R20 + R35 + R50 = R105. That counts the wheat and flour again inside the bread."}</GapMistake>
       </div>
     ),
   },

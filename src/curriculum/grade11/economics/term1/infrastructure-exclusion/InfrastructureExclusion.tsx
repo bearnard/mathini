@@ -3,6 +3,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import SupplyDemand from '@/components/subjects/SupplyDemand';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const accessGapData = [
   { area: 'Metro', electricity: 95, internet: 78 },
@@ -86,6 +87,16 @@ const learnSteps: LearnStep[] = [
             <p className="mt-1 text-slate-600">Load-shedding, weak municipal capacity, corruption and maintenance backlogs slow progress.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Who the roads and clinics reached",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"People are economically excluded when barriers keep them from the jobs, markets and services others can use. Under apartheid, roads, rail and services were built for white areas while black workers lived far away in homelands and townships. Clinics matter too: healthy workers produce more."}</GapRule>
+        <GapWorked title={"Trace the chain"} steps={["A township resident needs two taxis and three hours to reach work.", "Long travel and poor health care lower what that worker can earn and produce.", "Lower output for whole communities holds back growth."]} />
+        <GapMistake>{"Treating exclusion as only a question of having no job."}</GapMistake>
       </div>
     ),
   },

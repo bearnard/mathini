@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { LSItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -90,6 +91,16 @@ const learnSteps: LearnStep[] = [
           <p className="text-slate-700"><strong>"Evaluate"</strong> — weigh up advantages and disadvantages; support your judgement with evidence from the data or your knowledge.</p>
           <p className="text-slate-700"><strong>Mark allocation tip:</strong> Count the marks allocated and give at least that many distinct points.</p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Revision: levelling off, alveoli and Evaluate",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Population growth levels off because resources limit it, at the carrying capacity. In the lungs, breathing and blood flow keep the concentration gradient steep. A question that says Evaluate wants both sides weighed with evidence."}</GapRule>
+        <GapWorked title={"Practise"} steps={["Population numbers flatten near the carrying capacity.", "Fresh air in, oxygen carried away by blood: diffusion continues.", "Evaluating a pollution fix: list gains and drawbacks, then conclude."]} />
+        <GapMistake>{"Giving only the positives when asked to evaluate."}</GapMistake>
       </div>
     ),
   },

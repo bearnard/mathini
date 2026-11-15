@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { LSItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -93,6 +94,16 @@ const learnSteps: LearnStep[] = [
           </div>
         </div>
         <p className="text-sm text-slate-600">Both types eventually lead to a stable <strong>climax community</strong> determined by the local climate.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Counting animals and watching them interact",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Density tells you how crowded a habitat is: animals counted divided by the area. When prey become scarce, hunters starve and decline later. The first plants to settle bare ground are pioneers. A population stops growing smoothly when food, space or other resources limit it."}</GapRule>
+        <GapWorked title={"Work through it"} steps={["120 springbok on 40 km\u00b2 is 120 \u00f7 40 = 3 per km\u00b2.", "Fewer hares leave lynx short of food, so lynx numbers fall after a delay.", "Lichens settle on bare rock and start primary succession.", "An S-shaped curve flattens as limits take effect."]} />
+        <GapMistake>{"Assuming secondary succession begins on bare rock."}</GapMistake>
       </div>
     ),
   },

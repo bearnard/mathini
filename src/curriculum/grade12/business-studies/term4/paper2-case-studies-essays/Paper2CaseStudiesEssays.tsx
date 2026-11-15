@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import SwotMatrix from '@/components/subjects/SwotMatrix';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -58,6 +59,16 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-blue-50 p-4"><strong className="text-blue-700">Discuss</strong><p className="text-slate-600 mt-1">Give fuller detail, explanation and relevant development.</p></div>
           <div className="rounded-xl bg-purple-50 p-4"><strong className="text-purple-700">Evaluate</strong><p className="text-slate-600 mt-1">Balance strengths and weaknesses before giving a reasoned judgement.</p></div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Why essay marks go missing",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Examiners reward answers that address the exact question. Essays that wander into everything the learner knows about the topic lose marks."}</GapRule>
+        <GapWorked title={"Stay on the question"} steps={["Underline what the question asks, such as evaluate the importance of ethics.", "Plan three points that answer exactly that.", "Check every paragraph against the question."]} />
+        <GapMistake>{"Writing all you know about the topic."}</GapMistake>
       </div>
     ),
   },

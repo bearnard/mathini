@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { LSItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -86,6 +87,16 @@ const learnSteps: LearnStep[] = [
           <p className="text-slate-700">4. Breathing rate and depth increase → more CO₂ is expelled and more O₂ is inhaled.</p>
           <p className="text-slate-700">5. Blood CO₂ returns to normal → breathing rate decreases back to resting level (negative feedback).</p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "A windpipe that stays open",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Cartilage rings shaped like a letter C stiffen the windpipe so it cannot collapse when pressure inside drops during breathing in. The gap faces the food pipe, which can bulge as food passes."}</GapRule>
+        <GapWorked title={"Why the rings matter"} steps={["Breathing in lowers the pressure in the tube.", "Stiff cartilage keeps the airway open.", "The open side lets a swallowed lump pass the food pipe."]} />
+        <GapMistake>{"Picturing full rings."}</GapMistake>
       </div>
     ),
   },

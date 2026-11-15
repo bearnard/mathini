@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -101,6 +102,16 @@ end;`} />
             If the business rule changes, you update one calculation method instead of rewriting many event handlers.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Checking input and keeping logic apart",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Check what a user types before it reaches the file or database, so half-filled or impossible records never get stored. Put the real calculations in their own routines instead of burying them inside button events; that makes the code easier to test and change."}</GapRule>
+        <GapWorked title={"Improve a button handler"} steps={["btnSaveClick checks that required fields are filled and the numbers are valid.", "The price calculation is in its own function.", "The function can be tested without the form."]} />
+        <GapMistake>{"Writing all calculations inside the button click procedure."}</GapMistake>
       </div>
     ),
   },

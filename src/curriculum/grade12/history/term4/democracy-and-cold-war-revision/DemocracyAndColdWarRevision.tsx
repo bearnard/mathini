@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem, type LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -71,6 +72,16 @@ const learnSteps: LearnStep[] = [
           <li>{"Some praised it for preventing revenge and exposing hidden violence."}</li>
           <li>{"Others criticised it because justice and reparations often felt incomplete."}</li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    title: "Where the new order's legitimacy came from",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The 1994 government drew its authority from votes cast by people of every race. The Truth and Reconciliation Commission set out to uncover human rights abuses and help the nation heal."}</GapRule>
+        <GapWorked title={"Revise two points"} steps={["1994: everyone voted, so the government represented all people.", "TRC: look into rights abuses and promote reconciliation."]} />
+        <GapMistake>{"Confusing the TRC with CODESA."}</GapMistake>
       </div>
     ),
   },

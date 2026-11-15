@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import ProcessFlow from '../../../../../components/subjects/ProcessFlow';
 import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -220,6 +221,16 @@ const learnSteps: LearnStep[] = [
             start with easier questions to build confidence, and always review answers if time permits. Good luck! 🍀
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Revision: homeostasis and the taxonomic ranks",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Homeostasis means keeping a stable internal environment. The taxonomic ranks from broadest to most specific are Kingdom, Phylum, Class, Order, Family, Genus, Species."}</GapRule>
+        <GapWorked title={"Revise two key ideas"} steps={["Homeostasis: body temperature and blood glucose are kept within narrow limits.", "Mnemonic for the ranks: King Phillip Came Over For Good Soup.", "Classify the lion as Kingdom Animalia, Phylum Chordata, Class Mammalia, Order Carnivora, Family Felidae, Genus Panthera, species Panthera leo."]} />
+        <GapMistake>{"Writing the ranks in the wrong order. Start at Kingdom and end at Species."}</GapMistake>
       </div>
     ),
   },

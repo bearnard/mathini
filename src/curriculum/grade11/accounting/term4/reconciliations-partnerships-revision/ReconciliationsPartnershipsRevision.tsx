@@ -2,6 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import FinancialStatement from '../../../../../components/subjects/FinancialStatement';
 import TAccount from '../../../../../components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -141,6 +142,16 @@ const learnSteps: LearnStep[] = [
             <li><strong>Accountability:</strong> partners are responsible for their capital and drawings</li>
           </ul>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Carrying value on the balance sheet",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Non-current assets are shown at cost minus accumulated depreciation, which is the carrying value."}</GapRule>
+        <GapWorked title={"Show the asset"} steps={["Equipment: cost R120 000.", "Accumulated depreciation to date: R48 000.", "Carrying value = R120 000 \u2212 R48 000 = R72 000."]} />
+        <GapMistake>{"Showing the asset at cost only."}</GapMistake>
       </div>
     ),
   },

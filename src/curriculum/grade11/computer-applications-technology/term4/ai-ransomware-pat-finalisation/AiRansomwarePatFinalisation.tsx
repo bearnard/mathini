@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -99,6 +100,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Interpret what the data means — don't just describe. Explain patterns, anomalies, and implications.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Fake media, face scanning and clear charts",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A synthetic video made with AI can show someone saying things they never said. Systems that match faces raise worries about tracking people and about unfair errors. A chart in a PAT needs a heading, labelled axes and a key."}</GapRule>
+        <GapWorked title={"Think critically"} steps={["A clip of a minister announcing something strange: check other sources before sharing.", "A shop uses face scanning: ask who stores the images and how accurate it is for all people.", "Before submitting a chart, check the heading, the axis labels and the key."]} />
+        <GapMistake>{"Sharing a video because it looks real."}</GapMistake>
       </div>
     ),
   },

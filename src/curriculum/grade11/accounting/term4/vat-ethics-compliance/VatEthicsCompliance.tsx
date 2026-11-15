@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import TAccount from '../../../../../components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -107,6 +108,16 @@ const learnSteps: LearnStep[] = [
           </div>
         </div>
         <p className="text-sm text-slate-500">The correction entry shows how detective controls pick up invalid input VAT claims before the VAT201 return is submitted.</p>
+      </div>
+    ),
+  },
+  {
+    title: "VAT and registration",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Only a registered vendor may add VAT to prices, because only a vendor can pay that money over to SARS. A shop that is not registered but still adds 15% is taking money it has no legal claim to."}</GapRule>
+        <GapWorked title={"Spot the offence"} steps={["A small tuck shop has not registered but prices say 'incl. VAT'.", "Customers pay 15% extra that never reaches SARS.", "That is dishonest and against the law."]} />
+        <GapMistake>{"Adding VAT to prices because competitors do."}</GapMistake>
       </div>
     ),
   },

@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 import ClimateGraph from '@/components/subjects/ClimateGraph';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps = [
@@ -83,6 +84,16 @@ const learnSteps = [
         </div>
 
         <p className="text-sm text-slate-500">Urban heat islands are most noticeable at night when the city releases stored heat more slowly than the surrounding countryside.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Warm air trapped over cold air",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Normally air cools as you go up. In an inversion the pattern flips: cold air sits near the ground beneath a warmer layer, and the cold air cannot rise."}</GapRule>
+        <GapWorked title={"Inversion on a winter night"} steps={["The ground loses heat and the air near it cools.", "The air higher up stays warmer.", "Warm air above cold air stops the cold air rising.", "Smoke and smog are trapped near the ground."]} />
+        <GapMistake>{"Thinking temperature always falls with height."}</GapMistake>
       </div>
     ),
   },

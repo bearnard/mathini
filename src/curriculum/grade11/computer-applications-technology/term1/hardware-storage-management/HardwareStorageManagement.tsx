@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -86,6 +87,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">User accounts (administrator vs standard), passwords, biometric login, file permissions (read, write, execute).</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Accounts, firmware and safe backups",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A restricted account can run programs but not change the whole machine; only an administrator can. The BIOS or UEFI program is kept in ROM, which survives a power cut. A safe backup plan uses three copies, two kinds of media and one place away from the building."}</GapRule>
+        <GapWorked title={"Check the set-up"} steps={["A learner (restricted account) tries to install a program for everyone: the computer asks for the administrator's password.", "The start-up firmware lives in ROM, so the computer can boot every time.", "Original + external drive + cloud copy = three copies, two media, one off-site."]} />
+        <GapMistake>{"Storing the backup beside the computer, where a fire or theft would destroy both."}</GapMistake>
       </div>
     ),
   },

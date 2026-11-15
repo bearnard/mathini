@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -106,6 +107,16 @@ const learnSteps: LearnStep[] = [
           </div>
         </div>
         <p className="text-sm text-slate-500 mt-2">The New Deal permanently expanded the role of the federal government in American life and remains a landmark in the history of state intervention in a capitalist economy.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Hoover's rugged individualism",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Hoover believed in rugged individualism: hardship should be overcome without handouts, and the government should not give relief."}</GapRule>
+        <GapWorked title={"Contrast the presidents"} steps={["Hoover: people should overcome hardship by their own effort, without handouts.", "Roosevelt: the government must act with relief and jobs.", "Hoover's approach seemed cold as unemployment rose."]} />
+        <GapMistake>{"Saying Hoover did nothing at all. He believed relief should come from private charity and local effort."}</GapMistake>
       </div>
     ),
   },

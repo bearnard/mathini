@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import FinancialStatement from '@/components/subjects/FinancialStatement';
 import TAccount from '@/components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -127,6 +128,16 @@ const learnSteps: LearnStep[] = [
             </ul>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Negative balances and showing your work",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"When a budget ends the month below zero, the business will run out of cash unless it arranges an overdraft or delays payments. In a test, markers award marks for each shown step and each labelled figure."}</GapRule>
+        <GapWorked title={"Read a cash projection"} steps={["Opening R4 000, money in R12 000, money out R18 000.", "Closing = 4 000 + 12 000 \u2212 18 000 = \u2212R2 000.", "The business must borrow or cut costs. In an exam, write each line of this calculation with a label."]} />
+        <GapMistake>{"Writing only the final figure and no workings."}</GapMistake>
       </div>
     ),
   },

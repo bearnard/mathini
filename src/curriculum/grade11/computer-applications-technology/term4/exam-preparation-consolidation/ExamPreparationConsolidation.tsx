@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -99,6 +100,16 @@ const learnSteps: LearnStep[] = [
             <li>In multiple choice, eliminate obviously wrong answers first.</li>
           </ul>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "An image as a hyperlink in HTML",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"To make an image a hyperlink, put the <img> tag inside an <a> tag."}</GapRule>
+        <GapWorked title={"Write the code"} steps={["<a href=\"home.html\">", "<img src=\"logo.png\" alt=\"Home\">", "</a>", "Clicking the logo opens home.html."]} />
+        <GapMistake>{"Putting the <a> tag inside the <img> tag."}</GapMistake>
       </div>
     ),
   },

@@ -1,6 +1,7 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../_shared/types';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps: LearnStep[] = [
@@ -112,6 +113,16 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">Trade networks expand quickly in some years and slow sharply during periods of recession or disruption.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Specialising and trading",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Countries gain by specialising in what they give up least to make, and trading for the rest. Compare exports with imports to see the trade balance, and remember that import taxes raise the price of foreign goods."}</GapRule>
+        <GapWorked title={"Work it out"} steps={["Exports R500 billion minus imports R350 billion leaves a surplus of R150 billion.", "A tariff on imported steel makes it dearer than local steel.", "A company with factories in many countries often sends profits to its head office abroad.", "When skilled people emigrate, hospitals and schools lose staff."]} />
+        <GapMistake>{"Assuming the country that makes the most of everything should not trade."}</GapMistake>
       </div>
     ),
   },

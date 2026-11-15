@@ -1,6 +1,7 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../_shared/types';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps: LearnStep[] = [
@@ -116,6 +117,16 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">This mix matters because energy choices affect jobs, costs, greenhouse gas emissions, and energy security.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Fuels and their costs",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Burning coal releases carbon dioxide and other pollutants that warm the planet and harm health. Rotating blackouts let Eskom share limited supply instead of letting the grid crash. Plants take in carbon while growing, so burning wood or crop waste can roughly balance out if replanted."}</GapRule>
+        <GapWorked title={"Explain the terms"} steps={["Coal: warming gases and health problems near power stations.", "Blackouts: Eskom rotates outages to protect the grid.", "Biomass: new growth absorbs what burning releases, if the crop is replanted."]} />
+        <GapMistake>{"Calling biomass carbon-free."}</GapMistake>
       </div>
     ),
   },

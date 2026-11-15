@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import FinancialStatement from '@/components/subjects/FinancialStatement';
 import TAccount from '@/components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -102,6 +103,16 @@ const learnSteps: LearnStep[] = [
             </ul>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Direct labour and fair classification",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Wages of people who physically make the goods are direct labour. Supervisors, cleaners and office staff are different: they support production or the business and are classified as overheads or administration."}</GapRule>
+        <GapWorked title={"Sort the wages"} steps={["Cutter who produces the shirt panels: direct labour.", "Factory supervisor: factory overhead.", "Bookkeeper in the office: administration cost, not a factory cost.", "Moving office salaries into the factory section to cut profit would be dishonest."]} />
+        <GapMistake>{"Counting every salary in the factory as direct labour."}</GapMistake>
       </div>
     ),
   },

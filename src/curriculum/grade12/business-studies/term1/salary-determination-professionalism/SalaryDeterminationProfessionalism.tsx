@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import SwotMatrix from '@/components/subjects/SwotMatrix';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -72,6 +73,16 @@ const learnSteps: LearnStep[] = [
           <li>Use clear codes of conduct.</li>
           <li>Protect confidential information.</li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    title: "Negotiated pay, bribes and professional conduct",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"When a union bargains with an employer, the two sides settle wages and working conditions through negotiation. Taking a bribe to ignore a defect is plainly dishonest. Professional behaviour builds the firm's standing and good relations at work."}</GapRule>
+        <GapWorked title={"Apply it"} steps={["A union and employer negotiate a wage increase and conditions.", "An inspector who accepts money to pass faulty goods acts unethically.", "Punctuality, honesty and respect build reputation and relationships."]} />
+        <GapMistake>{"Thinking the employer alone sets pay when a union represents the workers."}</GapMistake>
       </div>
     ),
   },

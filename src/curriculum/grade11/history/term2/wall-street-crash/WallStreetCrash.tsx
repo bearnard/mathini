@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -98,6 +99,16 @@ const learnSteps: LearnStep[] = [
           </ul>
         </div>
         <p className="text-sm text-slate-500 mt-2">The Great Depression shows how interconnected the global economy had become — and how economic crises can have profound political consequences.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Buying on the margin",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Buying on the margin means buying shares with borrowed money, hoping prices will rise enough to repay the loan."}</GapRule>
+        <GapWorked title={"How margin buying failed"} steps={["An investor borrows money to buy shares.", "If prices rise, he repays the loan and keeps the profit.", "In October 1929 prices fell, so he could not repay.", "Banks lost money and many investors were ruined."]} />
+        <GapMistake>{"Thinking margin buying is buying shares with your own savings."}</GapMistake>
       </div>
     ),
   },

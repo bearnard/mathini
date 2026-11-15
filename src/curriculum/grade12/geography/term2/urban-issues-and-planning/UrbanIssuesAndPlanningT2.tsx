@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps = [
@@ -59,6 +60,16 @@ const learnSteps = [
         />
 
         <p className="text-sm text-slate-500">Planning for housing, sanitation, roads, and public transport is especially important where informal housing is growing quickly.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Improving settlements rather than moving people",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Adding water, toilets and electricity to an existing settlement improves daily life without breaking up neighbours and without moving people away from work. Forced removal does the opposite."}</GapRule>
+        <GapWorked title={"Compare the options"} steps={["Forced removal moves people far from work and neighbours.", "Upgrading adds water, electricity and sanitation where people already live.", "It keeps social networks and closeness to jobs."]} />
+        <GapMistake>{"Thinking removal always solves the problem."}</GapMistake>
       </div>
     ),
   },

@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -88,6 +89,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">All machines are equal; each can act as both client and server. Simple setup, no dedicated server needed. Hard to secure; not scalable for large networks.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Hybrid topology",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A hybrid topology combines two or more topology types, to balance cost and reliability."}</GapRule>
+        <GapWorked title={"Design a school network"} steps={["Each classroom uses a star topology around a switch.", "The switches are linked in a ring or by a backbone.", "Together this is a hybrid topology: a good balance of cost and reliability."]} />
+        <GapMistake>{"Calling a network hybrid when it uses only one topology."}</GapMistake>
       </div>
     ),
   },

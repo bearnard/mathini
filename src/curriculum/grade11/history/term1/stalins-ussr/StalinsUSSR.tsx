@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -98,6 +99,16 @@ const learnSteps: LearnStep[] = [
           </div>
         </div>
         <p className="text-sm text-slate-500 mt-2">The purges eliminated any possible challenge to Stalin's absolute power and created a climate of fear throughout Soviet society.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Collectivisation and the animals",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"When Stalin forced peasants onto collective farms, many killed their cattle and sheep rather than surrender them. Herds shrank, grain collapsed and famine followed."}</GapRule>
+        <GapWorked title={"Trace the result"} steps={["Farms are merged and animals must be handed to the collective.", "Villagers slaughter and eat them first.", "Fewer animals and less grain mean hunger."]} />
+        <GapMistake>{"Assuming the peasants cooperated."}</GapMistake>
       </div>
     ),
   },

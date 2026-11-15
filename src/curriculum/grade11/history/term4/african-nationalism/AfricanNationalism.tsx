@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -99,6 +100,16 @@ const learnSteps: LearnStep[] = [
             <li>Urbanisation, education, and trade unions created new political networks.</li>
           </ul>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "The war and self-rule",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Europe came out of the Second World War bankrupt and weak. African soldiers returned home having fought for freedom abroad, and nationalist movements grew bolder in demanding self-government."}</GapRule>
+        <GapWorked title={"Trace the link"} steps={["Britain and France struggle with debt.", "Veterans expect rights at home.", "Leaders demand independence."]} />
+        <GapMistake>{"Dating African nationalism from 1945."}</GapMistake>
       </div>
     ),
   },

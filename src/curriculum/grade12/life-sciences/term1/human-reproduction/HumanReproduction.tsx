@@ -5,6 +5,7 @@ import ProcessFlow from '@/components/subjects/ProcessFlow';
 import ClassificationTree from '@/components/subjects/ClassificationTree';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -156,6 +157,16 @@ const learnSteps: LearnStep[] = [
             do not normally mix directly.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "From ovulation to the next period",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"After the egg leaves the ovary the empty follicle forms the corpus luteum, which releases progesterone to keep the womb lining thick. If no embryo attaches (implants) in the lining, the corpus luteum fades, hormone levels drop and the lining is shed in menstruation."}</GapRule>
+        <GapWorked title={"Trace the cycle"} steps={["Ovulation, then the corpus luteum forms.", "Progesterone maintains the lining.", "No implantation: progesterone falls and the lining is shed."]} />
+        <GapMistake>{"Linking menstruation to ovulation instead of to missing pregnancy."}</GapMistake>
       </div>
     ),
   },

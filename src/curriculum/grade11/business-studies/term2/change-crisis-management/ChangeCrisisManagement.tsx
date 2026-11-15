@@ -2,6 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
 import { CRISIS_STEPS } from '../../../../../components/diagrams/business/steps';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -85,6 +86,16 @@ const learnSteps: LearnStep[] = [
           A <strong>crisis</strong> is an unexpected, urgent event that threatens the business. Crisis management follows a structured response.
         </p>
         <NumberedSteps steps={CRISIS_STEPS} tone="amber" heading="Crisis management steps:" label="Crisis management steps" />
+      </div>
+    ),
+  },
+  {
+    title: "Managing workplace stress",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Ignoring the problem and working longer hours is not a recommended way to manage workplace stress. Better strategies are time management, support and healthy habits."}</GapRule>
+        <GapWorked title={"Choose the strategy"} steps={["Plan the workload and set priorities.", "Talk to a manager or counsellor.", "Take breaks and look after your health.", "Ignoring the problem and working longer hours makes stress worse."]} />
+        <GapMistake>{"Working longer hours to fix stress."}</GapMistake>
       </div>
     ),
   },

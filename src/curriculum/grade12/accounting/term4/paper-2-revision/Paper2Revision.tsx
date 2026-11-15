@@ -4,6 +4,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import FinancialStatement from '@/components/subjects/FinancialStatement';
 import TAccount from '@/components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -80,6 +81,16 @@ const learnSteps: LearnStep[] = [
         <p className="text-base leading-7 text-slate-600">
           The goal is to think like an accountant: use figures, identify the risk, explain the effect and recommend a realistic response. That combination is what final examination questions reward most consistently.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: "Reconciliation and VAT reminders",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A charge on the bank statement that the cashbook has not yet recorded must be entered as a payment, which lowers the cashbook balance. A creditors reconciliation can disagree because an invoice or credit note from the supplier is missing from your books. Input VAT can only be claimed with a valid tax invoice from a vendor."}</GapRule>
+        <GapWorked title={"Apply each rule"} steps={["Statement shows R180 charges: credit the Bank account, the balance falls.", "Supplier statement includes an invoice you never recorded: record it.", "No valid tax invoice from a registered vendor: no input VAT claim."]} />
+        <GapMistake>{"Adding a bank fee to the cashbook balance."}</GapMistake>
       </div>
     ),
   },

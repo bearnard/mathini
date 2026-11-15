@@ -4,6 +4,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import FinancialStatement from '@/components/subjects/FinancialStatement';
 import TAccount from '@/components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -78,6 +79,16 @@ const learnSteps: LearnStep[] = [
         <p className="text-base leading-7 text-slate-600">
           Whether the scenario is about stock losses, VAT fraud or governance, exam success comes from combining technical accuracy with fairness, accountability and practical business sense.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: "Internal control and the audit report",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The riskiest set-up is when a single person orders, receives and records the stock, because nobody checks them. A clean audit opinion tells readers the statements are fairly presented, not that they are perfect."}</GapRule>
+        <GapWorked title={"Spot the weakness"} steps={["One person handles buying, goods received and the stock records: fraud is easy to hide.", "Fix: three different people, plus a regular stock count.", "A clean opinion means no material misstatement, so users can rely on the statements."]} />
+        <GapMistake>{"Reading a clean audit opinion as a guarantee of zero errors."}</GapMistake>
       </div>
     ),
   },

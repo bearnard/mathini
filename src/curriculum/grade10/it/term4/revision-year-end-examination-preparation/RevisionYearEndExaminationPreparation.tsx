@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -359,6 +360,16 @@ WHERE Grade = 10;`} />
             <li>Stay calm and trust your preparation!</li>
           </ul>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "The life of a program from idea to users",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Developers work through stages in order: they plan, study the problem, design the solution, write the code, test it, and finally release it to users."}</GapRule>
+        <GapWorked title={"Order the stages"} steps={["Plan the project and its goals.", "Analyse what users need, then design the screens and data.", "Write (implement) the program and test it thoroughly.", "Release it to the users (deployment)."]} />
+        <GapMistake>{"Skipping testing and releasing straight after the code is written."}</GapMistake>
       </div>
     ),
   },

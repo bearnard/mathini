@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -139,6 +140,16 @@ end;`} />
             The parent class captures what all subclasses have in common. Child classes then supply the details that make each one unique.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Inheritance, parent constructors and UML",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Inheritance lets a child class reuse and extend the behaviour of an existing class. The parent constructor is called to initialise shared parent data correctly. In UML, inheritance is shown as a line with a hollow triangle pointing to the parent class."}</GapRule>
+        <GapWorked title={"Build on a class"} steps={["TDog inherits from TAnimal: it reuses TAnimal's attributes and methods.", "TDog adds its own behaviour or overrides Speak.", "constructor TDog.Create; begin inherited Create; ... end; initialises the parent's data first.", "UML: draw a line from TDog to TAnimal with a hollow triangle at TAnimal."]} />
+        <GapMistake>{"Copying the parent's code into the child class instead of inheriting it."}</GapMistake>
       </div>
     ),
   },

@@ -6,6 +6,7 @@ import ClassificationTree from '@/components/subjects/ClassificationTree';
 import PunnettSquare from '@/components/subjects/PunnettSquare';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -175,6 +176,16 @@ const learnSteps: LearnStep[] = [
             amino acids in the final protein.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Worked example: from DNA to protein",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"RNA is single-stranded and contains ribose and uracil (U) instead of thymine. Transcription copies the DNA template strand into mRNA in the nucleus. Translation reads the mRNA codons at a ribosome, where tRNA anticodons bring the matching amino acids."}</GapRule>
+        <GapWorked title={"Template DNA TAC GGA"} steps={["Transcription: DNA TAC GGA gives mRNA AUG CCU (A pairs with U, G with C).", "Translation: tRNA anticodons UAC and GGA pair with the codons AUG and CCU.", "AUG codes for methionine (Met) and CCU for proline (Pro).", "The polypeptide is Met-Pro."]} />
+        <GapMistake>{"Pairing A with T in RNA. In RNA, A pairs with U."}</GapMistake>
       </div>
     ),
   },

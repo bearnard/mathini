@@ -1,6 +1,7 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 import ClimateGraph from '@/components/subjects/ClimateGraph';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps = [
@@ -87,6 +88,16 @@ const learnSteps = [
         </div>
 
         <p className="text-sm text-slate-500">Revision is easier when learners can connect climate patterns with the processes that weather, erode, and reshape the land.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Slope aspect",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"South of the equator the midday Sun stands in the northern sky, so slopes that face north get the Sun's rays at a steeper angle and warm up more."}</GapRule>
+        <GapWorked title={"Which slope is warmer?"} steps={["In the Southern Hemisphere the Sun is in the north at midday.", "A north-facing slope faces the Sun and gets more direct rays.", "A south-facing slope is cooler and shadier."]} />
+        <GapMistake>{"Using the Northern Hemisphere rule."}</GapMistake>
       </div>
     ),
   },

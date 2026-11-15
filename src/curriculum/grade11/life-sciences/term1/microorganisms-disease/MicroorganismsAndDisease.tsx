@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { LSItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -126,6 +127,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Eliminating mosquito breeding sites reduces malaria and dengue fever incidence.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Why medicines stop working",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Each time antibiotics are used, a few bacteria may carry a gene that lets them survive. If the drugs are over-used or a course is stopped early, those survivors multiply and pass the gene on."}</GapRule>
+        <GapWorked title={"Follow the survivors"} steps={["A patient stops taking tablets after three days.", "The few tough bacteria live and divide.", "The next infection no longer responds to that drug."]} />
+        <GapMistake>{"Saying the patient's body becomes resistant."}</GapMistake>
       </div>
     ),
   },

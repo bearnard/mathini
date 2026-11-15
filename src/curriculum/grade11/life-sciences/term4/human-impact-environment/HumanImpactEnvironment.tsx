@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { LSItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -104,6 +105,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Crop rotation, organic farming, integrated pest management, water-efficient irrigation, and agroforestry maintain productivity without degrading natural systems.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Cutting forests and carbon",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Trees hold carbon in their wood. When forests are felled and burned, that carbon goes into the air as carbon dioxide, and fewer trees remain to take it back up."}</GapRule>
+        <GapWorked title={"Follow the carbon"} steps={["Trees store carbon as they grow.", "Burning or rotting returns it to the air.", "Fewer trees means less uptake, so the atmosphere warms more."]} />
+        <GapMistake>{"Focusing on oxygen only."}</GapMistake>
       </div>
     ),
   },

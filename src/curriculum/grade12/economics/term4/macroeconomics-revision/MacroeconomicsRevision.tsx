@@ -3,6 +3,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import SupplyDemand from '@/components/subjects/SupplyDemand';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 type RawEconomicsItem = {
   id: string;
@@ -74,6 +75,16 @@ const learnSteps: LearnStep[] = [
             In longer responses, define, apply and evaluate.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Data-response technique",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"In a macroeconomic data-response question, use the source and explain the economic concept clearly."}</GapRule>
+        <GapWorked title={"Answer a data question"} steps={["Quote the figure from the source.", "Name the concept, such as inflation or the repo rate.", "Explain the link and its effect on the economy."]} />
+        <GapMistake>{"Writing everything you know without using the source."}</GapMistake>
       </div>
     ),
   },

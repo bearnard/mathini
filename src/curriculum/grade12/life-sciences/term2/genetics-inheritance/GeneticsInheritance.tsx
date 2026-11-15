@@ -6,6 +6,7 @@ import ClassificationTree from '@/components/subjects/ClassificationTree';
 import PunnettSquare from '@/components/subjects/PunnettSquare';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -129,6 +130,16 @@ const learnSteps: LearnStep[] = [
             determination before drawing a Punnett square.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Mutations",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A mutation is a permanent change in the DNA base sequence."}</GapRule>
+        <GapWorked title={"Follow a mutation"} steps={["Original DNA: TAC GGA.", "A base is replaced: TAC GGT.", "The base sequence is permanently different.", "The protein may change, and the change can be inherited if it happens in a gamete."]} />
+        <GapMistake>{"Thinking every mutation is harmful. Some have no effect and a few are helpful."}</GapMistake>
       </div>
     ),
   },

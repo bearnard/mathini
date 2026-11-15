@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps = [
@@ -69,6 +70,16 @@ const learnSteps = [
         />
 
         <p className="text-sm text-slate-500">Catchment managers use flow data to plan water storage, flood control, irrigation, and environmental protection.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Living on a floodplain",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A floodplain is flat land beside a river that the river covers when it overflows. Homes built there risk being damaged and people being hurt whenever a big flood comes."}</GapRule>
+        <GapWorked title={"Assess the risk"} steps={["A floodplain is flat land beside a river that floods naturally.", "Houses built there are covered when the river floods.", "People and property are damaged.", "Planning laws and flood lines limit building on floodplains."]} />
+        <GapMistake>{"Thinking floodplains are safe because the land is flat and fertile."}</GapMistake>
       </div>
     ),
   },

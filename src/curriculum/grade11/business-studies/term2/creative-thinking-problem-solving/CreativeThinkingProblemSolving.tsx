@@ -2,6 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
 import { PROBLEM_SOLVING_STEPS } from '../../../../../components/diagrams/business/steps';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -78,6 +79,16 @@ const learnSteps: LearnStep[] = [
           <p className="font-bold text-amber-800 mb-2">Example approach:</p>
           <p className="text-slate-700">A bakery is losing sales to a new competitor. Using <strong>brainstorming</strong>, staff suggest: adding delivery services, expanding the product range, offering loyalty cards, opening earlier. The team then uses the problem-solving cycle to select and implement the best idea.</p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Brainstorming rules",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"During brainstorming no idea should be criticised or dismissed straight away. Write all ideas down first and evaluate them afterwards."}</GapRule>
+        <GapWorked title={"Run a session"} steps={["State the problem clearly.", "Everyone gives ideas; no idea is criticised or dismissed straight away.", "Record every idea.", "Then evaluate and pick the best idea."]} />
+        <GapMistake>{"Criticising ideas as they are suggested."}</GapMistake>
       </div>
     ),
   },

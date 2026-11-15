@@ -2,6 +2,7 @@
 
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -75,6 +76,16 @@ const learnSteps: LearnStep[] = [
         <p className="rounded-xl bg-slate-50 p-4 text-slate-700">
           A responsible company does not only aim for profit. It balances profit with people and the environment.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: "Unlimited liability",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Unlimited liability means owners can lose personal assets to pay for the business debts. Sole proprietors and partners have unlimited liability."}</GapRule>
+        <GapWorked title={"Apply it"} steps={["A sole proprietor's business owes R100 000 and has only R40 000 in assets.", "The creditors can claim the owner's personal assets for the remaining R60 000.", "A private company gives limited liability instead."]} />
+        <GapMistake>{"Thinking a sole proprietor's home is safe from business creditors."}</GapMistake>
       </div>
     ),
   },

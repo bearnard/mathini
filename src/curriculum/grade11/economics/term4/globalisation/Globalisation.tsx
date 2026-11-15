@@ -2,6 +2,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const globalisationData = [
   { year: '2019', exports: 1510, imports: 1430, fdi: 90 },
@@ -98,6 +99,16 @@ const learnSteps: LearnStep[] = [
             <p className="mt-1 text-slate-600">Local industries may lose jobs, skilled workers may emigrate and multinational profits may be repatriated.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Trade rules, investment and trade-offs",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Economies are linking up through trade and investment. The WTO sets rules to bring tariffs down, and AGOA lets South Africa send many manufactured goods to the US duty free (renewed in 2026, SA still eligible)."}</GapRule>
+        <GapWorked title={"Gains and costs"} steps={["Foreign direct investment builds factories, creates jobs and brings technology.", "Poor countries that sell cheap raw materials and buy expensive machines face worsening terms of trade.", "Skilled people who leave for richer countries cause a brain drain.", "Profit sent home by a multinational lowers GNI below GDP.", "Cheap imports can put local firms out of business."]} />
+        <GapMistake>{"Treating profit sent abroad as income for the host country."}</GapMistake>
       </div>
     ),
   },

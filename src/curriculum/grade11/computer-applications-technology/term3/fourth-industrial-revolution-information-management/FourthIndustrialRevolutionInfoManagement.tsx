@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -103,6 +104,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">In-text citation (Author, Year) and bibliography at the end. Prevents plagiarism and allows readers to verify sources.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Searching, 5IR and data quality",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Quotation marks around a search phrase find only pages containing that exact phrase. The Fifth Industrial Revolution (5IR) stresses human-machine teamwork and sustainability. Poor or missing data leads to wrong conclusions and a weak PAT."}</GapRule>
+        <GapWorked title={"Apply each idea"} steps={["Search \"climate change in South Africa\" with quotation marks: only pages with that exact phrase.", "5IR: people and machines work together, with attention to sustainability.", "Before processing PAT data, check for missing or incorrect values."]} />
+        <GapMistake>{"Thinking that more data always means a better PAT. Data quality matters."}</GapMistake>
       </div>
     ),
   },

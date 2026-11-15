@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -90,6 +91,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600 text-sm">The uppermost layer of the Drakensberg is Jurassic basalt from ancient Gondwana-breakup lava flows.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Cooling rate and crystal size",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The time a magma has to cool decides the size of its crystals. Deep underground heat escapes slowly, so crystals have time to grow large. At the surface lava chills fast and the crystals stay tiny."}</GapRule>
+        <GapWorked title={"Compare two rocks"} steps={["Granite cooled deep underground: coarse, visible crystals.", "Basalt cooled at the surface: fine crystals.", "Slower cooling means bigger crystals."]} />
+        <GapMistake>{"Expecting surface rocks to have the biggest crystals."}</GapMistake>
       </div>
     ),
   },

@@ -1,6 +1,7 @@
 
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 type RawEconomicsItem = {
   id: string;
@@ -88,6 +89,16 @@ const learnSteps: LearnStep[] = [
           <li>Bureaucracy and weak management slow delivery.</li>
           <li>Reform can include better governance, monitoring and partnerships.</li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    title: "Government borrowing and private investment",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"When the state borrows heavily, it competes with firms for the same pool of savings. That pushes interest rates up and makes loans too dear for many businesses, so private investment is squeezed out."}</GapRule>
+        <GapWorked title={"Follow the effect"} steps={["The government borrows heavily.", "Demand for loanable funds rises, so interest rates go up.", "Firms find borrowing too costly and invest less.", "Private investment shrinks: this is crowding out."]} />
+        <GapMistake>{"Thinking government borrowing always raises total investment."}</GapMistake>
       </div>
     ),
   },

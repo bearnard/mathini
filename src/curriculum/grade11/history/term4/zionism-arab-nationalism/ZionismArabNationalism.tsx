@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -95,6 +96,16 @@ const learnSteps: LearnStep[] = [
             <li>What evidence is missing, and whose voice is not represented?</li>
           </ul>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Why the Palestinian refugee crisis matters",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The Palestinian refugee crisis became a lasting regional and human rights issue that remains unresolved."}</GapRule>
+        <GapWorked title={"Trace the consequence"} steps={["In 1948 hundreds of thousands of Palestinians left or were displaced.", "Many became refugees in neighbouring states.", "Their status and return remain unresolved.", "It affects regional politics and human rights today."]} />
+        <GapMistake>{"Treating it as a problem that ended in 1948."}</GapMistake>
       </div>
     ),
   },

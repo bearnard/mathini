@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -90,6 +91,16 @@ end;`} />
             <p className="border-t border-slate-200 px-4 py-3">Rejected with feedback</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Compare your output with the question",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Compare your output with the wording of the question, because small formatting or logic differences can still cost marks."}</GapRule>
+        <GapWorked title={"Check the output"} steps={["The question asks for the average to 2 decimal places.", "Your program shows 74,3333.", "Format it to 2 decimal places: 74,33."]} />
+        <GapMistake>{"Assuming the program is right because it runs without errors."}</GapMistake>
       </div>
     ),
   },

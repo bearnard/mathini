@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -88,6 +89,16 @@ const learnSteps: LearnStep[] = [
             </p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Rules for entries and wildcard criteria",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Validation stops wrong data at the door: a Mark field can be restricted to whole numbers from 0 to 100, and anything else is refused with a warning. In queries, a star stands for any characters, so a criterion beginning with a letter followed by a star finds everything starting with that letter."}</GapRule>
+        <GapWorked title={"Try both"} steps={["Typing 105 into a restricted mark cell gives a warning and the entry is refused.", "A criterion of Like \"S*\" on Surname returns Smith, Sithole and Sibiya.", "The star placed first, as in Like \"*S\", finds surnames ending in S."]} />
+        <GapMistake>{"Putting the star on the wrong side of the letter."}</GapMistake>
       </div>
     ),
   },

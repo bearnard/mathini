@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps = [
@@ -62,6 +63,16 @@ const learnSteps = [
         />
 
         <p className="text-sm text-slate-500">Warm ocean water, low wind shear, and moist air all help tropical cyclones to form and intensify.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Tropical cyclones after landfall",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"After landfall a tropical cyclone weakens because it loses its warm ocean energy source."}</GapRule>
+        <GapWorked title={"Follow the cyclone"} steps={["A cyclone draws energy from warm ocean water.", "It crosses the coast and moves over land.", "Without warm water it loses its energy source and weakens.", "Heavy rain and flooding can still occur."]} />
+        <GapMistake>{"Thinking a cyclone gets stronger over land."}</GapMistake>
       </div>
     ),
   },

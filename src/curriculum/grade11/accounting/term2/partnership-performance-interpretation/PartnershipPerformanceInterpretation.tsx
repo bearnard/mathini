@@ -2,6 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import FinancialStatement from '../../../../../components/subjects/FinancialStatement';
 import Formula from '../../../../../components/subjects/Formula';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -122,6 +123,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">"If net profit % falls, the partners should review their expense structure, for example salary expense, to identify areas for cost reduction."</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Reading ratios and advising",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A current ratio that drops from 2,4 to 1,1 means the firm has barely enough short-term assets for its short-term debts. If borrowing has jumped from 0,5 to 1,8 times equity, advise the partners to repay loans and borrow less."}</GapRule>
+        <GapWorked title={"Give a comment"} steps={["Ratio near 1: paying creditors on time may become difficult.", "Gearing has climbed to 1,8: the firm now leans heavily on lenders.", "Advice: settle some loans and keep new borrowing low."]} />
+        <GapMistake>{"Stating the numbers without saying what they mean."}</GapMistake>
       </div>
     ),
   },
