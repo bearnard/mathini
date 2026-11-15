@@ -109,22 +109,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a star? What force holds a star together? What process gives a star its energy?</li>
-            <li>Where does a star begin its life? Which stage is the Sun in now? What does a star turn into once it leaves the main sequence?</li>
-            <li>What is a galaxy? Which galaxy do we live in? Roughly how many galaxies can we observe in the universe?</li>
-            <li>Why do we see distant stars as they were long ago?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A huge ball of hot gas that gives off light and heat. Gravity. Nuclear fusion.</li>
-            <li>Birth from a nebula. Main sequence (middle age). It swells into a red giant, then shrinks.</li>
-            <li>A huge group of billions of stars held by gravity. The Milky Way. Billions to trillions (estimates differ).</li>
-            <li>The stars are very far away and light has a set speed.</li>
-          </ol>
-        }
+        questions={[
+          <>What is a star? What force holds a star together? What process gives a star its energy?</>,
+          <>Where does a star begin its life? Which stage is the Sun in now? What does a star turn into once it leaves the main sequence?</>,
+          <>What is a galaxy? Which galaxy do we live in? Roughly how many galaxies can we observe in the universe?</>,
+          <>Why do we see distant stars as they were long ago?</>,
+        ]}
+        answers={[
+          <>A huge ball of hot gas that gives off light and heat. Gravity. Nuclear fusion.</>,
+          <>Birth from a nebula. Main sequence (middle age). It swells into a red giant, then shrinks.</>,
+          <>A huge group of billions of stars held by gravity. The Milky Way. Billions to trillions (estimates differ).</>,
+          <>The stars are very far away and light has a set speed.</>,
+        ]}
       />,
     ),
   },

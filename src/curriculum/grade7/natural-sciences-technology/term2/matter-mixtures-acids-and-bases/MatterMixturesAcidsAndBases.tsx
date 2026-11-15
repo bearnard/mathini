@@ -112,22 +112,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>How are the particles arranged in a block of ice?</li>
-            <li>What is a solution?</li>
-            <li>What does blue litmus paper do in an acid? And red litmus in a base?</li>
-            <li>Which method separates sand from water? What observation suggests a chemical change?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Close together and vibrating in fixed positions.</li>
-            <li>A mixture where a solute dissolves in a solvent.</li>
-            <li>Blue litmus turns red in an acid. Red litmus turns blue in a base.</li>
-            <li>Filtration. A new gas forms during the reaction.</li>
-          </ol>
-        }
+        questions={[
+          <>How are the particles arranged in a block of ice?</>,
+          <>What is a solution?</>,
+          <>What does blue litmus paper do in an acid? And red litmus in a base?</>,
+          <>Which method separates sand from water? What observation suggests a chemical change?</>,
+        ]}
+        answers={[
+          <>Close together and vibrating in fixed positions.</>,
+          <>A mixture where a solute dissolves in a solvent.</>,
+          <>Blue litmus turns red in an acid. Red litmus turns blue in a base.</>,
+          <>Filtration. A new gas forms during the reaction.</>,
+        ]}
       />,
     ),
   },

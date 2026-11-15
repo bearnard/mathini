@@ -94,22 +94,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Why is it summer in one hemisphere while it is winter in the other?</li>
-            <li>Why do we see a thin crescent one night and a bright circle two weeks later?</li>
-            <li>When are the biggest tides, and when are the smallest?</li>
-            <li>Which force keeps the planets moving around the Sun? During an eclipse of the Moon, which body casts the shadow?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Earth&apos;s axial tilt as it orbits the Sun.</li>
-            <li>Different portions of the lit Moon are visible from Earth.</li>
-            <li>The biggest are spring tides: the Sun, Earth and Moon line up. The smallest are neap tides: the Sun and Moon pull at right angles.</li>
-            <li>Gravity. Earth.</li>
-          </ol>
-        }
+        questions={[
+          <>Why is it summer in one hemisphere while it is winter in the other?</>,
+          <>Why do we see a thin crescent one night and a bright circle two weeks later?</>,
+          <>When are the biggest tides, and when are the smallest?</>,
+          <>Which force keeps the planets moving around the Sun? During an eclipse of the Moon, which body casts the shadow?</>,
+        ]}
+        answers={[
+          <>Earth&apos;s axial tilt as it orbits the Sun.</>,
+          <>Different portions of the lit Moon are visible from Earth.</>,
+          <>The biggest are spring tides: the Sun, Earth and Moon line up. The smallest are neap tides: the Sun and Moon pull at right angles.</>,
+          <>Gravity. Earth.</>,
+        ]}
       />,
     ),
   },

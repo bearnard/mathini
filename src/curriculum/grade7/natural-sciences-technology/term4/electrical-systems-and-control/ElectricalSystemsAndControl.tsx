@@ -83,22 +83,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>How many paths for current does a series circuit have?</li>
-            <li>Two bulbs are wired in parallel and one burns out. What happens to the other?</li>
-            <li>In a door alarm, the siren is which part of the system? What is the pressure pad that starts it?</li>
-            <li>Give one safe way to use a plug socket at home. What do you check first in a circuit that does not work?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>One path for current.</li>
-            <li>It stays on.</li>
-            <li>The siren is the output. The pad is the input device.</li>
-            <li>Pull a plug out by holding the plug body. Check that the switch is closed and the path is complete.</li>
-          </ol>
-        }
+        questions={[
+          <>How many paths for current does a series circuit have?</>,
+          <>Two bulbs are wired in parallel and one burns out. What happens to the other?</>,
+          <>In a door alarm, the siren is which part of the system? What is the pressure pad that starts it?</>,
+          <>Give one safe way to use a plug socket at home. What do you check first in a circuit that does not work?</>,
+        ]}
+        answers={[
+          <>One path for current.</>,
+          <>It stays on.</>,
+          <>The siren is the output. The pad is the input device.</>,
+          <>Pull a plug out by holding the plug body. Check that the switch is closed and the path is complete.</>,
+        ]}
       />,
     ),
   },

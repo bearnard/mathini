@@ -94,22 +94,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What defines an urban settlement? Name one feature of a rural settlement.</li>
-            <li>What does CBD stand for? What is an aerial photograph?</li>
-            <li>Name one reason people leave farms for the city, and one thing in the city that draws them there.</li>
-            <li>What can happen when a city grows faster than it is planned? How did apartheid planning shape South African cities?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A town or city with high population density and many services. Few people spread over large areas of open land.</li>
-            <li>Central business district, where services and firms cluster. An image of Earth&apos;s surface taken from above.</li>
-            <li>Push: lack of local job opportunities. Pull: more jobs and service opportunities.</li>
-            <li>Growth of informal settlements. It created unequal and separated residential spaces.</li>
-          </ol>
-        }
+        questions={[
+          <>What defines an urban settlement? Name one feature of a rural settlement.</>,
+          <>What does CBD stand for? What is an aerial photograph?</>,
+          <>Name one reason people leave farms for the city, and one thing in the city that draws them there.</>,
+          <>What can happen when a city grows faster than it is planned? How did apartheid planning shape South African cities?</>,
+        ]}
+        answers={[
+          <>A town or city with high population density and many services. Few people spread over large areas of open land.</>,
+          <>Central business district, where services and firms cluster. An image of Earth&apos;s surface taken from above.</>,
+          <>Push: lack of local job opportunities. Pull: more jobs and service opportunities.</>,
+          <>Growth of informal settlements. It created unequal and separated residential spaces.</>,
+        ]}
       />,
     ),
   },

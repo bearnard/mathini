@@ -100,22 +100,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does biodiversity mean?</li>
-            <li>What is the purpose of sorting organisms into groups such as plants and animals?</li>
-            <li>Name one difference between sexual and asexual reproduction.</li>
-            <li>Which seed is best for wind dispersal: a lightweight seed with wings, or a heavy seed with a thick shell?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The variety of living organisms in an area.</li>
-            <li>To group them by shared features and relationships, so we can study them.</li>
-            <li>Sexual: two parents and different offspring. Asexual: one parent and identical offspring.</li>
-            <li>The lightweight seed with wing-like structures.</li>
-          </ol>
-        }
+        questions={[
+          <>What does biodiversity mean?</>,
+          <>What is the purpose of sorting organisms into groups such as plants and animals?</>,
+          <>Name one difference between sexual and asexual reproduction.</>,
+          <>Which seed is best for wind dispersal: a lightweight seed with wings, or a heavy seed with a thick shell?</>,
+        ]}
+        answers={[
+          <>The variety of living organisms in an area.</>,
+          <>To group them by shared features and relationships, so we can study them.</>,
+          <>Sexual: two parents and different offspring. Asexual: one parent and identical offspring.</>,
+          <>The lightweight seed with wing-like structures.</>,
+        ]}
       />,
     ),
   },

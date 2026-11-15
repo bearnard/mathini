@@ -94,22 +94,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>How do you calculate average speed? A scooter travels 200 m in 25 s: what is its average speed?</li>
-            <li>A learner runs 300 m in 60 s, then 300 m in 75 s. Which run has the greater average speed?</li>
-            <li>Which force resists sliding between surfaces that touch? Why do rough tyres improve grip?</li>
-            <li>Which force makes a dropped ball fall? What do opposite charges do?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Speed = distance ÷ time. 200 ÷ 25 = 8 m/s.</li>
-            <li>The first run has the greater average speed.</li>
-            <li>Friction. They increase friction.</li>
-            <li>Gravitational force. They attract each other.</li>
-          </ol>
-        }
+        questions={[
+          <>How do you calculate average speed? A scooter travels 200 m in 25 s: what is its average speed?</>,
+          <>A learner runs 300 m in 60 s, then 300 m in 75 s. Which run has the greater average speed?</>,
+          <>Which force resists sliding between surfaces that touch? Why do rough tyres improve grip?</>,
+          <>Which force makes a dropped ball fall? What do opposite charges do?</>,
+        ]}
+        answers={[
+          <>Speed = distance ÷ time. 200 ÷ 25 = 8 m/s.</>,
+          <>The first run has the greater average speed.</>,
+          <>Friction. They increase friction.</>,
+          <>Gravitational force. They attract each other.</>,
+        ]}
       />,
     ),
   },

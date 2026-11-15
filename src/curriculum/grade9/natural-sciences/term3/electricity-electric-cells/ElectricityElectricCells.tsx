@@ -120,22 +120,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is electric current? Why does a circuit need a battery or cell?</li>
-            <li>A bulb breaks in a series circuit. What happens to the others? Why is a parallel circuit better for home lighting? How does the brightness change as more bulbs are added one after another?</li>
-            <li>What is potential difference? Which unit measures it?</li>
-            <li>What is resistance? Name one change that increases a wire’s resistance. What does a 12 V source give through a 3 Ω resistor?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The flow of electrons. It gives the energy that pushes the current round.</li>
-            <li>All bulbs go out. If one path breaks, the other paths still work. It gets dimmer.</li>
-            <li>The push that drives current. Volts.</li>
-            <li>The opposition to the flow of current. Making it longer and thinner. 4 A.</li>
-          </ol>
-        }
+        questions={[
+          <>What is electric current? Why does a circuit need a battery or cell?</>,
+          <>A bulb breaks in a series circuit. What happens to the others? Why is a parallel circuit better for home lighting? How does the brightness change as more bulbs are added one after another?</>,
+          <>What is potential difference? Which unit measures it?</>,
+          <>What is resistance? Name one change that increases a wire’s resistance. What does a 12 V source give through a 3 Ω resistor?</>,
+        ]}
+        answers={[
+          <>The flow of electrons. It gives the energy that pushes the current round.</>,
+          <>All bulbs go out. If one path breaks, the other paths still work. It gets dimmer.</>,
+          <>The push that drives current. Volts.</>,
+          <>The opposition to the flow of current. Making it longer and thinner. 4 A.</>,
+        ]}
       />,
     ),
   },

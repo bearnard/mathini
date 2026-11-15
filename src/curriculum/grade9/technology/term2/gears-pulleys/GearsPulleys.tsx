@@ -85,22 +85,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>How does a fixed pulley differ from a movable pulley? What do we call several pulleys combined to lift heavy loads?</li>
-            <li>What is the job of spur gears? In which situation would bevel gears be chosen?</li>
-            <li>Why is a worm gear used? Explain how a rack and pinion moves something in a straight line.</li>
-            <li>The driver has 12 teeth and the driven gear has 36. Work out the gear ratio. How can you tell which way the last gear in a train turns?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A fixed pulley changes direction; a movable pulley cuts the effort. A block and tackle: pulleys combined to lift heavy loads with little effort.</li>
-            <li>Pass rotation between shafts that lie parallel to each other. To pass motion between shafts that meet at an angle.</li>
-            <li>Big speed reduction and high torque in a small space. A small gear (pinion) turns and moves a toothed bar (rack) in a line.</li>
-            <li>3:1 (the driven gear turns at one third of the speed). Neighbouring gears turn in opposite ways, so count the gears.</li>
-          </ol>
-        }
+        questions={[
+          <>How does a fixed pulley differ from a movable pulley? What do we call several pulleys combined to lift heavy loads?</>,
+          <>What is the job of spur gears? In which situation would bevel gears be chosen?</>,
+          <>Why is a worm gear used? Explain how a rack and pinion moves something in a straight line.</>,
+          <>The driver has 12 teeth and the driven gear has 36. Work out the gear ratio. How can you tell which way the last gear in a train turns?</>,
+        ]}
+        answers={[
+          <>A fixed pulley changes direction; a movable pulley cuts the effort. A block and tackle: pulleys combined to lift heavy loads with little effort.</>,
+          <>Pass rotation between shafts that lie parallel to each other. To pass motion between shafts that meet at an angle.</>,
+          <>Big speed reduction and high torque in a small space. A small gear (pinion) turns and moves a toothed bar (rack) in a line.</>,
+          <>3:1 (the driven gear turns at one third of the speed). Neighbouring gears turn in opposite ways, so count the gears.</>,
+        ]}
       />,
     ),
   },

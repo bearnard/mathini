@@ -95,22 +95,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which sign shows that a chemical reaction has happened? What is true about chemical change?</li>
-            <li>Which is a physical change: melting wax or burning wax? Which method separates sand from water?</li>
-            <li>What does universal indicator show? Blue litmus paper turns red in a solution. What kind of solution is it?</li>
-            <li>Which two kinds of substance react in neutralisation?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Gas bubbles forming. New substances are formed.</li>
-            <li>Melting wax. Filtration.</li>
-            <li>Whether a substance is acidic, neutral or basic. Acidic.</li>
-            <li>An acid and a base.</li>
-          </ol>
-        }
+        questions={[
+          <>Which sign shows that a chemical reaction has happened? What is true about chemical change?</>,
+          <>Which is a physical change: melting wax or burning wax? Which method separates sand from water?</>,
+          <>What does universal indicator show? Blue litmus paper turns red in a solution. What kind of solution is it?</>,
+          <>Which two kinds of substance react in neutralisation?</>,
+        ]}
+        answers={[
+          <>Gas bubbles forming. New substances are formed.</>,
+          <>Melting wax. Filtration.</>,
+          <>Whether a substance is acidic, neutral or basic. Acidic.</>,
+          <>An acid and a base.</>,
+        ]}
       />,
     ),
   },

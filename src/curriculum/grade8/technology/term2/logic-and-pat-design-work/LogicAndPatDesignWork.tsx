@@ -72,22 +72,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>When does an AND gate output 1? When does an OR gate output 1?</li>
-            <li>What information is listed in a truth table?</li>
-            <li>A school alarm must sound if any panic button is pressed. Which logic? Two safety switches must be on before a machine starts. Which gate?</li>
-            <li>Is a push button in a control system an input or an output? What is a buzzer? Why label PAT sketches clearly?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Both inputs are 1. At least one input is 1.</li>
-            <li>All input combinations and the resulting output.</li>
-            <li>OR logic. An AND gate.</li>
-            <li>An input. An output. To show the ideas and how the system works.</li>
-          </ol>
-        }
+        questions={[
+          <>When does an AND gate output 1? When does an OR gate output 1?</>,
+          <>What information is listed in a truth table?</>,
+          <>A school alarm must sound if any panic button is pressed. Which logic? Two safety switches must be on before a machine starts. Which gate?</>,
+          <>Is a push button in a control system an input or an output? What is a buzzer? Why label PAT sketches clearly?</>,
+        ]}
+        answers={[
+          <>Both inputs are 1. At least one input is 1.</>,
+          <>All input combinations and the resulting output.</>,
+          <>OR logic. An AND gate.</>,
+          <>An input. An output. To show the ideas and how the system works.</>,
+        ]}
       />,
     ),
   },

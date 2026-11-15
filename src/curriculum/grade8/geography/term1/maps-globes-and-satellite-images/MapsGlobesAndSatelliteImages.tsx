@@ -107,22 +107,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>In which direction do lines of latitude run? What is 0° longitude called?</li>
-            <li>On a map with a ratio scale of 1:25 000, how far in reality is a road that measures 3 cm?</li>
-            <li>Two towns are 45° apart in longitude. What is the time difference between them? What happens to the date when you travel west across the International Date Line?</li>
-            <li>Why is it winter in Cape Town while it is summer in London? How can satellite images help to track a flood? What would you use an atlas to look up?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>East to west. The Prime Meridian.</li>
-            <li>750 m.</li>
-            <li>About 3 hours. The date moves forward by one day.</li>
-            <li>Earth is tilted on its axis as it orbits the Sun. They show recent views of large areas from above. To look up maps and place information.</li>
-          </ol>
-        }
+        questions={[
+          <>In which direction do lines of latitude run? What is 0° longitude called?</>,
+          <>On a map with a ratio scale of 1:25 000, how far in reality is a road that measures 3 cm?</>,
+          <>Two towns are 45° apart in longitude. What is the time difference between them? What happens to the date when you travel west across the International Date Line?</>,
+          <>Why is it winter in Cape Town while it is summer in London? How can satellite images help to track a flood? What would you use an atlas to look up?</>,
+        ]}
+        answers={[
+          <>East to west. The Prime Meridian.</>,
+          <>750 m.</>,
+          <>About 3 hours. The date moves forward by one day.</>,
+          <>Earth is tilted on its axis as it orbits the Sun. They show recent views of large areas from above. To look up maps and place information.</>,
+        ]}
       />,
     ),
   },

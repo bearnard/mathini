@@ -77,22 +77,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the point a lever turns on called? Why is it easier to push a door open far from its hinges?</li>
-            <li>How does a ramp make lifting easier? Which situation best uses one?</li>
-            <li>What two simple machines make up a wedge? Which household object works by turning a wheel on an axle?</li>
-            <li>What does it mean when a machine multiplies force? Which simple machine is a bottle opener?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The fulcrum. A longer arm increases the turning effect (moment).</li>
-            <li>Reducing force needed over a longer distance. Loading boxes up a ramp into a truck.</li>
-            <li>Two inclined planes joined together. A door knob.</li>
-            <li>A machine gives a larger output force than input force. A lever.</li>
-          </ol>
-        }
+        questions={[
+          <>What is the point a lever turns on called? Why is it easier to push a door open far from its hinges?</>,
+          <>How does a ramp make lifting easier? Which situation best uses one?</>,
+          <>What two simple machines make up a wedge? Which household object works by turning a wheel on an axle?</>,
+          <>What does it mean when a machine multiplies force? Which simple machine is a bottle opener?</>,
+        ]}
+        answers={[
+          <>The fulcrum. A longer arm increases the turning effect (moment).</>,
+          <>Reducing force needed over a longer distance. Loading boxes up a ramp into a truck.</>,
+          <>Two inclined planes joined together. A door knob.</>,
+          <>A machine gives a larger output force than input force. A lever.</>,
+        ]}
       />,
     ),
   },

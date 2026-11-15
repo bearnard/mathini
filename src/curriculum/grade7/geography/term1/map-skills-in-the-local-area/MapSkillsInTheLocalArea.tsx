@@ -111,22 +111,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Why does a map have a scale bar? Which map would help a visitor walk from the library to the station?</li>
-            <li>What would you draw on a sketch map of your school grounds? What is an atlas?</li>
-            <li>If a library is north of a park, where is the park from the library?</li>
-            <li>How do we give the exact position of a place on Earth? Which map-reading skill helps when comparing the lengths of two routes? Why is route finding important?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>To show how map distance relates to real distance. A street map.</li>
-            <li>The main buildings and paths, simplified. A collection of maps in one book.</li>
-            <li>South.</li>
-            <li>Latitude and longitude. Using scale. It helps people find their way efficiently and safely.</li>
-          </ol>
-        }
+        questions={[
+          <>Why does a map have a scale bar? Which map would help a visitor walk from the library to the station?</>,
+          <>What would you draw on a sketch map of your school grounds? What is an atlas?</>,
+          <>If a library is north of a park, where is the park from the library?</>,
+          <>How do we give the exact position of a place on Earth? Which map-reading skill helps when comparing the lengths of two routes? Why is route finding important?</>,
+        ]}
+        answers={[
+          <>To show how map distance relates to real distance. A street map.</>,
+          <>The main buildings and paths, simplified. A collection of maps in one book.</>,
+          <>South.</>,
+          <>Latitude and longitude. Using scale. It helps people find their way efficiently and safely.</>,
+        ]}
       />,
     ),
   },

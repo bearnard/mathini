@@ -89,22 +89,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is galvanising? Painting metal helps mainly by doing what?</li>
-            <li>What is electroplating used for? Name one traditional way of preserving food.</li>
-            <li>What value does indigenous knowledge add to technology? What should a sustainable process choice take into account?</li>
-            <li>For steel fencing near the sea, which rust prevention is a good choice? Which statement best compares methods?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Coating steel with zinc to reduce rusting. Blocking water and oxygen from the surface.</li>
-            <li>Coat an object with a thin metal layer using electricity. Drying.</li>
-            <li>It provides locally tested solutions suited to context. Environmental impact and resource use.</li>
-            <li>Galvanising and regular painting. Different methods suit different materials and needs.</li>
-          </ol>
-        }
+        questions={[
+          <>What is galvanising? Painting metal helps mainly by doing what?</>,
+          <>What is electroplating used for? Name one traditional way of preserving food.</>,
+          <>What value does indigenous knowledge add to technology? What should a sustainable process choice take into account?</>,
+          <>For steel fencing near the sea, which rust prevention is a good choice? Which statement best compares methods?</>,
+        ]}
+        answers={[
+          <>Coating steel with zinc to reduce rusting. Blocking water and oxygen from the surface.</>,
+          <>Coat an object with a thin metal layer using electricity. Drying.</>,
+          <>It provides locally tested solutions suited to context. Environmental impact and resource use.</>,
+          <>Galvanising and regular painting. Different methods suit different materials and needs.</>,
+        ]}
       />,
     ),
   },

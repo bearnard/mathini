@@ -115,22 +115,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a mineral? Which of the crust, mantle and core is the thickest layer?</li>
-            <li>How do igneous rocks form? What are tectonic plates? What causes earthquakes?</li>
-            <li>What is mining? Name one way mining harms the environment.</li>
-            <li>What are fossil fuels? Why can we run out of them? Name a renewable resource.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A natural solid with a crystal structure. The mantle.</li>
-            <li>When molten rock cools. Large sections of the crust that slowly move. Movement of tectonic plates.</li>
-            <li>Taking minerals and fuels out of the ground. It can cause pollution, loss of habitat and dirty water.</li>
-            <li>Non-renewable fuels that came from ancient life. They take millions of years to form and we use them faster. Solar energy.</li>
-          </ol>
-        }
+        questions={[
+          <>What is a mineral? Which of the crust, mantle and core is the thickest layer?</>,
+          <>How do igneous rocks form? What are tectonic plates? What causes earthquakes?</>,
+          <>What is mining? Name one way mining harms the environment.</>,
+          <>What are fossil fuels? Why can we run out of them? Name a renewable resource.</>,
+        ]}
+        answers={[
+          <>A natural solid with a crystal structure. The mantle.</>,
+          <>When molten rock cools. Large sections of the crust that slowly move. Movement of tectonic plates.</>,
+          <>Taking minerals and fuels out of the ground. It can cause pollution, loss of habitat and dirty water.</>,
+          <>Non-renewable fuels that came from ancient life. They take millions of years to form and we use them faster. Solar energy.</>,
+        ]}
       />,
     ),
   },

@@ -96,22 +96,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What sits at the centre of our solar system? Which planet has the most famous rings?</li>
-            <li>Which force keeps the planets circling the Sun? What is gravity?</li>
-            <li>Name Earth’s natural satellite. How are comets different from planets?</li>
-            <li>Why can an astronaut jump higher on the Moon? List the four inner planets in order, starting nearest the Sun.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The Sun. Saturn.</li>
-            <li>Gravity. Gravity is an attractive force between masses.</li>
-            <li>The Moon. Comets have icy material and very elliptical orbits.</li>
-            <li>The Moon has a weaker gravitational pull than Earth. Mercury, Venus, Earth, Mars.</li>
-          </ol>
-        }
+        questions={[
+          <>What sits at the centre of our solar system? Which planet has the most famous rings?</>,
+          <>Which force keeps the planets circling the Sun? What is gravity?</>,
+          <>Name Earth’s natural satellite. How are comets different from planets?</>,
+          <>Why can an astronaut jump higher on the Moon? List the four inner planets in order, starting nearest the Sun.</>,
+        ]}
+        answers={[
+          <>The Sun. Saturn.</>,
+          <>Gravity. Gravity is an attractive force between masses.</>,
+          <>The Moon. Comets have icy material and very elliptical orbits.</>,
+          <>The Moon has a weaker gravitational pull than Earth. Mercury, Venus, Earth, Mars.</>,
+        ]}
       />,
     ),
   },

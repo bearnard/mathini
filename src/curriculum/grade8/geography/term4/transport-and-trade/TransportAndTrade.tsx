@@ -103,22 +103,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Why do countries buy and sell goods across borders? What is an import? What is an export?</li>
-            <li>Which transport mode is best for hauling heavy bulk goods across the country by land?</li>
-            <li>Name a busy South African container port. How do roads, rail and ports help trade?</li>
-            <li>How would you describe commuter transport in a city? When would a business send goods by air?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Because no country can make everything it needs. A product bought from another country. A product sold to another country.</li>
-            <li>Rail transport.</li>
-            <li>Durban Harbour. They link producers, markets and ports so goods move easily.</li>
-            <li>Daily travel by people between home, school or work. When goods are high-value, light or urgently needed.</li>
-          </ol>
-        }
+        questions={[
+          <>Why do countries buy and sell goods across borders? What is an import? What is an export?</>,
+          <>Which transport mode is best for hauling heavy bulk goods across the country by land?</>,
+          <>Name a busy South African container port. How do roads, rail and ports help trade?</>,
+          <>How would you describe commuter transport in a city? When would a business send goods by air?</>,
+        ]}
+        answers={[
+          <>Because no country can make everything it needs. A product bought from another country. A product sold to another country.</>,
+          <>Rail transport.</>,
+          <>Durban Harbour. They link producers, markets and ports so goods move easily.</>,
+          <>Daily travel by people between home, school or work. When goods are high-value, light or urgently needed.</>,
+        ]}
       />,
     ),
   },

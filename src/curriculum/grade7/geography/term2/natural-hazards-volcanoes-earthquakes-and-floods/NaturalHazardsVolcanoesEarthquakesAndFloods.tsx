@@ -67,22 +67,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the main reason earthquakes and volcanoes happen? What do we call an area with many volcanoes?</li>
-            <li>Which hazard happens when a river bursts its banks after a storm? Which map shows where earthquakes are most likely around the world?</li>
-            <li>What is the aim of disaster risk reduction? A siren that alerts a town to a coming flood is an example of what?</li>
-            <li>Which item in a kit helps most when the power goes off? What can a town do to lessen the damage floods cause?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Movement of tectonic plates. A volcanic zone.</li>
-            <li>Floods. A tectonic plate map.</li>
-            <li>Reduce damage and protect lives before hazards strike. Preparedness.</li>
-            <li>A torch with batteries. Keep drainage clear and avoid building on floodplains.</li>
-          </ol>
-        }
+        questions={[
+          <>What is the main reason earthquakes and volcanoes happen? What do we call an area with many volcanoes?</>,
+          <>Which hazard happens when a river bursts its banks after a storm? Which map shows where earthquakes are most likely around the world?</>,
+          <>What is the aim of disaster risk reduction? A siren that alerts a town to a coming flood is an example of what?</>,
+          <>Which item in a kit helps most when the power goes off? What can a town do to lessen the damage floods cause?</>,
+        ]}
+        answers={[
+          <>Movement of tectonic plates. A volcanic zone.</>,
+          <>Floods. A tectonic plate map.</>,
+          <>Reduce damage and protect lives before hazards strike. Preparedness.</>,
+          <>A torch with batteries. Keep drainage clear and avoid building on floodplains.</>,
+        ]}
       />,
     ),
   },
