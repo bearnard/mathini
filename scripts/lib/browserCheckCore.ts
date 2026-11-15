@@ -77,9 +77,27 @@ export const chromiumArgs = (profileDir: string): string[] => [
   'about:blank',
 ];
 
+const SLUG_MAX = 60;
+
+/** 32-bit FNV-1a of a string, in base 36: a short, stable tag. */
+export const shortHash = (s: string): string => {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h.toString(36).padStart(7, '0');
+};
+
+/**
+ * File name for a screenshot. A URL whose readable slug fits keeps it as is. A longer one is cut at 60 characters and gets a hash of
+ * the WHOLE URL (query included, fragment left out so a secret in it never reaches a file name), so two long URLs that differ only
+ * at the end (for example ?s=3 and ?s=4 after a long topic name) can never overwrite each other.
+ */
 export const shotName = (url: string, width: number): string => {
   const u = new URL(url);
-  const slug = `${u.hostname}${u.port ? '-' + u.port : ''}${u.pathname}${u.search}`.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').slice(0, 80);
+  const full = `${u.hostname}${u.port ? '-' + u.port : ''}${u.pathname}${u.search}`.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '');
+  const slug = full.length > SLUG_MAX ? `${full.slice(0, SLUG_MAX).replace(/_+$/, '')}-${shortHash(`${u.origin}${u.pathname}${u.search}`)}` : full;
   return `${slug || 'page'}-${width}.png`;
 };
 
