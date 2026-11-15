@@ -67,9 +67,9 @@ const bank: MLItem[] = [
   },
   {
     prompt: 'A fixed deposit earns 9% per year for 2 years on R6 000 using compound interest. What is the interest earned?',
-    options: ['R1 080', 'R1 124,40', 'R1 200', 'R920'],
-    answer: 'R1 124,40',
-    explanation: 'A = 6000 × (1,09)² = 6000 × 1,1881 = R7 128,60. Interest = R7 128,60 − R6 000 = R1 128,60. Closest option: R1 124,40.',
+    options: ['R1 080', 'R1 128,60', 'R1 200', 'R920'],
+    answer: 'R1 128,60',
+    explanation: 'A = 6000 × (1,09)² = 6000 × 1,1881 = R7 128,60. Interest = R7 128,60 − R6 000 = R1 128,60.',
   },
   {
     prompt: 'The difference between a savings account and a fixed deposit is:',

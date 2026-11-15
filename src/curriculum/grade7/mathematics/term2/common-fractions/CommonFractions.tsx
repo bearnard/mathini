@@ -18,7 +18,7 @@ const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'Which fraction is equivalent to 3/4?',
-    options: ['9/12', '6/12', '12/16', '15/24'],
+    options: ['9/12', '6/12', '12/20', '15/24'],
     answer: '9/12',
     explanation: 'Multiply numerator and denominator by 3: 3/4 = 9/12.',
   },

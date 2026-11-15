@@ -127,9 +127,9 @@ const bank: MathematicalLiteracyItem[] = [
   },
   {
     prompt: 'A model car has scale 1:24. If the model is 18 cm long, what is the real car length?',
-    options: ['4.32 m', '43.2 cm', '432 cm', '75 cm'],
+    options: ['4.8 m', '43.2 cm', '432 cm', '75 cm'],
     answer: '432 cm',
-    explanation: '18 cm × 24 = 432 cm (or 4.32 m)',
+    explanation: '18 cm × 24 = 432 cm.',
   },
   {
     prompt: 'On a floor plan (scale 1:100), a kitchen measures 5 cm × 4 cm. What is the actual kitchen area?',

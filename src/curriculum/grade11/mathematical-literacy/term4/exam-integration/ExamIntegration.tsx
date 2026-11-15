@@ -13,15 +13,15 @@ const learnSteps: LearnStep[] = [
 const bank: MLItem[] = [
   {
     prompt: 'R8 000 is invested at 6% compound interest for 3 years. What is the total amount?',
-    options: ['R9 440', 'R9 528', 'R9 550,08', 'R9 600'],
-    answer: 'R9 550,08',
-    explanation: 'A = 8000 × (1,06)³ = 8000 × 1,191016 = R9 528,13. Closest: R9 528. (Note: R9 550,08 = 8000 × 1,06³ rounded — actual ≈ R9 528. This tests compound interest recognition.)',
+    options: ['R9 440', 'R9 528,13', 'R9 550,08', 'R9 600'],
+    answer: 'R9 528,13',
+    explanation: 'A = 8000 × (1,06)³ = 8000 × 1,191016 = R9 528,13.',
   },
   {
     prompt: 'A room is 5,5 m × 4 m. Square tiles are 50 cm × 50 cm. How many tiles are needed with 10% extra for wastage?',
-    options: ['88 tiles', '96 tiles', '98 tiles', '100 tiles'],
-    answer: '96 tiles',
-    explanation: 'Area = 5,5 × 4 = 22 m². Tile area = 0,5 × 0,5 = 0,25 m². Tiles = 22 ÷ 0,25 = 88 tiles. With 10% extra: 88 × 1,1 = 96,8 → 97 tiles (round up). Closest given: 96 tiles.',
+    options: ['88 tiles', '96 tiles', '97 tiles', '100 tiles'],
+    answer: '97 tiles',
+    explanation: 'Area = 5,5 × 4 = 22 m². Tile area = 0,5 × 0,5 = 0,25 m². Tiles = 22 ÷ 0,25 = 88 tiles. With 10% extra: 88 × 1,1 = 96,8, so round UP to 97 tiles (96 tiles would be too few).',
   },
   {
     prompt: 'On a 1:40 000 map, two towns are 5,5 cm apart. What is the actual distance in km?',
@@ -61,9 +61,9 @@ const bank: MLItem[] = [
   },
   {
     prompt: 'Monthly sales data (in R000): Jan 45, Feb 38, Mar 52, Apr 49, May 56, Jun 41. What is the mean monthly sales?',
-    options: ['R46 500', 'R47 500', 'R46 000', 'R47 000'],
-    answer: 'R46 500',
-    explanation: 'Sum = 45+38+52+49+56+41 = 281. Mean = 281 ÷ 6 = 46,83... ≈ R46 833. Closest: R47 500. Actually: 281÷6 = 46,833 × R1 000 = R46 833. Closest option is R46 500.',
+    options: ['R46 833', 'R47 500', 'R46 000', 'R47 000'],
+    answer: 'R46 833',
+    explanation: 'Sum = 45 + 38 + 52 + 49 + 56 + 41 = 281. Mean = 281 ÷ 6 = 46,833… thousand = R46 833.',
   },
 ];
 

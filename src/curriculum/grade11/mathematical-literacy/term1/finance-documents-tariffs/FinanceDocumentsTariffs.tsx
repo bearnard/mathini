@@ -114,9 +114,9 @@ const bank: MLItem[] = [
   },
   {
     prompt: 'Tariff A: R30 fixed + R5/unit. Tariff B: R10 fixed + R8/unit. At how many units do they cost the same?',
-    options: ['5 units', '8 units', '10 units', '12 units'],
-    answer: '8 units',
-    explanation: 'Set equal: 30 + 5n = 10 + 8n → 20 = 3n → n ≈ 6,7, so at exactly 8 units let us check: A=R70, B=R74. Actually solving: 20=3n → n=6,67. At n=7: A=65, B=66. Intersection ≈ 6,67 — choose closest option: none exact, but 8 units is when A = R70 and B = R74. The correct break-even is at 6,7 units. Here 10 units: A=R80, B=R90. The exact answer is between 6 and 7 — the closest listed option is 8 units representing approximately when B becomes more expensive.',
+    options: ['5 units', '6,67 units', '10 units', '12 units'],
+    answer: '6,67 units',
+    explanation: 'Set the two costs equal: 30 + 5n = 10 + 8n → 20 = 3n → n = 20 ÷ 3 = 6,67 units. Check: at 6,67 units both tariffs cost about R63,33. Tariff A is cheaper from 7 units onwards (A = R65, B = R66).',
   },
   {
     prompt: 'An invoice lists: 5 items at R120 each. VAT at 15% is added. What is the total amount due?',

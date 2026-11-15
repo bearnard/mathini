@@ -37,9 +37,9 @@ const bank: MLItem[] = [
   },
   {
     prompt: 'A business has fixed costs of R800 and makes R6 profit per item. What is the break-even quantity?',
-    options: ['120 items', '133 items', '140 items', '100 items'],
-    answer: '133 items',
-    explanation: 'Break-even = R800 ÷ R6 = 133,3 → 134 items needed to at least break even. Closest given answer: 133 items (R800 ÷ R6 = 133,3...).',
+    options: ['120 items', '134 items', '140 items', '100 items'],
+    answer: '134 items',
+    explanation: 'Break-even = R800 ÷ R6 = 133,3 items. Whole items only, so round UP to 134 items: 133 items earn only R798, which is less than the R800 fixed costs.',
   },
   {
     prompt: 'A bus departs at 11:50 and arrives at 14:25. How long is the journey?',

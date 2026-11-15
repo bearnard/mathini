@@ -13,7 +13,7 @@ const learnSteps: LearnStep[] = [
 const bank: MLItem[] = [
   {
     prompt: 'A bag contains 3 red, 5 blue and 2 yellow marbles. What is the probability of picking a blue marble?',
-    options: ['1/2', '5/8', '1/3', '5/10'],
+    options: ['1/2', '5/8', '1/3', '2/5'],
     answer: '1/2',
     explanation: 'Total marbles = 10. P(blue) = 5/10 = 1/2.',
   },
@@ -48,14 +48,14 @@ const bank: MLItem[] = [
     explanation: 'Experimental P = 60 ÷ 200 = 0,3 (30%).',
   },
   {
-    prompt: 'Which probability is IMPOSSIBLE?',
+    prompt: 'Which of these CANNOT be the probability of an event?',
     options: ['P = 0', 'P = 0,5', 'P = 1', 'P = 1,2'],
     answer: 'P = 1,2',
-    explanation: 'Probability must always be between 0 and 1 (inclusive). P = 1,2 is impossible.',
+    explanation: 'A probability must always be between 0 and 1 (inclusive). P = 1,2 is greater than 1, so it cannot be a probability.',
   },
   {
     prompt: 'A card is drawn at random from a standard 52-card deck. What is P(heart)?',
-    options: ['1/4', '1/13', '1/52', '13/52'],
+    options: ['1/4', '1/13', '1/52', '4/13'],
     answer: '1/4',
     explanation: 'There are 13 hearts in 52 cards. P(heart) = 13/52 = 1/4.',
   },

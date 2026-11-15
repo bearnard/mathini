@@ -43,7 +43,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'Which set of lengths can form a right triangle?',
-    options: ['3, 4, 6', '5, 12, 13', '2, 3, 4', '6, 8, 10 but not 5, 12, 13'],
+    options: ['3, 4, 6', '5, 12, 13', '2, 3, 4', '4, 5, 7'],
     answer: '5, 12, 13',
     explanation: '5² + 12² = 25 + 144 = 169 = 13², confirming a right triangle.',
   },

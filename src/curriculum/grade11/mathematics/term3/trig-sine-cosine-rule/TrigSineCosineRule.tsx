@@ -101,9 +101,9 @@ const bank: MathematicsItem[] = [
     explanation: 'Area = ½(6)(8) sin 30° = 24 × 0.5 = 12.',
   },
   {
-    prompt: 'In the ambiguous case of the sine rule (SSA), there may be:',
-    options: ['No triangle', 'Exactly one triangle', 'Two possible triangles', 'Always two solutions'],
-    answer: 'Two possible triangles',
+    prompt: 'In the ambiguous case of the sine rule (SSA), what is the greatest number of different triangles the given information can form?',
+    options: ['Zero triangles', 'One triangle', 'Two triangles', 'Three triangles'],
+    answer: 'Two triangles',
     explanation: 'When two sides and a non-included angle are given, the given side might swing to form two valid triangles.',
   },
   {
