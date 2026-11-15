@@ -123,10 +123,10 @@ export async function createPack(db: AdminDb, input: { title: unknown; items: un
   return { ok: true, packId, items: rows.length };
 }
 
-export async function closePack(db: AdminDb, packId: number): Promise<boolean> {
+export async function closePack(db: AdminDb, packId: number, now = Date.now()): Promise<boolean> {
   const has = await db.all('SELECT 1 FROM review_packs WHERE id = ?', [packId]);
   if (has.length === 0) return false;
-  await db.batch([{ sql: "UPDATE review_packs SET status = 'closed' WHERE id = ?", params: [packId] }]);
+  await db.batch([{ sql: "UPDATE review_packs SET status = 'closed', closed_at = ? WHERE id = ?", params: [now, packId] }]);
   return true;
 }
 
@@ -143,10 +143,10 @@ export async function inviteReviewer(db: AdminDb, packId: number, input: { displ
   if (!Number.isInteger(days) || days < 1 || days > 90) return { ok: false, status: 400, error: 'The link can last 1 to 90 days' };
   const pack = (await db.all<{ status: string }>('SELECT status FROM review_packs WHERE id = ?', [packId]))[0];
   if (!pack) return { ok: false, status: 404, error: 'Pack not found' };
-  if (pack.status !== 'open') return { ok: false, status: 409, error: 'This pack is closed' };
+  if (pack.status === 'closed') return { ok: false, status: 409, error: 'This pack is closed' };
   const { token, hash } = await generateReviewerLink();
   const expiresAt = now + days * DAY_MS;
-  await db.batch([{ sql: 'INSERT INTO reviewers (pack_id, display_name, contact_note, token_hash, expires_at) VALUES (?, ?, ?, ?, ?)', params: [packId, name, note || null, hash, expiresAt] }]);
+  await db.batch([{ sql: 'INSERT INTO reviewers (pack_id, display_name, contact_note, token_hash, expires_at, created_at) VALUES (?, ?, ?, ?, ?, ?)', params: [packId, name, note || null, hash, expiresAt, now] }]);
   const r = (await db.all<{ id: number }>('SELECT id FROM reviewers WHERE token_hash = ?', [hash]))[0];
   return { ok: true, reviewerId: Number(r.id), token, expiresAt };
 }
@@ -244,9 +244,10 @@ export async function decideItem(db: AdminDb, packId: number, itemId: number, in
   if (!['accept_merged', 'accept_reviewer', 'edit_accept', 'keep_original', 'ask_again'].includes(String(input.decision))) return { ok: false, status: 400, error: 'Unknown decision' };
   if (item.decision && item.decision.decision !== 'ask_again') return { ok: false, status: 409, error: 'This item already has a decision' };
 
+  const outcome = kind === 'keep_original' ? 'verified' : kind === 'ask_again' ? 'unsure' : 'changed';
   const recordOnly = (extra?: { mergedJson?: string | null; versionId?: number | null; queueId?: number | null }): Statement => ({
-    sql: 'INSERT OR REPLACE INTO review_decisions (item_id, decision, merged, ai_rationale, ai_disagreements, decided_by, applied_version_id, change_queue_id, decided_at) VALUES (?, ?, ?, NULL, NULL, ?, ?, ?, ?)',
-    params: [itemId, kind, extra?.mergedJson ?? null, adminEmail, extra?.versionId ?? null, extra?.queueId ?? null, now],
+    sql: 'INSERT OR REPLACE INTO review_decisions (item_id, decision, merged, ai_rationale, ai_disagreements, chosen_reviewer_id, outcome, decided_by, applied_version_id, change_queue_id, decided_at) VALUES (?, ?, ?, NULL, NULL, ?, ?, ?, ?, ?, ?)',
+    params: [itemId, kind, extra?.mergedJson ?? null, kind === 'accept_reviewer' ? Number(input.reviewerId) : null, outcome, adminEmail, extra?.versionId ?? null, extra?.queueId ?? null, now],
   });
 
   if (kind === 'keep_original') { await db.batch([recordOnly()]); return { ok: true, decision: kind }; }
@@ -285,7 +286,7 @@ export async function decideItem(db: AdminDb, packId: number, itemId: number, in
     if (!item.file || !item.anchorText) return { ok: false, status: 400, error: 'This lesson line has no file or text' };
     if (text === item.anchorText) return { ok: false, status: 400, error: 'Nothing has changed' };
     await db.batch([
-      { sql: "INSERT INTO lesson_change_queue (file, old_text, new_text, item_id, status) VALUES (?, ?, ?, ?, 'pending')", params: [item.file, item.anchorText, text, itemId] },
+      { sql: "INSERT INTO lesson_change_queue (file, old_text, new_text, item_id, status, created_at) VALUES (?, ?, ?, ?, 'pending', ?)", params: [item.file, item.anchorText, text, itemId, now] },
     ]);
     const q = (await db.all<{ id: number }>('SELECT id FROM lesson_change_queue WHERE item_id = ? ORDER BY id DESC LIMIT 1', [itemId]))[0];
     await db.batch([recordOnly({ mergedJson: json(proposal), queueId: Number(q.id) })]);

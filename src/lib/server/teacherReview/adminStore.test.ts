@@ -5,7 +5,7 @@ import { registerQuestionSql } from '../questions/sql';
 import { adminDbOf, openQuestionsDb } from '../questions/testQuestionsDb';
 import type { TestD1 } from '../testD1';
 import type { AdminDb } from '../admin/db';
-import { REVIEW_SCHEMA_STUB } from './schemaStub';
+import fs from 'node:fs';
 import { hashToken } from './reviewerLink';
 import { closePack, createPack, decideItem, findCandidates, inviteReviewer, listPacks, packResults, revokeReviewer } from './adminStore';
 
@@ -22,7 +22,7 @@ const qid = (task: string, prompt: string) => makeQkey(task, prompt);
 async function setup(): Promise<{ t: TestD1; db: AdminDb } | null> {
   const t = await openQuestionsDb();
   if (!t) return null;
-  t.raw.exec(REVIEW_SCHEMA_STUB);
+  t.raw.exec(fs.readFileSync('migrations/0012_review.sql', 'utf8'));
   seed(t, AFR, P1);
   seed(t, AFR, 'Watter woord beteken die aand?', 'aand');
   seed(t, MATHS, 'What is the area of a 3 by 4 rectangle?', 'oggend');
