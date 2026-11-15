@@ -1,65 +1,112 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, TenseTimeline, WordBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
+import { futureWords, pastWords, presentWords, sentence, verbIndex } from '@/components/diagrams/afrikaans/afrikaansHelpers';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Use sal for the future',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          In Afrikaans, the future tense often uses <strong>sal</strong> before the action word.
-        </p>
-        <span className="inline-flex items-center text-2xl font-bold text-indigo-600">
-          sal <SpeakButton text="sal" />
-        </span>
-      </div>
-    ),
-  },
-  {
-    title: 'Put the action at the end',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          In a simple sentence, the verb moves near the end: <strong>Ek sal sokker speel.</strong>
-        </p>
-        <span className="inline-flex items-center text-2xl font-bold text-indigo-600">
-          speel <SpeakButton text="speel" />
-        </span>
-      </div>
-    ),
-  },
-  {
-    title: 'Make future sentences',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Keep the subject first, add <strong>sal</strong>, then place the main action later.
-        </p>
-        <span className="inline-flex items-center text-2xl font-bold text-indigo-600">
-          Ons sal eet <SpeakButton text="Ons sal eet" />
-        </span>
-      </div>
-    ),
-  },
+const S = sentence;
+const play = { s: 'ek', m: 'sokker', v: 'speel' };
+const fut = futureWords(play.s, play.m, play.v);
+const pres = presentWords(play.s, play.m, play.v);
+const past = pastWords(play.s, play.m, play.v);
+const eat = { s: 'ons', m: 'aandete', v: 'eet' };
+const read = { s: 'sy', m: "'n boek", v: 'lees' };
+const go = { s: 'hulle', m: 'skool toe', v: 'gaan' };
+const tea = { s: 'ek', m: 'tee', v: 'maak' };
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these future-tense words aloud to hear how Afrikaans signals what will happen next.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"sal"} phonetic={"[sal]"} meaning={"will / shall"} lang="af" />
-          <PronunciationPlayer word={"môre"} phonetic={"[ˈmɔːrə]"} meaning={"tomorrow"} lang="af" />
-          <PronunciationPlayer word={"later"} phonetic={"[ˈlɑːtər]"} meaning={"later"} lang="af" />
-          <PronunciationPlayer word={"volgende week"} phonetic={"[ˈfɔlxəndə viːk]"} meaning={"next week"} lang="af" />
-          <PronunciationPlayer word={"reis"} phonetic={"[rɛis]"} meaning={"travel"} lang="af" />
-          <PronunciationPlayer word={"leer"} phonetic={"[liər]"} meaning={"learn"} lang="af" />
-        </div>
-      </div>
+    title: 'The future: use sal',
+    content: slide(
+      <>
+        <Rule>To talk about the future, put <Af>sal</Af> <En>will</En> in front of the verb. <Af>sal</Af> is the signal word for the <Af>toekomende tyd</Af>.</Rule>
+        <TenseTimeline
+          past={S(past)}
+          present={S(pres)}
+          future={S(fut)}
+          aria="A timeline from yesterday to tomorrow. Gister: Ek het sokker gespeel. Vandag: Ek speel sokker. Môre: Ek sal sokker speel."
+        />
+        <Worked
+          title="Present to future"
+          steps={[
+            <>Present: <Af>{S(pres)}</Af> <En>I play soccer.</En></>,
+            <>Add <Af>sal</Af> after the subject: <Af>Ek sal ...</Af></>,
+            <>Future: <Af>{S(fut)}</Af> <En>I will play soccer.</En> <SpeakButton text={S(fut)} /></>,
+          ]}
+        />
+        <Mistake>Using the present tense for the future with no signal word. <Af>môre</Af> <En>tomorrow</En> tells you to use <Af>sal</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Where does the verb go?',
+    content: slide(
+      <>
+        <Rule>After <Af>sal</Af>, the verb moves to the <strong>end</strong> of the sentence. The subject stays first and <Af>sal</Af> is second.</Rule>
+        <WordBoxes
+          words={fut}
+          hot={[1, verbIndex(fut, play.v)]}
+          arrow={[1, verbIndex(fut, play.v)]}
+          aria="The sentence Ek sal sokker speel in boxes. Sal is in second place and the verb speel is last, with an arrow showing the verb moved to the end."
+        />
+        <Worked
+          title="Build the sentence"
+          steps={[
+            <>Subject first: <Af>{eat.s}</Af> <En>we</En>.</>,
+            <>Second place: <Af>sal</Af>.</>,
+            <>Then the rest of the sentence: <Af>{eat.m}</Af> <En>supper</En>.</>,
+            <>The verb goes last: <Af>{S(futureWords(eat.s, eat.m, eat.v))}</Af> <En>We will eat supper.</En></>,
+          ]}
+        />
+        <Mistake>Leaving the verb next to the subject: <Af>Ek speel sal sokker</Af> is wrong. Say <Af>Ek sal sokker speel</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'More sentences with sal',
+    content: slide(
+      <>
+        <Rule>The pattern is always the same: subject + <Af>sal</Af> + the rest + verb. The verb does not change.</Rule>
+        <Worked
+          title="Three more examples"
+          steps={[
+            <><Af>{S(futureWords(read.s, read.m, read.v))}</Af> <En>She will read a book.</En></>,
+            <><Af>{S(futureWords(go.s, go.m, go.v))}</Af> <En>They will go to school.</En></>,
+            <><Af>{S(futureWords(tea.s, tea.m, tea.v))}</Af> <En>I will make tea.</En> <SpeakButton text={`${S(futureWords(read.s, read.m, read.v))} ${S(futureWords(go.s, go.m, go.v))} ${S(futureWords(tea.s, tea.m, tea.v))}`} /></>,
+          ]}
+        />
+        <Mistake>Changing the verb. In the future the verb stays the same (<Af>speel</Af>, <Af>lees</Af>, <Af>gaan</Af>). It does not get <Af>-s</Af> or <Af>ge-</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Which tense is it? Look for the signal word',
+    content: slide(
+      <>
+        <Rule>The signal word tells you the tense: <Af>sal</Af> means future, <Af>het</Af> with <Af>ge-</Af> means past, and no helper means present.</Rule>
+        <Worked
+          title="Name the tense"
+          steps={[
+            <><Af>{S(presentWords('jy', "'n brief", 'skryf'))}</Af> has no helper word: <strong>present</strong>.</>,
+            <><Af>{S(futureWords('jy', "'n brief", 'skryf'))}</Af> has <Af>sal</Af>: <strong>future</strong> <En>You will write a letter.</En></>,
+            <><Af>{S(pastWords('jy', "'n brief", 'skryf'))}</Af> has <Af>het</Af> and <Af>ge-</Af>: <strong>past</strong> <En>You wrote a letter.</En></>,
+          ]}
+        />
+        <Mistake>Mixing the helpers. <Af>Ek sal gespeel</Af> is wrong. <Af>sal</Af> goes with the plain verb: <Af>Ek sal speel</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Put in the future: <Af>{S(presentWords('ons', 'aandete', 'eet'))}</Af></>} answer={<><Af>{S(futureWords('ons', 'aandete', 'eet'))}</Af></>} />
+        <Check question={<>Put in the future: <Af>{S(presentWords('die hond', '', 'slaap'))}</Af></>} answer={<><Af>{S(futureWords('die hond', '', 'slaap'))}</Af></>} />
+        <Check question={<>Which word shows the future tense in Afrikaans?</>} answer={<><Af>sal</Af> <En>will</En>.</>} />
+        <Check question={<>Is <Af>Sy sal 'n boek lees</Af> correct word order?</>} answer={<>Yes. <Af>sal</Af> is second and the verb <Af>lees</Af> is last.</>} />
+      </>,
     ),
   },
 ];
