@@ -1,18 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Refine and perform polished choreography',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Dance in Grade 9 Term 4 culminates the year with a final performance. You refine and polish choreography, achieve consistent timing and expression, discuss how your dance communicates ideas to audiences, explore appreciation and diverse dance forms, and consider community performance opportunities. Demonstrate technical mastery and artistic maturity.
-        </p>
-      </div>
-    ),
-  },
-];
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { learnSteps } from './Slides';
 
 const bank: CapsItem[] = [
   {
