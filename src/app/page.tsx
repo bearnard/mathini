@@ -9,6 +9,7 @@ import { pageMeta } from '../lib/seo/pageMeta';
 import { faqLd, homeLd } from '../lib/seo/structuredData';
 import { HOME_FAQ } from '../lib/seo/homeFaq';
 import { JsonLd } from '../components/seo/PublicShell';
+import PublicAnalytics from '../components/analytics/PublicAnalytics';
 import HomePaths from '../components/seo/HomePaths';
 import Hero from '../components/landing/Hero';
 import TryItDemo from '../components/landing/TryItDemo';
@@ -43,6 +44,7 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       <JsonLd data={[...homeLd(), faqLd(HOME_FAQ)]} />
+      <PublicAnalytics />
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-4">
           <span className="text-lg font-black text-slate-800">PrepPals</span>

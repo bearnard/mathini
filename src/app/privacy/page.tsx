@@ -4,6 +4,8 @@ import { PRIVACY_SECTIONS } from '../../lib/privacyNotice';
 import { pageMeta } from '../../lib/seo/pageMeta';
 import { breadcrumbLd, homeCrumb } from '../../lib/seo/structuredData';
 import { JsonLd } from '../../components/seo/PublicShell';
+import PublicAnalytics from '../../components/analytics/PublicAnalytics';
+import CookieChoiceButton from '../../components/analytics/CookieChoiceButton';
 
 export const metadata: Metadata = pageMeta({ title: 'Privacy', description: 'What PrepPals collects, why, and who can see it.', path: '/privacy' });
 
@@ -11,6 +13,7 @@ export default function PrivacyPage() {
   return (
     <main className="mx-auto max-w-2xl px-4 py-10">
       <JsonLd data={breadcrumbLd([homeCrumb, { name: 'Privacy', path: '/privacy' }])} />
+      <PublicAnalytics />
       <Link href="/" className="text-sm font-bold text-[#3285bc] hover:underline">
         ← Back to PrepPals
       </Link>
@@ -26,6 +29,9 @@ export default function PrivacyPage() {
           ))}
         </section>
       ))}
+      <section className="mt-8" aria-label="Your analytics choice">
+        <CookieChoiceButton />
+      </section>
     </main>
   );
 }

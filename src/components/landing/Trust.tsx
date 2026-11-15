@@ -9,7 +9,7 @@ const POINTS: { title: string; body: string }[] = [
   { title: 'Built on CAPS', body: 'Every topic sits under its CAPS grade, subject and term, so practice matches what is taught in class.' },
   { title: 'Checked before you see it', body: 'Questions go through automated quality checks: a clear answer key, no giveaways, no repeated options. Lessons are fact-checked, and wrong or misleading lines are fixed.' },
   { title: 'Teachers check the languages', body: 'We send Afrikaans and isiXhosa content to first-language teachers to check, and fix what they find. Learners can also report a question they think is wrong.' },
-  { title: 'Private by design', body: 'No ads, no third-party analytics, and we never sell or share learner information. A parent sees only their own child, and a class teacher sees only a nickname and progress. We follow POPIA.' },
+  { title: 'Private by design', body: 'No ads, no third-party analytics in the learner, parent and teacher areas, and we never sell or share learner information. A parent sees only their own child, and a class teacher sees only a nickname and progress. We follow POPIA.' },
 ];
 
 export default function Trust() {
