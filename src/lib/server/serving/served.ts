@@ -28,6 +28,8 @@ interface IdRow {
   section: string;
   source: 'curated' | 'ai';
   clean: number;
+  /** 1 when the CURRENT version is teacher-verified (question_verified.version_id = current_version_id). Missing before migration 0020. */
+  verified?: number;
 }
 
 const idCache = new Map<string, { at: number; rows: IdRow[] }>();
@@ -40,16 +42,14 @@ export function clearServedCache(): void {
 async function taskIds(db: D1Database, task: string, now: number): Promise<IdRow[]> {
   const hit = idCache.get(task);
   if (hit && now - hit.at < ID_TTL_MS) return hit.rows;
-  const res = await db
-    .prepare(
-      `SELECT q.id AS id, q.section AS section, q.source AS source,
-              CASE WHEN c.quality_score IS NULL OR c.quality_score >= ${SCORE_CLEAN} THEN 1 ELSE 0 END AS clean
+  const sql = (verified: boolean) => `SELECT q.id AS id, q.section AS section, q.source AS source,
+              CASE WHEN c.quality_score IS NULL OR c.quality_score >= ${SCORE_CLEAN} THEN 1 ELSE 0 END AS clean${verified ? `,
+              EXISTS (SELECT 1 FROM question_verified qv WHERE qv.question_id = q.id AND qv.version_id = q.current_version_id) AS verified` : ''}
        FROM questions q LEFT JOIN item_cache c ON c.id = q.legacy_item_id
        WHERE q.task = ? AND q.status = 'active' AND q.kind = 'mcq'
-         AND (q.source = 'curated' OR c.quality_score IS NULL OR c.quality_score > 0)`,
-    )
-    .bind(task)
-    .all<IdRow>();
+         AND (q.source = 'curated' OR c.quality_score IS NULL OR c.quality_score > 0)`;
+  // Migration 0020 adds question_verified. Until it is applied the verified query fails, and serving carries on without the preference.
+  const res = await db.prepare(sql(true)).bind(task).all<IdRow>().catch(() => db.prepare(sql(false)).bind(task).all<IdRow>());
   const rows = res.results ?? [];
   idCache.set(task, { at: now, rows });
   return rows;
@@ -64,12 +64,17 @@ function shuffle<T>(a: T[], rng: () => number): T[] {
   return out;
 }
 
-/** Which ids to serve: curated first (when CURATED_FIRST), then clean AI rows, then warn-level AI rows; random inside each band. Pure. */
+/** Teacher-verified questions first, each group shuffled: a preference (never an exclusion) applied inside every band below. Practice, exam practice and mock tests all draw through here. */
+function verifiedFirst(rows: IdRow[], rng: () => number): IdRow[] {
+  return [...shuffle(rows.filter((r) => r.verified === 1), rng), ...shuffle(rows.filter((r) => r.verified !== 1), rng)];
+}
+
+/** Which ids to serve: curated first (when CURATED_FIRST), then clean AI rows, then warn-level AI rows; teacher-verified first and random inside each band. Pure. */
 export function pickIds(rows: IdRow[], count: number, rng: () => number = Math.random, curatedFirst: boolean = CURATED_FIRST): string[] {
-  const curated = shuffle(rows.filter((r) => r.source === 'curated'), rng);
-  const aiClean = shuffle(rows.filter((r) => r.source === 'ai' && r.clean === 1), rng);
-  const aiWarn = shuffle(rows.filter((r) => r.source === 'ai' && r.clean !== 1), rng);
-  const ordered = curatedFirst ? [...curated, ...aiClean, ...aiWarn] : [...shuffle([...curated, ...aiClean], rng), ...aiWarn];
+  const curated = verifiedFirst(rows.filter((r) => r.source === 'curated'), rng);
+  const aiClean = verifiedFirst(rows.filter((r) => r.source === 'ai' && r.clean === 1), rng);
+  const aiWarn = verifiedFirst(rows.filter((r) => r.source === 'ai' && r.clean !== 1), rng);
+  const ordered = curatedFirst ? [...curated, ...aiClean, ...aiWarn] : [...verifiedFirst([...curated, ...aiClean], rng), ...aiWarn];
   return ordered.slice(0, count).map((r) => r.id);
 }
 

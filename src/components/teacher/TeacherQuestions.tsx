@@ -248,14 +248,70 @@ function Mine({ refresh }: { refresh: number }) {
   );
 }
 
+interface ModView { id: string; kind: 'edit' | 'retire' | 'new'; groupTitle: string; author: string; reason: string; sourceKind: SourceKind; sourceRef: string; findings: Finding[]; comments: number; current: { prompt: string; options: string[]; answer: string; explanation: string } | null; proposed: { prompt: string; options: string[]; answer: string; explanation: string } | null }
+
+const Mcq = ({ c, label }: { c: { prompt: string; options: string[]; answer: string }; label: string }) => (
+  <div className="mt-2 text-sm text-slate-800">
+    <p className="font-semibold text-slate-600">{label}</p>
+    <p className="break-words font-semibold">{c.prompt}</p>
+    <ul>{c.options.map((o) => <li key={o}>{o === c.answer ? '✓ ' : '• '}{o}</li>)}</ul>
+  </div>
+);
+
+/** For moderators of a group that has 5 or more moderators: decide proposals in your own groups, never your own, always with a reason. */
+function Moderation() {
+  const [items, setItems] = useState<ModView[] | null>(null);
+  const [reasons, setReasons] = useState<Record<string, string>>({});
+  const [err, setErr] = useState('');
+  const [talk, setTalk] = useState<string | null>(null);
+  const load = () => { void api<{ proposals: ModView[] }>('/api/teacher/moderation').then((r) => setItems(r.ok ? r.data.proposals : [])); };
+  useEffect(load, []);
+  const decide = async (id: string, decision: 'approve' | 'reject') => {
+    setErr('');
+    const r = await api(`/api/teacher/moderation/${id}`, 'proposal-decide', { decision, reason: reasons[id] ?? '' });
+    if (r.ok) load(); else setErr(r.error);
+  };
+  return (
+    <section aria-label="Moderation" className="mt-3">
+      <p className="text-slate-700">Proposals in your groups that you can decide. You cannot decide your own. Say why, every time.</p>
+      {err && <p className="mt-2 text-red-700" role="alert">{err}</p>}
+      {items === null && <p className="mt-2 text-slate-600" role="status">Loading…</p>}
+      {items && items.length === 0 && <p className="mt-2 text-slate-700">Nothing is waiting for you. Groups with fewer than 5 moderators are decided by the owner.</p>}
+      <ul className="mt-3 space-y-3">
+        {items?.map((p) => (
+          <li key={p.id} className="rounded-2xl border border-slate-200 bg-white p-4">
+            <p className="text-sm font-bold uppercase tracking-wide text-indigo-700">{p.kind === 'edit' ? 'Change' : p.kind === 'retire' ? 'Retire' : 'New question'} · {p.groupTitle}</p>
+            <p className="text-sm text-slate-600">{p.author}</p>
+            {p.current && <Mcq c={p.current} label={p.kind === 'retire' ? 'This question' : 'Now'} />}
+            {p.proposed && <Mcq c={p.proposed} label="Proposed" />}
+            <p className="mt-2 text-sm text-slate-800">Why: {p.reason}</p>
+            <p className="text-sm text-slate-600">{SOURCE_LABEL[p.sourceKind]}: {p.sourceRef}</p>
+            {p.findings.length > 0 && <Findings items={p.findings} />}
+            <label className="mt-2 block text-sm font-semibold text-slate-800">Your reason
+              <textarea className={area} rows={2} maxLength={LIMITS.decisionMax} value={reasons[p.id] ?? ''} onChange={(e) => setReasons({ ...reasons, [p.id]: e.target.value })} />
+            </label>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <button className={btnPrimary} disabled={(reasons[p.id] ?? '').trim().length < LIMITS.decisionMin} onClick={() => void decide(p.id, 'approve')}>Approve</button>
+              <button className={btn} disabled={(reasons[p.id] ?? '').trim().length < LIMITS.decisionMin} onClick={() => void decide(p.id, 'reject')}>Reject</button>
+              <button className={btn} onClick={() => setTalk(talk === p.id ? null : p.id)}>{talk === p.id ? 'Hide discussion' : `Discussion (${p.comments})`}</button>
+            </div>
+            {talk === p.id && <Discussion target={{ proposal: p.id }} />}
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 export default function TeacherQuestions() {
   const [me, setMe] = useState<Me | null | 'error'>(null);
-  const [tab, setTab] = useState<'bank' | 'mine'>('bank');
+  const [tab, setTab] = useState<'bank' | 'mine' | 'mod'>('bank');
   const [refresh, setRefresh] = useState(0);
   useEffect(() => { void api<Me>('/api/auth/me').then((r) => setMe(r.ok ? r.data : 'error')); }, []);
   const ok = !!me && me !== 'error' && !!me.user && (me.roles.includes('teacher') || me.roles.includes('moderator'));
-  const tabBtn = (t: 'bank' | 'mine', label: string) => (
-    <button role="tab" aria-selected={tab === t} onClick={() => setTab(t)} className={`min-h-12 flex-1 rounded-xl px-3 text-base font-semibold ${tab === t ? 'bg-indigo-600 text-white' : 'border border-slate-300 bg-white text-slate-800'}`}>{label}</button>
+  const isMod = !!me && me !== 'error' && me.roles.includes('moderator');
+  const tabBtn = (t: 'bank' | 'mine' | 'mod', label: string) => (
+    <button role="tab" aria-selected={tab === t} onClick={() => setTab(t)} className={`min-h-12 min-w-0 flex-1 rounded-xl px-2 text-sm font-semibold sm:text-base ${tab === t ? 'bg-indigo-600 text-white' : 'border border-slate-300 bg-white text-slate-800'}`}>{label}</button>
   );
   return (
     <main className="mx-auto min-h-screen max-w-md bg-slate-50 px-4 py-8">
@@ -269,8 +325,8 @@ export default function TeacherQuestions() {
       {ok && (
         <>
           <p className="mt-2 text-slate-700">Suggest a better question, or a new one. We run automated checks first, then a moderator or the owner decides, and always says why.</p>
-          <div role="tablist" className="mt-3 flex gap-2">{tabBtn('bank', 'Question bank')}{tabBtn('mine', 'My proposals')}</div>
-          {tab === 'bank' ? <Browse onProposed={() => setRefresh((n) => n + 1)} /> : <Mine refresh={refresh} />}
+          <div role="tablist" className="mt-3 flex gap-2">{tabBtn('bank', 'Question bank')}{tabBtn('mine', 'My proposals')}{isMod && tabBtn('mod', 'Moderation')}</div>
+          {tab === 'bank' ? <Browse onProposed={() => setRefresh((n) => n + 1)} /> : tab === 'mine' ? <Mine refresh={refresh} /> : <Moderation />}
         </>
       )}
     </main>

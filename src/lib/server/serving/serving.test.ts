@@ -222,3 +222,38 @@ test('review never resolves an order / label / explain question from D1 (it woul
   const got = await resolveFromD1(t.db, ids.map((qkey) => ({ qkey, task: TASK })));
   assert.deepEqual(Object.keys(got), [ids[2]]);
 });
+
+// ---------- teacher-verified preference (ADR 0003 section 4) ----------
+test('pickIds: teacher-verified questions come first inside each band, and the others still follow (a preference, not a filter)', () => {
+  const rows = [
+    ...Array.from({ length: 6 }, (_, i) => ({ id: `c${i}`, section: 's', source: 'curated' as const, clean: 1, verified: i < 2 ? 1 : 0 })),
+    ...Array.from({ length: 4 }, (_, i) => ({ id: `a${i}`, section: 's', source: 'ai' as const, clean: 1, verified: i === 3 ? 1 : 0 })),
+  ];
+  for (let k = 0; k < 20; k++) {
+    const ids = pickIds(rows, 20);
+    assert.deepEqual(ids.slice(0, 2).sort(), ['c0', 'c1']);
+    assert.equal(ids.length, 10);
+    assert.equal(ids[6], 'a3', 'verified AI row leads the AI band');
+    assert.deepEqual(pickIds(rows, 2).sort(), ['c0', 'c1']);
+  }
+});
+
+test('serving prefers the current version being verified; an edit afterwards makes it unverified; without the 0020 table serving still works', async (t0) => {
+  const t = await openQuestionsDb(); if (!t) return t0.skip('node:sqlite unavailable');
+  const { readFileSync } = await import('node:fs');
+  for (const p of ['Q one?', 'Q two?', 'Q three?', 'Q four?']) curated(t, p);
+  // before 0020 exists: the plain query is used
+  assert.equal((await fetchServedItems(t.db, TASK, 20)).length, 4);
+  clearServedCache();
+  t.raw.exec(readFileSync('migrations/0020_moderation.sql', 'utf8'));
+  const cur = (p: string) => (t.raw.prepare('SELECT current_version_id AS v FROM questions WHERE id = ?').get(qid(p)) as { v: number }).v;
+  const verify = (p: string, version = cur(p)) => t.raw.prepare("INSERT OR REPLACE INTO question_verified (question_id, version_id, verified_at, via, verified_by) VALUES (?, ?, 1, 'review', 'owner')").run(qid(p), version);
+  verify('Q three?'); verify('Q four?', cur('Q four?') + 99); // the second names a version that is not the current one: not verified
+  for (let k = 0; k < 15; k++) {
+    clearServedCache();
+    const first: string = (await fetchServedItems(t.db, TASK, 1))[0].prompt;
+    assert.equal(first, 'Q three?');
+  }
+  clearServedCache();
+  assert.equal((await fetchServedItems(t.db, TASK, 20)).length, 4, 'nothing is excluded');
+});
