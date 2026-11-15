@@ -61,8 +61,8 @@ export const MOCK_PROGRESS: ProgressResponse = {
   ],
   retention: { weekCorrect: 34, weekAnswered: 40, weekPct: 85, retiredCount: 12, dueCount: 5 },
   consistency: { daysPractisedLast14: 9, streakDays: 3 },
-  parentNextStep: { title: 'Ask your child to do their 5 review cards', reason: 'A few minutes now helps them remember what they have learned, ready for the exam.' },
-  teacherNextStep: { title: 'Encourage your learner to do their 5 review cards', reason: 'A few minutes of review helps them remember what they have learned, ready for the exam.' },
+  parentNextStep: { title: 'Ask Lerato to do their 5 review cards', reason: 'A few minutes now helps them remember what they have learned, ready for the exam.' },
+  teacherNextStep: { title: 'Encourage Lerato to do their 5 review cards', reason: 'A few minutes of review helps them remember what they have learned, ready for the exam.' },
   recentSessions: [
     { at: '2026-11-14T15:20:00.000Z', label: 'Electric Circuits', answered: 12, correct: 10, scorePct: 83 },
     { at: '2026-11-13T16:05:00.000Z', label: 'Mains Electricity and Safety', answered: 8, correct: 5, scorePct: 63 },
