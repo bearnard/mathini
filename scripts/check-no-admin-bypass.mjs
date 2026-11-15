@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Fails (exit 1) if the admin dev-bypass flag name appears anywhere in a PRODUCTION build output.
+// Fails (exit 1) if the admin dev-bypass flag name, or the dev-only lesson preview marker, appears anywhere in a PRODUCTION build output.
 //
 // The bypass is `process.env.NODE_ENV === 'development' && process.env.ADMIN_DEV_BYPASS === '1'`
 // (src/lib/server/admin/guard.ts). `next build` inlines NODE_ENV as "production", so the whole
@@ -14,7 +14,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const NEEDLE = 'ADMIN_DEV_BYPASS';
+// ADMIN_DEV_BYPASS: the admin guard's dev bypass. DEV_LESSON_PREVIEW_ONLY: the marker in src/app/dev-lesson/Preview.tsx, the
+// dev-only lesson preview, which must not be bundled into production either.
+const NEEDLES = ['ADMIN_DEV_BYPASS', 'DEV_LESSON_PREVIEW_ONLY'];
 const MAX_BYTES = 64 * 1024 * 1024;
 
 export function scan(dir) {
@@ -26,7 +28,8 @@ export function scan(dir) {
       if (e.isDirectory()) walk(p);
       else if (/\.(m?js|cjs|json|html|rsc|txt)$/.test(e.name) && fs.statSync(p).size <= MAX_BYTES) {
         files++;
-        if (fs.readFileSync(p, 'utf8').includes(NEEDLE)) hits.push(p);
+        const text = fs.readFileSync(p, 'utf8');
+        for (const needle of NEEDLES) if (text.includes(needle)) hits.push({ file: p, needle });
       }
     }
   };
@@ -53,8 +56,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     process.exit(2);
   }
   if (bad.length) {
-    console.error(`FAIL: "${NEEDLE}" is present in the production build:\n  ${bad.join('\n  ')}`);
+    console.error(`FAIL: dev-only code is present in the production build:\n  ${bad.map((b) => `"${b.needle}" in ${b.file}`).join('\n  ')}`);
     process.exit(1);
   }
-  console.log(`OK: scanned ${total} build files; "${NEEDLE}" is not present.`);
+  console.log(`OK: scanned ${total} build files; ${NEEDLES.map((n) => `"${n}"`).join(' and ')} not present.`);
 }

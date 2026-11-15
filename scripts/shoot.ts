@@ -1,11 +1,11 @@
 // Browser check: screenshot each URL at 390 and 1280 px with a per-page timeout, and report horizontal overflow and
 // console errors. Usage and the reasons behind the flags: docs/notes/browser-check.md
-//   node --import tsx scripts/shoot.ts [--widths 390,1280] [--out dir] [--timeout ms] [--wait-for css] [--stub-api] <url>...
+//   node --import tsx scripts/shoot.ts [--widths 390,1280] [--out dir] [--timeout ms] [--wait-for css] [--walk] [--shots all|fail|none] [--stub-api] <url>...
 import { spawn, type ChildProcess } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { chromiumArgs, isIgnorableError, parseArgs, shotName, summarize, type PageResult, type ShootOptions } from './lib/browserCheckCore';
+import { chromiumArgs, isIgnorableError, pageFailed, parseArgs, shotName, summarize, type PageResult, type ShootOptions } from './lib/browserCheckCore';
 
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 const withTimeout = <T,>(p: Promise<T>, ms: number, what: string): Promise<T> =>
@@ -62,14 +62,25 @@ const warmUp = async (url: string, ms: number) => {
   try { await fetch(url, { signal: AbortSignal.timeout(ms) }); } catch { /* the browser visit will report it */ }
 };
 
-const MEASURE = `(() => { const de = document.documentElement;
-  const wide = [...document.querySelectorAll('body *')].filter((e) => { const r = e.getBoundingClientRect(); return r.right > de.clientWidth + 1 && r.width > 0 && !e.closest('pre, svg'); })
-    .slice(0, 3).map((e) => e.tagName.toLowerCase() + '.' + String(e.className).split(' ')[0].slice(0, 30));
-  return { scrollWidth: de.scrollWidth, clientWidth: de.clientWidth, wide }; })()`;
+// Measures the page as it is now. "Inside a scroller" (an ancestor with overflow-x auto/scroll, such as a code block or a wide table)
+// is fine: that content can be reached by swiping. Clipped means cut off for good: an element with overflow hidden/clip whose content
+// is wider than it, or content past the left or right edge that the page cannot scroll to.
+const MEASURE = `(() => { const de = document.documentElement; const vw = de.clientWidth;
+  const name = (e) => e.tagName.toLowerCase() + '.' + String(e.className && e.className.baseVal !== undefined ? e.className.baseVal : e.className).split(' ')[0].slice(0, 30);
+  const inScroller = (e) => { for (let a = e.parentElement; a && a !== document.body; a = a.parentElement) { const ox = getComputedStyle(a).overflowX; if (ox === 'auto' || ox === 'scroll') return true; } return false; };
+  const all = [...document.querySelectorAll('body *')].filter((e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && !e.closest('pre, svg, [aria-hidden="true"], nextjs-portal') && getComputedStyle(e).position !== 'fixed'; });
+  const wide = all.filter((e) => e.getBoundingClientRect().right > vw + 1 && !inScroller(e)).slice(0, 3).map(name);
+  const left = all.filter((e) => e.getBoundingClientRect().left < -1 && !inScroller(e)).slice(0, 3).map((e) => 'left:' + name(e));
+  const cut = all.filter((e) => { const cs = getComputedStyle(e); return (cs.overflowX === 'hidden' || cs.overflowX === 'clip') && cs.textOverflow !== 'ellipsis' && e.scrollWidth > e.clientWidth + 2 && e.clientWidth > 0; }).slice(0, 3).map((e) => 'cut:' + name(e));
+  const overflowing = de.scrollWidth - vw > 1;
+  const btn = [...document.querySelectorAll('button')].find((b) => b.textContent.trim() === 'Next');
+  return { scrollWidth: de.scrollWidth, clientWidth: vw, wide, clipped: [...(overflowing ? [] : wide.map((w) => 'edge:' + w)), ...left, ...cut],
+    title: (document.querySelector('h2.text-2xl') || {}).textContent || '', heading: ((document.querySelector('h1, h2') || {}).textContent || '').slice(0, 80), hasNext: !!btn }; })()`;
 
-const shootOne = async (cdp: Cdp, o: ShootOptions, url: string, width: number): Promise<PageResult> => {
+const shootOne = async (cdp: Cdp, o: ShootOptions, url: string, width: number): Promise<PageResult[]> => {
   const t0 = Date.now();
-  const r: PageResult = { url, width, status: 'ok', errors: [], ms: 0 };
+  const out: PageResult[] = [];
+  const errors: string[] = [];
   let targetId = '';
   try {
     targetId = (await cdp.send('Target.createTarget', { url: 'about:blank' })).targetId;
@@ -94,7 +105,7 @@ const shootOne = async (cdp: Cdp, o: ShootOptions, url: string, width: number): 
           void cdp.send('Fetch.fulfillRequest', { requestId: p.requestId, responseCode: 200, responseHeaders: [{ name: 'content-type', value: 'application/json' }], body: Buffer.from(body).toString('base64') }, sessionId);
         } else void cdp.send('Fetch.continueRequest', { requestId: p.requestId }, sessionId);
       }
-      if (text && !isIgnorableError(text)) r.errors.push(text.slice(0, 300));
+      if (text && !isIgnorableError(text)) errors.push(text.slice(0, 300));
     });
     await Promise.all([s('Page.enable'), s('Runtime.enable'), s('Log.enable'), s('Network.enable')]);
     if (o.stubApi || MOCKS.length > 0) await s('Fetch.enable', { patterns: [{ urlPattern: '*' }] });
@@ -110,20 +121,39 @@ const shootOne = async (cdp: Cdp, o: ShootOptions, url: string, width: number): 
       }
     }
     await sleep(o.settleMs);
-    const m = (await s('Runtime.evaluate', { expression: MEASURE, returnByValue: true })).result.value;
-    Object.assign(r, { scrollWidth: m.scrollWidth, clientWidth: m.clientWidth, wideElements: m.wide });
-    const shot = await s('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
-    fs.mkdirSync(o.out, { recursive: true });
-    r.file = path.join(o.out, shotName(url, width));
-    fs.writeFileSync(r.file, Buffer.from(shot.data, 'base64'));
+    const MAX_STEPS = 60;
+    let seen = 0;
+    for (let step = 0; step < (o.walk ? MAX_STEPS : 1); step++) {
+      const m = (await s('Runtime.evaluate', { expression: MEASURE, returnByValue: true })).result.value;
+      const r: PageResult = {
+        url, width, status: 'ok', errors: errors.slice(seen), ms: Date.now() - t0,
+        scrollWidth: m.scrollWidth, clientWidth: m.clientWidth, wideElements: m.wide, clipped: m.clipped,
+        ...(o.walk ? { step, title: String(m.title || m.heading).slice(0, 80) } : {}),
+      };
+      if (o.shots === 'all' || (o.shots === 'fail' && pageFailed(r))) {
+        const shot = await s('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
+        fs.mkdirSync(o.out, { recursive: true });
+        r.file = path.join(o.out, shotName(url, width, o.walk ? step : undefined));
+        fs.writeFileSync(r.file, Buffer.from(shot.data, 'base64'));
+      }
+      seen = errors.length;
+      out.push(r);
+      // Only a lesson with slides (an h2.text-2xl heading) is walked. A page with its own "Next" button, such as an interactive tutor, is measured once.
+      if (!o.walk || !m.hasNext || !m.title) break;
+      const before = String(m.title);
+      await s('Runtime.evaluate', { expression: `[...document.querySelectorAll('button')].find((b) => b.textContent.trim() === 'Next').click()` });
+      for (let i = 0; i < 15; i++) {
+        await sleep(100);
+        if (String((await s('Runtime.evaluate', { expression: `(document.querySelector('h2.text-2xl') || {}).textContent || ''`, returnByValue: true })).result.value) !== before) break;
+      }
+      await sleep(Math.min(o.settleMs, 300));
+    }
   } catch (e) {
-    r.status = /timeout/.test(String(e)) ? 'timeout' : 'error';
-    r.detail = String((e as Error).message).slice(0, 160);
+    out.push({ url, width, status: /timeout/.test(String(e)) ? 'timeout' : 'error', detail: String((e as Error).message).slice(0, 160), errors, ms: Date.now() - t0 });
   } finally {
     if (targetId) await cdp.send('Target.closeTarget', { targetId }, undefined, 5000).catch(() => undefined);
-    r.ms = Date.now() - t0;
   }
-  return r;
+  return out;
 };
 
 const main = async () => {
@@ -133,13 +163,13 @@ const main = async () => {
   const { cdp, kill } = await launch(o);
   const results: PageResult[] = [];
   try {
-    for (const w of o.widths) for (const u of o.urls) results.push(await shootOne(cdp, o, u, w));
+    for (const w of o.widths) for (const u of o.urls) results.push(...(await shootOne(cdp, o, u, w)));
   } finally { cdp.close(); kill(); }
   const { lines, failed } = summarize(results);
-  lines.forEach((l) => console.log(l));
+  lines.filter((l) => o.walk ? l.startsWith('FAIL') : true).forEach((l) => console.log(l));
   fs.mkdirSync(o.out, { recursive: true });
   fs.writeFileSync(path.join(o.out, 'report.json'), JSON.stringify(results, null, 2));
-  console.log(`${results.length - failed}/${results.length} ok, screenshots and report.json in ${o.out}`);
+  console.log(`${results.length - failed}/${results.length} ok${o.walk ? ` (slides measured, ${new Set(results.map((r) => r.url)).size} pages)` : ''}, report.json${o.shots === 'none' ? '' : ' and screenshots'} in ${o.out}`);
   process.exit(failed ? 1 : 0);
 };
 void main();

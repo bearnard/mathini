@@ -8,6 +8,10 @@ export interface ShootOptions {
   settleMs: number;
   /** CSS selector that must exist before the page is measured (client-rendered pages). */
   waitFor: string | null;
+  /** Click the lesson's Next button and measure every slide (a lesson page is one URL, many slides). */
+  walk: boolean;
+  /** Which screenshots to keep: every step, only failing ones, or none. */
+  shots: 'all' | 'fail' | 'none';
   stubApi: boolean;
   warmup: boolean;
   chromium: string;
@@ -32,7 +36,7 @@ export const parseWidths = (s: string): number[] => {
 
 export const parseArgs = (argv: string[], env: Record<string, string | undefined> = {}): ShootOptions => {
   const o: ShootOptions = {
-    urls: [], widths: DEFAULT_WIDTHS, out: 'shots', timeoutMs: 60000, settleMs: 800, waitFor: null, stubApi: false, warmup: true,
+    urls: [], widths: DEFAULT_WIDTHS, out: 'shots', timeoutMs: 60000, settleMs: 800, waitFor: null, walk: false, shots: 'all', stubApi: false, warmup: true,
     chromium: env.CHROMIUM_BIN || '/usr/bin/chromium',
   };
   const need = (i: number, flag: string) => {
@@ -49,6 +53,12 @@ export const parseArgs = (argv: string[], env: Record<string, string | undefined
       if (!(o.timeoutMs >= 1000)) throw new Error('--timeout is in milliseconds, at least 1000');
     } else if (a === '--settle') o.settleMs = Number(need(i++, a));
     else if (a === '--wait-for') o.waitFor = need(i++, a);
+    else if (a === '--walk') o.walk = true;
+    else if (a === '--shots') {
+      const v = need(i++, a);
+      if (v !== 'all' && v !== 'fail' && v !== 'none') throw new Error('--shots must be all, fail or none');
+      o.shots = v;
+    }
     else if (a === '--stub-api') o.stubApi = true;
     else if (a === '--no-warmup') o.warmup = false;
     else if (a === '--chromium') o.chromium = need(i++, a);
@@ -94,11 +104,11 @@ export const shortHash = (s: string): string => {
  * the WHOLE URL (query included, fragment left out so a secret in it never reaches a file name), so two long URLs that differ only
  * at the end (for example ?s=3 and ?s=4 after a long topic name) can never overwrite each other.
  */
-export const shotName = (url: string, width: number): string => {
+export const shotName = (url: string, width: number, step?: number): string => {
   const u = new URL(url);
   const full = `${u.hostname}${u.port ? '-' + u.port : ''}${u.pathname}${u.search}`.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '');
   const slug = full.length > SLUG_MAX ? `${full.slice(0, SLUG_MAX).replace(/_+$/, '')}-${shortHash(`${u.origin}${u.pathname}${u.search}`)}` : full;
-  return `${slug || 'page'}-${width}.png`;
+  return `${slug || 'page'}-${width}${step === undefined ? '' : `-s${step}`}.png`;
 };
 
 export const hasOverflow = (scrollWidth: number, clientWidth: number, tolerance = 1): boolean => scrollWidth - clientWidth > tolerance;
@@ -114,6 +124,11 @@ export interface PageResult {
   scrollWidth?: number;
   clientWidth?: number;
   wideElements?: string[];
+  /** Content cut off by an element with overflow hidden, or outside the screen on the left. */
+  clipped?: string[];
+  /** Walk mode: the slide number (0 based) and its heading. */
+  step?: number;
+  title?: string;
   errors: string[];
   file?: string;
   ms: number;
@@ -121,7 +136,7 @@ export interface PageResult {
 }
 
 export const pageFailed = (r: PageResult): boolean =>
-  r.status !== 'ok' || r.errors.length > 0 || (r.scrollWidth !== undefined && r.clientWidth !== undefined && hasOverflow(r.scrollWidth, r.clientWidth));
+  r.status !== 'ok' || r.errors.length > 0 || (r.clipped?.length ?? 0) > 0 || (r.scrollWidth !== undefined && r.clientWidth !== undefined && hasOverflow(r.scrollWidth, r.clientWidth));
 
 export const summarize = (results: PageResult[]): { lines: string[]; failed: number } => {
   const lines = results.map((r) => {
@@ -131,7 +146,8 @@ export const summarize = (results: PageResult[]): { lines: string[]; failed: num
       flags.push(`OVERFLOW ${r.scrollWidth}>${r.clientWidth}${r.wideElements?.length ? ' (' + r.wideElements.join(', ') + ')' : ''}`);
     }
     if (r.errors.length) flags.push(`${r.errors.length} console error(s): ${r.errors[0].slice(0, 120)}`);
-    return `${pageFailed(r) ? 'FAIL' : 'ok  '} ${r.width}px ${r.url} ${flags.join('; ')} [${r.ms} ms]`.trimEnd();
+    if (r.clipped?.length) flags.push(`CLIPPED ${r.clipped.join(', ')}`);
+    return `${pageFailed(r) ? 'FAIL' : 'ok  '} ${r.width}px ${r.url}${r.step === undefined ? '' : ` slide ${r.step + 1}${r.title ? ` "${r.title}"` : ''}`} ${flags.join('; ')} [${r.ms} ms]`.trimEnd();
   });
   return { lines, failed: results.filter(pageFailed).length };
 };
