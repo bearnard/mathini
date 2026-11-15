@@ -1,40 +1,5 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
-import type { LearnStep } from '@/components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Games, Movement and Wellbeing',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Participation in games and physical activity supports coordination, enjoyment, teamwork and healthy stress relief. It also teaches learners to stay engaged, follow rules and respect different ability levels.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Setting Fitness Goals',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Fitness goals should be realistic and linked to effort, not comparison. Goals might include increasing activity frequency, improving endurance, practising a skill or showing greater consistency in participation.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Teamwork, Communication and Fair Play',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Physical education develops cooperation, communication and respect. Fair play means following rules, encouraging others, controlling frustration and valuing participation rather than only winning.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Reflection and Active Living',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Reflection helps learners notice how movement affects energy, mood and focus. Active living is a habit of choosing movement regularly, whether through sport, walking, dance, recreation or fitness routines.</p>
-      </div>
-    ),
-  },
-];
+import { learnSteps } from './PhysicalEducationTask2Lesson';
 
 const items = [
   {
