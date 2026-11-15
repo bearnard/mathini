@@ -32,6 +32,13 @@ test('FAILS (exit 1) when the flag name is anywhere in the bundle, including nes
   assert.equal(r.status, 1);
   assert.match(r.stderr, /ADMIN_DEV_BYPASS/);
 });
+test('FAILS when the dev-only lesson preview marker is bundled', () => {
+  const d = tmp({ 'server/app/dev-lesson/page.js': 'const marker = "DEV_LESSON_PREVIEW_ONLY";', 'static/a.js': 'ok' });
+  const r = run(d);
+  fs.rmSync(d, { recursive: true });
+  assert.equal(r.status, 1);
+  assert.match(r.stderr, /DEV_LESSON_PREVIEW_ONLY/);
+});
 test('source maps (never executed) are ignored, but real code next to them is still checked', () => {
   const ok = tmp({ 'server/a.js': 'export const x = 1;', 'server/a.js.map': '{"sourcesContent":["// ADMIN_DEV_BYPASS comment"]}' });
   const r1 = run(ok);
