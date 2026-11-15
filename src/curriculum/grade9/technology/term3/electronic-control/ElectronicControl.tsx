@@ -87,22 +87,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a diode? What is an LED?</li>
-            <li>What does an LDR do? What is a thermistor?</li>
-            <li>What job does a transistor do in a control circuit?</li>
-            <li>What is an AND gate? What is an OR gate? What must your PAT 2 electronic system show?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A component that lets current flow in one direction only. A light-emitting diode that gives light when current flows through it.</li>
-            <li>Its resistance changes with the amount of light that falls on it. A resistor whose resistance changes with temperature.</li>
-            <li>To work as an electronic switch turned on by a small signal.</li>
-            <li>A logic gate whose output is high only if all inputs are high. A logic gate whose output is high if any input is high. That it meets the brief and does its job reliably.</li>
-          </ol>
-        }
+        questions={[
+          <>What is a diode? What is an LED?</>,
+          <>What does an LDR do? What is a thermistor?</>,
+          <>What job does a transistor do in a control circuit?</>,
+          <>What is an AND gate? What is an OR gate? What must your PAT 2 electronic system show?</>,
+        ]}
+        answers={[
+          <>A component that lets current flow in one direction only. A light-emitting diode that gives light when current flows through it.</>,
+          <>Its resistance changes with the amount of light that falls on it. A resistor whose resistance changes with temperature.</>,
+          <>To work as an electronic switch turned on by a small signal.</>,
+          <>A logic gate whose output is high only if all inputs are high. A logic gate whose output is high if any input is high. That it meets the brief and does its job reliably.</>,
+        ]}
       />,
     ),
   },

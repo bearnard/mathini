@@ -91,22 +91,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which IDMEC stage comes before you design anything?</li>
-            <li>Which IDMEC stage is for testing the finished product against the brief?</li>
-            <li>Name the force on a rope pulled tight, and the force on a pillar that carries a roof.</li>
-            <li>What makes a triangle a good shape for a bridge truss?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Investigate the problem.</li>
-            <li>The evaluate stage.</li>
-            <li>Tension (the rope). Compression (the pillar).</li>
-            <li>They increase rigidity and reduce wobbling.</li>
-          </ol>
-        }
+        questions={[
+          <>Which IDMEC stage comes before you design anything?</>,
+          <>Which IDMEC stage is for testing the finished product against the brief?</>,
+          <>Name the force on a rope pulled tight, and the force on a pillar that carries a roof.</>,
+          <>What makes a triangle a good shape for a bridge truss?</>,
+        ]}
+        answers={[
+          <>Investigate the problem.</>,
+          <>The evaluate stage.</>,
+          <>Tension (the rope). Compression (the pillar).</>,
+          <>They increase rigidity and reduce wobbling.</>,
+        ]}
       />,
     ),
   },

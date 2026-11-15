@@ -107,22 +107,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the difference between static and dynamic forces? What is bending?</li>
-            <li>Which force twists a structure, such as a door twisting on its hinges? Why do accessible buildings need wheelchair ramps?</li>
-            <li>What do the letters IDMEC stand for? What belongs in a design brief?</li>
-            <li>What can you learn from building a scale model? Why do the properties of a material matter when designing a structure?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Static forces are constant while dynamic forces change over time. When a material curves or flexes under load.</li>
-            <li>Torsion. They let wheelchair users enter buildings on their own.</li>
-            <li>Investigate, Design, Make, Evaluate, Communicate. Aims, limits and what makes the design a success.</li>
-            <li>It lets you test ideas and find problems before building the real thing. Strength, flexibility and cost decide which material suits the job.</li>
-          </ol>
-        }
+        questions={[
+          <>What is the difference between static and dynamic forces? What is bending?</>,
+          <>Which force twists a structure, such as a door twisting on its hinges? Why do accessible buildings need wheelchair ramps?</>,
+          <>What do the letters IDMEC stand for? What belongs in a design brief?</>,
+          <>What can you learn from building a scale model? Why do the properties of a material matter when designing a structure?</>,
+        ]}
+        answers={[
+          <>Static forces are constant while dynamic forces change over time. When a material curves or flexes under load.</>,
+          <>Torsion. They let wheelchair users enter buildings on their own.</>,
+          <>Investigate, Design, Make, Evaluate, Communicate. Aims, limits and what makes the design a success.</>,
+          <>It lets you test ideas and find problems before building the real thing. Strength, flexibility and cost decide which material suits the job.</>,
+        ]}
       />,
     ),
   },

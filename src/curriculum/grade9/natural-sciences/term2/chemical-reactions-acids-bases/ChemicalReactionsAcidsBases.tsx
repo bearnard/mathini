@@ -122,22 +122,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What do we call the starting substances in a reaction? Name one sign that a reaction has happened.</li>
-            <li>Blue litmus paper is dipped in an acid: what colour does it become? Describe a base.</li>
-            <li>What does the pH scale measure? What pH does pure water have?</li>
-            <li>What do an acid and a base form when they react? State the law of conservation of mass. Name one acid and one base found at home.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The reactants. A colour change or a gas given off.</li>
-            <li>Red. A substance that feels slippery and tastes bitter (it turns litmus blue).</li>
-            <li>A scale that measures how acidic or basic a thing is. 7.</li>
-            <li>They neutralise each other, forming a salt and water. The mass of the reactants equals the mass of the products. Lemon juice is an acid; soap is a base.</li>
-          </ol>
-        }
+        questions={[
+          <>What do we call the starting substances in a reaction? Name one sign that a reaction has happened.</>,
+          <>Blue litmus paper is dipped in an acid: what colour does it become? Describe a base.</>,
+          <>What does the pH scale measure? What pH does pure water have?</>,
+          <>What do an acid and a base form when they react? State the law of conservation of mass. Name one acid and one base found at home.</>,
+        ]}
+        answers={[
+          <>The reactants. A colour change or a gas given off.</>,
+          <>Red. A substance that feels slippery and tastes bitter (it turns litmus blue).</>,
+          <>A scale that measures how acidic or basic a thing is. 7.</>,
+          <>They neutralise each other, forming a salt and water. The mass of the reactants equals the mass of the products. Lemon juice is an acid; soap is a base.</>,
+        ]}
       />,
     ),
   },

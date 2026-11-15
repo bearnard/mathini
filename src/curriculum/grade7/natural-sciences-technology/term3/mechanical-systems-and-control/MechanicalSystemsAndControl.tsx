@@ -93,22 +93,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>On a see-saw, what do we call the point it balances and turns on?</li>
-            <li>A large driving gear turns a small driven gear. What does the driven gear do?</li>
-            <li>How does a pulley at the top of a flagpole help you raise the flag? What can a crank-and-slider linkage turn a circular motion into?</li>
-            <li>What does mechanical advantage mean? In a doorbell system, pressing the button is the what?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The fulcrum.</li>
-            <li>It turns faster with less turning force.</li>
-            <li>It changes the direction of the pull, so you pull down to lift up. Back-and-forth motion.</li>
-            <li>A machine helps you use less effort force for a task. The input.</li>
-          </ol>
-        }
+        questions={[
+          <>On a see-saw, what do we call the point it balances and turns on?</>,
+          <>A large driving gear turns a small driven gear. What does the driven gear do?</>,
+          <>How does a pulley at the top of a flagpole help you raise the flag? What can a crank-and-slider linkage turn a circular motion into?</>,
+          <>What does mechanical advantage mean? In a doorbell system, pressing the button is the what?</>,
+        ]}
+        answers={[
+          <>The fulcrum.</>,
+          <>It turns faster with less turning force.</>,
+          <>It changes the direction of the pull, so you pull down to lift up. Back-and-forth motion.</>,
+          <>A machine helps you use less effort force for a task. The input.</>,
+        ]}
       />,
     ),
   },

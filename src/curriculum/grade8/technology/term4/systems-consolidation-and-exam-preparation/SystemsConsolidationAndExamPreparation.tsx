@@ -89,22 +89,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name two mechanical components. Name two structural terms.</li>
-            <li>What does the cell do in an electrical diagram? How would you describe a system where a sensor feeds a controller that sounds a buzzer?</li>
-            <li>Why should Technology exam answers be short and labelled? Give a good reflection question for your PAT.</li>
-            <li>What should you work out first when revising a mixed-system diagram? How should you prepare for an exam?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Gear and cam. Tension and compression.</li>
-            <li>The energy source. An input-process-output control system.</li>
-            <li>Clear communication earns marks for correct understanding. How did testing improve my design?</li>
-            <li>What each part does in the system. Practise past-style questions and check key terms.</li>
-          </ol>
-        }
+        questions={[
+          <>Name two mechanical components. Name two structural terms.</>,
+          <>What does the cell do in an electrical diagram? How would you describe a system where a sensor feeds a controller that sounds a buzzer?</>,
+          <>Why should Technology exam answers be short and labelled? Give a good reflection question for your PAT.</>,
+          <>What should you work out first when revising a mixed-system diagram? How should you prepare for an exam?</>,
+        ]}
+        answers={[
+          <>Gear and cam. Tension and compression.</>,
+          <>The energy source. An input-process-output control system.</>,
+          <>Clear communication earns marks for correct understanding. How did testing improve my design?</>,
+          <>What each part does in the system. Practise past-style questions and check key terms.</>,
+        ]}
       />,
     ),
   },

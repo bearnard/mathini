@@ -100,22 +100,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Give an example of a processed material.</li>
-            <li>Which property matters most for the edge of a metal ruler?</li>
-            <li>Why do cooking pots have plastic or wooden handles?</li>
-            <li>What does flexibility mean? What does a sustainable choice mean?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Paper made from wood pulp.</li>
-            <li>Hardness.</li>
-            <li>They are poorer heat conductors.</li>
-            <li>It can bend without breaking easily. Using resources responsibly and reducing waste.</li>
-          </ol>
-        }
+        questions={[
+          <>Give an example of a processed material.</>,
+          <>Which property matters most for the edge of a metal ruler?</>,
+          <>Why do cooking pots have plastic or wooden handles?</>,
+          <>What does flexibility mean? What does a sustainable choice mean?</>,
+        ]}
+        answers={[
+          <>Paper made from wood pulp.</>,
+          <>Hardness.</>,
+          <>They are poorer heat conductors.</>,
+          <>It can bend without breaking easily. Using resources responsibly and reducing waste.</>,
+        ]}
       />,
     ),
   },

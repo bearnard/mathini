@@ -95,22 +95,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Is a cellphone tower a frame or a shell structure? How would you describe a shell structure?</li>
-            <li>What does compression usually do to materials? And tension?</li>
-            <li>What kind of load is the weight of a footbridge’s own beams? What kind of load is learners walking across it?</li>
-            <li>What does the first letter of IDMEC stand for? What makes triangles so useful in a frame?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A frame structure. A hollow outer surface that encloses a space.</li>
-            <li>Pushes them together. Pulls them apart.</li>
-            <li>A dead load: the permanent weight of the structure itself. A live load.</li>
-            <li>Investigate. They improve rigidity and reduce shape distortion.</li>
-          </ol>
-        }
+        questions={[
+          <>Is a cellphone tower a frame or a shell structure? How would you describe a shell structure?</>,
+          <>What does compression usually do to materials? And tension?</>,
+          <>What kind of load is the weight of a footbridge’s own beams? What kind of load is learners walking across it?</>,
+          <>What does the first letter of IDMEC stand for? What makes triangles so useful in a frame?</>,
+        ]}
+        answers={[
+          <>A frame structure. A hollow outer surface that encloses a space.</>,
+          <>Pushes them together. Pulls them apart.</>,
+          <>A dead load: the permanent weight of the structure itself. A live load.</>,
+          <>Investigate. They improve rigidity and reduce shape distortion.</>,
+        ]}
       />,
     ),
   },

@@ -86,22 +86,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>How does the digestive system treat the food you eat? Which system carries oxygen round the body?</li>
-            <li>Which waste gas do the lungs get rid of? Name two organs of the excretory system.</li>
-            <li>What word describes the body keeping its inside conditions stable? What is the reproductive system for?</li>
-            <li>Give one habit that keeps your heart and blood vessels healthy. How do the lungs and blood work as a team?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Break food down into small nutrients. The circulatory system.</li>
-            <li>Carbon dioxide. Kidneys and bladder.</li>
-            <li>Homeostasis. It makes the sex cells needed to form a new life.</li>
-            <li>Regular exercise. The lungs take in oxygen; the blood carries it to cells.</li>
-          </ol>
-        }
+        questions={[
+          <>How does the digestive system treat the food you eat? Which system carries oxygen round the body?</>,
+          <>Which waste gas do the lungs get rid of? Name two organs of the excretory system.</>,
+          <>What word describes the body keeping its inside conditions stable? What is the reproductive system for?</>,
+          <>Give one habit that keeps your heart and blood vessels healthy. How do the lungs and blood work as a team?</>,
+        ]}
+        answers={[
+          <>Break food down into small nutrients. The circulatory system.</>,
+          <>Carbon dioxide. Kidneys and bladder.</>,
+          <>Homeostasis. It makes the sex cells needed to form a new life.</>,
+          <>Regular exercise. The lungs take in oxygen; the blood carries it to cells.</>,
+        ]}
       />,
     ),
   },

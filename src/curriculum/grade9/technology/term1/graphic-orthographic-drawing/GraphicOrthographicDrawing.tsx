@@ -86,22 +86,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Where does the top view go on a first-angle orthographic drawing? How many views do you normally draw?</li>
-            <li>What do dashed lines represent? Which line type is used for construction guides?</li>
-            <li>What is the purpose of a scale? What does a scale of 1:10 mean?</li>
-            <li>What is the advantage of orthographic over perspective drawing? Why is dimension awareness important?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Below the front view. Three views: front, top and side.</li>
-            <li>Hidden edges or features. Construction lines (light, thin).</li>
-            <li>To show the relationship between drawing size and actual size. 1 unit on the drawing represents 10 units in reality.</li>
-            <li>It preserves true dimensions and allows accurate measurement. So builders can make the design to the right size.</li>
-          </ol>
-        }
+        questions={[
+          <>Where does the top view go on a first-angle orthographic drawing? How many views do you normally draw?</>,
+          <>What do dashed lines represent? Which line type is used for construction guides?</>,
+          <>What is the purpose of a scale? What does a scale of 1:10 mean?</>,
+          <>What is the advantage of orthographic over perspective drawing? Why is dimension awareness important?</>,
+        ]}
+        answers={[
+          <>Below the front view. Three views: front, top and side.</>,
+          <>Hidden edges or features. Construction lines (light, thin).</>,
+          <>To show the relationship between drawing size and actual size. 1 unit on the drawing represents 10 units in reality.</>,
+          <>It preserves true dimensions and allows accurate measurement. So builders can make the design to the right size.</>,
+        ]}
       />,
     ),
   },

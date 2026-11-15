@@ -99,22 +99,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>How are weather and climate different? What can you read from a climate graph?</li>
-            <li>Does it get warmer or cooler as you climb a mountain? Why can one side of a mountain be wetter than the other?</li>
-            <li>Which cold ocean current cools the west coast of South Africa and keeps it dry?</li>
-            <li>Which climate has hot, dry summers and mild, wet winters? Which region near the Equator is hot and rainy all year? What is a key feature of hot deserts?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Weather is short-term conditions; climate is long-term average patterns. Average monthly temperature and rainfall.</li>
-            <li>Cooler: temperature decreases as altitude increases. The side facing the wind is wetter, and the far side is drier.</li>
-            <li>The Benguela Current.</li>
-            <li>The Mediterranean climate. Tropical rainforest climate. Very low annual rainfall.</li>
-          </ol>
-        }
+        questions={[
+          <>How are weather and climate different? What can you read from a climate graph?</>,
+          <>Does it get warmer or cooler as you climb a mountain? Why can one side of a mountain be wetter than the other?</>,
+          <>Which cold ocean current cools the west coast of South Africa and keeps it dry?</>,
+          <>Which climate has hot, dry summers and mild, wet winters? Which region near the Equator is hot and rainy all year? What is a key feature of hot deserts?</>,
+        ]}
+        answers={[
+          <>Weather is short-term conditions; climate is long-term average patterns. Average monthly temperature and rainfall.</>,
+          <>Cooler: temperature decreases as altitude increases. The side facing the wind is wetter, and the far side is drier.</>,
+          <>The Benguela Current.</>,
+          <>The Mediterranean climate. Tropical rainforest climate. Very low annual rainfall.</>,
+        ]}
       />,
     ),
   },

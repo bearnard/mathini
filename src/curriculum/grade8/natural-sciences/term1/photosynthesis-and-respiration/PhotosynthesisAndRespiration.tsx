@@ -89,22 +89,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name the main inputs of photosynthesis. Which gas is released?</li>
-            <li>What is the main purpose of respiration? Where does it happen?</li>
-            <li>Compare photosynthesis and respiration in one sentence. Name the products of respiration.</li>
-            <li>Why is chlorophyll important? What happens to photosynthesis in complete darkness for many days?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Carbon dioxide, water and sunlight. Oxygen.</li>
-            <li>To release usable energy from food. In all living cells.</li>
-            <li>Photosynthesis stores energy; respiration releases energy. The products of respiration are carbon dioxide and water.</li>
-            <li>It absorbs light energy. It decreases, and in complete darkness it stops, because no light is available.</li>
-          </ol>
-        }
+        questions={[
+          <>Name the main inputs of photosynthesis. Which gas is released?</>,
+          <>What is the main purpose of respiration? Where does it happen?</>,
+          <>Compare photosynthesis and respiration in one sentence. Name the products of respiration.</>,
+          <>Why is chlorophyll important? What happens to photosynthesis in complete darkness for many days?</>,
+        ]}
+        answers={[
+          <>Carbon dioxide, water and sunlight. Oxygen.</>,
+          <>To release usable energy from food. In all living cells.</>,
+          <>Photosynthesis stores energy; respiration releases energy. The products of respiration are carbon dioxide and water.</>,
+          <>It absorbs light energy. It decreases, and in complete darkness it stops, because no light is available.</>,
+        ]}
       />,
     ),
   },

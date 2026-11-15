@@ -109,22 +109,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>After the Dutch East India Company, which country took over the Cape in 1806? What were the frontier wars fought over?</li>
-            <li>Why is it wrong to call Xhosa fighting on the frontier simple raiding?</li>
-            <li>When did British law end slavery at the Cape? What do we call the journey of settlers who left the colony for the interior in the 1830s?</li>
-            <li>Name two ways people worked together across the frontier. Which timeline order is correct? Which topic sentence fits this unit best?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Britain. Land, cattle and political control.</li>
-            <li>It was organised defence of communities, land and independence.</li>
-            <li>In 1834 (it was legally abolished). The Great Trek.</li>
-            <li>Trade and negotiation, with local exchange between groups. British control strengthens → slavery abolished in 1834 → Great Trek begins. The Cape frontiers changed through conflict and economic cooperation.</li>
-          </ol>
-        }
+        questions={[
+          <>After the Dutch East India Company, which country took over the Cape in 1806? What were the frontier wars fought over?</>,
+          <>Why is it wrong to call Xhosa fighting on the frontier simple raiding?</>,
+          <>When did British law end slavery at the Cape? What do we call the journey of settlers who left the colony for the interior in the 1830s?</>,
+          <>Name two ways people worked together across the frontier. Which timeline order is correct? Which topic sentence fits this unit best?</>,
+        ]}
+        answers={[
+          <>Britain. Land, cattle and political control.</>,
+          <>It was organised defence of communities, land and independence.</>,
+          <>In 1834 (it was legally abolished). The Great Trek.</>,
+          <>Trade and negotiation, with local exchange between groups. British control strengthens → slavery abolished in 1834 → Great Trek begins. The Cape frontiers changed through conflict and economic cooperation.</>,
+        ]}
       />,
     ),
   },

@@ -100,22 +100,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a technology system? Why does technology need to be sustainable?</li>
-            <li>Why must safety be considered when designing technology? How does clear communication influence whether people adopt a technology?</li>
-            <li>What should be in a finished PAT project? How should technical information be presented in an exam answer?</li>
-            <li>What is the relationship between environmental and economic considerations? How should you approach revision of all four terms?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Mechanical, electrical and material parts working towards a goal. Sustainable design uses fewer resources and makes less waste and pollution.</li>
-            <li>Safety protects users from harm and makes products dependable. Clear communication helps people understand and use designs well.</li>
-            <li>Design brief, research, sketches, model, test results and evaluation. Use neat labelled diagrams, show calculations and give reasons for choices.</li>
-            <li>Responsible environmental choices often save money in the long run. Review key ideas, practise sums, redraw designs and do past papers.</li>
-          </ol>
-        }
+        questions={[
+          <>What is a technology system? Why does technology need to be sustainable?</>,
+          <>Why must safety be considered when designing technology? How does clear communication influence whether people adopt a technology?</>,
+          <>What should be in a finished PAT project? How should technical information be presented in an exam answer?</>,
+          <>What is the relationship between environmental and economic considerations? How should you approach revision of all four terms?</>,
+        ]}
+        answers={[
+          <>Mechanical, electrical and material parts working towards a goal. Sustainable design uses fewer resources and makes less waste and pollution.</>,
+          <>Safety protects users from harm and makes products dependable. Clear communication helps people understand and use designs well.</>,
+          <>Design brief, research, sketches, model, test results and evaluation. Use neat labelled diagrams, show calculations and give reasons for choices.</>,
+          <>Responsible environmental choices often save money in the long run. Review key ideas, practise sums, redraw designs and do past papers.</>,
+        ]}
       />,
     ),
   },

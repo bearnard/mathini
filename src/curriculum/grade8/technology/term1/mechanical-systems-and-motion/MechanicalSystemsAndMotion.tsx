@@ -101,22 +101,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name the simple machine a chisel is an example of. Why do we fit wheels on axles to move loads?</li>
-            <li>In which direction does a gear turn when it meshes with another? A small gear drives a large one: what happens to the output speed and force?</li>
-            <li>What kind of motion does a cam make from a spinning shaft? What does a crank do?</li>
-            <li>What does mechanical advantage mean? Which mechanism changes speed and force on a bicycle?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A wedge. It makes moving loads easier.</li>
-            <li>In opposite directions. Lower speed and greater turning force.</li>
-            <li>Up-and-down or back-and-forth motion. To change rotary motion to reciprocating motion.</li>
-            <li>A machine multiplies force to reduce effort. A gear system with a chain.</li>
-          </ol>
-        }
+        questions={[
+          <>Name the simple machine a chisel is an example of. Why do we fit wheels on axles to move loads?</>,
+          <>In which direction does a gear turn when it meshes with another? A small gear drives a large one: what happens to the output speed and force?</>,
+          <>What kind of motion does a cam make from a spinning shaft? What does a crank do?</>,
+          <>What does mechanical advantage mean? Which mechanism changes speed and force on a bicycle?</>,
+        ]}
+        answers={[
+          <>A wedge. It makes moving loads easier.</>,
+          <>In opposite directions. Lower speed and greater turning force.</>,
+          <>Up-and-down or back-and-forth motion. To change rotary motion to reciprocating motion.</>,
+          <>A machine multiplies force to reduce effort. A gear system with a chain.</>,
+        ]}
       />,
     ),
   },

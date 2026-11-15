@@ -103,22 +103,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>In which years was World War I fought? What does nationalism mean in this topic?</li>
-            <li>Why did a fight between two countries pull in many others? How would you describe life in the trenches of the Western Front?</li>
-            <li>Why did governments print recruiting posters and slogans during the war? What work did many women do while the men were away?</li>
-            <li>Why is Delville Wood important? Why is the SS Mendi remembered? What did the 1919 Treaty of Versailles do to Germany?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>1914 to 1918. Strong loyalty to a nation that can raise rivalry.</li>
-            <li>They drew more countries into war after initial conflicts. Soldiers fought from long ditches in harsh conditions.</li>
-            <li>To sway public opinion and support for the war effort. Many women took up factory, transport and nursing work.</li>
-            <li>South African troops fought there in a major and costly battle. It sank in 1917 while carrying many Black South African troops. Germany faced harsh terms and territorial losses after the war.</li>
-          </ol>
-        }
+        questions={[
+          <>In which years was World War I fought? What does nationalism mean in this topic?</>,
+          <>Why did a fight between two countries pull in many others? How would you describe life in the trenches of the Western Front?</>,
+          <>Why did governments print recruiting posters and slogans during the war? What work did many women do while the men were away?</>,
+          <>Why is Delville Wood important? Why is the SS Mendi remembered? What did the 1919 Treaty of Versailles do to Germany?</>,
+        ]}
+        answers={[
+          <>1914 to 1918. Strong loyalty to a nation that can raise rivalry.</>,
+          <>They drew more countries into war after initial conflicts. Soldiers fought from long ditches in harsh conditions.</>,
+          <>To sway public opinion and support for the war effort. Many women took up factory, transport and nursing work.</>,
+          <>South African troops fought there in a major and costly battle. It sank in 1917 while carrying many Black South African troops. Germany faced harsh terms and territorial losses after the war.</>,
+        ]}
       />,
     ),
   },

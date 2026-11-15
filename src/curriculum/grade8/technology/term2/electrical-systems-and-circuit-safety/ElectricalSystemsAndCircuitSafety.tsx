@@ -92,22 +92,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>How many paths does the current have in a series circuit? Describe a parallel circuit.</li>
-            <li>What happens to the current when a switch is open? Name a good conductor of electricity.</li>
-            <li>What does a fuse do when the current is too high? How does a circuit breaker differ?</li>
-            <li>Why is a plug earthed? What should you always do before touching household wiring?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>In one path. It has more than one path for current.</li>
-            <li>It stops flowing. Copper.</li>
-            <li>Melt and break the circuit when current is too high. It can be reset after tripping.</li>
-            <li>Giving fault current a low-resistance path. Switch off power before touching wires.</li>
-          </ol>
-        }
+        questions={[
+          <>How many paths does the current have in a series circuit? Describe a parallel circuit.</>,
+          <>What happens to the current when a switch is open? Name a good conductor of electricity.</>,
+          <>What does a fuse do when the current is too high? How does a circuit breaker differ?</>,
+          <>Why is a plug earthed? What should you always do before touching household wiring?</>,
+        ]}
+        answers={[
+          <>In one path. It has more than one path for current.</>,
+          <>It stops flowing. Copper.</>,
+          <>Melt and break the circuit when current is too high. It can be reset after tripping.</>,
+          <>Giving fault current a low-resistance path. Switch off power before touching wires.</>,
+        ]}
       />,
     ),
   },

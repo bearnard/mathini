@@ -123,22 +123,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is an atom? In which part of the atom are protons found? Is an electron positive or negative?</li>
-            <li>Do neutrons carry charge, and what do they add to an atom?</li>
-            <li>What is an element? What is a compound? Which of nitrogen gas, carbon dioxide or sea water is an element?</li>
-            <li>How is a mixture different from a compound? What does the symbol N represent? Write the chemical formula for carbon dioxide.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The smallest particle of an element. In the nucleus. Negative.</li>
-            <li>No, they are neutral; they add mass.</li>
-            <li>A pure substance made of one type of atom. Two or more elements joined by chemical bonds. Nitrogen gas.</li>
-            <li>In a mixture, the substances are not chemically bonded. Nitrogen. CO₂.</li>
-          </ol>
-        }
+        questions={[
+          <>What is an atom? In which part of the atom are protons found? Is an electron positive or negative?</>,
+          <>Do neutrons carry charge, and what do they add to an atom?</>,
+          <>What is an element? What is a compound? Which of nitrogen gas, carbon dioxide or sea water is an element?</>,
+          <>How is a mixture different from a compound? What does the symbol N represent? Write the chemical formula for carbon dioxide.</>,
+        ]}
+        answers={[
+          <>The smallest particle of an element. In the nucleus. Negative.</>,
+          <>No, they are neutral; they add mass.</>,
+          <>A pure substance made of one type of atom. Two or more elements joined by chemical bonds. Nitrogen gas.</>,
+          <>In a mixture, the substances are not chemically bonded. Nitrogen. CO₂.</>,
+        ]}
       />,
     ),
   },

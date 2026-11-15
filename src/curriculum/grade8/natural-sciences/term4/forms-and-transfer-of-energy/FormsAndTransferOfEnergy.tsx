@@ -107,22 +107,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Give an example of chemical energy. Write the energy transfer in a torch as a chain.</li>
-            <li>How is heat mostly transferred through a metal spoon? Through liquids and gases by the movement of particles?</li>
-            <li>By which kind of heat transfer does sunlight reach us? What happens to the total amount of energy when it changes form?</li>
-            <li>Name a good thermal insulator. Why does a black surface heat up faster in sunlight?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Energy stored in a battery. Chemical to electrical to light.</li>
-            <li>Conduction. Convection.</li>
-            <li>Radiation. Energy cannot be made or destroyed, only changed or moved.</li>
-            <li>Plastic foam. It absorbs more radiant energy.</li>
-          </ol>
-        }
+        questions={[
+          <>Give an example of chemical energy. Write the energy transfer in a torch as a chain.</>,
+          <>How is heat mostly transferred through a metal spoon? Through liquids and gases by the movement of particles?</>,
+          <>By which kind of heat transfer does sunlight reach us? What happens to the total amount of energy when it changes form?</>,
+          <>Name a good thermal insulator. Why does a black surface heat up faster in sunlight?</>,
+        ]}
+        answers={[
+          <>Energy stored in a battery. Chemical to electrical to light.</>,
+          <>Conduction. Convection.</>,
+          <>Radiation. Energy cannot be made or destroyed, only changed or moved.</>,
+          <>Plastic foam. It absorbs more radiant energy.</>,
+        ]}
       />,
     ),
   },

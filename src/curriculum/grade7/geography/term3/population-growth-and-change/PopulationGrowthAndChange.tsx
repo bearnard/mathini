@@ -92,22 +92,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does birth rate describe? When fewer people die each year but as many babies are born, what usually happens to the population?</li>
-            <li>What is infant mortality? What does life expectancy mean?</li>
-            <li>Name one kind of event that can change populations worldwide. Which graph best shows change across decades?</li>
-            <li>A country with many births and short lives is likely to have what kind of population? How do you get the fullest picture of population change?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The number of live births in a population over time. It grows quickly.</li>
-            <li>Deaths of babies under one year old. The average number of years a person may live.</li>
-            <li>A pandemic (for example). A line graph.</li>
-            <li>A younger population structure. Data, graphs and case studies together.</li>
-          </ol>
-        }
+        questions={[
+          <>What does birth rate describe? When fewer people die each year but as many babies are born, what usually happens to the population?</>,
+          <>What is infant mortality? What does life expectancy mean?</>,
+          <>Name one kind of event that can change populations worldwide. Which graph best shows change across decades?</>,
+          <>A country with many births and short lives is likely to have what kind of population? How do you get the fullest picture of population change?</>,
+        ]}
+        answers={[
+          <>The number of live births in a population over time. It grows quickly.</>,
+          <>Deaths of babies under one year old. The average number of years a person may live.</>,
+          <>A pandemic (for example). A line graph.</>,
+          <>A younger population structure. Data, graphs and case studies together.</>,
+        ]}
       />,
     ),
   },

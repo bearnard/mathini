@@ -97,22 +97,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which is an element: water or oxygen? What is water (H₂O) classified as?</li>
-            <li>What is true about mixtures? What is a solution?</li>
-            <li>Which is a heterogeneous mixture: salt water, or sand and iron filings?</li>
-            <li>What decides the order of the elements in the periodic table? What is brass?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Oxygen. A compound.</li>
-            <li>Components are physically combined and can often be separated. A homogeneous mixture.</li>
-            <li>Sand and iron filings.</li>
-            <li>By increasing atomic number. A mixture (alloy).</li>
-          </ol>
-        }
+        questions={[
+          <>Which is an element: water or oxygen? What is water (H₂O) classified as?</>,
+          <>What is true about mixtures? What is a solution?</>,
+          <>Which is a heterogeneous mixture: salt water, or sand and iron filings?</>,
+          <>What decides the order of the elements in the periodic table? What is brass?</>,
+        ]}
+        answers={[
+          <>Oxygen. A compound.</>,
+          <>Components are physically combined and can often be separated. A homogeneous mixture.</>,
+          <>Sand and iron filings.</>,
+          <>By increasing atomic number. A mixture (alloy).</>,
+        ]}
       />,
     ),
   },

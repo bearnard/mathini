@@ -86,22 +86,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is corrosion? How does galvanising protect metal?</li>
-            <li>What is electroplating? Why is food preservation important?</li>
-            <li>Name some ways of keeping food from spoiling. What is plastic processing?</li>
-            <li>Why should plastic be recycled? In what ways can the way we process materials affect the environment?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The chemical wearing away of metals by oxygen and moisture. A zinc coat keeps oxygen and moisture away from the metal.</li>
-            <li>Using an electric current to put a thin metal coat on a surface. To make food last longer, keep its goodness, and stop it going off.</li>
-            <li>Freezing, canning, drying, salting and smoking. Changing raw plastic into products by melting, moulding and shaping.</li>
-            <li>Recycling cuts waste and saves resources, so it harms the environment less. Energy use, emissions, waste and material choice all matter.</li>
-          </ol>
-        }
+        questions={[
+          <>What is corrosion? How does galvanising protect metal?</>,
+          <>What is electroplating? Why is food preservation important?</>,
+          <>Name some ways of keeping food from spoiling. What is plastic processing?</>,
+          <>Why should plastic be recycled? In what ways can the way we process materials affect the environment?</>,
+        ]}
+        answers={[
+          <>The chemical wearing away of metals by oxygen and moisture. A zinc coat keeps oxygen and moisture away from the metal.</>,
+          <>Using an electric current to put a thin metal coat on a surface. To make food last longer, keep its goodness, and stop it going off.</>,
+          <>Freezing, canning, drying, salting and smoking. Changing raw plastic into products by melting, moulding and shaping.</>,
+          <>Recycling cuts waste and saves resources, so it harms the environment less. Energy use, emissions, waste and material choice all matter.</>,
+        ]}
       />,
     ),
   },

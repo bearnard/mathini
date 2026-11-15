@@ -86,22 +86,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a prototype? Why measure carefully before cutting the parts of a model?</li>
-            <li>Name one safe habit in a workshop. What is the choice between glue, screws and rivets mostly about?</li>
-            <li>What do evaluation criteria let you judge? If testing exposes a weakness, what should you do next?</li>
-            <li>What should a process record include? Which tool smooths a wooden piece before joining?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>An early model used for testing an idea. It helps parts fit and function correctly.</li>
-            <li>Wear safety goggles when cutting. Selecting a suitable joining method.</li>
-            <li>Judge how well the prototype meets requirements. Modify and retest the prototype.</li>
-            <li>Steps followed, problems found, improvements made. A file or sandpaper.</li>
-          </ol>
-        }
+        questions={[
+          <>What is a prototype? Why measure carefully before cutting the parts of a model?</>,
+          <>Name one safe habit in a workshop. What is the choice between glue, screws and rivets mostly about?</>,
+          <>What do evaluation criteria let you judge? If testing exposes a weakness, what should you do next?</>,
+          <>What should a process record include? Which tool smooths a wooden piece before joining?</>,
+        ]}
+        answers={[
+          <>An early model used for testing an idea. It helps parts fit and function correctly.</>,
+          <>Wear safety goggles when cutting. Selecting a suitable joining method.</>,
+          <>Judge how well the prototype meets requirements. Modify and retest the prototype.</>,
+          <>Steps followed, problems found, improvements made. A file or sandpaper.</>,
+        ]}
       />,
     ),
   },

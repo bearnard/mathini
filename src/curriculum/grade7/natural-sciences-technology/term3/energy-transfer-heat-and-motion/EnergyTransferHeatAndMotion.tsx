@@ -95,22 +95,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A rolling ball has kinetic energy. What gives it that energy?</li>
-            <li>Name the three ways heat travels. Which one is warm air rising in a room?</li>
-            <li>By which way of heat transfer does a campfire warm your hands across the gap? Name a material used as an insulator.</li>
-            <li>What is an efficient kettle?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Its motion.</li>
-            <li>Conduction, convection and radiation. Warm air rising is convection.</li>
-            <li>By radiation. Foam is an insulator.</li>
-            <li>One that uses less electrical energy to heat the same water.</li>
-          </ol>
-        }
+        questions={[
+          <>A rolling ball has kinetic energy. What gives it that energy?</>,
+          <>Name the three ways heat travels. Which one is warm air rising in a room?</>,
+          <>By which way of heat transfer does a campfire warm your hands across the gap? Name a material used as an insulator.</>,
+          <>What is an efficient kettle?</>,
+        ]}
+        answers={[
+          <>Its motion.</>,
+          <>Conduction, convection and radiation. Warm air rising is convection.</>,
+          <>By radiation. Foam is an insulator.</>,
+          <>One that uses less electrical energy to heat the same water.</>,
+        ]}
       />,
     ),
   },

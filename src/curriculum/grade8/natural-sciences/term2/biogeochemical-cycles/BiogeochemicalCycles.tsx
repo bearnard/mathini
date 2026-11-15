@@ -112,22 +112,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which process turns the water in a puddle into vapour in the air? What forms clouds?</li>
-            <li>Match: precipitation. How do plants remove carbon dioxide? Which activity quickly raises carbon dioxide?</li>
-            <li>What do decomposers do? What do nitrogen-fixing bacteria do?</li>
-            <li>Why are biogeochemical cycles important?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Evaporation. Water vapour condenses as air cools.</li>
-            <li>Precipitation: water falls from clouds. By photosynthesis. Burning fossil fuels.</li>
-            <li>They break down dead matter and return nutrients. They turn nitrogen from the air into usable compounds.</li>
-            <li>They recycle matter needed for life.</li>
-          </ol>
-        }
+        questions={[
+          <>Which process turns the water in a puddle into vapour in the air? What forms clouds?</>,
+          <>Match: precipitation. How do plants remove carbon dioxide? Which activity quickly raises carbon dioxide?</>,
+          <>What do decomposers do? What do nitrogen-fixing bacteria do?</>,
+          <>Why are biogeochemical cycles important?</>,
+        ]}
+        answers={[
+          <>Evaporation. Water vapour condenses as air cools.</>,
+          <>Precipitation: water falls from clouds. By photosynthesis. Burning fossil fuels.</>,
+          <>They break down dead matter and return nutrients. They turn nitrogen from the air into usable compounds.</>,
+          <>They recycle matter needed for life.</>,
+        ]}
       />,
     ),
   },

@@ -97,22 +97,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name the basic unit of life. How wide is a leaf cell or a skin cell, in mm?</li>
-            <li>Which organelle is the control centre of the cell? In which organelle is energy released from food?</li>
-            <li>Name an organelle that animal cells do not have. Why does a plant cell have a cell wall?</li>
-            <li>What is a tissue? What is the correct order of organisation?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A cell. About 0,01 to 0,1 mm.</li>
-            <li>The nucleus. In the mitochondria.</li>
-            <li>The chloroplast. It provides rigid support.</li>
-            <li>A group of similar cells working together. Cells → Tissues → Organs → Systems.</li>
-          </ol>
-        }
+        questions={[
+          <>Name the basic unit of life. How wide is a leaf cell or a skin cell, in mm?</>,
+          <>Which organelle is the control centre of the cell? In which organelle is energy released from food?</>,
+          <>Name an organelle that animal cells do not have. Why does a plant cell have a cell wall?</>,
+          <>What is a tissue? What is the correct order of organisation?</>,
+        ]}
+        answers={[
+          <>A cell. About 0,01 to 0,1 mm.</>,
+          <>The nucleus. In the mitochondria.</>,
+          <>The chloroplast. It provides rigid support.</>,
+          <>A group of similar cells working together. Cells → Tissues → Organs → Systems.</>,
+        ]}
       />,
     ),
   },
