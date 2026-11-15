@@ -37,8 +37,8 @@ export function RecentActivityCard({ p }: { p: ProgressResponse }) {
 export function NextStepSummary({ p, who }: { p: ProgressResponse; who: string }) {
   return (
     <SectionCard title={`How to help ${who}`} id="next-step">
-      <p className="font-bold text-slate-900">{p.nextStep.title}</p>
-      <p className="mt-1 text-slate-700">{p.nextStep.reason}</p>
+      <p className="font-bold text-slate-900">{(p.parentNextStep ?? p.nextStep).title}</p>
+      <p className="mt-1 text-slate-700">{(p.parentNextStep ?? p.nextStep).reason}</p>
     </SectionCard>
   );
 }
