@@ -2,55 +2,108 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
 import { SpeechChange } from '@/components/diagrams/english/SpeechChange';
 import { TenseCheck, TenseTimeline, WordRoles } from '@/components/diagrams/english/TenseDiagrams';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Revise the language building blocks',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Language consolidation means revising the rules that make writing accurate. Focus on <strong>parts of
-          speech</strong>, <strong>tense</strong>, <strong>speech forms</strong>, <strong>punctuation</strong>, and
-          <strong> spelling</strong>.
-        </p>
+    title: 'Nouns and adjectives',
+    content: slide(
+      <>
+        <Rule>A noun names a person, place, thing or idea. An adjective describes a noun.</Rule>
         <WordRoles />
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-amber-50 p-4 text-slate-700"><strong>Tenses</strong><br />show time</div>
-          <div className="rounded-xl bg-violet-50 p-4 text-slate-700"><strong>Punctuation</strong><br />guide the reader</div>
-          <div className="rounded-xl bg-rose-50 p-4 text-slate-700"><strong>Spelling</strong><br />build accuracy</div>
-        </div>
-      </div>
+        <Worked
+          title="Find the noun and the adjective"
+          steps={[
+            <>“The teacher praised the class”: who or what is named? “teacher” names a person: a noun.</>,
+            <>“the noisy classroom”: which word describes the classroom? “noisy”.</>,
+            <>“noisy” describes a noun, so it is an adjective. In the picture, “noisy” describes the noun “class”, and “praised” is the verb.</>,
+          ]}
+        />
+        <Mistake>Calling “noisy” a noun because it sits next to one. An adjective describes a noun; it does not name a person, place or thing.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Keep tense and speech forms accurate',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Grammar questions often test whether your verb tense stays consistent and whether you can change from direct
-          speech to indirect speech without losing meaning.
-        </p>
+    title: 'Tenses',
+    content: slide(
+      <>
+        <Rule>Tense shows time. A word such as “yesterday” shows the action happened in the past. Keep the tense consistent in a sentence.</Rule>
         <TenseTimeline verb="write" plural={false} tenses={['past', 'present']} before="She" after="neatly." />
         <TenseCheck which="revised" />
-        <SpeechChange />
-      </div>
+        <Worked
+          title="Choose the correct past tense"
+          steps={[
+            <>“They walk to school yesterday” has a problem: “yesterday” shows the past.</>,
+            <>Use the past tense: “They walked to school yesterday.”</>,
+            <>“We revised the poem and answered the questions” keeps both verbs in the past tense, so the tense is consistent.</>,
+          ]}
+        />
+        <Mistake>Mixing tenses, such as “revised the poem and answer the questions”. Both verbs must be in the same tense.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Punctuate and spell for meaning',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Correct punctuation and spelling help the reader understand your sentence the first time. Check speech marks,
-          commas, capital letters, apostrophes, and commonly confused words.
-        </p>
-        <div className="grid gap-3 md:grid-cols-4">
-          <div className="rounded-xl bg-orange-50 p-4 text-slate-700"><strong>Speech marks</strong><br />show exact words</div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-slate-700"><strong>Commas</strong><br />separate ideas clearly</div>
-          <div className="rounded-xl bg-teal-50 p-4 text-slate-700"><strong>Capitals</strong><br />start names and sentences</div>
-          <div className="rounded-xl bg-red-50 p-4 text-slate-700"><strong>Spelling check</strong><br />look, cover, write, compare</div>
-        </div>
-      </div>
+    title: 'Direct and indirect speech',
+    content: slide(
+      <>
+        <Rule>
+          Direct speech quotes the exact words, with a reporting clause, a comma and speech marks. Indirect speech reports what was said without quoting the exact words.
+        </Rule>
+        <SpeechChange />
+        <Worked
+          title="Change direct speech to indirect speech"
+          steps={[
+            <>Direct: Mia said, “I am ready.” (reporting clause, comma, speech marks)</>,
+            <>Indirect: Sam said that he was tired. (no speech marks, “that” added)</>,
+            <>Drop the speech marks, add “that”, and move the verb back in time (am becomes was). The picture shows the same changes: “She writes neatly,” he said becomes He said that she wrote neatly.</>,
+          ]}
+        />
+        <Mistake>Keeping the speech marks in indirect speech. Indirect speech does not quote the exact words.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Punctuation and spelling',
+    content: slide(
+      <>
+        <Rule>
+          We use punctuation to make meaning clear for the reader. To check spelling, use look, cover, write, compare.
+        </Rule>
+        <Worked
+          title="Punctuate and spell"
+          steps={[
+            <>“after lunch we revised grammar” needs a capital letter, a comma after the introductory phrase and a full stop.</>,
+            <>Correct: “After lunch, we revised grammar.”</>,
+            <>Spelling: look at the word, cover it, write it, then compare it with the correct spelling.</>,
+          ]}
+        />
+        <Mistake>Leaving out the comma after an introductory phrase. It tells the reader where to pause.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>In “The teacher praised the class”, which word is a noun? In “the noisy classroom”, which is an adjective?</li>
+            <li>Which sentence is in the past tense, and which keeps the tense consistent?</li>
+            <li>Which sentence is direct speech, and which is indirect speech?</li>
+            <li>Why do we use punctuation? How can you check spelling?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>teacher; noisy.</li>
+            <li>“They walked to school yesterday.” “We revised the poem and answered the questions.”</li>
+            <li>Mia said, “I am ready.” Sam said that he was tired.</li>
+            <li>To make meaning clear for the reader. Look, cover, write, compare.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

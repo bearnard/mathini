@@ -1,56 +1,108 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Revise the clues for each genre',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 4 revision asks you to move confidently between <strong>poetry</strong>, <strong>fiction</strong>,
-          <strong> media texts</strong>, and <strong>oral recall</strong>. Look for the clues that tell you what kind of
-          text you are reading or hearing.
-        </p>
-        <div className="grid gap-3 md:grid-cols-4">
-          <div className="rounded-xl bg-violet-50 p-4 text-slate-700"><strong>Poetry</strong><br />stanzas, rhythm, imagery</div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-slate-700"><strong>Fiction</strong><br />characters, setting, plot</div>
-          <div className="rounded-xl bg-amber-50 p-4 text-slate-700"><strong>Media texts</strong><br />headlines, captions, purpose</div>
-          <div className="rounded-xl bg-sky-50 p-4 text-slate-700"><strong>Oral recall</strong><br />keywords, sequence, facts</div>
-        </div>
-      </div>
+    title: 'Identify the genre first',
+    content: slide(
+      <>
+        <Rule>
+          When you meet a mixed-genre question, identify the genre and what the question asks. Poems have stanzas and repeated lines; a media text has a headline, a photo and a caption.
+        </Rule>
+        <Worked
+          title="Name the genre from its features"
+          steps={[
+            <>Stanzas and repeated lines: a poem.</>,
+            <>A headline, a photo and a caption: a media text, such as a newspaper report or an advert.</>,
+            <>“Why does the character decide to leave home?” asks about character and motivation: a question about fiction.</>,
+            <>Now you know which strategy to use.</>,
+          ]}
+        />
+        <Mistake>Starting to answer before you know the genre and what is asked. Identify both first.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Find evidence and summarise main ideas',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          In mixed revision questions, strong answers come from the text itself. Retrieve a detail, make a sensible
-          inference, and reduce a longer passage to its most important ideas.
-        </p>
-        <div className="grid gap-3 md:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-slate-700"><strong>Retrieve</strong><br />quote or point to a detail</div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-slate-700"><strong>Infer</strong><br />read between the lines</div>
-          <div className="rounded-xl bg-lime-50 p-4 text-slate-700"><strong>Summarise</strong><br />keep only main ideas</div>
-          <div className="rounded-xl bg-orange-50 p-4 text-slate-700"><strong>Recall</strong><br />remember key facts in order</div>
-        </div>
-      </div>
+    title: 'Evidence and inference',
+    content: slide(
+      <>
+        <Rule>
+          If a question asks for evidence, use a detail from the text to support your answer. Inference is working out what the text suggests but does not say directly.
+        </Rule>
+        <Worked
+          title="Use evidence and infer"
+          steps={[
+            <>Question: “How does Lebo feel? Give evidence.”</>,
+            <>Find a detail in the text, such as “Lebo crept through the silent house”.</>,
+            <>Quote it to support your answer.</>,
+            <>The text never says “afraid”, but the clues suggest it: that is inference, using clues and your thinking.</>,
+          ]}
+        />
+        <Mistake>Answering from memory with no detail. Evidence means a fact, phrase or detail from the text.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Switch strategies quickly in revision',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Read the question carefully before you answer. A summary question needs short main points, while a poetry or
-          fiction question may ask about mood, character, or language.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-cyan-50 p-4 text-slate-700"><strong>Step 1</strong><br />Identify the genre</div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-slate-700"><strong>Step 2</strong><br />Choose the right reading strategy</div>
-          <div className="rounded-xl bg-teal-50 p-4 text-slate-700"><strong>Step 3</strong><br />Answer with evidence</div>
-        </div>
-      </div>
+    title: 'Summaries and oral recall',
+    content: slide(
+      <>
+        <Rule>
+          A good summary includes only the main ideas in a shorter form. To prepare for oral recall, listen for keywords and sequence.
+        </Rule>
+        <Worked
+          title="Summarise and recall"
+          steps={[
+            <>Read a long paragraph about a school garden.</>,
+            <>Keep the main ideas only and leave out extra detail.</>,
+            <>When listening to a spoken text, note keywords and the order (first, next, last).</>,
+            <>Use your keywords and sequence to retell the important points.</>,
+          ]}
+        />
+        <Mistake>Copying most of the text into your summary. A summary is shorter and keeps only the main ideas.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Poems and repetition',
+    content: slide(
+      <>
+        <Rule>A poet may repeat a line to emphasise an important idea or feeling. Repetition helps a poet highlight mood, meaning or rhythm.</Rule>
+        <Worked
+          title="Explain a repeated line"
+          steps={[
+            <>Spot the repeated line in the poem.</>,
+            <>Ask: which idea or feeling does it stress?</>,
+            <>Answer: it is repeated to emphasise that important idea or feeling, and it adds rhythm.</>,
+          ]}
+        />
+        <Mistake>Thinking repetition is a mistake or filler. In a poem it is chosen on purpose.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Which feature shows a poem? Which genre has a headline, a photo and a caption?</li>
+            <li>What do you do when a question asks for evidence? Which skill works out what is not said directly?</li>
+            <li>What makes a good summary? How do you prepare for oral recall?</li>
+            <li>Why might a poet repeat a line? What should you do first with a mixed-genre question?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Stanzas and repeated lines. A media text.</li>
+            <li>Use a detail from the text to support your answer. Inference.</li>
+            <li>It includes only the main ideas in a shorter form. Listen for keywords and sequence.</li>
+            <li>To emphasise an important idea or feeling. Identify the genre and what the question asks.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

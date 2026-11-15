@@ -1,90 +1,109 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Plan for audience and purpose first',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Extended writing and speaking improve when you know <strong>who</strong> you are speaking or
-          writing for and <strong>why</strong> you are communicating. This helps you choose the best tone,
-          details, and examples.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-sky-50 p-4 text-slate-700">
-            <strong>Audience</strong>
-            <br />
-            the people reading or listening
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-slate-700">
-            <strong>Purpose</strong>
-            <br />
-            to inform, entertain, review, or persuade
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-slate-700">
-            <strong>Tone</strong>
-            <br />
-            the style that suits the task
-          </div>
-        </div>
-      </div>
+    title: 'Audience and purpose',
+    content: slide(
+      <>
+        <Rule>
+          Before planning an oral or written response, think about audience and purpose. Audience awareness means choosing words and details that suit the listeners or readers.
+        </Rule>
+        <Worked
+          title="Plan a talk about your school"
+          steps={[
+            <>Audience: Grade 1 learners. Purpose: tell them what to expect on their first day.</>,
+            <>Choose words and details that suit young listeners: short sentences and friendly words.</>,
+            <>If the audience were the school governing body, you would choose formal words and facts.</>,
+          ]}
+        />
+        <Mistake>Starting to write before you decide who it is for. The audience and purpose guide the tone, detail and structure.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Strong structure keeps ideas organised',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Reviews, narrative essays, interviews, and oral responses need clear openings, useful middle
-          details, and endings that leave the audience with a final thought.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-rose-50 p-4 text-slate-700">
-            <strong>Opening</strong>
-            <br />
-            hook the audience and introduce the topic
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-slate-700">
-            <strong>Middle</strong>
-            <br />
-            add organised facts, events, or reasons
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-slate-700">
-            <strong>Closing</strong>
-            <br />
-            end with a clear summary or final opinion
-          </div>
-        </div>
-      </div>
+    title: 'Openings and endings',
+    content: slide(
+      <>
+        <Rule>
+          A strong opening in an oral presentation is a hook that grabs attention and names the topic. A good ending is a clear closing that sums up the main idea.
+        </Rule>
+        <Worked
+          title="Open and close a talk about recycling"
+          steps={[
+            <>Hook: “What if every tin could be used twice?” It grabs attention.</>,
+            <>Name the topic: “Today I will talk about recycling at our school.”</>,
+            <>Give your points in order in the middle.</>,
+            <>Close clearly: “So remember, recycling saves resources.” It sums up the main idea and brings the talk to a finish.</>,
+          ]}
+        />
+        <Mistake>Ending with “That is all” or just stopping. A clear closing sums up the main idea.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Detail and delivery make communication stronger',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Use vivid detail in writing, ask thoughtful interview questions, and speak clearly with pace,
-          expression, and eye contact. These choices help your audience stay interested.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-indigo-50 p-4 text-slate-700">
-            <strong>Detail</strong>
-            <br />
-            examples make ideas specific
-          </div>
-          <div className="rounded-xl bg-orange-50 p-4 text-slate-700">
-            <strong>Delivery</strong>
-            <br />
-            speak audibly and with confidence
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-slate-700">
-            <strong>Convention</strong>
-            <br />
-            choose a fitting opening and ending
-          </div>
-        </div>
-      </div>
+    title: 'Narrative essays and book reviews',
+    content: slide(
+      <>
+        <Rule>
+          A narrative essay needs events organised in a logical order. A book review is stronger with specific reasons and examples from the book, because reviews need evidence from the text.
+        </Rule>
+        <Worked
+          title="Strengthen a review"
+          steps={[
+            <>Weak: “It was good.” No reason is given.</>,
+            <>Opening for a formal review: “This book keeps the reader interested from page one.”</>,
+            <>Add a specific reason and example from the book: for instance, a surprising event in chapter 2.</>,
+            <>For a narrative essay, tell events in a logical order: beginning, middle, end.</>,
+          ]}
+        />
+        <Mistake>Giving an opinion with no example. A review needs evidence from the text.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Speaking: note cards and interviews',
+    content: slide(
+      <>
+        <Rule>
+          For an oral response, use a note card with short key words instead of a full script. A useful interview question asks for meaning, such as: How did that event change the way you felt?
+        </Rule>
+        <Worked
+          title="Prepare an oral response and an interview"
+          steps={[
+            <>Write key words on the card: hook, 3 points, closing.</>,
+            <>Look up and speak to the audience. Key words support you without making you read every line.</>,
+            <>Interview: “Did you like it?” gets a short answer. “How did that event change the way you felt?” helps the speaker give meaningful information.</>,
+          ]}
+        />
+        <Mistake>Writing the whole speech on the card and reading it. Short key words keep you talking to the audience.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What should you think about before planning? What does audience awareness mean?</li>
+            <li>What makes a strong opening in a talk, and a good ending in extended writing?</li>
+            <li>What does a narrative essay need, and which detail makes a book review stronger?</li>
+            <li>Which note card is best for an oral response, and which interview question is the most useful?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Audience and purpose. Choosing words and details that suit the listeners or readers.</li>
+            <li>A hook that grabs attention and names the topic. A clear closing that sums up the main idea.</li>
+            <li>Events organised in a logical order. Specific reasons and examples from the book.</li>
+            <li>Short key words instead of a full script. “How did that event change the way you felt?”</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

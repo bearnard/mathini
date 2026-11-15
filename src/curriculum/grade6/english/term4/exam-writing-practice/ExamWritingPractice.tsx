@@ -1,54 +1,114 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { writingTimePlan } from '../../../examTime';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+const plan = writingTimePlan(45);
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Plan before you draft',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          In exam writing, a short plan saves time. Jot down your <strong>purpose</strong>, <strong>audience</strong>,
-          and the main ideas you want in each paragraph before you start writing.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-amber-50 p-4 text-slate-700"><strong>Purpose</strong><br />Why are you writing?</div>
-          <div className="rounded-xl bg-sky-50 p-4 text-slate-700"><strong>Audience</strong><br />Who will read it?</div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-slate-700"><strong>Structure</strong><br />What comes first, next, last?</div>
-        </div>
-      </div>
+    title: 'Plan first and manage your time',
+    content: slide(
+      <>
+        <Rule>
+          Before you write under exam conditions, plan your ideas and structure quickly. Time management gives you time to plan, write and edit.
+        </Rule>
+        <Worked
+          title={`Split ${plan.total} minutes`}
+          steps={[
+            <>Plan: {plan.plan} minutes to list ideas and put them in order.</>,
+            <>Write: {plan.write} minutes to write the piece from your plan.</>,
+            <>Edit: {plan.edit} minutes to check your work.</>,
+            <>{plan.plan} + {plan.write} + {plan.edit} = {plan.total} minutes, so nothing is left out.</>,
+          ]}
+        />
+        <Mistake>Using all the time to write and none to plan or edit. A quick plan keeps you on topic and the editing time catches mistakes.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Match the format to the task',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Essays and transactional texts need different layouts. Use the correct opening, paragraphing, and ending so
-          the examiner can see that you know the format.
-        </p>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl bg-violet-50 p-4 text-slate-700"><strong>Essay</strong><br />clear introduction, body, conclusion</div>
-          <div className="rounded-xl bg-rose-50 p-4 text-slate-700"><strong>Letter or email</strong><br />greeting, message, sign-off</div>
-          <div className="rounded-xl bg-lime-50 p-4 text-slate-700"><strong>Notice or review</strong><br />key details in the right format</div>
-        </div>
-      </div>
+    title: 'Know the task and the audience',
+    content: slide(
+      <>
+        <Rule>
+          Transactional writing has a practical purpose, such as requesting or informing: a formal letter to the principal is an example. If the task names an audience, choose the tone and format that suit the reader.
+        </Rule>
+        <Worked
+          title="Choose the tone and format"
+          steps={[
+            <>Task: ask the principal for permission to hold a clean-up day.</>,
+            <>Text type: a formal letter to the principal (transactional, because it requests something).</>,
+            <>Tone: polite and formal. Format: greeting, body, sign-off.</>,
+            <>A message to a friend would use a friendly tone and format instead.</>,
+          ]}
+        />
+        <Mistake>Writing to the principal in the same way as to a friend. The audience decides the word choice, tone and structure.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Leave time to edit for accuracy',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Save the last few minutes for an editing checklist. Check spelling, punctuation, grammar, and whether every
-          sentence is clear and linked to the topic.
-        </p>
-        <div className="grid gap-3 md:grid-cols-4">
-          <div className="rounded-xl bg-cyan-50 p-4 text-slate-700"><strong>Spelling</strong><br />correct tricky words</div>
-          <div className="rounded-xl bg-fuchsia-50 p-4 text-slate-700"><strong>Punctuation</strong><br />full stops and commas</div>
-          <div className="rounded-xl bg-orange-50 p-4 text-slate-700"><strong>Grammar</strong><br />tense and agreement</div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-slate-700"><strong>Clarity</strong><br />one idea per sentence</div>
-        </div>
-      </div>
+    title: 'Structure: introduction and paragraphs',
+    content: slide(
+      <>
+        <Rule>
+          A strong introduction introduces the topic clearly. Each paragraph focuses on one main idea, which makes the writing easier to follow.
+        </Rule>
+        <Worked
+          title="Structure an essay on a clean-up day"
+          steps={[
+            <>Introduction: say what the piece is about (a clean-up day at school).</>,
+            <>Paragraph 1: one idea, why it is needed.</>,
+            <>Paragraph 2: one idea, how it will work.</>,
+            <>Each paragraph keeps to its one idea, so the reader can follow your organisation.</>,
+          ]}
+        />
+        <Mistake>Putting many ideas into one long paragraph. One focus per paragraph improves organisation and clarity.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Edit and stay calm',
+    content: slide(
+      <>
+        <Rule>
+          An editing checklist helps you spot and fix mistakes before handing in. If you feel under pressure, follow your plan and tick off your checklist.
+        </Rule>
+        <Worked
+          title="Edit one sentence"
+          steps={[
+            <>Checklist: spelling, punctuation, grammar, meaning.</>,
+            <>Read: “After school we cleaned the yard” has missing punctuation.</>,
+            <>Fix it: “After school, we cleaned the yard.”</>,
+            <>Tick it off the checklist and move on. A calm routine produces a complete response.</>,
+          ]}
+        />
+        <Mistake>Handing in without reading it again. Sentences with missing punctuation are the first thing to check.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What is the best first step in an exam writing task, and why does time management matter?</li>
+            <li>Which text is transactional, and what must you remember about the audience?</li>
+            <li>What should a strong introduction do, and why does each paragraph have one main idea?</li>
+            <li>What is an editing checklist for, and what is the safest strategy under pressure?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Plan your ideas and structure quickly. It gives you time to plan, write and edit.</li>
+            <li>A formal letter to the principal. Choose the tone and format that suit the reader.</li>
+            <li>Introduce the topic clearly. It makes the writing easier to follow.</li>
+            <li>To spot and fix mistakes before handing in. Follow your plan and tick off your checklist.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
