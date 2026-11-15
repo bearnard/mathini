@@ -1,40 +1,5 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
-import type { LearnStep } from '@/components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'CVs and Application Documents',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">A CV should present relevant personal details, education, skills, experience and achievements clearly and honestly. Strong application documents are neat, accurate and tailored to the opportunity.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Interview Preparation',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Interviews assess communication, confidence, suitability and readiness. Learners should prepare by researching the opportunity, practising common questions, dressing appropriately and answering honestly and clearly.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Workplace Ethics and Professionalism',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Professional conduct includes punctuality, respect, honesty, responsibility, teamwork and appropriate communication. These habits matter because employers value reliability as much as technical skill.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Contracts and Labour Rights',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Young adults entering work should understand that employment contracts explain duties, conditions and expectations. Labour rights protect workers from unfair treatment and support safe, lawful working conditions.</p>
-      </div>
-    ),
-  },
-];
+import { learnSteps } from './WorldOfWorkReadinessLesson';
 
 const items = [
   {

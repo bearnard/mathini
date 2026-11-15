@@ -1,40 +1,5 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
-import type { LearnStep } from '@/components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Lifetime Fitness Mindset',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Physical activity remains important after school because it supports long-term health, energy, mental wellbeing and disease prevention. Learners should see movement as a lifelong habit, not a school-only requirement.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Choosing Recreation and Activity Options',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Adult fitness can include walking, gym work, running, community sport, dance, cycling or home exercise. Sustainable choices depend on interest, affordability, safety and access.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Healthy Routines and Self-Care',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Healthy routines combine activity with sleep, hydration, nutrition and recovery. Wellbeing is strongest when exercise fits into a balanced lifestyle rather than becoming inconsistent or extreme.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Setting Sustainable Goals',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Sustainable goals are realistic enough to continue beyond one assessment. Learners should focus on consistency, enjoyment and personal responsibility so that activity remains part of adult life.</p>
-      </div>
-    ),
-  },
-];
+import { learnSteps } from './PhysicalEducationTask4Lesson';
 
 const items = [
   {

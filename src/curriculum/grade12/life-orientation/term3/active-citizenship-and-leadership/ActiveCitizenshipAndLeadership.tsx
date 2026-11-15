@@ -1,40 +1,5 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
-import type { LearnStep } from '@/components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Active Citizenship in Practice',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Active citizenship means more than knowing your rights. It includes informed participation, community involvement, respectful dialogue and willingness to act when problems affect justice, inclusion or wellbeing.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Leadership for Social Justice',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Leadership in Life Orientation is service-based and ethical. Good leaders listen, include others, model fairness and use influence to address real needs instead of seeking status alone.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Diversity and Social Cohesion',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Democracy is stronger when diversity is respected. Social cohesion grows when people work across differences, reject prejudice and build a sense of belonging rooted in shared values and mutual respect.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Planning Ethical Action',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Ethical civic action requires clear goals, lawful methods and reflection on consequences. Campaigns, awareness drives, dialogue forums and service projects all need planning, teamwork and responsibility.</p>
-      </div>
-    ),
-  },
-];
+import { learnSteps } from './ActiveCitizenshipAndLeadershipLesson';
 
 const items = [
   {

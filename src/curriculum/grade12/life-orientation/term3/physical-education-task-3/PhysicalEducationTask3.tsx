@@ -1,40 +1,5 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
-import type { LearnStep } from '@/components/CapsSubjectTopic';
-
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Consistency and Fitness Maintenance',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">By Term 3, learners should recognise that fitness is maintained through regular effort, not occasional intensity. Consistent participation builds endurance, skill confidence and healthy habits.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Teamwork and Cooperation',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Many physical activities require learners to cooperate, communicate and adapt to others. Teamwork builds trust and teaches learners to contribute positively even when performance levels differ.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Self-Discipline and Responsibility',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Self-discipline in physical education means arriving prepared, following routines, managing effort and staying committed. It reflects personal responsibility for health rather than dependence on last-minute motivation.</p>
-      </div>
-    ),
-  },
-  {
-    title: 'Reviewing Participation and Progress',
-    content: (
-      <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">Participation reviews help learners reflect on attendance, effort, strengths and areas to improve. Honest reflection supports goal adjustment and reminds learners that wellbeing depends on repeated healthy choices.</p>
-      </div>
-    ),
-  },
-];
+import { learnSteps } from './PhysicalEducationTask3Lesson';
 
 const items = [
   {
