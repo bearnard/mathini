@@ -1,42 +1,9 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
-import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
+import { xhosaSteps } from '@/components/subjects/lesson/XhosaLesson';
+import lesson from './ListeningSpeakingT3.data';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Debate, prepared speech, oral response to literature, and panel discussion',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 3 Listening & Speaking focuses on <strong>debate, prepared speeches, oral responses to literature,</strong>{' '}
-          and panel discussion.
-        </p>
-        <p className="text-slate-600">
-          Learners argue points of view more clearly and respond to literature and social issues in spoken form.
-        </p>
-      </div>
-    ),
-  },
-
-  {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Repeat these higher-order discussion words when preparing for debate, seminar, and panel speaking.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Ingxoxo-mpikiswano"} phonetic={"[iŋ'xɔxɔ mpi'kiswano]"} meaning={"Debate"} lang="xh" />
-          <PronunciationPlayer word={"Intetho"} phonetic={"[in'tɛːtʰɔ]"} meaning={"Speech"} lang="xh" />
-          <PronunciationPlayer word={"Uluvo"} phonetic={"[u'luːvɔ]"} meaning={"Opinion"} lang="xh" />
-          <PronunciationPlayer word={"Isizathu"} phonetic={"[isi'zatu]"} meaning={"Reason"} lang="xh" />
-          <PronunciationPlayer word={"Phendula"} phonetic={"[pʰɛn'dula]"} meaning={"Respond / answer"} lang="xh" />
-          <PronunciationPlayer word={"Ingxoxo"} phonetic={"[iŋ'xɔxɔ]"} meaning={"Discussion"} lang="xh" />
-        </div>
-      </div>
-    ),
-  },
-];
+const learnSteps = xhosaSteps(lesson);
 
 const bank: CapsItem[] = [
   {
