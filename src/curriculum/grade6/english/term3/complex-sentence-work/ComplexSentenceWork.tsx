@@ -1,43 +1,112 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
 import { CompoundComplex, JoinSplitVary, SentenceKey } from '@/components/diagrams/english/SentenceBlocks';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Phrases and clauses do different jobs',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A <strong>phrase</strong> adds meaning but does not have its own complete idea. A
-          <strong> clause</strong> contains a subject and a verb. Knowing the difference helps you build
-          better sentences.
-        </p>
+    title: 'Phrases and clauses',
+    content: slide(
+      <>
+        <Rule>
+          A phrase adds information but does not have a complete idea of its own. A clause has a subject and a verb. An independent clause can stand on its own.
+        </Rule>
         <SentenceKey />
-      </div>
+        <Worked
+          title="Phrase or clause?"
+          steps={[
+            <>“under the old bridge”: no subject and verb, no full idea. It is a phrase.</>,
+            <>“The rain stopped suddenly”: subject “the rain”, verb “stopped”. It is an independent clause.</>,
+            <>“After the game, Sipho smiled”: “After the game” is a phrase and “Sipho smiled” is an independent clause.</>,
+          ]}
+        />
+        <Mistake>Thinking a long group of words must be a sentence. “under the old bridge” is long enough but has no subject and verb.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Compound and complex sentences join ideas',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Writers combine ideas with <strong>conjunctions</strong>. Compound sentences join two complete
-          ideas, while complex sentences join a complete idea to a dependent clause.
-        </p>
+    title: 'Compound sentences',
+    content: slide(
+      <>
+        <Rule>A conjunction joins words, phrases or clauses. A compound sentence joins two complete ideas with a conjunction such as and, but or so.</Rule>
+        <Worked
+          title="Build a compound sentence"
+          steps={[
+            <>Idea 1: Lebo packed his bag. It can stand alone.</>,
+            <>Idea 2: he ran to the taxi. It can stand alone too.</>,
+            <>Join with a comma and a conjunction: “Lebo packed his bag, and he ran to the taxi.”</>,
+            <>Two complete ideas joined by a conjunction make a compound sentence.</>,
+          ]}
+        />
+        <Mistake>Joining two full ideas with only a comma. A comma alone is not enough; add a conjunction.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Complex sentences',
+    content: slide(
+      <>
+        <Rule>
+          A complex sentence joins an independent clause to a dependent clause. A dependent clause cannot stand alone. Words such as although, because and when often start a dependent clause.
+        </Rule>
         <CompoundComplex />
-      </div>
+        <Worked
+          title="Find the dependent clause"
+          steps={[
+            <>Read: “When the bell rang, the class cheered.”</>,
+            <>“the class cheered” can stand alone: independent clause.</>,
+            <>“When the bell rang” starts with “When” and cannot stand alone: it is the dependent clause.</>,
+            <>Another example: “Because Lebo packed early, he was ready on time.” The clause beginning with “Because” is dependent.</>,
+          ]}
+        />
+        <Mistake>Calling the first clause the independent one by position. Test it: can it stand alone? “When the bell rang” cannot.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Join and split sentences for better flow',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Good writers edit sentences by joining short ideas, splitting run-on sentences, and choosing
-          sentence types that make writing smoother and more varied.
-        </p>
+    title: 'Fixing run-ons and varying sentences',
+    content: slide(
+      <>
+        <Rule>
+          Fix a run-on by joining the ideas with punctuation and a conjunction, or by splitting them. Vary your sentence types to make writing smoother and more interesting.
+        </Rule>
         <JoinSplitVary />
-      </div>
+        <Worked
+          title="Fix a run-on"
+          steps={[
+            <>Run-on: “Thandi finished her homework she went outside.” Two full ideas run together.</>,
+            <>Join them: “Thandi finished her homework, and she went outside.”</>,
+            <>Or split them into two sentences.</>,
+            <>Then mix short, compound and complex sentences so the reader stays interested.</>,
+          ]}
+        />
+        <Mistake>Writing only short sentences or only long ones. Varying the sentence types improves flow.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Which is a phrase: “The rain stopped suddenly” or “under the old bridge”?</li>
+            <li>What does a conjunction do? Which sentence is compound: “Lebo packed his bag, and he ran to the taxi”?</li>
+            <li>In “When the bell rang, the class cheered,” which words form the dependent clause? Name a word that starts one.</li>
+            <li>Fix this run-on: “Thandi finished her homework she went outside.” Why vary sentence types?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>“under the old bridge” is a phrase. (“The rain stopped suddenly” is an independent clause.)</li>
+            <li>It joins words, phrases or clauses. Yes: two complete ideas joined by “and”.</li>
+            <li>“When the bell rang” (the clause beginning with “When”). For example although, because, when.</li>
+            <li>“Thandi finished her homework, and she went outside.” To make writing smoother and more interesting.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
