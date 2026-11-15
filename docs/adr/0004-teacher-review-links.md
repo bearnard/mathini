@@ -10,7 +10,7 @@
 
 ## Names (decided 2026-11-15)
 
-Server library `src/lib/server/teacherReview/`, API `/api/teacher-review/...`, reviewer page `/teacher-review/<token>`,
+Server library `src/lib/server/teacherReview/`, API `/api/teacher-review/...`, reviewer page `/teacher-review#<token>`,
 admin page `/admin/reviews`. Not `src/lib/server/review/`, which is the learners' spaced review.
 
 ## The flow
@@ -60,7 +60,7 @@ admin page `/admin/reviews`. Not `src/lib/server/review/`, which is the learners
 
 ## Security and privacy
 
-- **Link token:** 32 random bytes (base64url) in the path, `/teacher-review/<token>`. Only the
+- **Link token:** 32 random bytes (base64url) in the URL fragment, `/teacher-review#<token>` (decided 2026-11-15; a path would be written to request logs, a fragment is never sent to the server). The page reads it, removes it from the address bar, keeps it in `sessionStorage` for reloads and sends it in an `X-Review-Token` header. Only the
   **SHA-256 hash** is stored. Comparison is constant-time. The link expires after **14 days**
   (adjustable). The owner can **revoke** it at any time. It's scoped to one reviewer and one pack.
 - **Responses:** pages are `noindex`, served with `Cache-Control: no-store` and

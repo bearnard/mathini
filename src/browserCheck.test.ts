@@ -18,8 +18,9 @@ test('parseArgs: defaults, flags and errors', () => {
   assert.deepEqual(o.urls, ['http://127.0.0.1:3000/a', 'http://127.0.0.1:3000/b']);
   assert.equal(o.timeoutMs, 60000);
   assert.equal(o.chromium, '/usr/bin/chromium');
-  const p = parseArgs(['--widths', '320,768', '--timeout', '5000', '--stub-api', '--no-warmup', '--out', 'x', 'a:1'], { CHROMIUM_BIN: '/opt/c' });
-  assert.deepEqual([p.widths, p.timeoutMs, p.stubApi, p.warmup, p.out, p.chromium], [[320, 768], 5000, true, false, 'x', '/opt/c']);
+  const p = parseArgs(['--widths', '320,768', '--timeout', '5000', '--stub-api', '--no-warmup', '--wait-for', 'main h1', '--out', 'x', 'a:1'], { CHROMIUM_BIN: '/opt/c' });
+  assert.deepEqual([p.widths, p.timeoutMs, p.stubApi, p.warmup, p.out, p.chromium, p.waitFor], [[320, 768], 5000, true, false, 'x', '/opt/c', 'main h1']);
+  assert.equal(o.waitFor, null);
   assert.throws(() => parseArgs([], {}), /at least one URL/);
   assert.throws(() => parseArgs(['--bogus', 'a:1'], {}), /unknown flag/);
   assert.throws(() => parseArgs(['--timeout', '5', 'a:1'], {}), /milliseconds/);

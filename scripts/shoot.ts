@@ -1,6 +1,6 @@
 // Browser check: screenshot each URL at 390 and 1280 px with a per-page timeout, and report horizontal overflow and
 // console errors. Usage and the reasons behind the flags: docs/notes/browser-check.md
-//   node --import tsx scripts/shoot.ts [--widths 390,1280] [--out dir] [--timeout ms] [--stub-api] <url>...
+//   node --import tsx scripts/shoot.ts [--widths 390,1280] [--out dir] [--timeout ms] [--wait-for css] [--stub-api] <url>...
 import { spawn, type ChildProcess } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -101,6 +101,14 @@ const shootOne = async (cdp: Cdp, o: ShootOptions, url: string, width: number): 
     await s('Emulation.setDeviceMetricsOverride', { width, height: 900, deviceScaleFactor: 1, mobile: false });
     await s('Page.navigate', { url });
     await withTimeout(loaded, o.timeoutMs, `load of ${url}`);
+    if (o.waitFor) {
+      const sel = JSON.stringify(o.waitFor);
+      const deadline = Date.now() + o.timeoutMs;
+      while (!(await s('Runtime.evaluate', { expression: `!!document.querySelector(${sel})`, returnByValue: true })).result.value) {
+        if (Date.now() > deadline) throw new Error(`timeout after ${o.timeoutMs} ms: waiting for ${o.waitFor}`);
+        await sleep(200);
+      }
+    }
     await sleep(o.settleMs);
     const m = (await s('Runtime.evaluate', { expression: MEASURE, returnByValue: true })).result.value;
     Object.assign(r, { scrollWidth: m.scrollWidth, clientWidth: m.clientWidth, wideElements: m.wide });
