@@ -1,63 +1,92 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Branches, Hub, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Understand identity, values, and change',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Personal and Social Well-being</strong> helps you understand who you are and what matters to you.
-          Your <strong>self-concept</strong> grows when you know your strengths, values, and goals.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-sky-50 p-4 text-left">
-            <p className="font-bold text-sky-700">Self-concept</p>
-            <p className="text-slate-600">how you see yourself as you grow</p>
-          </div>
-          <div className="rounded-xl bg-amber-50 p-4 text-left">
-            <p className="font-bold text-amber-700">Values</p>
-            <p className="text-slate-600">beliefs that guide your choices</p>
-          </div>
-          <div className="rounded-xl bg-emerald-50 p-4 text-left">
-            <p className="font-bold text-emerald-700">Puberty</p>
-            <p className="text-slate-600">normal physical and emotional changes</p>
-          </div>
-          <div className="rounded-xl bg-violet-50 p-4 text-left">
-            <p className="font-bold text-violet-700">Emotions</p>
-            <p className="text-slate-600">feelings that can be managed in healthy ways</p>
-          </div>
-        </div>
-      </div>
+    title: 'Who am I? Self-concept and values',
+    content: slide(
+      <>
+        <Rule>Your self-concept is how you see yourself: your strengths, interests, values and goals. Values are beliefs that guide your choices, such as honesty and respect.</Rule>
+        <Hub centre="Me" spokes={['Strengths', 'Interests', 'Values', 'Goals']} aria="A circle labelled Me with four labels around it: strengths, interests, values and goals." />
+        <Worked
+          title="Describe yourself"
+          steps={[
+            <>Name a strength: “I am good at netball.”</>,
+            <>Name an interest: “I love drawing.”</>,
+            <>Name a value: “Honesty matters to me.”</>,
+            <>Join them: “I am a creative, honest team player.”</>,
+          ]}
+        />
+        <Mistake>Thinking one test mark or one match result is your whole self-concept. It is only one moment. Your self-concept keeps growing as you learn about yourself.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Use decision-making steps in daily life',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Responsible choices are made by stopping, thinking, and checking consequences. Good decisions protect your
-          health, relationships, and future goals.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl bg-rose-50 p-4 text-left">
-            <p className="font-bold text-rose-700">Step 1</p>
-            <p className="text-slate-600">identify the problem clearly</p>
-          </div>
-          <div className="rounded-xl bg-cyan-50 p-4 text-left">
-            <p className="font-bold text-cyan-700">Step 2</p>
-            <p className="text-slate-600">list possible choices</p>
-          </div>
-          <div className="rounded-xl bg-lime-50 p-4 text-left">
-            <p className="font-bold text-lime-700">Step 3</p>
-            <p className="text-slate-600">predict likely outcomes</p>
-          </div>
-          <div className="rounded-xl bg-indigo-50 p-4 text-left">
-            <p className="font-bold text-indigo-700">Step 4</p>
-            <p className="text-slate-600">choose and reflect on the result</p>
-          </div>
-        </div>
-      </div>
+    title: 'Puberty: a normal stage of growth',
+    content: slide(
+      <>
+        <Rule>Puberty is the normal stage when your body and your feelings change as you grow towards adulthood. It takes years, not one day, and it starts at different ages for different people.</Rule>
+        <Worked
+          title="A classmate says “puberty only changes your hair”"
+          steps={[
+            <>Ask: is this a fact or a rumour?</>,
+            <>Check with a trusted adult, the school nurse or a health book.</>,
+            <>Learn the fact: puberty changes both your body and your emotions.</>,
+            <>Share the fact, not the rumour.</>,
+          ]}
+        />
+        <Mistake>Believing that puberty happens to everyone at the same age, or that you stop having feelings. Starting earlier or later than your friends is normal, and your feelings may change quickly.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Managing strong emotions',
+    content: slide(
+      <>
+        <Rule>All feelings are normal. What matters is what you do with them. Calm yourself first, then act.</Rule>
+        <StepFlow steps={['Pause. Do not react yet.', 'Breathe in slowly and out slowly.', 'Name the feeling.', 'Talk to a trusted adult.']} aria="Four steps for strong emotions in order: pause, breathe slowly, name the feeling, talk to a trusted adult." />
+        <Worked
+          title="Zanele is angry because a friend shared her secret"
+          steps={[<>Pause: she does not shout.</>, <>She breathes slowly until she feels calmer.</>, <>She names it: “I feel hurt and angry.”</>, <>She talks to a trusted adult, then speaks to her friend calmly.</>]}
+        />
+        <Mistake>Shouting at friends or breaking things. That hurts others and solves nothing. Pretending you feel nothing, for ever, does not make a feeling go away either.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Making a responsible decision',
+    content: slide(
+      <>
+        <Rule>Use four steps. 1: Define the problem. 2: List your choices. 3: Predict what could happen. 4: Choose, then reflect on the result.</Rule>
+        <Branches
+          problem="A friend asks to copy your homework"
+          options={[
+            { choice: 'Let them copy', outcome: 'Both of you can get in trouble. They learn nothing.' },
+            { choice: 'Offer to explain it', outcome: 'They learn it. You stay honest.' },
+          ]}
+          aria="A decision tree. A friend asks to copy your homework. Choice one: let them copy, and both can get in trouble. Choice two: offer to explain it, and they learn while you stay honest."
+        />
+        <Worked
+          title="Apply the steps"
+          steps={[<>Define: my friend wants my answers.</>, <>Choices: let them copy, say no, or explain it.</>, <>Predict: copying risks trouble; explaining helps.</>, <>Choose to explain, then reflect: how did it go?</>]}
+        />
+        <Mistake>Choosing the quickest option, copying what others do, or acting only out of fear. Think about the consequences before you act.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="Describe one strength, one interest and one value that could belong to your self-concept." answer="For example: strength = good at netball, interest = drawing, value = honesty. Your self-concept is how you see yourself, and it can grow." />
+        <Check question="A rumour says puberty happens in one day. What is the fact, and what should you do?" answer="Puberty is a normal stage that takes years. Check the fact with a trusted adult or a reliable source and do not spread the rumour." />
+        <Check question="You feel very angry. Give the first two things to do." answer="Pause and breathe slowly. Then name the feeling and talk to a trusted adult." />
+        <Check question="What is the first step in making a decision, and what should you think about before you choose?" answer="Define the problem clearly. Before choosing, predict the consequences of each choice." />
+      </>,
     ),
   },
 ];
