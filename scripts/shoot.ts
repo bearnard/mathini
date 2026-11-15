@@ -99,11 +99,11 @@ const shootOne = async (cdp: Cdp, o: ShootOptions, url: string, width: number): 
         const u: string = p.request.url;
         const mock = MOCKS.find((x) => u.includes(x.match));
         if (mock) {
-          void cdp.send('Fetch.fulfillRequest', { requestId: p.requestId, responseCode: mock.status ?? 200, responseHeaders: [{ name: 'content-type', value: 'application/json' }], body: Buffer.from(JSON.stringify(mock.body)).toString('base64') }, sessionId);
+          void cdp.send('Fetch.fulfillRequest', { requestId: p.requestId, responseCode: mock.status ?? 200, responseHeaders: [{ name: 'content-type', value: 'application/json' }], body: Buffer.from(JSON.stringify(mock.body)).toString('base64') }, sessionId).catch(() => undefined);
         } else if (o.stubApi && u.includes('/api/')) {
           const body = u.includes('/api/session') ? '{"studentId":"stub","displayName":"Test","grade":8,"xp":0,"consented":true}' : '{"items":[],"questions":[]}';
-          void cdp.send('Fetch.fulfillRequest', { requestId: p.requestId, responseCode: 200, responseHeaders: [{ name: 'content-type', value: 'application/json' }], body: Buffer.from(body).toString('base64') }, sessionId);
-        } else void cdp.send('Fetch.continueRequest', { requestId: p.requestId }, sessionId);
+          void cdp.send('Fetch.fulfillRequest', { requestId: p.requestId, responseCode: 200, responseHeaders: [{ name: 'content-type', value: 'application/json' }], body: Buffer.from(body).toString('base64') }, sessionId).catch(() => undefined);
+        } else void cdp.send('Fetch.continueRequest', { requestId: p.requestId }, sessionId).catch(() => undefined);
       }
       if (text && !isIgnorableError(text)) errors.push(text.slice(0, 300));
     });
