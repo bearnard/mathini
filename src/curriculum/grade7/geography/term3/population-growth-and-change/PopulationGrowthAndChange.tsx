@@ -1,44 +1,114 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Terms } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { AgeShapes, GrowthLines } from '../../../../../components/diagrams/geography/GeoPictures';
+import { naturalChange, project } from '../../../../../components/diagrams/geography/geoHelpers';
 
+// The example numbers come from tested helpers (geoHelpers.test.ts). They are examples, not real data.
+const grow = naturalChange(30, 10);
+const nb = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+const after = nb(Math.round(project(1000, 30, 10, 10)[10] * 1000));
+const same = nb(Math.round(project(1000, 15, 15, 10)[10] * 1000));
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Population growth and change',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Population change is shaped by birth rates, death rates, infant mortality, life expectancy, and major
-          health events. Graphs and case studies help us explain why populations grow at different rates.
-        </p>
-      </div>
+    title: 'Birth rate and death rate',
+    content: slide(
+      <>
+        <Rule>
+          Birth rate describes the number of live births in a population over time. Death rate describes the number of deaths. If death rates fall while birth rates stay high, the population grows quickly.
+        </Rule>
+        <GrowthLines />
+        <Worked
+          title="An example population of 1 000 000 people"
+          steps={[
+            <>Suppose 30 babies are born and 10 people die for every 1 000 people each year: the population gains {grow} for every 1 000.</>,
+            <>After 10 years the population is about {after} people: it has grown.</>,
+            <>If births equal deaths, it stays at {same}. More people are added than removed only when births are higher than deaths.</>,
+          ]}
+        />
+        <Mistake>Thinking a high birth rate alone means fast growth. Growth depends on births compared with deaths.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Population Data — World Growth Milestones',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">World population has grown rapidly over the last century. These milestones show how quickly the global total has increased.</p>
-        <DataChart
-          data={[
-                        { year: 1950, population: 2.5 },
-                        { year: 1974, population: 4.0 },
-                        { year: 1999, population: 6.0 },
-                        { year: 2011, population: 7.0 },
-                        { year: 2022, population: 8.0 },
-                      ]}
-          xKey="year"
-          series={[
-                        { key: 'population', label: 'World population (billions)', type: 'line', color: '#8b5cf6' },
-                      ]}
-          type="line"
-          yLabel="Billions"
-          height={220}
+    title: 'Infant mortality and life expectancy',
+    content: slide(
+      <>
+        <Rule>
+          Infant mortality refers to deaths of babies under one year old. Life expectancy means the average number of years a person may live.
+        </Rule>
+        <Terms
+          rows={[
+            ['Infant mortality', 'deaths of babies under one year old'],
+            ['Life expectancy', 'the average number of years a person may live'],
+            ['A sign of better health care', 'infant mortality falls and life expectancy rises'],
+          ]}
         />
-
-        <p className="text-sm text-slate-500">Population growth affects food supply, housing demand, water use, and pressure on the environment.</p>
-      </div>
+        <Worked
+          title="Read the two measures"
+          steps={[<>Infant mortality tracks deaths in the first year of life.</>, <>Life expectancy is an average measure of expected lifespan. It is an average, not what will happen to every person.</>, <>Better health care usually lowers infant mortality and raises life expectancy.</>]}
+        />
+        <Mistake>Thinking life expectancy is the age everyone dies. It is an average, so some people live much longer and some shorter.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Population structure',
+    content: slide(
+      <>
+        <Rule>
+          A country with a high birth rate and low life expectancy is likely to have a younger population structure. More births and shorter average lifespan usually mean a younger population.
+        </Rule>
+        <AgeShapes />
+        <Worked
+          title="Read the shapes"
+          steps={[<>In the younger shape, the bottom bar, the youngest group, is the widest.</>, <>With fewer births and longer lives, the bars are more even, and the population is older.</>, <>The shape tells you the age mix of a country at one time.</>]}
+        />
+        <Mistake>Reading the widest bar as the oldest group. Each bar is an age group and the youngest is at the bottom.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Events and evidence',
+    content: slide(
+      <>
+        <Rule>
+          A pandemic can strongly change population patterns worldwide: it can affect death rates, migration and long-term growth. A line graph is the best tool to compare population change over many years. Population growth and change are best understood by using data, graphs and case studies together.
+        </Rule>
+        <Worked
+          title="Explain a change in population"
+          steps={[<>Draw a line graph of the population over many years: a line graph shows trends over time clearly.</>, <>Look for a turning point. A pandemic could raise death rates and change migration.</>, <>Use data, graphs and case studies together, because combining evidence gives a fuller explanation.</>]}
+        />
+        <Mistake>Explaining a trend from one number. Use a graph and a case study too.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What does birth rate describe? If death rates fall while birth rates stay high, what usually happens to the population?</li>
+            <li>What is infant mortality? What does life expectancy mean?</li>
+            <li>Which event can strongly change population patterns worldwide? Which tool best compares population change over many years?</li>
+            <li>A country with a high birth rate and low life expectancy is likely to have what? What helps you understand population growth and change best?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>The number of live births in a population over time. It grows quickly.</li>
+            <li>Deaths of babies under one year old. The average number of years a person may live.</li>
+            <li>A pandemic. A line graph.</li>
+            <li>A younger population structure. Data, graphs and case studies together.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];

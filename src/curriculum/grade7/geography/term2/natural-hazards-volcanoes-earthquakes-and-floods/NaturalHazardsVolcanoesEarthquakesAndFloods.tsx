@@ -1,43 +1,89 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Compare } from '../../../../../components/diagrams/science/ScienceBlocks';
+import { FloodPlain, PlateBoundary } from '../../../../../components/diagrams/geography/GeoPictures';
 
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Natural hazards: volcanoes, earthquakes, and floods',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Natural hazards are linked to Earth systems. Plate movement causes earthquakes and volcanoes, while floods
-          are shaped by rainfall, drainage, and land use. Disaster reduction lowers risk to people and places.
-        </p>
-      </div>
+    title: 'Plates, earthquakes and volcanoes',
+    content: slide(
+      <>
+        <Rule>
+          Most major earthquakes and volcanoes happen where tectonic plates interact. The movement of tectonic plates causes them. Volcanic zones are areas where volcanoes are common.
+        </Rule>
+        <PlateBoundary />
+        <Worked
+          title="Which map shows earthquake-prone areas?"
+          steps={[
+            <>Earthquakes line up with plate boundaries, so a tectonic plate map is the best map to show where they are common.</>,
+            <>Where one plate slides under another, rock melts and can rise to form volcanoes. Places with many volcanoes are called volcanic zones.</>,
+            <>The movement along the boundary also causes earthquakes.</>,
+          ]}
+        />
+        <Mistake>Thinking volcanoes and earthquakes happen anywhere at random. They cluster along plate boundaries.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Hazard Data — Typical Global Disaster Frequency',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Different natural hazards do not happen equally often. Floods and storms usually affect more places each year than volcanic eruptions.</p>
-        <DataChart
-          data={[
-                        { hazard: 'Floods', events: 160 },
-                        { hazard: 'Storms', events: 120 },
-                        { hazard: 'Droughts', events: 35 },
-                        { hazard: 'Earthquakes', events: 28 },
-                        { hazard: 'Volcanic eruptions', events: 8 },
-                      ]}
-          xKey="hazard"
-          series={[
-                        { key: 'events', label: 'Average events per year', type: 'bar', color: '#ef4444' },
-                      ]}
-          yLabel="Events"
-          height={220}
+    title: 'Floods',
+    content: slide(
+      <>
+        <Rule>
+          Floods are the hazard most directly linked to overflowing rivers after heavy rain. Flooding can happen when rain raises river levels beyond the channel capacity. Rainfall, drainage and land use shape floods.
+        </Rule>
+        <FloodPlain />
+        <Worked
+          title="Follow a flood"
+          steps={[<>Heavy rain falls on the land and runs into the river.</>, <>The river rises until the water is higher than the channel can hold.</>, <>The water spreads across the flat floodplain, flooding houses built on it. Blocked drains make flooding worse.</>]}
         />
-
-        <p className="text-sm text-slate-500">Frequency is only one part of risk. A less common hazard can still be very dangerous if many people are exposed.</p>
-      </div>
+        <Mistake>Thinking floods only happen next to the sea. Rivers flood far inland after heavy rain.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Reducing disaster risk',
+    content: slide(
+      <>
+        <Rule>
+          Disaster risk reduction aims to reduce damage and protect lives before hazards strike. Preparedness and planning reduce vulnerability and losses.
+        </Rule>
+        <Compare
+          left={{ title: 'Prepare', tone: 'sky', rows: ['a warning system helps communities act early and safely: preparedness', 'an emergency kit with a torch with batteries, because power can be cut after a hazard event'] }}
+          right={{ title: 'Plan', tone: 'emerald', rows: ['keep drainage clear and avoid building on floodplains', 'good planning and maintenance reduce flood exposure'] }}
+        />
+        <Worked
+          title="Get a family ready for an earthquake"
+          steps={[<>Pack an emergency kit. The most useful item for a power cut is a torch with batteries.</>, <>Agree where to meet and how to get a warning: a warning system is an example of preparedness.</>, <>Do this before the hazard, not after.</>]}
+        />
+        <Mistake>Thinking disaster risk reduction is only rescue after a disaster. Most of the work is done before the hazard arrives.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>What causes most earthquakes and volcanoes? Why are some places called volcanic zones?</li>
+            <li>Which hazard is most directly linked to overflowing rivers after heavy rain? Which map best shows global earthquake-prone areas?</li>
+            <li>What does disaster risk reduction aim to do? What is a warning system an example of?</li>
+            <li>Which item is most useful in an earthquake emergency kit? How can settlements reduce flood impact?</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Movement of tectonic plates. They are areas where volcanoes are common.</li>
+            <li>Floods. A tectonic plate map.</li>
+            <li>Reduce damage and protect lives before hazards strike. Preparedness.</li>
+            <li>A torch with batteries. Keep drainage clear and avoid building on floodplains.</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
