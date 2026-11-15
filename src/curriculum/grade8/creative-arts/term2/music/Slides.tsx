@@ -100,22 +100,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>How many layers are playing if a voice, a drum and a marimba play together?</li>
-            <li>A tune moves from E up to G. Is that a step or a skip?</li>
-            <li>The drums are far louder than the voices and marimba. What should you do?</li>
-            <li>What is a listening log used for?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{layers(three)} layers.</li>
-            <li>A {motion('E4', 'G4')}.</li>
-            <li>Lower the {tooLoud(q4band, 3).join(', ').toLowerCase()} and rebalance.</li>
-            <li>To record what you noticed while listening.</li>
-          </ol>
-        }
+        questions={[
+          <>How many layers are playing if a voice, a drum and a marimba play together?</>,
+          <>A tune moves from E up to G. Is that a step or a skip?</>,
+          <>The drums are far louder than the voices and marimba. What should you do?</>,
+          <>What is a listening log used for?</>,
+        ]}
+        answers={[
+          <>{layers(three)} layers.</>,
+          <>A {motion('E4', 'G4')}.</>,
+          <>Lower the {tooLoud(q4band, 3).join(', ').toLowerCase()} and rebalance.</>,
+          <>To record what you noticed while listening.</>,
+        ]}
       />,
     ),
   },

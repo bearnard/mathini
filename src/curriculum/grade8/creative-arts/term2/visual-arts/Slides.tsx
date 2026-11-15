@@ -90,22 +90,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name a principle of design.</li>
-            <li>What creates a pattern in an artwork?</li>
-            <li>In a picture of a vase, which part is the negative space?</li>
-            <li>Why must letters on a printing block be cut backwards?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>For example contrast, balance, emphasis or rhythm.</li>
-            <li>Repeating visual elements.</li>
-            <li>The empty area around the vase.</li>
-            <li>The print is a mirror image of the block.</li>
-          </ol>
-        }
+        questions={[
+          <>Name a principle of design.</>,
+          <>What creates a pattern in an artwork?</>,
+          <>In a picture of a vase, which part is the negative space?</>,
+          <>Why must letters on a printing block be cut backwards?</>,
+        ]}
+        answers={[
+          <>For example contrast, balance, emphasis or rhythm.</>,
+          <>Repeating visual elements.</>,
+          <>The empty area around the vase.</>,
+          <>The print is a mirror image of the block.</>,
+        ]}
       />,
     ),
   },

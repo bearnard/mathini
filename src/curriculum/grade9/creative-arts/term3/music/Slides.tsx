@@ -100,22 +100,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does ternary form return to?</li>
-            <li>A 4-bar ostinato runs under 12 bars. How many times does it repeat?</li>
-            <li>An AB piece has 8 bars in each section. How many bars in all?</li>
-            <li>What is an arrangement?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The opening material, after a contrasting middle section.</li>
-            <li>12 ÷ 4 = {q2} times.</li>
-            <li>2 × 8 = {q3} bars.</li>
-            <li>Existing music adapted for other instruments or voices.</li>
-          </ol>
-        }
+        questions={[
+          <>What does ternary form return to?</>,
+          <>A 4-bar ostinato runs under 12 bars. How many times does it repeat?</>,
+          <>An AB piece has 8 bars in each section. How many bars in all?</>,
+          <>What is an arrangement?</>,
+        ]}
+        answers={[
+          <>The opening material, after a contrasting middle section.</>,
+          <>12 ÷ 4 = {q2} times.</>,
+          <>2 × 8 = {q3} bars.</>,
+          <>Existing music adapted for other instruments or voices.</>,
+        ]}
       />,
     ),
   },

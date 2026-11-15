@@ -111,22 +111,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A {routine.total}-count routine has a beginning of {ROUTINE[0].size} counts and an ending of {ROUTINE[2].size}. How long is the development?</li>
-            <li>A group enters on count {ENTRY.count} and the cue is {ENTRY.lead} count early. On which count is the cue?</li>
-            <li>Give one safe habit for a final practice.</li>
-            <li>Which dance career creates and organises movement?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{routine.total} − {ROUTINE[0].size} − {ROUTINE[2].size} = {ROUTINE[1].size} counts.</li>
-            <li>{ENTRY.count} − {ENTRY.lead} = count {cue}.</li>
-            <li>Any of: warm up, drink water, cool down.</li>
-            <li>A choreographer.</li>
-          </ol>
-        }
+        questions={[
+          <>A {routine.total}-count routine has a beginning of {ROUTINE[0].size} counts and an ending of {ROUTINE[2].size}. How long is the development?</>,
+          <>A group enters on count {ENTRY.count} and the cue is {ENTRY.lead} count early. On which count is the cue?</>,
+          <>Give one safe habit for a final practice.</>,
+          <>Which dance career creates and organises movement?</>,
+        ]}
+        answers={[
+          <>{routine.total} − {ROUTINE[0].size} − {ROUTINE[2].size} = {ROUTINE[1].size} counts.</>,
+          <>{ENTRY.count} − {ENTRY.lead} = count {cue}.</>,
+          <>Any of: warm up, drink water, cool down.</>,
+          <>A choreographer.</>,
+        ]}
       />,
     ),
   },

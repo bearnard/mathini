@@ -107,22 +107,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What interval is A up to D in the G major scale?</li>
-            <li>Which sharps are in the key signature of D major?</li>
-            <li>Which notes make chord IV in G major?</li>
-            <li>Name a good way to be a confident performer on stage.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A, B, C, D: a {q1}th.</li>
-            <li>{dSig.sharps.join(' and ')}.</li>
-            <li>{chords[1].map(pitchName).join(', ')}.</li>
-            <li>Polish your rehearsals and finish with a confident, respectful performance.</li>
-          </ol>
-        }
+        questions={[
+          <>What interval is A up to D in the G major scale?</>,
+          <>Which sharps are in the key signature of D major?</>,
+          <>Which notes make chord IV in G major?</>,
+          <>Name a good way to be a confident performer on stage.</>,
+        ]}
+        answers={[
+          <>A, B, C, D: a {q1}th.</>,
+          <>{dSig.sharps.join(' and ')}.</>,
+          <>{chords[1].map(pitchName).join(', ')}.</>,
+          <>Polish your rehearsals and finish with a confident, respectful performance.</>,
+        ]}
       />,
     ),
   },

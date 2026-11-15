@@ -102,22 +102,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name two things that refinement perfects.</li>
-            <li>A routine is 64 counts at {BPM} beats a minute. How many seconds is that?</li>
-            <li>Three dancers start at counts {together.join(', ')}. Is that unison or a canon?</li>
-            <li>Name two places where dancers can perform for the community.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Timing, clarity, transitions and steady quality.</li>
-            <li>64 × 60 ÷ {BPM} = {dec(q2)} seconds.</li>
-            <li>Unison: every start is the same ({unisonGap(together)} counts apart).</li>
-            <li>School events, cultural celebrations or public showcases.</li>
-          </ol>
-        }
+        questions={[
+          <>Name two things that refinement perfects.</>,
+          <>A routine is 64 counts at {BPM} beats a minute. How many seconds is that?</>,
+          <>Three dancers start at counts {together.join(', ')}. Is that unison or a canon?</>,
+          <>Name two places where dancers can perform for the community.</>,
+        ]}
+        answers={[
+          <>Timing, clarity, transitions and steady quality.</>,
+          <>64 × 60 ÷ {BPM} = {dec(q2)} seconds.</>,
+          <>Unison: every start is the same ({unisonGap(together)} counts apart).</>,
+          <>School events, cultural celebrations or public showcases.</>,
+        ]}
       />,
     ),
   },

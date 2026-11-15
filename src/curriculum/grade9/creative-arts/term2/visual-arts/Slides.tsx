@@ -97,22 +97,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does the design process begin with?</li>
-            <li>What would you collect in a sketchbook while researching a theme?</li>
-            <li>In relief printing, which parts of the block print?</li>
-            <li>Name two craft techniques.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Research, observation and planning before making.</li>
-            <li>Observations, references, colour studies and ideas.</li>
-            <li>The raised parts that are inked; the cut-away parts do not print.</li>
-            <li>For example weaving and batik (also ceramics, metalwork).</li>
-          </ol>
-        }
+        questions={[
+          <>What does the design process begin with?</>,
+          <>What would you collect in a sketchbook while researching a theme?</>,
+          <>In relief printing, which parts of the block print?</>,
+          <>Name two craft techniques.</>,
+        ]}
+        answers={[
+          <>Research, observation and planning before making.</>,
+          <>Observations, references, colour studies and ideas.</>,
+          <>The raised parts that are inked; the cut-away parts do not print.</>,
+          <>For example weaving and batik (also ceramics, metalwork).</>,
+        ]}
       />,
     ),
   },

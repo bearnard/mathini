@@ -106,22 +106,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Why do drama classes begin with warm-ups?</li>
-            <li>What is a tableau?</li>
-            <li>What does improvisation mean?</li>
-            <li>What do stage directions tell actors?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>To prepare the body and voice safely and sharpen focus.</li>
-            <li>A frozen picture made with bodies, showing one dramatic moment.</li>
-            <li>Creating a performance without a fixed script.</li>
-            <li>How to move and act in the scene.</li>
-          </ol>
-        }
+        questions={[
+          <>Why do drama classes begin with warm-ups?</>,
+          <>What is a tableau?</>,
+          <>What does improvisation mean?</>,
+          <>What do stage directions tell actors?</>,
+        ]}
+        answers={[
+          <>To prepare the body and voice safely and sharpen focus.</>,
+          <>A frozen picture made with bodies, showing one dramatic moment.</>,
+          <>Creating a performance without a fixed script.</>,
+          <>How to move and act in the scene.</>,
+        ]}
       />,
     ),
   },

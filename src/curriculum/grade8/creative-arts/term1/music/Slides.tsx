@@ -106,22 +106,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>How many beats are in 3 bars of 4/4?</li>
-            <li>A bar of 4/4 has a minim and a crotchet. What fills the last beat?</li>
-            <li>Which is higher in pitch, E on the bottom line or B on the middle line?</li>
-            <li>Which is louder, mp or f?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>3 × {beatsPerBar('4/4')} = {q1} beats.</li>
-            <li>{q2} more beat: a crotchet or a crotchet rest.</li>
-            <li>B (step {b4}, against step {e4} for E).</li>
-            <li>f, number {loudness('f')} against {loudness('mp')}.</li>
-          </ol>
-        }
+        questions={[
+          <>How many beats are in 3 bars of 4/4?</>,
+          <>A bar of 4/4 has a minim and a crotchet. What fills the last beat?</>,
+          <>Which is higher in pitch, E on the bottom line or B on the middle line?</>,
+          <>Which is louder, mp or f?</>,
+        ]}
+        answers={[
+          <>3 × {beatsPerBar('4/4')} = {q1} beats.</>,
+          <>{q2} more beat: a crotchet or a crotchet rest.</>,
+          <>B (step {b4}, against step {e4} for E).</>,
+          <>f, number {loudness('f')} against {loudness('mp')}.</>,
+        ]}
       />,
     ),
   },

@@ -87,22 +87,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does script writing begin with?</li>
-            <li>Write &quot;Mosa shrugs and says it is always late&quot; in script format.</li>
-            <li>In the 40-minute plan, how long is blocking?</li>
-            <li>Name two things collaboration requires.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Understanding the characters&apos; motives, the conflict and your story.</li>
-            <li>MOSA (shrugging): It is always late.</li>
-            <li>{block} minutes.</li>
-            <li>Any two of: listening, compromising, supporting others, adding ideas.</li>
-          </ol>
-        }
+        questions={[
+          <>What does script writing begin with?</>,
+          <>Write &quot;Mosa shrugs and says it is always late&quot; in script format.</>,
+          <>In the 40-minute plan, how long is blocking?</>,
+          <>Name two things collaboration requires.</>,
+        ]}
+        answers={[
+          <>Understanding the characters&apos; motives, the conflict and your story.</>,
+          <>MOSA (shrugging): It is always late.</>,
+          <>{block} minutes.</>,
+          <>Any two of: listening, compromising, supporting others, adding ideas.</>,
+        ]}
       />,
     ),
   },

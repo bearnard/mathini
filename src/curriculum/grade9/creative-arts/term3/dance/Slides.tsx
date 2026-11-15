@@ -104,22 +104,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What are transitions in choreography?</li>
-            <li>Two sections of {q1.blocks[0].counts} counts have an 8-count link. How many counts altogether?</li>
-            <li>Name two things a rehearsal log helps you do.</li>
-            <li>Technique {SCORES[0].score}, timing {SCORES[1].score}, expression {SCORES[2].score}. Which gap comes first?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Links between sections that flow smoothly.</li>
-            <li>{q1.blocks[0].counts} + 8 + {q1.blocks[2].counts} = {q1.total} counts.</li>
-            <li>Track progress and record what to improve (and what was learned).</li>
-            <li>{weakest.name}, the lowest score.</li>
-          </ol>
-        }
+        questions={[
+          <>What are transitions in choreography?</>,
+          <>Two sections of {q1.blocks[0].counts} counts have an 8-count link. How many counts altogether?</>,
+          <>Name two things a rehearsal log helps you do.</>,
+          <>Technique {SCORES[0].score}, timing {SCORES[1].score}, expression {SCORES[2].score}. Which gap comes first?</>,
+        ]}
+        answers={[
+          <>Links between sections that flow smoothly.</>,
+          <>{q1.blocks[0].counts} + 8 + {q1.blocks[2].counts} = {q1.total} counts.</>,
+          <>Track progress and record what to improve (and what was learned).</>,
+          <>{weakest.name}, the lowest score.</>,
+        ]}
       />,
     ),
   },

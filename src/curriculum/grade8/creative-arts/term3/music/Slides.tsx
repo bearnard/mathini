@@ -108,22 +108,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>How is binary form written, and how is ternary form written?</li>
-            <li>A song goes verse, chorus, verse. Which form is it likely to be?</li>
-            <li>An ostinato of 2 notes is repeated 5 times. How many notes are played?</li>
-            <li>What should you do before writing a whole tune?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Binary: AB. Ternary: ABA.</li>
-            <li>Ternary form, because the first section comes back.</li>
-            <li>2 × 5 = {q3.length} notes, the same pattern each time.</li>
-            <li>Create a short motif.</li>
-          </ol>
-        }
+        questions={[
+          <>How is binary form written, and how is ternary form written?</>,
+          <>A song goes verse, chorus, verse. Which form is it likely to be?</>,
+          <>An ostinato of 2 notes is repeated 5 times. How many notes are played?</>,
+          <>What should you do before writing a whole tune?</>,
+        ]}
+        answers={[
+          <>Binary: AB. Ternary: ABA.</>,
+          <>Ternary form, because the first section comes back.</>,
+          <>2 × 5 = {q3.length} notes, the same pattern each time.</>,
+          <>Create a short motif.</>,
+        ]}
       />,
     ),
   },

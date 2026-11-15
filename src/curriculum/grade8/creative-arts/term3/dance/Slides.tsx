@@ -101,22 +101,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the difference between sharp and smooth energy?</li>
-            <li>Which device has dancers start one after another?</li>
-            <li>Phrase A has {LINK[0].size} counts, the link {LINK[1].size} and phrase B {LINK[2].size}. How many counts altogether?</li>
-            <li>Give one quality of useful peer feedback.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Sharp movement stops suddenly. Smooth movement flows.</li>
-            <li>Canon.</li>
-            <li>{LINK.map((p) => p.size).join(' + ')} = {link.total} counts.</li>
-            <li>Any of: specific, respectful or practical.</li>
-          </ol>
-        }
+        questions={[
+          <>What is the difference between sharp and smooth energy?</>,
+          <>Which device has dancers start one after another?</>,
+          <>Phrase A has {LINK[0].size} counts, the link {LINK[1].size} and phrase B {LINK[2].size}. How many counts altogether?</>,
+          <>Give one quality of useful peer feedback.</>,
+        ]}
+        answers={[
+          <>Sharp movement stops suddenly. Smooth movement flows.</>,
+          <>Canon.</>,
+          <>{LINK.map((p) => p.size).join(' + ')} = {link.total} counts.</>,
+          <>Any of: specific, respectful or practical.</>,
+        ]}
       />,
     ),
   },

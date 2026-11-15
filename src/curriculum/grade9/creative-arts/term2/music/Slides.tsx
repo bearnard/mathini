@@ -97,22 +97,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What happens in call-and-response?</li>
-            <li>Which three notes make the chord on C in C major?</li>
-            <li>What does texture describe?</li>
-            <li>What does ensemble balance mean?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A phrase is answered or echoed by another part.</li>
-            <li>{q2.join(', ')}.</li>
-            <li>How many sounds or layers are heard at one time.</li>
-            <li>All parts are heard at the right volume.</li>
-          </ol>
-        }
+        questions={[
+          <>What happens in call-and-response?</>,
+          <>Which three notes make the chord on C in C major?</>,
+          <>What does texture describe?</>,
+          <>What does ensemble balance mean?</>,
+        ]}
+        answers={[
+          <>A phrase is answered or echoed by another part.</>,
+          <>{q2.join(', ')}.</>,
+          <>How many sounds or layers are heard at one time.</>,
+          <>All parts are heard at the right volume.</>,
+        ]}
       />,
     ),
   },

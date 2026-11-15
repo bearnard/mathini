@@ -83,22 +83,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What does a good portfolio show?</li>
-            <li>Name two finishing techniques.</li>
-            <li>A 200 cm wall holds four works that are 40 cm wide each. How wide is each of the five gaps?</li>
-            <li>Name two creative careers in visual arts.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Your best work, with growth and variety.</li>
-            <li>For example framing and mounting (also protective spray, labelling).</li>
-            <li>Works take 4 × 40 = 160 cm. 200 − 160 = 40 cm, and 40 ÷ 5 = {Q.gap} cm.</li>
-            <li>For example illustrator and curator (also graphic designer, art teacher).</li>
-          </ol>
-        }
+        questions={[
+          <>What does a good portfolio show?</>,
+          <>Name two finishing techniques.</>,
+          <>A 200 cm wall holds four works that are 40 cm wide each. How wide is each of the five gaps?</>,
+          <>Name two creative careers in visual arts.</>,
+        ]}
+        answers={[
+          <>Your best work, with growth and variety.</>,
+          <>For example framing and mounting (also protective spray, labelling).</>,
+          <>Works take 4 × 40 = 160 cm. 200 − 160 = 40 cm, and 40 ÷ 5 = {Q.gap} cm.</>,
+          <>For example illustrator and curator (also graphic designer, art teacher).</>,
+        ]}
       />,
     ),
   },
