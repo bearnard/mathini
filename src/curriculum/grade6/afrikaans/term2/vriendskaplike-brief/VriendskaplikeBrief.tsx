@@ -1,66 +1,104 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, LetterLayout, MeaningPairs, TaggedBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Start with the date and greeting',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A friendly letter usually starts with the <strong>date</strong>, then a warm greeting like
-          <strong> Liewe ...</strong>
-        </p>
-        <span className="inline-flex items-center gap-2 text-2xl font-bold text-indigo-600">
-          Liewe Sara <SpeakButton text="Liewe Sara" />
-        </span>
-      </div>
-    ),
-  },
-  {
-    title: 'Write the message in paragraphs',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          The body tells your friend your news, asks questions, or says thank you.
-        </p>
-        <span className="inline-flex items-center gap-2 text-2xl font-bold text-indigo-600">
-          Hoe gaan dit met jou? <SpeakButton text="Hoe gaan dit met jou?" />
-        </span>
-      </div>
-    ),
-  },
-  {
-    title: 'End in a friendly way',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Close with a friendly ending, then write your name underneath.
-        </p>
-        <span className="inline-flex items-center gap-2 text-2xl font-bold text-indigo-600">
-          Jou maatjie <SpeakButton text="Jou maatjie" />
-        </span>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Say these letter-writing words aloud before planning the format of a friendly letter.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"Beste"} phonetic={"[ˈbɛstə]"} meaning={"Dear"} lang="af" />
-          <PronunciationPlayer word={"Liewe"} phonetic={"[ˈliːvə]"} meaning={"Beloved / dear"} lang="af" />
-          <PronunciationPlayer word={"Datum"} phonetic={"[ˈdɑːtəm]"} meaning={"Date"} lang="af" />
-          <PronunciationPlayer word={"Adres"} phonetic={"[aˈdrɛs]"} meaning={"Address"} lang="af" />
-          <PronunciationPlayer word={"Groete"} phonetic={"[ˈχruətə]"} meaning={"Greetings / regards"} lang="af" />
-          <PronunciationPlayer word={"Vriend"} phonetic={"[friənt]"} meaning={"Friend"} lang="af" />
-        </div>
-      </div>
+    title: 'The five parts of a friendly letter',
+    content: slide(
+      <>
+        <Rule>A friendly letter has five parts, always in this order: <Af>datum, groet, liggaam, afsluiting, naam</Af> <En>date, greeting, body, closing, name</En>.</Rule>
+        <LetterLayout
+          parts={['datum', 'groet', 'liggaam', 'afsluiting', 'naam']}
+          aria="A letter drawn as five strips from top to bottom: datum (date), groet (greeting), liggaam (body, the biggest strip), afsluiting (closing), naam (name)."
+        />
+        <Worked
+          title="Put the parts in order"
+          steps={[
+            <>The date goes <Af>bo-aan die brief</Af> <En>at the top of the letter</En>.</>,
+            <>Then the greeting, then the body with your message.</>,
+            <>Last come the closing and, underneath, your name.</>,
+          ]}
+        />
+        <Mistake>Putting your name before the closing. The closing comes first, then <Af>jou naam</Af> <En>your name</En>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'The date and the greeting',
+    content: slide(
+      <>
+        <Rule>Write the date as day, month, year. Start a friendly letter with <Af>Liewe</Af> <En>dear</En> and the name of your friend.</Rule>
+        <TaggedBoxes
+          items={[{ word: '12', tag: 'day' }, { word: 'Mei', tag: 'month' }, { word: '2024', tag: 'year' }]}
+          aria="The date 12 Mei 2024 as three boxes: 12 is the day, Mei is the month, 2024 is the year."
+        />
+        <Worked
+          title="Date and greeting"
+          steps={[
+            <><Af>12 Mei 2024</Af> <En>12 May 2024</En></>,
+            <><Af>Liewe Sara</Af>, <En>Dear Sara</En> <SpeakButton text="Liewe Sara" /></>,
+          ]}
+        />
+        <Mistake>Using a formal greeting. <Af>Geagte Meneer</Af> is for a formal letter. Do not write the date as <Af>Mei 12, 2024</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'The body: your news',
+    content: slide(
+      <>
+        <Rule>The <Af>liggaam</Af> is your message. Ask a question, tell your news or say thank you. Use short, friendly sentences.</Rule>
+        <MeaningPairs
+          kind="becomes"
+          pairs={[['Hoe gaan dit?', 'ask'], ['Ek mis jou.', 'feelings'], ['Dankie!', 'thank']]}
+          aria="Three kinds of sentence for the body of a letter: Hoe gaan dit asks a question, Ek mis jou shares feelings, Dankie says thank you."
+        />
+        <Worked
+          title="Write the body"
+          steps={[
+            <><Af>Hoe gaan dit met jou?</Af> <En>How are you?</En> <SpeakButton text="Hoe gaan dit met jou?" /></>,
+            <><Af>Ek mis jou baie.</Af> <En>I miss you a lot.</En></>,
+            <><Af>Dankie vir jou brief.</Af> <En>Thank you for your letter.</En></>,
+          ]}
+        />
+        <Mistake>Putting greeting or closing words in the body. <Af>Liewe Ben</Af> and <Af>Jou vriendin</Af> do not belong in the middle of the message.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'The closing and your name',
+    content: slide(
+      <>
+        <Rule>End with a friendly closing such as <Af>Jou maatjie</Af> <En>your pal</En> or <Af>Groete</Af> <En>regards</En>. Then write <strong>your name</strong> underneath.</Rule>
+        <TaggedBoxes
+          items={[{ word: 'Jou maatjie', tag: 'afsluiting' }, { word: 'Sipho', tag: 'naam' }]}
+          aria="A closing and a name as two boxes: Jou maatjie is the closing (afsluiting), Sipho is the name (naam)."
+        />
+        <Worked
+          title="Finish the letter"
+          steps={[
+            <><Af>Jou maatjie,</Af> <SpeakButton text="Jou maatjie" /></>,
+            <>Sipho. The name goes on the line below the closing.</>,
+          ]}
+        />
+        <Mistake>Using a formal closing. <Af>Die uwe</Af> belongs to a formal letter, and <Af>Onderwerp</Af> is a subject line in a formal letter.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Where do you write the date in a friendly letter?</>} answer={<><Af>bo-aan die brief</Af> <En>at the top</En>.</>} />
+        <Check question={<>Which greeting suits a letter to Sara: <Af>Liewe Sara</Af> or <Af>Geagte Meneer</Af>?</>} answer={<><Af>Liewe Sara</Af>.</>} />
+        <Check question={<>What comes after the closing?</>} answer={<><Af>jou naam</Af> <En>your name</En>.</>} />
+        <Check question={<>Put the five parts in order.</>} answer={<><Af>datum, groet, liggaam, afsluiting, naam</Af>.</>} />
+      </>,
     ),
   },
 ];

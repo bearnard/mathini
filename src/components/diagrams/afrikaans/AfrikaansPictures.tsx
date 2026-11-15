@@ -99,8 +99,8 @@ export function PluralPair({ sg, pl, note, count = 3, aria }: { sg: string; pl: 
   );
 }
 
-/** Words that are the same (=) or opposite (↔). Up to 3 pairs, 6 labels. */
-export function MeaningPairs({ pairs, kind, aria }: { pairs: [string, string][]; kind: 'same' | 'opposite'; aria: string }) {
+/** Words that are the same (=), opposite (↔) or that turn into / point to another (→). Up to 3 pairs, 6 labels. */
+export function MeaningPairs({ pairs, kind, aria }: { pairs: [string, string][]; kind: 'same' | 'opposite' | 'becomes'; aria: string }) {
   const rowH = 46;
   return (
     <Wrap aria={aria} w={360} h={rowH * pairs.length + 6}>
@@ -110,9 +110,68 @@ export function MeaningPairs({ pairs, kind, aria }: { pairs: [string, string][];
           <g key={a + b}>
             <rect x={14} y={y} width={132} height={36} rx={9} fill="#e0e7ff" stroke={INDIGO} strokeWidth={2} />
             <text x={80} y={y + 24} textAnchor="middle" fontSize={16} fontWeight={700} fill="#1e293b">{a}</text>
-            <text x={180} y={y + 25} textAnchor="middle" fontSize={22} fontWeight={800} fill={kind === 'same' ? '#047857' : '#be123c'}>{kind === 'same' ? '=' : '↔'}</text>
-            <rect x={214} y={y} width={132} height={36} rx={9} fill={kind === 'same' ? '#d1fae5' : '#ffe4e6'} stroke={kind === 'same' ? GREEN : ROSE} strokeWidth={2} />
+            <text x={180} y={y + 25} textAnchor="middle" fontSize={22} fontWeight={800} fill={kind === 'opposite' ? '#be123c' : kind === 'becomes' ? '#4338ca' : '#047857'}>{kind === 'same' ? '=' : kind === 'opposite' ? '↔' : '→'}</text>
+            <rect x={214} y={y} width={132} height={36} rx={9} fill={kind === 'opposite' ? '#ffe4e6' : kind === 'becomes' ? '#fef3c7' : '#d1fae5'} stroke={kind === 'opposite' ? ROSE : kind === 'becomes' ? YELLOW : GREEN} strokeWidth={2} />
             <text x={280} y={y + 24} textAnchor="middle" fontSize={16} fontWeight={700} fill="#1e293b">{b}</text>
+          </g>
+        );
+      })}
+    </Wrap>
+  );
+}
+
+/** Up to three boxes in a row, each with a small tag underneath. 6 labels. */
+export function TaggedBoxes({ items, aria }: { items: { word: string; tag: string }[]; aria: string }) {
+  const { boxes, width } = layoutBoxes(items.map((i) => i.word));
+  return (
+    <Wrap aria={aria} w={Math.max(width, 200)} h={84}>
+      {boxes.map((b, i) => (
+        <g key={i}>
+          <rect x={b.x} y={8} width={b.w} height={40} rx={9} fill="#e0e7ff" stroke={INDIGO} strokeWidth={2} />
+          <text x={b.x + b.w / 2} y={34} textAnchor="middle" fontSize={16} fontWeight={700} fill="#1e293b">{b.word}</text>
+          <text x={b.x + b.w / 2} y={70} textAnchor="middle" fontSize={13} fontWeight={600} fill={SLATE}>{items[i].tag}</text>
+        </g>
+      ))}
+    </Wrap>
+  );
+}
+
+/** Up to six tiles in order, joined by a line. Each tile is one label. */
+export function OrderTiles({ tiles, aria }: { tiles: string[]; aria: string }) {
+  const colors = [INDIGO, GREEN, YELLOW, ROSE, '#38bdf8', '#a78bfa'];
+  const gap = 8, w = Math.min(96, (344 - gap * (tiles.length - 1)) / tiles.length);
+  return (
+    <Wrap aria={aria} w={360} h={78}>
+      <line x1={14} y1={36} x2={346} y2={36} stroke={SLATE} strokeWidth={2} />
+      {tiles.map((t, i) => {
+        const x = 8 + i * (w + gap);
+        return (
+          <g key={t + i}>
+            <rect x={x} y={12} width={w} height={48} rx={10} fill={colors[i % colors.length]} />
+            <text x={x + w / 2} y={43} textAnchor="middle" fontSize={tiles.length > 4 ? 22 : 20} fontWeight={800} fill="#1e293b">{t}</text>
+          </g>
+        );
+      })}
+    </Wrap>
+  );
+}
+
+/** A letter as five stacked strips, top to bottom. 5 labels. */
+export function LetterLayout({ parts, aria }: { parts: string[]; aria: string }) {
+  const colors = ['#fde68a', '#c7d2fe', '#d1fae5', '#fecdd3', '#e0f2fe'];
+  const heights = [28, 28, 64, 28, 28];
+  const total = 8 + heights.reduce((a, b) => a + b + 6, 0);
+  let y = 8;
+  return (
+    <Wrap aria={aria} w={260} h={total}>
+      <rect x={4} y={2} width={252} height={total - 4} rx={10} fill="#fff" stroke={SLATE} strokeWidth={2} />
+      {parts.map((t, i) => {
+        const top = y;
+        y += heights[i] + 6;
+        return (
+          <g key={t}>
+            <rect x={14} y={top + 2} width={232} height={heights[i]} rx={7} fill={colors[i]} />
+            <text x={130} y={top + 2 + heights[i] / 2 + 5} textAnchor="middle" fontSize={15} fontWeight={700} fill="#1e293b">{t}</text>
           </g>
         );
       })}

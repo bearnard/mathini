@@ -1,65 +1,110 @@
 import AfrikaansTopic from '../../_shared/AfrikaansTopic';
 import { AfrikaansItem, LearnStep } from '../../_shared/types';
 import SpeakButton from '../../_shared/SpeakButton';
-import PronunciationPlayer from '@/components/subjects/PronunciationPlayer';
+import { Check, Mistake, Rule, Worked } from '@/components/subjects/lesson/LessonBlocks';
+import { Af, En, OrderTiles, WordBoxes } from '@/components/diagrams/afrikaans/AfrikaansPictures';
 
-const learnSteps: LearnStep[] = [
-  {
-    title: 'Verb second',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          In a normal Afrikaans statement, the verb usually stands in the second position.
-        </p>
-        <span className="inline-flex items-center text-2xl font-bold text-indigo-600">
-          Ek speel buite <SpeakButton text="Ek speel buite" />
-        </span>
-      </div>
-    ),
-  },
-  {
-    title: 'STOMPI order',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          STOMPI helps you order ideas: subject, time, object, manner, place, and infinitive.
-        </p>
-        <span className="inline-flex items-center text-2xl font-bold text-indigo-600">
-          Ek lees vandag 'n boek <SpeakButton text="Ek lees vandag 'n boek" />
-        </span>
-      </div>
-    ),
-  },
-  {
-    title: 'Inversion after time',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          If a time phrase starts the sentence, the verb stays second and the subject follows it.
-        </p>
-        <span className="inline-flex items-center text-2xl font-bold text-indigo-600">
-          Vandag speel ek buite <SpeakButton text="Vandag speel ek buite" />
-        </span>
-      </div>
-    ),
-  },
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
 
+export const learnSteps: LearnStep[] = [
   {
-    title: "Pronunciation practice",
-    content: (
-      <div className="space-y-4">
-        <p className="text-center text-sm text-gray-600 dark:text-gray-300">
-          Repeat these time and linking words aloud while practising Afrikaans word order.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <PronunciationPlayer word={"eers"} phonetic={"[iərs]"} meaning={"first"} lang="af" />
-          <PronunciationPlayer word={"dan"} phonetic={"[dan]"} meaning={"then"} lang="af" />
-          <PronunciationPlayer word={"omdat"} phonetic={"[ɔmˈdat]"} meaning={"because"} lang="af" />
-          <PronunciationPlayer word={"vandag"} phonetic={"[fanˈdax]"} meaning={"today"} lang="af" />
-          <PronunciationPlayer word={"môre"} phonetic={"[ˈmɔːrə]"} meaning={"tomorrow / morning"} lang="af" />
-          <PronunciationPlayer word={"gister"} phonetic={"[ˈχəstər]"} meaning={"yesterday"} lang="af" />
-        </div>
-      </div>
+    title: 'The verb comes second',
+    content: slide(
+      <>
+        <Rule>In a normal Afrikaans statement the verb is in <strong>second place</strong>. The subject is first.</Rule>
+        <WordBoxes
+          words={['Ek', 'speel', 'buite']}
+          hot={[1]}
+          aria="The sentence Ek speel buite as three boxes. The verb speel is highlighted in second place."
+        />
+        <Worked
+          title="Find the verb"
+          steps={[
+            <><Af>Die kinders sing hard in die klas.</Af> <En>The children sing loudly in class.</En> <SpeakButton text="Die kinders sing hard in die klas." /></>,
+            <>First place: <Af>Die kinders</Af> <En>the subject</En>.</>,
+            <>Second place: <Af>sing</Af> <En>the verb</En>. Then the rest.</>,
+            <>Another: <Af>Die hond slaap op die mat.</Af> <En>The dog sleeps on the mat.</En> The verb <Af>slaap</Af> is second.</>,
+          ]}
+        />
+        <Mistake>Putting the verb late. <Af>Ek vandag speel buite</Af> is wrong. Say <Af>Ek speel vandag buite</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'STOMPI: the order of the rest',
+    content: slide(
+      <>
+        <Rule><strong>STOMPI</strong> gives the order: <strong>S</strong>ubject, <strong>T</strong>ime, <strong>O</strong>bject, <strong>M</strong>anner, <strong>P</strong>lace, <strong>I</strong>nfinitive. The verb sits right after the subject.</Rule>
+        <OrderTiles
+          tiles={['S', 'T', 'O', 'M', 'P', 'I']}
+          aria="Six tiles in order: S for subject, T for time, O for object, M for manner, P for place, I for infinitive."
+        />
+        <Worked
+          title="Sort the parts"
+          steps={[
+            <><Af>Ek lees vandag 'n boek.</Af> <En>I read a book today.</En> Subject <Af>Ek</Af>, verb <Af>lees</Af>, time <Af>vandag</Af>, object <Af>'n boek</Af>.</>,
+            <><Af>Ons eet vanaand pizza.</Af> <En>We eat pizza tonight.</En> <SpeakButton text="Ons eet vanaand pizza." /></>,
+            <><Af>My ma koop brood by die winkel.</Af> <En>My mom buys bread at the shop.</En> Object, then place.</>,
+          ]}
+        />
+        <Mistake>Mixing the order, such as place before time. <Af>Ek speel buite vandag</Af> breaks STOMPI. Say <Af>Ek speel vandag buite</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Start with time: the verb stays second',
+    content: slide(
+      <>
+        <Rule>When a time word or phrase starts the sentence, the verb still stays second. The subject comes <strong>after</strong> the verb.</Rule>
+        <WordBoxes
+          words={['Vandag', 'speel', 'ek', 'buite']}
+          hot={[1]}
+          bracket={[1, 2]}
+          aria="The sentence Vandag speel ek buite as four boxes. The verb speel is highlighted and a bracket joins the verb and the subject ek, which come right after the time word."
+        />
+        <Worked
+          title="Move the time to the front"
+          steps={[
+            <><Af>Ek speel buite.</Af> becomes <Af>Vandag speel ek buite.</Af> <En>Today I play outside.</En> <SpeakButton text="Vandag speel ek buite." /></>,
+            <><Af>Na skool speel hulle sokker.</Af> <En>After school they play soccer.</En> The time phrase <Af>Na skool</Af> is first, then the verb.</>,
+            <><Af>Gister het ek huiswerk gedoen.</Af> <En>Yesterday I did homework.</En> Here <Af>het</Af> is second.</>,
+          ]}
+        />
+        <Mistake>Keeping the subject in front of the verb. <Af>Vandag ek speel buite</Af> is wrong. Say <Af>Vandag speel ek buite</Af>.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Test a sentence',
+    content: slide(
+      <>
+        <Rule>Check in two steps. First, is the verb in second place? Second, does the rest follow STOMPI?</Rule>
+        <WordBoxes
+          words={['Sy', 'lees', 'saans', "'n boek"]}
+          hot={[1]}
+          aria="The sentence Sy lees saans 'n boek as four boxes, with the verb lees highlighted in second place."
+        />
+        <Worked
+          title="Which one is correct?"
+          steps={[
+            <><Af>Sy saans lees 'n boek</Af>: the verb <Af>lees</Af> is third. Wrong.</>,
+            <><Af>Lees sy saans 'n boek</Af>: the verb is first, like a question. Wrong.</>,
+            <><Af>Sy lees saans 'n boek</Af> <En>She reads a book in the evening</En>: verb second, time before object. Correct. <SpeakButton text="Sy lees saans 'n boek." /></>,
+          ]}
+        />
+        <Mistake>Moving words around until it sounds like English. Count the places: the verb must be second.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question={<>Which is correct: <Af>Ek speel vandag buite</Af> or <Af>Ek vandag speel buite</Af>?</>} answer={<><Af>Ek speel vandag buite</Af>: the verb is second.</>} />
+        <Check question={<>Start with <Af>Môre</Af>: <Af>Môre gaan ons skool toe</Af> or <Af>Môre ons gaan skool toe</Af>?</>} answer={<><Af>Môre gaan ons skool toe</Af>: the verb stays second.</>} />
+        <Check question={<>What does the T in STOMPI stand for?</>} answer={<>Time.</>} />
+        <Check question={<>Put in order: <Af>Gister</Af>, <Af>ek</Af>, <Af>het</Af>, <Af>huiswerk gedoen</Af>.</>} answer={<><Af>Gister het ek huiswerk gedoen</Af>.</>} />
+      </>,
     ),
   },
 ];
