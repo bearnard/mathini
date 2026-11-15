@@ -1,35 +1,136 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { MathematicsItem, LearnStep } from '../../_shared/types';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { CrossingLines, ParallelTransversal, QuadrilateralAngles, TriangleAngles } from '../../../../../components/diagrams/maths/Grade9Geometry';
+import { PICTURE_COLORS } from '../../../../../components/diagrams/maths/Grade7Pictures';
+import { isosceles, missingAngle, polygonAngleSum, supplement, thirdAngle } from '../../../../../components/diagrams/maths/grade9GeometryHelpers';
 
-const learnSteps: LearnStep[] = [
+// Every number in the slides below comes from these tested helpers (grade9GeometryHelpers.test.ts, lessonsMaths9.test.ts).
+const { indigo: I, green: E, amber: A } = PICTURE_COLORS;
+const r = (text: string) => <span className="text-slate-500">({text})</span>;
+
+// slide 1: lines crossing
+const cross = { given: 50, adjacent: supplement(50) };
+
+// slide 2: parallel lines
+const par = { given: 65, co: supplement(65) };
+
+// slide 3: triangles
+const tri = { a: 45, b: 65, c: thirdAngle(45, 65), ext: 45 + thirdAngle(45, 65) };
+const iso = isosceles(50);
+
+// slide 4: quadrilaterals and polygons
+const quad = missingAngle(4, [70, 90, 80]);
+const penta = polygonAngleSum(5);
+
+// "Check yourself"
+const c1 = supplement(112);
+const c2 = supplement(74);
+const c3 = thirdAngle(38, 90);
+const c4 = { sum: polygonAngleSum(6), each: polygonAngleSum(6) / 6 };
+
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Properties of Triangles and Quadrilaterals',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Understand angle sums, side relationships, and classification of triangles and quadrilaterals.
-        </p>
-      </div>
+    title: 'Angles on a straight line and vertically opposite angles',
+    content: slide(
+      <>
+        <Rule>Angles on a straight line add up to 180°. When two lines cross, the vertically opposite angles are equal.</Rule>
+        <CrossingLines angle={cross.given} />
+        <Worked
+          title={`Two lines cross. One angle is ${cross.given}°.`}
+          steps={[
+            <>The angle next to it: 180° − {cross.given}° = <strong>{cross.adjacent}°</strong> {r('∠s on a str line')}.</>,
+            <>The angle opposite the {cross.given}° angle is <strong>{cross.given}°</strong> {r('vert opp ∠s')}.</>,
+            <>Check: {cross.given}° + {cross.adjacent}° + {cross.given}° + {cross.adjacent}° = 360° {r('∠s round a point')}.</>,
+          ]}
+        />
+        <Mistake>Vertically opposite angles are not the ones side by side. Those are adjacent and add up to 180°; the opposite pair is equal.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Angle Relationships with Lines',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Learn about vertically opposite angles, corresponding angles, and co-interior angles.
-        </p>
-      </div>
+    title: 'Parallel lines cut by a transversal',
+    content: slide(
+      <>
+        <Rule>When a line cuts two parallel lines, corresponding angles are equal, alternate angles are equal, and co-interior angles add up to 180°.</Rule>
+        <ParallelTransversal
+          angle={par.given}
+          marks={[
+            { line: 'top', corner: 'ur', color: I, label: `${par.given}°` },
+            { line: 'bottom', corner: 'ur', color: E, label: `${par.given}°` },
+            { line: 'top', corner: 'lr', color: A, label: `${par.co}°` },
+          ]}
+          aria={`Two parallel lines cut by a transversal. On the top line the upper-right angle is ${par.given}°. On the bottom line the upper-right angle, the corresponding angle, is also ${par.given}°. On the top line the lower-right angle is ${par.co}°; it is co-interior with the bottom ${par.given}° angle, and ${par.co}° + ${par.given}° = 180°.`}
+        />
+        <Worked
+          steps={[
+            <>Corresponding angle at the bottom line: <strong>{par.given}°</strong> {r('corr ∠s, lines ∥')}.</>,
+            <>Alternate angles sit on opposite sides of the transversal, between the lines: they are also equal {r('alt ∠s, lines ∥')}.</>,
+            <>Co-interior angle: 180° − {par.given}° = <strong>{par.co}°</strong> {r('co-int ∠s, lines ∥')}.</>,
+          ]}
+        />
+        <Mistake>Co-interior angles are not equal. They lie on the same side of the transversal, between the lines, and add up to 180°.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Deductive Geometry Reasoning',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Solve geometry problems by providing step-by-step reasoning with geometric properties and theorems.
-        </p>
-      </div>
+    title: 'Angles of a triangle',
+    content: slide(
+      <>
+        <Rule>The angles of a triangle add up to 180°. An exterior angle equals the sum of the two interior opposite angles. In an isosceles triangle the base angles are equal.</Rule>
+        <TriangleAngles left={tri.a} right={tri.b} exterior />
+        <Worked
+          steps={[
+            <>Two angles are {tri.a}° and {tri.b}°: third angle = 180° − {tri.a}° − {tri.b}° = <strong>{tri.c}°</strong> {r('sum of ∠s in △')}.</>,
+            <>Exterior angle at the {tri.b}° corner: {tri.a}° + {tri.c}° = <strong>{tri.ext}°</strong>, the same as 180° − {tri.b}° {r('ext ∠ of △')}.</>,
+            <>Isosceles, one base angle {iso.other}°: the other base angle is <strong>{iso.other}°</strong>, and the third is 180° − 2 × {iso.other}° = {iso.apex}°.</>,
+          ]}
+        />
+        <Mistake>The equal angles of an isosceles triangle are the base angles, opposite the equal sides. The third angle is usually different: here {iso.apex}°, not {iso.other}°.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Angles of quadrilaterals and other polygons',
+    content: slide(
+      <>
+        <Rule>A diagonal cuts a quadrilateral into two triangles, so its angles add up to 2 × 180° = 360°. An n-sided polygon has angles that add up to (n − 2) × 180°.</Rule>
+        <QuadrilateralAngles angles={[70, 90, 80, quad.missing]} labels={['70°', '90°', '80°', 'x']} />
+        <Worked
+          title="A quadrilateral has angles 70°, 90°, 80° and x."
+          steps={[
+            <>70° + 90° + 80° = {quad.known}°.</>,
+            <>x = {quad.sum}° − {quad.known}° = <strong>{quad.missing}°</strong> {r('sum of ∠s in quad')}.</>,
+            <>A pentagon (5 sides): (5 − 2) × 180° = <strong>{penta}°</strong>.</>,
+          ]}
+        />
+        <Mistake>A quadrilateral&apos;s angles do not add up to 180°. That is a triangle. Four angles need 360°.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <Check
+        question={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>Two angles lie on a straight line. One is 112°. Find the other.</li>
+            <li>Two parallel lines are cut by a transversal. One angle is 74°. Find its co-interior angle.</li>
+            <li>A right-angled triangle has a 38° angle. Find the third angle.</li>
+            <li>Find the sum of the angles of a hexagon, and each angle of a regular hexagon.</li>
+          </ol>
+        }
+        answer={
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>180° − 112° = {c1}°</li>
+            <li>180° − 74° = {c2}°</li>
+            <li>180° − 90° − 38° = {c3}°</li>
+            <li>(6 − 2) × 180° = {c4.sum}°; {c4.sum}° ÷ 6 = {c4.each}°</li>
+          </ol>
+        }
+      />,
     ),
   },
 ];
