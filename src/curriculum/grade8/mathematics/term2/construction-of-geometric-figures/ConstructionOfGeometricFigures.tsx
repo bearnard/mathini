@@ -117,22 +117,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A ray makes an angle of 115° with a straight line. What is the other angle?</li>
-            <li>A triangle has sides 7 cm, 4 cm and 7 cm. What type of triangle is it?</li>
-            <li>Can you construct a triangle with sides 3 cm, 4 cm and 9 cm? Why?</li>
-            <li>Two angles of a triangle are 48° and 67°. Find the third angle.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>180° − 115° = {c1}°.</li>
-            <li>{c2[0].toUpperCase() + c2.slice(1)}: two sides are equal.</li>
-            <li>{c3 ? 'Yes' : 'No'}: 3 + 4 = 7, which is less than 9, so the arcs do not meet.</li>
-            <li>180° − 48° − 67° = {c4}°.</li>
-          </ol>
-        }
+        questions={[
+          <>A ray makes an angle of 115° with a straight line. What is the other angle?</>,
+          <>A triangle has sides 7 cm, 4 cm and 7 cm. What type of triangle is it?</>,
+          <>Can you construct a triangle with sides 3 cm, 4 cm and 9 cm? Why?</>,
+          <>Two angles of a triangle are 48° and 67°. Find the third angle.</>,
+        ]}
+        answers={[
+          <>180° − 115° = {c1}°.</>,
+          <>{c2[0].toUpperCase() + c2.slice(1)}: two sides are equal.</>,
+          <>{c3 ? 'Yes' : 'No'}: 3 + 4 = 7, which is less than 9, so the arcs do not meet.</>,
+          <>180° − 48° − 67° = {c4}°.</>,
+        ]}
       />,
     ),
   },

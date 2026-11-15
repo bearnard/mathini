@@ -115,22 +115,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Write 90 as a product of primes.</li>
-            <li>Find the HCF and LCM of 12 and 18.</li>
-            <li>Simplify the ratio 18 : 30.</li>
-            <li>A bus travels 150 km in 2 hours. What is its average rate?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>90 = {check.f90.join(' × ')}.</li>
-            <li>HCF = {check.v.hcf} (shared {check.v.common.join(' × ')}). LCM = {check.v.lcm}.</li>
-            <li>{check.ratio.a} : {check.ratio.b} (divide by {check.ratio.by}).</li>
-            <li>150 ÷ 2 = {check.rate} km/h.</li>
-          </ol>
-        }
+        questions={[
+          <>Write 90 as a product of primes.</>,
+          <>Find the HCF and LCM of 12 and 18.</>,
+          <>Simplify the ratio 18 : 30.</>,
+          <>A bus travels 150 km in 2 hours. What is its average rate?</>,
+        ]}
+        answers={[
+          <>90 = {check.f90.join(' × ')}.</>,
+          <>HCF = {check.v.hcf} (shared {check.v.common.join(' × ')}). LCM = {check.v.lcm}.</>,
+          <>{check.ratio.a} : {check.ratio.b} (divide by {check.ratio.by}).</>,
+          <>150 ÷ 2 = {check.rate} km/h.</>,
+        ]}
       />,
     ),
   },

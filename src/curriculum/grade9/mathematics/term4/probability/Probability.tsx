@@ -122,22 +122,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A box has 4 green and 6 yellow counters. Find P(green).</li>
-            <li>The probability of rain tomorrow is 0,85. What is the probability of no rain?</li>
-            <li>A coin is tossed and a die is rolled. How many outcomes are there, and what is P(H and 6)?</li>
-            <li>What is the probability of drawing an ace from a deck of 52 cards?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>4/10 = {frac(q1.simplest)}</li>
-            <li>1 − 0,85 = {sa(q2)}</li>
-            <li>2 × 6 = {q3.length} outcomes; P(H6) = {frac(q3p.simplest)}</li>
-            <li>4/52 = {frac(q4.simplest)}</li>
-          </ol>
-        }
+        questions={[
+          <>A box has 4 green and 6 yellow counters. Find P(green).</>,
+          <>The probability of rain tomorrow is 0,85. What is the probability of no rain?</>,
+          <>A coin is tossed and a die is rolled. How many outcomes are there, and what is P(H and 6)?</>,
+          <>What is the probability of drawing an ace from a deck of 52 cards?</>,
+        ]}
+        answers={[
+          <>4/10 = {frac(q1.simplest)}</>,
+          <>1 − 0,85 = {sa(q2)}</>,
+          <>2 × 6 = {q3.length} outcomes; P(H6) = {frac(q3p.simplest)}</>,
+          <>4/52 = {frac(q4.simplest)}</>,
+        ]}
       />,
     ),
   },

@@ -177,22 +177,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Is (4, 10) on the line y = 3x − 2?</li>
-            <li>Find both intercepts of y = −3x + 6.</li>
-            <li>Find the gradient of the line through (0, 1) and (2, 7).</li>
-            <li>Which graph is U-shaped: y = 2x + 1 or y = x{sq}?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>3 × 4 − 2 = {c1}, so {c1 === 10 ? 'yes' : 'no'}.</li>
-            <li>y-intercept {c2.y}; x-intercept {c2.x} (0 = −3x + 6).</li>
-            <li>(7 − 1) ÷ (2 − 0) = {c3.rise} ÷ {c3.run} = {c3.m}</li>
-            <li>y = x{sq}, a parabola.</li>
-          </ol>
-        }
+        questions={[
+          <>Is (4, 10) on the line y = 3x − 2?</>,
+          <>Find both intercepts of y = −3x + 6.</>,
+          <>Find the gradient of the line through (0, 1) and (2, 7).</>,
+          <>Which graph is U-shaped: y = 2x + 1 or y = x{sq}?</>,
+        ]}
+        answers={[
+          <>3 × 4 − 2 = {c1}, so {c1 === 10 ? 'yes' : 'no'}.</>,
+          <>y-intercept {c2.y}; x-intercept {c2.x} (0 = −3x + 6).</>,
+          <>(7 − 1) ÷ (2 − 0) = {c3.rise} ÷ {c3.run} = {c3.m}</>,
+          <>y = x{sq}, a parabola.</>,
+        ]}
       />,
     ),
   },

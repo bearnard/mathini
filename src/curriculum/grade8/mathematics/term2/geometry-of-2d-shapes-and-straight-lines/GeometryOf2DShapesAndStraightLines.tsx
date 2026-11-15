@@ -96,22 +96,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Two lines cross and one angle is 72°. Find the other three angles.</li>
-            <li>A transversal cuts two parallel lines and one angle is 128°. Find its alternate angle and a co-interior angle.</li>
-            <li>A triangle has interior angles 35° and 75°. Find the exterior angle opposite them.</li>
-            <li>Three angles of a quadrilateral are 100°, 85° and 95°. Find the fourth.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{c1[1]}°, {c1[2]}° and {c1[3]}°.</li>
-            <li>Alternate: {c2.alternate}°. Co-interior: 180° − 128° = {c2.coInterior}°.</li>
-            <li>35° + 75° = {c3}°.</li>
-            <li>360° − 100° − 85° − 95° = {c4}°.</li>
-          </ol>
-        }
+        questions={[
+          <>Two lines cross and one angle is 72°. Find the other three angles.</>,
+          <>A transversal cuts two parallel lines and one angle is 128°. Find its alternate angle and a co-interior angle.</>,
+          <>A triangle has interior angles 35° and 75°. Find the exterior angle opposite them.</>,
+          <>Three angles of a quadrilateral are 100°, 85° and 95°. Find the fourth.</>,
+        ]}
+        answers={[
+          <>{c1[1]}°, {c1[2]}° and {c1[3]}°.</>,
+          <>Alternate: {c2.alternate}°. Co-interior: 180° − 128° = {c2.coInterior}°.</>,
+          <>35° + 75° = {c3}°.</>,
+          <>360° − 100° − 85° − 95° = {c4}°.</>,
+        ]}
       />,
     ),
   },

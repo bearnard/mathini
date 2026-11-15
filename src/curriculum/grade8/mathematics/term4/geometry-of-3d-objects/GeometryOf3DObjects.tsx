@@ -137,22 +137,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Count the faces, edges and vertices of a hexagonal prism.</li>
-            <li>Count the faces of a triangular pyramid.</li>
-            <li>Check your answer to question 1 with Euler&apos;s formula.</li>
-            <li>Which solid has 2 circular faces and 1 curved surface?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{c1.faces} faces (2 hexagons, 6 rectangles), {c1.edges} edges, {c1.vertices} vertices.</li>
-            <li>{c2.faces} faces (1 triangular base and 3 triangles).</li>
-            <li>{c1.vertices} − {c1.edges} + {c1.faces} = {c3} ✓.</li>
-            <li>A cylinder.</li>
-          </ol>
-        }
+        questions={[
+          <>Count the faces, edges and vertices of a hexagonal prism.</>,
+          <>Count the faces of a triangular pyramid.</>,
+          <>Check your answer to question 1 with Euler&apos;s formula.</>,
+          <>Which solid has 2 circular faces and 1 curved surface?</>,
+        ]}
+        answers={[
+          <>{c1.faces} faces (2 hexagons, 6 rectangles), {c1.edges} edges, {c1.vertices} vertices.</>,
+          <>{c2.faces} faces (1 triangular base and 3 triangles).</>,
+          <>{c1.vertices} − {c1.edges} + {c1.faces} = {c3} ✓.</>,
+          <>A cylinder.</>,
+        ]}
       />,
     ),
   },

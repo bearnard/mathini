@@ -132,22 +132,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Calculate 0,47 × 100 and 3,8 + 1,25.</li>
-            <li>Write <F n={2} d={5} /> as a decimal.</li>
-            <li>Calculate <F n={3} d={4} /> − <F n={1} d={8} />.</li>
-            <li>Find <F n={3} d={4} /> of R36.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{dc(c1)} and {dc(c2)} (3,80 + 1,25).</li>
-            <li><F n={2} d={5} /> = <F n={c3.over} d={c3.pow} /> = {dc(c3.value)}.</li>
-            <li><F n={c4.a} d={c4.d} /> − <F n={c4.b} d={c4.d} /> = <F n={c4.n} d={c4.d} />.</li>
-            <li>R36 ÷ 4 = R{c5.one}, × 3 = R{c5.result}.</li>
-          </ol>
-        }
+        questions={[
+          <>Calculate 0,47 × 100 and 3,8 + 1,25.</>,
+          <>Write <F n={2} d={5} /> as a decimal.</>,
+          <>Calculate <F n={3} d={4} /> − <F n={1} d={8} />.</>,
+          <>Find <F n={3} d={4} /> of R36.</>,
+        ]}
+        answers={[
+          <>{dc(c1)} and {dc(c2)} (3,80 + 1,25).</>,
+          <><F n={2} d={5} /> = <F n={c3.over} d={c3.pow} /> = {dc(c3.value)}.</>,
+          <><F n={c4.a} d={c4.d} /> − <F n={c4.b} d={c4.d} /> = <F n={c4.n} d={c4.d} />.</>,
+          <>R36 ÷ 4 = R{c5.one}, × 3 = R{c5.result}.</>,
+        ]}
       />,
     ),
   },

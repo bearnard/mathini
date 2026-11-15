@@ -153,22 +153,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Order {[-3, 5, -10, 0].map(S).join(', ')} from smallest to biggest.</li>
-            <li>Calculate {S(-11)} + 6.</li>
-            <li>Calculate ({S(-3)}) × ({S(-8)}) and ({S(-36)}) ÷ 4.</li>
-            <li>Calculate 20 + 4 × ({S(-2)} − 3).</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{c1.map(S).join(', ')}.</li>
-            <li>{S(c2)}: start at {S(-11)} and move 6 right.</li>
-            <li>{c3.m} (same signs) and {S(c3.d)} (different signs).</li>
-            <li>Brackets: {S(-2)} − 3 = {S(c4.inner)}. Then 4 × ({S(c4.inner)}) = {S(4 * c4.inner)}, and 20 + ({S(4 * c4.inner)}) = {c4.r}.</li>
-          </ol>
-        }
+        questions={[
+          <>Order {[-3, 5, -10, 0].map(S).join(', ')} from smallest to biggest.</>,
+          <>Calculate {S(-11)} + 6.</>,
+          <>Calculate ({S(-3)}) × ({S(-8)}) and ({S(-36)}) ÷ 4.</>,
+          <>Calculate 20 + 4 × ({S(-2)} − 3).</>,
+        ]}
+        answers={[
+          <>{c1.map(S).join(', ')}.</>,
+          <>{S(c2)}: start at {S(-11)} and move 6 right.</>,
+          <>{c3.m} (same signs) and {S(c3.d)} (different signs).</>,
+          <>Brackets: {S(-2)} − 3 = {S(c4.inner)}. Then 4 × ({S(c4.inner)}) = {S(4 * c4.inner)}, and 20 + ({S(4 * c4.inner)}) = {c4.r}.</>,
+        ]}
       />,
     ),
   },

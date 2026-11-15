@@ -105,22 +105,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Find the perimeter and area of a rectangle 9 cm by 4 cm.</li>
-            <li>Find the perimeter and area of a square with side 6 cm.</li>
-            <li>An L-shape is a 5 × 4 rectangle with a 2 × 4 rectangle added. What is its area?</li>
-            <li>Which unit goes with area: cm, cm² or km/h?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Perimeter 2 × (9 + 4) = {check.r.perimeter} cm. Area 9 × 4 = {check.r.area} cm².</li>
-            <li>Perimeter 4 × 6 = {check.s.perimeter} cm. Area 6 × 6 = {check.s.area} cm².</li>
-            <li>{check.l.area1} + {check.l.area2} = {check.l.area} cm².</li>
-            <li>cm², because area counts squares.</li>
-          </ol>
-        }
+        questions={[
+          <>Find the perimeter and area of a rectangle 9 cm by 4 cm.</>,
+          <>Find the perimeter and area of a square with side 6 cm.</>,
+          <>An L-shape is a 5 × 4 rectangle with a 2 × 4 rectangle added. What is its area?</>,
+          <>Which unit goes with area: cm, cm² or km/h?</>,
+        ]}
+        answers={[
+          <>Perimeter 2 × (9 + 4) = {check.r.perimeter} cm. Area 9 × 4 = {check.r.area} cm².</>,
+          <>Perimeter 4 × 6 = {check.s.perimeter} cm. Area 6 × 6 = {check.s.area} cm².</>,
+          <>{check.l.area1} + {check.l.area2} = {check.l.area} cm².</>,
+          <>cm², because area counts squares.</>,
+        ]}
       />,
     ),
   },

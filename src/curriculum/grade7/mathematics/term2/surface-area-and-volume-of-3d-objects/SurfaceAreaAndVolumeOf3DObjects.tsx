@@ -107,22 +107,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A cube-shaped gift box has edges of 5 cm. Find its surface area and its volume.</li>
-            <li>Find the surface area of a box 4 cm × 2 cm × 3 cm.</li>
-            <li>Find the volume of the same box.</li>
-            <li>Every edge of a cube is made 3 times as long. How many times as big is the volume?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>SA = 6 × 5 × 5 = {check.cube.surface} cm². Volume = 5 × 5 × 5 = {check.cube.volume} cm³.</li>
-            <li>2 × ({check.prism.lb} + {check.prism.lh} + {check.prism.bh}) = {check.prism.surface} cm².</li>
-            <li>4 × 2 × 3 = {check.prism.volume} cm³.</li>
-            <li>3 × 3 × 3 = {check.scale} times.</li>
-          </ol>
-        }
+        questions={[
+          <>A cube-shaped gift box has edges of 5 cm. Find its surface area and its volume.</>,
+          <>Find the surface area of a box 4 cm × 2 cm × 3 cm.</>,
+          <>Find the volume of the same box.</>,
+          <>Every edge of a cube is made 3 times as long. How many times as big is the volume?</>,
+        ]}
+        answers={[
+          <>SA = 6 × 5 × 5 = {check.cube.surface} cm². Volume = 5 × 5 × 5 = {check.cube.volume} cm³.</>,
+          <>2 × ({check.prism.lb} + {check.prism.lh} + {check.prism.bh}) = {check.prism.surface} cm².</>,
+          <>4 × 2 × 3 = {check.prism.volume} cm³.</>,
+          <>3 × 3 × 3 = {check.scale} times.</>,
+        ]}
       />,
     ),
   },

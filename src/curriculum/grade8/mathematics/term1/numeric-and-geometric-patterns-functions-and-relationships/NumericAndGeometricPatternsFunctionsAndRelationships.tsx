@@ -129,22 +129,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Find the next term and the rule T<sub>n</sub> of {c1.join(', ')}, …</li>
-            <li>Is {c2.join(', ')}, … linear or geometric? Give the next term.</li>
-            <li>If y = 4x − 3, find y when x = 5.</li>
-            <li>What is the 6th square number?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Difference {c1r.d}: next term {linearValue(c1r.d, c1r.c, 5)}; T<sub>n</sub> = {linearText(c1r.d, c1r.c)}.</li>
-            <li>Geometric (×{c2r}); the next term is {c2[2] * c2r}.</li>
-            <li>y = 4 × 5 − 3 = {c3}.</li>
-            <li>6² = {6 * 6}.</li>
-          </ol>
-        }
+        questions={[
+          <>Find the next term and the rule T<sub>n</sub> of {c1.join(', ')}, …</>,
+          <>Is {c2.join(', ')}, … linear or geometric? Give the next term.</>,
+          <>If y = 4x − 3, find y when x = 5.</>,
+          <>What is the 6th square number?</>,
+        ]}
+        answers={[
+          <>Difference {c1r.d}: next term {linearValue(c1r.d, c1r.c, 5)}; T<sub>n</sub> = {linearText(c1r.d, c1r.c)}.</>,
+          <>Geometric (×{c2r}); the next term is {c2[2] * c2r}.</>,
+          <>y = 4 × 5 − 3 = {c3}.</>,
+          <>6² = {6 * 6}.</>,
+        ]}
       />,
     ),
   },

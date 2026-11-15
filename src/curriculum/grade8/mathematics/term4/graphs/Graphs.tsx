@@ -118,20 +118,16 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>In which quadrants are {pt(3, -4)} and {pt(-5, -1)}?</li>
-            <li>Where does every point with x = 0 lie?</li>
-            <li>Find y for x = 1, 2, 3 if y = 3x + 1. Is the graph increasing or decreasing?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{pt(3, -4)}: {Q[c1]}. {pt(-5, -1)}: {Q[c2]}.</li>
-            <li>On the y-axis.</li>
-            <li>y = {c3.join(', ')}. y increases as x increases, so the graph is increasing.</li>
-          </ol>
-        }
+        questions={[
+          <>In which quadrants are {pt(3, -4)} and {pt(-5, -1)}?</>,
+          <>Where does every point with x = 0 lie?</>,
+          <>Find y for x = 1, 2, 3 if y = 3x + 1. Is the graph increasing or decreasing?</>,
+        ]}
+        answers={[
+          <>{pt(3, -4)}: {Q[c1]}. {pt(-5, -1)}: {Q[c2]}.</>,
+          <>On the y-axis.</>,
+          <>y = {c3.join(', ')}. y increases as x increases, so the graph is increasing.</>,
+        ]}
       />,
     ),
   },

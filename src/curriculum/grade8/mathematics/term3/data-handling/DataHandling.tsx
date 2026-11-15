@@ -123,20 +123,16 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>For {c1.join(', ')} find the mean, median, mode and range.</li>
-            <li>Rainfall in mm on 30 days: bar graph or histogram?</li>
-            <li>9 of 36 learners walk to school. What percentage is that?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Mean {sum(c1)} ÷ 5 = {dc(c1s.mean)}; sorted {sorted(c1).join(', ')}, so median {dc(c1s.median)}; mode {c1s.mode.join(', ')}; range {c1s.range}.</li>
-            <li>A histogram: rainfall is measured, continuous data.</li>
-            <li>9 ÷ 36 = {dc(c2.decimal)} = {c2.percent}%.</li>
-          </ol>
-        }
+        questions={[
+          <>For {c1.join(', ')} find the mean, median, mode and range.</>,
+          <>Rainfall in mm on 30 days: bar graph or histogram?</>,
+          <>9 of 36 learners walk to school. What percentage is that?</>,
+        ]}
+        answers={[
+          <>Mean {sum(c1)} ÷ 5 = {dc(c1s.mean)}; sorted {sorted(c1).join(', ')}, so median {dc(c1s.median)}; mode {c1s.mode.join(', ')}; range {c1s.range}.</>,
+          <>A histogram: rainfall is measured, continuous data.</>,
+          <>9 ÷ 36 = {dc(c2.decimal)} = {c2.percent}%.</>,
+        ]}
       />,
     ),
   },

@@ -145,22 +145,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name every number set that 0 belongs to. Do the same for −3/4.</li>
-            <li>Calculate −9 − (−4) + 2 × (−3).</li>
-            <li>Calculate (−3) × 8 ÷ (−6).</li>
-            <li>Write 5/8 as a decimal.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>0: {c1a}. −3/4: {c1b} only.</li>
-            <li>2 × (−3) = {S(c2.times)} first; −9 + 4 − 6 = {S(c2.r)}.</li>
-            <li>(−3) × 8 = {S(c3.first)}; {S(c3.first)} ÷ (−6) = {S(c3.r)}.</li>
-            <li>{c4.decimal}</li>
-          </ol>
-        }
+        questions={[
+          <>Name every number set that 0 belongs to. Do the same for −3/4.</>,
+          <>Calculate −9 − (−4) + 2 × (−3).</>,
+          <>Calculate (−3) × 8 ÷ (−6).</>,
+          <>Write 5/8 as a decimal.</>,
+        ]}
+        answers={[
+          <>0: {c1a}. −3/4: {c1b} only.</>,
+          <>2 × (−3) = {S(c2.times)} first; −9 + 4 − 6 = {S(c2.r)}.</>,
+          <>(−3) × 8 = {S(c3.first)}; {S(c3.first)} ÷ (−6) = {S(c3.r)}.</>,
+          <>{c4.decimal}</>,
+        ]}
       />,
     ),
   },

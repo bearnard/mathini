@@ -122,22 +122,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>5, 9, 13, 17, … Give the next term, the rule for T{sub('n')}, and T{sub(10)}.</li>
-            <li>3, 6, 12, 24, … Give the constant ratio and the next term.</li>
-            <li>x = 1, 2, 3 gives y = 5, 7, 9. Find the rule.</li>
-            <li>y = 3x − 2. Which x gives y = 13?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{c1.next}; T{sub('n')} = {ruleText(c1rule)}; T{sub(10)} = {c1.t10}.</li>
-            <li>Ratio {c2.r}; next term {c2.next}.</li>
-            <li>y = {c3.m}x + {c3.c} (check: {c3.m} × 1 + {c3.c} = 5).</li>
-            <li>3x = {c4.rhs}, so x = {c4.x}.</li>
-          </ol>
-        }
+        questions={[
+          <>5, 9, 13, 17, … Give the next term, the rule for T{sub('n')}, and T{sub(10)}.</>,
+          <>3, 6, 12, 24, … Give the constant ratio and the next term.</>,
+          <>x = 1, 2, 3 gives y = 5, 7, 9. Find the rule.</>,
+          <>y = 3x − 2. Which x gives y = 13?</>,
+        ]}
+        answers={[
+          <>{c1.next}; T{sub('n')} = {ruleText(c1rule)}; T{sub(10)} = {c1.t10}.</>,
+          <>Ratio {c2.r}; next term {c2.next}.</>,
+          <>y = {c3.m}x + {c3.c} (check: {c3.m} × 1 + {c3.c} = 5).</>,
+          <>3x = {c4.rhs}, so x = {c4.x}.</>,
+        ]}
       />,
     ),
   },

@@ -99,22 +99,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Rule: × 3, then − 4. What is the output for input 5?</li>
-            <li>Find the rule: x: 1, 2, 3 and y: 7, 9, 11.</li>
-            <li>Rule: × 4, then + 1. The output is 29. What was the input?</li>
-            <li>What is the inverse of “subtract 6”?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>5 × 3 = 15, then 15 − 4 = {check.a}.</li>
-            <li>y goes up by {check.rule.m}, and 2 × 1 + 5 = 7, so {ruleFormula(check.rule.m, check.rule.c)}.</li>
-            <li>29 − 1 = {check.back[0].value}, then {check.back[0].value} ÷ 4 = {check.back[1].value}.</li>
-            <li>Add 6.</li>
-          </ol>
-        }
+        questions={[
+          <>Rule: × 3, then − 4. What is the output for input 5?</>,
+          <>Find the rule: x: 1, 2, 3 and y: 7, 9, 11.</>,
+          <>Rule: × 4, then + 1. The output is 29. What was the input?</>,
+          <>What is the inverse of “subtract 6”?</>,
+        ]}
+        answers={[
+          <>5 × 3 = 15, then 15 − 4 = {check.a}.</>,
+          <>y goes up by {check.rule.m}, and 2 × 1 + 5 = 7, so {ruleFormula(check.rule.m, check.rule.c)}.</>,
+          <>29 − 1 = {check.back[0].value}, then {check.back[0].value} ÷ 4 = {check.back[1].value}.</>,
+          <>Add 6.</>,
+        ]}
       />,
     ),
   },

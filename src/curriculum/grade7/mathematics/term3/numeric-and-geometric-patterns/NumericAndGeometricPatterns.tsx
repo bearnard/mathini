@@ -116,22 +116,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is the next term in 7, 11, 15, 19, ...?</li>
-            <li>Find the rule for 5, 9, 13, 17, ...</li>
-            <li>If Tn = 5n − 2, what is T20?</li>
-            <li>What is the next term in 2, 6, 18, ...?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Add 4: 19 + 4 = {check.next[4]}.</li>
-            <li>Up by 4, and 4 × 1 + 1 = 5, so Tn = {check.rule.m}n + {check.rule.c}.</li>
-            <li>5 × 20 − 2 = {check.t20}.</li>
-            <li>Multiply by 3: 18 × 3 = {check.geo[3]}.</li>
-          </ol>
-        }
+        questions={[
+          <>What is the next term in 7, 11, 15, 19, ...?</>,
+          <>Find the rule for 5, 9, 13, 17, ...</>,
+          <>If Tn = 5n − 2, what is T20?</>,
+          <>What is the next term in 2, 6, 18, ...?</>,
+        ]}
+        answers={[
+          <>Add 4: 19 + 4 = {check.next[4]}.</>,
+          <>Up by 4, and 4 × 1 + 1 = 5, so Tn = {check.rule.m}n + {check.rule.c}.</>,
+          <>5 × 20 − 2 = {check.t20}.</>,
+          <>Multiply by 3: 18 × 3 = {check.geo[3]}.</>,
+        ]}
       />,
     ),
   },
