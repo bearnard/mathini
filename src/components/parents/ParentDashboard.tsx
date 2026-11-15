@@ -111,6 +111,31 @@ function AddChild({ onLinked }: { onLinked: () => void }) {
   );
 }
 
+function SummarySwitch() {
+  const [on, setOn] = useState<boolean | null>(null);
+  const [note, setNote] = useState('');
+  useEffect(() => {
+    let live = true;
+    void call<{ subscribed: boolean }>('/api/parent/summary').then((r) => { if (live) setOn(r.ok ? r.data.subscribed : null); });
+    return () => { live = false; };
+  }, []);
+  const flip = async (next: boolean) => {
+    setNote('');
+    const r = await call<{ subscribed: boolean }>('/api/parent/summary', 'parent-summary', { subscribed: next });
+    if (r.ok) setOn(r.data.subscribed); else setNote(r.data.error ?? 'That did not work.');
+  };
+  if (on === null) return null;
+  return (
+    <section className="rounded-2xl bg-white p-4 shadow-sm" aria-label="Weekly email">
+      <label className="flex items-start gap-3 text-sm text-slate-800">
+        <input type="checkbox" className="mt-1 h-6 w-6 flex-none" checked={on} onChange={(e) => void flip(e.target.checked)} />
+        <span>Send me a short summary email once a week about the children I have given consent for. <span className="text-slate-600">It uses only their practice results on PrepPals.</span></span>
+      </label>
+      {note && <p className="mt-2 text-sm text-red-700" role="alert">{note}</p>}
+    </section>
+  );
+}
+
 export default function ParentDashboard() {
   const [me, setMe] = useState<Me | null | 'error'>(null);
   const [children, setChildren] = useState<ChildSummary[] | null>(null);
@@ -139,6 +164,7 @@ export default function ParentDashboard() {
           {children && children.length === 0 && <p className="text-slate-700">No child is linked yet. Link one below.</p>}
           {(children ?? []).map((c) => <ChildCard key={c.id} child={c} now={now} onChanged={() => void load()} />)}
           <AddChild onLinked={() => void load()} />
+          <SummarySwitch />
           <p className="text-sm text-slate-600"><a className="underline" href="/account">Your account</a></p>
         </>
       )}
