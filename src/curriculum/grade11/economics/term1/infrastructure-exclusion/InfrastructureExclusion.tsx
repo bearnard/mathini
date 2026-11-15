@@ -112,8 +112,8 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: "Apartheid's homelands policy contributed to economic exclusion mainly by:",
-    options: ['Raising wages in the rural areas of the homelands', 'Infrastructure in white areas; black workers far from work', 'Investing heavily in the roads of the townships', 'Widening access to finance for black entrepreneurs'],
-    answer: 'Infrastructure in white areas; black workers far from work',
+    options: ['Raising wages in the rural areas of the homelands', 'Putting infrastructure in white areas, far from black workers', 'Investing heavily in the roads of the townships', 'Widening access to finance for black entrepreneurs'],
+    answer: 'Putting infrastructure in white areas, far from black workers',
     explanation: 'Spatial apartheid denied infrastructure to homelands and townships, creating deep economic exclusion that persists today.',
   },
   {

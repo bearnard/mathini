@@ -164,8 +164,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'The A horizon is called the topsoil because:',
-    options: ['It is the deepest layer in the soil profile', 'It holds the most organic matter and is the most active layer of life', 'It is made of solid, unweathered bedrock', 'It holds minerals that have washed down from above'],
-    answer: 'It holds the most organic matter and is the most active layer of life',
+    options: ['It is the deepest layer in the soil profile', 'It is the topmost layer where humus and minerals mix', 'It is made of solid, unweathered bedrock', 'It holds minerals that have washed down from above'],
+    answer: 'It is the topmost layer where humus and minerals mix',
     explanation: 'The A horizon is where humus, plant roots, soil organisms, and mineral particles mix — it is the layer most important for plant growth.',
   },
   {

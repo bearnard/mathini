@@ -110,10 +110,10 @@ const bank: BusinessStudiesItem[] = [
     explanation: 'High unemployment means fewer people with income to spend, and a shortage of skilled labour makes it harder and costlier to find qualified employees.',
   },
   {
-    prompt: 'A retail store starts selling online to reach more customers during load-shedding. This adaptation is BEST described as:',
+    prompt: 'A retail store starts selling online before load-shedding costs it sales, to reach more customers. This adaptation is BEST described as:',
     options: ['Reactive cost-cutting by the firm', 'Reactive downsizing of the number of staff', 'Proactive training of the staff', 'Proactive diversification or innovation'],
     answer: 'Proactive diversification or innovation',
-    explanation: 'Expanding to online sales uses innovation and diversification to reach new channels, and can be proactive if done before significant sales losses occur.',
+    explanation: 'Expanding to online sales uses innovation and diversification to reach new channels, and it is proactive here because it is done before significant sales are lost.',
   },
   {
     prompt: 'Which socio-economic issue in South Africa directly increases a business\'s absenteeism and healthcare costs?',

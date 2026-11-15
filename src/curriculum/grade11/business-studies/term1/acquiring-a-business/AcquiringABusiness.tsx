@@ -161,10 +161,10 @@ const bank: BusinessStudiesItem[] = [
     explanation: 'Starting from scratch requires less upfront capital than buying a business or franchise, and allows the entrepreneur to fully develop their unique idea.',
   },
   {
-    prompt: 'Nando\'s, Steers, and Spar are all examples of which acquisition model that entrepreneurs use in South Africa?',
+    prompt: 'Nando\'s, Steers and Debonairs Pizza are all examples of which acquisition model that entrepreneurs use in South Africa?',
     options: ['Co-operative', 'Partnership', 'Franchise', 'Public company'],
     answer: 'Franchise',
-    explanation: 'Nando\'s, Steers and Spar all use the franchise model — entrepreneurs buy the right to trade under the established brand.',
+    explanation: 'Nando\'s, Steers and Debonairs Pizza all use the franchise model — entrepreneurs buy the right to trade under the established brand.',
   },
 ];
 

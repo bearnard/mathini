@@ -56,7 +56,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-red-50 p-4">
             <strong className="text-red-700">Task conflict</strong>
-            <p className="text-slate-600">Disagreements about goals, methods or decisions. Can be constructive if managed well.</p>
+            <p className="text-slate-600">Disagreements about the goals or decisions of the work. Can be constructive if managed well.</p>
           </div>
           <div className="rounded-xl bg-orange-50 p-4">
             <strong className="text-orange-700">Relationship conflict</strong>

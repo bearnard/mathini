@@ -167,9 +167,9 @@ const bank: LifeSciencesItem[] = [
   },
   {
     prompt: 'What is biodiversity?',
-    options: ['The study of all living organisms', 'The genetic variety within and between species', 'The extinction of species over time', 'The migration patterns of animals'],
-    answer: 'The genetic variety within and between species',
-    explanation: 'Biodiversity refers to the range of genetic and species diversity.',
+    options: ['The study of all living organisms and their habitats', 'The variety of life: genes, species and ecosystems', 'The extinction of species over a long period of time', 'The migration patterns of animals across continents'],
+    answer: 'The variety of life: genes, species and ecosystems',
+    explanation: 'Biodiversity is the variety of life at three levels: genetic diversity, species diversity and ecosystem diversity.',
   },
   {
     prompt: 'What is binomial nomenclature?',

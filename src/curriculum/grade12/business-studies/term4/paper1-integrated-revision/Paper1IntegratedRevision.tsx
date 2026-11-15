@@ -69,7 +69,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "paper1-integrated-revision-1",
     "question": "Business Studies Paper 1 mainly focuses on:",
-    "options": ['Business environments and operations', 'Geography maps and atlas work in the exam', 'Geography maps and atlas work', 'Computer coding and programming'],
+    "options": ['Business environments and operations', 'Geography maps and atlas work in the exam', 'Physics practical investigations', 'Computer coding and programming'],
     "answer": 0,
     "explanation": "Paper 1 usually covers business environments and business operations content."
   },
@@ -143,7 +143,7 @@ const items: BusinessStudiesItem[] = [
   {
     "id": "paper1-integrated-revision-8",
     "question": "Why is integrated revision useful?",
-    "options": ['It helps learners see how topics connect in real scenarios', 'It guarantees full marks without any effort from the learner', 'It guarantees full marks without effort', 'It works for essay questions alone'],
+    "options": ['It helps learners see how topics connect in real scenarios', 'It guarantees full marks without any effort from the learner', 'It removes the need to read the case study', 'It works for essay questions alone'],
     "answer": 0,
     "explanation": "Integrated revision prepares learners for case studies where several topics appear together."
   }

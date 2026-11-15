@@ -52,7 +52,7 @@ const learnSteps: LearnStep[] = [
           </div>
           <div className="rounded-xl bg-slate-100 p-4">
             <strong className="text-slate-700">Cybercrime</strong>
-            <p className="text-slate-600">The Cybercrime Act (2020) criminalises hacking, phishing, and distributing malware in South Africa.</p>
+            <p className="text-slate-600">The Cybercrimes Act 19 of 2020 criminalises unlawful access (hacking), cyber fraud, cyber extortion and harmful malware or data interference in South Africa.</p>
           </div>
         </div>
       </div>
@@ -154,10 +154,10 @@ const bank: CATItem[] = [
     explanation: 'Mail merge automates the creation of personalised documents — one template + database data source = 500 personalised letters with no manual copying.',
   },
   {
-    prompt: 'Which South African law specifically criminalises hacking and phishing?',
-    options: ['POPIA (2013)', 'The Films and Publications Act', 'The Cybercrime Act (2020)', 'The Electronic Communications Act'],
-    answer: 'The Cybercrime Act (2020)',
-    explanation: 'South Africa\'s Cybercrime Act (2020) criminalises unlawful access to computer systems, cyberfraud, phishing, and distribution of malware.',
+    prompt: 'Which South African law specifically criminalises hacking and cyber fraud?',
+    options: ['POPIA (2013)', 'The Films and Publications Act', 'The Cybercrimes Act (2020)', 'The Electronic Communications Act'],
+    answer: 'The Cybercrimes Act (2020)',
+    explanation: 'South Africa\'s Cybercrimes Act 19 of 2020 criminalises unlawful access to computer systems, cyber fraud, cyber extortion and the distribution of harmful malware.',
   },
   {
     prompt: 'When troubleshooting a slow computer, which step should be done FIRST?',

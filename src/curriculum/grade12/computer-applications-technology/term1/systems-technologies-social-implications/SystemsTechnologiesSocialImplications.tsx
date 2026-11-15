@@ -51,7 +51,7 @@ const items = [
   },
   {
     prompt: "Which accessibility feature helps a learner who has difficulty using a mouse?",
-    options: ["Sticky keys", "Voice input or keyboard navigation", "A faster SSD", "A higher screen resolution only"],
+    options: ["A larger monitor", "Voice input or keyboard navigation", "A faster SSD", "A higher screen resolution only"],
     answer: 1,
     explanation: "Voice input and keyboard navigation can reduce the need for precise mouse control.",
   },

@@ -138,7 +138,7 @@ const bank: LSItem[] = [
     prompt: 'Which ecological relationship benefits both species involved?',
     options: ['Predation', 'Parasitism', 'Mutualism', 'Competition'],
     answer: 'Mutualism',
-    explanation: 'In mutualism both species benefit — for example, clownfish hide in sea anemones (protection) while cleaning parasites from the anemone (food for the fish).',
+    explanation: 'In mutualism both species benefit — for example, bees feed on the nectar of a flower while pollinating the flower.',
   },
   {
     prompt: 'Primary succession differs from secondary succession because primary succession:',

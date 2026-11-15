@@ -334,9 +334,9 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'Which loop executes at least once before checking the condition?',
-    options: ['for loop', 'while loop', 'do-while loop', 'foreach loop'],
-    answer: 'do-while loop',
-    explanation: 'The do-while loop checks the condition after executing the body at least once.',
+    options: ['for loop', 'while loop', 'repeat-until loop', 'foreach loop'],
+    answer: 'repeat-until loop',
+    explanation: 'The repeat-until loop checks the condition after executing the body, so it runs at least once.',
   },
   {
     prompt: 'What is the correct syntax for a FOR loop in Delphi that counts from 1 to 10?',

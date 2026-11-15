@@ -37,7 +37,7 @@ begin
   ReadLn; // Wait for Enter key
 end.`} />
           <p className="text-sm text-slate-600 mt-2">
-            This simple program displays text to the console. Every Delphi program starts with <code className="bg-green-100 px-1 rounded">begin</code> and 
+            This simple program displays text to the console. The main block of a Delphi program starts with <code className="bg-green-100 px-1 rounded">begin</code> and 
             ends with <code className="bg-green-100 px-1 rounded">end.</code> (note the period!)
           </p>
         </div>

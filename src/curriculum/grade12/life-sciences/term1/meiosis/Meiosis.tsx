@@ -115,7 +115,7 @@ const learnSteps: LearnStep[] = [
         <p className="mb-4 text-sm text-muted-foreground">
           Drag the alleles to explore monohybrid crosses. Observe the 3:1 phenotype ratio and 1:2:1 genotype ratio for a heterozygous × heterozygous cross.
         </p>
-        <PunnettSquare trait="Eye colour" dominant="Brown" recessive="Blue" />
+        <PunnettSquare trait="Seed shape (pea plants)" dominant="Round" recessive="Wrinkled" />
       </div>
     ),
   },

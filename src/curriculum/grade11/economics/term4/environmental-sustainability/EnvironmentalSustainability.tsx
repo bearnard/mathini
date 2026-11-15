@@ -115,9 +115,9 @@ const bank: EconomicsItem[] = [
   },
   {
     prompt: 'The Paris Agreement (2015) commits signatory countries to:',
-    options: ['Immediately eliminating coal use', 'Setting nationally determined contributions (NDCs) to limit global warming to 1.5–2°C', 'Paying reparations to developing countries for historical emissions', 'Establishing a global carbon market only'],
-    answer: 'Setting nationally determined contributions (NDCs) to limit global warming to 1.5–2°C',
-    explanation: 'Paris Agreement signatories commit to their own NDC targets to collectively keep global temperature rises within the 1.5–2°C limit.',
+    options: ['Immediately eliminating coal use in every participating country', 'Setting national targets (NDCs) to hold warming well below 2°C, pursuing 1.5°C', 'Paying reparations to developing countries for historical emissions', 'Establishing a global carbon market and nothing else'],
+    answer: 'Setting national targets (NDCs) to hold warming well below 2°C, pursuing 1.5°C',
+    explanation: 'Paris Agreement signatories commit to their own NDC targets to collectively hold the temperature rise well below 2°C while pursuing efforts to limit it to 1.5°C.',
   },
   {
     prompt: 'The "tragedy of the commons" occurs when:',

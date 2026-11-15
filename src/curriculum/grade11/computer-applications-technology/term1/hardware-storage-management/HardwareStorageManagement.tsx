@@ -39,10 +39,10 @@ const learnSteps: LearnStep[] = [
               </tr>
             </thead>
             <tbody>
-              <tr><td className="pr-6 py-1">Kilobyte</td><td className="pr-6 py-1">KB</td><td>1 000 bytes</td></tr>
-              <tr><td className="pr-6 py-1">Megabyte</td><td className="pr-6 py-1">MB</td><td>1 000 KB</td></tr>
-              <tr><td className="pr-6 py-1">Gigabyte</td><td className="pr-6 py-1">GB</td><td>1 000 MB</td></tr>
-              <tr><td className="pr-6 py-1">Terabyte</td><td className="pr-6 py-1">TB</td><td>1 000 GB</td></tr>
+              <tr><td className="pr-6 py-1">Kilobyte</td><td className="pr-6 py-1">KB</td><td>1 024 bytes</td></tr>
+              <tr><td className="pr-6 py-1">Megabyte</td><td className="pr-6 py-1">MB</td><td>1 024 KB</td></tr>
+              <tr><td className="pr-6 py-1">Gigabyte</td><td className="pr-6 py-1">GB</td><td>1 024 MB</td></tr>
+              <tr><td className="pr-6 py-1">Terabyte</td><td className="pr-6 py-1">TB</td><td>1 024 GB</td></tr>
             </tbody>
           </table>
         </div>
@@ -100,9 +100,9 @@ const bank: CATItem[] = [
   },
   {
     prompt: 'A learner has a 4 GB USB drive and wants to copy 3 500 MB of data. Will it fit?',
-    options: ['No — 3 500 MB is larger than 4 GB', 'Yes — 3 500 MB is less than 4 000 MB (≈ 4 GB)', 'Only if the USB is formatted as NTFS', 'It depends on the file types'],
-    answer: 'Yes — 3 500 MB is less than 4 000 MB (≈ 4 GB)',
-    explanation: '4 GB ≈ 4 000 MB. Since 3 500 MB < 4 000 MB, the data fits on the 4 GB drive.',
+    options: ['No — 3 500 MB is larger than 4 GB', 'Yes — 3 500 MB is less than 4 096 MB (4 GB)', 'Only if the USB is formatted as NTFS', 'It depends on the file types'],
+    answer: 'Yes — 3 500 MB is less than 4 096 MB (4 GB)',
+    explanation: '4 GB = 4 × 1 024 MB = 4 096 MB. Since 3 500 MB < 4 096 MB, the data fits on the 4 GB drive.',
   },
   {
     prompt: 'What is the main disadvantage of cloud storage compared to local storage?',
@@ -144,7 +144,7 @@ const bank: CATItem[] = [
     prompt: 'Which unit of storage is the LARGEST?',
     options: ['Gigabyte (GB)', 'Megabyte (MB)', 'Terabyte (TB)', 'Kilobyte (KB)'],
     answer: 'Terabyte (TB)',
-    explanation: 'TB > GB > MB > KB. A terabyte is approximately 1 000 gigabytes.',
+    explanation: 'TB > GB > MB > KB. A terabyte is 1 024 gigabytes.',
   },
   {
     prompt: 'A learner copies files to a USB flash drive rather than emailing them. What is a risk of this method?',

@@ -144,7 +144,7 @@ const bank: EconomicsItem[] = [
     explanation: 'Progressive taxes take a larger percentage from higher incomes, reducing post-tax inequality and funding government services.',
   },
   {
-    prompt: "SA's Child Support Grant and Old Age Pension are examples of:",
+    prompt: "SA's Child Support Grant and Older Person's Grant are examples of:",
     options: ['Subsidies that are paid to large corporations', 'Social grants that directly raise the income of poor households', 'B-BBEE policies that change who owns firms', 'Investment in infrastructure such as roads and dams'],
     answer: 'Social grants that directly raise the income of poor households',
     explanation: 'Social grants transfer income to vulnerable households — over 18 million SA citizens receive some form of social grant.',

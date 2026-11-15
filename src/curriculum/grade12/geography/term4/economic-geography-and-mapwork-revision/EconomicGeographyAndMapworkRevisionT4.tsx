@@ -48,9 +48,9 @@ const learnSteps = [
           data={[
                         { sector: 'Services', share: 62 },
                         { sector: 'Manufacturing', share: 13 },
-                        { sector: 'Mining', share: 8 },
+                        { sector: 'Mining', share: 6 },
                         { sector: 'Agriculture', share: 2 },
-                        { sector: 'Other', share: 15 },
+                        { sector: 'Other', share: 17 },
                       ]}
           xKey="sector"
           series={[

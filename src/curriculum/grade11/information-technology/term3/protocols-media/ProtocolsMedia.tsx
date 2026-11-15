@@ -125,7 +125,7 @@ const bank: ITItem[] = [
   },
   {
     prompt: 'Which wireless technology is designed for very short-range device pairing (e.g. earphones to a phone)?',
-    options: ['Wi-Fi', '4G', 'Bluetooth', 'NFC (Near Field Communication)'],
+    options: ['Wi-Fi', '4G', 'Bluetooth', 'Satellite'],
     answer: 'Bluetooth',
     explanation: 'Bluetooth is designed for short-range (typically ≤10 m) device-to-device communication.',
   },

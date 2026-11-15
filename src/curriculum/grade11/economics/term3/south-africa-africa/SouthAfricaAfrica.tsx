@@ -103,7 +103,7 @@ const bank: EconomicsItem[] = [
     explanation: 'The SADC Free Trade Area reduces intra-regional tariffs to promote trade and economic integration among member countries.',
   },
   {
-    prompt: 'NEPAD was adopted by the African Union in:',
+    prompt: 'NEPAD was launched by African leaders in:',
     options: ['1992', '1994', '2001', '2010'],
     answer: '2001',
     explanation: 'NEPAD (New Partnership for Africa\'s Development) was launched in 2001 by African leaders including Thabo Mbeki of South Africa.',
@@ -121,7 +121,7 @@ const bank: EconomicsItem[] = [
     explanation: 'The APRM is a voluntary accountability tool where member countries accept peer review of their political and economic governance by other African nations.',
   },
   {
-    prompt: 'South Africa joined BRICS in:',
+    prompt: 'South Africa was invited to join BRICS in:',
     options: ['2001', '2006', '2010', '2015'],
     answer: '2010',
     explanation: 'South Africa joined the BRICS grouping (Brazil, Russia, India, China) after being invited in December 2010; it attended its first summit as a full member in Sanya, China, in 2011.',

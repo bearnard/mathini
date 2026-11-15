@@ -139,10 +139,10 @@ const bank: AccountingItem[] = [
     explanation: 'A partnership combines the resources and skills of multiple owners who share in the outcomes of the business.',
   },
   {
-    prompt: 'If partners have no written partnership agreement, which legislation governs their relationship?',
-    options: ['The Companies Act', 'The Income Tax Act', 'The Partnership Act', 'The Consumer Protection Act'],
-    answer: 'The Partnership Act',
-    explanation: 'In the absence of a written agreement, the Partnership Act applies — profits are shared equally and no interest or salary allowances are permitted.',
+    prompt: 'If partners have no written partnership agreement, which law governs their relationship?',
+    options: ['The Companies Act', 'The Income Tax Act', 'Common law', 'The Consumer Protection Act'],
+    answer: 'Common law',
+    explanation: 'South Africa has no general Partnership Act. Without a written agreement, common law applies — profits and losses are shared equally and no interest or salary allowances are due.',
   },
   {
     prompt: 'Interest on capital is best described as:',

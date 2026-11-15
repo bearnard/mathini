@@ -131,9 +131,9 @@ const bank: BusinessStudiesItem[] = [
   },
   {
     prompt: 'Load-shedding by Eskom falls under which PESTLE factor?',
-    options: ['Social', 'Technological', 'Environmental', 'Legal'],
-    answer: 'Technological',
-    explanation: 'Infrastructure and energy supply issues relate to the Technological factor in PESTLE, as they affect a business\'s ability to use technology and operate.',
+    options: ['Social', 'Political', 'Environmental', 'Legal'],
+    answer: 'Environmental',
+    explanation: 'Load-shedding comes from limited energy supply and infrastructure, which this lesson files under the Environmental (physical resources) factor. Some memos also accept Economic, depending on the case study.',
   },
   {
     prompt: 'Which of the following is NOT one of the eight business functions?',
