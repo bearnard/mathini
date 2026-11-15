@@ -41,7 +41,10 @@ const learnSteps: LearnStep[] = [
           in their habitats.
         </p>
         <Adaptations />
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Fungi, such as mushrooms and moulds, grow on dead plants and animals and break them down, which puts nutrients back into the soil for new plants to use."}</p>
+</div>
+</div>
     ),
   },
 ];

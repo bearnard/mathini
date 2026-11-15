@@ -109,7 +109,12 @@ const learnSteps: LearnStep[] = [
         </div>
 
         <p className="text-sm text-slate-500">The contrast between dry desert conditions and wetter tropical conditions helps explain why plants, animals, and farming differ so much.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"In a rainforest the crowns of the tallest trees spread out into a roof of leaves called the canopy, which shades the smaller plants growing beneath it."}</p>
+  <p className="text-slate-600">{"Many desert animals, such as the fennec fox, shelter in burrows by day and come out at night, so they spend the hottest hours underground."}</p>
+  <p className="text-slate-600">{"Deserts have few plants, and those that grow there are suited to drought: for example, the agave stores water in its fleshy leaves and some bushes have thorns and only tiny leaves."}</p>
+</div>
+</div>
     ),
   },
 ];

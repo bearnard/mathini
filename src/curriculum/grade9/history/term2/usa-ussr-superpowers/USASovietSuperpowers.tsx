@@ -79,7 +79,10 @@ const learnSteps: LearnStep[] = [
         <div className="bg-indigo-50 p-6 rounded-xl inline-block text-slate-700">
           <strong>Conflicts:</strong> Korea, Vietnam, Afghanistan, Middle East crises
         </div>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Deterrence is a strategy of discouraging an attack by making it clear that the attacker will suffer so badly in return that attacking is not worth it. Both superpowers built up weapons for this reason."}</p>
+</div>
+</div>
     ),
   },
 ];

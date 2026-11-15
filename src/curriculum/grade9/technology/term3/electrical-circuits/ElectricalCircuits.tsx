@@ -32,7 +32,10 @@ const learnSteps: LearnStep[] = [
           Resistor colour codes quickly identify resistance values. Using Ohm\'s law and circuit knowledge, you can calculate 
           unknown quantities, test circuits, and troubleshoot electrical faults.
         </p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Resistors are too small to print numbers on, so coloured bands are painted on them. Each colour stands for a digit or a multiplier, and a chart turns the bands into the resistance in ohms."}</p>
+</div>
+</div>
     ),
   },
 ];

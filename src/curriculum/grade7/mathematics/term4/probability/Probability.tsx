@@ -23,7 +23,10 @@ const learnSteps: LearnStep[] = [
           Probability describes chance from impossible to certain. Learners list outcomes, calculate simple
           probabilities, and compare experimental and theoretical results.
         </p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"To compare how likely two events are, look at how many ways each can happen: the event with more possible outcomes out of the same total is more likely than one with fewer."}</p>
+</div>
+</div>
     ),
   },
 ];

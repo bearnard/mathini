@@ -66,7 +66,10 @@ const learnSteps: LearnStep[] = [
         <div className="rounded-xl bg-emerald-50 p-5 text-slate-700">
           Long voting queues showed that many people were ready to take part as equal citizens.
         </div>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Under apartheid, South African law sorted people by race and gave white people rights and opportunities that Black, Coloured and Indian people did not have, for example in where they could live and work."}</p>
+</div>
+</div>
     ),
   },
 ];

@@ -30,7 +30,13 @@ const learnSteps: LearnStep[] = [
           Conference guided European claims, while African societies including the Ashanti resisted in different ways.
           These events had lasting political and social consequences.
         </p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Colonisation happens when a powerful country takes over another land by settling there or by ruling it, and controls its government and its trade for its own benefit."}</p>
+  <p className="text-slate-600">{"The Ashanti kingdom lay in the forest region of West Africa, in what is now Ghana, and grew rich from gold and trade."}</p>
+  <p className="text-slate-600">{"Imperialism is when a strong country extends its power over other countries to gain land, trade and wealth, whether or not it settles there. Britain built its empire this way."}</p>
+  <p className="text-slate-600">{"To check a source for bias, ask who wrote or drew it and what they wanted the reader to believe, because the writer's own side shapes what they choose to include."}</p>
+</div>
+</div>
     ),
   },
 ];

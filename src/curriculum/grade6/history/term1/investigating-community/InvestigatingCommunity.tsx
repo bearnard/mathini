@@ -65,7 +65,10 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-orange-50 p-4"><strong>Museum</strong><br />objects and exhibitions</div>
           <div className="rounded-xl bg-indigo-50 p-4"><strong>Archive</strong><br />documents and records</div>
         </div>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"A good interview question is open, so the person answers with a story or a description, for example 'How did you get to school in those days?' rather than a question that only needs yes or no."}</p>
+</div>
+</div>
     ),
   },
 ];

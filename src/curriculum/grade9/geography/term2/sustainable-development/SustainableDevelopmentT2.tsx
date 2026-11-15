@@ -115,7 +115,13 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">Countries must balance energy use, jobs, and growth with the need to cut pollution and protect resources.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Energy from the sun and wind does not run out and gives off no carbon dioxide while it produces power, so it protects the environment and supplies energy for the future."}</p>
+  <p className="text-slate-600">{"Schools that teach about the environment give people the knowledge they need to make careful choices, such as saving water or recycling, and to take part in decisions about their communities."}</p>
+  <p className="text-slate-600">{"A business often needs to spend money to become greener, and shareholders may want quick returns. This makes it hard for the company to choose a long-term plan if it lowers profit for now."}</p>
+  <p className="text-slate-600">{"Taking resources faster than nature can replace them is not sustainable: cutting down forest without planting new trees will leave nothing for later generations."}</p>
+</div>
+</div>
     ),
   },
 ];

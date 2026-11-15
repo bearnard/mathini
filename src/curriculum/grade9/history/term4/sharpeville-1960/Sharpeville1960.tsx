@@ -79,7 +79,10 @@ const learnSteps: LearnStep[] = [
         <div className="bg-indigo-50 p-6 rounded-xl inline-block text-slate-700">
           <strong>Armed struggle:</strong> MK formed 1961; Armed resistance begins
         </div>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"In a state of emergency the government can set aside ordinary rights. Police could arrest and hold people without trial, ban meetings and limit the press, and ordinary courts could not stop them."}</p>
+</div>
+</div>
     ),
   },
 ];

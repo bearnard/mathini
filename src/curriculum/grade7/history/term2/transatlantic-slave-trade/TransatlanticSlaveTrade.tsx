@@ -30,7 +30,12 @@ const learnSteps: LearnStep[] = [
           Between the 16th and 19th centuries, millions of enslaved Africans were forced across the Atlantic. This
           system caused deep human suffering and long-term social and economic consequences.
         </p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"To decide whether to trust a source, practise source analysis: ask who made it, when, why, and whether other evidence agrees with it."}</p>
+  <p className="text-slate-600">{"People who were enslaved resisted in many ways. Some took part in open revolts or ran away; others worked slowly, broke tools, or kept their own languages, songs and customs alive."}</p>
+  <p className="text-slate-600">{"Plantation owners grew crops such as sugar and cotton to sell for money. The work was heavy and needed many hands, so they forced enslaved people to do it without pay to keep their own costs low and profits high."}</p>
+</div>
+</div>
     ),
   },
 ];

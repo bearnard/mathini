@@ -76,7 +76,10 @@ const learnSteps: LearnStep[] = [
           <p className="text-slate-600">Weathering → Erosion → Transport → Deposition creates new landforms (deltas, alluvial fans, sand dunes).</p>
         </div>
         <p className="text-sm text-slate-600 mt-4">This continuous cycle over millions of years creates and reshapes Earth's landscapes.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Physical weathering breaks rock into pieces without changing what it is made of. In cold places water collects in a crack, freezes and expands, and splits the rock apart."}</p>
+</div>
+</div>
     ),
   },
 ];

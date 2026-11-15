@@ -111,7 +111,10 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">Large grazing areas and smaller urban areas create different map patterns on topographic maps and aerial images.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Many topographic maps use a colour key: built-up areas are drawn in red or pink, water in blue and vegetation in green, so use the key to read each map."}</p>
+</div>
+</div>
     ),
   },
 ];

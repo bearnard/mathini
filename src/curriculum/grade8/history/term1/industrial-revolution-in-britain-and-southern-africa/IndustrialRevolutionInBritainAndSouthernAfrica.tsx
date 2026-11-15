@@ -30,7 +30,10 @@ const learnSteps: LearnStep[] = [
           serious social questions about child labour and workers&apos; rights, while southern Africa changed through
           expanding trade and the rise of diamond mining in Kimberley.
         </p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Remember the order on the timeline: the diamond rush at Kimberley began in the late 1860s, and gold was found on the Witwatersrand in 1886, about twenty years later."}</p>
+</div>
+</div>
     ),
   },
 ];

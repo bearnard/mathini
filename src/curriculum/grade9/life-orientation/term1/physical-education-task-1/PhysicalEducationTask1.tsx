@@ -71,7 +71,10 @@ export const learnSteps: LearnStep[] = [
           steps={[<>Week 1: {log[0]}. Week 4: {log[log.length - 1]}.</>, <>Gain: {log[log.length - 1]} − {log[0]} = {logGain(log)} more repetitions.</>, <>Your progress is shown by the numbers, not by guessing.</>]}
         />
         <Mistake>Guessing, or only comparing yourself with other learners. Fitness can be measured, and the best comparison is with your own earlier results.</Mistake>
-      </>,
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Being independent in physical activity means you can plan your own training, warm up properly and keep going without a coach telling you what to do next."}</p>
+</div>
+</>,
     ),
   },
   {

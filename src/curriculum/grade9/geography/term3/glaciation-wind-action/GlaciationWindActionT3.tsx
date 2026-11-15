@@ -112,7 +112,10 @@ const learnSteps: LearnStep[] = [
         </div>
 
         <p className="text-sm text-slate-500">Very cold, dry polar climates help preserve glaciers, ice sheets, and freeze-thaw processes that shape the land.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"In dry areas, strong wind lifts loose sand and dust and carries it away (deflation). Over time this leaves a hollow in the ground where the fine material has been blown out."}</p>
+</div>
+</div>
     ),
   },
 ];

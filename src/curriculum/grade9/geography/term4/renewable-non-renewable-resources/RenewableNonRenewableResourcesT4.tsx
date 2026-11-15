@@ -113,7 +113,10 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">Comparing renewable and non-renewable sources helps learners think about energy security and sustainability.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Wind and trees are replaced by nature within a human lifetime. When people use up a source faster than nature replaces it, it can run out, just as coal and oil will."}</p>
+</div>
+</div>
     ),
   },
 ];

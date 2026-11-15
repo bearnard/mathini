@@ -80,7 +80,10 @@ const learnSteps: LearnStep[] = [
         <div className="bg-green-50 p-6 rounded-xl inline-block text-slate-700">
           <strong>Remember:</strong> Never again. Education and vigilance prevent atrocity.
         </div>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Genocide is a crime in which people try to wipe out a whole group on purpose, because of who its members are, for example their ethnic or religious background. The Holocaust is one example."}</p>
+</div>
+</div>
     ),
   },
 ];

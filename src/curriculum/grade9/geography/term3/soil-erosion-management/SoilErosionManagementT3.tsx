@@ -119,7 +119,10 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">Keeping vegetation cover and slowing runoff are key ways to manage soil erosion.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"When rain washes soil into a stream, the water turns muddy and cloudy. Fertiliser and other chemicals carried by the soil also pollute the water that people and animals use."}</p>
+</div>
+</div>
     ),
   },
 ];

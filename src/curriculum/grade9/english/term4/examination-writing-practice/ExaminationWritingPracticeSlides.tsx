@@ -94,7 +94,10 @@ export const learnSteps: LearnStep[] = [
           ]}
         />
         <Mistake>Skipping proofreading, or polishing style while a spelling or grammar error is still in the sentence.</Mistake>
-      </>,
+      <div className="space-y-2">
+  <p className="text-slate-600">{"A good opening sentence repeats the key words of the task in your own words, so the examiner can see at once what you will write about."}</p>
+</div>
+</>,
     ),
   },
   {

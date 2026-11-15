@@ -71,7 +71,10 @@ const learnSteps: LearnStep[] = [
           <div className="rounded-xl bg-purple-50 p-4"><strong>When?</strong><br />date or period</div>
           <div className="rounded-xl bg-rose-50 p-4"><strong>Why?</strong><br />purpose</div>
         </div>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"When you meet a source, ask who made it and why: the maker's own opinions and reason for creating it affect what the source tells you, so they help you judge it."}</p>
+</div>
+</div>
     ),
   },
 ];

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { addCounts, outcomesOf, relFreq, runTrials, theoryOf, theoryText, type ExperimentKind } from './probabilityExperiment';
+import { addCounts, outcomesOf, relFreq, runTrials, theoryOf, theoryText, type ExperimentKind } from './probabilityExperimentLogic';
 
 /**
  * A compact, optional probability experiment for the Grade 8 and 9 Probability lessons: toss a fair coin or roll a fair die

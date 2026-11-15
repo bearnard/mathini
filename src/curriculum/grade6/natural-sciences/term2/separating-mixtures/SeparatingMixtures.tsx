@@ -31,7 +31,10 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           <strong>Evaporation</strong> recovers a dissolved solid like salt from salt water. A <strong>magnet</strong> can remove magnetic materials such as iron filings.
         </p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"When a mixture of mud and water is poured through filter paper, the clear liquid that passes through is the filtrate and the solid that stays behind on the paper is the residue."}</p>
+</div>
+</div>
     ),
   },
 ];

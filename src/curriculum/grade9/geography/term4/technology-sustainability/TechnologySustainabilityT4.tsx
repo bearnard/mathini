@@ -121,7 +121,11 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">The aim of green technology is to meet human needs while using fewer resources and producing less waste.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Many small farmers cannot afford new machines or seed, live far from roads or electricity, and have not been trained to use the equipment."}</p>
+  <p className="text-slate-600">{"Drip irrigation uses thin pipes with small holes that let water fall slowly next to each plant, so very little evaporates or runs off compared with spraying the whole field."}</p>
+</div>
+</div>
     ),
   },
 ];

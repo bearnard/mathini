@@ -33,7 +33,10 @@ const learnSteps: LearnStep[] = [
         <p className="text-lg text-slate-600">
           In a mixture, each material keeps many of its own <strong>properties</strong>. This is why raisins can be picked from cereal and sand can settle out of muddy water.
         </p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"A mixture is made of two or more substances that are just mixed together, such as sand and sugar. A substance that has only one kind of material in it, such as pure salt, is not a mixture."}</p>
+</div>
+</div>
     ),
   },
 ];

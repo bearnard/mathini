@@ -64,7 +64,10 @@ export const learnSteps: LearnStep[] = [
           steps={[<>Pause and breathe.</>, <>Cause: the jobs were never shared out.</>, <>Solutions: draw up a list, or take turns.</>, <>Choose the list and agree to check it on Friday.</>]}
         />
         <Mistake>Raising your voice, mocking someone in front of others or spreading rumours. Personal attacks damage trust, and the same conflict returns.</Mistake>
-      </>,
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Relationships suffer when people shout or name-call. They are protected when each person describes the behaviour calmly, uses 'I feel' statements and listens before replying."}</p>
+</div>
+</>,
     ),
   },
   {

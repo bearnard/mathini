@@ -85,7 +85,10 @@ const learnSteps: LearnStep[] = [
           <p className="font-bold text-slate-800">Examples:</p>
           <p className="text-slate-600">The Limpopo, Orange, and Vaal rivers; rocky Cape coasts; Durban beaches; and lagoons along the south coast show river and coastal processes.</p>
         </div>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Waves throw water, sand and pebbles at the base of a cliff. The water forces air and water into cracks, and over time the cracks widen and pieces of rock break off."}</p>
+</div>
+</div>
     ),
   },
 ];

@@ -110,7 +110,11 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">When too many fish are caught, breeding populations fall and future catches become less secure.</p>
-      </div>
+      <div className="space-y-2">
+  <p className="text-slate-600">{"Rotational grazing divides a farm into camps, so that cattle are moved to a fresh camp while the grass in the last one has time to grow back."}</p>
+  <p className="text-slate-600">{"People who rely on a fishing area or on rangeland for their daily food and income suffer first when these resources are used up, and poorer countries have fewer other options."}</p>
+</div>
+</div>
     ),
   },
 ];
