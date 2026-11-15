@@ -50,7 +50,7 @@ const learnSteps: LearnStep[] = [
     title: 'Check reasonableness and rounding',
     content: (
       <div className="space-y-4 text-left">
-        <p className="text-lg leading-8 text-slate-600">In Grade 12, answers should be sensible for the situation. If a container holds 0.0003 L or a room has an area of 4 000 m², stop and review the method, the formula and the units.</p>
+        <p className="text-lg leading-8 text-slate-600">In Grade 12, answers should be sensible for the situation. If a container holds 0,0003 L or a room has an area of 4 000 m², stop and review the method, the formula and the units.</p>
         <ul className="list-disc space-y-2 pl-6 text-lg leading-8 text-slate-600">
           <li>Round at the final step unless the question says otherwise.</li>
           <li>Include the correct unit with every final answer.</li>
@@ -76,27 +76,27 @@ const items: MathematicalLiteracyItem[] = [
   },
   {
     "id": "measurement-2",
-    "question": "What is the area of a rectangular floor that is 12 m by 4.5 m?",
+    "question": "What is the area of a rectangular floor that is 12 m by 4,5 m?",
     "options": [
-      "16.5 m²",
+      "16,5 m²",
       "33 m²",
       "54 m²",
       "108 m²"
     ],
     "answer": 2,
-    "explanation": "Area = 12 × 4.5 = 54 m²."
+    "explanation": "Area = 12 × 4,5 = 54 m²."
   },
   {
     "id": "measurement-3",
-    "question": "A box is 2 m long, 1.5 m wide and 0.5 m high. What is its volume?",
+    "question": "A box is 2 m long, 1,5 m wide and 0,5 m high. What is its volume?",
     "options": [
       "1 m³",
-      "1.5 m³",
+      "1,5 m³",
       "2 m³",
       "4 m³"
     ],
     "answer": 1,
-    "explanation": "Volume = 2 × 1.5 × 0.5 = 1.5 m³."
+    "explanation": "Volume = 2 × 1,5 × 0,5 = 1,5 m³."
   },
   {
     "id": "measurement-4",
@@ -107,7 +107,7 @@ const items: MathematicalLiteracyItem[] = [
   },
   {
     "id": "measurement-5",
-    "question": "Convert 2.4 kg to grams.",
+    "question": "Convert 2,4 kg to grams.",
     "options": [
       "24 g",
       "240 g",
@@ -115,7 +115,7 @@ const items: MathematicalLiteracyItem[] = [
       "24 000 g"
     ],
     "answer": 2,
-    "explanation": "1 kg = 1 000 g, so 2.4 kg = 2 400 g."
+    "explanation": "1 kg = 1 000 g, so 2,4 kg = 2 400 g."
   },
   {
     "id": "measurement-6",
@@ -143,7 +143,7 @@ const items: MathematicalLiteracyItem[] = [
   },
   {
     "id": "measurement-8",
-    "question": "A 3 m by 4 m floor is tiled with square tiles of side 0.5 m. How many tiles are needed if there is no waste?",
+    "question": "A 3 m by 4 m floor is tiled with square tiles of side 0,5 m. How many tiles are needed if there is no waste?",
     "options": [
       "24",
       "36",
@@ -151,7 +151,7 @@ const items: MathematicalLiteracyItem[] = [
       "96"
     ],
     "answer": 2,
-    "explanation": "Floor area = 12 m². Each tile area = 0.25 m². Tiles needed = 12 ÷ 0.25 = 48."
+    "explanation": "Floor area = 12 m². Each tile area = 0,25 m². Tiles needed = 12 ÷ 0,25 = 48."
   }
 ];
 

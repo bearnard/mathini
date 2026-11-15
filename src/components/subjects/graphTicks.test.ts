@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { axisStep, displayedSpans, formatTick, looksLikeDegrees, niceStep, withRoomForLabels } from './graphTicks';
+import { axisStep, commaText, displayedSpans, formatTick, looksLikeDegrees, niceStep, withRoomForLabels } from './graphTicks';
 
 test('nice steps are 1, 2 or 5 times a power of ten and give 4 to 10 intervals', () => {
   for (const span of [1, 3, 6, 8, 10, 11, 13, 19, 80, 130, 260, 300, 12.56]) {
@@ -46,12 +46,12 @@ test('room for the axis numbers: a range starting at 0 is widened below; one cro
 });
 
 test('tick labels carry no floating-point noise', () => {
-  assert.equal(formatTick(0.6000000000000001), '0.6');
-  assert.equal(formatTick(-0.4000000000000001), '-0.4');
-  assert.equal(formatTick(0.1 + 0.2), '0.3');
+  assert.equal(formatTick(0.6000000000000001), '0,6');
+  assert.equal(formatTick(-0.4000000000000001), '-0,4');
+  assert.equal(formatTick(0.1 + 0.2), '0,3');
   assert.equal(formatTick(45), '45');
-  assert.equal(formatTick(-6.28), '-6.28');
-  assert.equal(formatTick(1.5), '1.5');
+  assert.equal(formatTick(-6.28), '-6,28');
+  assert.equal(formatTick(1.5), '1,5');
 });
 
 test('with equal axes a wide box shows far more x than was asked, and the grid step must follow what is shown', () => {
@@ -68,4 +68,13 @@ test('with equal axes a wide box shows far more x than was asked, and the grid s
 test('a box with the same shape as the ranges shows exactly the padded ranges', () => {
   const s = displayedSpans([0, 10], [0, 10], 400, 400);
   assert.ok(Math.abs(s.x - 11) < 1e-9 && Math.abs(s.y - 11) < 1e-9);
+});
+
+test('chart text uses the decimal comma for numbers and leaves other values alone', () => {
+  assert.equal(commaText(0.5), '0,5');
+  assert.equal(commaText(18.8), '18,8');
+  assert.equal(commaText(-1.25), '-1,25');
+  assert.equal(commaText(2019), '2019');
+  assert.equal(commaText('R0–245,1k'), 'R0–245,1k');
+  assert.equal(commaText(undefined), '');
 });

@@ -101,9 +101,9 @@ import Formula from '@/components/subjects/Formula';
 {
   id: "seq-7",
   question: "Which value of r allows an infinite geometric sum to exist?",
-  options: ["r = 2", "r = 1", "r = −1.2", "r = 0.4"],
+  options: ["r = 2", "r = 1", "r = −1,2", "r = 0,4"],
   answer: 3,
-  explanation: "An infinite geometric sum exists only when |r| < 1. Only 0.4 satisfies that condition.",
+  explanation: "An infinite geometric sum exists only when |r| < 1. Only 0,4 satisfies that condition.",
 },
 {
   id: "seq-8",

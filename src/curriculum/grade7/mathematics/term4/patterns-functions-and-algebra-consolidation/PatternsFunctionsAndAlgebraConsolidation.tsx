@@ -184,7 +184,7 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Solve x/4 = 3.',
-    options: ['12', '7', '1', '0.75'],
+    options: ['12', '7', '1', '0,75'],
     answer: '12',
     explanation: 'Multiply both sides by 4.',
   },

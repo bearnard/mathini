@@ -45,7 +45,7 @@ const learnSteps: LearnStep[] = [
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">Survey and population questions frequently present results in different forms. Convert smoothly between a part of a whole, a decimal proportion and a percentage so that categories can be compared fairly.</p>
         <Formula block>{String.raw`\text{Percentage} = \frac{\text{part}}{\text{whole}} \times 100`}</Formula>
-        <p className="text-lg leading-8 text-slate-600">If 36 out of 120 learners prefer soccer, then <Formula>{String.raw`\frac{36}{120} = 0.30 = 30\%`}</Formula>. Writing the same result in all three forms often makes the next comparison much easier.</p>
+        <p className="text-lg leading-8 text-slate-600">If 36 out of 120 learners prefer soccer, then <Formula>{String.raw`\frac{36}{120} = 0{,}30 = 30\%`}</Formula>. Writing the same result in all three forms often makes the next comparison much easier.</p>
       </div>
     ),
   },
@@ -99,7 +99,7 @@ const items: MathematicalLiteracyItem[] = [
       "36%"
     ],
     "answer": 2,
-    "explanation": "36 ÷ 120 = 0.30 = 30%."
+    "explanation": "36 ÷ 120 = 0,30 = 30%."
   },
   {
     "id": "data-handling-4",

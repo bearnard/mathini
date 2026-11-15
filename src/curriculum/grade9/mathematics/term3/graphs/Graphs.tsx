@@ -243,7 +243,7 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'If two points on a line are (2, 1) and (4, 5), the slope is:',
-    options: ['0.5', '1', '2', '4'],
+    options: ['0,5', '1', '2', '4'],
     answer: '2',
     explanation: 'Slope = (5 - 1)/(4 - 2) = 4/2 = 2.',
   },

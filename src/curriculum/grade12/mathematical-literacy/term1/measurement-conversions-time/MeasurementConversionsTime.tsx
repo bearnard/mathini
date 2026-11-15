@@ -63,7 +63,7 @@ const learnSteps: LearnStep[] = [
 const items: MathematicalLiteracyItem[] = [
   {
     "id": "measurement-conversions-time-1",
-    "question": "How many metres are in 3.5 km?",
+    "question": "How many metres are in 3,5 km?",
     "options": [
       "35 m",
       "350 m",
@@ -71,19 +71,19 @@ const items: MathematicalLiteracyItem[] = [
       "35 000 m"
     ],
     "answer": 2,
-    "explanation": "1 km = 1 000 m, so 3.5 km = 3 500 m."
+    "explanation": "1 km = 1 000 m, so 3,5 km = 3 500 m."
   },
   {
     "id": "measurement-conversions-time-2",
     "question": "Convert 750 mL to litres.",
     "options": [
-      "0.075 L",
-      "0.75 L",
-      "7.5 L",
+      "0,075 L",
+      "0,75 L",
+      "7,5 L",
       "75 L"
     ],
     "answer": 1,
-    "explanation": "1 000 mL = 1 L, so 750 mL = 0.75 L."
+    "explanation": "1 000 mL = 1 L, so 750 mL = 0,75 L."
   },
   {
     "id": "measurement-conversions-time-3",
@@ -135,7 +135,7 @@ const items: MathematicalLiteracyItem[] = [
   },
   {
     "id": "measurement-conversions-time-7",
-    "question": "How many litres are in 2.5 kL?",
+    "question": "How many litres are in 2,5 kL?",
     "options": [
       "25 L",
       "250 L",
@@ -143,7 +143,7 @@ const items: MathematicalLiteracyItem[] = [
       "25 000 L"
     ],
     "answer": 2,
-    "explanation": "1 kL = 1 000 L, so 2.5 kL = 2 500 L."
+    "explanation": "1 kL = 1 000 L, so 2,5 kL = 2 500 L."
   },
   {
     "id": "measurement-conversions-time-8",

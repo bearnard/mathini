@@ -54,27 +54,27 @@ const learnSteps: LearnStep[] = [
 const items: MathematicalLiteracyItem[] = [
   {
     "id": "paper2-readiness-1",
-    "question": "On a plan with scale 1:100, a passage measures 2.8 cm. What is the actual length?",
+    "question": "On a plan with scale 1:100, a passage measures 2,8 cm. What is the actual length?",
     "options": [
-      "0.28 m",
-      "2.8 m",
+      "0,28 m",
+      "2,8 m",
       "28 m",
       "280 m"
     ],
     "answer": 1,
-    "explanation": "2.8 cm × 100 = 280 cm = 2.8 m."
+    "explanation": "2,8 cm × 100 = 280 cm = 2,8 m."
   },
   {
     "id": "paper2-readiness-2",
-    "question": "What is the area of a rectangular patio that measures 6 m by 3.5 m?",
+    "question": "What is the area of a rectangular patio that measures 6 m by 3,5 m?",
     "options": [
-      "9.5 m²",
+      "9,5 m²",
       "18 m²",
       "21 m²",
       "42 m²"
     ],
     "answer": 2,
-    "explanation": "Area = 6 × 3.5 = 21 m²."
+    "explanation": "Area = 6 × 3,5 = 21 m²."
   },
   {
     "id": "paper2-readiness-3",
@@ -102,15 +102,15 @@ const items: MathematicalLiteracyItem[] = [
   },
   {
     "id": "paper2-readiness-5",
-    "question": "A water tank is 1.2 m long, 1 m wide and 0.8 m high. What is its volume?",
+    "question": "A water tank is 1,2 m long, 1 m wide and 0,8 m high. What is its volume?",
     "options": [
-      "0.96 m³",
-      "1.20 m³",
-      "2.00 m³",
-      "3.00 m³"
+      "0,96 m³",
+      "1,20 m³",
+      "2,00 m³",
+      "3,00 m³"
     ],
     "answer": 0,
-    "explanation": "Volume = 1.2 × 1 × 0.8 = 0.96 m³."
+    "explanation": "Volume = 1,2 × 1 × 0,8 = 0,96 m³."
   },
   {
     "id": "paper2-readiness-6",

@@ -87,9 +87,9 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
 {
   id: "trig2-3",
   question: "A 5 m ladder reaches a point 4 m up a wall. What angle does the ladder make with the ground?",
-  options: ["36.9°", "53.1°", "60.0°", "66.4°"],
+  options: ["36,9°", "53,1°", "60,0°", "66,4°"],
   answer: 1,
-  explanation: "sin θ = opposite/hypotenuse = 4/5, so θ ≈ 53.1°.",
+  explanation: "sin θ = opposite/hypotenuse = 4/5, so θ ≈ 53,1°.",
 },
 {
   id: "trig2-4",
@@ -108,9 +108,9 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
 {
   id: "trig2-6",
   question: "In a triangle, a = 10, A = 30° and b = 6. Find angle B.",
-  options: ["17.5°", "30°", "36.9°", "72.5°"],
+  options: ["17,5°", "30°", "36,9°", "72,5°"],
   answer: 0,
-  explanation: "Using the sine rule, sin B / 6 = sin 30° / 10, so sin B = 0.3 and B ≈ 17.5°.",
+  explanation: "Using the sine rule, sin B / 6 = sin 30° / 10, so sin B = 0,3 and B ≈ 17,5°.",
 },
 {
   id: "trig2-7",
@@ -124,7 +124,7 @@ import UnitCircleExplorer from '@/components/subjects/UnitCircleExplorer';
   question: "A 12 m flagpole casts a 5 m shadow. What is the angle of elevation of the sun, to the nearest degree?",
   options: ["23°", "45°", "67°", "78°"],
   answer: 2,
-  explanation: "tan θ = 12/5 = 2.4, so θ ≈ 67.4°, which rounds to 67°.",
+  explanation: "tan θ = 12/5 = 2,4, so θ ≈ 67,4°, which rounds to 67°.",
 }
   ];
 

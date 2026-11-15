@@ -44,8 +44,11 @@ export const withRoomForLabels = (range: [number, number], fraction: number): [n
   return lo >= 0 ? [lo - (hi - lo) * fraction, hi] : [lo, hi];
 };
 
-/** An axis label without floating-point noise: 0.6000000000000001 shows as 0.6. */
-export const formatTick = (n: number): string => String(Math.round(n * 1e6) / 1e6);
+/** An axis label without floating-point noise, written with the South African decimal comma: 0.6000000000000001 shows as 0,6. */
+export const formatTick = (n: number): string => String(Math.round(n * 1e6) / 1e6).replace('.', ',');
+
+/** A number as chart text (axis tick, category label or tooltip value) with the decimal comma; anything else is shown as it is. */
+export const commaText = (v: unknown): string => (typeof v === 'number' ? formatTick(v) : String(v ?? ''));
 
 /** The library pads the requested range by half a unit on every side. */
 const VIEW_PADDING = 0.5;

@@ -158,8 +158,8 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'Which point lies on the x-axis?',
-    options: ['(5, 0)', '(0, 5)', '(5, 5)', '(0, 0.5)'],
-    answer: '(5, 0)',
+    options: ['(5; 0)', '(0; 5)', '(5; 5)', '(0; 0,5)'],
+    answer: '(5; 0)',
     explanation: 'Points on the x-axis have y = 0.',
   },
   {

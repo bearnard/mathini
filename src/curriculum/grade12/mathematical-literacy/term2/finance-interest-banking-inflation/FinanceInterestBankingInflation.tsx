@@ -90,7 +90,7 @@ const items: MathematicalLiteracyItem[] = [
       "R4 640"
     ],
     "answer": 1,
-    "explanation": "Simple interest = P × r × t = 4 000 × 0.08 × 2 = R640."
+    "explanation": "Simple interest = P × r × t = 4 000 × 0,08 × 2 = R640."
   },
   {
     "id": "finance-interest-banking-inflation-2",
@@ -102,7 +102,7 @@ const items: MathematicalLiteracyItem[] = [
       "R1 300"
     ],
     "answer": 2,
-    "explanation": "R1 000 × 1.10 × 1.10 = R1 210."
+    "explanation": "R1 000 × 1,10 × 1,10 = R1 210."
   },
   {
     "id": "finance-interest-banking-inflation-3",
@@ -126,7 +126,7 @@ const items: MathematicalLiteracyItem[] = [
       "R600"
     ],
     "answer": 1,
-    "explanation": "R500 × 1.06 = R530."
+    "explanation": "R500 × 1,06 = R530."
   },
   {
     "id": "finance-interest-banking-inflation-5",
@@ -150,7 +150,7 @@ const items: MathematicalLiteracyItem[] = [
       "R2 880"
     ],
     "answer": 2,
-    "explanation": "18 months = 1.5 years, so interest = 8 000 × 0.12 × 1.5 = R1 440."
+    "explanation": "18 months = 1,5 years, so interest = 8 000 × 0,12 × 1,5 = R1 440."
   },
   {
     "id": "finance-interest-banking-inflation-7",

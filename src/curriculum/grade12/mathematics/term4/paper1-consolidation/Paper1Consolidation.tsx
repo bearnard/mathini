@@ -82,7 +82,7 @@ import Formula from '@/components/subjects/Formula';
   question: "R2 000 is invested at 5% per year, compounded annually, for 2 years. What is the future value?",
   options: ["R2 100", "R2 150", "R2 205", "R2 250"],
   answer: 2,
-  explanation: "A = 2000(1.05)² = 2000(1.1025) = R2 205.",
+  explanation: "A = 2000(1,05)² = 2000(1,1025) = R2 205.",
 },
 {
   id: "rev1-7",

@@ -179,7 +179,7 @@ const bank: CapsItem[] = [
     prompt: 'Which fraction is greater?',
     options: ['3/4', '5/8', 'They are equal', 'Cannot compare'],
     answer: '3/4',
-    explanation: '3/4 = 0.75 and 5/8 = 0.625, so 3/4 is greater.',
+    explanation: '3/4 = 0,75 and 5/8 = 0,625, so 3/4 is greater.',
   },
   {
     prompt: 'Calculate 2/3 + 1/6.',
@@ -203,7 +203,7 @@ const bank: CapsItem[] = [
     prompt: 'Calculate 1 1/2 + 2 1/4.',
     options: ['3 3/4', '3 1/2', '4', '2 3/4'],
     answer: '3 3/4',
-    explanation: '1.5 + 2.25 = 3.75 = 3 3/4.',
+    explanation: '1,5 + 2,25 = 3,75 = 3 3/4.',
   },
   {
     prompt: 'Simplify 18/24.',

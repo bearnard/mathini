@@ -98,12 +98,12 @@ const items: PhysicalSciencesItem[] = [
     "question": "At the highest point of a vertical projectile, its acceleration is:",
     "options": [
       "0 m/s²",
-      "9.8 m/s² upward",
-      "9.8 m/s² downward",
+      "9,8 m/s² upward",
+      "9,8 m/s² downward",
       "equal to its velocity"
     ],
     "answer": 2,
-    "explanation": "Gravity still acts downward at 9.8 m/s² at the highest point."
+    "explanation": "Gravity still acts downward at 9,8 m/s² at the highest point."
   },
   {
     "id": "paper1-mechanics-waves-electricity-3",

@@ -132,7 +132,7 @@ const items: PhysicalSciencesItem[] = [
       "49 J"
     ],
     "answer": 2,
-    "explanation": "ΔK = 0.5m(v² - u²) = 0.5(2)(49 - 9) = 40 J."
+    "explanation": "ΔK = 0,5m(v² - u²) = 0,5(2)(49 - 9) = 40 J."
   },
   {
     "id": "work-energy-power-5",

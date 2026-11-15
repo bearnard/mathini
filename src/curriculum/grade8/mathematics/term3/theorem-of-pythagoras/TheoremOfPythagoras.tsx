@@ -144,7 +144,7 @@ export const learnSteps: LearnStep[] = [
 const bank: CapsItem[] = [
   {
     prompt: 'A right triangle has legs 3 and 4. What is the hypotenuse?',
-    options: ['5', '6', '7', '4.5'],
+    options: ['5', '6', '7', '4,5'],
     answer: '5',
     explanation: '3² + 4² = 9 + 16 = 25, so c = 5.',
   },

@@ -197,10 +197,10 @@ const bank: CapsItem[] = [
     explanation: 'HH, HT, TH, TT.',
   },
   {
-    prompt: '0.75 as a probability fraction is...',
+    prompt: '0,75 as a probability fraction is...',
     options: ['3/4', '1/4', '3/5', '7/10'],
     answer: '3/4',
-    explanation: '0.75 = 75/100 = 3/4.',
+    explanation: '0,75 = 75/100 = 3/4.',
   },
   {
     prompt: 'If a bag has 8 green and 2 yellow counters, which is more likely?',

@@ -19,7 +19,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">A single case study can include tariffs, VAT, maps, data and probability in one setting. Strong learners identify each small task inside the bigger context and then apply the correct formula to each part.</p>
-        <Formula block>{String.raw`\text{VAT inclusive} = \text{exclusive} \times 1.15`}</Formula>
+        <Formula block>{String.raw`\text{VAT inclusive} = \text{exclusive} \times 1{,}15`}</Formula>
         <Formula block>{String.raw`\text{Actual distance} = \text{map distance} \times \text{scale factor}`}</Formula>
         <Formula block>{String.raw`P(A) = \frac{n(A)}{n(S)}`}</Formula>
       </div>
@@ -64,7 +64,7 @@ const items: MathematicalLiteracyItem[] = [
   },
   {
     "id": "integrated-revision-2",
-    "question": "How many minutes are in 2.5 hours?",
+    "question": "How many minutes are in 2,5 hours?",
     "options": [
       "120",
       "150",
@@ -72,19 +72,19 @@ const items: MathematicalLiteracyItem[] = [
       "250"
     ],
     "answer": 1,
-    "explanation": "2.5 × 60 = 150 minutes."
+    "explanation": "2,5 × 60 = 150 minutes."
   },
   {
     "id": "integrated-revision-3",
-    "question": "On a map with scale 1:100 000, a route measures 4.2 cm. What is the actual distance?",
+    "question": "On a map with scale 1:100 000, a route measures 4,2 cm. What is the actual distance?",
     "options": [
       "420 m",
-      "4.2 km",
+      "4,2 km",
       "42 km",
       "420 km"
     ],
     "answer": 1,
-    "explanation": "4.2 cm × 100 000 = 420 000 cm = 4.2 km."
+    "explanation": "4,2 cm × 100 000 = 420 000 cm = 4,2 km."
   },
   {
     "id": "integrated-revision-4",
