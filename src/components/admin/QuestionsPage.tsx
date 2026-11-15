@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { REPORT_REASON_LABELS, REPORT_REASONS } from '../../lib/shared/questionReport';
 import { formatInt } from './format';
 import { useAdminData } from './useAdminData';
+import QuestionEditPanel from './QuestionEditPanel';
 import type { QueueFlag, QueueItem, RecentAction } from '../../lib/server/questions/moderation';
 
 interface Data { queue: QueueItem[]; recent: RecentAction[] }
@@ -45,6 +46,7 @@ function Card({ item, onDone }: { item: QueueItem; onDone: () => void }) {
   const [reason, setReason] = useState('');
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
+  const [editing, setEditing] = useState(false);
   const ok = reason.trim().length >= 3;
   const act = async (a: Action) => {
     setBusy(true);
@@ -102,8 +104,10 @@ function Card({ item, onDone }: { item: QueueItem; onDone: () => void }) {
         <input className="admin-input" value={reason} onChange={(e) => setReason(e.target.value)} placeholder="Reason (required)" aria-label="Reason for the decision" maxLength={300} style={{ flex: '1 1 220px', minWidth: 0 }} />
         <button type="button" className="admin-btn" disabled={!ok || busy} onClick={() => act('dismiss')}>Dismiss</button>
         <button type="button" className="admin-btn-danger" disabled={!ok || busy || !item.registered || item.status === 'retired'} onClick={() => act('retire')}>{item.status === 'retired' ? 'Already retired' : 'Retire'}</button>
+        <button type="button" className="admin-btn" disabled={!item.registered || item.status === 'retired'} aria-expanded={editing} onClick={() => setEditing((e) => !e)}>{editing ? 'Close the editor' : 'Edit wording'}</button>
       </div>
       {err && <p role="alert" style={{ fontSize: 13, marginTop: 8, fontWeight: 600 }}>{err}</p>}
+      {editing && <QuestionEditPanel questionId={item.questionId} onDone={onDone} onClose={() => setEditing(false)} />}
     </article>
   );
 }
@@ -165,6 +169,21 @@ function RefreshFlags({ onDone }: { onDone: () => void }) {
   );
 }
 
+function OpenById() {
+  const [id, setId] = useState('');
+  const [open, setOpen] = useState('');
+  const valid = /^[0-9a-f]{12}$/.test(id.trim());
+  return (
+    <section style={{ marginTop: 12 }} aria-label="Open a question by id">
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
+        <input className="admin-input" value={id} onChange={(e) => setId(e.target.value)} placeholder="Open any question by its id (12 characters)" aria-label="Question id" maxLength={12} style={{ flex: '1 1 260px', minWidth: 0 }} />
+        <button type="button" className="admin-btn" disabled={!valid} onClick={() => setOpen(id.trim())}>Open</button>
+      </div>
+      {open && <div className="admin-card" style={{ padding: 16, marginTop: 8 }}><QuestionEditPanel key={open} questionId={open} onDone={() => undefined} onClose={() => setOpen('')} /></div>}
+    </section>
+  );
+}
+
 export default function QuestionsPage() {
   const [n, setN] = useState(0);
   const state = useAdminData<Data>('/api/admin/questions/reports', `v=${n}`);
@@ -177,6 +196,7 @@ export default function QuestionsPage() {
         Retiring a question stops it being shown; learners already on the page see the change on their next visit.
       </p>
       <RefreshFlags onDone={refresh} />
+      <OpenById />
       {state.status === 'loading' && <p style={{ marginTop: 16 }}>Loading…</p>}
       {state.status === 'error' && <p role="alert" style={{ marginTop: 16 }}>Sorry, the reports could not be loaded.</p>}
       {state.status === 'ok' && (

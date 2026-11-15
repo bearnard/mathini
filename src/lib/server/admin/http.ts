@@ -76,7 +76,7 @@ export function checkWriteRequest(req: Request, action: string): string | null {
 }
 
 /**
- * Runs a state-changing admin request: guard first, then the CSRF checks, then the JSON body (max 2 KB).
+ * Runs a state-changing admin request: guard first, then the CSRF checks, then the JSON body (max 2 KB, or `opts.maxBytes`).
  * `run` receives the database, the parsed body and the admin's email (for the audit row).
  */
 export async function adminWrite(
@@ -84,6 +84,7 @@ export async function adminWrite(
   name: string,
   action: string,
   run: (db: AdminDb, body: unknown, adminEmail: string) => Promise<Response>,
+  opts: { maxBytes?: number } = {},
 ): Promise<Response> {
   const denied = await requireAdmin(req);
   if (denied) return denied;
@@ -92,7 +93,7 @@ export async function adminWrite(
   if (checkWriteRequest(req, action) !== null) return forbidden();
   try {
     const text = await req.text();
-    if (text.length > 2048) return adminJson({ error: 'Request too large' }, 413);
+    if (text.length > (opts.maxBytes ?? 2048)) return adminJson({ error: 'Request too large' }, 413);
     let body: unknown = null;
     try {
       body = text ? JSON.parse(text) : null;
