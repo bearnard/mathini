@@ -22,7 +22,6 @@ const bigPara = 10 * 8;
 const tri = triangleArea(10, 8);
 
 // slide 3: circles (π ≈ 3,14)
-const c5 = circleMeasures(5);
 const c3 = circleMeasures(3);
 
 // slide 4: composite
@@ -87,8 +86,8 @@ export const learnSteps: LearnStep[] = [
         <CircleRadius r={3} unit="cm" caption={`A = 3,14 × ${c3.rSquared} = ${S(c3.area)} cm²`} />
         <Worked
           steps={[
-            <>r = 5 cm: C = 2 × 3,14 × 5 = <strong>{S(c5.circumference)} cm</strong>.</>,
-            <>r = 3 cm: r{sq} = 3 × 3 = {c3.rSquared}.</>,
+            <>The circle in the picture has r = 3 cm: C = 2 × 3,14 × 3 = <strong>{S(c3.circumference)} cm</strong>.</>,
+            <>For the area, r{sq} = 3 × 3 = {c3.rSquared}.</>,
             <>A = 3,14 × {c3.rSquared} = <strong>{S(c3.area)} cm{sq}</strong>.</>,
           ]}
         />

@@ -102,6 +102,10 @@ test('Patterns, functions and algebra consolidation: rules, values and solutions
   assert.match(consolidation[3].text, /8 ÷ 2 = 4/);
   assert.match(consolidation[3].text, /3 × 4 = 12/);
   assert.match(consolidation[3].text, /5,5/);
+  assert.match(consolidation[3].text, /x \+ 3 = 5,5 \(the 3 was not divided\)/);
+  assert.equal(11 / 2, 5.5); // the wrong right-hand side named in the mistake
+  assert.notEqual(5.5 - 3, solveLinear(2, 3, 11).x); // x + 3 = 5,5 would give 2,5, not 4
+  assert.equal(solveLinear(2, 3, 11).afterB, 8);
   assert.match(consolidation[4].text, /The rule is y = 2x/);
   assert.match(consolidation[5].text, /Tn = 5n − 1/);
   assert.match(consolidation[5].text, /6a \+ 4/);

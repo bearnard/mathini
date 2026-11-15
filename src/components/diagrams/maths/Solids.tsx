@@ -125,7 +125,20 @@ export const solidsAria = (names: SolidName[]): string =>
     })
     .join('. ') + '.';
 
-const SolidsRow = ({ names, className }: { names: SolidName[]; className?: string }) => {
+/**
+ * The face count printed under a solid. By default a curved surface counts as a face (the Grade 6
+ * convention in SOLIDS). With `flatAndCurved` a curved solid reads "2 flat, 1 curved" so the picture
+ * agrees with lessons that count flat faces and curved surfaces separately.
+ */
+export const faceLabel = (nm: SolidName, flatAndCurved = false): string => {
+  const f = SOLIDS[nm];
+  if (flatAndCurved && nm === 'cylinder') return '2 flat, 1 curved';
+  if (flatAndCurved && nm === 'cone') return '1 flat, 1 curved';
+  if (flatAndCurved && nm === 'sphere') return '0 flat, 1 curved';
+  return `${f.faces} face${f.faces === 1 ? '' : 's'}`;
+};
+
+const SolidsRow = ({ names, className, flatAndCurved = false }: { names: SolidName[]; className?: string; flatAndCurved?: boolean }) => {
   const n = names.length;
   const w = 120 / n;
   return (
@@ -153,7 +166,7 @@ const SolidsRow = ({ names, className }: { names: SolidName[]; className?: strin
               )}
             </text>
             <g fontSize={4.8} fontWeight={800} textAnchor="middle" transform={LABEL[nm].includes(' ') ? 'translate(0 6)' : undefined}>
-              <text x={cx} y={50} fill="#5eead4">{f.faces} face{f.faces === 1 ? '' : 's'}</text>
+              <text x={cx} y={50} fill="#5eead4">{faceLabel(nm, flatAndCurved)}</text>
               <text x={cx} y={57} fill={EDGE}>{f.edges} edge{f.edges === 1 ? '' : 's'}</text>
               <text x={cx} y={64} fill={VERT}>{f.vertices} vert{f.vertices === 1 ? 'ex' : 'ices'}</text>
             </g>

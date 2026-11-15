@@ -46,6 +46,9 @@ test('3D objects: the counts appear in the slides', () => {
   assert.match(solids[2].text, /6 \+ 8 = 14; E \+ 2 = 12 \+ 2 = 14/);
   assert.match(solids[2].text, /5 \+ 6 − 2 = 9/);
   assert.match(solids[3].text, /a cone/);
+  assert.match(solids[3].text, /2 flat, 1 curved/);
+  assert.match(solids[3].text, /0 flat, 1 curved/);
+  assert.doesNotMatch(solids[3].text, /3 faces|1 face\b/);
   assert.match(solids[5].text, /8 faces, 18 edges, 12 vertices/);
   assert.match(solids[5].text, /6 faces: 1 pentagon/);
 });

@@ -80,6 +80,8 @@ test('Number Systems: the worked numbers are true and appear in the slides', () 
   assert.match(numbers[2].text, /6 × 4 = 24/);
   assert.match(numbers[2].text, /so −4/);
   assert.match(numbers[2].text, /= −8/);
+  assert.match(numbers[2].text, /is not −24. Two negatives multiply to a positive. Do not mix this up with adding: \(−6\) \+ \(−4\) = −10\./);
+  assert.doesNotMatch(numbers[2].text, /Only addition/);
   assert.match(numbers[3].text, /2 \+ 12 = 14/);
   assert.match(numbers[3].text, /20 − 18 = 2/);
   assert.match(numbers[4].text, /3\/8 = 0,375/);
@@ -113,14 +115,14 @@ test('Patterns: the worked numbers are true and appear in the slides', () => {
 test('Area and Perimeter: the worked numbers are true and appear in the slides', () => {
   assert.deepEqual(breadthFromPerimeter(20, 8), { half: 10, breadth: 2 });
   assert.equal(triangleArea(10, 8), 40);
-  assert.equal(circleMeasures(5).circumference, 31.4);
+  assert.equal(circleMeasures(3).circumference, 18.84);
   assert.equal(circleMeasures(3).area, 28.26);
   assert.match(area[0].text, /= 24 m/);
   assert.match(area[0].text, /= 2 m/);
   assert.match(area[1].text, /8 × 5 = 40/);
   assert.match(area[1].text, /12 × 5 = 60/);
   assert.match(area[1].text, /½ × 10 × 8 = 40/);
-  assert.match(area[2].text, /31,4 cm/);
+  assert.match(area[2].text, /18,84 cm/);
   assert.match(area[2].text, /28,26 cm/);
   assert.match(area[3].text, /24 \+ 9 = 33 cm/);
   assert.match(area[4].text, /350 mm/);

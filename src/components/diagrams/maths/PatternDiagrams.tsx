@@ -1,4 +1,4 @@
-import { applyRules, axisMax, axisTicks, balanced, ruleText, sequence, unknownAddend } from './mathsHelpers';
+import { applyRules, axisMax, barGraphAria, axisTicks, balanced, ruleText, sequence, unknownAddend } from './mathsHelpers';
 import type { Rule } from './mathsHelpers';
 import { r3 } from '../round';
 
@@ -211,7 +211,7 @@ export const BarGraph = ({ title, yLabel, items, step }: { title: string; yLabel
     <svg
       viewBox="0 0 130 100"
       role="img"
-      aria-label={`A bar graph titled ${title}. The scale goes up in twos. ${items.map((i) => `${i.label}: ${i.value}`).join(', ')}.`}
+      aria-label={barGraphAria(title, yLabel, items, step)}
       className={frame}
       style={panel}
     >
