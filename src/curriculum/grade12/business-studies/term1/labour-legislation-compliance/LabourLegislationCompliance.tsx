@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import SwotMatrix from '@/components/subjects/SwotMatrix';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -71,6 +72,16 @@ const learnSteps: LearnStep[] = [
           <li>Quote the clue from the scenario.</li>
           <li>Recommend one practical compliance action.</li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    title: "B-BBEE and the main labour laws",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Broad-based black economic empowerment is a policy to bring black South Africans fully into the economy through ownership, management and skills. The main labour laws are the LRA, BCEA, EEA, Skills Development Act, UIF and COIDA."}</GapRule>
+        <GapWorked title={"Match the law to its purpose"} steps={["LRA: unions, strikes, fair dismissal, with disputes going to the CCMA.", "BCEA: working hours, leave and notice.", "EEA: ends unfair discrimination and promotes equity for designated groups.", "B-BBEE: ownership, management control and skills development."]} />
+        <GapMistake>{"Mixing up the laws."}</GapMistake>
       </div>
     ),
   },

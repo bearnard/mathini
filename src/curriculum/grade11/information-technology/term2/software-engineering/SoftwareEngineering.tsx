@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -101,6 +102,16 @@ const learnSteps: LearnStep[] = [
           </div>
         </div>
         <p className="text-sm text-slate-600">Version control (e.g. Git) tracks changes to code over time and enables collaboration.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Version control",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Version control, for example Git, tracks all code changes, allowing rollbacks and teamwork."}</GapRule>
+        <GapWorked title={"Use it on a team project"} steps={["Each learner works on their own copy of the code.", "Changes are saved as versions with a message.", "If an update breaks the program, roll back to the last good version.", "Team members' changes are merged."]} />
+        <GapMistake>{"Saving copies named final, final2 and final_new instead of using version control."}</GapMistake>
       </div>
     ),
   },

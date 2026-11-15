@@ -2,6 +2,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const regionalTradeData = [
   { year: '2019', exports: 220, imports: 180 },
@@ -84,6 +85,16 @@ const learnSteps: LearnStep[] = [
             <p className="mt-1 text-slate-600">Offers alternative development finance through the New Development Bank and a larger diplomatic platform.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Regional trade and neighbours",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"SADC members agreed in 2008 to drop most tariffs on each other's goods. South Africa produces more than half the region's output, and its harbours serve countries with no coastline."}</GapRule>
+        <GapWorked title={"Who gains, who worries"} steps={["Cheaper regional trade helps exporters and consumers.", "Zambia and Botswana send goods through Durban and Cape Town.", "Smaller economies may rely on South Africa too much, which can skew growth."]} />
+        <GapMistake>{"Assuming a free trade area also shares one currency."}</GapMistake>
       </div>
     ),
   },

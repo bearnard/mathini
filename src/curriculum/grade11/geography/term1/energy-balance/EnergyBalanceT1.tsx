@@ -1,6 +1,7 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../_shared/types';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps: LearnStep[] = [
@@ -100,6 +101,16 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">Small imbalances between incoming and outgoing energy can drive climate change over time.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Angle of the Sun's rays",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Low-latitude regions receive more solar energy because the Sun's rays strike more directly, so the energy is concentrated on a smaller area."}</GapRule>
+        <GapWorked title={"Compare latitudes"} steps={["At the equator the rays strike almost at right angles.", "The energy is concentrated on a small area.", "At the poles the rays strike at a low angle and spread over a larger area, and pass through more atmosphere."]} />
+        <GapMistake>{"Thinking the equator is hot only because it is closer to the Sun."}</GapMistake>
       </div>
     ),
   },

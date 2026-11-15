@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -95,6 +96,16 @@ const learnSteps: LearnStep[] = [
             When evaluating new technology, discuss both benefit and risk. CAPS answers score well when they reach a balanced judgement.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Extra login checks and unpatched holes",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Adding a code or fingerprint on top of a password blocks most account takeovers. A hole in software that criminals use before the maker even knows about it, or before a fix exists, is called a zero-day."}</GapRule>
+        <GapWorked title={"Respond to a threat"} steps={["Turn on multi-factor authentication for your email.", "A flaw is found being exploited before the vendor has a patch.", "Install the patch as soon as it is released."]} />
+        <GapMistake>{"Believing updated software cannot have unknown flaws."}</GapMistake>
       </div>
     ),
   },

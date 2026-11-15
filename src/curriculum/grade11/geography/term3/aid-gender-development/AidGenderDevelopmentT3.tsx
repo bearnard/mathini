@@ -1,6 +1,7 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../_shared/types';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps: LearnStep[] = [
@@ -130,6 +131,16 @@ const learnSteps: LearnStep[] = [
         </div>
 
         <p className="text-sm text-slate-500">Higher aid does not automatically guarantee development, and lower gender inequality usually supports stronger human development outcomes.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Aid and girls' education",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A government that always relies on donor money may never build its own tax base or institutions. Keeping girls in school pays off for decades: they earn more and have smaller, healthier families."}</GapRule>
+        <GapWorked title={"Compare outcomes"} steps={["Country A funds its budget from aid and neglects tax collection.", "Country B uses aid for schools and builds its own revenue.", "A schooled girl typically earns more, has fewer children and raises healthier ones."]} />
+        <GapMistake>{"Treating all aid as a problem."}</GapMistake>
       </div>
     ),
   },

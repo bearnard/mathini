@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -99,6 +100,16 @@ const learnSteps: LearnStep[] = [
             <li>Why did some countries struggle with development after independence?</li>
           </ul>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Superpower rivalry and colonial borders",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The USA and the USSR each wanted influence in new states and disliked old-style empires. The colonial powers had left behind borders cutting across peoples and economies built to export raw materials."}</GapRule>
+        <GapWorked title={"Two effects"} steps={["Washington and Moscow courted new governments.", "Borders from the 1884-85 Berlin Conference split communities.", "Railways ran from mines to ports, not between regions."]} />
+        <GapMistake>{"Imagining that borders followed ethnic lines."}</GapMistake>
       </div>
     ),
   },

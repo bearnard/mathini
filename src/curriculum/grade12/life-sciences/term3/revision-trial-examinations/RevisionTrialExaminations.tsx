@@ -5,6 +5,7 @@ import ProcessFlow from '@/components/subjects/ProcessFlow';
 import ClassificationTree from '@/components/subjects/ClassificationTree';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -137,6 +138,16 @@ const learnSteps: LearnStep[] = [
             Answer what is asked, not everything you know. Trial papers reward precision as much as knowledge.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "The placenta as a go-between",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The placenta lets materials pass between two blood systems that stay separate. Oxygen and food go to the foetus; waste such as carbon dioxide and urea goes to the mother."}</GapRule>
+        <GapWorked title={"Trace the exchange"} steps={["Mother's blood brings oxygen and nutrients.", "Foetal waste moves back across the barrier.", "The blood of mother and baby does not mix."]} />
+        <GapMistake>{"Saying the two bloods mix."}</GapMistake>
       </div>
     ),
   },

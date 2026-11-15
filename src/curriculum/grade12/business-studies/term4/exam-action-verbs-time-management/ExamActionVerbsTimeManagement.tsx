@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import SwotMatrix from '@/components/subjects/SwotMatrix';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -60,6 +61,16 @@ const learnSteps: LearnStep[] = [
           <p className="font-semibold text-amber-800">Final-check checklist</p>
           <p className="text-slate-600 mt-1">Check numbering, incomplete answers, multiple-choice selections and whether the response matches the command word.</p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Reading the question",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Before answering, underline the action verb and the key topic clues."}</GapRule>
+        <GapWorked title={"Read first"} steps={["Question: Discuss the impact of load-shedding on a bakery.", "Action verb: discuss. Topic clues: impact, load-shedding, bakery.", "Answer exactly that, with examples from the bakery."]} />
+        <GapMistake>{"Answering a different question from the one asked."}</GapMistake>
       </div>
     ),
   },

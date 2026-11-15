@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { LSItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -108,6 +109,16 @@ const learnSteps: LearnStep[] = [
             </tbody>
           </table>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Recovering after a sprint",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"During a hard sprint muscle cells run short of oxygen and make lactic acid. Afterwards you keep breathing heavily because additional oxygen is needed to convert the lactate back and release its energy."}</GapRule>
+        <GapWorked title={"Follow the recovery"} steps={["Muscles work anaerobically and lactic acid builds up.", "Breathing stays fast after you stop.", "The extra oxygen is used to clear the lactic acid."]} />
+        <GapMistake>{"Thinking the body ran out of oxygen for good."}</GapMistake>
       </div>
     ),
   },

@@ -6,6 +6,7 @@ import ClassificationTree from '@/components/subjects/ClassificationTree';
 import PunnettSquare from '@/components/subjects/PunnettSquare';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -150,6 +151,16 @@ const learnSteps: LearnStep[] = [
             the correct biological order.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "How selection changes a population",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Individuals differ. Those whose features suit the environment tend to survive and have more offspring, so their features become commoner with each generation."}</GapRule>
+        <GapWorked title={"Follow the steps"} steps={["Variation exists.", "The better-suited breed more.", "Next generation: more carry the helpful feature."]} />
+        <GapMistake>{"Believing individuals change themselves during life."}</GapMistake>
       </div>
     ),
   },

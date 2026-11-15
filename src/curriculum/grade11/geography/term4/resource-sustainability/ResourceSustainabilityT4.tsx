@@ -1,6 +1,7 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../_shared/types';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps: LearnStep[] = [
@@ -120,6 +121,16 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">Efficient irrigation and better urban water management are essential for long-term sustainability.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Forests and water",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Without trees, less water returns to the air through leaves, rain runs off bare ground and rivers flood, and less soaks down to refill groundwater."}</GapRule>
+        <GapWorked title={"Follow the water"} steps={["Fewer trees mean less moisture released into the air.", "Heavy rain hits bare soil and races to the river.", "Little water sinks in, so wells and springs run low."]} />
+        <GapMistake>{"Believing the water cycle is unaffected by cutting trees."}</GapMistake>
       </div>
     ),
   },

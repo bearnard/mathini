@@ -4,6 +4,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import FinancialStatement from '@/components/subjects/FinancialStatement';
 import TAccount from '@/components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -80,6 +81,16 @@ const learnSteps: LearnStep[] = [
         <p className="text-base leading-7 text-slate-600">
           Final-paper recommendation questions are looking for practical judgement. Use the scenario, refer to the stakeholders affected and explain why the recommendation would improve fairness and accountability.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: "Earnings per share and weighted averages",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Earnings per share (EPS) = profit attributable to ordinary shareholders \u00f7 the weighted average number of ordinary shares in issue."}</GapRule>
+        <GapWorked title={"Weighted average"} steps={["1 000 000 shares for 12 months, and 200 000 more issued after 6 months.", "Weighted average = 1 000 000 + 200 000 \u00d7 6/12 = 1 100 000 shares.", "Profit for ordinary shareholders R2 200 000 \u00f7 1 100 000 = 200 cents per share."]} />
+        <GapMistake>{"Using the year-end number of shares instead of the weighted average."}</GapMistake>
       </div>
     ),
   },

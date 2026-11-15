@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -31,6 +32,16 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"When debugging web design questions, inspect both the code and the communication outcome. An image without alt text, a page with poor heading order or links that are hard to spot all reduce quality. Layout fixes should improve clarity, accessibility and consistent presentation across the page."</p>
+      </div>
+    ),
+  },
+  {
+    title: "Alt text",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Alt text is a short written description of a picture. Screen readers speak it for people who cannot see the image, and browsers show it if the file fails to load."}</GapRule>
+        <GapWorked title={"Write alt text"} steps={["<img src=\"map.png\" alt=\"Map of the school grounds\">", "A screen reader reads the description.", "If the image cannot load, the text appears instead."]} />
+        <GapMistake>{"Writing alt text such as image1 that does not describe the picture."}</GapMistake>
       </div>
     ),
   },

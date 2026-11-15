@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -31,6 +32,16 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"Information management means collecting, processing and presenting information logically. In advanced CAT tasks, this includes deciding what data is relevant, which application should process it and how to present it to the target audience. Good integration avoids duplication and keeps the final solution focused on the original problem."</p>
+      </div>
+    ),
+  },
+  {
+    title: "Breaking tasks down and querying first",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Faced with a big practical, split it into small pieces you can finish one by one. In databases, build a query that picks out exactly the records you need, then base the report on it."}</GapRule>
+        <GapWorked title={"Plan a practical task"} steps={["Split the task: database, spreadsheet, document.", "Run a query that selects the right records.", "Base the report on that query."]} />
+        <GapMistake>{"Starting with the report and filtering the records by hand later."}</GapMistake>
       </div>
     ),
   },

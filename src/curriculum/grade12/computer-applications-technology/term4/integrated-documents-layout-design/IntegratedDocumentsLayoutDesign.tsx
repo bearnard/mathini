@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -31,6 +32,16 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"Term 4 practical consolidation is about pulling earlier skills together. Learners should check integration, layout, captions, page numbering and the overall message of the document. The final product should look deliberate and exam-ready, with every element serving a clear purpose."</p>
+      </div>
+    ),
+  },
+  {
+    title: "Charts and alignment in a final report",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"After inserting a chart into a final report, check that the chart is accurate, labelled and fits the layout. Alignment creates visual order and a neat, professional appearance."}</GapRule>
+        <GapWorked title={"Check a report"} steps={["Compare the chart's figures with the source data.", "Check the title, axis labels and legend.", "Align text and pictures consistently and make sure the chart fits on the page."]} />
+        <GapMistake>{"Pasting a chart without checking labels or layout."}</GapMistake>
       </div>
     ),
   },

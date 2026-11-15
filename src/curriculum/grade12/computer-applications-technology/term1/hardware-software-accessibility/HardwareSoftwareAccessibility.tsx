@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -31,6 +32,16 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"Accessibility features are not add-ons that are used only rarely. Screen readers assist visually impaired users, closed captions support hearing-impaired users, and on-screen keyboards or speech recognition help users with motor difficulties. In exam questions, explain how the feature solves the barrier the user faces rather than just naming the feature."</p>
+      </div>
+    ),
+  },
+  {
+    title: "Open-source software and accessibility answers",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Open-source programs come with their code and usually need no licence fee, which suits schools with tight budgets. When answering on accessibility, name the user's exact difficulty first, because each feature solves a specific barrier."}</GapRule>
+        <GapWorked title={"Match the feature to the barrier"} steps={["Open source: the code is available and licence fees are usually avoided.", "A learner who cannot see the screen well: screen reader or magnifier.", "A learner who cannot use a mouse: keyboard navigation or voice input."]} />
+        <GapMistake>{"Naming a feature without saying which barrier it solves."}</GapMistake>
       </div>
     ),
   },

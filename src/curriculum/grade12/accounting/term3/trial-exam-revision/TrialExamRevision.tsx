@@ -4,6 +4,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import FinancialStatement from '@/components/subjects/FinancialStatement';
 import TAccount from '@/components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -88,6 +89,16 @@ const learnSteps: LearnStep[] = [
         <p className="text-base leading-7 text-slate-600">
           The best responses sound like a responsible accountant: clear, evidence-based and practical. They do not only identify the problem; they also recommend a realistic way to fix it.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: "Revision: FIFO, prime cost, reconciliations and ethics",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"When prices climb, selling the oldest stock first charges cost of sales at the older, lower prices. Prime cost counts only materials and wages that go straight into the product. A deposit not yet credited by the bank is a timing item on a reconciliation. Tweaking the depreciation rate to lift profit deceives readers of the statements."}</GapRule>
+        <GapWorked title={"Four quick checks"} steps={["FIFO in rising prices: lower cost of sales, higher gross profit.", "Prime cost = direct materials + direct labour, no overheads.", "A deposit made on the last day, not yet on the statement: timing difference.", "Choosing a rate only to hide a poor profit is dishonest."]} />
+        <GapMistake>{"Adding factory overheads into prime cost."}</GapMistake>
       </div>
     ),
   },

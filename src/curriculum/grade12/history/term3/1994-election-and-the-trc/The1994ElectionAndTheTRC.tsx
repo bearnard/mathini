@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem, type LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -68,6 +69,16 @@ const learnSteps: LearnStep[] = [
           <li>{"The TRC showed that transitions often involve difficult moral compromises."}</li>
           <li>{"Its legacy still shapes public memory and debate in democratic South Africa."}</li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    title: "1994 and the TRC in context",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"In 1994 every adult could vote, whatever their race, for the first time, producing a government elected by all. Opinions on the TRC are split: some stress the healing it brought, others say perpetrators escaped justice."}</GapRule>
+        <GapWorked title={"Weigh the TRC"} steps={["Everyone aged 18 and over could vote.", "The TRC heard victims and perpetrators.", "Amnesty was granted for full disclosure of politically motivated crimes.", "Supporters praise reconciliation; critics say too little justice."]} />
+        <GapMistake>{"Seeing the TRC only as a court."}</GapMistake>
       </div>
     ),
   },

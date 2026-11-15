@@ -2,6 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import FinancialStatement from '../../../../../components/subjects/FinancialStatement';
 import TAccount from '../../../../../components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -140,6 +141,16 @@ const learnSteps: LearnStep[] = [
           <p className="font-mono text-blue-700">Assets = Equity + Liabilities</p>
           <p className="text-slate-600 mt-1">Here, R776 000 = R667 600 + R108 400, so the final statements still balance after updating the current accounts.</p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "When a partner has taken more than their share",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A partner's current account collects their salary, interest and share of profit on the credit side and their drawings on the debit side. If the drawings are bigger, the account ends in debit: the partner has taken out more than they earned."}</GapRule>
+        <GapWorked title={"Find the balance"} steps={["Credits: salary R30 000 plus profit share R10 000 = R40 000.", "Debits: drawings R55 000.", "R40 000 \u2212 R55 000 gives a debit of R15 000, which that partner owes to the firm."]} />
+        <GapMistake>{"Reading a debit balance as money owed to the partner."}</GapMistake>
       </div>
     ),
   },

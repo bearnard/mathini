@@ -2,6 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import FinancialStatement from '../../../../../components/subjects/FinancialStatement';
 import TAccount from '../../../../../components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -127,6 +128,16 @@ const learnSteps: LearnStep[] = [
           ]}
         />
         <p className="text-sm text-slate-500">Credits increase the current account, while drawings and interest on drawings are debited because they reduce the partner's claim on the business.</p>
+      </div>
+    ),
+  },
+  {
+    title: "What goes in the notes",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The statements are short, so detail goes in the notes. For each class of fixed asset the note lists what was paid, how much has been written off and what is left. A separate note explains the policies the partners chose."}</GapRule>
+        <GapWorked title={"Write a vehicles note"} steps={["Original price R400 000, less R150 000 written off so far.", "What is left is R250 000.", "Policy note: vehicles lose 20% of their cost each year, so readers can compare firms."]} />
+        <GapMistake>{"Leaving the notes out because the totals already appear in the statements."}</GapMistake>
       </div>
     ),
   },

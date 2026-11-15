@@ -1,6 +1,7 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../_shared/types';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps: LearnStep[] = [
@@ -143,6 +144,16 @@ const learnSteps: LearnStep[] = [
         </div>
 
         <p className="text-sm text-slate-500">No single measure tells the whole story, so geographers often compare several indicators together.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Colonialism and development",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Colonialism contributed to underdevelopment because colonial powers took out resources and wealth, stunting local economies."}</GapRule>
+        <GapWorked title={"Link cause and effect"} steps={["Raw materials such as minerals and crops were exported.", "The profits went to the colonial power.", "Local industries and infrastructure were not developed.", "After independence the countries started with weak economies."]} />
+        <GapMistake>{"Blaming colonialism as the only cause of underdevelopment today."}</GapMistake>
       </div>
     ),
   },

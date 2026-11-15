@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -31,6 +32,16 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"Social networks support communication, marketing and community building, but they also raise issues such as privacy, misinformation, addiction, cyberbullying and digital footprints. CAT learners should show balanced judgement by recognising both the value of these platforms and the responsibilities that come with using them."</p>
+      </div>
+    ),
+  },
+  {
+    title: "AI, VR and AR",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Artificial intelligence lets software carry out jobs that normally need human judgement. VR shuts out the real world and builds a completely virtual setting, while AR places digital items over what you see around you. AI saves time but can also be biased or spread wrong information."}</GapRule>
+        <GapWorked title={"Choose the technology"} steps={["Arrows drawn on a live phone camera view while you walk: AR.", "A headset that places you in a fully virtual classroom: VR.", "An AI model that sorts job applications may be faster but can also be biased."]} />
+        <GapMistake>{"Using VR and AR as if they mean the same."}</GapMistake>
       </div>
     ),
   },

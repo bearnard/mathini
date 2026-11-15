@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -111,6 +112,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Check cable/Wi-Fi connection, paper and ink/toner levels, print queue for stuck jobs, and ensure correct printer is selected.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Answering an Evaluate question",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"An exam question that says Evaluate expects advantages and disadvantages, plus a justified conclusion."}</GapRule>
+        <GapWorked title={"Evaluate cloud storage for a small business"} steps={["Advantage: files can be reached from anywhere and are backed up.", "Disadvantage: it needs an internet connection and has monthly fees.", "Conclusion: cloud storage suits the business if its connection is reliable; justify with the facts above."]} />
+        <GapMistake>{"Listing only advantages. Evaluate needs both sides and a conclusion."}</GapMistake>
       </div>
     ),
   },

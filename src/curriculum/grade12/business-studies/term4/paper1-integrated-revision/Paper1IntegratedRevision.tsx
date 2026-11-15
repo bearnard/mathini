@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import SwotMatrix from '@/components/subjects/SwotMatrix';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -60,6 +61,16 @@ const learnSteps: LearnStep[] = [
           <li>Match the command word to the answer style.</li>
           <li>Use the mark allocation to shape the depth of the answer.</li>
         </ol>
+      </div>
+    ),
+  },
+  {
+    title: "Revision strategy",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Revision works best when you connect topics: take one case study and tie the environment, quality and operations together. Learning definitions off by heart without practising how to apply them wastes marks."}</GapRule>
+        <GapWorked title={"Revise smarter"} steps={["Link the macro environment, quality and operations in one case study.", "Practise applying each definition to a scenario.", "Mark your answers against a memo."]} />
+        <GapMistake>{"Memorising wording without using it."}</GapMistake>
       </div>
     ),
   },

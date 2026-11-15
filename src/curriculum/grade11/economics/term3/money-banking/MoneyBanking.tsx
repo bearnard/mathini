@@ -3,6 +3,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import SupplyDemand from '@/components/subjects/SupplyDemand';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const monetaryData = [
   { year: '2019', repo: 6.5, inflation: 4.1, prime: 10.0 },
@@ -94,6 +95,16 @@ const learnSteps: LearnStep[] = [
             <p className="mt-1 text-slate-600">Lower rates encourage borrowing, investment and spending during weak growth.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Reserve Bank tools in action",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The Reserve Bank aims to keep prices steady. When prices rise too fast it makes borrowing dearer; when the economy shrinks it makes borrowing cheaper. If a bank runs short of cash it can turn to the Reserve Bank as a final source."}</GapRule>
+        <GapWorked title={"Pick the move"} steps={["Inflation above the target band: raise the repo rate, so loans cost more and spending slows.", "Recession: cut the repo rate so borrowing and activity pick up.", "A bank is short of cash in a crisis: the Reserve Bank lends it emergency funds."]} />
+        <GapMistake>{"Believing higher interest rates make prices rise faster."}</GapMistake>
       </div>
     ),
   },

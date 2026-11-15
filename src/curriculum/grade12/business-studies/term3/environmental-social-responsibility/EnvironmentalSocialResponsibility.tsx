@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import SwotMatrix from '@/components/subjects/SwotMatrix';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -65,6 +66,16 @@ const learnSteps: LearnStep[] = [
           <li>Source from responsible suppliers.</li>
           <li>Support local community programmes that fit business goals.</li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    title: "Corporate social investment (CSI)",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Corporate social investment (CSI) is a business's voluntary spending on community projects. A good example is funding a community maths and science centre."}</GapRule>
+        <GapWorked title={"CSI or not?"} steps={["Funding a community maths and science centre: CSI, because it benefits the community.", "Paying employees' salaries: not CSI, it is a normal business cost.", "Good CSI also builds the company's reputation and skills in the community."]} />
+        <GapMistake>{"Treating advertising as CSI. CSI must benefit the community."}</GapMistake>
       </div>
     ),
   },

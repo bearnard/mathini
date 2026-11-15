@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps = [
@@ -61,6 +62,16 @@ const learnSteps = [
         />
 
         <p className="text-sm text-slate-500">Economic data supports mapwork because it helps explain where jobs, transport routes, and industrial activities are concentrated.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Ports and the informal sector",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Harbours connect inland producers to overseas markets along development corridors. Street traders and spaza shops belong to the informal sector, which gives work to many households."}</GapRule>
+        <GapWorked title={"Apply both ideas"} steps={["Goods from the interior travel by road or rail to Durban or Richards Bay.", "The port connects the production areas to markets overseas.", "Street traders and spaza shops are in the informal sector and give work to many people."]} />
+        <GapMistake>{"Thinking the informal sector is illegal."}</GapMistake>
       </div>
     ),
   },

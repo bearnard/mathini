@@ -4,6 +4,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import FinancialStatement from '@/components/subjects/FinancialStatement';
 import TAccount from '@/components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -113,6 +114,16 @@ const learnSteps: LearnStep[] = [
         <p className="text-base leading-7 text-slate-600">
           Large investing outflows are not automatically negative. Buying new machinery for R480 000 could support future growth, provided the business can still cover dividends, interest and loan repayments without creating a liquidity crisis.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: "Working-capital changes in the cash flow statement",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Owing suppliers for longer lets the business keep cash, so a rise in what is owed to creditors is added back in the operating section. Cash locked up in extra stock or in customers' debts is deducted."}</GapRule>
+        <GapWorked title={"Adjust operating profit"} steps={["Creditors up by R27 000: add R27 000, the cash has not yet left.", "Stock up by R60 000: deduct R60 000, cash was spent on goods not yet sold.", "Debtors down by R42 000: add R42 000, customers have paid."]} />
+        <GapMistake>{"Adding extra stock back as if it produced cash."}</GapMistake>
       </div>
     ),
   },

@@ -5,6 +5,7 @@ import ProcessFlow from '@/components/subjects/ProcessFlow';
 import ClassificationTree from '@/components/subjects/ClassificationTree';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -130,6 +131,16 @@ const learnSteps: LearnStep[] = [
             hominid evolution.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Where the fossils are and where we began",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The Out of Africa idea holds that our species arose in Africa and later spread across the world. South Africa has famous hominin sites, most in the Cradle of Humankind in Gauteng."}</GapRule>
+        <GapWorked title={"Match fossil and place"} steps={["Taung Child: Australopithecus africanus found at Taung (North West) in 1924.", "Mrs Ples: A. africanus from Sterkfontein.", "Australopithecus sediba from Malapa; Homo naledi from the Rising Star cave (described 2015)."]} />
+        <GapMistake>{"Placing our origin in Europe or Asia."}</GapMistake>
       </div>
     ),
   },

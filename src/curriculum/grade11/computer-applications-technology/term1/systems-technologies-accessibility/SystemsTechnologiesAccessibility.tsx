@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -99,6 +100,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Disk cleanup, defragmentation (HDD), Task Manager, device drivers, software updates.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "SSDs and ergonomics",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"An SSD has faster data access than a hard drive and no moving parts. Ergonomics is designing equipment for safe, comfortable and efficient human use."}</GapRule>
+        <GapWorked title={"Compare and apply"} steps={["SSD: no moving parts, so it is faster and more durable than an HDD.", "Ergonomics: an adjustable chair and a monitor at eye level reduce strain.", "A comfortable layout keeps people safe and efficient."]} />
+        <GapMistake>{"Thinking ergonomics only means a good keyboard."}</GapMistake>
       </div>
     ),
   },

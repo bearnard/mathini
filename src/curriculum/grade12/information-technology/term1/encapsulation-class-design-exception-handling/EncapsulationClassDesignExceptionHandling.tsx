@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -114,6 +115,16 @@ rAnswer := iTotal / iDivisor;`} />
             <p className="mt-1 text-slate-600">Pause on suspicious lines and inspect the values before and after each step.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Setters, exceptions and finally",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A class should have one focused responsibility and clear methods. A setter validates data so invalid values are rejected before the object changes. An exception handler deals with runtime problems, and a finally block runs cleanup code whether an error occurs or not."}</GapRule>
+        <GapWorked title={"Safer code in Delphi"} steps={["Setter: procedure TAccount.SetAge(a: Integer); begin if a >= 0 then FAge := a; end;", "Constructor: store or validate essential inputs, such as an account number, so the object starts in a sensible state.", "try Val := StrToInt(Edit1.Text); except on EConvertError do ShowMessage('Enter a number'); end; handles a user typing letters where a number is required.", "try ... finally CloseFile(f); end; always closes the file.", "Raise an exception deliberately when invalid data breaks an important rule that the caller must handle.", "A breakpoint lets you inspect variable values step by step."]} />
+        <GapMistake>{"Using an exception handler for every small check. Validate simple input first and keep exceptions for real runtime problems."}</GapMistake>
       </div>
     ),
   },

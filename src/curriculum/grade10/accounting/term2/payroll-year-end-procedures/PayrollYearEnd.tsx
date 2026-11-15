@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import FinancialStatement from '@/components/subjects/FinancialStatement';
 import TAccount from '@/components/subjects/TAccount';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -112,6 +113,16 @@ const learnSteps: LearnStep[] = [
             },
           ]}
         />
+      </div>
+    ),
+  },
+  {
+    title: "Who does what in payroll",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Fraud thrives when one person controls the whole salary process. Splitting approval, calculation and payment between different people means a fake employee or an unauthorised payment is likely to be caught."}</GapRule>
+        <GapWorked title={"Spot the weak control"} steps={["Thabo adds new staff, works out their pay and makes the bank transfer.", "He could add a ghost worker and pay himself, and nobody would notice.", "Fix it: a manager approves staff, a clerk calculates pay, a third person pays, and the totals are checked."]} />
+        <GapMistake>{"Trusting one honest employee with every step."}</GapMistake>
       </div>
     ),
   },

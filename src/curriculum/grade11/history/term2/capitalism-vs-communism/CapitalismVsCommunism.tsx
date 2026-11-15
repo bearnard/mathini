@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -108,6 +109,16 @@ const learnSteps: LearnStep[] = [
           </ul>
         </div>
         <p className="text-sm text-slate-500 mt-2">Example: A Soviet propaganda poster claiming the New Deal proves capitalism is failing presents a communist ideological perspective — not an objective fact.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Free markets and the middle road",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Under pure free-market capitalism the government stays out and lets business run itself, with no rules. The New Deal sat between that and communism: companies stayed private, but the state added jobs programmes, relief and rules."}</GapRule>
+        <GapWorked title={"Place each system"} steps={["Free-market capitalism: little or no state interference.", "Communism: the state owns the factories and farms.", "New Deal: private ownership plus government action and regulation."]} />
+        <GapMistake>{"Calling the New Deal communist."}</GapMistake>
       </div>
     ),
   },

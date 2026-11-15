@@ -2,6 +2,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import SwotMatrix from '@/components/subjects/SwotMatrix';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -73,6 +74,16 @@ const learnSteps: LearnStep[] = [
           <p className="font-semibold text-amber-800">CAPS focus</p>
           <p className="text-slate-600 mt-1">Justify the recommendation with liability, capital needs, control and continuity instead of listing facts only.</p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Comparing forms of ownership",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Forms of ownership differ mainly in who is liable for debts and how easily they can raise money. A partnership has two or more owners. A (Pty) Ltd cannot sell its shares to the general public, whereas a public company (Ltd) can. A co-operative is owned by its users, who run it together."}</GapRule>
+        <GapWorked title={"Choose a form"} steps={["Sole proprietor: simple, but unlimited liability and limited capital.", "Partnership: more capital and skills, but partners can be liable for the debts.", "Private company: separate legal personality and limited liability; the Companies Act 71 of 2008 sets no 50-shareholder limit.", "Public company: can raise large capital from the public, with stricter disclosure.", "Co-operative: owned and used by members for their shared needs."]} />
+        <GapMistake>{"Thinking a company's owners are never liable for anything."}</GapMistake>
       </div>
     ),
   },

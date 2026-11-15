@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -103,6 +104,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Protection of Personal Information Act. Organisations must collect only necessary data, protect it, and inform users of its use.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Credibility, cookies and cryptocurrency risks",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Cookies store small bits of data on your device, such as login status. Treat a site with caution when it lacks signs of credibility. Cryptocurrency carries the risk of high price swings and many investment scams."}</GapRule>
+        <GapWorked title={"Judge the site"} steps={["A site charges R50 for study notes but shows no author, date or contact details: treat it with caution.", "Cookies remember that you are logged in.", "Cryptocurrency prices swing sharply, and many investment scams use it."]} />
+        <GapMistake>{"Trusting a site because it looks professional."}</GapMistake>
       </div>
     ),
   },

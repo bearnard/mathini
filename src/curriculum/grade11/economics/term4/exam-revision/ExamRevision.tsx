@@ -3,6 +3,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import SupplyDemand from '@/components/subjects/SupplyDemand';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const revisionIndicatorData = [
   { year: '2019', gdp: 0.3, inflation: 4.1, giniIndex: 65 },
@@ -80,6 +81,16 @@ const learnSteps: LearnStep[] = [
           <p className="font-semibold">Suggested structure</p>
           <p className="mt-1">Describe the trend → calculate accurately → explain with theory → evaluate with a balanced judgement.</p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Definitions worth knowing",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Sustainable development, as the Brundtland report put it, lets us meet today's needs without leaving future generations short. Each factor of production earns a payment: land rent, labour wages, capital interest and entrepreneurship profit."}</GapRule>
+        <GapWorked title={"Quick applications"} steps={["A Gini of 0,9 shows almost all income in very few hands.", "If elasticity is above 1 in size, a price increase makes revenue fall.", "The APRM lets African states review each other's governance on a voluntary basis.", "AGOA lets SA export many goods to the US without duty.", "The carbon tax targets greenhouse gas emissions."]} />
+        <GapMistake>{"Mixing up the reward for capital and for labour."}</GapMistake>
       </div>
     ),
   },

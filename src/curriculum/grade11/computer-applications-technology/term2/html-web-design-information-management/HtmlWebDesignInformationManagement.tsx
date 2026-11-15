@@ -1,6 +1,7 @@
 import CodeBlock from '@/components/subjects/CodeBlock';
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -88,6 +89,16 @@ h1 {'{'}
             <p className="text-slate-600 text-sm">Always cite your sources. Plagiarism is presenting someone else's work as your own. Use in-text citations and a bibliography.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Alt text",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The alt attribute of an <img> tag gives alternative text for screen readers and for images that fail to load."}</GapRule>
+        <GapWorked title={"Write the tag"} steps={["<img src=\"logo.png\" alt=\"School logo\">", "A screen reader reads: School logo.", "If the file fails to load, the browser shows the alt text."]} />
+        <GapMistake>{"Leaving alt empty on an important image."}</GapMistake>
       </div>
     ),
   },

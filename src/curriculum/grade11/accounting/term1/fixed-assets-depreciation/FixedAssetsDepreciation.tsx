@@ -4,6 +4,7 @@ import TAccount from '../../../../../components/subjects/TAccount';
 import { CarryingValueSteps } from '../../../../../components/diagrams/accounting/CarryingValueSteps';
 import { DIMINISHING_EXAMPLE, STRAIGHT_LINE_EXAMPLE, diminishing, straightLine } from '../../../../../components/diagrams/accounting/depreciation';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 // Both pictures are computed from the lesson's own examples.
 const STRAIGHT_LINE = straightLine(STRAIGHT_LINE_EXAMPLE.cost, STRAIGHT_LINE_EXAMPLE.residual, STRAIGHT_LINE_EXAMPLE.years);
@@ -158,6 +159,16 @@ const learnSteps: LearnStep[] = [
             <li>Register reconciled to general ledger periodically</li>
           </ul>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Controls over fixed assets",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"To help prevent theft of fixed assets, tag each asset with a unique number and check them physically against the asset register."}</GapRule>
+        <GapWorked title={"Apply the control"} steps={["Give every computer a numbered tag.", "Once a year check each tagged asset physically.", "Investigate any asset that is missing from the register."]} />
+        <GapMistake>{"Relying on the register alone without checking assets physically."}</GapMistake>
       </div>
     ),
   },

@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -31,6 +32,16 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"Networks support collaboration and information access, but they also raise issues of privacy, cyberbullying, misinformation and unequal access. A strong CAT response weighs benefits such as fast communication against risks such as distraction, unsafe sharing or dependence on expensive data. Social implications are about people, behaviour and fairness, not just technology."</p>
+      </div>
+    ),
+  },
+  {
+    title: "Fibre and the digital divide",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Light travelling through glass gives fibre connections more speed and steadier service than old copper lines. Where data is costly, learners without it fall behind: the digital divide."}</GapRule>
+        <GapWorked title={"Compare and apply"} steps={["Fibre: light signals give higher speed and are less affected by interference.", "Copper lines are slower and degrade with distance.", "Learners who cannot afford data fall behind."]} />
+        <GapMistake>{"Thinking fibre is available and affordable everywhere in South Africa."}</GapMistake>
       </div>
     ),
   },

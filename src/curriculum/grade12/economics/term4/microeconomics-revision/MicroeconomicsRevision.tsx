@@ -3,6 +3,7 @@ import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import SupplyDemand from '@/components/subjects/SupplyDemand';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 type RawEconomicsItem = {
   id: string;
@@ -72,6 +73,16 @@ const learnSteps: LearnStep[] = [
             efficiency. CAPS often rewards the most complete economic statement.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "What protection does to local firms",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"If tariffs shield local producers for years, they face little pressure from foreign rivals. They have less reason to cut costs or improve quality, and consumers pay more."}</GapRule>
+        <GapWorked title={"Follow the effect"} steps={["Tariffs make imports dearer.", "Local firms face less competition.", "They have less pressure to cut costs and improve quality.", "Consumers pay higher prices."]} />
+        <GapMistake>{"Thinking protectionism always makes local firms more efficient."}</GapMistake>
       </div>
     ),
   },

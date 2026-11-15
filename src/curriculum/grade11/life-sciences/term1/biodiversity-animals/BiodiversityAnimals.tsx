@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { LSItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -118,6 +119,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Hair or fur, endothermic, mammary glands, mostly viviparous (live birth).</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "More phyla and cephalisation",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Mollusca (snails, mussels, octopus) have a soft body, often with a shell. Nematoda are unsegmented roundworms. Cephalisation is the concentration of nerve tissue and sense organs at the head end, most useful to actively moving, bilaterally symmetrical animals."}</GapRule>
+        <GapWorked title={"Place the animal"} steps={["A snail has a soft body and a shell: Mollusca.", "A roundworm has a smooth, unsegmented body: Nematoda.", "A sponge (Porifera) has no true tissues, organs or body symmetry.", "A cheetah is active and bilaterally symmetrical, so a head with sense organs helps it hunt."]} />
+        <GapMistake>{"Thinking cephalisation helps a sponge. A fixed animal without symmetry gains little from a head."}</GapMistake>
       </div>
     ),
   },

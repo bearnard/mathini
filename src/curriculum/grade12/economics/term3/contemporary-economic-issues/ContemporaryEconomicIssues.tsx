@@ -2,6 +2,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 type RawEconomicsItem = {
   id: string;
@@ -79,6 +80,16 @@ const learnSteps: LearnStep[] = [
             the policy response using clear South African examples.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Shared growth and data-response answers",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Growth is inclusive when jobs and gains reach ordinary households, not only the wealthy. In a data question, use figures from the source and tie them to an economic idea."}</GapRule>
+        <GapWorked title={"Write the answer"} steps={["Inclusive growth: growth that creates jobs and shares benefits across income groups.", "Quote the data, for example unemployment of over 30%.", "Then connect it to theory, such as weak growth and a skills mismatch."]} />
+        <GapMistake>{"Describing the data without linking it to economic theory."}</GapMistake>
       </div>
     ),
   },

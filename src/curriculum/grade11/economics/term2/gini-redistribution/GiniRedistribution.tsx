@@ -2,6 +2,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const lorenzData = [
   { share: '20%', equality: 20, lorenz: 3 },
@@ -107,6 +108,16 @@ const learnSteps: LearnStep[] = [
           yLabel="Index / millions"
         />
         <p className="text-sm text-slate-500">The chart shows why exam answers should evaluate policy: support expanded, but inequality remained stubbornly high.</p>
+      </div>
+    ),
+  },
+  {
+    title: "South Africa's inequality, grants and taxes",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"South Africa's Gini coefficient is about 0.63, among the highest in the world. Progressive taxation taxes higher earners at higher rates to fund social spending. B-BBEE aims to increase black ownership, management and employment opportunities."}</GapRule>
+        <GapWorked title={"Causes and tools"} steps={["Apartheid denied black people education, skills and land, the main historical cause of extreme inequality.", "Progressive tax: higher earners pay a larger percentage, which funds grants and services.", "Social grants, such as the Older Person's Grant, raise the income of poor households.", "B-BBEE: increases black ownership, management and employment opportunities."]} />
+        <GapMistake>{"Saying a Gini of 0.63 means low inequality. Close to 1 means very unequal."}</GapMistake>
       </div>
     ),
   },

@@ -5,6 +5,7 @@ import ProcessFlow from '@/components/subjects/ProcessFlow';
 import ClassificationTree from '@/components/subjects/ClassificationTree';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -118,6 +119,16 @@ const learnSteps: LearnStep[] = [
             interbreed successfully.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Two models of how fast species change",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Gradualism sees species changing slowly and steadily. Punctuated equilibrium sees long calm periods broken by brief bursts of fast change, which fits the sudden jumps found in many fossil records."}</GapRule>
+        <GapWorked title={"Compare"} steps={["Gradualism: smooth, slow change.", "Punctuated equilibrium: stasis, then a rapid burst.", "Fossil gaps may reflect the bursts."]} />
+        <GapMistake>{"Calling a model a piece of evidence."}</GapMistake>
       </div>
     ),
   },

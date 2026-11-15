@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -90,6 +91,16 @@ const learnSteps: LearnStep[] = [
             <li><strong>Complete the merge</strong> — print or save individual letters.</li>
           </ol>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Heading styles and watermarks",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Applying a Heading style lets the software build a Table of Contents automatically. A watermark puts faint text or an image, such as DRAFT, behind the content."}</GapRule>
+        <GapWorked title={"Style the report"} steps={["Apply Heading 1 to every chapter title.", "Insert a Table of Contents: the software lists the headings and page numbers.", "Add a DRAFT watermark: faint text behind the page content."]} />
+        <GapMistake>{"Formatting headings by hand with bold and a bigger font. The software cannot build a table of contents from that."}</GapMistake>
       </div>
     ),
   },

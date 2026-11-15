@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -104,6 +105,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">A formatted, printable summary of data from tables or queries, designed for presentation.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Columns, rows, keys and the right type",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"In a table each column is a field and each row is a record. A learner number stored in the marks table that matches the number in the learner table links the two tables; this linking field is a foreign key. A query pulls out just the records you ask for."}</GapRule>
+        <GapWorked title={"Learners and marks"} steps={["Learner table: LearnerID (primary key), Name, Phone. Marks table: MarkID, LearnerID (foreign key), Mark.", "A query asking for Mark >= 50 lists only those records.", "Telephone numbers are labels, not quantities, so store them as text; a number type would drop the leading zero.", "COUNTA counts non-empty cells, COUNT counts only numbers."]} />
+        <GapMistake>{"Using a number type for something you will never add up."}</GapMistake>
       </div>
     ),
   },

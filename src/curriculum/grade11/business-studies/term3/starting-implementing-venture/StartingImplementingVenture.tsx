@@ -2,6 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
 import { NumberedSteps } from '../../../../../components/diagrams/business/NumberedSteps';
 import { START_UP_STEPS } from '../../../../../components/diagrams/business/steps';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -79,6 +80,16 @@ const learnSteps: LearnStep[] = [
             <li><strong>Action plan review:</strong> check which tasks are on time and which are delayed</li>
           </ul>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Action plans and choosing a form of ownership",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"An action plan turns goals into tasks with deadlines and responsible people. Entrepreneurs must choose the form of ownership before registering, because registration steps and legal rules differ by form."}</GapRule>
+        <GapWorked title={"Plan the start"} steps={["Goal: open the shop by 1 March.", "Task: lease premises; deadline 15 January; responsible: Sipho.", "Choose sole proprietor, partnership or company first.", "Then register as that form requires."]} />
+        <GapMistake>{"Registering the business first and choosing the form later."}</GapMistake>
       </div>
     ),
   },

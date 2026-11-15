@@ -1,6 +1,7 @@
 import CodeBlock from '@/components/subjects/CodeBlock';
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -87,6 +88,16 @@ const learnSteps: LearnStep[] = [
           </div>
         </div>
         <p className="text-sm text-slate-600">− means <em>private</em>; + means <em>public</em>. Class names use PascalCase; attributes and methods use camelCase.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Class or object?",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A class is a blueprint. An object is one specific instance created from it, such as myStudent, a specific student record in memory."}</GapRule>
+        <GapWorked title={"Tell them apart"} steps={["TStudent is the class: it describes the attributes and methods.", "myStudent := TStudent.Create(...) creates an object.", "Each object has its own attribute values."]} />
+        <GapMistake>{"Calling the class name an object."}</GapMistake>
       </div>
     ),
   },

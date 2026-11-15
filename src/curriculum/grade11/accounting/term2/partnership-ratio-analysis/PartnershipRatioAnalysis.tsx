@@ -2,6 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import FinancialStatement from '../../../../../components/subjects/FinancialStatement';
 import Formula from '../../../../../components/subjects/Formula';
 import type { AccountingItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -125,6 +126,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600 text-sm">A ratio above 1:1 means assets exceed liabilities — the business is solvent.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Why the acid-test ratio excludes inventory",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The acid-test (quick) ratio leaves out inventory, because inventory cannot be turned into cash fast enough to pay urgent debts."}</GapRule>
+        <GapWorked title={"Acid test"} steps={["Current assets R300 000, of which inventory R120 000; current liabilities R150 000.", "Current ratio = 300 000 \u00f7 150 000 = 2 : 1.", "Acid test = (300 000 \u2212 120 000) \u00f7 150 000 = 1,2 : 1."]} />
+        <GapMistake>{"Including inventory in the acid-test ratio."}</GapMistake>
       </div>
     ),
   },

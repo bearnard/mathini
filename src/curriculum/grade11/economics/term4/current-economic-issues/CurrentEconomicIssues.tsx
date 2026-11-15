@@ -3,6 +3,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import SupplyDemand from '@/components/subjects/SupplyDemand';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const issueTrendData = [
   { year: '2019', unemployment: 29, inflation: 4.1, growth: 0.3 },
@@ -81,6 +82,16 @@ const learnSteps: LearnStep[] = [
           <p className="font-semibold text-slate-800">Using the graph</p>
           <p className="mt-1 text-slate-600">Load-shedding raises production costs, shifts supply left and helps explain why prices can rise while output falls.</p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Power cuts, price stability and essays",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Rotational power cuts shorten working hours and force firms to buy diesel. A target of 3% inflation, give or take 1 point, makes prices more predictable for planning. In an essay, define a term, then support it with a local example and a judgement."}</GapRule>
+        <GapWorked title={"Write one paragraph"} steps={["Define: load-shedding means scheduled outages.", "Example: a bakery loses hours and pays for a generator.", "Judge: output and jobs fall, so the cost to the economy is high."]} />
+        <GapMistake>{"Stopping at a definition."}</GapMistake>
       </div>
     ),
   },

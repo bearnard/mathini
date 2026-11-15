@@ -2,6 +2,7 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const povertyTrendData = [
   { year: '2019', unemployment: 29, poverty: 55 },
@@ -98,6 +99,16 @@ const learnSteps: LearnStep[] = [
             <p className="mt-1 text-slate-600">EPWP and NSFAS help people build earning capacity over time.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Measuring and fighting poverty in South Africa",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Someone in absolute poverty cannot afford the basic needs of life, however the rest of society is doing. The state responds with public works jobs, free basic services and student funding, and it still lives with the legacy of unequal schooling under Bantu Education."}</GapRule>
+        <GapWorked title={"Match policy to problem"} steps={["EPWP: short-term jobs that also build roads and drains.", "Free electricity for indigent households eases energy poverty.", "NSFAS pays for study so poor students can qualify.", "Bantu Education gave black learners inferior schools, still felt in today's skills gaps."]} />
+        <GapMistake>{"Judging poverty by comparison with the neighbours rather than by basic needs."}</GapMistake>
       </div>
     ),
   },

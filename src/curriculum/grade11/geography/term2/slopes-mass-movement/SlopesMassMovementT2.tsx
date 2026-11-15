@@ -1,6 +1,7 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../_shared/types';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps: LearnStep[] = [
@@ -122,6 +123,16 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">Slope angle, water content, vegetation cover, and rock structure all affect how often these events occur.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Roots and slope stability",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Roots act like reinforcing steel in the soil. If a hillside is stripped of trees, the soil loses its grip and heavy rain can send it sliding."}</GapRule>
+        <GapWorked title={"Chain of events"} steps={["Trees are cleared from a steep slope.", "Soil is no longer held together by roots.", "A storm saturates the slope and it slumps."]} />
+        <GapMistake>{"Thinking only gentle slopes are safe."}</GapMistake>
       </div>
     ),
   },

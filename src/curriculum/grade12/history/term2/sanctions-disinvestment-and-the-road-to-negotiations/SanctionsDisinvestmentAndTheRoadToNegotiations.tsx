@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem, type LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -68,6 +69,16 @@ const learnSteps: LearnStep[] = [
           <li>{"Internal resistance made the country increasingly difficult to govern."}</li>
           <li>{"Together, these forces helped create the conditions for negotiations in the early 1990s."}</li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    title: "What outside pressure was meant to do",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Boycotts and sanctions were meant to cut apartheid South Africa off from the world, so that pressure for real democratic reform would grow."}</GapRule>
+        <GapWorked title={"Tools of pressure"} steps={["Sanctions and boycotts cut trade and sport links.", "Disinvestment: companies and banks withdrew investment.", "Isolation raised the cost of apartheid and increased the push for democracy."]} />
+        <GapMistake>{"Thinking sanctions were only about the economy."}</GapMistake>
       </div>
     ),
   },

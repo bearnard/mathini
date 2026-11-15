@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem } from '@/components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps = [
@@ -61,6 +62,16 @@ const learnSteps = [
         />
 
         <p className="text-sm text-slate-500">Lower access to services can increase out-migration from rural areas and deepen inequality.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Money from migrant workers",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A city worker's earnings transferred to relatives in the village count as remittances. They often pay for food, school fees and clothes at home."}</GapRule>
+        <GapWorked title={"Follow the money"} steps={["A man works in Johannesburg.", "He sends part of his wages to his family in a rural village.", "The family buys food and school items with the money.", "These payments are an important income for many rural households."]} />
+        <GapMistake>{"Confusing these transfers with government grants."}</GapMistake>
       </div>
     ),
   },

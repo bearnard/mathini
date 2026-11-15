@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -102,6 +103,16 @@ LEFT JOIN Orders o ON c.CustomerID = o.CustomerID;`} />
             You should not be able to store an order item for an order or product that does not exist.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Composite keys",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A composite key made of two or more fields identifies each combination of the related foreign keys uniquely, for example in a linking table."}</GapRule>
+        <GapWorked title={"Enrolments table"} steps={["Learners and Subjects have a many-to-many relationship.", "The Enrolments table holds LearnerID and SubjectID.", "Together (LearnerID, SubjectID) is the composite primary key: each combination appears only once."]} />
+        <GapMistake>{"Using a single field as the key when one learner can take many subjects."}</GapMistake>
       </div>
     ),
   },

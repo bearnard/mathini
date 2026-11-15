@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -99,6 +100,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600">Verify information using multiple credible sources before sharing. Spreading false information has real-world consequences.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "2FA, firewalls and VPNs",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Two-factor authentication (2FA) needs two forms of proof to log in, for example a password and a one-time PIN (OTP). A firewall monitors and filters network traffic using security rules. A VPN (Virtual Private Network) encrypts your internet traffic and hides your IP address."}</GapRule>
+        <GapWorked title={"Match the tool to the threat"} steps={["A stolen password alone cannot log in if 2FA also asks for an OTP.", "A firewall blocks traffic that breaks its security rules.", "On public Wi-Fi a VPN encrypts the traffic so others cannot read it."]} />
+        <GapMistake>{"Thinking a firewall removes viruses. It filters traffic; antivirus removes malware."}</GapMistake>
       </div>
     ),
   },

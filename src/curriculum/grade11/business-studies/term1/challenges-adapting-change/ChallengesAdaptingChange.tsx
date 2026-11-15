@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -86,6 +87,16 @@ const learnSteps: LearnStep[] = [
             <li>Recommend an improvement if needed.</li>
           </ol>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "PESTLE and the effect of challenges",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"PESTLE sorts the macro environment into Political, Economic, Social, Technological, Legal and Environmental factors. Unemployment, poverty and inequality shrink the consumer market. A proactive response acts before a problem hits the business."}</GapRule>
+        <GapWorked title={"Classify and respond"} steps={["Crime and corruption are social challenges: they affect community safety and trust and raise security costs.", "High unemployment reduces skilled workers and lowers buying power.", "Poverty and income inequality leave a smaller consumer market with limited spending power.", "Installing backup power before load-shedding disrupts production is proactive. Buying a generator after sales are lost is reactive."]} />
+        <GapMistake>{"Calling a response proactive when it only follows the problem."}</GapMistake>
       </div>
     ),
   },

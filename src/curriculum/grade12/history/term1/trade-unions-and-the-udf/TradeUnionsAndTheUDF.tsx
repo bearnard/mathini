@@ -1,5 +1,6 @@
 import CapsSubjectTopic, { type CapsItem, type LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -70,6 +71,16 @@ const learnSteps: LearnStep[] = [
           <li>{"Civic structures connected political protest to rent, transport, schooling, and local government issues."}</li>
           <li>{"By the mid-1980s, internal mass mobilisation had become a central force in the crisis of apartheid."}</li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    title: "Why strikes mattered",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Black workers kept mines and factories running. Strikes and stayaways stopped output, hit profits, and so pushed employers and the state to the table."}</GapRule>
+        <GapWorked title={"Apply the idea"} steps={["Black workers were essential to mines and factories.", "A strike or stayaway stopped production.", "Owners lost profits and came under pressure to negotiate.", "This gave the unions political as well as economic power."]} />
+        <GapMistake>{"Thinking unions only dealt with wages."}</GapMistake>
       </div>
     ),
   },

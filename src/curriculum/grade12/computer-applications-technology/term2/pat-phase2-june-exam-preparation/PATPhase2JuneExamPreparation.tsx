@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CATItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -31,6 +32,16 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-left">
         <p className="text-lg leading-8 text-slate-600">"Theory revision should combine content recall with application to scenarios. Instead of memorising isolated facts, learn how to explain a concept, compare two options and justify a recommendation. CAT theory questions often ask for reasons, advantages, disadvantages and social implications rather than pure definitions."</p>
+      </div>
+    ),
+  },
+  {
+    title: "Good habits for PAT phase 2",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Copy your PAT files to a second place after each session; one lost file can set both the project and revision back. Mark off small milestones to protect your deadlines. Theory questions that ask for both pros and cons are checking that you can weigh trade-offs."}</GapRule>
+        <GapWorked title={"Plan the term"} steps={["Back up the PAT folder after every work session.", "Set milestones, for example data collected by 15 May and charts done by 31 May.", "Improve a layout that looks poor: presentation can affect marks.", "In theory answers give both advantages and disadvantages."]} />
+        <GapMistake>{"Leaving all backups until the end of the term."}</GapMistake>
       </div>
     ),
   },

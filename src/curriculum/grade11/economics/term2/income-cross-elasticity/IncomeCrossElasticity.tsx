@@ -3,6 +3,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import SupplyDemand from '@/components/subjects/SupplyDemand';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const incomePatternData = [
   { group: 'Lower income', staple: 68, luxury: 8 },
@@ -97,6 +98,16 @@ const learnSteps: LearnStep[] = [
             <p className="mt-1 text-slate-600">Petrol price rises by 20% and car demand falls by 10%. XED = -0.5, so the goods are complements.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Classifying goods by YED and XED",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"YED > 1 means a luxury good, 0 < YED < 1 a necessity and YED < 0 an inferior good. XED = 0 means the goods are unrelated, XED > 0 substitutes and XED < 0 complements."}</GapRule>
+        <GapWorked title={"A luxury-car firm"} steps={["Incomes rise 10% and quantity demanded rises 20%.", "YED = 20% \u00f7 10% = 2, which is greater than 1, so cars are a luxury.", "Rising consumer incomes will boost demand more than proportionally, so the firm gains."]} />
+        <GapMistake>{"Thinking YED is always positive. An inferior good has a negative YED."}</GapMistake>
       </div>
     ),
   },

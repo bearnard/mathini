@@ -1,6 +1,7 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../_shared/types';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps: LearnStep[] = [
@@ -145,6 +146,16 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">High erosion rates reduce soil fertility and make conservation farming more important.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Quiet soil loss",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Water that thins the topsoil over a whole field, layer by layer, is easy to miss because no gullies form. Years later the soil is poor and yields drop."}</GapRule>
+        <GapWorked title={"Notice it early"} steps={["After each storm a thin film of soil is washed away.", "The field looks normal, but the pale subsoil begins to show.", "Cover crops and contour rows slow the loss."]} />
+        <GapMistake>{"Waiting for gullies before taking action."}</GapMistake>
       </div>
     ),
   },

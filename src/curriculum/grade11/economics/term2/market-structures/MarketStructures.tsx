@@ -3,6 +3,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import SupplyDemand from '@/components/subjects/SupplyDemand';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const costRevenueData = [
   { output: '1', mc: 12, mr: 18, atc: 24 },
@@ -105,6 +106,16 @@ const learnSteps: LearnStep[] = [
             <p className="mt-1 text-slate-600">A monopoly can restrict output to keep prices above the competitive level.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Cost ideas and long-run results",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Rent stays the same whether a bakery bakes 10 loaves or 1 000; flour rises with each loaf. The extra cost of baking one more loaf is the marginal cost. If the cost per loaf keeps shrinking as the bakery grows, it is gaining from size. Free entry means extra profit attracts rivals until profit falls to a normal return."}</GapRule>
+        <GapWorked title={"Follow the bakery"} steps={["Rent is fixed; flour and extra wages are variable.", "One more loaf adds R6 to total cost, so MC = R6.", "High profits attract new bakeries, price falls, and profit drifts back to normal.", "Losses make firms leave, price rises, and profit is restored."]} />
+        <GapMistake>{"Treating a normal return as no reward at all."}</GapMistake>
       </div>
     ),
   },

@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -98,6 +99,16 @@ const learnSteps: LearnStep[] = [
             <li>Historians must evaluate sources carefully to understand both atrocity and memory.</li>
           </ul>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Aryan ideology and the death camps",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Nazi racial ideology claimed that Aryans were a superior race meant to rule and remain pure. Death camps such as Auschwitz-Birkenau were built to murder large numbers of people efficiently as part of the Final Solution."}</GapRule>
+        <GapWorked title={"Link ideology to action"} steps={["The Nazis claimed Aryans were a superior race.", "They persecuted Jews, Roma and others as inferior.", "Death camps murdered millions of people as part of the Final Solution."]} />
+        <GapMistake>{"Treating Nazi race ideas as science. They were a racist ideology."}</GapMistake>
       </div>
     ),
   },

@@ -1,6 +1,7 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../_shared/types';
 import DataChart from '@/components/subjects/DataChart';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 
 const learnSteps: LearnStep[] = [
@@ -107,6 +108,16 @@ const learnSteps: LearnStep[] = [
         />
 
         <p className="text-sm text-slate-500">Spending patterns show how the state tries to balance social needs, economic growth, and public services.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Africa's development plan, zones and private power",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"The AU's blueprint known as Agenda 2063 looks fifty years ahead. A special economic zone offers firms incentives such as tax relief inside a fenced-off area. Under REIPPPP, private firms build wind and solar plants and sell the power to the state."}</GapRule>
+        <GapWorked title={"Match the tool"} steps={["Agenda 2063: the long-term vision.", "SEZ: a designated area with incentives, such as Coega.", "REIPPPP: government buys electricity from independent private producers."]} />
+        <GapMistake>{"Thinking an SEZ covers a whole country."}</GapMistake>
       </div>
     ),
   },

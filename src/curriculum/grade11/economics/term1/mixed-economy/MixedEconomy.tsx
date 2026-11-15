@@ -3,6 +3,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import DataChart from '@/components/subjects/DataChart';
 import SupplyDemand from '@/components/subjects/SupplyDemand';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const roleBalanceData = [
   { area: 'Retail', market: 9, state: 2 },
@@ -93,6 +94,16 @@ const learnSteps: LearnStep[] = [
           <p className="font-semibold text-slate-800">Why the graph matters</p>
           <p className="mt-1 text-slate-600">Even with regulation, markets for many goods still move toward equilibrium through changing prices and quantities.</p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Markets, the state and the three main sectors",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"In a mixed economy, markets set most prices and decide what is made, while the state owns some firms and regulates others. Activities are grouped by what they do: taking from nature, making things, or providing services. Services contribute the biggest slice of South Africa's output."}</GapRule>
+        <GapWorked title={"Sort the activity"} steps={["Gold mine: takes from nature, so the primary sector.", "Car assembly plant: makes things, so the secondary sector.", "Bank, shop or school: services, the tertiary sector.", "Eskom and Transnet are owned by the government: they are public (state-owned) enterprises."]} />
+        <GapMistake>{"Placing mining among the factories."}</GapMistake>
       </div>
     ),
   },

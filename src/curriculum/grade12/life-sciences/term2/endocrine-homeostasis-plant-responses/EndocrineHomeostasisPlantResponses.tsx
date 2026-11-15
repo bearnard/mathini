@@ -5,6 +5,7 @@ import ProcessFlow from '@/components/subjects/ProcessFlow';
 import ClassificationTree from '@/components/subjects/ClassificationTree';
 import type { CapsItem } from '@/components/CapsSubjectTopic';
 import type { LifeSciencesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -142,6 +143,16 @@ const learnSteps: LearnStep[] = [
             that makes the shoot bend.
           </p>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Sweating and cooling",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"When you overheat, sweat is secreted onto the skin. As it dries it carries heat away, and body temperature drops back to normal."}</GapRule>
+        <GapWorked title={"Cool down"} steps={["Body temperature rises.", "Sweat glands release sweat.", "Evaporation takes heat from the skin."]} />
+        <GapMistake>{"Saying wetness alone cools the body."}</GapMistake>
       </div>
     ),
   },

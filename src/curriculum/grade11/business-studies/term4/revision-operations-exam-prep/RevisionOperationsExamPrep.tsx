@@ -1,5 +1,6 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -88,6 +89,16 @@ const learnSteps: LearnStep[] = [
             <p className="text-slate-600 text-sm">Provide a final judgement that ties your points together.</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "The financial section of a business plan",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"A business plan's financial section includes cash flow projections and start-up costs."}</GapRule>
+        <GapWorked title={"Fill in the financial section"} steps={["Start-up costs: equipment, stock, deposits.", "Cash flow projections: expected money in and out each month.", "Expected profit and the funding needed."]} />
+        <GapMistake>{"Writing only the marketing plan and leaving out the figures."}</GapMistake>
       </div>
     ),
   },

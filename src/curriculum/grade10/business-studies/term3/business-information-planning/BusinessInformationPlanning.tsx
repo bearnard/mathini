@@ -2,6 +2,7 @@
 
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { BusinessStudiesItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -77,6 +78,16 @@ const learnSteps: LearnStep[] = [
           CAPS answers should link information directly to planning decisions. For example, customer research can help
           decide product features, prices and promotion methods.
         </p>
+      </div>
+    ),
+  },
+  {
+    title: "Why information must be up to date",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Decisions are only as good as the information behind them. Figures that describe how things stand today let a manager act on facts, while old figures can hide new problems."}</GapRule>
+        <GapWorked title={"Check the stock"} steps={["Monday: the manager counts the stock on the shelves.", "The count from last month would not show the sell-out of bread over the weekend.", "Today's count tells her exactly what to order."]} />
+        <GapMistake>{"Using last month's report to make today's order."}</GapMistake>
       </div>
     ),
   },

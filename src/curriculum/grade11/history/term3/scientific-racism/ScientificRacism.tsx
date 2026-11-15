@@ -1,6 +1,7 @@
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '@/components/CapsSubjectTopic';
 import Timeline from '@/components/subjects/Timeline';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const learnSteps: LearnStep[] = [
   {
@@ -102,6 +103,16 @@ const learnSteps: LearnStep[] = [
             <li>How do ideas lead to consequences such as conquest, segregation, or genocide?</li>
           </ul>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Eugenics and forced sterilisation",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Eugenicists wanted to shape the population by encouraging some groups to have children and stopping others. Forced sterilisation took the choice away: people were operated on so they could never have children, without genuine agreement."}</GapRule>
+        <GapWorked title={"Know the terms"} steps={["Eugenics: a discredited pseudo-science of breeding better humans.", "Sterilisation was carried out on the poor, disabled and minorities.", "Nazi Germany and several US states used such laws."]} />
+        <GapMistake>{"Believing eugenics was real science."}</GapMistake>
       </div>
     ),
   },

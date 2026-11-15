@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
 import type { ITItem, LearnStep } from '../../_shared/types';
+import { Mistake as GapMistake, Rule as GapRule, Worked as GapWorked } from '../../../../../components/subjects/lesson/LessonBlocks';
 
 const CodeBlock = dynamic(() => import('@/components/subjects/CodeBlock'), { ssr: false });
 
@@ -119,6 +120,16 @@ end;`} />
             <p className="border-t border-slate-200 px-4 py-3">Outside the allowed range</p>
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "Functions, validation loops and refinement",
+    content: (
+      <div className="space-y-4">
+        <GapRule>{"Splitting a program into smaller functions supports reuse and easier debugging. The most robust input loop keeps asking until the input satisfies the validation rule. A refined algorithm avoids unnecessary repetition and handles edge cases clearly."}</GapRule>
+        <GapWorked title={"Refine a mark-input routine"} steps={["Put the validation in a function: IsValidMark(m).", "repeat read the mark until IsValidMark(m).", "Test the edge cases 0 and 100, and values just outside the range."]} />
+        <GapMistake>{"Checking the input only once and then continuing."}</GapMistake>
       </div>
     ),
   },
