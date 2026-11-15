@@ -109,22 +109,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name the four genres you revise in Term 4.</li>
-            <li>A question asks for a person&apos;s name in a long article. Which strategy do you use?</li>
-            <li>Why must you give evidence in an inference answer?</li>
-            <li>The summary of a 40-word paragraph is 60 words long. What went wrong?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Novel, poetry, drama and media texts.</li>
-            <li>{scanStrategy[0].toUpperCase() + scanStrategy.slice(1)}: it finds one specific detail.</li>
-            <li>It shows your answer comes from the text, not from guessing.</li>
-            <li>A summary must be shorter than the text and keep only key points, so detail or opinion crept in.</li>
-          </ol>
-        }
+        questions={[
+          <>Name the four genres you revise in Term 4.</>,
+          <>A question asks for a person&apos;s name in a long article. Which strategy do you use?</>,
+          <>Why must you give evidence in an inference answer?</>,
+          <>The summary of a 40-word paragraph is 60 words long. What went wrong?</>,
+        ]}
+        answers={[
+          <>Novel, poetry, drama and media texts.</>,
+          <>{scanStrategy[0].toUpperCase() + scanStrategy.slice(1)}: it finds one specific detail.</>,
+          <>It shows your answer comes from the text, not from guessing.</>,
+          <>A summary must be shorter than the text and keep only key points, so detail or opinion crept in.</>,
+        ]}
       />,
     ),
   },

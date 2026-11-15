@@ -108,22 +108,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>At which point in a plot does the climax occur?</li>
-            <li>Which pronouns does a first-person narrator use?</li>
-            <li>Why is conflict important in a story?</li>
-            <li>Why might a writer use a flashback?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>At the point of highest tension.</li>
-            <li>I and we.</li>
-            <li>It drives the plot forward.</li>
-            <li>To reveal background that deepens the current events.</li>
-          </ol>
-        }
+        questions={[
+          <>At which point in a plot does the climax occur?</>,
+          <>Which pronouns does a first-person narrator use?</>,
+          <>Why is conflict important in a story?</>,
+          <>Why might a writer use a flashback?</>,
+        ]}
+        answers={[
+          <>At the point of highest tension.</>,
+          <>I and we.</>,
+          <>It drives the plot forward.</>,
+          <>To reveal background that deepens the current events.</>,
+        ]}
       />,
     ),
   },

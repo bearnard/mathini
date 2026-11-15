@@ -107,22 +107,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a source document? Give an example.</li>
-            <li>A cash sale of {rand(sale)}: which account is debited and which credited?</li>
-            <li>What does CRJ stand for?</li>
-            <li>What does a trial balance check?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Original evidence of a transaction, such as an invoice or receipt.</li>
-            <li>Debit Bank {rand(sale)}, credit Sales {rand(sale)}.</li>
-            <li>Cash Receipts Journal.</li>
-            <li>That total debits equal total credits.</li>
-          </ol>
-        }
+        questions={[
+          <>What is a source document? Give an example.</>,
+          <>A cash sale of {rand(sale)}: which account is debited and which credited?</>,
+          <>What does CRJ stand for?</>,
+          <>What does a trial balance check?</>,
+        ]}
+        answers={[
+          <>Original evidence of a transaction, such as an invoice or receipt.</>,
+          <>Debit Bank {rand(sale)}, credit Sales {rand(sale)}.</>,
+          <>Cash Receipts Journal.</>,
+          <>That total debits equal total credits.</>,
+        ]}
       />,
     ),
   },

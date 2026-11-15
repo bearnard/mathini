@@ -104,22 +104,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a stanza?</li>
-            <li>Which end words in stanza 2 rhyme with “light”?</li>
-            <li>What does imagery do?</li>
-            <li>Why is a line reference useful in a poetry question?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A group of lines in a poem.</li>
-            <li>“{lastWord(line(7))}” in line 7 rhymes with “{lastWord(line(5))}” in line 5.</li>
-            <li>It creates pictures in the reader’s mind.</li>
-            <li>It sends you to the exact words that give your evidence.</li>
-          </ol>
-        }
+        questions={[
+          <>What is a stanza?</>,
+          <>Which end words in stanza 2 rhyme with “light”?</>,
+          <>What does imagery do?</>,
+          <>Why is a line reference useful in a poetry question?</>,
+        ]}
+        answers={[
+          <>A group of lines in a poem.</>,
+          <>“{lastWord(line(7))}” in line 7 rhymes with “{lastWord(line(5))}” in line 5.</>,
+          <>It creates pictures in the reader’s mind.</>,
+          <>It sends you to the exact words that give your evidence.</>,
+        ]}
       />,
     ),
   },

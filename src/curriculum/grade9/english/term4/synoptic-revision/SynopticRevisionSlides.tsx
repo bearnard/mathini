@@ -100,22 +100,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which strategy finds one specific detail: skimming or scanning?</li>
-            <li>What makes a good inference?</li>
-            <li>How should a summary treat the sentences in the text?</li>
-            <li>What do you do before answering a mixed-genre paper?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Scanning. Skimming gives the main idea.</li>
-            <li>It is a conclusion supported by clues in the text, not a guess.</li>
-            <li>Paraphrase the main ideas in your own words and leave out minor detail.</li>
-            <li>Read all the questions first, then plan your time across the sections.</li>
-          </ol>
-        }
+        questions={[
+          <>Which strategy finds one specific detail: skimming or scanning?</>,
+          <>What makes a good inference?</>,
+          <>How should a summary treat the sentences in the text?</>,
+          <>What do you do before answering a mixed-genre paper?</>,
+        ]}
+        answers={[
+          <>Scanning. Skimming gives the main idea.</>,
+          <>It is a conclusion supported by clues in the text, not a guess.</>,
+          <>Paraphrase the main ideas in your own words and leave out minor detail.</>,
+          <>Read all the questions first, then plan your time across the sections.</>,
+        ]}
       />,
     ),
   },

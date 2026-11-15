@@ -132,22 +132,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Change to the passive: {voice.project.active}</li>
-            <li>Punctuate: because we planned early the project ran smoothly</li>
-            <li>What two things must a clause have?</li>
-            <li>What is the best action at the start of a project?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{voice.project.passive}</li>
-            <li>{comma.planned}</li>
-            <li>A subject and a verb.</li>
-            <li>Make a clear plan with steps and deadlines.</li>
-          </ol>
-        }
+        questions={[
+          <>Change to the passive: {voice.project.active}</>,
+          <>Punctuate: because we planned early the project ran smoothly</>,
+          <>What two things must a clause have?</>,
+          <>What is the best action at the start of a project?</>,
+        ]}
+        answers={[
+          <>{voice.project.passive}</>,
+          <>{comma.planned}</>,
+          <>A subject and a verb.</>,
+          <>Make a clear plan with steps and deadlines.</>,
+        ]}
       />,
     ),
   },

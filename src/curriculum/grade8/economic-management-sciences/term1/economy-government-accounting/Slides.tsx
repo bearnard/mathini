@@ -137,22 +137,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which level of government is responsible for local roads and water?</li>
-            <li>Income is {rand(fundraiser.income)} and spending is {rand(fundraiser.spending)}. Surplus or deficit, and how much?</li>
-            <li>Assets are {rand(50_000)} and liabilities are {rand(20_000)}. What is the owner&apos;s equity?</li>
-            <li>Name a source document, and the journal for money received.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Local government (the municipality).</li>
-            <li>A {fundraiser.kind} of {rand(fundraiser.amount)}.</li>
-            <li>Equity = {rand(50_000)} − {rand(20_000)} = {rand(q3)}.</li>
-            <li>An invoice, receipt or cheque; the cash receipts journal.</li>
-          </ol>
-        }
+        questions={[
+          <>Which level of government is responsible for local roads and water?</>,
+          <>Income is {rand(fundraiser.income)} and spending is {rand(fundraiser.spending)}. Surplus or deficit, and how much?</>,
+          <>Assets are {rand(50_000)} and liabilities are {rand(20_000)}. What is the owner&apos;s equity?</>,
+          <>Name a source document, and the journal for money received.</>,
+        ]}
+        answers={[
+          <>Local government (the municipality).</>,
+          <>A {fundraiser.kind} of {rand(fundraiser.amount)}.</>,
+          <>Equity = {rand(50_000)} − {rand(20_000)} = {rand(q3)}.</>,
+          <>An invoice, receipt or cheque; the cash receipts journal.</>,
+        ]}
       />,
     ),
   },

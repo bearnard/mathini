@@ -112,22 +112,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What is a stanza?</li>
-            <li>A poem repeats the word &quot;alone&quot;. What does this highlight?</li>
-            <li>The first verse of a poem is full of sunshine and laughter, but the last is about empty streets and cold rain. What does this signal?</li>
-            <li>Give a good way to answer: &quot;How does the poet show the storm is loud?&quot;</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A grouped section of lines in a poem.</li>
-            <li>A key emotional idea.</li>
-            <li>A tone change.</li>
-            <li>Quote the line, give the line reference ({personification.ref}), and explain its effect: &quot;{personification.quote}&quot; makes the thunder sound alive and loud.</li>
-          </ol>
-        }
+        questions={[
+          <>What is a stanza?</>,
+          <>A poem repeats the word &quot;alone&quot;. What does this highlight?</>,
+          <>The first verse of a poem is full of sunshine and laughter, but the last is about empty streets and cold rain. What does this signal?</>,
+          <>Give a good way to answer: &quot;How does the poet show the storm is loud?&quot;</>,
+        ]}
+        answers={[
+          <>A grouped section of lines in a poem.</>,
+          <>A key emotional idea.</>,
+          <>A tone change.</>,
+          <>Quote the line, give the line reference ({personification.ref}), and explain its effect: &quot;{personification.quote}&quot; makes the thunder sound alive and loud.</>,
+        ]}
       />,
     ),
   },

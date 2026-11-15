@@ -99,22 +99,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Write the plural of “story”.</li>
-            <li>Correct the tense: “Last week Thabo cooked supper and washes the dishes.”</li>
-            <li>Change to indirect speech: {directSpeech(THANDI)}</li>
-            <li>Change to indirect speech: {directSpeech(SIPHO)}</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{c1}: the y follows a consonant, so it changes to -ies.</li>
-            <li>“Last week Thabo cooked supper and washed the dishes.” Last week means both verbs are past.</li>
-            <li>{c3}</li>
-            <li>{c4}</li>
-          </ol>
-        }
+        questions={[
+          <>Write the plural of “story”.</>,
+          <>Correct the tense: “Last week Thabo cooked supper and washes the dishes.”</>,
+          <>Change to indirect speech: {directSpeech(THANDI)}</>,
+          <>Change to indirect speech: {directSpeech(SIPHO)}</>,
+        ]}
+        answers={[
+          <>{c1}: the y follows a consonant, so it changes to -ies.</>,
+          <>“Last week Thabo cooked supper and washed the dishes.” Last week means both verbs are past.</>,
+          <>{c3}</>,
+          <>{c4}</>,
+        ]}
       />,
     ),
   },

@@ -86,22 +86,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A story takes place in a fishing village in winter in the 1950s. Which story element is this?</li>
-            <li>In “The Whistle”, which stage is the climax?</li>
-            <li>A character gives away food even when hungry. Which trait does this show?</li>
-            <li>Why does the order of events matter?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The setting.</li>
-            <li>Stage {peakAt}: “{climax.event}” It is the highest point of tension.</li>
-            <li>Generosity: the action shows she cares more about others than herself.</li>
-            <li>Events cause one another, so the right order shows cause and effect.</li>
-          </ol>
-        }
+        questions={[
+          <>A story takes place in a fishing village in winter in the 1950s. Which story element is this?</>,
+          <>In “The Whistle”, which stage is the climax?</>,
+          <>A character gives away food even when hungry. Which trait does this show?</>,
+          <>Why does the order of events matter?</>,
+        ]}
+        answers={[
+          <>The setting.</>,
+          <>Stage {peakAt}: “{climax.event}” It is the highest point of tension.</>,
+          <>Generosity: the action shows she cares more about others than herself.</>,
+          <>Events cause one another, so the right order shows cause and effect.</>,
+        ]}
       />,
     ),
   },

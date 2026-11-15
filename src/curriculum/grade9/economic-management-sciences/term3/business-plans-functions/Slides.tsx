@@ -102,22 +102,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which part of a business plan tells the reader what you sell and who will buy it?</li>
-            <li>What is the job of the purchasing function in a business?</li>
-            <li>A shop expects {rand(q3.income)} income and {rand(q3.spending)} spending. Surplus or deficit?</li>
-            <li>Is company culture an internal or an external factor?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Market analysis and product description.</li>
-            <li>Acquiring the materials and supplies needed for production.</li>
-            <li>A {q3.kind} of {rand(q3.amount)}.</li>
-            <li>Internal.</li>
-          </ol>
-        }
+        questions={[
+          <>Which part of a business plan tells the reader what you sell and who will buy it?</>,
+          <>What is the job of the purchasing function in a business?</>,
+          <>A shop expects {rand(q3.income)} income and {rand(q3.spending)} spending. Surplus or deficit?</>,
+          <>Is company culture an internal or an external factor?</>,
+        ]}
+        answers={[
+          <>Market analysis and product description.</>,
+          <>Acquiring the materials and supplies needed for production.</>,
+          <>A {q3.kind} of {rand(q3.amount)}.</>,
+          <>Internal.</>,
+        ]}
       />,
     ),
   },

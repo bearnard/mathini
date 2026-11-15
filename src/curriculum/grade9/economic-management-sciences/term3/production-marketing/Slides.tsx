@@ -100,22 +100,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{q1.made} items are made and {q1.faulty} are faulty. What is the defect rate?</li>
-            <li>In a survey of 50 learners, 20 want a product. What percentage is that?</li>
-            <li>Cost {rand(20)} plus a 25% mark-up. What is the price?</li>
-            <li>Capacity is {q4.capacity} a week and marketing promises {q4.promised}. How many are short?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{q1.faulty} ÷ {q1.made} × 100 = {q1.percent}%.</li>
-            <li>{q2}%.</li>
-            <li>{rand(q3.add)} mark-up, so {rand(q3.price)}.</li>
-            <li>{q4.short} short.</li>
-          </ol>
-        }
+        questions={[
+          <>{q1.made} items are made and {q1.faulty} are faulty. What is the defect rate?</>,
+          <>In a survey of 50 learners, 20 want a product. What percentage is that?</>,
+          <>Cost {rand(20)} plus a 25% mark-up. What is the price?</>,
+          <>Capacity is {q4.capacity} a week and marketing promises {q4.promised}. How many are short?</>,
+        ]}
+        answers={[
+          <>{q1.faulty} ÷ {q1.made} × 100 = {q1.percent}%.</>,
+          <>{q2}%.</>,
+          <>{rand(q3.add)} mark-up, so {rand(q3.price)}.</>,
+          <>{q4.short} short.</>,
+        ]}
       />,
     ),
   },

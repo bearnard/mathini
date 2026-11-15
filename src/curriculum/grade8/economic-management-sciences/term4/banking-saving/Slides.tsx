@@ -109,22 +109,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Give one function of a bank.</li>
-            <li>What simple interest does {rand(5000)} earn at 6% a year for 2 years?</li>
-            <li>What is {rand(1000)} worth after 2 years at 10% compound interest?</li>
-            <li>Name one way an owner who lacks capital can expand.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Keeping money safe, making payments or lending money.</li>
-            <li>{rand(5000)} × 6 ÷ 100 = {rand(simpleInterest(5000, 6, 1).interest)} a year, so {rand(q2.interest)} over 2 years.</li>
-            <li>Year 1: {rand(q3.balances[1])}. Year 2: {rand(q3.balances[2])}.</li>
-            <li>Apply for a bank loan or find partners.</li>
-          </ol>
-        }
+        questions={[
+          <>Give one function of a bank.</>,
+          <>What simple interest does {rand(5000)} earn at 6% a year for 2 years?</>,
+          <>What is {rand(1000)} worth after 2 years at 10% compound interest?</>,
+          <>Name one way an owner who lacks capital can expand.</>,
+        ]}
+        answers={[
+          <>Keeping money safe, making payments or lending money.</>,
+          <>{rand(5000)} × 6 ÷ 100 = {rand(simpleInterest(5000, 6, 1).interest)} a year, so {rand(q2.interest)} over 2 years.</>,
+          <>Year 1: {rand(q3.balances[1])}. Year 2: {rand(q3.balances[2])}.</>,
+          <>Apply for a bank loan or find partners.</>,
+        ]}
       />,
     ),
   },

@@ -67,8 +67,8 @@ for (const [name, lesson] of Object.entries(LESSONS)) {
     const h = html(lesson.steps[lesson.steps.length - 1]);
     assert.match(h, /Check yourself/);
     assert.match(h, /<details/);
-    assert.equal((h.match(/<ol class="list-decimal/g) ?? []).length, 2);
-    assert.equal((h.match(/<li>/g) ?? []).length, 8);
+    assert.equal((h.match(/<ol class="[^"]*list-decimal/g) ?? []).length, 1);
+    assert.equal((h.match(/<details/g) ?? []).length, 4);
   });
 
   test(`${name}: every slide has 40 to 120 words, no NaN or undefined`, () => {

@@ -108,22 +108,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name two things a business owes its employees.</li>
-            <li>What does it mean for a business to be socially responsible?</li>
-            <li>Name one reason a business keeps honest records.</li>
-            <li>A shop has {rand(q4.income)} income and {rand(q4.spending)} spending. Surplus or deficit, and how much?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Any two of: fair wages, safe conditions, legal rights.</li>
-            <li>Operating ethically and contributing positively to society and the environment.</li>
-            <li>Transparency, following the law or showing ethical practice.</li>
-            <li>A {q4.kind} of {rand(q4.amount)}.</li>
-          </ol>
-        }
+        questions={[
+          <>Name two things a business owes its employees.</>,
+          <>What does it mean for a business to be socially responsible?</>,
+          <>Name one reason a business keeps honest records.</>,
+          <>A shop has {rand(q4.income)} income and {rand(q4.spending)} spending. Surplus or deficit, and how much?</>,
+        ]}
+        answers={[
+          <>Any two of: fair wages, safe conditions, legal rights.</>,
+          <>Operating ethically and contributing positively to society and the environment.</>,
+          <>Transparency, following the law or showing ethical practice.</>,
+          <>A {q4.kind} of {rand(q4.amount)}.</>,
+        ]}
       />,
     ),
   },

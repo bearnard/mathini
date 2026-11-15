@@ -80,22 +80,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Put in order: {CHECK_ORDER.map(partLabel).join(', ')}.</li>
-            <li>Which point of view does a report use?</li>
-            <li>Which word makes “Open the box.” an instruction?</li>
-            <li>A Grade 8 notice and a report for the principal share a topic but not their wording. Why?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{checkSorted.join(', ')}.</li>
-            <li>The third person, to stay objective.</li>
-            <li>“Open”, an imperative (command) verb.</li>
-            <li>The audience and purpose are different, so the detail and vocabulary must differ.</li>
-          </ol>
-        }
+        questions={[
+          <>Put in order: {CHECK_ORDER.map(partLabel).join(', ')}.</>,
+          <>Which point of view does a report use?</>,
+          <>Which word makes “Open the box.” an instruction?</>,
+          <>A Grade 8 notice and a report for the principal share a topic but not their wording. Why?</>,
+        ]}
+        answers={[
+          <>{checkSorted.join(', ')}.</>,
+          <>The third person, to stay objective.</>,
+          <>“Open”, an imperative (command) verb.</>,
+          <>The audience and purpose are different, so the detail and vocabulary must differ.</>,
+        ]}
       />,
     ),
   },

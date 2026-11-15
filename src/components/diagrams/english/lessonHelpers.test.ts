@@ -84,8 +84,8 @@ for (const [name, steps, count] of suites) {
     steps.forEach((s) => assert.ok(html(s).length > 200, s.title));
     assert.ok(steps.every((s) => typeof s.title === 'string' && s.title.length > 0));
     const last = html(steps[steps.length - 1]);
-    assert.ok((last.match(/<ol/g) ?? []).length >= 2);
-    assert.ok(((last.match(/<li/g) ?? []).length) >= 6, 'question list and answer list, 3-4 items each');
+    assert.ok((last.match(/<ol/g) ?? []).length >= 1);
+    assert.ok(((last.match(/<details/g) ?? []).length) >= 3, 'each of the 3-4 questions has its own answer');
   });
 }
 

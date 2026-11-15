@@ -97,22 +97,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>In which kind of economy does the government control production and distribution?</li>
-            <li>A household earns {rand(flowQ.income)}, pays {rand(flowQ.tax)} tax and saves {rand(flowQ.saved)}. How much is left to spend?</li>
-            <li>Name the four factors of production.</li>
-            <li>What is the benefit of an economy that blends government planning with free markets?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A planned economy.</li>
-            <li>{rand(flowQ.income)} − {rand(flowQ.tax)} − {rand(flowQ.saved)} = {rand(flowQ.spent)}.</li>
-            <li>Land, labour, capital and entrepreneurship.</li>
-            <li>To balance efficiency with social welfare and stability.</li>
-          </ol>
-        }
+        questions={[
+          <>In which kind of economy does the government control production and distribution?</>,
+          <>A household earns {rand(flowQ.income)}, pays {rand(flowQ.tax)} tax and saves {rand(flowQ.saved)}. How much is left to spend?</>,
+          <>Name the four factors of production.</>,
+          <>What is the benefit of an economy that blends government planning with free markets?</>,
+        ]}
+        answers={[
+          <>A planned economy.</>,
+          <>{rand(flowQ.income)} − {rand(flowQ.tax)} − {rand(flowQ.saved)} = {rand(flowQ.spent)}.</>,
+          <>Land, labour, capital and entrepreneurship.</>,
+          <>To balance efficiency with social welfare and stability.</>,
+        ]}
       />,
     ),
   },

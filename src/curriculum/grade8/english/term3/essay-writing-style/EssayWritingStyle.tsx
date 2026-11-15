@@ -124,22 +124,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What job does the opening paragraph of an essay have?</li>
-            <li>What does paragraph coherence mean?</li>
-            <li>Which kind of essay focuses on personal experience and insight?</li>
-            <li>During revision, what is the most important check?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Introduce the topic and engage the reader.</li>
-            <li>The ideas in the paragraph connect logically.</li>
-            <li>A reflective essay.</li>
-            <li>Whether each paragraph supports the essay&apos;s purpose.</li>
-          </ol>
-        }
+        questions={[
+          <>What job does the opening paragraph of an essay have?</>,
+          <>What does paragraph coherence mean?</>,
+          <>Which kind of essay focuses on personal experience and insight?</>,
+          <>During revision, what is the most important check?</>,
+        ]}
+        answers={[
+          <>Introduce the topic and engage the reader.</>,
+          <>The ideas in the paragraph connect logically.</>,
+          <>A reflective essay.</>,
+          <>Whether each paragraph supports the essay&apos;s purpose.</>,
+        ]}
       />,
     ),
   },

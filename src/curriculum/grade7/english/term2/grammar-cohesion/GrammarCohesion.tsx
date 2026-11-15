@@ -87,22 +87,18 @@ const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name the adjective: “The tall girl smiled.”</li>
-            <li>Write the adverb for “quick”.</li>
-            <li>Which word fits: “We stayed inside ___ it was raining.” (because / but)</li>
-            <li>What is the main goal of cohesion?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>“tall” describes the noun “girl”.</li>
-            <li>{toAdverb('quick')}.</li>
-            <li>“because”, since the rain is the reason.</li>
-            <li>To connect ideas so the text flows logically.</li>
-          </ol>
-        }
+        questions={[
+          <>Name the adjective: “The tall girl smiled.”</>,
+          <>Write the adverb for “quick”.</>,
+          <>Which word fits: “We stayed inside ___ it was raining.” (because / but)</>,
+          <>What is the main goal of cohesion?</>,
+        ]}
+        answers={[
+          <>“tall” describes the noun “girl”.</>,
+          <>{toAdverb('quick')}.</>,
+          <>“because”, since the rain is the reason.</>,
+          <>To connect ideas so the text flows logically.</>,
+        ]}
       />,
     ),
   },

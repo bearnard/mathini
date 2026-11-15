@@ -96,22 +96,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>What three parts make a full answer to an integrated question?</li>
-            <li>Why might a grammar error appear in a character’s dialogue?</li>
-            <li>What is the effect of the active voice?</li>
-            <li>“The soup was scalding, so Mpho waited.” Use the context to say what “scalding” means.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>The feature, the evidence from the text, and its effect.</li>
-            <li>It can reveal the character’s background, education level or emotional state.</li>
-            <li>It is direct and powerful and stresses the character’s action.</li>
-            <li>Very hot: Mpho had to wait for it to cool.</li>
-          </ol>
-        }
+        questions={[
+          <>What three parts make a full answer to an integrated question?</>,
+          <>Why might a grammar error appear in a character’s dialogue?</>,
+          <>What is the effect of the active voice?</>,
+          <>“The soup was scalding, so Mpho waited.” Use the context to say what “scalding” means.</>,
+        ]}
+        answers={[
+          <>The feature, the evidence from the text, and its effect.</>,
+          <>It can reveal the character’s background, education level or emotional state.</>,
+          <>It is direct and powerful and stresses the character’s action.</>,
+          <>Very hot: Mpho had to wait for it to cool.</>,
+        ]}
       />,
     ),
   },

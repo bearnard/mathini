@@ -118,22 +118,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Name two traits of a successful entrepreneur.</li>
-            <li>Where does spotting a business opportunity begin?</li>
-            <li>Start-up costs are {rand(2_000)}, {rand(500)} and {rand(250)}. What capital is needed?</li>
-            <li>Name two things that make an opportunity viable.</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>For example innovation, resilience, customer focus.</li>
-            <li>Recognise an unmet need or problem.</li>
-            <li>{rand(2_000)} + {rand(500)} + {rand(250)} = {rand(q3)}.</li>
-            <li>For example market demand and realistic costs (also resources and the owner&apos;s capability).</li>
-          </ol>
-        }
+        questions={[
+          <>Name two traits of a successful entrepreneur.</>,
+          <>Where does spotting a business opportunity begin?</>,
+          <>Start-up costs are {rand(2_000)}, {rand(500)} and {rand(250)}. What capital is needed?</>,
+          <>Name two things that make an opportunity viable.</>,
+        ]}
+        answers={[
+          <>For example innovation, resilience, customer focus.</>,
+          <>Recognise an unmet need or problem.</>,
+          <>{rand(2_000)} + {rand(500)} + {rand(250)} = {rand(q3)}.</>,
+          <>For example market demand and realistic costs (also resources and the owner&apos;s capability).</>,
+        ]}
       />,
     ),
   },

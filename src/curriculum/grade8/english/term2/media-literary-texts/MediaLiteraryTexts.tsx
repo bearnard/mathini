@@ -115,22 +115,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Is this a fact or an opinion? &ldquo;{c3}&rdquo;</li>
-            <li>Where would you look for checked facts about yesterday’s events: a news report or a diary entry?</li>
-            <li>What does the headline &ldquo;Community Fights Back&rdquo; mainly try to do?</li>
-            <li>What is the conflict in a story?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>{verdict(c3)}: &ldquo;should&rdquo; shows a personal judgement.</li>
-            <li>A news report.</li>
-            <li>Grab attention with strong wording.</li>
-            <li>The central struggle that drives the plot.</li>
-          </ol>
-        }
+        questions={[
+          <>Is this a fact or an opinion? &ldquo;{c3}&rdquo;</>,
+          <>Where would you look for checked facts about yesterday’s events: a news report or a diary entry?</>,
+          <>What does the headline &ldquo;Community Fights Back&rdquo; mainly try to do?</>,
+          <>What is the conflict in a story?</>,
+        ]}
+        answers={[
+          <>{verdict(c3)}: &ldquo;should&rdquo; shows a personal judgement.</>,
+          <>A news report.</>,
+          <>Grab attention with strong wording.</>,
+          <>The central struggle that drives the plot.</>,
+        ]}
       />,
     ),
   },

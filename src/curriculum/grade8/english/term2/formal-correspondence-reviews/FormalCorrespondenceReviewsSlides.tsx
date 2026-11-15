@@ -109,22 +109,18 @@ export const learnSteps: LearnStep[] = [
     title: 'Check yourself',
     content: slide(
       <Check
-        question={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>Which text type should you write to complain to the municipality about a broken street light?</li>
-            <li>Which closing goes with &quot;Dear Sir or Madam&quot;?</li>
-            <li>Rewrite &quot;Reply asap!&quot; in formal register.</li>
-            <li>What must a review give besides an opinion?</li>
-          </ol>
-        }
-        answer={
-          <ol className="list-decimal space-y-2 pl-5">
-            <li>A formal letter.</li>
-            <li>{unknown.closing.replace(',', '')}</li>
-            <li>For example: I would appreciate your reply at your earliest convenience.</li>
-            <li>Evidence: specific examples from the text or performance, and a recommendation that matches.</li>
-          </ol>
-        }
+        questions={[
+          <>Which text type should you write to complain to the municipality about a broken street light?</>,
+          <>Which closing goes with &quot;Dear Sir or Madam&quot;?</>,
+          <>Rewrite &quot;Reply asap!&quot; in formal register.</>,
+          <>What must a review give besides an opinion?</>,
+        ]}
+        answers={[
+          <>A formal letter.</>,
+          <>{unknown.closing.replace(',', '')}</>,
+          <>For example: I would appreciate your reply at your earliest convenience.</>,
+          <>Evidence: specific examples from the text or performance, and a recommendation that matches.</>,
+        ]}
       />,
     ),
   },
