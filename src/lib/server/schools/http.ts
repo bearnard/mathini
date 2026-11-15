@@ -5,6 +5,9 @@ import { d1Adapter, type AdminDb } from '../admin/db';
 import { authJson, checkWriteRequest, requireRole } from '../adultAuth/roles';
 import { readCapped } from '../adultAuth/http';
 import { applyAsTeacher, getOwnApplication } from './teachers';
+import { verifySession } from '../session';
+import { allowDurable, createLimiter, type Limiter } from '../adultAuth/rateLimit';
+import { archiveClass, createClass, getClass, joinClass, leaveClass, listClasses, myClasses, regenerateCode, removeMember } from './classes';
 
 export const MAX_BODY_BYTES = 2048;
 
@@ -50,3 +53,98 @@ export async function handleOwnApplication(req: Request, deps: SchoolsDeps): Pro
     return authJson({ error: 'unavailable' }, 503);
   }
 }
+
+// ---------- classes (ADR 0003 phase 3, part 2) ----------
+
+const joinBurst: Limiter = createLimiter(30, 10 * 60 * 1000);
+const JOIN_PER_LEARNER = 10;
+const JOIN_WINDOW_MS = 10 * 60 * 1000;
+
+export interface ClassDeps extends SchoolsDeps { sessionSecret: string; ipBurst?: Limiter }
+export const classDepsFromEnv = (): ClassDeps => {
+  const { env } = getCloudflareContext();
+  return { db: d1Adapter(env.DB as never), now: Date.now(), sessionSecret: String(env.SESSION_SECRET ?? ''), ipBurst: joinBurst };
+};
+
+const ID = /^[0-9a-f-]{36}$/i;
+
+/** Runs a teacher request: signed-in adult with the teacher role; writes also need the action header and a matching Origin. */
+async function asTeacher(req: Request, deps: SchoolsDeps, action: string | null, run: (teacherId: string, b: Record<string, unknown>) => Promise<Response>): Promise<Response> {
+  if (action) {
+    const bad = checkWriteRequest(req, action);
+    if (bad) return authJson({ error: bad }, 403);
+  }
+  try {
+    const gate = await requireRole(req, deps.db, ['teacher'], deps.now);
+    if (!gate.ok) return gate.response;
+    const b = action ? await body(req) : {};
+    if (!b) return authJson({ error: 'invalid request' }, 400);
+    return await run(gate.session.user.id, b);
+  } catch (err) {
+    console.error(`teacher ${action ?? 'read'} error:`, err);
+    return authJson({ error: 'unavailable' }, 503);
+  }
+}
+
+export const handleListClasses = (req: Request, deps: SchoolsDeps) => asTeacher(req, deps, null, async (tid) => authJson({ classes: await listClasses(deps.db, tid) }));
+export const handleCreateClass = (req: Request, deps: SchoolsDeps) =>
+  asTeacher(req, deps, 'class-create', async (tid, b) => {
+    const r = await createClass(deps.db, tid, b, deps.now);
+    return r.ok ? authJson({ class: r.class }, 201) : authJson({ error: r.error }, r.status);
+  });
+export const handleGetClass = (req: Request, deps: SchoolsDeps, classId: string) =>
+  asTeacher(req, deps, null, async (tid) => {
+    const c = ID.test(classId) ? await getClass(deps.db, tid, classId) : null;
+    return c ? authJson({ class: c }) : authJson({ error: 'Not found' }, 404);
+  });
+export const handleRegenerate = (req: Request, deps: SchoolsDeps, classId: string) =>
+  asTeacher(req, deps, 'class-regenerate', async (tid) => {
+    const r = await regenerateCode(deps.db, tid, classId);
+    return r.ok ? authJson({ joinCode: r.joinCode }) : authJson({ error: r.error }, r.status);
+  });
+export const handleArchive = (req: Request, deps: SchoolsDeps, classId: string) =>
+  asTeacher(req, deps, 'class-archive', async (tid) => {
+    const r = await archiveClass(deps.db, tid, classId, deps.now);
+    return r.ok ? authJson({ ok: true }) : authJson({ error: r.error }, r.status);
+  });
+export const handleRemoveMember = (req: Request, deps: SchoolsDeps, classId: string, studentId: string) =>
+  asTeacher(req, deps, 'class-remove', async (tid) => {
+    const r = await removeMember(deps.db, tid, classId, studentId, deps.now);
+    return r.ok ? authJson({ ok: true }) : authJson({ error: r.error }, r.status);
+  });
+
+/** Runs a learner request: the learner's own session cookie (pp_session). */
+async function asLearner(req: Request, deps: ClassDeps, action: string | null, run: (studentId: string, b: Record<string, unknown>) => Promise<Response>): Promise<Response> {
+  if (action) {
+    const bad = checkWriteRequest(req, action);
+    if (bad) return authJson({ error: bad }, 403);
+  }
+  try {
+    const cookie = /(?:^|;\s*)pp_session=([^;]+)/.exec(req.headers.get('cookie') ?? '')?.[1];
+    const studentId = await verifySession(cookie ? decodeURIComponent(cookie) : undefined, deps.sessionSecret);
+    if (!studentId) return authJson({ error: 'Sign in first' }, 401);
+    const b = action ? await body(req) : {};
+    if (!b) return authJson({ error: 'invalid request' }, 400);
+    return await run(studentId, b);
+  } catch (err) {
+    console.error(`classes ${action ?? 'read'} error:`, err);
+    return authJson({ error: 'unavailable' }, 503);
+  }
+}
+
+const ipOf = (req: Request) => req.headers.get('cf-connecting-ip') ?? req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+
+/** POST { code }. Rate limited per learner (durable) and per address, so a code cannot be guessed. The notice text is returned so the app can show what was agreed to. */
+export const handleJoin = (req: Request, deps: ClassDeps) =>
+  asLearner(req, deps, 'class-join', async (sid, b) => {
+    if (deps.ipBurst && !deps.ipBurst.allow(ipOf(req), deps.now)) return authJson({ error: 'Too many tries. Wait a few minutes.' }, 429);
+    if (!(await allowDurable(deps.db, `class-join:${sid}`, JOIN_PER_LEARNER, JOIN_WINDOW_MS, deps.now))) return authJson({ error: 'Too many tries. Wait a few minutes.' }, 429);
+    const r = await joinClass(deps.db, sid, b.code, deps.now);
+    return r.ok ? authJson({ joined: r.joined, alreadyMember: r.alreadyMember }) : authJson({ error: r.error }, r.status);
+  });
+export const handleMyClasses = (req: Request, deps: ClassDeps) => asLearner(req, deps, null, async (sid) => authJson({ classes: await myClasses(deps.db, sid) }));
+export const handleLeave = (req: Request, deps: ClassDeps, classId: string) =>
+  asLearner(req, deps, 'class-leave', async (sid) => {
+    const r = await leaveClass(deps.db, sid, classId, deps.now);
+    return r.ok ? authJson({ ok: true }) : authJson({ error: r.error }, r.status);
+  });
