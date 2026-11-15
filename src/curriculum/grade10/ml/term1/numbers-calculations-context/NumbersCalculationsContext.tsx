@@ -20,8 +20,8 @@ const learnSteps: LearnStep[] = [
           </ul>
         </div>
         <div>
-          <p className="font-medium mb-2">Example: At Pick n Pay, apples cost R12.50 per kg. How much for 3.5 kg?</p>
-          <Formula block>{String.raw`\text{Cost} = 12.50 \times 3.5 = \text{R}43.75`}</Formula>
+          <p className="font-medium mb-2">Example: At Pick n Pay, apples cost R12,50 per kg. How much for 3,5 kg?</p>
+          <Formula block>{String.raw`\text{Cost} = 12{,}50 \times 3{,}5 = \text{R}43{,}75`}</Formula>
         </div>
       </div>
     ),
@@ -37,15 +37,15 @@ const learnSteps: LearnStep[] = [
           <h4 className="font-semibold mb-3">Converting Between Forms</h4>
           <div className="space-y-2 text-sm">
             <p><strong>Fraction to Decimal:</strong> Divide numerator by denominator</p>
-            <Formula block>{String.raw`\frac{3}{4} = 3 \div 4 = 0.75`}</Formula>
+            <Formula block>{String.raw`\frac{3}{4} = 3 \div 4 = 0{,}75`}</Formula>
             <p><strong>Decimal to Percentage:</strong> Multiply by 100</p>
-            <Formula block>{String.raw`0.75 \times 100 = 75\%`}</Formula>
+            <Formula block>{String.raw`0{,}75 \times 100 = 75\%`}</Formula>
           </div>
         </div>
         <div className="bg-amber-50 p-4 rounded-lg">
           <p className="font-medium mb-2">Example: A shop offers 15% off a R400 item. What's the discount amount and new price?</p>
           <div className="space-y-1 text-sm">
-            <Formula block>{String.raw`\text{Discount} = 400 \times 0.15 = \text{R}60`}</Formula>
+            <Formula block>{String.raw`\text{Discount} = 400 \times 0{,}15 = \text{R}60`}</Formula>
             <Formula block>{String.raw`\text{New price} = 400 - 60 = \text{R}340`}</Formula>
           </div>
         </div>
@@ -68,11 +68,11 @@ const learnSteps: LearnStep[] = [
           </ul>
         </div>
         <div>
-          <p className="font-medium mb-2">Example: Estimate the cost of 4 items priced R18.90, R32.50, R45.20, and R11.80</p>
+          <p className="font-medium mb-2">Example: Estimate the cost of 4 items priced R18,90, R32,50, R45,20, and R11,80</p>
           <div className="space-y-1 text-sm">
             <p>Round each: R19 + R33 + R45 + R12</p>
             <Formula block>{String.raw`\text{Estimate} = 19 + 33 + 45 + 12 = \text{R}109`}</Formula>
-            <p className="text-xs italic">(Actual = R108.40, very close!)</p>
+            <p className="text-xs italic">(Actual = R108,40, very close!)</p>
           </div>
         </div>
       </div>
@@ -89,17 +89,17 @@ const learnSteps: LearnStep[] = [
           <h4 className="font-semibold mb-3">VAT Calculations</h4>
           <div className="space-y-2 text-sm">
             <p><strong>Finding VAT-inclusive price (from the price excluding VAT):</strong></p>
-            <Formula block>{String.raw`\text{Total} = \text{Price excl. VAT} \times 1.15`}</Formula>
+            <Formula block>{String.raw`\text{Total} = \text{Price excl. VAT} \times 1{,}15`}</Formula>
             <p><strong>Finding VAT amount only (from the price excluding VAT):</strong></p>
-            <Formula block>{String.raw`\text{VAT} = \text{Price excl. VAT} \times 0.15`}</Formula>
+            <Formula block>{String.raw`\text{VAT} = \text{Price excl. VAT} \times 0{,}15`}</Formula>
             <p><strong>If the price already includes VAT:</strong></p>
-            <Formula block>{String.raw`\text{Price excl. VAT} = \frac{\text{Price incl. VAT}}{1.15}, \quad \text{VAT} = \text{Price incl. VAT} \times \frac{15}{115}`}</Formula>
+            <Formula block>{String.raw`\text{Price excl. VAT} = \frac{\text{Price incl. VAT}}{1{,}15}, \quad \text{VAT} = \text{Price incl. VAT} \times \frac{15}{115}`}</Formula>
           </div>
         </div>
         <div>
           <p className="font-medium mb-2">Example: A laptop costs R8000 before VAT. What's the total price?</p>
-          <Formula block>{String.raw`\text{Total} = 8000 \times 1.15 = \text{R}9200`}</Formula>
-          <p className="text-sm">Or: VAT = R8000 × 0.15 = R1200, so Total = R8000 + R1200 = R9200</p>
+          <Formula block>{String.raw`\text{Total} = 8000 \times 1{,}15 = \text{R}9200`}</Formula>
+          <p className="text-sm">Or: VAT = R8000 × 0,15 = R1200, so Total = R8000 + R1200 = R9200</p>
         </div>
       </div>
     ),
@@ -132,28 +132,28 @@ const learnSteps: LearnStep[] = [
 
 const bank: MathematicalLiteracyItem[] = [
   {
-    prompt: 'If a shirt costs R299.99 and is marked 20% off, what is the new price?',
-    options: ['R59.99', 'R239.99', 'R240.00', 'R359.99'],
-    answer: 'R239.99',
-    explanation: '20% of R299.99 ≈ R60. New price = R299.99 - R60 = R239.99',
+    prompt: 'If a shirt costs R299,99 and is marked 20% off, what is the new price?',
+    options: ['R59,99', 'R239,99', 'R240,00', 'R359,99'],
+    answer: 'R239,99',
+    explanation: '20% of R299,99 ≈ R60. New price = R299,99 - R60 = R239,99',
   },
   {
     prompt: 'Convert 3/5 to a percentage:',
     options: ['30%', '50%', '60%', '75%'],
     answer: '60%',
-    explanation: '3/5 = 0.6 = 60%',
+    explanation: '3/5 = 0,6 = 60%',
   },
   {
     prompt: 'A jacket costs R560 before VAT (15%). What is the VAT-inclusive price?',
     options: ['R575', 'R644', 'R560', 'R476'],
     answer: 'R644',
-    explanation: 'VAT = R560 × 0.15 = R84. Total = R560 + R84 = R644. Or: R560 × 1.15 = R644',
+    explanation: 'VAT = R560 × 0,15 = R84. Total = R560 + R84 = R644. Or: R560 × 1,15 = R644',
   },
   {
-    prompt: 'Round R487.63 to the nearest R10:',
+    prompt: 'Round R487,63 to the nearest R10:',
     options: ['R480', 'R490', 'R500', 'R487'],
     answer: 'R490',
-    explanation: 'R487.63 is closer to R490 than R480',
+    explanation: 'R487,63 is closer to R490 than R480',
   },
 ];
 

@@ -88,7 +88,7 @@ const learnSteps: LearnStep[] = [
             <em>Q</em> = energy (J), <em>m</em> = mass (kg), <em>L</em> = latent heat (J/kg).
           </p>
           <p className="text-slate-700 mt-2">
-            For water: L<sub>fusion</sub> = 3.34 × 10⁵ J/kg, L<sub>vaporization</sub> = 2.26 × 10⁶ J/kg.
+            For water: L<sub>fusion</sub> = 3,34 × 10⁵ J/kg, L<sub>vaporization</sub> = 2,26 × 10⁶ J/kg.
           </p>
         </div>
       </div>
@@ -151,7 +151,7 @@ const bank: PhysicalSciencesItem[] = [
     prompt: 'Which phase change requires the most energy for water?',
     options: ['Melting', 'Vaporization', 'Freezing', 'Condensation'],
     answer: 'Vaporization',
-    explanation: 'Vaporization (L = 2.26 × 10⁶ J/kg) requires more energy than melting (L = 3.34 × 10⁵ J/kg).',
+    explanation: 'Vaporization (L = 2,26 × 10⁶ J/kg) requires more energy than melting (L = 3,34 × 10⁵ J/kg).',
   },
 ];
 

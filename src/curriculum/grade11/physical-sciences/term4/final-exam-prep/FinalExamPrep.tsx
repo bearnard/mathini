@@ -61,7 +61,7 @@ const learnSteps: LearnStep[] = [
             <strong className="text-red-700">Physics Errors</strong>
             <p className="text-slate-600">Forgetting vector direction, using the wrong sign for gravity, not converting units, or mixing up series and parallel formulas.</p>
             <div className="mt-3 space-y-2">
-              <Formula block>{String.raw`g = -9.8\text{ m·s}^{-2}`}</Formula>
+              <Formula block>{String.raw`g = -9{,}8\text{ m·s}^{-2}`}</Formula>
               <Formula block>{String.raw`1\text{ mA} = 10^{-3}\text{ A}`}</Formula>
             </div>
           </div>
@@ -124,10 +124,10 @@ const bank: PSItem[] = [
     explanation: 'Negative velocity means the object moves in the direction defined as negative (e.g., downward if upward is positive). The speed is still 15 m/s.',
   },
   {
-    prompt: 'You have 1.5 hours for a 100-mark paper. How much time should you allow per mark (approximately)?',
-    options: ['0.5 minutes', '1 minute', '1.5 minutes', '2 minutes'],
+    prompt: 'You have 1,5 hours for a 100-mark paper. How much time should you allow per mark (approximately)?',
+    options: ['0,5 minutes', '1 minute', '1,5 minutes', '2 minutes'],
     answer: '1 minute',
-    explanation: '1.5 hours = 90 minutes for 100 marks → 90/100 = 0.9 minutes per mark ≈ about 1 minute per mark, leaving some time to review.',
+    explanation: '1,5 hours = 90 minutes for 100 marks → 90/100 = 0,9 minutes per mark ≈ about 1 minute per mark, leaving some time to review.',
   },
   {
     prompt: 'A kinetic energy calculation gives KE = −200 J. What should you conclude?',

@@ -22,8 +22,8 @@ const learnSteps: LearnStep[] = [
           </p>
         </div>
         <p className="text-slate-700">
-          <strong>Example:</strong> Two charges of 2 × 10⁻⁶ C and 3 × 10⁻⁶ C are separated by 0.5 m. 
-          The force is F = (9 × 10⁹)(2 × 10⁻⁶)(3 × 10⁻⁶)/(0.5)² = 0.216 N.
+          <strong>Example:</strong> Two charges of 2 × 10⁻⁶ C and 3 × 10⁻⁶ C are separated by 0,5 m. 
+          The force is F = (9 × 10⁹)(2 × 10⁻⁶)(3 × 10⁻⁶)/(0,5)² = 0,216 N.
         </p>
       </div>
     ),
@@ -89,11 +89,11 @@ const learnSteps: LearnStep[] = [
           <h4 className="font-semibold text-red-900 mb-2">Electrical Energy</h4>
           <Formula block>{String.raw`E = Pt = VIt`}</Formula>
           <p className="text-sm text-slate-600 mt-2">
-            Energy (<em>E</em>) in joules. For household use: 1 kWh = 3.6 × 10⁶ J.
+            Energy (<em>E</em>) in joules. For household use: 1 kWh = 3,6 × 10⁶ J.
           </p>
         </div>
         <p className="text-slate-700">
-          <strong>Example:</strong> A 100 W light bulb runs for 5 hours: E = 100 W × 5 h = 500 Wh = 0.5 kWh.
+          <strong>Example:</strong> A 100 W light bulb runs for 5 hours: E = 100 W × 5 h = 500 Wh = 0,5 kWh.
         </p>
       </div>
     ),

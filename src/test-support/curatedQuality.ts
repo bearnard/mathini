@@ -29,3 +29,20 @@ export function countRejects(questions: CuratedQuestion[] = extractCuratedBanks(
   }
   return { counts, checked: mcq.length };
 }
+
+/**
+ * Decimal-point ratchet: how many curated Maths, Maths Literacy and Physical Sciences questions (Grades 7-12) still show a decimal POINT
+ * (prompt, options, answer or explanation) instead of the South African decimal comma. Counted per grade scope with the same rule as
+ * the insert-time check (DECIMAL_POINT in questionQuality). Not a reject-level reason, so it has its own baseline that may only go DOWN.
+ */
+const DECIMAL_SUBJECTS = new Set(['mathematics', 'mathematical-literacy', 'ml', 'physical-sciences', 'ps']);
+
+export function countDecimalPoints(questions: CuratedQuestion[] = extractCuratedBanks()): Record<string, number> {
+  const out: Record<string, number> = {};
+  for (const q of questions) {
+    if (q.kind !== 'mcq' || q.grade < 7 || !DECIMAL_SUBJECTS.has(q.subject)) continue;
+    const r = checkQuestion(q, { decimalComma: 'warn' });
+    if (r.reasons.some((x) => x.code === 'decimal_point')) out[`g${q.grade}`] = (out[`g${q.grade}`] ?? 0) + 1;
+  }
+  return Object.fromEntries(Object.entries(out).sort());
+}

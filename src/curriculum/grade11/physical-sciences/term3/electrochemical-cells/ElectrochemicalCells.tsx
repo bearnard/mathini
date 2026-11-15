@@ -57,12 +57,12 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          The <strong>standard EMF series</strong> (reduction potential table) lists half-reactions with their standard electrode potentials (E°). The standard hydrogen electrode (SHE) has <Formula>{String.raw`E^\circ = 0.00\text{ V}`}</Formula>.
+          The <strong>standard EMF series</strong> (reduction potential table) lists half-reactions with their standard electrode potentials (E°). The standard hydrogen electrode (SHE) has <Formula>{String.raw`E^\circ = 0{,}00\text{ V}`}</Formula>.
         </p>
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-green-50 p-4">
             <strong className="text-green-700">More Positive E°</strong>
-            <p className="text-slate-600">Better oxidising agent (more easily reduced). Example: <Formula>{String.raw`F_2/F^-`}</Formula> has <Formula>{String.raw`E^\circ = +2.87\text{ V}`}</Formula>.</p>
+            <p className="text-slate-600">Better oxidising agent (more easily reduced). Example: <Formula>{String.raw`F_2/F^-`}</Formula> has <Formula>{String.raw`E^\circ = +2{,}87\text{ V}`}</Formula>.</p>
           </div>
           <div className="rounded-xl bg-purple-50 p-4">
             <strong className="text-purple-700">More Negative E°</strong>
@@ -113,10 +113,10 @@ const bank: PSItem[] = [
     explanation: 'The salt bridge allows ions to migrate between solutions to balance charge, preventing build-up that would stop the reaction.',
   },
   {
-    prompt: 'Using E° values: Zn²⁺/Zn E° = −0.76 V; Cu²⁺/Cu E° = +0.34 V. What is the cell EMF for a Zn-Cu galvanic cell?',
-    options: ['−1.10 V', '+0.42 V', '+1.10 V', '−0.42 V'],
-    answer: '+1.10 V',
-    explanation: 'E°_cell = E°_cathode − E°_anode = +0.34 − (−0.76) = +0.34 + 0.76 = 1.10 V. Cu²⁺ is reduced (cathode), Zn is oxidised (anode).',
+    prompt: 'Using E° values: Zn²⁺/Zn E° = −0,76 V; Cu²⁺/Cu E° = +0,34 V. What is the cell EMF for a Zn-Cu galvanic cell?',
+    options: ['−1,10 V', '+0,42 V', '+1,10 V', '−0,42 V'],
+    answer: '+1,10 V',
+    explanation: 'E°_cell = E°_cathode − E°_anode = +0,34 − (−0,76) = +0,34 + 0,76 = 1,10 V. Cu²⁺ is reduced (cathode), Zn is oxidised (anode).',
   },
   {
     prompt: 'In cell notation "Zn | Zn²⁺ ‖ Cu²⁺ | Cu", which is the cathode?',
@@ -150,9 +150,9 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'What is the standard hydrogen electrode (SHE) E° value?',
-    options: ['+1.00 V', '−1.00 V', '+0.34 V', '0.00 V'],
-    answer: '0.00 V',
-    explanation: 'The SHE (H⁺/H₂ half-cell under standard conditions) is the reference electrode with E° = 0.00 V. All other potentials are measured relative to it.',
+    options: ['+1,00 V', '−1,00 V', '+0,34 V', '0,00 V'],
+    answer: '0,00 V',
+    explanation: 'The SHE (H⁺/H₂ half-cell under standard conditions) is the reference electrode with E° = 0,00 V. All other potentials are measured relative to it.',
   },
 ];
 

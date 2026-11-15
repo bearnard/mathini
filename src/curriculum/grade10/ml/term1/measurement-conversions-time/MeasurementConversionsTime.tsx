@@ -21,8 +21,8 @@ const learnSteps: LearnStep[] = [
           </ul>
         </div>
         <div>
-          <p className="font-medium mb-2">Example: Convert 3.5 m to cm</p>
-          <Formula block>{String.raw`3.5 \text{ m} = 3.5 \times 100 = 350 \text{ cm}`}</Formula>
+          <p className="font-medium mb-2">Example: Convert 3,5 m to cm</p>
+          <Formula block>{String.raw`3{,}5 \text{ m} = 3{,}5 \times 100 = 350 \text{ cm}`}</Formula>
         </div>
         <div className="bg-amber-50 p-4 rounded-lg text-sm">
           <strong>Rule of thumb:</strong> Moving to a smaller unit → multiply. Moving to a larger unit → divide.
@@ -117,10 +117,10 @@ const learnSteps: LearnStep[] = [
 
 const bank: MathematicalLiteracyItem[] = [
   {
-    prompt: 'How many millimeters are in 2.5 meters?',
+    prompt: 'How many millimeters are in 2,5 meters?',
     options: ['25 mm', '250 mm', '2500 mm', '25000 mm'],
     answer: '2500 mm',
-    explanation: '1 meter = 1000 mm, so 2.5 × 1000 = 2500 mm',
+    explanation: '1 meter = 1000 mm, so 2,5 × 1000 = 2500 mm',
   },
   {
     prompt: 'If it is 14:30 (2:30 PM), how long until 17:45 (5:45 PM)?',
@@ -129,16 +129,16 @@ const bank: MathematicalLiteracyItem[] = [
     explanation: 'From 14:30 to 17:45 is 3 hours and 15 minutes.',
   },
   {
-    prompt: 'A bottle contains 1.5 litres of juice. How many 250 mℓ glasses can be filled?',
+    prompt: 'A bottle contains 1,5 litres of juice. How many 250 mℓ glasses can be filled?',
     options: ['4 glasses', '5 glasses', '6 glasses', '7 glasses'],
     answer: '6 glasses',
-    explanation: '1.5 ℓ = 1500 mℓ. Divide: 1500 ÷ 250 = 6 glasses',
+    explanation: '1,5 ℓ = 1500 mℓ. Divide: 1500 ÷ 250 = 6 glasses',
   },
   {
-    prompt: 'How many seconds are there in 3.5 minutes?',
+    prompt: 'How many seconds are there in 3,5 minutes?',
     options: ['180 seconds', '210 seconds', '240 seconds', '350 seconds'],
     answer: '210 seconds',
-    explanation: '3.5 minutes = 3.5 × 60 = 210 seconds',
+    explanation: '3,5 minutes = 3,5 × 60 = 210 seconds',
   },
 ];
 

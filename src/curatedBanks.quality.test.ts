@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { countRejects } from './test-support/curatedQuality';
+import { countDecimalPoints, countRejects } from './test-support/curatedQuality';
 import { extractCuratedBanks } from './test-support/curatedBanks';
 
 // RATCHET over every curated bank (grades 6-12), using the SAME validator as the insert-time checks (ADR 0003 section 1a).
@@ -9,7 +9,7 @@ import { extractCuratedBanks } from './test-support/curatedBanks';
 // may only go DOWN. Fix a question, then run `node --import tsx scripts/curated-quality-baseline.ts` to lock the gain in. Adding a
 // question that breaks a rule, or breaking an existing one, fails this test.
 
-const baseline = JSON.parse(fs.readFileSync('src/test-support/curatedBaseline.json', 'utf8')) as { checked: number; counts: Record<string, Record<string, number>> };
+const baseline = JSON.parse(fs.readFileSync('src/test-support/curatedBaseline.json', 'utf8')) as { checked: number; counts: Record<string, Record<string, number>>; decimalPoints?: Record<string, number> };
 const questions = extractCuratedBanks();
 const { counts, checked } = countRejects(questions);
 
@@ -57,3 +57,14 @@ test('the baseline file is not stale-high by more than a few: lower it when you 
   for (const [scope, was] of Object.entries(baseline.counts)) for (const [code, n] of Object.entries(was)) slack += n - (counts[scope]?.[code] ?? 0);
   assert.ok(slack <= 5, `baseline is ${slack} above reality: run scripts/curated-quality-baseline.ts to ratchet it down`);
 });
+
+// RATCHET: curated Maths, Maths Literacy and Physical Sciences questions that still show a decimal POINT (CAPS writes the comma).
+// The count per grade may only go DOWN; after converting more questions run scripts/curated-quality-baseline.ts.
+const decimalNow = countDecimalPoints(questions);
+for (const g of [7, 8, 9, 10, 11, 12]) {
+  test(`curated banks (g${g}): decimal-point questions are not above the baseline`, () => {
+    const now = decimalNow[`g${g}`] ?? 0;
+    const was = baseline.decimalPoints?.[`g${g}`] ?? 0;
+    assert.ok(now <= was, `g${g}: questions with a decimal point went from ${was} to ${now}. Write decimals with a comma, or (if you converted others) re-run scripts/curated-quality-baseline.ts`);
+  });
+}

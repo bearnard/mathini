@@ -57,7 +57,7 @@ const learnSteps: LearnStep[] = [
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-emerald-50 p-4">
             <h4 className="font-semibold text-emerald-700">Quarterly example</h4>
-            <Formula block>{String.raw`i_{\text{eff}} = \left(1 + \frac{0.12}{4}\right)^4 - 1`}</Formula>
+            <Formula block>{String.raw`i_{\text{eff}} = \left(1 + \frac{0{,}12}{4}\right)^4 - 1`}</Formula>
           </div>
           <div className="rounded-xl bg-cyan-50 p-4">
             <h4 className="font-semibold text-cyan-700">Interpretation</h4>
@@ -80,7 +80,7 @@ const bank: MathematicsItem[] = [
     prompt: 'R10 000 is invested at 8% p.a. compound interest for 3 years. The accumulated amount is closest to:',
     options: ['R12 000', 'R12 597', 'R14 400', 'R11 664'],
     answer: 'R12 597',
-    explanation: 'A = 10 000(1.08)³ = 10 000 × 1.259712 ≈ R12 597.',
+    explanation: 'A = 10 000(1,08)³ = 10 000 × 1,259712 ≈ R12 597.',
   },
   {
     prompt: 'Straight-line depreciation reduces an asset\'s value by:',
@@ -96,15 +96,15 @@ const bank: MathematicsItem[] = [
   },
   {
     prompt: 'The effective annual rate from a nominal rate of 12% p.a. compounded monthly is approximately:',
-    options: ['12.00%', '12.68%', '11.39%', '13.56%'],
-    answer: '12.68%',
-    explanation: 'EAR = (1 + 0.12/12)^12 − 1 = (1.01)^12 − 1 ≈ 0.1268 = 12.68%.',
+    options: ['12,00%', '12,68%', '11,39%', '13,56%'],
+    answer: '12,68%',
+    explanation: 'EAR = (1 + 0,12/12)^12 − 1 = (1,01)^12 − 1 ≈ 0,1268 = 12,68%.',
   },
   {
     prompt: 'A car worth R200 000 depreciates at 15% p.a. on reducing balance. After 4 years its value is closest to:',
     options: ['R80 000', 'R120 000', 'R104 401', 'R92 000'],
     answer: 'R104 401',
-    explanation: 'A = 200 000(1 − 0.15)⁴ = 200 000(0.85)⁴ = 200 000 × 0.52201 ≈ R104 401.',
+    explanation: 'A = 200 000(1 − 0,15)⁴ = 200 000(0,85)⁴ = 200 000 × 0,52201 ≈ R104 401.',
   },
   {
     prompt: 'Compared to the nominal rate, the effective annual rate is always:',
@@ -116,7 +116,7 @@ const bank: MathematicsItem[] = [
     prompt: 'R5 000 is invested for 2 years at 10% simple interest per annum. The interest earned is:',
     options: ['R1 000', 'R500', 'R1 100', 'R2 000'],
     answer: 'R1 000',
-    explanation: 'Simple interest: I = Prt = 5 000 × 0.10 × 2 = R1 000.',
+    explanation: 'Simple interest: I = Prt = 5 000 × 0,10 × 2 = R1 000.',
   },
   {
     prompt: 'Which formula is used for straight-line depreciation?',

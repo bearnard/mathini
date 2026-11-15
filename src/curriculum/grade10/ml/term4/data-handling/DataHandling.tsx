@@ -144,9 +144,9 @@ const learnSteps: LearnStep[] = [
 const bank: MathematicalLiteracyItem[] = [
   {
     prompt: 'What is the mean of the dataset: 10, 15, 20, 25?',
-    options: ['17.5', '15', '20', '22.5'],
-    answer: '17.5',
-    explanation: 'Mean = (10 + 15 + 20 + 25) / 4 = 70 / 4 = 17.5',
+    options: ['17,5', '15', '20', '22,5'],
+    answer: '17,5',
+    explanation: 'Mean = (10 + 15 + 20 + 25) / 4 = 70 / 4 = 17,5',
   },
   {
     prompt: 'What is the median of: 3, 7, 5, 9, 1?',

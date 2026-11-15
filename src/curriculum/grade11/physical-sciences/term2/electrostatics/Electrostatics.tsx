@@ -94,10 +94,10 @@ const learnSteps: LearnStep[] = [
 
 const bank: PSItem[] = [
   {
-    prompt: 'Two charges of +2 μC and +3 μC are 0.1 m apart. What is the electrostatic force between them? (k = 9 × 10⁹ N·m²/C²)',
-    options: ['54 N', '5.4 N', '0.54 N', '540 N'],
-    answer: '5.4 N',
-    explanation: 'F = kQ₁Q₂/r² = 9×10⁹ × 2×10⁻⁶ × 3×10⁻⁶ / (0.1)² = 9×10⁹ × 6×10⁻¹² / 0.01 = 54×10⁻³ / 0.01 = 5.4 N.',
+    prompt: 'Two charges of +2 μC and +3 μC are 0,1 m apart. What is the electrostatic force between them? (k = 9 × 10⁹ N·m²/C²)',
+    options: ['54 N', '5,4 N', '0,54 N', '540 N'],
+    answer: '5,4 N',
+    explanation: 'F = kQ₁Q₂/r² = 9×10⁹ × 2×10⁻⁶ × 3×10⁻⁶ / (0,1)² = 9×10⁹ × 6×10⁻¹² / 0,01 = 54×10⁻³ / 0,01 = 5,4 N.',
   },
   {
     prompt: 'If the distance between two charges is doubled, the electrostatic force becomes:',
@@ -107,7 +107,7 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'An electric field of 500 N/C acts on a charge of 4 × 10⁻³ C. What is the force on the charge?',
-    options: ['0.125 N', '2 N', '125 N', '504 N'],
+    options: ['0,125 N', '2 N', '125 N', '504 N'],
     answer: '2 N',
     explanation: 'F = qE = 4×10⁻³ × 500 = 2 N.',
   },

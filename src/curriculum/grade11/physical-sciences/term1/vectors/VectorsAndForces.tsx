@@ -110,9 +110,9 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'A force of 20 N acts at 30° to the horizontal. What is the horizontal component?',
-    options: ['10 N', '17.3 N', '20 N', '34.6 N'],
-    answer: '17.3 N',
-    explanation: 'Horizontal component = F cos θ = 20 × cos 30° = 20 × 0.866 ≈ 17.3 N.',
+    options: ['10 N', '17,3 N', '20 N', '34,6 N'],
+    answer: '17,3 N',
+    explanation: 'Horizontal component = F cos θ = 20 × cos 30° = 20 × 0,866 ≈ 17,3 N.',
   },
   {
     prompt: 'What is the purpose of a free-body diagram?',
@@ -128,9 +128,9 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'A force of 50 N acts at 60° to the horizontal. What is the vertical component?',
-    options: ['25 N', '43.3 N', '50 N', '86.6 N'],
-    answer: '43.3 N',
-    explanation: 'Vertical component = F sin θ = 50 × sin 60° = 50 × 0.866 ≈ 43.3 N.',
+    options: ['25 N', '43,3 N', '50 N', '86,6 N'],
+    answer: '43,3 N',
+    explanation: 'Vertical component = F sin θ = 50 × sin 60° = 50 × 0,866 ≈ 43,3 N.',
   },
   {
     prompt: 'Three forces act on an object: 10 N right, 4 N left, and 6 N left. What is the net force?',

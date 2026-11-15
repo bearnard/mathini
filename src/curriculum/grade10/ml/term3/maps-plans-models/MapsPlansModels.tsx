@@ -49,9 +49,9 @@ const learnSteps: LearnStep[] = [
         <div className="bg-amber-50 p-4 rounded-lg">
           <p className="font-medium mb-2">Example: A bedroom on a 1:50 plan measures 9 cm × 7 cm. Calculate actual room area.</p>
           <div className="space-y-1 text-sm">
-            <Formula block>{String.raw`\text{Length: } 9 \times 50 = 450 \text{ cm} = 4.5 \text{ m}`}</Formula>
-            <Formula block>{String.raw`\text{Width: } 7 \times 50 = 350 \text{ cm} = 3.5 \text{ m}`}</Formula>
-            <Formula block>{String.raw`\text{Area: } 4.5 \times 3.5 = 15.75 \text{ m}^2`}</Formula>
+            <Formula block>{String.raw`\text{Length: } 9 \times 50 = 450 \text{ cm} = 4{,}5 \text{ m}`}</Formula>
+            <Formula block>{String.raw`\text{Width: } 7 \times 50 = 350 \text{ cm} = 3{,}5 \text{ m}`}</Formula>
+            <Formula block>{String.raw`\text{Area: } 4{,}5 \times 3{,}5 = 15{,}75 \text{ m}^2`}</Formula>
           </div>
         </div>
       </div>
@@ -115,19 +115,19 @@ const learnSteps: LearnStep[] = [
 const bank: MathematicalLiteracyItem[] = [
   {
     prompt: 'If a scale model has a scale of 1:100, and the model is 15 cm tall, how tall is the real object?',
-    options: ['150 m', '15 m', '1.5 m', '150 cm'],
+    options: ['150 m', '15 m', '1,5 m', '150 cm'],
     answer: '15 m',
     explanation: '15 cm × 100 = 1500 cm = 15 m',
   },
   {
     prompt: 'Looking at a building plan, a corridor is 8 cm long. If the scale is 1:50, what is the actual length?',
-    options: ['4 m', '40 m', '400 m', '0.4 m'],
+    options: ['4 m', '40 m', '400 m', '0,4 m'],
     answer: '4 m',
     explanation: '8 cm × 50 = 400 cm = 4 m',
   },
   {
     prompt: 'A model car has scale 1:24. If the model is 18 cm long, what is the real car length?',
-    options: ['4.8 m', '43.2 cm', '432 cm', '75 cm'],
+    options: ['4,8 m', '43,2 cm', '432 cm', '75 cm'],
     answer: '432 cm',
     explanation: '18 cm × 24 = 432 cm.',
   },

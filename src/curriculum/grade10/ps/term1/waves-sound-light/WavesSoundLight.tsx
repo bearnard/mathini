@@ -99,7 +99,7 @@ const learnSteps: LearnStep[] = [
           <h4 className="font-semibold text-teal-900 mb-2">Refractive Index</h4>
           <Formula block>{String.raw`n = \frac{c}{v}`}</Formula>
           <p className="text-sm text-slate-600 mt-2">
-            <em>c</em> = speed of light in vacuum, <em>v</em> = speed of light in the medium. For water, n ≈ 1.33.
+            <em>c</em> = speed of light in vacuum, <em>v</em> = speed of light in the medium. For water, n ≈ 1,33.
           </p>
         </div>
       </div>
@@ -127,7 +127,7 @@ const bank: PhysicalSciencesItem[] = [
     explanation: 'The Doppler effect causes an increase in observed frequency when the source approaches.',
   },
   {
-    prompt: 'If light travels from air (n = 1.0) into glass (n = 1.5), what happens?',
+    prompt: 'If light travels from air (n = 1,0) into glass (n = 1,5), what happens?',
     options: ['It speeds up and bends away from normal', 'It slows down and bends toward normal', 'It maintains speed', 'It reflects completely'],
     answer: 'It slows down and bends toward normal',
     explanation: 'Light slows down in denser media and bends toward the normal according to Snell\'s law.',

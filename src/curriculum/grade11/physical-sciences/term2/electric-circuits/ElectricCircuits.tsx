@@ -96,7 +96,7 @@ const learnSteps: LearnStep[] = [
 const bank: PSItem[] = [
   {
     prompt: 'A 12 V battery drives a current of 3 A through a resistor. What is the resistance?',
-    options: ['0.25 Ω', '4 Ω', '36 Ω', '9 Ω'],
+    options: ['0,25 Ω', '4 Ω', '36 Ω', '9 Ω'],
     answer: '4 Ω',
     explanation: 'From Ohm\'s law: R = V/I = 12/3 = 4 Ω.',
   },
@@ -132,13 +132,13 @@ const bank: PSItem[] = [
   },
   {
     prompt: 'What is the power dissipated by a 4 Ω resistor carrying a current of 3 A?',
-    options: ['12 W', '36 W', '48 W', '0.75 W'],
+    options: ['12 W', '36 W', '48 W', '0,75 W'],
     answer: '36 W',
     explanation: 'P = I²R = 3² × 4 = 9 × 4 = 36 W.',
   },
   {
     prompt: 'A 24 V source drives current through a 3 Ω and a 5 Ω resistor in series. What is the current?',
-    options: ['8 A', '3 A', '5 A', '0.125 A'],
+    options: ['8 A', '3 A', '5 A', '0,125 A'],
     answer: '3 A',
     explanation: 'R_total = 3 + 5 = 8 Ω. I = V/R = 24/8 = 3 A.',
   },

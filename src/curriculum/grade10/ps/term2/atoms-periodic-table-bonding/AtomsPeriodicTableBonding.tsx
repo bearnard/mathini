@@ -128,7 +128,7 @@ const learnSteps: LearnStep[] = [
           <ul className="list-disc list-inside space-y-1 text-slate-700 mt-2">
             <li>2 pairs → linear (180°)</li>
             <li>3 pairs → trigonal planar (120°)</li>
-            <li>4 pairs → tetrahedral (109.5°)</li>
+            <li>4 pairs → tetrahedral (109,5°)</li>
           </ul>
         </div>
       </div>

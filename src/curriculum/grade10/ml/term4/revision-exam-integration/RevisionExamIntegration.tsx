@@ -60,10 +60,10 @@ const learnSteps: LearnStep[] = [
             <p><strong>Step 1:</strong> Cost = 80 × R200 = R16 000</p>
             <p><strong>Step 2:</strong> Income from 65 shirts = 65 × R350 = R22 750</p>
             <p><strong>Step 3:</strong> Remaining = 80 - 65 = 15 shirts</p>
-            <p><strong>Step 4:</strong> Discounted price = R350 × 0.75 = R262.50</p>
-            <p><strong>Step 5:</strong> Income from remaining = 15 × R262.50 = R3 937.50</p>
-            <Formula block>{String.raw`\text{Total income} = 22\,750 + 3937.50 = \text{R}26\,687.50`}</Formula>
-            <Formula block>{String.raw`\text{Profit} = 26\,687.50 - 16\,000 = \text{R}10\,687.50`}</Formula>
+            <p><strong>Step 4:</strong> Discounted price = R350 × 0,75 = R262,50</p>
+            <p><strong>Step 5:</strong> Income from remaining = 15 × R262,50 = R3 937,50</p>
+            <Formula block>{String.raw`\text{Total income} = 22\,750 + 3937{,}50 = \text{R}26\,687{,}50`}</Formula>
+            <Formula block>{String.raw`\text{Profit} = 26\,687{,}50 - 16\,000 = \text{R}10\,687{,}50`}</Formula>
           </div>
         </div>
       </div>
@@ -173,7 +173,7 @@ const bank: MathematicalLiteracyItem[] = [
     prompt: 'A shop offers a 25% discount on items marked R800. After discount, a customer pays:',
     options: ['R600', 'R700', 'R775', 'R200'],
     answer: 'R600',
-    explanation: '25% discount = R800 × 0.25 = R200. Price = R800 - R200 = R600',
+    explanation: '25% discount = R800 × 0,25 = R200. Price = R800 - R200 = R600',
   },
   {
     prompt: 'Income is R18000, expenses are R12500, savings are R3000. What is left over?',
@@ -182,16 +182,16 @@ const bank: MathematicalLiteracyItem[] = [
     explanation: 'Left over = 18000 - 12500 - 3000 = R2500',
   },
   {
-    prompt: 'A rectangular pool is 8 m × 4 m × 1.5 m deep. What is its volume in litres?',
+    prompt: 'A rectangular pool is 8 m × 4 m × 1,5 m deep. What is its volume in litres?',
     options: ['48 ℓ', '480 ℓ', '4800 ℓ', '48000 ℓ'],
     answer: '48000 ℓ',
-    explanation: 'Volume = 8 × 4 × 1.5 = 48 m³. Since 1 m³ = 1000 ℓ, capacity = 48000 ℓ',
+    explanation: 'Volume = 8 × 4 × 1,5 = 48 m³. Since 1 m³ = 1000 ℓ, capacity = 48000 ℓ',
   },
   {
     prompt: 'An item costs R500 before VAT. With 15% VAT included, the total price is:',
     options: ['R515', 'R575', 'R425', 'R650'],
     answer: 'R575',
-    explanation: 'VAT = R500 × 0.15 = R75. Total = R500 + R75 = R575. Or: R500 × 1.15 = R575',
+    explanation: 'VAT = R500 × 0,15 = R75. Total = R500 + R75 = R575. Or: R500 × 1,15 = R575',
   },
 ];
 
