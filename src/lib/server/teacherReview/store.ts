@@ -78,7 +78,12 @@ export async function loadReviewerPack(db: TrDb, reviewer: ReviewerRow, pack: Re
   };
 }
 
-export type SaveResult = { ok: true; answered: number } | { ok: false; status: 400 | 404; error: string };
+/** Saves one link may make in its lifetime. A 60-item pack with generous edits needs a few hundred; the cap only stops abuse of the shared D1 write budget. */
+export const MAX_SAVES_PER_LINK = 1500;
+/** last_seen_at is refreshed at most this often by page loads. */
+export const SEEN_REFRESH_MS = 5 * 60 * 1000;
+
+export type SaveResult = { ok: true; answered: number } | { ok: false; status: 400 | 404 | 429; error: string };
 
 /**
  * Saves (or overwrites) this reviewer's answer for one item. The item must belong to the reviewer's pack. A suggested
@@ -114,13 +119,19 @@ export async function saveResponse(db: TrDb, reviewer: ReviewerRow, input: unkno
     proposalJson = JSON.stringify(c.value);
   }
 
-  await db.batch([
-    {
-      sql: 'INSERT OR REPLACE INTO review_responses (reviewer_id, item_id, verdict, proposal, confidence, reason, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)',
-      params: [reviewer.id, item.id, b.verdict as string, proposalJson, confidence, reason || null, now],
-    },
-    { sql: 'UPDATE reviewers SET last_seen_at = ? WHERE id = ?', params: [now, reviewer.id] },
-  ]);
+  // An identical re-save (autosave after no change) writes nothing.
+  const prev = (await db.all<ReviewResponseRow>('SELECT * FROM review_responses WHERE reviewer_id = ? AND item_id = ?', [reviewer.id, item.id]))[0];
+  const same = prev && prev.verdict === b.verdict && (prev.proposal ?? null) === proposalJson && (prev.confidence ?? null) === confidence && (prev.reason ?? null) === (reason || null);
+  if (!same) {
+    if ((reviewer.save_count ?? 0) >= MAX_SAVES_PER_LINK) return { ok: false, status: 429, error: 'too many saves for this link' };
+    await db.batch([
+      {
+        sql: 'INSERT OR REPLACE INTO review_responses (reviewer_id, item_id, verdict, proposal, confidence, reason, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        params: [reviewer.id, item.id, b.verdict as string, proposalJson, confidence, reason || null, now],
+      },
+      { sql: 'UPDATE reviewers SET last_seen_at = ?, save_count = save_count + 1 WHERE id = ?', params: [now, reviewer.id] },
+    ]);
+  }
   const n = await db.all<{ n: number }>('SELECT COUNT(*) AS n FROM review_responses WHERE reviewer_id = ?', [reviewer.id]);
   return { ok: true, answered: Number(n[0]?.n ?? 0) };
 }
@@ -133,5 +144,6 @@ export async function markDone(db: TrDb, reviewer: ReviewerRow, now: number): Pr
 }
 
 export async function touchSeen(db: TrDb, reviewer: ReviewerRow, now: number): Promise<void> {
+  if (reviewer.last_seen_at != null && now - reviewer.last_seen_at < SEEN_REFRESH_MS) return; // a page load is not worth a write every time
   await db.batch([{ sql: 'UPDATE reviewers SET last_seen_at = ? WHERE id = ?', params: [now, reviewer.id] }]);
 }
