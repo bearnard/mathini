@@ -339,8 +339,11 @@ test('purge removes old links, long-expired sessions and old counters, and keeps
 test('sign-in pages and API are never cached, indexed or tracked, and the pages never store the token', () => {
   const cfg = fs.readFileSync('next.config.ts', 'utf8');
   for (const src of ["'/sign-in'", "'/sign-in/:path*'", "'/account'", "'/api/auth/:path*'"]) assert.ok(cfg.includes(`source: ${src}`), src);
+  // robots.ts disallows PRIVATE_PREFIXES from src/lib/seo/publicPaths.ts
   const robots = fs.readFileSync('src/app/robots.ts', 'utf8');
-  assert.ok(robots.includes("'/sign-in'") && robots.includes("'/account'"));
+  const prefixes = fs.readFileSync('src/lib/seo/publicPaths.ts', 'utf8');
+  assert.ok(robots.includes('PRIVATE_PREFIXES'));
+  assert.ok(prefixes.includes("'/sign-in'") && prefixes.includes("'/account'"));
   const verify = fs.readFileSync('src/components/adultAuth/VerifyLink.tsx', 'utf8');
   assert.ok(!/localStorage|sessionStorage|document\.cookie/.test(verify), 'the token lives in memory only');
   assert.ok(verify.includes('replaceState'), 'and leaves the address bar');
