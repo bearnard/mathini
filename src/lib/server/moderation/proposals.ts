@@ -242,3 +242,11 @@ export async function verifyQuestion(db: AdminDb, actor: Actor, questionId: stri
   await db.batch([{ sql: "INSERT OR REPLACE INTO question_verified (question_id, version_id, verified_at, via, proposal_id, verified_by) VALUES (?, ?, ?, 'review', NULL, ?)", params: [questionId, q.current_version_id, now, actor.kind === 'owner' ? 'owner' : 'moderator'] }]);
   return { ok: true };
 }
+
+/** The owner's list. 'waiting' = submitted, oldest first; anything else, newest first. */
+export async function listByStatus(db: AdminDb, status: ProposalStatus | 'all' | 'waiting'): Promise<ProposalRow[]> {
+  const waiting = status === 'waiting' || status === 'submitted';
+  const where = status === 'all' ? '' : 'WHERE status = ?';
+  const params: Param[] = status === 'all' ? [] : [waiting ? 'submitted' : status];
+  return (await db.all<Record<string, unknown>>(`SELECT ${COLS} FROM proposals ${where} ORDER BY ${waiting ? 'created_at' : 'updated_at DESC'} LIMIT 200`, params)).map(rowOf);
+}

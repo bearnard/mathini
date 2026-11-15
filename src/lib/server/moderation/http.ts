@@ -109,3 +109,34 @@ export const handleCommentRemove = (req: Request, deps: ModDeps, id: string) =>
     const r = await removeComment(deps.db, { userId: uid }, id, deps.now);
     return r.ok ? authJson({ ok: true }) : authJson({ error: r.error }, r.status);
   });
+
+// ---------- moderators decide (ADR 0003 section 4): a moderator of a group with 5 or more moderators needs no owner ----------
+import { decideProposal } from './proposals';
+import { queueFor } from './proposals';
+import { toViews } from './views';
+
+async function asModerator(req: Request, deps: ModDeps, action: string | null, run: (userId: string, b: Record<string, unknown>) => Promise<Response>): Promise<Response> {
+  if (action) { const bad = checkWriteRequest(req, action); if (bad) return authJson({ error: bad }, 403); }
+  try {
+    const gate = await requireRole(req, deps.db, ['moderator'], deps.now);
+    if (!gate.ok) return gate.response;
+    const b = action ? await body(req) : {};
+    if (!b) return authJson({ error: 'invalid request' }, 400);
+    return await run(gate.session.user.id, b);
+  } catch (err) {
+    console.error(`moderation ${action ?? 'read'} error:`, err);
+    return authJson({ error: 'unavailable' }, 503);
+  }
+}
+
+/** GET: the proposals this moderator may decide now (their groups, at 5 or more moderators, never their own). Authors show as "Teacher at <school>". */
+export const handleModQueue = (req: Request, deps: ModDeps) =>
+  asModerator(req, deps, null, async (uid) => authJson({ proposals: await toViews(deps.db, await queueFor(deps.db, { kind: 'moderator', userId: uid }), false) }));
+
+/** POST { decision: 'approve' | 'reject', reason }. */
+export const handleModDecide = (req: Request, deps: ModDeps, id: string) =>
+  asModerator(req, deps, 'proposal-decide', async (uid, b) => {
+    if (!ID.test(id)) return authJson({ error: 'Not found' }, 404);
+    const r = await decideProposal(deps.db, { kind: 'moderator', userId: uid }, id, b.decision, b.reason, deps.now);
+    return r.ok ? authJson({ ok: true, status: r.status }) : authJson({ error: r.error, findings: r.findings }, r.status);
+  });
