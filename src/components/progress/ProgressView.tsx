@@ -36,10 +36,10 @@ const TestRow = ({ t }: { t: TestResult }) => (
   </li>
 );
 
-export const TestsCard = ({ tests, series }: { tests: TestResult[]; series: TestSeries[] }) => (
+export const TestsCard = ({ tests, series, who }: { tests: TestResult[]; series: TestSeries[]; who?: string }) => (
   <Card title="Test history" id="tests">
     {tests.length === 0 ? (
-      <p className="text-slate-700">When you finish a quiz, mock test or exam practice, it will be listed here, and you can watch your scores climb.</p>
+      <p className="text-slate-700">{who ? `When ${who} finishes a quiz, mock test or exam practice, it will be listed here.` : 'When you finish a quiz, mock test or exam practice, it will be listed here, and you can watch your scores climb.'}</p>
     ) : (
       <>
         <ul>{tests.map((t) => <TestRow key={t.runId} t={t} />)}</ul>

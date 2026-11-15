@@ -2,87 +2,14 @@
 // The parent's page (ADR 0003 phase 2): children linked to me, with consent, a PIN reset and a way to link another child. Everything is decided on
 // the server; this page only shows it and sends the buttons' requests.
 import { useCallback, useEffect, useState } from 'react';
-import type { ProgressResponse } from '../../lib/shared/progressTypes';
-import { ago, call, CONSENT_TEXT, type ChildSummary } from './api';
-import { ActivityLine, ProgressDetails, ProgressStats } from './ChildProgress';
+import { DashboardGrid, DashboardPage, EmptyState, GridItem, PageHeader, Skeleton, SkeletonCard } from '../dashboard';
+import { call, type ChildSummary } from './api';
+import ChildSection from './ChildSection';
 
 type Me = { user: { email: string } | null; roles: string[] };
 
 const btn = 'min-h-11 rounded-xl px-4 text-base font-semibold';
 const field = 'mt-1 min-h-11 w-full rounded-lg border border-slate-300 px-3 py-2 text-base text-slate-900';
-
-function ChildCard({ child, now, onChanged }: { child: ChildSummary; now: number; onChanged: () => void }) {
-  const [progress, setProgress] = useState<ProgressResponse | null>(null);
-  const [state, setState] = useState<'loading' | 'ready' | 'error'>('loading');
-  const [tries, setTries] = useState(0);
-  const [more, setMore] = useState(false);
-  const [note, setNote] = useState('');
-  const [pin, setPin] = useState<string | null>(null);
-  const [busy, setBusy] = useState(false);
-
-  useEffect(() => {
-    let live = true;
-    setState('loading');
-    void call<{ progress: ProgressResponse }>(`/api/parent/children/${child.id}/progress`).then((r) => {
-      if (!live) return;
-      if (r.ok && r.data.progress) { setProgress(r.data.progress); setState('ready'); } else setState('error');
-    });
-    return () => { live = false; };
-  }, [child.id, tries]);
-  const practised = (child.activity?.lastPractisedAt ?? null) !== null || (progress?.subjects.length ?? 0) > 0;
-
-  const act = async (path: string, action: string, body: unknown, done: (d: Record<string, unknown>) => void) => {
-    setBusy(true); setNote('');
-    const r = await call<Record<string, unknown>>(`/api/parent/children/${child.id}/${path}`, action, body);
-    setBusy(false);
-    if (r.ok) done(r.data); else setNote(r.data.error ?? 'That did not work.');
-  };
-
-  return (
-    <section className="rounded-2xl bg-white p-4 shadow-sm" aria-label={child.displayName}>
-      <h2 className="text-lg font-bold text-slate-900">{child.displayName} <span className="text-sm font-semibold text-slate-600">Grade {child.grade}</span></h2>
-      <p className="mt-1 text-sm text-slate-600">Last on PrepPals: {ago(child.lastSeenAt, now)}</p>
-      <ActivityLine a={child.activity} now={now} />
-      {state === 'loading' && <p className="mt-3 text-sm text-slate-600" role="status">Loading progress…</p>}
-      {state === 'error' && (
-        <p className="mt-3 text-sm text-slate-800" role="alert">
-          We couldn&apos;t load progress right now.{' '}
-          <button type="button" className="font-semibold text-indigo-700 underline" onClick={() => setTries((n) => n + 1)}>Try again</button>
-        </p>
-      )}
-      {state === 'ready' && !practised && (
-        <p className="mt-3 rounded-xl bg-slate-50 p-3 text-sm text-slate-800" role="status">
-          {child.displayName} has not practised yet. Ask them to open PrepPals, pick a topic and answer a few questions. Their progress will appear here.
-        </p>
-      )}
-      {state === 'ready' && progress && practised && (
-        <>
-          <ProgressStats p={progress} />
-          <button className="mt-2 text-sm font-semibold text-indigo-700 underline" aria-expanded={more} onClick={() => setMore((m) => !m)}>{more ? 'Hide details' : 'Show details'}</button>
-          {more && <ProgressDetails p={progress} />}
-        </>
-      )}
-      <p className="mt-3 text-sm text-slate-700">{CONSENT_TEXT[child.consent]}</p>
-      <div className="mt-3 flex flex-wrap gap-2">
-        {child.consent === 'parent' ? (
-          <button disabled={busy} className={`${btn} border border-slate-300 bg-white text-slate-800`} onClick={() => void act('consent', 'parent-consent', { give: false }, onChanged)}>Withdraw consent</button>
-        ) : (
-          <button disabled={busy} className={`${btn} bg-emerald-600 text-white`} onClick={() => void act('consent', 'parent-consent', { give: true }, onChanged)}>I give consent</button>
-        )}
-        <button disabled={busy} className={`${btn} border border-slate-300 bg-white text-slate-800`} onClick={() => { if (window.confirm(`Make a new PIN for ${child.displayName}? The old PIN stops working.`)) void act('reset-pin', 'parent-reset-pin', {}, (d) => setPin(String(d.pin))); }}>Reset PIN</button>
-        <button disabled={busy} className={`${btn} text-red-700 underline`} onClick={() => { if (window.confirm(`Stop being linked to ${child.displayName}?`)) void act('unlink', 'parent-unlink', {}, onChanged); }}>Unlink</button>
-      </div>
-      {pin && (
-        <div className="mt-3 rounded-xl border border-amber-300 bg-amber-50 p-3" role="status">
-          <p className="text-sm text-amber-900">New PIN for {child.displayName}. Write it down and tell your child: it is shown only once.</p>
-          <p className="mt-1 text-3xl font-bold tracking-widest text-amber-950">{pin}</p>
-          <button className="mt-2 text-sm font-semibold text-slate-700 underline" onClick={() => setPin(null)}>I have written it down</button>
-        </div>
-      )}
-      {note && <p className="mt-2 text-sm text-red-700" role="alert">{note}</p>}
-    </section>
-  );
-}
 
 function AddChild({ onLinked }: { onLinked: () => void }) {
   const [mode, setMode] = useState<'pin' | 'invite'>('pin');
@@ -172,22 +99,32 @@ export default function ParentDashboard() {
   }, []);
   useEffect(() => { void load(); }, [load]);
 
+  const isParent = !!me && me !== 'error' && !!me.user && me.roles.includes('parent');
   return (
-    <main className="mx-auto min-h-screen max-w-xl space-y-4 bg-slate-50 px-4 py-8">
-      <h1 className="text-2xl font-bold text-slate-900">Your children</h1>
-      {me === null && <p className="text-slate-600" role="status">Loading…</p>}
-      {me === 'error' && <p className="text-red-700" role="alert">Could not load. Try again.</p>}
-      {me && me !== 'error' && !me.user && <p className="text-slate-700">Please <a className="font-semibold underline" href="/sign-in">sign in</a> first.</p>}
-      {me && me !== 'error' && me.user && !me.roles.includes('parent') && <p className="text-slate-700">This page is for parents and guardians.</p>}
-      {me && me !== 'error' && me.user && me.roles.includes('parent') && (
-        <>
-          {children && children.length === 0 && <p className="text-slate-700">No child is linked yet. Link one below.</p>}
-          {(children ?? []).map((c) => <ChildCard key={c.id} child={c} now={now} onChanged={() => void load()} />)}
-          <AddChild onLinked={() => void load()} />
-          <SummarySwitch />
-          <p className="text-sm text-slate-600"><a className="underline" href="/account">Your account</a></p>
-        </>
-      )}
-    </main>
+    <div className="min-h-screen bg-slate-50">
+      <DashboardPage>
+        <PageHeader
+          eyebrow="PrepPals"
+          title="Your children"
+          subtitle={isParent ? 'How each child is getting on, and the consent and PIN settings.' : undefined}
+          actions={isParent ? <a className="text-sm font-semibold text-indigo-700 underline" href="/account">Your account</a> : undefined}
+        />
+        {me === null && <div role="status" aria-busy="true" aria-label="Loading"><Skeleton className="h-24 w-full" /></div>}
+        {me === 'error' && <p className="text-red-700" role="alert">Could not load. Try again.</p>}
+        {me && me !== 'error' && !me.user && <p className="text-slate-700">Please <a className="font-semibold underline" href="/sign-in">sign in</a> first.</p>}
+        {me && me !== 'error' && me.user && !me.roles.includes('parent') && <p className="text-slate-700">This page is for parents and guardians.</p>}
+        {isParent && (
+          <div className="space-y-10">
+            {children === null && <SkeletonCard label="Loading your children" />}
+            {children && children.length === 0 && <EmptyState title="No child is linked yet">Link your child below with their login code and PIN, or with the link they send you.</EmptyState>}
+            {(children ?? []).map((c) => <ChildSection key={c.id} child={c} now={now} onChanged={() => void load()} />)}
+            <DashboardGrid>
+              <GridItem><AddChild onLinked={() => void load()} /></GridItem>
+              <GridItem><SummarySwitch /></GridItem>
+            </DashboardGrid>
+          </div>
+        )}
+      </DashboardPage>
+    </div>
   );
 }

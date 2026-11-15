@@ -54,10 +54,10 @@ export const NextStepCard = ({ step }: { step: ProgressResponse['nextStep'] }) =
   </section>
 );
 
-export const ExamCard = ({ exam }: { exam: ExamReadiness | null }) => (
+export const ExamCard = ({ exam, who }: { exam: ExamReadiness | null; who?: string }) => (
   <Card title="Exam readiness" id="exam">
     {exam === null ? (
-      <p className="text-slate-700">Practise a few topics and your exam readiness will show up here. Every question you answer counts.</p>
+      <p className="text-slate-700">{who ? `When ${who} has practised a few topics, exam readiness will show up here.` : 'Practise a few topics and your exam readiness will show up here. Every question you answer counts.'}</p>
     ) : (
       <>
         <p className="text-sm font-semibold text-slate-600">{exam.label}</p>
@@ -82,26 +82,29 @@ export const ExamCard = ({ exam }: { exam: ExamReadiness | null }) => (
   </Card>
 );
 
-const TopicRow = ({ t }: { t: TopicProgress }) => (
+const TopicRow = ({ t, who }: { t: TopicProgress; who?: string }) => (
   <li className="flex flex-col gap-2 border-t border-slate-100 py-3 first:border-t-0 sm:flex-row sm:items-center sm:justify-between">
     <div className="min-w-0">
       <p className="font-bold text-slate-800">{t.label}</p>
       <p className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
         <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${LEVEL_COLOUR[t.level].chip}`}>{LEVEL_TEXT[t.level]}</span>
-        <span className="text-slate-600">{t.accuracyPct === null ? LEVEL_HINT[t.level] : `${pctText(t.accuracyPct)} · ${LEVEL_HINT[t.level]}`}</span>
+        <span className="text-slate-600">{(() => { const hint = who && t.level === 'not_started' ? 'Not practised yet' : LEVEL_HINT[t.level]; return t.accuracyPct === null ? hint : `${pctText(t.accuracyPct)} · ${hint}`; })()}</span>
       </p>
-      {t.changePoints !== null ? <p className="mt-0.5"><Change points={t.changePoints} text={startChangeText} /></p> : null}
+      {t.changePoints !== null ? <p className="mt-0.5"><Change points={t.changePoints} text={who ? (p) => startChangeText(p).replace('since you started', 'since starting') : startChangeText} /></p> : null}
     </div>
     <div className="flex items-center justify-between gap-3 sm:justify-end">
       <Spark values={t.trend} label={t.trend.length === 0 ? '' : `Trend for ${t.label}: ${t.trend.map((v) => pctText(v)).join(', ')}`} />
-      <Link href={t.practiseHref} className="inline-flex min-h-11 items-center justify-center rounded-xl border-2 border-indigo-200 px-4 py-2 text-sm font-extrabold text-indigo-700">
-        Practise this
-      </Link>
+      {who ? null : (
+        <Link href={t.practiseHref} className="inline-flex min-h-11 items-center justify-center rounded-xl border-2 border-indigo-200 px-4 py-2 text-sm font-extrabold text-indigo-700">
+          Practise this
+        </Link>
+      )}
     </div>
   </li>
 );
 
-export const SubjectCard = ({ s }: { s: SubjectProgress }) => (
+/** `who`: the child's name when a PARENT is reading: third person, read-only (no Practise links). Leave it out for the learner's own page. */
+export const SubjectCard = ({ s, who }: { s: SubjectProgress; who?: string }) => (
   <Card title={s.label} id={`subject-${s.subject}`}>
     <div className="mb-1 flex items-baseline justify-between gap-3">
       <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${LEVEL_COLOUR[s.level].chip}`}>{LEVEL_TEXT[s.level]}</span>
@@ -109,26 +112,28 @@ export const SubjectCard = ({ s }: { s: SubjectProgress }) => (
     </div>
     <Bar pct={s.masteryPct} colour={LEVEL_COLOUR[s.level].bar} label={`${s.label} mastery`} />
     <p className="mt-3 text-sm font-semibold text-slate-600">Topics to grow first are at the top</p>
-    <ul>{s.topics.map((t) => <TopicRow key={t.task} t={t} />)}</ul>
+    <ul>{s.topics.map((t) => <TopicRow key={t.task} t={t} who={who} />)}</ul>
   </Card>
 );
 
-export const RetentionCard = ({ r, days, streak }: { r: RetentionProgress; days: number; streak: number }) => (
-  <Card title="What you remember" id="retention">
+export const RetentionCard = ({ r, days, streak, who }: { r: RetentionProgress; days: number; streak: number; who?: string }) => (
+  <Card title={who ? `What ${who} remembers` : 'What you remember'} id="retention">
     {r.weekAnswered === 0 && r.retiredCount === 0 ? (
-      <p className="text-slate-700">Review cards help you remember what you learn. Do a few and they will show up here.</p>
+      <p className="text-slate-700">{who ? `Review cards help ${who} remember what they learn. They will show up here once ${who} has done a few.` : 'Review cards help you remember what you learn. Do a few and they will show up here.'}</p>
     ) : (
       <>
-        <p className="text-slate-800">{remembered(r.weekCorrect, r.weekAnswered)}</p>
+        <p className="text-slate-800">{who ? remembered(r.weekCorrect, r.weekAnswered).replace('You', who) : remembered(r.weekCorrect, r.weekAnswered)}</p>
         <div className="mt-2"><Bar pct={r.weekPct} colour="bg-emerald-500" label="Review cards remembered this week" /></div>
         <p className="mt-3 text-sm text-slate-700">{numText(r.retiredCount)} cards remembered for good</p>
-        <p className="text-sm text-slate-700">{r.dueCount === 0 ? 'No cards due right now' : `${numText(r.dueCount)} cards ready for you`}</p>
+        <p className="text-sm text-slate-700">{r.dueCount === 0 ? 'No cards due right now' : `${numText(r.dueCount)} cards ${who ? 'due' : 'ready for you'}`}</p>
       </>
     )}
     <p className="mt-3 border-t border-slate-100 pt-3 text-sm text-slate-700">
-      {days === 0
-        ? 'Practise today and your practice days will start to add up.'
-        : `You practised on ${numText(days)} of the last 14 days${streak > 0 ? `. Your streak: ${numText(streak)} ${streak === 1 ? 'day' : 'days'}` : ''}.`}
+      {who
+        ? (days === 0 ? `${who} has not practised in the last 14 days.` : `${who} practised on ${numText(days)} of the last 14 days${streak > 0 ? `. Streak: ${numText(streak)} ${streak === 1 ? 'day' : 'days'}` : ''}.`)
+        : days === 0
+          ? 'Practise today and your practice days will start to add up.'
+          : `You practised on ${numText(days)} of the last 14 days${streak > 0 ? `. Your streak: ${numText(streak)} ${streak === 1 ? 'day' : 'days'}` : ''}.`}
     </p>
   </Card>
 );

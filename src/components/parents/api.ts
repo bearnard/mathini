@@ -8,7 +8,7 @@ export interface ChildSummary {
   lastSeenAt: number | null;
   consent: 'none' | 'learner' | 'parent';
   consentVersion: string | null;
-  activity?: { answersThisWeek: number; daysPractisedLast14: number; lastPractisedAt: number | null };
+  activity?: { answersThisWeek: number; daysPractisedLast14: number; lastPractisedAt: number | null; weekAccuracyPct: number | null; changeSinceLastWeek: number | null };
 }
 
 export interface ApiResult<T> { ok: boolean; status: number; data: T & { error?: string } }
