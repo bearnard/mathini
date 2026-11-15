@@ -58,7 +58,7 @@ const learnSteps: LearnStep[] = [
     title: 'Trade Data — Fair-trade Producer Prices',
     content: (
       <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">This chart compares example producer prices for common fair-trade goods. Fair-trade systems aim to pay producers a more stable and better price for the same product.</p>
+        <p className="text-lg text-slate-600">These are made-up example prices, not real market prices. They show the idea that fair-trade systems aim to pay producers a more stable and better price for the same product.</p>
         <DataChart
           data={[
                         { commodity: 'Coffee', fairTrade: 52, conventional: 44 },

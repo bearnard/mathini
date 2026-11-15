@@ -57,7 +57,7 @@ const learnSteps: LearnStep[] = [
     title: 'Resource Data — South African Export Value',
     content: (
       <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Some resources are valuable because they are used widely in energy, transport, and manufacturing. This example compares the export value of major South African resources.</p>
+        <p className="text-lg text-slate-600">Some resources are valuable because they are used widely in energy, transport, and manufacturing. These rounded example figures (not official statistics) compare the export value of some major South African resources.</p>
         <DataChart
           data={[
                         { resource: 'Coal', exportValue: 190 },

@@ -56,7 +56,7 @@ const learnSteps: LearnStep[] = [
     title: 'Migration Data — Provincial Net Migration in South Africa',
     content: (
       <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Net migration shows whether more people are moving into or out of a province. Positive values mean a province is gaining people, while negative values mean it is losing people.</p>
+        <p className="text-lg text-slate-600">These are made-up example numbers, not official Stats SA figures. Net migration shows whether more people are moving into or out of a province. Positive values mean a province is gaining people, while negative values mean it is losing people.</p>
         <DataChart
           data={[
                         { province: 'Gauteng', netMigration: 480 },

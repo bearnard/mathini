@@ -46,7 +46,7 @@ const learnSteps: LearnStep[] = [
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          South Africa imports goods it needs, such as some oil, electronics, machinery, and
+          South Africa imports goods it needs, such as most of its oil, electronics, machinery, and
           medicines. Goods travel by <strong>ship</strong>, truck, train, and aeroplane.
         </p>
         <div className="grid gap-3 md:grid-cols-3">
@@ -61,7 +61,7 @@ const learnSteps: LearnStep[] = [
     title: 'Trade Data — South Africa and Major Trade Partners',
     content: (
       <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">South Africa trades with many partners. Comparing exports and imports helps learners see that trade flows in both directions.</p>
+        <p className="text-lg text-slate-600">South Africa trades with many partners. These are rounded example numbers to practise reading a chart, not official trade figures. Comparing exports and imports helps learners see that trade flows in both directions.</p>
         <DataChart
           data={[
                         { partner: 'EU', exports: 24, imports: 20 },

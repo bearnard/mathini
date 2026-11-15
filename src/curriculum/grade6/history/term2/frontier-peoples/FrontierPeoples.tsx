@@ -11,7 +11,7 @@ const learnSteps: LearnStep[] = [
         <Timeline
           events={[
             {"date": "Before 1652", "title": "Khoikhoi and San communities live", "description": "Khoikhoi and San communities lived in southern Africa long before European settlement at the Cape. They used land, water, and grazing in ways shaped by local environments."},
-            {"date": "1600s", "title": "Xhosa chiefdoms grow east", "description": "Xhosa-speaking communities were established across the eastern regions of southern Africa. They farmed, kept cattle, and formed powerful chiefdoms."},
+            {"date": "1600s", "title": "Xhosa chiefdoms grow east", "description": "By the 1600s, Xhosa-speaking chiefdoms had long been settled in the lands east of the Great Fish River. They farmed, kept cattle, and had their own leaders."},
             {"date": "1700s", "title": "Trekboers move inland", "description": "Dutch-descended Trekboers moved inland and eastward with livestock. Their movement increased contact, trade, and tension with other frontier peoples."},
             {"date": "1795", "title": "British arrive at Cape", "description": "British occupation added another powerful group to frontier history. The eastern frontier became an even more complex contact zone of cooperation and conflict."},
           ]}

@@ -60,7 +60,7 @@ const learnSteps: LearnStep[] = [
     title: 'Migration Data — Main Reasons People Move',
     content: (
       <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">Push and pull factors can be shown with simple data. Jobs, family links, education, and safety are some of the strongest reasons for migration.</p>
+        <p className="text-lg text-slate-600">Push and pull factors can be shown with simple data. These shares are made-up example numbers, not survey results. Jobs, family links, education, and safety are some of the strongest reasons for migration.</p>
         <DataChart
           data={[
                         { reason: 'Jobs', share: 44 },

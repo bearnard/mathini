@@ -12,7 +12,7 @@ const learnSteps: LearnStep[] = [
         <ScaleTimeline
           events={[
             {"date": "1652", "title": "Cape settlement begins", "description": "The Dutch established a refreshment station at the Cape. Over time, some settlers became livestock farmers who wanted more grazing land."},
-            {"date": "1702", "title": "Farmers move beyond limits", "description": "Dutch free burghers were allowed to move beyond earlier settlement limits. This encouraged more semi-nomadic stock farmers to travel inland."},
+            {"date": "1702", "title": "Farmers move beyond limits", "description": "In the early 1700s, farmers spread beyond the original limits of the Cape settlement, and the Dutch East India Company later let them use grazing land far inland. More semi-nomadic stock farmers travelled inland."},
             {"date": "1770s", "title": "Trekboers reach eastern frontier", "description": "By the late 1700s, Trekboers had moved far into frontier regions. Their search for water and grazing brought them into closer contact with African communities."},
             {"date": "1795", "title": "British rule increases tension", "description": "The first British occupation of the Cape changed frontier politics. Some settlers wanted greater independence from officials and new colonial controls."},
             {"date": "1830s", "title": "Great Trek follows frontier pattern", "description": "The Great Trek grew out of earlier frontier movement by Trekboers. It continued the pattern of wagon migration, livestock farming, and expansion away from the Cape."},
