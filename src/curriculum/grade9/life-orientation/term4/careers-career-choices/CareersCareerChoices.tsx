@@ -1,55 +1,94 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { SubjectBlocks, WideHub } from '../../../../../components/diagrams/lo/Lo11Pictures';
+import { fetSubjects } from '../../../../../components/diagrams/lo/lo11Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+const subjects = fetSubjects();
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Understanding Career Paths',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A <strong>career</strong> is a sequence of jobs and experiences that build on each other.
-          Your <strong>aptitudes</strong> (natural abilities) and <strong>interests</strong> should guide your choices.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Career planning starts now with good subject choices and self-understanding.</p>
-        </div>
-      </div>
+    title: 'What is a career? Aptitudes and interests',
+    content: slide(
+      <>
+        <Rule>A career is a series of jobs and experiences that build on each other. Your aptitudes are your natural abilities. Your interests are what you enjoy. Good choices also fit your values and the opportunities you have.</Rule>
+        <WideHub centre="My career choice" spokes={['Aptitudes', 'Interests', 'Values', 'Opportunities']} aria="A circle labelled My career choice with four things that should guide it: aptitudes, interests, values and opportunities." />
+        <Worked
+          title="Thabo thinks about his future"
+          steps={[<>Aptitude: he is good with numbers.</>, <>Interest: he enjoys building things.</>, <>Value: he wants to help his community.</>, <>Opportunity: he checks which subjects his school offers.</>]}
+        />
+        <Mistake>Choosing a career because your friends chose it, only for the money, or because it looks easiest. Start with who you are.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Subject Choices and Career Fields',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Your Grade 10 subject choices open or close doors to different career fields.
-          Different fields require different skills and qualifications.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">STEM careers</strong>
-            <p className="text-slate-600">Science, tech, engineering, maths.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Creative careers</strong>
-            <p className="text-slate-600">Arts, design, media, writing.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Grade 10 subject choices',
+    content: slide(
+      <>
+        <Rule>Your Grade 10 subject choices decide which career paths stay open. In Grades 10 to 12 you take {subjects.total} subjects: {subjects.compulsory.length} compulsory ones and {subjects.chosen} that you choose.</Rule>
+        <SubjectBlocks aria="Seven blocks for the subjects in Grades 10 to 12: four compulsory subjects (home language, first additional language, Mathematics or Mathematical Literacy, Life Orientation) and three subjects you choose." />
+        <Worked
+          title="Zinhle wants to study engineering"
+          steps={[<>Compulsory: home language, first additional language, Life Orientation, and Mathematics or Mathematical Literacy.</>, <>Most engineering courses ask for Mathematics and Physical Sciences, so she picks Mathematics, not Mathematical Literacy.</>, <>She uses her {subjects.chosen} chosen subjects to include Physical Sciences.</>]}
+        />
+        <Mistake>Thinking subject choices do not matter because careers are chosen later. If a subject is missing, a career path can be closed.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'World of Work and Lifelong Learning',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          The <strong>world of work</strong> is changing rapidly. <strong>Lifelong learning</strong> means continuing to develop skills throughout your life.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Career success requires:</p>
-          <p className="text-slate-600">Adaptability, continuous learning, and commitment to growth.</p>
-        </div>
-      </div>
+    title: 'Career fields and STEM',
+    content: slide(
+      <>
+        <Rule>STEM careers are careers in science, technology, engineering and mathematics. Other fields include creative careers such as art, design and media, and business and health careers.</Rule>
+        <WideHub centre="Career fields" spokes={['STEM', 'Creative', 'Business', 'Health']} aria="A circle labelled Career fields with four fields around it: STEM, creative, business and health." />
+        <Worked
+          title="Match two learners to a field"
+          steps={[<>Sipho loves drawing and designing posters: a creative field, such as graphic design.</>, <>Lerato loves experiments and maths: a STEM field, such as engineering.</>, <>Both can still add skills from other fields.</>]}
+        />
+        <Mistake>Thinking STEM means only engineering, or only computers. It covers science, technology, engineering and mathematics.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'The world of work and lifelong learning',
+    content: slide(
+      <>
+        <Rule>The world of work is all the jobs, careers and work opportunities that exist, and it keeps changing. Lifelong learning means picking up new skills all through your career. Employers want a mix of skills.</Rule>
+        <WideHub centre="Employers want" spokes={['Communication', 'Problem-solving', 'Teamwork', 'Technical skills']} aria="A circle labelled Employers want with four skills around it: communication, problem-solving, teamwork and technical skills." />
+        <Worked
+          title="A shop starts using a new till system"
+          steps={[<>The job changes, so the old skills are not enough.</>, <>The worker learns the new system: lifelong learning.</>, <>Communication and teamwork help the whole shop adjust.</>]}
+        />
+        <Mistake>Believing you can stop learning once you have a degree or a job. Jobs change, so you need new skills all through your career.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Exploring careers when you are unsure',
+    content: slide(
+      <>
+        <Rule>If you are unsure, act now. Explore careers, collect information and talk to your school counsellor. Do not wait for it to sort itself out.</Rule>
+        <StepFlow steps={['List your interests and aptitudes.', 'Research careers that fit them.', 'Job shadow or talk to people who do the work.', 'See a counsellor and decide your next step.']} aria="Four ways to explore a career in order: list interests and aptitudes, research careers, job shadow or talk to workers, see a counsellor." />
+        <Worked
+          title="Aisha is unsure between nursing and teaching"
+          steps={[<>She lists what she enjoys and is good at.</>, <>She reads about both careers.</>, <>She talks to a nurse and a teacher about their work.</>, <>She discusses her choice with a counsellor.</>]}
+        />
+        <Mistake>Picking a career quickly and sticking to it for ever, or leaving the decision to someone else. Explore first, then choose.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is a career, and what are aptitudes?" answer="A career is a series of jobs and experiences that build on each other. Aptitudes are your natural abilities and strengths." />
+        <Check question="Why do Grade 10 subject choices matter, and how many subjects do you take in Grades 10 to 12?" answer="They decide which career paths are open to you. You take seven subjects: four compulsory and three you choose." />
+        <Check question="What does STEM stand for, and why is lifelong learning important?" answer="Science, technology, engineering and mathematics. Jobs change, so you need new skills all through your career." />
+        <Check question="Name two ways to explore careers if you are unsure." answer="For example: research, job shadowing, internships, talking to people who do the work, and seeing a counsellor." />
+      </>,
     ),
   },
 ];

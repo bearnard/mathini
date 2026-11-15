@@ -1,55 +1,83 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { CountBars } from '../../../../../components/diagrams/lo/Lo11Pictures';
+import { barHeights, change } from '../../../../../components/diagrams/lo/lo11Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// Numbers in the slides come from these helpers (lo11Helpers.test.ts).
+const situps = change(18, 26);
+const sessions = [8, 9, 7, 10];
+const target = { passes: 12 };
+const sessionTotal = barHeights(sessions).total;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Fitness Review and Active Lifestyles',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Fitness review</strong> means assessing your current fitness level and progress.
-          An <strong>active lifestyle</strong> means making physical activity a regular part of your life.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">Fitness habits built now set you up for lifelong health.</p>
-        </div>
-      </div>
+    title: 'Fitness review',
+    content: slide(
+      <>
+        <Rule>A fitness review means checking your fitness and your progress over time. Test the same thing in the same way each time, then compare.</Rule>
+        <CountBars labels={['Term 1', 'Term 4']} values={[situps.from, situps.to]} unit="sit-ups" title="Sit-ups in one minute" aria={`Two bars comparing the same sit-up test: ${situps.from} in Term 1 and ${situps.to} in Term 4.`} />
+        <Worked
+          title="Compare two sit-up tests"
+          steps={[<>Term 1: {situps.from} sit-ups in one minute.</>, <>Term 4: {situps.to} sit-ups in one minute.</>, <>Change: {situps.to} − {situps.from} = {situps.diff} more. Your fitness has improved.</>]}
+        />
+        <Mistake>Thinking a review is only for athletes, or not needed because you feel fit. A review shows your progress, not just how you feel.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Game Application and Personal Targets',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Game application</strong> means using skills in real competition.
-          <strong> Personal targets</strong> are fitness or skill goals you set for yourself.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Game application</strong>
-            <p className="text-slate-600">Skill in real play.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Personal targets</strong>
-            <p className="text-slate-600">Goals you set and track.</p>
-          </div>
-        </div>
-      </div>
+    title: 'An active lifestyle and sustained participation',
+    content: slide(
+      <>
+        <Rule>An active lifestyle makes physical activity a regular part of your life. It supports lifelong health and wellbeing. Sustained participation means taking part steadily over time, even through setbacks.</Rule>
+        <Worked
+          title="Nomsa's team loses a big match"
+          steps={[<>The setback hurts, and she feels like stopping.</>, <>She remembers why she plays: fitness and friends.</>, <>She goes to the next practice.</>, <>Steady involvement builds her fitness and her character.</>]}
+        />
+        <Mistake>Taking part only when it is easy, or stopping after a setback and starting again next year. An active lifestyle is for everyone, not only for young people or athletes.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Participation Records and Self-Evaluation',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Participation records</strong> track your involvement. <strong>Self-evaluation</strong> means honestly assessing your effort and growth.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">Year-end reflection:</p>
-          <p className="text-slate-600">Review your records, celebrate achievements, and plan for next year's goals.</p>
-        </div>
-      </div>
+    title: 'Game application and personal targets',
+    content: slide(
+      <>
+        <Rule>Game application means using your skills in real game situations, not only in practice. A personal target is a fitness or skill goal that you set for yourself. A good target is specific, achievable and relevant to your needs.</Rule>
+        <StepFlow steps={['Practise the skill.', 'Use it in a real game.', 'Check how it went.', 'Set your next target.']} aria="Four steps in order: practise the skill, use it in a real game, check how it went, set your next target." />
+        <Worked
+          title="Setting a target for passing"
+          steps={[<>Skill: passing the ball to a team mate.</>, <>Use it: count your successful passes in a match.</>, <>Target: {target.passes} successful passes in a match by the end of the term.</>, <>Set a new target each term.</>]}
+        />
+        <Mistake>A wish with no date or measure, such as “be better”, or letting the coach set every target. Set your own, and make it specific.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Participation records and year-end reflection',
+    content: slide(
+      <>
+        <Rule>Participation records track your involvement and show progress and patterns. Self-evaluation means judging your own effort, progress and growth honestly. At year end, review your records, celebrate wins, name challenges and plan ahead.</Rule>
+        <CountBars labels={['T1', 'T2', 'T3', 'T4']} values={sessions} unit="sessions in the year" aria={`Four bars of sessions attended in each term: ${sessions.join(', ')}, ${sessionTotal} in total.`} />
+        <Worked
+          title="Read the record"
+          steps={[<>Sessions per term: {sessions.join(', ')}.</>, <>Total: {sessionTotal} sessions.</>, <>Pattern: Term 3 was the lowest, with {sessions[2]}.</>, <>Plan: find out why and fix it next year.</>]}
+        />
+        <Mistake>Reflecting only if you won a prize, or forgetting the year and starting afresh. Look honestly at your effort, whatever the result.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is a fitness review, and why does it matter?" answer="Checking your fitness and your progress over time. It shows how much you have improved." />
+        <Check question="What does sustained participation mean?" answer="Taking part steadily over time, even through setbacks." />
+        <Check question="Explain game application and give the qualities of a good personal target." answer="Game application is using your skills in real game situations. A good target is specific, achievable and relevant, and you set it regularly, for example every term." />
+        <Check question="Why keep participation records, and what do you do at year end?" answer="To track your involvement and see progress and patterns. Review the records, celebrate wins, name challenges and plan ahead." />
+      </>,
     ),
   },
 ];

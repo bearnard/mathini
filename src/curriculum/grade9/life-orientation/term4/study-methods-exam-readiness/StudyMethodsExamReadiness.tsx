@@ -1,55 +1,98 @@
 import CapsSubjectTopic, { type CapsItem } from '../../../../../components/CapsSubjectTopic';
 import type { LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { CountBars, PhaseBar, TimeBar } from '../../../../../components/diagrams/lo/Lo11Pictures';
+import { examPlan, perEvening } from '../../../../../components/diagrams/lo/lo11Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// Numbers in the slides come from these helpers (lo11Helpers.test.ts).
+const paper = { minutes: 90, marks: 60, read: 15, check: 15, sections: [20, 40] };
+const exam = examPlan(paper.minutes, paper.marks, paper.read, paper.check, paper.sections);
+const topics = { count: 8, evenings: 4 };
+const share = perEvening(topics.count, topics.evenings);
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Exam Technique and Time Management',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Exam technique</strong> is how you approach tests—reading carefully, answering completely, and checking your work.
-          Good <strong>time management</strong> helps you handle both study and exams effectively.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block">
-          <p className="font-bold text-slate-800">Key fact:</p>
-          <p className="text-slate-600">How you prepare and handle exams significantly affects your performance.</p>
-        </div>
-      </div>
+    title: 'Exam technique: read, plan, answer, check',
+    content: slide(
+      <>
+        <Rule>Exam technique is how you handle an exam: read the questions carefully, plan, answer fully and check your work. Careful reading makes sure you answer what is actually asked.</Rule>
+        <StepFlow steps={['Read each question carefully.', 'Plan your answer.', 'Answer fully.', 'Check your work.']} aria="Four exam steps in order: read each question carefully, plan your answer, answer fully, check your work." />
+        <Worked
+          title={`“Give TWO causes and explain ONE” (4 marks)`}
+          steps={[<>Underline the number: two causes.</>, <>Underline the instruction: explain one.</>, <>Write both causes, then explain one of them.</>, <>Check you gave two causes and one explanation.</>]}
+        />
+        <Mistake>Guessing what a question means, rushing, or leaving a hard question blank. Checking catches careless errors, and copying from a neighbour is cheating.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Revision Schedules and Stress Control',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          <strong>Revision schedules</strong> help you prepare systematically. <strong>Stress control</strong> includes relaxation, exercise, and sleep.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Revision</strong>
-            <p className="text-slate-600">Plan, practise, review.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Stress management</strong>
-            <p className="text-slate-600">Sleep, exercise, relax.</p>
-          </div>
-        </div>
-      </div>
+    title: 'Managing your time in the exam',
+    content: slide(
+      <>
+        <Rule>Share your time by marks. Keep some minutes aside to read and to check, then give each section time in proportion to its marks.</Rule>
+        <TimeBar title={`${paper.minutes} minutes in total`} parts={[{ label: 'Read', minutes: paper.read, kind: 'rest' }, { label: 'Section A', minutes: exam.sections[0], kind: 'work' }, { label: 'Section B', minutes: exam.sections[1], kind: 'work' }, { label: 'Check', minutes: paper.check, kind: 'rest' }]} aria={`A ${paper.minutes} minute paper as a bar: ${paper.read} minutes to read, ${exam.sections[0]} for Section A, ${exam.sections[1]} for Section B and ${paper.check} to check.`} />
+        <Worked
+          title={`A ${paper.marks}-mark paper in ${paper.minutes} minutes (example)`}
+          steps={[<>Keep {paper.read} minutes to read and {paper.check} to check.</>, <>Answering time: {paper.minutes} − {paper.read} − {paper.check} = {exam.answering} minutes.</>, <>{exam.answering} ÷ {paper.marks} marks = {exam.perMark} minute per mark.</>, <>Section A ({paper.sections[0]} marks) gets {exam.sections[0]} minutes. Section B ({paper.sections[1]} marks) gets {exam.sections[1]}.</>]}
+        />
+        <Mistake>Spending most of the time on one question. Keep to your plan and move on.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Preparing for the FET Phase',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Grade 10 begins the <strong>FET phase</strong> (Further Education and Training).
-          Success here requires strong habits, time management, and commitment to your goals.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl space-y-2">
-          <p className="font-bold text-slate-800">End-of-year and beyond:</p>
-          <p className="text-slate-600">Build on your current efforts, maintain discipline, and keep your goals in focus.</p>
-        </div>
-      </div>
+    title: 'Revision schedules and sleep',
+    content: slide(
+      <>
+        <Rule>A revision schedule spreads your revision over time so that every topic is covered. Sleep restores your memory and concentration, so it is part of studying.</Rule>
+        <CountBars labels={['Mon', 'Tue', 'Wed', 'Thu']} values={Array.from({ length: topics.evenings }, () => share.each)} unit="topics revised" aria={`Four bars, one for each evening from Monday to Thursday, showing ${share.each} topics each, ${topics.count} topics in total.`} />
+        <Worked
+          title={`${topics.count} topics and ${topics.evenings} evenings`}
+          steps={[<>Share the topics equally: {topics.count} ÷ {topics.evenings} = {share.each} topics each evening.</>, <>Write the plan in a timetable.</>, <>Go to bed on time so your brain can store what you learned.</>]}
+        />
+        <Mistake>Cramming everything into the last night, or staying up late to study more. A plan spread over days and a good night's sleep work better.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Stress control and exam anxiety',
+    content: slide(
+      <>
+        <Rule>Stress control means managing stress with exercise, relaxation and healthy habits. Feeling nervous before an exam is normal. Preparation, practice, breathing and positive thinking reduce exam anxiety.</Rule>
+        <StepFlow steps={['Breathe in slowly.', 'Breathe out slowly.', 'Repeat a few times.', 'Think: I have prepared.']} aria="Four steps to calm exam nerves in order: breathe in slowly, breathe out slowly, repeat a few times, think I have prepared." />
+        <Worked
+          title="Your heart is racing as the paper is handed out"
+          steps={[<>Notice it: this is normal.</>, <>Breathe slowly a few times.</>, <>Read the paper and start with a question you know.</>, <>Tell yourself: I have prepared for this.</>]}
+        />
+        <Mistake>Avoiding exams so you never feel anxious, or pushing stress down and never speaking about it. Talk to someone and use a calm routine.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Getting ready for Grade 10 (FET)',
+    content: slide(
+      <>
+        <Rule>The FET phase (Further Education and Training) is Grades 10 to 12. Start building good study habits, time management and subject knowledge now, in Grade 9.</Rule>
+        <PhaseBar aria="Grades 7 to 12 in a row. Grades 7, 8 and 9 are the Senior Phase. Grades 10, 11 and 12 are the FET phase." />
+        <Worked
+          title="Sipho prepares in Grade 9"
+          steps={[<>Fix a regular study time.</>, <>Use a planner for tests and tasks.</>, <>Revise the subjects he finds hard.</>, <>Ask for support early.</>]}
+        />
+        <Mistake>Expecting Grade 10 to be the same as Grade 9 and waiting for school to guide you. Habits you build now carry into FET.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is exam technique, and why read each question carefully?" answer="How you handle an exam: reading, answering fully and checking. Careful reading shows exactly what is being asked." />
+        <Check question="In the example paper, how many minutes does a 20-mark section get?" answer={`${exam.sections[0]} minutes. The paper gives ${exam.perMark} minute per mark once reading and checking time are kept aside.`} />
+        <Check question="What is a revision schedule, and how does sleep help?" answer="A plan that spreads revision over time to cover all topics. Sleep restores memory and concentration." />
+        <Check question="Which grades are the FET phase, and how do you prepare for Grade 10?" answer="Grades 10 to 12. Build good study habits, time management and subject knowledge now." />
+      </>,
     ),
   },
 ];
