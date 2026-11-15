@@ -103,7 +103,7 @@ export const learnSteps: LearnStep[] = [
           title="Reflect on a performance"
           steps={['Name a strength: "Our entrance was together."', 'Name something to refine: "The ending was rushed."', 'Ask: what will I refine before the next performance?']}
         />
-        <Mistake>Laughing at mistakes, or commenting only on clothes. A choreographer creates and organises movement, so useful feedback is about the dance.</Mistake>
+        <Mistake>Laughing at mistakes, or commenting only on clothes. Useful feedback is about the dance itself: the timing, the control and the expression.</Mistake>
       </>,
     ),
   },

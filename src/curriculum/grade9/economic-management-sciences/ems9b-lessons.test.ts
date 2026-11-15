@@ -37,7 +37,7 @@ const LESSONS = {
   'Grade 9 Term 3: production and marketing': {
     steps: prodMkt,
     titles: ['Production and quality control', 'Market research', 'The 4 Ps of marketing', 'Setting a price', 'Production and marketing must agree', 'Check yourself'],
-    amounts: ['200 made, 6 faulty: 194 are good', '6 ÷ 200 = 3%', '28 ÷ 40 = 70%', 'R12 + R6 = R18', 'R2 above', '650 − 500 = 150 loaves short', '25 ÷ 500 = 5%', '40%', 'R5 mark-up, so R25', '60 short'],
+    amounts: ['200 made, 6 faulty: 194 are good', '6 ÷ 200 × 100 = 3%', '28 ÷ 40 × 100 = 70%', 'R12 + R6 = R18', 'R2 above', '650 − 500 = 150 loaves short', '25 ÷ 500 × 100 = 5%', '40%', 'R5 mark-up, so R25', '60 short'],
   },
   'Grade 9 Term 4: business responsibility and integration': {
     steps: resp,

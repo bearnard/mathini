@@ -11,7 +11,7 @@ export const learnSteps: LearnStep[] = [
     title: 'The five parts of a friendly letter',
     content: slide(
       <>
-        <Rule>A friendly letter has five parts, always in this order: <Af>datum, groet, liggaam, afsluiting, naam</Af> <En>date, greeting, body, closing, name</En>.</Rule>
+        <Rule>A friendly letter has five parts, always in this order: <Af>datum, groet, liggaam, afsluiting, naam</Af> <En>date, greeting, body, closing, name</En>. If you write your address, it goes at the very top, above the date.</Rule>
         <LetterLayout
           parts={['datum', 'groet', 'liggaam', 'afsluiting', 'naam']}
           aria="A letter drawn as five strips from top to bottom: datum (date), groet (greeting), liggaam (body, the biggest strip), afsluiting (closing), naam (name)."
@@ -86,7 +86,7 @@ export const learnSteps: LearnStep[] = [
             <>Sipho. The name goes on the line below the closing.</>,
           ]}
         />
-        <Mistake>Using a formal closing. <Af>Die uwe</Af> belongs to a formal letter, and <Af>Onderwerp</Af> is a subject line in a formal letter.</Mistake>
+        <Mistake>Using a formal closing. <Af>Die uwe</Af> belongs to a formal letter. A friendly letter is warm and has no <Af>Onderwerp</Af> <En>subject line</En>.</Mistake>
       </>,
     ),
   },

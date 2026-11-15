@@ -18,7 +18,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Responsibility to employees',
     content: slide(
       <>
-        <Rule>A business must give fair wages, safe working conditions and protect workers&apos; legal rights. The Basic Conditions of Employment Act sets minimum standards on working hours, leave and fair treatment.</Rule>
+        <Rule>A business must give fair wages, safe working conditions and protect workers&apos; legal rights. The Basic Conditions of Employment Act sets minimum standards on working hours, leave and pay.</Rule>
         <CompareCards
           left={{ title: 'Responsible employer', lines: ['Pays fairly', 'Fixes unsafe machines', 'Gives the leave the law requires'] }}
           right={{ title: 'Irresponsible employer', lines: ['Pays as little as possible', 'Ignores safety', 'Refuses leave'] }}

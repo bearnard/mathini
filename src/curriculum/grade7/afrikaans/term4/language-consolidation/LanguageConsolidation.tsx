@@ -25,7 +25,7 @@ export const learnSteps: LearnStep[] = [
             <><Af>Gister het ons hard geleer.</Af> <En>Yesterday we studied hard.</En> The past uses <Af>het</Af>. <SpeakButton text="Gister het ons hard geleer." /></>,
           ]}
         />
-        <Mistake>Using <Af>sal</Af> or <Af>is</Af> after <Af>Gister</Af>. A past sentence needs <Af>het</Af> and the <Af>ge-</Af> verb.</Mistake>
+        <Mistake>Using <Af>sal</Af> after <Af>Gister</Af>. A past sentence needs <Af>het</Af> and the <Af>ge-</Af> verb, as in <Af>Gister het ons gewerk</Af>. A few verbs such as <Af>gaan</Af> use <Af>is</Af> instead: <Af>Gister is ons winkel toe gegaan</Af>.</Mistake>
       </>,
     ),
   },
@@ -43,7 +43,7 @@ export const learnSteps: LearnStep[] = [
           title="Name the word types"
           steps={[
             <><Af>hardloop</Af> is a <Af>werkwoord</Af> <En>verb</En>. <Af>vinnig</Af> is a <Af>bywoord</Af>.</>,
-            <><Af>Sy</Af> is a <Af>voornaamwoord</Af> <En>pronoun</En>: it stands in for a noun. <Af>en</Af> is a <Af>voegwoord</Af> <En>conjunction</En>.</>,
+            <><Af>Sy</Af> is a <Af>voornaamwoord</Af> <En>pronoun</En>: it stands in for a noun. In <Af>Sy hardloop en sing</Af>, <Af>en</Af> is a <Af>voegwoord</Af> <En>conjunction</En>.</>,
           ]}
         />
         <Mistake>Calling <Af>vinnig</Af> a noun, pronoun or conjunction. It tells how the action happens, so it is an adverb here.</Mistake>

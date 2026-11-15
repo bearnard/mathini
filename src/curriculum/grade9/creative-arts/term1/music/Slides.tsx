@@ -58,7 +58,7 @@ export const learnSteps: LearnStep[] = [
         <PhraseArc bars={phrase.bars} beats={phrase.beats} aria={`A phrase of ${phrase.bars} bars, ${phrase.beats} beats, drawn as notes rising to a peak and falling, under one arc. The music gets gradually louder then gradually softer.`} />
         <Worked
           title={`A ${phrase.bars}-bar phrase in 4/4 (${phrase.beats} beats)`}
-          steps={['Bars 1 and 2: start softly and grow.', 'Bar 3: the peak, the loudest and most expressive note.', 'Bar 4: ease off and breathe at the end, not in the middle.']}
+          steps={['Bars 1 and 2: start softly and grow.', 'The peak, the loudest and most expressive note, comes in the middle of the phrase.', 'Bars 3 and 4: ease off and breathe at the end, not in the middle.']}
         />
         <Mistake>Playing every note at the same loudness, or breathing mid-phrase. That breaks the sentence.</Mistake>
       </>,

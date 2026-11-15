@@ -21,7 +21,7 @@ export const learnSteps: LearnStep[] = [
     title: 'The future: use sal',
     content: slide(
       <>
-        <Rule>To talk about the future, put <Af>sal</Af> <En>will</En> in front of the verb. <Af>sal</Af> is the signal word for the <Af>toekomende tyd</Af>.</Rule>
+        <Rule>To talk about the future, put <Af>sal</Af> <En>will</En> in front of the verb. <Af>sal</Af> is the signal word for the <Af>toekomende tyd</Af>. You will also hear <Af>gaan</Af>, as in <Af>Ek gaan sokker speel</Af>, but in this lesson we use <Af>sal</Af>.</Rule>
         <TenseTimeline
           past={S(past)}
           present={S(pres)}
@@ -36,7 +36,7 @@ export const learnSteps: LearnStep[] = [
             <>Future: <Af>{S(fut)}</Af> <En>I will play soccer.</En> <SpeakButton text={S(fut)} /></>,
           ]}
         />
-        <Mistake>Using the present tense for the future with no signal word. <Af>môre</Af> <En>tomorrow</En> tells you to use <Af>sal</Af>.</Mistake>
+        <Mistake>Leaving out the signal word. <Af>môre</Af> <En>tomorrow</En> tells you to put <Af>sal</Af> before the verb, as in <Af>Ek sal môre sokker speel</Af>.</Mistake>
       </>,
     ),
   },
@@ -104,7 +104,7 @@ export const learnSteps: LearnStep[] = [
       <>
         <Check question={<>Put in the future: <Af>{S(presentWords('ons', 'aandete', 'eet'))}</Af></>} answer={<><Af>{S(futureWords('ons', 'aandete', 'eet'))}</Af></>} />
         <Check question={<>Put in the future: <Af>{S(presentWords('die hond', '', 'slaap'))}</Af></>} answer={<><Af>{S(futureWords('die hond', '', 'slaap'))}</Af></>} />
-        <Check question={<>Which word shows the future tense in Afrikaans?</>} answer={<><Af>sal</Af> <En>will</En>.</>} />
+        <Check question={<>Which word shows the future tense in Afrikaans?</>} answer={<><Af>sal</Af> <En>will</En> (<Af>gaan</Af> is another future helper).</>} />
         <Check question={<>Is <Af>Sy sal 'n boek lees</Af> correct word order?</>} answer={<>Yes. <Af>sal</Af> is second and the verb <Af>lees</Af> is last.</>} />
       </>,
     ),

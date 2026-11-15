@@ -13,8 +13,8 @@ export const learnSteps: LearnStep[] = [
       <>
         <Rule>A formal letter has an <Af>Adres</Af> and <Af>Datum</Af> at the top, then the greeting, the <Af>Onderwerp</Af> <En>subject</En>, the content, the closing and the <Af>Handtekening</Af> <En>signature</En>.</Rule>
         <LetterLayout
-          parts={['adres, datum', 'Geagte Meneer', 'inhoud', 'Die uwe', 'handtekening']}
-          aria="A formal letter drawn as five strips from top to bottom: adres and datum, the greeting Geagte Meneer, the inhoud (content, the biggest strip), the closing Die uwe, and the handtekening (signature)."
+          parts={['adres, datum', 'Geagte Meneer', 'Onderwerp', 'inhoud', 'Die uwe', 'handtekening']}
+          aria="A formal letter drawn as six strips from top to bottom: adres and datum, the greeting Geagte Meneer, the Onderwerp (subject) line, the inhoud (content, the biggest strip), the closing Die uwe, and the handtekening (signature)."
         />
         <Worked
           title="Put the parts in order"
@@ -95,7 +95,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Essay openings and closings',
     content: slide(
       <>
-        <Rule>A descriptive essay opens with what you see, hear or smell. A narrative essay closes with what you learnt.</Rule>
+        <Rule>A descriptive essay opens with what you see, hear or smell. A narrative essay closes by finishing the story, often with the resolution or what the writer learnt.</Rule>
         <MeaningPairs
           kind="becomes"
           pairs={[['beskrywend', 'sintuie'], ['narratief', 'les']]}

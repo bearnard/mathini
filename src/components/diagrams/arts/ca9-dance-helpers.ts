@@ -85,8 +85,10 @@ export const formationPoints = (kind: FormationKind, n: number): Pt[] => {
     case 'diagonal':
       return i.map((k) => ({ x: r2(15 + (70 * k) / (n - 1)), y: r2(75 - (55 * k) / (n - 1)) }));
     case 'circle':
-      // dancer 0 at the left of the circle, then clockwise as the audience sees it
-      return i.map((k) => ({ x: r2(50 - 30 * Math.cos((2 * Math.PI * k) / n)), y: r2(45 - 28 * Math.sin((2 * Math.PI * k) / n)) }));
+      // dancer 0 at the left of the circle, then clockwise as the audience sees it.
+      // The stage is 100 units wide and 72 pixels tall in the picture, so the vertical radius (28 units = 20 px)
+      // matches the horizontal one (20 units = 20 px) and the circle draws round.
+      return i.map((k) => ({ x: r2(50 - 20 * Math.cos((2 * Math.PI * k) / n)), y: r2(45 - 28 * Math.sin((2 * Math.PI * k) / n)) }));
     case 'block': {
       const perRow = Math.ceil(n / 2);
       return i.map((k) => ({ x: r2(20 + (60 * (k % perRow)) / Math.max(perRow - 1, 1)), y: k < perRow ? 30 : 62 }));

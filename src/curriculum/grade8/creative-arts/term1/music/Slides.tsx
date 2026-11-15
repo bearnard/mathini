@@ -59,7 +59,7 @@ export const learnSteps: LearnStep[] = [
         <StaffNotes notes={['E4', 'G4', 'B4']} aria="A five-line staff with three notes rising from the bottom line to the middle line. The notes are named E, G and B, and each is higher on the staff and higher in pitch than the one before." />
         <Worked
           title="Which is higher, E or B?"
-          steps={[<>E is on the bottom line: step {e4}.</>, <>B is on the middle line: step {b4}.</>, <>B is {b4 - e4} steps higher on the staff, so B is the higher pitch.</>]}
+          steps={[<>With the treble clef, E is on the bottom line: step {e4}.</>, <>B is on the middle line: step {b4}.</>, <>B is {b4 - e4} steps higher on the staff, so B is the higher pitch.</>]}
         />
         <Mistake>Thinking a long note is a high note. Length (rhythm) and pitch are separate: a note can be long and low, or short and high.</Mistake>
       </>,

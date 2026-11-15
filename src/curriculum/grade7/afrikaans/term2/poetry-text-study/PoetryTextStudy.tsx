@@ -13,16 +13,16 @@ export const learnSteps: LearnStep[] = [
       <>
         <Rule>A poem is made of <Af>reëls</Af> <En>lines</En>. A group of lines is a <Af>Strofe</Af> <En>stanza</En>. Do not call it a paragraph or a chapter.</Rule>
         <Stanzas
-          groups={[3, 3]}
+          groups={[4, 4]}
           labels={['strofe 1', 'strofe 2']}
-          aria="A poem drawn as grey bars in two groups of three lines. Each group is a strofe (stanza) and each bar is a reël (line)."
+          aria="A poem drawn as grey bars in two groups of four lines. Each group is a strofe (stanza) and each bar is a reël (line)."
         />
         <Worked
           title="Count the lines"
           steps={[
             <><Af>Die son sak stadig oor die berg,</Af> <En>The sun sinks slowly over the mountain,</En></>,
             <><Af>die wolke word rooi en goud.</Af> <En>the clouds turn red and gold.</En> <SpeakButton text="Die son sak stadig oor die berg, die wolke word rooi en goud." /></>,
-            <>That is two lines, reël 1 and reël 2. Together with the next two lines they make one strofe.</>,
+            <>That is two lines, reël 1 and reël 2. The next two lines, reël 3 and reël 4, finish the strofe, so this strofe has four lines.</>,
           ]}
         />
         <Mistake>Calling a stanza a <Af>paragraaf</Af>. A paragraph is in prose; a poem has <Af>strofes</Af> and <Af>reëls</Af>.</Mistake>

@@ -53,7 +53,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Textual evidence: teksbewys',
     content: slide(
       <>
-        <Rule><Af>Teksbewys</Af> <En>textual evidence</En> shows from the text that your claim is true: an action, a quote or a chapter. The strongest answer gives a fact from the story.</Rule>
+        <Rule><Af>Teksbewys</Af> <En>textual evidence</En> shows from the text that your claim is true: an action, a quote or an event from the story. The strongest answer gives a fact from the story.</Rule>
         <TaggedBoxes
           items={[{ word: 'dapper', tag: 'bewering' }, { word: 'help sy broer', tag: 'bewys' }]}
           aria="A claim and its proof: dapper (brave) is the bewering (claim), help sy broer (helps his brother) is the bewys (evidence)."

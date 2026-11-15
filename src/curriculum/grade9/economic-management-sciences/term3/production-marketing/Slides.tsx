@@ -37,7 +37,7 @@ export const learnSteps: LearnStep[] = [
         />
         <Worked
           title="A batch of school jerseys"
-          steps={[<>{batch.made} made, {batch.faulty} faulty: {batch.good} are good.</>, <>Defect rate: {batch.faulty} ÷ {batch.made} = {batch.percent}%.</>]}
+          steps={[<>{batch.made} made, {batch.faulty} faulty: {batch.good} are good.</>, <>Defect rate: {batch.faulty} ÷ {batch.made} × 100 = {batch.percent}%.</>]}
         />
         <Mistake>Thinking checks are a waste once the first products have sold. Quality control builds customer trust and cuts returns.</Mistake>
       </>,
@@ -50,7 +50,7 @@ export const learnSteps: LearnStep[] = [
         <Rule>Marketing identifies what customers need and satisfies them in a fair exchange of value. Market research finds out what customers prefer and what competitors do, which cuts risk.</Rule>
         <Worked
           title="A survey at school"
-          steps={[<>Ask {survey.asked} learners: would you buy a vetkoek at break?</>, <>{survey.want} say yes.</>, <>{survey.want} ÷ {survey.asked} = {survey.percent}% want it, so demand looks good.</>]}
+          steps={[<>Ask {survey.asked} learners: would you buy a vetkoek at break?</>, <>{survey.want} say yes.</>, <>{survey.want} ÷ {survey.asked} × 100 = {survey.percent}% want it, so demand looks good.</>]}
         />
         <Mistake>Skipping research because the owner &ldquo;knows the market&rdquo;. Customers can want different things from what the owner assumes.</Mistake>
       </>,
@@ -110,7 +110,7 @@ export const learnSteps: LearnStep[] = [
         }
         answer={
           <ol className="list-decimal space-y-2 pl-5">
-            <li>{q1.faulty} ÷ {q1.made} = {q1.percent}%.</li>
+            <li>{q1.faulty} ÷ {q1.made} × 100 = {q1.percent}%.</li>
             <li>{q2}%.</li>
             <li>{rand(q3.add)} mark-up, so {rand(q3.price)}.</li>
             <li>{q4.short} short.</li>

@@ -31,7 +31,7 @@ export const learnSteps: LearnStep[] = [
             'Private firms trade freely, but government provides services and rules: mixed.',
           ]}
         />
-        <Mistake>Thinking a market economy has no rules. Mixed economies use market forces plus government oversight to balance efficiency with social welfare and stability.</Mistake>
+        <Mistake>Thinking a market economy has no rules. Even where prices are set by buyers and sellers, government makes laws on contracts, safety and fair trading. A mixed economy uses market forces plus government oversight.</Mistake>
       </>,
     ),
   },
@@ -51,7 +51,7 @@ export const learnSteps: LearnStep[] = [
           title={`A household earns ${rand(flow.income)} in wages`}
           steps={[<>Tax to government: {rand(flow.tax)}. Savings: {rand(flow.saved)}.</>, <>Left to spend: {rand(flow.income)} − {rand(flow.tax)} − {rand(flow.saved)} = {rand(flow.spent)}.</>, <>That {rand(flow.spent)} becomes income for businesses, who pay wages again.</>]}
         />
-        <Mistake>Believing households can save all their income. Then spending would be {rand(allSaved.spent)}, firms would get nothing and jobs would be lost.</Mistake>
+        <Mistake>Believing households can save all their income. Then spending would be {rand(allSaved.spent)}, so firms would earn no sales income from households and jobs would be lost.</Mistake>
       </>,
     ),
   },

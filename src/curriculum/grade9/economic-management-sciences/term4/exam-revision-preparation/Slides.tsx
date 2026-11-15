@@ -41,7 +41,7 @@ export const learnSteps: LearnStep[] = [
         />
         <Worked
           title="Thabo's car wash is losing customers. What is the problem?"
-          steps={['Read the whole case, not just the first line.', 'Underline the clues: prices rose, queues are long.', 'The key problem is customers leaving.']}
+          steps={['Read the whole case, not just the first line.', 'Underline the clues: prices rose and customers say they are going elsewhere.', 'The key problem is customers leaving.']}
         />
         <Mistake>Looking for the answer without reading the case, or answering from your notes and ignoring the context.</Mistake>
       </>,

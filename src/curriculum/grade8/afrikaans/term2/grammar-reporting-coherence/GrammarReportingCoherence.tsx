@@ -52,7 +52,7 @@ export const learnSteps: LearnStep[] = [
     title: 'Time words change too',
     content: slide(
       <>
-        <Rule>In indirect speech time words often change: <Af>môre</Af> becomes <Af>die volgende dag</Af>, because the report looks back.</Rule>
+        <Rule>When the report looks back, with a past reporting verb such as <Af>het gesê</Af>, time words change: <Af>môre</Af> becomes <Af>die volgende dag</Af>.</Rule>
         <MeaningPairs
           kind="becomes"
           pairs={[['môre', 'die volgende dag'], ['gister', 'die vorige dag'], ['vandag', 'daardie dag']]}
@@ -61,11 +61,12 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="Report the plan"
           steps={[
-            <><Af>'Ek gaan môre oefen,' sê Karla.</Af> <En>I am going to practise tomorrow, says Karla.</En></>,
-            <><Af>Karla sê sy gaan die volgende dag oefen.</Af> <SpeakButton text="Karla sê sy gaan die volgende dag oefen." /></>,
+            <><Af>'Ek gaan môre oefen,' het Karla gesê.</Af> <En>I am going to practise tomorrow, Karla said.</En></>,
+            <><Af>Karla het gesê dat sy die volgende dag gaan oefen.</Af> <SpeakButton text="Karla het gesê dat sy die volgende dag gaan oefen." /></>,
+            <><Af>Karla sê sy gaan die volgende dag oefen</Af> shifts it too. After <Af>sê</Af>, <Af>môre</Af> may also stay.</>,
           ]}
         />
-        <Mistake>Leaving <Af>môre</Af> in the report. The pronoun changes to <Af>sy</Af> and the time word changes to <Af>die volgende dag</Af>.</Mistake>
+        <Mistake>Leaving <Af>môre</Af> after <Af>het gesê</Af>. The pronoun changes to <Af>sy</Af> and the time word to <Af>die volgende dag</Af>.</Mistake>
       </>,
     ),
   },
@@ -118,7 +119,7 @@ export const learnSteps: LearnStep[] = [
         <Check question={<>Change to indirect speech: <Af>Sy sê: 'Ek leer nou.'</Af></>} answer={<><Af>Sy sê dat sy nou leer.</Af></>} />
         <Check question={<>Fill in: <Af>Lebo en Anna bring ___ boeke.</Af></>} answer={<><Af>hulle</Af>.</>} />
         <Check question={<>Choose the linking word: <Af>Hy het hard gewerk, ___ het hy geslaag.</Af></>} answer={<><Af>dus</Af>.</>} />
-        <Check question={<>Report this: <Af>'Ek gaan môre oefen,' sê Karla.</Af></>} answer={<><Af>Karla sê sy gaan die volgende dag oefen.</Af></>} />
+        <Check question={<>Report this: <Af>'Ek gaan môre oefen,' het Karla gesê.</Af></>} answer={<><Af>Karla het gesê dat sy die volgende dag gaan oefen.</Af></>} />
       </>,
     ),
   },

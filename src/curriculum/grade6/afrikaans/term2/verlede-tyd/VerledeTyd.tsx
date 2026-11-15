@@ -43,8 +43,8 @@ export const learnSteps: LearnStep[] = [
         <Rule><Af>het</Af> is in second place. The <Af>ge-</Af> verb goes to the <strong>end</strong> of the sentence.</Rule>
         <WordBoxes
           words={pastWords('hy', 'die bal', 'skop')}
-          hot={[1, 3]}
-          bracket={[1, 3]}
+          hot={[1, verbIndex(pastWords('hy', 'die bal', 'skop'), 'skop')]}
+          bracket={[1, verbIndex(pastWords('hy', 'die bal', 'skop'), 'skop')]}
           aria="The sentence Hy het die bal geskop in boxes. Het is in second place and the verb geskop is last, joined by a bracket underneath."
         />
         <Worked

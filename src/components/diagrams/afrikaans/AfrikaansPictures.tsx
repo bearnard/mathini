@@ -159,8 +159,11 @@ export function OrderTiles({ tiles, aria }: { tiles: string[]; aria: string }) {
 
 /** A letter as five stacked strips, top to bottom. 5 labels. */
 export function LetterLayout({ parts, aria }: { parts: string[]; aria: string }) {
-  const colors = ['#fde68a', '#c7d2fe', '#d1fae5', '#fecdd3', '#e0f2fe'];
-  const heights = [28, 28, 64, 28, 28];
+  const colors = ['#fde68a', '#c7d2fe', '#d1fae5', '#fecdd3', '#e0f2fe', '#ede9fe'];
+  // The body strip (liggaam / inhoud / boodskap) is the tall one; it is the third strip unless the parts say otherwise.
+  const bodyAt = parts.findIndex((p) => /liggaam|inhoud|boodskap/i.test(p));
+  const tall = bodyAt === -1 ? 2 : bodyAt;
+  const heights = parts.map((_, i) => (i === tall ? 64 : 28));
   const total = 8 + heights.reduce((a, b) => a + b + 6, 0);
   let y = 8;
   return (

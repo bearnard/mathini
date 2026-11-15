@@ -39,7 +39,7 @@ export const learnSteps: LearnStep[] = [
         <AlignmentFigures
           aligned={ALIGNED_OFFSETS}
           slouched={SLOUCHED_OFFSETS}
-          aria={`Two stick figures with a vertical plumb line. The aligned figure has its ear, shoulder, hip, knee and ankle all on the line. The other figure's head and shoulders are ${slouch} units in front of the line.`}
+          aria={`Two stick figures with a vertical plumb line. The aligned figure has its ear, shoulder, hip, knee and ankle all on the line. The other figure's head is ${slouch} units in front of the line and its shoulders are in front of it too.`}
         />
         <Worked
           title="Check your alignment"
