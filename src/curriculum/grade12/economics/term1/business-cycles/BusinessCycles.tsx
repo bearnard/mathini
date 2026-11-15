@@ -1,5 +1,6 @@
 
 import CapsSubjectTopic from '@/components/CapsSubjectTopic';
+import { BusinessCycleWave } from '@/components/diagrams/economics/BusinessCycleWave';
 import DataChart from '@/components/subjects/DataChart';
 import type { EconomicsItem, LearnStep } from '../../_shared/types';
 
@@ -24,6 +25,7 @@ const learnSteps: LearnStep[] = [
             employment and confidence.
           </p>
         </div>
+        <BusinessCycleWave />
         <DataChart
           data={[
             { year: '2019', growth: 0.2, unemployment: 29.1 },
