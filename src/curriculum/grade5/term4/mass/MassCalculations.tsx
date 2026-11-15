@@ -37,31 +37,31 @@ const MassCalculations = () => {
         let a = 0;
         let u = "g";
 
-        const names = ["Thabo", "Sarah", "The baker", "Mom", "The truck"];
+        const names = ["Thabo", "Zinhle", "Sipho", "Aisha", "Mrs Naidoo"];
         const name = names[Math.floor(Math.random() * names.length)];
 
         if (type === 'add') {
             const w1 = Math.floor(Math.random() * 500) + 100;
             const w2 = Math.floor(Math.random() * 500) + 100;
-            q = `${name} bought ${w1}g of flour and ${w2}g of sugar. What is the total mass of the ingredients?`;
+            q = `${name} bought ${w1} g of flour and ${w2} g of sugar. What is the total mass of the ingredients?`;
             a = w1 + w2;
             u = "g";
         } else if (type === 'sub') {
             const total = Math.floor(Math.random() * 800) + 200;
             const used = Math.floor(Math.random() * (total - 100)) + 50;
-            q = `${name} had ${total}g of butter. They used ${used}g for a cake. How much butter is left?`;
+            q = `${name} had ${total} g of butter and used ${used} g for a cake. How much butter is left?`;
             a = total - used;
             u = "g";
         } else if (type === 'mul') {
             const count = Math.floor(Math.random() * 8) + 2;
-            const weight = Math.floor(Math.random() * 10) + 1;
-            q = `A brick weighs ${weight}kg. What is the mass of ${count} bricks?`;
+            const weight = Math.floor(Math.random() * 3) + 2;
+            q = `One brick has a mass of ${weight} kg. What is the mass of ${count} bricks?`;
             a = count * weight;
             u = "kg";
         } else if (type === 'div') {
             const count = Math.floor(Math.random() * 4) + 2;
             const total = count * (Math.floor(Math.random() * 20) + 5);
-            q = `${count} identical bags of rice weigh ${total}kg together. How much does one bag weigh?`;
+            q = `${count} identical bags of rice have a total mass of ${total} kg. What is the mass of one bag?`;
             a = total / count;
             u = "kg";
         }

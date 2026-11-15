@@ -115,6 +115,21 @@ const Rounding = () => {
                         <p className="text-slate-500 text-sm">Look at the digit to the <strong>right</strong> of the place you are rounding to.</p>
                     </div>
                 )
+            },
+            {
+                title: "Rounding to the Nearest 5",
+                content: (
+                    <div className="space-y-6 text-center">
+                        <p className="text-lg text-slate-600">Multiples of 5 end in 0 or 5. To round to the nearest 5, find the two multiples of 5 on either side and pick the closer one.</p>
+                        <div className="bg-indigo-50 p-6 rounded-xl border border-indigo-100 inline-block text-left space-y-1">
+                            <p className="text-indigo-900 font-medium">Round 47 to the nearest 5:</p>
+                            <p className="text-sm text-indigo-700">The multiples of 5 on either side are 45 and 50.</p>
+                            <p className="text-sm text-indigo-700">47 is 2 away from 45 and 3 away from 50.</p>
+                            <p className="text-sm text-indigo-700 font-bold">47 is closer to 45, so 47 rounds to 45.</p>
+                        </div>
+                        <p className="text-slate-500 text-sm">Ones digit 1 or 2: round down. Ones digit 3 or 4: round up to the next 5. 6 or 7: round down. 8 or 9: round up.</p>
+                    </div>
+                )
             }
         ];
 

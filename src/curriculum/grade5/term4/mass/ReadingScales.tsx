@@ -5,6 +5,7 @@ import Button from '../../../../components/ui/Button';
 import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
 import { cn } from '../../../../lib/utils';
+import { parseSaNumber, saNumber, weightOnMark } from './massFormat';
 import TopicContainer from '../../../../components/layout/TopicContainer';
 import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
 import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
@@ -33,14 +34,8 @@ const ReadingScales = () => {
         const max = maxes[Math.floor(Math.random() * maxes.length)];
         setMaxScale(max);
 
-        let step = 10;
-        if (max === 1000) step = 10;
-        if (max === 2000) step = 20;
-        if (max === 5000) step = 50;
-
-        const steps = Math.floor(max / step);
-        const randomStep = Math.floor(Math.random() * steps);
-        const w = randomStep * step;
+        // The needle always lands exactly on a small mark.
+        const w = weightOnMark(max);
 
         setWeight(w);
         setUserAnswer("");
@@ -55,7 +50,7 @@ const ReadingScales = () => {
         if (e) e.preventDefault();
         if (!userAnswer) return;
 
-        const val = parseFloat(userAnswer);
+        const val = parseSaNumber(userAnswer);
 
         if (Math.abs(val - weight) < 1) {
             setIsCorrect(true);
@@ -232,7 +227,7 @@ const ReadingScales = () => {
                             {scaleType === 'analogue' ? renderAnalogueScale(weight, maxScale) : (
                                 <div className="w-64 h-32 bg-slate-800 rounded-xl border-4 border-slate-300 flex items-center justify-center shadow-inner relative">
                                     <div className="font-mono text-5xl text-green-500 font-bold tracking-widest drop-shadow-md">
-                                        {weight} <span className="text-2xl">g</span>
+                                        {saNumber(weight)} <span className="text-2xl">g</span>
                                     </div>
                                     <div className="absolute top-2 right-3 text-[10px] text-slate-500 uppercase tracking-wider">Digital Scale</div>
                                 </div>
@@ -264,8 +259,8 @@ const ReadingScales = () => {
                     <div className="h-24">
                         <Feedback
                             isCorrect={isCorrect}
-                            correctMessage={`Correct! The scale shows ${weight} g.`}
-                            incorrectMessage={`Not quite. The scale shows ${weight} g.`}
+                            correctMessage={`Correct! The scale shows ${saNumber(weight)} g.`}
+                            incorrectMessage={`Not quite. The scale shows ${saNumber(weight)} g.`}
                             onNext={generateProblem}
                         />
                     </div>

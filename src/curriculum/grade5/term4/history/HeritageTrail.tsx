@@ -19,7 +19,7 @@ const heritageSites = [
     },
     {
         title: "The Cradle of Humankind",
-        description: "A paleoanthropological site about 50 km northwest of Johannesburg.",
+        description: "A palaeoanthropological site about 50 km northwest of Johannesburg.",
         icon: Landmark,
         details: [
             "Home to around 40% of the world's human ancestor fossils.",

@@ -18,7 +18,7 @@ const questions: Question[] = [
         text: "Which public holiday in South Africa is celebrated on September 24th?",
         options: ["Freedom Day", "Heritage Day", "Youth Day", "Mandela Day"],
         correctAnswer: 1,
-        explanation: "Heritage Day is celebrated on September 24th to honor the diverse cultures and traditions of South Africa."
+        explanation: "Heritage Day is celebrated on September 24th to honour the diverse cultures and traditions of South Africa."
     },
     {
         id: 2,
@@ -53,7 +53,7 @@ const questions: Question[] = [
         text: "Which of these is a custom in African Traditional Religion?",
         options: ["Lighting a Menorah", "Ancestral worship/veneration", "Going to Mecca", "Baptism"],
         correctAnswer: 1,
-        explanation: "Veneration of ancestors is a key practice in many African Traditional Religions."
+        explanation: "Respect and veneration for ancestors is a key practice in many African Traditional Religions."
     },
 
     // Healthy Eating
@@ -62,7 +62,7 @@ const questions: Question[] = [
         text: "Which food group gives us energy to play and learn?",
         options: ["Proteins", "Carbohydrates", "Fats", "Vitamins"],
         correctAnswer: 1,
-        explanation: "Carbohydrates, like bread, rice, and potatoes, provide the body with energy."
+        explanation: "Carbohydrates, like bread, rice, and potatoes, are the body's main source of quick energy for playing and learning."
     },
     {
         id: 8,
@@ -83,7 +83,7 @@ const questions: Question[] = [
         text: "Which of these is a healthy snack?",
         options: ["Potato chips", "An apple", "Chocolate bar", "Soda"],
         correctAnswer: 1,
-        explanation: "Fruit, like an apple, provides vitamins and fiber without the excess sugar and fat found in junk food."
+        explanation: "Fruit, like an apple, provides vitamins and fibre without the excess sugar and fat found in junk food."
     },
     {
         id: 11,
@@ -222,7 +222,7 @@ const questions: Question[] = [
         text: "How can you prevent getting HIV?",
         options: ["By not touching people", "By avoiding contact with infected blood", "By not swimming", "By wearing a hat"],
         correctAnswer: 1,
-        explanation: "HIV is transmitted through certain body fluids, mainly blood. Avoiding contact with blood prevents transmission."
+        explanation: "HIV is passed on through contact with infected blood and some other body fluids, not through everyday contact such as hugging or sharing a desk. Never touch another person's blood without protection, and ask a trusted adult or a clinic nurse for the facts."
     },
     {
         id: 30,
@@ -422,7 +422,7 @@ const LifeSkillsAssessment = () => {
                                         <li>Drugs and alcohol damage important organs like the brain, heart, and liver.</li>
                                         <li>It can lead to addiction, where you can't stop using it.</li>
                                         <li>It can cause problems at school, with family, and with the law.</li>
-                                        <li>It can change a person's behavior and make them aggressive.</li>
+                                        <li>It can change a person's behaviour and make them aggressive.</li>
                                         <li><strong>Closing Sentence:</strong> It is important to say no to drugs and choose a healthy lifestyle.</li>
                                     </ul>
                                 )}
