@@ -1,27 +1,94 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
+import { Court, RampBars } from '../../../../../components/diagrams/lo/Lo5Pictures';
+import { gradualPlan } from '../../../../../components/diagrams/lo/lo5Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// The numbers in the picture and the worked example come from this tested helper (lo5Helpers.test.ts).
+const ramp = gradualPlan(10, 2, 4);
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Develop agility and coordination',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          This term focuses on net or wall games, movement control, agility, endurance, coordination, and team
-          cooperation.
-        </p>
-      </div>
+    title: 'Footwork and the ready position',
+    content: slide(
+      <>
+        <Rule>In net or wall games, good footwork helps you move into position quickly. Wait in the ready position so you can go in any direction.</Rule>
+        <StepFlow steps={['Feet about shoulder-width apart.', 'Knees slightly bent.', 'Weight on the balls of your feet.', 'Eyes on the ball.']} aria="Four points of the ready position in order: feet shoulder-width apart, knees slightly bent, weight on the balls of the feet, eyes on the ball." />
+        <Worked
+          title="Getting to a ball that comes to your left"
+          steps={[<>Start in the ready position.</>, <>Take quick small steps to the left.</>, <>Stop with your feet set before you hit the ball.</>]}
+        />
+        <Mistake>Standing flat-footed and reaching with your arm. Move your feet first, then play the ball.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Apply skills in mini-games',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Learners improve by practising technique, communicating during play, and following safety and fair-play
-          routines.
-        </p>
-      </div>
+    title: 'Agility and coordination',
+    content: slide(
+      <>
+        <Rule>Agility is changing direction quickly. Regular change-of-direction drills improve it. Coordination is using your body parts together smoothly and accurately.</Rule>
+        <Worked
+          title="A cone shuttle drill"
+          steps={[<>Set two cones a few big steps apart.</>, <>Sprint to a cone and touch the ground.</>, <>Turn quickly and sprint to the other cone.</>, <>Repeat, and keep your eyes on the next cone.</>]}
+        />
+        <Mistake>Thinking agility is only straight-line speed, or practising it once. Agility improves with regular drills that make you stop, turn and start.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Building endurance safely',
+    content: slide(
+      <>
+        <Rule>Endurance is being able to keep going for longer. Build it safely by increasing your activity gradually over time.</Rule>
+        <RampBars weeks={['Wk 1', 'Wk 2', 'Wk 3', 'Wk 4']} minutes={ramp.minutes} aria="Four bars for weeks one to four showing 10, 12, 14 and 16 minutes of activity, rising by two minutes each week." />
+        <Worked
+          title="A four-week plan"
+          steps={[<>Start at {ramp.minutes[0]} minutes in week 1.</>, <>Add 2 minutes each week: {ramp.minutes.join(', ')}.</>, <>By week 4 you do {ramp.increase} minutes more than at the start.</>]}
+        />
+        <Mistake>Doing too much too soon. Big jumps can cause injury. Small, steady increases are safer.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Teamwork and fair play',
+    content: slide(
+      <>
+        <Rule>Cooperation in a mini-game means communicating and covering space with your teammates. Fair play builds respect, trust and positive participation.</Rule>
+        <Court players={2} aria="A net court from above. Our side is split into two equal zones with one player in each, so the whole side is covered." />
+        <Worked
+          title="Two players on one side"
+          steps={[<>Share the court: each player takes one zone.</>, <>Call “mine” so you do not both go for the ball.</>, <>Play by the rules and respect the umpire's decision.</>]}
+        />
+        <Mistake>Chasing every ball yourself, or arguing about decisions. Communicate, trust your teammate and keep it fair.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Warm-up, safety and reflection',
+    content: slide(
+      <>
+        <Rule>Before every PE session, do a proper warm-up and a safety check. Afterwards, reflect: which skill improved, and what should I practise next?</Rule>
+        <StepFlow steps={['Safety check the area and equipment.', 'Warm up your body.', 'Play and practise.', 'Reflect on what to practise next.']} aria="Four steps of a PE session in order: safety check, warm up, play and practise, reflect." />
+        <Worked
+          title="A short reflection"
+          steps={[<>Skill that improved: my footwork.</>, <>Skill that is still weak: my serve.</>, <>Next time I will practise my serve for ten minutes.</>]}
+        />
+        <Mistake>Skipping the warm-up and safety check because you are late. A cold body and a wet floor are how injuries happen.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="In net or wall games, why is footwork important?" answer="It helps players move into position quickly." />
+        <Check question="Which drills improve agility, and how do you build endurance safely?" answer="Regular change-of-direction drills. Increase activity gradually over time." />
+        <Check question="Name one way to show cooperation and one reason fair play matters." answer="Communicate and cover space with teammates. Fair play builds respect, trust and positive participation." />
+        <Check question="What happens before each PE session, and which question helps you improve?" answer="A proper warm-up and safety check. “Which skill improved and what should I practise next?”" />
+      </>,
     ),
   },
 ];
