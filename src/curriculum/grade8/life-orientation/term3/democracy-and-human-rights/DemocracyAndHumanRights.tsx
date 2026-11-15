@@ -1,27 +1,75 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Hub, PairLinks, StepFlow } from '../../../../../components/diagrams/lo/PswPictures';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Link rights and responsibilities',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Democracy and human rights in Life Orientation includes dignity, equality, respect, constitutional rights,
-          and personal responsibilities.
-        </p>
-      </div>
+    title: 'What is a human right?',
+    content: slide(
+      <>
+        <Rule>A human right is a basic freedom and protection that every person should have. In South Africa, the Bill of Rights in the 1996 Constitution protects rights such as equality (section 9), dignity (section 10) and basic education (section 29).</Rule>
+        <Hub centre="Human rights" spokes={['Equality', 'Dignity', 'Education', 'Safety']} aria="A circle labelled Human rights with four rights around it: equality, dignity, education and safety." />
+        <Worked
+          title="Is it a right?"
+          steps={[<>Ask: does every person get it, whoever they are?</>, <>Basic education: yes, so it is a right.</>, <>A prize for the top learners: no, it is a reward.</>, <>A uniform rule: no, it is a school rule.</>]}
+        />
+        <Mistake>Thinking rights are rewards, or that they belong to only one group. Human rights apply to all people.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Protect rights in everyday actions',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Learners strengthen democracy by acting fairly, respecting others, and challenging behaviour that harms
-          rights.
-        </p>
-      </div>
+    title: 'Rights come with responsibilities',
+    content: slide(
+      <>
+        <Rule>Your actions affect other people's rights, so every right comes with a responsibility. The Constitution is the supreme law, and everyone must respect it.</Rule>
+        <PairLinks pairs={[{ right: 'Equality', duty: 'Treat classmates fairly' }, { right: 'Dignity', duty: 'Use respectful words' }, { right: 'Safety', duty: 'Do not bully or threaten' }]} aria="Three rights matched with a responsibility: equality with treating classmates fairly, dignity with using respectful words, safety with not bullying or threatening." />
+        <Worked
+          title="A learner posts a joke about a classmate's name"
+          steps={[<>Right affected: the classmate's dignity.</>, <>Responsibility: use respectful words.</>, <>Fix: delete it and apologise.</>]}
+        />
+        <Mistake>Believing that rights remove all duties, so you can do whatever you like. Your freedom ends where it harms another person's rights.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Equality and dignity at school',
+    content: slide(
+      <>
+        <Rule>Equality means everyone deserves fair treatment and opportunity. Dignity means recognising the worth of every person. Discrimination is unfair treatment because of who someone is, such as their race, gender, religion, language or disability.</Rule>
+        <Worked
+          title="A learner is left out of a team because of her language"
+          steps={[<>Rights affected: equality and dignity.</>, <>This is discrimination, not a joke.</>, <>Respond: support her and report it to a teacher.</>, <>Fair action: include her in the team.</>]}
+        />
+        <Mistake>Joining in to fit with others, staying silent, or treating discrimination as a joke. Each one lets the harm continue.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Protecting rights every day',
+    content: slide(
+      <>
+        <Rule>Democracy means everyone has a voice. Learners protect rights daily by listening to different views, using respectful language and challenging unfair behaviour.</Rule>
+        <StepFlow steps={['Notice unfair behaviour.', 'Support the person affected.', 'Report it to a teacher.', 'Use respectful words.']} aria="Four steps for protecting rights in order: notice unfair behaviour, support the person affected, report it to a teacher, use respectful words." />
+        <Worked
+          title="The class decides on a trip"
+          steps={[<>Everyone shares an idea.</>, <>Listen to each one with respect.</>, <>Choose by agreement or a vote.</>, <>Accept the decision and keep respecting each other.</>]}
+        />
+        <Mistake>Shouting down others, refusing to accept the group's decision, or using threats to win. Democracy depends on respectful dialogue.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is a human right? Give one example from the South African Bill of Rights." answer="A basic freedom and protection every person should have. For example, equality, dignity or basic education." />
+        <Check question="Why must rights be linked to responsibilities?" answer="Because your actions affect the rights of others." />
+        <Check question="A learner sees discrimination at school. What is the best response?" answer="Report it and support the person affected. Do not join in or stay silent." />
+        <Check question="Name one behaviour that shows democratic participation." answer="Listening to different views with respect." />
+      </>,
     ),
   },
 ];

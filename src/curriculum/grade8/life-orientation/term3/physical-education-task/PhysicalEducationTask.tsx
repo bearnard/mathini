@@ -1,26 +1,87 @@
 import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
+import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
+import { Branches, StepFlow, WeekBars } from '../../../../../components/diagrams/lo/PswPictures';
+import { buildUp } from '../../../../../components/diagrams/lo/lo6Helpers';
 
-const learnSteps: LearnStep[] = [
+const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
+
+// The minutes in the endurance example come from this tested helper (lo6Helpers.test.ts).
+const build = buildUp(10, 2, 3);
+
+export const learnSteps: LearnStep[] = [
   {
-    title: 'Perform with teamwork and safe technique',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Term 3 PET develops athletics skills, relay routines, indigenous games, flexibility, and cooperation in
-          movement challenges.
-        </p>
-      </div>
+    title: 'Relay: the baton exchange',
+    content: slide(
+      <>
+        <Rule>In a relay the baton exchange decides the race. It needs good timing and clear communication between the two runners, and both must stay aware of their lane.</Rule>
+        <StepFlow steps={['The next runner starts moving as the baton arrives.', 'The runner with the baton calls clearly.', 'Pass the baton inside the exchange zone.', 'Keep running until the lane is clear.']} aria="Four steps for a baton exchange in order: the next runner starts moving, the runner with the baton calls clearly, pass inside the exchange zone, keep running until the lane is clear." />
+        <Worked
+          title="Anele passes to Buhle"
+          steps={[<>Buhle starts to move when Anele is close.</>, <>Anele calls to Buhle.</>, <>Buhle puts a hand back and takes the baton.</>, <>Both stay in their lanes until the pass is done.</>]}
+        />
+        <Mistake>Ignoring a teammate's signals, running without lane awareness, or starting before the instructions. Each one causes a dropped baton or a disqualification.</Mistake>
+      </>,
     ),
   },
   {
-    title: 'Track effort and participation',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Progress comes from safe practice, positive teamwork, and regular reflection on personal performance.
-        </p>
-      </div>
+    title: 'Endurance and athletics',
+    content: slide(
+      <>
+        <Rule>Endurance means keeping up effort over a period of time, as in distance running. A sprint is one short, fast effort. Build endurance gradually, adding a little each session.</Rule>
+        <WeekBars days={['Mon', 'Wed', 'Fri']} minutes={build.sessions} aria={`Three bars for Monday, Wednesday and Friday showing ${build.sessions.join(', ')} minutes of running, ${build.total} minutes in the week.`} />
+        <Worked
+          title="A gradual running plan"
+          steps={[<>Start with {build.sessions[0]} minutes of steady running.</>, <>Add 2 minutes each session: {build.sessions.join(', ')}.</>, <>Total for the week: {build.total} minutes.</>, <>Keep a steady pace instead of sprinting at the start.</>]}
+        />
+        <Mistake>Thinking one short sprint is endurance, or going flat out at the start so you stop after a few steps. Endurance is steady effort over time.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Flexibility and safe technique',
+    content: slide(
+      <>
+        <Rule>Warm up first, then stretch under control. Warm muscles stretch more safely. Finish with a cool-down. Proper warm-up, technique and cool-down reduce the risk of injury.</Rule>
+        <StepFlow steps={['Warm up the body first.', 'Stretch slowly and in control.', 'Hold the stretch and keep breathing.', 'Cool down at the end.']} aria="Four steps for safe stretching in order: warm up, stretch slowly in control, hold and keep breathing, cool down." />
+        <Worked
+          title="You feel pain in a stretch"
+          steps={[<>Stop. Pain is a warning signal.</>, <>Ease off until you feel only a mild pull.</>, <>Keep breathing steadily.</>, <>Tell your teacher if the pain stays.</>]}
+        />
+        <Mistake>Skipping the warm-up, forcing a painful stretch suddenly, holding your breath or ignoring pain. These can cause injury.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Indigenous games, teamwork and fair play',
+    content: slide(
+      <>
+        <Rule>Indigenous games, such as diketo and morabaraba, build movement skills and cultural appreciation. Fair play means following the rules, respecting all players, encouraging teammates and reflecting on your own progress.</Rule>
+        <Branches
+          problem="Your team is losing the game"
+          options={[
+            { choice: 'Cheat to win', outcome: 'The game is unfair and trust is lost.' },
+            { choice: 'Follow the rules and encourage', outcome: 'The game stays fair and the team grows.' },
+          ]}
+          aria="A decision tree. Your team is losing. Choice one: cheat to win, and the game is unfair and trust is lost. Choice two: follow the rules and encourage, and the game stays fair and the team grows."
+        />
+        <Worked
+          title="Reflect after the lesson"
+          steps={[<>Ask: which skill improved? For example, passing.</>, <>Ask: what will I practise next? For example, calling for the baton.</>, <>Set one small goal for next class.</>]}
+        />
+        <Mistake>Blaming others for your mistakes, cheating when you are losing, or leaving out the weaker players. Fair play includes everyone.</Mistake>
+      </>,
+    ),
+  },
+  {
+    title: 'Check yourself',
+    content: slide(
+      <>
+        <Check question="What is most important during a relay baton exchange?" answer="Timing and clear communication." />
+        <Check question="What does endurance mean, and how should you build it?" answer="Keeping up effort over a period of time. Build it gradually, adding a little each session." />
+        <Check question="How do you reduce injury risk and stretch safely?" answer="Use a proper warm-up, technique and cool-down. Stretch under control and stop if you feel pain." />
+        <Check question="Name one reflection question and one sign of fair participation." answer="“Which skill improved, and what will I practise next?” Fair participation means following the rules and respecting all players." />
+      </>,
     ),
   },
 ];
