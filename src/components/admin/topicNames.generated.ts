@@ -295,6 +295,18 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Oral Communication: Speeches, Meetings and Discussion",
   "English HL"
  ],
+ "10|gr10-paper1-revision-t4": [
+  "Revision: Paper 1, Language in Context",
+  "English HL"
+ ],
+ "10|gr10-paper2-literature-revision-t4": [
+  "Revision: Paper 2, Literature",
+  "English HL"
+ ],
+ "10|gr10-paper3-paper4-revision-t4": [
+  "Revision: Paper 3 Writing and Paper 4 Oral",
+  "English HL"
+ ],
  "10|gr10-patterns-relationships-representations-t1": [
   "Patterns, Relationships and Representations",
   "Mathematical Literacy"

@@ -22,6 +22,9 @@ import * as midyear from './term2/midyear-exam-preparation/MidyearExamPreparatio
 import * as poetry from './term3/poetry-seen-unseen/PoetrySeenUnseenContent';
 import * as oral from './term3/oral-communication/OralCommunicationContent';
 import * as imaginative from './term3/imaginative-transactional/ImaginativeTransactionalContent';
+import * as paper1 from './term4/paper1-revision/Paper1RevisionContent';
+import * as paper2 from './term4/paper2-literature-revision/Paper2LiteratureRevisionContent';
+import * as paper3 from './term4/paper3-paper4-revision/Paper3Paper4RevisionContent';
 import { annotate } from './_shared/annotate';
 
 interface Lesson { id: string; learnSteps: LearnStep[]; bank: CapsItem[] }
@@ -38,6 +41,9 @@ const LESSONS: Lesson[] = [
   { id: 'gr10-poetry-seen-unseen-t3', ...poetry },
   { id: 'gr10-oral-communication-t3', ...oral },
   { id: 'gr10-imaginative-transactional-t3', ...imaginative },
+  { id: 'gr10-paper1-revision-t4', ...paper1 },
+  { id: 'gr10-paper2-literature-revision-t4', ...paper2 },
+  { id: 'gr10-paper3-paper4-revision-t4', ...paper3 },
 ];
 
 const html = (n: Parameters<typeof renderToStaticMarkup>[0]) => renderToStaticMarkup(n);
@@ -170,4 +176,18 @@ test('term 3: the model transactional text is 180 to 200 words (body only, as CA
   assert.ok(body >= 180 && body <= 200, `${body} words`);
   assert.equal(wordCount(imaginative.FIFTY_WORD_STORY), 50);
   assert.equal(imaginative.SCENARIOS.length, 8);
+});
+
+test('term 4: revision lessons show the marks in every question, and the facts they quote add up', () => {
+  for (const l of [paper1, paper2, paper3]) for (const q of l.bank) assert.match(q.prompt, /^\(\d marks?\) /, q.prompt);
+  const c = CAPS_G10;
+  assert.equal(c.paper1Marks + c.paper2Marks + c.paper3Marks + c.paper4Marks, 300);
+  assert.equal(paper3.PAPER3_TIME_PLAN.reduce((n, r) => n + r.minutes, 0), c.paperHours * 60);
+  assert.equal(paper3.TOPICS.length, 3);
+  const s = wordCount(paper1.READ_ALOUD_SUMMARY);
+  assert.ok(s < wordCount(paper1.READ_ALOUD_PASSAGE) / 3, `${s}`);
+  const essay = paper2.LIT_ESSAY_PARTS.reduce((n, p) => n + p.words, 0);
+  assert.ok(essay >= 300 && essay <= 350, `${essay}`);
+  assert.equal(paper2.POEM_LINES.length, 6);
+  assert.equal(Math.round((c.paperHours * 60 * 10) / c.paper1Marks), 17);
 });

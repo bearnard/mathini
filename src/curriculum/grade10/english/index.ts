@@ -95,5 +95,29 @@ export const englishHLGrade10: Subject = {
         },
       ],
     },
+    {
+      id: 4,
+      title: 'Term 4',
+      topics: [
+        {
+          id: 'gr10-paper1-revision-t4',
+          title: 'Revision: Paper 1, Language in Context',
+          description: 'Comprehension, summary and language structures in exam style, with the marks shown and time per mark.',
+          component: lazy(() => import('./term4/paper1-revision/Paper1Revision')),
+        },
+        {
+          id: 'gr10-paper2-literature-revision-t4',
+          title: 'Revision: Paper 2, Literature',
+          description: 'Seen and unseen poetry, a contextual question on a drama, and the literary essay, with the marks shown.',
+          component: lazy(() => import('./term4/paper2-literature-revision/Paper2LiteratureRevision')),
+        },
+        {
+          id: 'gr10-paper3-paper4-revision-t4',
+          title: 'Revision: Paper 3 Writing and Paper 4 Oral',
+          description: 'Choosing the essay, the signals of each transactional text, time plans and the oral tasks, with the marks shown.',
+          component: lazy(() => import('./term4/paper3-paper4-revision/Paper3Paper4Revision')),
+        },
+      ],
+    },
   ],
 };
