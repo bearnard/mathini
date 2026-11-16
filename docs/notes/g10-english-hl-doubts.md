@@ -16,6 +16,17 @@ Things that are in the lessons or banks but that I could not settle from the CAP
 | 8 | Lesson 2 (Language), semicolon | "A semicolon joins two closely related main clauses." | Standard usage; CAPS lists the semicolon without a rule. |
 | 9 | Lesson 5, "Test 1 ... 45 to 60 minutes" | A test should be set for 45-60 minutes (CAPS p. 79); the combination comprehension + summary + language is "suggested". | Stated as "usually combines". |
 
+## Term 2
+
+| # | Where | What | Why it is uncertain |
+|---|---|---|---|
+| 10 | Mid-year lesson | **Each Grade 10 paper is two hours** (Papers 1, 2 and 3) and the time plans built on it (120 minutes). | The CAPS paper table prints the times in a merged cell ("Grades 10-12: 2 hours" for Paper 1; "Grade 10: 2 hours, Grades 11-12: 2 1/2 hours" for Papers 2 and 3). Read from a text extraction of the PDF. The time plans themselves are my suggestion. |
+| 11 | Novel and drama lesson, mid-year lesson | Novel or drama section = **one essay (25) + one contextual question (25)**. | CAPS prints "25" for the essay and the sections add to 80 with poetry (30), and says one essay and one contextual question must be answered from the same section; the 25 for the contextual question is the remainder, not printed beside it. |
+| 12 | Mid-year lesson, "common mistakes" | "One point for each mark is a useful guide for short answers." | General marking practice, not a CAPS rule. Used in one bank question (a 2-mark explain question). |
+| 13 | Novel and drama lesson | **Point, evidence, explain, link** as the paragraph structure. | A teaching device (also used in the Grade 11 lessons), not named in CAPS. |
+| 14 | Visual and media lesson | The advert (FreshGulp) and the cartoon (homework pile) are **imaginary**, described in words. | The lesson cannot show a real advert or cartoon (copyright); the analysis steps follow the CAPS list (persuasive techniques, font, headings, captions, caricature). |
+| 15 | Argument and speech lesson | "Letter to the press" in three lines. | CAPS lists it with the formal letters (p. 34); the three tips are the formal-letter rules. |
+
 ## Not covered on purpose
 
 - **Prescribed (set) works.** Not named, not quoted. Novel, drama and poetry lessons teach the technique with original extracts.

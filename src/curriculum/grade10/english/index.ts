@@ -41,5 +41,35 @@ export const englishHLGrade10: Subject = {
         },
       ],
     },
+    {
+      id: 2,
+      title: 'Term 2',
+      topics: [
+        {
+          id: 'gr10-novel-drama-study-t2',
+          title: 'Studying a Novel or Drama',
+          description: 'Plot structure, characterisation, stage directions, writing about literature with evidence, and the contextual question and literary essay.',
+          component: lazy(() => import('./term2/novel-drama-study/NovelDramaStudy')),
+        },
+        {
+          id: 'gr10-argument-formal-speech-t2',
+          title: 'Argument and Formal Speech',
+          description: 'Building an argument, persuasive devices, planning and delivering a speech, dialogue and interview, prepared and unprepared speech.',
+          component: lazy(() => import('./term2/argument-formal-speech/ArgumentFormalSpeech')),
+        },
+        {
+          id: 'gr10-visual-media-texts-t2',
+          title: 'Visual and Media Texts, Reports and Reviews',
+          description: 'Reading adverts and cartoons, fonts, headings and captions, and writing reports, reviews and newspaper and magazine articles.',
+          component: lazy(() => import('./term2/visual-media-texts/VisualMediaTexts')),
+        },
+        {
+          id: 'gr10-midyear-exam-preparation-t2',
+          title: 'Mid-Year Examination Preparation',
+          description: 'The three papers, their marks and time plans, how to choose questions in Paper 2, and the mistakes that cost marks.',
+          component: lazy(() => import('./term2/midyear-exam-preparation/MidyearExamPreparation')),
+        },
+      ],
+    },
   ],
 };

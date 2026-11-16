@@ -100,3 +100,45 @@ export const SummaryShrink = ({ passage, summary }: { passage: number; summary: 
     </svg>
   );
 };
+
+/** The shape of a play or novel's plot with the CAPS terms: exposition, rising action, climax, falling action, resolution. */
+export const DramaticStructure = () => (
+  <svg viewBox="0 0 340 190" role="img" aria-label="A line that starts low at the exposition, rises through the rising action to the climax at the top, then falls through the falling action to the resolution" className="mx-auto w-full max-w-md">
+    <polyline points="14,150 80,138 200,44 268,100 328,132" fill="none" stroke="#4f46e5" strokeWidth="4" strokeLinejoin="round" strokeLinecap="round" />
+    <circle cx="200" cy="44" r="6" fill="#e11d48" />
+    <text x="8" y="176" fontSize="13.5" fill="#334155" fontWeight="600">Exposition</text>
+    <text x="8" y="112" fontSize="13.5" fill="#334155" fontWeight="600">Rising action</text>
+    <text x="200" y="24" fontSize="13.5" fill="#be123c" fontWeight="700" textAnchor="middle">Climax</text>
+    <text x="334" y="80" fontSize="13.5" fill="#334155" fontWeight="600" textAnchor="end">Falling action</text>
+    <text x="332" y="158" fontSize="13.5" fill="#334155" fontWeight="600" textAnchor="end">Resolution</text>
+  </svg>
+);
+
+/** A news article as an upside-down triangle: the most important facts first. */
+export const InvertedPyramid = () => (
+  <svg viewBox="0 0 340 190" role="img" aria-label="An upside-down triangle in three layers. The wide top layer holds the most important facts, the middle layer holds important details, and the narrow bottom point holds extra background" className="mx-auto w-full max-w-md">
+    <polygon points="10,10 330,10 262,66 78,66" fill="#c7d2fe" stroke="#6366f1" strokeWidth="2" />
+    <polygon points="86,72 254,72 226,124 114,124" fill="#e0e7ff" stroke="#6366f1" strokeWidth="2" />
+    <polygon points="120,130 220,130 170,178" fill="#f1f5f9" stroke="#6366f1" strokeWidth="2" />
+    <text x="170" y="34" fontSize="14" fill="#1e293b" fontWeight="700" textAnchor="middle">Who, what, when, where, why</text>
+    <text x="170" y="54" fontSize="13" fill="#334155" textAnchor="middle">the most important facts</text>
+    <text x="170" y="103" fontSize="13.5" fill="#1e293b" fontWeight="600" textAnchor="middle">Important details</text>
+    <text x="236" y="160" fontSize="13.5" fill="#1e293b" fontWeight="600">Background</text>
+  </svg>
+);
+
+/** The marks of the three mid-year papers (and the oral that joins them at the end of the year), as bars to scale. */
+export const PaperMarks = ({ papers }: { papers: { label: string; marks: number }[] }) => {
+  const max = Math.max(...papers.map((p) => p.marks));
+  return (
+    <svg viewBox="0 0 340 170" role="img" aria-label={`The marks for each paper: ${papers.map((p) => `${p.label} ${p.marks}`).join(', ')}`} className="mx-auto w-full max-w-md">
+      {papers.map((p, i) => (
+        <g key={p.label}>
+          <text x="8" y={22 + i * 40} fontSize="14" fill="#1e293b" fontWeight="600">{p.label}</text>
+          <rect x="8" y={28 + i * 40} width={Math.round((260 * p.marks) / max)} height="16" rx="5" fill="#6366f1" />
+          <text x={Math.round((260 * p.marks) / max) + 16} y={41 + i * 40} fontSize="14" fill="#1e293b" fontWeight="700">{p.marks}</text>
+        </g>
+      ))}
+    </svg>
+  );
+};

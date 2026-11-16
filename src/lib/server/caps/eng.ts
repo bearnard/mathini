@@ -12,6 +12,7 @@ import engGr9Term2 from './tasks/eng-gr9-term2.json';
 import engGr9Term3 from './tasks/eng-gr9-term3.json';
 import engGr9Term4 from './tasks/eng-gr9-term4.json';
 import engGr10Term1 from './tasks/eng-gr10-term1.json';
+import engGr10Term2 from './tasks/eng-gr10-term2.json';
 import engGr11Term1 from './tasks/eng-gr11-term1.json';
 import engGr11Term2 from './tasks/eng-gr11-term2.json';
 import engGr11Term3 from './tasks/eng-gr11-term3.json';
@@ -76,6 +77,7 @@ export const eng: SubjectConfig = {
     ...engGr9Term4.tasks,
     // Grade 10
     ...engGr10Term1.tasks,
+    ...engGr10Term2.tasks,
     ...engGr11Term1.tasks,
     ...engGr11Term2.tasks,
     ...engGr11Term3.tasks,
