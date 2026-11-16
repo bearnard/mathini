@@ -191,6 +191,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "History of Life on Earth",
   "Life Sciences"
  ],
+ "10|gr10-imaginative-transactional-t3": [
+  "Imaginative and Transactional Writing",
+  "English HL"
+ ],
  "10|gr10-integrated-solution-development-t3": [
   "Integrated Solution Development",
   "Information Technology"
@@ -275,6 +279,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Numbers and Calculations in Context",
   "Mathematical Literacy"
  ],
+ "10|gr10-oral-communication-t3": [
+  "Oral Communication: Speeches, Meetings and Discussion",
+  "English HL"
+ ],
  "10|gr10-patterns-relationships-representations-t1": [
   "Patterns, Relationships and Representations",
   "Mathematical Literacy"
@@ -302,6 +310,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-plant-tissues-organs-t2": [
   "Plant Tissues and Organs",
   "Life Sciences"
+ ],
+ "10|gr10-poetry-seen-unseen-t3": [
+  "Reading Poetry: Seen and Unseen",
+  "English HL"
  ],
  "10|gr10-power-gender-t1": [
   "Power, Power Relations and Gender",

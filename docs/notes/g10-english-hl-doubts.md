@@ -27,6 +27,16 @@ Things that are in the lessons or banks but that I could not settle from the CAP
 | 14 | Visual and media lesson | The advert (FreshGulp) and the cartoon (homework pile) are **imaginary**, described in words. | The lesson cannot show a real advert or cartoon (copyright); the analysis steps follow the CAPS list (persuasive techniques, font, headings, captions, caricature). |
 | 15 | Argument and speech lesson | "Letter to the press" in three lines. | CAPS lists it with the formal letters (p. 34); the three tips are the formal-letter rules. |
 
+## Term 3
+
+| # | Where | What | Why it is uncertain |
+|---|---|---|---|
+| 16 | Poetry lesson | Two **public-domain poems** quoted (first stanza only): William Wordsworth (1770-1850), "I Wandered Lonely as a Cloud" (1807); William Blake (1757-1827), "The Tyger" (1794). The unseen poem "Taxi Rank at Dawn" is original. | Texts typed from memory of the standard editions; a teacher should check them against a printed copy. |
+| 17 | Poetry lesson | "bright / night" and "eye / symmetry" given as the rhyme pairs (AABB). | Blake's "eye / symmetry" is treated as a rhyme in the usual teaching, though the modern pronunciation differs. No bank question depends on it. |
+| 18 | Oral lesson | The **order of a meeting** (chair opens, apologies, previous minutes, agenda, proposer and seconder, resolution, close). | Standard meeting procedure; CAPS lists "meetings and meeting procedures" as a topic (p. 48) but gives no list. |
+| 19 | Oral lesson | **Four kinds of listening** (informative, evaluative, appreciative, interactive) and "marked out of 15". | The four kinds are in the teaching plan (p. 43); 15 marks is from Table 2 (p. 78). |
+| 20 | Imaginative/transactional lesson | The **model complaint letter is 191 words of body**; the 180-200 limit is "content only" in CAPS (p. 39), so address, date and salutation are not counted. | Counted by a test; whether markers exclude the address and closing is the CAPS reading. All names, order number and amounts are invented. |
+
 ## Not covered on purpose
 
 - **Prescribed (set) works.** Not named, not quoted. Novel, drama and poetry lessons teach the technique with original extracts.
