@@ -4357,6 +4357,32 @@
                 "description": "Trigonometric ratios, special angles, angles on the Cartesian plane and right-angled triangles."
               }
             ]
+          },
+          {
+            "id": 2,
+            "title": "Term 2",
+            "topics": [
+              {
+                "id": "gr10-functions-linear-quadratic-t2",
+                "title": "Functions: Straight Lines and Parabolas",
+                "description": "Function notation, tables, graphs and formulae; straight lines and parabolas of the form y = ax² + q, intercepts, turning points, domain and range."
+              },
+              {
+                "id": "gr10-functions-other-t2",
+                "title": "Functions: Hyperbola, Exponential and Trigonometric Graphs",
+                "description": "The hyperbola y = a/x + q, the exponential graph, and the sine, cosine and tangent graphs: asymptotes, intercepts and range."
+              },
+              {
+                "id": "gr10-euclidean-geometry-t2",
+                "title": "Euclidean Geometry: Quadrilaterals and Triangles",
+                "description": "Special quadrilaterals and their properties, the midpoint theorem, congruent and similar triangles."
+              },
+              {
+                "id": "gr10-midyear-exam-prep-t2",
+                "title": "Mid-year Exam Preparation",
+                "description": "Mixed Term 1 and Term 2 practice questions with the marks shown, and exam technique."
+              }
+            ]
           }
         ]
       },

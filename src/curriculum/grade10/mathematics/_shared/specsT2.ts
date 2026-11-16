@@ -6,7 +6,7 @@ const { pt } = g;
 
 // ---------------------------------------------------------------- Functions: linear and quadratic
 export const functionsLinearQuadratic: Q[] = (() => {
-  const xi = g.lineXIntercept(2, -6)!; // y = 2x − 6
+  const xi = g.lineXIntercept(-4, 8)!; // y = −4x + 8
   const grad = g.lineGradient(1, 3, 3, 9);
   const l4 = g.lineStr(-2, 5);
   const par = g.parabolaXIntercepts({ a: 1, q: -4 })!;
@@ -18,8 +18,8 @@ export const functionsLinearQuadratic: Q[] = (() => {
   return [
     q('What are the coordinates of the y-intercept of y = 2x − 6?', pt(0, -6), [pt(0, 6), pt(3, 0), pt(-6, 0)],
       'The y-intercept is where x = 0. Then y = 2(0) − 6 = −6, so the point is (0; −6).'),
-    q('What are the coordinates of the x-intercept of y = 2x − 6?', pt(Number(fracStr(xi)), 0), [pt(-3, 0), pt(0, 3), pt(6, 0)],
-      'The x-intercept is where y = 0. Then 2x − 6 = 0, so 2x = 6 and x = 3. The point is (3; 0).'),
+    q('Where does the line y = −4x + 8 cut the x-axis?', pt(xi[0] / xi[1], 0), [pt(-2, 0), pt(0, 2), pt(8, 0)],
+      'The x-intercept is where y = 0. Then −4x + 8 = 0, so 4x = 8 and x = 2. The point is (2; 0).'),
     q('What is the gradient of the straight line through (1; 3) and (3; 9)?', fracStr(grad), ['1/3', '6', '2'],
       'Gradient = change in y ÷ change in x = (9 − 3) ÷ (3 − 1) = 6 ÷ 2 = 3.'),
     q('A straight line has gradient −2 and cuts the y-axis at 5. What is its equation?', l4, [g.lineStr(2, 5), g.lineStr(-2, -5), g.lineStr(5, -2)],

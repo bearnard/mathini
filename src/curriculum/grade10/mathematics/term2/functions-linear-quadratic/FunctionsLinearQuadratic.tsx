@@ -178,10 +178,10 @@ const bank: MathematicsItem[] = [
     explanation: "The y-intercept is where x = 0. Then y = 2(0) − 6 = −6, so the point is (0; −6).",
   },
   {
-    prompt: "What are the coordinates of the x-intercept of y = 2x − 6?",
-    options: ["(3; 0)", "(−3; 0)", "(0; 3)", "(6; 0)"],
-    answer: "(3; 0)",
-    explanation: "The x-intercept is where y = 0. Then 2x − 6 = 0, so 2x = 6 and x = 3. The point is (3; 0).",
+    prompt: "Where does the line y = −4x + 8 cut the x-axis?",
+    options: ["(2; 0)", "(−2; 0)", "(0; 2)", "(8; 0)"],
+    answer: "(2; 0)",
+    explanation: "The x-intercept is where y = 0. Then −4x + 8 = 0, so 4x = 8 and x = 2. The point is (2; 0).",
   },
   {
     prompt: "What is the gradient of the straight line through (1; 3) and (3; 9)?",

@@ -155,6 +155,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Writing an Essay: Narrative, Descriptive and Argumentative",
   "English HL"
  ],
+ "10|gr10-euclidean-geometry-t2": [
+  "Euclidean Geometry: Quadrilaterals and Triangles",
+  "Mathematics"
+ ],
  "10|gr10-exponents-t1": [
   "Exponents",
   "Mathematics"
@@ -170,6 +174,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-finance-interest-banking-taxation-t4": [
   "Finance: Interest, Banking and Taxation",
   "Mathematical Literacy"
+ ],
+ "10|gr10-functions-linear-quadratic-t2": [
+  "Functions: Straight Lines and Parabolas",
+  "Mathematics"
+ ],
+ "10|gr10-functions-other-t2": [
+  "Functions: Hyperbola, Exponential and Trigonometric Graphs",
+  "Mathematics"
  ],
  "10|gr10-growth-development-south-african-economic-change": [
   "Growth, Development and South African Economic Change",
@@ -230,6 +242,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-measurement-t2": [
   "Measurement",
   "Mathematical Literacy"
+ ],
+ "10|gr10-midyear-exam-prep-t2": [
+  "Mid-year Exam Preparation",
+  "Mathematics"
  ],
  "10|gr10-midyear-exam-preparation-t2": [
   "Mid-Year Examination Preparation",

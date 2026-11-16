@@ -29,7 +29,8 @@ test('every topic has at least 12 distinct questions with four distinct options,
 
 test('the question quality validator rejects nothing, and no decimal point appears (decimal comma)', () => {
   for (const it of all) {
-    const r = checkQuestion({ prompt: it.prompt, options: it.options, answer: it.answer, explanation: it.explanation }, { decimalComma: 'warn' });
+    const others = all.filter((o) => o.task === it.task && o.prompt !== it.prompt).map((o) => o.prompt); // the repo-wide check also looks for near-duplicates inside one topic
+    const r = checkQuestion({ prompt: it.prompt, options: it.options, answer: it.answer, explanation: it.explanation }, { decimalComma: 'warn', existingPrompts: others });
     const bad = r.reasons.filter((x) => x.severity === 'reject' || x.code === 'decimal_point');
     assert.deepEqual(bad.map((x) => `${x.code}: ${x.detail}`), [], it.prompt);
   }
@@ -236,10 +237,11 @@ test('INDEPENDENT (Term 2): points (intercepts, turning points) and ranges come 
   const yint = find('What are the coordinates of the y-intercept of y = 2x − 6?');
   assert.deepEqual(point(yint.answer), [0, f(0)]);
   for (const o of yint.options.filter((x) => x !== yint.answer)) assert.notDeepEqual(point(o), [0, f(0)]);
-  const xint = find('What are the coordinates of the x-intercept of y = 2x − 6?');
-  const root = xs.find((x) => near(f(x), 0))!;
+  const f2 = (x: number) => -4 * x + 8;
+  const xint = find('Where does the line y = −4x + 8 cut the x-axis?');
+  const root = xs.find((x) => near(f2(x), 0))!;
   assert.deepEqual(point(xint.answer), [root, 0]);
-  for (const o of xint.options.filter((x) => x !== xint.answer)) assert.ok(!near(f(point(o)[0]), 0) || point(o)[1] !== 0, o);
+  for (const o of xint.options.filter((x) => x !== xint.answer)) assert.ok(!near(f2(point(o)[0]), 0) || point(o)[1] !== 0, o);
   // turning point of y = −x² + 3 = the maximum
   const tp = find('What is the turning point of y = −x² + 3?');
   const ys = xs.map((x) => -x * x + 3);
