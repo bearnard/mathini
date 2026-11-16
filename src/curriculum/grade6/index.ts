@@ -219,6 +219,18 @@ export const grade6: Grade = {
                                     title: "Dividing by 3-digit Numbers",
                                     description: "Clue boards, long division, checking and remainders in problems.",
                                     component: lazy(() => import('./term4/whole-numbers/Divide3Digit'))
+                                },
+                                {
+                                    id: "g6-probability",
+                                    title: "Probability Experiments",
+                                    description: "Listing outcomes, tally marks and comparing how often things happen.",
+                                    component: lazy(() => import('./term4/probability/Probability'))
+                                },
+                                {
+                                    id: "g6-position-movement",
+                                    title: "Position and Movement",
+                                    description: "Grid references and directions on a grid or map.",
+                                    component: lazy(() => import('./term4/position-movement/PositionMovement'))
                                 }
                             ]
                         }

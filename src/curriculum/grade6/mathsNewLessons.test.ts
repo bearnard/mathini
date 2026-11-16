@@ -14,6 +14,8 @@ const lessons = {
   div3: renderSlides((await import('./term4/whole-numbers/Divide3Digit')).learnSteps),
   pct: renderSlides((await import('./term3/percentages/Percentages')).learnSteps),
   temp: renderSlides((await import('./term3/temperature/Temperature')).learnSteps),
+  prob: renderSlides((await import('./term4/probability/Probability')).learnSteps),
+  pos: renderSlides((await import('./term4/position-movement/PositionMovement')).learnSteps),
 };
 const text = (k: keyof typeof lessons) => lessons[k].map((s) => s.text.replace(/\u00a0/g, ' ')).join(' | ');
 
@@ -161,4 +163,32 @@ test('Temperature: the worked numbers are true', () => {
   assert.equal(20 + 7, 27);
   assert.equal(28 - 15, 13);
   assert.equal(Math.round((38.5 - 37) * 10) / 10, 1.5);
+});
+
+test('Probability: the worked numbers are true and probability is not written as a fraction', () => {
+  const t = text('prob');
+  for (const n of ['13', '7', '20', '25', '30', '18', '12', '9', '15', '2 groups of five and 3 more', 'heads', 'tails', 'collating']) assert.ok(t.includes(n), `missing ${n}`);
+  assert.equal(2 * 5 + 3, 13);
+  assert.equal(13 + 7, 20);
+  assert.equal(13 - 7, 6);
+  const die = [4, 6, 3, 5, 2, 5];
+  assert.equal(die.reduce((a, b) => a + b, 0), 25);
+  assert.equal(die.indexOf(Math.max(...die)) + 1, 2);
+  assert.equal(die.indexOf(Math.min(...die)) + 1, 5);
+  assert.equal(die[1] - die[4], 4);
+  assert.equal(10 + 10 + 10, 30);
+  assert.equal(7 + 5 + 6, 18);
+  assert.equal(30 - 18, 12);
+  assert.equal(24 - 15, 9);
+  assert.equal(6 + 4 + 7 + 3, 20);
+  assert.ok(!/chance|likely|probability of|1\/2|per cent/i.test(t.replace(/Probability/g, '')), 'CAPS Grade 6 counts frequencies, it does not write probabilities as fractions');
+});
+
+test('Position and movement: the grid references and routes are true', () => {
+  const t = text('pos');
+  for (const n of ['B2', 'E2', 'E5', 'C4', 'D4', '3 squares right', '3 squares down', 'north', 'south', 'east', 'west', 'D2', 'A2', 'A4', 'C6', 'D3', 'E5']) assert.ok(t.includes(n), `missing ${n}`);
+  assert.equal('B'.charCodeAt(0) + 3, 'E'.charCodeAt(0));
+  assert.equal(5 - 2, 3);
+  assert.equal(3 + 3, 6);
+  assert.equal(3 + 3 + 0, 6);
 });

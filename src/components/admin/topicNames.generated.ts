@@ -2351,8 +2351,16 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Percentages",
   "Mathematics"
  ],
+ "6|gr6-position-movement-t4": [
+  "Position and Movement",
+  "Mathematics"
+ ],
  "6|gr6-prime-numbers-t1": [
   "Prime Numbers",
+  "Mathematics"
+ ],
+ "6|gr6-probability-t4": [
+  "Probability Experiments",
   "Mathematics"
  ],
  "6|gr6-problem-solving-t4": [

@@ -25,3 +25,9 @@ Source: CAPS Mathematics Grades 4-6, section 3.3.3 "Clarification of content for
 
 - **Referents.** 0 °C, 37 °C and 100 °C are the CAPS referents. "A hot summer day is about 33 °C" and "a cold winter morning about 3 °C" are everyday estimates, not CAPS statements, offered as sensible-guess examples.
 - **Scales.** The thermometer pictures are drawn from the numbers in the lesson (0 to 40 with a line every 2 degrees; digital readings with tenths such as 36,7 °C). Temperatures are positive whole numbers or one decimal place only, as in CAPS ("limited to positive whole numbers and decimal fractions").
+
+## Probability experiments and position and movement (Term 4)
+
+- **Probability scope.** CAPS Grade 6 only asks for listing outcomes, recording with tally marks and counting and comparing frequencies (up to 50 trials, collating group results). The lesson never writes a probability as a fraction and a test fails on "chance", "likely" or "probability of". The sentence that more trials make heads and tails come out closer is from the CAPS note ("compare the number of outcomes that occur as the number of trials increase") and is kept qualitative.
+- **Tally and grid conventions.** Tally groups of five have the fifth stroke across the other four. On the grid, letters run across the top, numbers run down the side, rows are counted from the top, and the grid reference is letter first (CAPS examples D4, A3, E7). The questions say this in their text because question items carry no picture.
+- **Compass.** The compass questions say north is at the top of the map, so up is north, right is east. CAPS leaves the compass work to Geography ("practised in Mathematics").
