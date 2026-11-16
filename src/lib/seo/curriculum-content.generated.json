@@ -4045,6 +4045,32 @@
                 "description": "Reading strategies, inference, fact and opinion, writing a summary in your own words, and language structures in context."
               }
             ]
+          },
+          {
+            "id": 2,
+            "title": "Term 2",
+            "topics": [
+              {
+                "id": "gr10-novel-drama-study-t2",
+                "title": "Studying a Novel or Drama",
+                "description": "Plot structure, characterisation, stage directions, writing about literature with evidence, and the contextual question and literary essay."
+              },
+              {
+                "id": "gr10-argument-formal-speech-t2",
+                "title": "Argument and Formal Speech",
+                "description": "Building an argument, persuasive devices, planning and delivering a speech, dialogue and interview, prepared and unprepared speech."
+              },
+              {
+                "id": "gr10-visual-media-texts-t2",
+                "title": "Visual and Media Texts, Reports and Reviews",
+                "description": "Reading adverts and cartoons, fonts, headings and captions, and writing reports, reviews and newspaper and magazine articles."
+              },
+              {
+                "id": "gr10-midyear-exam-preparation-t2",
+                "title": "Mid-Year Examination Preparation",
+                "description": "The three papers, their marks and time plans, how to choose questions in Paper 2, and the mistakes that cost marks."
+              }
+            ]
           }
         ]
       },

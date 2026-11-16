@@ -15,6 +15,11 @@ import * as language from './term1/language-structures-conventions/LanguageStruc
 import * as essay from './term1/essay-writing-process/EssayWritingProcessContent';
 import * as letters from './term1/letters-cv-agenda-minutes/LettersCvAgendaMinutesContent';
 import * as comprehension from './term1/comprehension-summary/ComprehensionSummaryContent';
+import * as novel from './term2/novel-drama-study/NovelDramaStudyContent';
+import * as argument from './term2/argument-formal-speech/ArgumentFormalSpeechContent';
+import * as media from './term2/visual-media-texts/VisualMediaTextsContent';
+import * as midyear from './term2/midyear-exam-preparation/MidyearExamPreparationContent';
+import { annotate } from './_shared/annotate';
 
 interface Lesson { id: string; learnSteps: LearnStep[]; bank: CapsItem[] }
 const LESSONS: Lesson[] = [
@@ -23,6 +28,10 @@ const LESSONS: Lesson[] = [
   { id: 'gr10-essay-writing-process-t1', ...essay },
   { id: 'gr10-letters-cv-agenda-minutes-t1', ...letters },
   { id: 'gr10-comprehension-summary-t1', ...comprehension },
+  { id: 'gr10-novel-drama-study-t2', ...novel },
+  { id: 'gr10-argument-formal-speech-t2', ...argument },
+  { id: 'gr10-visual-media-texts-t2', ...media },
+  { id: 'gr10-midyear-exam-preparation-t2', ...midyear },
 ];
 
 const html = (n: Parameters<typeof renderToStaticMarkup>[0]) => renderToStaticMarkup(n);
@@ -95,7 +104,7 @@ test('CAPS facts used by the lessons are the ones in the document (marks add up,
 
 test('the lessons state those facts in their text', () => {
   const all = LESSONS.map((l) => text(html(h('div', null, l.learnSteps.map((s) => s.content))))).join(' ');
-  for (const needle of ['300 to 350 words', '180 to 200 words', 'marked out of 50', '500 to 600 words', '30 marks', '10 marks', '280 words', 'out of 25', '35 marks']) assert.ok(all.includes(needle), needle);
+  for (const needle of ['300 to 350 words', '180 to 200 words', 'marked out of 50', '500 to 600 words', '30 marks', '10 marks', '280 words', 'out of 25', '35 marks', '250 marks', '25 marks', 'two hours']) assert.ok(all.includes(needle), needle);
 });
 
 test('lesson 3: the model opening is annotated at real places, and the essay plan adds up to a legal length', () => {
@@ -119,4 +128,23 @@ test('lesson 1: the poem has four lines and lines 2 and 4 end with rhyming words
   assert.ok(end(genres.POEM_LINES[1]).endsWith('o') && end(genres.POEM_LINES[3]).endsWith('ow'));
   assert.equal(end(genres.POEM_LINES[1]), 'go');
   assert.equal(end(genres.POEM_LINES[3]), 'below');
+});
+
+test('term 2: the CAPS marks add up, and the exam time plans fill the two hours', () => {
+  const c = CAPS_G10;
+  assert.equal(c.poetryMarks, c.seenPoetryMarks + c.unseenPoetryMarks);
+  assert.equal(c.paper2Marks, c.poetryMarks + c.novelDramaEssayMarks + c.novelDramaContextualMarks);
+  assert.equal(c.literatureTaskMarks, c.literatureTaskContextualMarks + c.literatureTaskEssayMarks);
+  assert.equal(c.midyearMarks, c.paper1Marks + c.paper2Marks + c.paper3Marks);
+  assert.equal(c.paperHours, 2);
+  for (const plan of [midyear.PAPER1_PLAN, midyear.PAPER2_PLAN, midyear.PAPER3_PLAN]) assert.equal(plan.reduce((n, r) => n + r.minutes, 0), c.paperHours * 60);
+  // about 1,7 minutes per mark in Paper 1, as the lesson says
+  assert.equal(Math.round((c.paperHours * 60 * 10) / c.paper1Marks) / 10, 1.7);
+});
+
+test('term 2: the annotated extracts are annotated at real places', () => {
+  assert.deepEqual(missingPhrases(novel.PROSE_EXTRACT, novel.PROSE_NOTES), []);
+  assert.deepEqual(missingPhrases(argument.SPEECH, argument.SPEECH_NOTES), []);
+  assert.equal(annotate(novel.PROSE_EXTRACT, novel.PROSE_NOTES).length, 3);
+  assert.equal(annotate(argument.SPEECH, argument.SPEECH_NOTES).length, 3);
 });

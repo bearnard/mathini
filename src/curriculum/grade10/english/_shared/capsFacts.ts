@@ -27,6 +27,20 @@ export const CAPS_G10 = {
   poetryEssayWords: '150-200',
   novelDramaEssayWords: '300-350',
   listeningWords: 200,
+  /** Paper 2 (80): A poetry 30 (seen 20 + unseen 10); B novel or C drama 50 = one essay (25) + one contextual question (25) (p. 81). */
+  poetryMarks: 30,
+  seenPoetryMarks: 20,
+  unseenPoetryMarks: 10,
+  novelDramaEssayMarks: 25,
+  novelDramaContextualMarks: 25,
+  /** The term-2 and term-3 literature task: 35 marks = contextual questions (10) + literary essay (25) (p. 78). */
+  literatureTaskMarks: 35,
+  literatureTaskContextualMarks: 10,
+  literatureTaskEssayMarks: 25,
+  /** Marking of a literary essay: content 60%, language and structure 40% (p. 81). */
+  literaryEssayContentPct: 60,
+  /** Time for each Grade 10 paper (p. 80-82): Paper 1, 2 and 3 are 2 hours each. */
+  paperHours: 2,
   /** Prescribed poems in Grade 10 (p. 20-ish table of genres: "Grade 10 - 10 poems"). */
   poems: 10,
 } as const;

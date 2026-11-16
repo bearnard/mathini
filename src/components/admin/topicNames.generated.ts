@@ -27,6 +27,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Application Development and Web Basics",
   "Computer Applications Technology"
  ],
+ "10|gr10-argument-formal-speech-t2": [
+  "Argument and Formal Speech",
+  "English HL"
+ ],
  "10|gr10-atoms-periodic-table-bonding-t2": [
   "Atoms, Periodic Table and Bonding",
   "Physical Sciences"
@@ -227,6 +231,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Measurement",
   "Mathematical Literacy"
  ],
+ "10|gr10-midyear-exam-preparation-t2": [
+  "Mid-Year Examination Preparation",
+  "English HL"
+ ],
  "10|gr10-mitosis-cancer-t1": [
   "Mitosis and Cancer",
   "Life Sciences"
@@ -234,6 +242,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-networks-data-handling-t3": [
   "Networks and Data Handling",
   "Information Technology"
+ ],
+ "10|gr10-novel-drama-study-t2": [
+  "Studying a Novel or Drama",
+  "English HL"
  ],
  "10|gr10-number-patterns-t1": [
   "Number Patterns",
@@ -350,6 +362,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-vectors-motion-mechanical-energy-t3": [
   "Vectors, Motion and Mechanical Energy",
   "Physical Sciences"
+ ],
+ "10|gr10-visual-media-texts-t2": [
+  "Visual and Media Texts, Reports and Reviews",
+  "English HL"
  ],
  "10|gr10-waves-sound-light-t1": [
   "Waves, Sound and Light",
