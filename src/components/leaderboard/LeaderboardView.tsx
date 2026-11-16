@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Trophy, Flame, Star } from 'lucide-react';
 import { cn } from '../../lib/utils';
+import { numText } from '../progress/format';
 import type { AreaResponse, LeaderboardOverview, PeopleBoard } from '../../lib/shared/leaderboardTypes';
 
 type Tab = 'class' | 'school' | 'area';
@@ -22,7 +23,7 @@ const Spin = () => (
   </div>
 );
 
-function Row({ rank, name, avatar, value, unit, mine }: { rank: number | null; name: string; avatar?: string; value: string; unit: string; mine: boolean }) {
+export function Row({ rank, name, avatar, value, unit, mine }: { rank: number | null; name: string; avatar?: string; value: string; unit: string; mine: boolean }) {
   return (
     <li
       className={cn(
@@ -30,7 +31,7 @@ function Row({ rank, name, avatar, value, unit, mine }: { rank: number | null; n
         mine ? 'border-brand-yellow/40 bg-brand-yellow/20 ring-1 ring-brand-yellow/50' : rank === 1 ? 'border-amber-200 bg-amber-50' : 'border-slate-100 bg-white',
       )}
     >
-      <div className="w-9 shrink-0 text-center text-lg font-bold text-slate-400">{rank === null ? '–' : rank <= 3 ? ['🥇', '🥈', '🥉'][rank - 1] : `#${rank}`}</div>
+      <div className="w-9 shrink-0 text-center text-lg font-bold text-slate-400">{rank === null ? '–' : rank <= 3 ? ['🥇', '🥈', '🥉'][rank - 1] : `#${numText(rank)}`}</div>
       {avatar !== undefined && (avatar ? <img src={avatar} alt="" className="h-9 w-9 shrink-0 rounded-full object-cover" /> : <span className="h-9 w-9 shrink-0 rounded-full bg-slate-100" />)}
       <div className="min-w-0 flex-1">
         <span className="block truncate font-medium text-slate-800">{name}</span>
@@ -48,12 +49,12 @@ function PeopleList({ board, empty }: { board: PeopleBoard; empty: string }) {
   return (
     <div className="space-y-3">
       <p className="text-sm text-slate-600">
-        {board.myRank !== null ? `You are #${board.myRank} of ${board.size} this week. Great effort!` : 'Answer some new questions this week to get on the board.'}
+        {board.myRank !== null ? `You are #${numText(board.myRank)} of ${numText(board.size)} this week. Great effort!` : 'Answer some new questions this week to get on the board.'}
       </p>
       {board.entries.every((e) => e.points === 0) && <p className="text-sm text-slate-500">{empty}</p>}
       <ul className="space-y-2">
         {board.entries.map((e, i) => (
-          <Row key={`${e.nickname}-${i}`} rank={e.points > 0 ? e.rank : null} name={e.nickname} avatar={e.avatar} value={String(e.points)} unit="points" mine={e.isMe} />
+          <Row key={`${e.nickname}-${i}`} rank={e.points > 0 ? e.rank : null} name={e.nickname} avatar={e.avatar} value={numText(e.points)} unit="points" mine={e.isMe} />
         ))}
       </ul>
     </div>
@@ -70,9 +71,9 @@ function Personal({ p }: { p: LeaderboardOverview['personal'] }) {
   );
   return (
     <div className="flex gap-2">
-      <Stat icon={<Star className="h-5 w-5" />} label="points this week" value={String(p.weekPoints)} />
-      <Stat icon={<Trophy className="h-5 w-5" />} label="your best week" value={String(p.bestWeekPoints)} />
-      <Stat icon={<Flame className="h-5 w-5" />} label="day streak" value={String(p.streakDays)} />
+      <Stat icon={<Star className="h-5 w-5" />} label="points this week" value={numText(p.weekPoints)} />
+      <Stat icon={<Trophy className="h-5 w-5" />} label="your best week" value={numText(p.bestWeekPoints)} />
+      <Stat icon={<Flame className="h-5 w-5" />} label="day streak" value={numText(p.streakDays)} />
     </div>
   );
 }
@@ -105,12 +106,12 @@ function AreaPanel({ ov }: { ov: LeaderboardOverview }) {
           </p>
           <ul className="space-y-2">
             {data.board.schools.map((s) => (
-              <Row key={`${s.rank}-${s.name}`} rank={s.rank} name={s.name} value={String(s.score)} unit={`avg · ${s.activeLearners} learners`} mine={s.isMine} />
+              <Row key={`${s.rank}-${s.name}`} rank={s.rank} name={s.name} value={numText(s.score)} unit={`avg · ${numText(s.activeLearners)} learners`} mine={s.isMine} />
             ))}
           </ul>
           {data.board.mine.rank === null && (
             <p className="rounded-xl bg-brand-blue/10 p-3 text-sm text-slate-700">
-              {data.board.mine.name} joins the board once {data.board.mine.minActive} learners have practised this week ({data.board.mine.activeLearners} so far). Invite your classmates!
+              {data.board.mine.name} joins the board once {numText(data.board.mine.minActive)} learners have practised this week ({numText(data.board.mine.activeLearners)} so far). Invite your classmates!
             </p>
           )}
         </>
