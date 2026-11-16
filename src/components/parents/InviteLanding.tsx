@@ -11,6 +11,8 @@ export default function InviteLanding() {
   const [consent, setConsent] = useState(false);
   const [state, setState] = useState<'loading' | 'ready' | 'working' | 'done' | 'failed'>('loading');
   const [msg, setMsg] = useState('');
+  // Who the link is for, read (without using the link up) before the parent presses the button. 'gone': expired, used or unknown.
+  const [who, setWho] = useState<{ displayName: string; grade: number } | 'gone' | null>(null);
   const read = useRef(false);
 
   useEffect(() => {
@@ -18,8 +20,17 @@ export default function InviteLanding() {
     read.current = true;
     const t = window.location.hash.replace(/^#/, '');
     try { if (window.location.hash) window.history.replaceState(null, '', window.location.pathname); } catch { /* carry on */ }
-    setToken(isWellFormedToken(t) ? t : null);
-    void call<{ user: unknown }>('/api/auth/me').then((r) => { setSignedIn(r.ok && !!r.data.user); setState('ready'); });
+    const good = isWellFormedToken(t) ? t : null;
+    setToken(good);
+    void call<{ user: unknown }>('/api/auth/me').then(async (r) => {
+      const isIn = r.ok && !!r.data.user;
+      setSignedIn(isIn);
+      if (isIn && good) {
+        const p = await call<{ child?: { displayName: string; grade: number } }>('/api/parent/link-invite/preview', 'parent-link-invite-preview', { token: good });
+        setWho(p.ok && p.data.child ? p.data.child : 'gone');
+      }
+      setState('ready');
+    });
   }, []);
 
   const go = async () => {
@@ -42,9 +53,15 @@ export default function InviteLanding() {
             <a href="/sign-in" className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-indigo-600 px-4 text-base font-semibold text-white">Sign in</a>
           </>
         )}
-        {token && signedIn && (state === 'ready' || state === 'working' || state === 'failed') && (
+        {token && signedIn && who === 'gone' && state !== 'done' && (
+          <p className="mt-3 text-slate-700" role="alert">This link has expired or was already used. Ask your child for a new one.</p>
+        )}
+        {token && signedIn && who !== 'gone' && (state === 'ready' || state === 'working' || state === 'failed') && (
           <>
-            <p className="mt-3 text-slate-700">Press the button to link this learner to your account. You will then see their progress and can reset their PIN.</p>
+            {who ? (
+              <p className="mt-3 text-lg font-bold text-slate-900">{who.displayName} <span className="text-sm font-semibold text-slate-600">Grade {who.grade}</span></p>
+            ) : null}
+            <p className="mt-3 text-slate-700">{who ? `Press the button to link ${who.displayName} to your account.` : 'Press the button to link this learner to your account.'} You will then see their progress and can reset their PIN.</p>
             <label className="mt-4 flex items-start gap-3 text-sm text-slate-800">
               <input type="checkbox" className="mt-1 h-6 w-6 flex-none" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
               <span>I am this learner&apos;s parent or guardian, and I agree to the <a className="underline" href="/privacy">privacy notice</a>. (You can withdraw this at any time.)</span>

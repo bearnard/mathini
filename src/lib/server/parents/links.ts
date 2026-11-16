@@ -76,6 +76,21 @@ export async function linkByInvite(db: AdminDb, userId: string, input: { token: 
   return { ok: true, studentId: s.id, displayName: s.display_name };
 }
 
+/**
+ * Who is this invite for? A READ ONLY look at a valid, unused link so the parent sees the nickname and grade BEFORE pressing the button. It does not use the
+ * link. Unknown, used and expired links read the same (null). Only the nickname and grade leave: no code, PIN, name or school.
+ */
+export async function previewInvite(db: AdminDb, userId: string, token: unknown, now: number): Promise<{ ok: true; displayName: string; grade: number } | { ok: false; status: 400 | 429; error: string }> {
+  const gone = { ok: false as const, status: 400 as const, error: 'This link has expired or was already used. Ask your child for a new one.' };
+  if (!(await allowDurable(db, `plink-preview:user:${userId}`, PARENT_ATTEMPTS_PER_HOUR * 3, HOUR_MS, now))) return { ok: false, status: 429, error: TOO_MANY };
+  if (!isWellFormedToken(token)) return gone;
+  const row = (await db.all<{ display_name: string; grade: number }>(
+    'SELECT s.display_name AS display_name, s.grade AS grade FROM child_invites i JOIN students s ON s.id = i.student_id WHERE i.token_hash = ? AND i.used_at IS NULL AND i.expires_at > ?',
+    [await sha256Hex(token), now],
+  ))[0];
+  return row ? { ok: true, displayName: row.display_name, grade: Number(row.grade) } : gone;
+}
+
 export async function isLinked(db: AdminDb, userId: string, studentId: string): Promise<boolean> {
   return (await db.all('SELECT 1 FROM parent_links WHERE user_id = ? AND student_id = ? AND unlinked_at IS NULL', [userId, studentId])).length > 0;
 }

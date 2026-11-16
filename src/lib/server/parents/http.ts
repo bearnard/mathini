@@ -7,7 +7,7 @@ import { readCapped } from '../adultAuth/http';
 import { authJson, checkWriteRequest, requireRole } from '../adultAuth/roles';
 import { verifyLiveSession, SESSION_COOKIE_NAME } from '../session';
 import { setParentConsent } from './consent';
-import { createInvite, isLinked, linkByInvite, linkByPin, listChildren, unlink, withActivity } from './links';
+import { createInvite, isLinked, linkByInvite, linkByPin, listChildren, previewInvite, unlink, withActivity } from './links';
 import { resetChildPin } from './pinReset';
 import { loadChildProgress } from './progressSeam';
 
@@ -87,6 +87,20 @@ export async function handleLinkInvite(req: Request, deps: ParentDeps): Promise<
     return r.ok ? authJson({ ok: true, child: { id: r.studentId, displayName: r.displayName } }) : authJson({ error: r.error }, r.status);
   } catch (err) {
     return failed(deps, 'link by invite', err);
+  }
+}
+
+/** POST { token }. Who a link on the child's screen is for (nickname and grade only), without using it. */
+export async function handleInvitePreview(req: Request, deps: ParentDeps): Promise<Response> {
+  try {
+    const g = await parentWrite(req, deps, 'parent-link-invite-preview');
+    if (!g.ok) return g.response;
+    const b = await body(req);
+    if (b instanceof Response) return b;
+    const r = await previewInvite(deps.db, g.session.user.id, b.token, deps.now);
+    return r.ok ? authJson({ ok: true, child: { displayName: r.displayName, grade: r.grade } }) : authJson({ error: r.error }, r.status);
+  } catch (err) {
+    return failed(deps, 'preview invite', err);
   }
 }
 
