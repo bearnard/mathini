@@ -28,7 +28,7 @@ const Tri = ({ t, ox, oy, sideLabels }: { t: SpecialTriangle; ox: number; oy: nu
 };
 
 export const SpecialTriangles = () => (
-  <svg viewBox="0 0 150 80" role="img" aria-labelledby="st-t st-d" className="mx-auto block w-full max-w-md rounded-2xl" style={{ background: INK, fontFamily: 'inherit' }}>
+  <svg viewBox="0 0 150 80" role="img" aria-label="The 30-60-90 and 45-45-90 right triangles with the sides that give sin 30°, cos 60° and tan 45°" aria-labelledby="st-t st-d" className="mx-auto block w-full max-w-md rounded-2xl" style={{ background: INK, fontFamily: 'inherit' }}>
     <title id="st-t">The 30-60-90 and 45-45-90 right triangles with the sides that give sin 30°, cos 60° and tan 45°</title>
     <desc id="st-d">
       Half of an equilateral triangle with side 2: the side opposite 30° is 1 and the hypotenuse is 2, so sin 30° = 1/2, and cos 60° = 1/2 as well. Half of a square with side 1: both short sides are 1, so tan 45° = 1/1 = 1.
