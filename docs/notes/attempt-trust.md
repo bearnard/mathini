@@ -18,8 +18,8 @@ Everything else is not stored and earns nothing (`/api/attempts` answers 200 `{ 
 ## Decisions
 - **Self-marked written answers (explain items, exam practice) are not recorded on the server.** Only the learner can judge them against the memo, so they
   can never produce XP, mastery, a run score or a leaderboard place. They still work on screen (the learner marks them and sees their marks). A run's size
-  (`nItems`) is the number of auto-marked questions, so the stored score is the auto-marked score. (The result screen shows marks including written
-  answers: that is a separate display, reconciled in `fix/learner-results-consistency`.)
+  (`nItems`) is the number of auto-marked questions, so the stored score is the auto-marked score. The result screens now use that ONE definition: the headline score is the auto-marked questions (the number /progress shows), and written answers are reported
+  on the side as "marked by you, not counted in your progress" (`splitScore` in mockTest.ts).
 - **Generated exercises** (Grade 5: Rounding, Comparing, Place value, Mass problems, Reading scales, Conversions) use SIGNED CHALLENGES
   (`exerciseChallenge.ts`): `POST /api/exercise {kind}` returns ten seeds signed with the server secret for that learner, exercise and time; the browser builds the
   problem from the seed with the same pure generator the server has (`src/lib/shared/g5Exercises.ts`) and sends `{exercise, answer}`; the server checks the

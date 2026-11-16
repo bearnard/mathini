@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { triggerConfetti } from '../../../../lib/confetti';
 import Card from '../../../../components/ui/Card';
 import Button from '../../../../components/ui/Button';
+import PracticeSummary from '../../../../components/practice/PracticeSummary';
+import { usePracticeTally } from '../../../../lib/client/usePracticeTally';
 import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
 import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
 import { NstItem, LearnStep } from './types';
+import { kindOf } from './itemKinds';
 import { useNstItems } from './useNstItems';
 import NstQuestionBody, { incorrectMessageFor } from './NstQuestionBody';
 import { track } from '../../../../lib/client/analytics';
@@ -30,13 +33,13 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
   const [mode, setMode] = useState<'learn' | 'practice'>('learn');
   const [learnStep, setLearnStep] = useState(0);
 
-  const { current, loading, next, done, reset, index, total } = useNstItems(task, bank);
+  const { current, loading, next, done, reset, index, total, autoTotal } = useNstItems(task, bank);
   const [selected, setSelected] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [streak, setStreak] = useState(0);
   usePracticeTracking({ active: mode === 'practice', done, isCorrect, ctx: { grade: 6, subject: 'nst', topic: task } });
   // Signed-in learners' answers are recorded (XP, badges, leaderboards). Subject code matches the leaderboard filter.
-  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'nst', { grade: 6, total, done, label: title });
+  const { recordAttempt, resetStreak, pendingBadges, clearBadges } = useAttemptRecorder(task, 'nst', { grade: 6, total: autoTotal, done, label: title });
 
   // One result per question for every item kind. Correct = fully right (the whole sequence, every label).
   const handleResult = (correct: boolean, chosen?: string) => {
@@ -44,7 +47,11 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
       return;
     }
     if (chosen !== undefined) setSelected(chosen);
-    recordAttempt(correct, current.section, current.id, current.prompt, chosen);
+    // A written answer the learner marks themselves is not recorded (the server cannot check it) and is not part of the score.
+    if (kindOf(current) !== 'explain') {
+      recordAttempt(correct, current.section, current.id, current.prompt, chosen);
+      tally.note(correct, current);
+    }
     if (correct) {
       setIsCorrect(true);
       setStreak((s) => s + 1);
@@ -55,6 +62,8 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
     }
   };
 
+  const tally = usePracticeTally();
+
   const handleNext = () => {
     setSelected(null);
     setIsCorrect(null);
@@ -62,6 +71,7 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
   };
 
   const handleReset = () => {
+    tally.reset();
     setSelected(null);
     setIsCorrect(null);
     setStreak(0);
@@ -125,20 +135,7 @@ const NstTopic = ({ title, subtitle, learnSteps, task, bank }: NstTopicProps) =>
       ) : (
         <>
           {done ? (
-            <Card className="p-8 text-center space-y-6">
-              <div className="text-5xl">🎉</div>
-              <h2 className="text-2xl font-bold text-slate-800">Well done!</h2>
-              <p className="text-slate-600">You completed all {total} questions.</p>
-              <div className="flex justify-center">
-                <Streak count={streak} />
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-                <Button variant="secondary" onClick={() => setMode('learn')}>
-                  Back to Learn
-                </Button>
-                <Button onClick={handleReset}>Practice Again</Button>
-              </div>
-            </Card>
+            <PracticeSummary total={autoTotal} correct={tally.correct} missed={tally.missed} onBackToLearn={() => setMode('learn')} onAgain={handleReset} />
           ) : (
             <div className="space-y-8">
               <div className="flex items-center gap-4">

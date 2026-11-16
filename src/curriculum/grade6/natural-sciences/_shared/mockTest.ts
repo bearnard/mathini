@@ -160,6 +160,32 @@ export function scoreByTopic(items: readonly MockItem[], firstAttempt: readonly 
   return Array.from(map.values());
 }
 
+export interface ScoreSplit {
+  /** The auto-marked questions (multiple choice, order, label): the score the server stores and /progress shows. */
+  auto: { score: number; outOf: number };
+  /** Written answers the learner marks against a memo: shown separately, never part of the stored score (the server cannot check them). */
+  written: { score: number; outOf: number };
+  /** Per topic, auto-marked questions only. */
+  byTopic: TopicScore[];
+}
+
+/** One score definition for a test, so the result screen and /progress agree: the auto-marked questions (one mark each); written answers are reported on the side. */
+export function splitScore(items: readonly MockItem[], firstAttempt: readonly (boolean | number)[]): ScoreSplit {
+  const isWritten = (it: MockItem) => kindOf(it) === 'explain';
+  const auto: MockItem[] = [];
+  const autoMarks: (boolean | number)[] = [];
+  let written = { score: 0, outOf: 0 };
+  items.forEach((it, i) => {
+    if (isWritten(it)) written = { score: written.score + marksGained(it, firstAttempt[i]), outOf: written.outOf + marksOf(it) };
+    else { auto.push(it); autoMarks.push(firstAttempt[i]); }
+  });
+  return {
+    auto: { score: auto.reduce((n, it, i) => n + marksGained(it, autoMarks[i]), 0), outOf: totalMarks(auto) },
+    written,
+    byTopic: scoreByTopic(auto, autoMarks),
+  };
+}
+
 /** Marks gained by one question: a boolean means all or nothing; a number is the marks given (capped to the question's marks). */
 export function marksGained(item: NstItem, result: boolean | number | undefined): number {
   if (typeof result === 'number') return Math.max(0, Math.min(result, marksOf(item)));

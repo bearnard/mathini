@@ -54,6 +54,16 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
 
   useEffect(() => { void loadRetired(); }, []);
 
+  // "Start review" on the progress page opens /app?start=review: start today's review as soon as it is loaded (once). Nothing due: the learner just stays on the home screen.
+  const startReviewDone = useRef(false);
+  useEffect(() => {
+    if (startReviewDone.current || reviewQuestions === null || view !== 'home') return;
+    if (new URLSearchParams(window.location.search).get('start') !== 'review') return;
+    startReviewDone.current = true;
+    window.history.replaceState(null, '', '/app');
+    setView('review');
+  }, [reviewQuestions, view]);
+
   // A new learner who reloads before pressing "I've saved it" still gets to see the login code and PIN (kept in this tab until they confirm).
   const [pending, setPending] = useState<PendingCredentials | null>(null);
   useEffect(() => { if (status === 'active') setPending(readPending()); }, [status]);

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { triggerConfetti } from '../../../../lib/confetti';
 import Card from '../../../../components/ui/Card';
 import Button from '../../../../components/ui/Button';
+import PracticeSummary from '../../../../components/practice/PracticeSummary';
+import { usePracticeTally } from '../../../../lib/client/usePracticeTally';
 import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
 import { cn } from '../../../../lib/utils';
@@ -34,6 +36,7 @@ const HisTopic = ({ title, subtitle, learnSteps, task, bank }: HisTopicProps) =>
       return;
     }
     setSelected(option);
+    tally.note(option === current.answer, current);
     if (option === current.answer) {
       setIsCorrect(true);
       setStreak((s) => s + 1);
@@ -44,6 +47,8 @@ const HisTopic = ({ title, subtitle, learnSteps, task, bank }: HisTopicProps) =>
     }
   };
 
+  const tally = usePracticeTally();
+
   const handleNext = () => {
     setSelected(null);
     setIsCorrect(null);
@@ -51,6 +56,7 @@ const HisTopic = ({ title, subtitle, learnSteps, task, bank }: HisTopicProps) =>
   };
 
   const handleReset = () => {
+    tally.reset();
     setSelected(null);
     setIsCorrect(null);
     setStreak(0);
@@ -112,20 +118,7 @@ const HisTopic = ({ title, subtitle, learnSteps, task, bank }: HisTopicProps) =>
       ) : (
         <>
           {done ? (
-            <Card className="p-8 text-center space-y-6">
-              <div className="text-5xl">🎉</div>
-              <h2 className="text-2xl font-bold text-slate-800">Well done!</h2>
-              <p className="text-slate-600">You completed all {total} questions.</p>
-              <div className="flex justify-center">
-                <Streak count={streak} />
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-                <Button variant="secondary" onClick={() => setMode('learn')}>
-                  Back to Learn
-                </Button>
-                <Button onClick={handleReset}>Practice Again</Button>
-              </div>
-            </Card>
+            <PracticeSummary total={total} correct={tally.correct} missed={tally.missed} onBackToLearn={() => setMode('learn')} onAgain={handleReset} />
           ) : (
             <div className="space-y-8">
               <div className="flex items-center gap-4">
