@@ -27,7 +27,7 @@ async function getJson<T>(url: string): Promise<{ ok: true; data: T } | { ok: fa
   }
 }
 
-function Application({ a, schoolId, onDone }: { a: Overview['applications'][number]; schoolId: string; onDone: () => void }) {
+function Application({ a, schoolId, onDone }: { a: Overview['applications'][number]; schoolId: string; onDone: (decision: 'confirm' | 'decline' | null) => void }) {
   const [note, setNote] = useState('');
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
@@ -37,7 +37,8 @@ function Application({ a, schoolId, onDone }: { a: Overview['applications'][numb
     try {
       const res = await fetch(`/api/school/applications/${a.userId}/decide?school=${encodeURIComponent(schoolId)}`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Auth-Action': 'school-decide' }, body: JSON.stringify({ decision, note }) });
       const j = (await res.json().catch(() => ({}))) as { error?: string };
-      if (res.ok) onDone(); else setErr(j.error ?? 'That did not work.');
+      if (res.ok) onDone(decision);
+      else { setErr(j.error ?? 'That did not work.'); if (res.status === 409 || res.status === 404) onDone(null); } // already decided elsewhere: the list is out of date
     } catch { setErr('That did not work. Check your connection and try again.'); }
     setBusy(false);
   };
@@ -70,6 +71,13 @@ export default function SchoolArea() {
     });
   };
   useEffect(() => load(''), []);
+  // The teacher leaves the waiting list AT ONCE (a second click would only meet a 409), then the school's numbers are read again.
+  const [done, setDone] = useState('');
+  const decided = (a: Overview['applications'][number], d: 'confirm' | 'decline' | null) => {
+    setData((cur) => (cur && typeof cur === 'object' ? { ...cur, applications: cur.applications.filter((x) => x.userId !== a.userId) } : cur));
+    if (d) setDone(d === 'confirm' ? `${a.email} now has a teacher account.` : `${a.email} was declined.`);
+    load(school);
+  };
 
   const p = data && typeof data === 'object' ? data.progress : null;
   return (
@@ -93,8 +101,9 @@ export default function SchoolArea() {
 
           <section className="mt-5" aria-label="Teachers waiting">
             <h2 className="text-lg font-bold text-slate-900">Teachers waiting for you{data.applications.length ? ` (${data.applications.length})` : ''}</h2>
+            {done && <p className="mt-1 rounded-xl bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-900" role="status">{done}</p>}
             {data.applications.length === 0 ? <p className="mt-1 text-slate-600">No one is waiting. Teachers who name your school on their application will appear here.</p> : (
-              <ul className="mt-2 space-y-3">{data.applications.map((a) => <Application key={a.userId} a={a} schoolId={data.schoolId} onDone={() => load(data.schoolId)} />)}</ul>
+              <ul className="mt-2 space-y-3">{data.applications.map((a) => <Application key={a.userId} a={a} schoolId={data.schoolId} onDone={(d) => decided(a, d)} />)}</ul>
             )}
           </section>
 

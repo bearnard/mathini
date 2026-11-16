@@ -3,7 +3,7 @@
 // heatmap, practice test scores, who needs a nudge, improvement since a date, the learners table). It is built on the dashboard kit. The rules
 // of the old panel all stand: learners appear by NICKNAME only, no learner is ranked or shamed, every number comes from the server (classDashboard.ts
 // only counts its lists), decimal comma, at most 6 labels per chart. `extras` is where the teacher area puts its own cards (code, roster, exams).
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import DataChart from '../subjects/DataChart';
 import { DashboardGrid, EmptyState, GridItem, SectionCard, SkeletonCard, SkeletonTiles, SortableTable, StatTileRow, pctText, plural, signedText, type Column } from '../dashboard';
 import { LEVEL_COLOUR, LEVEL_HINT, LEVEL_TEXT } from '../progress/format';
@@ -14,6 +14,10 @@ const shortDate = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('
 const today = () => new Date().toISOString().slice(0, 10);
 /** The tint of a level, as an rgb triple, so a cell can fade with the share of the class at that level. */
 const TINT = { not_started: '100,116,139', learning: '245,158,11', getting_there: '14,165,233', mastered: '16,185,129' } as const;
+
+/** Sent (on window) after something changes what the class dashboard shows, for example an exam saved or removed. */
+export const CLASS_CHANGED = 'preppals:class-changed';
+export const announceClassChanged = (classId: string) => window.dispatchEvent(new CustomEvent(CLASS_CHANGED, { detail: { classId } }));
 
 export function useClassProgress(classId: string, endpoint?: string) {
   const [p, setP] = useState<ClassProgress | null | 'error'>(null);
@@ -30,6 +34,14 @@ export function useClassProgress(classId: string, endpoint?: string) {
       .catch(() => setP('error'));
   };
   useEffect(() => { setP(null); load(''); }, [classId]); // eslint-disable-line react-hooks/exhaustive-deps
+  // The exam tile (and the topics an exam picks) come from this one read, so a saved or removed exam asks for it again, keeping the chosen date.
+  const sinceNow = useRef(since);
+  sinceNow.current = since;
+  useEffect(() => {
+    const again = (e: Event) => { if ((e as CustomEvent<{ classId?: string }>).detail?.classId === classId) load(sinceNow.current); };
+    window.addEventListener(CLASS_CHANGED, again);
+    return () => window.removeEventListener(CLASS_CHANGED, again);
+  }, [classId]); // eslint-disable-line react-hooks/exhaustive-deps
   return { p, since, setSince, err, load };
 }
 
@@ -143,7 +155,9 @@ export function AttentionCard({ p }: { p: ClassProgress }) {
   const n = attentionCount(p);
   return (
     <SectionCard id="attention" title="Who could use a nudge" subtitle={n === 0 ? undefined : `${plural(n, 'learner')}. A friendly word usually helps.`}>
-      {n === 0 ? (
+      {p.memberCount === 0 ? (
+        <EmptyState title="No learners yet">Share the class code. Learners who need a nudge will show here once they have joined and started practising.</EmptyState>
+      ) : n === 0 ? (
         <EmptyState title="Everyone is on track">All review cards are up to date and everyone practised this week. Well done, class!</EmptyState>
       ) : (
         <div className="space-y-5">

@@ -286,3 +286,15 @@ test('owner finishers: the question detail shows the verified mark for the curre
   assert.deepEqual(after.ok && after.comments.map((x) => [x.body, x.removed]), [['', true]]);
   assert.equal((await removeComment(w.db, { owner: 'owner@example.org' }, c.id, 900) as { status: number }).status, 404, 'already removed');
 });
+
+test('a change to the EXPLANATION alone can be proposed; an identical resubmission still is "Nothing has changed"', async (t0) => {
+  const w = await world(); if (!w) return t0.skip('node:sqlite unavailable');
+  const teacher = w.user(41, ['teacher']);
+  const cur = w.t.raw.prepare('SELECT v.prompt, v.options, v.answer, v.explanation FROM questions q JOIN question_versions v ON v.id = q.current_version_id WHERE q.id = ?').get(qid()) as { prompt: string; options: string; answer: string; explanation: string };
+  const same = { prompt: cur.prompt, options: JSON.parse(cur.options) as string[], answer: cur.answer, explanation: cur.explanation };
+  const none = await submitProposal(w.db, teacher, edit(w.v(), { content: same }), 1000);
+  assert.equal(none.ok, false);
+  assert.match(String((none as { error?: string }).error), /Nothing has changed/);
+  const better = await submitProposal(w.db, teacher, edit(w.v(), { content: { ...same, explanation: `${same.explanation} Aloe vera gel is still used on sunburn today.` } }), 1000);
+  assert.equal(better.ok, true, JSON.stringify(better));
+});
