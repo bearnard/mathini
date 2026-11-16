@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { verifyPin } from '../../../lib/server/identity';
 import { d1Adapter } from '../../../lib/server/admin/db';
-import { burnPinCheck, LOGIN_FAILED, loginBlocked, noteLoginFailure } from '../../../lib/server/learnerGuards';
+import { burnPinCheck, LOGIN_FAILED, loginLockedMessage, loginLockedMinutes, noteLoginFailure } from '../../../lib/server/learnerGuards';
 import { currentSessionVersion, signSessionV, verifyLiveSession, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from '../../../lib/server/session';
 import { routeLimited } from '../../../lib/server/edgeLimitRoute';
 
@@ -31,7 +31,8 @@ export async function POST(req: NextRequest) {
     const limit = rateLimitStore.get(limitKey);
     const now = Date.now();
     if (limit && limit.count >= ATTEMPT_LIMIT && now < limit.resetAt) {
-      return NextResponse.json({ error: 'Too many attempts. Try again later.' }, { status: 429 });
+      const minutes = Math.max(1, Math.ceil((limit.resetAt - now) / 60_000));
+      return NextResponse.json({ error: loginLockedMessage(minutes), locked: true, retryAfterMinutes: minutes }, { status: 429, headers: { 'Retry-After': String(minutes * 60) } });
     }
 
     const { env } = getCloudflareContext();
@@ -40,9 +41,11 @@ export async function POST(req: NextRequest) {
 
     // Security review: a durable per-code limit (the in-memory one above resets with every Worker isolate). A blocked code gets the same
     // answer, and costs the same time, as a wrong PIN, so it cannot be told apart from a code that does not exist.
-    if (await loginBlocked(guard, loginCode, now)) {
-      await burnPinCheck(pin);
-      return NextResponse.json({ error: LOGIN_FAILED }, { status: 401 });
+    // A locked code says so, with how long to wait (before, a locked code looked exactly like a wrong PIN, so a child with the RIGHT PIN kept retrying). This
+    // reveals nothing: every code that gets 10 failures an hour is locked the same way, whether or not it exists (the unknown-code path below counts failures too).
+    const lockedMinutes = await loginLockedMinutes(guard, loginCode, now);
+    if (lockedMinutes > 0) {
+      return NextResponse.json({ error: loginLockedMessage(lockedMinutes), locked: true, retryAfterMinutes: lockedMinutes }, { status: 429, headers: { 'Retry-After': String(lockedMinutes * 60) } });
     }
 
     const student = await db

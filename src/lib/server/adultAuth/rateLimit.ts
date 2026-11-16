@@ -43,6 +43,13 @@ export async function isBlockedDurable(db: AdminDb, key: string, limit: number, 
   return !!row && now - Number(row.window_start) < windowMs && Number(row.count) >= limit;
 }
 
+/** How long `key` stays blocked, in ms (0 when it is not blocked). A READ only. */
+export async function blockedForMs(db: AdminDb, key: string, limit: number, windowMs: number, now: number): Promise<number> {
+  const row = (await db.all<{ window_start: number; count: number }>('SELECT window_start, count FROM auth_rate WHERE key = ?', [key]))[0];
+  if (!row || Number(row.count) < limit) return 0;
+  return Math.max(0, Number(row.window_start) + windowMs - now);
+}
+
 /** Counts one event (for example a wrong PIN) against `key`, starting a new window when the old one has ended. */
 export async function bumpDurable(db: AdminDb, key: string, windowMs: number, now: number): Promise<void> {
   const row = (await db.all<{ window_start: number }>('SELECT window_start FROM auth_rate WHERE key = ?', [key]))[0];
