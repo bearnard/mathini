@@ -557,6 +557,8 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr12-writing-presenting-t3": ["xho", 12],
   "gr12-writing-presenting-t4": ["xho", 12],
   "gr12-writing-recall-proofreading-t4": ["eng", 12],
+  "gr6-add-subtract-5digit-t1": ["grade6", 6],
+  "gr6-add-subtract-6digit-t3": ["grade6", 6],
   "gr6-area-perimeter-t3": ["grade6", 6],
   "gr6-capacity-t4": ["grade6", 6],
   "gr6-common-fractions-t2": ["grade6", 6],

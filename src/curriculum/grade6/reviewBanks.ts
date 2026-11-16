@@ -34,6 +34,8 @@ export const GRADE6_BANKS: Record<string, () => Promise<ReviewBankItem[]>> = {
   'frontier-conflicts': () => import('./history/term2/frontier-conflicts/FrontierConflicts').then((m) => m.bank),
   'frontier-peoples': () => import('./history/term2/frontier-peoples/FrontierPeoples').then((m) => m.bank),
   'gemengde-hersiening': () => import('./afrikaans/term4/gemengde-hersiening/GemengdeHersiening').then((m) => m.bank),
+  'gr6-add-subtract-5digit-t1': () => import('./term1/whole-numbers/AddSubtract5Digit').then((m) => m.bank),
+  'gr6-add-subtract-6digit-t3': () => import('./term3/whole-numbers/AddSubtract6Digit').then((m) => m.bank),
   'gr6-area-perimeter-t3': () => import('./term3/area-perimeter/AreaPerimeter').then((m) => m.bank),
   'gr6-capacity-t4': () => import('./term4/capacity/Capacity').then((m) => m.bank),
   'gr6-common-fractions-t2': () => import('./term2/common-fractions/CommonFractions').then((m) => m.bank),

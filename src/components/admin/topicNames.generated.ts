@@ -2259,6 +2259,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Gemengde Hersiening",
   "Afrikaans (FAL)"
  ],
+ "6|gr6-add-subtract-5digit-t1": [
+  "Adding and Subtracting 5-digit Numbers",
+  "Mathematics"
+ ],
+ "6|gr6-add-subtract-6digit-t3": [
+  "Adding and Subtracting 6-digit Numbers",
+  "Mathematics"
+ ],
  "6|gr6-area-perimeter-t3": [
   "Area & Perimeter",
   "Mathematics"
