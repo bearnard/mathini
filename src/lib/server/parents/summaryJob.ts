@@ -16,9 +16,10 @@ import { buildSummary, childWeekFrom, isSendDay, makeUnsubscribeToken, weekKey, 
 export const SUMMARY_WEEKDAYS_SAST = [0, 1, 2] as const;
 export const isSummaryDay = (epochMs: number): boolean =>
   (SUMMARY_WEEKDAYS_SAST as readonly number[]).includes(new Date(epochMs + 2 * 3600_000).getUTCDay());
-export const MAX_PARENTS_PER_RUN = 12;
+export const MAX_PARENTS_PER_RUN = 100; // a paid-plan run; the free plan needed 12
 export const MAX_ATTEMPTS = 3;
-export const DEFAULT_MAX_OPS = 44; // of the 50 subrequests a free-plan invocation allows, leaving a few for housekeeping
+/** Workers Paid allows 10 000 subrequests per invocation. 800 leaves a wide margin (about 20 parents at 40 calls each, real progress costs far more than the 13 of a quiet child); whoever is not reached is picked up by the next run, because a claim is only taken when a parent is reached. The old free-plan value was 44 (of 50). */
+export const DEFAULT_MAX_OPS = 800;
 const MAX_CHILDREN_PER_EMAIL = 6;
 
 export class BudgetExceeded extends Error {
@@ -183,7 +184,7 @@ export async function runWeeklySummary(deps: SummaryDeps): Promise<SummaryResult
 export interface SummaryEnv extends MailEnv {
   DB: unknown;
   SESSION_SECRET?: string;
-  /** Optional: a higher budget on a paid plan (default 44). */
+  /** Optional: override the per-run budget of database and mail calls (default 800 on the paid plan; use 44 on the free plan). */
   SUMMARY_MAX_OPS?: string;
 }
 
