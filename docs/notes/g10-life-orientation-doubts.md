@@ -40,3 +40,21 @@ Status key: OK = taken straight from CAPS, CHECK = a teacher or the owner should
 - OK: the four fitness parts and safety in fitness exercises are the CAPS list.
 - CHECK: the World Health Organization advice quoted is "an average of at least 60 minutes a day of moderate to vigorous physical activity" for children and teenagers aged 5 to 17 (WHO guidelines on physical activity and sedentary behaviour, 2020).
 - CHECK: the warm-up, main activity and cool-down times (10, 30, 10 minutes) are an example, not a prescription.
+
+## Term 2
+
+### Study skills and study methods
+- OK: the lists of study skills, study methods, critical, creative and problem-solving skills, the process of assessment (internal and external) and the annual study plan are the CAPS Term 2 list.
+- OK: "Life Orientation is the only subject that is not externally assessed", the five internal tasks per grade, and the Grade 10 and 11 marks per term (task out of 80 plus PET out of 20, four terms, 400 in all, each term 25% of the year) are from CAPS section 4 (Programme of assessment, recording and reporting table). The worked year mark (60 + 15, 56 + 14, 64 + 16, 60 + 15 = 300 out of 400 = 75%) is invented; its numbers come from `gr10Helpers.ts` and are tested.
+- CHECK: the 25-minute study block with a 5-minute break is the usual "Pomodoro" idea, offered as one example, not a CAPS requirement.
+- CHECK: "external assessment is set and marked outside the school" is a short school definition; the Grade 12 NSC examinations are the usual example.
+
+### Social and environmental responsibility
+- OK: the list of social issues, the harmful effects on health, the civic skills, youth service and the group project follow the CAPS Term 2 text.
+- CHECK: the two definitions (social justice and environmental justice) are simplified school definitions, not quotations.
+- CHECK: the links between an issue and a health harm (unsafe water and water-borne disease, hunger and malnutrition, violence and trauma) are general public-health facts and should be read by a teacher.
+
+### Physical Education: games and safety
+- CHECK: jukskei, diketo and morabaraba are named as examples of indigenous South African games. The lesson says only that jukskei involves throwing a pin at a target. A teacher should confirm that these are good examples for the learners' region and that nothing about the rules is wrong.
+- OK: the safety checks, warm-up, water and sun protection are general and uncontroversial.
+- OK: the catch record (4, 5, 7, 8 out of 10) is an invented example.

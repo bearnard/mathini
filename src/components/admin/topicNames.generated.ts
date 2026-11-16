@@ -227,6 +227,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Physical Education: Fitness and Safety",
   "Life Orientation"
  ],
+ "10|gr10-physical-education-t2": [
+  "Physical Education: Games and Safety",
+  "Life Orientation"
+ ],
  "10|gr10-plant-tissues-organs-t2": [
   "Plant Tissues and Organs",
   "Life Sciences"
@@ -267,6 +271,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Self-awareness, Self-esteem and Self-development",
   "Life Orientation"
  ],
+ "10|gr10-social-environmental-responsibility-t2": [
+  "Social and Environmental Responsibility",
+  "Life Orientation"
+ ],
  "10|gr10-social-implications-cyber-safety-t4": [
   "Social Implications and Cyber Safety",
   "Information Technology"
@@ -282,6 +290,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-spreadsheets-information-management-pat-completion": [
   "Spreadsheets, Information Management and PAT Completion",
   "Computer Applications Technology"
+ ],
+ "10|gr10-study-skills-methods-t2": [
+  "Study Skills and Study Methods",
+  "Life Orientation"
  ],
  "10|gr10-subjects-career-fields-t1": [
   "Subjects, Career Fields and Study Choices",
