@@ -57,7 +57,7 @@ export const learnSteps: LearnStep[] = [
           x={[0, 5]}
           y={[0, 25]}
           yEvery={5}
-          curves={[{ f: (n: number) => rule.m * n + rule.c, label: h.ruleStr(rule), labelAt: 3.2 }]}
+          curves={[{ f: (n: number) => rule.m * n + rule.c, label: h.ruleStr(rule), labelAt: 4.4, labelDy: 15, labelAnchor: 'end' }]}
           points={[1, 2, 3, 4].map((n) => ({ x: n, y: h.linearTerm(6, 5, n), label: String(h.linearTerm(6, 5, n)), anchor: 'end' as const, dy: -4 }))}
           aria={`The points for the terms ${seq1.slice(0, 4).join(', ')} lie on a straight line, the graph of ${h.ruleStr(rule)}.`}
         />
@@ -86,7 +86,7 @@ export const learnSteps: LearnStep[] = [
           y={[0, 120]}
           tickEvery={4}
           yEvery={20}
-          curves={[{ f: (n: number) => rule.m * n + rule.c, label: h.ruleStr(rule), labelAt: 8 }]}
+          curves={[{ f: (n: number) => rule.m * n + rule.c, label: h.ruleStr(rule), labelAt: 14, labelDy: 14 }]}
           points={[{ x: nOf, y: target, label: `T${'₂₀'} = ${target}`, anchor: 'end' }]}
           aria={`The graph of ${h.ruleStr(rule)}. The point (${nOf}; ${target}) shows that the term number ${nOf} has the value ${target}.`}
         />

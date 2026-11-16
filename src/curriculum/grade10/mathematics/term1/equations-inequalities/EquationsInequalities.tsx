@@ -67,7 +67,7 @@ export const learnSteps: LearnStep[] = [
           x={[0, 6]}
           y={[-2, 12]}
           yEvery={2}
-          curves={[{ f: (x: number) => x * x - 7 * x + 12, label: 'y = x² − 7x + 12', labelAt: 5.4 }]}
+          curves={[{ f: (x: number) => x * x - 7 * x + 12, label: 'y = x² − 7x + 12', labelAt: 6, labelDy: -14, labelAnchor: 'end' }]}
           points={q1roots.map((r) => ({ x: r, y: 0, label: `x = ${r}`, dy: -4 }))}
           aria={`The parabola y = x squared minus 7x plus 12 crosses the x-axis at x = ${q1roots[0]} and x = ${q1roots[1]}. These are the solutions of the equation.`}
         />
@@ -92,10 +92,10 @@ export const learnSteps: LearnStep[] = [
         <Rule>Two equations, two unknowns. Eliminate one letter by adding or subtracting, or substitute one equation into the other. Then find the second letter and check in both equations.</Rule>
         <MiniGraph
           x={[0, 10]}
-          y={[-4, 10]}
+          y={[-4, 12]}
           tickEvery={2}
-          curves={[{ f: (x: number) => 10 - x, label: 'x + y = 10', labelAt: 1.5 }, { f: (x: number) => x - 4, label: 'x − y = 4', labelAt: 9 }]}
-          points={[{ x: s1.x[0], y: s1.y[0], label: `(${s1.x[0]}; ${s1.y[0]})`, anchor: 'start', dy: -4 }]}
+          curves={[{ f: (x: number) => 10 - x, label: 'x + y = 10', labelAt: 0.4, labelAnchor: 'start', labelDy: -6 }, { f: (x: number) => x - 4, label: 'x − y = 4', labelAt: 9.6, labelAnchor: 'end', labelDy: -8 }]}
+          points={[{ x: s1.x[0], y: s1.y[0], label: `(${s1.x[0]}; ${s1.y[0]})`, dy: -9 }]}
           aria={`The lines x + y = 10 and x − y = 4 cross at the point (${s1.x[0]}; ${s1.y[0]}), which is the solution of both equations.`}
         />
         <Worked

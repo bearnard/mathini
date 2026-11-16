@@ -9,7 +9,7 @@ import * as h from '../../../../../components/diagrams/maths/grade10Helpers';
 const pw = (b: number | string, e: number | string) => (
   <>
     {b}
-    <sup className="text-[0.75em] font-bold">{e}</sup>
+    <sup className="text-[0.75em] font-bold">{typeof e === 'number' ? h.int(e) : e}</sup>
   </>
 );
 
@@ -108,10 +108,10 @@ export const learnSteps: LearnStep[] = [
       <>
         <Rule>Write both sides as powers of the same base. If the bases are equal, the exponents are equal.</Rule>
         <MiniGraph
-          x={[0, 5]}
-          y={[0, 90]}
+          x={[0, 4.2]}
+          y={[0, 120]}
           yEvery={30}
-          curves={[{ f: (x: number) => 3 ** x, label: 'y = 3ˣ', labelAt: 3 }]}
+          curves={[{ f: (x: number) => 3 ** x, label: 'y = 3ˣ', labelAt: 1.4, labelDy: -8 }]}
           points={[{ x: e1, y: 3 ** e1, label: `(${e1}; ${3 ** e1})`, anchor: 'end' }]}
           aria={`The graph of y = 3 to the power x. It passes through the point (${e1}; ${3 ** e1}), so 3 to the power x equals ${3 ** e1} when x is ${e1}.`}
         />
