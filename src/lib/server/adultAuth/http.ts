@@ -32,7 +32,7 @@ export interface AuthDeps {
 
 export function depsFromEnv(): AuthDeps {
   const { env } = getCloudflareContext();
-  return { db: d1Adapter(env.DB as never), mailer: mailerFromEnv(env as unknown as MailEnv, isDevelopment()), now: Date.now(), siteUrl: SITE_URL, ipBurst, emailBurst, verifyBurst };
+  return { db: d1Adapter(env.DB as never, getCloudflareContext().ctx), mailer: mailerFromEnv(env as unknown as MailEnv, isDevelopment()), now: Date.now(), siteUrl: SITE_URL, ipBurst, emailBurst, verifyBurst };
 }
 
 /** The client's address as Cloudflare reports it (behind Cloudflare it cannot be spoofed). */

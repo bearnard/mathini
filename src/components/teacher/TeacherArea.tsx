@@ -1,7 +1,7 @@
 'use client';
 // ADR 0003 phase 3: the teacher's area. Make a class, share its code, see who joined, remove a learner, make a new code, archive.
 // Learners appear by nickname only. Every action is checked again on the server by role; hiding a button is not a permission.
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ClassDashboard, { OpenLearnerLink } from './ClassDashboard';
 import ClassList, { ClassTiles, normaliseClasses } from './ClassList';
 import LearnerView from './LearnerView';
@@ -38,7 +38,7 @@ interface Topic { task: string; label: string }
 const longDate = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en-ZA', { timeZone: 'UTC', day: 'numeric', month: 'long', year: 'numeric' });
 
 /** The class's exams (ADR 0003 section 6): what an exam covers and when, so learners get matching practice and a countdown. */
-function Exams({ classId, grade, active }: { classId: string; grade: number; active: boolean }) {
+function Exams({ classId, grade, active }: { classId: string; grade: number | null; active: boolean }) {
   const [scopes, setScopes] = useState<Scope[] | null>(null);
   const [open, setOpen] = useState(false);
   const [subjects, setSubjects] = useState<Subject[]>([]);
@@ -141,8 +141,17 @@ function ClassView({ id, onBack, onChanged, onNewClass, onOpenLearner }: { id: s
   };
   useEffect(load, [id]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (c === null) return <SkeletonCard lines={5} label="Loading the class" />;
+  // The class, its progress and its exams are asked for AT THE SAME TIME (each one waiting for the one before cost a full round trip). The dashboard
+  // mounts at once; the cards that need the class (header, code, roster) appear when it arrives.
   if (c === 'error') return <p className="text-red-700" role="alert">Could not load this class. <button className="underline" onClick={onBack}>Back</button></p>;
+  if (c === null) {
+    return (
+      <>
+        <PageHeader back={<button onClick={onBack} className="min-h-11 text-sm font-semibold text-indigo-700 underline">← All classes</button>} eyebrow="PrepPals teacher" title="Loading the class…" />
+        <ClassDashboard classId={id} onOpenLearner={onOpenLearner} extras={{ exams: <Exams classId={id} grade={null} active={false} /> }} />
+      </>
+    );
+  }
   const active = c.status === 'active';
 
   const act = async (url: string, action: string, confirm: string | null, done: string) => {
@@ -248,6 +257,7 @@ export default function TeacherArea() {
 
   // /teacher?class=<id> opens that class (so a class view can be linked to and reloaded); the address follows the screen.
   const [learner, setLearnerState] = useState<string | null>(null);
+  const [classKept, setClassKept] = useState(false); // true once the class page has been shown, so it can stay mounted behind a learner's page
   const setOpen = (id: string | null, learnerId: string | null = null) => {
     setOpenState(id);
     setLearnerState(id ? learnerId : null);
@@ -261,10 +271,15 @@ export default function TeacherArea() {
     if (id && /^[A-Za-z0-9_-]{1,64}$/.test(id)) { setOpenState(id); if (sid && /^[A-Za-z0-9-]{8,64}$/.test(sid)) setLearnerState(sid); }
     void api<Me>('/api/auth/me').then((r) => setMe(r.ok ? r.data : 'error'));
   }, []);
+  useEffect(() => { if (!open) setClassKept(false); else if (!learner) setClassKept(true); }, [open, learner]);
   const isTeacher = !!me && me !== 'error' && !!me.user && me.roles.includes('teacher');
   const loadNotices = () => { void api<Notices>('/api/teacher/notices').then((r) => { if (r.ok) setNotices(r.data); }); };
-  const loadClasses = () => { void api<{ classes: ClassSummary[] }>('/api/teacher/classes').then((r) => setClasses(r.ok ? r.data.classes : [])); loadNotices(); };
-  useEffect(() => { if (isTeacher) loadClasses(); }, [isTeacher]);
+  // The list and the notices are asked for together, and only while the list is what is on screen (a teacher who opens a class by its link never needs them
+  // first). Something that changed them (a joiner seen, a class made or archived) marks the list stale; it is read again the next time it is shown.
+  const listFresh = useRef(false);
+  const loadClasses = () => { listFresh.current = true; void api<{ classes: ClassSummary[] }>('/api/teacher/classes').then((r) => setClasses(r.ok ? r.data.classes : [])); loadNotices(); };
+  const markStale = () => { listFresh.current = false; };
+  useEffect(() => { if (isTeacher && !open && !listFresh.current) loadClasses(); }, [isTeacher, open]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (me === null) return <Narrow><p className="text-slate-600" role="status">Loading…</p></Narrow>;
   if (me === 'error') return <Narrow><p className="text-red-700" role="alert">Could not load your account. Try again.</p></Narrow>;
@@ -291,9 +306,9 @@ export default function TeacherArea() {
     return (
       <div className="min-h-screen bg-slate-50">
         <DashboardPage>
-          {learner
-            ? <LearnerView classId={open} studentId={learner} onBack={() => setOpen(open)} />
-            : <ClassView id={open} onBack={() => setOpen(null)} onChanged={loadClasses} onOpenLearner={(sid) => setOpen(open, sid)} onNewClass={() => { setOpen(null); setTimeout(() => document.getElementById('new-class')?.scrollIntoView({ behavior: 'smooth' }), 50); }} />}
+          {learner && <LearnerView classId={open} studentId={learner} onBack={() => setOpen(open)} />}
+          {/* the class stays mounted (hidden) while one learner is open, so Back is instant and nothing is fetched again */}
+          {(!learner || classKept) && <div hidden={!!learner}><ClassView id={open} onBack={() => setOpen(null)} onChanged={markStale} onOpenLearner={(sid) => setOpen(open, sid)} onNewClass={() => { setOpen(null); setTimeout(() => document.getElementById('new-class')?.scrollIntoView({ behavior: 'smooth' }), 50); }} /></div>}
         </DashboardPage>
       </div>
     );
@@ -320,7 +335,7 @@ export default function TeacherArea() {
         {classes !== null && (
           <>
             {cards.length > 0 && <div className="mb-4"><ClassTiles cards={cards} newLearners={notices.total} /></div>}
-            <ClassList cards={cards} notices={notices.classes} onOpen={setOpen} extra={<NewClass onCreated={(id) => { loadClasses(); setOpen(id); }} />} />
+            <ClassList cards={cards} notices={notices.classes} onOpen={setOpen} extra={<NewClass onCreated={(id) => { markStale(); setOpen(id); }} />} />
           </>
         )}
       </DashboardPage>

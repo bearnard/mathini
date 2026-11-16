@@ -12,7 +12,7 @@ import { archiveClass, createClass, getClass, joinClass, leaveClass, listClasses
 export const MAX_BODY_BYTES = 2048;
 
 export interface SchoolsDeps { db: AdminDb; now: number }
-export const depsFromEnv = (): SchoolsDeps => ({ db: d1Adapter(getCloudflareContext().env.DB as never), now: Date.now() });
+export const depsFromEnv = (): SchoolsDeps => ({ db: d1Adapter(getCloudflareContext().env.DB as never, getCloudflareContext().ctx), now: Date.now() });
 
 async function body(req: Request): Promise<Record<string, unknown> | null> {
   const text = await readCapped(req, MAX_BODY_BYTES);
@@ -63,7 +63,7 @@ const JOIN_WINDOW_MS = 10 * 60 * 1000;
 export interface ClassDeps extends SchoolsDeps { sessionSecret: string; ipBurst?: Limiter }
 export const classDepsFromEnv = (): ClassDeps => {
   const { env } = getCloudflareContext();
-  return { db: d1Adapter(env.DB as never), now: Date.now(), sessionSecret: String(env.SESSION_SECRET ?? ''), ipBurst: joinBurst };
+  return { db: d1Adapter(env.DB as never, getCloudflareContext().ctx), now: Date.now(), sessionSecret: String(env.SESSION_SECRET ?? ''), ipBurst: joinBurst };
 };
 
 const ID = /^[0-9a-f-]{36}$/i;
