@@ -2,7 +2,7 @@
 // ADR 0003 phase 3: the teacher's area. Make a class, share its code, see who joined, remove a learner, make a new code, archive.
 // Learners appear by nickname only. Every action is checked again on the server by role; hiding a button is not a permission.
 import { useEffect, useRef, useState } from 'react';
-import ClassDashboard, { OpenLearnerLink } from './ClassDashboard';
+import ClassDashboard, { OpenLearnerLink, announceClassChanged } from './ClassDashboard';
 import ClassList, { ClassTiles, normaliseClasses } from './ClassList';
 import LearnerView from './LearnerView';
 import { DashboardPage, EmptyState, PageHeader, SectionCard, SkeletonCard, StatTileRow, plural } from '../dashboard';
@@ -65,12 +65,12 @@ function Exams({ classId, grade, active }: { classId: string; grade: number | nu
     const r = await api<{ scope: Scope }>(`/api/teacher/classes/${classId}/scopes`, 'scope-create', { subject, title, tasks: chosen, examDate: date });
     setBusy(false);
     if (!r.ok) { setErr(r.error); return; }
-    setOpen(false); setTitle(''); setDate(''); setSubject(''); load();
+    setOpen(false); setTitle(''); setDate(''); setSubject(''); load(); announceClassChanged(classId);
   };
   const remove = async (sc: Scope) => {
     if (!window.confirm(`Remove “${sc.title}”? Learners stop seeing this countdown.`)) return;
     const r = await api<Record<string, unknown>>(`/api/teacher/classes/${classId}/scopes/${sc.id}/archive`, 'scope-archive');
-    if (r.ok) load(); else setErr(r.error);
+    if (r.ok) { load(); announceClassChanged(classId); } else setErr(r.error);
   };
   const today = new Date().toISOString().slice(0, 10);
 

@@ -66,8 +66,8 @@ async function evaluate(db: AdminDb, input: ProposalInput): Promise<Prepared | {
       .map((r) => r.prompt);
     findings = checkQuestion(input.content, { existingPrompts: others, decimalComma: decimalPolicyForTask(task) }).reasons;
     if (input.kind === 'edit') {
-      const cur = (await db.all<{ prompt: string; options: string; answer: string }>('SELECT v.prompt, v.options, v.answer FROM questions q JOIN question_versions v ON v.id = q.current_version_id WHERE q.id = ?', [questionId!]))[0];
-      if (cur && cur.prompt === input.content.prompt && cur.answer === input.content.answer && cur.options === JSON.stringify(input.content.options)) return { status: 400, error: 'Nothing has changed' };
+      const cur = (await db.all<{ prompt: string; options: string; answer: string; explanation: string | null }>('SELECT v.prompt, v.options, v.answer, v.explanation FROM questions q JOIN question_versions v ON v.id = q.current_version_id WHERE q.id = ?', [questionId!]))[0];
+      if (cur && cur.prompt === input.content.prompt && cur.answer === input.content.answer && cur.options === JSON.stringify(input.content.options) && (cur.explanation ?? '') === (input.content.explanation ?? '')) return { status: 400, error: 'Nothing has changed' };
     }
   }
   return { task, groupKey: topic.groupKey, questionId, findings, failing: findings.some((f) => f.severity === 'reject') };

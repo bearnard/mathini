@@ -5,14 +5,14 @@
 // tell which notice a learner agreed to. The server stores it with the consent.
 
 /** Version of the notice + tick-box text. Bump whenever either changes. */
-export const CONSENT_VERSION = 'privacy-2026-11-15-v5';
+export const CONSENT_VERSION = 'privacy-2026-11-16-v6';
 
 /** The required sign-up tick-box (and the one-time prompt for existing learners). */
 export const CONSENT_CHECKBOX_LABEL =
   'My parent or guardian agrees that PrepPals may record my activity and approximate town or city to improve the app.';
 
 export const PRIVACY_LINE =
-  "We count how PrepPals is used (pages, topics and practice) and your approximate city, to make the app better. We never store your IP address. Only the app's owner can see this.";
+  "We count how PrepPals is used (pages, topics and practice) and your approximate city, to make the app better. We never store your IP address. The app's owner sees how the app is used. Your parent or guardian (if they link your account) and your teacher (if you join their class with a code) can see your nickname and progress.";
 
 export interface PrivacySection {
   heading: string;
