@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { triggerConfetti } from '../../../../lib/confetti';
 import Card from '../../../../components/ui/Card';
 import Button from '../../../../components/ui/Button';
@@ -8,11 +8,20 @@ import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
 import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
 import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
+import { useExerciseChallenge, type IssuedChallenge } from '../../../../lib/client/useExerciseChallenge';
+import { useStudent } from '../../../../lib/client/StudentContext';
+import { seededRandom } from '../../../../lib/shared/seededRandom';
+import { roundingProblem } from '../../../../lib/shared/g5Exercises';
+
 import { ArrowRight, Target } from 'lucide-react';
 
 const Rounding = () => {
     const [mode, setMode] = useState<'learn' | 'practice'>('learn');
     const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-whole-numbers-t4', 'math');
+    // The problem comes from a signed seed the server issued (so the server can mark the answer); with no seed it is a local, uncounted one.
+    const { student } = useStudent();
+    const { ready, take } = useExerciseChallenge('rounding', !!student);
+    const challengeRef = useRef<IssuedChallenge | null>(null);
 
     // Practice State
     const [number, setNumber] = useState<number>(0);
@@ -25,25 +34,19 @@ const Rounding = () => {
     const [learnStep, setLearnStep] = useState(0);
 
     const generateProblem = () => {
-        const precisions = [5, 10, 100, 1000];
-        const precision = precisions[Math.floor(Math.random() * precisions.length)];
-        setRoundTo(precision);
-
-        let newNum = 0;
-        do {
-            const max = precision * 100;
-            const min = precision * 2;
-            newNum = Math.floor(Math.random() * (max - min)) + min;
-        } while (newNum % precision === 0);
-
-        setNumber(newNum);
+        const t = take();
+        challengeRef.current = t.challenge;
+        const p = roundingProblem(seededRandom(t.seed));
+        setRoundTo(p.roundTo);
+        setNumber(p.number);
         setUserAnswer("");
         setIsCorrect(null);
     };
 
     useEffect(() => {
-        generateProblem();
-    }, []);
+        if (ready) generateProblem();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ready]);
 
     const handleSubmit = (e?: React.FormEvent) => {
         if (e) e.preventDefault();
@@ -66,7 +69,7 @@ const Rounding = () => {
             setIsCorrect(false);
             setStreak(0);
         }
-        recordAttempt(val === correctVal, 'rounding');
+        recordAttempt(val === correctVal, 'rounding', undefined, undefined, undefined, challengeRef.current ? { challenge: challengeRef.current, answer: userAnswer } : undefined);
     };
 
     const formatNumber = (num: number) => {

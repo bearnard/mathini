@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { triggerConfetti } from '../../../../lib/confetti';
 import Card from '../../../../components/ui/Card';
 import Button from '../../../../components/ui/Button';
@@ -8,11 +8,20 @@ import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
 import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
 import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
+import { useExerciseChallenge, type IssuedChallenge } from '../../../../lib/client/useExerciseChallenge';
+import { useStudent } from '../../../../lib/client/StudentContext';
+import { seededRandom } from '../../../../lib/shared/seededRandom';
+import { placeValueProblem } from '../../../../lib/shared/g5Exercises';
+
 import { Hash } from 'lucide-react';
 
 const PlaceValue = () => {
     const [mode, setMode] = useState<'learn' | 'practice'>('learn');
     const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-whole-numbers-t4', 'math');
+    // The problem comes from a signed seed the server issued (so the server can mark the answer); with no seed it is a local, uncounted one.
+    const { student } = useStudent();
+    const { ready, take } = useExerciseChallenge('place-value', !!student);
+    const challengeRef = useRef<IssuedChallenge | null>(null);
 
     // Practice State
     const [number, setNumber] = useState<number>(0);
@@ -26,48 +35,20 @@ const PlaceValue = () => {
     const [learnStep, setLearnStep] = useState(0);
 
     const generateProblem = () => {
-        const newNum = Math.floor(Math.random() * 900000) + 100000;
-        setNumber(newNum);
-
-        const digitIdx = Math.floor(Math.random() * 6);
-        setTargetDigitIndex(digitIdx);
-
-        const digit = parseInt(newNum.toString().split('').reverse().join('')[digitIdx]);
-        const correctValue = digit * Math.pow(10, digitIdx);
-
-        const distractors = new Set<number>();
-        distractors.add(correctValue);
-
-        while (distractors.size < 4) {
-            const type = Math.random();
-            let val;
-
-            if (type < 0.33) {
-                const randomPower = Math.floor(Math.random() * 6);
-                val = digit * Math.pow(10, randomPower);
-            } else if (type < 0.66) {
-                const randomDigit = Math.floor(Math.random() * 9) + 1;
-                val = randomDigit * Math.pow(10, digitIdx);
-            } else {
-                val = digit;
-            }
-
-            if (val !== correctValue && val > 0) {
-                distractors.add(val);
-            }
-            if (distractors.size < 4 && Math.random() < 0.1) {
-                distractors.add(Math.floor(Math.random() * 10000));
-            }
-        }
-
-        setOptions(Array.from(distractors).sort((a, b) => a - b));
+        const t = take();
+        challengeRef.current = t.challenge;
+        const p = placeValueProblem(seededRandom(t.seed));
+        setNumber(p.number);
+        setTargetDigitIndex(p.targetDigitIndex);
+        setOptions(p.options);
         setSelectedOption(null);
         setIsCorrect(null);
     };
 
     useEffect(() => {
-        generateProblem();
-    }, []);
+        if (ready) generateProblem();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ready]);
 
     const handleCheck = (val: number) => {
         if (selectedOption !== null) return;
@@ -85,7 +66,7 @@ const PlaceValue = () => {
             setIsCorrect(false);
             setStreak(0);
         }
-        recordAttempt(val === correctValue, 'place-value');
+        recordAttempt(val === correctValue, 'place-value', undefined, undefined, undefined, challengeRef.current ? { challenge: challengeRef.current, answer: String(val) } : undefined);
     };
 
     const getPlaceName = (index: number) => {

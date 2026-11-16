@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { triggerConfetti } from '../../../../lib/confetti';
 import Card from '../../../../components/ui/Card';
 import Button from '../../../../components/ui/Button';
@@ -8,11 +8,20 @@ import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
 import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
 import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
+import { useExerciseChallenge, type IssuedChallenge } from '../../../../lib/client/useExerciseChallenge';
+import { useStudent } from '../../../../lib/client/StudentContext';
+import { seededRandom } from '../../../../lib/shared/seededRandom';
+import { comparingProblem } from '../../../../lib/shared/g5Exercises';
+
 import { Scale } from 'lucide-react';
 
 const Comparing = () => {
     const [mode, setMode] = useState<'learn' | 'practice'>('learn');
     const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-whole-numbers-t4', 'math');
+    // The problem comes from a signed seed the server issued (so the server can mark the answer); with no seed it is a local, uncounted one.
+    const { student } = useStudent();
+    const { ready, take } = useExerciseChallenge('comparing', !!student);
+    const challengeRef = useRef<IssuedChallenge | null>(null);
 
     // Practice State
     const [numA, setNumA] = useState<number>(0);
@@ -24,28 +33,18 @@ const Comparing = () => {
     const [learnStep, setLearnStep] = useState(0);
 
     const generateProblem = () => {
-        const base = Math.floor(Math.random() * 900000) + 100000;
-        const type = Math.random();
-        let a = base;
-        let b = base;
-
-        if (type < 0.4) {
-            b = a;
-        } else if (type < 0.7) {
-            const diff = Math.pow(10, Math.floor(Math.random() * 4));
-            b = Math.random() < 0.5 || a - diff < 100000 ? a + diff : a - diff;
-        } else {
-            b = Math.floor(Math.random() * 900000) + 100000;
-        }
-
-        setNumA(a);
-        setNumB(b);
+        const t = take();
+        challengeRef.current = t.challenge;
+        const p = comparingProblem(seededRandom(t.seed));
+        setNumA(p.numA);
+        setNumB(p.numB);
         setIsCorrect(null);
     };
 
     useEffect(() => {
-        generateProblem();
-    }, []);
+        if (ready) generateProblem();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ready]);
 
     const handleCheck = (operator: '<' | '>' | '=') => {
         if (isCorrect !== null) return;
@@ -63,7 +62,7 @@ const Comparing = () => {
             setIsCorrect(false);
             setStreak(0);
         }
-        recordAttempt(operator === correctOp, 'comparing');
+        recordAttempt(operator === correctOp, 'comparing', undefined, undefined, undefined, challengeRef.current ? { challenge: challengeRef.current, answer: operator } : undefined);
     };
 
     const formatNumber = (num: number) => {

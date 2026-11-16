@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { RotateCcw, Play, Pause, StepForward, CheckCircle2, Edit3, HelpCircle } from 'lucide-react';
 import TopicContainer from '../../../../components/layout/TopicContainer';
-import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
-import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
 
 
 import { generateDivisionSteps, type Step } from './longDivisionSteps';
@@ -27,8 +25,7 @@ interface Cell {
 
 const LongDivisionTutor = () => {
     const [mode, setMode] = useState<'learn' | 'practice'>('learn');
-    const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-long-division-t4', 'math');
-    const hadMistakeRef = useRef(false);
+    // A guided tool: the learner picks their own numbers, so nothing here can be marked by the server and nothing is recorded (no XP, no progress).
 
     const [dividend, setDividend] = useState(532);
     const [divisor, setDivisor] = useState(4);
@@ -68,7 +65,6 @@ const LongDivisionTutor = () => {
         setIsPlaying(false);
         setUserVal("");
         setIsError(false);
-        hadMistakeRef.current = false;
     };
 
     const handleInputSubmit = (e: React.FormEvent) => {
@@ -91,16 +87,12 @@ const LongDivisionTutor = () => {
         const correct = steps[currentStep].answer;
         if (userVal === correct) {
             setIsError(false);
-            if (steps[currentStep + 1]?.type === 'FINISH') {
-                recordAttempt(!hadMistakeRef.current);
-            }
             // Small delay for visual satisfaction
             setTimeout(() => {
                 setCurrentStep(prev => Math.min(steps.length - 1, prev + 1));
             }, 100);
         } else {
             setIsError(true);
-            hadMistakeRef.current = true;
         }
     };
 
@@ -510,7 +502,6 @@ const LongDivisionTutor = () => {
 
                 </div>
             </div>
-            <BadgeUnlockModal badges={pendingBadges} onDismiss={clearBadges} />
         </TopicContainer>
     );
 };

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { triggerConfetti } from '../../../../lib/confetti';
 import Card from '../../../../components/ui/Card';
 import Button from '../../../../components/ui/Button';
@@ -9,11 +9,20 @@ import { parseSaNumber, saNumber } from './massFormat';
 import TopicContainer from '../../../../components/layout/TopicContainer';
 import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
 import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
+import { useExerciseChallenge, type IssuedChallenge } from '../../../../lib/client/useExerciseChallenge';
+import { useStudent } from '../../../../lib/client/StudentContext';
+import { seededRandom } from '../../../../lib/shared/seededRandom';
+import { conversionProblem } from '../../../../lib/shared/g5Exercises';
+
 import { ArrowRight, Scale } from 'lucide-react';
 
 const Conversions = () => {
     const [mode, setMode] = useState<'learn' | 'practice'>('learn');
     const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-mass-t4', 'math');
+    // The problem comes from a signed seed the server issued (so the server can mark the answer); with no seed it is a local, uncounted one.
+    const { student } = useStudent();
+    const { ready, take } = useExerciseChallenge('conversions', !!student);
+    const challengeRef = useRef<IssuedChallenge | null>(null);
 
     // Practice State
     const [grams, setGrams] = useState<number>(0);
@@ -26,22 +35,19 @@ const Conversions = () => {
     const [learnStep, setLearnStep] = useState(0);
 
     const generateProblem = () => {
-        const dir = Math.random() > 0.5 ? 'g-to-kg' : 'kg-to-g';
-        setDirection(dir);
-
-        const bases = [100, 200, 250, 500];
-        const base = bases[Math.floor(Math.random() * bases.length)];
-        const multiplier = Math.floor(Math.random() * 50) + 1;
-        const g = base * multiplier;
-
-        setGrams(g);
+        const t = take();
+        challengeRef.current = t.challenge;
+        const p = conversionProblem(seededRandom(t.seed));
+        setDirection(p.direction);
+        setGrams(p.grams);
         setUserAnswer("");
         setIsCorrect(null);
     };
 
     useEffect(() => {
-        generateProblem();
-    }, []);
+        if (ready) generateProblem();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ready]);
 
     const handleSubmit = (e?: React.FormEvent) => {
         if (e) e.preventDefault();
@@ -64,7 +70,7 @@ const Conversions = () => {
             setIsCorrect(false);
             setStreak(0);
         }
-        recordAttempt(correct, 'conversions');
+        recordAttempt(correct, 'conversions', undefined, undefined, undefined, challengeRef.current ? { challenge: challengeRef.current, answer: userAnswer } : undefined);
     };
 
     const LearnContent = () => {

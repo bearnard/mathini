@@ -263,7 +263,8 @@ const LifeSkillsAssessment = () => {
         if (selectedOption === questions[currentQuestion].correctAnswer) {
             setScore(score + 1);
         }
-        recordAttempt(selectedOption === questions[currentQuestion].correctAnswer, getSection(questions[currentQuestion].id));
+        // The prompt and the tapped option go with the answer so the SERVER can find the question and mark it (it never believes the browser).
+        recordAttempt(selectedOption === questions[currentQuestion].correctAnswer, getSection(questions[currentQuestion].id), undefined, questions[currentQuestion].text, questions[currentQuestion].options[selectedOption]);
         setShowResult(true);
     };
 
@@ -524,3 +525,6 @@ const LifeSkillsAssessment = () => {
 };
 
 export default LifeSkillsAssessment;
+
+/** For the question seed (scripts/gen-g5-assessment-seed.ts): the questions, so the server can hold and mark them. */
+export const ASSESSMENT = { task: 'gr5-life-skills-final-t5', subject: 'lsk', questions, section: getSection };

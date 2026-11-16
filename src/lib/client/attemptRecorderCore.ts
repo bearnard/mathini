@@ -15,6 +15,9 @@ export interface AttemptBody {
   qkey?: string;
   /** Multiple-choice only: the option the learner tapped (item analysis). */
   chosen?: string;
+  /** A generated exercise: the signed challenge the server issued for it and the learner's answer, so the SERVER can rebuild the problem and mark it. */
+  exercise?: { kind: string; seed: number; issuedAt: number; sig: string };
+  answer?: string;
   /** The run (ADR 0005) this answer belongs to, when the server accepted the run's start. */
   runId?: string;
 }
@@ -37,7 +40,7 @@ export interface RecorderDeps {
 }
 
 export interface AttemptRecorder {
-  record(isCorrect: boolean, section?: string, itemId?: number, prompt?: string, chosen?: string): void;
+  record(isCorrect: boolean, section?: string, itemId?: number, prompt?: string, chosen?: string, exercise?: { challenge: NonNullable<AttemptBody['exercise']>; answer: string }): void;
   /** Start a fresh streak (e.g. "Practice again"). */
   resetStreak(): void;
   streak(): number;
@@ -48,7 +51,7 @@ export interface AttemptRecorder {
 export function createAttemptRecorder(task: string, subject: string, deps: RecorderDeps): AttemptRecorder {
   let streak = 0;
   return {
-    record(isCorrect, section, itemId, prompt, chosen) {
+    record(isCorrect, section, itemId, prompt, chosen, exercise) {
       try {
         // The streak counts for everyone; only signed-in learners are recorded.
         streak = isCorrect ? streak + 1 : 0;
@@ -60,7 +63,8 @@ export function createAttemptRecorder(task: string, subject: string, deps: Recor
         const body: AttemptBody = { task, subject, section: section || 'general', isCorrect, streak };
         if (typeof itemId === 'number' && Number.isInteger(itemId) && itemId > 0) body.itemId = itemId;
         if (typeof prompt === 'string' && prompt.trim()) body.qkey = makeQkey(task, prompt);
-        if (typeof chosen === 'string' && chosen) body.chosen = chosen.slice(0, 200);
+        if (typeof chosen === 'string' && chosen) body.chosen = chosen.slice(0, 600);
+        if (exercise) { body.exercise = exercise.challenge; body.answer = String(exercise.answer).slice(0, 40); }
         const run = deps.run;
         const posted = run ? run.tracker.runId().then((id) => deps.post(id ? { ...body, runId: id } : body)) : deps.post(body);
         run?.tracker.track(posted);

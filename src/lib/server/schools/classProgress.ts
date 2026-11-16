@@ -83,7 +83,7 @@ export async function buildClassProgress(db: AdminDb, owner: ClassOwner, classId
     due = await db.all(`SELECT student_id, due_day FROM review_items WHERE student_id IN (${JSON_LIST}) AND retired_at IS NULL AND due_day <= ? LIMIT 4000`, [idsJson, sastDay(now)]);
     lastAny = await db.all(`SELECT student_id, MAX(created_at) AS last FROM attempts WHERE student_id IN (${JSON_LIST}) AND marked_by IS NOT 'client' GROUP BY student_id`, [idsJson]);
     tests = await db.all(
-      `SELECT student_id, score_pct, finished_at, subject FROM runs WHERE student_id IN (${JSON_LIST}) AND status = 'finished' AND kind IN ('mock_test', 'exam_practice') AND score_pct IS NOT NULL ORDER BY finished_at DESC LIMIT 2000`,
+      `SELECT student_id, score_pct, finished_at, subject FROM runs WHERE student_id IN (${JSON_LIST}) AND status = 'finished' AND kind IN ('mock_test', 'exam_practice') AND score_pct IS NOT NULL AND n_answered > 0 ORDER BY finished_at DESC LIMIT 2000`,
       [idsJson],
     );
   }

@@ -175,3 +175,13 @@ test('REAL HISTORY IS SAFE: old answers with marked_by NULL (every real child\'s
     assert.notEqual(l.lastPractisedDay, null);
   }
 });
+
+test('a finished run with no answers (a forger finishing an empty run) is not a test: it is not in the learner\'s test history or the teacher\'s score spread', async (t0) => {
+  const t = await world(); if (!t) return t0.skip('node:sqlite unavailable');
+  await startMock(t, 's1', 70);
+  const fin = await finishRun(t.db, 's1', rid(70), NOW + 5000); // no answers were ever credited
+  assert.ok(fin.ok);
+  const p = await buildProgress(t.db, 's1', NOW + 6000);
+  assert.equal(p?.tests.length, 0, 'no test appears in /progress');
+  assert.equal(p?.exam?.latestMock ?? null, null, 'and it is not "the latest mock"');
+});

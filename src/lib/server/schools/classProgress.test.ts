@@ -83,7 +83,7 @@ test('a learner who left or was removed disappears from every part of the view',
   const a = await s.join('Zola'); const b = await s.join('Amy');
   await s.practise(a, nstTasks[0], '1111'); await s.practise(b, nstTasks[0], '0000');
   s.t.raw.prepare("INSERT INTO review_items (student_id, qkey, task, subject, section, box, due_day, streak_correct, created_at, updated_at) VALUES (?, 'bbbbbbbbbbbb', 't', 'nst', 'general', 1, ?, 0, 1, 1)").run(b, sastDay(NOW) - 9);
-  s.t.raw.prepare("INSERT INTO runs (id, student_id, kind, grade, subject, scope_key, status, started_at, finished_at, score_pct) VALUES (?, ?, 'mock_test', 6, 'nst', 'k', 'finished', 1, ?, 20)").run(newTestId(), b, NOW - D);
+  s.t.raw.prepare("INSERT INTO runs (id, student_id, kind, grade, subject, scope_key, status, started_at, finished_at, score_pct, n_answered) VALUES (?, ?, 'mock_test', 6, 'nst', 'k', 'finished', 1, ?, 20, 10)").run(newTestId(), b, NOW - D);
   let p = await ok(s);
   assert.deepEqual([p.memberCount, p.behindOnReviews.length, p.mockDistribution.scored], [2, 1, 1]);
   assert.ok((await removeMember(s.t.db, s.teacher, s.cls.id, b, NOW)).ok);
@@ -104,7 +104,7 @@ test('behind on reviews: only cards that waited 2+ days, longest first', async (
 test('practice tests: the latest score of each learner in the class subject, spread into buckets; others\' subjects and unscored learners do not count', async (ctx) => {
   const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
   const a = await s.join('Zola'); const b = await s.join('Amy'); await s.join('NoTest');
-  const run = (student: string, score: number, at: number, subject = 'nst', kind = 'mock_test') => s.t.raw.prepare("INSERT INTO runs (id, student_id, kind, grade, subject, scope_key, status, started_at, finished_at, score_pct) VALUES (?, ?, ?, 6, ?, 'k', 'finished', 1, ?, ?)").run(newTestId(), student, kind, subject, at, score);
+  const run = (student: string, score: number, at: number, subject = 'nst', kind = 'mock_test') => s.t.raw.prepare("INSERT INTO runs (id, student_id, kind, grade, subject, scope_key, status, started_at, finished_at, score_pct, n_answered) VALUES (?, ?, ?, 6, ?, 'k', 'finished', 1, ?, ?, 10)").run(newTestId(), student, kind, subject, at, score);
   run(a, 30, NOW - 5 * D); run(a, 85, NOW - 1 * D); run(b, 55, NOW - 2 * D); run(b, 99, NOW - 1 * D, 'eng'); run(b, 10, NOW, 'nst', 'practice');
   const d = (await ok(s)).mockDistribution;
   assert.deepEqual(d.buckets.map((x) => x.count), [0, 1, 0, 1], 'Zola latest 85, Amy 55');
