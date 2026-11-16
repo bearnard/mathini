@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "gr10-functions-linear-quadratic-t2": "Topic: Functions, straight lines and parabolas. Cover the function concept, tables, graphs and formulae, function notation f(x), straight lines y = ax + q (gradient, intercepts, parallel lines), parabolas y = ax^2 + q (turning point, intercepts, axis of symmetry, domain and range) and the effect of a and q. Ask Grade 10 learners to find intercepts, equations and ranges.",
+    "gr10-functions-other-t2": "Topic: Functions, hyperbola, exponential and trigonometric graphs. Cover y = a/x + q (asymptotes, intercepts, quadrants, domain and range), y = a.b^x + q (asymptote, y-intercept, range, growth and decay) and the graphs of sin x, cos x and tan x for 0 to 360 degrees (amplitude, period, range, intercepts, effect of a and q). Ask Grade 10 learners to read features from equations.",
+    "gr10-euclidean-geometry-t2": "Topic: Euclidean geometry, quadrilaterals and triangles. Cover the properties of the parallelogram, rectangle, rhombus, square, kite and trapezium, angle calculations in quadrilaterals with reasons, the midpoint theorem and its converse, congruent triangles (SSS, SAS, AAS, RHS) and similar triangles. Ask Grade 10 learners to calculate angles and lengths and state geometric reasons.",
+    "gr10-midyear-exam-prep-t2": "Topic: Mid-year examination preparation, mixed Term 1 and Term 2 questions with the marks shown. Cover factorisation, exponents, equations and inequalities, number patterns, trigonometry, functions and Euclidean geometry. Ask exam-style questions worth 1 to 4 marks."
+  }
+}

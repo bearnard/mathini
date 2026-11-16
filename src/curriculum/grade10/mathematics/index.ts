@@ -41,5 +41,35 @@ export const mathematicsGrade10: Subject = {
         },
       ],
     },
+    {
+      id: 2,
+      title: 'Term 2',
+      topics: [
+        {
+          id: 'gr10-functions-linear-quadratic-t2',
+          title: 'Functions: Straight Lines and Parabolas',
+          description: 'Function notation, tables, graphs and formulae; straight lines and parabolas of the form y = ax² + q, intercepts, turning points, domain and range.',
+          component: lazy(() => import('./term2/functions-linear-quadratic/FunctionsLinearQuadratic')),
+        },
+        {
+          id: 'gr10-functions-other-t2',
+          title: 'Functions: Hyperbola, Exponential and Trigonometric Graphs',
+          description: 'The hyperbola y = a/x + q, the exponential graph, and the sine, cosine and tangent graphs: asymptotes, intercepts and range.',
+          component: lazy(() => import('./term2/functions-other/FunctionsOther')),
+        },
+        {
+          id: 'gr10-euclidean-geometry-t2',
+          title: 'Euclidean Geometry: Quadrilaterals and Triangles',
+          description: 'Special quadrilaterals and their properties, the midpoint theorem, congruent and similar triangles.',
+          component: lazy(() => import('./term2/euclidean-geometry/EuclideanGeometry')),
+        },
+        {
+          id: 'gr10-midyear-exam-prep-t2',
+          title: 'Mid-year Exam Preparation',
+          description: 'Mixed Term 1 and Term 2 practice questions with the marks shown, and exam technique.',
+          component: lazy(() => import('./term2/midyear-exam-prep/MidYearExamPrep')),
+        },
+      ],
+    },
   ],
 };

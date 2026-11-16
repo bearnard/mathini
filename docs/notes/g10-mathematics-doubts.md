@@ -24,3 +24,15 @@ pack. Where the item is in the bank or a lesson, it is marked; a teacher can cut
 Every key and every wrong option was checked a second time by independent evaluation (`src/g10MathsBank.test.ts`): algebra items by evaluating the prompt
 expression and every option at 15 points; equations by searching for the real solutions; inequalities and intervals on a grid; simultaneous equations by
 substitution; patterns and trigonometry recomputed term by term with `Math`.
+
+## Term 2
+
+10. **Exam time and marks.** The mid-year lesson only says to allow "about a minute per mark" as a rough guide; I did not state the number of papers, their marks or length for Grade 10, because
+    I could not confirm the current CAPS paper structure from the repo. A teacher should give the real structure and I will add it.
+11. **Mid-year exam topic list.** The practice questions mix Term 1 and Term 2 content (algebra, exponents, patterns, equations, trigonometry, functions, geometry). Euclidean geometry riders with formal proofs
+    are not in the bank (they are not auto-markable as multiple choice); the lesson covers the reasons only.
+12. **Functions: form of the graphs.** Parabolas are y = ax² + q (and y = a·x² only), hyperbolas y = a/x + q, exponentials y = a·bˣ + q, trigonometric graphs y = a sin x + q (and cos, tan) with q only.
+    CAPS Gr 10 may also include horizontal shifts of the trig graphs (e.g. sin(x + 30°)); I left them out as Grade 11. Confirm.
+13. **Midpoint theorem and its converse** are taught as theorems with algebra applications. Proving them is not asked. Confirm that learners are only expected to use them.
+14. **Quadrilateral properties:** the kite statement "the diagonals meet at right angles" is used; "one diagonal bisects the other" is stated only as a property of the kite's diagonal of symmetry.
+15. **Reciprocal graphs:** the tangent graph lesson shows asymptotes at 90° and 270° for 0° ≤ x ≤ 360° (no negative angles). Confirm the interval used in class.
