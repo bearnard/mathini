@@ -54,6 +54,12 @@ test('improvementPoints: null until 20 attempts, then latest 10 minus first 10, 
   assert.equal(improvementPoints(19, 40, 80), null);
   assert.equal(improvementPoints(20, 40, 80), 40);
   assert.equal(improvementPoints(25, 60, 55.5), -4.5);
+  // "up N points" needs practice on 2 or more different days when the day count is known: one sitting only shows warming up
+  assert.equal(improvementPoints(85, 40, 60, 1), null);
+  assert.equal(improvementPoints(85, 40, 60, 2), 20);
+  assert.equal(improvementPoints(85, 40, 60, 5), 20);
+  assert.equal(improvementPoints(85, 40, 60), 20);
+  assert.equal(improvementPoints(10, 40, 60, 3), null);
   assert.equal(improvementPoints(30, null, 80), null);
 });
 

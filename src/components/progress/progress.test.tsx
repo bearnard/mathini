@@ -5,9 +5,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderToStaticMarkup } from 'react-dom/server';
 import ProgressView from './ProgressView';
+import { ExamCard, SubjectCard } from './ProgressCards';
 import { MOCK_PROGRESS, MOCK_PROGRESS_NEW } from '../../lib/shared/progressMock';
 import { MASTERY_LEVELS, type ProgressResponse } from '../../lib/shared/progressTypes';
-import { LEVEL_TEXT, arrowPoints, changeText, startChangeText, changeTone, numText, pctText, remembered, shortDate } from './format';
+import { LEVEL_TEXT, arrowPoints, changeText, earlyHighScore, levelChipText, levelHintText, startChangeText, changeTone, numText, pctText, remembered, shortDate } from './format';
 import { SPARK, sparkPoints } from './sparkline';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -70,7 +71,7 @@ test('the page shows every number the API sent, with the decimal comma, and the 
   const html = renderToStaticMarkup(<ProgressView data={MOCK_PROGRESS} />);
   const t = text(html);
   const d = MOCK_PROGRESS;
-  for (const must of ['68,5%', 'Average across exam topics', '6 of 8', '72% on 12 Nov', '42,5%', '↑ 12,5 since you started', '↑ 8 since last time', '↓ 5 since last time', 'You remembered 34 of 40 review cards this week', '12 cards remembered for good', '5 cards ready for you', '9 of the last 14 days', 'streak: 3 days', 'Do your 5 review cards']) assert.ok(t.includes(must), `missing "${must}"`);
+  for (const must of ['68,5%', 'Topic marks across the whole test', '6 of 8', '72% on 12 Nov', '42,5%', '↑ 12,5 since you started', '↑ 8 since last time', '↓ 5 since last time', 'You remembered 34 of 40 review cards this week', '12 cards remembered for good', '5 cards ready for you', '9 of the last 14 days', 'streak: 3 days', 'Do your 5 review cards']) assert.ok(t.includes(must), `missing "${must}"`);
   assert.ok(t.indexOf('Your next best step') < t.indexOf('Exam readiness') && t.indexOf('Exam readiness') < t.indexOf('Test history'));
   assert.ok(!/\d\.\d/.test(t.replace(/\d{4}-\d{2}-\d{2}/g, '')), 'a decimal point leaked into the text');
   // topics in the order the server sent them, "Practise this" on every one, and bar fills straight from the data
@@ -131,4 +132,38 @@ test('the page route is not indexed and fetches /api/progress without caching', 
   const route = fs.readFileSync(path.join(__dirname, '../../app/progress/page.tsx'), 'utf8');
   assert.match(route, /index: false/);
   assert.match(fs.readFileSync(path.join(__dirname, 'ProgressPage.tsx'), 'utf8'), /fetch\('\/api\/progress', \{ cache: 'no-store' \}\)/);
+});
+
+test('a topic at 80% or more that is not Mastered yet says why, instead of "Getting there" next to a perfect score', () => {
+  assert.equal(earlyHighScore('getting_there', 100), true);
+  assert.equal(earlyHighScore('getting_there', 79.9), false);
+  assert.equal(earlyHighScore('mastered', 95), false);
+  assert.equal(earlyHighScore('learning', 45), false);
+  assert.equal(earlyHighScore('not_started', null), false);
+  assert.equal(levelChipText('getting_there', 100), 'Great start');
+  assert.equal(levelChipText('getting_there', 57.1), 'Getting there');
+  assert.equal(levelChipText('mastered', 90), 'Mastered');
+  assert.equal(levelHintText('getting_there', 100, 6), 'Mastered needs 10 answers on 2 different days (6 so far)');
+  assert.equal(levelHintText('getting_there', 90, 12), 'Practise on another day to lock it in (Mastered needs 2 different days)');
+  assert.equal(levelHintText('getting_there', 57.1, 7), 'Nice progress');
+  assert.equal(levelHintText('not_started', null, 0, 'Not practised yet'), 'Not practised yet');
+  assert.equal(levelHintText('not_started', null, 0), 'Ready when you are');
+  const data: ProgressResponse = { ...MOCK_PROGRESS, subjects: [{ ...MOCK_PROGRESS.subjects[0], topics: [{ ...MOCK_PROGRESS.subjects[0].topics[0], level: 'getting_there', accuracyPct: 100, attempts: 6, changePoints: null }] }] };
+  const t = text(renderToStaticMarkup(<ProgressView data={data} />));
+  assert.match(t, /Great start/);
+  assert.match(t, /100% · Mastered needs 10 answers on 2 different days \(6 so far\)/);
+  const parent = text(renderToStaticMarkup(<SubjectCard s={data.subjects[0]} who="Sam" />));
+  assert.match(parent, /Great start/);
+  assert.match(parent, /100% · Mastered needs 10 answers on 2 different days \(6 so far\)/);
+});
+
+test('the three percentages explain themselves: readiness in one line, topic marks count untried topics as 0, subject average is of topics tried', () => {
+  const t = text(renderToStaticMarkup(<ProgressView data={MOCK_PROGRESS} />));
+  assert.match(t, /How ready you are for this test\. It mixes your topic marks, your latest mock test and how much of the test you have covered/);
+  assert.match(t, /Topic marks across the whole test/);
+  assert.match(t, /Topics not tried yet count as 0/);
+  assert.match(t, /Topics covered/);
+  assert.match(t, /Average on the topics tried so far/);
+  const parent = text(renderToStaticMarkup(<ExamCard exam={MOCK_PROGRESS.exam} who="Sam" />));
+  assert.match(parent, /How ready Sam is for this test/);
 });

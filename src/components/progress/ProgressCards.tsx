@@ -2,7 +2,7 @@
 // landing page can show them (with SAMPLE data) as plain server-rendered HTML with no extra JavaScript. ProgressView.tsx re-exports them.
 import Link from 'next/link';
 import type { ExamReadiness, ProgressResponse, RetentionProgress, SubjectProgress, TopicProgress } from '../../lib/shared/progressTypes';
-import { LEVEL_COLOUR, LEVEL_HINT, LEVEL_TEXT, changeText, changeTone, numText, pctText, remembered, shortDate, startChangeText } from './format';
+import { LEVEL_COLOUR, LEVEL_TEXT, changeText, levelChipText, levelHintText, changeTone, numText, pctText, remembered, shortDate, startChangeText } from './format';
 import { SPARK, sparkPoints } from './sparkline';
 
 /** A bar whose fill is the percentage the server sent (null shows an empty bar). */
@@ -63,13 +63,15 @@ export const ExamCard = ({ exam, who }: { exam: ExamReadiness | null; who?: stri
         <p className="text-sm font-semibold text-slate-600">{exam.label}</p>
         <p className="mt-1 text-4xl font-extrabold text-slate-900">{pctText(exam.readinessPct)}</p>
         <div className="mt-2"><Bar pct={exam.readinessPct} colour="bg-indigo-500" label="Exam readiness" /></div>
+        <p className="mt-2 text-sm text-slate-600">{who ? `How ready ${who} is for this test. It mixes topic marks, the latest mock test and how much of the test has been covered.` : 'How ready you are for this test. It mixes your topic marks, your latest mock test and how much of the test you have covered.'}</p>
         <dl className="mt-4 grid grid-cols-1 gap-3 text-sm sm:grid-cols-3">
           <div className="rounded-xl bg-slate-50 p-3">
-            <dt className="font-semibold text-slate-600">Average across exam topics</dt>
+            <dt className="font-semibold text-slate-600">Topic marks across the whole test</dt>
             <dd className="text-lg font-extrabold text-slate-900">{pctText(exam.masteryPct)}</dd>
+            <dd className="mt-0.5 text-xs text-slate-500">Topics not tried yet count as 0</dd>
           </div>
           <div className="rounded-xl bg-slate-50 p-3">
-            <dt className="font-semibold text-slate-600">Topics practised</dt>
+            <dt className="font-semibold text-slate-600">Topics covered</dt>
             <dd className="text-lg font-extrabold text-slate-900">{numText(exam.topicsPractised)} of {numText(exam.topicsTotal)}</dd>
           </div>
           <div className="rounded-xl bg-slate-50 p-3">
@@ -87,8 +89,8 @@ const TopicRow = ({ t, who }: { t: TopicProgress; who?: string }) => (
     <div className="min-w-0">
       <p className="font-bold text-slate-800">{t.label}</p>
       <p className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-        <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${LEVEL_COLOUR[t.level].chip}`}>{LEVEL_TEXT[t.level]}</span>
-        <span className="text-slate-600">{(() => { const hint = who && t.level === 'not_started' ? 'Not practised yet' : LEVEL_HINT[t.level]; return t.accuracyPct === null ? hint : `${pctText(t.accuracyPct)} · ${hint}`; })()}</span>
+        <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${LEVEL_COLOUR[t.level].chip}`}>{levelChipText(t.level, t.accuracyPct)}</span>
+        <span className="text-slate-600">{(() => { const hint = levelHintText(t.level, t.accuracyPct, t.attempts, who ? 'Not practised yet' : undefined); return t.accuracyPct === null ? hint : `${pctText(t.accuracyPct)} · ${hint}`; })()}</span>
       </p>
       {t.changePoints !== null ? <p className="mt-0.5"><Change points={t.changePoints} text={who ? (p) => startChangeText(p).replace('since you started', 'since starting') : startChangeText} /></p> : null}
     </div>
@@ -111,6 +113,7 @@ export const SubjectCard = ({ s, who }: { s: SubjectProgress; who?: string }) =>
       <span className="text-lg font-extrabold text-slate-900">{pctText(s.masteryPct)}</span>
     </div>
     <Bar pct={s.masteryPct} colour={LEVEL_COLOUR[s.level].bar} label={`${s.label} mastery`} />
+    {s.masteryPct === null ? null : <p className="mt-1 text-xs text-slate-500">Average on the topics tried so far</p>}
     <p className="mt-3 text-sm font-semibold text-slate-600">Topics to grow first are at the top</p>
     <ul>{s.topics.map((t) => <TopicRow key={t.task} t={t} who={who} />)}</ul>
   </Card>

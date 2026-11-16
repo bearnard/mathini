@@ -2,6 +2,7 @@
 // value the server sent into text (decimal comma, arrows, words, short dates, level names). No arithmetic, sorting or aggregation.
 import { commaText } from '../subjects/graphTicks';
 import type { MasteryLevel, TestResult } from '../../lib/shared/progressTypes';
+import { MASTERED_MIN_ATTEMPTS, MASTERED_MIN_DAYS, MASTERED_PCT } from '../../lib/shared/progressMeasures';
 
 /** 72 -> "72%", 72.5 -> "72,5%", null -> the fallback. */
 export const pctText = (n: number | null | undefined, fallback = 'Not yet'): string => (typeof n === 'number' ? `${commaText(n)}%` : fallback);
@@ -54,6 +55,24 @@ export const startChangeText = (points: number | null | undefined): string => {
   if (typeof points !== 'number') return '';
   if (points === 0) return 'Steady since you started';
   return `${arrowPoints(points)} since you started`;
+};
+
+/**
+ * A topic at 80% or more that is still "Getting there" has not yet shown it lasts: Mastered needs MASTERED_MIN_ATTEMPTS answers on MASTERED_MIN_DAYS
+ * different days. Say so, instead of a plain "Getting there" next to a perfect score. `attempts` is the count the server sent for the topic.
+ */
+export const earlyHighScore = (level: MasteryLevel, accuracyPct: number | null): boolean => level === 'getting_there' && typeof accuracyPct === 'number' && accuracyPct >= MASTERED_PCT;
+
+export const levelChipText = (level: MasteryLevel, accuracyPct: number | null): string => (earlyHighScore(level, accuracyPct) ? 'Great start' : LEVEL_TEXT[level]);
+
+/** The line beside the percentage for a topic. `you`: the learner reads it ("Practise ..."), a parent reads a third-person line. */
+export const levelHintText = (level: MasteryLevel, accuracyPct: number | null, attempts: number, notStartedText?: string): string => {
+  if (earlyHighScore(level, accuracyPct)) {
+    return attempts < MASTERED_MIN_ATTEMPTS
+      ? `Mastered needs ${MASTERED_MIN_ATTEMPTS} answers on ${MASTERED_MIN_DAYS} different days (${attempts} so far)`
+      : `Practise on another day to lock it in (Mastered needs ${MASTERED_MIN_DAYS} different days)`;
+  }
+  return level === 'not_started' && notStartedText ? notStartedText : LEVEL_HINT[level];
 };
 
 /** The tone of a change, for colour only: up is green, down is a calm neutral (a dip is not a failure), first try is neutral. */
