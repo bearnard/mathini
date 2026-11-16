@@ -73,5 +73,41 @@ export const lifeOrientationGrade10: Subject = {
         },
       ],
     },
+    {
+      id: 3,
+      title: 'Term 3',
+      topics: [
+        {
+          id: 'gr10-life-roles-t3',
+          title: 'Life Roles and Their Responsibilities',
+          description: 'Child, student, adult, partner, parent, worker and leader: how roles and responsibilities change.',
+          component: lazy(() => import('./term3/life-roles/LifeRoles')),
+        },
+        {
+          id: 'gr10-adolescence-adulthood-t3',
+          title: 'From Adolescence to Adulthood',
+          description: 'Physical, emotional and social changes, and how to cope with them.',
+          component: lazy(() => import('./term3/adolescence-adulthood/AdolescenceAdulthood')),
+        },
+        {
+          id: 'gr10-responsible-decisions-t3',
+          title: 'Responsible Decisions about Sexuality and Lifestyle',
+          description: 'Risk behaviour, protective values, refusal skills, the law and where to find help.',
+          component: lazy(() => import('./term3/responsible-decisions/ResponsibleDecisions')),
+        },
+        {
+          id: 'gr10-diversity-of-jobs-t3',
+          title: 'Diversity of Jobs and Career Fields',
+          description: 'Economic sectors, work settings, careers in sport and recreation, and transferable skills.',
+          component: lazy(() => import('./term3/diversity-of-jobs/DiversityOfJobs')),
+        },
+        {
+          id: 'gr10-physical-education-t3',
+          title: 'Physical Education: Recreation and Relaxation',
+          description: 'Recreation, relaxation techniques, choosing an activity and staying safe.',
+          component: lazy(() => import('./term3/physical-education/PhysicalEducationTerm3')),
+        },
+      ],
+    },
   ],
 };

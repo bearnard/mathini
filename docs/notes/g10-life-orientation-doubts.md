@@ -58,3 +58,33 @@ Status key: OK = taken straight from CAPS, CHECK = a teacher or the owner should
 - CHECK: jukskei, diketo and morabaraba are named as examples of indigenous South African games. The lesson says only that jukskei involves throwing a pin at a target. A teacher should confirm that these are good examples for the learners' region and that nothing about the rules is wrong.
 - OK: the safety checks, warm-up, water and sun protection are general and uncontroversial.
 - OK: the catch record (4, 5, 7, 8 out of 10) is an invented example.
+
+## Term 3
+
+### Life roles and their responsibilities
+- OK: the roles listed (child, student, adult, partner, mother, father, grandparent, breadwinner, employee, employer, leader, follower), their evolving nature, how roles change relationships and the influence of society and culture are the CAPS Term 3 list.
+- CHECK: the examples (Thando, Sipho, Lindiwe, Mpho) are invented. The gender-stereotype example about housework should be read by a teacher for tone.
+
+### From adolescence to adulthood (SENSITIVE)
+- OK: the physical, emotional and social changes, skin problems and coping with change follow the CAPS list. CAPS says "seed formation"; the lesson says "sperm production".
+- CHECK: the skin-care advice (wash gently twice a day, do not squeeze, see a clinic if very sore) is general advice.
+- SENSITIVE: no ages for the start of puberty are given on purpose, and nothing graphic is shown.
+
+### Responsible decisions about sexuality and lifestyle (SENSITIVE)
+- OK: the behaviour list, the values (respect, abstinence, self-control, privacy, the right to protect yourself, the right to say no, responsibility), the skills and "where to find help" follow the CAPS Term 3 text. Abstinence is taught as a CAPS value.
+- CHECK (law): "The age of consent for sex in South Africa is 16" (Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007, as amended). The lesson does NOT explain the rules for consenting adolescents aged 12 to 15 or the two-year age-gap rule; a teacher should decide whether Grade 10 needs more.
+- CHECK (law): "Sex without consent is rape, at any age" (the 2007 Act defines rape as an act of sexual penetration without consent).
+- CHECK (law): "A child of 12 or older can ask a clinic for an HIV test or contraceptives" (Children's Act 38 of 2005, section 130 on HIV testing and section 134 on access to contraceptives; section 129 gives children of 12 or older the right to consent to their own medical treatment if mature enough). Wording kept general.
+- CHECK (health): "Medicine that helps to prevent HIV works best within 72 hours" after rape (post-exposure prophylaxis; the national guideline says to start as soon as possible and within 72 hours). A nurse or doctor should confirm the wording.
+- CHECK: Childline is given as 116 (the number the owner gave). No other helpline number is printed in a lesson.
+- CHECK: "Alcohol weakens judgement" and the risk chain are general statements.
+- SENSITIVE: the lesson says in two places that the person who abuses is responsible and the person who was hurt is never to blame.
+
+### Diversity of jobs and career fields
+- OK: primary (raw materials), secondary (finished products) and tertiary (infrastructure and services), indoor and outdoor settings, designing, assembling, growing, information gathering and instruction, careers in recreation, fitness and sport, salary package, promotion and further study follow the CAPS text.
+- CHECK: the example jobs by sector (farming and mining primary, factories and building secondary, teaching and nursing tertiary) are the usual textbook examples.
+
+### Physical Education: recreation and relaxation
+- OK: recreation and relaxation, and safety issues, follow the CAPS PE bullets for Term 3.
+- CHECK: the breathing example (in for 4 seconds, out for 6, five times) is one common pattern offered as an example; the numbers come from `gr10Helpers.ts`.
+- CHECK: "Swim only where there is a lifeguard or an adult watching" is general water-safety advice.
