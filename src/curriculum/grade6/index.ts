@@ -69,6 +69,12 @@ export const grade6: Grade = {
                                     title: "3D Objects",
                                     description: "Explore 3D shapes and their properties.",
                                     component: lazy(() => import('./term1/geometry/Objects3D'))
+                                },
+                                {
+                                    id: "g6-add-subtract-5digit",
+                                    title: "Adding and Subtracting 5-digit Numbers",
+                                    description: "Estimate, then add and subtract in columns and check your answer.",
+                                    component: lazy(() => import('./term1/whole-numbers/AddSubtract5Digit'))
                                 }
                             ]
                         },
@@ -135,6 +141,12 @@ export const grade6: Grade = {
                                     title: "Volume",
                                     description: "Volume of cubes and rectangular prisms.",
                                     component: lazy(() => import('./term3/volume/Volume'))
+                                },
+                                {
+                                    id: "g6-add-subtract-6digit",
+                                    title: "Adding and Subtracting 6-digit Numbers",
+                                    description: "6-digit sums and differences, and problems with money and quantities.",
+                                    component: lazy(() => import('./term3/whole-numbers/AddSubtract6Digit'))
                                 }
                             ]
                         },
