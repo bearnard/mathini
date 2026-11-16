@@ -111,6 +111,29 @@ export function upsertStatement(r: TopicProgressRow, now: number): Statement {
   };
 }
 
+/**
+ * Leaderboard (migration 0025): remembers WHEN a topic first reached Mastered. It must run BEFORE the upsert of the same row in the same batch, because it
+ * looks at the old level: it writes only when the learner had no Mastered row yet, so topics already Mastered before the table existed never count as new.
+ */
+export function masteredStatement(r: TopicProgressRow, now: number): Statement {
+  return {
+    sql: `INSERT OR IGNORE INTO topic_mastered (student_id, task, first_mastered_at)
+          SELECT ?, ?, ? WHERE ? = 'mastered' AND NOT EXISTS (SELECT 1 FROM topic_progress WHERE student_id = ? AND task = ? AND mastery = 'mastered')`,
+    params: [r.studentId, r.task, now, r.measure.level, r.studentId, r.task],
+  };
+}
+
+/** Writes the rows (with the mastery moments). If topic_mastered does not exist yet the rows are still written without it: progress never depends on the leaderboard. */
+async function writeRows(db: AdminDb, rows: readonly TopicProgressRow[], now: number, before: Statement[] = []): Promise<void> {
+  const upserts = rows.map((r) => upsertStatement(r, now));
+  try {
+    await db.batch([...before, ...rows.flatMap((r) => [masteredStatement(r, now), upsertStatement(r, now)])]);
+  } catch (e) {
+    console.error('Topic progress write with mastery moments failed, retrying without:', e);
+    await db.batch([...before, ...upserts]);
+  }
+}
+
 /** Refreshes the cache for the given tasks of one learner (called when a run finishes): one read, one batch. Returns how many rows were written. */
 export async function refreshForRun(db: AdminDb, studentId: string, tasks: readonly string[], now: number): Promise<number> {
   const list = [...new Set(tasks)].slice(0, 30);
@@ -118,7 +141,7 @@ export async function refreshForRun(db: AdminDb, studentId: string, tasks: reado
   const raw = await db.all<RawRow>(readSql(DUE_STUDENT), [studentId, JSON.stringify(list)]);
   const rows = rowsFromRead(raw);
   if (rows.length === 0) return 0;
-  await db.batch(rows.map((r) => upsertStatement(r, now)));
+  await writeRows(db, rows, now);
   return rows.length;
 }
 
@@ -139,7 +162,7 @@ export async function ensureProgressRows(db: AdminDb, studentId: string, now: nu
 export async function refreshNightly(db: AdminDb, now: number, limit = NIGHTLY_PAIR_LIMIT): Promise<{ refreshed: number }> {
   const raw = await db.all<RawRow>(readSql(DUE_NIGHTLY), [now - NIGHTLY_LOOKBACK_DAYS * DAY_MS, limit]);
   const rows = rowsFromRead(raw);
-  await db.batch([abandonStatement(now), ...rows.map((r) => upsertStatement(r, now))]);
+  await writeRows(db, rows, now, [abandonStatement(now)]);
   return { refreshed: rows.length };
 }
 

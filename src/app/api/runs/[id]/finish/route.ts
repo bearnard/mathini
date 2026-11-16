@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { verifyLiveSession, SESSION_COOKIE_NAME } from '../../../../../lib/server/session';
-import { d1Adapter } from '../../../../../lib/server/admin/db';
+import { d1Adapter, runLater } from '../../../../../lib/server/admin/db';
 import { finishRun } from '../../../../../lib/server/progress/runs';
+import { refreshWeeklyPoints } from '../../../../../lib/server/leaderboard/points';
 import { refreshForRun } from '../../../../../lib/server/progress/topicProgress';
 import { routeLimited } from '../../../../../lib/server/edgeLimitRoute';
 import { runFinishLimiter } from '../../../../../lib/server/learnerGuards';
@@ -33,6 +34,11 @@ export async function POST(req: NextRequest, ctx: { params: Promise<{ id: string
       } catch (e) {
         console.error('Topic progress refresh failed:', e);
       }
+    }
+    if (!r.alreadyFinished) {
+      // a finished mock or exam can earn the "beat your best" bonus, and a topic may have reached Mastered: rebuild this week's points after the response
+      const lbDb = d1Adapter(env.DB as never, getCloudflareContext().ctx);
+      await runLater(lbDb, () => refreshWeeklyPoints(lbDb, studentId, Date.now()));
     }
     return NextResponse.json({ run: r.run });
   } catch (err) {
