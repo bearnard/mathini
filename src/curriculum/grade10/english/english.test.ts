@@ -19,6 +19,9 @@ import * as novel from './term2/novel-drama-study/NovelDramaStudyContent';
 import * as argument from './term2/argument-formal-speech/ArgumentFormalSpeechContent';
 import * as media from './term2/visual-media-texts/VisualMediaTextsContent';
 import * as midyear from './term2/midyear-exam-preparation/MidyearExamPreparationContent';
+import * as poetry from './term3/poetry-seen-unseen/PoetrySeenUnseenContent';
+import * as oral from './term3/oral-communication/OralCommunicationContent';
+import * as imaginative from './term3/imaginative-transactional/ImaginativeTransactionalContent';
 import { annotate } from './_shared/annotate';
 
 interface Lesson { id: string; learnSteps: LearnStep[]; bank: CapsItem[] }
@@ -32,6 +35,9 @@ const LESSONS: Lesson[] = [
   { id: 'gr10-argument-formal-speech-t2', ...argument },
   { id: 'gr10-visual-media-texts-t2', ...media },
   { id: 'gr10-midyear-exam-preparation-t2', ...midyear },
+  { id: 'gr10-poetry-seen-unseen-t3', ...poetry },
+  { id: 'gr10-oral-communication-t3', ...oral },
+  { id: 'gr10-imaginative-transactional-t3', ...imaginative },
 ];
 
 const html = (n: Parameters<typeof renderToStaticMarkup>[0]) => renderToStaticMarkup(n);
@@ -147,4 +153,21 @@ test('term 2: the annotated extracts are annotated at real places', () => {
   assert.deepEqual(missingPhrases(argument.SPEECH, argument.SPEECH_NOTES), []);
   assert.equal(annotate(novel.PROSE_EXTRACT, novel.PROSE_NOTES).length, 3);
   assert.equal(annotate(argument.SPEECH, argument.SPEECH_NOTES).length, 3);
+});
+
+test('term 3: the annotated poems are annotated at real places and the rhyme claims are true', () => {
+  assert.deepEqual(missingPhrases(poetry.WORDSWORTH, poetry.WORDSWORTH_NOTES), []);
+  assert.deepEqual(missingPhrases(poetry.BLAKE, poetry.BLAKE_NOTES), []);
+  assert.deepEqual(missingPhrases(poetry.UNSEEN, poetry.UNSEEN_NOTES), []);
+  assert.equal(poetry.UNSEEN_LINES.length, 6);
+  // the bank item with four end words: day / stone / play / bone is ABAB
+  const q = poetry.bank.find((b) => b.prompt.includes('"day", "stone", "play" and "bone"'))!;
+  assert.equal(q.answer, 'ABAB');
+});
+
+test('term 3: the model transactional text is 180 to 200 words (body only, as CAPS counts it) and the story is exactly 50 words', () => {
+  const body = wordCount(imaginative.LETTER_PARAGRAPHS.join(' '));
+  assert.ok(body >= 180 && body <= 200, `${body} words`);
+  assert.equal(wordCount(imaginative.FIFTY_WORD_STORY), 50);
+  assert.equal(imaginative.SCENARIOS.length, 8);
 });

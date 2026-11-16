@@ -71,5 +71,29 @@ export const englishHLGrade10: Subject = {
         },
       ],
     },
+    {
+      id: 3,
+      title: 'Term 3',
+      topics: [
+        {
+          id: 'gr10-poetry-seen-unseen-t3',
+          title: 'Reading Poetry: Seen and Unseen',
+          description: 'Imagery, figures of speech, sound devices, tone, mood and theme, how to approach an unseen poem, and how to answer poetry questions.',
+          component: lazy(() => import('./term3/poetry-seen-unseen/PoetrySeenUnseen')),
+        },
+        {
+          id: 'gr10-oral-communication-t3',
+          title: 'Oral Communication: Speeches, Meetings and Discussion',
+          description: 'Listening for comprehension, delivering a speech, debates, panels and discussions, meeting procedure, storytelling and introducing a speaker.',
+          component: lazy(() => import('./term3/oral-communication/OralCommunication')),
+        },
+        {
+          id: 'gr10-imaginative-transactional-t3',
+          title: 'Imaginative and Transactional Writing',
+          description: 'Choosing the right text, register, person and tense, a model formal letter, imaginative writing that shows, and planning, counting and editing.',
+          component: lazy(() => import('./term3/imaginative-transactional/ImaginativeTransactional')),
+        },
+      ],
+    },
   ],
 };
