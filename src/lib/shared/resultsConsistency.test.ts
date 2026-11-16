@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { summaryText } from './practiceSummary';
+import { summaryText, celebrates } from './practiceSummary';
 import { nextBestStep, parentNextStep, teacherNextStep } from './progressMeasures';
 import { splitScore, type MockItem } from '../../curriculum/grade6/natural-sciences/_shared/mockTest';
 import { REVIEW_SESSION_SIZE } from '../server/review/due';
@@ -92,4 +92,13 @@ test('Natural Sciences topic practice counts the auto-marked questions only, in 
   assert.ok(nst.includes('total: autoTotal') && nst.includes('<PracticeSummary total={autoTotal}'), 'the stored run and the screen share one denominator');
   assert.ok(/if \(kindOf\(current\) !== 'explain'\) \{\s+recordAttempt\(/.test(nst) && nst.includes('tally.note(correct, current)'), 'an explain item is neither sent nor tallied');
   assert.ok(read('src/curriculum/grade6/natural-sciences/_shared/useNstItems.ts').includes("queue.filter((it) => kindOf(it) !== 'explain').length"));
+});
+
+test('confetti only for a good result: 6 of 16 ("This one is tricky") is not celebrated, 70% and up is; the summary clears stray confetti otherwise', () => {
+  assert.equal(celebrates(6, 16), false);
+  assert.equal(celebrates(11, 16), false);
+  assert.equal(celebrates(12, 16), true);
+  assert.equal(celebrates(16, 16), true);
+  assert.equal(celebrates(0, 0), false);
+  assert.ok(fs.readFileSync('src/components/practice/PracticeSummary.tsx', 'utf8').includes('if (!celebrate) stopConfetti()'));
 });

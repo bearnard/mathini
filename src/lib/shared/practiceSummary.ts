@@ -1,6 +1,9 @@
 // What the end of a practice session says: the score, how it went in words (never a blanket "Well done" after a poor round), and what to look at again.
 export interface MissedItem { prompt: string; answer: string }
 export const MAX_MISSED_SHOWN = 5;
+/** Confetti belongs to a good result only (Great work / Perfect), never over "This one is tricky". */
+export const CELEBRATE_FROM_PERCENT = 70;
+export const celebrates = (correct: number, total: number): boolean => total > 0 && (100 * correct) / total >= CELEBRATE_FROM_PERCENT;
 
 export interface SummaryText { emoji: string; title: string; message: string; percent: number }
 

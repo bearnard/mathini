@@ -1,12 +1,16 @@
 'use client';
 
+import { useEffect } from 'react';
+import { stopConfetti } from '../../lib/confetti';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
-import { MAX_MISSED_SHOWN, summaryText, type MissedItem } from '../../lib/shared/practiceSummary';
+import { MAX_MISSED_SHOWN, celebrates, summaryText, type MissedItem } from '../../lib/shared/practiceSummary';
 
 /** The end of a topic practice session: the score, what it means, the questions to look at again, and what to do next. */
 export default function PracticeSummary({ total, correct, missed, weakSections = [], onBackToLearn, onAgain }: { total: number; correct: number; missed: MissedItem[]; weakSections?: string[]; onBackToLearn?: () => void; onAgain: () => void }) {
   const t = summaryText(correct, total);
+  const celebrate = celebrates(correct, total);
+  useEffect(() => { if (!celebrate) stopConfetti(); }, [celebrate]);
   const shown = missed.slice(0, MAX_MISSED_SHOWN);
   return (
     <Card className="p-8 text-center space-y-6" aria-label="Practice results">

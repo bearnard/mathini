@@ -50,3 +50,6 @@ export const triggerSuccess = () => {
         colors: ['#10b981', '#34d399', '#6ee7b7'] // Emerald greens
     });
 };
+
+/** Clear any confetti still in the air (the last right answer fires it just before a result screen that may not deserve it). */
+export const stopConfetti = () => { try { confetti.reset(); } catch { /* no canvas (tests, SSR) */ } };
