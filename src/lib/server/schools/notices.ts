@@ -37,7 +37,7 @@ export async function joinNotices(db: AdminDb, teacherId: string, now: number): 
 /** The teacher has looked at the class's learners: everyone who joined so far is seen. Only their own class. */
 export async function markJoinsSeen(db: AdminDb, teacherId: string, classId: unknown, now: number): Promise<{ ok: true } | { ok: false; status: number; error: string }> {
   if (!isUuid(classId)) return { ok: false, status: 404, error: 'Not found' };
-  const c = (await db.all<{ id: string }>('SELECT id FROM classes WHERE id = ? AND teacher_user_id = ?', [classId, teacherId]))[0];
+  const c = (await db.all<{ id: string }>("SELECT id FROM classes WHERE id = ? AND teacher_user_id = ? AND status = 'active'", [classId, teacherId]))[0];
   if (!c) return { ok: false, status: 404, error: 'Not found' };
   await db.batch([{ sql: `INSERT INTO class_join_seen (user_id, class_id, seen_at) VALUES (?, ?, ?) ON CONFLICT(user_id, class_id) DO UPDATE SET seen_at = excluded.seen_at`, params: [teacherId, classId, now] }]);
   return { ok: true };

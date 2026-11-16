@@ -38,7 +38,7 @@ export type ClassOwner = string | { schoolId: string };
 export async function buildClassProgress(db: AdminDb, owner: ClassOwner, classId: unknown, sinceInput: unknown, now: number): Promise<ClassProgressResult> {
   if (!isUuid(classId)) return { ok: false, status: 404, error: 'Not found' };
   const cls = (await db.all<{ id: string; name: string; grade: number; subjects: string; status: string }>(
-    typeof owner === 'string' ? 'SELECT id, name, grade, subjects, status FROM classes WHERE id = ? AND teacher_user_id = ?' : 'SELECT id, name, grade, subjects, status FROM classes WHERE id = ? AND school_id = ?',
+    typeof owner === 'string' ? "SELECT id, name, grade, subjects, status FROM classes WHERE id = ? AND teacher_user_id = ? AND status = 'active'" : "SELECT id, name, grade, subjects, status FROM classes WHERE id = ? AND school_id = ? AND status = 'active'",
     [classId, typeof owner === 'string' ? owner : owner.schoolId],
   ))[0];
   if (!cls) return { ok: false, status: 404, error: 'Not found' };

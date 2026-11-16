@@ -59,7 +59,7 @@ const toSummary = (r: ClassRow): ClassSummary => {
 };
 
 const CLASS_SELECT = `SELECT c.id, c.name, c.grade, c.subjects, c.join_code, c.status, c.created_at, s.name AS school_name,
-  (SELECT COUNT(*) FROM class_members m WHERE m.class_id = c.id AND m.left_at IS NULL) AS members
+  CASE WHEN c.status = 'active' THEN (SELECT COUNT(*) FROM class_members m WHERE m.class_id = c.id AND m.left_at IS NULL) ELSE 0 END AS members
   FROM classes c LEFT JOIN schools s ON s.id = c.school_id`;
 
 export async function listClasses(db: AdminDb, teacherId: string): Promise<ClassSummary[]> {
@@ -71,7 +71,7 @@ export async function listClasses(db: AdminDb, teacherId: string): Promise<Class
 export async function getClass(db: AdminDb, teacherId: string, classId: unknown): Promise<ClassDetail | null> {
   if (!isUuid(classId)) return null;
   const row = (await db.all<ClassRow>(`${CLASS_SELECT} WHERE c.id = ? AND c.teacher_user_id = ?`, [classId, teacherId]))[0];
-  if (!row) return null;
+  if (!row || row.status !== 'active') return null; // an archived class shows no roster: it is listed (as archived) but not opened
   const roster = await db.all<{ student_id: string; display_name: string; joined_at: number }>(
     `SELECT m.student_id, st.display_name, m.joined_at FROM class_members m JOIN students st ON st.id = m.student_id
      WHERE m.class_id = ? AND m.left_at IS NULL ORDER BY lower(st.display_name), m.joined_at LIMIT ?`,
@@ -149,7 +149,7 @@ export async function archiveClass(db: AdminDb, teacherId: string, classId: unkn
 /** The teacher removes a learner from their own class. */
 export async function removeMember(db: AdminDb, teacherId: string, classId: unknown, studentId: unknown, now: number): Promise<{ ok: true } | Fail> {
   if (!isUuid(classId) || typeof studentId !== 'string' || !/^[A-Za-z0-9-]{1,64}$/.test(studentId)) return fail(404, 'Not found');
-  const c = (await db.all<{ id: string }>('SELECT id FROM classes WHERE id = ? AND teacher_user_id = ?', [classId, teacherId]))[0];
+  const c = (await db.all<{ id: string }>("SELECT id FROM classes WHERE id = ? AND teacher_user_id = ? AND status = 'active'", [classId, teacherId]))[0];
   if (!c) return fail(404, 'Not found');
   const m = (await db.all<{ student_id: string }>('SELECT student_id FROM class_members WHERE class_id = ? AND student_id = ? AND left_at IS NULL', [classId, studentId]))[0];
   if (!m) return fail(404, 'Not found');
