@@ -1,0 +1,6 @@
+{
+  "tasks": {
+    "gr10-probability-t4": "Topic: Probability. Cover the sample space and P(A) = n(A) / n(S) for equally likely outcomes (coins, dice, cards, bags), complementary events P(not A) = 1 - P(A), mutually exclusive events, the union rule P(A or B) = P(A) + P(B) - P(A and B), two-set Venn diagrams with counts, and relative frequency as an estimate of probability. Ask Grade 10 learners to calculate with exact fractions or decimals written with a decimal comma.",
+    "gr10-revision-exam-technique-t4": "Topic: Revision and examination technique. Mixed Grade 10 Mathematics items from Terms 1 to 4 (factorising, quadratic and exponential equations, inequalities, number patterns, intercepts, analytical geometry, compound interest, statistics, solids, trigonometry, probability) with the marks shown in brackets and a worked explanation that says where each mark is earned, plus examination habits: planning time by the marks, showing working and avoiding common traps."
+  }
+}

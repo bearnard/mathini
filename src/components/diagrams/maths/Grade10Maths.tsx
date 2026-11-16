@@ -651,3 +651,20 @@ export const IsoscelesHeight = ({ side, apex }: { side: number; apex: number }) 
     </Panel>
   );
 };
+
+// ---------------------------------------------------------------- Term 4: a two-set Venn diagram
+
+/** Two overlapping sets with the number in each region: only A, both, only B and (outside) neither. */
+export const Venn = ({ a, b, onlyA, both, onlyB, neither }: { a: string; b: string; onlyA: number; both: number; onlyB: number; neither: number }) => (
+  <Panel h={62} aria={`A Venn diagram of two sets. ${a} only: ${onlyA}. Both ${a} and ${b}: ${both}. ${b} only: ${onlyB}. In neither: ${neither}.`}>
+    <rect x={4} y={4} width={112} height={54} rx={3} fill="none" stroke={MUTED} strokeWidth={0.8} />
+    <circle cx={46} cy={33} r={21} fill="rgba(99,102,241,0.22)" stroke={I} strokeWidth={1} />
+    <circle cx={74} cy={33} r={21} fill="rgba(245,158,11,0.22)" stroke={A} strokeWidth={1} />
+    <T x={36} y={9.5} color={I} size={5.2}>{a}</T>
+    <T x={84} y={9.5} color={A} size={5.2}>{b}</T>
+    <T x={36} y={36} size={7}>{String(onlyA)}</T>
+    <T x={60} y={36} size={7}>{String(both)}</T>
+    <T x={84} y={36} size={7}>{String(onlyB)}</T>
+    <T x={108} y={54} color={MUTED} size={5.4} anchor="end">{`neither: ${neither}`}</T>
+  </Panel>
+);

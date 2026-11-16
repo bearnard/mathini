@@ -14,6 +14,7 @@ import mathGr9Term4 from './tasks/math-gr9-term4.json';
 import mathGr10Term1 from './tasks/math-gr10-term1.json';
 import mathGr10Term2 from './tasks/math-gr10-term2.json';
 import mathGr10Term3 from './tasks/math-gr10-term3.json';
+import mathGr10Term4 from './tasks/math-gr10-term4.json';
 import mathGr11Term1 from './tasks/math-gr11-term1.json';
 import mathGr11Term2 from './tasks/math-gr11-term2.json';
 import mathGr11Term3 from './tasks/math-gr11-term3.json';
@@ -49,6 +50,7 @@ export const math: SubjectConfig = {
     ...mathGr10Term1.tasks,
     ...mathGr10Term2.tasks,
     ...mathGr10Term3.tasks,
+    ...mathGr10Term4.tasks,
     ...mathGr11Term1.tasks,
     ...mathGr11Term2.tasks,
     ...mathGr11Term3.tasks,

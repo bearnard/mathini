@@ -347,6 +347,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Probability",
   "Mathematical Literacy"
  ],
+ "10|gr10-probability-t4": [
+  "Probability",
+  "Mathematics"
+ ],
  "10|gr10-programming-foundations-t1": [
   "Programming Foundations",
   "Information Technology"
@@ -370,6 +374,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-revision-exam-integration-t4": [
   "Revision and Exam Integration",
   "Mathematical Literacy"
+ ],
+ "10|gr10-revision-exam-technique-t4": [
+  "Revision and Examination Technique",
+  "Mathematics"
  ],
  "10|gr10-revision-final-paper-preparation": [
   "Revision and Final-paper Preparation",
