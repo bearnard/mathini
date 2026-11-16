@@ -121,11 +121,11 @@ test('empty state and skeletons: announced politely, calm, motion-safe', () => {
   assert.equal((html(h(SkeletonTiles, { count: 3 })).match(/rounded-2xl/g) ?? []).length, 3);
 });
 
-test('the kit stays plain: only SortableTable is a client component, and nothing imports server, learner or admin code', () => {
+test('the kit stays plain: only SortableTable and its ScrollBox are client components, and nothing imports server, learner or admin code', () => {
   const dir = path.join(process.cwd(), 'src/components/dashboard');
   for (const f of fs.readdirSync(dir).filter((x) => /\.tsx?$/.test(x) && !/\.test\./.test(x))) {
     const src = fs.readFileSync(path.join(dir, f), 'utf8');
-    assert.equal(/^'use client'/.test(src), f === 'SortableTable.tsx', `${f}: use client`);
+    assert.equal(/^'use client'/.test(src), f === 'SortableTable.tsx' || f === 'ScrollBox.tsx', `${f}: use client`);
     assert.ok(!/from '[^']*(lib\/server|lib\/client|components\/admin|StudentContext)[^']*'/.test(src), `${f} imports app code it should not`);
   }
 });
