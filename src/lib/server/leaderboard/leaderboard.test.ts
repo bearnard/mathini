@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { openSchoolsDb, addStudent, addTeacher, type SchoolsTestDb } from '../schools/testDb';
 import { signSession } from '../session';
+import { listSchoolsForAdmin, setSchoolDistrict } from '../schools/schoolAdmins';
 import { refreshForRun } from '../progress/topicProgress';
 import { refreshWeeklyPoints } from './points';
 import { MIN_ACTIVE_LEARNERS, WEIGHTS, weekStartOf } from '../../shared/weeklyPoints';
@@ -223,4 +224,14 @@ test('topic_mastered: written only when a topic newly reaches Mastered, never fo
   t.raw.exec('DROP TABLE topic_mastered');
   await refreshForRun(s.deps.db, old.id, ['tk'], NOW); // table missing: progress still written
   assert.equal((t.raw.prepare("SELECT mastery FROM topic_progress WHERE student_id = ? AND task = 'tk'").get(old.id) as { mastery: string }).mastery, 'mastered');
+});
+
+test('admin sets and clears a school district; unknown school and bad input refused', async (ctx) => {
+  const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
+  const a = s.school('Alpha School');
+  assert.deepEqual(await setSchoolDistrict(s.deps.db, a.schoolId, '  Metro   East '), { ok: true, district: 'Metro East' });
+  assert.equal((await listSchoolsForAdmin(s.deps.db))[0].district, 'Metro East');
+  assert.deepEqual(await setSchoolDistrict(s.deps.db, a.schoolId, ''), { ok: true, district: null });
+  assert.equal((await setSchoolDistrict(s.deps.db, '00000000-0000-4000-a000-000000000000', 'X')).ok, false);
+  assert.equal((await setSchoolDistrict(s.deps.db, a.schoolId, 5)).ok, false);
 });

@@ -52,12 +52,22 @@ export async function revokeSchoolAdmin(db: AdminDb, schoolId: unknown, userId: 
   return { ok: true };
 }
 
-export interface AdminSchool extends SchoolRow { teachers: number; classes: number; admins: { userId: string; email: string; appointedAt: number }[] }
+export interface AdminSchool extends SchoolRow { district: string | null; teachers: number; classes: number; admins: { userId: string; email: string; appointedAt: number }[] }
+
+/** The owner sets (or clears, with an empty value) a school's education district. Schools without a district never appear on a district board. */
+export async function setSchoolDistrict(db: AdminDb, schoolId: unknown, input: unknown): Promise<{ ok: true; district: string | null } | Fail> {
+  if (!isUuid(schoolId)) return fail(404, 'School not found');
+  if (input !== null && input !== undefined && typeof input !== 'string') return fail(400, 'Enter the district name');
+  const district = (typeof input === 'string' ? input.replace(/[\u0000-\u001f]/g, ' ').replace(/\s+/g, ' ').trim() : '').slice(0, 80) || null;
+  if (!(await db.all('SELECT 1 FROM schools WHERE id = ?', [schoolId])).length) return fail(404, 'School not found');
+  await db.batch([{ sql: 'UPDATE schools SET district = ? WHERE id = ?', params: [district, schoolId] }]);
+  return { ok: true, district };
+}
 
 /** For /admin/schools: every school with its teacher and class counts and its current school admins. */
 export async function listSchoolsForAdmin(db: AdminDb): Promise<AdminSchool[]> {
-  const schools = await db.all<{ id: string; name: string; province: string | null; teachers: number; classes: number }>(
-    `SELECT s.id, s.name, s.province,
+  const schools = await db.all<{ id: string; name: string; province: string | null; district: string | null; teachers: number; classes: number }>(
+    `SELECT s.id, s.name, s.province, s.district,
        (SELECT COUNT(*) FROM teacher_applications a WHERE a.school_id = s.id AND a.status = 'approved') AS teachers,
        (SELECT COUNT(*) FROM classes c WHERE c.school_id = s.id AND c.status = 'active') AS classes
      FROM schools s ORDER BY lower(s.name) LIMIT 300`,
@@ -66,7 +76,7 @@ export async function listSchoolsForAdmin(db: AdminDb): Promise<AdminSchool[]> {
     `SELECT sa.school_id, sa.user_id, u.email, sa.appointed_at FROM school_admins sa LEFT JOIN users u ON u.id = sa.user_id WHERE sa.revoked_at IS NULL ORDER BY sa.appointed_at LIMIT 1000`,
   );
   return schools.map((s) => ({
-    id: s.id, name: s.name, province: s.province, teachers: Number(s.teachers), classes: Number(s.classes),
+    id: s.id, name: s.name, province: s.province, district: s.district, teachers: Number(s.teachers), classes: Number(s.classes),
     admins: admins.filter((a) => a.school_id === s.id).map((a) => ({ userId: a.user_id, email: a.email ?? '(deleted)', appointedAt: Number(a.appointed_at) })),
   }));
 }
