@@ -62,12 +62,17 @@ export function masteryLevel(a: { attempts: number; accuracyPct: number | null; 
 /** Number of different SAST days among the timestamps. */
 export const distinctDays = (timestamps: readonly number[]): number => new Set(timestamps.map(sastDayNumber)).size;
 
+/** "Up N points" is a sign of learning that lasts only when it shows over more than one sitting. */
+export const IMPROVEMENT_MIN_DAYS = 2;
+
 /**
  * Improvement: accuracy on the latest 10 attempts minus accuracy on the first 10, in percentage points. null until there are 20 attempts
- * (before that the two groups overlap and the number would mean nothing).
+ * (before that the two groups overlap and the number would mean nothing), and, when `days` is given, null until the learner has practised the topic
+ * on at least IMPROVEMENT_MIN_DAYS different days (in one sitting a rise only shows warming up, not remembering).
  */
-export function improvementPoints(attempts: number, first10Pct: number | null, last10Pct: number | null): number | null {
+export function improvementPoints(attempts: number, first10Pct: number | null, last10Pct: number | null, days?: number): number | null {
   if (attempts < 2 * BASELINE || first10Pct === null || last10Pct === null) return null;
+  if (typeof days === 'number' && days < IMPROVEMENT_MIN_DAYS) return null;
   return round1(last10Pct - first10Pct);
 }
 

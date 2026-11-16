@@ -30,7 +30,7 @@ const TEST_KINDS = ['quiz', 'mock_test', 'exam_practice'] as const;
 
 interface TpRow {
   task: string; grade: number; subject: string; topic: string; attempts: number; last20_pct: number | null; first10_pct: number | null; last10_pct: number | null;
-  mastery: string; last_attempt_at: number;
+  mastery: string; last_attempt_at: number; days_practised?: number;
 }
 interface RunRow { id: string; subject: string; kind: string; scope_key: string; scope_label: string; score_pct: number; n_correct: number; n_items: number; n_answered: number; finished_at: number }
 
@@ -78,7 +78,7 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
 
   // --- topics (the cache) and their trends (a bounded look at the latest attempts)
   const readTp = () => db.all<TpRow>(
-    'SELECT task, grade, subject, topic, attempts, last20_pct, first10_pct, last10_pct, mastery, last_attempt_at FROM topic_progress WHERE student_id = ? ORDER BY last_attempt_at DESC LIMIT 400',
+    'SELECT task, grade, subject, topic, attempts, last20_pct, first10_pct, last10_pct, days_practised, mastery, last_attempt_at FROM topic_progress WHERE student_id = ? ORDER BY last_attempt_at DESC LIMIT 400',
     [studentId],
   );
   let tp = await readTp();
@@ -143,7 +143,7 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
     accuracyPct: r.last20_pct === null ? null : Number(r.last20_pct),
     attempts: Number(r.attempts),
     trend: trendPoints(byTask.get(r.task) ?? []),
-    changePoints: improvementPoints(Number(r.attempts), r.first10_pct === null ? null : Number(r.first10_pct), r.last10_pct === null ? null : Number(r.last10_pct)),
+    changePoints: improvementPoints(Number(r.attempts), r.first10_pct === null ? null : Number(r.first10_pct), r.last10_pct === null ? null : Number(r.last10_pct), r.days_practised === undefined ? undefined : Number(r.days_practised)),
     practiseHref: APP_HREF,
   });
   for (const r of tp) {
