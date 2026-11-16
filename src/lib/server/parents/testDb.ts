@@ -13,7 +13,7 @@ export const SECRET = 'test-session-secret';
 export async function openParentsDb() {
   const t = await openTestDb();
   if (!t) return null;
-  for (const m of ['0013_adult_auth.sql', '0015_parents.sql', '0017_parent_summary.sql']) t.raw.exec(fs.readFileSync(`migrations/${m}`, 'utf8'));
+  for (const m of ['0013_adult_auth.sql', '0015_parents.sql', '0017_parent_summary.sql', '0026_summary_last_error.sql']) t.raw.exec(fs.readFileSync(`migrations/${m}`, 'utf8'));
   return { t, raw: t.raw as unknown as DatabaseSync, db: t.db };
 }
 export type ParentsTestDb = NonNullable<Awaited<ReturnType<typeof openParentsDb>>>;

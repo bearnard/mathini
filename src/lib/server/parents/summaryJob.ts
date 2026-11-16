@@ -22,6 +22,17 @@ export const MAX_ATTEMPTS = 3;
 export const DEFAULT_MAX_OPS = 800;
 const MAX_CHILDREN_PER_EMAIL = 6;
 
+/** A short, safe description of a failure for summary_sent.last_error and the log: name and message, at most 200 characters, with any address or link removed. */
+export function errorText(err: unknown): string {
+  const name = err instanceof Error ? err.name : typeof err;
+  const message = err instanceof Error ? err.message : String(err);
+  return `${name}: ${message}`
+    .replace(/https?:\/\/\S+/gi, '[link]')
+    .replace(/\S+@\S+/g, '[address]')
+    .replace(/\s+/g, ' ')
+    .slice(0, 200);
+}
+
 export class BudgetExceeded extends Error {
   constructor() {
     super('subrequest budget used');
@@ -104,12 +115,22 @@ export async function runWeeklySummary(deps: SummaryDeps): Promise<SummaryResult
   const { now } = deps;
   const log = deps.log ?? ((l: string) => console.log(l));
   const result: SummaryResult = { sent: 0, skipped: 0, failed: 0, reason: null, ops: 0 };
-  if (!isSendDay(now)) return { ...result, reason: 'not-send-day' };
-  if (!canSend(deps.mailer)) return { ...result, reason: 'no-mail' };
-  if (!deps.secret) return { ...result, reason: 'no-secret' };
+  const stop = (reason: NonNullable<SummaryResult['reason']>): SummaryResult => { log(`weekly summary: did not run (${reason})`); return { ...result, reason }; };
+  if (!isSendDay(now)) return stop('not-send-day');
+  if (!canSend(deps.mailer)) return stop('no-mail');
+  if (!deps.secret) return stop('no-secret');
   const site = (deps.siteUrl ?? SITE_URL).replace(/\/+$/, '');
   const week = weekKey(now);
   const b = budgetOf(deps.db, deps.maxOps ?? DEFAULT_MAX_OPS);
+  /** Marks a claimed parent failed and keeps the reason. Written with the UNCOUNTED database so it still happens when the budget is spent. If the column does not exist yet (migration 0026 not applied), the status is still written. */
+  const markFailed = async (userId: string, reason: string, giveAttemptBack = false) => {
+    const attempts = giveAttemptBack ? 'MAX(attempts - 1, 0)' : 'attempts';
+    try {
+      await b.raw.batch([{ sql: `UPDATE summary_sent SET status = 'failed', attempts = ${attempts}, last_error = ? WHERE user_id = ? AND week = ? AND status = 'pending'`, params: [reason, userId, week] }]);
+    } catch {
+      await b.raw.batch([{ sql: `UPDATE summary_sent SET status = 'failed', attempts = ${attempts} WHERE user_id = ? AND week = ? AND status = 'pending'`, params: [userId, week] }]);
+    }
+  };
   const cap = deps.maxParents ?? MAX_PARENTS_PER_RUN;
 
   try {
@@ -153,17 +174,25 @@ export async function runWeeklySummary(deps: SummaryDeps): Promise<SummaryResult
           });
         } catch (err) {
           if (err instanceof BudgetExceeded) throw err;
-          await b.db.batch([{ sql: "UPDATE summary_sent SET status = 'failed' WHERE user_id = ? AND week = ?", params: [parent.user_id, week] }]);
+          const why = errorText(err);
+          await markFailed(parent.user_id, why);
           result.failed += 1;
-          log(`weekly summary: a send failed: ${err instanceof Error ? err.message : 'unknown'}`); // the message only: never the address, a name or the link
+          log(`weekly summary: a send failed: ${why}`); // name and message only, with any address or link removed
           continue;
         }
         await b.db.batch([{ sql: "UPDATE summary_sent SET status = 'sent', sent_at = ?, children = ? WHERE user_id = ? AND week = ?", params: [now, weeks.length, parent.user_id, week] }]);
         result.sent += 1;
       } catch (err) {
-        if (!(err instanceof BudgetExceeded)) throw err;
+        if (!(err instanceof BudgetExceeded)) {
+          // Anything else that went wrong for this parent (a read, a build, the unsubscribe token): keep the reason, count it, and carry on with the next parent.
+          const why = errorText(err);
+          await markFailed(parent.user_id, why);
+          result.failed += 1;
+          log(`weekly summary: a parent failed: ${why}`);
+          continue;
+        }
         // The budget ran out part-way through this parent: give the claim back (uncounted: this is what keeps them from being lost), then stop.
-        await b.raw.batch([{ sql: "UPDATE summary_sent SET status = 'failed', attempts = MAX(attempts - 1, 0) WHERE user_id = ? AND week = ? AND status = 'pending'", params: [parent.user_id, week] }]);
+        await markFailed(parent.user_id, 'budget used before this parent was finished', true);
         result.reason = 'budget';
         break;
       }
@@ -172,12 +201,12 @@ export async function runWeeklySummary(deps: SummaryDeps): Promise<SummaryResult
   } catch (err) {
     if (err instanceof BudgetExceeded) result.reason = 'budget';
     else {
-      log(`weekly summary: run failed: ${err instanceof Error ? err.message : 'unknown'}`);
+      log(`weekly summary: run failed: ${errorText(err)}`);
       throw err;
     }
   }
   result.ops = b.used();
-  log(`weekly summary ${week}: sent ${result.sent}, skipped ${result.skipped}, failed ${result.failed}${result.reason ? ` (${result.reason})` : ''}, ops ${result.ops}`);
+  log(`weekly summary ${week}: sent ${result.sent}, skipped ${result.skipped}, failed ${result.failed}${result.reason ? ` (${result.reason})` : ''}, ops ${result.ops} of ${deps.maxOps ?? DEFAULT_MAX_OPS}`);
   return result;
 }
 
