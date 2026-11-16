@@ -159,6 +159,18 @@ export const grade6: Grade = {
                                     title: "Adding and Subtracting 6-digit Numbers",
                                     description: "6-digit sums and differences, and problems with money and quantities.",
                                     component: lazy(() => import('./term3/whole-numbers/AddSubtract6Digit'))
+                                },
+                                {
+                                    id: "g6-percentages",
+                                    title: "Percentages",
+                                    description: "Per cent, fractions and decimals as percentages, and a percentage of a number.",
+                                    component: lazy(() => import('./term3/percentages/Percentages'))
+                                },
+                                {
+                                    id: "g6-temperature",
+                                    title: "Temperature",
+                                    description: "Degrees Celsius, reading thermometers and solving temperature problems.",
+                                    component: lazy(() => import('./term3/temperature/Temperature'))
                                 }
                             ]
                         },

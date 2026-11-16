@@ -12,6 +12,8 @@ const lessons = {
   div2: renderSlides((await import('./term2/whole-numbers/Divide2Digit')).learnSteps),
   mul3: renderSlides((await import('./term4/whole-numbers/Multiply3Digit')).learnSteps),
   div3: renderSlides((await import('./term4/whole-numbers/Divide3Digit')).learnSteps),
+  pct: renderSlides((await import('./term3/percentages/Percentages')).learnSteps),
+  temp: renderSlides((await import('./term3/temperature/Temperature')).learnSteps),
 };
 const text = (k: keyof typeof lessons) => lessons[k].map((s) => s.text.replace(/\u00a0/g, ' ')).join(' | ');
 
@@ -129,4 +131,34 @@ test('Dividing by 3-digit numbers: the worked numbers are true', () => {
   assert.equal(217 * 25 + 7, 5432);
   assert.equal(8000 / 250, 32);
   assert.equal(9450 / 135, 70);
+});
+
+test('Percentages: the worked numbers are true and nothing goes beyond the CAPS scope', () => {
+  const t = text('pct');
+  for (const n of ['30%', '7%', '10%', '25/100', '75/100', '50%', '20%', '5%', '0,25', 'R75', 'R45', '40', '36', '18', 'R405', 'R200', 'R600']) assert.ok(t.includes(n), `missing ${n}`);
+  assert.equal(300 / 4, 75);
+  assert.equal(450 / 10, 45);
+  assert.equal(80 / 2, 40);
+  assert.equal(360 / 10 / 2, 18);
+  assert.equal(450 - 45, 405);
+  assert.equal(800 - 800 / 4, 600);
+  assert.equal((2 * 100) / 5, 40);
+  assert.equal(200 / 4 * 3, 150);
+  assert.ok(!/1\/3|1\/8|33%/.test(t.replace('Fractions such as 1/3 do not fit into 100, and you do not need to change them.', '')), 'no fraction outside the denominators CAPS allows');
+});
+
+test('Temperature: the worked numbers are true', () => {
+  const t = text('temp');
+  for (const n of ['0 °C', '37 °C', '100 °C', '26 °C', '25 °C', '36,7 °C', '13 °C', '0,5 °C', '23 °C', '8 °C', '27 °C', '1,5 °C']) assert.ok(t.includes(n), `missing ${n}`);
+  assert.equal(10 / 5, 2);
+  assert.ok(t.includes('split into 5 equal steps by 4 small lines'), 'steps, not lines');
+  assert.ok(!/5 small lines/.test(t));
+  assert.equal(20 + 3 * 2, 26);
+  assert.equal(24 - 11, 13);
+  assert.equal(Math.round((37.2 - 36.7) * 10) / 10, 0.5);
+  assert.equal(14 + 9, 23);
+  assert.equal(14 - 6, 8);
+  assert.equal(20 + 7, 27);
+  assert.equal(28 - 15, 13);
+  assert.equal(Math.round((38.5 - 37) * 10) / 10, 1.5);
 });

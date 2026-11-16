@@ -2,6 +2,7 @@ import { r3 } from '../round';
 import { PICTURE_COLORS } from './Grade7Pictures';
 import { columnAdd, columnSubtract, digitsOf, group } from './grade6AddSub';
 import { divide, partialProducts } from './grade6MulDiv';
+import { scaleTicks, scaleY, tempText } from './grade6Percent';
 
 /**
  * Grade 6 Mathematics lesson pictures, in the style of Grade10Maths / Grade7Pictures: a dark panel, a 120-unit-wide viewBox, positions computed from
@@ -173,3 +174,73 @@ export const LineList = ({ lines, aria }: { lines: { text: string; color?: strin
     ))}
   </Panel>
 );
+
+
+// ---------------------------------------------------------------- percentages and temperature
+
+/** A 10 by 10 grid of 100 squares with the first n shaded: n per cent is n out of 100. */
+export const PercentGrid = ({ n, caption }: { n: number; caption?: string }) => {
+  const size = 4.6;
+  const x0 = 10;
+  const y0 = 7;
+  return (
+    <Panel h={58} aria={`A grid of 100 squares with ${n} of them shaded. ${n} out of 100 is ${n} per cent.${caption ? ` ${caption}` : ''}`}>
+      {Array.from({ length: 100 }, (_, i) => {
+        const row = Math.floor(i / 10);
+        const col = i % 10;
+        return <rect key={i} x={r3(x0 + col * size)} y={r3(y0 + row * size)} width={size - 0.6} height={size - 0.6} rx={0.6} fill={i < n ? A : 'rgba(148,163,184,0.18)'} />;
+      })}
+      <T x={92} y={26} color={A} size={11}>{`${n}%`}</T>
+      <T x={92} y={38} color={MUTED} size={5.4}>{`${n} out of 100`}</T>
+    </Panel>
+  );
+};
+
+/** A bar for the whole amount with the part that is the percentage shaded: 25% of R300 is R75. */
+export const PercentBar = ({ percent, whole, part, unit }: { percent: number; whole: number; part: number; unit: string }) => {
+  const w = 96;
+  return (
+    <Panel h={46} aria={`A bar for the whole amount, ${unit}${group(whole)}. The shaded part is ${percent} per cent of it, which is ${unit}${group(part)}.`}>
+      <rect x={12} y={12} width={w} height={14} rx={2} fill="rgba(148,163,184,0.18)" stroke={MUTED} strokeWidth={0.6} />
+      <rect x={12} y={12} width={r3((w * percent) / 100)} height={14} rx={2} fill={A} />
+      <T x={12 + (w * percent) / 200} y={21.5} color={INK} size={5.4}>{`${percent}%`}</T>
+      <T x={12 + (w * percent) / 200} y={37} color={A} size={5.4}>{`${unit}${group(part)}`}</T>
+      <T x={12 + w} y={37} color={MUTED} size={5.4} anchor="end">{`whole: ${unit}${group(whole)}`}</T>
+    </Panel>
+  );
+};
+
+/** One or more thermometers on the same scale (degrees Celsius). Values are in TENTHS of a degree (367 = 36,7 °C). Lines every `step` degrees, numbers every `numberEvery`. */
+export const Thermometers = ({ items, min, max, step, numberEvery }: { items: { value: number; label: string }[]; min: number; max: number; step: number; numberEvery: number }) => {
+  const top = 10;
+  const bottom = 58;
+  const yOf = (deg: number) => scaleY(deg, min, max, top, bottom);
+  const n = items.length;
+  const ticks = scaleTicks(min, max, step);
+  return (
+    <Panel
+      h={76}
+      aria={`${n > 1 ? 'Thermometers' : 'A thermometer'} in degrees Celsius with a scale from ${min} to ${max}, a line for every ${step} degree${step === 1 ? '' : 's'}. ${items.map((it) => `${it.label}: ${tempText(it.value)}`).join('; ')}.`}
+    >
+      {items.map((it, i) => {
+        const cx = 60 + (i - (n - 1) / 2) * (n > 1 ? 40 : 0);
+        const level = yOf(it.value / 10);
+        return (
+          <g key={i}>
+            <rect x={cx - 3} y={top - 2} width={6} height={bottom - top + 4} rx={3} fill="rgba(148,163,184,0.2)" stroke={MUTED} strokeWidth={0.6} />
+            <rect x={cx - 1.6} y={level} width={3.2} height={r3(bottom - level + 2)} rx={1.6} fill={R} />
+            <circle cx={cx} cy={bottom + 5} r={4.2} fill={R} />
+            {ticks.map((d) => (
+              <g key={d}>
+                <line x1={cx - 8} y1={yOf(d)} x2={cx - 4} y2={yOf(d)} stroke={MUTED} strokeWidth={d % numberEvery === 0 ? 0.9 : 0.5} />
+                {d % numberEvery === 0 ? <T x={cx - 10} y={yOf(d) + 1.8} color={MUTED} size={4.4} anchor="end">{String(d)}</T> : null}
+              </g>
+            ))}
+            <T x={cx + 8} y={Math.max(level, top + 6) + 1.5} color={A} size={5.2} anchor="start">{tempText(it.value)}</T>
+            <T x={cx} y={73} color={LINE} size={4.8}>{it.label}</T>
+          </g>
+        );
+      })}
+    </Panel>
+  );
+};

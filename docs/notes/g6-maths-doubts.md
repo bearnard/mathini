@@ -15,3 +15,13 @@ Source: CAPS Mathematics Grades 4-6, section 3.3.3 "Clarification of content for
 - **CAPS examples that check out and are used as they stand:** 547 × 45 = 24 615 (by 547 × 40 + 547 × 5 and by 547 × 50 − 547 × 5), 547 × 42 = 22 974 (by the factors 6 × 7), 4 362 × 108 = 471 096 (8 × 4 362 = 34 896 and 100 × 4 362 = 436 200), the four estimates of 4 362 × 108 (400 000, 432 000, 436 200, 475 200) and 3 447 ÷ 17 = 202 remainder 13 (200 × 17 = 3 400 and 2 × 17 = 34).
 - **Remainders in problems.** The buses question (300 learners, 24 seats) teaches that a remainder of learners needs one more bus (13 buses). This "round up" reading is standard school practice; the CAPS text only lists "grouping and equal sharing with remainders" as a problem type.
 - **Number format.** Every formatted number uses a non-breaking space between groups of three digits (grade6AddSub.group, nb), so a number never splits across two lines. Questions, options and explanations are tested for it.
+
+## Percentages (Term 3)
+
+- **Scope.** CAPS says percentages are new in Grade 6 and limits them to tenths and hundredths, fractions whose denominators are factors of 100, decimals in tenths and hundredths, and a percentage of a whole number ("learners are not expected to convert any common fraction into its percentage form"). The lesson and the 14 questions use only 2, 4, 5, 10, 20, 25 and 50 and 100 as denominators, and the lesson test fails if 1/3 or 1/8 appears as something to convert. The CAPS example 25% of R300 = 1/4 of R300 = R75 is used as it stands (the CAPS text writes "25% of R30 = 1/4 of R300" with a typing slip; the correct statement is used).
+- **Discount** (a R450 jacket at 10% off costs R405) is a simple financial application of "percentage of a whole number"; CAPS does not mention discounts for Grade 6, so a teacher should confirm it is welcome in Term 3.
+
+## Temperature (Term 3)
+
+- **Referents.** 0 °C, 37 °C and 100 °C are the CAPS referents. "A hot summer day is about 33 °C" and "a cold winter morning about 3 °C" are everyday estimates, not CAPS statements, offered as sensible-guess examples.
+- **Scales.** The thermometer pictures are drawn from the numbers in the lesson (0 to 40 with a line every 2 degrees; digital readings with tenths such as 36,7 °C). Temperatures are positive whole numbers or one decimal place only, as in CAPS ("limited to positive whole numbers and decimal fractions").
