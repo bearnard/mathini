@@ -89,8 +89,16 @@ export function childLines(c: ChildWeek): { heading: string; lines: string[] } {
   lines.push(c.tests.length === 0
     ? 'No tests this week.'
     : `Tests this week: ${c.tests.map((t) => `${t.label} ${pct(t.scorePct)}${changeWords(t.changePoints)}`).join('; ')}.`);
-  if (c.improving.length > 0) lines.push(`Getting better: ${c.improving.map((t) => `${t.label} (up ${pts(t.points)})`).join('; ')}.`);
-  if (c.attention.length > 0) lines.push(`Needs attention: ${c.attention.map((t) => (t.accuracyPct === null ? t.label : `${t.label} (${pct(t.accuracyPct)} right)`)).join('; ')}.`);
+  // A topic is in ONE list. The two lists come from different measures (the latest 10 answers against the first 10, and the recent weighted accuracy), so a
+  // topic can qualify for both: it has risen and is still low. Say that once, as one line, instead of "getting better" and "needs attention" about it.
+  const attentionBy = new Map(c.attention.map((t) => [t.label, t.accuracyPct]));
+  const improvingOnly = c.improving.filter((t) => !attentionBy.has(t.label));
+  const both = c.improving.filter((t) => attentionBy.has(t.label));
+  const bothLabels = new Set(both.map((t) => t.label));
+  const attentionOnly = c.attention.filter((t) => !bothLabels.has(t.label));
+  if (improvingOnly.length > 0) lines.push(`Getting better: ${improvingOnly.map((t) => `${t.label} (up ${pts(t.points)})`).join('; ')}.`);
+  if (both.length > 0) lines.push(`Improving, but still needs practice: ${both.map((t) => { const a = attentionBy.get(t.label); return a === null || a === undefined ? `${t.label} (up ${pts(t.points)})` : `${t.label} (up ${pts(t.points)}, recent accuracy ${pct(a)})`; }).join('; ')}.`);
+  if (attentionOnly.length > 0) lines.push(`Needs attention: ${attentionOnly.map((t) => (t.accuracyPct === null ? t.label : `${t.label} (recent accuracy ${pct(t.accuracyPct)})`)).join('; ')}.`);
   if (c.nextStep) lines.push(`Next step: ${c.nextStep.title}. ${c.nextStep.reason}`);
   return { heading: `${c.name} (Grade ${c.grade})`, lines };
 }
