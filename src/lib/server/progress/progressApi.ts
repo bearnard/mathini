@@ -12,7 +12,7 @@ import { examScopeForGrade } from '../../shared/examScopes';
 import { dailyPlan, dayNumberOf, daysUntil, type PlanTopic } from '../../shared/dailyPlan';
 import { learnerScopesFromRows, scopesForStudentStatement } from '../schools/scopes';
 import { sastDay } from '../review/scheduler';
-import { ensureProgressRows } from './topicProgress';
+import { ensureProgressRows, refreshForRun } from './topicProgress';
 import { REVIEW_SESSION_SIZE } from '../review/due';
 import { SUBJECT_TITLES, TOPIC_NAMES } from '../../../components/admin/topicNames.generated';
 import { prettifySlug } from '../../../components/admin/names';
@@ -74,6 +74,16 @@ export function recentSessionsOf(rows: readonly { task: string; is_correct: numb
   });
 }
 
+/** Tasks whose newest answer (among the recent attempts read) is newer than the cached row's last answer, or that have no cached row. Pure. */
+export function staleTasks(tp: readonly { task: string; last_attempt_at: number | null }[], recent: readonly { task: string; created_at: number }[]): string[] {
+  const cached = new Map(tp.map((r) => [r.task, Number(r.last_attempt_at ?? 0)]));
+  const newest = new Map<string, number>();
+  for (const a of recent) newest.set(a.task, Math.max(newest.get(a.task) ?? 0, Number(a.created_at)));
+  const out: string[] = [];
+  for (const [task, at] of newest) if (!cached.has(task) || at > (cached.get(task) as number)) out.push(task);
+  return out.slice(0, 30);
+}
+
 export async function buildProgress(db: AdminDb, studentId: string, now: number): Promise<ProgressResponse | null> {
   // ONE round trip for everything the page reads (each awaited D1 call costs ~180 ms from the Worker, so they are sent together). If the batch
   // fails, each read is tried on its own, the optional ones falling back to "nothing" exactly as before.
@@ -107,6 +117,12 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
   // Answers but no cached rows (history from before the cache, or no finished run yet): build them now, once. A failure here only leaves the page as it was.
   if (tp.length === 0 && (await safe(() => ensureProgressRows(db, studentId, now), 0)) > 0) tp = await db.all<TpRow>(TP_SQL, [studentId]);
   const recent = got[2] as unknown as { task: string; is_correct: number; created_at: number; run_id: string | null }[];
+  // Freshness: the cache is refreshed when a run finishes and at night, so answers given since (an abandoned run, a topic practised without finishing)
+  // can be newer than their cached row. The attempts already read tell us which tasks those are, with no extra read: refresh just them, then re-read.
+  if (tp.length > 0) {
+    const stale = staleTasks(tp, recent);
+    if (stale.length > 0 && (await safe(() => refreshForRun(db, studentId, stale, now), 0)) > 0) tp = await db.all<TpRow>(TP_SQL, [studentId]);
+  }
   const finished = got[3] as unknown as RunRow[];
   const recentSessions = recentSessionsOf(recent, grade);
   const byTask = new Map<string, TrendAttempt[]>();
