@@ -158,6 +158,22 @@ export function buildProdMap(prodQ: ProdQuestion[], prodV: ProdVersion[]) {
   return { prod, ai, cur, retired, noVersion, edited };
 }
 
+/**
+ * The task slug of a bank file under src/curriculum: the ONE slug named in the file (`task="..."` or `task: '...'`). A lesson split into
+ * <Name>Content.tsx (slides and bank) and <Name>.tsx (the component that names the task) has no slug in the bank file, so the sibling files of
+ * the same folder are read, only when the bank file names none (no other lesson changes). Null when the file names none or several.
+ */
+export function taskOfBankFile(curriculumRoot: string, file: string): string | null {
+  const slugsIn = (text: string) => new Set([...text.matchAll(/\btask\s*[=:]\s*[{]?\s*["'`]([a-z0-9-]+)["'`]/g)].map((m) => m[1]));
+  const abs = path.join(curriculumRoot, file);
+  const set = slugsIn(fs.readFileSync(abs, 'utf8'));
+  if (set.size === 0) {
+    const dir = path.dirname(abs);
+    for (const f of fs.readdirSync(dir)) if (/\.tsx?$/.test(f) && !/\.test\./.test(f) && f !== path.basename(abs)) for (const x of slugsIn(fs.readFileSync(path.join(dir, f), 'utf8'))) set.add(x);
+  }
+  return set.size === 1 ? [...set][0] : null;
+}
+
 export async function gather(qFile: string, vFile: string) {
   const prodQ = (JSON.parse(fs.readFileSync(qFile, 'utf8'))[0].results as ProdQuestion[]);
   const prodV = (JSON.parse(fs.readFileSync(vFile, 'utf8'))[0].results as ProdVersion[]);
@@ -189,12 +205,8 @@ export async function gather(qFile: string, vFile: string) {
   const curriculum = path.join(process.cwd(), 'src', 'curriculum');
   const taskOfFile = new Map<string, string | null>();
   const taskFor = (file: string): string | null => {
-    if (taskOfFile.has(file)) return taskOfFile.get(file)!;
-    const src = fs.readFileSync(path.join(curriculum, file), 'utf8');
-    const set = new Set([...src.matchAll(/\btask\s*[=:]\s*[{]?\s*["'`]([a-z0-9-]+)["'`]/g)].map((m) => m[1]));
-    const t = set.size === 1 ? [...set][0] : null;
-    taskOfFile.set(file, t);
-    return t;
+    if (!taskOfFile.has(file)) taskOfFile.set(file, taskOfBankFile(curriculum, file));
+    return taskOfFile.get(file)!;
   };
   const codeByGrade = new Map<number, CodeQuestion[]>([[6, code6]]);
   const unknown = new Map<number, number>();
