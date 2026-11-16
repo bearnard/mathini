@@ -340,6 +340,11 @@
                 "id": "g6-transformations",
                 "title": "Transformations in Patterns",
                 "description": "Describing patterns with translation, reflection, rotation and symmetry."
+              },
+              {
+                "id": "g6-viewing-objects",
+                "title": "Viewing Objects",
+                "description": "Matching views of objects and structures of cubes with the position of the viewer."
               }
             ]
           },

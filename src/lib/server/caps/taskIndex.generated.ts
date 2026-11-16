@@ -591,6 +591,7 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr6-temperature-t3": ["grade6", 6],
   "gr6-time-t4": ["grade6", 6],
   "gr6-transformations-t3": ["grade6", 6],
+  "gr6-viewing-objects-t3": ["grade6", 6],
   "gr6-volume-t3": ["grade6", 6],
   "gr7-area-and-perimeter-of-2d-shapes-t2": ["math", 7],
   "gr7-biosphere-biodiversity-and-reproduction-t1": ["nst", 7],

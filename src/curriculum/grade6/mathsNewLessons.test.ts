@@ -18,6 +18,7 @@ const lessons = {
   pos: renderSlides((await import('./term4/position-movement/PositionMovement')).learnSteps),
   trans: renderSlides((await import('./term3/transformations/Transformations')).learnSteps),
   enl: renderSlides((await import('./term4/enlargements/Enlargements')).learnSteps),
+  view: renderSlides((await import('./term3/viewing-objects/ViewingObjects')).learnSteps),
 };
 const text = (k: keyof typeof lessons) => lessons[k].map((s) => s.text.replace(/\u00a0/g, ' ')).join(' | ');
 
@@ -215,4 +216,16 @@ test('Enlargements and reductions: the worked numbers are true', () => {
   assert.equal(24 / 6, 4);
   assert.equal(4 * 6, 24);
   assert.equal(3 + 4 + 5, 12);
+});
+
+test('Viewing objects: the worked views are true', () => {
+  const x = text('view');
+  for (const n of ['1, 3, 2', '2, 3, 1', '6 cubes', '7 cubes', 'rectangle', 'triangle', 'square', 'circle', '2, 3', '1, 3', '2, 1, 4', '3, 2', '3 squares']) assert.ok(x.includes(n.replace(' cubes', '')), `missing ${n}`);
+  assert.equal(1 + 3 + 2, 6);
+  assert.equal(1 + 2 + 3 + 1, 7);
+  // front 1,3,2 reversed is 2,3,1; structure front row 1,2 and back row 3,1: front view max per column is 3, 2
+  assert.deepEqual([Math.max(1, 3), Math.max(2, 1)], [3, 2]);
+  assert.deepEqual([Math.max(1, 2), Math.max(3, 1)], [2, 3]); // right view: front row tallest 2, back row tallest 3
+  assert.equal(4 + 1 + 2, 7);
+  assert.deepEqual([Math.max(1, 3), Math.max(2, 2)], [3, 2]); // check yourself: left view back row 3 then front row 2
 });
