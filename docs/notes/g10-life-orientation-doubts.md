@@ -1,0 +1,42 @@
+# Grade 10 Life Orientation: facts to check (teacher review pack)
+
+Source for the topic lists: CAPS FET Life Orientation Grades 10-12, Annual Teaching Plan for Grade 10 (DBE). Everything below is in a lesson or a question bank and
+should be read by a Life Orientation teacher before it counts as reviewed. Nothing here was left out of the bank because of doubt; where a fact could not be
+confirmed from a primary source it is NOT stated as a number or a date in the lesson.
+
+Status key: OK = taken straight from CAPS, CHECK = a teacher or the owner should confirm, SENSITIVE = health, sexuality or religion content that needs a teacher's eyes.
+
+## Term 1
+
+### Self-awareness, self-esteem and self-development
+- OK: the five strategies for building confidence (communicate, finish tasks or projects, take part in community life, make good decisions, affirm others) and respect for differences of race, gender and ability are the CAPS list.
+- CHECK: the examples (Sipho, Lerato, Thabo, Zanele) are invented SA names and scenarios, not real people.
+
+### Power, power relations and gender (SENSITIVE)
+- OK: the concepts (power, power relations, masculinity, femininity, gender), the differences between a man and a woman (reproduction and roles), stereotypes, gender differences in physical activity, and the effects of gender inequality (sexual abuse, teenage pregnancy, violence, STIs including HIV and AIDS) are the CAPS list.
+- CHECK: the wording "sex = biological differences, gender = roles and expectations a society attaches" is the usual school definition, not a CAPS quotation.
+- CHECK: Childline is given as "116" (the number the owner and orchestrator gave). Confirm that 116 is the current toll-free Childline number. No other helpline number is printed in a lesson (a test fails on a full phone number). The national GBV Command Centre (0800 428 428) is NOT included until a teacher confirms it is current.
+- SENSITIVE: the Sibusiso pressure example avoids graphic detail on purpose.
+
+### Subjects, career fields and study choices
+- CHECK: "The National Senior Certificate needs seven subjects: two languages (a Home Language and a First Additional Language), Mathematics or Mathematical Literacy, Life Orientation and three other subjects." Confirm against the current DBE National Policy on the Programme and Promotion Requirements.
+- CHECK: "Many engineering degrees need Mathematics (and Physical Sciences)." True in general; each university sets its own admission requirements, so the lesson says "many" and tells the learner to check.
+- CHECK: the life domains use the CAPS wording: being (physical, psychological and spiritual), becoming (practical, leisure and growth) and community (social, physical and community). Many textbooks call the third domain "belonging"; the lesson follows CAPS.
+- OK: the salary example (gross R15 000, deductions R3 000, net R12 000) is made-up illustration; the numbers come from `gr10Helpers.ts` and are tested. No real tax rates or thresholds are stated.
+
+### Diversity, discrimination and human rights violations
+- OK: contexts (race, religion, culture, language, gender, age, rural or urban, xenophobia, human trafficking, HIV and AIDS status) are the CAPS list.
+- CHECK: the definitions of xenophobia ("fear or hatred of foreigners") and human trafficking ("moving people by force, fraud or deception to exploit them") are simplified school definitions.
+- CHECK: the South African Human Rights Commission and the Commission for Gender Equality are named as organisations that challenge discrimination (both are Chapter 9 institutions of the Constitution).
+
+### The Bill of Rights and international instruments
+- CHECK: the Bill of Rights is Chapter 2 of the Constitution of 1996 (confirmed in the Constitution text).
+- CHECK: the limitation of rights ("by a law that is reasonable and fair") is the idea of section 36; the lesson does not quote section numbers.
+- CHECK: Convention on the Rights of the Child adopted by the UN in 1989 (child = under 18); African Charter on the Rights and Welfare of the Child adopted in 1990 by the Organisation of African Unity (now the African Union); CEDAW adopted by the UN in 1979. Years and wording from the instruments' own texts. The dates South Africa ratified them are NOT stated.
+- CHECK: descriptions of the Public Protector ("investigates wrongdoing in government"), Legal Aid South Africa ("legal help for people who cannot pay") and the two commissions are one-line summaries.
+- CHECK: Human Rights Day is 21 March; the 16 Days of Activism for No Violence against Women and Children run from 25 November to 10 December.
+
+### Physical Education: fitness and safety
+- OK: the four fitness parts and safety in fitness exercises are the CAPS list.
+- CHECK: the World Health Organization advice quoted is "an average of at least 60 minutes a day of moderate to vigorous physical activity" for children and teenagers aged 5 to 17 (WHO guidelines on physical activity and sedentary behaviour, 2020).
+- CHECK: the warm-up, main activity and cool-down times (10, 30, 10 minutes) are an example, not a prescription.

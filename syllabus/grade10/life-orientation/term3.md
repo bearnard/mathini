@@ -1,30 +1,18 @@
-# Grade 10 — Life Orientation: Term 3
+# Grade 10: Life Orientation, Term 3
 
-**CAPS phase:** FET Phase (Gr 10–12)
-**ATP weeks:** Weeks 1–10
+**CAPS phase:** FET Phase (Gr 10-12)
+**Source:** CAPS FET Life Orientation Grades 10-12, Annual Teaching Plan, Grade 10 (DBE). Corrected 2026-11-16; the earlier version of this file did not match CAPS.
 
 ## Topics
 
-### Democracy and human rights
-- **Key concepts:** human rights, the Constitution, responsibilities, equality, freedom
-- **Skills / outcomes:** interpret constitutional principles and apply them to local issues affecting young people
-- **Assessment angles:** short-answer tests, source analysis, rights-and-responsibilities matching
+### Development of the self in society (Weeks 1-5, 5 hours)
+- **Content:** life roles (child, student, adult, partner, mother, father, grandparent, breadwinner, employee, employer, leader, follower), their evolving nature and responsibilities; changes towards adulthood (physical, emotional and social); coping with change (communication, making friends); values and strategies for responsible decisions about sexuality and lifestyle choices (behaviour that could lead to teenage pregnancy, sexual abuse and rape; values such as respect, abstinence, self-control, privacy, the right to say no; skills such as assertiveness, negotiation, refusal and decision-making; where to find help); the relationship between recreational activities and emotional health.
 
-### Democratic participation and media
-- **Key concepts:** public opinion, media influence, bias, nation-building, civic voice
-- **Skills / outcomes:** analyse how media and citizens shape democracy and identify responsible forms of participation
-- **Assessment angles:** media-literacy questions, debate prompts, reflective writing
+### Careers and career choices (Weeks 6-10, 5 hours)
+- **Content:** diversity in jobs (primary, secondary and tertiary economic sectors; work settings; activities, skills and competencies); opportunities within career fields, including recreation, fitness and sport industries (research skills, salary package, promotion and further study prospects).
 
-### Social justice and diversity
-- **Key concepts:** discrimination, prejudice, redress, inclusion, respect
-- **Skills / outcomes:** evaluate unfair treatment and propose actions that uphold dignity and justice
-- **Assessment angles:** case studies, campaign poster ideas, structured discussion prompts
-
-### Physical Education Task
-- **Key concepts:** athletics, recreational activities, leadership, fair play
-- **Skills / outcomes:** participate in physical activities with increasing independence, safety and leadership
-- **Assessment angles:** timed tasks, leadership checklists, participation rubrics
+### Physical Education (10 hours)
+- **Content:** activities that promote recreation and relaxation; safety issues.
 
 ## Assessment
-- **Formal tasks this term:** A source-based task or test, a reflective or practical project, and ongoing PET evidence.
-- **SBA weighting:** FET Life Orientation uses 75% SBA and 25% PET across the year.
+- **Formal assessment:** a project and the Physical Education Task (PET).
