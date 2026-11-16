@@ -77,5 +77,7 @@ export function useNstItems(task: string, bank: NstItem[]) {
     setDone(false);
   }, []);
 
-  return { current: queue[index] as NstItem | undefined, loading, next, done, reset, index, total: queue.length };
+  // Written (explain) answers are marked by the learner and never counted on the server, so the run and the summary count the auto-marked questions only.
+  const autoTotal = queue.filter((it) => kindOf(it) !== 'explain').length;
+  return { current: queue[index] as NstItem | undefined, loading, next, done, reset, index, total: queue.length, autoTotal };
 }

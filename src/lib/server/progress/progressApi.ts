@@ -13,11 +13,14 @@ import { dailyPlan, dayNumberOf, daysUntil, type PlanTopic } from '../../shared/
 import { learnerScopesFromRows, scopesForStudentStatement } from '../schools/scopes';
 import { sastDay } from '../review/scheduler';
 import { ensureProgressRows } from './topicProgress';
+import { REVIEW_SESSION_SIZE } from '../review/due';
 import { SUBJECT_TITLES, TOPIC_NAMES } from '../../../components/admin/topicNames.generated';
 import { prettifySlug } from '../../../components/admin/names';
 
 /** Where "Practise this" and the review button go. The app has no deep links to a topic yet, so every action opens the app; the learner picks there. */
 export const APP_HREF = '/app';
+/** "Start review" opens the app and starts today's review straight away (App.tsx reads ?start=review). */
+export const REVIEW_HREF = '/app?start=review';
 const UNTRIED_PER_SUBJECT = 6;
 const TESTS_SHOWN = 20;
 const SERIES_SHOWN = 4;
@@ -240,14 +243,15 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
     dueCount,
     weakestInScope: scope ? weakestInScope : weakestOverall(subjects),
     untried: untriedInScope ?? (untriedAll[0] ? { label: untriedAll[0].label, href: APP_HREF } : null),
-    reviewHref: APP_HREF,
+    reviewHref: REVIEW_HREF,
     appHref: APP_HREF,
+    sessionSize: REVIEW_SESSION_SIZE,
   });
   if (tp.length === 0 && dueCount === 0 && !teacherScope) {
     // A learner who has not started: encourage, never an empty "all caught up".
     return { generatedAt: iso(now), grade, displayName: student.display_name || null, exam: null, subjects: [], tests, testSeries, retention, consistency: cons, recentSessions, parentNextStep: { title: `Ask ${student.display_name?.trim() || 'your child'} to try their first topic`, reason: 'They can pick any topic. Their progress will appear here.' }, teacherNextStep: { title: `Suggest ${student.display_name?.trim() || 'this learner'} try a first topic`, reason: 'They can pick any topic. Their progress will appear here.' }, nextStep: { kind: 'new_topic', title: 'Try your first topic', reason: 'Pick any topic. Your progress will appear here.', href: APP_HREF, cta: 'Choose a topic' } };
   }
-  return { generatedAt: iso(now), grade, displayName: student.display_name || null, exam, subjects, tests, testSeries, retention, consistency: cons, nextStep, recentSessions, parentNextStep: parentNextStep({ dueCount, weakestInScope: scope ? weakestInScope : weakestOverall(subjects), untried: untriedInScope ?? (untriedAll[0] ? { label: untriedAll[0].label } : null), name: student.display_name }), teacherNextStep: teacherNextStep({ dueCount, weakestInScope: scope ? weakestInScope : weakestOverall(subjects), untried: untriedInScope ?? (untriedAll[0] ? { label: untriedAll[0].label } : null), name: student.display_name }) };
+  return { generatedAt: iso(now), grade, displayName: student.display_name || null, exam, subjects, tests, testSeries, retention, consistency: cons, nextStep, recentSessions, parentNextStep: parentNextStep({ dueCount, weakestInScope: scope ? weakestInScope : weakestOverall(subjects), untried: untriedInScope ?? (untriedAll[0] ? { label: untriedAll[0].label } : null), name: student.display_name, sessionSize: REVIEW_SESSION_SIZE }), teacherNextStep: teacherNextStep({ dueCount, weakestInScope: scope ? weakestInScope : weakestOverall(subjects), untried: untriedInScope ?? (untriedAll[0] ? { label: untriedAll[0].label } : null), name: student.display_name, sessionSize: REVIEW_SESSION_SIZE }) };
 }
 
 /** With no exam scope for the grade: the weakest practised topic that is not yet mastered, across subjects. */

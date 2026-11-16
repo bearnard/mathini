@@ -27,7 +27,7 @@ const block = (src: string, start: RegExp): string => {
 for (const { file, subject, handler, call } of SHELLS as { file: string; subject: string; handler?: RegExp; call?: RegExp }[]) {
   test(`${path.basename(file)} records answers with subject "${subject}" and the prompt`, () => {
     const src = read(file);
-    assert.ok(src.includes(`useAttemptRecorder(task, '${subject}', { grade: 6, total, done, label: title })`), 'uses the recorder with its own subject code and its task, and follows the session as a run (ADR 0005)');
+    assert.ok(new RegExp(`useAttemptRecorder\\(task, '${subject}', \\{ grade: 6, total(: autoTotal)?, done, label: title \\}\\)`).test(src), 'uses the recorder with its own subject code and its task, and follows the session as a run (ADR 0005)');
     assert.match(
       block(src, handler ?? /const handleSelect = /),
       call ?? /recordAttempt\(option === current\.answer, current\.section, current\.id, current\.prompt(?:, option)?\)/,

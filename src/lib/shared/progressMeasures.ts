@@ -210,12 +210,16 @@ export function nextBestStep(args: {
   untried: { label: string; href: string } | null;
   reviewHref: string;
   appHref: string;
+  /** How many cards one review session holds. The learner's screen shows that many (never all of a big backlog), so the page says the same number. */
+  sessionSize?: number;
 }): NextBestStep {
   if (args.dueCount > 0) {
+    const today = args.sessionSize ? Math.min(args.dueCount, args.sessionSize) : args.dueCount;
+    const later = args.dueCount - today;
     return {
       kind: 'review',
-      title: args.dueCount === 1 ? 'Do your review card' : `Do your ${args.dueCount} review cards`,
-      reason: 'A few minutes now helps you remember them for the exam.',
+      title: today === 1 ? 'Do your review card' : `Do your ${today} review cards${later > 0 ? ' today' : ''}`,
+      reason: later > 0 ? `That is today's set: ${later} more will be waiting tomorrow. A few minutes now helps you remember them for the exam.` : 'A few minutes now helps you remember them for the exam.',
       href: args.reviewHref,
       cta: 'Start review',
     };
@@ -234,11 +238,12 @@ export function nextBestStep(args: {
  * The same recommendation worded for a PARENT: "Ask Anfervio to do their 5 review cards". Uses the child's name and "their", never "he" or "she".
  * Mirrors nextBestStep branch for branch (a test keeps them in step).
  */
-export function parentNextStep(args: { dueCount: number; weakestInScope: { label: string } | null; untried: { label: string } | null; name: string | null }): { title: string; reason: string } {
+export function parentNextStep(args: { dueCount: number; weakestInScope: { label: string } | null; untried: { label: string } | null; name: string | null; sessionSize?: number }): { title: string; reason: string } {
   const who = args.name?.trim() || 'your child';
   if (args.dueCount > 0) {
-    const one = args.dueCount === 1;
-    return { title: `Ask ${who} to do their ${one ? 'review card' : `${args.dueCount} review cards`}`, reason: 'A few minutes now helps them remember what they have learned, ready for the exam.' };
+    const today = args.sessionSize ? Math.min(args.dueCount, args.sessionSize) : args.dueCount;
+    const one = today === 1;
+    return { title: `Ask ${who} to do their ${one ? 'review card' : `${today} review cards`}${args.dueCount > today ? ' today' : ''}`, reason: 'A few minutes now helps them remember what they have learned, ready for the exam.' };
   }
   if (args.weakestInScope) return { title: `Ask ${who} to practise ${args.weakestInScope.label}`, reason: 'This is the topic where a little practice helps most right now.' };
   if (args.untried) return { title: `Ask ${who} to try ${args.untried.label}`, reason: 'A new topic. Their progress will appear here.' };
@@ -246,11 +251,12 @@ export function parentNextStep(args: { dueCount: number; weakestInScope: { label
 }
 
 /** The same recommendation worded for a TEACHER looking at one learner: "Encourage Anfervio to do their 5 review cards". The nickname and "their", never a gendered pronoun. */
-export function teacherNextStep(args: { dueCount: number; weakestInScope: { label: string } | null; untried: { label: string } | null; name: string | null }): { title: string; reason: string } {
+export function teacherNextStep(args: { dueCount: number; weakestInScope: { label: string } | null; untried: { label: string } | null; name: string | null; sessionSize?: number }): { title: string; reason: string } {
   const who = args.name?.trim() || 'this learner';
   if (args.dueCount > 0) {
-    const one = args.dueCount === 1;
-    return { title: `Encourage ${who} to do their ${one ? 'review card' : `${args.dueCount} review cards`}`, reason: 'A few minutes of review helps them remember what they have learned, ready for the exam.' };
+    const today = args.sessionSize ? Math.min(args.dueCount, args.sessionSize) : args.dueCount;
+    const one = today === 1;
+    return { title: `Encourage ${who} to do their ${one ? 'review card' : `${today} review cards`}${args.dueCount > today ? ' today' : ''}`, reason: 'A few minutes of review helps them remember what they have learned, ready for the exam.' };
   }
   if (args.weakestInScope) return { title: `Help ${who} practise ${args.weakestInScope.label}`, reason: 'This is the topic where a little practice helps most right now.' };
   if (args.untried) return { title: `Suggest ${who} try ${args.untried.label}`, reason: 'A topic they have not started yet.' };

@@ -5,6 +5,8 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { triggerConfetti } from '../lib/confetti';
 import Card from './ui/Card';
 import Button from './ui/Button';
+import PracticeSummary from './practice/PracticeSummary';
+import { usePracticeTally } from '../lib/client/usePracticeTally';
 import Streak from './gamification/Streak';
 import Feedback from './ui/Feedback';
 import { useCapsItems } from '../lib/client/useCapsItems';
@@ -56,6 +58,8 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
   const tracker = useRunTracker();
   const firstAnswerAt = useRef<number | null>(null);
 
+  const tally = usePracticeTally();
+
   const handleSelect = (option: string) => {
     if (selected !== null || !current) {
       return;
@@ -67,6 +71,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
     setStreak((s) => (correct ? s + 1 : 0));
 
     // Record result for section aggregation
+    tally.note(correct, current);
     resultsRef.current.push({ section: current.section, correct, qkey: task ? makeQkey(task, current.prompt) : undefined, chosen: option });
 
     if (correct) {
@@ -81,6 +86,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
   };
 
   const handleReset = () => {
+    tally.reset();
     setSelected(null);
     setIsCorrect(null);
     setStreak(0);
@@ -127,27 +133,7 @@ const PracticeRunner = ({ bank, apiPath, task, onComplete }: PracticeRunnerProps
   return (
     <>
       {done ? (
-        <Card className="p-8 text-center space-y-6">
-          <div className="text-5xl">🎉</div>
-          <h2 className="text-2xl font-bold text-slate-800">Well done!</h2>
-          <p className="text-slate-600">You completed all {total} questions.</p>
-          <div className="flex justify-center">
-            <Streak count={streak} />
-          </div>
-
-          {weakSections.length > 0 && (
-            <div className="space-y-3">
-              <p className="text-slate-600">Revise the sections you struggled with:</p>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {weakSections.map((section) => (
-                  <Button key={section} variant="secondary" size="sm">
-                    {section}
-                  </Button>
-                ))}
-              </div>
-            </div>
-          )}
-        </Card>
+        <PracticeSummary total={total} correct={tally.correct} missed={tally.missed} weakSections={weakSections} onAgain={handleReset} />
       ) : (
         <div className="space-y-8">
           <div className="flex items-center gap-4">

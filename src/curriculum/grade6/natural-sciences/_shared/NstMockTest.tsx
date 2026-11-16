@@ -4,7 +4,7 @@ import Card from '../../../../components/ui/Card';
 import Button from '../../../../components/ui/Button';
 import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
-import { buildMockTest, marksGained, seededRandom, scoreByTopic, topicsToRevise, totalMarks, type MockItem, type TopicBank } from './mockTest';
+import { buildMockTest, marksGained, seededRandom, splitScore, topicsToRevise, type MockItem, type TopicBank } from './mockTest';
 import { kindOf, marksOf } from './itemKinds';
 import { makeQkey } from '../../../../lib/shared/qkey';
 import { onFinish, onStart } from './mockTestEvents';
@@ -83,9 +83,11 @@ const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0, ru
 
   // Exam mode: any explain item means the test is scored in marks out of a total.
   const marksMode = questions.some((it) => kindOf(it) === 'explain');
-  const byTopic = scoreByTopic(questions, firstMarks);
-  const score = firstMarks.reduce((n, m) => n + m, 0);
-  const outOf = totalMarks(questions);
+  // One score for the result screen AND the stored run: the auto-marked questions. Written answers (marked by the learner) are shown on the side.
+  const split = splitScore(questions, firstMarks);
+  const byTopic = split.byTopic;
+  const score = split.auto.score;
+  const outOf = split.auto.outOf;
   const reaskTotal = missed.length;
 
   useEffect(() => {
@@ -194,9 +196,14 @@ const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0, ru
               You scored {score} / {outOf}{marksMode ? ' marks' : ''} ({percent}%)
             </h2>
             <p className="text-slate-600">{message}</p>
+            {split.written.outOf > 0 && (
+              <p className="text-sm font-semibold text-slate-700" data-testid="written-score">
+                Written answers, marked by you with the memo: {split.written.score} / {split.written.outOf} marks (these are not counted in your progress).
+              </p>
+            )}
             <p className="text-sm text-slate-500">
               This is your score on the first try of each question.
-              {marksMode && ' Written answers are marked by you, using the memo.'}
+              {marksMode && ' This is the score on the questions that are marked for you, the score that goes into your progress.'}
               {reaskTotal > 0 && ` In the second try you fixed ${reaskFixed} of ${reaskTotal} missed questions.`}
             </p>
           </div>
