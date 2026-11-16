@@ -33,7 +33,7 @@ async function ownClass(db: AdminDb, teacherId: string, classId: unknown): Promi
 /** The teacher's own class's scopes, soonest exam first. */
 export async function listScopes(db: AdminDb, teacherId: string, classId: unknown): Promise<ScopeRow[] | null> {
   const c = await ownClass(db, teacherId, classId);
-  if (!c) return null;
+  if (!c || c.status !== 'active') return null;
   const rows = await db.all<DbScope>(`SELECT ${COLS} FROM exam_scopes WHERE class_id = ? AND archived_at IS NULL ORDER BY exam_date ASC, created_at ASC LIMIT 20`, [c.id]);
   return rows.map(toScope);
 }
@@ -70,7 +70,7 @@ export async function createScope(db: AdminDb, teacherId: string, classId: unkno
 
 export async function archiveScope(db: AdminDb, teacherId: string, classId: unknown, scopeId: unknown, now: number): Promise<{ ok: true } | Fail> {
   const c = await ownClass(db, teacherId, classId);
-  if (!c || !isUuid(scopeId)) return fail(404, 'Not found');
+  if (!c || c.status !== 'active' || !isUuid(scopeId)) return fail(404, 'Not found');
   const s = (await db.all<{ id: string }>('SELECT id FROM exam_scopes WHERE id = ? AND class_id = ? AND archived_at IS NULL', [scopeId, c.id]))[0];
   if (!s) return fail(404, 'Not found');
   await db.batch([{ sql: 'UPDATE exam_scopes SET archived_at = ? WHERE id = ? AND class_id = ? AND archived_at IS NULL', params: [now, scopeId, c.id] }]);

@@ -46,6 +46,16 @@ export function ClassTiles({ cards, newLearners }: { cards: ClassCard[]; newLear
 }
 
 function Card({ c, fresh, onOpen }: { c: ClassCard; fresh: number; onOpen: (id: string) => void }) {
+  // An archived class is listed but not opened: its learners and progress are closed to the teacher.
+  if (!c.active) {
+    return (
+      <div className="flex min-w-0 flex-col rounded-2xl border border-slate-200 bg-slate-50 p-5 text-left">
+        <strong className="block break-words text-lg font-extrabold text-slate-700">{c.name}</strong>
+        <span className="mt-0.5 block text-sm text-slate-600">{c.grade === null ? '' : `Grade ${c.grade} · `}Archived</span>
+        <span className="mt-3 text-sm text-slate-600">This class is archived. Its code no longer works and its learners are no longer shown.</span>
+      </div>
+    );
+  }
   return (
     <a
       href={classHref(c.id)}
@@ -54,7 +64,7 @@ function Card({ c, fresh, onOpen }: { c: ClassCard; fresh: number; onOpen: (id: 
     >
       <span className="min-w-0">
         <strong className="block break-words text-lg font-extrabold text-indigo-700 underline decoration-indigo-300 decoration-2 underline-offset-4 group-hover:decoration-indigo-600">{c.name}</strong>
-        <span className="mt-0.5 block text-sm text-slate-600">{c.grade === null ? '' : `Grade ${c.grade} · `}{plural(c.members, 'learner')}{c.active ? '' : ' · archived'}</span>
+        <span className="mt-0.5 block text-sm text-slate-600">{c.grade === null ? '' : `Grade ${c.grade} · `}{plural(c.members, 'learner')}</span>
       </span>
       <span className="mt-3 flex items-center justify-between gap-2">
         {c.active && c.joinCode ? <span className="rounded-lg bg-indigo-50 px-2 py-1 text-sm font-bold tracking-widest text-indigo-900">{showCode(c.joinCode)}</span> : <span />}
@@ -73,7 +83,7 @@ class CardsBoundary extends Component<{ cards: ClassCard[]; children: ReactNode 
     if (!this.state.failed) return this.props.children;
     return (
       <ul className="md:col-span-2 xl:col-span-3 space-y-2" aria-label="Your classes">
-        {this.props.cards.map((c) => <li key={c.id}><a className="font-bold text-indigo-700 underline" href={classHref(c.id)}>{c.name}: open class</a></li>)}
+        {this.props.cards.filter((c) => c.active).map((c) => <li key={c.id}><a className="font-bold text-indigo-700 underline" href={classHref(c.id)}>{c.name}: open class</a></li>)}
       </ul>
     );
   }
@@ -83,7 +93,7 @@ export default function ClassList({ cards, notices, onOpen, extra }: { cards: Cl
   return (
     <section aria-labelledby="classes-h">
       <h2 id="classes-h" className="mb-3 text-lg font-extrabold text-slate-800">Classes ({cards.length})</h2>
-      {cards.length === 1 && (
+      {cards.length === 1 && cards[0].active && (
         <p className="mb-3 text-slate-700">
           Open <a href={classHref(cards[0].id)} onClick={(e) => { if (!e.metaKey && !e.ctrlKey && !e.shiftKey && e.button === 0) { e.preventDefault(); onOpen(cards[0].id); } }} className="font-bold text-indigo-700 underline">{cards[0].name}</a> to see how your learners are doing.
         </p>

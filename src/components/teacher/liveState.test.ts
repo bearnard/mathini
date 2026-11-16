@@ -56,7 +56,9 @@ test('a card is drawn for any class that has an id, whatever else the answer hol
   const cards = normaliseClasses(odd);
   assert.deepEqual(cards.map((c) => c.id), ['a1', 'a2', 'a3']);
   const out = html(h(ClassList, { cards, notices: [], onOpen: () => undefined }));
-  for (const id of ['a1', 'a2', 'a3']) assert.ok(out.includes(`href="/teacher?class=${id}"`), id);
+  for (const id of ['a1', 'a2']) assert.ok(out.includes(`href="/teacher?class=${id}"`), id);
+  assert.ok(!out.includes('href="/teacher?class=a3"'), 'an archived class is listed but not opened');
+  assert.match(out, /Archived/);
   assert.match(out, /Untitled class/);
   assert.match(out, /Classes \(3\)/);
   assert.deepEqual([normaliseClasses(undefined), normaliseClasses({}), normaliseClasses([])], [[], [], []]);

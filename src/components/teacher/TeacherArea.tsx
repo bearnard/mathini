@@ -149,6 +149,8 @@ function ClassView({ id, onBack, onChanged, onNewClass, onOpenLearner }: { id: s
     if (confirm && !window.confirm(confirm)) return;
     const r = await api<Record<string, unknown>>(url, action);
     if (!r.ok) { setMsg(r.error); return; }
+    // An archived class is no longer opened (its roster and progress are closed), so go back to the list instead of reloading it.
+    if (action === 'class-archive') { onChanged(); onBack(); return; }
     setMsg(done); load(); onChanged();
   };
   const copy = () => { void navigator.clipboard?.writeText(c.joinCode).then(() => setCopied(true), () => setCopied(false)); };
