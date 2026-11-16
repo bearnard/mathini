@@ -232,3 +232,33 @@ test('INDEPENDENT: probability and position keys are recomputed with plain arith
   assert.equal(find(tg, L + 'What are the directions from the shop').answer, '3 squares east');
 }
 );
+
+test('INDEPENDENT: transformation and enlargement keys are recomputed with plain arithmetic', () => {
+  const tt = 'gr6-transformations-t3';
+  const L = 'The letters run across the top and the numbers run down the side. ';
+  assert.equal(find(tt, 'A pattern is made by sliding a hexagon').answer, 'Translation');
+  assert.equal(find(tt, 'A bracelet pattern').answer, 'Reflection');
+  assert.equal(find(tt, 'Each blade of a windmill').answer, 'Rotation');
+  // C2 moved 3 right and 1 down: column C(2)+3 = 5 = F, row 2+1 = 3
+  assert.equal(find(tt, L + 'A triangle has a corner at C2').answer, `${String.fromCharCode(65 + 2 + 3)}${2 + 1}`);
+  assert.equal(find(tt, L + 'A corner of a shape moves from B2').answer, `${'E'.charCodeAt(0) - 'B'.charCodeAt(0)} squares right and ${5 - 2} squares down`);
+  // reflection in the middle of column D: B is 2 left, image 2 right of D = F
+  assert.equal(find(tt, L + 'A point at B3 is reflected').answer, `${String.fromCharCode('D'.charCodeAt(0) + ('D'.charCodeAt(0) - 'B'.charCodeAt(0)))}3`);
+  // mirror between rows 3 and 4: row 2 is 1 above row 3, so the image is 1 below row 4 = row 5
+  assert.equal(find(tt, L + 'A point at C2 is reflected').answer, `C${4 + (3 - 2)}`);
+  assert.equal(find(tt, 'How many lines of symmetry does an equilateral').answer, '3');
+  assert.equal(find(tt, 'How many lines of symmetry does a regular hexagon').answer, '6');
+  assert.equal(find(tt, 'How many lines of symmetry does a rectangle').answer, '2');
+  assert.equal(find(tt, 'How many quarter turns').answer, String(360 / 90));
+  const te = 'gr6-enlargements-t4';
+  assert.equal(find(te, 'A triangle has sides of 3 cm, 4 cm and 5 cm. All the sides are doubled to make').answer, `${5 * 2} cm`);
+  assert.equal(find(te, 'A triangle has sides of 3 cm, 4 cm and 5 cm. All the sides are doubled. What is the perimeter').answer, `${(3 + 4 + 5) * 2} cm`);
+  assert.equal(find(te, 'A triangle has sides of 2 cm').answer, '6 cm, 9 cm, 12 cm');
+  assert.equal(find(te, 'A triangle has sides of 12 cm').answer, `${16 / 2} cm`);
+  assert.equal(find(te, 'A rectangle is 4 cm long and 3 cm wide').answer, `${4 * 2} cm by ${3 * 2} cm`);
+  assert.equal(find(te, 'A rectangle is 3 cm by 5 cm. Both sides').answer, `${6 * 10} cm²`);
+  assert.equal(find(te, 'The area of a rectangle is 15').answer, `${(6 * 10) / (3 * 5)} times`);
+  assert.equal(find(te, 'A rectangle 12 cm by 8 cm is reduced').answer, `${2 * (6 + 4)} cm`);
+  assert.equal(find(te, 'Halve every side').answer, `${6 * 4} cm²`);
+}
+);

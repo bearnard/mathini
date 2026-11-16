@@ -335,6 +335,11 @@
                 "id": "g6-temperature",
                 "title": "Temperature",
                 "description": "Degrees Celsius, reading thermometers and solving temperature problems."
+              },
+              {
+                "id": "g6-transformations",
+                "title": "Transformations in Patterns",
+                "description": "Describing patterns with translation, reflection, rotation and symmetry."
               }
             ]
           },
@@ -386,6 +391,11 @@
                 "id": "g6-position-movement",
                 "title": "Position and Movement",
                 "description": "Grid references and directions on a grid or map."
+              },
+              {
+                "id": "g6-enlargements",
+                "title": "Enlargements and Reductions",
+                "description": "Drawing larger and smaller copies of triangles and quadrilaterals."
               }
             ]
           }

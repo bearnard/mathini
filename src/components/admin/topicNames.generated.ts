@@ -2303,6 +2303,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Dividing by 3-digit Numbers",
   "Mathematics"
  ],
+ "6|gr6-enlargements-t4": [
+  "Enlargements and Reductions",
+  "Mathematics"
+ ],
  "6|gr6-equivalent-fractions-t1": [
   "Equivalent Fractions",
   "Mathematics"
@@ -2385,6 +2389,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "6|gr6-time-t4": [
   "Time",
+  "Mathematics"
+ ],
+ "6|gr6-transformations-t3": [
+  "Transformations in Patterns",
   "Mathematics"
  ],
  "6|gr6-volume-t3": [

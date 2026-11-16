@@ -16,6 +16,8 @@ const lessons = {
   temp: renderSlides((await import('./term3/temperature/Temperature')).learnSteps),
   prob: renderSlides((await import('./term4/probability/Probability')).learnSteps),
   pos: renderSlides((await import('./term4/position-movement/PositionMovement')).learnSteps),
+  trans: renderSlides((await import('./term3/transformations/Transformations')).learnSteps),
+  enl: renderSlides((await import('./term4/enlargements/Enlargements')).learnSteps),
 };
 const text = (k: keyof typeof lessons) => lessons[k].map((s) => s.text.replace(/\u00a0/g, ' ')).join(' | ');
 
@@ -191,4 +193,26 @@ test('Position and movement: the grid references and routes are true', () => {
   assert.equal(5 - 2, 3);
   assert.equal(3 + 3, 6);
   assert.equal(3 + 3 + 0, 6);
+});
+
+test('Transformations: the worked numbers are true', () => {
+  const x = text('trans');
+  for (const n of ['4 squares right', '1 square down', 'translated', 'reflection', 'rotated', '360°', 'D5', 'E5', '3 lines of symmetry', '6']) assert.ok(x.includes(n), `missing ${n}`);
+  assert.equal(5 - 1, 4);
+  assert.equal(4 * 90, 360);
+  assert.equal(String.fromCharCode(65 + 1 + 2) + (2 + 3), 'D5'); // check-yourself: B2 moved 2 right and 3 down
+  assert.equal(String.fromCharCode(65 + 2 + (2 - 0)) + 5, 'E5'); // A5 reflected in the middle of column C
+});
+
+test('Enlargements and reductions: the worked numbers are true', () => {
+  const x = text('enl');
+  for (const n of ['6, 8, 10', '24', '12', '3, 4, 5', '6 by 4', '24', '4 times', '6, 9, 12', '12']) assert.ok(x.includes(n), `missing ${n}`);
+  assert.deepEqual([3, 4, 5].map((n) => n * 2), [6, 8, 10]);
+  assert.equal(6 + 8 + 10, 24);
+  assert.equal((6 + 8 + 10) / 2, 12);
+  assert.equal(3 * 2, 6);
+  assert.equal(6 * 4, 24);
+  assert.equal(24 / 6, 4);
+  assert.equal(4 * 6, 24);
+  assert.equal(3 + 4 + 5, 12);
 });
