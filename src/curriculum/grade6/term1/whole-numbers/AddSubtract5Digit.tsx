@@ -31,13 +31,13 @@ export const learnSteps: LearnStep[] = [
     title: 'Estimate first',
     content: slide(
       <>
-        <Rule>Before you calculate, estimate. Round each number to the nearest 1 000 (or 10 000 for big 5-digit numbers), then add or subtract the rounded numbers. The estimate tells you what size the answer must be.</Rule>
+        <Rule>Before you calculate, estimate. Round each number to the nearest 1 000 (or 10 000 for big 5-digit numbers), then add or subtract the rounded numbers. The estimate tells you what size the answer must be.</Rule>
         <RoundLine n={est.a} place={1000} />
         <Worked
           title={`Estimate ${g(est.a)} + ${g(est.b)}`}
           steps={[
-            <>Round {g(est.a)} to the nearest 1 000: the hundreds digit is 6, so round up to <strong>{g(a.roundTo(est.a, 1000))}</strong>.</>,
-            <>Round {g(est.b)} to the nearest 1 000: the hundreds digit is 3, so round down to <strong>{g(a.roundTo(est.b, 1000))}</strong>.</>,
+            <>Round {g(est.a)} to the nearest 1 000: the hundreds digit is 6, so round up to <strong>{g(a.roundTo(est.a, 1000))}</strong>.</>,
+            <>Round {g(est.b)} to the nearest 1 000: the hundreds digit is 3, so round down to <strong>{g(a.roundTo(est.b, 1000))}</strong>.</>,
             <>Add the rounded numbers: {g(a.roundTo(est.a, 1000))} + {g(a.roundTo(est.b, 1000))} = <strong>{g(estSum)}</strong>.</>,
             <>The exact answer, {g(exact)}, is close to the estimate, so it is sensible.</>,
           ]}
@@ -96,7 +96,7 @@ export const learnSteps: LearnStep[] = [
             <>{g(45362)} + {g(32488)} = {g(inv1.sum)}. Check: {g(inv1.sum)} − {g(32488)} = <strong>{g(inv1.backToA)}</strong>.</>,
             <>{g(54687)} − {g(32134)} = {g(inv2.difference)}. Check: {g(inv2.difference)} + {g(32134)} = <strong>{g(inv2.back)}</strong>.</>,
             <>Veli&apos;s shopping costs R163 and he pays with R200. Add on: R163 + R7 = R170, R170 + R30 = R200. His change is R7 + R30 = <strong>R{change}</strong>.</>,
-            <>Compensating: {g(4567)} + 999 = {g(4567)} + 1 000 − 1 = {g(comp.step1)} − 1 = <strong>{g(comp.step2)}</strong>.</>,
+            <>Compensating: {g(4567)} + 999 = {g(4567)} + 1 000 − 1 = {g(comp.step1)} − 1 = <strong>{g(comp.step2)}</strong>.</>,
           ]}
         />
         <Mistake>Checking with the same calculation again. A check should use the inverse operation, so a mistake cannot be repeated.</Mistake>
@@ -109,7 +109,7 @@ export const learnSteps: LearnStep[] = [
       <>
         <Check
           questions={[
-            <>Estimate {g(45678)} + {g(12345)} by rounding to the nearest 1 000.</>,
+            <>Estimate {g(45678)} + {g(12345)} by rounding to the nearest 1 000.</>,
             <>Calculate {g(56423)} + {g(7581)} + {g(21479)}.</>,
             <>Calculate {g(98743)} − {g(45684)}, and check your answer.</>,
             <>A library has {g(12345)} books and buys {g(5678)} more. How many books does it have now?</>,
@@ -129,52 +129,52 @@ export const learnSteps: LearnStep[] = [
 // BANK:START
 export const bank: CapsItem[] = [
   {
-    prompt: "Estimate 45 678 + 12 345 by rounding both numbers to the nearest 1 000.",
-    options: ["57 000", "58 000", "59 000", "50 000"],
-    answer: "58 000",
-    explanation: "Round 45 678 to 46 000 and 12 345 to 12 000. Then 46 000 + 12 000 = 58 000.",
+    prompt: "Estimate 45 678 + 12 345 by rounding both numbers to the nearest 1 000.",
+    options: ["57 000", "58 000", "59 000", "50 000"],
+    answer: "58 000",
+    explanation: "Round 45 678 to 46 000 and 12 345 to 12 000. Then 46 000 + 12 000 = 58 000.",
   },
   {
-    prompt: "What is 56 423 rounded to the nearest 1 000?",
-    options: ["56 000", "57 000", "56 400", "60 000"],
-    answer: "56 000",
-    explanation: "The hundreds digit is 4, which is less than 5, so the 6 thousands stay the same: 56 000.",
+    prompt: "What is 56 423 rounded to the nearest 1 000?",
+    options: ["56 000", "57 000", "56 400", "60 000"],
+    answer: "56 000",
+    explanation: "The hundreds digit is 4, which is less than 5, so the 6 thousands stay the same: 56 000.",
   },
   {
-    prompt: "What is 98 743 rounded to the nearest 10 000?",
-    options: ["90 000", "980 000", "99 000", "100 000"],
-    answer: "100 000",
-    explanation: "The thousands digit is 8, so round up the ten thousands: 90 000 becomes 100 000.",
+    prompt: "What is 98 743 rounded to the nearest 10 000?",
+    options: ["90 000", "980 000", "99 000", "100 000"],
+    answer: "100 000",
+    explanation: "The thousands digit is 8, so round up the ten thousands: 90 000 becomes 100 000.",
   },
   {
-    prompt: "Calculate 56 423 + 7 581 + 21 479.",
-    options: ["85 383", "84 483", "85 483", "86 483"],
-    answer: "85 483",
-    explanation: "Add the columns from the ones: 3 + 1 + 9 = 13 (write 3, carry 1). Continue with carries to get 85 483.",
+    prompt: "Calculate 56 423 + 7 581 + 21 479.",
+    options: ["85 383", "84 483", "85 483", "86 483"],
+    answer: "85 483",
+    explanation: "Add the columns from the ones: 3 + 1 + 9 = 13 (write 3, carry 1). Continue with carries to get 85 483.",
   },
   {
-    prompt: "Calculate 98 743 − 45 684.",
-    options: ["53 159", "53 059", "54 059", "53 069"],
-    answer: "53 059",
-    explanation: "Borrow when the top digit is too small: 3 < 4 and 4 < 8. The answer is 53 059.",
+    prompt: "Calculate 98 743 − 45 684.",
+    options: ["53 159", "53 059", "54 059", "53 069"],
+    answer: "53 059",
+    explanation: "Borrow when the top digit is too small: 3 < 4 and 4 < 8. The answer is 53 059.",
   },
   {
-    prompt: "Calculate 45 362 + 32 488.",
-    options: ["77 850", "77 750", "78 850", "77 840"],
-    answer: "77 850",
-    explanation: "45 362 + 32 488: ones 2 + 8 = 10, tens 6 + 8 + 1 = 15, and so on to 77 850.",
+    prompt: "Calculate 45 362 + 32 488.",
+    options: ["77 850", "77 750", "78 850", "77 840"],
+    answer: "77 850",
+    explanation: "45 362 + 32 488: ones 2 + 8 = 10, tens 6 + 8 + 1 = 15, and so on to 77 850.",
   },
   {
-    prompt: "54 687 − 32 134 = 22 553. Which calculation checks this answer?",
-    options: ["22 553 − 32 134 = 54 687", "54 687 + 32 134 = 22 553", "32 134 − 22 553 = 54 687", "22 553 + 32 134 = 54 687"],
-    answer: "22 553 + 32 134 = 54 687",
-    explanation: "Check a subtraction by adding the answer and the number you took away: 22 553 + 32 134 = 54 687.",
+    prompt: "54 687 − 32 134 = 22 553. Which calculation checks this answer?",
+    options: ["22 553 − 32 134 = 54 687", "54 687 + 32 134 = 22 553", "32 134 − 22 553 = 54 687", "22 553 + 32 134 = 54 687"],
+    answer: "22 553 + 32 134 = 54 687",
+    explanation: "Check a subtraction by adding the answer and the number you took away: 22 553 + 32 134 = 54 687.",
   },
   {
-    prompt: "45 362 + 32 488 = 77 850. Which subtraction checks this answer?",
-    options: ["77 850 + 32 488 = 45 362", "45 362 − 32 488 = 77 850", "77 850 − 32 488 = 45 362", "32 488 − 77 850 = 45 362"],
-    answer: "77 850 − 32 488 = 45 362",
-    explanation: "Check an addition by subtracting one of the numbers from the total: 77 850 − 32 488 = 45 362.",
+    prompt: "45 362 + 32 488 = 77 850. Which subtraction checks this answer?",
+    options: ["77 850 + 32 488 = 45 362", "45 362 − 32 488 = 77 850", "77 850 − 32 488 = 45 362", "32 488 − 77 850 = 45 362"],
+    answer: "77 850 − 32 488 = 45 362",
+    explanation: "Check an addition by subtracting one of the numbers from the total: 77 850 − 32 488 = 45 362.",
   },
   {
     prompt: "Veli's shopping costs R163. He pays with a R200 note. How much change does he get?",
@@ -184,33 +184,33 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: "Which number sentence shows the commutative property of addition?",
-    options: ["12 345 + 6 789 = 6 789 + 12 345", "12 345 + 0 = 12 345", "(1 + 2) + 3 = 1 + (2 + 3)", "12 345 − 6 789 = 6 789 − 12 345"],
-    answer: "12 345 + 6 789 = 6 789 + 12 345",
-    explanation: "The commutative property says that the order of the numbers does not change the sum: 12 345 + 6 789 = 6 789 + 12 345.",
+    options: ["12 345 + 6 789 = 6 789 + 12 345", "12 345 + 0 = 12 345", "(1 + 2) + 3 = 1 + (2 + 3)", "12 345 − 6 789 = 6 789 − 12 345"],
+    answer: "12 345 + 6 789 = 6 789 + 12 345",
+    explanation: "The commutative property says that the order of the numbers does not change the sum: 12 345 + 6 789 = 6 789 + 12 345.",
   },
   {
-    prompt: "What is 48 275 + 0?",
-    options: ["0", "48 276", "48 270", "48 275"],
-    answer: "48 275",
+    prompt: "What is 48 275 + 0?",
+    options: ["0", "48 276", "48 270", "48 275"],
+    answer: "48 275",
     explanation: "Adding 0 does not change a number. Zero is the additive identity.",
   },
   {
-    prompt: "In 98 743 − 45 684, the ones digit 3 is smaller than 4. What do you do?",
+    prompt: "In 98 743 − 45 684, the ones digit 3 is smaller than 4. What do you do?",
     options: ["Swap the 3 and the 4 round to make 4 − 3", "Write 1 as the answer for the ones column", "Borrow 1 ten from the tens column", "Add the 3 and the 4 to get 7 ones"],
     answer: "Borrow 1 ten from the tens column",
     explanation: "Take 1 ten from the 4 tens, which leaves 3 tens, and add 10 ones to the 3 ones to make 13. Then 13 − 4 = 9.",
   },
   {
-    prompt: "Use compensating: 4 999 + 3 245. Add 5 000 first. What is the answer?",
-    options: ["8 245", "8 244", "8 254", "7 244"],
-    answer: "8 244",
-    explanation: "4 999 is 1 less than 5 000. 5 000 + 3 245 = 8 245, then subtract the extra 1: 8 244.",
+    prompt: "Use compensating: 4 999 + 3 245. Add 5 000 first. What is the answer?",
+    options: ["8 245", "8 244", "8 254", "7 244"],
+    answer: "8 244",
+    explanation: "4 999 is 1 less than 5 000. 5 000 + 3 245 = 8 245, then subtract the extra 1: 8 244.",
   },
   {
-    prompt: "A school library has 12 345 books. It buys 5 678 more. How many books does it have now?",
-    options: ["18 023", "17 023", "18 013", "17 923"],
-    answer: "18 023",
-    explanation: "12 345 + 5 678 = 18 023. The words \"buys more\" tell you to add.",
+    prompt: "A school library has 12 345 books. It buys 5 678 more. How many books does it have now?",
+    options: ["18 023", "17 023", "18 013", "17 923"],
+    answer: "18 023",
+    explanation: "12 345 + 5 678 = 18 023. The words \"buys more\" tell you to add.",
   },
 ];
 // BANK:END
