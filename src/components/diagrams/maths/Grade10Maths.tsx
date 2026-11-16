@@ -69,7 +69,7 @@ export const RatioTriangle = ({ deg }: { deg: number }) => {
 /** Axes with the point (x; y) on the terminal arm of θ, its distance r, and the quadrant. */
 export const CartesianAngle = ({ x, y }: { x: number; y: number }) => {
   const { r } = ratiosFromPoint(x, y);
-  const k = 7;
+  const k = Math.min(7, 44 / Math.max(1, Math.abs(x)), 38 / Math.max(1, Math.abs(y)));
   const cx = 60;
   const cy = 54;
   const px = cx + x * k;
@@ -84,7 +84,7 @@ export const CartesianAngle = ({ x, y }: { x: number; y: number }) => {
       <line x1={cx} y1={cy} x2={r3(px)} y2={r3(py)} stroke={I} strokeWidth={1.4} />
       <line x1={r3(px)} y1={r3(py)} x2={r3(px)} y2={cy} stroke={E} strokeWidth={1} strokeDasharray="2 2" />
       <circle cx={r3(px)} cy={r3(py)} r={2.2} fill={A} />
-      <T x={px + (x >= 0 ? 4 : -4)} y={py + (y >= 0 ? -3 : 7)} color={A} anchor={x >= 0 ? 'start' : 'end'}>{`(${x}; ${y})`.replace(/-/g, '−')}</T>
+      <T x={px + (x >= 0 ? -4 : 4)} y={py + (y >= 0 ? -3 : 7)} color={A} anchor={x >= 0 ? 'end' : 'start'}>{`(${x}; ${y})`.replace(/-/g, '−')}</T>
       <T x={(cx + px) / 2 + (x >= 0 ? -3 : 3)} y={(cy + py) / 2 + (y >= 0 ? -2 : 6)} color={I} anchor={x >= 0 ? 'end' : 'start'}>{`r = ${dec(r, Number.isInteger(r) ? 0 : 1)}`}</T>
       <T x={cx + (x >= 0 ? 26 : -26)} y={cy + (y >= 0 ? 12 : -6)} color={R}>{`quadrant ${q}`}</T>
     </Panel>
@@ -93,7 +93,7 @@ export const CartesianAngle = ({ x, y }: { x: number; y: number }) => {
 
 // ---------------------------------------------------------------- a small, accessible graph (axes, curves sampled from functions, marked points)
 
-export interface GraphCurve { f: (x: number) => number; color?: string; label?: string; labelAt?: number }
+export interface GraphCurve { f: (x: number) => number; color?: string; label?: string; labelAt?: number; labelDy?: number; labelAnchor?: 'start' | 'middle' | 'end' }
 export interface GraphPoint { x: number; y: number; label?: string; color?: string; anchor?: 'start' | 'middle' | 'end'; dy?: number }
 
 /** Axes with whole-number ticks, curves sampled from the function, and marked points. Everything is computed from the ranges, so the picture matches the numbers. */
@@ -124,12 +124,16 @@ export const MiniGraph = ({ curves, points = [], x: xr, y: yr, aria, tickEvery =
   const colors = [I, R, E];
   return (
     <Panel h={h} aria={aria}>
-      {xs.map((v) => (v === 0 ? null : <T key={`x${v}`} x={sx(v)} y={Bb + 7.5} color={MUTED} size={4.4}>{String(v).replace('-', '−')}</T>))}
+      {xs.map((v) => (v === 0 ? null : <T key={`x${v}`} x={sx(v)} y={sy(y0) + 7} color={MUTED} size={4.4}>{String(v).replace('-', '−')}</T>))}
       {ys.map((v) => (v === 0 ? null : <T key={`y${v}`} x={sx(x0) - 2} y={sy(v) + 1.6} color={MUTED} size={4.4} anchor="end">{String(v).replace('-', '−')}</T>))}
       <line x1={L} y1={r3(sy(y0))} x2={Rr} y2={r3(sy(y0))} stroke={MUTED} strokeWidth={0.7} />
       <line x1={r3(sx(x0))} y1={Tt} x2={r3(sx(x0))} y2={Bb} stroke={MUTED} strokeWidth={0.7} />
       {curves.map((c, i) => <path key={i} d={path(c.f)} fill="none" stroke={c.color ?? colors[i % 3]} strokeWidth={1.5} strokeLinecap="round" />)}
-      {curves.map((c, i) => (c.label ? <T key={`l${i}`} x={Math.min(Rr - 2, Math.max(L + 10, sx(c.labelAt ?? xr[1] - 1)))} y={Math.max(Tt + 5, Math.min(Bb - 2, sy(c.f(c.labelAt ?? xr[1] - 1)) - 3))} color={c.color ?? colors[i % 3]} size={5}>{c.label}</T> : null))}
+      {curves.map((c, i) => {
+        if (!c.label) return null;
+        const at = c.labelAt ?? xr[1] - 1;
+        return <T key={`l${i}`} x={sx(at)} y={Math.max(Tt + 5, Math.min(Bb - 2, sy(c.f(at)) + (c.labelDy ?? -4)))} color={c.color ?? colors[i % 3]} size={5} anchor={c.labelAnchor ?? 'middle'}>{c.label}</T>;
+      })}
       {points.map((p, i) => (
         <g key={`p${i}`}>
           <circle cx={r3(sx(p.x))} cy={r3(sy(p.y))} r={2.1} fill={p.color ?? A} />
@@ -190,13 +194,13 @@ export const ExponentLadder = ({ base, top, bottom }: { base: number; top: numbe
 
 /** a^(m/n): the denominator is the root, the numerator is the power. */
 export const RationalExponent = ({ base, m, n }: { base: number; m: number; n: number }) => (
-  <Panel h={44} aria={`${base} to the power ${m} over ${n}: the denominator ${n} is the root, the numerator ${m} is the power.`}>
-    <T x={44} y={30} color={LINE} size={16}>{base}</T>
-    <T x={55} y={18} color={A} size={9} anchor="start">{`${m}/${n}`}</T>
-    <T x={84} y={14} color={E} size={5}>{`${n}: the root`}</T>
-    <T x={84} y={40} color={A} size={5}>{`${m}: the power`}</T>
-    <path d="M70 18 Q76 14 80 14" fill="none" stroke={E} strokeWidth={0.8} />
-    <path d="M70 20 Q76 36 80 38" fill="none" stroke={A} strokeWidth={0.8} />
+  <Panel h={44} aria={`${base} to the power ${m} over ${n}: the numerator ${m} is the power and the denominator ${n} is the root.`}>
+    <T x={28} y={31} color={LINE} size={17}>{base}</T>
+    <T x={52} y={17} color={A} size={9}>{m}</T>
+    <line x1={46} y1={20} x2={58} y2={20} stroke={LINE} strokeWidth={1} />
+    <T x={52} y={30} color={E} size={9}>{n}</T>
+    <T x={66} y={19} color={A} size={6.4} anchor="start">{`${m}: the power`}</T>
+    <T x={66} y={32} color={E} size={6.4} anchor="start">{`${n}: the root`}</T>
   </Panel>
 );
 
