@@ -71,6 +71,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Combined Transactions and Reconciliations",
   "Accounting"
  ],
+ "10|gr10-comprehension-summary-t1": [
+  "Comprehension and Summary",
+  "English HL"
+ ],
  "10|gr10-computer-systems-data-representation-algorithm-design-t1": [
   "Computer Systems, Data Representation and Algorithm Design",
   "Information Technology"
@@ -127,6 +131,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Electrostatics and Electric Circuits",
   "Physical Sciences"
  ],
+ "10|gr10-essay-writing-process-t1": [
+  "Writing an Essay: Narrative, Descriptive and Argumentative",
+  "English HL"
+ ],
  "10|gr10-finance-documents-tariff-systems-t2": [
   "Finance: Documents and Tariff Systems",
   "Mathematical Literacy"
@@ -154,6 +162,18 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-internet-communication-networks": [
   "Internet, Communication and Networks",
   "Computer Applications Technology"
+ ],
+ "10|gr10-language-structures-conventions-t1": [
+  "Register, Word Choice and Sentence Structure",
+  "English HL"
+ ],
+ "10|gr10-letters-cv-agenda-minutes-t1": [
+  "Transactional Texts: Letters, CV, Agenda, Minutes and Obituary",
+  "English HL"
+ ],
+ "10|gr10-literary-genres-text-features-t1": [
+  "Literary Genres and Text Features",
+  "English HL"
  ],
  "10|gr10-maps-plans-models-t3": [
   "Maps, Plans and Models",
@@ -3863,6 +3883,7 @@ export const SUBJECT_TITLES: Record<string, string> = {
  "10|computer-applications-technology": "Computer Applications Technology",
  "10|econ": "Economics",
  "10|economics": "Economics",
+ "10|eng": "English HL",
  "10|it": "Information Technology",
  "10|lo": "Life Orientation",
  "10|ls": "Life Sciences",

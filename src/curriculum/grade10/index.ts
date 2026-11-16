@@ -3,6 +3,7 @@ import { accountingGrade10 } from './accounting';
 import { businessStudiesGrade10 } from './business-studies';
 import { computerApplicationsTechnologyGrade10 } from './computer-applications-technology';
 import { economicsGrade10 } from './economics';
+import { englishHLGrade10 } from './english';
 import { itGrade10 } from './it';
 import { lifeOrientationGrade10 } from './life-orientation';
 import { lsGrade10 } from './ls';
@@ -17,6 +18,7 @@ export const grade10: Grade = {
     businessStudiesGrade10,
     computerApplicationsTechnologyGrade10,
     economicsGrade10,
+    englishHLGrade10,
     itGrade10,
     lifeOrientationGrade10,
     lsGrade10,
