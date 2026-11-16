@@ -23,6 +23,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Atoms, Periodic Table and Bonding",
   "Physical Sciences"
  ],
+ "10|gr10-bill-of-rights-instruments-t1": [
+  "The Bill of Rights and International Instruments",
+  "Life Orientation"
+ ],
  "10|gr10-biodiversity-classification-t3": [
   "Biodiversity and Classification",
   "Life Sciences"
@@ -106,6 +110,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-diagnostic-features-major-kingdoms-t4": [
   "Diagnostic Features of Major Kingdoms",
   "Life Sciences"
+ ],
+ "10|gr10-diversity-discrimination-t1": [
+  "Diversity, Discrimination and Human Rights Violations",
+  "Life Orientation"
  ],
  "10|gr10-document-integration-exam-consolidation": [
   "Document Integration and Exam Consolidation",
@@ -195,9 +203,17 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Payroll and Year-end Procedures",
   "Accounting"
  ],
+ "10|gr10-physical-education-t1": [
+  "Physical Education: Fitness and Safety",
+  "Life Orientation"
+ ],
  "10|gr10-plant-tissues-organs-t2": [
   "Plant Tissues and Organs",
   "Life Sciences"
+ ],
+ "10|gr10-power-gender-t1": [
+  "Power, Power Relations and Gender",
+  "Life Orientation"
  ],
  "10|gr10-probability-t2": [
   "Probability",
@@ -227,6 +243,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Revision and Year-End Examination Preparation",
   "Information Technology"
  ],
+ "10|gr10-self-awareness-self-esteem-t1": [
+  "Self-awareness, Self-esteem and Self-development",
+  "Life Orientation"
+ ],
  "10|gr10-social-implications-cyber-safety-t4": [
   "Social Implications and Cyber Safety",
   "Information Technology"
@@ -242,6 +262,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-spreadsheets-information-management-pat-completion": [
   "Spreadsheets, Information Management and PAT Completion",
   "Computer Applications Technology"
+ ],
+ "10|gr10-subjects-career-fields-t1": [
+  "Subjects, Career Fields and Study Choices",
+  "Life Orientation"
  ],
  "10|gr10-systems-networks-digital-responsibility": [
   "Systems, Networks and Digital Responsibility",
@@ -3840,6 +3864,7 @@ export const SUBJECT_TITLES: Record<string, string> = {
  "10|econ": "Economics",
  "10|economics": "Economics",
  "10|it": "Information Technology",
+ "10|lo": "Life Orientation",
  "10|ls": "Life Sciences",
  "10|ml": "Mathematical Literacy",
  "10|ps": "Physical Sciences",
