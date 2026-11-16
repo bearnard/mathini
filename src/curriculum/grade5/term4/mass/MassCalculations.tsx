@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { triggerConfetti } from '../../../../lib/confetti';
 import Card from '../../../../components/ui/Card';
 import Button from '../../../../components/ui/Button';
@@ -8,6 +8,11 @@ import { cn } from '../../../../lib/utils';
 import TopicContainer from '../../../../components/layout/TopicContainer';
 import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
 import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
+import { useExerciseChallenge, type IssuedChallenge } from '../../../../lib/client/useExerciseChallenge';
+import { useStudent } from '../../../../lib/client/StudentContext';
+import { seededRandom } from '../../../../lib/shared/seededRandom';
+import { massProblem } from '../../../../lib/shared/g5Exercises';
+
 import { Calculator } from 'lucide-react';
 
 interface Problem {
@@ -19,6 +24,10 @@ interface Problem {
 const MassCalculations = () => {
     const [mode, setMode] = useState<'learn' | 'practice'>('learn');
     const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-mass-t4', 'math');
+    // The problem comes from a signed seed the server issued (so the server can mark the answer); with no seed it is a local, uncounted one.
+    const { student } = useStudent();
+    const { ready, take } = useExerciseChallenge('mass-calc', !!student);
+    const challengeRef = useRef<IssuedChallenge | null>(null);
 
     // Practice State
     const [problem, setProblem] = useState<Problem | null>(null);
@@ -30,50 +39,18 @@ const MassCalculations = () => {
     const [learnStep, setLearnStep] = useState(0);
 
     const generateProblem = () => {
-        const types = ['add', 'sub', 'mul', 'div'];
-        const type = types[Math.floor(Math.random() * types.length)];
-
-        let q = "";
-        let a = 0;
-        let u = "g";
-
-        const names = ["Thabo", "Zinhle", "Sipho", "Aisha", "Mrs Naidoo"];
-        const name = names[Math.floor(Math.random() * names.length)];
-
-        if (type === 'add') {
-            const w1 = Math.floor(Math.random() * 500) + 100;
-            const w2 = Math.floor(Math.random() * 500) + 100;
-            q = `${name} bought ${w1} g of flour and ${w2} g of sugar. What is the total mass of the ingredients?`;
-            a = w1 + w2;
-            u = "g";
-        } else if (type === 'sub') {
-            const total = Math.floor(Math.random() * 800) + 200;
-            const used = Math.floor(Math.random() * (total - 100)) + 50;
-            q = `${name} had ${total} g of butter and used ${used} g for a cake. How much butter is left?`;
-            a = total - used;
-            u = "g";
-        } else if (type === 'mul') {
-            const count = Math.floor(Math.random() * 8) + 2;
-            const weight = Math.floor(Math.random() * 3) + 2;
-            q = `One brick has a mass of ${weight} kg. What is the mass of ${count} bricks?`;
-            a = count * weight;
-            u = "kg";
-        } else if (type === 'div') {
-            const count = Math.floor(Math.random() * 4) + 2;
-            const total = count * (Math.floor(Math.random() * 20) + 5);
-            q = `${count} identical bags of rice have a total mass of ${total} kg. What is the mass of one bag?`;
-            a = total / count;
-            u = "kg";
-        }
-
-        setProblem({ question: q, answer: a, unit: u });
+        const t = take();
+        challengeRef.current = t.challenge;
+        const p = massProblem(seededRandom(t.seed));
+        setProblem({ question: p.question, answer: p.answer, unit: p.unit });
         setUserAnswer("");
         setIsCorrect(null);
     };
 
     useEffect(() => {
-        generateProblem();
-    }, []);
+        if (ready) generateProblem();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ready]);
 
     const handleSubmit = (e?: React.FormEvent) => {
         if (e) e.preventDefault();
@@ -89,7 +66,7 @@ const MassCalculations = () => {
             setIsCorrect(false);
             setStreak(0);
         }
-        recordAttempt(Math.abs(val - problem.answer) < 0.1, 'calculations');
+        recordAttempt(Math.abs(val - problem.answer) < 0.1, 'calculations', undefined, undefined, undefined, challengeRef.current ? { challenge: challengeRef.current, answer: userAnswer } : undefined);
     };
 
     const LearnContent = () => {

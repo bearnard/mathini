@@ -83,7 +83,7 @@ export function useAttemptRecorder(task: string, subject: string, runOpts?: RunO
     if (!done) finished.current = false;
   }, [done, recorder, runOpts]);
 
-  const recordAttempt = useCallback((isCorrect: boolean, section?: string, itemId?: number, prompt?: string, chosen?: string) => recorder.record(isCorrect, section, itemId, prompt, chosen), [recorder]);
+  const recordAttempt = useCallback((isCorrect: boolean, section?: string, itemId?: number, prompt?: string, chosen?: string, exercise?: Parameters<typeof recorder.record>[5]) => recorder.record(isCorrect, section, itemId, prompt, chosen, exercise), [recorder]);
   const resetStreak = useCallback(() => recorder.resetStreak(), [recorder]);
   const clearBadges = useCallback(() => setPendingBadges([]), []);
 

@@ -109,14 +109,14 @@ test('a known prompt adds a qkey; no prompt adds none', async () => {
   assert.equal('qkey' in s.posts[1], false);
 });
 
-test('the tapped option is sent as `chosen` (trimmed to 200 chars) and omitted when there is none', async () => {
+test('the tapped option is sent as `chosen` (an order or label arrangement is longer than one option: trimmed to 600 chars) and omitted when there is none', async () => {
   const s = setup();
   s.rec.record(false, 'sec', undefined, 'A prompt?', 'Wrong option');
-  s.rec.record(true, 'sec', undefined, 'A prompt?', 'x'.repeat(500));
+  s.rec.record(true, 'sec', undefined, 'A prompt?', 'x'.repeat(700));
   s.rec.record(true, 'sec', undefined, 'A prompt?');
   await flush();
   assert.equal(s.posts[0].chosen, 'Wrong option');
-  assert.equal(s.posts[1].chosen!.length, 200);
+  assert.equal(s.posts[1].chosen!.length, 600);
   assert.equal('chosen' in s.posts[2], false);
 });
 

@@ -246,7 +246,8 @@ const FinalAssessment = () => {
         if (selectedOption === questions[currentQuestion].correctAnswer) {
             setScore(score + 1);
         }
-        recordAttempt(selectedOption === questions[currentQuestion].correctAnswer);
+        // The prompt and the tapped option go with the answer so the SERVER can find the question and mark it (it never believes the browser).
+        recordAttempt(selectedOption === questions[currentQuestion].correctAnswer, undefined, undefined, questions[currentQuestion].text, questions[currentQuestion].options[selectedOption]);
         setShowResult(true);
     };
 
@@ -472,3 +473,6 @@ const FinalAssessment = () => {
 };
 
 export default FinalAssessment;
+
+/** For the question seed (scripts/gen-g5-assessment-seed.ts): the questions, so the server can hold and mark them. */
+export const ASSESSMENT = { task: 'gr5-history-final-t5', subject: 'his', questions, section: (_id: number): string => 'general' };

@@ -1,19 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { triggerConfetti } from '../../../../lib/confetti';
 import Card from '../../../../components/ui/Card';
 import Button from '../../../../components/ui/Button';
 import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
 import { cn } from '../../../../lib/utils';
-import { parseSaNumber, saNumber, weightOnMark } from './massFormat';
+import { parseSaNumber, saNumber } from './massFormat';
 import TopicContainer from '../../../../components/layout/TopicContainer';
 import BadgeUnlockModal from '../../../../components/gamification/BadgeUnlockModal';
 import { useAttemptRecorder } from '../../../../lib/client/useAttemptRecorder';
+import { useExerciseChallenge, type IssuedChallenge } from '../../../../lib/client/useExerciseChallenge';
+import { useStudent } from '../../../../lib/client/StudentContext';
+import { seededRandom } from '../../../../lib/shared/seededRandom';
+import { scaleProblem } from '../../../../lib/shared/g5Exercises';
+
 import { Scale } from 'lucide-react';
 
 const ReadingScales = () => {
     const [mode, setMode] = useState<'learn' | 'practice'>('learn');
     const { recordAttempt, pendingBadges, clearBadges } = useAttemptRecorder('gr5-mass-t4', 'math');
+    // The problem comes from a signed seed the server issued (so the server can mark the answer); with no seed it is a local, uncounted one.
+    const { student } = useStudent();
+    const { ready, take } = useExerciseChallenge('reading-scales', !!student);
+    const challengeRef = useRef<IssuedChallenge | null>(null);
 
     // Practice State
     const [weight, setWeight] = useState<number>(0);
@@ -27,24 +36,20 @@ const ReadingScales = () => {
     const [learnStep, setLearnStep] = useState(0);
 
     const generateProblem = () => {
-        const type = Math.random() > 0.3 ? 'analogue' : 'digital';
-        setScaleType(type);
-
-        const maxes = [1000, 2000, 5000];
-        const max = maxes[Math.floor(Math.random() * maxes.length)];
-        setMaxScale(max);
-
-        // The needle always lands exactly on a small mark.
-        const w = weightOnMark(max);
-
-        setWeight(w);
+        const t = take();
+        challengeRef.current = t.challenge;
+        const p = scaleProblem(seededRandom(t.seed));
+        setScaleType(p.scaleType);
+        setMaxScale(p.maxScale);
+        setWeight(p.weight);
         setUserAnswer("");
         setIsCorrect(null);
     };
 
     useEffect(() => {
-        generateProblem();
-    }, []);
+        if (ready) generateProblem();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ready]);
 
     const handleSubmit = (e?: React.FormEvent) => {
         if (e) e.preventDefault();
@@ -60,7 +65,7 @@ const ReadingScales = () => {
             setIsCorrect(false);
             setStreak(0);
         }
-        recordAttempt(Math.abs(val - weight) < 1, 'reading-scales');
+        recordAttempt(Math.abs(val - weight) < 1, 'reading-scales', undefined, undefined, undefined, challengeRef.current ? { challenge: challengeRef.current, answer: userAnswer } : undefined);
     };
 
     const renderAnalogueScale = (currentWeight: number, max: number, size: number = 300) => {

@@ -100,7 +100,7 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
   const finished = await safe(
     () => db.all<RunRow>(
       `SELECT id, subject, kind, scope_key, scope_label, score_pct, n_correct, n_items, n_answered, finished_at FROM runs
-       WHERE student_id = ? AND status = 'finished' AND kind IN ('quiz', 'mock_test', 'exam_practice') AND score_pct IS NOT NULL
+       WHERE student_id = ? AND status = 'finished' AND kind IN ('quiz', 'mock_test', 'exam_practice') AND score_pct IS NOT NULL AND n_answered > 0
        ORDER BY finished_at DESC LIMIT ?`,
       [studentId, TEST_HISTORY_READ],
     ),

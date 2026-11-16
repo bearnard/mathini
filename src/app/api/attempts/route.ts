@@ -9,6 +9,7 @@ import { identifyAttempt } from '../../../lib/server/questions/store';
 import { verifyLiveSession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
 import { d1Adapter } from '../../../lib/server/admin/db';
 import { creditDecision, feedsReview } from '../../../lib/server/attemptTrust';
+import { creditExercise, type ExerciseResult } from '../../../lib/server/exerciseChallenge';
 import { attemptInsertPlans } from '../../../lib/server/progress/attemptPlans';
 import { routeLimited } from '../../../lib/server/edgeLimitRoute';
 import { attemptsLimiter } from '../../../lib/server/learnerGuards';
@@ -25,6 +26,9 @@ interface SubmitBody {
   questionVersionId?: number;
   /** The option the learner tapped (<= 200 chars), or for an order or label item their whole arrangement as text (<= 600 chars). */
   chosen?: string;
+  /** A generated Grade 5 exercise: the signed challenge the server issued ({ kind, seed, issuedAt, sig}) and the learner's typed or tapped answer. The server rebuilds the problem and marks it. */
+  exercise?: unknown;
+  answer?: string;
   /** The run (ADR 0005) this answer belongs to. Kept only if it is the learner's own open run. */
   runId?: string;
   section?: string;
@@ -35,7 +39,10 @@ interface SubmitBody {
 export async function POST(req: NextRequest) {
   try {
     const body = (await req.json()) as SubmitBody;
-    const { task, subject, itemId, section, isCorrect: clientCorrect, streak: clientStreak } = body;
+    const { itemId, isCorrect: clientCorrect, streak: clientStreak } = body;
+    let task = body.task;
+    let subject = body.subject;
+    let section = body.section;
     let qkey: string | null = isQkey(body.qkey) ? body.qkey : null;
 
     if (!task || !subject || typeof clientCorrect !== 'boolean' || typeof clientStreak !== 'number') {
@@ -58,11 +65,29 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Too many answers too fast. Slow down for a moment.' }, { status: 429, headers: { 'Retry-After': '30' } });
     }
 
+    const uncounted = async () => {
+      const x = await db.prepare('SELECT xp FROM student_xp WHERE student_id = ? AND scope = ?').bind(studentId, 'overall').first<{ xp: number }>();
+      return NextResponse.json({ xpAwarded: 0, isCorrect: false, credited: false, totalXp: x?.xp ?? 0, xpByScope: {}, newBadges: [], weakSections: [] });
+    };
+
+    // A generated exercise (Grade 5): the problem came from a challenge this server issued and signed, so the server rebuilds it and marks the answer itself.
+    // The task, subject and section are the exercise's own (never the browser's), and the challenge's signature is the question key, so it counts once.
+    let exercise: Extract<ExerciseResult, { credited: true }> | null = null;
+    if (body.exercise !== undefined) {
+      const r = await creditExercise(d1Adapter(db as never), env.SESSION_SECRET, studentId, body.exercise, body.answer, Date.now());
+      if (!r.credited) return uncounted();
+      exercise = r;
+      task = r.task;
+      subject = r.subject;
+      section = r.section;
+    }
+
     // Parse task slug for denormalised fields
     const parsed = parseTaskSlug(task);
 
     // Pool answers without a client qkey: derive it from the item_cache row (task + prompt).
-    if (!qkey && itemId) {
+    if (exercise) qkey = exercise.qkey;
+    if (!exercise && !qkey && itemId) {
       const row = await db
         .prepare('SELECT prompt FROM item_cache WHERE id = ? AND task = ?')
         .bind(itemId, task)
@@ -76,7 +101,7 @@ export async function POST(req: NextRequest) {
     const now = Date.now();
     let questionVersionId: number | null = null;
     try {
-      const ident = await identifyAttempt(db, {
+      const ident = exercise ? { qkey: exercise.qkey, versionId: null } : await identifyAttempt(db, {
         task,
         qkey,
         itemId: itemId || null,
@@ -95,11 +120,9 @@ export async function POST(req: NextRequest) {
     // (multiple choice, order, label). A written answer the learner marked against a memo, a question the server does not hold, a missing or impossible
     // choice, an answer that does not belong in its run: none of these is stored or earns anything (see attemptTrust.ts). The browser's streak can never be
     // higher than the run of right answers the server has seen.
-    const credit = await creditDecision(d1Adapter(db as never), studentId, { versionId: questionVersionId, chosen, clientCorrect, runId: body.runId, task, qkey }, now);
-    const uncounted = async () => {
-      const x = await db.prepare('SELECT xp FROM student_xp WHERE student_id = ? AND scope = ?').bind(studentId, 'overall').first<{ xp: number }>();
-      return NextResponse.json({ xpAwarded: 0, isCorrect: false, credited: false, totalXp: x?.xp ?? 0, xpByScope: {}, newBadges: [], weakSections: [] });
-    };
+    const credit = exercise
+      ? ({ credited: true, run: null, marking: { isCorrect: exercise.isCorrect, markedBy: 'server', clientCorrect, reason: 'matched', credited: true } } as const)
+      : await creditDecision(d1Adapter(db as never), studentId, { versionId: questionVersionId, chosen, clientCorrect, runId: body.runId, task, qkey }, now);
     if (!credit.credited) return uncounted();
     const { marking, run } = credit;
     const isCorrect = marking.isCorrect;
@@ -112,8 +135,13 @@ export async function POST(req: NextRequest) {
     const baseVals: (string | number | null)[] = [studentId, task, itemId || null, section || 'general', parsed.grade, subject, parsed.topic, isCorrect ? 1 : 0, xpAwarded, streak, now, qkey];
     // run_id (0014): only for the learner's own open run; null when the run, the table or the column is missing.
     const runId = run?.id ?? null;
-    const insert = (c: string[], v: (string | number | null)[]) =>
-      db.prepare(`INSERT INTO attempts (${c.join(', ')}) VALUES (${c.map(() => '?').join(', ')})`).bind(...v).run();
+    // An exercise challenge counts once even when the same answer is sent many times at once: the insert itself refuses a second row for it (atomically).
+    let repeated = false;
+    const insert = async (c: string[], v: (string | number | null)[]) => {
+      if (!exercise) return void (await db.prepare(`INSERT INTO attempts (${c.join(', ')}) VALUES (${c.map(() => '?').join(', ')})`).bind(...v).run());
+      const res = await db.prepare(`INSERT INTO attempts (${c.join(', ')}) SELECT ${c.map(() => '?').join(', ')} WHERE NOT EXISTS (SELECT 1 FROM attempts WHERE student_id = ? AND qkey = ?)`).bind(...v, studentId, exercise.qkey).run();
+      if (res.meta.changes === 0) repeated = true;
+    };
     // Fall back in stages (see attemptInsertPlans): the answer is stored even if a newer column does not exist yet.
     const attempts = attemptInsertPlans(baseCols, baseVals, { questionVersionId, chosen, runId, marking: { markedBy: marking.markedBy, clientCorrect: marking.clientCorrect } });
     for (let i = 0; i < attempts.length; i++) {
@@ -125,6 +153,7 @@ export async function POST(req: NextRequest) {
         console.error('Attempt insert with identity columns failed, retrying with fewer:', e);
       }
     }
+    if (repeated) return uncounted();
 
     // Spaced review schedule (Grade 6, answers with a qkey). Must never fail the attempt. A mock test or exam practice does not feed it.
     try {

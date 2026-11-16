@@ -100,7 +100,7 @@ test('the attempts route lets only a credited answer reach XP, the review schedu
   assert.ok(route.indexOf('if (!credit.credited)') < route.indexOf('INSERT INTO attempts') && route.indexOf('if (!credit.credited)') < route.indexOf('INSERT INTO student_xp'), 'an uncredited answer returns before anything is written');
   for (const bad of ['computeXp(clientCorrect', 'clientStreak, ', ', clientCorrect ?']) assert.ok(!route.includes(bad), bad);
   const using = route.split('\n').filter((l) => /\bclientCorrect\b/.test(l) && !l.trim().startsWith('//'));
-  assert.ok(using.every((l) => /const \{ task|typeof clientCorrect|creditDecision\(|marking: \{ markedBy/.test(l)), `the browser claim is only read, judged and logged: ${using.join(' | ')}`);
+  assert.ok(using.every((l) => /const \{ itemId|typeof clientCorrect|creditDecision\(|marking: \{ markedBy|marking: \{ isCorrect: exercise\.isCorrect/.test(l)), `the browser claim is only read, judged and logged: ${using.join(' | ')}`);
   assert.ok(route.includes('marking: { markedBy: marking.markedBy, clientCorrect: marking.clientCorrect }'));
   assert.ok(route.includes('isCorrect, // the server'));
 });

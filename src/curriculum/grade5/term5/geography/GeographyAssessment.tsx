@@ -315,7 +315,8 @@ const GeographyAssessment = () => {
     if (selectedAnswer === questions[currentQuestion].correctAnswer) {
       setScore(score + 1);
     }
-    recordAttempt(selectedAnswer === questions[currentQuestion].correctAnswer, getSection(questions[currentQuestion].id));
+    // The prompt and the tapped option go with the answer so the SERVER can find the question and mark it (it never believes the browser).
+    recordAttempt(selectedAnswer === questions[currentQuestion].correctAnswer, getSection(questions[currentQuestion].id), undefined, questions[currentQuestion].text, questions[currentQuestion].options[selectedAnswer]);
   };
 
   const nextQuestion = () => {
@@ -581,3 +582,6 @@ const GeographyAssessment = () => {
 };
 
 export default GeographyAssessment;
+
+/** For the question seed (scripts/gen-g5-assessment-seed.ts): the questions, so the server can hold and mark them. */
+export const ASSESSMENT = { task: 'gr5-geography-final-t5', subject: 'geo', questions, section: getSection };
