@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { openTestDb, insertStudent, type TestDb } from '../admin/testdb';
-import { buildProgress } from './progressApi';
+import { buildProgress, staleTasks } from './progressApi';
 import { refreshForRun } from './topicProgress';
 import { MOCK_PROGRESS } from '../../shared/progressMock';
 import { EXAM_SCOPES } from '../../shared/examScopes';
@@ -206,4 +206,31 @@ test('recent sessions: one per run, or per topic per day outside a run; newest f
   assert.deepEqual([s[0].answered, s[0].correct, s[0].scorePct], [3, 2, 67]);
   assert.match(s[2].label, / and 1 more$/);
   assert.equal(recentSessionsOf(Array.from({ length: 12 }, (_, i) => r('a', 1, NOW - i * 2 * D)), 6).length, 5);
+});
+
+test('FRESHNESS: answers newer than the cached row (a run left unfinished, a topic practised since the last refresh) show up in the next read; an up-to-date cache is not rewritten', async (ctx) => {
+  const t = await setup(); if (!t) return ctx.skip('node:sqlite unavailable');
+  practise(t, 'solar-system', '1010101010', { run: id(1), start: NOW - 5 * D });
+  await refreshForRun(t.db, 's1', ['solar-system'], NOW - 4 * D);
+  const before = (await buildProgress(t.db, 's1', NOW))!;
+  assert.equal(before.subjects[0].topics.find((x) => x.task === 'solar-system')!.attempts, 10);
+  const stamp = (await t.db.all<{ updated_at: number }>("SELECT updated_at FROM topic_progress WHERE task = 'solar-system'", []))[0].updated_at;
+  // an unfinished run: 5 more answers and a second topic, never refreshed
+  practise(t, 'solar-system', '11111', { start: NOW - 2 * 3600_000, stepMs: 60_000 });
+  practise(t, 'electric-circuits', '101', { start: NOW - 3600_000, stepMs: 60_000 });
+  const after = (await buildProgress(t.db, 's1', NOW))!;
+  const topics = after.subjects[0].topics;
+  assert.equal(topics.find((x) => x.task === 'solar-system')!.attempts, 15, 'the practised-since answers are counted');
+  assert.equal(topics.find((x) => x.task === 'electric-circuits')!.attempts, 3, 'a topic with no cached row appears');
+  // nothing new: the next read leaves the cache alone
+  const again = await buildProgress(t.db, 's1', NOW + 60_000);
+  assert.ok(again);
+  const rows = await t.db.all<{ task: string; updated_at: number }>('SELECT task, updated_at FROM topic_progress ORDER BY task', []);
+  assert.equal(rows.find((r) => r.task === 'solar-system')!.updated_at, NOW, 'refreshed once (at the first read that saw it), not on every read');
+  assert.ok(stamp < NOW);
+});
+
+test('staleTasks: only tasks with an answer newer than the cached last answer, or with no cached row', () => {
+  assert.deepEqual(staleTasks([{ task: 'a', last_attempt_at: 100 }, { task: 'b', last_attempt_at: 100 }], [{ task: 'a', created_at: 100 }, { task: 'b', created_at: 101 }, { task: 'c', created_at: 5 }]), ['b', 'c']);
+  assert.deepEqual(staleTasks([], []), []);
 });

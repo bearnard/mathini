@@ -17,10 +17,12 @@ test('teaser: the first improving topic the server lists, with the server\'s num
   assert.deepEqual(pickTeaser(MOCK_PROGRESS), { tone: 'improving', text: '↑ 12,5 in Electric circuits' });
   const noGain: ProgressResponse = { ...MOCK_PROGRESS, subjects: MOCK_PROGRESS.subjects.map((s) => ({ ...s, topics: s.topics.map((t) => ({ ...t, changePoints: t.changePoints !== null && t.changePoints > 0 ? 0 : t.changePoints })) })) };
   assert.deepEqual(pickTeaser(noGain), { tone: 'streak', text: '3-day practice streak' });
-  assert.equal(pickTeaser(MOCK_PROGRESS_NEW), null);
+  // nothing to celebrate yet: the server's next step (only when there is something to do), else nothing
+  assert.deepEqual(pickTeaser(MOCK_PROGRESS_NEW), { tone: 'next', text: 'Try your first topic' });
+  assert.equal(pickTeaser({ ...MOCK_PROGRESS_NEW, nextStep: { ...MOCK_PROGRESS_NEW.nextStep, kind: 'all_caught_up', href: null } }), null);
   // a drop is never shown as a teaser
   const dip: ProgressResponse = { ...MOCK_PROGRESS_NEW, subjects: [{ ...MOCK_PROGRESS.subjects[0], topics: [{ ...MOCK_PROGRESS.subjects[0].topics[0], changePoints: -9 }] }] };
-  assert.equal(pickTeaser(dip), null);
+  assert.notEqual(pickTeaser(dip)?.tone, 'improving'); assert.ok(!/-9|−9/.test(pickTeaser(dip)?.text ?? ''));
 });
 
 test('the dashboard card links to /progress, says "My progress", and shows the teaser or a gentle default', () => {
