@@ -6,7 +6,7 @@ import { RefusingMailer, type Mail, type Mailer } from '../adultAuth/mailer';
 import { createLimiter } from '../adultAuth/rateLimit';
 import { MOCK_PROGRESS } from '../../shared/progressMock';
 import type { ProgressResponse } from '../../shared/progressTypes';
-import { DEFAULT_MAX_OPS, MAX_PARENTS_PER_RUN, isSummaryDay, MAX_ATTEMPTS, budgetOf, runWeeklySummary, type SummaryDeps } from './summaryJob';
+import { DEFAULT_MAX_OPS, MAX_PARENTS_PER_RUN, errorText, isSummaryDay, MAX_ATTEMPTS, budgetOf, runWeeklySummary, type SummaryDeps } from './summaryJob';
 import { buildSummary, childLines, childWeekFrom, escapeHtml, isSendDay, LEGACY_TOKEN_UNTIL, makeUnsubscribeToken, sastDate, TOKEN_TTL_DAYS, verifyUnsubscribeToken, weekKey, type ChildWeek } from './summaryEmail';
 import { handleSummaryPrefGet, handleSummaryPrefSet, handleUnsubscribe, type SummaryHttpDeps } from './summaryHttp';
 import { addAdult, addStudent, openParentsDb, type ParentsTestDb } from './testDb';
@@ -263,7 +263,7 @@ test('a failed send is retried on the next run, never duplicated, and given up a
   const first = await runWeeklySummary(w.deps(r.mailer, { log: (l) => lines.push(l) }));
   assert.deepEqual([first.sent, first.failed], [0, 2]);
   assert.deepEqual([status(w, w.mum.userId)?.status, status(w, w.mum.userId)?.attempts], ['failed', 1]);
-  assert.ok(lines.some((l) => /a send failed: resend responded 500/.test(l)));
+  assert.ok(lines.some((l) => /a send failed: Error: resend responded 500/.test(l)));
   assert.ok(!lines.join('\n').match(/example\.com|Tiger|Eagle|unsubscribe/), lines.join('\n'));
   const second = await runWeeklySummary(w.deps(r.mailer, { now: SUN + DAY }));
   assert.deepEqual([second.sent, second.failed], [2, 0]);
@@ -323,6 +323,43 @@ test('the paid-plan defaults: far above the free plan, below the 10 000 subreque
   assert.equal(res.sent, 8, 'every eligible parent in one run (the world has two, plus the six added)');
   assert.equal(new Set(r.sent.map((m) => m.to)).size, 8);
   assert.ok(res.ops <= DEFAULT_MAX_OPS, `used ${res.ops}`);
+});
+
+test('a failed send is kept in last_error (short, no address or link), the next parent is still reached, and the run logs its ops', async (t0) => {
+  const w = await world(); if (!w) return t0.skip('node:sqlite unavailable');
+  const lines: string[] = [];
+  const failing = { async send() { throw new TypeError('fetch failed for https://api.resend.com/emails to mum@example.com'); } };
+  const res = await runWeeklySummary(w.deps(failing as never, { log: (l: string) => lines.push(l) } as never));
+  assert.equal(res.failed, 2, 'both eligible parents were tried even though the first send failed');
+  const rows = w.raw.prepare("SELECT status, attempts, last_error FROM summary_sent ORDER BY user_id").all() as { status: string; attempts: number; last_error: string | null }[];
+  assert.equal(rows.length, 2);
+  for (const r of rows) {
+    assert.equal(r.status, 'failed');
+    assert.equal(r.attempts, 1);
+    assert.match(String(r.last_error), /^TypeError: fetch failed/);
+    assert.ok(String(r.last_error).length <= 200);
+    assert.ok(!/@|https?:/.test(String(r.last_error)), `no address or link kept: ${r.last_error}`);
+  }
+  assert.ok(lines.some((l) => /ops \d+ of \d+/.test(l)), 'one line per run with the ops used');
+  assert.ok(lines.some((l) => l.includes('a send failed: TypeError: fetch failed')));
+});
+
+test('errorText: name and message, at most 200 characters, no address and no link', () => {
+  assert.equal(errorText(new Error('resend responded 422')), 'Error: resend responded 422');
+  const long = errorText(new Error('x'.repeat(500)));
+  assert.equal(long.length, 200);
+  assert.ok(!/@|https?:/.test(errorText(new Error('to a@b.co via http://x.test/y?t=SECRET'))));
+  assert.equal(errorText('boom'), 'string: boom');
+});
+
+test('the failure is still recorded when the last_error column does not exist yet (migration 0026 not applied)', async (t0) => {
+  const w = await world(); if (!w) return t0.skip('node:sqlite unavailable');
+  w.raw.exec('ALTER TABLE summary_sent DROP COLUMN last_error');
+  const failing = { async send() { throw new Error('nope'); } };
+  const res = await runWeeklySummary(w.deps(failing as never));
+  assert.equal(res.failed, 2);
+  const n = (w.raw.prepare("SELECT COUNT(*) AS n FROM summary_sent WHERE status = 'failed'").get() as { n: number }).n;
+  assert.equal(n, 2);
 });
 
 test('the budget counter counts every call and refuses past the limit', async () => {
