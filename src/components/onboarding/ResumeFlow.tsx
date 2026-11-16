@@ -87,12 +87,21 @@ export default function ResumeFlow({ onDone }: { onDone: () => void }) {
               required
             />
 
-            {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+            {error && <p className="text-red-600 text-sm text-center" role="alert">{error}</p>}
 
             <Button type="submit" className="w-full" isLoading={loading}>
               Log In
             </Button>
           </form>
+
+          <div className="rounded-xl bg-slate-50 p-4 text-sm text-slate-700" data-testid="login-help">
+            <p className="font-semibold text-slate-800">Forgot your login code or PIN?</p>
+            <ul className="mt-1 list-disc space-y-1 pl-5">
+              <li>Your PIN: ask a parent or guardian who has linked to you. They can make you a new PIN from their PrepPals page.</li>
+              <li>Your login code: it is in the app under &ldquo;My login code&rdquo; on any device where you are still signed in.</li>
+              <li>Not sure how? Ask your teacher or a parent to help you.</li>
+            </ul>
+          </div>
         </Card>
       </motion.div>
     </AnimatePresence>

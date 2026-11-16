@@ -12,6 +12,9 @@ import MyProgressCard from './components/progress/MyProgressCard';
 import { useProgressTeaser } from './components/progress/useProgressTeaser';
 import ClassesCard from './components/classes/ClassesCard';
 import ParentLinkCard from './components/parents/ParentLinkCard';
+import MyLoginCode from './components/onboarding/MyLoginCode';
+import SaveLoginCode from './components/onboarding/SaveLoginCode';
+import { clearPending, readPending, type PendingCredentials } from './lib/client/pendingCredentials';
 import { useReviewPreview } from './components/review/useTodayReview';
 import AppHeader from './components/layout/AppHeader';
 import TopicHeader from './components/layout/TopicHeader';
@@ -50,6 +53,10 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
   const reviewQuestions = useReviewPreview(status === 'active' && student?.grade === 6 && view === 'home', view);
 
   useEffect(() => { void loadRetired(); }, []);
+
+  // A new learner who reloads before pressing "I've saved it" still gets to see the login code and PIN (kept in this tab until they confirm).
+  const [pending, setPending] = useState<PendingCredentials | null>(null);
+  useEffect(() => { if (status === 'active') setPending(readPending()); }, [status]);
 
   // A "Practise now" link from a public page (/app?grade=6&subject=math&topic=...) opens that topic once, when the learner is in.
   const deepLinkDone = useRef(false);
@@ -113,6 +120,14 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
     );
   }
 
+  if (pending) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-slate-50 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-blue/10 via-slate-50 to-slate-50 p-4 pb-safe">
+        <SaveLoginCode loginCode={pending.loginCode} pin={pending.pin} onSaved={() => { clearPending(); setPending(null); }} />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-slate-50 pb-safe font-sans text-slate-900 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-blue/10 via-slate-50 to-slate-50">
       <ConsentGate />
@@ -171,6 +186,7 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
           <div className="mx-auto max-w-5xl px-4 pt-4">
             <ClassesCard />
             <ParentLinkCard />
+            <MyLoginCode />
           </div>
         )}
         <CurriculumSelector

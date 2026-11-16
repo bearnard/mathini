@@ -7,6 +7,8 @@ import Button from '../ui/Button';
 import Input from '../ui/Input';
 import Select from '../ui/Select';
 import AvatarPicker from './AvatarPicker';
+import SaveLoginCode from './SaveLoginCode';
+import { clearPending, savePending } from '../../lib/client/pendingCredentials';
 import { onboardingSchema } from '../../lib/client/onboardingSchema';
 import type { OnboardingOutput } from '../../lib/client/onboardingSchema';
 import { useStudent } from '../../lib/client/StudentContext';
@@ -97,6 +99,7 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
 
       const json = (await res.json()) as { loginCode: string; pin: string; studentId: string };
       setResult({ loginCode: json.loginCode, pin: json.pin, studentId: json.studentId });
+      savePending({ loginCode: json.loginCode, pin: json.pin }); // a reload before "I've saved it" must not lose the PIN
       track('signup', { grade: data.grade, meta: { consent_version: CONSENT_VERSION } });
       setStep(1);
     } catch (err) {
@@ -107,6 +110,7 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
   };
 
   const handleConfirm = () => {
+    clearPending();
     // Save the student
     setStudent({
       id: result?.studentId ?? '',
@@ -227,42 +231,7 @@ export default function OnboardingFlow({ onDone }: { onDone: () => void }) {
         </motion.div>
       )}
 
-      {step === 1 && result && (
-        <motion.div
-          key="save-code"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
-          className="max-w-md mx-auto space-y-6"
-        >
-          <Card className="p-8 text-center space-y-6">
-            <div className="text-5xl">🔑</div>
-            <h2 className="text-2xl font-bold text-slate-800">Save your Login Code</h2>
-            <p className="text-slate-600">
-              Write this down — you&apos;ll need it to log in on another device or browser.
-            </p>
-
-            <div className="bg-brand-blue/10 rounded-xl p-6 space-y-3">
-              <p className="text-sm text-slate-500 uppercase tracking-wider font-bold">
-                Login Code
-              </p>
-              <p className="text-3xl font-mono font-bold text-brand-blue tracking-wider">
-                {result.loginCode}
-              </p>
-              <p className="text-sm text-slate-500">PIN: {result.pin}</p>
-            </div>
-
-            <div className="text-xs text-amber-700 bg-amber-50 p-3 rounded-lg">
-              ⚠️ You won&apos;t see this code again. Save it somewhere safe!
-            </div>
-
-            <Button className="w-full" onClick={handleConfirm}>
-              I&apos;ve saved it — let&apos;s go!
-            </Button>
-          </Card>
-        </motion.div>
-      )}
+      {step === 1 && result && <SaveLoginCode loginCode={result.loginCode} pin={result.pin} onSaved={handleConfirm} />}
     </AnimatePresence>
   );
 }

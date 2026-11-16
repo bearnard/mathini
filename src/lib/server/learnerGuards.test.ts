@@ -51,13 +51,14 @@ test('a login code that does not exist costs a PIN hash, like a wrong PIN, so it
   assert.equal(await verifyPin('4821', '00000000000000000000000000000000', '0'.repeat(64)), false);
 });
 
-test('the login route gives ONE message for a wrong code, a wrong PIN and a blocked code, and checks the durable limit first', () => {
+test('the login route gives ONE message for a wrong code and a wrong PIN, a distinct "too many tries, wait N minutes" for a locked code, and checks the durable limit first', () => {
   const route = read('src/app/api/session/route.ts');
   assert.ok(!/Invalid login code|Invalid PIN/.test(route), 'no message that says which half was wrong');
-  assert.equal((route.match(/error: LOGIN_FAILED/g) ?? []).length, 3, 'blocked, unknown code and wrong PIN all answer LOGIN_FAILED');
-  assert.ok(route.indexOf('loginBlocked(') < route.indexOf('FROM students WHERE login_code'), 'the durable limit is checked before the lookup');
-  assert.equal((route.match(/burnPinCheck\(pin\)/g) ?? []).length, 2, 'a blocked and an unknown code both pay for a PIN hash');
-  assert.equal((route.match(/noteLoginFailure\(/g) ?? []).length, 2, 'both kinds of failure are counted');
+  assert.equal((route.match(/error: LOGIN_FAILED/g) ?? []).length, 2, 'an unknown code and a wrong PIN both answer LOGIN_FAILED');
+  assert.equal((route.match(/loginLockedMessage\(/g) ?? []).length, 2, 'the durable lock and the per-isolate limit both say how long to wait');
+  assert.ok(route.indexOf('loginLockedMinutes(') < route.indexOf('FROM students WHERE login_code'), 'the durable limit is checked before the lookup');
+  assert.equal((route.match(/burnPinCheck\(pin\)/g) ?? []).length, 1, 'an unknown code still pays for a PIN hash (a locked code is answered before any hashing)');
+  assert.equal((route.match(/noteLoginFailure\(/g) ?? []).length, 2, 'both kinds of failure are counted, so an unknown code locks exactly like a real one');
   assert.ok(LOGIN_FAILED.includes('ask a parent to reset your PIN'));
 });
 

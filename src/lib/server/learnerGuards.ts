@@ -8,7 +8,7 @@
 // The durable counters fail OPEN: if the counter table is missing or D1 errors, learners are not locked out, and the in-memory limits still apply.
 import type { AdminDb } from './admin/db';
 import { sha256Hex } from './adultAuth/crypto';
-import { allowDurable, bumpDurable, createLimiter, isBlockedDurable, type Limiter } from './adultAuth/rateLimit';
+import { allowDurable, blockedForMs, bumpDurable, createLimiter, isBlockedDurable, type Limiter } from './adultAuth/rateLimit';
 import { verifyPin } from './identity';
 
 export const HOUR_MS = 3_600_000;
@@ -17,6 +17,8 @@ export const SIGNUPS_PER_HOUR_PER_IP = 60;
 
 /** The one answer for a wrong code, a wrong PIN and a blocked code. */
 export const LOGIN_FAILED = 'That login code or PIN is not right. Check them and try again, or ask a parent to reset your PIN.';
+/** The answer for a code that is locked after too many wrong tries. It says to wait and who can help: it reveals nothing about the PIN (any code, real or not, ends up locked the same way). */
+export const loginLockedMessage = (minutes: number): string => `Too many tries. Wait ${minutes} ${minutes === 1 ? 'minute' : 'minutes'} and try again, or ask a parent to reset your PIN.`;
 export const SIGNUP_LIMITED = 'Too many sign-ups from this connection. Please try again in a while.';
 
 const loginKey = async (code: string): Promise<string> => `login:code:${await sha256Hex(code)}`;
@@ -27,6 +29,16 @@ export async function loginBlocked(db: AdminDb, code: string, now: number): Prom
     return await isBlockedDurable(db, await loginKey(code), LOGIN_FAILURES_PER_HOUR, HOUR_MS, now);
   } catch {
     return false;
+  }
+}
+
+/** Minutes (rounded up, at least 1) until this login code can be tried again, or 0 when it is not locked. */
+export async function loginLockedMinutes(db: AdminDb, code: string, now: number): Promise<number> {
+  try {
+    const ms = await blockedForMs(db, await loginKey(code), LOGIN_FAILURES_PER_HOUR, HOUR_MS, now);
+    return ms <= 0 ? 0 : Math.max(1, Math.ceil(ms / 60_000));
+  } catch {
+    return 0;
   }
 }
 
