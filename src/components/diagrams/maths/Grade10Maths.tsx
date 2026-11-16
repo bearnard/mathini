@@ -454,7 +454,7 @@ export const QuartileDots = ({ sorted, q1, q2, q3 }: { sorted: number[]; q1: num
   const hi = sorted[sorted.length - 1];
   const x = (v: number) => 12 + ((v - lo) / (hi - lo || 1)) * 96;
   return (
-    <Panel h={50} aria={`The ordered data ${sorted.join(', ')} on a number line. The lower quartile is ${q1}, the median is ${q2} and the upper quartile is ${q3}.`}>
+    <Panel h={50} aria={`The ordered data ${sorted.join(', ')} on a number line. The lower quartile is ${String(q1).replace('.', ',')}, the median is ${String(q2).replace('.', ',')} and the upper quartile is ${String(q3).replace('.', ',')}.`}>
       <line x1={10} y1={26} x2={110} y2={26} stroke={MUTED} strokeWidth={0.8} />
       {sorted.map((v, i) => <circle key={i} cx={r3(x(v))} cy={26} r={2.2} fill={I} />)}
       {[[q1, 'Q₁', E], [q2, 'median', A], [q3, 'Q₃', E]].map(([v, l, c]) => (
@@ -470,13 +470,14 @@ export const QuartileDots = ({ sorted, q1, q2, q3 }: { sorted: number[]; q1: num
 };
 
 /** One or two box-and-whisker plots on a shared scale, drawn from the five numbers. */
+const c1 = (n: number): string => String(n).replace('.', ',');
 export const BoxPlot = ({ plots, scale }: { plots: { name: string; min: number; q1: number; med: number; q3: number; max: number; color?: string }[]; scale: [number, number] }) => {
   const x = (v: number) => 14 + ((v - scale[0]) / (scale[1] - scale[0])) * 92;
   const rows = plots.length;
   const rowH = 24;
   const ticks = [scale[0], (scale[0] + scale[1]) / 2, scale[1]];
   return (
-    <Panel h={rows * rowH + 20} aria={`Box-and-whisker plots. ${plots.map((p) => `${p.name}: minimum ${p.min}, lower quartile ${p.q1}, median ${p.med}, upper quartile ${p.q3}, maximum ${p.max}`).join('. ')}.`}>
+    <Panel h={rows * rowH + 20} aria={`Box-and-whisker plots. ${plots.map((p) => `${p.name}: minimum ${c1(p.min)}, lower quartile ${c1(p.q1)}, median ${c1(p.med)}, upper quartile ${c1(p.q3)}, maximum ${c1(p.max)}`).join('. ')}.`}>
       {plots.map((p, i) => {
         const y = 8 + i * rowH + rowH / 2 - 2;
         const c = p.color ?? [I, E][i % 2];

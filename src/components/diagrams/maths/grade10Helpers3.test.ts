@@ -76,5 +76,5 @@ test('trigonometry in two dimensions', () => {
   const u = h.towerHeight(40, 25, 15);
   assert.ok(near(u.h, 15.74, 0.01));
   assert.ok(near(h.isoscelesHeight(10, 40), 9.3969, 1e-3));
-  assert.ok(near(h.isoscelesBase(8, 50), 6.7570, 1e-3));
+  assert.ok(near(h.isoscelesBase(8, 50), 6.7619, 1e-3));
 });

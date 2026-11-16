@@ -83,7 +83,7 @@ export const statistics: Q[] = (() => {
   const mids = rows.map(t.classMidpoint);
   const uppers = t.groupedMean(rows.map((r) => ({ from: r.to, to: r.to, freq: r.freq })));
   const lowers = t.groupedMean(rows.map((r) => ({ from: r.from, to: r.from, freq: r.freq })));
-  const cls = (c: { from: number; to: number }) => `${c.from} – ${c.to}`.replace('–', '–');
+  const cls = (c: { from: number; to: number }) => `${c.from} to ${c.to}`;
   const mc = t.medianClass(rows)!;
   const mod = t.modalClass(rows);
   const c = (n: number) => dec(n, 1).replace(',0', '');
@@ -91,10 +91,10 @@ export const statistics: Q[] = (() => {
   const set = `${data.join('; ')}`;
   return [
     q(`What is the median of this data: ${set}?`, cm(f.median), ['19', '15', '16'], 'Put the data in order: 11; 12; 14; 15; 16; 17; 18; 20. The two middle values are 15 and 16, so the median is (15 + 16) ÷ 2 = 15,5.'),
-    q(`What is the lower quartile (Q₁) of the data: ${set}?`, cm(f.q1), ['12', '14', '15'], 'In order: 11; 12; 14; 15; 16; 17; 18; 20. The lower half is 11; 12; 14; 15 and its median is (12 + 14) ÷ 2 = 13.'),
-    q(`What is the upper quartile (Q₃) of the data: ${set}?`, cm(f.q3), ['17', '18', '18,5'], 'The upper half is 16; 17; 18; 20 and its median is (17 + 18) ÷ 2 = 17,5.'),
-    q(`What is the interquartile range of the data: ${set}?`, cm(f.iqr), ['9', '17,5', '13'], 'IQR = Q₃ − Q₁ = 17,5 − 13 = 4,5.'),
-    q(`What is the range of the data: ${set}?`, String(f.range), ['4,5', '31', '15,5'], 'Range = highest − lowest = 20 − 11 = 9.'),
+    q(`What is the lower quartile (Q₁) of the data: ${set} (marks of eight learners)?`, cm(f.q1), ['12', '14', '15'], 'In order: 11; 12; 14; 15; 16; 17; 18; 20. The lower half is 11; 12; 14; 15 and its median is (12 + 14) ÷ 2 = 13.'),
+    q(`What is the upper quartile (Q₃) of the data: ${set} (ages of eight club members)?`, cm(f.q3), ['17', '18', '18,5'], 'The upper half is 16; 17; 18; 20 and its median is (17 + 18) ÷ 2 = 17,5.'),
+    q(`What is the interquartile range of the data: ${set} (minutes taken by eight runners)?`, cm(f.iqr), ['9', '17,5', '13'], 'IQR = Q₃ − Q₁ = 17,5 − 13 = 4,5.'),
+    q(`What is the range of the data: ${set} (prices in rand of eight books)?`, String(f.range), ['4,5', '31', '15,5'], 'Range = highest − lowest = 20 − 11 = 9.'),
     q('What is the five-number summary (minimum; Q₁; median; Q₃; maximum) of 2; 4; 4; 5; 7; 8; 9; 11?', `${f2.min}; ${f2.q1}; ${f2.median}; ${cm(f2.q3)}; ${f2.max}`, ['2; 4; 5; 8; 11', '2; 5; 6; 8; 11', '2; 4,5; 6; 9; 11'],
       'The median is (5 + 7) ÷ 2 = 6. Lower half 2; 4; 4; 5 has median 4. Upper half 7; 8; 9; 11 has median (8 + 9) ÷ 2 = 8,5.'),
     q('What is the mean of 2; 4; 4; 5; 7; 8; 9; 11?', cm(t.mean(data2)), ['6', '5,5', '6,5'], 'The sum is 50 and there are 8 values: 50 ÷ 8 = 6,25. (6 is the median.)'),
@@ -102,11 +102,11 @@ export const statistics: Q[] = (() => {
     q('What percentage of the data lies between Q₁ and Q₃?', '50%', ['25%', '75%', '100%'], 'Each quarter of the data holds 25%. Between Q₁ and Q₃ there are two quarters: 50%. That is the box in a box-and-whisker plot.'),
     q('Classes 0–10, 10–20 and 20–30 have frequencies 4, 8 and 10. What is the estimated mean?', c(gm), [c(t.mean(mids)), c(uppers), c(lowers)],
       'Use the class midpoints 5, 15 and 25: (5 × 4 + 15 × 8 + 25 × 10) ÷ 22 = 390 ÷ 22 ≈ 17,7.'),
-    q('Classes 0–10, 10–20 and 20–30 have frequencies 4, 8 and 10. Which is the modal class?', cls(mod), ['0 – 10', '10 – 20', '22'], 'The modal class is the class with the highest frequency: 10 values lie in 20 – 30.'),
-    q('Classes 0–10, 10–20 and 20–30 have frequencies 4, 8 and 10. Which class contains the median?', cls(mc), ['0 – 10', '20 – 30', '12'],
-      'There are 22 values, so the median lies between the 11th and 12th. The cumulative frequencies are 4, 12 and 22, so both values are in 10 – 20.'),
+    q('A frequency table has the classes 0–10, 10–20 and 20–30 with frequencies 4, 8 and 10. Which is the modal class (the class with the highest frequency)?', cls(mod), ['0 to 10', '10 to 20', '22'], 'The modal class is the class with the highest frequency: 10 values lie in 20 to 30.'),
+    q('Grouped data: classes 0–10, 10–20 and 20–30 have frequencies 4, 8 and 10 (22 values). Which class contains the median?', cls(mc), ['0 to 10', '20 to 30', '12'],
+      'There are 22 values, so the median lies between the 11th and 12th. The cumulative frequencies are 4, 12 and 22, so both values are in 10 to 20.'),
     q('For a data set Q₃ = 17,5. What does this tell you?', '75% of the values are 17,5 or less', ['25% of the values are 17,5 or less', 'The mean is 17,5', '17,5% of the values are in the top quarter'], 'The upper quartile has three quarters (75%) of the data at or below it.'),
-    q('Every value in a data set is increased by 5. Which statement is true?', 'The range and the interquartile range stay the same', ['The median stays the same', 'The mean stays the same', 'The lower quartile stays the same'],
+    q('Every value in a data set is increased by 5. Which statement is true?', 'The range and the interquartile range stay the same', ['The median and the mean both stay the same', 'The mean stays the same but the range goes up', 'The lower quartile and the upper quartile stay the same'],
       'Every value, the mean, the median and the quartiles all go up by 5. Differences such as the range and the IQR do not change.'),
   ];
 })();
@@ -121,11 +121,11 @@ export const measurement: Q[] = (() => {
       'Surface area = 4πr² = 4 × π × 25 = 100π ≈ 314,2 cm².'),
     q('A cone has a base radius of 3 cm and a height of 4 cm. What is its slant height?', `${t.coneSlant(3, 4)} cm`, ['7 cm', '25 cm', `${c(Math.sqrt(7))} cm`],
       'The slant height is the hypotenuse of the right-angled triangle with sides r and h: s = √(3² + 4²) = √25 = 5 cm.'),
-    q('A cone has a base radius of 3 cm and a height of 4 cm. What is its volume (one decimal place)?', `${c(t.coneVolume(3, 4))} cm³`, [`${c(Math.PI * 9 * 4)} cm³`, `${c(t.coneCurvedArea(3, 4))} cm³`, `${c(4 * Math.PI)} cm³`],
+    q('A solid metal cone has a base radius of 3 cm and a height of 4 cm. What is its volume (one decimal place)?', `${c(t.coneVolume(3, 4))} cm³`, [`${c(Math.PI * 9 * 4)} cm³`, `${c(t.coneCurvedArea(3, 4))} cm³`, `${c(4 * Math.PI)} cm³`],
       'V = (1/3)πr²h = (1/3) × π × 9 × 4 = 12π ≈ 37,7 cm³.'),
-    q('A cone has a base radius of 3 cm and a height of 4 cm. What is its curved surface area (one decimal place)?', `${c(t.coneCurvedArea(3, 4))} cm²`, [`${c(t.coneVolume(3, 4))} cm²`, `${c(t.coneTotalArea(3, 4))} cm²`, `${c(Math.PI * 36)} cm²`],
+    q('A paper party hat is a cone with a base radius of 3 cm and a height of 4 cm. What is the area of its curved surface (one decimal place)?', `${c(t.coneCurvedArea(3, 4))} cm²`, [`${c(t.coneVolume(3, 4))} cm²`, `${c(t.coneTotalArea(3, 4))} cm²`, `${c(Math.PI * 36)} cm²`],
       'Curved surface area = πrs, with slant height s = 5: π × 3 × 5 = 15π ≈ 47,1 cm².'),
-    q('A cone has a base radius of 3 cm and a height of 4 cm. What is its total surface area (one decimal place)?', `${c(t.coneTotalArea(3, 4))} cm²`, [`${c(t.coneCurvedArea(3, 4))} cm²`, `${c(Math.PI * 9)} cm²`, `${c(Math.PI * 36)} cm²`],
+    q('A cone is painted all over, including its base. Its base radius is 3 cm and its height is 4 cm. What is its total surface area (one decimal place)?', `${c(t.coneTotalArea(3, 4))} cm²`, [`${c(t.coneCurvedArea(3, 4))} cm²`, `${c(Math.PI * 9)} cm²`, `${c(Math.PI * 36)} cm²`],
       'Total = the base circle plus the curved surface: πr² + πrs = 9π + 15π = 24π ≈ 75,4 cm².'),
     q('A square-based pyramid has a base of 6 cm and a perpendicular height of 10 cm. What is its volume?', `${t.pyramidVolume(6, 10)} cm³`, ['360 cm³', '60 cm³', '100 cm³'], 'V = (1/3) × base area × height = (1/3) × 36 × 10 = 120 cm³.'),
     q('A square-based pyramid has a base of 6 cm and each triangular face has a slant height of 5 cm. What is its total surface area?', `${t.pyramidArea(6, 5)} cm²`, ['66 cm²', '60 cm²', '36 cm²'],
@@ -170,7 +170,7 @@ export const trigGeometry: Q[] = (() => {
       'BC is opposite angle A and AB is adjacent: tan A = 8/6, so A = tan⁻¹(1,333…) = 53,1°.'),
     q('From the top of a 12 m building the angle of depression of a car is 28°. How far is the car from the foot of the building (one decimal place)?', `${c(12 / h.tanD(28))} m`, [`${c(12 * h.tanD(28))} m`, `${c(12 * h.sinD(28))} m`, `${c(12 / h.sinD(28))} m`],
       'tan 28° = 12 ÷ d, so d = 12 ÷ tan 28° = 22,6 m.'),
-    q('Which statement about the angles of elevation and depression between two points A (low) and B (high) is true?', 'The angle of elevation of B from A equals the angle of depression of A from B', ['The angle of elevation is always larger', 'They add up to 90°', 'They add up to 180°'],
+    q('Which statement about the angles of elevation and depression between two points A (low) and B (high) is true?', 'The angle of elevation of B from A equals the angle of depression of A from B', ['The angle of elevation is always larger than the angle of depression', 'The two angles add up to 90° because they are complementary', 'The two angles add up to 180° because they lie on a line'],
       'The horizontal lines through A and B are parallel, so the two angles are alternate angles and are equal.'),
   ];
 })();

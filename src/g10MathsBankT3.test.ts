@@ -121,8 +121,8 @@ test('INDEPENDENT: statistics, quartiles by an index method and grouped data by 
   numericItem('Classes 0–10, 10–20 and 20–30 have frequencies 4, 8 and 10. What is the estimated mean?', Math.round(mean * 10) / 10, 0.01);
   const values = [...Array(4).fill(5), ...Array(8).fill(15), ...Array(10).fill(25)];
   assert.equal(med(values), 15); // the 11th and 12th values are both in the second class
-  assert.equal(find('Classes 0–10, 10–20 and 20–30 have frequencies 4, 8 and 10. Which class contains the median?').answer, '10 – 20');
-  assert.equal(find('Classes 0–10, 10–20 and 20–30 have frequencies 4, 8 and 10. Which is the modal class?').answer, '20 – 30');
+  assert.equal(find('Grouped data: classes 0–10, 10–20 and 20–30 have frequencies 4, 8 and 10 (22 values). Which class contains the median?').answer, '10 to 20');
+  assert.equal(find('A frequency table has the classes 0–10, 10–20 and 20–30 with frequencies 4, 8 and 10. Which is the modal class (the class with the highest frequency)?').answer, '20 to 30');
 });
 
 test('INDEPENDENT: measurement, with Math.PI', () => {
@@ -131,9 +131,9 @@ test('INDEPENDENT: measurement, with Math.PI', () => {
   numericItem('A sphere has a radius of 3 cm. What is its volume', r1((4 / 3) * P * 27), 0.01);
   numericItem('A sphere has a radius of 5 cm. What is its surface area', r1(4 * P * 25), 0.01);
   numericItem('A cone has a base radius of 3 cm and a height of 4 cm. What is its slant height?', Math.hypot(3, 4), 1e-9);
-  numericItem('A cone has a base radius of 3 cm and a height of 4 cm. What is its volume', r1((P * 9 * 4) / 3), 0.01);
-  numericItem('A cone has a base radius of 3 cm and a height of 4 cm. What is its curved surface area', r1(P * 3 * 5), 0.01);
-  numericItem('A cone has a base radius of 3 cm and a height of 4 cm. What is its total surface area', r1(P * 9 + P * 3 * 5), 0.01);
+  numericItem('A solid metal cone has a base radius of 3 cm and a height of 4 cm. What is its volume', r1((P * 9 * 4) / 3), 0.01);
+  numericItem('A paper party hat is a cone with a base radius of 3 cm and a height of 4 cm. What is the area of its curved surface', r1(P * 3 * 5), 0.01);
+  numericItem('A cone is painted all over, including its base. Its base radius is 3 cm and its height is 4 cm. What is its total surface area', r1(P * 9 + P * 3 * 5), 0.01);
   numericItem('A square-based pyramid has a base of 6 cm and a perpendicular height of 10 cm.', (6 * 6 * 10) / 3, 1e-9);
   numericItem('A square-based pyramid has a base of 6 cm and each triangular face', 36 + 4 * (0.5 * 6 * 5), 1e-9);
   numericItem('A cylinder has a radius of 2 cm and a height of 7 cm. What is its volume', r1(P * 4 * 7), 0.01);
