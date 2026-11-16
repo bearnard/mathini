@@ -1,6 +1,6 @@
 // Adult sessions (ADR 0003 section 2): a random token in its own cookie (pp_adult, never pp_session), stored only as a SHA-256 hash,
 // valid 30 days, revocable. Looked up by hash on every request, so revoking takes effect at once.
-import type { AdminDb } from '../admin/db';
+import { runLater, type AdminDb } from '../admin/db';
 import { generateToken, newId, sha256Hex } from './crypto';
 import { ROLES, type AdultSession, type Role } from './types';
 
@@ -37,15 +37,18 @@ export async function createSession(db: AdminDb, userId: string, now: number): P
 export async function lookupSession(db: AdminDb, token: string, now: number): Promise<AdultSession | null> {
   if (!token || token.length > 128) return null;
   const hash = await sha256Hex(token);
-  const row = (await db.all<{ id: string; user_id: string; email: string; last_seen_at: number | null }>(
-    `SELECT s.id, s.user_id, u.email, s.last_seen_at FROM sessions s JOIN users u ON u.id = s.user_id
-      WHERE s.token_hash = ? AND s.revoked_at IS NULL AND s.expires_at > ?`,
+  // ONE round trip: the session, its user and every role in one query (a user with no role still gets one row).
+  const rows = await db.all<{ id: string; user_id: string; email: string; last_seen_at: number | null; role: string | null }>(
+    `SELECT s.id, s.user_id, u.email, s.last_seen_at, r.role FROM sessions s JOIN users u ON u.id = s.user_id LEFT JOIN user_roles r ON r.user_id = s.user_id
+      WHERE s.token_hash = ? AND s.revoked_at IS NULL AND s.expires_at > ? ORDER BY r.role`,
     [hash, now],
-  ))[0];
+  );
+  const row = rows[0];
   if (!row) return null;
-  const roles = (await db.all<{ role: string }>('SELECT role FROM user_roles WHERE user_id = ? ORDER BY role', [row.user_id])).map((r) => r.role).filter((r): r is Role => (ROLES as readonly string[]).includes(r));
+  const roles = rows.map((r) => r.role).filter((r): r is Role => (ROLES as readonly string[]).includes(r ?? ''));
   if (row.last_seen_at == null || now - Number(row.last_seen_at) >= SEEN_REFRESH_MS) {
-    await db.batch([{ sql: 'UPDATE sessions SET last_seen_at = ? WHERE id = ?', params: [now, row.id] }]);
+    // Housekeeping only: it must not make the visitor wait for another round trip to the database.
+    await runLater(db, () => db.batch([{ sql: 'UPDATE sessions SET last_seen_at = ? WHERE id = ?', params: [now, row.id] }]));
   }
   return { sessionId: row.id, user: { id: row.user_id, email: row.email }, roles };
 }

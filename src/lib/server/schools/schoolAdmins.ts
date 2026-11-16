@@ -3,7 +3,7 @@
 //
 // The role alone grants nothing: a school admin is an adult with the user_roles role 'school_admin' AND an active row in school_admins for the school.
 // Every read and write here takes the school id from that row, never from the request, so one school's admin can never reach another school's data.
-import type { AdminDb } from '../admin/db';
+import { allBatch, type AdminDb } from '../admin/db';
 import type { SchoolClassSummary, SchoolProgress } from '../../shared/schoolProgressTypes';
 import { dayNumberOf, daysUntil } from '../../shared/dailyPlan';
 import { round1, sastDayNumber } from '../../shared/progressMeasures';
@@ -124,27 +124,34 @@ export async function decideAsSchoolAdmin(db: AdminDb, actor: { userId: string; 
 /** Class summaries for one school (active classes). Counts and averages only; the class drill-down is buildClassProgress with { schoolId }. */
 export async function buildSchoolProgress(db: AdminDb, schoolId: unknown, now: number): Promise<SchoolProgress | null> {
   if (!isUuid(schoolId)) return null;
-  const school = (await db.all<SchoolRow>('SELECT id, name, province FROM schools WHERE id = ?', [schoolId]))[0];
+  // Round trip 1: the school, its active classes, their learners and their exams. Round trip 2: the learners' progress. (Was about eight in a row.)
+  const [schoolRows, classRows, memberRows, examRows] = await allBatch(db, [
+    { sql: 'SELECT id, name, province FROM schools WHERE id = ?', params: [schoolId] },
+    { sql: `SELECT c.id, c.name, c.grade, c.subjects, u.email AS teacher_email FROM classes c LEFT JOIN users u ON u.id = c.teacher_user_id
+     WHERE c.school_id = ? AND c.status = 'active' ORDER BY c.grade, lower(c.name) LIMIT 60`, params: [schoolId] },
+    { sql: "SELECT m.class_id, m.student_id FROM class_members m JOIN classes c ON c.id = m.class_id WHERE c.school_id = ? AND c.status = 'active' AND m.left_at IS NULL LIMIT 4000", params: [schoolId] },
+    { sql: "SELECT e.class_id, e.title, e.exam_date FROM exam_scopes e JOIN classes c ON c.id = e.class_id WHERE c.school_id = ? AND c.status = 'active' AND e.archived_at IS NULL ORDER BY e.exam_date ASC", params: [schoolId] },
+  ]);
+  const school = schoolRows[0] as unknown as SchoolRow | undefined;
   if (!school) return null;
-  const classes = await db.all<{ id: string; name: string; grade: number; subjects: string; teacher_email: string | null }>(
-    `SELECT c.id, c.name, c.grade, c.subjects, u.email AS teacher_email FROM classes c LEFT JOIN users u ON u.id = c.teacher_user_id
-     WHERE c.school_id = ? AND c.status = 'active' ORDER BY c.grade, lower(c.name) LIMIT 60`,
-    [school.id],
-  );
+  const classes = classRows as unknown as { id: string; name: string; grade: number; subjects: string; teacher_email: string | null }[];
   const empty: SchoolProgress = { generatedAt: new Date(now).toISOString(), schoolId: school.id, schoolName: school.name, classes: [], totals: { classes: 0, learners: 0, practisedLast7: 0, avgAccuracyPct: null, mockAveragePct: null } };
   if (classes.length === 0) return empty;
-  const classIds = JSON.stringify(classes.map((c) => c.id));
-  const members = await db.all<{ class_id: string; student_id: string }>(`SELECT class_id, student_id FROM class_members WHERE class_id IN (${JSON_LIST}) AND left_at IS NULL LIMIT 4000`, [classIds]);
-  const exams = await db.all<{ class_id: string; title: string; exam_date: string }>(`SELECT class_id, title, exam_date FROM exam_scopes WHERE class_id IN (${JSON_LIST}) AND archived_at IS NULL ORDER BY exam_date ASC`, [classIds]);
+  const inSchool = new Set(classes.map((c) => c.id));
+  const members = (memberRows as unknown as { class_id: string; student_id: string }[]).filter((m) => inSchool.has(m.class_id));
+  const exams = (examRows as unknown as { class_id: string; title: string; exam_date: string }[]).filter((e) => inSchool.has(e.class_id));
   const ids = [...new Set(members.map((m) => m.student_id))];
   let tp: { student_id: string; subject: string; last20_pct: number | null; mastery: string }[] = [];
   let active = new Set<string>();
   let tests: { student_id: string; score_pct: number; subject: string }[] = [];
   if (ids.length > 0) {
     const j = JSON.stringify(ids);
-    tp = await db.all(`SELECT student_id, subject, last20_pct, mastery FROM topic_progress WHERE student_id IN (${JSON_LIST}) LIMIT 20000`, [j]);
-    active = new Set((await db.all<{ student_id: string }>(`SELECT DISTINCT student_id FROM attempts WHERE student_id IN (${JSON_LIST}) AND created_at >= ?`, [j, now - 7 * DAY_MS])).map((r) => r.student_id));
-    tests = await db.all(`SELECT student_id, score_pct, subject FROM runs WHERE student_id IN (${JSON_LIST}) AND status = 'finished' AND kind IN ('mock_test', 'exam_practice') AND score_pct IS NOT NULL ORDER BY finished_at DESC LIMIT 5000`, [j]);
+    const [tpR, activeR, testsR] = await allBatch(db, [
+      { sql: `SELECT student_id, subject, last20_pct, mastery FROM topic_progress WHERE student_id IN (${JSON_LIST}) LIMIT 20000`, params: [j] },
+      { sql: `SELECT DISTINCT student_id FROM attempts WHERE student_id IN (${JSON_LIST}) AND created_at >= ?`, params: [j, now - 7 * DAY_MS] },
+      { sql: `SELECT student_id, score_pct, subject FROM runs WHERE student_id IN (${JSON_LIST}) AND status = 'finished' AND kind IN ('mock_test', 'exam_practice') AND score_pct IS NOT NULL ORDER BY finished_at DESC LIMIT 5000`, params: [j] },
+    ]);
+    tp = tpR as typeof tp; active = new Set((activeR as unknown as { student_id: string }[]).map((r) => r.student_id)); tests = testsR as typeof tests;
   }
   const today = sastDayNumber(now);
   const mean = (xs: number[]) => (xs.length === 0 ? null : round1(xs.reduce((s, x) => s + x, 0) / xs.length));

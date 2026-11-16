@@ -84,19 +84,29 @@ export interface LearnerScope extends ScopeRow { className: string }
  * Soonest first. Reads only through the learner's own memberships (left_at IS NULL).
  */
 export async function scopesForStudent(db: AdminDb, studentId: string, now: number): Promise<LearnerScope[]> {
-  const rows = await db.all<DbScope & { class_name: string }>(
-    `SELECT e.id, e.class_id, e.subject, e.grade, e.title, e.tasks, e.exam_date, e.created_at, e.archived_at, c.name AS class_name
+  const st = scopesForStudentStatement(studentId);
+  return learnerScopesFromRows(await db.all(st.sql, st.params), now);
+}
+/** The same query as a statement, so a caller can send it in a batch with other reads (one round trip). */
+export const scopesForStudentStatement = (studentId: string): { sql: string; params: string[] } => ({
+  sql: `SELECT e.id, e.class_id, e.subject, e.grade, e.title, e.tasks, e.exam_date, e.created_at, e.archived_at, c.name AS class_name
      FROM class_members m JOIN classes c ON c.id = m.class_id AND c.status = 'active' JOIN exam_scopes e ON e.class_id = c.id AND e.archived_at IS NULL
      WHERE m.student_id = ? AND m.left_at IS NULL ORDER BY e.exam_date ASC, e.created_at ASC LIMIT 20`,
-    [studentId],
-  );
+  params: [studentId],
+});
+export function learnerScopesFromRows(all: unknown[], now: number): LearnerScope[] {
+  const rows = all as (DbScope & { class_name: string })[];
   const today = sastDayNumber(now);
   return rows.map((r) => ({ ...toScope(r), className: r.class_name })).filter((s) => { const d = dayNumberOf(s.examDate); return d !== null && d >= today; });
 }
 
 /** A class's active exams that have not passed, soonest first (for the teacher's class view). The caller has already checked the class is theirs. */
 export async function scopesForClass(db: AdminDb, classId: string, now: number): Promise<ScopeRow[]> {
-  const rows = await db.all<DbScope>(`SELECT ${COLS} FROM exam_scopes WHERE class_id = ? AND archived_at IS NULL ORDER BY exam_date ASC, created_at ASC LIMIT 20`, [classId]);
+  return scopesFromRows(await db.all<DbScope>(scopesForClassStatement(classId).sql, scopesForClassStatement(classId).params), now);
+}
+/** The same query as a statement, so a caller can send it in a batch with other reads (one round trip). */
+export const scopesForClassStatement = (classId: string): { sql: string; params: string[] } => ({ sql: `SELECT ${COLS} FROM exam_scopes WHERE class_id = ? AND archived_at IS NULL ORDER BY exam_date ASC, created_at ASC LIMIT 20`, params: [classId] });
+export function scopesFromRows(rows: unknown[], now: number): ScopeRow[] {
   const today = sastDayNumber(now);
-  return rows.map(toScope).filter((s) => { const d = dayNumberOf(s.examDate); return d !== null && d >= today; });
+  return (rows as DbScope[]).map(toScope).filter((s) => { const d = dayNumberOf(s.examDate); return d !== null && d >= today; });
 }

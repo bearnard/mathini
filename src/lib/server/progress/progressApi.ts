@@ -3,14 +3,14 @@
 //
 // Cost: at most 8 reads per request, all for ONE learner (the route checks the session; there is no way to ask for anyone else).
 // Sections that depend on tables a deployment may not have yet (review_items, runs) degrade to "no data" instead of failing the page.
-import type { AdminDb } from '../admin/db';
+import { allBatch, type AdminDb, type Row } from '../admin/db';
 import type { ConsistencyProgress, MasteryLevel, ProgressResponse, RecentSession, RetentionProgress, SubjectProgress, TestResult, TestSeries, TopicProgress } from '../../shared/progressTypes';
 import {
   consistency, examReadiness, improvementPoints, nextBestStep, parentNextStep, teacherNextStep, retentionPct, sastDayNumber, sortWeakestFirst, subjectMastery, trendPoints, type TrendAttempt,
 } from '../../shared/progressMeasures';
 import { examScopeForGrade } from '../../shared/examScopes';
 import { dailyPlan, dayNumberOf, daysUntil, type PlanTopic } from '../../shared/dailyPlan';
-import { scopesForStudent } from '../schools/scopes';
+import { learnerScopesFromRows, scopesForStudentStatement } from '../schools/scopes';
 import { sastDay } from '../review/scheduler';
 import { ensureProgressRows } from './topicProgress';
 import { SUBJECT_TITLES, TOPIC_NAMES } from '../../../components/admin/topicNames.generated';
@@ -72,22 +72,39 @@ export function recentSessionsOf(rows: readonly { task: string; is_correct: numb
 }
 
 export async function buildProgress(db: AdminDb, studentId: string, now: number): Promise<ProgressResponse | null> {
-  const student = (await db.all<{ grade: number; display_name: string }>('SELECT grade, display_name FROM students WHERE id = ?', [studentId]))[0];
+  // ONE round trip for everything the page reads (each awaited D1 call costs ~180 ms from the Worker, so they are sent together). If the batch
+  // fails, each read is tried on its own, the optional ones falling back to "nothing" exactly as before.
+  const today = sastDay(now);
+  const TP_SQL = 'SELECT task, grade, subject, topic, attempts, last20_pct, first10_pct, last10_pct, days_practised, mastery, last_attempt_at FROM topic_progress WHERE student_id = ? ORDER BY last_attempt_at DESC LIMIT 400';
+  const reads: { sql: string; params: (string | number)[]; optional: boolean }[] = [
+    { sql: 'SELECT grade, display_name FROM students WHERE id = ?', params: [studentId], optional: false },
+    { sql: TP_SQL, params: [studentId], optional: false },
+    { sql: "SELECT task, is_correct, created_at, run_id FROM attempts WHERE student_id = ? AND marked_by IS NOT 'client' ORDER BY id DESC LIMIT ?", params: [studentId, TREND_ATTEMPTS_READ], optional: true },
+    { sql: `SELECT id, subject, kind, scope_key, scope_label, score_pct, n_correct, n_items, n_answered, finished_at FROM runs
+       WHERE student_id = ? AND status = 'finished' AND kind IN ('quiz', 'mock_test', 'exam_practice') AND score_pct IS NOT NULL AND n_answered > 0
+       ORDER BY finished_at DESC LIMIT ?`, params: [studentId, TEST_HISTORY_READ], optional: true },
+    { ...scopesForStudentStatement(studentId), optional: true },
+    { sql: 'SELECT COUNT(*) AS n FROM review_items WHERE student_id = ? AND retired_at IS NULL AND due_day <= ?', params: [studentId, today], optional: true },
+    { sql: 'SELECT COUNT(*) AS n FROM review_items WHERE student_id = ? AND retired_at IS NOT NULL', params: [studentId], optional: true },
+    { sql: "SELECT COALESCE(SUM(n_answered), 0) AS a, COALESCE(SUM(n_correct), 0) AS c FROM runs WHERE student_id = ? AND kind = 'review' AND status = 'finished' AND finished_at >= ?", params: [studentId, now - 7 * DAY_MS], optional: true },
+    { sql: "SELECT DISTINCT ((created_at + 7200000) / 86400000) AS d FROM attempts WHERE student_id = ? AND created_at >= ? AND marked_by IS NOT 'client'", params: [studentId, now - STREAK_LOOKBACK_DAYS * DAY_MS], optional: true },
+  ];
+  let got: Row[][];
+  try {
+    got = await allBatch(db, reads);
+  } catch {
+    got = [];
+    for (const r of reads) got.push(r.optional ? await safe(() => db.all(r.sql, r.params), []) : await db.all(r.sql, r.params));
+  }
+  const student = got[0][0] as { grade: number; display_name: string } | undefined;
   if (!student) return null;
   const grade = Number(student.grade);
 
-  // --- topics (the cache) and their trends (a bounded look at the latest attempts)
-  const readTp = () => db.all<TpRow>(
-    'SELECT task, grade, subject, topic, attempts, last20_pct, first10_pct, last10_pct, days_practised, mastery, last_attempt_at FROM topic_progress WHERE student_id = ? ORDER BY last_attempt_at DESC LIMIT 400',
-    [studentId],
-  );
-  let tp = await readTp();
+  let tp = got[1] as unknown as TpRow[];
   // Answers but no cached rows (history from before the cache, or no finished run yet): build them now, once. A failure here only leaves the page as it was.
-  if (tp.length === 0 && (await safe(() => ensureProgressRows(db, studentId, now), 0)) > 0) tp = await readTp();
-  const recent = await safe(
-    () => db.all<{ task: string; is_correct: number; created_at: number; run_id: string | null }>("SELECT task, is_correct, created_at, run_id FROM attempts WHERE student_id = ? AND marked_by IS NOT 'client' ORDER BY id DESC LIMIT ?", [studentId, TREND_ATTEMPTS_READ]),
-    [],
-  );
+  if (tp.length === 0 && (await safe(() => ensureProgressRows(db, studentId, now), 0)) > 0) tp = await db.all<TpRow>(TP_SQL, [studentId]);
+  const recent = got[2] as unknown as { task: string; is_correct: number; created_at: number; run_id: string | null }[];
+  const finished = got[3] as unknown as RunRow[];
   const recentSessions = recentSessionsOf(recent, grade);
   const byTask = new Map<string, TrendAttempt[]>();
   for (const a of [...recent].reverse()) {
@@ -97,15 +114,6 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
   }
 
   // --- finished tests (newest first) and the previous result on the same scope
-  const finished = await safe(
-    () => db.all<RunRow>(
-      `SELECT id, subject, kind, scope_key, scope_label, score_pct, n_correct, n_items, n_answered, finished_at FROM runs
-       WHERE student_id = ? AND status = 'finished' AND kind IN ('quiz', 'mock_test', 'exam_practice') AND score_pct IS NOT NULL AND n_answered > 0
-       ORDER BY finished_at DESC LIMIT ?`,
-      [studentId, TEST_HISTORY_READ],
-    ),
-    [],
-  );
   const tests: TestResult[] = finished.slice(0, TESTS_SHOWN).map((r, i) => {
     const previous = finished.slice(i + 1).find((p) => p.scope_key === r.scope_key);
     return {
@@ -173,8 +181,7 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
     .sort((a, b) => (a.masteryPct === null ? 1 : 0) - (b.masteryPct === null ? 1 : 0) || (a.masteryPct ?? 0) - (b.masteryPct ?? 0) || a.label.localeCompare(b.label));
 
   // --- the exam: the class's exam when a teacher set one (nearest date first), else the built-in scope for the grade
-  const today = sastDay(now);
-  const classScopes = await safe(() => scopesForStudent(db, studentId, now), []);
+  const classScopes = learnerScopesFromRows(got[4], now);
   const teacherScope = classScopes[0] ?? null;
   const builtIn = teacherScope ? null : examScopeForGrade(grade);
   const scope = teacherScope
@@ -212,22 +219,16 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
   }
 
   // --- retention (review cards)
-  const due = await safe(() => db.all<{ n: number }>('SELECT COUNT(*) AS n FROM review_items WHERE student_id = ? AND retired_at IS NULL AND due_day <= ?', [studentId, today]), [{ n: 0 }]);
-  const retired = await safe(() => db.all<{ n: number }>('SELECT COUNT(*) AS n FROM review_items WHERE student_id = ? AND retired_at IS NOT NULL', [studentId]), [{ n: 0 }]);
-  const week = await safe(
-    () => db.all<{ a: number; c: number }>("SELECT COALESCE(SUM(n_answered), 0) AS a, COALESCE(SUM(n_correct), 0) AS c FROM runs WHERE student_id = ? AND kind = 'review' AND status = 'finished' AND finished_at >= ?", [studentId, now - 7 * DAY_MS]),
-    [{ a: 0, c: 0 }],
-  );
+  const due = got[5] as unknown as { n: number }[];
+  const retired = got[6] as unknown as { n: number }[];
+  const week = (got[7].length ? got[7] : [{ a: 0, c: 0 }]) as unknown as { a: number; c: number }[];
   const weekAnswered = Number(week[0]?.a ?? 0);
   const weekCorrect = Math.min(Number(week[0]?.c ?? 0), weekAnswered);
   const dueCount = Number(due[0]?.n ?? 0);
   const retention: RetentionProgress = { weekCorrect, weekAnswered, weekPct: retentionPct(weekCorrect, weekAnswered), retiredCount: Number(retired[0]?.n ?? 0), dueCount };
 
   // --- consistency
-  const dayRows = await safe(
-    () => db.all<{ d: number }>("SELECT DISTINCT ((created_at + 7200000) / 86400000) AS d FROM attempts WHERE student_id = ? AND created_at >= ? AND marked_by IS NOT 'client'", [studentId, now - STREAK_LOOKBACK_DAYS * DAY_MS]),
-    [],
-  );
+  const dayRows = got[8] as unknown as { d: number }[];
   const cons: ConsistencyProgress = consistency(dayRows.map((r) => Number(r.d)), sastDayNumber(now));
 
   if (exam && teacherScope && examDay !== null) {
