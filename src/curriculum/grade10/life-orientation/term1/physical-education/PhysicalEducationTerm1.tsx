@@ -196,7 +196,7 @@ const bank: CapsItem[] = [
     explanation: '10 + 30 + 10 = 50 minutes.',
   },
   {
-    prompt: 'A learner feels sharp pain in her knee while she is running. What should she do?',
+    prompt: 'A learner feels sharp pain in their knee while running. What should they do?',
     options: ['Stop at once and tell a teacher', 'Run faster to push through the pain', 'Keep going because pain means that she is getting fitter', 'Ignore the pain and add some more hard exercise'],
     answer: 'Stop at once and tell a teacher',
     explanation: 'Sharp pain is a warning sign. Stop, rest and get help to avoid a more serious injury.',

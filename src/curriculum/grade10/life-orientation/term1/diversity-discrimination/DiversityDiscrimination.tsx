@@ -20,9 +20,9 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="A learner is kept out of the school team"
           steps={[
-            <>A learner is told he cannot join the team because he is HIV positive.</>,
-            <>He is treated unfairly because of his health status: this is discrimination.</>,
-            <>His rights to equality and to human dignity are violated.</>,
+            <>A learner is told that they cannot join the team because they are HIV positive.</>,
+            <>They are treated unfairly because of their health status: this is discrimination.</>,
+            <>Their rights to equality and to human dignity are violated.</>,
             <>Diversity is not the problem. The unfair treatment is.</>,
           ]}
         />
@@ -139,9 +139,9 @@ const bank: CapsItem[] = [
     explanation: 'A violation happens when a right, such as equality or dignity, is denied or harmed.',
   },
   {
-    prompt: 'A learner is kept out of the school team because he is HIV positive. This is:',
-    options: ['A fair rule, because it protects the health of the other players', 'A normal choice that the coach is allowed to make for the whole team', 'Discrimination that violates his dignity and his right to equality', 'A fair way to give other learners a better chance to play'],
-    answer: 'Discrimination that violates his dignity and his right to equality',
+    prompt: 'A learner is kept out of the school team because they are HIV positive. This is:',
+    options: ['A fair rule, because it protects the health of the other players', 'A normal choice that the coach is allowed to make for the whole team', 'Discrimination that violates their dignity and equality', 'A fair way to give other learners a better chance to play'],
+    answer: 'Discrimination that violates their dignity and equality',
     explanation: 'Treating someone unfairly because of their health status is discrimination, and it violates their rights.',
   },
   {

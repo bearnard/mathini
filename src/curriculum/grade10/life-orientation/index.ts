@@ -109,5 +109,29 @@ export const lifeOrientationGrade10: Subject = {
         },
       ],
     },
+    {
+      id: 4,
+      title: 'Term 4',
+      topics: [
+        {
+          id: 'gr10-job-market-lifelong-learning-t4',
+          title: 'Job Market Trends, Qualifications and Lifelong Learning',
+          description: 'Scarce skills, growing and declining work, SAQA and the NQF, and learning for life.',
+          component: lazy(() => import('./term4/job-market-lifelong-learning/JobMarketLifelongLearning')),
+        },
+        {
+          id: 'gr10-religions-sport-bias-t4',
+          title: 'Religions, Belief Systems and Fairness in Sport',
+          description: 'Living with different faiths, indigenous belief systems, and bias and unfair practices in sport.',
+          component: lazy(() => import('./term4/religions-sport-bias/ReligionsSportBias')),
+        },
+        {
+          id: 'gr10-physical-education-t4',
+          title: 'Physical Education: Traditional and Non-traditional Sport',
+          description: 'Learning a new sport, fair play and playing safely.',
+          component: lazy(() => import('./term4/physical-education/PhysicalEducationTerm4')),
+        },
+      ],
+    },
   ],
 };

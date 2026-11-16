@@ -187,6 +187,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Internet, Communication and Networks",
   "Computer Applications Technology"
  ],
+ "10|gr10-job-market-lifelong-learning-t4": [
+  "Job Market Trends, Qualifications and Lifelong Learning",
+  "Life Orientation"
+ ],
  "10|gr10-language-structures-conventions-t1": [
   "Register, Word Choice and Sentence Structure",
   "English HL"
@@ -275,6 +279,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Physical Education: Recreation and Relaxation",
   "Life Orientation"
  ],
+ "10|gr10-physical-education-t4": [
+  "Physical Education: Traditional and Non-traditional Sport",
+  "Life Orientation"
+ ],
  "10|gr10-plant-tissues-organs-t2": [
   "Plant Tissues and Organs",
   "Life Sciences"
@@ -298,6 +306,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-relationship-team-performance": [
   "Relationship and Team Performance",
   "Business Studies"
+ ],
+ "10|gr10-religions-sport-bias-t4": [
+  "Religions, Belief Systems and Fairness in Sport",
+  "Life Orientation"
  ],
  "10|gr10-responsible-decisions-t3": [
   "Responsible Decisions about Sexuality and Lifestyle",
