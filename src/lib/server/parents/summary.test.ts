@@ -60,8 +60,10 @@ test('a child\'s week: practice days, tests this week with the change, improving
   const lines = childLines(w).lines;
   assert.equal(lines[0], 'Practised on 4 of the last 7 days (52 answers).');
   assert.equal(lines[1], 'Tests this week: Term 3 Mock Test 72%, up 8 points since last time.');
-  assert.ok(lines.includes('Getting better: Electric circuits (up 12 points); Matter (up 2 points).'));
-  assert.ok(lines.includes('Needs attention: Matter (30% right); Solar system (46% right).'));
+  // Matter is in both measures (risen, still low): it appears once, in its own line; no topic is in two lists.
+  assert.ok(lines.includes('Getting better: Electric circuits (up 12 points).'));
+  assert.ok(lines.includes('Improving, but still needs practice: Matter (up 2 points, recent accuracy 30%).'));
+  assert.ok(lines.includes('Needs attention: Solar system (recent accuracy 46%).'));
   assert.ok(lines.includes('Next step: Practise Matter. It is the weakest topic.'));
 });
 
@@ -410,4 +412,34 @@ test('0017 is additive; the unsubscribe page and API are private and untracked; 
   const page = fs.readFileSync('src/components/parents/UnsubscribePage.tsx', 'utf8');
   assert.ok(!/localStorage|sessionStorage|document\.cookie/.test(page) && page.includes('replaceState'));
   assert.match(fs.readFileSync('src/app/unsubscribe/page.tsx', 'utf8'), /index: false/);
+});
+
+test('a topic is never in both "Getting better" and "Needs attention": the QA case (Electric Circuits up 20 points, 45,6% recent accuracy)', () => {
+  const w: ChildWeek = { name: 'QA', grade: 6, daysThisWeek: 1, answersThisWeek: 126, tests: [], improving: [{ label: 'Electric Circuits', points: 20 }], attention: [{ label: 'Electric Circuits', accuracyPct: 45.6 }], nextStep: { title: 'Practise Electric Circuits', reason: 'Most help here.' }, quiet: false };
+  const { lines } = childLines(w);
+  assert.ok(lines.includes('Improving, but still needs practice: Electric Circuits (up 20 points, recent accuracy 45,6%).'));
+  assert.ok(!lines.some((l) => l.startsWith('Getting better') || l.startsWith('Needs attention')), 'the topic is not repeated under either heading');
+  const mentions = lines.filter((l) => /Electric Circuits/.test(l) && !l.startsWith('Next step'));
+  assert.equal(mentions.length, 1);
+  const mail = buildSummary([w], { siteUrl: 'https://x.test', unsubscribeUrl: 'https://x.test/u' });
+  assert.equal((mail.text.match(/Electric Circuits \(up/g) ?? []).length, 1);
+  assert.equal((mail.html.match(/Electric Circuits \(up/g) ?? []).length, 1);
+});
+
+test('lists with different topics keep their own headings; an unknown accuracy still reads', () => {
+  const w: ChildWeek = { name: 'QA', grade: 6, daysThisWeek: 2, answersThisWeek: 30, tests: [], improving: [{ label: 'A', points: 5 }, { label: 'B', points: 1 }], attention: [{ label: 'B', accuracyPct: null }, { label: 'C', accuracyPct: 40 }], nextStep: null, quiet: false };
+  const { lines } = childLines(w);
+  assert.ok(lines.includes('Getting better: A (up 5 points).'));
+  assert.ok(lines.includes('Improving, but still needs practice: B (up 1 point).'));
+  assert.ok(lines.includes('Needs attention: C (recent accuracy 40%).'));
+});
+
+test('the 2-day rule reaches the email: a topic whose rise was in one sitting has changePoints null, so it is not "getting better"', () => {
+  const p = progress();
+  p.subjects = [{ subject: 'nst', label: 'NST', masteryPct: 40, level: 'learning', topics: [
+    { task: 'a', label: 'Electric Circuits', level: 'learning', accuracyPct: 45.6, attempts: 85, trend: [], changePoints: null, practiseHref: '/app' },
+  ] }];
+  const w = childWeekFrom(p, { days: 1, answers: 85 }, SUN);
+  assert.deepEqual(w.improving, []);
+  assert.ok(childLines(w).lines.includes('Needs attention: Electric Circuits (recent accuracy 45,6%).'));
 });
