@@ -120,7 +120,7 @@ export default function ParentDashboard() {
             {(children ?? []).map((c) => <ChildSection key={c.id} child={c} now={now} onChanged={() => void load()} />)}
             <DashboardGrid>
               <GridItem><AddChild onLinked={() => void load()} /></GridItem>
-              <GridItem><SummarySwitch /></GridItem>
+              {children && children.length > 0 ? <GridItem><SummarySwitch /></GridItem> : null}
             </DashboardGrid>
           </div>
         )}

@@ -5,12 +5,12 @@ import { CONSENT_VERSION } from '../../privacyNotice';
 import { generateToken, sha256Hex } from '../adultAuth/crypto';
 import { verifyPin } from '../identity';
 import { signSession } from '../session';
-import { CHILD_FAILURES_PER_HOUR, HOUR_MS, INVITE_TTL_MS, MAX_ACTIVE_INVITES, NOT_RIGHT, PARENT_ATTEMPTS_PER_HOUR, createInvite, isLinked, linkByInvite, linkByPin, listChildren } from './links';
+import { CHILD_FAILURES_PER_HOUR, HOUR_MS, INVITE_TTL_MS, MAX_ACTIVE_INVITES, NOT_RIGHT, PARENT_ATTEMPTS_PER_HOUR, createInvite, isLinked, linkByInvite, linkByPin, listChildren, previewInvite } from './links';
 import { parentWithdrew, setParentConsent } from './consent';
 import { RESETS_PER_CHILD_PER_DAY, RESETS_PER_PARENT_PER_DAY, resetChildPin } from './pinReset';
 import { loadChildProgress } from './progressSeam';
 import { refreshForRun } from '../progress/topicProgress';
-import { handleChildConsent, handleChildProgress, handleChildResetPin, handleChildUnlink, handleCreateInvite, handleLinkInvite, handleLinkPin, handleListChildren, type ParentDeps } from './http';
+import { handleChildConsent, handleChildProgress, handleChildResetPin, handleChildUnlink, handleCreateInvite, handleLinkInvite, handleInvitePreview, handleLinkPin, handleListChildren, type ParentDeps } from './http';
 import { NOW, SECRET, addAdult, addStudent, openParentsDb, type ParentsTestDb } from './testDb';
 
 const SQL = fs.readFileSync('migrations/0015_parents.sql', 'utf8');
@@ -412,4 +412,37 @@ test('the test history line chart is not animated, so every point is always join
   const lines = src.match(/<Line\b[^>]*>/g) ?? [];
   assert.ok(lines.length >= 2);
   for (const l of lines) assert.match(l, /isAnimationActive=\{false\}/);
+});
+
+test('an invite preview shows the nickname and grade only, uses nothing up, and unknown, used and expired links read the same', async (t0) => {
+  const x = await setup(); if (!x) return t0.skip('node:sqlite unavailable');
+  const inv = await createInvite(x.db, 'student-0001', NOW); assert.ok(inv.ok); if (!inv.ok) return;
+  const p = await previewInvite(x.db, x.mum.userId, inv.token, NOW + 1000);
+  assert.deepEqual(p, { ok: true, displayName: 'Tiger Kid', grade: 6 });
+  assert.ok(!JSON.stringify(p).match(/TIGER-4821|4821|Real Name|Secret/), 'no code, PIN, name or school');
+  assert.deepEqual(await previewInvite(x.db, x.mum.userId, inv.token, NOW + 2000), p, 'looking does not use the link up');
+  assert.equal(count(x, 'SELECT COUNT(*) AS n FROM child_invites WHERE used_at IS NOT NULL'), 0);
+  assert.equal(count(x, 'SELECT COUNT(*) AS n FROM parent_links'), 0, 'and links nothing');
+  const gone = (await previewInvite(x.db, x.mum.userId, generateToken(), NOW)) as { ok: false; error: string };
+  assert.equal(gone.ok, false);
+  const expired = await previewInvite(x.db, x.mum.userId, inv.token, NOW + INVITE_TTL_MS + 1);
+  assert.deepEqual(expired, gone, 'expired reads like unknown');
+  const bad = await previewInvite(x.db, x.mum.userId, 'not a token', NOW);
+  assert.deepEqual(bad, gone);
+  assert.ok((await linkByInvite(x.db, x.mum.userId, { token: inv.token, consent: false }, NOW + 3000)).ok);
+  assert.deepEqual(await previewInvite(x.db, x.dad.userId, inv.token, NOW + 4000), gone, 'a used link reads like unknown');
+});
+
+test('POST /api/parent/link-invite/preview: needs a parent session and the action header; never returns the token', async (t0) => {
+  const x = await setup(); if (!x) return t0.skip('node:sqlite unavailable');
+  const inv = await createInvite(x.db, 'student-0001', NOW); assert.ok(inv.ok); if (!inv.ok) return;
+  const d = silent(x);
+  assert.equal((await handleInvitePreview(post('/api/parent/link-invite/preview', 'parent-link-invite-preview', undefined, { token: inv.token }), d)).status, 401, 'signed out');
+  assert.equal((await handleInvitePreview(post('/api/parent/link-invite/preview', null, x.mum.cookie, { token: inv.token }), d)).status, 403, 'no action header');
+  const ok = await handleInvitePreview(post('/api/parent/link-invite/preview', 'parent-link-invite-preview', x.mum.cookie, { token: inv.token }), d);
+  assert.equal(ok.status, 200);
+  const text = await ok.text();
+  assert.deepEqual(JSON.parse(text), { ok: true, child: { displayName: 'Tiger Kid', grade: 6 } });
+  assert.ok(!text.includes(inv.token));
+  assert.equal((await handleInvitePreview(post('/api/parent/link-invite/preview', 'parent-link-invite-preview', x.mum.cookie, { token: generateToken() }), d)).status, 400);
 });

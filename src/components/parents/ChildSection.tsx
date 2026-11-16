@@ -17,6 +17,8 @@ export default function ChildSection({ child, now, onChanged }: { child: ChildSu
   const [note, setNote] = useState('');
   const [pin, setPin] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  // Reset PIN and Unlink ask in the page, not with a browser pop-up (some in-app browsers block those, and the button would then do nothing).
+  const [pending, setPending] = useState<'reset' | 'unlink' | null>(null);
 
   useEffect(() => {
     let live = true;
@@ -48,16 +50,38 @@ export default function ChildSection({ child, now, onChanged }: { child: ChildSu
             <p className="mt-1 text-sm text-slate-600">Last on PrepPals: {ago(child.lastSeenAt, now)}</p>
             <p className="mt-1 text-sm text-slate-700">{CONSENT_TEXT[child.consent]}</p>
           </div>
-          <div className="flex flex-wrap items-center gap-2 lg:justify-end">
+          <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center lg:justify-end">
             {child.consent === 'parent' ? (
-              <button disabled={busy} className={`${btn} border border-slate-300 bg-white text-slate-800`} onClick={() => void act('consent', 'parent-consent', { give: false }, onChanged)}>Withdraw consent</button>
+              <button disabled={busy || pending !== null} className={`${btn} col-span-2 border border-slate-300 bg-white text-slate-800 sm:col-span-1`} onClick={() => void act('consent', 'parent-consent', { give: false }, onChanged)}>Withdraw consent</button>
             ) : (
-              <button disabled={busy} className={`${btn} bg-emerald-600 text-white`} onClick={() => void act('consent', 'parent-consent', { give: true }, onChanged)}>I give consent</button>
+              <button disabled={busy || pending !== null} className={`${btn} col-span-2 bg-emerald-600 text-white sm:col-span-1`} onClick={() => void act('consent', 'parent-consent', { give: true }, onChanged)}>I give consent</button>
             )}
-            <button disabled={busy} className={`${btn} border border-slate-300 bg-white text-slate-800`} onClick={() => { if (window.confirm(`Make a new PIN for ${child.displayName}? The old PIN stops working.`)) void act('reset-pin', 'parent-reset-pin', {}, (d) => setPin(String(d.pin))); }}>Reset PIN</button>
-            <button disabled={busy} className={`${btn} text-red-700 underline`} onClick={() => { if (window.confirm(`Stop being linked to ${child.displayName}?`)) void act('unlink', 'parent-unlink', {}, onChanged); }}>Unlink</button>
+            <button disabled={busy || pending !== null} className={`${btn} border border-slate-300 bg-white text-slate-800`} onClick={() => { setNote(''); setPending('reset'); }}>Reset PIN</button>
+            <button disabled={busy || pending !== null} className={`${btn} border border-red-300 bg-white text-red-700`} onClick={() => { setNote(''); setPending('unlink'); }}>Unlink</button>
           </div>
         </div>
+        {pending && (
+          <div role="group" aria-label={pending === 'reset' ? 'Confirm a new PIN' : 'Confirm unlink'} className="mt-3 rounded-xl border border-slate-300 bg-slate-50 p-3">
+            <p className="text-sm text-slate-900">
+              {pending === 'reset'
+                ? `Make a new PIN for ${child.displayName}? The old PIN stops working, and ${child.displayName} is signed out on their other devices.`
+                : `Stop being linked to ${child.displayName}? You will no longer see their progress or be able to reset their PIN. ${child.displayName}'s own account is not touched.`}
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <button
+                disabled={busy}
+                className={`${btn} ${pending === 'reset' ? 'bg-indigo-600 text-white' : 'bg-red-700 text-white'}`}
+                onClick={() => {
+                  const which = pending;
+                  setPending(null);
+                  if (which === 'reset') void act('reset-pin', 'parent-reset-pin', {}, (d) => setPin(String(d.pin ?? '')));
+                  else void act('unlink', 'parent-unlink', {}, onChanged);
+                }}
+              >{pending === 'reset' ? 'Make a new PIN' : 'Unlink'}</button>
+              <button disabled={busy} className={`${btn} border border-slate-300 bg-white text-slate-800`} onClick={() => setPending(null)}>{pending === 'reset' ? 'Keep the old PIN' : 'Keep linked'}</button>
+            </div>
+          </div>
+        )}
         {pin && (
           <div className="mt-3 rounded-xl border border-amber-300 bg-amber-50 p-3" role="status">
             <p className="text-sm text-amber-900">New PIN for {child.displayName}. Write it down and tell your child: it is shown only once.</p>
