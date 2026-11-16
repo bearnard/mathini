@@ -3,6 +3,7 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { nextSort, sortRows, type SortDir, type SortState, type SortValue } from './sortRows';
 import { EmptyState } from './EmptyState';
+import ScrollBox from './ScrollBox';
 
 export interface Column<T> {
   key: string;
@@ -37,7 +38,7 @@ export default function SortableTable<T>({ columns, rows, rowKey, caption, defau
 
   if (rows.length === 0) return <>{empty ?? <EmptyState title="Nothing to show yet" />}</>;
   return (
-    <div className="overflow-x-auto rounded-xl border border-slate-200">
+    <ScrollBox>
       <table className="w-full text-left text-sm">
         <caption className="sr-only">{caption}</caption>
         <thead className="bg-slate-50 text-xs font-bold uppercase tracking-wide text-slate-600">
@@ -45,11 +46,11 @@ export default function SortableTable<T>({ columns, rows, rowKey, caption, defau
             {columns.map((c) => {
               const active = sort?.key === c.key;
               const label = c.sortValue ? (
-                <button type="button" onClick={() => setSort(nextSort(sort, c.key))} className={`inline-flex min-h-11 items-center gap-1 px-3 font-bold uppercase tracking-wide hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-indigo-600 ${c.align === 'right' ? 'w-full justify-end' : ''}`}>
+                <button type="button" onClick={() => setSort(nextSort(sort, c.key))} className={`inline-flex min-h-11 items-center gap-1 px-2 sm:px-3 font-bold uppercase tracking-wide hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-indigo-600 ${c.align === 'right' ? 'w-full justify-end' : ''}`}>
                   {c.label}
                   <span aria-hidden="true" className={active ? 'text-indigo-700' : 'text-slate-400'}>{active ? (sort.dir === 'asc' ? '▲' : '▼') : '↕'}</span>
                 </button>
-              ) : <span className="inline-block px-3 py-3">{c.label}</span>;
+              ) : <span className="inline-block px-2 py-3 sm:px-3">{c.label}</span>;
               return (
                 <th key={c.key} scope="col" aria-sort={active ? (sort.dir === 'asc' ? 'ascending' : 'descending') : c.sortValue ? 'none' : undefined} className={`p-0 ${c.align === 'right' ? 'text-right' : ''}`}>
                   {label}
@@ -62,7 +63,7 @@ export default function SortableTable<T>({ columns, rows, rowKey, caption, defau
           {shown.map((row) => (
             <tr key={rowKey(row)} className={`hover:bg-slate-50 ${onRowClick ? 'cursor-pointer' : ''}`} onClick={onRowClick ? () => onRowClick(row) : undefined}>
               {columns.map((c, i) => (
-                <td key={c.key} className={`px-3 py-2.5 text-slate-800 ${c.align === 'right' ? 'text-right tabular-nums' : ''} ${i === 0 ? 'font-semibold text-slate-900' : ''} ${c.className ?? ''}`}>
+                <td key={c.key} className={`px-2 py-2.5 sm:px-3 text-slate-800 ${c.align === 'right' ? 'text-right tabular-nums' : ''} ${i === 0 ? 'sticky left-0 whitespace-nowrap bg-white font-semibold text-slate-900 [overflow-wrap:normal]' : ''} ${c.className ?? ''}`}>
                   {c.render ? c.render(row) : String(c.sortValue?.(row) ?? '')}
                 </td>
               ))}
@@ -70,6 +71,6 @@ export default function SortableTable<T>({ columns, rows, rowKey, caption, defau
           ))}
         </tbody>
       </table>
-    </div>
+    </ScrollBox>
   );
 }

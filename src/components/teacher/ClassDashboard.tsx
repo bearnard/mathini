@@ -61,8 +61,28 @@ export function TopicHeatmap({ p }: { p: ClassProgress }) {
         <EmptyState title="No one has practised yet">Progress appears here as your learners practise.</EmptyState>
       ) : (
         <>
-          <div className="overflow-x-auto rounded-xl border border-slate-200">
-            <table className="w-full min-w-[34rem] text-left text-sm">
+          {/* On a phone each topic is a small card: the name and average on top, all four levels in a row underneath (no column is hidden). */}
+          <ul className="divide-y divide-slate-100 rounded-xl border border-slate-200 sm:hidden" aria-label="Learners at each level, by topic">
+            {topics.map((t: ClassTopicProgress) => (
+              <li key={t.task} className="px-3 py-3">
+                <div className="flex items-baseline justify-between gap-3">
+                  <p className="min-w-0 break-words text-sm font-semibold text-slate-900">{t.label}</p>
+                  <p className="shrink-0 text-sm font-bold tabular-nums text-slate-900"><span className="sr-only">Class average </span>{pctText(t.avgAccuracyPct, '–')}</p>
+                </div>
+                <p className="text-xs text-slate-600">{t.practised} of {p.memberCount} practised</p>
+                <div className="mt-2 grid grid-cols-4 gap-1.5">
+                  {LEVELS.map((lv) => (
+                    <div key={lv} className="min-w-0 text-center">
+                      <span className="flex h-9 items-center justify-center rounded-lg font-bold tabular-nums text-slate-900" style={{ background: `rgba(${TINT[lv]},${(0.12 + 0.6 * cellShare(t.levels[lv], p.memberCount)).toFixed(2)})`, opacity: t.levels[lv] === 0 ? 0.45 : 1 }}>{t.levels[lv]}</span>
+                      <span className="mt-0.5 block text-[0.7rem] leading-tight text-slate-600">{LEVEL_TEXT[lv]}</span>
+                    </div>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="hidden overflow-x-auto rounded-xl border border-slate-200 sm:block">
+            <table className="w-full text-left text-sm">
               <caption className="sr-only">Learners at each level, by topic</caption>
               <thead className="bg-slate-50 text-xs font-bold uppercase tracking-wide text-slate-600">
                 <tr>
@@ -192,7 +212,7 @@ export const OpenLearnerLink = ({ nickname, onOpen }: { nickname: string; onOpen
 );
 
 const learnerColumns = (onOpen?: (studentId: string) => void): Column<ClassLearner>[] => [
-  { key: 'nickname', label: 'Nickname', sortValue: (l) => l.nickname, className: 'max-w-[10rem] break-words', render: onOpen ? (l) => <OpenLearnerLink nickname={l.nickname} onOpen={() => onOpen(l.studentId)} /> : undefined },
+  { key: 'nickname', label: 'Nickname', sortValue: (l) => l.nickname, render: onOpen ? (l) => <OpenLearnerLink nickname={l.nickname} onOpen={() => onOpen(l.studentId)} /> : undefined },
   { key: 'topics', label: 'Topics', align: 'right', sortValue: (l) => l.topicsPractised },
   { key: 'avg', label: 'Average', align: 'right', sortValue: (l) => l.avgAccuracyPct, render: (l) => pctText(l.avgAccuracyPct, '–') },
   { key: 'change', label: 'Change', align: 'right', sortValue: (l) => l.changePoints, render: (l) => signedText(l.changePoints) },
