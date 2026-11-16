@@ -49,5 +49,29 @@ export const lifeOrientationGrade10: Subject = {
         },
       ],
     },
+    {
+      id: 2,
+      title: 'Term 2',
+      topics: [
+        {
+          id: 'gr10-study-skills-methods-t2',
+          title: 'Study Skills and Study Methods',
+          description: 'Study habits, note-taking, thinking skills, internal and external assessment and your annual study plan.',
+          component: lazy(() => import('./term2/study-skills-methods/StudySkillsMethods')),
+        },
+        {
+          id: 'gr10-social-environmental-responsibility-t2',
+          title: 'Social and Environmental Responsibility',
+          description: 'Social and environmental justice, social issues and health, civic skills and youth service.',
+          component: lazy(() => import('./term2/social-environmental-responsibility/SocialEnvironmentalResponsibility')),
+        },
+        {
+          id: 'gr10-physical-education-t2',
+          title: 'Physical Education: Games and Safety',
+          description: 'Playground, community and indigenous games, movement skills, fair play and safety.',
+          component: lazy(() => import('./term2/physical-education/PhysicalEducationTerm2')),
+        },
+      ],
+    },
   ],
 };
