@@ -37,6 +37,15 @@ Things that are in the lessons or banks but that I could not settle from the CAP
 | 19 | Oral lesson | **Four kinds of listening** (informative, evaluative, appreciative, interactive) and "marked out of 15". | The four kinds are in the teaching plan (p. 43); 15 marks is from Table 2 (p. 78). |
 | 20 | Imaginative/transactional lesson | The **model complaint letter is 191 words of body**; the 180-200 limit is "content only" in CAPS (p. 39), so address, date and salutation are not counted. | Counted by a test; whether markers exclude the address and closing is the CAPS reading. All names, order number and amounts are invented. |
 
+## Term 4
+
+| # | Where | What | Why it is uncertain |
+|---|---|---|---|
+| 21 | Paper 1 revision | The command-word glossary (state, identify, quote, in your own words, explain) and "one point for each mark". | Common exam practice, not a CAPS rule; the CAPS gives marks, not marking guidelines. |
+| 22 | Paper 1 revision | Direct to indirect speech and active to passive examples. | Standard grammar; CAPS lists "direct and indirect speech" and "active and passive voice" under sentence structures (p. 93). |
+| 23 | Paper 3/4 revision | Paper 4 (oral) = 50 of the 300 year-end marks; term-4 oral tasks "introducing a speaker / vote of thanks" and "panel discussion". | CAPS p. 52 and Table 2 (p. 78). The suggested four-sentence vote of thanks is mine. |
+| 24 | Paper 2 revision | "Gogo's Hands" and the Mpho/Grandfather extract are **original**; the model answers are mine, not a DBE memorandum. | Marks shown (2, 3) follow the common contextual-question pattern; real papers vary. |
+
 ## Not covered on purpose
 
 - **Prescribed (set) works.** Not named, not quoted. Novel, drama and poetry lessons teach the technique with original extracts.
