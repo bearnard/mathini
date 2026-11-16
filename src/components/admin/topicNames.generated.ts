@@ -2395,6 +2395,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Transformations in Patterns",
   "Mathematics"
  ],
+ "6|gr6-viewing-objects-t3": [
+  "Viewing Objects",
+  "Mathematics"
+ ],
  "6|gr6-volume-t3": [
   "Volume",
   "Mathematics"

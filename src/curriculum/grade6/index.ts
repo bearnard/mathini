@@ -177,6 +177,12 @@ export const grade6: Grade = {
                                     title: "Transformations in Patterns",
                                     description: "Describing patterns with translation, reflection, rotation and symmetry.",
                                     component: lazy(() => import('./term3/transformations/Transformations'))
+                                },
+                                {
+                                    id: "g6-viewing-objects",
+                                    title: "Viewing Objects",
+                                    description: "Matching views of objects and structures of cubes with the position of the viewer.",
+                                    component: lazy(() => import('./term3/viewing-objects/ViewingObjects'))
                                 }
                             ]
                         },

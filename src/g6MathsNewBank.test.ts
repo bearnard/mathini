@@ -262,3 +262,25 @@ test('INDEPENDENT: transformation and enlargement keys are recomputed with plain
   assert.equal(find(te, 'Halve every side').answer, `${6 * 4} cm²`);
 }
 );
+
+test('INDEPENDENT: viewing-object keys are recomputed with plain arithmetic', () => {
+  const tv = 'gr6-viewing-objects-t3';
+  const row = [3, 1, 2];
+  assert.equal(find(tv, 'Three towers of cubes stand in a row').answer, row.join(', '));
+  assert.equal(find(tv, 'You stand behind a one-cube-deep row').answer, [...row].reverse().join(', '));
+  assert.equal(find(tv, 'A viewer on the right-hand side looks along a row').answer, String(Math.max(...row)));
+  assert.equal(find(tv, 'How many cubes make up a row of towers').answer, String(3 + 1 + 2));
+  // two rows: front 2, 1 and back 1, 3
+  const front = [2, 1];
+  const back = [1, 3];
+  assert.equal(find(tv, 'A structure has a front row').answer, [Math.max(front[0], back[0]), Math.max(front[1], back[1])].join(', '));
+  // a viewer on the left looks along each row: the back row is on their left, the front row on their right
+  assert.equal(find(tv, 'Two rows of cubes').answer, [Math.max(...back), Math.max(...front)].join(', '));
+  assert.equal(find(tv, 'How many cubes are in two rows').answer, String(2 + 1 + 1 + 3));
+  assert.equal(find(tv, 'A bird flies over').answer, String(2 * 2));
+  assert.equal(find(tv, 'You see towers 2, 1 and 3').answer, 'Behind the row');
+  assert.equal(find(tv, 'A tin of beans').answer, 'A circle');
+  assert.equal(find(tv, 'A party hat').answer, 'A triangle');
+  assert.equal(find(tv, 'A dice is a cube').answer, 'A square from every side');
+}
+);

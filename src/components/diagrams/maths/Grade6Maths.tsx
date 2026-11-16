@@ -5,6 +5,7 @@ import { divide, partialProducts } from './grade6MulDiv';
 import { scaleTicks, scaleY, tempText } from './grade6Percent';
 import { colLetter, parseCell, tallyWords } from './grade6Probability';
 import type { Pt } from './grade6Transform';
+import { frontView, rightView, totalCubes, tallest, dims, type Heights } from './grade6Views';
 
 /**
  * Grade 6 Mathematics lesson pictures, in the style of Grade10Maths / Grade7Pictures: a dark panel, a 120-unit-wide viewBox, positions computed from
@@ -401,6 +402,126 @@ export const ShapeOnGrid = ({
         </g>
       ))}
       {centre ? <circle cx={X(centre[0])} cy={Y(centre[1])} r={1.3} fill={R} /> : null}
+    </Panel>
+  );
+};
+
+
+/** A stack of cubes drawn from in front, a little to the right and above. heights[r][c]: r = 0 is the front row, c = 0 the left column. */
+export const CubeStack = ({ heights, caption }: { heights: Heights; caption?: string }) => {
+  const { rows, cols } = dims(heights);
+  const unit = Math.min(8, 90 / ((cols + rows) * 0.87 + 0.2), 60 / (tallest(heights) + (cols + rows) * 0.5));
+  const ex = [r3(0.866 * unit), r3(0.5 * unit)];
+  const ey = [r3(0.866 * unit), r3(-0.5 * unit)];
+  const ez = r3(-unit);
+  const at = (c: number, r: number, h: number): [number, number] => [c * ex[0] + r * ey[0], c * ex[1] + r * ey[1] + h * ez];
+  const pts: [number, number][] = [];
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) for (let h = 0; h <= (heights[r]?.[c] ?? 0); h++) for (const dc of [0, 1]) for (const dr of [0, 1]) pts.push(at(c + dc, r + dr, h));
+  const minX = Math.min(...pts.map((p) => p[0]));
+  const maxX = Math.max(...pts.map((p) => p[0]));
+  const minY = Math.min(...pts.map((p) => p[1]));
+  const maxY = Math.max(...pts.map((p) => p[1]));
+  const ox = 60 - (minX + maxX) / 2;
+  const oy = 6 - minY;
+  const poly = (a: [number, number][], fill: string) => <polygon points={a.map(([x, y]) => `${r3(x + ox)},${r3(y + oy)}`).join(' ')} fill={fill} stroke={INK} strokeWidth={0.5} strokeLinejoin="round" />;
+  const cubes: React.ReactNode[] = [];
+  for (let r = rows - 1; r >= 0; r--) {
+    for (let c = 0; c < cols; c++) {
+      for (let h = 0; h < (heights[r]?.[c] ?? 0); h++) {
+        const o = at(c, r, h);
+        const p = (dc: number, dr: number, dh: number): [number, number] => [o[0] + dc * ex[0] + dr * ey[0], o[1] + dc * ex[1] + dr * ey[1] + dh * ez];
+        cubes.push(
+          <g key={`${r}-${c}-${h}`}>
+            {poly([p(0, 0, 0), p(1, 0, 0), p(1, 0, 1), p(0, 0, 1)], '#818cf8')}
+            {poly([p(1, 0, 0), p(1, 1, 0), p(1, 1, 1), p(1, 0, 1)], '#6366f1')}
+            {poly([p(0, 0, 1), p(1, 0, 1), p(1, 1, 1), p(0, 1, 1)], '#c7d2fe')}
+          </g>,
+        );
+      }
+    }
+  }
+  const h = maxY - minY + 14;
+  const desc = heights.map((row, r) => `${r === 0 ? 'front row' : r === rows - 1 ? 'back row' : `row ${r + 1}`}: ${row.join(', ')}`).join('; ');
+  return (
+    <Panel h={r3(h)} aria={`A stack of ${totalCubes(heights)} cubes drawn from the front, a little to the right and above. Towers from left to right, ${desc}.${caption ? ` ${caption}` : ''}`}>
+      {cubes}
+    </Panel>
+  );
+};
+
+/** The front view, the right-side view and the top view of a stack of cubes, side by side. */
+export const CubeViews = ({ heights }: { heights: Heights }) => {
+  const { rows, cols } = dims(heights);
+  const front = frontView(heights);
+  const right = rightView(heights);
+  const tall = tallest(heights);
+  const wide = Math.max(front.length, right.length, cols, rows);
+  const u = Math.min(8, 30 / wide, 40 / tall);
+  const panelW = 38;
+  const baseY = 8 + tall * u;
+  const block = (list: number[], x0: number, key: string) => (
+    <g key={key}>
+      {list.map((n, i) =>
+        Array.from({ length: n }, (_, k) => <rect key={`${i}-${k}`} x={r3(x0 + i * u)} y={r3(baseY - (k + 1) * u)} width={u} height={u} fill="#c7d2fe" stroke={INK} strokeWidth={0.5} />),
+      )}
+    </g>
+  );
+  const topY = baseY - rows * u;
+  const label = (text: string, cx: number) => <T x={cx} y={baseY + 8} color={MUTED} size={4.4}>{text}</T>;
+  const x1 = 4 + (panelW - front.length * u) / 2;
+  const x2 = 4 + panelW + 1 + (panelW - right.length * u) / 2;
+  const x3 = 4 + 2 * (panelW + 1) + (panelW - cols * u) / 2;
+  return (
+    <Panel
+      h={r3(baseY + 14)}
+      aria={`Three views of the stack of cubes. Front view, from left to right: ${front.join(', ')} cubes high. Right-side view, from left to right: ${right.join(', ')} cubes high. Top view: a grid of ${rows} by ${cols} squares.`}
+    >
+      {block(front, x1, 'f')}
+      {block(right, x2, 'r')}
+      {Array.from({ length: rows }, (_, rr) =>
+        Array.from({ length: cols }, (_, c) => {
+          const n = heights[rows - 1 - rr]?.[c] ?? 0; // the back row is drawn at the top of the top view
+          return (
+            <g key={`t${rr}-${c}`}>
+              <rect x={r3(x3 + c * u)} y={r3(topY + rr * u)} width={u} height={u} fill={n > 0 ? '#c7d2fe' : 'none'} stroke={n > 0 ? INK : MUTED} strokeWidth={0.5} />
+              {n > 0 ? <T x={x3 + c * u + u / 2} y={topY + rr * u + u / 2 + 1.5} color={INK} size={Math.min(5, u * 0.7)}>{String(n)}</T> : null}
+            </g>
+          );
+        }),
+      )}
+      {label('Front view', 4 + panelW / 2)}
+      {label('Right view', 4 + panelW + 1 + panelW / 2)}
+      {label('Top view', 4 + 2 * (panelW + 1) + panelW / 2)}
+    </Panel>
+  );
+};
+
+/** The front view and the top view of everyday or geometric objects. */
+export const ObjectViews = ({ kind }: { kind: 'cylinder' | 'cone' | 'cube' }) => {
+  const name = { cylinder: 'tin of beans (a cylinder)', cone: 'party hat (a cone)', cube: 'dice (a cube)' }[kind];
+  const front = {
+    cylinder: <rect x={20} y={14} width={22} height={30} rx={1} fill="#c7d2fe" stroke={INK} strokeWidth={0.6} />,
+    cone: <polygon points="31,12 43,44 19,44" fill="#c7d2fe" stroke={INK} strokeWidth={0.6} />,
+    cube: <rect x={19} y={20} width={24} height={24} fill="#c7d2fe" stroke={INK} strokeWidth={0.6} />,
+  }[kind];
+  const top = {
+    cylinder: <circle cx={89} cy={29} r={11} fill="#c7d2fe" stroke={INK} strokeWidth={0.6} />,
+    cone: (
+      <g>
+        <circle cx={89} cy={29} r={12} fill="#c7d2fe" stroke={INK} strokeWidth={0.6} />
+        <circle cx={89} cy={29} r={1.2} fill={INK} />
+      </g>
+    ),
+    cube: <rect x={77} y={17} width={24} height={24} fill="#c7d2fe" stroke={INK} strokeWidth={0.6} />,
+  }[kind];
+  const shapeFront = { cylinder: 'rectangle', cone: 'triangle', cube: 'square' }[kind];
+  const shapeTop = { cylinder: 'circle', cone: 'circle with a dot in the middle', cube: 'square' }[kind];
+  return (
+    <Panel h={62} aria={`A ${name}. From the front it looks like a ${shapeFront}. From above it looks like a ${shapeTop}.`}>
+      {front}
+      {top}
+      <T x={31} y={56} color={MUTED} size={5}>Front view</T>
+      <T x={89} y={56} color={MUTED} size={5}>Top view</T>
     </Panel>
   );
 };

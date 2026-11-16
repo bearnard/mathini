@@ -68,6 +68,7 @@ export const GRADE6_BANKS: Record<string, () => Promise<ReviewBankItem[]>> = {
   'gr6-temperature-t3': () => import('./term3/temperature/Temperature').then((m) => m.bank),
   'gr6-time-t4': () => import('./term4/time/Time').then((m) => m.bank),
   'gr6-transformations-t3': () => import('./term3/transformations/Transformations').then((m) => m.bank),
+  'gr6-viewing-objects-t3': () => import('./term3/viewing-objects/ViewingObjects').then((m) => m.bank),
   'gr6-volume-t3': () => import('./term3/volume/Volume').then((m) => m.bank),
   'historical-sources': () => import('./history/term1/historical-sources/HistoricalSources').then((m) => m.bank),
   'integrated-revision': () => import('./english/term4/integrated-revision/IntegratedRevision').then((m) => m.bank),

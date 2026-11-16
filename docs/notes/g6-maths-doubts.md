@@ -38,3 +38,9 @@ Source: CAPS Mathematics Grades 4-6, section 3.3.3 "Clarification of content for
 - **"Bees do not tessellate".** CAPS notes that the geometrical process used to copy a pattern is not the one that made it. The lesson's common mistake on the describing-patterns slide says so.
 - **Enlargement ratio.** CAPS says "increasing or decreasing the lengths of all sides by the same ratio, e.g. doubling". The lesson uses whole-number multipliers (doubling, tripling) and halving only, so every length stays a whole number. The "area becomes 4 times as big" link follows the CAPS note that this "links with work done on area".
 - **Mirror line in the questions.** A mirror line "down the middle of column D" or "along the edge between row 3 and row 4" is described in words because items carry no picture; the keys use the cell as a point.
+
+## Viewing objects (Term 3)
+
+- **Scope.** CAPS Grade 6 extends Grade 5 views of everyday objects to geometric objects, collections of geometric objects and composite geometric objects, matching each view with the position of the viewer. The lesson uses towers of unit cubes (composite geometric objects) plus a cylinder, a cone and a cube (everyday objects such as a tin, a party hat and a dice).
+- **Convention for the questions.** Items carry no picture, so a structure is described in words: tower heights from left to right as seen from the front, front row first. The back view reverses the order. From the right-hand side the viewer sees the front row on their left; from the left-hand side the back row is on their left. Each view lists the tallest tower in each line of sight. A teacher may want to check that this matches the textbook convention used in the learner's school.
+- **Top view.** The lesson's top view shows how many squares are covered and writes each tower's height on its square, with the back row drawn at the top of the view.
