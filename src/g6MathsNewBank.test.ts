@@ -161,3 +161,37 @@ test('INDEPENDENT: multiplication and division keys are recomputed with plain ar
   assert.equal(find(t3d, 'Calculate 7 245').answer, dv(7245, 105));
   assert.equal(80 * 123 + 36, 9876);
 });
+
+test('INDEPENDENT: percentage and temperature keys are recomputed with plain arithmetic', () => {
+  const tp = 'gr6-percentages-t3';
+  const pct = (n: number) => `${n}%`;
+  assert.equal(find(tp, 'What is 1/10').answer, pct((1 * 100) / 10));
+  assert.equal(find(tp, 'What is 7/100').answer, pct(7));
+  assert.equal(find(tp, 'What is 3/10').answer, pct((3 * 100) / 10));
+  assert.equal(find(tp, 'What is 1/4').answer, pct(100 / 4));
+  assert.equal(find(tp, 'What is 3/4').answer, pct((3 * 100) / 4));
+  assert.equal(find(tp, 'What is 1/5').answer, pct(100 / 5));
+  assert.equal(find(tp, 'A grid has 100 squares').answer, pct(40));
+  assert.equal(find(tp, 'Which decimal fraction').answer, String(25 / 100).replace('.', ','));
+  assert.equal(find(tp, 'What is 0,3').answer, pct(0.3 * 100));
+  assert.equal(find(tp, 'What is 25% of R300').answer, `R${300 / 4}`);
+  assert.equal(find(tp, 'What is 50% of 80').answer, String(80 / 2));
+  assert.equal(find(tp, 'What is 10% of R450').answer, `R${450 / 10}`);
+  assert.equal(find(tp, 'A jacket costs R450').answer, `R${450 - 450 / 10}`);
+  assert.equal(find(tp, 'Sipho gets 18').answer, pct((18 / 20) * 100));
+  // the unit-fraction route and the percentage route agree
+  for (const [percent, d] of [[50, 2], [25, 4], [20, 5], [10, 10]] as const) for (const w of [20, 40, 80, 100, 300]) assert.equal((percent * w) / 100, w / d);
+  const tt = 'gr6-temperature-t3';
+  assert.equal(find(tt, 'At what temperature does pure water freeze').answer, '0 °C');
+  assert.equal(find(tt, 'At what temperature does pure water boil').answer, '100 °C');
+  assert.equal(find(tt, 'What is the normal temperature').answer, '37 °C');
+  assert.equal(find(tt, 'On a thermometer, 0, 10, 20 and 30 are numbered').answer, `${20 + 3 * 2} °C`);
+  assert.equal(find(tt, 'The mercury on a thermometer is half way').answer, `${(20 + 30) / 2} °C`);
+  assert.equal(find(tt, 'Which of these temperatures is higher than 37,0').answer, '37,2 °C');
+  assert.equal(find(tt, 'Which of these temperatures is the lowest').answer, `${Math.min(12, 21, 9, 19)} °C`);
+  assert.equal(find(tt, 'The highest temperature one day is 24').answer, `${24 - 11} °C`);
+  assert.equal(find(tt, 'A learner has a temperature of 37,2').answer, `${String(Math.round((372 - 367)) / 10).replace('.', ',')} °C`);
+  assert.equal(find(tt, "At 6 o'clock").answer, `${14 + 9} °C`);
+  assert.equal(find(tt, 'The temperature is 14').answer, `${14 - 6} °C`);
+}
+);

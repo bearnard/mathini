@@ -54,7 +54,7 @@ export const learnSteps: LearnStep[] = [
             <>200 + 2 = {g(main.quotient)}, with {g(main.remainder)} left over: <strong>{g(main.quotient)} remainder {g(main.remainder)}</strong>.</>,
           ]}
         />
-        <Mistake>Carrying on after the remainder is bigger than the divisor. If what is left is 17 or more, you can still take another 17 away.</Mistake>
+        <Mistake>Stopping while what is left is still 17 or more. The remainder must be smaller than the divisor: if it is 17 or more, take another 17 away.</Mistake>
       </>,
     ),
   },

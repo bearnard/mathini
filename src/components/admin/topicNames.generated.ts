@@ -2347,6 +2347,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Patterns",
   "Mathematics"
  ],
+ "6|gr6-percentages-t3": [
+  "Percentages",
+  "Mathematics"
+ ],
  "6|gr6-prime-numbers-t1": [
   "Prime Numbers",
   "Mathematics"
@@ -2365,6 +2369,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "6|gr6-symmetry-t3": [
   "Symmetry",
+  "Mathematics"
+ ],
+ "6|gr6-temperature-t3": [
+  "Temperature",
   "Mathematics"
  ],
  "6|gr6-time-t4": [

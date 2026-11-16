@@ -325,6 +325,16 @@
                 "id": "g6-add-subtract-6digit",
                 "title": "Adding and Subtracting 6-digit Numbers",
                 "description": "6-digit sums and differences, and problems with money and quantities."
+              },
+              {
+                "id": "g6-percentages",
+                "title": "Percentages",
+                "description": "Per cent, fractions and decimals as percentages, and a percentage of a number."
+              },
+              {
+                "id": "g6-temperature",
+                "title": "Temperature",
+                "description": "Degrees Celsius, reading thermometers and solving temperature problems."
               }
             ]
           },
