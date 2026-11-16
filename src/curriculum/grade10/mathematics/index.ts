@@ -71,5 +71,41 @@ export const mathematicsGrade10: Subject = {
         },
       ],
     },
+    {
+      id: 3,
+      title: 'Term 3',
+      topics: [
+        {
+          id: 'gr10-analytical-geometry-t3',
+          title: 'Analytical Geometry',
+          description: 'Distance, gradient, midpoint, parallel and perpendicular lines, and collinear points.',
+          component: lazy(() => import('./term3/analytical-geometry/AnalyticalGeometry')),
+        },
+        {
+          id: 'gr10-finance-growth-t3',
+          title: 'Finance and Growth',
+          description: 'Simple and compound interest, hire purchase, inflation, population growth and exchange rates.',
+          component: lazy(() => import('./term3/finance-growth/FinanceGrowth')),
+        },
+        {
+          id: 'gr10-statistics-t3',
+          title: 'Statistics',
+          description: 'Grouped data, quartiles, the five-number summary and box-and-whisker plots.',
+          component: lazy(() => import('./term3/statistics/Statistics')),
+        },
+        {
+          id: 'gr10-measurement-t3',
+          title: 'Measurement',
+          description: 'Surface area and volume of spheres, cones, pyramids, prisms and composite solids.',
+          component: lazy(() => import('./term3/measurement/Measurement')),
+        },
+        {
+          id: 'gr10-trig-geometry-t3',
+          title: 'Trigonometry in Two Dimensions and Geometry Riders',
+          description: 'Angles of elevation and depression, finding angles and multi-step problems.',
+          component: lazy(() => import('./term3/trig-geometry/TrigGeometry')),
+        },
+      ],
+    },
   ],
 };

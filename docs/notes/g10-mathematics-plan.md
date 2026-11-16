@@ -36,3 +36,10 @@ Accuracy rules for this subject:
 - No past-paper text is copied; all items are original.
 - Anything I am not certain is CAPS Grade 10 scope (for example how far Grade 10 goes with surds, or whether a topic sits in Gr 10 or Gr 11) goes to
   `docs/notes/g10-mathematics-doubts.md` for the teacher review pack and is left out of the bank.
+
+## Handoff (status at the end of the first author's budget)
+
+- **Live:** Term 1 (5 topics, 68 questions) and Term 2 (4 topics, 58 questions), merged and synced to D1.
+- **Term 3 (WIP on `feat/g10-maths-t3`, not merged):** done: `grade10Helpers3.ts` (+ test), `_shared/specsT3.ts` (5 banks, 66 questions), `src/g10MathsBankT3.test.ts` (independent check), new pictures in `Grade10Maths.tsx` (Flow, QuartileDots, BoxPlot, GroupedBars, SolidPicture, ElevationPicture, TwoElevations, IsoscelesHeight). **Missing:** the five lesson files under `term3/` (analytical-geometry, finance-growth, statistics, measurement, trig-geometry, with `// BANK:START/END` markers, then `node --import tsx scripts/gen-g10-maths-bank.ts`), Term 3 in `mathematics/index.ts`, `tasks/math-gr10-term3.json` + `math.ts`, regenerate generated files, phone check, and fix the failing `towerHeight` test in `grade10Helpers3.test.ts` (check the expected numbers; the helper formula is x = gap·tan(far)/(tan(near) − tan(far))). Lesson plan per topic is in the table above; lessons follow `docs/notes/lesson-standard.md` (a picture on every teaching slide).
+- **Term 4 (not started):** Probability and Revision/exam technique (mixed Paper 1/2 practice with marks shown, like the mid-year topic). Add `specsT4.ts`.
+- **How it works:** banks are written as computed specs and generated into each topic file; tests re-verify every key and wrong option independently. Open scope questions are in `docs/notes/g10-mathematics-doubts.md`.

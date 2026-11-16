@@ -424,3 +424,230 @@ export const ToolPairs = ({ pairs }: { pairs: [string, string][] }) => (
     ))}
   </Panel>
 );
+
+// ---------------------------------------------------------------- Term 3: flow, statistics, solids, elevation
+
+/** A row of boxes joined by arrows: what you start with and what each step gives (hire purchase, conversions). */
+export const Flow = ({ steps }: { steps: { label: string; value: string }[] }) => {
+  const n = steps.length;
+  const per = 112 / n;
+  return (
+    <Panel h={46} aria={`Steps: ${steps.map((s) => `${s.label} ${s.value}`).join(', then ')}.`}>
+      {steps.map((st, i) => {
+        const cx = 4 + per * i + per / 2;
+        return (
+          <g key={i}>
+            <rect x={r3(cx - per / 2 + 2)} y={8} width={r3(per - 4)} height={30} rx={3} fill="rgba(99,102,241,0.18)" stroke={I} strokeWidth={0.9} />
+            <T x={cx} y={19} color={MUTED} size={4.2}>{st.label}</T>
+            <T x={cx} y={31} color={i === n - 1 ? A : LINE} size={5.4}>{st.value}</T>
+            {i < n - 1 ? <T x={cx + per / 2} y={25} color={E} size={7}>›</T> : null}
+          </g>
+        );
+      })}
+    </Panel>
+  );
+};
+
+/** The ordered data as dots with the median and the two quartiles marked (even n: the halves are the two middle groups). */
+export const QuartileDots = ({ sorted, q1, q2, q3 }: { sorted: number[]; q1: number; q2: number; q3: number }) => {
+  const lo = sorted[0];
+  const hi = sorted[sorted.length - 1];
+  const x = (v: number) => 12 + ((v - lo) / (hi - lo || 1)) * 96;
+  return (
+    <Panel h={50} aria={`The ordered data ${sorted.join(', ')} on a number line. The lower quartile is ${String(q1).replace('.', ',')}, the median is ${String(q2).replace('.', ',')} and the upper quartile is ${String(q3).replace('.', ',')}.`}>
+      <line x1={10} y1={26} x2={110} y2={26} stroke={MUTED} strokeWidth={0.8} />
+      {sorted.map((v, i) => <circle key={i} cx={r3(x(v))} cy={26} r={2.2} fill={I} />)}
+      {[[q1, 'Q₁', E], [q2, 'median', A], [q3, 'Q₃', E]].map(([v, l, c]) => (
+        <g key={String(l)}>
+          <line x1={r3(x(v as number))} y1={16} x2={r3(x(v as number))} y2={36} stroke={c as string} strokeWidth={1.2} strokeDasharray="2 1.5" />
+          <T x={x(v as number)} y={12} color={c as string} size={5}>{`${l} = ${String(v).replace('.', ',')}`}</T>
+        </g>
+      ))}
+      <T x={x(lo)} y={46} color={MUTED} size={4.6}>{String(lo)}</T>
+      <T x={x(hi)} y={46} color={MUTED} size={4.6}>{String(hi)}</T>
+    </Panel>
+  );
+};
+
+/** One or two box-and-whisker plots on a shared scale, drawn from the five numbers. */
+const c1 = (n: number): string => String(n).replace('.', ',');
+export const BoxPlot = ({ plots, scale }: { plots: { name: string; min: number; q1: number; med: number; q3: number; max: number; color?: string }[]; scale: [number, number] }) => {
+  const x = (v: number) => 14 + ((v - scale[0]) / (scale[1] - scale[0])) * 92;
+  const rows = plots.length;
+  const rowH = 24;
+  const ticks = [scale[0], (scale[0] + scale[1]) / 2, scale[1]];
+  return (
+    <Panel h={rows * rowH + 20} aria={`Box-and-whisker plots. ${plots.map((p) => `${p.name}: minimum ${c1(p.min)}, lower quartile ${c1(p.q1)}, median ${c1(p.med)}, upper quartile ${c1(p.q3)}, maximum ${c1(p.max)}`).join('. ')}.`}>
+      {plots.map((p, i) => {
+        const y = 8 + i * rowH + rowH / 2 - 2;
+        const c = p.color ?? [I, E][i % 2];
+        return (
+          <g key={p.name}>
+            <line x1={r3(x(p.min))} y1={y} x2={r3(x(p.q1))} y2={y} stroke={c} strokeWidth={1.2} />
+            <line x1={r3(x(p.q3))} y1={y} x2={r3(x(p.max))} y2={y} stroke={c} strokeWidth={1.2} />
+            <line x1={r3(x(p.min))} y1={y - 3} x2={r3(x(p.min))} y2={y + 3} stroke={c} strokeWidth={1.2} />
+            <line x1={r3(x(p.max))} y1={y - 3} x2={r3(x(p.max))} y2={y + 3} stroke={c} strokeWidth={1.2} />
+            <rect x={r3(x(p.q1))} y={y - 6} width={r3(x(p.q3) - x(p.q1))} height={12} fill={c} fillOpacity={0.25} stroke={c} strokeWidth={1.2} />
+            <line x1={r3(x(p.med))} y1={y - 6} x2={r3(x(p.med))} y2={y + 6} stroke={A} strokeWidth={1.8} />
+            <T x={6} y={y + 1.6} color={c} size={4.6} anchor="start">{p.name}</T>
+          </g>
+        );
+      })}
+      <line x1={14} y1={rows * rowH + 6} x2={106} y2={rows * rowH + 6} stroke={MUTED} strokeWidth={0.7} />
+      {ticks.map((v) => <T key={v} x={x(v)} y={rows * rowH + 14} color={MUTED} size={4.6}>{String(v)}</T>)}
+    </Panel>
+  );
+};
+
+/** A histogram for grouped data: one bar per class, the frequency written above it. */
+export const GroupedBars = ({ rows }: { rows: { label: string; freq: number }[] }) => {
+  const max = Math.max(...rows.map((r) => r.freq));
+  const n = rows.length;
+  const bw = 92 / n - 3;
+  return (
+    <Panel h={64} aria={`A histogram. ${rows.map((r) => `Class ${r.label} has frequency ${r.freq}`).join('; ')}.`}>
+      <line x1={10} y1={50} x2={112} y2={50} stroke={MUTED} strokeWidth={0.7} />
+      {rows.map((r, i) => {
+        const hh = (r.freq / max) * 34;
+        const x = 14 + i * (bw + 3);
+        return (
+          <g key={r.label}>
+            <rect x={r3(x)} y={r3(50 - hh)} width={r3(bw)} height={r3(hh)} fill={I} fillOpacity={0.45} stroke={I} strokeWidth={0.9} />
+            <T x={x + bw / 2} y={46 - hh} color={A} size={5}>{String(r.freq)}</T>
+            <T x={x + bw / 2} y={58} color={LINE} size={4.8}>{r.label}</T>
+          </g>
+        );
+      })}
+    </Panel>
+  );
+};
+
+/** Sphere, cone, square pyramid and cylinder with the measurements that the formulae use. */
+export const SolidPicture = ({ kind, labels }: { kind: 'sphere' | 'cone' | 'pyramid' | 'cylinder'; labels: Record<string, string> }) => {
+  const dash = { strokeDasharray: '2 1.6' } as const;
+  const aria = `A ${kind} with ${Object.entries(labels).map(([k, v]) => `${k} = ${v}`).join(' and ')}.`;
+  if (kind === 'sphere') {
+    return (
+      <Panel h={62} aria={aria}>
+        <circle cx={60} cy={31} r={24} fill="rgba(99,102,241,0.18)" stroke={I} strokeWidth={1.3} />
+        <ellipse cx={60} cy={31} rx={24} ry={7} fill="none" stroke={MUTED} strokeWidth={0.8} {...dash} />
+        <line x1={60} y1={31} x2={84} y2={31} stroke={A} strokeWidth={1.3} />
+        <T x={73} y={27} color={A}>{labels.r ?? 'r'}</T>
+      </Panel>
+    );
+  }
+  if (kind === 'cone') {
+    return (
+      <Panel h={68} aria={aria}>
+        <ellipse cx={60} cy={52} rx={24} ry={7} fill="rgba(99,102,241,0.18)" stroke={I} strokeWidth={1.3} />
+        <path d="M36 52 L60 8 L84 52" fill="none" stroke={I} strokeWidth={1.3} />
+        <line x1={60} y1={8} x2={60} y2={52} stroke={MUTED} strokeWidth={0.8} {...dash} />
+        <line x1={60} y1={52} x2={84} y2={52} stroke={A} strokeWidth={1.2} />
+        <T x={55} y={31} color={E} anchor="end">{labels.h ?? 'h'}</T>
+        <T x={72} y={63} color={A}>{labels.r ?? 'r'}</T>
+        <T x={78} y={28} color={R} anchor="start">{labels.s ?? 's'}</T>
+      </Panel>
+    );
+  }
+  if (kind === 'pyramid') {
+    return (
+      <Panel h={68} aria={aria}>
+        <polygon points="26,52 70,52 90,42 46,42" fill="rgba(99,102,241,0.18)" stroke={I} strokeWidth={1.3} strokeLinejoin="round" />
+        <path d="M26 52 L58 8 L70 52 M70 52 L58 8 L90 42" fill="none" stroke={I} strokeWidth={1.3} strokeLinejoin="round" />
+        <path d="M46 42 L58 8" fill="none" stroke={MUTED} strokeWidth={0.8} {...dash} />
+        <line x1={58} y1={8} x2={58} y2={47} stroke={E} strokeWidth={0.9} {...dash} />
+        <T x={54} y={30} color={E} anchor="end">{labels.h ?? 'h'}</T>
+        <T x={48} y={63} color={A}>{labels.b ?? 'b'}</T>
+        <T x={92} y={26} color={R} anchor="start">{labels.s ?? 's'}</T>
+      </Panel>
+    );
+  }
+  return (
+    <Panel h={68} aria={aria}>
+      <ellipse cx={60} cy={14} rx={20} ry={6} fill="rgba(99,102,241,0.28)" stroke={I} strokeWidth={1.3} />
+      <path d="M40 14 V50 A20 6 0 0 0 80 50 V14" fill="rgba(99,102,241,0.14)" stroke={I} strokeWidth={1.3} />
+      <line x1={60} y1={14} x2={80} y2={14} stroke={A} strokeWidth={1.2} />
+      <T x={70} y={11} color={A}>{labels.r ?? 'r'}</T>
+      <T x={86} y={34} color={E} anchor="start">{labels.h ?? 'h'}</T>
+    </Panel>
+  );
+};
+
+/** An observer, a tower and the horizontal: the angle of elevation (looking up) or depression (looking down) drawn at its real size. */
+export const ElevationPicture = ({ deg, mode, labels }: { deg: number; mode: 'elevation' | 'depression'; labels: { horizontal: string; vertical: string } }) => {
+  const rad = (deg * Math.PI) / 180;
+  const run = 70;
+  const rise = Math.min(46, run * Math.tan(rad));
+  const runD = rise / Math.tan(rad);
+  if (mode === 'elevation') {
+    const ox = 16;
+    const oy = 62;
+    return (
+      <Panel h={72} aria={`An observer looks up at the top of a tower. The angle of elevation is ${deg}°. The distance along the ground is ${labels.horizontal} and the tower is ${labels.vertical} high.`}>
+        <line x1={ox} y1={oy} x2={ox + runD} y2={oy} stroke={MUTED} strokeWidth={0.9} />
+        <line x1={ox + runD} y1={oy} x2={ox + runD} y2={oy - rise} stroke={E} strokeWidth={1.8} />
+        <line x1={ox} y1={oy} x2={ox + runD} y2={oy - rise} stroke={I} strokeWidth={1} {...{ strokeDasharray: '2 1.6' }} />
+        <path d={`M${ox + 18} ${oy} A18 18 0 0 0 ${r3(ox + 18 * Math.cos(rad))} ${r3(oy - 18 * Math.sin(rad))}`} fill="none" stroke={A} strokeWidth={1} />
+        <T x={ox + 26} y={oy - 3} color={A} anchor="start" size={5}>{`${deg}°`}</T>
+        <T x={ox + runD / 2} y={oy + 8} color={LINE}>{labels.horizontal}</T>
+        <T x={ox + runD + 3} y={oy - rise / 2} color={E} anchor="start">{labels.vertical}</T>
+      </Panel>
+    );
+  }
+  const ox = 16;
+  const oy = 12;
+  return (
+    <Panel h={72} aria={`An observer at the top of a cliff looks down at an object. The angle of depression is ${deg}°, measured from the horizontal. The cliff is ${labels.vertical} high and the object is ${labels.horizontal} from its foot.`}>
+      <line x1={ox} y1={oy} x2={ox + runD + 8} y2={oy} stroke={MUTED} strokeWidth={0.9} {...{ strokeDasharray: '2 1.6' }} />
+      <line x1={ox} y1={oy} x2={ox} y2={oy + rise} stroke={E} strokeWidth={1.8} />
+      <line x1={ox} y1={oy + rise} x2={ox + runD} y2={oy + rise} stroke={MUTED} strokeWidth={0.9} />
+      <line x1={ox} y1={oy} x2={ox + runD} y2={oy + rise} stroke={I} strokeWidth={1.2} />
+      <path d={`M${ox + 18} ${oy} A18 18 0 0 1 ${r3(ox + 18 * Math.cos(rad))} ${r3(oy + 18 * Math.sin(rad))}`} fill="none" stroke={A} strokeWidth={1} />
+      <T x={ox + 28} y={oy + 12} color={A} anchor="start" size={5}>{`${deg}°`}</T>
+      <T x={ox - 3} y={oy + rise / 2} color={E} anchor="end">{labels.vertical}</T>
+      <T x={ox + runD / 2} y={oy + rise + 8} color={LINE}>{labels.horizontal}</T>
+    </Panel>
+  );
+};
+
+/** Two observation points on one line: the top of a tower seen at two angles of elevation. */
+export const TwoElevations = ({ near, far, gap }: { near: number; far: number; gap: number }) => {
+  // tower at x = 100, height 40: the far point is at x = 100 − 40/tan(far) in the same scale
+  const h = 40;
+  const xNear = 100 - h / Math.tan((near * Math.PI) / 180);
+  const xFar = 100 - h / Math.tan((far * Math.PI) / 180);
+  const y0 = 56;
+  return (
+    <Panel h={68} aria={`The top of a tower is seen at an angle of elevation of ${far}° from one point and ${near}° from a point ${gap} m closer.`}>
+      <line x1={Math.max(6, xFar - 4)} y1={y0} x2={106} y2={y0} stroke={MUTED} strokeWidth={0.9} />
+      <line x1={100} y1={y0} x2={100} y2={y0 - h} stroke={E} strokeWidth={1.8} />
+      <line x1={r3(xFar)} y1={y0} x2={100} y2={y0 - h} stroke={I} strokeWidth={0.9} {...{ strokeDasharray: '2 1.6' }} />
+      <line x1={r3(xNear)} y1={y0} x2={100} y2={y0 - h} stroke={R} strokeWidth={0.9} {...{ strokeDasharray: '2 1.6' }} />
+      <circle cx={r3(xFar)} cy={y0} r={1.8} fill={I} />
+      <circle cx={r3(xNear)} cy={y0} r={1.8} fill={R} />
+      <T x={xFar + 8} y={y0 - 3} color={I} anchor="start" size={5}>{`${far}°`}</T>
+      <T x={xNear + 8} y={y0 - 3} color={R} anchor="start" size={5}>{`${near}°`}</T>
+      <T x={(xFar + xNear) / 2} y={y0 + 8} color={A}>{`${gap} m`}</T>
+      <T x={104} y={y0 - h / 2} color={E} anchor="end">h</T>
+    </Panel>
+  );
+};
+
+/** An isosceles triangle cut by its height: two equal right-angled triangles, drawn from the apex angle and the side. */
+export const IsoscelesHeight = ({ side, apex }: { side: number; apex: number }) => {
+  const half = (apex * Math.PI) / 360;
+  const s = 52 / side;
+  const hgt = side * Math.cos(half) * s;
+  const base = side * Math.sin(half) * s;
+  const cx = 60;
+  const top = 10;
+  return (
+    <Panel h={74} aria={`An isosceles triangle with two sides of ${side} and an apex angle of ${apex}°. The height from the apex splits it into two right-angled triangles with an angle of ${apex / 2}° at the apex.`}>
+      <polygon points={`${cx},${top} ${r3(cx - base)},${r3(top + hgt)} ${r3(cx + base)},${r3(top + hgt)}`} fill="rgba(99,102,241,0.14)" stroke={I} strokeWidth={1.2} strokeLinejoin="round" />
+      <line x1={cx} y1={top} x2={cx} y2={r3(top + hgt)} stroke={E} strokeWidth={1.2} {...{ strokeDasharray: '2 1.6' }} />
+      <T x={cx + 3} y={top + 14} color={A} anchor="start" size={5}>{`${apex / 2}°`}</T>
+      <T x={cx - base / 2 - 3} y={top + hgt / 2} color={LINE} anchor="end">{String(side)}</T>
+      <T x={cx + 3} y={top + hgt / 2 + 6} color={E} anchor="start">h</T>
+    </Panel>
+  );
+};

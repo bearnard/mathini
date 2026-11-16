@@ -19,6 +19,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Analysis and Interpretation",
   "Accounting"
  ],
+ "10|gr10-analytical-geometry-t3": [
+  "Analytical Geometry",
+  "Mathematics"
+ ],
  "10|gr10-animal-tissues-support-systems-t2": [
   "Animal Tissues and Support Systems",
   "Life Sciences"
@@ -167,6 +171,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Finance: Documents and Tariff Systems",
   "Mathematical Literacy"
  ],
+ "10|gr10-finance-growth-t3": [
+  "Finance and Growth",
+  "Mathematics"
+ ],
  "10|gr10-finance-income-expenditure-profit-loss-budgets-t3": [
   "Finance: Income, Expenditure, Profit, Loss and Budgets",
   "Mathematical Literacy"
@@ -250,6 +258,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-measurement-t2": [
   "Measurement",
   "Mathematical Literacy"
+ ],
+ "10|gr10-measurement-t3": [
+  "Measurement",
+  "Mathematics"
  ],
  "10|gr10-midyear-exam-prep-t2": [
   "Mid-year Exam Preparation",
@@ -379,6 +391,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Spreadsheets, Information Management and PAT Completion",
   "Computer Applications Technology"
  ],
+ "10|gr10-statistics-t3": [
+  "Statistics",
+  "Mathematics"
+ ],
  "10|gr10-study-skills-methods-t2": [
   "Study Skills and Study Methods",
   "Life Orientation"
@@ -394,6 +410,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-transport-systems-mammals-t2": [
   "Transport Systems in Mammals",
   "Life Sciences"
+ ],
+ "10|gr10-trig-geometry-t3": [
+  "Trigonometry in Two Dimensions and Geometry Riders",
+  "Mathematics"
  ],
  "10|gr10-trigonometry-t1": [
   "Trigonometry",
