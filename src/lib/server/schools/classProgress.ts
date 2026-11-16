@@ -81,7 +81,7 @@ export async function buildClassProgress(db: AdminDb, owner: ClassOwner, classId
     const idsJson = JSON.stringify(ids);
     tpRows = await db.all(`SELECT student_id, task, subject, last20_pct, mastery, last_attempt_at FROM topic_progress WHERE student_id IN (${JSON_LIST}) LIMIT 4000`, [idsJson]);
     due = await db.all(`SELECT student_id, due_day FROM review_items WHERE student_id IN (${JSON_LIST}) AND retired_at IS NULL AND due_day <= ? LIMIT 4000`, [idsJson, sastDay(now)]);
-    lastAny = await db.all(`SELECT student_id, MAX(created_at) AS last FROM attempts WHERE student_id IN (${JSON_LIST}) GROUP BY student_id`, [idsJson]);
+    lastAny = await db.all(`SELECT student_id, MAX(created_at) AS last FROM attempts WHERE student_id IN (${JSON_LIST}) AND marked_by IS NOT 'client' GROUP BY student_id`, [idsJson]);
     tests = await db.all(
       `SELECT student_id, score_pct, finished_at, subject FROM runs WHERE student_id IN (${JSON_LIST}) AND status = 'finished' AND kind IN ('mock_test', 'exam_practice') AND score_pct IS NOT NULL ORDER BY finished_at DESC LIMIT 2000`,
       [idsJson],
@@ -106,7 +106,7 @@ export async function buildClassProgress(db: AdminDb, owner: ClassOwner, classId
   if (ids.length > 0 && taskList.length > 0) {
     const tl = taskList.map((t) => t.task);
     history = await db.all(
-      `SELECT student_id, task, is_correct, created_at FROM attempts WHERE student_id IN (${JSON_LIST}) AND task IN (${JSON_LIST}) AND created_at >= ? ORDER BY id ASC LIMIT ?`,
+      `SELECT student_id, task, is_correct, created_at FROM attempts WHERE student_id IN (${JSON_LIST}) AND task IN (${JSON_LIST}) AND created_at >= ? AND marked_by IS NOT 'client' ORDER BY id ASC LIMIT ?`,
       [JSON.stringify(ids), JSON.stringify(tl), sinceMs - 120 * DAY_MS, MAX_HISTORY_ROWS],
     );
     const att: HistAttempt[] = history.map((h) => ({ studentId: h.student_id, task: h.task, correct: Number(h.is_correct) === 1, at: Number(h.created_at) }));

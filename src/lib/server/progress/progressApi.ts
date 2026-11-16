@@ -85,7 +85,7 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
   // Answers but no cached rows (history from before the cache, or no finished run yet): build them now, once. A failure here only leaves the page as it was.
   if (tp.length === 0 && (await safe(() => ensureProgressRows(db, studentId, now), 0)) > 0) tp = await readTp();
   const recent = await safe(
-    () => db.all<{ task: string; is_correct: number; created_at: number; run_id: string | null }>('SELECT task, is_correct, created_at, run_id FROM attempts WHERE student_id = ? ORDER BY id DESC LIMIT ?', [studentId, TREND_ATTEMPTS_READ]),
+    () => db.all<{ task: string; is_correct: number; created_at: number; run_id: string | null }>("SELECT task, is_correct, created_at, run_id FROM attempts WHERE student_id = ? AND marked_by IS NOT 'client' ORDER BY id DESC LIMIT ?", [studentId, TREND_ATTEMPTS_READ]),
     [],
   );
   const recentSessions = recentSessionsOf(recent, grade);
@@ -225,7 +225,7 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
 
   // --- consistency
   const dayRows = await safe(
-    () => db.all<{ d: number }>('SELECT DISTINCT ((created_at + 7200000) / 86400000) AS d FROM attempts WHERE student_id = ? AND created_at >= ?', [studentId, now - STREAK_LOOKBACK_DAYS * DAY_MS]),
+    () => db.all<{ d: number }>("SELECT DISTINCT ((created_at + 7200000) / 86400000) AS d FROM attempts WHERE student_id = ? AND created_at >= ? AND marked_by IS NOT 'client'", [studentId, now - STREAK_LOOKBACK_DAYS * DAY_MS]),
     [],
   );
   const cons: ConsistencyProgress = consistency(dayRows.map((r) => Number(r.d)), sastDayNumber(now));

@@ -161,7 +161,7 @@ export async function withActivity(db: AdminDb, children: ChildSummary[], now: n
               SUM(CASE WHEN created_at >= ? THEN is_correct ELSE 0 END) AS c1,
               SUM(CASE WHEN created_at >= ? AND created_at < ? THEN 1 ELSE 0 END) AS n2,
               SUM(CASE WHEN created_at >= ? AND created_at < ? THEN is_correct ELSE 0 END) AS c2
-         FROM attempts WHERE student_id IN (${marks}) GROUP BY student_id`,
+         FROM attempts WHERE student_id IN (${marks}) AND marked_by IS NOT 'client' GROUP BY student_id`,
       [now - 7 * DAY, now - 14 * DAY, now - 7 * DAY, now - 14 * DAY, now - 7 * DAY, now - 14 * DAY, now - 7 * DAY, ...ids],
     );
     const by = new Map(rows.map((r) => [r.student_id, r]));

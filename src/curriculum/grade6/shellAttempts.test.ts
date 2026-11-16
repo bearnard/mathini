@@ -53,7 +53,7 @@ test('the four shells use four different subject codes (no merging of subjects)'
   assert.equal(new Set(SHELLS.map((s) => s.subject)).size, 4);
 });
 
-test('MOCK TESTS record only as runs (ADR 0005): no recorder hook, no qkey (so they never feed the spaced-review schedule), no direct /api/attempts call', () => {
+test('MOCK TESTS record only as runs (ADR 0005): no recorder hook, no direct /api/attempts call; they send the question key so the SERVER can mark the answer, and the server never feeds a test to the spaced-review schedule', () => {
   const files = [
     'curriculum/grade6/natural-sciences/_shared/NstMockTest.tsx',
     'curriculum/grade6/natural-sciences/_shared/mockTest.ts',
@@ -64,9 +64,13 @@ test('MOCK TESTS record only as runs (ADR 0005): no recorder hook, no qkey (so t
   ];
   for (const f of files) {
     const src = read(f);
-    assert.ok(!/useAttemptRecorder|attemptRecorder|\/api\/attempts|recordAttempt|qkey|makeQkey/.test(src), `${f} must not use the recorder or send a qkey`);
+    assert.ok(!/useAttemptRecorder|attemptRecorder|\/api\/attempts|recordAttempt/.test(src), `${f} must not use the recorder or call the attempts API directly`);
   }
   const mock = read('curriculum/grade6/natural-sciences/_shared/NstMockTest.tsx');
+  assert.match(mock, /qkey: makeQkey\(task, current\.prompt\)/, 'the question key goes with the answer, so the server can find the question and mark it');
+  assert.match(mock, /kindOf\(current\) !== 'explain'/, 'a self-marked written answer is not sent: the server never counts it');
+  const route = fs.readFileSync('src/app/api/attempts/route.ts', 'utf8');
+  assert.ok(/if \(feedsReview\(run\)\) await recordReviewAnswer/.test(route), 'the server does not feed a mock test or exam practice to the review schedule');
   assert.match(mock, /tracker\.begin\(\{ kind: run\.kind/, 'a signed-in learner\'s first-attempt answers are tracked as a run');
   assert.match(mock, /if \(run\) void tracker\.finish\(\)/, 'the results screen finishes the run');
   for (const [f, kind] of [['term3/mock-test/Term3MockTest.tsx', 'mock_test'], ['term4/mock-test/Term4MockTest.tsx', 'mock_test'], ['exam/Terms34ExamPractice.tsx', 'exam_practice']]) {

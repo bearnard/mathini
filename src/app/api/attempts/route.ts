@@ -8,11 +8,11 @@ import { recordReviewAnswer } from '../../../lib/server/review/store';
 import { identifyAttempt } from '../../../lib/server/questions/store';
 import { verifyLiveSession, SESSION_COOKIE_NAME } from '../../../lib/server/session';
 import { d1Adapter } from '../../../lib/server/admin/db';
-import { runIdForAttempt } from '../../../lib/server/progress/runs';
+import { creditDecision, feedsReview } from '../../../lib/server/attemptTrust';
 import { attemptInsertPlans } from '../../../lib/server/progress/attemptPlans';
 import { routeLimited } from '../../../lib/server/edgeLimitRoute';
 import { attemptsLimiter } from '../../../lib/server/learnerGuards';
-import { markAttempt, verifiedStreak } from '../../../lib/server/marking';
+import { MAX_CHOSEN_LONG, verifiedStreak } from '../../../lib/server/marking';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,7 +23,7 @@ interface SubmitBody {
   qkey?: string;
   /** question_versions.id the learner was shown, when the client knows it (checked against the question server-side). */
   questionVersionId?: number;
-  /** Multiple-choice only: the option text the learner tapped (<= 200 chars). */
+  /** The option the learner tapped (<= 200 chars), or for an order or label item their whole arrangement as text (<= 600 chars). */
   chosen?: string;
   /** The run (ADR 0005) this answer belongs to. Kept only if it is the learner's own open run. */
   runId?: string;
@@ -89,12 +89,19 @@ export async function POST(req: NextRequest) {
       console.error('Question identity lookup failed:', e);
     }
 
-    const chosen = typeof body.chosen === 'string' ? body.chosen.trim().slice(0, 200) || null : null;
+    const chosen = typeof body.chosen === 'string' ? body.chosen.trim().slice(0, MAX_CHOSEN_LONG) || null : null;
 
-    // The SERVER marks multiple-choice answers (security review follow-up): `isCorrect` below is the server's verdict whenever it holds the question, and the
-    // browser's word only for what it cannot mark (generated exercises, order/label/explain items), flagged marked_by = 'client'. The streak the browser sends
-    // can never be higher than the run of right answers the server has seen, so XP and badges follow marked answers too.
-    const marking = await markAttempt(d1Adapter(db as never), { versionId: questionVersionId, chosen, clientCorrect });
+    // The SERVER marks answers and never believes the browser: an answer counts only when the server holds the question and marked it itself
+    // (multiple choice, order, label). A written answer the learner marked against a memo, a question the server does not hold, a missing or impossible
+    // choice, an answer that does not belong in its run: none of these is stored or earns anything (see attemptTrust.ts). The browser's streak can never be
+    // higher than the run of right answers the server has seen.
+    const credit = await creditDecision(d1Adapter(db as never), studentId, { versionId: questionVersionId, chosen, clientCorrect, runId: body.runId, task, qkey }, now);
+    const uncounted = async () => {
+      const x = await db.prepare('SELECT xp FROM student_xp WHERE student_id = ? AND scope = ?').bind(studentId, 'overall').first<{ xp: number }>();
+      return NextResponse.json({ xpAwarded: 0, isCorrect: false, credited: false, totalXp: x?.xp ?? 0, xpByScope: {}, newBadges: [], weakSections: [] });
+    };
+    if (!credit.credited) return uncounted();
+    const { marking, run } = credit;
     const isCorrect = marking.isCorrect;
     const streak = await verifiedStreak(d1Adapter(db as never), studentId, isCorrect, clientStreak);
     const xpAwarded = computeXp(isCorrect, streak);
@@ -104,7 +111,7 @@ export async function POST(req: NextRequest) {
     const baseCols = ['student_id', 'task', 'item_id', 'section', 'grade', 'subject', 'topic', 'is_correct', 'xp_awarded', 'streak_at', 'created_at', 'qkey'];
     const baseVals: (string | number | null)[] = [studentId, task, itemId || null, section || 'general', parsed.grade, subject, parsed.topic, isCorrect ? 1 : 0, xpAwarded, streak, now, qkey];
     // run_id (0014): only for the learner's own open run; null when the run, the table or the column is missing.
-    const runId = await runIdForAttempt(d1Adapter(db as never), studentId, body.runId, now);
+    const runId = run?.id ?? null;
     const insert = (c: string[], v: (string | number | null)[]) =>
       db.prepare(`INSERT INTO attempts (${c.join(', ')}) VALUES (${c.map(() => '?').join(', ')})`).bind(...v).run();
     // Fall back in stages (see attemptInsertPlans): the answer is stored even if a newer column does not exist yet.
@@ -119,9 +126,9 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // Spaced review schedule (Grade 6, answers with a qkey). Must never fail the attempt.
+    // Spaced review schedule (Grade 6, answers with a qkey). Must never fail the attempt. A mock test or exam practice does not feed it.
     try {
-      await recordReviewAnswer(
+      if (feedsReview(run)) await recordReviewAnswer(
         {
           all: async (sql, params) => ((await db.prepare(sql).bind(...params).all()).results ?? []) as never,
           run: async (sql, params) => { await db.prepare(sql).bind(...params).run(); },

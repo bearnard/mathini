@@ -16,7 +16,9 @@ async function world() {
     t.exec("INSERT INTO question_versions (id, question_id, version_no, qkey, prompt, options, answer, explanation, author, status, created_at) VALUES (?, ?, ?, ?, 'p', ?, ?, '', 'seed', ?, 1)", [id, qid, no, `k${id}`, JSON.stringify(options), answer, status]);
   q('q-mcq', 'mcq'); v(1, 'q-mcq', 1, ['Cape Town', 'Pretoria', 'Durban', 'Gqeberha'], 'Cape Town');
   v(2, 'q-mcq', 2, ['Pretoria', 'Bloemfontein', 'Durban', 'Gqeberha'], 'Pretoria'); // an edit: the options and the answer changed
-  q('q-order', 'order'); v(3, 'q-order', 1, ['a', 'b'], 'a');
+  q('q-order', 'order'); v(3, 'q-order', 1, ['a', 'b'], 'a|b');
+  q('q-label', 'label'); v(4, 'q-label', 1, ['Cell', 'Bulb', 'Buzzer'], 'cell=Cell|bulb=Bulb');
+  q('q-explain', 'explain'); v(5, 'q-explain', 1, ['point one', 'point two'], 'point one|point two');
   return t;
 }
 const mark = (t: TestDb, a: { versionId: number | null; chosen: string | null; clientCorrect: boolean }) => markAttempt(t.db, a);
@@ -33,15 +35,15 @@ test('markMcq: right or wrong from the chosen option; spacing and the 200-charac
 
 test('the server marks a multiple-choice answer and ignores what the browser claims', async (t0) => {
   const t = await world(); if (!t) return t0.skip('node:sqlite unavailable');
-  assert.deepEqual(await mark(t, { versionId: 2, chosen: 'Pretoria', clientCorrect: false }), { isCorrect: true, markedBy: 'server', clientCorrect: false, reason: 'matched' }, 'an honest right answer the browser got wrong is right');
-  assert.deepEqual(await mark(t, { versionId: 2, chosen: 'Durban', clientCorrect: true }), { isCorrect: false, markedBy: 'server', clientCorrect: true, reason: 'matched' }, 'a tampered claim of "correct" is not believed, and the claim is kept');
+  assert.deepEqual(await mark(t, { versionId: 2, chosen: 'Pretoria', clientCorrect: false }), { isCorrect: true, markedBy: 'server', clientCorrect: false, reason: 'matched', credited: true }, 'an honest right answer the browser got wrong is right');
+  assert.deepEqual(await mark(t, { versionId: 2, chosen: 'Durban', clientCorrect: true }), { isCorrect: false, markedBy: 'server', clientCorrect: true, reason: 'matched', credited: true }, 'a tampered claim of "correct" is not believed, and the claim is kept');
   assert.equal((await mark(t, { versionId: 2, chosen: 'Pretoria', clientCorrect: true })).isCorrect, true);
 });
 
-test('a multiple-choice answer with no chosen option, or one that is not an option, is never marked right', async (t0) => {
+test('a multiple-choice answer with no chosen option, or one that is not an option, is never marked right and never counts', async (t0) => {
   const t = await world(); if (!t) return t0.skip('node:sqlite unavailable');
-  for (const chosen of [null, '', '   ']) assert.deepEqual(await mark(t, { versionId: 2, chosen, clientCorrect: true }), { isCorrect: false, markedBy: 'server', clientCorrect: true, reason: 'no_choice' });
-  assert.deepEqual(await mark(t, { versionId: 2, chosen: 'Johannesburg', clientCorrect: true }), { isCorrect: false, markedBy: 'server', clientCorrect: true, reason: 'unmatched_choice' });
+  for (const chosen of [null, '', '   ']) assert.deepEqual(await mark(t, { versionId: 2, chosen, clientCorrect: true }), { isCorrect: false, markedBy: 'client', clientCorrect: true, reason: 'no_choice', credited: false });
+  assert.deepEqual(await mark(t, { versionId: 2, chosen: 'Johannesburg', clientCorrect: true }), { isCorrect: false, markedBy: 'server', clientCorrect: true, reason: 'unmatched_choice', credited: false });
 });
 
 test('an edit that has reached the database before the code bank does not punish a learner who saw the old version', async (t0) => {
@@ -53,13 +55,16 @@ test('an edit that has reached the database before the code bank does not punish
   assert.equal((await mark(t, { versionId: 2, chosen: 'Cape Town', clientCorrect: true })).isCorrect, false, 'a draft version is not consulted');
 });
 
-test('what the server cannot mark keeps the browser\'s value and is flagged: other kinds, questions it does not hold, a failed lookup', async (t0) => {
+test('what the server cannot mark is NEVER believed: not credited, and a browser claim of "correct" changes nothing', async (t0) => {
   const t = await world(); if (!t) return t0.skip('node:sqlite unavailable');
-  assert.deepEqual(await mark(t, { versionId: 3, chosen: null, clientCorrect: true }), { isCorrect: true, markedBy: 'client', clientCorrect: true, reason: 'not_mcq' });
-  assert.deepEqual(await mark(t, { versionId: null, chosen: null, clientCorrect: true }), { isCorrect: true, markedBy: 'client', clientCorrect: true, reason: 'no_question' });
-  assert.deepEqual(await mark(t, { versionId: 999, chosen: 'x', clientCorrect: false }), { isCorrect: false, markedBy: 'client', clientCorrect: false, reason: 'no_question' });
+  const none = (reason: string) => ({ isCorrect: false, markedBy: 'client', clientCorrect: true, reason, credited: false });
+  assert.deepEqual(await mark(t, { versionId: 3, chosen: 'a|c', clientCorrect: true }), { ...none('unmatched_choice'), markedBy: 'server' }, 'an order item whose steps are not the question\'s steps');
+  assert.deepEqual(await mark(t, { versionId: 5, chosen: 'point one|point two', clientCorrect: true }), none('not_markable'), 'a written answer the learner marked themselves counts for nothing');
+  assert.deepEqual(await mark(t, { versionId: null, chosen: null, clientCorrect: true }), none('no_question'));
+  assert.deepEqual(await mark(t, { versionId: null, chosen: 'x', clientCorrect: true }), none('no_question'));
+  assert.deepEqual(await mark(t, { versionId: 999, chosen: 'x', clientCorrect: true }), none('no_question'));
   const broken = { all: async () => { throw new Error('D1 down'); }, batch: async () => undefined };
-  assert.deepEqual(await markAttempt(broken, { versionId: 2, chosen: 'x', clientCorrect: true }), { isCorrect: true, markedBy: 'client', clientCorrect: true, reason: 'error' });
+  assert.deepEqual(await markAttempt(broken, { versionId: 2, chosen: 'x', clientCorrect: true }), none('error'));
 });
 
 test('the streak a browser sends can never be higher than the right answers the server has seen in a row', async (t0) => {
@@ -88,13 +93,14 @@ test('migration 0018 adds two nullable columns, and the marking plan inserts int
   assert.deepEqual({ ...row }, { marked_by: 'server', client_correct: 1, is_correct: 0 }, 'the server said wrong, the browser said right, both are on record');
 });
 
-test('the attempts route uses the server\'s verdict for XP, the review schedule, the XP rows and badges, and tells the browser what it decided', () => {
+test('the attempts route lets only a credited answer reach XP, the review schedule, the XP rows and badges, and never reads the browser claim', () => {
   const route = fs.readFileSync('src/app/api/attempts/route.ts', 'utf8');
-  assert.ok(route.indexOf('markAttempt(') > route.indexOf('identifyAttempt(') && route.indexOf('markAttempt(') < route.indexOf('computeXp('), 'marked after the question is identified, before XP is computed');
-  assert.ok(route.includes('const isCorrect = marking.isCorrect;') && route.includes('verifiedStreak('));
+  assert.ok(route.indexOf('creditDecision(') > route.indexOf('identifyAttempt(') && route.indexOf('creditDecision(') < route.indexOf('computeXp('), 'decided after the question is identified, before XP is computed');
+  assert.ok(route.includes('if (!credit.credited) return uncounted();') && route.includes('const isCorrect = marking.isCorrect;') && route.includes('verifiedStreak('));
+  assert.ok(route.indexOf('if (!credit.credited)') < route.indexOf('INSERT INTO attempts') && route.indexOf('if (!credit.credited)') < route.indexOf('INSERT INTO student_xp'), 'an uncredited answer returns before anything is written');
   for (const bad of ['computeXp(clientCorrect', 'clientStreak, ', ', clientCorrect ?']) assert.ok(!route.includes(bad), bad);
   const using = route.split('\n').filter((l) => /\bclientCorrect\b/.test(l) && !l.trim().startsWith('//'));
-  assert.ok(using.every((l) => /const \{ task|typeof clientCorrect|markAttempt\(|marking: \{ markedBy/.test(l)), `the browser's claim is only read, marked and stored: ${using.join(' | ')}`);
+  assert.ok(using.every((l) => /const \{ task|typeof clientCorrect|creditDecision\(|marking: \{ markedBy/.test(l)), `the browser claim is only read, judged and logged: ${using.join(' | ')}`);
   assert.ok(route.includes('marking: { markedBy: marking.markedBy, clientCorrect: marking.clientCorrect }'));
   assert.ok(route.includes('isCorrect, // the server'));
 });
@@ -146,4 +152,19 @@ test('starting a run refuses a made-up test or a one-question mock (400) and sti
   }
   const rows = await t.db.all<{ n: number }>("SELECT COUNT(*) AS n FROM runs");
   assert.equal(rows[0].n, 4, 'refused runs were not stored');
+});
+
+test('order and label answers are marked by the server from the learner\'s whole arrangement, and a wrong arrangement is wrong whatever the browser says', async (t0) => {
+  const t = await world(); if (!t) return t0.skip('node:sqlite unavailable');
+  const r = (versionId: number, chosen: string | null, clientCorrect = true) => mark(t, { versionId, chosen, clientCorrect });
+  assert.deepEqual(await r(3, 'a|b'), { isCorrect: true, markedBy: 'server', clientCorrect: true, reason: 'matched', credited: true });
+  assert.deepEqual(await r(3, 'b|a'), { isCorrect: false, markedBy: 'server', clientCorrect: true, reason: 'matched', credited: true }, 'the browser said right; the order is wrong');
+  assert.equal((await r(3, 'a|a')).credited, false, 'not the question\'s steps');
+  assert.equal((await r(3, 'a')).credited, false, 'a step missing');
+  assert.equal((await r(3, null)).credited, false, 'no arrangement at all');
+  assert.deepEqual(await r(4, 'bulb=Bulb|cell=Cell'), { isCorrect: true, markedBy: 'server', clientCorrect: true, reason: 'matched', credited: true }, 'label pairs in any order');
+  assert.equal((await r(4, 'cell=Bulb|bulb=Cell')).isCorrect, false);
+  assert.equal((await r(4, 'cell=Cell|bulb=Bulb|wire=Cell')).credited, false, 'a hotspot the question does not have');
+  assert.equal((await r(4, 'cell=Cell|bulb=Toaster')).credited, false, 'a label nobody offers');
+  assert.equal((await r(4, 'cell=Cell')).credited, false, 'a hotspot missing');
 });

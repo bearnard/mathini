@@ -154,7 +154,7 @@ export async function finishRun(db: AdminDb, studentId: string, runId: unknown, 
   if (!isRunId(runId)) return { ok: false, status: 400, error: 'Invalid run id' };
   const found = (await db.all<DbRun>(`SELECT ${COLS} FROM runs WHERE id = ? AND student_id = ?`, [runId, studentId]))[0];
   if (!found) return { ok: false, status: 404, error: 'Run not found' };
-  const tasks = (await db.all<{ task: string }>('SELECT DISTINCT task FROM attempts WHERE run_id = ? AND student_id = ?', [runId, studentId])).map((r) => r.task);
+  const tasks = (await db.all<{ task: string }>("SELECT DISTINCT task FROM attempts WHERE run_id = ? AND student_id = ? AND marked_by IS NOT 'client'", [runId, studentId])).map((r) => r.task);
   if (found.status === 'finished') return { ok: true, run: toRow(found), alreadyFinished: true, tasks };
   if (found.status === 'abandoned') return { ok: false, status: 409, error: 'This run was abandoned' };
   if (now - Number(found.started_at) > ABANDON_AFTER_MS) {
@@ -162,7 +162,7 @@ export async function finishRun(db: AdminDb, studentId: string, runId: unknown, 
     return { ok: false, status: 409, error: 'This run took longer than 2 hours and was abandoned' };
   }
 
-  const c = (await db.all<{ n: number; c: number }>('SELECT COUNT(*) AS n, COALESCE(SUM(is_correct), 0) AS c FROM attempts WHERE run_id = ? AND student_id = ?', [runId, studentId]))[0];
+  const c = (await db.all<{ n: number; c: number }>("SELECT COUNT(*) AS n, COALESCE(SUM(is_correct), 0) AS c FROM attempts WHERE run_id = ? AND student_id = ? AND marked_by IS NOT 'client'", [runId, studentId]))[0];
   const nAnswered = Number(c?.n ?? 0);
   const nCorrect = Number(c?.c ?? 0);
   const score = scorePct(nCorrect, nAnswered, Number(found.n_items));
@@ -184,8 +184,8 @@ export function abandonStatement(now: number, limit = 200, onlyId?: string): Sta
   const cutoff = now - ABANDON_AFTER_MS;
   return {
     sql: `UPDATE runs SET status = 'abandoned',
-            n_answered = (SELECT COUNT(*) FROM attempts a WHERE a.run_id = runs.id),
-            n_correct = (SELECT COALESCE(SUM(a.is_correct), 0) FROM attempts a WHERE a.run_id = runs.id)
+            n_answered = (SELECT COUNT(*) FROM attempts a WHERE a.run_id = runs.id AND a.marked_by IS NOT 'client'),
+            n_correct = (SELECT COALESCE(SUM(a.is_correct), 0) FROM attempts a WHERE a.run_id = runs.id AND a.marked_by IS NOT 'client')
           WHERE status = 'open' AND started_at < ? AND id IN (SELECT id FROM runs WHERE status = 'open' AND started_at < ? ${onlyId ? 'AND id = ?' : ''} LIMIT ?)`,
     params: onlyId ? [cutoff, cutoff, onlyId, limit] : [cutoff, cutoff, limit],
   };
