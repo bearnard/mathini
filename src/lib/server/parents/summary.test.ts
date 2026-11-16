@@ -6,7 +6,7 @@ import { RefusingMailer, type Mail, type Mailer } from '../adultAuth/mailer';
 import { createLimiter } from '../adultAuth/rateLimit';
 import { MOCK_PROGRESS } from '../../shared/progressMock';
 import type { ProgressResponse } from '../../shared/progressTypes';
-import { isSummaryDay, MAX_ATTEMPTS, budgetOf, runWeeklySummary, type SummaryDeps } from './summaryJob';
+import { DEFAULT_MAX_OPS, MAX_PARENTS_PER_RUN, isSummaryDay, MAX_ATTEMPTS, budgetOf, runWeeklySummary, type SummaryDeps } from './summaryJob';
 import { buildSummary, childLines, childWeekFrom, escapeHtml, isSendDay, LEGACY_TOKEN_UNTIL, makeUnsubscribeToken, sastDate, TOKEN_TTL_DAYS, verifyUnsubscribeToken, weekKey, type ChildWeek } from './summaryEmail';
 import { handleSummaryPrefGet, handleSummaryPrefSet, handleUnsubscribe, type SummaryHttpDeps } from './summaryHttp';
 import { addAdult, addStudent, openParentsDb, type ParentsTestDb } from './testDb';
@@ -305,6 +305,24 @@ test('at most N parents per run, and a hard budget of database and mail calls: i
   assert.equal(new Set(r2.sent.map((m) => m.to)).size, 2, 'and nobody twice');
   assert.ok(small.sent + rest.sent === 2);
   for (const m of r2.sent) assert.ok(/Practised on \d of the last 7 days/.test(m.text), 'never a half-empty summary');
+});
+
+test('the paid-plan defaults: far above the free plan, below the 10 000 subrequests Workers Paid allows, and a whole week of parents is sent in one run', async (t0) => {
+  assert.ok(DEFAULT_MAX_OPS > 50 && DEFAULT_MAX_OPS < 10_000, 'above the free-plan 50 and well under the paid 10 000');
+  assert.ok(MAX_PARENTS_PER_RUN >= 100);
+  const w = await world(); if (!w) return t0.skip('node:sqlite unavailable');
+  for (let i = 0; i < 6; i++) {
+    const p = await addAdult(w, `bulk${i}@example.com`);
+    await addStudent(w, `student-2${i}00`, `CODB${i}-1000`, '1234', { name: `Kid B${i}`, consent: SUN - DAY, version: 'v1' });
+    attemptsFor(w, `student-2${i}00`, [1]);
+    link(w, p.userId, `student-2${i}00`);
+  }
+  const r = recorder();
+  const res = await runWeeklySummary(w.deps(r.mailer));
+  assert.equal(res.reason, null, 'neither the budget nor the cap was reached');
+  assert.equal(res.sent, 8, 'every eligible parent in one run (the world has two, plus the six added)');
+  assert.equal(new Set(r.sent.map((m) => m.to)).size, 8);
+  assert.ok(res.ops <= DEFAULT_MAX_OPS, `used ${res.ops}`);
 });
 
 test('the budget counter counts every call and refuses past the limit', async () => {
