@@ -31,10 +31,16 @@ type Fetch = typeof fetch;
 
 /** Resend over HTTPS. The key goes in the Authorization header only: it is never logged, and errors carry the status, not the response. */
 export class ResendMailer implements Mailer {
-  constructor(private readonly apiKey: string, private readonly from: string, private readonly fetchImpl: Fetch = fetch) {}
+  // The fetch is called as a plain function, never as this.fetchImpl(...): the Workers runtime's own fetch throws "Illegal invocation" when called with
+  // another object as `this`. Inside page requests OpenNext wraps fetch, which hid this; the cron (weekly summary) gets the raw fetch and every send failed.
+  private readonly fetchFn: Fetch;
+  constructor(private readonly apiKey: string, private readonly from: string, fetchImpl?: Fetch) {
+    this.fetchFn = fetchImpl ?? ((input, init) => fetch(input, init));
+  }
 
   async send(mail: Mail): Promise<void> {
-    const res = await this.fetchImpl('https://api.resend.com/emails', {
+    const doFetch = this.fetchFn;
+    const res = await doFetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { Authorization: `Bearer ${this.apiKey}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ from: this.from, to: [mail.to], subject: mail.subject, text: mail.text, ...(mail.html ? { html: mail.html } : {}), ...(mail.headers ? { headers: mail.headers } : {}) }),
