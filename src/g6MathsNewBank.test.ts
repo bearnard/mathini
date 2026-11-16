@@ -40,11 +40,12 @@ test('the `export const bank` literal in every topic file is exactly what its sp
   }
 });
 
+const plain = (t: string) => t.replace(/\u00a0/g, ' ');
 const find = (task: string, start: string) => {
   const b = banks.find((x) => x.task === task)!;
-  const it = b.items.find((x) => x.prompt.startsWith(start));
+  const it = b.items.find((x) => plain(x.prompt).startsWith(start));
   assert.ok(it, `${task}: no question starts with: ${start}`);
-  return it!;
+  return { ...it!, prompt: plain(it!.prompt), answer: plain(it!.answer), options: it!.options.map(plain) };
 };
 const sp = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 const rd = (n: number, p: number) => Math.floor((n + p / 2) / p) * p;
@@ -92,4 +93,71 @@ test('INDEPENDENT: addition and subtraction keys are recomputed with plain arith
   }
   // no wrong option is the true value of a numeric question
   for (const it of all) assert.equal(new Set(it.options).size, 4, it.prompt);
+});
+
+test('numbers in questions never split across lines: no ordinary space between digit groups in a prompt, an option or an explanation', () => {
+  for (const it of all) {
+    for (const text of [it.prompt, it.explanation ?? '', ...it.options]) {
+      assert.ok(!/\d \d{3}(?!\d)/.test(text), `a breakable space inside a number: ${text}`);
+    }
+  }
+});
+
+test('INDEPENDENT: multiplication and division keys are recomputed with plain arithmetic', () => {
+  const t2 = 'gr6-multiply-2digit-t2';
+  assert.equal(find(t2, 'Estimate 3 487').answer, sp(3000 * 40));
+  assert.equal(find(t2, 'Calculate 547 × 45').answer, sp(547 * 45));
+  assert.equal(find(t2, '547 × 45 = 547 × 40').answer, sp(547 * 40));
+  assert.equal(find(t2, 'What is 547 × 50').answer, sp(547 * 50));
+  assert.equal(find(t2, 'To calculate 547 × 42').answer, sp(547 * 6));
+  assert.equal(find(t2, 'Calculate 547 × 42').answer, sp(547 * 42));
+  assert.equal(find(t2, 'Calculate 2 345 × 67').answer, sp(2345 * 67));
+  assert.equal(find(t2, 'Estimate 2 345').answer, sp(2000 * 70));
+  assert.equal(find(t2, 'Calculate 3 456 × 23').answer, sp(3456 * 23));
+  assert.equal(find(t2, 'In 3 456 × 23').answer, sp(3456 * 20));
+  assert.equal(find(t2, 'A bus holds 65').answer, sp(65 * 28));
+  assert.equal(find(t2, 'What is 4 506 × 100').answer, sp(450600));
+  assert.equal(find(t2, 'A machine makes 235').answer, sp(235 * 24));
+  const dv = (n: number, d: number) => `${sp(Math.floor(n / d))}${n % d ? ` remainder ${sp(n % d)}` : ''}`;
+  const t2d = 'gr6-divide-2digit-t2';
+  assert.equal(find(t2d, 'Calculate 3 447').answer, dv(3447, 17));
+  assert.equal(find(t2d, 'What is 200 × 17').answer, sp(200 * 17));
+  assert.equal(find(t2d, 'Calculate 1 440').answer, dv(1440, 24));
+  assert.equal(find(t2d, 'Calculate 5 640').answer, dv(5640, 24));
+  assert.equal(find(t2d, 'Calculate 4 536').answer, dv(4536, 36));
+  assert.equal(find(t2d, 'Calculate 1 000 ÷ 12').answer, dv(1000, 12));
+  assert.equal(find(t2d, '500 sweets').answer, `${Math.floor(500 / 12)} each and ${500 % 12} left over`);
+  assert.equal(find(t2d, 'Estimate 4 217').answer, String(4200 / 20));
+  assert.equal(find(t2d, 'Calculate 7 200').answer, dv(7200, 18));
+  assert.equal(find(t2d, 'Calculate 1 234').answer, dv(1234, 15));
+  assert.equal(find(t2d, '300 learners').answer, `${Math.ceil(300 / 24)} buses`);
+  assert.equal(202 * 17 + 13, 3447);
+  const t3 = 'gr6-multiply-3digit-t4';
+  assert.equal(find(t3, 'Calculate 4 362 × 108').answer, sp(4362 * 108));
+  assert.equal(find(t3, 'Estimate 4 362').answer, sp(4000 * 100));
+  assert.equal(find(t3, 'In 4 362 × 108, what is the partial product 8').answer, sp(8 * 4362));
+  assert.equal(find(t3, 'In 4 362 × 108, what is the partial product 100').answer, sp(100 * 4362));
+  assert.equal(find(t3, 'Calculate 3 245').answer, sp(3245 * 126));
+  assert.equal(find(t3, 'Calculate 2 457').answer, sp(2457 * 312));
+  assert.equal(find(t3, 'Calculate 1 205').answer, sp(1205 * 204));
+  assert.equal(find(t3, 'Calculate 5 400').answer, sp(5400 * 120));
+  assert.equal(find(t3, 'A concert').answer, `R${sp(1250 * 180)}`);
+  assert.equal(find(t3, 'A factory fills').answer, sp(3125 * 168));
+  assert.equal(find(t3, 'Estimate 6 812').answer, sp(7000 * 400));
+  assert.equal(find(t3, 'What is 3 456 × 0').answer, '0');
+  const t3d = 'gr6-divide-3digit-t4';
+  assert.equal(find(t3d, 'Calculate 3 484').answer, dv(3484, 132));
+  assert.equal(find(t3d, 'In 3 484 ÷ 132').answer, sp(20 * 132));
+  assert.equal(find(t3d, '3 484 − 2 640').answer, sp(3484 - 2640));
+  assert.equal(find(t3d, 'Calculate 8 640').answer, dv(8640, 120));
+  assert.equal(find(t3d, 'Calculate 6 125').answer, dv(6125, 125));
+  assert.equal(find(t3d, 'Calculate 9 876').answer, dv(9876, 123));
+  assert.equal(find(t3d, 'Calculate 5 000').answer, dv(5000, 150));
+  assert.equal(find(t3d, 'Estimate 7 812').answer, String(8000 / 200));
+  assert.equal(find(t3d, 'R12 600').answer, `R${sp(12600 / 105)}`);
+  assert.equal(find(t3d, '2 000 bricks').answer, `${Math.floor(2000 / 150)} full pallets and ${2000 % 150} bricks left over`);
+  assert.equal(find(t3d, 'Calculate 4 500').answer, dv(4500, 100));
+  assert.equal(find(t3d, 'How many packets').answer, sp(3000 / 125));
+  assert.equal(find(t3d, 'Calculate 7 245').answer, dv(7245, 105));
+  assert.equal(80 * 123 + 36, 9876);
 });

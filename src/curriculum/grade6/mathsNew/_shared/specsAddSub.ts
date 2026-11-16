@@ -1,4 +1,5 @@
-import { q, type Q } from '../../../grade10/mathematics/_shared/bank';
+import type { Q } from '../../../grade10/mathematics/_shared/bank';
+import { q } from './q6';
 import * as a from '../../../../components/diagrams/maths/grade6AddSub';
 
 const g = a.group;

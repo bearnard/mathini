@@ -2295,6 +2295,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Decimal Place Value",
   "Mathematics"
  ],
+ "6|gr6-divide-2digit-t2": [
+  "Dividing by 2-digit Numbers",
+  "Mathematics"
+ ],
+ "6|gr6-divide-3digit-t4": [
+  "Dividing by 3-digit Numbers",
+  "Mathematics"
+ ],
  "6|gr6-equivalent-fractions-t1": [
   "Equivalent Fractions",
   "Mathematics"
@@ -2313,6 +2321,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "6|gr6-mass-t4": [
   "Mass",
+  "Mathematics"
+ ],
+ "6|gr6-multiply-2digit-t2": [
+  "Multiplying by 2-digit Numbers",
+  "Mathematics"
+ ],
+ "6|gr6-multiply-3digit-t4": [
+  "Multiplying by 3-digit Numbers",
   "Mathematics"
  ],
  "6|gr6-number-patterns-t1": [

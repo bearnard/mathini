@@ -3,9 +3,12 @@ import assert from 'node:assert/strict';
 import * as a from './grade6AddSub';
 
 test('group, roundTo and estimate (CAPS: round to the nearest 1 000 or 10 000)', () => {
-  assert.equal(a.group(56423), '56 423');
+  assert.equal(a.group(56423), '56\u00a0423');
   assert.equal(a.group(985), '985');
-  assert.equal(a.group(1000000), '1 000 000');
+  assert.equal(a.group(1000000), '1\u00a0000\u00a0000');
+  assert.ok(!/ /.test(a.group(1234567)), 'a formatted number contains no breakable space');
+  assert.equal(a.nb('58 000 + 12 000 = 70 000'), '58\u00a0000 + 12\u00a0000 = 70\u00a0000');
+  assert.equal(a.nb('3 apples and 4 000 pears, 5 1000'), '3 apples and 4\u00a0000 pears, 5 1000');
   assert.equal(a.roundTo(45678, 1000), 46000);
   assert.equal(a.roundTo(12345, 1000), 12000);
   assert.equal(a.roundTo(45500, 1000), 46000);

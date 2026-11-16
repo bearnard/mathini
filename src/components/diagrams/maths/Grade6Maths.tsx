@@ -1,6 +1,7 @@
 import { r3 } from '../round';
 import { PICTURE_COLORS } from './Grade7Pictures';
 import { columnAdd, columnSubtract, digitsOf, group } from './grade6AddSub';
+import { divide, partialProducts } from './grade6MulDiv';
 
 /**
  * Grade 6 Mathematics lesson pictures, in the style of Grade10Maths / Grade7Pictures: a dark panel, a 120-unit-wide viewBox, positions computed from
@@ -110,6 +111,65 @@ export const WordTools = ({ pairs }: { pairs: [string, string][] }) => (
         <T x={8} y={15 + i * 16} color={A} size={5.4} anchor="start">{w}</T>
         <T x={112} y={15 + i * 16} color={E} size={5.4} anchor="end">{`→ ${d}`}</T>
       </g>
+    ))}
+  </Panel>
+);
+
+
+// ---------------------------------------------------------------- multiplication and division
+
+/** Long multiplication written out: the number, the multiplier, each partial product with what it is a product of, a line and the total. */
+export const LongMultiply = ({ a, b }: { a: number; b: number }) => {
+  const parts = partialProducts(a, b);
+  const total = parts.reduce((sum, p) => sum + p.product, 0);
+  const rows: { label: string; text: string; color?: string }[] = [
+    { label: '', text: group(a) },
+    { label: '×', text: group(b) },
+    ...parts.map((p) => ({ label: `${group(p.multiplier)} ×`, text: group(p.product), color: A })),
+  ];
+  const rowH = 10.5;
+  const h = 14 + rows.length * rowH + 22;
+  return (
+    <Panel h={h} aria={`Long multiplication of ${group(a)} by ${group(b)}. The partial products are ${parts.map((p) => `${group(p.multiplier)} times ${group(a)} is ${group(p.product)}`).join(', and ')}. Added together they give ${group(total)}.`}>
+      {rows.map((r, i) => (
+        <g key={i}>
+          <T x={10} y={14 + i * rowH} color={r.color ?? E} size={5.6} anchor="start">{r.label}</T>
+          <T x={96} y={14 + i * rowH} color={r.color ?? LINE} size={7} anchor="end">{r.text}</T>
+        </g>
+      ))}
+      <line x1={36} y1={14 + rows.length * rowH - 6} x2={100} y2={14 + rows.length * rowH - 6} stroke={MUTED} strokeWidth={0.8} />
+      <T x={96} y={14 + rows.length * rowH + 6} color={I} size={7.4} anchor="end">{group(total)}</T>
+    </Panel>
+  );
+};
+
+/** Division by multiplying and subtracting: each step takes a multiple of the divisor away from what is left. */
+export const LongDivision = ({ n, d }: { n: number; d: number }) => {
+  const { quotient, remainder, steps } = divide(n, d);
+  const rowH = 12;
+  const h = 18 + steps.length * rowH * 2 + 20;
+  return (
+    <Panel
+      h={h}
+      aria={`Dividing ${group(n)} by ${d}. ${steps.map((st) => `Take away ${group(st.part)} times ${d}, which is ${group(st.product)}, and ${group(st.left)} is left`).join('. ')}. The answer is ${group(quotient)}${remainder ? ` remainder ${group(remainder)}` : ''}.`}
+    >
+      <T x={60} y={11} color={MUTED} size={5.6}>{`${group(n)} ÷ ${d}`}</T>
+      {steps.map((st, i) => (
+        <g key={i}>
+          <T x={10} y={26 + i * rowH * 2} color={A} size={6.2} anchor="start">{`${group(st.part)} × ${d} = ${group(st.product)}`}</T>
+          <T x={10} y={26 + i * rowH * 2 + rowH} color={MUTED} size={6.2} anchor="start">{`${i === 0 ? group(n) : group(steps[i - 1].left)} − ${group(st.product)} = ${group(st.left)}`}</T>
+        </g>
+      ))}
+      <T x={60} y={h - 6} color={I} size={7.2}>{`${group(quotient)}${remainder ? ` remainder ${group(remainder)}` : ''}`}</T>
+    </Panel>
+  );
+};
+
+/** A few short lines of working, one colour each: clue boards, estimates and breaking a number up. */
+export const LineList = ({ lines, aria }: { lines: { text: string; color?: string }[]; aria: string }) => (
+  <Panel h={12 + lines.length * 12} aria={aria}>
+    {lines.map((l, i) => (
+      <T key={i} x={60} y={16 + i * 12} color={l.color ?? LINE} size={6.4}>{l.text}</T>
     ))}
   </Panel>
 );

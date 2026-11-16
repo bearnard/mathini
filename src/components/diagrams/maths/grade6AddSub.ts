@@ -3,8 +3,12 @@
  * comes from these functions; grade6AddSub.test.ts pins the values and recomputes them a second way. No React here.
  */
 
-/** 56423 -> "56 423": a space between groups of three digits (South African style). */
-export const group = (n: number): string => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+/** 56423 -> "56 423": a NON-BREAKING space (U+00A0) between groups of three digits (South African style), so a number never splits across two lines. */
+export const NBSP = '\u00a0';
+export const group = (n: number): string => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, NBSP);
+
+/** Turns every ordinary space between digit groups in a text into a non-breaking one: "58 000 + 12 000" keeps each number in one piece. */
+export const nb = (text: string): string => text.replace(/(\d) (?=\d{3}(?!\d))/g, `$1${NBSP}`);
 
 /** Round a whole number to the nearest `place` (5, 10, 100, 1 000, 10 000), halves go up. */
 export const roundTo = (n: number, place: number): number => Math.floor((n + place / 2) / place) * place;

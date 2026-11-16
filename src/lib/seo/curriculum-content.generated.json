@@ -279,6 +279,16 @@
                 "id": "decimal-fractions",
                 "title": "Decimal Fractions",
                 "description": "Tenths and hundredths, converting fractions, and calculations."
+              },
+              {
+                "id": "g6-multiply-2digit",
+                "title": "Multiplying by 2-digit Numbers",
+                "description": "Estimate, break numbers up, use factors and long multiplication."
+              },
+              {
+                "id": "g6-divide-2digit",
+                "title": "Dividing by 2-digit Numbers",
+                "description": "Clue boards, multiply then subtract, checking and remainders."
               }
             ]
           },
@@ -346,6 +356,16 @@
                 "id": "problem-solving",
                 "title": "Problem Solving",
                 "description": "Multi-step word problems with money and rates."
+              },
+              {
+                "id": "g6-multiply-3digit",
+                "title": "Multiplying by 3-digit Numbers",
+                "description": "Estimate, long multiplication by three digits and problems."
+              },
+              {
+                "id": "g6-divide-3digit",
+                "title": "Dividing by 3-digit Numbers",
+                "description": "Clue boards, long division, checking and remainders in problems."
               }
             ]
           }

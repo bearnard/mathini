@@ -105,6 +105,18 @@ export const grade6: Grade = {
                                     title: "Decimal Fractions",
                                     description: "Tenths and hundredths, converting fractions, and calculations.",
                                     component: lazy(() => import('./term2/decimal-fractions/DecimalFractions'))
+                                },
+                                {
+                                    id: "g6-multiply-2digit",
+                                    title: "Multiplying by 2-digit Numbers",
+                                    description: "Estimate, break numbers up, use factors and long multiplication.",
+                                    component: lazy(() => import('./term2/whole-numbers/Multiply2Digit'))
+                                },
+                                {
+                                    id: "g6-divide-2digit",
+                                    title: "Dividing by 2-digit Numbers",
+                                    description: "Clue boards, multiply then subtract, checking and remainders.",
+                                    component: lazy(() => import('./term2/whole-numbers/Divide2Digit'))
                                 }
                             ]
                         },
@@ -183,6 +195,18 @@ export const grade6: Grade = {
                                     title: "Problem Solving",
                                     description: "Multi-step word problems with money and rates.",
                                     component: lazy(() => import('./term4/problem-solving/ProblemSolving'))
+                                },
+                                {
+                                    id: "g6-multiply-3digit",
+                                    title: "Multiplying by 3-digit Numbers",
+                                    description: "Estimate, long multiplication by three digits and problems.",
+                                    component: lazy(() => import('./term4/whole-numbers/Multiply3Digit'))
+                                },
+                                {
+                                    id: "g6-divide-3digit",
+                                    title: "Dividing by 3-digit Numbers",
+                                    description: "Clue boards, long division, checking and remainders in problems.",
+                                    component: lazy(() => import('./term4/whole-numbers/Divide3Digit'))
                                 }
                             ]
                         }
