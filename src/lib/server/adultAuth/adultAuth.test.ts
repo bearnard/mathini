@@ -355,3 +355,16 @@ test('the sign-in link is built from the site address, never from a request head
   assert.ok(!/headers\.get\(['"]host['"]\)|x-forwarded-host|req\.url/i.test(src.replace(/new URL\(req\.url\)/g, '')), 'no Host-header injection into the email link');
   assert.ok(src.includes('siteUrl: SITE_URL'));
 });
+
+test('ResendMailer calls fetch as a plain function (the Workers runtime fetch throws "Illegal invocation" with a foreign this)', async () => {
+  let calls = 0;
+  const strictFetch = function (this: unknown, _input: unknown, _init?: unknown): Promise<Response> {
+    'use strict';
+    if (this !== undefined && this !== globalThis) throw new TypeError('Illegal invocation');
+    calls += 1;
+    return Promise.resolve(new Response('{}', { status: 200 }));
+  } as unknown as typeof fetch;
+  const { ResendMailer } = await import('./mailer');
+  await new ResendMailer('k', 'PrepPals <a@b.c>', strictFetch).send({ to: 'x@y.z', subject: 's', text: 't' });
+  assert.equal(calls, 1);
+});
