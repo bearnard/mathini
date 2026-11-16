@@ -2,6 +2,7 @@ import type { Q } from './bank';
 import { algebraicExpressions, exponents, numberPatterns, equationsInequalities, trigonometry } from './specsT1';
 import { functionsLinearQuadratic, functionsOther, euclideanGeometry, midYearExamPrep } from './specsT2';
 import { analyticalGeometry, financeGrowth, statistics, measurement, trigGeometry } from './specsT3';
+import { probabilityQs, revisionQs } from './specsT4';
 
 export interface TopicSpec { task: string; file: string; questions: Q[] }
 const base = 'src/curriculum/grade10/mathematics';
@@ -21,4 +22,6 @@ export const ALL_SPECS: TopicSpec[] = [
   { task: 'gr10-statistics-t3', file: `${base}/term3/statistics/Statistics.tsx`, questions: statistics },
   { task: 'gr10-measurement-t3', file: `${base}/term3/measurement/Measurement.tsx`, questions: measurement },
   { task: 'gr10-trig-geometry-t3', file: `${base}/term3/trig-geometry/TrigGeometry.tsx`, questions: trigGeometry },
+  { task: 'gr10-probability-t4', file: `${base}/term4/probability/Probability.tsx`, questions: probabilityQs },
+  { task: 'gr10-revision-exam-technique-t4', file: `${base}/term4/revision-exam-technique/RevisionExamTechnique.tsx`, questions: revisionQs },
 ];

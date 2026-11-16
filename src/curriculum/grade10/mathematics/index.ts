@@ -107,5 +107,23 @@ export const mathematicsGrade10: Subject = {
         },
       ],
     },
+    {
+      id: 4,
+      title: 'Term 4',
+      topics: [
+        {
+          id: 'gr10-probability-t4',
+          title: 'Probability',
+          description: 'Sample spaces, Venn diagrams, mutually exclusive and complementary events, and relative frequency.',
+          component: lazy(() => import('./term4/probability/Probability')),
+        },
+        {
+          id: 'gr10-revision-exam-technique-t4',
+          title: 'Revision and Examination Technique',
+          description: 'Planning your time, showing your working and avoiding the common traps, with mixed practice for Terms 1 to 4.',
+          component: lazy(() => import('./term4/revision-exam-technique/RevisionExamTechnique')),
+        },
+      ],
+    },
   ],
 };
