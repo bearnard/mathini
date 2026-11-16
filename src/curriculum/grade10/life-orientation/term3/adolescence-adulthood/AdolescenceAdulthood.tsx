@@ -189,8 +189,8 @@ const bank: CapsItem[] = [
     explanation: 'Good friends support you and help you cope with change.',
   },
   {
-    prompt: 'A learner worries about the changes in her body. Who is the best person to ask?',
-    options: ['A trusted adult or a clinic nurse', 'A stranger whom she meets on a social media site', 'A friend who spreads rumours about other people', 'A person who tells her to keep quiet about it'],
+    prompt: 'A learner worries about the changes in their body. Who is the best person to ask?',
+    options: ['A trusted adult or a clinic nurse', 'A stranger whom they meet on a social media site', 'A friend who spreads rumours about other people', 'A person who tells them to keep quiet about it'],
     answer: 'A trusted adult or a clinic nurse',
     explanation: 'Choose someone you trust who can give correct and caring information.',
   },

@@ -85,10 +85,10 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="A learner needs help"
           steps={[
-            <>A learner is touched in a way that she does not want, by a person she knows.</>,
-            <>It is not her fault, and she can tell a trusted adult. If she is not believed, she tells another one.</>,
-            <>She can report it to the police and phone Childline on 116.</>,
-            <>After rape she should go to a clinic or hospital as soon as possible. Medicine that helps to prevent HIV works best within 72 hours.</>,
+            <>A learner is touched in a way that they do not want, by a person they know.</>,
+            <>It is not the learner&apos;s fault, and they can tell a trusted adult. If they are not believed, they tell another one.</>,
+            <>They can report it to the police and phone Childline on 116.</>,
+            <>After rape the learner should go to a clinic or hospital as soon as possible. Medicine that helps to prevent HIV works best within 72 hours.</>,
           ]}
         />
         <Mistake>Keeping abuse secret to protect the family or because of threats. Telling someone you trust is the first step to being safe.</Mistake>
@@ -155,9 +155,9 @@ const bank: CapsItem[] = [
   },
   {
     prompt: 'A learner was abused by someone. Whose fault is it?',
-    options: ['The learner who was in the wrong place', 'The learner who did not fight back', 'The person who abused her is responsible', 'Both people who were together at the time'],
-    answer: 'The person who abused her is responsible',
-    explanation: 'The person who abuses another person is responsible. It is never the fault of the person who was hurt.',
+    options: ['The learner who was in the wrong place at the time', 'The learner who did not fight back at the time', 'The person who abused the learner', 'Both people who were together at the time'],
+    answer: 'The person who abused the learner',
+    explanation: 'The person who abuses another person is responsible. It is never the fault of the learner who was hurt.',
   },
   {
     prompt: 'What does consent mean?',

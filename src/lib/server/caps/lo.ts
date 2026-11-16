@@ -10,6 +10,7 @@ import loGr9Term4 from './tasks/lo-gr9-term4.json';
 import loGr10Term1 from './tasks/lo-gr10-term1.json';
 import loGr10Term2 from './tasks/lo-gr10-term2.json';
 import loGr10Term3 from './tasks/lo-gr10-term3.json';
+import loGr10Term4 from './tasks/lo-gr10-term4.json';
 import loGr11Term1 from './tasks/lo-gr11-term1.json';
 import loGr11Term2 from './tasks/lo-gr11-term2.json';
 import loGr11Term3 from './tasks/lo-gr11-term3.json';
@@ -40,6 +41,7 @@ export const lo: SubjectConfig = {
     ...loGr10Term1.tasks,
     ...loGr10Term2.tasks,
     ...loGr10Term3.tasks,
+    ...loGr10Term4.tasks,
     ...loGr11Term1.tasks,
     ...loGr11Term2.tasks,
     ...loGr11Term3.tasks,

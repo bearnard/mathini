@@ -88,3 +88,24 @@ Status key: OK = taken straight from CAPS, CHECK = a teacher or the owner should
 - OK: recreation and relaxation, and safety issues, follow the CAPS PE bullets for Term 3.
 - CHECK: the breathing example (in for 4 seconds, out for 6, five times) is one common pattern offered as an example; the numbers come from `gr10Helpers.ts`.
 - CHECK: "Swim only where there is a lifeguard or an adult watching" is general water-safety advice.
+
+## Term 4
+
+### Job market trends, qualifications and lifelong learning
+- OK: the topics (trends and demands, scarce skills, growth and decline, SAQA, the NQF, recognition of prior learning, lifelong learning, formal, informal and non-formal learning) are the CAPS Term 4 list.
+- CHECK: the NQF has 10 levels; matric (the National Senior Certificate) is level 4, a bachelor's degree is level 7 and a doctorate is level 10. Confirm against the SAQA level descriptors. The difference "7 − 4 = 3" is computed by `gr10Helpers.ts`.
+- CHECK: the lesson names electricians and solar technicians, information technology, health care and skilled trades as often scarce or growing, and routine office and repetitive factory tasks as often declining. These are general trends, not an official list; a teacher should compare with the current DHET list of occupations in high demand before they are relied on.
+- CHECK: the three kinds of learning are defined in the usual way (formal: schools, colleges and universities; non-formal: organised outside the formal system, such as workshops; informal: everyday learning).
+
+### Religions, belief systems and fairness in sport (SENSITIVE)
+- OK: the list of religions (Judaism, Christianity, Islam, Hinduism, Buddhism, the Baha'i Faith, African religion) and the indigenous belief systems follow the CAPS Term 4 text. The lesson describes and never ranks a belief.
+- CHECK (religion): holy books (Christianity: the Bible; Islam: the Qur'an; Judaism: the Torah; Hinduism: the Vedas; Buddhism: the Dhammapada appears only as a wrong answer to a question about Islam); Ramadan fasting from dawn to sunset; zakat (giving to the poor), tzedakah (charity and justice), seva (selfless service) and ubuntu as examples of caring for others. A teacher of each faith, or a Religion Studies teacher, should read these lines.
+- CHECK: "many honour a Supreme Being and the ancestors" for African religion is a general statement, not a claim about every community.
+- CHECK (sport): bias examples (unequal funding, facilities and coverage; exclusion by race in the past), the redress actions, and the four unfair practices (doping, match-fixing, subjective umpiring, maladministration) are the CAPS list with one-line definitions.
+- CHECK (law): freedom of religion and belief is a right in the Bill of Rights (no section number is quoted).
+
+### Physical Education: traditional and non-traditional sport
+- OK: the CAPS bullet is "activities that promote skills in traditional and/or non-traditional sports; safety issues".
+- CHECK: the school-context definition (traditional = widely played in the community or school; non-traditional = less common there) is the lesson's own working definition, because CAPS does not define the terms.
+- CHECK (health): "after a knock to the head, stop and get medical help if you feel dizzy, confused or have a headache; return only when a doctor says it is safe" is general concussion advice and should be read by a teacher.
+- OK: the archery practice log (4, 5, 6, 7 out of 10) is an invented example; the improvement comes from `gr10Helpers.ts`.
