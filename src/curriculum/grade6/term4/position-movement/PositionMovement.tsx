@@ -46,7 +46,7 @@ export const learnSteps: LearnStep[] = [
         <Worked
           title="From the school to the park"
           steps={[
-            <>School (B2) to library (E2): {p.dirsText(toLibrary)}. B, C, D, E is 3 squares.</>,
+            <>School (B2) to library (E2): {p.dirsText(toLibrary)}. From B to E you move into C, D and E, which is 3 squares.</>,
             <>Library (E2) to park (E5): {p.dirsText(toPark)}. The row goes from 2 to 5, so 5 − 2 = 3.</>,
             <>All together: {p.dirsText(direct)}, which is {p.stepsIn(direct)} squares.</>,
             <>Check by following the directions from B2: you arrive at <strong>{p.follow('B2', direct)}</strong>.</>,

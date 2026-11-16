@@ -171,6 +171,12 @@ export const grade6: Grade = {
                                     title: "Temperature",
                                     description: "Degrees Celsius, reading thermometers and solving temperature problems.",
                                     component: lazy(() => import('./term3/temperature/Temperature'))
+                                },
+                                {
+                                    id: "g6-transformations",
+                                    title: "Transformations in Patterns",
+                                    description: "Describing patterns with translation, reflection, rotation and symmetry.",
+                                    component: lazy(() => import('./term3/transformations/Transformations'))
                                 }
                             ]
                         },
@@ -231,6 +237,12 @@ export const grade6: Grade = {
                                     title: "Position and Movement",
                                     description: "Grid references and directions on a grid or map.",
                                     component: lazy(() => import('./term4/position-movement/PositionMovement'))
+                                },
+                                {
+                                    id: "g6-enlargements",
+                                    title: "Enlargements and Reductions",
+                                    description: "Drawing larger and smaller copies of triangles and quadrilaterals.",
+                                    component: lazy(() => import('./term4/enlargements/Enlargements'))
                                 }
                             ]
                         }

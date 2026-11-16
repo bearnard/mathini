@@ -3,6 +3,7 @@ import { addSub5, addSub6 } from './specsAddSub';
 import { multiply2, divide2, multiply3, divide3 } from './specsMulDiv';
 import { percentages, temperature } from './specsPercentTemp';
 import { probability, position } from './specsProbPosition';
+import { transformations, enlargements } from './specsTransform';
 
 export interface TopicSpec { task: string; file: string; questions: Q[] }
 const base = 'src/curriculum/grade6';
@@ -19,4 +20,6 @@ export const ALL_SPECS: TopicSpec[] = [
   { task: 'gr6-temperature-t3', file: `${base}/term3/temperature/Temperature.tsx`, questions: temperature },
   { task: 'gr6-probability-t4', file: `${base}/term4/probability/Probability.tsx`, questions: probability },
   { task: 'gr6-position-movement-t4', file: `${base}/term4/position-movement/PositionMovement.tsx`, questions: position },
+  { task: 'gr6-transformations-t3', file: `${base}/term3/transformations/Transformations.tsx`, questions: transformations },
+  { task: 'gr6-enlargements-t4', file: `${base}/term4/enlargements/Enlargements.tsx`, questions: enlargements },
 ];

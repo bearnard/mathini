@@ -4,6 +4,7 @@ import { columnAdd, columnSubtract, digitsOf, group } from './grade6AddSub';
 import { divide, partialProducts } from './grade6MulDiv';
 import { scaleTicks, scaleY, tempText } from './grade6Percent';
 import { colLetter, parseCell, tallyWords } from './grade6Probability';
+import type { Pt } from './grade6Transform';
 
 /**
  * Grade 6 Mathematics lesson pictures, in the style of Grade10Maths / Grade7Pictures: a dark panel, a 120-unit-wide viewBox, positions computed from
@@ -345,6 +346,61 @@ export const GridMap = ({ cols, rows, marks, route }: { cols: number; rows: numb
           </g>
         );
       })}
+    </Panel>
+  );
+};
+
+
+/** Shapes on a square grid (points are grid corners, x right and y down). The first shape is the original; others are images. Optional mirror line, turn centre and side labels. */
+export const ShapeOnGrid = ({
+  cols,
+  rows,
+  shapes,
+  mirror,
+  centre,
+  aria,
+}: {
+  cols: number;
+  rows: number;
+  shapes: { pts: Pt[]; color?: string; dashed?: boolean; sideLabels?: string[]; name?: string }[];
+  mirror?: { axis: 'x' | 'y'; at: number };
+  centre?: Pt;
+  aria: string;
+}) => {
+  const size = Math.min(8.5, 100 / cols, 62 / rows);
+  const x0 = 60 - (cols * size) / 2;
+  const y0 = 6;
+  const X = (x: number) => r3(x0 + x * size);
+  const Y = (y: number) => r3(y0 + y * size);
+  const h = y0 + rows * size + 6;
+  return (
+    <Panel h={h} aria={aria}>
+      {Array.from({ length: cols + 1 }, (_, c) => <line key={`v${c}`} x1={X(c)} y1={Y(0)} x2={X(c)} y2={Y(rows)} stroke="rgba(148,163,184,0.3)" strokeWidth={0.35} />)}
+      {Array.from({ length: rows + 1 }, (_, r) => <line key={`h${r}`} x1={X(0)} y1={Y(r)} x2={X(cols)} y2={Y(r)} stroke="rgba(148,163,184,0.3)" strokeWidth={0.35} />)}
+      {mirror ? (
+        mirror.axis === 'x'
+          ? <line x1={X(mirror.at)} y1={Y(0) - 2} x2={X(mirror.at)} y2={Y(rows) + 2} stroke={R} strokeWidth={0.9} strokeDasharray="3 1.6" />
+          : <line x1={X(0) - 2} y1={Y(mirror.at)} x2={X(cols) + 2} y2={Y(mirror.at)} stroke={R} strokeWidth={0.9} strokeDasharray="3 1.6" />
+      ) : null}
+      {shapes.map((sh, i) => (
+        <g key={i}>
+          <polygon points={sh.pts.map(([x, y]) => `${X(x)},${Y(y)}`).join(' ')} fill={i === 0 ? 'rgba(129,140,248,0.35)' : 'rgba(251,191,36,0.3)'} stroke={sh.color ?? (i === 0 ? I : A)} strokeWidth={1} strokeDasharray={sh.dashed ? '2 1.4' : undefined} />
+          {sh.sideLabels?.map((lab, k) => {
+            const a = sh.pts[k];
+            const b = sh.pts[(k + 1) % sh.pts.length];
+            const mx = (a[0] + b[0]) / 2;
+            const my = (a[1] + b[1]) / 2;
+            const cxm = sh.pts.reduce((t, q) => t + q[0], 0) / sh.pts.length;
+            const cym = sh.pts.reduce((t, q) => t + q[1], 0) / sh.pts.length;
+            const dx = mx - cxm;
+            const dy = my - cym;
+            const norm = Math.hypot(dx, dy) || 1;
+            return <T key={k} x={X(mx) + (dx / norm) * 4} y={Y(my) + (dy / norm) * 4 + 1.6} color={LINE} size={4.4}>{lab}</T>;
+          })}
+          {sh.name ? <T x={X(sh.pts.reduce((t, q) => t + q[0], 0) / sh.pts.length)} y={Y(sh.pts.reduce((t, q) => t + q[1], 0) / sh.pts.length) + 1.6} color={LINE} size={4.6}>{sh.name}</T> : null}
+        </g>
+      ))}
+      {centre ? <circle cx={X(centre[0])} cy={Y(centre[1])} r={1.3} fill={R} /> : null}
     </Panel>
   );
 };
