@@ -70,7 +70,7 @@ export const learnSteps: LearnStep[] = [
           x={[-1, 5]}
           y={[-4, 6]}
           yEvery={2}
-          curves={[{ f: (x: number) => lineA * x + lineQ, label: g.lineStr(lineA, lineQ), labelAt: 3.6, labelDy: -8 }]}
+          curves={[{ f: (x: number) => lineA * x + lineQ, label: g.lineStr(lineA, lineQ), labelAt: 4.9, labelY: 4.6, labelAnchor: 'end' }]}
           points={[{ x: 0, y: lineQ, label: pt(0, lineQ), anchor: 'start', dy: -4 }, { x: val(lineX), y: 0, label: pt(val(lineX), 0), anchor: 'start', dy: -4 }]}
           aria={`The line ${g.lineStr(lineA, lineQ)} cuts the y-axis at (0; ${lineQ}) and the x-axis at (${f(lineX)}; 0).`}
         />
@@ -99,7 +99,7 @@ export const learnSteps: LearnStep[] = [
           y={[-10, 12]}
           xTicks={[-4, -2, 2, 4]}
           yTicks={[-8, -4, 4, 8, 12]}
-          curves={[{ f: (x: number) => x * x + par.q, label: g.parabolaStr(par), labelAt: 3.4, labelDy: -26, labelAnchor: 'start' }]}
+          curves={[{ f: (x: number) => x * x + par.q, label: g.parabolaStr(par), labelAt: 0, labelY: 6 }]}
           points={[{ x: 0, y: par.q, label: pt(parTp[0], parTp[1]), dy: 9 }, { x: parX[0], y: 0, label: String(parX[0]).replace('-', '−'), dy: -4 }, { x: parX[1], y: 0, label: String(parX[1]), dy: -4 }]}
           aria={`The parabola ${g.parabolaStr(par)} has its turning point at (0; ${par.q}) and cuts the x-axis at x = ${parX[0]} and x = ${parX[1]}.`}
         />
@@ -124,14 +124,14 @@ export const learnSteps: LearnStep[] = [
       <>
         <Rule>q moves the graph up or down. When a is bigger than 1 the parabola is narrower; between 0 and 1 it is wider; when a is negative it is flipped upside down.</Rule>
         <MiniGraph
-          x={[-4, 4]}
+          x={[-7, 5]}
           y={[-8, 12]}
           xTicks={[-4, -2, 2, 4]}
           yTicks={[-8, -4, 4, 8, 12]}
           curves={[
-            { f: (x: number) => x * x, label: 'y = x²', labelAt: 2.9, labelAnchor: 'start', labelDy: -4 },
-            { f: (x: number) => x * x + 3, label: 'y = x² + 3', labelAt: -2.2, labelAnchor: 'end', labelDy: -6 },
-            { f: (x: number) => -(x * x), label: 'y = −x²', labelAt: 2.2, labelAnchor: 'start', labelDy: 10 },
+            { f: (x: number) => x * x + 3, label: 'y = x² + 3', labelAt: -6.8, labelY: 10.5, labelAnchor: 'start' },
+            { f: (x: number) => x * x, label: 'y = x²', labelAt: -6.8, labelY: 6.5, labelAnchor: 'start' },
+            { f: (x: number) => -(x * x), label: 'y = −x²', labelAt: -6.8, labelY: 2.5, labelAnchor: 'start' },
           ]}
           aria="Three parabolas. y = x² has its turning point at the origin. y = x² + 3 is the same shape moved up 3. y = −x² is the first one flipped upside down."
         />

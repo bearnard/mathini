@@ -33,7 +33,7 @@ export const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>The marks next to a question tell you how many separate things the marker looks for. A 3-mark question needs three steps on paper, not just an answer.</Rule>
-        <MarkSplit steps={['Write the equation in the form you need and factorise', 'Set each factor equal to 0', 'Write both solutions']} />
+        <MarkSplit steps={['Factorise the equation', 'Set each factor equal to 0', 'Write both solutions']} />
         <Worked
           title={<>(3 marks) Solve x{sq} − 5x − 14 = 0</>}
           steps={[
@@ -53,7 +53,7 @@ export const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>Use any minutes left to check. Put your answer back into the question, and ask whether it is a sensible size.</Rule>
-        <MarkSplit steps={['Estimate the answer first', 'Do the calculation', 'Ask: is this the right size and units?']} />
+        <MarkSplit steps={['Estimate the answer first', 'Do the calculation', 'Ask: is it the right size?']} />
         <Worked
           steps={[
             <>Substitute x = {checkX} into x{sq} − 5x − 14: {checkX}{sq} − 5({checkX}) − 14 = {checkX * checkX} − {5 * checkX} − 14 = <strong>{checkValue}</strong> ✓.</>,
@@ -74,11 +74,11 @@ export const learnSteps: LearnStep[] = [
         <Rule>Read the question for key words, then choose the method before you calculate. Many exam mistakes come from choosing the wrong tool.</Rule>
         <ToolPairs
           pairs={[
-            ['two brackets multiplied', 'expand and collect like terms'],
-            ['a quadratic equals 0', 'factorise, set each factor to 0'],
+            ['two brackets multiplied', 'expand, then collect like terms'],
+            ['a quadratic equals 0', 'factorise, each factor = 0'],
             ['two unknowns, two equations', 'eliminate or substitute'],
-            ['a side and an angle in a right triangle', 'sin, cos or tan'],
-            ['a graph: intercepts', 'x = 0 for y, y = 0 for x'],
+            ['a side and an angle (right triangle)', 'sin, cos or tan'],
+            ['a graph: intercepts', 'x = 0 gives y; y = 0 gives x'],
           ]}
         />
         <Worked

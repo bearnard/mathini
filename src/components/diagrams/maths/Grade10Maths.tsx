@@ -93,13 +93,13 @@ export const CartesianAngle = ({ x, y }: { x: number; y: number }) => {
 
 // ---------------------------------------------------------------- a small, accessible graph (axes, curves sampled from functions, marked points)
 
-export interface GraphCurve { f: (x: number) => number; color?: string; label?: string; labelAt?: number; labelDy?: number; labelAnchor?: 'start' | 'middle' | 'end' }
+export interface GraphCurve { f: (x: number) => number; color?: string; label?: string; labelAt?: number; labelDy?: number; labelY?: number; labelAnchor?: 'start' | 'middle' | 'end' }
 export interface GraphPoint { x: number; y: number; label?: string; color?: string; anchor?: 'start' | 'middle' | 'end'; dy?: number }
 
 /** Axes with whole-number ticks, curves sampled from the function, and marked points. Everything is computed from the ranges, so the picture matches the numbers. */
 export interface GraphGuide { x?: number; y?: number; label?: string; color?: string }
 
-export const MiniGraph = ({ curves, points = [], guides = [], x: xr, y: yr, aria, tickEvery = 1, yEvery = tickEvery, xTicks, yTicks, h = 76 }: { curves: GraphCurve[]; points?: GraphPoint[]; guides?: GraphGuide[]; x: [number, number]; y: [number, number]; aria: string; tickEvery?: number; yEvery?: number; xTicks?: number[]; yTicks?: number[]; h?: number }) => {
+export const MiniGraph = ({ curves, points = [], guides = [], x: xr, y: yr, aria, tickEvery = 1, yEvery = tickEvery, xTicks, yTicks, xSuffix = '', h = 76 }: { curves: GraphCurve[]; points?: GraphPoint[]; guides?: GraphGuide[]; x: [number, number]; y: [number, number]; aria: string; tickEvery?: number; yEvery?: number; xTicks?: number[]; yTicks?: number[]; xSuffix?: string; h?: number }) => {
   const L = 14;
   const Rr = 112;
   const Tt = 6;
@@ -127,7 +127,7 @@ export const MiniGraph = ({ curves, points = [], guides = [], x: xr, y: yr, aria
   const colors = [I, R, E];
   return (
     <Panel h={h} aria={aria}>
-      {xs.map((v) => (v === 0 ? null : <T key={`x${v}`} x={sx(v)} y={sy(y0) + 7} color={MUTED} size={4.4}>{String(v).replace('-', '−')}</T>))}
+      {xs.map((v) => (v === 0 ? null : <T key={`x${v}`} x={sx(v)} y={sy(y0) + 7} color={MUTED} size={4.4}>{`${String(v).replace('-', '−')}${xSuffix}`}</T>))}
       {ys.map((v) => (v === 0 ? null : <T key={`y${v}`} x={sx(x0) - 2} y={sy(v) + 1.6} color={MUTED} size={4.4} anchor="end">{String(v).replace('-', '−')}</T>))}
       <line x1={L} y1={r3(sy(y0))} x2={Rr} y2={r3(sy(y0))} stroke={MUTED} strokeWidth={0.7} />
       <line x1={r3(sx(x0))} y1={Tt} x2={r3(sx(x0))} y2={Bb} stroke={MUTED} strokeWidth={0.7} />
@@ -143,7 +143,7 @@ export const MiniGraph = ({ curves, points = [], guides = [], x: xr, y: yr, aria
       {curves.map((c, i) => {
         if (!c.label) return null;
         const at = c.labelAt ?? xr[1] - 1;
-        return <T key={`l${i}`} x={sx(at)} y={Math.max(Tt + 5, Math.min(Bb - 2, sy(c.f(at)) + (c.labelDy ?? -4)))} color={c.color ?? colors[i % 3]} size={5} anchor={c.labelAnchor ?? 'middle'}>{c.label}</T>;
+        return <T key={`l${i}`} x={sx(at)} y={Math.max(Tt + 5, Math.min(Bb - 2, c.labelY !== undefined ? sy(c.labelY) : sy(c.f(at)) + (c.labelDy ?? -4)))} color={c.color ?? colors[i % 3]} size={5} anchor={c.labelAnchor ?? 'middle'}>{c.label}</T>;
       })}
       {points.map((p, i) => (
         <g key={`p${i}`}>
@@ -331,19 +331,19 @@ export const QuadrilateralFamily = () => {
 /** A parallelogram with its four angles: opposite angles equal, neighbours add up to 180°. */
 export const ParallelogramAngles = ({ a }: { a: number }) => {
   const b = 180 - a;
-  const P0: Pt = [30, 60];
-  const P1: Pt = [86, 60];
   const side = 36;
   const rad = (a * Math.PI) / 180; // the angle at A is drawn at its real size
+  const P0: Pt = [24 + Math.max(0, -Math.cos(rad)) * side, 62];
+  const P1: Pt = [P0[0] + 54, 62];
   const Dd: Pt = [P0[0] + side * Math.cos(rad), P0[1] - side * Math.sin(rad)];
   const Cc: Pt = [P1[0] + side * Math.cos(rad), P1[1] - side * Math.sin(rad)];
   return (
-    <Panel h={74} aria={`A parallelogram ABCD. Angles A and C are ${a}° and angles B and D are ${b}°. Neighbouring angles add up to 180°.`}>
+    <Panel h={76} aria={`A parallelogram ABCD. Angles A and C are ${a}° and angles B and D are ${b}°. Neighbouring angles add up to 180°.`}>
       <polygon points={poly([P0, P1, Cc, Dd])} fill="rgba(99,102,241,0.18)" stroke={I} strokeWidth={1.3} strokeLinejoin="round" />
-      <T x={P0[0] + 3} y={P0[1] - 4} color={A} anchor="start" size={5.4}>{`A = ${a}°`}</T>
-      <T x={P1[0] - 3} y={P1[1] - 4} color={E} anchor="end" size={5.4}>{`B = ${b}°`}</T>
-      <T x={Cc[0] - 3} y={Cc[1] + 9} color={A} anchor="end" size={5.4}>{`C = ${a}°`}</T>
-      <T x={Dd[0] + 3} y={Dd[1] + 9} color={E} anchor="start" size={5.4}>{`D = ${b}°`}</T>
+      <T x={P0[0] - 3} y={P0[1] + 8} color={A} anchor="end" size={5.4}>{`A = ${a}°`}</T>
+      <T x={P1[0] + 3} y={P1[1] + 8} color={E} anchor="start" size={5.4}>{`B = ${b}°`}</T>
+      <T x={Cc[0] + 3} y={Cc[1] - 2} color={A} anchor="start" size={5.4}>{`C = ${a}°`}</T>
+      <T x={Dd[0] - 3} y={Dd[1] - 2} color={E} anchor="end" size={5.4}>{`D = ${b}°`}</T>
     </Panel>
   );
 };
@@ -371,7 +371,9 @@ export const MidpointTriangle = ({ bc }: { bc: number }) => {
 /** Two similar triangles (the same angles, every side k times as long), drawn to scale with the base and the left side written beside them. */
 export const SimilarTriangles = ({ sides, k }: { sides: [number, number]; k: number }) => {
   const ang = (50 * Math.PI) / 180;
-  const u = Math.min(100 / (sides[0] * (1 + k) + 6), 54 / (sides[1] * k * Math.sin(ang)));
+  const wide = Math.max(sides[0], sides[1] * Math.cos(ang)); // the widest part of the small triangle, in side units
+  const gap = 12;
+  const u = Math.min((100 - gap) / (wide * (1 + k)), 54 / (sides[1] * k * Math.sin(ang)));
   const draw = (ox: number, f: number, label: string[]) => {
     const oy = 70;
     const [a, b] = [sides[0] * f * u, sides[1] * f * u];
@@ -386,11 +388,12 @@ export const SimilarTriangles = ({ sides, k }: { sides: [number, number]; k: num
       </g>
     );
   };
-  const gap = 6 * u;
+  const x1 = 14;
+  const x2 = x1 + wide * u + gap + 4;
   return (
     <Panel h={84} aria={`Two similar triangles with the same angles. The small one has a base of ${sides[0]} and a side of ${sides[1]}. Every side of the large one is ${k} times as long, so its base is ${sides[0] * k} and its side is ${sides[1] * k}.`}>
-      {draw(14 + sides[1] * u * 0.2, 1, [String(sides[0]), String(sides[1])])}
-      {draw(14 + sides[1] * u * 0.2 + sides[0] * u + gap + sides[1] * k * u * 0.45, k, [String(sides[0] * k), String(sides[1] * k)])}
+      {draw(x1 + 6, 1, [String(sides[0]), String(sides[1])])}
+      {draw(x2 + 6, k, [String(sides[0] * k), String(sides[1] * k)])}
     </Panel>
   );
 };
@@ -410,14 +413,13 @@ export const MarkSplit = ({ steps }: { steps: string[] }) => (
   </Panel>
 );
 
-/** "I see ... so I use ...": four pairs. */
+/** "I see ... so I use ...": each pair on two lines (what you read, then the tool). */
 export const ToolPairs = ({ pairs }: { pairs: [string, string][] }) => (
-  <Panel h={16 + pairs.length * 14} aria={`Which tool to use: ${pairs.map(([a, b]) => `${a} means ${b}`).join('; ')}.`}>
+  <Panel h={10 + pairs.length * 17} aria={`Which tool to use: ${pairs.map(([a, b]) => `${a} means ${b}`).join('; ')}.`}>
     {pairs.map(([a, b], i) => (
       <g key={i}>
-        <T x={10} y={16 + i * 14} color={A} size={5.4} anchor="start">{a}</T>
-        <T x={60} y={16 + i * 14} color={MUTED} size={5.4}>→</T>
-        <T x={68} y={16 + i * 14} color={E} size={5.4} anchor="start">{b}</T>
+        <T x={8} y={14 + i * 17} color={A} size={5.2} anchor="start">{a}</T>
+        <T x={8} y={21.5 + i * 17} color={E} size={5.2} anchor="start">{`→ ${b}`}</T>
       </g>
     ))}
   </Panel>

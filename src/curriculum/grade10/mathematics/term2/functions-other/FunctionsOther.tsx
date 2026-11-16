@@ -54,7 +54,7 @@ export const learnSteps: LearnStep[] = [
           yTicks={[-4, -2, 2, 4, 6]}
           curves={[{ f: (x: number) => (x === 0 ? NaN : hy.a / x + hy.q), label: g.hyperbolaStr(hy), labelAt: 5.8, labelAnchor: 'end', labelDy: -14 }]}
           guides={[{ x: 0 }, { y: hy.q }]}
-          points={[{ x: val(hyX), y: 0, label: pt(val(hyX), 0), anchor: 'end', dy: -4 }]}
+          points={[{ x: val(hyX), y: 0, label: pt(val(hyX), 0), anchor: 'end', dy: 10 }]}
           aria={`The graph of ${g.hyperbolaStr(hy)} has the asymptotes x = 0 and y = ${hy.q}. It cuts the x-axis at (${f(hyX)}; 0) and never cuts the y-axis.`}
         />
         <Worked
@@ -111,10 +111,11 @@ export const learnSteps: LearnStep[] = [
           x={[0, 360]}
           y={[-1.3, 1.3]}
           xTicks={[90, 180, 270, 360]}
+          xSuffix="°"
           yTicks={[-1, 1]}
           curves={[
-            { f: (x: number) => Math.sin((x * Math.PI) / 180), label: 'sin x', labelAt: 45, labelAnchor: 'end', labelDy: -6 },
-            { f: (x: number) => Math.cos((x * Math.PI) / 180), label: 'cos x', labelAt: 300, labelAnchor: 'start', labelDy: -8 },
+            { f: (x: number) => Math.sin((x * Math.PI) / 180), label: 'sin x', labelAt: 100, labelY: 1.22, labelAnchor: 'start' },
+            { f: (x: number) => Math.cos((x * Math.PI) / 180), label: 'cos x', labelAt: 180, labelY: -1.18 },
           ]}
           aria="The graphs of sin x and cos x from 0 to 360 degrees. Sin x starts at 0, rises to 1 at 90 degrees, crosses 0 at 180 degrees, falls to −1 at 270 degrees and returns to 0. Cos x starts at 1 and is the same shape shifted left by 90 degrees."
         />
@@ -141,8 +142,9 @@ export const learnSteps: LearnStep[] = [
           x={[0, 360]}
           y={[-4, 4]}
           xTicks={[90, 180, 270, 360]}
+          xSuffix="°"
           yTicks={[-2, 2]}
-          curves={[{ f: (x: number) => Math.tan((x * Math.PI) / 180), label: 'tan x', labelAt: 215, labelAnchor: 'start', labelDy: -10 }]}
+          curves={[{ f: (x: number) => Math.tan((x * Math.PI) / 180), label: 'y = tan x', labelAt: 30, labelY: -2.6, labelAnchor: 'start' }]}
           guides={[{ x: 90, label: '90°' }, { x: 270, label: '270°' }]}
           aria="The graph of tan x from 0 to 360 degrees. It rises steeply towards the asymptote at 90 degrees, comes back from below on the other side, crosses the x-axis at 180 degrees and has a second asymptote at 270 degrees."
         />
