@@ -7,6 +7,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Adjustments and Financial Statements",
   "Accounting"
  ],
+ "10|gr10-algebraic-expressions-t1": [
+  "Algebraic Expressions",
+  "Mathematics"
+ ],
  "10|gr10-analysis-interpretation": [
   "Analysis and Interpretation",
   "Accounting"
@@ -131,9 +135,17 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Electrostatics and Electric Circuits",
   "Physical Sciences"
  ],
+ "10|gr10-equations-inequalities-t1": [
+  "Equations and Inequalities",
+  "Mathematics"
+ ],
  "10|gr10-essay-writing-process-t1": [
   "Writing an Essay: Narrative, Descriptive and Argumentative",
   "English HL"
+ ],
+ "10|gr10-exponents-t1": [
+  "Exponents",
+  "Mathematics"
  ],
  "10|gr10-finance-documents-tariff-systems-t2": [
   "Finance: Documents and Tariff Systems",
@@ -210,6 +222,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-networks-data-handling-t3": [
   "Networks and Data Handling",
   "Information Technology"
+ ],
+ "10|gr10-number-patterns-t1": [
+  "Number Patterns",
+  "Mathematics"
  ],
  "10|gr10-numbers-calculations-context-t1": [
   "Numbers and Calculations in Context",
@@ -306,6 +322,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-transport-systems-mammals-t2": [
   "Transport Systems in Mammals",
   "Life Sciences"
+ ],
+ "10|gr10-trigonometry-t1": [
+  "Trigonometry",
+  "Mathematics"
  ],
  "10|gr10-vectors-motion-mechanical-energy-t3": [
   "Vectors, Motion and Mechanical Energy",
@@ -3899,6 +3919,7 @@ export const SUBJECT_TITLES: Record<string, string> = {
  "10|it": "Information Technology",
  "10|lo": "Life Orientation",
  "10|ls": "Life Sciences",
+ "10|math": "Mathematics",
  "10|ml": "Mathematical Literacy",
  "10|ps": "Physical Sciences",
  "11|acc": "Accounting",
