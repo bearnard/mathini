@@ -6,6 +6,7 @@ import Streak from '../../../../components/gamification/Streak';
 import Feedback from '../../../../components/ui/Feedback';
 import { buildMockTest, marksGained, seededRandom, scoreByTopic, topicsToRevise, totalMarks, type MockItem, type TopicBank } from './mockTest';
 import { kindOf, marksOf } from './itemKinds';
+import { makeQkey } from '../../../../lib/shared/qkey';
 import { onFinish, onStart } from './mockTestEvents';
 import NstQuestionBody, { incorrectMessageFor } from './NstQuestionBody';
 import ReportProblem from '../../../../components/items/ReportProblem';
@@ -106,11 +107,14 @@ const NstMockTest = ({ title, subtitle, groups, count = 20, explainCount = 0, ru
     if (phase === 'round1') {
       if (run) {
         // A self-marked written answer counts as correct only for full marks (correct = fully right, as in the score above).
-        tracker.begin({ kind: run.kind, grade: 6, subject: 'nst', scopeKey: run.scopeKey, scopeLabel: title, nItems: questions.length });
+        // Written answers the learner marks themselves are not counted on the server, so the stored run is made of the auto-marked questions only.
+        tracker.begin({ kind: run.kind, grade: 6, subject: 'nst', scopeKey: run.scopeKey, scopeLabel: title, nItems: questions.filter((it) => kindOf(it) !== 'explain').length });
         tracker.note(correct);
-        if (student) {
-          const body: Record<string, unknown> = { task: current.task ?? run.scopeKey, subject: 'nst', section: current.section, isCorrect: correct, streak: 0 };
-          if (chosen) body.chosen = chosen.slice(0, 200);
+        if (student && kindOf(current) !== 'explain') {
+          // The question key lets the server find the question and mark the answer itself; a test never feeds the spaced-review schedule (the server knows the run is a test).
+          const task = current.task ?? run.scopeKey;
+          const body: Record<string, unknown> = { task, subject: 'nst', section: current.section, qkey: makeQkey(task, current.prompt), isCorrect: correct, streak: 0 };
+          if (chosen) body.chosen = chosen.slice(0, 600);
           tracker.track(tracker.runId().then((id) => postAttemptJson(id ? { ...body, runId: id } : body)));
         }
       }

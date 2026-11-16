@@ -33,24 +33,25 @@ interface RawRow { k: string; student_id: string; task: string; grade: number; s
 function readSql(due: string): string {
   return `WITH due AS (${due})
 SELECT 'w' AS k, a.student_id, a.task, a.grade, a.subject, a.topic, a.is_correct AS v, a.created_at AS at, a.id AS n
-  FROM (SELECT x.*, ROW_NUMBER() OVER (PARTITION BY x.student_id, x.task ORDER BY x.id DESC) AS rn FROM attempts x JOIN due d ON d.s = x.student_id AND d.t = x.task) a
+  FROM (SELECT x.*, ROW_NUMBER() OVER (PARTITION BY x.student_id, x.task ORDER BY x.id DESC) AS rn FROM attempts x JOIN due d ON d.s = x.student_id AND d.t = x.task WHERE x.marked_by IS NOT 'client') a
   WHERE a.rn <= ${WINDOW}
 UNION ALL
 SELECT 'f', a.student_id, a.task, a.grade, a.subject, a.topic, a.is_correct, a.created_at, a.id
-  FROM (SELECT x.*, ROW_NUMBER() OVER (PARTITION BY x.student_id, x.task ORDER BY x.id ASC) AS rn FROM attempts x JOIN due d ON d.s = x.student_id AND d.t = x.task) a
+  FROM (SELECT x.*, ROW_NUMBER() OVER (PARTITION BY x.student_id, x.task ORDER BY x.id ASC) AS rn FROM attempts x JOIN due d ON d.s = x.student_id AND d.t = x.task WHERE x.marked_by IS NOT 'client') a
   WHERE a.rn <= ${BASELINE}
 UNION ALL
 SELECT 't', x.student_id, x.task, MAX(x.grade), MAX(x.subject), MAX(x.topic), COALESCE(SUM(x.is_correct), 0), MIN(x.created_at), COUNT(*)
-  FROM attempts x JOIN due d ON d.s = x.student_id AND d.t = x.task GROUP BY x.student_id, x.task
+  FROM attempts x JOIN due d ON d.s = x.student_id AND d.t = x.task WHERE x.marked_by IS NOT 'client' GROUP BY x.student_id, x.task
 UNION ALL
 SELECT 'l', x.student_id, x.task, 0, '', '', 0, MAX(x.created_at), 0
-  FROM attempts x JOIN due d ON d.s = x.student_id AND d.t = x.task GROUP BY x.student_id, x.task`;
+  FROM attempts x JOIN due d ON d.s = x.student_id AND d.t = x.task WHERE x.marked_by IS NOT 'client' GROUP BY x.student_id, x.task`;
 }
 
 // Due at night: a pair with NO cached row at all (history from before the cache existed, whatever its age: the self-heal for learners without runs),
 // or a pair with attempts from the last 3 days that are newer than its cached row.
 const DUE_NIGHTLY = `SELECT a.student_id AS s, a.task AS t FROM attempts a
   LEFT JOIN topic_progress p ON p.student_id = a.student_id AND p.task = a.task
+  WHERE a.marked_by IS NOT 'client'
   GROUP BY a.student_id, a.task
   HAVING p.updated_at IS NULL OR (MAX(a.created_at) >= ? AND MAX(a.created_at) > p.updated_at)
   ORDER BY MAX(a.created_at) DESC
@@ -127,7 +128,7 @@ export async function refreshForRun(db: AdminDb, studentId: string, tasks: reado
  * batch for at most 30 tasks (the nightly job picks up the rest). Returns the rows written.
  */
 export async function ensureProgressRows(db: AdminDb, studentId: string, now: number): Promise<number> {
-  const tasks = await db.all<{ task: string }>('SELECT task FROM attempts WHERE student_id = ? GROUP BY task ORDER BY MAX(created_at) DESC LIMIT 30', [studentId]);
+  const tasks = await db.all<{ task: string }>("SELECT task FROM attempts WHERE student_id = ? AND marked_by IS NOT 'client' GROUP BY task ORDER BY MAX(created_at) DESC LIMIT 30", [studentId]);
   return refreshForRun(db, studentId, tasks.map((t) => t.task), now);
 }
 

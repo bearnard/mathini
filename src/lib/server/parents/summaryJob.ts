@@ -132,7 +132,7 @@ export async function runWeeklySummary(deps: SummaryDeps): Promise<SummaryResult
           b.assertWhole();
           if (!progress) continue;
           const stats = (await b.db.all<{ answers: number; days: number }>(
-            'SELECT COUNT(*) AS answers, COUNT(DISTINCT CAST((created_at + 7200000) / 86400000 AS INTEGER)) AS days FROM attempts WHERE student_id = ? AND created_at >= ?',
+            'SELECT COUNT(*) AS answers, COUNT(DISTINCT CAST((created_at + 7200000) / 86400000 AS INTEGER)) AS days FROM attempts WHERE student_id = ? AND created_at >= ? AND marked_by IS NOT \'client\'',
             [k.student_id, now - WEEK_MS],
           ))[0];
           weeks.push(childWeekFrom(progress, { days: Number(stats?.days ?? 0), answers: Number(stats?.answers ?? 0) }, now));

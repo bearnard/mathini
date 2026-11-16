@@ -12,8 +12,9 @@ interface Props {
   /** mcq only: the option tapped so far, or null. */
   selected: string | null;
   /**
-   * Called once per question with whether it was fully right. For mcq, `chosen` is the option tapped.
-   * For a self-marked explain item, `score` is the marks the learner gave themselves (correct = at least 70%).
+   * Called once per question with whether it was fully right. `chosen` is what the learner did, so the SERVER can mark it (it never believes `correct`):
+   * for mcq the option tapped; for order the steps in the learner's order joined by "|"; for label "hotspotId=Label" pairs joined by "|".
+   * For a self-marked explain item, `score` is the marks the learner gave themselves (correct = at least 70%); the server cannot check that, so it never counts.
    */
   onResult: (correct: boolean, chosen?: string, score?: { marks: number; of: number }) => void;
 }
@@ -30,7 +31,7 @@ const QuestionBody = ({ item, questionKey, selected, onResult }: Props) => {
         key={questionKey}
         steps={item.options}
         answer={item.answer}
-        onSubmit={(correct) => onResult(correct)}
+        onSubmit={(correct, detail) => onResult(correct, detail.attempt.join('|'))}
       />
     );
   }
@@ -56,7 +57,7 @@ const QuestionBody = ({ item, questionKey, selected, onResult }: Props) => {
         hotspots={item.hotspots}
         labels={item.options}
         answer={item.answer}
-        onSubmit={(correct) => onResult(correct)}
+        onSubmit={(correct, detail) => onResult(correct, item.hotspots!.map((h) => `${h.id}=${detail.attempt[h.id] ?? ''}`).join('|'))}
       />
     );
   }

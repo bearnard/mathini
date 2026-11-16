@@ -18,10 +18,16 @@ export async function POST(req: NextRequest) {
     if (!studentId) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
 
     const now = Date.now();
+    // Retiring a card counts as "remembered for good" in the learner's progress, so the browser cannot retire a card it wants gone: only a card whose
+    // question no longer exists (reworded or removed) can be retired here. A card whose question is still active keeps coming back until it is really learned.
+    const marks = qkeys.map(() => '?').join(',');
+    const live = new Set(((await env.DB.prepare(`SELECT DISTINCT v.qkey AS k FROM question_versions v JOIN questions q ON q.id = v.question_id WHERE q.status = 'active' AND v.qkey IN (${marks})`).bind(...qkeys).all<{ k: string }>()).results ?? []).map((r) => r.k));
+    const stale = qkeys.filter((k) => !live.has(k));
+    if (stale.length === 0) return NextResponse.json({ ok: true, retired: 0 });
     await env.DB.batch(
-      qkeys.map((k) => env.DB.prepare('UPDATE review_items SET retired_at = ?, updated_at = ? WHERE student_id = ? AND qkey = ? AND retired_at IS NULL').bind(now, now, studentId, k)),
+      stale.map((k) => env.DB.prepare('UPDATE review_items SET retired_at = ?, updated_at = ? WHERE student_id = ? AND qkey = ? AND retired_at IS NULL').bind(now, now, studentId, k)),
     );
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, retired: stale.length });
   } catch (err) {
     console.error('Review retire error:', err);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

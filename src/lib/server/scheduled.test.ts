@@ -103,6 +103,7 @@ test('the nightly job refreshes topic_progress and abandons stale runs (ADR 0005
   const mig = (f: string) => fs.readFileSync(`migrations/${f}`, 'utf8');
   t.raw.exec(mig('0002_students_results_gamification.sql').replace(/ALTER TABLE item_cache[^;]*;/g, '').replace(/CREATE INDEX IF NOT EXISTS idx_item_cache_task_section[^;]*;/g, ''));
   t.raw.exec(mig('0014_progress.sql'));
+  t.raw.exec(mig('0018_attempt_marking.sql'));
   const now = Date.UTC(2026, 10, 15, 3, 0, 0);
   t.raw.prepare("INSERT INTO students (id, login_code, pin_hash, pin_salt, display_name, real_name, grade, created_at, last_seen_at) VALUES ('s1','C','h','s','n','r',6,1,1)").run();
   for (let i = 0; i < 4; i++) t.raw.prepare("INSERT INTO attempts (student_id, task, section, grade, subject, topic, is_correct, created_at) VALUES ('s1','electric-circuits','general',6,'nst','electric-circuits',?,?)").run(i % 2, now - 3600_000 + i);
