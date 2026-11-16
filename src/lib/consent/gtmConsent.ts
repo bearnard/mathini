@@ -4,7 +4,6 @@
 
 export const GTM_ID = 'GTM-MNM3XGLP';
 export const GTM_SCRIPT_URL = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
-export const GTM_NOSCRIPT_URL = `https://www.googletagmanager.com/ns.html?id=${GTM_ID}`;
 
 export const CONSENT_KEY = 'pp_cookie_choice';
 /** A choice is remembered for six months, then we ask again. */
@@ -61,4 +60,47 @@ export function isPublicPath(pathname: string): boolean {
 /** A browser that says Do Not Track or Global Privacy Control gets no Tag Manager and no banner, as the privacy page promises. */
 export function privacySignalOn(nav: { doNotTrack?: string | null; globalPrivacyControl?: boolean } | undefined): boolean {
   return !!nav && (nav.doNotTrack === '1' || nav.doNotTrack === 'yes' || nav.globalPrivacyControl === true);
+}
+
+// ---------- loading Tag Manager: only after Accept ----------
+// "Basic" Consent Mode: until the visitor has pressed Accept, NOTHING is requested from Google (no gtm.js, no analytics ping, no <noscript> iframe) and
+// nothing is pushed to the dataLayer. Decline, no answer, Do Not Track and Global Privacy Control all load nothing. The privacy page and the banner say so.
+
+type GtagFn = (...args: unknown[]) => void;
+export interface GtmWindow { dataLayer?: unknown[]; gtag?: GtagFn }
+export interface GtmDocument {
+  querySelector(selector: string): unknown;
+  createElement(tag: string): { async: boolean; src: string };
+  head: { appendChild(node: unknown): unknown };
+}
+
+function ensureGtag(w: GtmWindow): GtagFn {
+  w.dataLayer = w.dataLayer || [];
+  if (!w.gtag) {
+    // Google's own shape: it pushes the arguments object, which is what the container reads.
+    w.gtag = function gtag() { (w.dataLayer as unknown[]).push(arguments); };
+  }
+  return w.gtag;
+}
+
+/**
+ * Called ONLY for an Accept (a remembered one on a later visit, or the button just pressed). Sets the Consent Mode defaults, grants analytics,
+ * starts the container and adds the script once. Safe to call again.
+ */
+export function loadGtm(w: GtmWindow, doc: GtmDocument): void {
+  const gtag = ensureGtag(w);
+  gtag('consent', 'default', { ...CONSENT_DEFAULT });
+  gtag('consent', 'update', consentUpdateFor('accept'));
+  (w.dataLayer as unknown[]).push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+  if (!doc.querySelector(`script[src="${GTM_SCRIPT_URL}"]`)) {
+    const s = doc.createElement('script');
+    s.async = true;
+    s.src = GTM_SCRIPT_URL;
+    doc.head.appendChild(s);
+  }
+}
+
+/** A Decline (or "ask me again") after Google was already loaded in this page view: switch analytics storage off again. Does nothing when nothing was loaded. */
+export function withdrawGtm(w: GtmWindow): void {
+  if (w.gtag) w.gtag('consent', 'update', consentUpdateFor('decline'));
 }
