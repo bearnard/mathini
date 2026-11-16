@@ -10,6 +10,13 @@ function SchoolCard({ s, onDone }: { s: AdminSchool; onDone: () => void }) {
   const [email, setEmail] = useState('');
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
+  const [district, setDistrict] = useState(s.district ?? '');
+  const [saved, setSaved] = useState(false);
+  const saveDistrict = async () => {
+    setErr(''); setSaved(false);
+    const r = await postJson(`/api/admin/schools/${s.id}/district`, 'school-district-set', { district });
+    if (r.ok) setSaved(true); else setErr(r.failure.error);
+  };
   const appoint = async () => {
     setBusy(true); setErr('');
     const r = await postJson(`/api/admin/schools/${s.id}/admins`, 'school-admin-appoint', { email });
@@ -25,6 +32,11 @@ function SchoolCard({ s, onDone }: { s: AdminSchool; onDone: () => void }) {
     <li className="admin-card" style={{ padding: 12, minWidth: 0, overflowWrap: 'anywhere' }}>
       <strong>{s.name}</strong>
       <span className="admin-muted" style={{ fontSize: 13 }}> {s.province ? `· ${s.province} ` : ''}· {s.teachers} {s.teachers === 1 ? 'teacher' : 'teachers'} · {s.classes} {s.classes === 1 ? 'class' : 'classes'}</span>
+      <div style={{ display: 'flex', gap: 8, marginTop: 8, flexWrap: 'wrap', alignItems: 'center' }}>
+        <input className="admin-input" aria-label={`Education district of ${s.name}`} placeholder="Education district (for the area leaderboard)" value={district} onChange={(e) => { setDistrict(e.target.value); setSaved(false); }} maxLength={80} style={{ flex: '1 1 240px', minWidth: 0 }} />
+        <button type="button" className="admin-btn" onClick={() => void saveDistrict()}>Save district</button>
+        {saved && <span className="admin-muted" style={{ fontSize: 13 }}>Saved</span>}
+      </div>
       <div style={{ marginTop: 8, fontSize: 14 }}>
         <span className="admin-muted">School admins: </span>
         {s.admins.length === 0 ? <span>none yet</span> : (

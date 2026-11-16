@@ -13,6 +13,8 @@ import { creditExercise, type ExerciseResult } from '../../../lib/server/exercis
 import { attemptInsertPlans } from '../../../lib/server/progress/attemptPlans';
 import { routeLimited } from '../../../lib/server/edgeLimitRoute';
 import { attemptsLimiter } from '../../../lib/server/learnerGuards';
+import { refreshWeeklyPoints } from '../../../lib/server/leaderboard/points';
+import { runLater } from '../../../lib/server/admin/db';
 import { MAX_CHOSEN_LONG, verifiedStreak } from '../../../lib/server/marking';
 
 export const dynamic = 'force-dynamic';
@@ -190,6 +192,10 @@ export async function POST(req: NextRequest) {
     );
 
     await db.batch(batch);
+
+    // Leaderboard (docs/notes/leaderboard.md): rebuild this learner's weekly points after the response. Never blocks or fails the answer.
+    const lbDb = d1Adapter(env.DB as never, getCloudflareContext().ctx);
+    await runLater(lbDb, () => refreshWeeklyPoints(lbDb, studentId, now));
 
     // Get current XP totals for badge evaluation
     const xpResult = await db

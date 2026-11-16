@@ -114,7 +114,7 @@ test('the invite maker (parents) and every learner route use the live check, so 
 });
 
 test('wiring: every route that reads pp_session checks the live version; login and sign-up issue versioned cookies; the old plain check is gone from routes', () => {
-  const routes = ['runs/route.ts', 'runs/[id]/finish/route.ts', 'progress/route.ts', 'students/me/weak-sections/route.ts', 'review/today/route.ts', 'review/retire/route.ts', 'questions/report/route.ts', 'leaderboard/route.ts', 'consent/route.ts', 'attempts/route.ts', 'session/route.ts', 'events/route.ts'];
+  const routes = ['runs/route.ts', 'runs/[id]/finish/route.ts', 'progress/route.ts', 'students/me/weak-sections/route.ts', 'review/today/route.ts', 'review/retire/route.ts', 'questions/report/route.ts', 'consent/route.ts', 'attempts/route.ts', 'session/route.ts', 'events/route.ts'];
   for (const r of routes) {
     const src = read(`src/app/api/${r}`);
     assert.ok(src.includes('verifyLiveSession('), r);
@@ -122,6 +122,7 @@ test('wiring: every route that reads pp_session checks the live version; login a
   }
   assert.ok(read('src/lib/server/schools/http.ts').includes('verifyLiveSession(deps.db'));
   assert.ok(read('src/lib/server/parents/http.ts').includes('verifyLiveSession(deps.db'));
+  assert.ok(read('src/lib/server/leaderboard/http.ts').includes('verifyLiveSession(deps.db'));
   const login = read('src/app/api/session/route.ts');
   assert.ok(login.includes('signSessionV(student.id, (await currentSessionVersion(guard, student.id)) ?? 0') && !login.includes('signSession('), 'login issues the CURRENT version');
   assert.ok(read('src/app/api/students/route.ts').includes('signSessionV(studentId, 0,'));

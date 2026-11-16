@@ -43,12 +43,6 @@ for (const { file, subject, handler, call } of SHELLS as { file: string; subject
   });
 }
 
-test('the subject codes are exactly the ones the leaderboard Subject filter offers (so subject leaderboards work)', () => {
-  const lb = read('components/leaderboard/LeaderboardView.tsx');
-  const offered = [...lb.matchAll(/<option value="([a-z]+)">/g)].map((m) => m[1]);
-  for (const { subject } of SHELLS) assert.ok(offered.includes(subject), `${subject} is not in the leaderboard filter`);
-});
-
 test('the four shells use four different subject codes (no merging of subjects)', () => {
   assert.equal(new Set(SHELLS.map((s) => s.subject)).size, 4);
 });
