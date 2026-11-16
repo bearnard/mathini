@@ -97,7 +97,9 @@ export interface GraphCurve { f: (x: number) => number; color?: string; label?: 
 export interface GraphPoint { x: number; y: number; label?: string; color?: string; anchor?: 'start' | 'middle' | 'end'; dy?: number }
 
 /** Axes with whole-number ticks, curves sampled from the function, and marked points. Everything is computed from the ranges, so the picture matches the numbers. */
-export const MiniGraph = ({ curves, points = [], x: xr, y: yr, aria, tickEvery = 1, yEvery = tickEvery, h = 76 }: { curves: GraphCurve[]; points?: GraphPoint[]; x: [number, number]; y: [number, number]; aria: string; tickEvery?: number; yEvery?: number; h?: number }) => {
+export interface GraphGuide { x?: number; y?: number; label?: string; color?: string }
+
+export const MiniGraph = ({ curves, points = [], guides = [], x: xr, y: yr, aria, tickEvery = 1, yEvery = tickEvery, xTicks, yTicks, h = 76 }: { curves: GraphCurve[]; points?: GraphPoint[]; guides?: GraphGuide[]; x: [number, number]; y: [number, number]; aria: string; tickEvery?: number; yEvery?: number; xTicks?: number[]; yTicks?: number[]; h?: number }) => {
   const L = 14;
   const Rr = 112;
   const Tt = 6;
@@ -106,8 +108,8 @@ export const MiniGraph = ({ curves, points = [], x: xr, y: yr, aria, tickEvery =
   const sy = (v: number) => Bb - ((v - yr[0]) / (yr[1] - yr[0])) * (Bb - Tt);
   const x0 = Math.min(Math.max(0, xr[0]), xr[1]);
   const y0 = Math.min(Math.max(0, yr[0]), yr[1]);
-  const xs = Array.from({ length: Math.floor((xr[1] - xr[0]) / tickEvery) + 1 }, (_, i) => xr[0] + i * tickEvery);
-  const ys = Array.from({ length: Math.floor((yr[1] - yr[0]) / yEvery) + 1 }, (_, i) => yr[0] + i * yEvery);
+  const xs = xTicks ?? Array.from({ length: Math.floor((xr[1] - xr[0]) / tickEvery) + 1 }, (_, i) => xr[0] + i * tickEvery);
+  const ys = yTicks ?? Array.from({ length: Math.floor((yr[1] - yr[0]) / yEvery) + 1 }, (_, i) => yr[0] + i * yEvery);
   const path = (f: (x: number) => number) => {
     const N = 120;
     let d = '';
@@ -115,8 +117,9 @@ export const MiniGraph = ({ curves, points = [], x: xr, y: yr, aria, tickEvery =
     for (let i = 0; i <= N; i++) {
       const xv = xr[0] + (i / N) * (xr[1] - xr[0]);
       const yv = f(xv);
-      if (!Number.isFinite(yv) || yv < yr[0] - (yr[1] - yr[0]) || yv > yr[1] + (yr[1] - yr[0])) { pen = false; continue; }
-      d += `${pen ? 'L' : 'M'}${r3(sx(xv))} ${r3(Math.min(Math.max(sy(yv), Tt - 3), Bb + 3))} `;
+      const tol = 0.02 * (yr[1] - yr[0]);
+      if (!Number.isFinite(yv) || yv < yr[0] - tol || yv > yr[1] + tol) { pen = false; continue; }
+      d += `${pen ? 'L' : 'M'}${r3(sx(xv))} ${r3(sy(yv))} `;
       pen = true;
     }
     return d.trim();
@@ -128,6 +131,14 @@ export const MiniGraph = ({ curves, points = [], x: xr, y: yr, aria, tickEvery =
       {ys.map((v) => (v === 0 ? null : <T key={`y${v}`} x={sx(x0) - 2} y={sy(v) + 1.6} color={MUTED} size={4.4} anchor="end">{String(v).replace('-', '−')}</T>))}
       <line x1={L} y1={r3(sy(y0))} x2={Rr} y2={r3(sy(y0))} stroke={MUTED} strokeWidth={0.7} />
       <line x1={r3(sx(x0))} y1={Tt} x2={r3(sx(x0))} y2={Bb} stroke={MUTED} strokeWidth={0.7} />
+      {guides.map((gd, i) => (
+        <g key={`g${i}`}>
+          {gd.x !== undefined ? <line x1={r3(sx(gd.x))} y1={Tt} x2={r3(sx(gd.x))} y2={Bb} stroke={gd.color ?? A} strokeWidth={0.9} strokeDasharray="3 2" /> : null}
+          {gd.y !== undefined ? <line x1={L} y1={r3(sy(gd.y))} x2={Rr} y2={r3(sy(gd.y))} stroke={gd.color ?? A} strokeWidth={0.9} strokeDasharray="3 2" /> : null}
+          {gd.label && gd.y !== undefined ? <T x={Rr - 2} y={sy(gd.y) - 2} color={gd.color ?? A} size={4.8} anchor="end">{gd.label}</T> : null}
+          {gd.label && gd.x !== undefined ? <T x={sx(gd.x) + 2} y={Tt + 6} color={gd.color ?? A} size={4.8} anchor="start">{gd.label}</T> : null}
+        </g>
+      ))}
       {curves.map((c, i) => <path key={i} d={path(c.f)} fill="none" stroke={c.color ?? colors[i % 3]} strokeWidth={1.5} strokeLinecap="round" />)}
       {curves.map((c, i) => {
         if (!c.label) return null;
@@ -263,3 +274,151 @@ export const CancelFactors = ({ top, bottom, cancelled }: { top: string[]; botto
     </Panel>
   );
 };
+
+
+// ---------------------------------------------------------------- functions
+
+/** A function machine as a table: the rule at the top and a few inputs with their outputs. */
+export const FunctionTable = ({ rule, rows }: { rule: string; rows: [number | string, number | string][] }) => (
+  <Panel h={20 + rows.length * 12} aria={`A table for ${rule}. ${rows.map(([a, b]) => `When x is ${a}, y is ${b}`).join('; ')}.`}>
+    <T x={60} y={11} color={A} size={6.4}>{rule}</T>
+    <line x1={20} y1={16} x2={100} y2={16} stroke={MUTED} strokeWidth={0.7} />
+    {rows.map(([a, b], i) => (
+      <g key={i}>
+        <T x={38} y={28 + i * 12} color={I} size={6}>{`x = ${String(a).replace('-', '−')}`}</T>
+        <T x={60} y={28 + i * 12} color={MUTED} size={6}>→</T>
+        <T x={84} y={28 + i * 12} color={E} size={6}>{`y = ${String(b).replace('-', '−')}`}</T>
+      </g>
+    ))}
+  </Panel>
+);
+
+// ---------------------------------------------------------------- Euclidean geometry
+
+type Pt = [number, number];
+const poly = (ps: Pt[]) => ps.map((p) => `${r3(p[0])},${r3(p[1])}`).join(' ');
+const mid = (a: Pt, b: Pt): Pt => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+
+/** The six special quadrilaterals, each with its diagonals, drawn from coordinates. */
+export const QuadrilateralFamily = () => {
+  const cells: { name: string; pts: Pt[] }[] = [
+    { name: 'parallelogram', pts: [[0, 16], [10, 0], [34, 0], [24, 16]] },
+    { name: 'rectangle', pts: [[2, 16], [2, 0], [30, 0], [30, 16]] },
+    { name: 'rhombus', pts: [[0, 8], [14, 0], [28, 8], [14, 16]] },
+    { name: 'square', pts: [[8, 16], [8, 0], [24, 0], [24, 16]] },
+    { name: 'kite', pts: [[0, 8], [10, 0], [32, 8], [10, 16]] },
+    { name: 'trapezium', pts: [[0, 16], [8, 0], [24, 0], [34, 16]] },
+  ];
+  return (
+    <Panel h={84} aria="The six special quadrilaterals drawn with their diagonals: parallelogram, rectangle, rhombus, square, kite and trapezium.">
+      {cells.map((c, i) => {
+        const ox = 6 + (i % 3) * 38;
+        const oy = 8 + Math.floor(i / 3) * 38;
+        const ps = c.pts.map((p) => [ox + p[0], oy + p[1]] as Pt);
+        return (
+          <g key={c.name}>
+            <polygon points={poly(ps)} fill="rgba(99,102,241,0.18)" stroke={I} strokeWidth={1.1} strokeLinejoin="round" />
+            <line x1={r3(ps[0][0])} y1={r3(ps[0][1])} x2={r3(ps[2][0])} y2={r3(ps[2][1])} stroke={MUTED} strokeWidth={0.5} strokeDasharray="1.5 1.5" />
+            <line x1={r3(ps[1][0])} y1={r3(ps[1][1])} x2={r3(ps[3][0])} y2={r3(ps[3][1])} stroke={MUTED} strokeWidth={0.5} strokeDasharray="1.5 1.5" />
+            <T x={ox + 17} y={oy + 25} color={LINE} size={4.6}>{c.name}</T>
+          </g>
+        );
+      })}
+    </Panel>
+  );
+};
+
+/** A parallelogram with its four angles: opposite angles equal, neighbours add up to 180°. */
+export const ParallelogramAngles = ({ a }: { a: number }) => {
+  const b = 180 - a;
+  const P0: Pt = [30, 60];
+  const P1: Pt = [86, 60];
+  const side = 36;
+  const rad = (a * Math.PI) / 180; // the angle at A is drawn at its real size
+  const Dd: Pt = [P0[0] + side * Math.cos(rad), P0[1] - side * Math.sin(rad)];
+  const Cc: Pt = [P1[0] + side * Math.cos(rad), P1[1] - side * Math.sin(rad)];
+  return (
+    <Panel h={74} aria={`A parallelogram ABCD. Angles A and C are ${a}° and angles B and D are ${b}°. Neighbouring angles add up to 180°.`}>
+      <polygon points={poly([P0, P1, Cc, Dd])} fill="rgba(99,102,241,0.18)" stroke={I} strokeWidth={1.3} strokeLinejoin="round" />
+      <T x={P0[0] + 3} y={P0[1] - 4} color={A} anchor="start" size={5.4}>{`A = ${a}°`}</T>
+      <T x={P1[0] - 3} y={P1[1] - 4} color={E} anchor="end" size={5.4}>{`B = ${b}°`}</T>
+      <T x={Cc[0] - 3} y={Cc[1] + 9} color={A} anchor="end" size={5.4}>{`C = ${a}°`}</T>
+      <T x={Dd[0] + 3} y={Dd[1] + 9} color={E} anchor="start" size={5.4}>{`D = ${b}°`}</T>
+    </Panel>
+  );
+};
+
+/** Triangle ABC with D and E the midpoints of AB and AC: DE is parallel to BC and half as long. */
+export const MidpointTriangle = ({ bc }: { bc: number }) => {
+  const Ap: Pt = [60, 8];
+  const Bp: Pt = [14, 62];
+  const Cp: Pt = [106, 62];
+  const D = mid(Ap, Bp);
+  const Ee = mid(Ap, Cp);
+  return (
+    <Panel h={74} aria={`Triangle ABC. D is the midpoint of AB and E is the midpoint of AC. DE is parallel to BC and DE = ${bc / 2} when BC = ${bc}.`}>
+      <polygon points={poly([Ap, Bp, Cp])} fill="rgba(99,102,241,0.14)" stroke={I} strokeWidth={1.2} strokeLinejoin="round" />
+      <line x1={r3(D[0])} y1={r3(D[1])} x2={r3(Ee[0])} y2={r3(Ee[1])} stroke={A} strokeWidth={1.6} />
+      <T x={Ap[0]} y={Ap[1] - 1.5} color={LINE} size={5}>A</T>
+      <T x={D[0] - 4} y={D[1] + 1.5} color={LINE} size={5} anchor="end">D</T>
+      <T x={Ee[0] + 4} y={Ee[1] + 1.5} color={LINE} size={5} anchor="start">E</T>
+      <T x={60} y={D[1] - 3} color={A} size={5.4}>{`DE = ${bc / 2}`}</T>
+      <T x={60} y={Bp[1] + 8} color={E} size={5.4}>{`BC = ${bc}`}</T>
+    </Panel>
+  );
+};
+
+/** Two similar triangles (the same angles, every side k times as long), drawn to scale with the base and the left side written beside them. */
+export const SimilarTriangles = ({ sides, k }: { sides: [number, number]; k: number }) => {
+  const ang = (50 * Math.PI) / 180;
+  const u = Math.min(100 / (sides[0] * (1 + k) + 6), 54 / (sides[1] * k * Math.sin(ang)));
+  const draw = (ox: number, f: number, label: string[]) => {
+    const oy = 70;
+    const [a, b] = [sides[0] * f * u, sides[1] * f * u];
+    const P: Pt = [ox, oy];
+    const Q: Pt = [ox + a, oy];
+    const R: Pt = [ox + b * Math.cos(ang), oy - b * Math.sin(ang)];
+    return (
+      <g>
+        <polygon points={poly([P, Q, R])} fill="rgba(99,102,241,0.16)" stroke={I} strokeWidth={1.2} strokeLinejoin="round" />
+        <T x={(P[0] + Q[0]) / 2} y={oy + 8} color={E} size={5}>{label[0]}</T>
+        <T x={(P[0] + R[0]) / 2 - 3} y={(P[1] + R[1]) / 2} color={A} size={5} anchor="end">{label[1]}</T>
+      </g>
+    );
+  };
+  const gap = 6 * u;
+  return (
+    <Panel h={84} aria={`Two similar triangles with the same angles. The small one has a base of ${sides[0]} and a side of ${sides[1]}. Every side of the large one is ${k} times as long, so its base is ${sides[0] * k} and its side is ${sides[1] * k}.`}>
+      {draw(14 + sides[1] * u * 0.2, 1, [String(sides[0]), String(sides[1])])}
+      {draw(14 + sides[1] * u * 0.2 + sides[0] * u + gap + sides[1] * k * u * 0.45, k, [String(sides[0] * k), String(sides[1] * k)])}
+    </Panel>
+  );
+};
+
+// ---------------------------------------------------------------- exam preparation
+
+/** A question worth N marks as N small boxes: where the marks usually are (method, substitution, answer). */
+export const MarkSplit = ({ steps }: { steps: string[] }) => (
+  <Panel h={22 + steps.length * 14} aria={`A 3-mark question split into ${steps.length} marks: ${steps.join('; ')}.`}>
+    {steps.map((st, i) => (
+      <g key={i}>
+        <rect x={12} y={10 + i * 14} width={14} height={10} rx={2} fill={E} fillOpacity={0.35} stroke={E} strokeWidth={0.8} />
+        <T x={19} y={17.8 + i * 14} color={LINE} size={5.4}>1</T>
+        <T x={32} y={17.8 + i * 14} color={LINE} size={5.8} anchor="start">{st}</T>
+      </g>
+    ))}
+  </Panel>
+);
+
+/** "I see ... so I use ...": four pairs. */
+export const ToolPairs = ({ pairs }: { pairs: [string, string][] }) => (
+  <Panel h={16 + pairs.length * 14} aria={`Which tool to use: ${pairs.map(([a, b]) => `${a} means ${b}`).join('; ')}.`}>
+    {pairs.map(([a, b], i) => (
+      <g key={i}>
+        <T x={10} y={16 + i * 14} color={A} size={5.4} anchor="start">{a}</T>
+        <T x={60} y={16 + i * 14} color={MUTED} size={5.4}>→</T>
+        <T x={68} y={16 + i * 14} color={E} size={5.4} anchor="start">{b}</T>
+      </g>
+    ))}
+  </Panel>
+);

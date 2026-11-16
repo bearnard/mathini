@@ -12,9 +12,13 @@ const lessons = {
   patterns: renderSlides((await import('./term1/number-patterns/NumberPatterns')).learnSteps),
   equations: renderSlides((await import('./term1/equations-inequalities/EquationsInequalities')).learnSteps),
   trig: renderSlides((await import('./term1/trigonometry/Trigonometry')).learnSteps),
+  funcLQ: renderSlides((await import('./term2/functions-linear-quadratic/FunctionsLinearQuadratic')).learnSteps),
+  funcOther: renderSlides((await import('./term2/functions-other/FunctionsOther')).learnSteps),
+  geometry: renderSlides((await import('./term2/euclidean-geometry/EuclideanGeometry')).learnSteps),
+  examPrep: renderSlides((await import('./term2/midyear-exam-prep/MidYearExamPrep')).learnSteps),
 };
 
-test('every Term 1 lesson has the standard shape and sensible slide titles', () => {
+test('every lesson has the standard shape and sensible slide titles', () => {
   for (const [name, slides] of Object.entries(lessons)) {
     assertLessonShape(slides);
     for (const s of slides) {
@@ -102,4 +106,71 @@ test('Trigonometry: the worked numbers are true', () => {
   assert.ok(Math.abs((Math.acos(7 / 9) * 180) / Math.PI - 38.94) < 0.01);
   assert.equal(Math.hypot(-8, 6), 10);
   assert.equal(2 * 0.5 + 1, 2);
+});
+
+test('Functions (straight lines and parabolas): the worked numbers are true', () => {
+  const t = lessons.funcLQ.map((x) => x.text);
+  assert.match(t[0], /= 14/); // f(4) = 3(4) + 2
+  assert.match(t[0], /x = 3/);
+  assert.match(t[1], /\(0; 4\)/);
+  assert.match(t[1], /\(2; 0\)/);
+  assert.match(t[1], /−2/);
+  assert.match(t[2], /\(0; −9\)/);
+  assert.match(t[2], /x = −3 or x = 3/);
+  assert.match(t[2], /y ≥ −9/);
+  assert.match(t[3], /4 and 8/); // x² and 2x² at x = 2
+  assert.equal(3 * 4 + 2, 14);
+  assert.equal(-2 * 2 + 4, 0);
+  assert.equal(3 * 3 - 9, 0);
+  assert.equal(2 * 2 * 2, 8);
+});
+
+test('Functions (hyperbola, exponential, trigonometric graphs): the worked numbers are true', () => {
+  const t = lessons.funcOther.map((x) => x.text);
+  assert.match(t[0], /y ≠ 1/);
+  assert.match(t[0], /x = −3/);
+  assert.match(t[1], /y = 2/);
+  assert.match(t[1], /y > 2/);
+  assert.match(t[1], /\(0; 3\)/);
+  assert.match(t[1], /2,25/); // 2⁻² + 2
+  assert.match(t[2], /0, 1, 0, −1, 0/);
+  assert.match(t[2], /1, 0, −1, 0, 1/);
+  assert.match(t[2], /−2 ≤ y ≤ 2/);
+  assert.match(t[2], /0 ≤ y ≤ 2/);
+  assert.match(t[3], /180°/);
+  assert.equal(3 / -3 + 1, 0); // x-intercept of 3/x + 1
+  assert.equal(2 ** 0 + 2, 3);
+  assert.equal(2 ** -2 + 2, 2.25);
+  assert.equal(2 ** 3 + 2, 10);
+});
+
+test('Euclidean geometry: the worked numbers are true', () => {
+  const t = lessons.geometry.map((x) => x.text);
+  assert.match(t[1], /115°/);
+  assert.match(t[1], /360°/);
+  assert.match(t[1], /100°/);
+  assert.match(t[1], /95°/);
+  assert.match(t[2], /7 cm/);
+  assert.match(t[2], /x = 4/);
+  assert.match(t[3], /10 cm/);
+  assert.match(t[3], /= 4/);
+  assert.equal(180 - 65, 115);
+  assert.equal(180 - 80, 100);
+  assert.equal(3 * 35 - 10, 95);
+  assert.equal(2 * 35 + 25, 95);
+  assert.equal(2 * (3 * 4 - 1), 4 * 4 + 6);
+  assert.equal(14 / 2, 7);
+});
+
+test('Mid-year exam preparation: the worked numbers are true', () => {
+  const t = lessons.examPrep.map((x) => x.text);
+  assert.match(t[0], /\(x − 7\)\(x \+ 2\)/);
+  assert.match(t[0], /x = −2 or x = 7/);
+  assert.match(t[1], /= 0 ✓|= 0/);
+  assert.match(t[1], /10 cm/);
+  assert.match(t[2], /7,0 cm/);
+  assert.equal(7 * 7 - 5 * 7 - 14, 0);
+  assert.equal((-2) * (-2) - 5 * -2 - 14, 0);
+  assert.ok(Math.abs(10 * Math.tan((35 * Math.PI) / 180) - 7.002) < 0.001);
+  assert.ok(Math.abs(20 * Math.sin((30 * Math.PI) / 180) - 10) < 1e-12);
 });

@@ -45,8 +45,10 @@ test('the `const bank` literal in every topic file is exactly what its spec comp
 // ---------------------------------------------------------------- the independent check
 const SUP: Record<string, string> = { '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁻': '-' };
 /** "(x − 7)(x + 7)", "3x(2x + 3)", "x² + 8x + 15", "a⁴b³" -> a JavaScript expression. Single-letter variables only. */
-const toJs = (s: string): string =>
-  s
+const toJs = (raw: string): string => {
+  const parts = raw.split(' ÷ ');
+  const s = parts.length === 2 && !/^\(.*\)$/.test(parts[0]) ? `(${parts[0]}) ÷ (${parts[1]})` : raw;
+  return s
     .replace(/−/g, '-')
     .replace(/·/g, '*')
     .replace(/÷/g, '/')
@@ -55,6 +57,7 @@ const toJs = (s: string): string =>
     .replace(/([a-z)])([a-z(])/g, '$1*$2')
     .replace(/([a-z)])([a-z(])/g, '$1*$2') // twice: "xyz"
     .replace(/(\d)\s+(?=\d)/g, '$1');
+};
 const makeFn = (expr: string, vars: string[]): ((...v: number[]) => number) => new Function(...vars, `return (${toJs(expr)});`) as (...v: number[]) => number;
 const POINTS = [-4, -3, -2, 2, 3, 4, 5, 7, 9].map((n) => n + 0.5).concat([-5, -1, 1, 6, 8, 10]);
 const same = (a: (x: number) => number, b: (x: number) => number): boolean =>
@@ -66,10 +69,10 @@ const same = (a: (x: number) => number, b: (x: number) => number): boolean =>
   });
 
 test('INDEPENDENT: every expand / factorise / simplify item: the key equals the prompt expression everywhere and no wrong option does', () => {
-  const allowEquivalent: Record<string, string[]> = { 'Factorise completely: 2x² − 8': ['2(x² − 4)'], 'Factorise completely: 6x² + 9x': ['3(2x² + 3x)'] };
+  const allowEquivalent: Record<string, string[]> = { 'Factorise completely: 2x² − 8': ['2(x² − 4)'], '(2 marks) Factorise completely: 3x² − 12': ['3(x² − 4)'], 'Factorise completely: 6x² + 9x': ['3(2x² + 3x)'] };
   let checked = 0;
   for (const it of all) {
-    const m = /^(Expand and simplify|Expand|Factorise completely|Factorise|Factorise by grouping|Simplify): (.+)$/.exec(it.prompt);
+    const m = /^(?:\(\d marks?\) )?(Expand and simplify|Expand|Factorise completely|Factorise|Factorise by grouping|Simplify): (.+)$/.exec(it.prompt);
     if (!m || /ⁿ|ˣ/.test(it.prompt)) continue;
     const vars = ['x', 'a', 'b', 'c'].filter((v) => new RegExp(`\\b${v}`).test(m[2].replace(/[0-9]/g, '')) || it.options.some((o) => o.includes(v)));
     // the variables are positional: evaluate with x = t, a = t, b = t + 1, c = t + 2 so that a, b, c differ
@@ -87,7 +90,7 @@ test('INDEPENDENT: every expand / factorise / simplify item: the key equals the 
     }
     checked++;
   }
-  assert.ok(checked >= 15, `only ${checked} items were checked`);
+  assert.ok(checked >= 17, `only ${checked} items were checked`);
 });
 
 const solutionsOf = (f: (x: number) => number): number[] => {
@@ -113,6 +116,8 @@ test('INDEPENDENT: equations: the key lists exactly the real solutions (found by
     'Solve for x: 2ˣ = 32': (x) => 2 ** x - 32,
     'Solve for x: 3^(x + 1) = 27': (x) => 3 ** (x + 1) - 27,
     'Solve for x: 5ˣ = 1/25': (x) => 5 ** x - 1 / 25,
+    '(3 marks) Solve for x: x² − 3x − 10 = 0': (x) => x * x - 3 * x - 10,
+    '(2 marks) Solve for x: 3^(x − 2) = 81': (x) => 3 ** (x - 2) - 81,
   };
   for (const [prompt, f] of Object.entries(eqs)) {
     const it = all.find((i) => i.prompt === prompt);
@@ -199,4 +204,178 @@ test('INDEPENDENT: number patterns and trigonometry numbers, recomputed from scr
   assert.ok(Math.abs(8 ** (2 / 3) - 4) < 1e-9 && Math.abs(2 ** -3 - 1 / 8) < 1e-12);
   assert.equal(find('Between which two consecutive integers does √45 lie?').answer, `${Math.floor(Math.sqrt(45))} and ${Math.floor(Math.sqrt(45)) + 1}`);
   assert.equal(find('√45 correct to one decimal place is').answer, r2(Math.sqrt(45)));
+});
+
+
+// ---------------------------------------------------------------- Term 2: functions and geometry, checked independently
+const point = (o: string): [number, number] => {
+  const m = /^\((−?\d+(?:\/\d+)?); (−?\d+(?:\/\d+)?)\)$/.exec(o)!;
+  return [parseValue(m[1]), parseValue(m[2])];
+};
+const xs = Array.from({ length: 801 }, (_, k) => (k - 400) / 8); // −50 … 50 in steps of 1/8
+const near = (a: number, b: number, tol = 1e-9) => Math.abs(a - b) <= tol;
+
+/** Does the option (a range statement) describe exactly the set of values the function takes? Sampled over a wide grid. */
+const rangeMatches = (option: string, values: number[]): boolean => {
+  const lo = Math.min(...values);
+  const hi = Math.max(...values);
+  let m: RegExpExecArray | null;
+  if (option === 'y ∈ ℝ') return lo < -1e3 && hi > 1e3;
+  if ((m = /^y ≠ (−?\d+)$/.exec(option))) { const c = parseValue(m[1]); return values.every((v) => !near(v, c)) && hi > c + 1e3 && lo < c - 1e3; }
+  if ((m = /^y ≥ (−?\d+)$/.exec(option))) return near(lo, parseValue(m[1])) && hi > 1e3;
+  if ((m = /^y > (−?\d+)$/.exec(option))) return lo > parseValue(m[1]) && lo - parseValue(m[1]) < 1e-3 && hi > 1e3;
+  if ((m = /^y ≤ (−?\d+)$/.exec(option))) return near(hi, parseValue(m[1])) && lo < -1e3;
+  if ((m = /^y < (−?\d+)$/.exec(option))) return hi < parseValue(m[1]) && parseValue(m[1]) - hi < 1e-3 && lo < -1e3;
+  if ((m = /^(−?\d+) ≤ y ≤ (−?\d+)$/.exec(option))) return near(lo, parseValue(m[1]), 1e-6) && near(hi, parseValue(m[2]), 1e-6);
+  throw new Error(`unparsed range: ${option}`);
+};
+
+test('INDEPENDENT (Term 2): points (intercepts, turning points) and ranges come from evaluating the function', () => {
+  const find = (start: string) => all.find((i) => i.prompt.startsWith(start))!;
+  const f = (x: number) => 2 * x - 6;
+  const yint = find('What are the coordinates of the y-intercept of y = 2x − 6?');
+  assert.deepEqual(point(yint.answer), [0, f(0)]);
+  for (const o of yint.options.filter((x) => x !== yint.answer)) assert.notDeepEqual(point(o), [0, f(0)]);
+  const xint = find('What are the coordinates of the x-intercept of y = 2x − 6?');
+  const root = xs.find((x) => near(f(x), 0))!;
+  assert.deepEqual(point(xint.answer), [root, 0]);
+  for (const o of xint.options.filter((x) => x !== xint.answer)) assert.ok(!near(f(point(o)[0]), 0) || point(o)[1] !== 0, o);
+  // turning point of y = −x² + 3 = the maximum
+  const tp = find('What is the turning point of y = −x² + 3?');
+  const ys = xs.map((x) => -x * x + 3);
+  const best = xs[ys.indexOf(Math.max(...ys))];
+  assert.deepEqual(point(tp.answer), [best, -best * best + 3]);
+  for (const o of tp.options.filter((x) => x !== tp.answer)) assert.notDeepEqual(point(o), [best, -best * best + 3]);
+  // hyperbola x-intercept: 4/x − 2 = 0
+  const hx = find('What is the x-intercept of y = 4/x − 2?');
+  const hxRoot = xs.filter((x) => x !== 0).find((x) => near(4 / x - 2, 0))!;
+  assert.deepEqual(point(hx.answer), [hxRoot, 0]);
+  for (const o of hx.options.filter((x) => x !== hx.answer)) assert.ok(!(near(4 / point(o)[0] - 2, 0) && point(o)[1] === 0), o);
+  // y-intercepts of exponentials
+  for (const [start, fn, ans] of [['What is the y-intercept of y = 2ˣ?', (x: number) => 2 ** x, null], ['What is the y-intercept of y = 3 · 2ˣ + 1?', (x: number) => 3 * 2 ** x + 1, null]] as const) {
+    const it = find(start);
+    assert.deepEqual(point(it.answer), [0, fn(0)]);
+    for (const o of it.options.filter((x) => x !== it.answer)) assert.notDeepEqual(point(o), [0, fn(0)]);
+    void ans;
+  }
+  // ranges
+  const ranges: [string, (x: number) => number][] = [
+    ['What is the range of y = x² − 5?', (x) => x * x - 5],
+    ['What is the range of y = 1/x + 5?', (x) => 1 / x + 5],
+    ['What is the range of y = 2ˣ + 1?', (x) => 2 ** x + 1],
+    ['What is the range of y = 2 sin x + 1?', (x) => 2 * Math.sin((x * Math.PI) / 180) + 1],
+    ['(2 marks) What is the range of y = 3ˣ − 2?', (x) => 3 ** x - 2],
+  ];
+  for (const [prompt, fn] of ranges) {
+    const it = find(prompt);
+    const hyper = Array.from({ length: 21 }, (_, k) => k - 10).filter((c) => c !== 5).map((c) => 1 / (c - 5)); // the x that would give y = c, for c = −10 … 10
+    const grid = /sin/.test(prompt) ? Array.from({ length: 361 }, (_, k) => k) : /ˣ/.test(prompt) ? Array.from({ length: 109 }, (_, k) => -12 + k / 4) : xs.filter((x) => x !== 0).concat([1e-4, -1e-4, 1e-5, -1e-5], hyper);
+    const values = grid.map(fn);
+    assert.ok(rangeMatches(it.answer, values), `${prompt}: key "${it.answer}"`);
+    for (const o of it.options.filter((x) => x !== it.answer)) assert.ok(!rangeMatches(o, values), `${prompt}: wrong option "${o}" is also correct`);
+  }
+});
+
+test('INDEPENDENT (Term 2): lines, parabolas, asymptotes, quadrants and trigonometric graphs', () => {
+  const find = (start: string) => all.find((i) => i.prompt.startsWith(start))!;
+  const linePred = (o: string): ((x: number) => number) => {
+    const body = o.replace('y = ', '').replace(/−/g, '-');
+    return makeFn(body.replace(/^x\/3/, 'x/3'), ['x']) as (x: number) => number;
+  };
+  // gradient of the line through (1; 3) and (3; 9)
+  assert.equal(find('What is the gradient of the straight line through (1; 3) and (3; 9)?').answer, String((9 - 3) / (3 - 1)));
+  // a line with gradient −2 and y-intercept 5
+  const l4 = find('A straight line has gradient −2 and cuts the y-axis at 5.');
+  assert.ok(near(linePred(l4.answer)(0), 5) && near(linePred(l4.answer)(1) - linePred(l4.answer)(0), -2));
+  for (const o of l4.options.filter((x) => x !== l4.answer)) assert.ok(!(near(linePred(o)(0), 5) && near(linePred(o)(1) - linePred(o)(0), -2)), o);
+  // parallel to y = 3x − 1: gradient 3 but not the same line
+  const par = find('Which line is parallel to y = 3x − 1?');
+  const gr = (o: string) => linePred(o)(1) - linePred(o)(0);
+  assert.ok(near(gr(par.answer), 3) && !near(linePred(par.answer)(0), -1));
+  for (const o of par.options.filter((x) => x !== par.answer)) assert.ok(!near(gr(o), 3), o);
+  // the line through (0; −2) and (4; 6)
+  const l14 = find('What is the equation of the straight line through (0; −2) and (4; 6)?');
+  assert.ok(near(linePred(l14.answer)(0), -2) && near(linePred(l14.answer)(4), 6));
+  for (const o of l14.options.filter((x) => x !== l14.answer)) assert.ok(!(near(linePred(o)(0), -2) && near(linePred(o)(4), 6)), o);
+  // y = ax² + q through (0; −3) and (2; 5)
+  const pq = find('The parabola y = ax² + q has its turning point at (0; −3)');
+  const parab = (o: string) => makeFn(o.replace('y = ', '').replace(/(\d)x\*\*\(2\)/, '$1*x**2'), ['x']) as (x: number) => number;
+  assert.ok(near(parab(pq.answer)(0), -3) && near(parab(pq.answer)(2), 5));
+  for (const o of pq.options.filter((x) => x !== pq.answer)) assert.ok(!(near(parab(o)(0), -3) && near(parab(o)(2), 5)), o);
+  // f(3) for 2x² − 1
+  assert.equal(find('If f(x) = 2x² − 1, what is f(3)?').answer, String(2 * 3 * 3 - 1));
+  // x-intercepts of y = x² − 4 (reuse the equation reader) and of y = −3x² + 12
+  const x4 = find('What are the x-intercepts of y = x² − 4?');
+  assert.deepEqual(rootsOfOption(x4.answer), solutionsOf((x) => x * x - 4));
+  const x12 = find('(2 marks) What are the x-intercepts of y = −3x² + 12?');
+  assert.deepEqual(rootsOfOption(x12.answer), solutionsOf((x) => -3 * x * x + 12));
+  for (const it of [x4, x12]) for (const o of it.options.filter((x) => x !== it.answer)) assert.notDeepEqual(rootsOfOption(o), rootsOfOption(it.answer), o);
+  // asymptotes by behaviour
+  const asym: [string, (x: number) => number][] = [
+    ['What are the equations of the asymptotes of y = 2/x + 3?', (x) => 2 / x + 3],
+    ['(2 marks) What are the equations of the asymptotes of y = −1/x + 2?', (x) => -1 / x + 2],
+  ];
+  const holds = (o: string, fn: (x: number) => number) => {
+    const m = /^x = (−?\d+) and y = (−?\d+)$/.exec(o);
+    if (!m) return false;
+    const [vx, hy] = [parseValue(m[1]), parseValue(m[2])];
+    return Math.abs(fn(vx + 1e-7)) > 1e6 && Math.abs(fn(vx - 1e-7)) > 1e6 && near(fn(1e9), hy, 1e-6) && near(fn(-1e9), hy, 1e-6);
+  };
+  for (const [prompt, fn] of asym) {
+    const it = find(prompt);
+    assert.ok(holds(it.answer, fn), prompt);
+    for (const o of it.options.filter((x) => x !== it.answer)) assert.ok(!holds(o, fn), `${prompt}: ${o}`);
+  }
+  const hAsym = find('What is the equation of the asymptote of y = 2ˣ − 3?');
+  assert.ok(near(2 ** -60 - 3, -3, 1e-9) && hAsym.answer === 'y = −3');
+  // quadrants of y = 3/x and y = −2/x
+  const quads = (fn: (x: number) => number) => [...new Set(xs.filter((x) => x !== 0).map((x) => { const y = fn(x); return x > 0 ? (y > 0 ? 1 : 4) : (y > 0 ? 2 : 3); }))].sort();
+  assert.equal(find('In which quadrants does the graph of y = 3/x lie?').answer, `Quadrants ${quads((x) => 3 / x).join(' and ')}`);
+  assert.equal(find('In which quadrants does the graph of y = −2/x lie?').answer, `Quadrants ${quads((x) => -2 / x).join(' and ')}`);
+  // trigonometric graphs, sampled every degree
+  const deg = Array.from({ length: 361 }, (_, k) => k);
+  const sin = (x: number) => Math.sin((x * Math.PI) / 180);
+  const amp = (fn: (x: number) => number) => (Math.max(...deg.map(fn)) - Math.min(...deg.map(fn))) / 2;
+  assert.ok(near(amp((x) => 3 * sin(x)), 3, 1e-9) && find('What is the amplitude of y = 3 sin x?').answer === '3');
+  const period = (fn: (x: number) => number) => deg.slice(1).find((p) => deg.filter((x) => x + p <= 360 && Math.abs(Math.cos((x * Math.PI) / 180)) > 1e-6 && Math.abs(Math.cos(((x + p) * Math.PI) / 180)) > 1e-6).every((x) => near(fn(x + p), fn(x), 1e-7)));
+  assert.equal(`${period((x) => Math.tan((x * Math.PI) / 180))}°`, find('What is the period of y = tan x?').answer);
+  const zeros = deg.filter((x) => near(sin(x), 0, 1e-12)).map((x) => `${x}°`);
+  assert.equal(find('Where does y = sin x cut the x-axis').answer, `x = ${zeros[0]}, ${zeros[1]} and ${zeros[2]}`);
+});
+
+test('INDEPENDENT (Term 2): geometry numbers and the mixed exam items, recomputed from scratch', () => {
+  const find = (start: string) => all.find((i) => i.prompt.startsWith(start))!;
+  assert.equal(find('What is the sum of the interior angles of any quadrilateral?').answer, `${2 * 180}°`);
+  assert.equal(find('In parallelogram ABCD, angle A = 70°. What is angle B?').answer, `${180 - 70}°`);
+  assert.equal(find('In triangle ABC, D and E are the midpoints of AB and AC. If BC = 18 cm').answer, `${18 / 2} cm`);
+  assert.equal(find('Triangle ABC is similar to triangle DEF').answer, `${(6 * 10) / 4} cm`);
+  assert.equal(find('In parallelogram ABCD, angle A = (2x + 10)° and angle C = 70°').answer, String((70 - 10) / 2));
+  assert.equal(find('ABCD is a rectangle with diagonal AC = 13 cm').answer, `${Math.sqrt(13 ** 2 - 5 ** 2)} cm`);
+  assert.equal(find('In trapezium ABCD, AB ∥ DC and angle A = 65°').answer, `${180 - 65}°`);
+  assert.equal(find('A rhombus has sides of 10 cm and one diagonal of 12 cm').answer, `${2 * Math.sqrt(10 ** 2 - 6 ** 2)} cm`);
+  // exam items
+  assert.equal(all.find((i) => i.prompt.startsWith('(2 marks) What is the 15th term'))!.answer, String(9 + 14 * 4));
+  const sim = all.find((i) => i.prompt.startsWith('(3 marks) Solve simultaneously'))!;
+  assert.equal(3 * 4 + 2 * 2, 16);
+  assert.equal(4 - 2, 2);
+  assert.equal(sim.answer, 'x = 4; y = 2');
+  for (const o of sim.options.filter((x) => x !== sim.answer)) { const m = /x = (−?\d+); y = (−?\d+)/.exec(o)!; const [x, y] = [parseValue(m[1]), parseValue(m[2])]; assert.ok(!(3 * x + 2 * y === 16 && x - y === 2), o); }
+  const rad = (d: number) => (d * Math.PI) / 180;
+  const tri = all.find((i) => i.prompt.startsWith('(3 marks) A right-angled triangle has hypotenuse 15 cm'))!;
+  const c = (v: number) => `${v.toFixed(1).replace('.', ',')} cm`;
+  assert.equal(tri.answer, c(15 * Math.sin(rad(40))));
+  assert.deepEqual(tri.options.filter((x) => x !== tri.answer).sort(), [c(15 * Math.cos(rad(40))), c(15 * Math.tan(rad(40))), c(15 / Math.sin(rad(40)))].sort());
+  assert.equal(all.find((i) => i.prompt.startsWith('(2 marks) θ is acute and sin θ = 5/13'))!.answer, `${Math.sqrt(13 * 13 - 5 * 5)}/13`);
+  assert.equal(all.find((i) => i.prompt.startsWith('(2 marks) What is the gradient of the line through (−1; 5)'))!.answer, '−2');
+  assert.equal((-1 - 5) / (2 - -1), -2);
+  const angleP = 2 * 30 + 20;
+  assert.equal(angleP + (3 * 30 + 10), 180);
+  assert.equal(all.find((i) => i.prompt.startsWith('(3 marks) In parallelogram PQRS'))!.answer, `${3 * 30 + 10}°`);
+  assert.equal(2 * (2 * 5 + 1), 5 * 5 - 3); // BC = 2 DE at x = 5
+  const interval = all.find((i) => i.prompt.startsWith('(3 marks) Solve for x and write the answer in interval notation'))!;
+  const solPred = (x: number) => 5 - 2 * x < 11;
+  const gridI = Array.from({ length: 161 }, (_, k) => (k - 80) / 4);
+  const parseIv = (s: string) => { const m = /^([(\[])(−∞|−?\d+); (∞|−?\d+)([)\]])$/.exec(s)!; const lo = m[2] === '−∞' ? -Infinity : parseValue(m[2]); const hi = m[3] === '∞' ? Infinity : parseValue(m[3]); return (x: number) => (m[1] === '[' ? x >= lo : x > lo) && (m[4] === ']' ? x <= hi : x < hi); };
+  assert.ok(gridI.every((x) => parseIv(interval.answer)(x) === solPred(x)));
+  for (const o of interval.options.filter((x) => x !== interval.answer)) assert.ok(gridI.some((x) => parseIv(o)(x) !== solPred(x)), o);
 });
