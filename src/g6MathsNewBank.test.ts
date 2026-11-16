@@ -195,3 +195,40 @@ test('INDEPENDENT: percentage and temperature keys are recomputed with plain ari
   assert.equal(find(tt, 'The temperature is 14').answer, `${14 - 6} °C`);
 }
 );
+
+test('INDEPENDENT: probability and position keys are recomputed with plain arithmetic', () => {
+  const tp = 'gr6-probability-t4';
+  assert.equal(find(tp, 'What are the possible outcomes when you toss a coin').answer, 'Heads or tails');
+  assert.equal(find(tp, 'How many possible outcomes are there when you roll a die').answer, '6');
+  assert.equal(find(tp, 'A spinner has 6 equal sections').answer, String(new Set(['red', 'blue', 'red', 'green', 'blue', 'red']).size));
+  assert.equal(find(tp, 'A spinner has 8 equal sections').answer, '8');
+  assert.equal(find(tp, 'In a tally table').answer, String(2 * 5 + 3));
+  assert.equal(find(tp, 'A coin is tossed 20 times. It lands heads 12').answer, String(20 - 12));
+  assert.equal(find(tp, 'A coin is tossed 30 times').answer, String(18 - (30 - 18)));
+  const f = [7, 9, 5, 8, 11, 10];
+  assert.equal(f.reduce((a, b) => a + b, 0), 50);
+  assert.equal(find(tp, 'Rolling a die 50 times gave').answer, String(f.indexOf(Math.max(...f)) + 1));
+  assert.equal(find(tp, 'In an experiment a die is rolled 50 times').answer, String(f.indexOf(Math.min(...f)) + 1));
+  assert.equal(find(tp, 'A die is rolled 50 times. The numbers 1, 2, 4').answer, String(50 - (7 + 9 + 8 + 11 + 10)));
+  assert.equal(find(tp, 'A spinner is spun 40 times').answer, String(40 - 15 - 12 - 6));
+  assert.equal(find(tp, 'A coin experiment has 17 heads').answer, String(17 + 10));
+  assert.equal(find(tp, 'Three groups toss a coin').answer, String(20 + 20 + 10));
+  assert.equal(find(tp, 'A die is rolled 20 times and the number 4').answer, String(20 - 6));
+  const tg = 'gr6-position-movement-t4';
+  const L = 'The letters run across the top and the numbers run down the side. ';
+  assert.equal(find(tg, L + 'What is the grid reference of the square in column D').answer, 'D4');
+  assert.equal(find(tg, L + 'A park is in column B').answer, 'B5');
+  assert.equal(find(tg, 'Which letter shows the column').answer, 'E');
+  assert.equal(find(tg, L + 'Start at B2 and move 3').answer, 'E2');
+  assert.equal(find(tg, L + 'Start at E6').answer, 'E4');
+  assert.equal(find(tg, L + 'What are the directions from C3').answer, '4 squares down');
+  assert.equal(find(tg, L + 'What are the directions from B2 to E4').answer, '3 squares right, then 2 squares down');
+  assert.equal(find(tg, L + 'Start at A1').answer, 'C4'); // A1 -> E1 -> E4 -> C4
+  assert.equal(find(tg, 'On a map, north is at the top').answer, 'north');
+  assert.equal(find(tg, L + 'The school is at D2').answer, 'A4');
+  assert.equal(find(tg, 'How many squares must you move straight down').answer, String(5 - 1));
+  assert.equal(find(tg, L + 'How many squares do you walk altogether').answer, String(3 + 2));
+  assert.equal(find(tg, L + 'Which square is directly to the right of C5').answer, 'D5');
+  assert.equal(find(tg, L + 'What are the directions from the shop').answer, '3 squares east');
+}
+);

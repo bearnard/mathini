@@ -2,6 +2,7 @@ import type { Q } from '../../../grade10/mathematics/_shared/bank';
 import { addSub5, addSub6 } from './specsAddSub';
 import { multiply2, divide2, multiply3, divide3 } from './specsMulDiv';
 import { percentages, temperature } from './specsPercentTemp';
+import { probability, position } from './specsProbPosition';
 
 export interface TopicSpec { task: string; file: string; questions: Q[] }
 const base = 'src/curriculum/grade6';
@@ -16,4 +17,6 @@ export const ALL_SPECS: TopicSpec[] = [
   { task: 'gr6-divide-3digit-t4', file: `${base}/term4/whole-numbers/Divide3Digit.tsx`, questions: divide3 },
   { task: 'gr6-percentages-t3', file: `${base}/term3/percentages/Percentages.tsx`, questions: percentages },
   { task: 'gr6-temperature-t3', file: `${base}/term3/temperature/Temperature.tsx`, questions: temperature },
+  { task: 'gr6-probability-t4', file: `${base}/term4/probability/Probability.tsx`, questions: probability },
+  { task: 'gr6-position-movement-t4', file: `${base}/term4/position-movement/PositionMovement.tsx`, questions: position },
 ];

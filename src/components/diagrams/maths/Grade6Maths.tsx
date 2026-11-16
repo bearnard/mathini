@@ -3,6 +3,7 @@ import { PICTURE_COLORS } from './Grade7Pictures';
 import { columnAdd, columnSubtract, digitsOf, group } from './grade6AddSub';
 import { divide, partialProducts } from './grade6MulDiv';
 import { scaleTicks, scaleY, tempText } from './grade6Percent';
+import { colLetter, parseCell, tallyWords } from './grade6Probability';
 
 /**
  * Grade 6 Mathematics lesson pictures, in the style of Grade10Maths / Grade7Pictures: a dark panel, a 120-unit-wide viewBox, positions computed from
@@ -238,6 +239,109 @@ export const Thermometers = ({ items, min, max, step, numberEvery }: { items: { 
             ))}
             <T x={cx + 8} y={Math.max(level, top + 6) + 1.5} color={A} size={5.2} anchor="start">{tempText(it.value)}</T>
             <T x={cx} y={73} color={LINE} size={4.8}>{it.label}</T>
+          </g>
+        );
+      })}
+    </Panel>
+  );
+};
+
+
+// ---------------------------------------------------------------- probability and position
+
+/** A tally table: one row per outcome with its tally marks (groups of five with a slash) and the count. Counts up to 25 fit. */
+export const TallyTable = ({ rows }: { rows: { label: string; n: number }[] }) => {
+  const rowH = 10;
+  const h = 10 + rows.length * rowH + 4;
+  return (
+    <Panel h={h} aria={`A tally table. ${rows.map((r) => `${r.label}: ${tallyWords(r.n)}, which is ${r.n}`).join('; ')}.`}>
+      <T x={6} y={8} color={MUTED} size={4.6} anchor="start">Outcome</T>
+      <T x={30} y={8} color={MUTED} size={4.6} anchor="start">Tally</T>
+      <T x={114} y={8} color={MUTED} size={4.6} anchor="end">Count</T>
+      {rows.map((row, i) => {
+        const y = 10 + i * rowH;
+        const groups = Math.floor(row.n / 5);
+        const rest = row.n % 5;
+        const strokes: React.ReactNode[] = [];
+        let x = 30;
+        for (let gi = 0; gi < groups; gi++) {
+          for (let k = 0; k < 4; k++) strokes.push(<line key={`g${gi}-${k}`} x1={x + k * 2.2} y1={y + 2} x2={x + k * 2.2} y2={y + 8} stroke={A} strokeWidth={0.9} strokeLinecap="round" />);
+          strokes.push(<line key={`s${gi}`} x1={x - 1.2} y1={y + 7} x2={x + 7.8} y2={y + 3} stroke={A} strokeWidth={0.9} strokeLinecap="round" />);
+          x += 12;
+        }
+        for (let k = 0; k < rest; k++) strokes.push(<line key={`r${k}`} x1={x + k * 2.2} y1={y + 2} x2={x + k * 2.2} y2={y + 8} stroke={A} strokeWidth={0.9} strokeLinecap="round" />);
+        return (
+          <g key={i}>
+            <line x1={4} y1={y} x2={116} y2={y} stroke="rgba(148,163,184,0.25)" strokeWidth={0.4} />
+            <T x={6} y={y + 7} size={5.2} anchor="start">{row.label}</T>
+            {strokes}
+            <T x={114} y={y + 7} color={E} size={5.4} anchor="end">{String(row.n)}</T>
+          </g>
+        );
+      })}
+    </Panel>
+  );
+};
+
+const SPIN_COLORS: Record<string, string> = { red: '#f87171', blue: '#60a5fa', green: '#4ade80', yellow: '#fbbf24', purple: '#c084fc', orange: '#fb923c' };
+
+/** A spinner with equal sections, each in the colour named (or showing the number given). */
+export const Spinner = ({ sections }: { sections: string[] }) => {
+  const n = sections.length;
+  const cx = 60;
+  const cy = 34;
+  const rad = 26;
+  const pt = (a: number, rr: number) => [r3(cx + rr * Math.sin(a)), r3(cy - rr * Math.cos(a))];
+  return (
+    <Panel h={70} aria={`A spinner with ${n} equal sections: ${sections.join(', ')}.`}>
+      {sections.map((sec, i) => {
+        const a0 = (2 * Math.PI * i) / n;
+        const a1 = (2 * Math.PI * (i + 1)) / n;
+        const [x0, y0] = pt(a0, rad);
+        const [x1, y1] = pt(a1, rad);
+        const [lx, ly] = pt((a0 + a1) / 2, rad * 0.62);
+        return (
+          <g key={i}>
+            <path d={`M ${cx} ${cy} L ${x0} ${y0} A ${rad} ${rad} 0 0 1 ${x1} ${y1} Z`} fill={SPIN_COLORS[sec] ?? A} stroke={INK} strokeWidth={0.8} />
+            {SPIN_COLORS[sec] ? null : <T x={lx} y={ly + 2} color={INK} size={6}>{sec}</T>}
+          </g>
+        );
+      })}
+      <circle cx={cx} cy={cy} r={2.4} fill={INK} />
+      <polygon points={`${cx},${cy - 3} ${cx - 2},${cy - 12} ${cx + 2},${cy - 12}`} fill={INK} />
+    </Panel>
+  );
+};
+
+/** An alpha-numeric grid: letters across the top, numbers down the side, places marked, and an optional route through cells. */
+export const GridMap = ({ cols, rows, marks, route }: { cols: number; rows: number; marks: { cell: string; label: string; color?: string }[]; route?: string[] }) => {
+  const size = Math.min(12, 84 / Math.max(cols, rows));
+  const x0 = 60 - (cols * size) / 2 + 3;
+  const y0 = 12;
+  const centre = (cell: string) => {
+    const { col, row } = parseCell(cell);
+    return [r3(x0 + col * size + size / 2), r3(y0 + (row - 1) * size + size / 2)];
+  };
+  const h = y0 + rows * size + 6;
+  const markText = marks.map((m) => `${m.label} at ${m.cell}`).join(', ');
+  return (
+    <Panel h={h} aria={`A grid with columns ${colLetter(0)} to ${colLetter(cols - 1)} across the top and rows 1 to ${rows} down the side. ${markText}.${route ? ` A route goes ${route.join(', then ')}.` : ''}`}>
+      {Array.from({ length: cols }, (_, c) => (
+        <T key={`c${c}`} x={x0 + c * size + size / 2} y={y0 - 3} color={A} size={5}>{colLetter(c)}</T>
+      ))}
+      {Array.from({ length: rows }, (_, r) => (
+        <T key={`r${r}`} x={x0 - 4} y={y0 + r * size + size / 2 + 1.8} color={A} size={5}>{String(r + 1)}</T>
+      ))}
+      {Array.from({ length: rows }, (_, r) =>
+        Array.from({ length: cols }, (_, c) => <rect key={`${r}-${c}`} x={r3(x0 + c * size)} y={r3(y0 + r * size)} width={size} height={size} fill="rgba(148,163,184,0.08)" stroke={MUTED} strokeWidth={0.4} />),
+      )}
+      {route && route.length > 1 ? <polyline points={route.map((c) => centre(c).join(',')).join(' ')} fill="none" stroke={E} strokeWidth={1.4} strokeLinejoin="round" strokeLinecap="round" strokeDasharray="2 1.6" /> : null}
+      {marks.map((m) => {
+        const [x, y] = centre(m.cell);
+        return (
+          <g key={m.cell + m.label}>
+            <circle cx={x} cy={y} r={size * 0.38} fill={m.color ?? I} />
+            <T x={x} y={y + 1.7} color={INK} size={4.8}>{m.label}</T>
           </g>
         );
       })}

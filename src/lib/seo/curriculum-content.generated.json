@@ -376,6 +376,16 @@
                 "id": "g6-divide-3digit",
                 "title": "Dividing by 3-digit Numbers",
                 "description": "Clue boards, long division, checking and remainders in problems."
+              },
+              {
+                "id": "g6-probability",
+                "title": "Probability Experiments",
+                "description": "Listing outcomes, tally marks and comparing how often things happen."
+              },
+              {
+                "id": "g6-position-movement",
+                "title": "Position and Movement",
+                "description": "Grid references and directions on a grid or map."
               }
             ]
           }
