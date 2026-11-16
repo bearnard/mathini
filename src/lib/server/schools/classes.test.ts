@@ -172,7 +172,7 @@ test('limits: a class holds MAX_MEMBERS learners and a learner joins at most MAX
   const full = await joinClass(t.db, addStudent(t, { nickname: 'late' }), c.joinCode, NOW);
   assert.deepEqual([full.ok, !full.ok && full.status], [false, 409]);
   const s = addStudent(t, { nickname: 'busy' });
-  for (let i = 0; i < MAX_CLASSES_PER_LEARNER; i++) { const k = await make(t, t.teacher, { name: `K${i}x` }).catch(() => null); if (!k) break; assert.ok((await joinClass(t.db, s, k.joinCode, NOW)).ok); }
+  for (let i = 0; i < MAX_CLASSES_PER_LEARNER; i++) { const k: Awaited<ReturnType<typeof make>> | null = await make(t, t.teacher, { name: `K${i}x` }).catch(() => null); if (!k) break; assert.ok((await joinClass(t.db, s, k.joinCode, NOW)).ok); }
   const extra = await joinClass(t.db, s, c.joinCode, NOW);
   assert.deepEqual([extra.ok, !extra.ok && extra.status], [false, 409]);
 });
