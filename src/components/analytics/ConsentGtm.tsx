@@ -1,26 +1,15 @@
 'use client';
 
 // Google Tag Manager and its consent banner, for the PUBLIC pages only (never rendered inside the app or any signed-in area: see gtmGuard.test.ts).
-// Order matters: the Consent Mode defaults go into the dataLayer first (everything denied), a remembered Accept updates them, and only then the
-// container script is added. Without an Accept, Tag Manager loads but analytics storage stays denied.
+// Nothing is requested from Google, and nothing is pushed to Google's data queue, until the visitor presses Accept (or a remembered Accept is found):
+// see loadGtm() in gtmConsent.ts. Decline, no answer, Do Not Track and Global Privacy Control all load nothing.
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { CONSENT_DEFAULT, GTM_SCRIPT_URL, clearChoice, consentUpdateFor, isPublicPath, privacySignalOn, readChoice, writeChoice, type Choice } from '../../lib/consent/gtmConsent';
-
-type DataLayerWindow = Window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void };
+import { clearChoice, isPublicPath, loadGtm, privacySignalOn, readChoice, withdrawGtm, writeChoice, type Choice, type GtmDocument, type GtmWindow } from '../../lib/consent/gtmConsent';
 
 const storage = (): Storage | null => {
   try { return window.localStorage; } catch { return null; }
 };
-
-function ensureGtag(w: DataLayerWindow): (...args: unknown[]) => void {
-  w.dataLayer = w.dataLayer || [];
-  if (!w.gtag) {
-    // Google's own shape: it pushes the arguments object, which is what the container reads.
-    w.gtag = function gtag() { (w.dataLayer as unknown[]).push(arguments); };
-  }
-  return w.gtag;
-}
 
 export const REOPEN_EVENT = 'pp-consent-reopen';
 const announce = (choice: Choice | null) => window.dispatchEvent(new CustomEvent('pp-consent-change', { detail: choice }));
@@ -29,30 +18,20 @@ export default function ConsentGtm() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const w = window as DataLayerWindow;
-    if (!isPublicPath(w.location.pathname) || privacySignalOn(navigator as never)) return;
-    const gtag = ensureGtag(w);
-    gtag('consent', 'default', { ...CONSENT_DEFAULT });
+    if (!isPublicPath(window.location.pathname) || privacySignalOn(navigator as never)) return;
     const saved = readChoice(storage());
-    if (saved) gtag('consent', 'update', consentUpdateFor(saved));
-    else setShow(true);
-    // The standard container snippet, after the consent defaults.
-    (w.dataLayer as unknown[]).push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+    if (saved === 'accept') loadGtm(window as GtmWindow, document as unknown as GtmDocument);
+    else if (!saved) setShow(true);
     announce(saved);
-    if (!document.querySelector(`script[src="${GTM_SCRIPT_URL}"]`)) {
-      const s = document.createElement('script');
-      s.async = true;
-      s.src = GTM_SCRIPT_URL;
-      document.head.appendChild(s);
-    }
-    const reopen = () => { clearChoice(storage()); setShow(true); announce(null); };
+    const reopen = () => { clearChoice(storage()); withdrawGtm(window as GtmWindow); setShow(true); announce(null); };
     window.addEventListener(REOPEN_EVENT, reopen);
     return () => window.removeEventListener(REOPEN_EVENT, reopen);
   }, []);
 
   const choose = (choice: Choice) => {
     writeChoice(storage(), choice);
-    (window as DataLayerWindow).gtag?.('consent', 'update', consentUpdateFor(choice));
+    if (choice === 'accept') loadGtm(window as GtmWindow, document as unknown as GtmDocument);
+    else withdrawGtm(window as GtmWindow);
     setShow(false);
     announce(choice);
   };

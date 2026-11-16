@@ -86,7 +86,14 @@ test('the public pages that must have it do: shell, home, privacy', () => {
   for (const f of RENDERS_ANALYTICS) assert.match(fs.readFileSync(path.join(ROOT, f), 'utf8'), /<PublicAnalytics \/>/, f);
   const component = fs.readFileSync(path.join(ROOT, 'src/components/analytics/ConsentGtm.tsx'), 'utf8');
   assert.match(component, /isPublicPath\(/, 'the loader re-checks the path itself');
-  assert.ok(component.indexOf("'consent', 'default'") < component.indexOf('GTM_SCRIPT_URL}"]'), 'consent defaults are set before the container script is added');
+  // Basic consent mode: the component never touches Google itself; loadGtm() (gtmConsent.ts) is its only way in, and it is called for an Accept only.
+  assert.ok(!/GTM_SCRIPT_URL|googletagmanager|createElement\('script'\)|dataLayer/.test(component), 'ConsentGtm adds no script and pushes nothing itself');
+  const calls = [...component.matchAll(/loadGtm\(window/g)].length;
+  assert.equal(calls, 2, 'loadGtm is called twice: a remembered Accept, and the Accept button');
+  assert.match(component, /saved === 'accept'\) loadGtm\(/, 'a remembered Accept loads it');
+  assert.match(component, /choice === 'accept'\) loadGtm\(/, 'the Accept button loads it');
+  const lib = fs.readFileSync(path.join(ROOT, 'src/lib/consent/gtmConsent.ts'), 'utf8');
+  assert.ok(!/ns\.html/.test(lib) && !/<noscript/.test(fs.readFileSync(path.join(ROOT, 'src/components/analytics/PublicAnalytics.tsx'), 'utf8')), 'no noscript iframe: a visitor without JavaScript cannot have accepted');
 });
 
 test('the privacy page says what is true: analytics only with consent, never in the app or signed-in areas', () => {

@@ -25,5 +25,5 @@ test('the public analytics block carries the before-paint marker and the slot CS
   assert.match(h, /pp-ads-on/);
   assert.match(h, /\.pp-ad\{display:none\}/);
   assert.ok(!/pagead2|adsbygoogle\.js/.test(h), 'the AdSense script is added by AdSlot only after Accept, never by this block');
-  assert.match(h, /GTM-MNM3XGLP/, 'the Tag Manager noscript is still there');
+  assert.ok(!/GTM-MNM3XGLP|googletagmanager/.test(h), 'no Tag Manager id or iframe in the page itself: nothing from Google is requested before an Accept');
 });

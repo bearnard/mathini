@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { CONSENT_DAYS, CONSENT_DEFAULT, CONSENT_KEY, GTM_ID, GTM_NOSCRIPT_URL, GTM_SCRIPT_URL, clearChoice, consentUpdateFor, isPublicPath, privacySignalOn, readChoice, writeChoice } from './gtmConsent';
+import { CONSENT_DAYS, CONSENT_DEFAULT, CONSENT_KEY, GTM_ID, GTM_SCRIPT_URL, clearChoice, consentUpdateFor, isPublicPath, loadGtm, privacySignalOn, readChoice, withdrawGtm, writeChoice, type GtmDocument, type GtmWindow } from './gtmConsent';
 
 const mem = () => { const m = new Map<string, string>(); return { m, getItem: (k: string) => m.get(k) ?? null, setItem: (k: string, v: string) => void m.set(k, v), removeItem: (k: string) => void m.delete(k) }; };
 const DAY = 86_400_000;
@@ -8,7 +8,6 @@ const DAY = 86_400_000;
 test('the container id and URLs are the owner\'s, and the defaults deny everything before anything loads', () => {
   assert.equal(GTM_ID, 'GTM-MNM3XGLP');
   assert.equal(GTM_SCRIPT_URL, 'https://www.googletagmanager.com/gtm.js?id=GTM-MNM3XGLP');
-  assert.equal(GTM_NOSCRIPT_URL, 'https://www.googletagmanager.com/ns.html?id=GTM-MNM3XGLP');
   assert.deepEqual(CONSENT_DEFAULT, { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500 });
 });
 
@@ -59,4 +58,48 @@ test('Do Not Track and Global Privacy Control switch Tag Manager off', () => {
   assert.equal(privacySignalOn({ doNotTrack: '0' }), false);
   assert.equal(privacySignalOn({ doNotTrack: null }), false);
   assert.equal(privacySignalOn(undefined), false);
+});
+
+// A stub browser that records everything that would reach Google or the dataLayer.
+const stubBrowser = () => {
+  const appended: { src: string }[] = [];
+  const doc: GtmDocument = {
+    querySelector: (sel: string) => appended.find((s) => sel.includes(s.src)) ?? null,
+    createElement: () => ({ async: false, src: '' }),
+    head: { appendChild: (n: unknown) => void appended.push(n as { src: string }) },
+  };
+  const w: GtmWindow = {};
+  return { w, doc, appended };
+};
+
+test('before an Accept nothing is loaded and nothing is pushed: no script, no dataLayer, no gtag', () => {
+  const { w, appended } = stubBrowser();
+  // No answer, Decline and a privacy signal never call loadGtm; what the page holds is still untouched.
+  assert.equal(appended.length, 0);
+  assert.equal(w.dataLayer, undefined);
+  assert.equal(w.gtag, undefined);
+  // A Decline after nothing was loaded does not create the dataLayer either.
+  withdrawGtm(w);
+  assert.equal(w.dataLayer, undefined);
+});
+
+test('Accept loads Tag Manager once: defaults denied, analytics granted, container started, one script', () => {
+  const { w, doc, appended } = stubBrowser();
+  loadGtm(w, doc);
+  assert.equal(appended.length, 1);
+  assert.equal(appended[0].src, GTM_SCRIPT_URL);
+  const calls = (w.dataLayer as unknown[]).map((e) => (typeof e === 'object' && e && 'length' in e ? Array.from(e as ArrayLike<unknown>) : e));
+  assert.deepEqual(calls[0], ['consent', 'default', { ...CONSENT_DEFAULT }]);
+  assert.deepEqual(calls[1], ['consent', 'update', { analytics_storage: 'granted' }]);
+  assert.equal((calls[2] as { event: string }).event, 'gtm.js');
+  loadGtm(w, doc); // a second call adds no second script
+  assert.equal(appended.length, 1);
+});
+
+test('a Decline or "ask me again" after Accept in the same page view switches analytics storage off again', () => {
+  const { w, doc } = stubBrowser();
+  loadGtm(w, doc);
+  withdrawGtm(w);
+  const last = Array.from((w.dataLayer as unknown[]).at(-1) as ArrayLike<unknown>);
+  assert.deepEqual(last, ['consent', 'update', { analytics_storage: 'denied' }]);
 });
