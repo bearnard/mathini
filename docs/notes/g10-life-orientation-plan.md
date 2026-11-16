@@ -86,4 +86,4 @@ Each: tsc 0 errors, `npm test` fail 0, `next build`, 320/390/1280 px checks of e
 
 ## Progress
 
-Term 1 (6 topics, 84 questions): `feat/g10-lo-t1`. Term 2 (3 topics, 42 questions): `feat/g10-lo-t2`. Terms 3 and 4 follow as `feat/g10-lo-t3` and `t4`.
+Term 1 (6 topics, 84 questions): `feat/g10-lo-t1`. Term 2 (3 topics, 42 questions): `feat/g10-lo-t2`. Term 3 (5 topics, 70 questions): `feat/g10-lo-t3`. Term 4 follows as `feat/g10-lo-t4`.

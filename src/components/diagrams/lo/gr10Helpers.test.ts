@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { gain, hoursOf, netPay, rand, sessionMinutes, termMark, weeklyMinutes, yearMark, yearPercent } from './gr10Helpers';
+import { breathingSeconds, gain, hoursOf, netPay, rand, sessionMinutes, termMark, weeklyMinutes, yearMark, yearPercent } from './gr10Helpers';
 
 test('netPay: gross minus deductions', () => {
   assert.equal(netPay(15000, 3000), 12000);
@@ -35,4 +35,9 @@ test('hoursOf and a weekly study plan: 5 days of 120 minutes is 600 minutes, 10 
 test('gain: last record minus first record', () => {
   assert.equal(gain(4, 8), 4);
   assert.equal(gain(8, 6), -2);
+});
+
+test('breathingSeconds: (in + out) x repeats', () => {
+  assert.equal(breathingSeconds(4, 6, 5), 50);
+  assert.equal(breathingSeconds(3, 3, 10), 60);
 });

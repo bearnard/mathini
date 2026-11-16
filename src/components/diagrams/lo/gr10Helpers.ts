@@ -26,3 +26,6 @@ export const hoursOf = (minutes: number): number => minutes / 60;
 
 /** How much a count rose between the first and the last record (for example successful catches out of 10). */
 export const gain = (first: number, last: number): number => last - first;
+
+/** Seconds in a breathing exercise: seconds in plus seconds out, repeated. */
+export const breathingSeconds = (secondsIn: number, secondsOut: number, repeats: number): number => (secondsIn + secondsOut) * repeats;

@@ -7,6 +7,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Adjustments and Financial Statements",
   "Accounting"
  ],
+ "10|gr10-adolescence-adulthood-t3": [
+  "From Adolescence to Adulthood",
+  "Life Orientation"
+ ],
  "10|gr10-algebraic-expressions-t1": [
   "Algebraic Expressions",
   "Mathematics"
@@ -123,6 +127,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Diversity, Discrimination and Human Rights Violations",
   "Life Orientation"
  ],
+ "10|gr10-diversity-of-jobs-t3": [
+  "Diversity of Jobs and Career Fields",
+  "Life Orientation"
+ ],
  "10|gr10-document-integration-exam-consolidation": [
   "Document Integration and Exam Consolidation",
   "Computer Applications Technology"
@@ -182,6 +190,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-letters-cv-agenda-minutes-t1": [
   "Transactional Texts: Letters, CV, Agenda, Minutes and Obituary",
   "English HL"
+ ],
+ "10|gr10-life-roles-t3": [
+  "Life Roles and Their Responsibilities",
+  "Life Orientation"
  ],
  "10|gr10-literary-genres-text-features-t1": [
   "Literary Genres and Text Features",
@@ -247,6 +259,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Physical Education: Games and Safety",
   "Life Orientation"
  ],
+ "10|gr10-physical-education-t3": [
+  "Physical Education: Recreation and Relaxation",
+  "Life Orientation"
+ ],
  "10|gr10-plant-tissues-organs-t2": [
   "Plant Tissues and Organs",
   "Life Sciences"
@@ -270,6 +286,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-relationship-team-performance": [
   "Relationship and Team Performance",
   "Business Studies"
+ ],
+ "10|gr10-responsible-decisions-t3": [
+  "Responsible Decisions about Sexuality and Lifestyle",
+  "Life Orientation"
  ],
  "10|gr10-revision-exam-integration-t4": [
   "Revision and Exam Integration",
