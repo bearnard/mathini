@@ -141,6 +141,18 @@ export const naturalSciencesGrade8: Subject = {
             () => import('./term4/forms-and-transfer-of-energy/FormsAndTransferOfEnergy'),
           ),
         },
+        {
+          id: 'beyond-the-solar-system',
+          title: 'Beyond the Solar System',
+          description: 'The Milky Way Galaxy, our nearest star, light years, light hours and light minutes, and the Universe.',
+          component: lazy(() => import('./term4/beyond-the-solar-system/BeyondTheSolarSystem')),
+        },
+        {
+          id: 'looking-into-space',
+          title: 'Looking into Space',
+          description: 'Constellations, optical and radio telescopes such as SALT and the SKA, and good places to look into space.',
+          component: lazy(() => import('./term4/looking-into-space/LookingIntoSpace')),
+        },
       ],
     },
   ],
