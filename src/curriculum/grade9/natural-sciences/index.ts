@@ -94,6 +94,12 @@ export const naturalSciencesGrade9: Subject = {
           component: lazy(() => import('./term4/lithosphere-earth-resources/LithosphereEarthResources')),
         },
         {
+          id: 'gr9-atmosphere',
+          title: 'The Atmosphere',
+          description: 'Air, the four layers, temperature in the troposphere, ozone and the greenhouse effect.',
+          component: lazy(() => import('./term4/atmosphere/Atmosphere')),
+        },
+        {
           id: 'gr9-stars-universe',
           title: 'Stars and the Universe',
           description: 'Stars, star life cycles, galaxies, the Milky Way, and cosmic scale.',

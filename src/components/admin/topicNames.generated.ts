@@ -3695,6 +3695,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Area and Perimeter of 2D Shapes",
   "Mathematics"
  ],
+ "9|gr9-atmosphere-t4": [
+  "The Atmosphere",
+  "Natural Sciences"
+ ],
  "9|gr9-atomic-age-nuclear-power-t2": [
   "The Atomic Age and Nuclear Power",
   "History (Social Sciences)"

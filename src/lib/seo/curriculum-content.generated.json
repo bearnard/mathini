@@ -3362,6 +3362,11 @@
                 "description": "Rocks, minerals, plate tectonics, mining, fossil fuels, and renewable resources."
               },
               {
+                "id": "gr9-atmosphere",
+                "title": "The Atmosphere",
+                "description": "Air, the four layers, temperature in the troposphere, ozone and the greenhouse effect."
+              },
+              {
                 "id": "gr9-stars-universe",
                 "title": "Stars and the Universe",
                 "description": "Stars, star life cycles, galaxies, the Milky Way, and cosmic scale."

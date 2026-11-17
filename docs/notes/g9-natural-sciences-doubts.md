@@ -23,5 +23,11 @@ Source of scope: CAPS Natural Sciences Senior Phase Gr 7-9, Grade 9 Terms 3 and 
 - **Power ratings** (kettle 2 000 W, heater 1 500 W, TV 100 W, 60 W incandescent lamp, 11 W compact fluorescent lamp) are typical teaching values, not measurements of particular products.
 - **kWh, cost and prepaid** arithmetic is exact; the helper computes and a test recomputes each key (for example 750 W for 4 h at R2 = 3 kWh = R6; R30 at R2 per kWh on a 1 500 W heater lasts 10 hours).
 
-## Branch C (to be added when written)
-- The atmosphere (T4), including the CAPS "ultraviolet" wording for the greenhouse effect.
+## Branch C: The Atmosphere (T4)
+
+- **Composition.** The CAPS gives nitrogen 78%, oxygen 21%, carbon dioxide "less than 1%" and "other gases, including water vapour (1%)". The lesson shows nitrogen 78%, oxygen 21% and about 1% for carbon dioxide, water vapour and the other gases together (the real figures: argon is about 0,9% and varies with water vapour). The questions only ask for nitrogen and oxygen and the sum.
+- **Layer heights** are the CAPS ones: troposphere to about 10 km, stratosphere about 10 to 50 km, mesosphere about 50 to 80 km, thermosphere above 80 km (fading out at about 350 km; the ISS at about 370 km). The scale drawing asks for thicknesses (40 km and 30 km), not heights. Real layer boundaries vary with latitude and season; the lesson says "about".
+- **Temperature gradient** in the troposphere is "about 1 °C per 100 m in still air" (CAPS); the questions always give the sea-level temperature and say "in still air". The real average lapse rate is nearer 0,65 °C per 100 m, but the CAPS value is the one examined.
+- **The greenhouse effect: CAPS wording versus physics.** The CAPS text says greenhouse gases "trap the ultraviolet radiation which then warms the air". In fact greenhouse gases trap heat (infrared radiation) given out by the warm Earth; it is the ozone layer that absorbs ultraviolet radiation. The lesson teaches "greenhouse gases trap heat" and does not say which radiation, and no question asks it, so a learner who answers with the memo wording is not marked wrong. **A teacher should know about this wording before marking an answer on the topic.**
+- **Ozone.** The lesson says ozone in the stratosphere absorbs ultraviolet radiation and that too much ultraviolet harms life, as the CAPS does. It does not go into the ozone hole or chemicals.
+- **Effects of global warming** (climate change, rising sea levels, food shortages, mass extinctions) are listed as in the CAPS without figures.
