@@ -3,18 +3,25 @@
 import { useEffect, useState } from 'react';
 import { loadTodaysReview } from '../../lib/client/review/browserLoad';
 import type { ReviewQuestion } from '../../lib/client/review/resolve';
+import type { PreviewState } from '../../lib/client/review/startOutcome';
 
 /**
  * Questions ready to show today, for the home-screen card. Starts only once the browser is idle after the
- * home screen has rendered, and yields null (no card) when nothing can be shown or loading fails.
+ * home screen has rendered, and yields null questions (no card) when nothing can be shown or loading fails. `state` says which of those it was.
  */
-export function useReviewPreview(enabled: boolean, refreshKey: unknown = 0): ReviewQuestion[] | null {
+export function useReviewPreview(enabled: boolean, refreshKey: unknown = 0): { questions: ReviewQuestion[] | null; state: PreviewState } {
   const [questions, setQuestions] = useState<ReviewQuestion[] | null>(null);
+  const [state, setState] = useState<PreviewState>('idle');
   useEffect(() => {
-    if (!enabled) { setQuestions(null); return; }
+    if (!enabled) { setQuestions(null); setState('idle'); return; }
+    setState('loading');
     let cancelled = false;
     const start = () => {
-      void loadTodaysReview().then((q) => { if (!cancelled) setQuestions(q && q.length > 0 ? q : null); });
+      void loadTodaysReview().then((q) => {
+        if (cancelled) return;
+        setQuestions(q && q.length > 0 ? q : null);
+        setState(q === null ? 'error' : q.length > 0 ? 'ready' : 'none');
+      });
     };
     const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void };
     let idle: number | undefined;
@@ -27,5 +34,5 @@ export function useReviewPreview(enabled: boolean, refreshKey: unknown = 0): Rev
       if (timer) clearTimeout(timer);
     };
   }, [enabled, refreshKey]);
-  return questions;
+  return { questions, state };
 }

@@ -9,6 +9,12 @@ export interface DueRow {
 }
 
 export const REVIEW_SESSION_SIZE = 10;
+
+/**
+ * Part of the WHERE of every "which review cards are due" query on review_items: a card whose question is RETIRED in D1 is not due (it can never be
+ * shown). The review endpoint and the progress page both use it, so the home card, the review screen and /progress count the same cards.
+ */
+export const NOT_RETIRED_QUESTION_SQL = "NOT EXISTS (SELECT 1 FROM questions q WHERE q.id = review_items.qkey AND q.status = 'retired')";
 /** Candidates sent to the client; it keeps the first SESSION_SIZE it can render (multiple choice only in v1). */
 export const REVIEW_CANDIDATES = 30;
 

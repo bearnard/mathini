@@ -257,3 +257,61 @@ test('serving prefers the current version being verified; an edit afterwards mak
   clearServedCache();
   assert.equal((await fetchServedItems(t.db, TASK, 20)).length, 4, 'nothing is excluded');
 });
+
+// ---------- review reads D1 whatever the practice flag says (#872) ----------
+import { NOT_RETIRED_QUESTION_SQL } from '../review/due';
+
+test('review with ignoreFlag: an EDITED question resolves from D1 even with the practice flag OFF or the grade not switched on; an excluded task is left to the code banks', async (t0) => {
+  const t = await openQuestionsDb(); if (!t) return t0.skip('node:sqlite unavailable');
+  curated(t, 'Which planet is closest to the Sun?');
+  const id = qid('Which planet is closest to the Sun?');
+  const v = (t.raw.prepare('SELECT current_version_id AS v FROM questions WHERE id = ?').get(id) as { v: number }).v;
+  await createVersion(t.db, { questionId: id, expectedVersionId: v, fields: { prompt: 'Which planet is nearest to the Sun?', options: ['Mercury', 'Venus'], answer: 'Mercury', explanation: 'Mercury orbits closest.' }, author: 'owner', now: 3 });
+  // flag OFF: the practice path leaves it to the code bank, but the review reads D1
+  assert.deepEqual(await resolveFromD1(t.db, [{ qkey: id, task: TASK }]), {});
+  clearFlagCache();
+  let got = await resolveFromD1(t.db, [{ qkey: id, task: TASK }], { ignoreFlag: true });
+  assert.equal(got[id].prompt, 'Which planet is nearest to the Sun?', 'the current text, found by the stable id although the new wording hashes to another qkey');
+  assert.notEqual(makeQkey(TASK, 'Which planet is nearest to the Sun?'), id);
+  // grade 7 only switched on: still resolved for a Grade 6 task
+  setFlag(t, { grades: [7], tasks: [], exclude: [] });
+  clearFlagCache();
+  got = await resolveFromD1(t.db, [{ qkey: id, task: TASK }], { ignoreFlag: true });
+  assert.equal(Object.keys(got).length, 1);
+  // the owner excluded this task: not resolved
+  setFlag(t, { grades: [6], tasks: [], exclude: [TASK] });
+  clearFlagCache();
+  assert.deepEqual(await resolveFromD1(t.db, [{ qkey: id, task: TASK }], { ignoreFlag: true }), {});
+});
+
+test('review due set: a card whose question is retired in D1 is NOT due (the review endpoint and /progress share one predicate), an edited active one is', async (t0) => {
+  const t = await openQuestionsDb(); if (!t) return t0.skip('node:sqlite unavailable');
+  curated(t, 'Edited but active?');
+  curated(t, 'Retired later?');
+  t.raw.exec('PRAGMA foreign_keys = OFF');
+  const ins = (k: string) => t.raw.prepare("INSERT INTO review_items (student_id, qkey, task, subject, section, box, due_day, streak_correct, created_at, updated_at) VALUES ('s1', ?, ?, 'nst', 'general', 1, 1, 0, 1, 1)").run(k, TASK);
+  ins(qid('Edited but active?'));
+  ins(qid('Retired later?'));
+  ins('0123456789ab'); // no such question in D1: the client decides (code bank), the server does not hide it
+  t.raw.prepare("UPDATE questions SET status = 'retired' WHERE id = ?").run(qid('Retired later?'));
+  const due = (t.raw.prepare(`SELECT qkey FROM review_items WHERE student_id = 's1' AND retired_at IS NULL AND due_day <= 5 AND ${NOT_RETIRED_QUESTION_SQL} ORDER BY qkey`).all() as { qkey: string }[]).map((r) => r.qkey).sort();
+  assert.deepEqual(due, [qid('Edited but active?'), '0123456789ab'].sort());
+});
+
+test('review end to end (#872): an edited question whose old qkey no longer matches ANY code bank still shows, from D1, with the flag OFF', async (t0) => {
+  const t = await openQuestionsDb(); if (!t) return t0.skip('node:sqlite unavailable');
+  const { resolveCandidates } = await import('../../client/review/resolve');
+  curated(t, 'Seen from above the north pole, which way do the planets orbit?', { options: ['Anticlockwise', 'Clockwise', 'It varies'], answer: 'Anticlockwise' });
+  const id = qid('Seen from above the north pole, which way do the planets orbit?');
+  const v = (t.raw.prepare('SELECT current_version_id AS v FROM questions WHERE id = ?').get(id) as { v: number }).v;
+  await createVersion(t.db, { questionId: id, expectedVersionId: v, fields: { prompt: 'Seen from above the Sun’s north pole, in which direction do all the planets orbit the Sun?', options: ['Anticlockwise', 'Clockwise', 'It varies'], answer: 'Anticlockwise', explanation: 'They all go the same way.' }, author: 'owner', now: 3 });
+  const candidates = [{ qkey: id, task: TASK, subject: 'nst', section: 'general' }];
+  const pool = await resolveFromD1(t.db, candidates, { ignoreFlag: true });
+  const r = await resolveCandidates({ dueCount: 1, candidates, pool }, {}, 10); // no code bank at all: the old behaviour here was "gone" / nothing to show
+  assert.equal(r.questions.length, 1);
+  assert.match(r.questions[0].item.prompt, /Sun’s north pole/);
+  assert.deepEqual(r.gone, []);
+  // and the old way (flag OFF, no pool entry, no code bank) finds nothing, which is the bug
+  const old = await resolveCandidates({ dueCount: 1, candidates, pool: await resolveFromD1(t.db, candidates) }, {}, 10);
+  assert.equal(old.questions.length, 0);
+});

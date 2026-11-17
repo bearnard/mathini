@@ -16,6 +16,7 @@ import MyLoginCode from './components/onboarding/MyLoginCode';
 import SaveLoginCode from './components/onboarding/SaveLoginCode';
 import { clearPending, readPending, type PendingCredentials } from './lib/client/pendingCredentials';
 import { useReviewPreview } from './components/review/useTodayReview';
+import { NO_REVIEW_MESSAGE, REVIEW_ERROR_MESSAGE, startReviewOutcome } from './lib/client/review/startOutcome';
 import AppHeader from './components/layout/AppHeader';
 import TopicHeader from './components/layout/TopicHeader';
 import { StudentProvider, useStudent } from './lib/client/StudentContext';
@@ -50,19 +51,23 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
   const [view, setView] = useState<'home' | 'leaderboard' | 'review'>('home');
   // Spaced review (Grade 6 learners only): shown on the grade and subject lists, hidden when nothing is due.
   const progressTeaser = useProgressTeaser(status === 'active' && view === 'home');
-  const reviewQuestions = useReviewPreview(status === 'active' && student?.grade === 6 && view === 'home', view);
+  const { questions: reviewQuestions, state: reviewState } = useReviewPreview(status === 'active' && student?.grade === 6 && view === 'home', view);
+  const [reviewNotice, setReviewNotice] = useState('');
 
   useEffect(() => { void loadRetired(); }, []);
 
-  // "Start review" on the progress page opens /app?start=review: start today's review as soon as it is loaded (once). Nothing due: the learner just stays on the home screen.
+  // "Start review" on the progress page opens /app?start=review: start today's review as soon as it is loaded (once). When there is nothing to show, SAY SO
+  // (never land on the home screen with nothing happening).
   const startReviewDone = useRef(false);
   useEffect(() => {
-    if (startReviewDone.current || reviewQuestions === null || view !== 'home') return;
-    if (new URLSearchParams(window.location.search).get('start') !== 'review') return;
+    if (startReviewDone.current || view !== 'home') return;
+    const outcome = startReviewOutcome({ wantsStart: new URLSearchParams(window.location.search).get('start') === 'review', grade: status === 'active' ? student?.grade ?? null : null, state: reviewState });
+    if (outcome === 'ignore' || outcome === 'wait') return;
     startReviewDone.current = true;
     window.history.replaceState(null, '', '/app');
-    setView('review');
-  }, [reviewQuestions, view]);
+    if (outcome === 'start') setView('review');
+    else setReviewNotice(outcome === 'none' ? NO_REVIEW_MESSAGE : REVIEW_ERROR_MESSAGE);
+  }, [reviewState, view, status, student?.grade]);
 
   // A new learner who reloads before pressing "I've saved it" still gets to see the login code and PIN (kept in this tab until they confirm).
   const [pending, setPending] = useState<PendingCredentials | null>(null);
@@ -188,6 +193,12 @@ const AppBody = ({ initialChoice }: { initialChoice?: 'register' | 'resume' }) =
         <>
         {!selectedSubject && (
           <div className="mx-auto max-w-5xl px-4 pt-4">
+            {reviewNotice && (
+              <p role="status" className="mb-3 flex items-start justify-between gap-3 rounded-2xl bg-indigo-50 px-4 py-3 text-sm font-semibold text-indigo-900">
+                <span>{reviewNotice}</span>
+                <button type="button" className="shrink-0 underline" onClick={() => setReviewNotice('')}>Close</button>
+              </p>
+            )}
             <MyProgressCard teaser={progressTeaser} />
             {reviewQuestions !== null && <TodaysReviewCard dueCount={reviewQuestions.length} onStart={() => setView('review')} />}
           </div>
