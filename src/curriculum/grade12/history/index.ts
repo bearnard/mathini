@@ -33,6 +33,30 @@ export const historyGrade12: Subject = {
           description: "The Congo Crisis, Tanzanian independence, Nyerere, and the problems facing new African states.",
           component: lazy(() => import('./term1/independence-in-congo-and-tanzania/IndependenceInCongoAndTanzania')),
         },
+        {
+          id: 'gr12-cold-war-origins-t1',
+          title: 'The Origins of the Cold War',
+          description: 'Superpowers and spheres of influence, containment, Berlin, NATO and the Warsaw Pact, the Cuban Crisis and who was to blame.',
+          component: lazy(() => import('./term1/cold-war-origins/ColdWarOrigins')),
+        },
+        {
+          id: 'gr12-cold-war-china-t1',
+          title: 'Case Study: China after 1949',
+          description: 'The Sino-Soviet split, the Cultural Revolution, China and its neighbours, a superpower? and new links with the USA.',
+          component: lazy(() => import('./term1/cold-war-china/ColdWarChina')),
+        },
+        {
+          id: 'gr12-cold-war-vietnam-t1',
+          title: 'Case Study: Vietnam 1954 to 1975',
+          description: 'Division, the three phases of the war, American and Vietnamese perspectives, withdrawal and how the war is remembered.',
+          component: lazy(() => import('./term1/cold-war-vietnam/ColdWarVietnam')),
+        },
+        {
+          id: 'gr12-cold-war-angola-t1',
+          title: 'Africa in the Cold War: Angola',
+          description: 'Competing influence, the civil war and outside powers, the competing accounts of Cuito Cuanavale, and the settlement after 1989.',
+          component: lazy(() => import('./term1/cold-war-angola/ColdWarAngola')),
+        },
       ],
     },
     {

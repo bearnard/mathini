@@ -21,6 +21,7 @@ import hisGr12Term1 from './tasks/his-gr12-term1.json';
 import hisGr12Term2 from './tasks/his-gr12-term2.json';
 import hisGr12Term3 from './tasks/his-gr12-term3.json';
 import hisGr12Term4 from './tasks/his-gr12-term4.json';
+import hisGr12ColdWar from './tasks/his-gr12-coldwar.json';
 
 const rawHistoryTasks: Record<string, string> = {
   'what-is-history':
@@ -91,5 +92,6 @@ export const his: SubjectConfig = {
     ...hisGr12Term2.tasks,
     ...hisGr12Term3.tasks,
     ...hisGr12Term4.tasks,
+    ...hisGr12ColdWar.tasks,
   },
 };

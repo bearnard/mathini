@@ -1391,6 +1391,22 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "CODESA and the Negotiated Settlement",
   "History"
  ],
+ "12|gr12-cold-war-angola-t1": [
+  "Africa in the Cold War: Angola",
+  "History"
+ ],
+ "12|gr12-cold-war-china-t1": [
+  "Case Study: China after 1949",
+  "History"
+ ],
+ "12|gr12-cold-war-origins-t1": [
+  "The Origins of the Cold War",
+  "History"
+ ],
+ "12|gr12-cold-war-vietnam-t1": [
+  "Case Study: Vietnam 1954 to 1975",
+  "History"
+ ],
  "12|gr12-community-and-social-action-t2": [
   "Community and Social Action",
   "Life Orientation"
