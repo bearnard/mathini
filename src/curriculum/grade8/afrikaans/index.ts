@@ -27,6 +27,18 @@ export const afrikaansFALGrade8: Subject = {
           description: 'Narrative technique, tense control, punctuation and editing in context.',
           component: lazy(() => import('./term1/narrative-writing-grammar/NarrativeWritingGrammar')),
         },
+        {
+          id: 'afr-friendly-letter',
+          title: 'Vriendskaplike brief',
+          description: "The layout, the greeting and closing, and short sentences about your news.",
+          component: lazy(() => import('./term1/friendly-letter/FriendlyLetter')),
+        },
+        {
+          id: 'afr-investigative-report',
+          title: 'Ondersoekende verslag en vraelys',
+          description: "The question, the questionnaire, the findings and the conclusion.",
+          component: lazy(() => import('./term1/investigative-report/InvestigativeReport')),
+        },
       ],
     },
     {
@@ -50,6 +62,18 @@ export const afrikaansFALGrade8: Subject = {
           title: 'Grammatika vir Verslagdoening & Samehang',
           description: 'Direct/indirect speech, pronouns, concord and cohesive sentence flow.',
           component: lazy(() => import('./term2/grammar-reporting-coherence/GrammarReportingCoherence')),
+        },
+        {
+          id: 'afr-instructions-directions',
+          title: 'Aanwysings en instruksies',
+          description: "Steps in order, the command form, and giving directions.",
+          component: lazy(() => import('./term2/instructions-directions/InstructionsDirections')),
+        },
+        {
+          id: 'afr-dialogue-interview',
+          title: 'Dialoog en onderhoud',
+          description: "The layout of a dialogue, and questions and answers in an interview.",
+          component: lazy(() => import('./term2/dialogue-interview/DialogueInterview')),
         },
       ],
     },

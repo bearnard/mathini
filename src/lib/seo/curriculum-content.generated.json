@@ -2156,6 +2156,16 @@
                 "id": "afr-narrative-writing-grammar",
                 "title": "Narratiewe Skryfwerk & Grammatika",
                 "description": "Narrative technique, tense control, punctuation and editing in context."
+              },
+              {
+                "id": "afr-friendly-letter",
+                "title": "Vriendskaplike brief",
+                "description": "The layout, the greeting and closing, and short sentences about your news."
+              },
+              {
+                "id": "afr-investigative-report",
+                "title": "Ondersoekende verslag en vraelys",
+                "description": "The question, the questionnaire, the findings and the conclusion."
               }
             ]
           },
@@ -2177,6 +2187,16 @@
                 "id": "afr-grammar-reporting-coherence",
                 "title": "Grammatika vir Verslagdoening & Samehang",
                 "description": "Direct/indirect speech, pronouns, concord and cohesive sentence flow."
+              },
+              {
+                "id": "afr-instructions-directions",
+                "title": "Aanwysings en instruksies",
+                "description": "Steps in order, the command form, and giving directions."
+              },
+              {
+                "id": "afr-dialogue-interview",
+                "title": "Dialoog en onderhoud",
+                "description": "The layout of a dialogue, and questions and answers in an interview."
               }
             ]
           },
