@@ -9,3 +9,11 @@
 - Matter and classification: ionic formulae are derived from the ion charges by the lowest common multiple (NaCl, MgO, CaCl₂, Al₂O₃, Na₂S, Mg₃N₂), tested. Polyatomic ions (sulfate, nitrate, carbonate) are not included in this revision lesson. Brass is classed as a homogeneous mixture (an alloy).
 - Not covered: the practical demonstrations (slinky and ripple tank) and the full list of EM spectrum boundaries.
 - Fix included in this branch: the subtitle of the Grade 11 lesson "Energy and Chemical Change" showed the text "ΔH" instead of ΔH (a JSX attribute does not decode the escape). Fixed in `EnergyChemicalChange.tsx`; no other lesson has this problem (checked by grep).
+
+## Term 2: magnetism
+- The CAPS Grade 10 topic is permanent magnets, poles, attraction and repulsion, field lines, the Earth's field and the compass. Electromagnetism (the field of a current) is Grade 11 and is not taught here.
+- The compass-needle picture uses the simple dipole model of a bar magnet: the needle directions and the weakening of the field with distance (about 1/r³) are computed and tested, but the figure of 1/r³ is not stated to learners; they are told only that the field gets "much weaker" far away.
+- Earth's field: the lesson states that the Earth has a magnetic SOUTH pole near the geographic North Pole (so a compass needle's north end points north). This is the standard convention. The picture is a simplified bar-magnet model; it does not show the tilt of the magnetic axis, magnetic declination, or the movement of the magnetic poles.
+- Magnetic materials: iron, cobalt and nickel (and steel) are attracted; copper, aluminium, gold, plastic and wood are not. Alloys vary (some stainless steels are not magnetic); the lesson says steel is attracted because it contains iron, which is true for ordinary steel.
+- "Only repulsion proves that an object is a magnet" is the standard classroom test.
+- Not covered: the practical activity of plotting field lines with iron filings or a compass.

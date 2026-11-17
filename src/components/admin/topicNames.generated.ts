@@ -295,6 +295,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Loops, Strings, Prime Numbers and GCD",
   "Information Technology"
  ],
+ "10|gr10-magnetism-t2": [
+  "Magnetism",
+  "Physical Sciences"
+ ],
  "10|gr10-maps-plans-models-t3": [
   "Maps, Plans and Models",
   "Mathematical Literacy"

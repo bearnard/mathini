@@ -1,1 +1,7 @@
-{"tasks":{"gr10-matter-states-phase-change-t2":"Grade 10 Physical Sciences Term 2: States of matter, kinetic molecular theory, and phase changes.","gr10-atoms-periodic-table-bonding-t2":"Grade 10 Physical Sciences Term 2: Atomic structure, the periodic table trends, and chemical bonding (ionic and covalent)."}}
+{
+  "tasks": {
+    "gr10-matter-states-phase-change-t2": "Grade 10 Physical Sciences Term 2: States of matter, kinetic molecular theory, and phase changes.",
+    "gr10-atoms-periodic-table-bonding-t2": "Grade 10 Physical Sciences Term 2: Atomic structure, the periodic table trends, and chemical bonding (ionic and covalent).",
+    "gr10-magnetism-t2": "Topic: Magnetism. Cover the poles of a permanent magnet (like poles repel, unlike poles attract, poles cannot be separated), the magnetic field and field lines (from north to south outside the magnet, closer lines mean a stronger field, lines never cross), the compass needle, the Earth's magnetic field (a magnetic south pole near the geographic North Pole, so a compass points north), magnetic materials (iron, cobalt, nickel, steel) and that only repulsion proves that an object is a magnet. Ask Grade 10 learners to predict forces, read field directions and choose materials."
+  }
+}

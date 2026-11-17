@@ -104,6 +104,7 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr10-life-roles-t3": ["lo", 10],
   "gr10-literary-genres-text-features-t1": ["eng", 10],
   "gr10-loops-strings-algorithms-t3": ["it", 10],
+  "gr10-magnetism-t2": ["ps", 10],
   "gr10-maps-plans-models-t3": ["ml", 10],
   "gr10-maps-plans-scale-t2": ["ml", 10],
   "gr10-markets-production-possibilities-public-sector-intervention": ["econ", 10],
