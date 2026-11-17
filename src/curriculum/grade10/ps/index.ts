@@ -81,6 +81,18 @@ export const psGrade10: Subject = {
           description: 'Kinematics and energy analysis',
           component: lazy(() => import('./term3/vectors-motion-mechanical-energy/VectorsMotionMechanicalEnergy')),
         },
+        {
+          id: 'gr10-ions-in-solution-t3',
+          title: 'Ions in Aqueous Solution',
+          description: 'How water dissolves ionic compounds, dissolution equations, conductivity and ion concentration.',
+          component: lazy(() => import('./term3/ions-in-solution/IonsInSolution')),
+        },
+        {
+          id: 'gr10-precipitation-reaction-types-t3',
+          title: 'Precipitation and Reaction Types',
+          description: 'Ion exchange, solubility rules, tests for anions and precipitation, gas, acid-base and redox reactions.',
+          component: lazy(() => import('./term3/precipitation-reaction-types/PrecipitationReactionTypes')),
+        },
       ],
     },
     {
@@ -92,6 +104,12 @@ export const psGrade10: Subject = {
           title: 'Conservation of Mechanical Energy',
           description: 'Energy conservation and transformation',
           component: lazy(() => import('./term4/conservation-mechanical-energy/ConservationMechanicalEnergy')),
+        },
+        {
+          id: 'gr10-hydrosphere-t4',
+          title: 'The Hydrosphere',
+          description: 'Water on Earth, the water cycle, dams and water quality.',
+          component: lazy(() => import('./term4/hydrosphere/Hydrosphere')),
         },
         {
           id: 'gr10-ps-revision-examination-practice-t4',
