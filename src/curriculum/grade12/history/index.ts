@@ -10,24 +10,6 @@ export const historyGrade12: Subject = {
       title: 'Term 1',
       topics: [
         {
-          id: 'gr12-black-consciousness-movement-t1',
-          title: "Black Consciousness Movement",
-          description: "Steve Biko, Black Consciousness, student activism, and the rebuilding of internal resistance.",
-          component: lazy(() => import('./term1/black-consciousness-movement/BlackConsciousnessMovement')),
-        },
-        {
-          id: 'gr12-soweto-uprising-t1',
-          title: "Soweto Uprising",
-          description: "Causes, events, and consequences of the Soweto Uprising and its national impact.",
-          component: lazy(() => import('./term1/soweto-uprising/SowetoUprising')),
-        },
-        {
-          id: 'gr12-trade-unions-and-the-udf-t1',
-          title: "Trade Unions and the UDF",
-          description: "Durban strikes, independent unions, UDF politics, and the rise of broad internal resistance.",
-          component: lazy(() => import('./term1/trade-unions-and-the-udf/TradeUnionsAndTheUDF')),
-        },
-        {
           id: 'gr12-independence-in-congo-and-tanzania-t1',
           title: "Independence in Congo and Tanzania",
           description: "The Congo Crisis, Tanzanian independence, Nyerere, and the problems facing new African states.",
@@ -104,6 +86,24 @@ export const historyGrade12: Subject = {
           title: "Women's Liberation, Women in South Africa and Peace Movements",
           description: "Second-wave feminism, FEDSAW and the 1956 march, the Black Sash, and peace and anti-war protest.",
           component: lazy(() => import('./term2/women-and-peace-movements/WomenAndPeaceMovements')),
+        },
+        {
+          id: 'gr12-black-consciousness-movement-t1',
+          title: "Black Consciousness Movement",
+          description: "Steve Biko, Black Consciousness, student activism, and the rebuilding of internal resistance.",
+          component: lazy(() => import('./term1/black-consciousness-movement/BlackConsciousnessMovement')),
+        },
+        {
+          id: 'gr12-soweto-uprising-t1',
+          title: "Soweto Uprising",
+          description: "Causes, events, and consequences of the Soweto Uprising and its national impact.",
+          component: lazy(() => import('./term1/soweto-uprising/SowetoUprising')),
+        },
+        {
+          id: 'gr12-trade-unions-and-the-udf-t1',
+          title: "Trade Unions and the UDF",
+          description: "Durban strikes, independent unions, UDF politics, and the rise of broad internal resistance.",
+          component: lazy(() => import('./term1/trade-unions-and-the-udf/TradeUnionsAndTheUDF')),
         },
       ],
     },

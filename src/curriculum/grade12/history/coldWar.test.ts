@@ -26,7 +26,7 @@ const text = (s: string) => s.replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/g, 
 test('the four Cold War lessons are registered in Grade 12 History term 1 (after the existing lessons, which are unchanged) with a task instruction each', () => {
   const t1 = historyGrade12.terms.find((t) => t.id === 1)!.topics.map((t) => t.id);
   for (const l of LESSONS) assert.ok(t1.includes(l.id), l.id);
-  assert.deepEqual(t1.slice(0, 4), ['gr12-black-consciousness-movement-t1', 'gr12-soweto-uprising-t1', 'gr12-trade-unions-and-the-udf-t1', 'gr12-independence-in-congo-and-tanzania-t1'], 'existing lessons keep their place and ids');
+  assert.equal(t1[0], 'gr12-independence-in-congo-and-tanzania-t1', 'the existing Term 1 lesson keeps its id (the three Topic 4 lessons moved to Term 2 in Wave B)');
   const tasks = (JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/his-gr12-coldwar.json', 'utf8')) as { tasks: Record<string, string> }).tasks;
   assert.deepEqual(Object.keys(tasks).sort(), LESSONS.map((l) => l.id).sort());
 });
