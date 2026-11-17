@@ -50,3 +50,10 @@
 - The empirical formula example for 40% C, 6,7% H and 53,3% O gives CH₂O; the 6,7 and 53,3 are rounded values chosen so that the ratio is 1 : 2 : 1. Fe₂O₃ from 70% and 30% needs the multiply-by-2 step, which is shown.
 - Water of crystallisation examples (CuSO₄·5H₂O from 24,95 g and 15,95 g, CaCl₂·2H₂O from 14,7 g and 11,1 g) are constructed to give whole-number results; the masses are not from a real experiment.
 - Not covered: the practical experiments (determining the water of crystallisation, preparing a standard solution) and limiting reagents.
+
+## Wave 2, term 3: motion in one dimension
+- Scope follows the CAPS Grade 10 wording (read from the official PDF): one dimension only, constant or zero acceleration only (no changing acceleration), the symbols x and Δx for position and displacement and D for distance, average speed, average velocity, acceleration with the sign discussion (negative acceleration does not always mean slowing down), conversion between km·h⁻¹ and m·s⁻¹, and instantaneous velocity as the gradient of the tangent on an x–t graph. The existing lesson "Vectors, Motion and Mechanical Energy" keeps its kinematics equations and "Graphs of Motion" section (additive; a duplicate topic, not a conflict).
+- The word "deceleration" is avoided. The lesson says "slowing down" and explains it from the signs of v and a.
+- Instantaneous velocity is introduced by shrinking intervals on x = 2t² (average velocity 14, 13, 12,2 ... tending to 12 m·s⁻¹ at 3 s, all computed and tested), not by calculus. The equations x = xi + vi·t + ½at² and v = vi + at are shown for constant acceleration only.
+- The x–t picture is drawn from the same equation, with the chord and the tangent at 3 s. The tangent slope is the computed velocity.
+- Not covered: the ticker-timer and trolley experiments, v–t and a–t graphs (already in the existing "Graphs of Motion" section) and the equation v² = vi² + 2aΔx.

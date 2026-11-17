@@ -271,6 +271,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Imaginative and Transactional Writing",
   "English HL"
  ],
+ "10|gr10-instantaneous-velocity-t3": [
+  "Instantaneous Velocity and Position-Time Graphs",
+  "Physical Sciences"
+ ],
  "10|gr10-integrated-solution-development-t3": [
   "Integrated Solution Development",
   "Information Technology"
@@ -459,6 +463,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Reading Poetry: Seen and Unseen",
   "English HL"
  ],
+ "10|gr10-position-displacement-t3": [
+  "Position, Displacement and Distance",
+  "Physical Sciences"
+ ],
  "10|gr10-power-gender-t1": [
   "Power, Power Relations and Gender",
   "Life Orientation"
@@ -541,6 +549,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "10|gr10-sound-t1": [
   "Sound",
+  "Physical Sciences"
+ ],
+ "10|gr10-speed-velocity-acceleration-t3": [
+  "Speed, Velocity and Acceleration",
   "Physical Sciences"
  ],
  "10|gr10-spreadsheets-information-management-pat-completion": [

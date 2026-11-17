@@ -5265,6 +5265,21 @@
                 "id": "gr10-concentration-gas-yield-t3",
                 "title": "Concentration, Gas Volume and Yield",
                 "description": "Concentration of solutions, the molar volume of a gas and theoretical yield."
+              },
+              {
+                "id": "gr10-position-displacement-t3",
+                "title": "Position, Displacement and Distance",
+                "description": "Frame of reference, position, distance and displacement in one dimension."
+              },
+              {
+                "id": "gr10-speed-velocity-acceleration-t3",
+                "title": "Speed, Velocity and Acceleration",
+                "description": "Average speed, average velocity, changing units and acceleration."
+              },
+              {
+                "id": "gr10-instantaneous-velocity-t3",
+                "title": "Instantaneous Velocity and Position-Time Graphs",
+                "description": "Gradients of x-t graphs, instantaneous velocity and constant acceleration."
               }
             ]
           },
