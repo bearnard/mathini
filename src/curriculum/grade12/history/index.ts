@@ -135,6 +135,18 @@ export const historyGrade12: Subject = {
           description: "The first democratic election, Government of National Unity, and the work of the Truth and Reconciliation Commission.",
           component: lazy(() => import('./term3/1994-election-and-the-trc/The1994ElectionAndTheTRC')),
         },
+        {
+          id: 'gr12-end-of-cold-war-t3',
+          title: "The End of the Cold War: the Events of 1989",
+          description: "Gorbachev's reforms, Poland and Solidarity, the Berlin Wall, the end of the USSR, and the turning point for South Africa.",
+          component: lazy(() => import('./term3/end-of-cold-war/EndOfColdWar')),
+        },
+        {
+          id: 'gr12-new-world-order-t3',
+          title: "A New World Order: Globalisation, Africa and South Africa",
+          description: "Western capitalism and the IT revolution, North-South and BRICS, reactions to globalisation, and South Africa's unfinished liberation.",
+          component: lazy(() => import('./term3/new-world-order/NewWorldOrder')),
+        },
       ],
     },
     {
