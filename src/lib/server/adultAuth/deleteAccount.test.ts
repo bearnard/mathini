@@ -39,6 +39,9 @@ async function world() {
   }
   x.raw.prepare("INSERT INTO teacher_applications (user_id, sace_number, school_name, status, submitted_at) VALUES (?, ?, 'Bay Primary', 'approved', 1)").run(mum.userId, SACE);
   x.raw.prepare("INSERT INTO teacher_applications (user_id, sace_number, school_name, status, submitted_at) VALUES (?, '11112222', 'Other School', 'pending', 1)").run(dad.userId);
+  // a recommendation: Mum (school admin) recommended Dad's application; Dad's own application is recommended by someone else
+  x.raw.prepare("INSERT INTO teacher_endorsements (user_id, school_id, verdict, endorsed_by, endorsed_at) VALUES (?, 'school-1', 'recommend', 'mum.private@example.com', 1)").run(dad.userId);
+  x.raw.prepare("INSERT INTO teacher_endorsements (user_id, school_id, verdict, endorsed_by, endorsed_at) VALUES (?, 'school-1', 'recommend', 'other.admin@example.com', 1)").run(mum.userId);
   x.raw.prepare("INSERT INTO schools (id, name, created_at, created_by) VALUES ('sch1', 'Bay Primary', 1, 'admin')").run();
   const cls = x.raw.prepare("INSERT INTO classes (id, school_id, teacher_user_id, name, grade, join_code, status, created_at) VALUES (?, 'sch1', ?, ?, 6, ?, ?, 1)");
   cls.run('class-mum-1', mum.userId, '6B NST', 'ABCD2345', 'active'); cls.run('class-mum-2', mum.userId, 'Old class', 'WXYZ6789', 'archived'); cls.run('class-dad', dad.userId, '7A', 'HJKM3456', 'active');
@@ -70,6 +73,9 @@ test('deleting an account removes the adult and everything that identifies them,
   // the other adult is untouched
   for (const sql of ['SELECT COUNT(*) AS n FROM users WHERE id = ?', 'SELECT COUNT(*) AS n FROM user_roles WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM sessions WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM parent_links WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM summary_prefs WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM teacher_applications WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM school_admins WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM classes WHERE teacher_user_id = ?', 'SELECT COUNT(*) AS n FROM consent_events WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM pin_resets WHERE user_id = ?', 'SELECT COUNT(*) AS n FROM exam_scopes WHERE created_by = ?']) assert.ok(n(w, sql, w.dad.userId) >= 1, `dad: ${sql}`);
   assert.equal(n(w, "SELECT COUNT(*) AS n FROM class_members WHERE class_id = 'class-dad'"), 1);
+  // recommendations: the deleted adult's own is gone; a recommendation THEY gave about someone else stays but no longer names them
+  assert.equal(n(w, 'SELECT COUNT(*) AS n FROM teacher_endorsements WHERE user_id = ?', w.mum.userId), 0);
+  assert.equal(n(w, "SELECT COUNT(*) AS n FROM teacher_endorsements WHERE user_id = ? AND endorsed_by = '(deleted)'", w.dad.userId), 1);
   assert.equal(n(w, "SELECT COUNT(*) AS n FROM magic_links WHERE email = 'dad.private@example.com'"), 1);
   // the children and the consent already given stay
   assert.equal(n(w, 'SELECT COUNT(*) AS n FROM students'), 3);

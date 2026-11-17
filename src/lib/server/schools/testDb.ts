@@ -1,4 +1,4 @@
-// Test helper: migrations 0013 (adult accounts), 0016 (schools) and 0021 (school admins) over node:sqlite, behind the AdminDb interface the code uses on D1.
+// Test helper: migrations 0013 (adult accounts), 0016 (schools), 0021 (school admins) and 0027 (teacher endorsements) over node:sqlite, behind the AdminDb interface the code uses on D1.
 import fs from 'node:fs';
 import { openAuthDb } from '../adultAuth/testDb';
 
@@ -10,7 +10,7 @@ export async function openSchoolsDb() {
   // learners (0002, without its item_cache statements), the review schedule (0006), runs and the progress cache (0014), then schools
   const m2 = fs.readFileSync('migrations/0002_students_results_gamification.sql', 'utf8').replace(/ALTER TABLE item_cache[^;]*;/g, '').replace(/CREATE INDEX IF NOT EXISTS idx_item_cache_task_section[^;]*;/g, '');
   a.raw.exec(m2);
-  for (const f of ['0005_attempts_qkey.sql', '0006_review_items.sql', '0014_progress.sql', '0018_attempt_marking.sql', '0016_schools.sql', '0021_school_admins.sql', '0024_school_district.sql', '0025_weekly_points.sql']) a.raw.exec(fs.readFileSync(`migrations/${f}`, 'utf8'));
+  for (const f of ['0005_attempts_qkey.sql', '0006_review_items.sql', '0014_progress.sql', '0018_attempt_marking.sql', '0016_schools.sql', '0021_school_admins.sql', '0024_school_district.sql', '0025_weekly_points.sql', '0027_teacher_endorsements.sql']) a.raw.exec(fs.readFileSync(`migrations/${f}`, 'utf8'));
   return a;
 }
 export type SchoolsTestDb = NonNullable<Awaited<ReturnType<typeof openSchoolsDb>>>;

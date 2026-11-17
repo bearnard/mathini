@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { openSchoolsDb, addStudent, addTeacher, addUser, newTestId, NOW, type SchoolsTestDb } from './testDb';
 import { createClass, joinClass } from './classes';
 import { createScope } from './scopes';
-import { applyAsTeacher, decideApplication } from './teachers';
-import { MAX_SCHOOL_ADMINS, appointSchoolAdmin, buildSchoolProgress, canAdminSchool, decideAsSchoolAdmin, listSchoolsForAdmin, pendingForSchool, revokeSchoolAdmin, schoolsOfAdmin } from './schoolAdmins';
+import { applyAsTeacher, decideApplication, listApplications } from './teachers';
+import { MAX_SCHOOL_ADMINS, appointSchoolAdmin, buildSchoolProgress, canAdminSchool, recommendAsSchoolAdmin, listSchoolsForAdmin, pendingForSchool, revokeSchoolAdmin, schoolsOfAdmin } from './schoolAdmins';
 import { refreshForRun } from '../progress/topicProgress';
 import { topicsFor } from '../../shared/topicCatalog';
 
@@ -92,33 +92,71 @@ test('a school admin sees only the pending applications that name THEIR school, 
   assert.deepEqual(await pendingForSchool(s.t.db, s.bay), [], 'decided applications drop off');
 });
 
-test('confirming grants the teacher role through the same path as the owner and links the school; declining does not', async (ctx) => {
+test('OWNER DECISION: a school admin\'s confirm does NOT grant the teacher role; it records a recommendation the owner sees', async (ctx) => {
   const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
   const a = await apply(s, 'a@x.invalid', 'Bay Primary');
   const b = await apply(s, 'b@x.invalid', 'Bay Primary');
-  const ok = await decideAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, a, 'confirm', 'Known to us', NOW + 5);
-  assert.deepEqual(ok, { ok: true, status: 'approved' });
-  assert.ok(roles(s.t, a).includes('teacher'));
-  const row = s.t.raw.prepare('SELECT status, school_id, decided_by, decision_note FROM teacher_applications WHERE user_id = ?').get(a) as Record<string, unknown>;
-  assert.deepEqual({ ...row }, { status: 'approved', school_id: s.bay, decided_by: 'head@bay.example.invalid (school admin)', decision_note: 'Known to us' });
-  const no = await decideAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, b, 'decline', 'Not on our staff', NOW + 6);
-  assert.deepEqual(no, { ok: true, status: 'rejected' });
+  // the old button words still arrive from an old page: 'confirm' and 'decline' are read as a recommendation, never as an approval
+  const ok = await recommendAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, a, 'confirm', 'Known to us', NOW + 5);
+  assert.deepEqual(ok, { ok: true, verdict: 'recommend' });
+  assert.ok(!roles(s.t, a).includes('teacher'), 'no teacher role');
+  const row = s.t.raw.prepare('SELECT status, school_id, decided_by FROM teacher_applications WHERE user_id = ?').get(a) as Record<string, unknown>;
+  assert.deepEqual({ ...row }, { status: 'pending', school_id: null, decided_by: null }, 'the application is untouched');
+  // no class access: createClass needs the teacher role
+  const cls = await createClass(s.t.db, a, { name: 'X', grade: 6, subjects: ['nst'] }, NOW, newTestId);
+  assert.equal(cls.ok, false, 'no class access');
+  // the new words
+  assert.deepEqual(await recommendAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, a, 'recommend', 'Known to us', NOW + 6), { ok: true, verdict: 'recommend' });
+  assert.deepEqual(await recommendAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, b, 'not_recommend', 'Not on our staff', NOW + 7), { ok: true, verdict: 'not_recommend' });
   assert.ok(!roles(s.t, b).includes('teacher'));
-  assert.equal((await decideAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, a, 'confirm', '', NOW)).ok, false, 'already decided');
+  assert.equal((s.t.raw.prepare("SELECT status FROM teacher_applications WHERE user_id = ?").get(b) as { status: string }).status, 'pending', 'not recommending does not reject either');
+  // the school admin sees their own recommendation; the application stays in the list until the owner decides
+  const mine = await pendingForSchool(s.t.db, s.bay);
+  assert.deepEqual(mine.map((x) => [x.email, x.endorsement?.verdict]), [['a@x.invalid', 'recommend'], ['b@x.invalid', 'not_recommend']]);
+  assert.equal(mine[0].endorsement?.by, 'head@bay.example.invalid');
+  assert.equal(mine[0].endorsement?.note, 'Known to us');
+  // the owner sees the recommendation next to the application
+  const listed = await listApplications(s.t.db, 'pending');
+  assert.equal(listed.find((x) => x.userId === a)?.endorsement?.verdict, 'recommend');
+  assert.equal(listed.find((x) => x.userId === b)?.endorsement?.verdict, 'not_recommend');
+  // a recommendation is not a decision: only the owner grants the role, and the endorsement stays on record
+  assert.ok((await decideApplication(s.t.db, a, { decision: 'approve' }, 'owner@example.invalid', NOW + 9, newTestId)).ok);
+  assert.ok(roles(s.t, a).includes('teacher'), 'the owner approves');
+  assert.equal(await recommendAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, a, 'recommend', '', NOW + 10).then((r) => r.ok), false, 'decided applications cannot be recommended again');
+});
+
+test('a new application removes the earlier recommendation, and a repeat recommendation replaces the first', async (ctx) => {
+  const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
+  const a = await apply(s, 'a@x.invalid', 'Bay Primary');
+  await recommendAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, a, 'recommend', 'one', NOW + 5);
+  await recommendAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, a, 'not_recommend', 'two', NOW + 6);
+  assert.equal((s.t.raw.prepare('SELECT COUNT(*) AS n FROM teacher_endorsements WHERE user_id = ?').get(a) as { n: number }).n, 1);
+  assert.equal((await pendingForSchool(s.t.db, s.bay))[0].endorsement?.verdict, 'not_recommend');
+  await decideApplication(s.t.db, a, { decision: 'reject', note: 'no' }, 'owner@example.invalid', NOW + 7, newTestId);
+  assert.ok((await applyAsTeacher(s.t.db, a, { saceNumber: '12345678', schoolName: 'Bay Primary', province: 'Western Cape' }, NOW + 7 + 31 * 86_400_000)).ok);
+  assert.equal((s.t.raw.prepare('SELECT COUNT(*) AS n FROM teacher_endorsements WHERE user_id = ?').get(a) as { n: number }).n, 0, 'the old recommendation is gone');
+});
+
+test('an existing approved teacher stays approved and keeps their classes', async (ctx) => {
+  const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
+  const t = addTeacher(s.t, 'old@x.invalid', 'Bay Primary');
+  assert.ok(roles(s.t, t.userId).includes('teacher'));
+  const c = await createClass(s.t.db, t.userId, { name: 'Old class', grade: 6, subjects: ['nst'] }, NOW, newTestId);
+  assert.ok(c.ok, 'still has class access');
 });
 
 test('a school admin cannot decide for another school, with a role but no appointment, after being revoked, or with a made-up decision', async (ctx) => {
   const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
   const a = await apply(s, 'a@x.invalid', 'Bay Primary');
-  const asHill = await decideAsSchoolAdmin(s.t.db, s.hillAdmin, s.hill, a, 'confirm', '', NOW);
+  const asHill = await recommendAsSchoolAdmin(s.t.db, s.hillAdmin, s.hill, a, 'confirm', '', NOW);
   assert.deepEqual(asHill, { ok: false, status: 404, error: 'Not found' }, 'not their school\'s application');
-  const claimsBay = await decideAsSchoolAdmin(s.t.db, s.hillAdmin, s.bay, a, 'confirm', '', NOW);
+  const claimsBay = await recommendAsSchoolAdmin(s.t.db, s.hillAdmin, s.bay, a, 'confirm', '', NOW);
   assert.equal(claimsBay.ok, false, 'naming another school does not help');
   const rogue = addUser(s.t, 'rogue@x.invalid', ['parent', 'school_admin']); // the role alone
-  assert.equal((await decideAsSchoolAdmin(s.t.db, { userId: rogue, email: 'rogue@x.invalid' }, s.bay, a, 'confirm', '', NOW)).ok, false);
-  assert.equal((await decideAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, a, 'approve', '', NOW)).ok, false, 'only confirm or decline');
+  assert.equal((await recommendAsSchoolAdmin(s.t.db, { userId: rogue, email: 'rogue@x.invalid' }, s.bay, a, 'confirm', '', NOW)).ok, false);
+  assert.equal((await recommendAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, a, 'approve', '', NOW)).ok, false, 'a school admin cannot approve');
   await revokeSchoolAdmin(s.t.db, s.bay, s.bayAdmin.userId, NOW);
-  assert.equal((await decideAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, a, 'confirm', '', NOW)).ok, false, 'revoked');
+  assert.equal((await recommendAsSchoolAdmin(s.t.db, s.bayAdmin, s.bay, a, 'confirm', '', NOW)).ok, false, 'revoked');
   assert.ok(!roles(s.t, a).includes('teacher'), 'nothing was granted');
   assert.ok((await decideApplication(s.t.db, a, { decision: 'approve' }, 'owner@example.invalid', NOW, newTestId)).ok, 'the owner can always decide');
   assert.ok(roles(s.t, a).includes('teacher'));

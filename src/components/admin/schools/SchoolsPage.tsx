@@ -1,5 +1,5 @@
 'use client';
-// ADR 0003 section 6: the owner appoints a school admin for each school. A school admin can confirm teachers of their school and see school-level
+// ADR 0003 section 6: the owner appoints a school admin for each school. A school admin can recommend teachers of their school (the owner approves) and see school-level
 // progress. The owner keeps every override (/admin/teachers).
 import { useState } from 'react';
 import { useAdminData } from '../useAdminData';
@@ -66,7 +66,7 @@ export default function SchoolsPage() {
     <main style={{ maxWidth: 980, margin: '0 auto', padding: 16 }}>
       <h1 style={{ fontSize: 22, fontWeight: 700 }}>Schools</h1>
       <p className="admin-secondary" style={{ fontSize: 14, marginTop: 4 }}>
-        A school appears here once you approve its first teacher. Appoint a school admin to let them confirm their own school&apos;s teachers and see school-level progress by nickname. They can only see their own school. You can always decide in Teachers.
+        A school appears here once you approve its first teacher. Appoint a school admin to let them recommend their own school&apos;s teachers (you still approve every teacher in Teachers) and see school-level progress by nickname. They can only see their own school. You can always decide in Teachers.
       </p>
       {state.status === 'loading' && <p style={{ marginTop: 16 }}>Loading…</p>}
       {state.status === 'error' && <p role="alert" style={{ marginTop: 16 }}>Could not load the schools{state.code ? ` (${state.code})` : ''}.</p>}

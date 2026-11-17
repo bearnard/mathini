@@ -39,7 +39,7 @@ test('overview: 401 signed out, 403 without the role, 404 for a school they do n
   assert.ok(!JSON.stringify(j).includes('12345678') && !JSON.stringify(j).includes('87654321'));
 });
 
-test('deciding over HTTP: needs the action header and Origin; confirms their own school\'s teacher; cannot touch another school\'s', async (ctx) => {
+test('recommending over HTTP: needs the action header and Origin; recommends their own school\'s applicant but NEVER grants the teacher role; cannot touch another school\'s', async (ctx) => {
   const s = await setup(); if (!s) return ctx.skip('node:sqlite unavailable');
   const a = addUser(s.t, 'a@x.invalid'); await applyAsTeacher(s.t.db, a, { saceNumber: '12345678', schoolName: 'Bay Primary', province: 'Western Cape' }, NOW);
   const path = `/api/school/applications/${a}/decide`;
@@ -51,7 +51,14 @@ test('deciding over HTTP: needs the action header and Origin; confirms their own
   assert.equal((await handleSchoolDecide(req(`${path}?school=${s.bay}`, { action: 'school-decide', cookie: s.hillAdmin.cookie, body: { decision: 'confirm' } }), s.deps, a)).status, 404, 'naming the other school in the URL does not help');
   const ok = await handleSchoolDecide(req(path, { action: 'school-decide', cookie: s.bayAdmin.cookie, body: { decision: 'confirm', note: 'Ours' } }), s.deps, a);
   assert.equal(ok.status, 200);
-  assert.deepEqual((s.t.raw.prepare("SELECT role FROM user_roles WHERE user_id = ? AND role = 'teacher'").all(a) as unknown[]).length, 1);
+  assert.deepEqual(await ok.json(), { ok: true, verdict: 'recommend' });
+  // OWNER DECISION: no teacher role, application still pending, no class access; only the recommendation is recorded
+  assert.deepEqual((s.t.raw.prepare("SELECT role FROM user_roles WHERE user_id = ? AND role = 'teacher'").all(a) as unknown[]).length, 0, 'a school admin cannot grant the teacher role');
+  assert.equal((s.t.raw.prepare("SELECT status FROM teacher_applications WHERE user_id = ?").get(a) as { status: string }).status, 'pending');
+  assert.deepEqual({ ...(s.t.raw.prepare('SELECT verdict, endorsed_by FROM teacher_endorsements WHERE user_id = ?').get(a) as Record<string, string>) }, { verdict: 'recommend', endorsed_by: 'bay@x.invalid' });
+  const again = await handleSchoolDecide(req(path, { action: 'school-decide', cookie: s.bayAdmin.cookie, body: { decision: 'recommend' } }), s.deps, a);
+  assert.equal(again.status, 200, 'the application is still pending, so the recommendation can be changed');
+  assert.equal((await handleSchoolDecide(req(path, { action: 'school-decide', cookie: s.bayAdmin.cookie, body: { decision: 'approve' } }), s.deps, a)).status, 400, 'approve is not a word a school admin has');
 });
 
 test('class drill-down: a school admin reads a class of their school (nicknames only) and gets 404 for another school\'s class', async (ctx) => {

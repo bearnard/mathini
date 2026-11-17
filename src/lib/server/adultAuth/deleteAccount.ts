@@ -52,6 +52,8 @@ export async function deleteAdultAccount(db: AdminDb, userId: string, now: numbe
     { sql: `DELETE FROM exam_scopes WHERE class_id IN ${mine}`, params: [userId] },
     { sql: 'DELETE FROM classes WHERE teacher_user_id = ?', params: [userId] },
     { sql: 'DELETE FROM teacher_applications WHERE user_id = ?', params: [userId] },
+    { sql: 'DELETE FROM teacher_endorsements WHERE user_id = ?', params: [userId] },
+    { sql: "UPDATE teacher_endorsements SET endorsed_by = '(deleted)' WHERE endorsed_by = ?", params: [u.email] },
     { sql: 'DELETE FROM school_admins WHERE user_id = ?', params: [userId] },
     { sql: 'DELETE FROM class_join_seen WHERE user_id = ?', params: [userId] },
     { sql: 'DELETE FROM parent_links WHERE user_id = ?', params: [userId] },

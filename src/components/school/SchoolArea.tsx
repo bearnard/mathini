@@ -1,5 +1,6 @@
 'use client';
-// ADR 0003 section 6: the school admin's area. Confirm or decline teachers who named their school, and see how the school's classes are doing.
+// ADR 0003 section 6: the school admin's area. Recommend (or not) teachers who named their school, and see how the school's classes are doing.
+// The school admin never approves a teacher: the PrepPals team checks the SACE registration and approves, in /admin/teachers.
 // School-level numbers first; a class opens into the same view its teacher has (nicknames only). Only the school(s) the owner appointed them to.
 import { useEffect, useState } from 'react';
 import ClassProgressPanel from '../teacher/ClassProgressPanel';
@@ -8,7 +9,7 @@ import type { SchoolProgress } from '../../lib/shared/schoolProgressTypes';
 interface Overview {
   schools: { id: string; name: string }[];
   schoolId: string;
-  applications: { userId: string; email: string; schoolName: string; province: string | null; subjectsNote: string | null; saceMasked: string; submittedAt: number }[];
+  applications: { userId: string; email: string; schoolName: string; province: string | null; subjectsNote: string | null; saceMasked: string; submittedAt: number; endorsement: { verdict: 'recommend' | 'not_recommend'; note: string | null; by: string; at: number } | null }[];
   progress: SchoolProgress | null;
 }
 
@@ -27,12 +28,12 @@ async function getJson<T>(url: string): Promise<{ ok: true; data: T } | { ok: fa
   }
 }
 
-function Application({ a, schoolId, onDone }: { a: Overview['applications'][number]; schoolId: string; onDone: (decision: 'confirm' | 'decline' | null) => void }) {
+function Application({ a, schoolId, onDone }: { a: Overview['applications'][number]; schoolId: string; onDone: (decision: 'recommend' | 'not_recommend' | null) => void }) {
   const [note, setNote] = useState('');
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
-  const decide = async (decision: 'confirm' | 'decline') => {
-    if (!window.confirm(decision === 'confirm' ? `Confirm that ${a.email} teaches at your school? They will get a teacher account.` : `Decline ${a.email}?`)) return;
+  const decide = async (decision: 'recommend' | 'not_recommend') => {
+    if (!window.confirm(decision === 'recommend' ? `Recommend ${a.email}? You are telling the PrepPals team that they teach at your school. The team checks their SACE registration and decides.` : `Tell the PrepPals team that ${a.email} does not teach at your school?`)) return;
     setBusy(true); setErr('');
     try {
       const res = await fetch(`/api/school/applications/${a.userId}/decide?school=${encodeURIComponent(schoolId)}`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Auth-Action': 'school-decide' }, body: JSON.stringify({ decision, note }) });
@@ -51,10 +52,11 @@ function Application({ a, schoolId, onDone }: { a: Overview['applications'][numb
       <label className="mt-3 block text-sm font-medium text-slate-700">Note (optional)
         <input value={note} onChange={(e) => setNote(e.target.value)} maxLength={300} className="mt-1 block min-h-12 w-full rounded-xl border border-slate-300 bg-white px-3 text-base text-slate-900" />
       </label>
+      {a.endorsement && <p className="mt-2 text-sm font-medium text-slate-700" role="status">You {a.endorsement.verdict === 'recommend' ? 'recommended this teacher' : 'said this person does not teach here'} on {when(a.endorsement.at)}. You can change it until the PrepPals team decides.</p>}
       {err && <p className="mt-2 text-sm text-red-700" role="alert">{err}</p>}
       <div className="mt-3 flex gap-2">
-        <button className={`${btnPrimary} flex-1`} disabled={busy} onClick={() => void decide('confirm')}>Confirm teacher</button>
-        <button className={btn} disabled={busy} onClick={() => void decide('decline')}>Decline</button>
+        <button className={`${btnPrimary} flex-1`} disabled={busy} onClick={() => void decide('recommend')}>Recommend</button>
+        <button className={btn} disabled={busy} onClick={() => void decide('not_recommend')}>Does not teach here</button>
       </div>
     </li>
   );
@@ -71,11 +73,12 @@ export default function SchoolArea() {
     });
   };
   useEffect(() => load(''), []);
-  // The teacher leaves the waiting list AT ONCE (a second click would only meet a 409), then the school's numbers are read again.
+  // A recommendation changes nothing for the applicant (the PrepPals team decides), so the applicant stays in the list with the recommendation shown;
+  // 404 or 409 means the team already decided: the applicant leaves the list.
   const [done, setDone] = useState('');
-  const decided = (a: Overview['applications'][number], d: 'confirm' | 'decline' | null) => {
-    setData((cur) => (cur && typeof cur === 'object' ? { ...cur, applications: cur.applications.filter((x) => x.userId !== a.userId) } : cur));
-    if (d) setDone(d === 'confirm' ? `${a.email} now has a teacher account.` : `${a.email} was declined.`);
+  const decided = (a: Overview['applications'][number], d: 'recommend' | 'not_recommend' | null) => {
+    if (d === null) setData((cur) => (cur && typeof cur === 'object' ? { ...cur, applications: cur.applications.filter((x) => x.userId !== a.userId) } : cur));
+    else setDone(d === 'recommend' ? `Thank you. You recommended ${a.email}. The PrepPals team checks their SACE registration and decides.` : `Thank you. You told the PrepPals team that ${a.email} does not teach at your school.`);
     load(school);
   };
 
@@ -100,9 +103,9 @@ export default function SchoolArea() {
           <p className="mt-2 text-lg font-semibold text-slate-900">{p?.schoolName ?? data.schools.find((s) => s.id === data.schoolId)?.name}</p>
 
           <section className="mt-5" aria-label="Teachers waiting">
-            <h2 className="text-lg font-bold text-slate-900">Teachers waiting for you{data.applications.length ? ` (${data.applications.length})` : ''}</h2>
+            <h2 className="text-lg font-bold text-slate-900">Teachers who named your school{data.applications.length ? ` (${data.applications.length})` : ''}</h2>
             {done && <p className="mt-1 rounded-xl bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-900" role="status">{done}</p>}
-            {data.applications.length === 0 ? <p className="mt-1 text-slate-600">No one is waiting. Teachers who name your school on their application will appear here.</p> : (
+            {data.applications.length === 0 ? <p className="mt-1 text-slate-600">No one is waiting. Teachers who name your school on their application will appear here. You can recommend them; the PrepPals team checks the SACE registration and approves.</p> : (
               <ul className="mt-2 space-y-3">{data.applications.map((a) => <Application key={a.userId} a={a} schoolId={data.schoolId} onDone={(d) => decided(a, d)} />)}</ul>
             )}
           </section>
