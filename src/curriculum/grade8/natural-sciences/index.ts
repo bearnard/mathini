@@ -43,6 +43,30 @@ export const naturalSciencesGrade8: Subject = {
           description: 'Solar-system objects, scale ideas, and gravity as the force of attraction.',
           component: lazy(() => import('./term2/solar-system-and-gravity/SolarSystemAndGravity')),
         },
+        {
+          id: 'particle-model-and-states',
+          title: 'Particle Model of Matter and States',
+          description: 'Arrangement and movement of particles in solids, liquids and gases, change of state and diffusion.',
+          component: lazy(() => import('./term2/particle-model-and-states/ParticleModelAndStates')),
+        },
+        {
+          id: 'density-expansion-pressure',
+          title: 'Density, Expansion and Gas Pressure',
+          description: 'Density and floating, expansion and contraction in terms of particles, and the pressure of a gas.',
+          component: lazy(() => import('./term2/density-expansion-pressure/DensityExpansionPressure')),
+        },
+        {
+          id: 'atoms-elements-compounds',
+          title: 'Atoms, Elements, Compounds and Mixtures',
+          description: 'Atoms and sub-atomic particles, elements, molecules, compounds and mixtures.',
+          component: lazy(() => import('./term2/atoms-elements-compounds/AtomsElementsCompounds')),
+        },
+        {
+          id: 'reactants-and-products',
+          title: 'Chemical Reactions: Reactants and Products',
+          description: 'Reactants, products, rearranged atoms and everyday chemical reactions.',
+          component: lazy(() => import('./term2/reactants-and-products/ReactantsAndProducts')),
+        },
       ],
     },
     {
