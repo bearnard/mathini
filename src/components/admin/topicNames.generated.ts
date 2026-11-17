@@ -1479,6 +1479,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Case Study: the Black Power Movement",
   "History"
  ],
+ "12|gr12-blogs-vlogs-podcasts-wearables-t3": [
+  "Blogs, Vlogs, Podcasts, Wikis and Wearables",
+  "Computer Applications Technology"
+ ],
  "12|gr12-budgeting-projected-income-t3": [
   "Budgeting and Projected Income",
   "Accounting"
@@ -1534,6 +1538,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-cloud-computing-virtualisation-t2": [
   "Cloud Computing, SaaS and Virtualisation",
   "Information Technology"
+ ],
+ "12|gr12-cloud-grid-streaming-t2": [
+  "Cloud and Grid Computing, Streaming and Sharing",
+  "Computer Applications Technology"
  ],
  "12|gr12-codesa-and-negotiated-settlement-t3": [
   "CODESA and the Negotiated Settlement",
@@ -1935,6 +1943,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Macroeconomics Revision",
   "Economics"
  ],
+ "12|gr12-malware-kinds-t2": [
+  "Kinds of Malware and How to Stay Safe",
+  "Computer Applications Technology"
+ ],
  "12|gr12-manufacturing-cost-statements-t2": [
   "Manufacturing Cost Statements",
   "Accounting"
@@ -2258,6 +2270,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-social-implications-privacy-ethics-t3": [
   "Social Implications, Privacy and Ethics",
   "Information Technology"
+ ],
+ "12|gr12-social-media-digital-footprint-t3": [
+  "Social Media, Digital Footprint and Misinformation",
+  "Computer Applications Technology"
  ],
  "12|gr12-software-methodologies-design-tools-t1": [
   "Software Methodologies and Design Tools",

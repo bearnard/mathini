@@ -63,6 +63,18 @@ export const computerApplicationsTechnologyGrade12: Subject = {
           description: "Cover PAT phase 2 processing and presentation, spreadsheet/database/document refinements, and preparation for June practical and theory examinations.",
           component: lazy(() => import('./term2/pat-phase2-june-exam-preparation/PATPhase2JuneExamPreparation')),
         },
+        {
+          id: 'gr12-cloud-grid-streaming-t2',
+          title: 'Cloud and Grid Computing, Streaming and Sharing',
+          description: "Cloud computing and cloud applications, grid computing, streaming versus downloading, and permissions when sharing files.",
+          component: lazy(() => import('./term2/cloud-grid-streaming/CloudGridStreaming')),
+        },
+        {
+          id: 'gr12-malware-kinds-t2',
+          title: 'Kinds of Malware and How to Stay Safe',
+          description: "Viruses, Trojans, ransomware, spyware, adware and keyloggers described, and the safeguards against them.",
+          component: lazy(() => import('./term2/malware-kinds/MalwareKinds')),
+        },
       ],
     },
     {
@@ -92,6 +104,18 @@ export const computerApplicationsTechnologyGrade12: Subject = {
           title: "Advanced Application Integration",
           description: "Cover advanced spreadsheets, databases, HTML and linked documents, with a focus on integrating outputs accurately across applications.",
           component: lazy(() => import('./term3/advanced-application-integration/AdvancedApplicationIntegration')),
+        },
+        {
+          id: 'gr12-social-media-digital-footprint-t3',
+          title: 'Social Media, Digital Footprint and Misinformation',
+          description: "Social media platforms, legal and ethical issues, your cyber profile and digital footprint, fake news, defamation and cyberbullying.",
+          component: lazy(() => import('./term3/social-media-digital-footprint/SocialMediaDigitalFootprint')),
+        },
+        {
+          id: 'gr12-blogs-vlogs-podcasts-wearables-t3',
+          title: 'Blogs, Vlogs, Podcasts, Wikis and Wearables',
+          description: "Tools for global communication, and personal mobile devices including wearables.",
+          component: lazy(() => import('./term3/blogs-vlogs-podcasts-wearables/BlogsVlogsPodcastsWearables')),
         },
       ],
     },
