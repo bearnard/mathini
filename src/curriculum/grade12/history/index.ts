@@ -87,6 +87,24 @@ export const historyGrade12: Subject = {
           description: "How sanctions, boycotts, and disinvestment combined with internal struggle to push South Africa toward talks.",
           component: lazy(() => import('./term2/sanctions-disinvestment-and-the-road-to-negotiations/SanctionsDisinvestmentAndTheRoadToNegotiations')),
         },
+        {
+          id: 'gr12-civil-rights-movement-t2',
+          title: "Case Study: the US Civil Rights Movement",
+          description: "Background, King and non-violence, forms of protest, Little Rock, and short- and long-term gains.",
+          component: lazy(() => import('./term2/civil-rights-movement/CivilRightsMovement')),
+        },
+        {
+          id: 'gr12-black-power-movement-t2',
+          title: "Case Study: the Black Power Movement",
+          description: "Why it arose, Malcolm X and Stokely Carmichael, the Black Panthers, and its gains and limits.",
+          component: lazy(() => import('./term2/black-power-movement/BlackPowerMovement')),
+        },
+        {
+          id: 'gr12-women-and-peace-movements-t2',
+          title: "Women's Liberation, Women in South Africa and Peace Movements",
+          description: "Second-wave feminism, FEDSAW and the 1956 march, the Black Sash, and peace and anti-war protest.",
+          component: lazy(() => import('./term2/women-and-peace-movements/WomenAndPeaceMovements')),
+        },
       ],
     },
     {

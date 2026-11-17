@@ -19,6 +19,18 @@ Source: DBE CAPS FET History Grades 10-12, **Afrikaans edition (Geskiedenis)** r
 | 11 | Angola | "South Africa invaded in 1975 and later supported UNITA." | Standard; the exact start of South African support is complicated. |
 | 12 | Angola | Peace dates: Bicesse Accords May 1991; Savimbi killed February 2002; peace April 2002. | Standard dates. |
 
+## Civil society branch (term 2: Civil Rights, Black Power, women and peace)
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 13 | All | Dates and names (Brown 17 May 1954, Parks arrest 1 Dec 1955, boycott 5 Dec 1955 to 20 Dec 1956, March on Washington 28 Aug 1963, Civil Rights Act 2 Jul 1964, Bloody Sunday 7 Mar 1965, Voting Rights Act 6 Aug 1965, King killed 4 Apr 1968) are standard and asserted in tests from one facts file. | Standard; the teacher should still confirm against the English CAPS. |
+| 14 | Civil Rights | The boycott length is given as "over a year" (5 December 1955 to 20 December 1956) instead of a day count. | The usual figure of 381 days depends on how the days are counted; the lesson avoids a precise number. |
+| 15 | Black Power | Black Power is presented as several groups that did not agree, with different historians' judgements of the Panthers (community work against armed image and conflict with police). The FBI's action is described in general terms. | Contested; a teacher should confirm the balance. |
+| 16 | Black Power | Malcolm X: "left the Nation of Islam in 1964; views on race changed after the pilgrimage to Mecca." | Standard; historians differ on how far his views changed. |
+| 17 | Women and peace | "About 20 000 women" at the Union Buildings on 9 August 1956; leaders Lilian Ngoyi and Helen Joseph. | Commonly quoted figure; estimates vary. |
+| 18 | Women and peace | Kent State, 4 May 1970, four students killed. | Standard. The lesson does not say that protest ended the war: it says historians disagree. |
+| 19 | Women and peace | CAPS Topic 3 lists the women's movement in general terms; the lesson treats second-wave feminism briefly and South African women more fully. | A teacher should confirm the emphasis. |
+
 ## Not covered on purpose
 
 - Events before 1949 in China, as CAPS says ("not for examination").

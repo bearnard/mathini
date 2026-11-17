@@ -1351,6 +1351,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Black Consciousness Movement",
   "History"
  ],
+ "12|gr12-black-power-movement-t2": [
+  "Case Study: the Black Power Movement",
+  "History"
+ ],
  "12|gr12-budgeting-projected-income-t3": [
   "Budgeting and Projected Income",
   "Accounting"
@@ -1382,6 +1386,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-circular-flow-multiplier-t1": [
   "Circular Flow and the Multiplier",
   "Economics"
+ ],
+ "12|gr12-civil-rights-movement-t2": [
+  "Case Study: the US Civil Rights Movement",
+  "History"
  ],
  "12|gr12-climate-and-geomorphology-revision-t4": [
   "Climate and Geomorphology Revision",
@@ -2114,6 +2122,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-vertical-projectile-motion-t1": [
   "Vertical Projectile Motion",
   "Physical Sciences"
+ ],
+ "12|gr12-women-and-peace-movements-t2": [
+  "Women's Liberation, Women in South Africa and Peace Movements",
+  "History"
  ],
  "12|gr12-work-energy-power-t2": [
   "Work, Energy and Power",
