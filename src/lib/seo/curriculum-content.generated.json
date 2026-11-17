@@ -3326,6 +3326,16 @@
                 "description": "Electric current, circuits, series vs parallel, voltage, and resistance."
               },
               {
+                "id": "gr9-forces",
+                "title": "Forces",
+                "description": "Contact and field forces, mass and weight, magnets, static electricity and lightning."
+              },
+              {
+                "id": "gr9-electricity-safety",
+                "title": "Safety with Electricity",
+                "description": "Fuses, circuit breakers, earthing, the 3-pin plug, overload and energy theft."
+              },
+              {
                 "id": "gr9-heat-energy-transfer",
                 "title": "Heat and Energy Transfer",
                 "description": "Conduction, convection, radiation, insulation, exothermic and endothermic reactions."

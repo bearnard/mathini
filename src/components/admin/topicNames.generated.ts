@@ -3827,6 +3827,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Electricity and Electric Cells",
   "Natural Sciences"
  ],
+ "9|gr9-electricity-safety-t3": [
+  "Safety with Electricity",
+  "Natural Sciences"
+ ],
  "9|gr9-electronic-control-t3": [
   "Electronic Control and PAT 2",
   "Technology"
@@ -3870,6 +3874,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-food-security-farming-t4": [
   "Food Security and Sustainable Farming",
   "Social Sciences: Geography"
+ ],
+ "9|gr9-forces-t3": [
+  "Forces",
+  "Natural Sciences"
  ],
  "9|gr9-formal-correspondence-t2": [
   "Formele Korrespondensie",

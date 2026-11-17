@@ -52,6 +52,18 @@ export const naturalSciencesGrade9: Subject = {
           component: lazy(() => import('./term3/electricity-electric-cells/ElectricityElectricCells')),
         },
         {
+          id: 'gr9-forces',
+          title: 'Forces',
+          description: 'Contact and field forces, mass and weight, magnets, static electricity and lightning.',
+          component: lazy(() => import('./term3/forces/Forces')),
+        },
+        {
+          id: 'gr9-electricity-safety',
+          title: 'Safety with Electricity',
+          description: 'Fuses, circuit breakers, earthing, the 3-pin plug, overload and energy theft.',
+          component: lazy(() => import('./term3/electricity-safety/ElectricitySafety')),
+        },
+        {
           id: 'gr9-heat-energy-transfer',
           title: 'Heat and Energy Transfer',
           description: 'Conduction, convection, radiation, insulation, exothermic and endothermic reactions.',
