@@ -5,7 +5,7 @@ Source: `audit/caps-alignment.md` (sections "Grade 8 Natural Sciences" and "Grad
 | Branch | Term | Lessons | Status |
 |---|---|---|---|
 | feat/g8-ns-t2 | T2 | Particle Model of Matter and States; Density, Expansion and Gas Pressure; Atoms, Elements, Compounds and Mixtures; Chemical Reactions: Reactants and Products | done |
-| feat/g8-ns-t3 | T3 | Static Electricity; Electric Circuits and Current Electricity; Series and Parallel Circuits; Visible Light | todo |
+| feat/g8-ns-t3 | T3 | Static Electricity; Electric Circuits and Current Electricity; Series and Parallel Circuits; Visible Light | done |
 | feat/g8-ns-t4 | T4 | Beyond the Solar System; Looking into Space | todo |
 | feat/g8-tech-t1 | T1 | Graphic Communication; Frame Structures and Structural Failure | todo |
 | feat/g8-tech-t2 | T2 | Impact of Technology and Packaging; Forces on Materials and Reinforcing | todo |

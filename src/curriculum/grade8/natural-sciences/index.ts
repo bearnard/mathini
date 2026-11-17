@@ -95,6 +95,30 @@ export const naturalSciencesGrade8: Subject = {
               ),
           ),
         },
+        {
+          id: 'static-electricity',
+          title: 'Static Electricity',
+          description: 'Charging by friction, like and unlike charges, and discharge.',
+          component: lazy(() => import('./term3/static-electricity/StaticElectricity')),
+        },
+        {
+          id: 'electric-circuits-current',
+          title: 'Electric Circuits and Current Electricity',
+          description: 'Circuits, their components and the heating, magnetic and chemical effects of a current.',
+          component: lazy(() => import('./term3/electric-circuits-current/ElectricCircuitsCurrent')),
+        },
+        {
+          id: 'series-parallel-circuits',
+          title: 'Series and Parallel Circuits',
+          description: 'Pathways, current and bulb brightness in series and parallel circuits.',
+          component: lazy(() => import('./term3/series-parallel-circuits/SeriesParallelCircuits')),
+        },
+        {
+          id: 'visible-light',
+          title: 'Visible Light',
+          description: 'Light and the spectrum, opaque and transparent materials, colour, reflection and refraction.',
+          component: lazy(() => import('./term3/visible-light/VisibleLight')),
+        },
       ],
     },
     {
