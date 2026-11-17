@@ -51,6 +51,18 @@ export const afrikaansFALGrade9: Subject = {
           description: 'Direct/indirect speech, conjunctions, language editing, coherence.',
           component: lazy(() => import('./term2/grammar-reporting/GrammarReporting')),
         },
+        {
+          id: 'afr-diary-entry',
+          title: 'Dagboekinskrywing',
+          description: 'The opening, time words, the past with het, and feelings.',
+          component: lazy(() => import('./term2/diary-entry/DiaryEntry')),
+        },
+        {
+          id: 'afr-constitution-policy',
+          title: 'Grondwet en Beleid',
+          description: 'The parts of a constitution, moet and mag, and how a policy differs.',
+          component: lazy(() => import('./term2/constitution-policy/ConstitutionPolicy')),
+        },
       ],
     },
     {
