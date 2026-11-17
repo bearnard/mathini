@@ -129,3 +129,77 @@ export const DeclinationDiagram = ({ declination, trueBearing, magneticBearing }
     </Panel>
   );
 };
+
+/** A hill drawn with contour lines: closed rings, closer together on the steep side (left) and further apart on the gentle side (right). Heights label the rings. */
+export const ContourHill = ({ baseM, interval, rings }: { baseM: number; interval: number; rings: number }) => {
+  const cy = 34;
+  const ellipses = Array.from({ length: rings }, (_, i) => {
+    const left = 12 + i * 5; // close together on the steep (left) side
+    const right = 108 - i * 14; // far apart on the gentle (right) side
+    return { height: baseM + i * interval, left, right, ry: 24 - i * 5 };
+  });
+  return (
+    <Panel h={76} aria={`A hill drawn with ${rings} contour lines from ${baseM} m upwards, ${interval} m apart. The lines are close together on the left, which is the steep side, and further apart on the right, which is the gentle side.`}>
+      {ellipses.map((e, i) => (
+        <g key={e.height}>
+          <ellipse cx={r3((e.left + e.right) / 2)} cy={cy} rx={r3((e.right - e.left) / 2)} ry={e.ry} fill="none" stroke={i === rings - 1 ? A : I} strokeWidth={0.8} />
+          <T x={e.right - 2} y={cy + 1.4} size={3.6} anchor="end" color={LINE}>{`${e.height}`}</T>
+        </g>
+      ))}
+      <T x={14} y={72} size={3.8} color={R} anchor="start">steep: lines close</T>
+      <T x={108} y={72} size={3.8} color={E} anchor="end">gentle: lines far apart</T>
+    </Panel>
+  );
+};
+
+/** The right-angled triangle behind a gradient: the vertical interval, the horizontal distance and the gradient 1:x. */
+export const GradientTriangle = ({ verticalM, horizontalM }: { verticalM: number; horizontalM: number }) => {
+  const x = horizontalM / verticalM;
+  return (
+    <Panel h={58} aria={`A right-angled triangle. The vertical interval is ${verticalM} m and the horizontal distance is ${horizontalM} m, so the gradient is 1:${String(x).replace('.', ',')}.`}>
+      <polygon points="14,48 100,48 100,14" fill="rgba(129,140,248,0.2)" stroke={I} strokeWidth={0.9} />
+      <T x={57} y={55} size={4.2}>{`horizontal distance ${horizontalM} m`}</T>
+      <T x={104} y={33} size={4.2} anchor="start" color={A}>{`${verticalM} m`}</T>
+      <T x={104} y={38.5} size={3.4} anchor="start" color={MUTED}>vertical</T>
+      <T x={50} y={26} size={4.6} color={E}>{`gradient 1:${String(x).replace('.', ',')}`}</T>
+    </Panel>
+  );
+};
+
+/** A cross-section: heights at equal steps from A to B. With `sight`, the straight line of sight from A to B is drawn and the first point that blocks it is marked. */
+export const ProfileChart = ({ heights, sight = false, verticalNote }: { heights: number[]; sight?: boolean; verticalNote?: string }) => {
+  const min = Math.min(...heights) - 20;
+  const max = Math.max(...heights) + 20;
+  const n = heights.length - 1;
+  const X = (i: number) => r3(16 + (i / n) * 88);
+  const Y = (h: number) => r3(52 - ((h - min) / (max - min)) * 38);
+  let block = -1;
+  for (let i = 1; i < n; i++) if (heights[i] >= heights[0] + ((heights[n] - heights[0]) * i) / n) { block = i; break; }
+  return (
+    <Panel h={70} aria={`A cross-section from A to B with heights ${heights.join(', ')} metres at equal steps.${sight ? (block >= 0 ? ` The straight line of sight from A to B is blocked by the point of ${heights[block]} m.` : ' The straight line of sight from A to B passes above every point between them.') : ''}${verticalNote ? ` ${verticalNote}` : ''}`}>
+      <polygon points={`${X(0)},${Y(min)} ${heights.map((h, i) => `${X(i)},${Y(h)}`).join(' ')} ${X(n)},${Y(min)}`} fill="rgba(74,222,128,0.18)" stroke={E} strokeWidth={0.9} />
+      {sight ? <line x1={X(0)} y1={Y(heights[0])} x2={X(n)} y2={Y(heights[n])} stroke={A} strokeWidth={0.9} strokeDasharray="2.5 1.6" /> : null}
+      {block >= 0 && sight ? <circle cx={X(block)} cy={Y(heights[block])} r={2} fill={R} /> : null}
+      {heights.map((h, i) => <T key={i} x={X(i)} y={Y(h) - 2.4} size={3.6}>{String(h)}</T>)}
+      <T x={X(0)} y={Y(min) + 6} size={4.2}>A</T>
+      <T x={X(n)} y={Y(min) + 6} size={4.2}>B</T>
+      {verticalNote ? <T x={60} y={67} size={3.6} color={MUTED}>{verticalNote}</T> : null}
+    </Panel>
+  );
+};
+
+/** A vertical photograph (camera pointing straight down) next to an oblique one (camera tilted, the horizon shows). */
+export const AerialTypes = () => (
+  <Panel h={64} aria="Two aerial photographs. For a vertical photograph the camera looks straight down from the aircraft and the view is a plan of the ground. For an oblique photograph the camera is tilted, the horizon shows, and the sides of buildings and hills can be seen.">
+    <polygon points="14,12 22,12 18,16" fill={LINE} />
+    <line x1={18} y1={16} x2={10} y2={46} stroke={A} strokeWidth={0.6} strokeDasharray="2 1.4" />
+    <line x1={18} y1={16} x2={26} y2={46} stroke={A} strokeWidth={0.6} strokeDasharray="2 1.4" />
+    <rect x={6} y={46} width={24} height={6} fill="rgba(74,222,128,0.35)" stroke={E} strokeWidth={0.5} />
+    <T x={18} y={60} size={4.2}>Vertical</T>
+    <polygon points="74,12 82,12 78,16" fill={LINE} />
+    <line x1={78} y1={16} x2={62} y2={50} stroke={A} strokeWidth={0.6} strokeDasharray="2 1.4" />
+    <line x1={78} y1={16} x2={108} y2={34} stroke={A} strokeWidth={0.6} strokeDasharray="2 1.4" />
+    <polygon points="56,52 112,52 112,34 62,34" fill="rgba(74,222,128,0.35)" stroke={E} strokeWidth={0.5} />
+    <T x={84} y={60} size={4.2}>Oblique</T>
+  </Panel>
+);

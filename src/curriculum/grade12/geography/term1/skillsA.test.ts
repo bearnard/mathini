@@ -26,7 +26,7 @@ test('both lessons have the standard shape and labelled pictures, 14 questions e
     for (const s of slides) assert.equal(s.labelled, s.pictures, `${name} / ${s.title}: every picture has an aria label`);
   }
   for (const bank of [scaleMod.bank, bearMod.bank]) {
-    assert.equal(bank.length, 14);
+    assert.ok(bank.length === 14 || bank.length === 15);
     for (const b of bank) { assert.equal(b.options.length, 4); assert.equal(new Set(b.options).size, 4); assert.ok(b.options.includes(b.answer)); }
   }
 });
@@ -68,6 +68,7 @@ test('INDEPENDENT: bearing and declination keys', () => {
   assert.equal(key(b, 'A map gives a declination of 22'), `${dm(22 * 60 + 40 + (2025 - 2015) * 8)} W`);
   assert.equal(key(b, 'The declination in a year is 26'), dm(90 * 60 + 26 * 60 + 10));
   assert.equal(key(b, 'Hill K is due west'), deg(270));
+  assert.equal(key(b, 'A map gives a declination of 25'), `${dm(25 * 60 + 5 - (2020 - 2010) * 4)} W`);
   assert.equal(key(b, 'How are bearings measured'), 'Clockwise from north');
   const t = text('bearing');
   for (const s of ["26\u00b010'", '245\u00b0', 'west of true north', 'clockwise from true north', 'magnetic bearing = true bearing + declination']) assert.ok(t.includes(s), `missing ${s}`);

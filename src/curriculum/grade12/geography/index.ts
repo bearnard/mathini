@@ -45,6 +45,18 @@ export const geographyGrade12: Subject = {
           description: "Compass points, true and magnetic bearings, back bearings and the declination today.",
           component: lazy(() => import('./term1/bearings-declination/BearingsDeclinationT1')),
         },
+        {
+          id: 'gr12-contours-gradient-sections-t1',
+          title: "Contours, Gradient, Cross-sections and Intervisibility",
+          description: "Contours and landforms, gradient, cross-sections with vertical exaggeration and intervisibility.",
+          component: lazy(() => import('./term1/contours-gradient-sections/ContoursGradientSectionsT1')),
+        },
+        {
+          id: 'gr12-aerial-orthophoto-t1',
+          title: "Aerial Photographs and Orthophoto Maps",
+          description: "Vertical and oblique photographs, tone, texture and shadow, and orthophoto maps.",
+          component: lazy(() => import('./term1/aerial-orthophoto/AerialOrthophotoT1')),
+        },
       ],
     },
     {
