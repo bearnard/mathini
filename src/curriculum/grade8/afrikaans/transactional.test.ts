@@ -9,16 +9,20 @@ import * as letter from './term1/friendly-letter/FriendlyLetter';
 import * as report from './term1/investigative-report/InvestigativeReport';
 import * as instructions from './term2/instructions-directions/InstructionsDirections';
 import * as dialogue from './term2/dialogue-interview/DialogueInterview';
+import * as press from './term3/letter-to-the-press/LetterToThePress';
+import * as article from './term4/newspaper-article/NewspaperArticle';
+import * as diary from './term4/diary-entry/DiaryEntry';
+import * as newsReport from './term4/news-report/NewsReport';
 
 // Wave A Grade 8 Afrikaans FAL transactional texts: the same lesson standard as lessons.test.ts, plus: registration, clean questions,
 // and every Afrikaans phrase shown in a lesson is on the teacher-check list (docs/notes/g8-afrikaans-doubts.md).
-const lessons = { 'afr-friendly-letter': letter, 'afr-investigative-report': report, 'afr-instructions-directions': instructions, 'afr-dialogue-interview': dialogue };
+const lessons = { 'afr-friendly-letter': letter, 'afr-investigative-report': report, 'afr-instructions-directions': instructions, 'afr-dialogue-interview': dialogue, 'afr-letter-to-the-press': press, 'afr-newspaper-article': article, 'afr-diary-entry': diary, 'afr-news-report': newsReport };
 const text = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 const slideText = (step: { content: React.ReactNode }) => text(renderToStaticMarkup(createElement('div', null, step.content)));
 const lower = (s: string) => s.toLowerCase().replace(/[’‘]/g, "'");
 
 test('the new lessons are registered in their term after the existing three, with a stable id each', () => {
-  const where: Record<string, number> = { 'afr-friendly-letter': 1, 'afr-investigative-report': 1, 'afr-instructions-directions': 2, 'afr-dialogue-interview': 2 };
+  const where: Record<string, number> = { 'afr-friendly-letter': 1, 'afr-investigative-report': 1, 'afr-instructions-directions': 2, 'afr-dialogue-interview': 2, 'afr-letter-to-the-press': 3, 'afr-newspaper-article': 4, 'afr-diary-entry': 4, 'afr-news-report': 4 };
   const ids = (n: number) => afrikaansFALGrade8.terms.find((t) => t.id === n)!.topics.map((t) => t.id);
   for (const [id, term] of Object.entries(where)) assert.ok(ids(term).includes(id), id);
   assert.equal(ids(1).length >= 5, true);
@@ -70,6 +74,6 @@ for (const [name, mod] of Object.entries(lessons)) {
 
 test('the Afrikaans task ids are unique across subjects (they must not collide with the English Grade 8 lessons)', async () => {
   const { TOPIC_NAMES } = await import('../../../components/admin/topicNames.generated');
-  for (const t of ['gr8-afr-friendly-letter-t1', 'gr8-afr-investigative-report-t1', 'gr8-afr-instructions-directions-t2', 'gr8-afr-dialogue-interview-t2']) assert.equal(TOPIC_NAMES[`8|${t}`]?.[1], 'Afrikaans FAL', t);
+  for (const t of ['gr8-afr-friendly-letter-t1', 'gr8-afr-investigative-report-t1', 'gr8-afr-instructions-directions-t2', 'gr8-afr-dialogue-interview-t2', 'gr8-afr-letter-to-the-press-t3', 'gr8-afr-newspaper-article-t4', 'gr8-afr-diary-entry-t4', 'gr8-afr-news-report-t4']) assert.equal(TOPIC_NAMES[`8|${t}`]?.[1], 'Afrikaans FAL', t);
   assert.equal(TOPIC_NAMES['8|gr8-friendly-letter-t1']?.[1], 'English HL', 'the English friendly letter task id is still the English lesson');
 });

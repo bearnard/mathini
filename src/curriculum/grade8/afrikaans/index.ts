@@ -99,6 +99,12 @@ export const afrikaansFALGrade8: Subject = {
           description: 'Formal formats plus conjunction, punctuation and reporting accuracy.',
           component: lazy(() => import('./term3/transactional-writing-language-refinement/TransactionalWritingLanguageRefinement')),
         },
+        {
+          id: 'afr-letter-to-the-press',
+          title: 'Brief aan die pers',
+          description: "Writing to the editor: the greeting, your view with reasons, and a polite request.",
+          component: lazy(() => import('./term3/letter-to-the-press/LetterToThePress')),
+        },
       ],
     },
     {
@@ -122,6 +128,24 @@ export const afrikaansFALGrade8: Subject = {
           title: 'Taalkonsolidasie',
           description: 'Comprehensive year-end grammar and sentence-control revision.',
           component: lazy(() => import('./term4/language-consolidation/LanguageConsolidation')),
+        },
+        {
+          id: 'afr-newspaper-article',
+          title: 'Koerantberig en tydskrifartikel',
+          description: "The headline, the first paragraph with the main facts, and a quotation.",
+          component: lazy(() => import('./term4/newspaper-article/NewspaperArticle')),
+        },
+        {
+          id: 'afr-diary-entry',
+          title: 'Dagboekinskrywing',
+          description: "The opening, time words, the past with het, and feelings.",
+          component: lazy(() => import('./term4/diary-entry/DiaryEntry')),
+        },
+        {
+          id: 'afr-news-report',
+          title: 'Joernalistieke verslag',
+          description: "Facts first, named sources, the past tense, and no opinion.",
+          component: lazy(() => import('./term4/news-report/NewsReport')),
         },
       ],
     },

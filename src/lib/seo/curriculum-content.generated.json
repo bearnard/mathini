@@ -2218,6 +2218,11 @@
                 "id": "afr-transactional-writing-language-refinement",
                 "title": "Transaksionele Skryfwerk & Taalverfyning",
                 "description": "Formal formats plus conjunction, punctuation and reporting accuracy."
+              },
+              {
+                "id": "afr-letter-to-the-press",
+                "title": "Brief aan die pers",
+                "description": "Writing to the editor: the greeting, your view with reasons, and a polite request."
               }
             ]
           },
@@ -2239,6 +2244,21 @@
                 "id": "afr-language-consolidation",
                 "title": "Taalkonsolidasie",
                 "description": "Comprehensive year-end grammar and sentence-control revision."
+              },
+              {
+                "id": "afr-newspaper-article",
+                "title": "Koerantberig en tydskrifartikel",
+                "description": "The headline, the first paragraph with the main facts, and a quotation."
+              },
+              {
+                "id": "afr-diary-entry",
+                "title": "Dagboekinskrywing",
+                "description": "The opening, time words, the past with het, and feelings."
+              },
+              {
+                "id": "afr-news-report",
+                "title": "Joernalistieke verslag",
+                "description": "Facts first, named sources, the past tense, and no opinion."
               }
             ]
           }
