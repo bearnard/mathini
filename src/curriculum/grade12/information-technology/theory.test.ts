@@ -10,11 +10,15 @@ import { DESIGN_TOOLS, IPO_EXAMPLE, METHODOLOGIES, NOUN_VERB } from './_shared/d
 import { informationTechnologyGrade12 } from './index';
 import * as hardware from './term1/hardware-mobile-technologies/HardwareMobileTechnologiesContent';
 import * as methodologies from './term1/software-methodologies-design-tools/SoftwareMethodologiesDesignToolsContent';
+import * as cloud from './term2/cloud-computing-virtualisation/CloudComputingVirtualisationContent';
+import * as management from './term2/computer-management/ComputerManagementContent';
 
 interface Lesson { id: string; term: number; dir: string; learnSteps: LearnStep[]; bank: CapsItem[] }
 const LESSONS: Lesson[] = [
   { id: 'gr12-hardware-mobile-technologies-t1', term: 1, dir: 'term1/hardware-mobile-technologies', ...hardware },
   { id: 'gr12-software-methodologies-design-tools-t1', term: 1, dir: 'term1/software-methodologies-design-tools', ...methodologies },
+  { id: 'gr12-cloud-computing-virtualisation-t2', term: 2, dir: 'term2/cloud-computing-virtualisation', ...cloud },
+  { id: 'gr12-computer-management-t2', term: 2, dir: 'term2/computer-management', ...management },
 ];
 const html = (n: Parameters<typeof renderToStaticMarkup>[0]) => renderToStaticMarkup(n);
 const text = (s: string) => s.replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/g, ' ').replace(/\s+/g, ' ').trim();
@@ -99,4 +103,23 @@ test('hardware: performance facts are relative, with no fixed speeds or sizes in
   const t = lessonText(hardware);
   assert.ok(!/\b\d+\s?(GB|TB|MB|GHz|Mbps|MHz)\b/i.test(t), 'no fixed figures');
   for (const needle of ['battery life', 'cache', 'RAM', 'SSD', 'multi-processing', 'SOHO (Small-Office-Home-Office)']) assert.ok(t.includes(needle), needle);
+});
+
+test('cloud computing: both sides are given, and the answer on who owns the software follows the lesson', () => {
+  const t = lessonText(cloud);
+  assert.ok(/Arguments for and against|arguments for and against/.test(t) && /\bFor\b/.test(t) && /\bAgainst\b/.test(t));
+  assert.ok(/The provider owns the servers and the software/.test(t));
+  const own = cloud.bank.find((q) => q.prompt.includes('who owns the software'))!;
+  assert.equal(own.answer, 'The provider');
+  const virt = cloud.bank.find((q) => q.prompt.includes('What does a hypervisor do'))!;
+  assert.ok(/divides|shares/.test(virt.answer) && /hypervisor/.test(t));
+  assert.ok(/The cloud is not a place without hardware/.test(t));
+});
+
+test('computer management: defragmenting is for an HDD and not an SSD, a UPS is for power failure, and a backup is tested and kept in a second place', () => {
+  const t = lessonText(management);
+  assert.ok(/Defragment a hard disk drive \(HDD\)/.test(t) && /SSD\)? does not need it/.test(t));
+  assert.equal(management.bank.find((q) => q.prompt.includes('benefits from defragmenting'))!.answer, 'A hard disk drive');
+  assert.equal(management.bank.find((q) => q.prompt.includes('UPS protect'))!.answer, 'A sudden power failure');
+  assert.ok(/load-shedding/.test(t) && /can be restored/.test(t));
 });

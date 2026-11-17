@@ -22,5 +22,15 @@ Source: DBE CAPS FET Information Technology Grades 10-12 (the original document,
 | 9 | Methodologies | Noun-verb analysis is shown on a library example (nouns suggest classes and attributes, verbs suggest methods). | A teacher may prefer an example from the PAT. |
 | 10 | Design tools | TOE, IPO, CRC and UML are each given one example or description; drawing a UML diagram is not assessed by multiple choice. | CAPS says "any appropriate tools". |
 
+## Term 2: cloud computing and computer management
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 11 | Cloud | "Who owns what?": the provider owns the servers and the software, the customer has the right to use the software and the data stays the customer's but is stored by the provider ("read the terms of use"). | CAPS lists the question without an answer; contracts differ. A teacher should confirm the expected answer. |
+| 12 | Cloud | The lesson says nothing about IaaS/PaaS, private or hybrid clouds. | Not in CAPS Grade 12. |
+| 13 | Cloud | The arguments for and against are presented as a balanced pair and a situation (a school with a poor connection) is used to show that the weight depends on the case. | CAPS asks for arguments for and against. |
+| 14 | Computer management | Defragmenting is taught for a hard disk drive and not for an SSD. | Modern operating systems schedule this themselves; a teacher may want to say so. |
+| 15 | Computer management | A UPS and load-shedding are used as the power-failure example; the advice to keep one backup copy away from the building is a common rule, not CAPS wording. | South African context added by the author. |
+
 ## Not covered on purpose
 - Dynamic arrays (`SetLength`) and arrays of records.
