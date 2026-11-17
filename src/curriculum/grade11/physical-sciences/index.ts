@@ -160,6 +160,12 @@ export const physicalSciencesGrade11: Subject = {
       title: 'Term 4',
       topics: [
         {
+          id: 'gr11-mining-minerals-t4',
+          title: 'Mining and Mineral Processing',
+          description: 'The lithosphere, ores, getting metals out of ores, gold in South Africa and the environment.',
+          component: lazy(() => import('./term4/mining-minerals/MiningMinerals')),
+        },
+        {
           id: 'gr11-physics-consolidation-t4',
           title: 'Physics Consolidation',
           description: 'Integrated review of Grade 11 mechanics and electricity for final examination.',

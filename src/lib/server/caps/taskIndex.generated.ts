@@ -280,6 +280,7 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr11-micro-lending-t3": ["econ", 11],
   "gr11-microorganisms-disease-t1": ["ls", 11],
   "gr11-midyear-exam-preparation-t2": ["eng", 11],
+  "gr11-mining-minerals-t4": ["ps", 11],
   "gr11-mixed-economy-t1": ["econ", 11],
   "gr11-ml-break-even-t1": ["ml", 11],
   "gr11-ml-conversions-time-t1": ["ml", 11],

@@ -40,3 +40,12 @@
 - Acid-base: Arrhenius and Brønsted-Lowry definitions, conjugate pairs and ampholytes (water). All five equations are balanced by an atom count in tests. The lesson stays qualitative on titration (CAPS: "leave until Grade 12 or do a simple qualitative titration"); no pH or concentration calculations. Strong and weak acids, Ka and Kb and pH are Grade 12 and are not taught.
 - CAPS also lists producing and isolating salts (Na₂SO₄, CuSO₄, CaCO₃) and the use of lime and ash in pit toilets. The lesson mentions evaporating to get the salt but not the pit-toilet activity or CaCO₃ by precipitation; a teacher may want to add them.
 - The lesson reuses the Grade 12 conjugate-pair and titration pictures.
+
+## Term 4: mining and mineral processing (lithosphere)
+- CAPS says the teacher chooses ONE mining activity (gold, iron, phosphate, coal, diamond, copper, platinum, zinc, chrome, asbestos or manganese). The lesson covers the common content (lithosphere, ores, resources and reserves, distribution, methods of recovery, environment) and teaches GOLD as the worked example because the CAPS describes its steps in detail. Other mining activities are not taught.
+- Crust abundance (oxygen 46%, silicon 28%, aluminium 8%, iron 5%) is the usual rounded textbook list (by mass). Exact figures vary slightly between sources (oxygen 46 to 47%, silicon 27 to 28%). The questions use only the sum 46 + 28 = 74% and "the most abundant is oxygen". Please check against the textbook.
+- Definitions: "resource" and "reserve" are given in the common mining sense (resource = amount believed to exist; reserve = part that can be mined at a profit); CAPS only lists the terms.
+- Gold: the Witwatersrand around Johannesburg is the major field, with the Free State also named. No production figures, ranking or prices are given. The cyanide and zinc equations are balanced by an atom-count parser that handles brackets (tested). CAPS calls the zinc method outdated (mines use activated carbon), and the lesson says so. Cyanide is named only as a chemical, with no handling detail.
+- Mapungubwe: "gold and ivory trade about a thousand years ago" is a general statement. A teacher should check it against the school's source; the lesson does not give dates or numbers.
+- Iron, copper and mercury equations (heating with carbon, heating alone) are standard textbook examples. Rusting/corrosion of iron and the properties of calcium carbonate (CAPS practical activities) are not covered.
+- Environmental effects (acid mine water, dust, waste heaps) are qualitative; no figures are given.
