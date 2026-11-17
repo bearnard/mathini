@@ -3539,6 +3539,22 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Kreatiewe Skryfprojek",
   "Afrikaans FAL"
  ],
+ "8|gr8-afr-dialogue-interview-t2": [
+  "Dialoog en onderhoud",
+  "Afrikaans FAL"
+ ],
+ "8|gr8-afr-friendly-letter-t1": [
+  "Vriendskaplike brief",
+  "Afrikaans FAL"
+ ],
+ "8|gr8-afr-instructions-directions-t2": [
+  "Aanwysings en instruksies",
+  "Afrikaans FAL"
+ ],
+ "8|gr8-afr-investigative-report-t1": [
+  "Ondersoekende verslag en vraelys",
+  "Afrikaans FAL"
+ ],
  "8|gr8-algebraic-equations-t2": [
   "Algebraic Equations",
   "Mathematics"
