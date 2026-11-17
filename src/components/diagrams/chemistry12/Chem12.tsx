@@ -17,6 +17,16 @@ const T = ({ x, y, children, color = LINE, size = 5.4, anchor = 'middle' }: { x:
   <text x={r3(x)} y={r3(y)} textAnchor={anchor} fontSize={size} fontWeight={800} fill={color}>{children}</text>
 );
 
+/** Text that never leaves its box: when the estimated width is more than `max`, SVG squeezes it to exactly `max` (spacing and glyphs). */
+const Fit = ({ x, y, max, children, color = LINE, size = 5.2 }: { x: number; y: number; max: number; children: string; color?: string; size?: number }) => {
+  const est = children.length * size * 0.6;
+  return (
+    <text x={r3(x)} y={r3(y)} textAnchor="middle" fontSize={size} fontWeight={800} fill={color} {...(est > max ? { textLength: r3(max), lengthAdjust: 'spacingAndGlyphs' as const } : {})}>
+      {children}
+    </text>
+  );
+};
+
 /** Boxes joined by arrows: a process, step by step (label above, value or note below). */
 export const ProcessFlow = ({ steps, aria }: { steps: { label: string; note?: string; color?: string }[]; aria: string }) => {
   const n = steps.length;
@@ -29,8 +39,8 @@ export const ProcessFlow = ({ steps, aria }: { steps: { label: string; note?: st
         return (
           <g key={i}>
             <rect x={r3(cx - per / 2 + 2)} y={8} width={r3(per - 4)} height={30} rx={3} fill="rgba(99,102,241,0.16)" stroke={c} strokeWidth={0.9} />
-            <T x={cx} y={n > 4 ? 20 : 22} size={n > 4 ? 4.4 : 5.2}>{s.label}</T>
-            {s.note ? <T x={cx} y={32} color={MUTED} size={4}>{s.note}</T> : null}
+            <Fit x={cx} y={n > 4 ? 20 : 22} max={per - 8} size={n > 4 ? 4.4 : 5.2}>{s.label}</Fit>
+            {s.note ? <Fit x={cx} y={32} max={per - 8} color={MUTED} size={4}>{s.note}</Fit> : null}
             {i < n - 1 ? <T x={cx + per / 2} y={25} color={E} size={7}>›</T> : null}
           </g>
         );
