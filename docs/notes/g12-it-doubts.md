@@ -1,6 +1,6 @@
 # Grade 12 Information Technology (Wave A): points for a teacher to confirm
 
-Source: DBE CAPS FET Information Technology Grades 10-12 (the original document, Section 3, Grade 12, pp. 40-47). **The 2024 IT CAPS amendment (Section 3) could not be found online and is not checked.** If it changes the Grade 12 content, the lessons below should be compared against it.
+Source: DBE CAPS FET Information Technology Grades 10-12 (the original document, Section 3, Grade 12, pp. 40-47). The 2024 IT CAPS amendment (Section 3) has been compared with the Grade 10, 11 and 12 lessons (`audit/it-2024-amendment-check.md`, 17 November 2026): it moves content between terms, adds AI, VR/AR/MR, SEO and GPU in Grade 12, and drops waterfall, RAD and CRC. Whether and in which order to fix the differences is the owner's decision.
 
 ## Two-dimensional arrays (Term 2)
 
