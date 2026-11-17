@@ -32,6 +32,9 @@ export const lifeSkills: Subject = {
         { id: 'personal-social-wellbeing-t3', title: 'Personal & Social Well-being', description: 'Diversity, rights and responsibilities, substance awareness.', component: lazy(() => import('./term3/personal-social-wellbeing-t3/PersonalSocialWellbeingT3')) },
         { id: 'physical-education-t3', title: 'Physical Education', description: 'Athletics, relays, indigenous games, flexibility.', component: lazy(() => import('./term3/physical-education-t3/PhysicalEducationT3')) },
         { id: 'creative-arts-t3', title: 'Creative Arts', description: 'SA cultural art, mixed media, choral verse and movement.', component: lazy(() => import('./term3/creative-arts-t3/CreativeArtsT3')) },
+        { id: 'gr6-caring-for-animals-t3', title: 'Caring for Animals', description: 'Acts of cruelty, taking care of animals, protecting them, and places of safety.', component: lazy(() => import('./term3/caring-for-animals-t3/CaringForAnimalsT3')) },
+        { id: 'gr6-caring-for-people-t3', title: 'Caring for People', description: "Others' needs and views, saying what you need kindly, and acts of kindness.", component: lazy(() => import('./term3/caring-for-people-t3/CaringForPeopleT3')) },
+        { id: 'gr6-nation-building-heritage-t3', title: 'Nation-Building and Cultural Heritage', description: 'Heritage and unity, the national symbols, and the national days.', component: lazy(() => import('./term3/nation-building-heritage-t3/NationBuildingHeritageT3')) },
       ],
     },
     {
