@@ -5155,11 +5155,6 @@
                 "description": "Wave phenomena and optical principles"
               },
               {
-                "id": "gr10-electrostatics-electric-circuits-t1",
-                "title": "Electrostatics and Electric Circuits",
-                "description": "Electric forces and current flow"
-              },
-              {
                 "id": "gr10-pulses-superposition-t1",
                 "title": "Transverse Pulses and Superposition",
                 "description": "Pulses, amplitude, the speed of a pulse and constructive and destructive interference."
@@ -5188,6 +5183,16 @@
                 "id": "gr10-sound-t1",
                 "title": "Sound",
                 "description": "What sound is, speed in different media, pitch, loudness and tone, ultrasound and echoes."
+              },
+              {
+                "id": "gr10-matter-states-phase-change-t2",
+                "title": "Matter, States and Phase Change",
+                "description": "Properties and transformations of matter"
+              },
+              {
+                "id": "gr10-atoms-periodic-table-bonding-t2",
+                "title": "Atoms, Periodic Table and Bonding",
+                "description": "Atomic structure and chemical bonds"
               }
             ]
           },
@@ -5199,16 +5204,6 @@
                 "id": "gr10-magnetism-t2",
                 "title": "Magnetism",
                 "description": "Poles, magnetic fields, field lines, the Earth's field, the compass and magnetic materials."
-              },
-              {
-                "id": "gr10-matter-states-phase-change-t2",
-                "title": "Matter, States and Phase Change",
-                "description": "Properties and transformations of matter"
-              },
-              {
-                "id": "gr10-atoms-periodic-table-bonding-t2",
-                "title": "Atoms, Periodic Table and Bonding",
-                "description": "Atomic structure and chemical bonds"
               },
               {
                 "id": "gr10-particles-substances-t2",

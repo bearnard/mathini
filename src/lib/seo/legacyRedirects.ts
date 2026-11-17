@@ -51,6 +51,9 @@ const IT11_HIDDEN = ['oop-classes-and-objects', 'oop-methods-and-constructors', 
 /** Grade 10 IT: "Database and Introductory Object Concepts" is not in the amended Grade 10 CAPS (databases are Grade 11 Term 3, objects Grade 12 Term 2; DBE Circular S9 of 2025) and is hidden now that the Grade 10 replacements are live (code, task instruction and D1 questions kept); its page goes to the Grade 10 IT subject page. */
 const IT10_HIDDEN = { source: '/grade-10/information-technology/database-and-introductory-object-concepts', destination: '/grade-10/information-technology' };
 
+/** Grade 10 Physical Sciences "Electrostatics and Electric Circuits" teaches Coulomb's law, Ohm's law and electrical power (Grade 11/12) and is hidden now that the CAPS lessons "Electrostatics Basics" and "Electric Circuits: Series and Parallel" are live (code, task instruction and D1 rows kept); its page goes to the subject page. */
+const PS10_ELECTRO_HIDDEN = { source: '/grade-10/physical-sciences/electrostatics-and-electric-circuits', destination: '/grade-10/physical-sciences' };
+
 export interface LegacyRedirect { source: string; destination: string }
 
 const moved = (fromSubject: string, toSubject: string, slugs: string[]): LegacyRedirect[] => [
@@ -72,6 +75,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   ...LO12_HIDDEN,
   ...IT11_HIDDEN,
   IT10_HIDDEN,
+  PS10_ELECTRO_HIDDEN,
 ];
 
 /** The shape next.config.ts `redirects()` wants: permanent: true answers 308. */

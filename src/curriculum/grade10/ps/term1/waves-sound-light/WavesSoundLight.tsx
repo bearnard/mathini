@@ -43,68 +43,6 @@ const learnSteps: LearnStep[] = [
       </div>
     ),
   },
-  {
-    title: 'Sound Waves and the Doppler Effect',
-    content: (
-      <div className="space-y-6">
-        <p className="text-slate-700">
-          <strong>Sound</strong> is a longitudinal mechanical wave requiring a medium. Speed of sound in air ≈ 340 m/s (depends on temperature).
-        </p>
-        <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-          <h4 className="font-semibold text-yellow-900 mb-2">Properties of Sound</h4>
-          <ul className="list-disc list-inside space-y-1 text-slate-700">
-            <li><strong>Pitch:</strong> Related to frequency (high frequency = high pitch)</li>
-            <li><strong>Loudness:</strong> Related to amplitude (large amplitude = loud sound)</li>
-            <li><strong>Quality/Timbre:</strong> Waveform shape distinguishes different instruments</li>
-          </ul>
-        </div>
-        <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
-          <h4 className="font-semibold text-orange-900 mb-2">Doppler Effect</h4>
-          <p className="text-slate-700 mb-2">
-            Observed frequency changes when source or observer moves relative to the medium:
-          </p>
-          <Formula block>{String.raw`f_{\text{obs}} = f_{\text{source}} \left( \frac{v \pm v_{\text{obs}}}{v \mp v_{\text{source}}} \right)`}</Formula>
-          <p className="text-sm text-slate-600 mt-2">
-            <em>v</em> is the speed of sound. Use the upper signs when the observer or source moves toward the other, the lower signs when moving away (so a source moving toward the listener gives v − v<sub>source</sub> in the denominator).
-          </p>
-        </div>
-        <p className="text-slate-700">
-          <strong>Example:</strong> An ambulance siren sounds higher-pitched as it approaches, lower as it moves away.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'Light, Reflection and Refraction',
-    content: (
-      <div className="space-y-6">
-        <p className="text-slate-700">
-          <strong>Light</strong> is an electromagnetic wave that travels at <em>c</em> = 3 × 10⁸ m/s in vacuum. It exhibits reflection, refraction, and dispersion.
-        </p>
-        <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-          <h4 className="font-semibold text-red-900 mb-2">Law of Reflection</h4>
-          <Formula block>{String.raw`\theta_i = \theta_r`}</Formula>
-          <p className="text-sm text-slate-600 mt-2">
-            Angle of incidence equals angle of reflection (both measured from the normal).
-          </p>
-        </div>
-        <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
-          <h4 className="font-semibold text-indigo-900 mb-2">Snell's Law (Refraction)</h4>
-          <Formula block>{String.raw`n_1 \sin \theta_1 = n_2 \sin \theta_2`}</Formula>
-          <p className="text-sm text-slate-600 mt-2">
-            <em>n</em> is the refractive index. Light bends when moving between media with different refractive indices.
-          </p>
-        </div>
-        <div className="bg-teal-50 p-4 rounded-lg border border-teal-200">
-          <h4 className="font-semibold text-teal-900 mb-2">Refractive Index</h4>
-          <Formula block>{String.raw`n = \frac{c}{v}`}</Formula>
-          <p className="text-sm text-slate-600 mt-2">
-            <em>c</em> = speed of light in vacuum, <em>v</em> = speed of light in the medium. For water, n ≈ 1,33.
-          </p>
-        </div>
-      </div>
-    ),
-  },
 ];
 
 const bank: PhysicalSciencesItem[] = [
@@ -115,22 +53,22 @@ const bank: PhysicalSciencesItem[] = [
     explanation: 'Wave speed = frequency × wavelength',
   },
   {
-    prompt: 'Which phenomenon occurs when sound waves bend around obstacles?',
-    options: ['Reflection', 'Diffraction', 'Refraction', 'Absorption'],
-    answer: 'Diffraction',
-    explanation: 'Diffraction is the bending of waves around obstacles.',
+    prompt: "A wave has a frequency of 40 Hz and a wavelength of 3 m. What is its speed?",
+    options: ["120 m/s", "13,3 m/s", "43 m/s", "0,075 m/s"],
+    answer: "120 m/s",
+    explanation: "v = f × λ = 40 × 3 = 120 m/s",
   },
   {
-    prompt: 'Why does an ambulance siren sound higher as it approaches you?',
-    options: ['Sound travels faster', 'Doppler effect increases frequency', 'Sound amplitude increases', 'Siren gets louder'],
-    answer: 'Doppler effect increases frequency',
-    explanation: 'The Doppler effect causes an increase in observed frequency when the source approaches.',
+    prompt: "In a transverse wave, how do the particles move compared with the direction in which the wave travels?",
+    options: ["Perpendicular to it", "Parallel to it", "In the same direction only", "They do not move at all"],
+    answer: "Perpendicular to it",
+    explanation: "In a transverse wave the oscillation is perpendicular to the direction of travel.",
   },
   {
-    prompt: 'If light travels from air (n = 1,0) into glass (n = 1,5), what happens?',
-    options: ['It speeds up and bends away from normal', 'It slows down and bends toward normal', 'It maintains speed', 'It reflects completely'],
-    answer: 'It slows down and bends toward normal',
-    explanation: 'Light slows down in denser media and bends toward the normal according to Snell\'s law.',
+    prompt: "Which kind of wave is a sound wave?",
+    options: ["Longitudinal", "Transverse", "Neither kind", "Only electromagnetic"],
+    answer: "Longitudinal",
+    explanation: "In a longitudinal wave the oscillation is parallel to the direction of travel, as in sound.",
   },
 ];
 
@@ -138,7 +76,7 @@ const WavesSoundLight = () => (
   <CapsSubjectTopic
     grade={10}
     title="Waves, Sound and Light"
-    subtitle="Wave phenomena and optical principles"
+    subtitle="Wave properties, the wave equation, and transverse and longitudinal waves"
     learnSteps={learnSteps}
     task="gr10-waves-sound-light-t1"
     bank={bank}

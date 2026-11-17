@@ -26,3 +26,10 @@ Constants are the NSC data-sheet values and are quoted in every question that ne
 Wrong term: States of matter (our T2, CAPS T1); Atoms, Periodic Table and Bonding (our T2, CAPS T1); Electrostatics and Electric Circuits (our T1, CAPS T2); balanced equations (our T3, CAPS T2); kinetic and potential energy (our T3, CAPS T4).
 
 Beyond Grade 10 CAPS (Grade 11/12 content served in Grade 10 lessons): Coulomb's law; Ohm's law and electrical power; the Doppler effect; reflection and refraction (now also in the new Grade 11 optics lesson); Lewis structures and molecular shapes (now in the Grade 11 Atomic Combinations lesson); the work-energy theorem and power.
+
+## Wave B done (branch feat/ps10-wave-b, approved by the orchestrator)
+
+- Term moves (ids and URLs unchanged): States of Matter and Atoms, Periodic Table and Bonding from T2 to CAPS T1, pinned in `termMoves.test.ts`. Not moved (mixed): Chemical Change and Stoichiometry (balanced equations are CAPS T2, the bulk is T3) and Vectors, Motion and Mechanical Energy (the KE/PE section is CAPS T4).
+- Hidden (308 to /grade-10/physical-sciences; code, task instruction and D1 rows kept): Electrostatics and Electric Circuits (Coulomb, Ohm, power: Grade 11/12). CAPS replacements: Electrostatics Basics and Electric Circuits: Series and Parallel.
+- Trimmed: Waves, Sound and Light (Doppler effect and geometric optics sections removed; the questions on diffraction, the siren and refraction were retired and replaced by three on-grade wave questions); Atoms, Periodic Table and Bonding (Lewis structures and VSEPR section removed, bank unchanged); Conservation of Mechanical Energy (work-energy theorem and power removed; the work and power questions were retired and replaced by two energy questions). The five dropped questions are retired by `audit/wave-b-ps/ps10-wave-b-retire.sql` (rollback alongside), to be applied after the deploy and before the sync.
+- The trimmed Waves lesson now has two slides (the wave equation and the simulation); a longer rewrite is not needed because the CAPS lessons Transverse Pulses, Longitudinal Waves and Sound cover the topic.

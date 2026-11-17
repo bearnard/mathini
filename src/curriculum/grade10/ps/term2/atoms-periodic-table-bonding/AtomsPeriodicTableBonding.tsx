@@ -101,39 +101,6 @@ const learnSteps: LearnStep[] = [
       </div>
     ),
   },
-  {
-    title: 'Lewis Structures and Molecular Shapes',
-    content: (
-      <div className="space-y-6">
-        <p className="text-slate-700">
-          <strong>Lewis structures</strong> represent valence electrons as dots and bonds as lines. They help predict molecular geometry.
-        </p>
-        <div className="bg-pink-50 p-4 rounded-lg border border-pink-200">
-          <h4 className="font-semibold text-pink-900 mb-2">Drawing Lewis Structures</h4>
-          <ol className="list-decimal list-inside space-y-1 text-slate-700">
-            <li>Count total valence electrons</li>
-            <li>Connect atoms with single bonds</li>
-            <li>Complete octets (duets for H)</li>
-            <li>Use multiple bonds if needed</li>
-          </ol>
-          <p className="text-slate-700 mt-2">
-            <strong>Example:</strong> CO₂ has 4 + 2(6) = 16 valence electrons. Structure: O=C=O (two double bonds).
-          </p>
-        </div>
-        <div className="bg-cyan-50 p-4 rounded-lg border border-cyan-200">
-          <h4 className="font-semibold text-cyan-900 mb-2">VSEPR Theory</h4>
-          <p className="text-slate-700">
-            Valence Shell Electron Pair Repulsion theory: electron pairs arrange to minimize repulsion.
-          </p>
-          <ul className="list-disc list-inside space-y-1 text-slate-700 mt-2">
-            <li>2 pairs → linear (180°)</li>
-            <li>3 pairs → trigonal planar (120°)</li>
-            <li>4 pairs → tetrahedral (109,5°)</li>
-          </ul>
-        </div>
-      </div>
-    ),
-  },
 ];
 
 const bank: PhysicalSciencesItem[] = [
