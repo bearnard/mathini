@@ -1,1 +1,10 @@
-{"tasks":{"gr10-computer-systems-data-representation-algorithm-design-t1":"Grade 10 IT Term 1: Computer systems hardware, data representation (binary, hex), and algorithm design using pseudocode and flowcharts.","gr10-programming-foundations-t1":"Grade 10 IT Term 1: Programming fundamentals including variables, data types, input/output, and simple sequential programs."}}
+{
+  "tasks": {
+    "gr10-computer-systems-data-representation-algorithm-design-t1": "Grade 10 IT Term 1: Computer systems hardware, data representation (binary, hex), and algorithm design using pseudocode and flowcharts.",
+    "gr10-programming-foundations-t1": "Grade 10 IT Term 1: Programming fundamentals including variables, data types, input/output, and simple sequential programs.",
+    "gr10-computers-software-ict-systems-t1": "Topic: Computers, Software and ICT Systems. Cover types of computers (desktop, laptop, tablet, smartphone, server, embedded), hardware versus software, system and application software, proprietary software, shareware, freeware and FOSS, data versus information, and the information processing cycle. Ask Grade 10 learners to match a computer to its use, tell the kinds of software apart, or name the stage of the cycle.",
+    "gr10-file-management-t1": "Topic: File Management. Cover files, folders and drives, the file specification (drive, path, file name, extension), the folder hierarchy, and copying, moving, renaming and deleting. Ask Grade 10 learners to name the part of a file specification, tell copy from move, or explain why a folder structure helps.",
+    "gr10-algorithms-ipo-trace-tables-t1": "Topic: Algorithms, IPO Tables and Trace Tables. Cover what an algorithm is, IPO tables, flow chart shapes, trace tables, swapping with a temporary variable, smallest and largest of values, even numbers, factors, averages and VAT. Ask Grade 10 learners to complete an IPO table, trace a short algorithm, or work out a small result.",
+    "gr10-licences-digital-divide-t1": "Topic: Licences, Copyright and the Digital Divide. Cover copyright, licence agreements, piracy, creative commons and copyleft, economic reasons for using computers, the digital divide and its causes, digital citizenship and the digital footprint. Ask Grade 10 learners to define a term, give a reason or cause, or judge an example."
+  }
+}

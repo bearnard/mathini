@@ -14,8 +14,8 @@ export const KeyTable = ({ title, rows, aria, head }: { title: string; rows: rea
       <tbody>
         {rows.map(([a, b]) => (
           <tr key={a} className="border-t border-slate-700">
-            <td className="px-3 py-1.5 align-top">{a}</td>
-            <td className="px-3 py-1.5 text-left font-semibold text-emerald-300">{b}</td>
+            <td className="px-3 py-1.5 align-top [overflow-wrap:anywhere]">{a}</td>
+            <td className="px-3 py-1.5 text-left font-semibold text-emerald-300 [overflow-wrap:anywhere]">{b}</td>
           </tr>
         ))}
       </tbody>

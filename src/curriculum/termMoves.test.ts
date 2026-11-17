@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { grade6 } from './grade6';
 import { grade9 } from './grade9';
+import { grade10 } from './grade10';
 import { grade11 } from './grade11';
 import { grade12 } from './grade12';
 import type { Grade } from '../types/curriculum';
@@ -37,6 +38,10 @@ const MOVES: [Grade, string, string, number][] = [
   [grade11, 'it', 'gr11-computer-architecture-t2', 1], [grade11, 'it', 'gr11-file-handling-t1', 2], [grade11, 'it', 'gr11-network-topologies-t3', 1], [grade11, 'it', 'gr11-protocols-media-t3', 2],
   [grade11, 'it', 'gr11-motherboard-memory-caching-t1', 1], [grade11, 'it', 'gr11-system-software-processing-t1', 1], [grade11, 'it', 'gr11-network-innovation-t1', 1], [grade11, 'it', 'gr11-computer-management-threats-t1', 1], [grade11, 'it', 'gr11-sorting-parallel-arrays-dates-t1', 1],
   [grade11, 'it', 'gr11-mobile-wireless-e-communication-t2', 2], [grade11, 'it', 'gr11-digitalisation-gig-economy-t2', 2], [grade11, 'it', 'gr11-dbms-database-types-t2', 2], [grade11, 'it', 'gr11-user-defined-methods-t2', 2],
+  // 2024 CAPS amendment, Grade 10 IT (branch A): Networks and Data Handling to T2 and the ten new lessons
+  [grade10, 'it', 'gr10-networks-data-handling-t3', 2],
+  [grade10, 'it', 'gr10-computers-software-ict-systems-t1', 1], [grade10, 'it', 'gr10-file-management-t1', 1], [grade10, 'it', 'gr10-algorithms-ipo-trace-tables-t1', 1], [grade10, 'it', 'gr10-licences-digital-divide-t1', 1],
+  [grade10, 'it', 'gr10-hardware-devices-t2', 2], [grade10, 'it', 'gr10-operating-systems-utilities-drivers-t2', 2], [grade10, 'it', 'gr10-networks-overview-t2', 2], [grade10, 'it', 'gr10-e-communication-email-netiquette-t2', 2], [grade10, 'it', 'gr10-problem-solving-polya-user-stories-t2', 2], [grade10, 'it', 'gr10-ergonomics-green-health-t2', 2],
 ];
 
 test('moved lessons are listed in their CAPS term', () => {
@@ -44,7 +49,7 @@ test('moved lessons are listed in their CAPS term', () => {
 });
 
 test('no term of the changed subjects is empty and no topic is listed twice', () => {
-  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade12, 'lo'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade11, 'it'], [grade12, 'it'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns']] as [Grade, string][]) {
+  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade12, 'lo'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade10, 'it'], [grade11, 'it'], [grade12, 'it'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns']] as [Grade, string][]) {
     const s = g.subjects.find((x) => x.id === id)!;
     for (const t of s.terms) assert.ok(t.topics.length > 0, `${id} term ${t.id}`);
     const ids = s.terms.flatMap((t) => t.topics.map((p) => p.id));
