@@ -11,6 +11,8 @@ import * as diary from './term2/diary-entry/DiaryEntryContent';
 import * as constitution from './term2/constitution-and-policy/ConstitutionAndPolicyContent';
 import * as will from './term3/will-and-testament/WillAndTestamentContent';
 import * as cv from './term3/cv-and-covering-letter/CvAndCoveringLetterContent';
+import * as application from './term4/letter-of-application/LetterOfApplicationContent';
+import * as email from './term4/email/EmailContent';
 
 interface Lesson { id: string; term: number; dir: string; learnSteps: LearnStep[]; bank: CapsItem[] }
 const LESSONS: Lesson[] = [
@@ -18,6 +20,8 @@ const LESSONS: Lesson[] = [
   { id: 'constitution-and-policy', term: 2, dir: 'term2/constitution-and-policy', ...constitution },
   { id: 'will-and-testament', term: 3, dir: 'term3/will-and-testament', ...will },
   { id: 'cv-and-covering-letter', term: 3, dir: 'term3/cv-and-covering-letter', ...cv },
+  { id: 'letter-of-application', term: 4, dir: 'term4/letter-of-application', ...application },
+  { id: 'email', term: 4, dir: 'term4/email', ...email },
 ];
 const html = (n: Parameters<typeof renderToStaticMarkup>[0]) => renderToStaticMarkup(n);
 const text = (s: string) => s.replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/g, ' ').replace(/\s+/g, ' ').trim();
@@ -98,4 +102,15 @@ test('the covering letter lesson gives the closing rule: Yours faithfully after 
   const ends = cv.bank.filter((q) => /How should it end/.test(q.prompt));
   assert.equal(ends.length, 2);
   assert.deepEqual(ends.map((q) => q.answer).sort(), ['Yours faithfully', 'Yours sincerely']);
+});
+
+test('the letter of application follows the CAPS formal letter: two addresses, underlined subject line, surname and initials', () => {
+  const t = text(html(h('div', null, application.learnSteps.map((s) => s.content))));
+  assert.ok(/two addresses/.test(t) && /underlined/.test(t) && /surname and initials/.test(t));
+  assert.ok(/<u>/.test(html(h('div', null, application.learnSteps[1].content))), 'the model has an underlined subject line');
+});
+
+test('the e-mail lesson follows the CAPS e-mail description: address parts, CC, subject as a summary, signature', () => {
+  const t = text(html(h('div', null, email.learnSteps.map((s) => s.content))));
+  for (const needle of ['moloi.q@webmail.co.za', 'CC', 'a summary of the content', 'signature', 'automatically']) assert.ok(t.includes(needle), needle);
 });

@@ -123,6 +123,18 @@ export const englishHLGrade9: Subject = {
           description: 'Integrated language revision, literary themes, vocabulary and contextual questions.',
           component: lazy(() => import('./term4/grammar-literature-consolidation/GrammarLiteratureConsolidation')),
         },
+        {
+          id: 'letter-of-application',
+          title: 'Writing a Letter of Application',
+          description: 'The layout of a formal letter, what goes in each paragraph, and formal language.',
+          component: lazy(() => import('./term4/letter-of-application/LetterOfApplication')),
+        },
+        {
+          id: 'email',
+          title: 'Writing an E-mail',
+          description: 'The parts of an e-mail, the address, formal and informal register, and the writing process.',
+          component: lazy(() => import('./term4/email/Email')),
+        },
       ],
     },
   ],
