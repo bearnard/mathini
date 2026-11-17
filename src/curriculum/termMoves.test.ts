@@ -23,6 +23,7 @@ const MOVES: [Grade, string, string, number][] = [
   [grade12, 'accounting', 'gr12-vat-concepts-control-t3', 2], [grade12, 'accounting', 'gr12-manufacturing-cost-statements-t2', 3],
   [grade12, 'business-studies', 'gr12-investment-insurance-conflict-management-t2', 3],
   [grade12, 'business-studies', 'gr12-human-rights-inclusivity-t3', 2], [grade12, 'business-studies', 'gr12-environmental-social-responsibility-t3', 2],
+  [grade12, 'his', 'gr12-black-consciousness-movement-t1', 2], [grade12, 'his', 'gr12-soweto-uprising-t1', 2], [grade12, 'his', 'gr12-trade-unions-and-the-udf-t1', 2],
   [grade12, 'it', 'gr12-relational-data-joins-normalisation-t2', 1], [grade12, 'it', 'gr12-networks-security-systems-integration-t2', 1],
   [grade12, 'it', 'gr12-forms-reports-database-program-integration-t2', 1], [grade12, 'it', 'gr12-cyber-security-emerging-technologies-t3', 2],
 ];
@@ -32,7 +33,7 @@ test('moved lessons are listed in their CAPS term', () => {
 });
 
 test('no term of the changed subjects is empty and no topic is listed twice', () => {
-  for (const [g, id] of [[grade6, 'math'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade12, 'it']] as [Grade, string][]) {
+  for (const [g, id] of [[grade6, 'math'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade12, 'it'], [grade12, 'his']] as [Grade, string][]) {
     const s = g.subjects.find((x) => x.id === id)!;
     for (const t of s.terms) assert.ok(t.topics.length > 0, `${id} term ${t.id}`);
     const ids = s.terms.flatMap((t) => t.topics.map((p) => p.id));
