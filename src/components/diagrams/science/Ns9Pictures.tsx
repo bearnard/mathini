@@ -104,3 +104,21 @@ export const ParallelOverload = ({ currents, ratingA }: { currents: number[]; ra
     </Panel>
   );
 };
+
+
+/** Two bars for the national grid: the energy sent into the grid and the energy that arrives after the share lost as heat in the lines and transformers. */
+export const GridLoss = ({ sent, delivered, unit = 'MWh' }: { sent: number; delivered: number; unit?: string }) => {
+  const lostE = Math.round((sent - delivered) * 1e6) / 1e6;
+  const w = 80;
+  return (
+    <Panel h={50} aria={`Two bars. ${sent} ${unit} of energy is sent into the grid. After the energy lost as heat in the power lines and transformers, ${delivered} ${unit} is delivered, so ${lostE} ${unit} is lost.`}>
+      <rect x={20} y={8} width={w} height={9} rx={1.5} fill={I} />
+      <T x={22} y={14.8} anchor="start" size={4} color={INK}>{`sent into the grid: ${sent} ${unit}`}</T>
+      <rect x={20} y={22} width={r3((w * delivered) / sent)} height={9} rx={1.5} fill={E} />
+      <rect x={r3(20 + (w * delivered) / sent)} y={22} width={r3((w * lostE) / sent)} height={9} rx={1.5} fill={R} />
+      <T x={22} y={28.8} anchor="start" size={4} color={INK}>{`delivered: ${delivered} ${unit}`}</T>
+      <T x={60} y={40} size={4} color={R}>{`lost as heat: ${lostE} ${unit}`}</T>
+      <T x={60} y={46} size={3.4} color={MUTED}>power lines and transformers</T>
+    </Panel>
+  );
+};

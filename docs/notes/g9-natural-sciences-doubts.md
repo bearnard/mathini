@@ -12,6 +12,16 @@ Source of scope: CAPS Natural Sciences Senior Phase Gr 7-9, Grade 9 Terms 3 and 
 - **Overload** is taught as in the CAPS: the total current in parallel branches is the sum of the branch currents; if it is more than the rating of the breaker or fuse, the device trips. A total exactly equal to the rating is not treated as overloaded.
 - **Energy theft** is described as in the CAPS (illegal connections to the Eskom supply are dangerous and regarded as energy theft).
 
-## Branch B and C (to be added when written)
-- Electricity generation and the national grid; cost of electrical power (T3).
+## Branch B: Electricity generation and the national grid; Cost of electrical power (T3)
+
+- **Power station chain** as in the CAPS: coal is burnt to boil water, steam turns a turbine, the turbine turns a generator. Nuclear: heat from fission boils the water; the rest of the chain is the same.
+- **Alternatives** (wind, falling water, sun-heated steam, nuclear fission, waves) are compared in one line each on sustainability and impact (renewable or not, depends on weather, dams flood land, waste is radioactive). These are standard textbook statements, not figures.
+- **Koeberg** is named as the nuclear power station (Western Cape), as the CAPS does. **Medupi, Kusile and Majuba** appear as coal stations in one wrong-answer set; they are real coal-fired stations. No output, age or cost figures are given for any station.
+- **Grid loss.** 15% of the energy is wasted as heat in power lines and transformers (CAPS). Questions always give the energy sent. "Step down by transformers" is stated as in the CAPS; no detail on alternating current.
+- **Overload** of the grid is mentioned as in the CAPS ("power surges and grid overload can disrupt the power supply"); no dates, stages or load-shedding schedules are given.
+- **Unit price.** R2,50 per kWh is a teaching value, not a municipal tariff. Every question that needs a price gives it, and the lesson says to find the price for the learner's municipality.
+- **Power ratings** (kettle 2 000 W, heater 1 500 W, TV 100 W, 60 W incandescent lamp, 11 W compact fluorescent lamp) are typical teaching values, not measurements of particular products.
+- **kWh, cost and prepaid** arithmetic is exact; the helper computes and a test recomputes each key (for example 750 W for 4 h at R2 = 3 kWh = R6; R30 at R2 per kWh on a 1 500 W heater lasts 10 hours).
+
+## Branch C (to be added when written)
 - The atmosphere (T4), including the CAPS "ultraviolet" wording for the greenhouse effect.

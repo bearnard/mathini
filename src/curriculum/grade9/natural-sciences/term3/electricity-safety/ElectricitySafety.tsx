@@ -69,7 +69,7 @@ export const learnSteps: LearnStep[] = [
           steps={[
             <>Three appliances draw {lesson.currents.map(c).join(' A, ')} A.</>,
             <>Total current = {lesson.currents.join(' + ')} = <strong>{e.totalCurrent(lesson.currents)} A</strong>.</>,
-            <>The circuit breaker is rated {lesson.rating} A. {e.totalCurrent(lesson.currents)} A is more than {lesson.rating} A, so the breaker <strong>trips</strong> by {e.amountOver(lesson.currents, lesson.rating)} A.</>,
+            <>The circuit breaker is rated {lesson.rating} A. {e.totalCurrent(lesson.currents)} A is more than {lesson.rating} A, so the circuit is overloaded by {e.amountOver(lesson.currents, lesson.rating)} A and the breaker <strong>trips</strong>.</>,
             <>To fix it, switch off one appliance or move it to another circuit.</>,
           ]}
         />

@@ -3336,6 +3336,16 @@
                 "description": "Fuses, circuit breakers, earthing, the 3-pin plug, overload and energy theft."
               },
               {
+                "id": "gr9-electricity-generation-grid",
+                "title": "Electricity Generation and the National Grid",
+                "description": "Power stations, alternative sources of energy, Koeberg and the national electricity grid."
+              },
+              {
+                "id": "gr9-cost-electrical-power",
+                "title": "Cost of Electrical Power",
+                "description": "Watts, kilowatt-hours, the cost of an appliance and prepaid electricity."
+              },
+              {
                 "id": "gr9-heat-energy-transfer",
                 "title": "Heat and Energy Transfer",
                 "description": "Conduction, convection, radiation, insulation, exothermic and endothermic reactions."

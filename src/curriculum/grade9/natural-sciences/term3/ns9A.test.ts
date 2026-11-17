@@ -53,7 +53,7 @@ test('INDEPENDENT: electricity safety keys', () => {
   assert.ok(key(b, 'Two appliances drawing 3 A and 4 A').startsWith('No, because the total of 7 A'));
   assert.equal(key(b, 'Which three wires does a 3-pin plug have'), 'Live, neutral and earth');
   const t = text('safety');
-  for (const s of ['fuse', 'circuit breaker', 'earth leakage', 'live', 'neutral', 'earth', 'overload', 'energy theft', 'Eskom', 'almost zero resistance', 'main switch', '12 A', 'trips']) assert.ok(t.toLowerCase().includes(s.toLowerCase()), `missing ${s}`);
+  for (const s of ['fuse', 'circuit breaker', 'earth leakage', 'live', 'neutral', 'earth', 'overload', 'energy theft', 'Eskom', 'almost zero resistance', 'main switch', '12 A', 'trips', 'overloaded by 2 A']) assert.ok(t.toLowerCase().includes(s.toLowerCase()), `missing ${s}`);
   assert.equal(3 + 4 + 5, 12);
   assert.equal(12 - 10, 2);
   assert.equal(1 + 8 + 0.5, 9.5);

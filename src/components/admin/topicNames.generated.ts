@@ -3747,6 +3747,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Contour Lines and Slopes",
   "Social Sciences: Geography"
  ],
+ "9|gr9-cost-electrical-power-t3": [
+  "Cost of Electrical Power",
+  "Natural Sciences"
+ ],
  "9|gr9-creative-personal-writing-t3": [
   "Kreatiewe & Persoonlike Skryfwerk",
   "Afrikaans FAL"
@@ -3837,6 +3841,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "9|gr9-electricity-electric-cells-t3": [
   "Electricity and Electric Cells",
+  "Natural Sciences"
+ ],
+ "9|gr9-electricity-generation-grid-t3": [
+  "Electricity Generation and the National Grid",
   "Natural Sciences"
  ],
  "9|gr9-electricity-safety-t3": [
