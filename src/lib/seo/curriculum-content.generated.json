@@ -5224,6 +5224,11 @@
                 "id": "gr10-electrostatics-basics-t2",
                 "title": "Electrostatics Basics",
                 "description": "Two kinds of charge, conductors and insulators, conservation and quantisation of charge."
+              },
+              {
+                "id": "gr10-circuits-series-parallel-t2",
+                "title": "Electric Circuits: Series and Parallel",
+                "description": "Potential difference, current, resistance, and resistors in series and in parallel."
               }
             ]
           },
@@ -5250,6 +5255,16 @@
                 "id": "gr10-precipitation-reaction-types-t3",
                 "title": "Precipitation and Reaction Types",
                 "description": "Ion exchange, solubility rules, tests for anions and precipitation, gas, acid-base and redox reactions."
+              },
+              {
+                "id": "gr10-composition-empirical-formula-t3",
+                "title": "Composition and Empirical Formulae",
+                "description": "Percentage composition, empirical formulae and water of crystallisation."
+              },
+              {
+                "id": "gr10-concentration-gas-yield-t3",
+                "title": "Concentration, Gas Volume and Yield",
+                "description": "Concentration of solutions, the molar volume of a gas and theoretical yield."
               }
             ]
           },

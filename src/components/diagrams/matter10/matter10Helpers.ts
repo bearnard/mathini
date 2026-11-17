@@ -6,7 +6,7 @@ export { atomsOf, balanced };
 /** Numbers for the Grade 10 Physical Sciences wave 2 term 2 chemistry lessons: particles substances are made of, physical and chemical change. Tested in matter10Helpers.test.ts. */
 
 /** Relative atomic masses from the periodic table in the data sheet, as used in Grade 10 (Cl 35,5; Cu 63,5). */
-export const AR: Record<string, number> = { H: 1, C: 12, N: 14, O: 16, Na: 23, Mg: 24, S: 32, Cl: 35.5, K: 39, Ca: 40, Fe: 56, Cu: 63.5 };
+export const AR: Record<string, number> = { H: 1, C: 12, N: 14, O: 16, Na: 23, Mg: 24, S: 32, Cl: 35.5, K: 39, Ca: 40, Fe: 56, Cu: 63.5, Al: 27 };
 /** Total number of atoms in one formula, e.g. H2SO4 has 7. */
 export const atomCount = (formula: string): number => Object.values(atomsOf(formula)).reduce((a, n) => a + n, 0);
 /** Number of different elements in a formula. */

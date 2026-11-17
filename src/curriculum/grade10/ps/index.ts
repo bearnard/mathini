@@ -99,6 +99,12 @@ export const psGrade10: Subject = {
           description: 'Two kinds of charge, conductors and insulators, conservation and quantisation of charge.',
           component: lazy(() => import('./term2/electrostatics-basics/ElectrostaticsBasics')),
         },
+        {
+          id: 'gr10-circuits-series-parallel-t2',
+          title: 'Electric Circuits: Series and Parallel',
+          description: 'Potential difference, current, resistance, and resistors in series and in parallel.',
+          component: lazy(() => import('./term2/circuits-series-parallel/CircuitsSeriesParallel')),
+        },
       ],
     },
     {
@@ -128,6 +134,18 @@ export const psGrade10: Subject = {
           title: 'Precipitation and Reaction Types',
           description: 'Ion exchange, solubility rules, tests for anions and precipitation, gas, acid-base and redox reactions.',
           component: lazy(() => import('./term3/precipitation-reaction-types/PrecipitationReactionTypes')),
+        },
+        {
+          id: 'gr10-composition-empirical-formula-t3',
+          title: 'Composition and Empirical Formulae',
+          description: 'Percentage composition, empirical formulae and water of crystallisation.',
+          component: lazy(() => import('./term3/composition-empirical-formula/CompositionEmpiricalFormula')),
+        },
+        {
+          id: 'gr10-concentration-gas-yield-t3',
+          title: 'Concentration, Gas Volume and Yield',
+          description: 'Concentration of solutions, the molar volume of a gas and theoretical yield.',
+          component: lazy(() => import('./term3/concentration-gas-yield/ConcentrationGasYield')),
         },
       ],
     },
