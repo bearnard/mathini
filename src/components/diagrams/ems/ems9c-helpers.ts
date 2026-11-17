@@ -1,4 +1,4 @@
-import { postTransactions, trialBalance, type Transaction } from './ems9a-helpers';
+import { postTransactions, trialBalance, type AccountBalance, type Transaction } from './ems9a-helpers';
 import { sum } from './emsHelpers';
 
 const cents = (r: number): number => Math.round(r * 100);
@@ -57,6 +57,19 @@ export const reconciles = (parties: readonly PartyAccount[], controlBalance: num
 export const controlBalance = (postings: readonly Transaction[], account: string): { balance: number; side: 'debit' | 'credit' | 'nil' } => {
   const acc = postTransactions(postings).find((a) => a.name === account);
   return acc ? { balance: acc.balance, side: acc.side } : { balance: 0, side: 'nil' };
+};
+
+/**
+ * One debtor's or creditor's own account drawn as a T-account. A debtor's invoices are DEBITS, and credit notes and receipts are CREDITS;
+ * for a creditor it is the other way round (purchases are credits; allowances and payments are debits). PartyAccount.debits/credits hold the
+ * amounts that INCREASE and DECREASE what is owed, so a creditor's sides are swapped here.
+ */
+export const partyAccount = (p: PartyAccount, kind: 'debtor' | 'creditor'): AccountBalance => {
+  const debits = kind === 'debtor' ? p.debits : p.credits;
+  const credits = kind === 'debtor' ? p.credits : p.debits;
+  const d = cents(sum(debits));
+  const c = cents(sum(credits));
+  return { name: p.name, debits, credits, totalDebit: rands(d), totalCredit: rands(c), balance: rands(Math.abs(d - c)), side: d > c ? 'debit' : d < c ? 'credit' : 'nil' };
 };
 
 export { postTransactions, trialBalance };

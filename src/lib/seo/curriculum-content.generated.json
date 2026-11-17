@@ -3924,6 +3924,16 @@
                 "id": "gr9-production-marketing",
                 "title": "Production and Marketing",
                 "description": "Production efficiency, quality control, marketing strategy, 4Ps and market research."
+              },
+              {
+                "id": "gr9-debtors-ledger-t3",
+                "title": "Debtors Ledger and General Ledger Posting",
+                "description": "Debtors' accounts, posting the journal totals, and agreeing the list with the control account."
+              },
+              {
+                "id": "gr9-creditors-journals-t3",
+                "title": "Credit Purchases: Creditors Journals",
+                "description": "The creditors journal, creditors allowances, payments to creditors, and the creditors ledger."
               }
             ]
           },
@@ -3940,6 +3950,11 @@
                 "id": "gr9-exam-revision-preparation",
                 "title": "Exam Revision and Preparation",
                 "description": "Case study analysis, concept integration, exam strategies, timed practice."
+              },
+              {
+                "id": "gr9-cash-credit-trial-balance-t4",
+                "title": "Cash and Credit Transactions with the Trial Balance",
+                "description": "Analysing cash and credit transactions, finding the balances, and drawing up a trial balance."
               }
             ]
           }
