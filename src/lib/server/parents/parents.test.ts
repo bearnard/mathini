@@ -268,7 +268,7 @@ test('a linked parent resets the PIN: the new one works, the old one does not, i
   const row = x.raw.prepare('SELECT pin_hash, pin_salt FROM students WHERE id = ?').get('student-0001') as { pin_hash: string; pin_salt: string };
   assert.ok(await verifyPin(pin, row.pin_salt, row.pin_hash));
   if (pin !== '4821') assert.ok(!(await verifyPin('4821', row.pin_salt, row.pin_hash)), 'the old PIN stops working');
-  assert.ok(!JSON.stringify(x.raw.prepare('SELECT * FROM students').all()).includes(`"${pin}"`) && !JSON.stringify(x.raw.prepare('SELECT * FROM pin_resets').all()).includes(pin), 'no plain PIN in the database');
+  assert.ok(!JSON.stringify(x.raw.prepare('SELECT * FROM students').all()).includes(`"${pin}"`) && !JSON.stringify(x.raw.prepare('SELECT * FROM pin_resets').all()).includes(`"${pin}"`), 'no plain PIN in the database'); // quoted: a bare 4-digit PIN can occur inside a timestamp or id by chance
   assert.deepEqual(x.raw.prepare('SELECT student_id, user_id, created_at FROM pin_resets').all().map((r) => Object.values(r)), [['student-0001', x.mum.userId, NOW]]);
   assert.equal(lines.length, 0);
 });
