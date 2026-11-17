@@ -362,7 +362,6 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr12-advanced-application-integration-t3": ["cat", 12],
   "gr12-advanced-databases-sql-t2": ["it", 12],
   "gr12-advanced-databases-t1": ["cat", 12],
-  "gr12-advanced-oop-inheritance-polymorphism-t1": ["it", 12],
   "gr12-advanced-writing-editing-t3": ["eng", 12],
   "gr12-aerial-orthophoto-t1": ["geo", 12],
   "gr12-agriculture-and-food-security-t3": ["geo", 12],

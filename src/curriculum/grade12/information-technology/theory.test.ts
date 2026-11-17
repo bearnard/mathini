@@ -30,15 +30,17 @@ const html = (n: Parameters<typeof renderToStaticMarkup>[0]) => renderToStaticMa
 const text = (s: string) => s.replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/g, ' ').replace(/\s+/g, ' ').trim();
 const lessonText = (l: { learnSteps: LearnStep[] }) => text(html(h('div', null, l.learnSteps.map((s) => s.content))));
 
-test('the new Grade 12 IT theory lessons are registered in their CAPS term after the existing lessons (ids unchanged), with a task instruction each', () => {
-  const existing: Record<number, string[]> = {
-    1: ['gr12-advanced-oop-inheritance-polymorphism-t1', 'gr12-encapsulation-class-design-exception-handling-t1', 'gr12-gui-design-event-driven-programming-t1', 'gr12-algorithmic-refinement-validation-testing-t1'],
-    2: ['gr12-advanced-databases-sql-t2', 'gr12-relational-data-joins-normalisation-t2', 'gr12-forms-reports-database-program-integration-t2', 'gr12-networks-security-systems-integration-t2'],
-    3: ['gr12-social-implications-privacy-ethics-t3', 'gr12-cyber-security-emerging-technologies-t3', 'gr12-integrated-solution-development-pat-completion-t3'],
-  };
+test('the new Grade 12 IT theory lessons are registered in their CAPS term, and the original lessons (except the one hidden in Wave B) are all still listed under the same ids, with a task instruction each', () => {
+  const original = [
+    'gr12-encapsulation-class-design-exception-handling-t1', 'gr12-gui-design-event-driven-programming-t1', 'gr12-algorithmic-refinement-validation-testing-t1',
+    'gr12-advanced-databases-sql-t2', 'gr12-relational-data-joins-normalisation-t2', 'gr12-forms-reports-database-program-integration-t2', 'gr12-networks-security-systems-integration-t2',
+    'gr12-social-implications-privacy-ethics-t3', 'gr12-cyber-security-emerging-technologies-t3', 'gr12-integrated-solution-development-pat-completion-t3',
+    'gr12-nsc-practical-programming-revision-t4', 'gr12-nsc-database-sql-revision-t4', 'gr12-nsc-theory-exam-technique-t4',
+  ];
+  const all = informationTechnologyGrade12.terms.flatMap((t) => t.topics.map((p) => p.id));
+  for (const id of original) assert.ok(all.includes(id), `${id} is still listed`);
   for (const term of [1, 2, 3]) {
     const ids = informationTechnologyGrade12.terms.find((t) => t.id === term)!.topics.map((t) => t.id);
-    assert.deepEqual(ids.slice(0, existing[term].length), existing[term], `term ${term}: existing lessons keep their place and ids`);
     for (const l of LESSONS.filter((x) => x.term === term)) assert.ok(ids.includes(l.id), l.id);
   }
   const tasks = (JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/it-gr12-missing.json', 'utf8')) as { tasks: Record<string, string> }).tasks;

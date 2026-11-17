@@ -23,6 +23,8 @@ const MOVES: [Grade, string, string, number][] = [
   [grade12, 'accounting', 'gr12-vat-concepts-control-t3', 2], [grade12, 'accounting', 'gr12-manufacturing-cost-statements-t2', 3],
   [grade12, 'business-studies', 'gr12-investment-insurance-conflict-management-t2', 3],
   [grade12, 'business-studies', 'gr12-human-rights-inclusivity-t3', 2], [grade12, 'business-studies', 'gr12-environmental-social-responsibility-t3', 2],
+  [grade12, 'it', 'gr12-relational-data-joins-normalisation-t2', 1], [grade12, 'it', 'gr12-networks-security-systems-integration-t2', 1],
+  [grade12, 'it', 'gr12-forms-reports-database-program-integration-t2', 1], [grade12, 'it', 'gr12-cyber-security-emerging-technologies-t3', 2],
 ];
 
 test('moved lessons are listed in their CAPS term', () => {
@@ -30,10 +32,25 @@ test('moved lessons are listed in their CAPS term', () => {
 });
 
 test('no term of the changed subjects is empty and no topic is listed twice', () => {
-  for (const [g, id] of [[grade6, 'math'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies']] as [Grade, string][]) {
+  for (const [g, id] of [[grade6, 'math'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade12, 'it']] as [Grade, string][]) {
     const s = g.subjects.find((x) => x.id === id)!;
     for (const t of s.terms) assert.ok(t.topics.length > 0, `${id} term ${t.id}`);
     const ids = s.terms.flatMap((t) => t.topics.map((p) => p.id));
     assert.equal(new Set(ids).size, ids.length);
   }
+});
+
+// Wave B3, Grade 12 IT: "Advanced OOP: Inheritance and Polymorphism" is not in the Grade 12 CAPS. It is hidden: out of the menus, the registry and the sitemap,
+// the lesson code stays in the repo, its page redirects (308) to the subject page, and its questions (the task instruction and the D1 rows) are untouched.
+test('the hidden Grade 12 IT lesson is out of the curriculum but its code, task instruction and redirect remain', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const it = grade12.subjects.find((x) => x.id === 'it')!;
+  const ids = it.terms.flatMap((t) => t.topics.map((p) => p.id));
+  assert.ok(!ids.includes('gr12-advanced-oop-inheritance-polymorphism-t1'));
+  assert.ok(fs.existsSync('src/curriculum/grade12/information-technology/term1/advanced-oop-inheritance-polymorphism/AdvancedOopInheritancePolymorphism.tsx'), 'the code is kept');
+  const tasks = JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/it-gr12-term1.json', 'utf8')).tasks as Record<string, string>;
+  assert.ok('gr12-advanced-oop-inheritance-polymorphism-t1' in tasks, 'the task instruction is kept');
+  const r = LEGACY_REDIRECTS.find((x) => x.source === '/grade-12/information-technology/advanced-oop-inheritance-and-polymorphism');
+  assert.deepEqual(r?.destination, '/grade-12/information-technology');
 });
