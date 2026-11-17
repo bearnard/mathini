@@ -6706,6 +6706,21 @@
                 "id": "gr11-electrochemical-cells-t3",
                 "title": "Electrochemical Cells",
                 "description": "Galvanic cells, standard electrode potentials, EMF calculation and electrolytic cells."
+              },
+              {
+                "id": "gr11-electromagnetism-t3",
+                "title": "Electromagnetism",
+                "description": "The field around a current, the solenoid, magnetic flux, Faraday's law and Lenz's law."
+              },
+              {
+                "id": "gr11-energy-chemical-change-t3",
+                "title": "Energy and Chemical Change",
+                "description": "Bond energy, enthalpy, ΔH, activation energy and energy graphs."
+              },
+              {
+                "id": "gr11-acid-base-reactions-t3",
+                "title": "Acid-Base Reactions",
+                "description": "Acid-base theories, conjugate pairs, ampholytes, salt-forming reactions and a simple titration."
               }
             ]
           },

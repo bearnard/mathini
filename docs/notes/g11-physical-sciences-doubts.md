@@ -30,3 +30,13 @@
 - The stoichiometry examples are small made-up experiments (6,0 g Mg; 4,0 g H₂ with 8,0 g O₂; a 10,0 g shell sample losing 3,52 g of CO₂ on heating, which is exactly 0,08 mol). Percent purity by heating is a simplification of the CAPS sea-shell activity.
 - Not covered here: the practical tasks (verifying Boyle's law, making standard solutions, titration and precipitation calculations). Titrations are Gr 12 in our lessons; precipitation calculations can be added later.
 - Real-gas deviations are described qualitatively only; the van der Waals equation is not in the CAPS and is not used.
+
+## Term 3: electromagnetism, energy and chemical change, acid-base reactions
+- Electromagnetism: CAPS Gr 11 states Faraday's law and the flux Φ = BA cos θ qualitatively, with the Right Hand Rule for directions. The lesson gives the proportionality ("a faster change in flux gives a bigger emf") and the flux calculation, but NOT the formula emf = −N ΔΦ/Δt, which I read as Grade 12 work. θ is the angle to the NORMAL, as in the CAPS. If the teacher uses the angle to the surface, cos and sin swap.
+- Right Hand Rule: thumb along the current, fingers show the field (wire); fingers follow the current, thumb points to N (coil). Lenz's law is taught as "the near end of the solenoid takes the same pole when a pole is pushed in and the opposite when pulled out". Pictures and questions are tested for the four cases.
+- Overhead cables: CAPS asks for a qualitative discussion of environmental impact. The lesson says they have magnetic fields, take up land and can harm birds, and that people study the effects on health. It makes no health claim.
+- Energy and chemical change: values 50, 90, 20 and 20, 80, 50 kJ·mol⁻¹ are made up for the graphs. ΔH = products − reactants; Ea(forward) − Ea(reverse) = ΔH is tested. No bond-energy calculation is given (CAPS Gr 11 relates energy changes to bond energy qualitatively).
+- Photosynthesis is classed as endothermic and respiration and combustion as exothermic, as the CAPS asks.
+- Acid-base: Arrhenius and Brønsted-Lowry definitions, conjugate pairs and ampholytes (water). All five equations are balanced by an atom count in tests. The lesson stays qualitative on titration (CAPS: "leave until Grade 12 or do a simple qualitative titration"); no pH or concentration calculations. Strong and weak acids, Ka and Kb and pH are Grade 12 and are not taught.
+- CAPS also lists producing and isolating salts (Na₂SO₄, CuSO₄, CaCO₃) and the use of lime and ash in pit toilets. The lesson mentions evaporating to get the salt but not the pit-toilet activity or CaCO₃ by precipitation; a teacher may want to add them.
+- The lesson reuses the Grade 12 conjugate-pair and titration pictures.
