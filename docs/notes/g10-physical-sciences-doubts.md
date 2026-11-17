@@ -17,3 +17,13 @@
 - Magnetic materials: iron, cobalt and nickel (and steel) are attracted; copper, aluminium, gold, plastic and wood are not. Alloys vary (some stainless steels are not magnetic); the lesson says steel is attracted because it contains iron, which is true for ordinary steel.
 - "Only repulsion proves that an object is a magnet" is the standard classroom test.
 - Not covered: the practical activity of plotting field lines with iron filings or a compass.
+
+## Terms 3 and 4: ions in solution, precipitation and reaction types, hydrosphere
+- CAPS Grade 10 puts "reactions in aqueous solution" in term 3 and the hydrosphere in term 4. The existing lesson `gr10-chemical-change-stoichiometry-t3` is kept (additive); the new lessons cover the CAPS content it does not: ions in solution, precipitation, the four reaction types.
+- Solubility rules are the common Grade 10 set: all nitrates and all Group 1 and ammonium salts soluble; chlorides, bromides and iodides soluble except silver and lead; sulfates soluble except barium and lead; carbonates and hydroxides insoluble except Group 1 and ammonium. Real solubility has more exceptions (for example calcium sulfate is only slightly soluble); the lesson says "simple rules".
+- Anion tests: AgCl white, AgBr cream, AgI yellow (colours vary with conditions). The sulfate and carbonate tests use barium nitrate and nitric acid; carbonate dissolves with bubbles, sulfate does not. Sulfite and other anions are not covered.
+- Redox is shown only by the change of charge (Zn 0 to +2, Cu²⁺ +2 to 0). Oxidation numbers, half-reactions and oxidising and reducing agents are not taught (CAPS does that in Grade 11/12).
+- Hydrosphere shares are rounded reference values (oceans about 97%, ice about 2%, liquid fresh water about 1%). The exact figures differ slightly by source (groundwater is counted under liquid fresh water), so no more precise figures are given and no percentages for rivers, lakes or the atmosphere.
+- The dam example (5 000 people, 200 L each per day, a 150 000 m³ dam) is an invented example to practise 1 000 L = 1 m³; it is labelled as an example and is not a real South African dam or town.
+- Fix included: the shared lesson test `lessonTest.ts` flagged the text "NaN" inside "NaNO₃" (sodium nitrate) as a bad number. The check now matches the whole word NaN.
+- Not covered: practical investigations (precipitation and anion tests in the laboratory, water quality sampling) and the detailed SA water-quality standards.

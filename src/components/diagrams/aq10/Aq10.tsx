@@ -115,7 +115,7 @@ export const WaterShares = ({ items }: { items: { name: string; percent: number 
 };
 
 export const FactCards = ({ cards, aria }: { cards: { title: string; line1: string; line2?: string }[]; aria: string }) => {
-  const rowH = 17;
+  const rowH = 22;
   const cols = [AMBER, GREEN, BLUE, ROSE];
   return (
     <Panel h={6 + cards.length * rowH} aria={aria}>
@@ -126,7 +126,8 @@ export const FactCards = ({ cards, aria }: { cards: { title: string; line1: stri
           <g key={c.title}>
             <rect x={4} y={y} width={112} height={rowH - 3} rx={3} fill={col} fillOpacity={0.14} stroke={col} strokeWidth={0.7} />
             <T x={9} y={y + 6} size={5.2} anchor="start" fill={col} weight={800}>{c.title}</T>
-            <T x={9} y={y + 11.6} size={4.2} anchor="start" weight={600}>{c.line1 + (c.line2 ? ` ${c.line2}` : '')}</T>
+            <T x={9} y={y + 11.4} size={4.2} anchor="start" weight={600}>{c.line1}</T>
+            {c.line2 ? <T x={9} y={y + 16.2} size={4.2} anchor="start" weight={600}>{c.line2}</T> : null}
           </g>
         );
       })}

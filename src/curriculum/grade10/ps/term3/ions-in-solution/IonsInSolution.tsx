@@ -151,13 +151,13 @@ export const bank: CapsItem[] = [
     explanation: "Two Na⁺ and one SO₄²⁻ give three ions.",
   },
   {
-    prompt: "A solution of NaCl has a concentration of 0,10 mol·dm⁻³. What is the total concentration of ions?",
+    prompt: "NaCl is dissolved to make a 0,10 mol·dm⁻³ solution. Find the total concentration of all the ions.",
     options: ["0,10 mol·dm⁻³", "0,20 mol·dm⁻³", "0,05 mol·dm⁻³", "0,30 mol·dm⁻³"],
     answer: "0,20 mol·dm⁻³",
     explanation: "Each NaCl gives two ions, so 2 × 0,10 = 0,20 mol·dm⁻³.",
   },
   {
-    prompt: "A solution of CaCl₂ has a concentration of 0,10 mol·dm⁻³. What is the total concentration of ions?",
+    prompt: "A 0,10 mol·dm⁻³ solution of CaCl₂ is made. How much ion is in one dm³ of it, in total?",
     options: ["0,30 mol·dm⁻³", "0,10 mol·dm⁻³", "0,20 mol·dm⁻³", "0,03 mol·dm⁻³"],
     answer: "0,30 mol·dm⁻³",
     explanation: "Each CaCl₂ gives three ions, so 3 × 0,10 = 0,30 mol·dm⁻³.",
@@ -170,9 +170,15 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: "Why does a sugar solution not conduct electricity?",
-    options: ["Sugar does not dissolve in water", "Sugar forms only negative ions", "Sugar dissolves into molecules and forms no ions", "Sugar solutions have too many ions"],
-    answer: "Sugar dissolves into molecules and forms no ions",
+    options: ["Sugar does not dissolve in water at all", "Sugar forms only negative ions in water", "Sugar dissolves but forms no ions", "Sugar solutions have far too many ions"],
+    answer: "Sugar dissolves but forms no ions",
     explanation: "Conduction needs free ions.",
+  },
+  {
+    prompt: "In the dissolution of CaCl₂, what is the total charge of all the ions formed from one formula unit?",
+    options: ["Zero, because the charges cancel", "Plus 2, because of the calcium ion", "Minus 2, because of the chloride ions", "Plus 1, because there is one positive ion"],
+    answer: "Zero, because the charges cancel",
+    explanation: "Ca²⁺ gives +2 and two Cl⁻ give −2, so the solution stays neutral.",
   },
 ];
 

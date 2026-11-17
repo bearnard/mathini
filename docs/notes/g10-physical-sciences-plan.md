@@ -6,7 +6,7 @@ Source: `audit/caps-alignment.md` (Grade 10 Physical Sciences, 6 HIGH gaps); CAP
 |---|---|---|---|
 | feat/g10-ps-t1 | T1 | Transverse Pulses and Superposition (`gr10-pulses-superposition-t1`), Electromagnetic Radiation (`gr10-em-radiation-t1`), Revision of Matter and Classification (`gr10-matter-classification-t1`) | done |
 | feat/g10-ps-t2 | T2 | Magnetism (`gr10-magnetism-t2`) | done |
-| feat/g10-ps-t3-t4 | T3, T4 | Reactions in Aqueous Solution (`gr10-aqueous-reactions-t3`), The Hydrosphere (`gr10-hydrosphere-t4`) | todo |
+| feat/g10-ps-t3-t4 | T3, T4 | Ions in Aqueous Solution (`gr10-ions-in-solution-t3`), Precipitation and Reaction Types (`gr10-precipitation-reaction-types-t3`), The Hydrosphere (`gr10-hydrosphere-t4`) | done |
 
 A second wave (approved by the orchestrator) will deepen the 9 PARTIAL topics: the atom and isotopes, particles substances are made of, physical and chemical change, quantitative aspects (empirical formula, concentration, yield), longitudinal waves, sound, electrostatics basics, electric circuits, motion in one dimension (instantaneous velocity).
 

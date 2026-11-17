@@ -67,5 +67,5 @@ export const assertLessonShape = (all: RenderedSlide[]): void => {
     assert.ok(s.pictures >= 1, `${s.title}: has a picture`);
   }
   for (const s of all) assert.equal(s.labelled, s.pictures, `${s.title}: every picture has an aria-label`);
-  for (const s of all) assert.ok(!/NaN|undefined|\[object Object\]/.test(s.text), `${s.title}: no NaN/undefined in the text`);
+  for (const s of all) assert.ok(!/\bNaN\b|undefined|\[object Object\]/.test(s.text), `${s.title}: no NaN/undefined in the text`);
 };

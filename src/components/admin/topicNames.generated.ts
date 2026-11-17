@@ -243,6 +243,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "History of Life on Earth",
   "Life Sciences"
  ],
+ "10|gr10-hydrosphere-t4": [
+  "The Hydrosphere",
+  "Physical Sciences"
+ ],
  "10|gr10-imaginative-transactional-t3": [
   "Imaginative and Transactional Writing",
   "English HL"
@@ -262,6 +266,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-internet-www-t3": [
   "The Internet and the World Wide Web",
   "Information Technology"
+ ],
+ "10|gr10-ions-in-solution-t3": [
+  "Ions in Aqueous Solution",
+  "Physical Sciences"
  ],
  "10|gr10-job-market-lifelong-learning-t4": [
   "Job Market Trends, Qualifications and Lifelong Learning",
@@ -422,6 +430,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-power-gender-t1": [
   "Power, Power Relations and Gender",
   "Life Orientation"
+ ],
+ "10|gr10-precipitation-reaction-types-t3": [
+  "Precipitation and Reaction Types",
+  "Physical Sciences"
  ],
  "10|gr10-probability-t2": [
   "Probability",

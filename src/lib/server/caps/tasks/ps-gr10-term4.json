@@ -1,1 +1,7 @@
-{"tasks":{"gr10-conservation-mechanical-energy-t4":"Grade 10 Physical Sciences Term 4: Conservation of mechanical energy, power, and integrated mechanics problems.","gr10-ps-revision-examination-practice-t4":"Grade 10 Physical Sciences Term 4: Integrated revision and examination practice for all Grade 10 Physical Sciences."}}
+{
+  "tasks": {
+    "gr10-conservation-mechanical-energy-t4": "Grade 10 Physical Sciences Term 4: Conservation of mechanical energy, power, and integrated mechanics problems.",
+    "gr10-ps-revision-examination-practice-t4": "Grade 10 Physical Sciences Term 4: Integrated revision and examination practice for all Grade 10 Physical Sciences.",
+    "gr10-hydrosphere-t4": "Topic: The hydrosphere. Cover water as a liquid, solid and gas, the approximate shares of Earth's water (about 97% oceans, 2% ice, 1% liquid fresh water), the water cycle (evaporation, condensation, precipitation), interaction with the atmosphere, lithosphere and biosphere, dissolving and depositing of minerals, effects of dams on ecology, water quality tests (pH, clarity, dissolved salts, germs) and simple demand calculations with 1 000 L = 1 m³. Ask Grade 10 learners to reason about water shares and to calculate daily demand and days of supply."
+  }
+}
