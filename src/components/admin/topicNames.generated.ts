@@ -699,6 +699,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Development of the Self in Society",
   "Life Orientation"
  ],
+ "11|gr11-diffraction-t2": [
+  "Wavefronts and Diffraction",
+  "Physical Sciences"
+ ],
  "11|gr11-digitalisation-gig-economy-t2": [
   "Digitalisation, the Gig Economy and Your Online Identity",
   "Information Technology"
@@ -1161,6 +1165,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "11|gr11-redox-reactions-t3": [
   "Redox Reactions",
+  "Physical Sciences"
+ ],
+ "11|gr11-refraction-snell-t2": [
+  "Refraction and Snell's Law",
   "Physical Sciences"
  ],
  "11|gr11-relationships-sexuality-health-t1": [
