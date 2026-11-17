@@ -1,6 +1,8 @@
 # Grade 6 — Afrikaans First Additional Language: Term 4
 
-**CAPS phase:** Intermediate Phase (Gr 6–7)
+Source: CAPS Afrikaans Eerste Addisionele Taal Intermediere Fase Graad 4-6, Graad 6 Kwartaal 1-4 teaching plans; phase label corrected to Intermediate Phase (Gr 4-6).
+
+**CAPS phase:** Intermediate Phase (Gr 4–6)
 **ATP weeks:** Weeks 1–8
 
 ## Topics

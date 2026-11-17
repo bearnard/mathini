@@ -1,30 +1,27 @@
 # Grade 9 — Life Orientation: Term 1
 
-**CAPS phase:** Senior Phase (Gr 8–9)
+Source: CAPS Life Orientation Senior Phase Gr 7-9, Grade 9 teaching plans Terms 1-4 (pp. 19-23).
+
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 1–10
 
 ## Topics
 
 ### Development of the self in society
-- **Key concepts:** value systems, self-awareness, self-motivation, goal setting, decision-making
-- **Skills / outcomes:** evaluate how values shape choices and set goals linked to stronger self-management
-- **Assessment angles:** value-sort activities, decision-making scenarios, goal-tracking tasks
+- **Key concepts:** goal-setting; influences on lifestyle choices; informed decision-making; assertiveness; sexual behaviour and sexual health (risk factors, teen pregnancy, STIs, HIV/AIDS, abstinence, support)
+- **Skills / outcomes:** as set out in the CAPS Grade 9 teaching plan
+- **Assessment angles:** tasks, tests and PET on the CAPS content listed
 
-### Relationships and life changes
-- **Key concepts:** peer and family relationships, emotions, self-respect, conflict, support
-- **Skills / outcomes:** manage changing relationships more thoughtfully and identify healthy boundaries and communication styles
-- **Assessment angles:** case studies, discussion prompts, boundary-setting role plays
+### World of work
+- **Key concepts:** time-management skills; reading and writing for different purposes (journal, summarising)
+- **Skills / outcomes:** as set out in the CAPS Grade 9 teaching plan
+- **Assessment angles:** tasks, tests and PET on the CAPS content listed
 
-### Study skills and transition planning
-- **Key concepts:** subject demands, concentration, revision habits, planning for Grade 10
-- **Skills / outcomes:** strengthen study routines and prepare for the academic choices linked to the FET phase
-- **Assessment angles:** study timetables, subject-choice reflection, planning checklists
-
-### Physical Education Task
-- **Key concepts:** fitness development, coordination, teamwork, safe participation
-- **Skills / outcomes:** complete fitness and movement activities with more independence and monitor personal progress
-- **Assessment angles:** fitness logs, skill circuits, participation rubrics
+### Physical Education
+- **Key concepts:** wellness activities; safety
+- **Skills / outcomes:** as set out in the CAPS Grade 9 teaching plan
+- **Assessment angles:** tasks, tests and PET on the CAPS content listed
 
 ## Assessment
-- **Formal tasks this term:** A source-based task or project, a class test or assignment, and ongoing Physical Education Task (PET) evidence.
-- **SBA weighting:** Senior Phase Life Orientation uses 80% SBA and 20% PET across the year.
+- **Formal tasks this term:** A written task and the Physical Education Task (PET).
+- **SBA weighting:** Per CAPS recording for Grade 9: each term mark is 70 (written task, examination or project) + 30 (Physical Education Task, PET); this replaces the earlier '80% SBA / 20% PET' wording, which the audit found is not CAPS.

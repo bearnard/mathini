@@ -1,6 +1,8 @@
 # Grade 6 — isiXhosa Second Additional Language: Term 3
 
-**CAPS phase:** Intermediate Phase (Gr 6–7)
+Source: CAPS isiXhosa Gr 4-6 (Home Language s3.2.1 pp. 22-23; First Additional Language s3.2.1 pp. 23-25), Grade 6 plans; phase label corrected to Intermediate Phase (Gr 4-6). Note: the Intermediate Phase has no isiXhosa 'Second Additional Language' in CAPS (audit), so the SAL label is unverified.
+
+**CAPS phase:** Intermediate Phase (Gr 4–6)
 **ATP weeks:** Weeks 1–10
 
 ## Topics

@@ -1,6 +1,8 @@
 # Grade 6 — English Home Language: Term 3
 
-**CAPS phase:** Intermediate Phase (Gr 6–7)
+Source: CAPS English Home Language Grades 4-6, Grade 6 Terms 1-4 teaching plans (pp. 72-87); phase label corrected to Intermediate Phase (Gr 4-6).
+
+**CAPS phase:** Intermediate Phase (Gr 4–6)
 **ATP weeks:** Weeks 1–10
 
 ## Topics

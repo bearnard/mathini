@@ -1,6 +1,8 @@
 # Grade 7 — isiXhosa Second Additional Language: Term 4
 
-**CAPS phase:** Intermediate Phase (Gr 6–7)
+Source: CAPS isiXhosa Second Additional Language Senior Phase Gr 7-9, section 3.5.1 Ibanga lesi-7 Ikota 1-4 (pp. 37-46); phase label corrected to Senior Phase (Gr 7-9). Topic content not re-audited here.
+
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 1–8
 
 ## Topics

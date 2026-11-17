@@ -1,21 +1,36 @@
 # Grade 9 — Natural Sciences: Term 1
 
-**CAPS phase:** Senior
+Source: CAPS Natural Sciences Senior Phase Gr 7-9 (sp_ns), Grade 9 Term 1-4 tables and Grade 9 programme of assessment.
+
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 1–10
 
 ## Topics
 
-### Cells, tissues and levels of organisation
-- **Key concepts:** cell structure, organelles, tissues, organs, systems, plant and animal cells, structure and function
-- **Skills / outcomes:** Compare cell types, link tissues to organ function, and interpret diagrams or micrographs.
-- **Assessment angles:** Cell labels, tissue-to-organ matching, and comparison questions.
-- **Knowledge strand:** Life & Living
+### Cells as the basic units of life
+- **Key concepts:** cells as the basic units of life
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
 
-### Human body systems and health
-- **Key concepts:** digestive, respiratory, circulatory, reproductive and excretory systems, homeostasis basics
-- **Skills / outcomes:** Describe the roles of major systems, connect systems to health, and interpret body-system diagrams.
-- **Assessment angles:** Labeled organ diagrams, sequence-of-process questions, and healthy-lifestyle scenarios.
-- **Knowledge strand:** Life & Living
+### Systems in the human body
+- **Key concepts:** systems in the human body
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
+
+### Human reproduction
+- **Key concepts:** purpose of reproduction, puberty, gametes
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
+
+### Circulatory and respiratory systems
+- **Key concepts:** breathing, gaseous exchange, circulation, respiration
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
+
+### Digestive system
+- **Key concepts:** healthy diet, food tests
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
 
 ## Assessment
 - **Formal tasks this term:** Practical investigation and formal test.

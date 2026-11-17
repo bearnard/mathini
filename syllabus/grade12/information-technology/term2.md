@@ -1,23 +1,40 @@
 # Grade 12 — Information Technology: Term 2
 
+Source: CAPS Information Technology Grades 10-12 (original CAPS; the 2024 Section 3 amendment was not checked), Section 3 Grade 12 Terms 1-4 (pp. 40-47) and Section 4 (programme of assessment).
+
 **CAPS phase:** FET Phase (Gr 10–12)
 **ATP weeks:** Weeks 1–11
 
 ## Topics
 
-### Advanced databases and SQL
-- **Key concepts:** relationships, joins, advanced queries, data validation, forms, reports, integration of programs and databases
-- **Skills / outcomes:** write more advanced SQL, manipulate related data sets and integrate database logic into programming solutions
-- **Assessment angles:** query-output questions, join logic, database-design scenarios, debugging SQL syntax
+### Software and computer management
+- **Key concepts:** cloud computing, SaaS, virtualisation; computer management (housekeeping, data integrity)
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
 
-### Networks, security and systems integration
-- **Key concepts:** protocol stack, internet structure, network security, system integration, communication technologies
-- **Skills / outcomes:** explain modern networking concepts and evaluate secure approaches to communication and data use
-- **Assessment angles:** security scenarios, protocol/application matching, integrated systems questions
+### Social implications
+- **Key concepts:** computer criminals, cyber crimes, phishing, botnets, safeguards, access vs privacy
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
+
+### Programming: two-dimensional arrays
+- **Key concepts:** two-dimensional arrays (row and column aggregates)
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
+
+### SQL
+- **Key concepts:** select/distinct, insert/update/delete, group by, between/in/like/is null/having, calculated fields, casting, single joins, aggregates, date and string functions, simple sub queries
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
+
+### Interface design and PAT
+- **Key concepts:** interface design (functionality, usability); continue the PAT
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
 
 ## Assessment
 - **Formal tasks this term:** Practical test plus mid-year practical and theory examinations.
 - **SBA weighting:** Grade 12 IT commonly uses 25% SBA + 25% PAT + 50% NSC examinations.
 
 ## Notes
-Term 2 combines technically demanding database work with systems and network theory. Strong revision habits are needed before the June papers.
+The 2024 CAPS amendment for Information Technology (Section 3) has not been checked against this file.

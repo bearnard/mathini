@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { nextRedirects } from './src/lib/seo/legacyRedirects';
 
 // Teacher-review pages and API are private: never cache them, never send a Referer, never index them.
 const privateHeaders = [
@@ -9,6 +10,10 @@ const privateHeaders = [
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ['scholar.hibbins.org', '192.168.0.12', '127.0.0.1'],
+  // Permanent (308) redirects for public pages that moved in a curriculum restructure; see src/lib/seo/legacyRedirects.ts.
+  async redirects() {
+    return nextRedirects();
+  },
   async headers() {
     return [
       { source: '/teacher-review', headers: privateHeaders },

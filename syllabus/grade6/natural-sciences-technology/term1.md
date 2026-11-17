@@ -1,6 +1,8 @@
 # Grade 6 — Natural Sciences & Technology: Term 1
 
-**CAPS phase:** Intermediate
+Source: CAPS Natural Sciences & Technology Intermediate Phase Gr 4-6, Grade 6 Terms 1-4 teaching plans (pp. 47-64); phase label corrected to Intermediate Phase (Gr 4-6). Topic content not re-audited here.
+
+**CAPS phase:** Intermediate Phase (Gr 4–6)
 **ATP weeks:** Weeks 1–10
 
 ## Topics

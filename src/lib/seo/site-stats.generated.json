@@ -1,9 +1,9 @@
 {
   "grades": 8,
   "subjects": 25,
-  "subjectAreas": 81,
-  "topics": 1037,
-  "questions": 8913,
+  "subjectAreas": 83,
+  "topics": 1035,
+  "questions": 8885,
   "gradeFrom": 5,
   "gradeTo": 12
 }

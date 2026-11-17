@@ -1,30 +1,32 @@
 # Grade 12 — Life Orientation: Term 1
 
+Source: CAPS Life Orientation Grades 10-12, Grade 12 Terms 1-4 teaching plan (fet_lo, lines ~1115-1290) and assessment (lines ~1425-1480).
+
 **CAPS phase:** FET Phase (Gr 10–12)
 **ATP weeks:** Weeks 1–10
 
 ## Topics
 
 ### Development of the self in society
-- **Key concepts:** personal mission statement, goals, self-motivation, resilience, responsibility
-- **Skills / outcomes:** clarify life goals and evaluate how habits, attitudes and support systems affect final-year success
-- **Assessment angles:** mission-statement tasks, reflective prompts, short tests on concepts
+- **Key concepts:** stressors, stress levels, stress management; conflict resolution; communication and relationships; adapting to change; school-to-post-school transition; personal lifestyle plan
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
 
-### Healthy relationships and wellbeing
-- **Key concepts:** reproductive health, informed choices, coping with stress, conflict, support networks
-- **Skills / outcomes:** make informed health choices and apply coping strategies to pressure, change and demanding workloads
-- **Assessment angles:** case studies, myth-and-fact items, stress-management plans
+### Study skills
+- **Key concepts:** exam writing skills; importance of SBA; importance of the NSC; Grade 12 study plan
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
 
-### Study planning for exit level readiness
-- **Key concepts:** revision planning, exam discipline, time management, help-seeking, accountability
-- **Skills / outcomes:** organise effective study routines and use support strategically before major assessments
-- **Assessment angles:** revision timetable tasks, strategy matching, accountability checklists
+### Careers and career choices
+- **Key concepts:** commitment to a decision (applications, funds, forms); unemployment; innovative solutions (volunteering, part-time jobs, entrepreneurship, informal jobs); SARS tax; corruption and fraud
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
 
-### Physical Education Task
-- **Key concepts:** fitness maintenance, conditioning, participation, lifestyle balance, safety
-- **Skills / outcomes:** maintain physical wellbeing while balancing academic pressure and healthy routines
-- **Assessment angles:** participation records, fitness logs, wellbeing reflections
+### Physical Education
+- **Key concepts:** fitness programmes; safety
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
 
 ## Assessment
-- **Formal tasks this term:** A written task or assignment, a short test, and ongoing Physical Education Task (PET) evidence.
-- **SBA weighting:** FET Life Orientation uses 75% SBA and 25% PET across the year.
+- **Formal tasks this term:** A written task and the Physical Education Task (PET).
+- **SBA weighting:** Grade 12 CAPS Life Orientation: five tasks making 400 marks, of which the Physical Education Task (PET) is 80 marks (20% of the year; PET 20 + 40 + 20 in Terms 1-3). This replaces the earlier '75% SBA / 25% PET' wording, which is not CAPS.

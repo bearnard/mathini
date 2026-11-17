@@ -41,12 +41,6 @@ export const grade6: Grade = {
                                     component: lazy(() => import('./term1/fractions/ComparingFractions'))
                                 },
                                 {
-                                    id: "g6-decimal-place-value",
-                                    title: "Decimal Place Value",
-                                    description: "Understand the value of digits in decimal numbers.",
-                                    component: lazy(() => import('./term1/fractions/DecimalPlaceValue'))
-                                },
-                                {
                                     id: "g6-number-patterns",
                                     title: "Number Patterns",
                                     description: "Discover the rules behind number sequences.",
@@ -65,16 +59,34 @@ export const grade6: Grade = {
                                     component: lazy(() => import('./term1/geometry/Shapes2D'))
                                 },
                                 {
-                                    id: "g6-3d-objects",
-                                    title: "3D Objects",
-                                    description: "Explore 3D shapes and their properties.",
-                                    component: lazy(() => import('./term1/geometry/Objects3D'))
-                                },
-                                {
                                     id: "g6-add-subtract-5digit",
                                     title: "Adding and Subtracting 5-digit Numbers",
                                     description: "Estimate, then add and subtract in columns and check your answer.",
                                     component: lazy(() => import('./term1/whole-numbers/AddSubtract5Digit'))
+                                },
+                                {
+                                    id: "number-sentences",
+                                    title: "Number Sentences",
+                                    description: "Turn word problems into equations and solve for the unknown.",
+                                    component: lazy(() => import('./term2/number-sentences/NumberSentences'))
+                                },
+                                {
+                                    id: "time",
+                                    title: "Time",
+                                    description: "Clocks, 24-hour time and durations.",
+                                    component: lazy(() => import('./term4/time/Time'))
+                                },
+                                {
+                                    id: "data-handling",
+                                    title: "Data Handling",
+                                    description: "Mean, mode, median, range and reading graphs.",
+                                    component: lazy(() => import('./term4/data-handling/DataHandling'))
+                                },
+                                {
+                                    id: "common-fractions",
+                                    title: "Common Fractions",
+                                    description: "Equivalent fractions, simplifying, and adding & subtracting.",
+                                    component: lazy(() => import('./term2/common-fractions/CommonFractions'))
                                 }
                             ]
                         },
@@ -83,22 +95,10 @@ export const grade6: Grade = {
                             title: "Term 2",
                             topics: [
                                 {
-                                    id: "number-sentences",
-                                    title: "Number Sentences",
-                                    description: "Turn word problems into equations and solve for the unknown.",
-                                    component: lazy(() => import('./term2/number-sentences/NumberSentences'))
-                                },
-                                {
                                     id: "t2-patterns",
                                     title: "Patterns",
                                     description: "Numeric and geometric patterns, rules and flow diagrams.",
                                     component: lazy(() => import('./term2/patterns/PatternsT2'))
-                                },
-                                {
-                                    id: "common-fractions",
-                                    title: "Common Fractions",
-                                    description: "Equivalent fractions, simplifying, and adding & subtracting.",
-                                    component: lazy(() => import('./term2/common-fractions/CommonFractions'))
                                 },
                                 {
                                     id: "decimal-fractions",
@@ -117,6 +117,30 @@ export const grade6: Grade = {
                                     title: "Dividing by 2-digit Numbers",
                                     description: "Clue boards, multiply then subtract, checking and remainders.",
                                     component: lazy(() => import('./term2/whole-numbers/Divide2Digit'))
+                                },
+                                {
+                                    id: "g6-3d-objects",
+                                    title: "3D Objects",
+                                    description: "Explore 3D shapes and their properties.",
+                                    component: lazy(() => import('./term1/geometry/Objects3D'))
+                                },
+                                {
+                                    id: "symmetry",
+                                    title: "Symmetry",
+                                    description: "Lines of symmetry and reflections.",
+                                    component: lazy(() => import('./term3/symmetry/Symmetry'))
+                                },
+                                {
+                                    id: "capacity",
+                                    title: "Capacity",
+                                    description: "Millilitres and litres, and how much containers hold.",
+                                    component: lazy(() => import('./term4/capacity/Capacity'))
+                                },
+                                {
+                                    id: "g6-decimal-place-value",
+                                    title: "Decimal Place Value",
+                                    description: "Understand the value of digits in decimal numbers.",
+                                    component: lazy(() => import('./term1/fractions/DecimalPlaceValue'))
                                 }
                             ]
                         },
@@ -131,28 +155,10 @@ export const grade6: Grade = {
                                     component: lazy(() => import('./term3/length/Length'))
                                 },
                                 {
-                                    id: "symmetry",
-                                    title: "Symmetry",
-                                    description: "Lines of symmetry and reflections.",
-                                    component: lazy(() => import('./term3/symmetry/Symmetry'))
-                                },
-                                {
                                     id: "shape-properties",
                                     title: "2D Shapes & 3D Objects",
                                     description: "Sides, angles, faces, edges and vertices.",
                                     component: lazy(() => import('./term3/shapes/ShapeProperties'))
-                                },
-                                {
-                                    id: "area-perimeter",
-                                    title: "Area & Perimeter",
-                                    description: "Area and perimeter of squares and rectangles.",
-                                    component: lazy(() => import('./term3/area-perimeter/AreaPerimeter'))
-                                },
-                                {
-                                    id: "volume",
-                                    title: "Volume",
-                                    description: "Volume of cubes and rectangular prisms.",
-                                    component: lazy(() => import('./term3/volume/Volume'))
                                 },
                                 {
                                     id: "g6-add-subtract-6digit",
@@ -183,6 +189,12 @@ export const grade6: Grade = {
                                     title: "Viewing Objects",
                                     description: "Matching views of objects and structures of cubes with the position of the viewer.",
                                     component: lazy(() => import('./term3/viewing-objects/ViewingObjects'))
+                                },
+                                {
+                                    id: "mass",
+                                    title: "Mass",
+                                    description: "Grams, kilograms and tonnes, with conversions.",
+                                    component: lazy(() => import('./term4/mass/MassG6'))
                                 }
                             ]
                         },
@@ -190,30 +202,6 @@ export const grade6: Grade = {
                             id: 4,
                             title: "Term 4",
                             topics: [
-                                {
-                                    id: "mass",
-                                    title: "Mass",
-                                    description: "Grams, kilograms and tonnes, with conversions.",
-                                    component: lazy(() => import('./term4/mass/MassG6'))
-                                },
-                                {
-                                    id: "time",
-                                    title: "Time",
-                                    description: "Clocks, 24-hour time and durations.",
-                                    component: lazy(() => import('./term4/time/Time'))
-                                },
-                                {
-                                    id: "capacity",
-                                    title: "Capacity",
-                                    description: "Millilitres and litres, and how much containers hold.",
-                                    component: lazy(() => import('./term4/capacity/Capacity'))
-                                },
-                                {
-                                    id: "data-handling",
-                                    title: "Data Handling",
-                                    description: "Mean, mode, median, range and reading graphs.",
-                                    component: lazy(() => import('./term4/data-handling/DataHandling'))
-                                },
                                 {
                                     id: "problem-solving",
                                     title: "Problem Solving",
@@ -249,6 +237,18 @@ export const grade6: Grade = {
                                     title: "Enlargements and Reductions",
                                     description: "Drawing larger and smaller copies of triangles and quadrilaterals.",
                                     component: lazy(() => import('./term4/enlargements/Enlargements'))
+                                },
+                                {
+                                    id: "area-perimeter",
+                                    title: "Area & Perimeter",
+                                    description: "Area and perimeter of squares and rectangles.",
+                                    component: lazy(() => import('./term3/area-perimeter/AreaPerimeter'))
+                                },
+                                {
+                                    id: "volume",
+                                    title: "Volume",
+                                    description: "Volume of cubes and rectangular prisms.",
+                                    component: lazy(() => import('./term3/volume/Volume'))
                                 }
                             ]
                         }
