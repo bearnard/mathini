@@ -3643,6 +3643,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Conflict Resolution and Advocacy",
   "Life Orientation"
  ],
+ "9|gr9-constitution-and-policy-t2": [
+  "Writing a Constitution and a Policy",
+  "English HL"
+ ],
  "9|gr9-contour-lines-slopes-t1": [
   "Contour Lines and Slopes",
   "Social Sciences: Geography"
@@ -3690,6 +3694,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-development-programmes-sa-t2": [
   "Development Programmes in South Africa",
   "Social Sciences: Geography"
+ ],
+ "9|gr9-diary-entry-t2": [
+  "Writing a Diary Entry",
+  "English HL"
  ],
  "9|gr9-diversity-social-justice-t3": [
   "Diversity and Social Justice",

@@ -2868,6 +2868,16 @@
                 "id": "sentence-structure-cohesion",
                 "title": "Sentence Structure and Cohesion",
                 "description": "Pronouns, prepositions, conjunctions, sentence types and tense consistency."
+              },
+              {
+                "id": "diary-entry",
+                "title": "Writing a Diary Entry",
+                "description": "Purpose, first person, events and evaluation, language and tone, and the writing process."
+              },
+              {
+                "id": "constitution-and-policy",
+                "title": "Writing a Constitution and a Policy",
+                "description": "Features of the rules, the parts of a constitution, formal language, and how a policy differs."
               }
             ]
           },
