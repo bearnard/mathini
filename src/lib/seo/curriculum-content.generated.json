@@ -1815,6 +1815,11 @@
                 "id": "mechanical-systems-and-control",
                 "title": "Mechanical Systems and Control",
                 "description": "Levers, gears, pulleys, linkages, and systems thinking."
+              },
+              {
+                "id": "graphical-communication",
+                "title": "Graphical Communication",
+                "description": "Line types, scale and dimensions, oblique drawing, and single vanishing point perspective."
               }
             ]
           },

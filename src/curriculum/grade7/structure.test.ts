@@ -16,7 +16,7 @@ test('Grade 7 subjects', () => {
 
 test('Natural Sciences and Technology lessons sit in their CAPS terms', () => {
   assert.deepEqual(where('ns'), [['biosphere-biodiversity-and-reproduction', 'variation'], ['matter-mixtures-acids-and-bases', 'periodic-table'], ['energy-transfer-heat-and-motion', 'national-electricity-grid'], ['sun-earth-relationship-and-gravity', 'history-of-astronomy']]);
-  assert.deepEqual(where('tech'), [['mechanical-systems-and-control'], ['design-process-and-structures'], ['electrical-systems-and-control'], ['processing-materials-and-properties']]);
+  assert.deepEqual(where('tech'), [['mechanical-systems-and-control', 'graphical-communication'], ['design-process-and-structures'], ['electrical-systems-and-control'], ['processing-materials-and-properties']]);
 });
 
 test('Life Orientation keeps PSW and PE, Creative Arts has the four arts lessons, and topic ids are unchanged', () => {
@@ -41,7 +41,7 @@ test('the restructured lessons keep their original task slugs and API subject co
       if (task) found.push(`${task} ${api}`);
     }
   }
-  const nstTasks = ['biosphere-biodiversity-and-reproduction-t1', 'design-process-and-structures-t1', 'matter-mixtures-acids-and-bases-t2', 'processing-materials-and-properties-t2', 'energy-transfer-heat-and-motion-t3', 'mechanical-systems-and-control-t3', 'sun-earth-relationship-and-gravity-t4', 'electrical-systems-and-control-t4', 'variation-t1', 'history-of-astronomy-t4', 'periodic-table-t2', 'national-electricity-grid-t3'].map((s) => `gr7-${s} nst`);
+  const nstTasks = ['biosphere-biodiversity-and-reproduction-t1', 'design-process-and-structures-t1', 'matter-mixtures-acids-and-bases-t2', 'processing-materials-and-properties-t2', 'energy-transfer-heat-and-motion-t3', 'mechanical-systems-and-control-t3', 'sun-earth-relationship-and-gravity-t4', 'electrical-systems-and-control-t4', 'variation-t1', 'history-of-astronomy-t4', 'periodic-table-t2', 'national-electricity-grid-t3', 'graphical-communication-t1'].map((s) => `gr7-${s} nst`);
   const lskTasks = [1, 2, 3, 4].flatMap((n) => ['personal-social-wellbeing', 'physical-education', 'creative-arts'].map((s) => `gr7-${s}-t${n} lsk`));
   assert.deepEqual(found.sort(), [...nstTasks, ...lskTasks].sort());
 });

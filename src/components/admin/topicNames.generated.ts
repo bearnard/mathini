@@ -3007,6 +3007,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Grammar Consolidation",
   "English HL"
  ],
+ "7|gr7-graphical-communication-t1": [
+  "Graphical Communication",
+  "Technology"
+ ],
  "7|gr7-graphs-t3": [
   "Graphs",
   "Mathematics"
