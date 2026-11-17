@@ -91,9 +91,17 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Chemistry of Life and Enzymes",
   "Life Sciences"
  ],
+ "10|gr10-circuits-series-parallel-t2": [
+  "Electric Circuits: Series and Parallel",
+  "Physical Sciences"
+ ],
  "10|gr10-combined-transactions-reconciliations": [
   "Combined Transactions and Reconciliations",
   "Accounting"
+ ],
+ "10|gr10-composition-empirical-formula-t3": [
+  "Composition and Empirical Formulae",
+  "Physical Sciences"
  ],
  "10|gr10-comprehension-summary-t1": [
   "Comprehension and Summary",
@@ -114,6 +122,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-computers-software-ict-systems-t1": [
   "Computers, Software and ICT Systems",
   "Information Technology"
+ ],
+ "10|gr10-concentration-gas-yield-t3": [
+  "Concentration, Gas Volume and Yield",
+  "Physical Sciences"
  ],
  "10|gr10-conservation-mechanical-energy-t4": [
   "Conservation of Mechanical Energy",
