@@ -86,12 +86,6 @@ const bank: PSItem[] = [
     explanation: 'v² = v_i² + 2gΔy → 14,7² = 0 + 2(9,8)(Δy) → 216,09 = 19,6 Δy → Δy = 11,025 m.',
   },
   {
-    prompt: 'A 1 200 W motor lifts a 100 kg object. How fast can it raise the object? (g = 9,8 m/s²)',
-    options: ['0,82 m/s', '1,22 m/s', '12,2 m/s', '120 m/s'],
-    answer: '1,22 m/s',
-    explanation: 'P = Fv = mgv → v = P/(mg) = 1200/(100 × 9,8) = 1200/980 ≈ 1,22 m/s.',
-  },
-  {
     prompt: 'Two charges Q₁ = +4 μC and Q₂ = −2 μC are 0,2 m apart. What is the magnitude of the force? (k = 9×10⁹ N·m²/C²)',
     options: ['1,8 N', '0,18 N', '18 N', '0,018 N'],
     answer: '1,8 N',
@@ -120,6 +114,12 @@ const bank: PSItem[] = [
     options: ["1,5 A", "3 A", "0,67 A", "6 A"],
     answer: "1,5 A",
     explanation: "R_total = 4 + 4 = 8 Ω, so I = V/R = 12/8 = 1,5 A.",
+  },
+  {
+    prompt: "Two forces of 8 N and 5 N act in the same direction on one object. What is the resultant force?",
+    options: ["13 N", "3 N", "40 N", "1,6 N"],
+    answer: "13 N",
+    explanation: "Forces in the same direction add: 8 + 5 = 13 N.",
   },
 ];
 
