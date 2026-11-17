@@ -3619,6 +3619,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Development of the Self in Society",
   "Life Orientation"
  ],
+ "8|gr8-dialogue-and-interview-t2": [
+  "Writing a Dialogue and a Written Interview",
+  "English HL"
+ ],
  "8|gr8-diversity-and-nation-building-t3": [
   "Diversity and Nation-building",
   "Life Orientation"
@@ -3687,6 +3691,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Forms and Transfer of Energy",
   "Natural Sciences"
  ],
+ "8|gr8-friendly-letter-t1": [
+  "Writing a Friendly Letter",
+  "English HL"
+ ],
  "8|gr8-functions-and-relationships-t4": [
   "Functions and Relationships",
   "Mathematics"
@@ -3718,6 +3726,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-industrial-revolution-in-britain-and-southern-africa-t1": [
   "Industrial Revolution in Britain and Southern Africa",
   "History"
+ ],
+ "8|gr8-instructions-directions-t2": [
+  "Instruction Texts and Giving Directions",
+  "English HL"
+ ],
+ "8|gr8-investigative-report-t1": [
+  "Writing an Investigative Report",
+  "English HL"
  ],
  "8|gr8-language-consolidation-t4": [
   "Taalkonsolidasie",

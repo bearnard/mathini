@@ -2026,6 +2026,16 @@
                 "id": "language-structures-bias",
                 "title": "Language Structures and Bias",
                 "description": "Grammar-in-context with bias, prejudice and stereotype awareness."
+              },
+              {
+                "id": "gr8-friendly-letter-t1",
+                "title": "Writing a Friendly Letter",
+                "description": "Purpose, layout, informal language, and writing a letter from a picture or other visual stimulus."
+              },
+              {
+                "id": "gr8-investigative-report-t1",
+                "title": "Writing an Investigative Report",
+                "description": "Asking a question, using a questionnaire, presenting findings, and writing a conclusion and recommendation."
               }
             ]
           },
@@ -2047,6 +2057,16 @@
                 "id": "language-report-dialogue",
                 "title": "Language for Report and Dialogue",
                 "description": "Perfect and future tense, conjunctions, speech conversion and voice."
+              },
+              {
+                "id": "gr8-instructions-directions-t2",
+                "title": "Instruction Texts and Giving Directions",
+                "description": "Writing clear instructions with numbered steps, and giving directions with landmarks."
+              },
+              {
+                "id": "gr8-dialogue-and-interview-t2",
+                "title": "Writing a Dialogue and a Written Interview",
+                "description": "The format of a dialogue, how to use stage directions, and the questions and answers of a written interview."
               }
             ]
           },
