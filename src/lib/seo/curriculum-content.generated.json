@@ -2988,6 +2988,16 @@
                 "id": "afr-grammar-reporting",
                 "title": "Grammatika vir Verslagdoening",
                 "description": "Direct/indirect speech, conjunctions, language editing, coherence."
+              },
+              {
+                "id": "afr-diary-entry",
+                "title": "Dagboekinskrywing",
+                "description": "The opening, time words, the past with het, and feelings."
+              },
+              {
+                "id": "afr-constitution-policy",
+                "title": "Grondwet en Beleid",
+                "description": "The parts of a constitution, moet and mag, and how a policy differs."
               }
             ]
           },
