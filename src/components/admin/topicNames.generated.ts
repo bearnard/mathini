@@ -1511,6 +1511,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Exponential and Logarithmic Functions in Finance",
   "Mathematics"
  ],
+ "12|gr12-fertiliser-industry-t3": [
+  "The Fertiliser Industry",
+  "Physical Sciences"
+ ],
  "12|gr12-final-nsc-paper-strategy-t4": [
   "Final NSC Paper Strategy",
   "English HL"
@@ -1870,6 +1874,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-physical-education-task-4-t4": [
   "Physical Education Task — Term 4",
   "Life Orientation"
+ ],
+ "12|gr12-plastics-polymers-t1": [
+  "Plastics and Polymers",
+  "Physical Sciences"
  ],
  "12|gr12-political-violence-and-transition-t3": [
   "Political Violence and Transition",
