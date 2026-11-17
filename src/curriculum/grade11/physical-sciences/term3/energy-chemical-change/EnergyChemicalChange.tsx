@@ -217,7 +217,7 @@ export const bank: CapsItem[] = [
 const EnergyChemicalChange = () => (
   <CapsSubjectTopic
     title="Energy and Chemical Change"
-    subtitle="Bond energy, enthalpy, \u0394H, activation energy and energy graphs"
+    subtitle="Bond energy, enthalpy, ΔH, activation energy and energy graphs"
     learnSteps={learnSteps}
     task="gr11-energy-chemical-change-t3"
     bank={bank}

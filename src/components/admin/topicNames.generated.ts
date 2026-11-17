@@ -167,6 +167,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Electrostatics and Electric Circuits",
   "Physical Sciences"
  ],
+ "10|gr10-em-radiation-t1": [
+  "Electromagnetic Radiation",
+  "Physical Sciences"
+ ],
  "10|gr10-email-internet-threats-popia-t3": [
   "E-mail and Internet Threats, Safe Use and POPIA",
   "Information Technology"
@@ -303,6 +307,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Markets, Production Possibilities and Public-sector Intervention",
   "Economics"
  ],
+ "10|gr10-matter-classification-t1": [
+  "Revision of Matter and Classification",
+  "Physical Sciences"
+ ],
  "10|gr10-matter-states-phase-change-t2": [
   "Matter, States and Phase Change",
   "Physical Sciences"
@@ -426,6 +434,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-programming-foundations-t1": [
   "Programming Foundations",
   "Information Technology"
+ ],
+ "10|gr10-pulses-superposition-t1": [
+  "Transverse Pulses and Superposition",
+  "Physical Sciences"
  ],
  "10|gr10-quality-external-environments": [
   "Quality and External Environments",
