@@ -832,6 +832,16 @@
                 "description": "Reasons for sailing far from home, and the tools that made long voyages possible."
               },
               {
+                "id": "his-dias-da-gama",
+                "title": "Dias at Mossel Bay and Da Gama's sea route",
+                "description": "The Portuguese sea route round Africa, and the meeting at Mossel Bay from both sides."
+              },
+              {
+                "id": "his-voc-sailors",
+                "title": "The VOC: journeys and a sailor's life",
+                "description": "The Dutch East India Company, and what life was like on a long voyage."
+              },
+              {
                 "id": "his-british-take-cape",
                 "title": "The British Take the Cape",
                 "description": "Why the British took the Cape in 1795 and 1806."
