@@ -5173,6 +5173,21 @@
                 "id": "gr10-matter-classification-t1",
                 "title": "Revision of Matter and Classification",
                 "description": "Pure substances and mixtures, names and formulae, and the properties of materials."
+              },
+              {
+                "id": "gr10-atom-isotopes-t1",
+                "title": "The Atom and Isotopes",
+                "description": "Models of the atom, mass number and atomic number, isotopes and relative atomic mass."
+              },
+              {
+                "id": "gr10-longitudinal-waves-t1",
+                "title": "Longitudinal Waves",
+                "description": "Compressions and rarefactions on a spring, wavelength, frequency, period and speed."
+              },
+              {
+                "id": "gr10-sound-t1",
+                "title": "Sound",
+                "description": "What sound is, speed in different media, pitch, loudness and tone, ultrasound and echoes."
               }
             ]
           },

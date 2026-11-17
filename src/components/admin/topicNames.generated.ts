@@ -39,6 +39,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Argument and Formal Speech",
   "English HL"
  ],
+ "10|gr10-atom-isotopes-t1": [
+  "The Atom and Isotopes",
+  "Physical Sciences"
+ ],
  "10|gr10-atoms-periodic-table-bonding-t2": [
   "Atoms, Periodic Table and Bonding",
   "Physical Sciences"
@@ -299,6 +303,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Literary Genres and Text Features",
   "English HL"
  ],
+ "10|gr10-longitudinal-waves-t1": [
+  "Longitudinal Waves",
+  "Physical Sciences"
+ ],
  "10|gr10-loops-strings-algorithms-t3": [
   "Loops, Strings, Prime Numbers and GCD",
   "Information Technology"
@@ -506,6 +514,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-sole-trader-cash-credit-processing": [
   "Sole Trader Cash and Credit Processing",
   "Accounting"
+ ],
+ "10|gr10-sound-t1": [
+  "Sound",
+  "Physical Sciences"
  ],
  "10|gr10-spreadsheets-information-management-pat-completion": [
   "Spreadsheets, Information Management and PAT Completion",

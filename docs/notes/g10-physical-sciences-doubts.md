@@ -27,3 +27,10 @@
 - The dam example (5 000 people, 200 L each per day, a 150 000 m³ dam) is an invented example to practise 1 000 L = 1 m³; it is labelled as an example and is not a real South African dam or town.
 - Fix included: the shared lesson test `lessonTest.ts` flagged the text "NaN" inside "NaNO₃" (sodium nitrate) as a bad number. The check now matches the whole word NaN.
 - Not covered: practical investigations (precipitation and anion tests in the laboratory, water quality sampling) and the detailed SA water-quality standards.
+
+## Wave 2, term 1: the atom and isotopes, longitudinal waves, sound
+- The atom: models are given in order (Dalton, Thomson, Rutherford, Bohr) with no dates. The gold-foil evidence is described in words (most pass through, a few deflected, very few bounce back). Quantum-mechanical orbitals are not taught at this level.
+- Isotope abundances are rounded teaching values (chlorine 75% and 25%, boron 20% and 80%, magnesium 79%, 10% and 11%) chosen so that the weighted average matches the periodic-table value to one decimal place (35,5; 10,8; 24,3). Real abundances differ slightly. The lesson says "about". Radioactive decay and the uses of isotopes are not covered.
+- Longitudinal waves: the spring picture is computed from a sine displacement of each coil (compressions at half a wavelength plus whole wavelengths, tested), a model rather than a photograph. Graphs of density against position are not drawn.
+- Sound: the speed of sound in air is quoted as 340 m·s⁻¹ in every question that needs it (the real value depends on temperature, about 343 m·s⁻¹ at 20 °C). Speeds in water and steel are not given as numbers. The audible range is the usual 20 Hz to 20 000 Hz. The Doppler effect in the existing lesson is Grade 12 and stays on the Wave B list.
+- Not covered: the practical activities (tuning forks, the spring and slinky) and the structure of the ear.
