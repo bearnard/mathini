@@ -2123,6 +2123,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Tropical Cyclones and Anticyclones",
   "Social Sciences: Geography"
  ],
+ "12|gr12-two-dimensional-arrays-t2": [
+  "Two-Dimensional Arrays (Delphi)",
+  "Information Technology"
+ ],
  "12|gr12-unseen-poetry-interpretation-t2": [
   "Unseen Poetry Interpretation",
   "English HL"

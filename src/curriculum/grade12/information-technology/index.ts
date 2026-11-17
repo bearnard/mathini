@@ -63,6 +63,12 @@ export const informationTechnologyGrade12: Subject = {
           description: "Protocol stacks, internet structure, network security and integrated digital systems.",
           component: lazy(() => import('./term2/networks-security-systems-integration/NetworksSecuritySystemsIntegration')),
         },
+        {
+          id: "gr12-two-dimensional-arrays-t2",
+          title: "Two-Dimensional Arrays (Delphi)",
+          description: "Rows and columns, nested loops, row and column totals, and finding the largest value.",
+          component: lazy(() => import('./term2/two-dimensional-arrays/TwoDimensionalArrays')),
+        },
       ],
     },
     {

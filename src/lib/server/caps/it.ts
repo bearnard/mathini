@@ -11,6 +11,7 @@ import itGr12Term1 from './tasks/it-gr12-term1.json';
 import itGr12Term2 from './tasks/it-gr12-term2.json';
 import itGr12Term3 from './tasks/it-gr12-term3.json';
 import itGr12Term4 from './tasks/it-gr12-term4.json';
+import itGr12Missing from './tasks/it-gr12-missing.json';
 
 export const it: SubjectConfig = {
   getPreamble(grade: number): string {
@@ -34,5 +35,6 @@ export const it: SubjectConfig = {
     ...itGr12Term2.tasks,
     ...itGr12Term3.tasks,
     ...itGr12Term4.tasks,
+    ...itGr12Missing.tasks,
   },
 };
