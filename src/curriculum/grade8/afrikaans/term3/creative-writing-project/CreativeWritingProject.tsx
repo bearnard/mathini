@@ -155,7 +155,7 @@ const CreativeWritingProject = () => (
     title="Kreatiewe Skryfprojek"
     subtitle="Research, drafting, revision and presentation process"
     learnSteps={learnSteps}
-    task="gr8-creative-writing-project-t3"
+    task="gr8-afr-creative-writing-project-t3"
     bank={bank}
     speak="options"
   />
