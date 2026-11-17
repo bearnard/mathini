@@ -3655,6 +3655,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Kreatiewe & Persoonlike Skryfwerk",
   "Afrikaans FAL"
  ],
+ "9|gr9-cv-and-covering-letter-t3": [
+  "Writing a CV and a Covering Letter",
+  "English HL"
+ ],
  "9|gr9-dance-t1": [
   "Dance",
   "Creative Arts"
@@ -4126,6 +4130,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-weathering-erosion-t3": [
   "Weathering and Erosion",
   "Social Sciences: Geography"
+ ],
+ "9|gr9-will-and-testament-t3": [
+  "Reading and Writing a Will and Testament",
+  "English HL"
  ],
  "9|gr9-womens-march-resistance-t3": [
   "Women's March and Resistance",
