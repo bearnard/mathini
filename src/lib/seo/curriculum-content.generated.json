@@ -794,26 +794,6 @@
                 "id": "his-marco-polo",
                 "title": "Marco Polo: a European explorer in Asia",
                 "description": "His journey, his book and how it made Europeans curious about Asia."
-              },
-              {
-                "id": "his-what-is-history",
-                "title": "What is History?",
-                "description": "The study of the past and how we learn about it."
-              },
-              {
-                "id": "his-historical-sources",
-                "title": "Historical Sources",
-                "description": "Oral, written, visual and object sources."
-              },
-              {
-                "id": "his-investigating-community",
-                "title": "Investigating Local History",
-                "description": "Using interviews, museums and archives."
-              },
-              {
-                "id": "his-timelines-change",
-                "title": "Timelines & Change",
-                "description": "Ordering events and how places change over time."
               }
             ]
           },
@@ -840,26 +820,6 @@
                 "id": "his-voc-sailors",
                 "title": "The VOC: journeys and a sailor's life",
                 "description": "The Dutch East India Company, and what life was like on a long voyage."
-              },
-              {
-                "id": "his-british-take-cape",
-                "title": "The British Take the Cape",
-                "description": "Why the British took the Cape in 1795 and 1806."
-              },
-              {
-                "id": "his-frontier-peoples",
-                "title": "Peoples on the Frontier",
-                "description": "Khoikhoi, San, Xhosa, Boers and British."
-              },
-              {
-                "id": "his-frontier-conflicts",
-                "title": "Frontier Conflicts",
-                "description": "Competition for land, water and cattle."
-              },
-              {
-                "id": "his-trekboers-migration",
-                "title": "Trekboers & Migration",
-                "description": "Dutch farmers moving inland for grazing land."
               }
             ]
           },
@@ -897,11 +857,6 @@
                 "id": "his-early-indigenous-medicine",
                 "title": "Early & Indigenous Medicine",
                 "description": "Plants, herbs and traditional healers."
-              },
-              {
-                "id": "his-ancient-medicine",
-                "title": "Medicine in Ancient Times",
-                "description": "Old beliefs and early ideas about illness."
               },
               {
                 "id": "his-european-medicine",

@@ -11,7 +11,7 @@ import { resolveFromD1 } from './review';
 
 beforeEach(() => { clearFlagCache(); clearServedCache(); });
 
-const TASK = 'ancient-medicine'; // a real Grade 6 slug
+const TASK = 'early-indigenous-medicine'; // a real Grade 6 slug
 const setFlag = (t: TestD1, v: object | string) => t.raw.prepare("UPDATE serving_flags SET value = ? WHERE key = 'serve_from_d1'").run(typeof v === 'string' ? v : JSON.stringify(v));
 const curated = (t: TestD1, prompt: string, over: Partial<{ options: string[]; answer: string; kind: string; extra: Record<string, unknown>; section: string; task: string }> = {}) =>
   t.raw.exec(registerQuestionSql({ task: over.task ?? TASK, section: over.section ?? 'general', kind: over.kind ?? 'mcq', source: 'curated', prompt, options: over.options ?? ['yes', 'no', 'maybe'], answer: over.answer ?? 'yes', explanation: 'because', extra: over.extra ?? {}, author: 'seed' }).join('\n'));
@@ -42,7 +42,9 @@ test('isServedFromD1: exclude wins, then an explicit task, then the task grade; 
 
 test('every Grade 6 task slug is known to the flag by grade (so flipping grade 6 covers all of it)', async () => {
   const { GRADE6_BANKS } = await import('../../../curriculum/grade6/reviewBanks');
-  const missing = Object.keys(GRADE6_BANKS).filter((tk) => taskGrade(tk) !== 6);
+  // The nine Grade 6 History lessons hidden in Wave B are out of the task index (nothing is practised or topped up for them) but their code banks stay for old review cards.
+  const hidden = new Set(['what-is-history', 'historical-sources', 'investigating-community', 'timelines-change', 'british-take-cape', 'frontier-peoples', 'frontier-conflicts', 'trekboers-migration', 'ancient-medicine']);
+  const missing = Object.keys(GRADE6_BANKS).filter((tk) => !hidden.has(tk) && taskGrade(tk) !== 6);
   assert.deepEqual(missing, []);
 });
 

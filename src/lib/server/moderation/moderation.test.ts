@@ -11,7 +11,7 @@ import { appointModerator, candidates, listGroups, removeModerator, reputationOf
 import { canDecide, decideProposal, listMine, proposalById, queueFor, reviseProposal, submitProposal, verifyQuestion, withdrawProposal } from './proposals';
 import { topicInfo } from './topics';
 
-const TASK = 'ancient-medicine';
+const TASK = 'early-indigenous-medicine';
 const GROUP = groupKeyOf('History', 'intermediate');
 const P = 'Which plant was used to treat burns in early medicine?';
 const OWNER = { kind: 'owner' as const, email: 'owner@example.org' };

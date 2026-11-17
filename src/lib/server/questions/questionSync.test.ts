@@ -8,7 +8,7 @@ import type { TestD1 } from '../testD1';
 import { CHUNK_MAX, COST, EDIT_COST, buildChunks, planSync, type EditItem, type NewItem, type Options } from '../../../../scripts/question-sync';
 import { buildProdMap, classify, type Classified, type CodeQuestion, type ProdQuestion, type ProdVersion } from '../../../../scripts/question-drift';
 
-const TASK = 'ancient-medicine';
+const TASK = 'early-indigenous-medicine';
 const NO: Options = { resetReviews: false, keepSource: false };
 const code = (prompt: string, p: Partial<CodeQuestion> = {}): CodeQuestion => ({ task: TASK, id: makeQkey(TASK, prompt), grade: 7, prompt, options: ['yes', 'no', 'maybe'], answer: 'yes', explanation: 'fixed text', extra: '{}', ...p });
 const seed = (t: TestD1, prompt: string, source: 'curated' | 'ai' = 'curated', over: Partial<{ answer: string; options: string[] }> = {}) =>

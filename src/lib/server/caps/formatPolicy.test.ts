@@ -15,7 +15,7 @@ test('maths and Mathematical Literacy of the other grades only WARN (their lesso
 
 test('IT, CAT, the sciences, accounting, languages and Grade 6 non-maths tasks are NOT checked', () => {
   for (const code of ['it', 'cat', 'ps', 'ls', 'acc', 'econ', 'ems', 'bus', 'tech', 'ns', 'nst', 'his', 'geo', 'eng', 'xho', 'lo', 'lsk', 'ca']) assert.equal(decimalPolicyFor('some-task', code), undefined, code);
-  assert.equal(decimalPolicyFor('what-is-history', 'grade6'), undefined);
+  assert.equal(decimalPolicyFor('what-is-democracy', 'grade6'), undefined);
   assert.equal(decimalPolicyFor('current-issues-media', 'grade6'), undefined);
 });
 

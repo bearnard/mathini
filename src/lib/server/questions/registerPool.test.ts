@@ -6,7 +6,7 @@ import { openQuestionsDb } from './testQuestionsDb';
 import type { TestD1 } from '../testD1';
 import { CHUNK_MAX, COST, planPoolRegistration, type ItemRow } from '../../../../scripts/question-register-pool';
 
-const TASK = 'ancient-medicine';
+const TASK = 'early-indigenous-medicine';
 const row = (t: TestD1, prompt: string, over: Partial<ItemRow> = {}): ItemRow => {
   const r = t.raw.prepare('INSERT INTO item_cache (task, prompt, options, answer, explanation, created_at, section, quality_score) VALUES (?,?,?,?,?,?,?,?)').run(TASK, prompt, over.options ?? '["a","b","c"]', 'a', 'because', 1, 'general', over.quality_score ?? null);
   return { id: Number(r.lastInsertRowid), task: TASK, prompt, options: over.options ?? '["a","b","c"]', answer: 'a', explanation: 'because', section: 'general', quality_score: over.quality_score ?? null };

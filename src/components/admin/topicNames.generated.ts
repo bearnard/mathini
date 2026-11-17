@@ -2259,17 +2259,9 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "TB and HIV",
   "Life Skills"
  ],
- "6|ancient-medicine": [
-  "Medicine in Ancient Times",
-  "History"
- ],
  "6|begripstoets": [
   "Begripstoets",
   "Afrikaans (FAL)"
- ],
- "6|british-take-cape": [
-  "The British Take the Cape",
-  "History"
  ],
  "6|bullying-getting-help-t2": [
   "Bullying: Reasons and Getting Help",
@@ -2374,14 +2366,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|food-chains": [
   "Food Chains & Webs",
   "Natural Sciences & Technology"
- ],
- "6|frontier-conflicts": [
-  "Frontier Conflicts",
-  "History"
- ],
- "6|frontier-peoples": [
-  "Peoples on the Frontier",
-  "History"
  ],
  "6|gemengde-hersiening": [
   "Gemengde Hersiening",
@@ -2567,17 +2551,9 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Volume",
   "Mathematics"
  ],
- "6|historical-sources": [
-  "Historical Sources",
-  "History"
- ],
  "6|integrated-revision": [
   "Integrated Revision",
   "English HL"
- ],
- "6|investigating-community": [
-  "Investigating Local History",
-  "History"
  ],
  "6|language-consolidation": [
   "Language Consolidation",
@@ -2787,10 +2763,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Mediterranean, Temperate & Polar",
   "Geography"
  ],
- "6|timelines-change": [
-  "Timelines & Change",
-  "History"
- ],
  "6|toekomende-tyd": [
   "Toekomende Tyd",
   "Afrikaans (FAL)"
@@ -2802,10 +2774,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|trappe-van-vergelyking": [
   "Trappe van Vergelyking",
   "Afrikaans (FAL)"
- ],
- "6|trekboers-migration": [
-  "Trekboers & Migration",
-  "History"
  ],
  "6|tropical-desert": [
   "Tropical Rainforest & Hot Desert",
@@ -2837,10 +2805,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "6|what-is-democracy": [
   "What is Democracy?",
-  "History"
- ],
- "6|what-is-history": [
-  "What is History?",
   "History"
  ],
  "6|what-is-trade": [

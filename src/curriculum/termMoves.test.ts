@@ -34,7 +34,7 @@ test('moved lessons are listed in their CAPS term', () => {
 });
 
 test('no term of the changed subjects is empty and no topic is listed twice', () => {
-  for (const [g, id] of [[grade6, 'math'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade12, 'it'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns']] as [Grade, string][]) {
+  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade12, 'it'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns']] as [Grade, string][]) {
     const s = g.subjects.find((x) => x.id === id)!;
     for (const t of s.terms) assert.ok(t.topics.length > 0, `${id} term ${t.id}`);
     const ids = s.terms.flatMap((t) => t.topics.map((p) => p.id));
@@ -88,4 +88,37 @@ test('the Grade 12 Life Sciences endocrine lesson is in Term 3, first, and Term 
   assert.ok(!t2.includes('gr12-endocrine-homeostasis-plant-responses-t2'));
   for (const id of ['gr12-genetics-inheritance-t2', 'gr12-genetic-engineering-t2', 'gr12-dna-fingerprinting-t2', 'gr12-nervous-system-sense-organs-t2']) assert.ok(t2.includes(id), id);
   for (const id of ['gr12-evolution-natural-selection-t3', 'gr12-human-evolution-t3']) assert.ok(t3.includes(id), id);
+});
+
+// Wave B5, Grade 6 History: nine lessons that are not in the Grade 6 CAPS are hidden now that the nine CAPS lessons exist. Code, task instructions and D1 questions stay;
+// each page redirects (308); no term is left empty and every CAPS lesson is listed.
+test('the hidden Grade 6 History lessons are out of the curriculum but their code, task instructions and redirects remain', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const his = grade6.subjects.find((x) => x.id === 'his')!;
+  const ids = his.terms.flatMap((t) => t.topics.map((p) => p.id));
+  const hidden: [string, string, string][] = [
+    ['his-what-is-history', 'term1/what-is-history/WhatIsHistory.tsx', 'what-is-history'],
+    ['his-historical-sources', 'term1/historical-sources/HistoricalSources.tsx', 'historical-sources'],
+    ['his-investigating-community', 'term1/investigating-community/InvestigatingCommunity.tsx', 'investigating-local-history'],
+    ['his-timelines-change', 'term1/timelines-change/TimelinesChange.tsx', 'timelines-and-change'],
+    ['his-british-take-cape', 'term2/british-take-cape/BritishTakeCape.tsx', 'the-british-take-the-cape'],
+    ['his-frontier-peoples', 'term2/frontier-peoples/FrontierPeoples.tsx', 'peoples-on-the-frontier'],
+    ['his-frontier-conflicts', 'term2/frontier-conflicts/FrontierConflicts.tsx', 'frontier-conflicts'],
+    ['his-trekboers-migration', 'term2/trekboers-migration/TrekboersMigration.tsx', 'trekboers-and-migration'],
+    ['his-ancient-medicine', 'term4/ancient-medicine/AncientMedicine.tsx', 'medicine-in-ancient-times'],
+  ];
+  for (const [id, file, slug] of hidden) {
+    assert.ok(!ids.includes(id), `${id} is hidden`);
+    assert.ok(fs.existsSync(`src/curriculum/grade6/history/${file}`), `${file} is kept`);
+    assert.ok(LEGACY_REDIRECTS.some((r) => r.source === `/grade-6/history/${slug}` && r.destination.startsWith('/grade-6/history')), `${slug} redirects`);
+  }
+  const tasks = JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/his-gr6-term1.json', 'utf8')).tasks as Record<string, string>;
+  assert.ok(Object.keys(tasks).length >= 9, 'the CAPS task instructions are kept');
+  const caps = ['his-limpopo-valley-k2-schroda', 'his-mapungubwe-kingdom', 'his-mapungubwe-trade-today', 'his-east-coast-great-zimbabwe', 'his-marco-polo',
+    'his-renaissance', 'his-inventions-reasons-exploring', 'his-dias-da-gama', 'his-voc-sailors'];
+  for (const id of caps) assert.ok(ids.includes(id), `${id} is listed`);
+  for (const t of his.terms) assert.ok(t.topics.length > 0, `Term ${t.id} is not empty`);
+  assert.equal(his.terms.find((t) => t.id === 1)!.topics.length, 5);
+  assert.equal(his.terms.find((t) => t.id === 2)!.topics.length, 4);
 });

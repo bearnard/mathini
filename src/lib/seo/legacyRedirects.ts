@@ -22,6 +22,20 @@ const IT12_ENCAPSULATION = { source: '/grade-12/information-technology/encapsula
 /** Grade 9 Natural Sciences "Heat and Energy Transfer" is not in the Grade 9 CAPS (the audit's one invented lesson), and the CAPS Energy and Change lessons now exist (forces, safety, generation and the grid, cost of power), so the lesson is hidden (code, task instruction and D1 questions kept); its page goes to the subject page. */
 const NS9_HEAT = { source: '/grade-9/natural-sciences/heat-and-energy-transfer', destination: '/grade-9/natural-sciences' };
 
+/** Grade 6 History: nine lessons were not in the Grade 6 CAPS (general history skills, Cape frontier and the British, "Medicine in Ancient Times") and are hidden now that the nine CAPS lessons exist (code, task instructions and D1 questions kept). Each page goes to the most relevant CAPS lesson, or to the subject page. */
+const H6 = '/grade-6/history';
+const HIS6_HIDDEN = [
+  ['what-is-history', 'societies-in-the-limpopo-valley-k2-and-schroda'],
+  ['historical-sources', 'societies-in-the-limpopo-valley-k2-and-schroda'],
+  ['investigating-local-history', ''],
+  ['timelines-and-change', 'east-coast-trade-and-great-zimbabwe'],
+  ['the-british-take-the-cape', ''],
+  ['peoples-on-the-frontier', 'dias-at-mossel-bay-and-da-gama-s-sea-route'],
+  ['frontier-conflicts', ''],
+  ['trekboers-and-migration', ''],
+  ['medicine-in-ancient-times', 'early-and-indigenous-medicine'],
+].map(([slug, to]) => ({ source: `${H6}/${slug}`, destination: to ? `${H6}/${to}` : H6 }));
+
 export interface LegacyRedirect { source: string; destination: string }
 
 const moved = (fromSubject: string, toSubject: string, slugs: string[]): LegacyRedirect[] => [
@@ -39,6 +53,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   IT12_HIDDEN,
   IT12_ENCAPSULATION,
   NS9_HEAT,
+  ...HIS6_HIDDEN,
 ];
 
 /** The shape next.config.ts `redirects()` wants: permanent: true answers 308. */
