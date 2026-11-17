@@ -1,4 +1,5 @@
 import { r3 } from '../round';
+import { COLUMNS, FIRST_20, groupOf, periodOf, countOf, type Category } from './g7nsMatterEnergy';
 import { axisPos, calendarGap, lunarYearDays, YEAR_DAYS, DISCOVERIES, type Bin } from './g7nsHelpers';
 
 /** Pictures for the Grade 7 Natural Sciences lessons. Every position comes from g7nsHelpers.ts. */
@@ -187,6 +188,158 @@ export const AstronomyTimeline = () => {
           <T x={x(d.year)} y={i % 2 === 0 ? 18 : 52} size={3.8} fill={LINE} weight={600}>{d.year}</T>
         </g>
       ))}
+    </Panel>
+  );
+};
+
+// ---------- the first 20 elements ----------
+
+
+const CAT_COLOR: Record<Category, string> = { metal: AMBER, 'semi-metal': GREEN, 'non-metal': BLUE };
+
+export const PeriodicMini = ({ show = 'category' }: { show?: 'category' | 'plain' }) => {
+  const cw = 13, ch = 12, x0 = 12, y0 = 14;
+  return (
+    <Panel h={76} aria={`The first 20 elements of the Periodic Table. Metals are on the left, non-metals on the right and semi-metals between them: ${countOf('metal')} metals, ${countOf('semi-metal')} semi-metals (boron and silicon) and ${countOf('non-metal')} non-metals. The transition elements that come between group 2 and group 13 are left out.`}>
+      <T x={60} y={7} size={4.6} fill={AMBER}>The first 20 elements</T>
+      {COLUMNS.map((g, i) => (
+        <T key={g} x={x0 + i * cw + cw / 2} y={y0 - 1.5} size={3.2} fill={MUTED} weight={600}>{g}</T>
+      ))}
+      {[1, 2, 3, 4].map((p) => (
+        <T key={p} x={x0 - 3} y={y0 + (p - 1) * ch + ch / 2 + 1.3} size={3.2} fill={MUTED} weight={600}>{p}</T>
+      ))}
+      {FIRST_20.map((e) => {
+        const col = COLUMNS.indexOf(groupOf(e.z) as (typeof COLUMNS)[number]);
+        const x = x0 + col * cw;
+        const y = y0 + (periodOf(e.z) - 1) * ch;
+        const c = CAT_COLOR[e.category];
+        return (
+          <g key={e.z}>
+            <rect x={x + 0.5} y={y + 0.5} width={cw - 1} height={ch - 1} rx={1.4} fill={show === 'category' ? c : '#cbd5e1'} fillOpacity={0.92} />
+            <T x={x + cw / 2} y={y + 3.8} size={2.8} fill={INK} weight={600}>{e.z}</T>
+            <T x={x + cw / 2} y={y + 8.4} size={5} fill={INK} weight={800}>{e.symbol}</T>
+          </g>
+        );
+      })}
+      {(['metal', 'semi-metal', 'non-metal'] as Category[]).map((c, i) => (
+        <g key={c}>
+          <rect x={14 + i * 36} y={66} width={5} height={5} rx={1} fill={CAT_COLOR[c]} />
+          <T x={21 + i * 36} y={70.2} size={3.8} anchor="start" weight={600}>{c}s</T>
+        </g>
+      ))}
+    </Panel>
+  );
+};
+
+// ---------- a vertical chain of steps ----------
+
+export const Chain = ({ steps, aria, color = GREEN }: { steps: readonly { title: string; note: string }[]; aria: string; color?: string }) => {
+  const rowH = 14;
+  const h = 6 + steps.length * rowH;
+  return (
+    <Panel h={h} aria={aria}>
+      {steps.map((s, i) => {
+        const y = 4 + i * rowH;
+        return (
+          <g key={s.title}>
+            <rect x={6} y={y} width={30} height={rowH - 4} rx={2} fill={color} fillOpacity={0.9} />
+            <T x={21} y={y + 5.6} size={4} fill={INK} weight={800}>{s.title}</T>
+            <T x={40} y={y + 5.8} size={4.2} anchor="start" weight={600}>{s.note}</T>
+            {i < steps.length - 1 ? <path d={`M21 ${y + rowH - 4} v4`} stroke={color} strokeWidth={0.9} /> : null}
+          </g>
+        );
+      })}
+    </Panel>
+  );
+};
+
+// ---------- wattage bars ----------
+
+export const WattBars = ({ items }: { items: { name: string; watts: number }[] }) => {
+  const max = Math.max(...items.map((i) => i.watts));
+  return (
+    <Panel h={14 + items.length * 15} aria={`Bars of power in watts. ${items.map((i) => `${i.name}: ${i.watts} watts`).join('; ')}.`}>
+      <T x={60} y={7} size={4.4} fill={AMBER}>Power used (watts)</T>
+      {items.map((it, i) => {
+        const w = Math.round((it.watts / max) * 70 * 1000) / 1000;
+        const y = 12 + i * 15;
+        return (
+          <g key={it.name}>
+            <T x={8} y={y + 3.6} size={3.8} anchor="start" fill={LINE} weight={600}>{it.name}</T>
+            <rect x={8} y={y + 5} width={w} height={6} rx={1.5} fill={i === 0 ? ROSE : GREEN} />
+            <T x={Math.round((8 + w + 2) * 1000) / 1000} y={y + 10} size={4.4} anchor="start" fill={LINE}>{`${it.watts} W`}</T>
+          </g>
+        );
+      })}
+    </Panel>
+  );
+};
+
+// ---------- properties of the three groups ----------
+
+export const PROPERTY_CARDS = [
+  { title: 'Metals', color: AMBER, lines: ['shiny', 'ductile', 'malleable', 'solid (not Hg)'] },
+  { title: 'Semi-metals', color: GREEN, lines: ['solids', 'part metal,', 'part non-metal'] },
+  { title: 'Non-metals', color: BLUE, lines: ['gases or', 'dull solids', 'many different', 'properties'] },
+] as const;
+
+export const PropertyCards = () => (
+  <Panel h={50} aria="Three cards. Metals are shiny, ductile and malleable, solid except mercury, with high melting points. Semi-metals are solids with some properties of metals and some of non-metals. Non-metals are gases or dull solids with many different properties.">
+    {PROPERTY_CARDS.map((c, i) => {
+      const x = 4 + i * 39;
+      return (
+        <g key={c.title}>
+          <rect x={x} y={4} width={37} height={42} rx={3} fill={c.color} fillOpacity={0.16} stroke={c.color} strokeWidth={0.8} />
+          <T x={x + 18.5} y={12} size={5.2} fill={c.color} weight={800}>{c.title}</T>
+          {c.lines.map((l, j) => (
+            <T key={l} x={x + 18.5} y={21 + j * 6.2} size={4.4} weight={600}>{l}</T>
+          ))}
+        </g>
+      );
+    })}
+  </Panel>
+);
+
+// ---------- elements at home ----------
+
+export const ElementCards = ({ cards }: { cards: { symbol: string; name: string; use: string; color: string }[] }) => (
+  <Panel h={46} aria={`Elements in everyday life. ${cards.map((c) => `${c.name}, symbol ${c.symbol}, used in ${c.use}`).join('. ')}.`}>
+    {cards.map((c, i) => {
+      const x = 3 + i * 29;
+      return (
+        <g key={c.symbol}>
+          <rect x={x} y={4} width={27} height={38} rx={3} fill={c.color} fillOpacity={0.16} stroke={c.color} strokeWidth={0.8} />
+          <T x={x + 13.5} y={19} size={10} fill={c.color} weight={800}>{c.symbol}</T>
+          <T x={x + 13.5} y={27} size={4.2} weight={700}>{c.name}</T>
+          <T x={x + 13.5} y={34} size={4} fill={MUTED} weight={600}>{c.use}</T>
+        </g>
+      );
+    })}
+  </Panel>
+);
+
+// ---------- two columns: renewable and non-renewable ----------
+
+export const SourceColumns = ({ sources }: { sources: { name: string; renewable: boolean }[] }) => {
+  const cols = [
+    { title: 'Non-renewable', color: ROSE, items: sources.filter((s) => !s.renewable) },
+    { title: 'Renewable', color: GREEN, items: sources.filter((s) => s.renewable) },
+  ];
+  const rows = Math.max(...cols.map((c) => c.items.length));
+  return (
+    <Panel h={16 + rows * 9} aria={`Energy sources for the grid in two columns. Non-renewable: ${cols[0].items.map((s) => s.name).join(', ')}. Renewable: ${cols[1].items.map((s) => s.name).join(', ')}.`}>
+      {cols.map((c, i) => {
+        const x = 4 + i * 58;
+        return (
+          <g key={c.title}>
+            <rect x={x} y={3} width={54} height={10 + rows * 9} rx={3} fill={c.color} fillOpacity={0.14} stroke={c.color} strokeWidth={0.8} />
+            <T x={x + 27} y={10} size={5} fill={c.color} weight={800}>{c.title}</T>
+            {c.items.map((s, j) => (
+              <T key={s.name} x={x + 27} y={19 + j * 9} size={4.8} weight={600}>{s.name}</T>
+            ))}
+          </g>
+        );
+      })}
     </Panel>
   );
 };

@@ -40,6 +40,12 @@ export const naturalSciencesGrade7: Subject = {
             () => import('./term2/matter-mixtures-acids-and-bases/MatterMixturesAcidsAndBases'),
           ),
         },
+        {
+          id: 'periodic-table',
+          title: 'Introduction to the Periodic Table',
+          description: 'Elements, symbols, and metals, semi-metals and non-metals in the first 20 elements.',
+          component: lazy(() => import('./term2/periodic-table/PeriodicTable')),
+        },
       ],
     },
     {
@@ -53,6 +59,12 @@ export const naturalSciencesGrade7: Subject = {
           component: lazy(
             () => import('./term3/energy-transfer-heat-and-motion/EnergyTransferHeatAndMotion'),
           ),
+        },
+        {
+          id: 'national-electricity-grid',
+          title: 'The National Electricity Supply',
+          description: 'The grid from the power station to the home, dynamos, and saving electricity.',
+          component: lazy(() => import('./term3/national-electricity-grid/NationalElectricityGrid')),
         },
       ],
     },

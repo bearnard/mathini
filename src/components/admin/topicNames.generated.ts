@@ -3075,6 +3075,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Mechanical Systems and Control",
   "Technology"
  ],
+ "7|gr7-national-electricity-grid-t3": [
+  "The National Electricity Supply",
+  "Natural Sciences"
+ ],
  "7|gr7-natural-hazards-volcanoes-earthquakes-and-floods-t2": [
   "Natural Hazards: Volcanoes, Earthquakes and Floods",
   "Geography"
@@ -3094,6 +3098,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "7|gr7-patterns-functions-and-algebra-consolidation-t4": [
   "Patterns, Functions and Algebra Consolidation",
   "Mathematics"
+ ],
+ "7|gr7-periodic-table-t2": [
+  "Introduction to the Periodic Table",
+  "Natural Sciences"
  ],
  "7|gr7-personal-social-wellbeing-t1": [
   "Personal and Social Well-being",
