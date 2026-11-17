@@ -150,3 +150,27 @@ export const SandFilter = ({ layers = FILTER_LAYERS, columnCm }: { layers?: Laye
     </Panel>
   );
 };
+
+// ---------- bars of time or power with a value on each ----------
+
+export const ValueBars = ({ items, title, unit, aria, color = GREEN }: { items: { label: string; value: number }[]; title: string; unit: string; aria: string; color?: string }) => {
+  const max = Math.max(...items.map((i) => i.value));
+  const rowH = 12;
+  const h = 14 + items.length * rowH;
+  return (
+    <Panel h={h} aria={aria}>
+      <T x={60} y={7} size={4.6} fill={AMBER}>{title}</T>
+      {items.map((it, i) => {
+        const y = 12 + i * rowH;
+        const w = r3((it.value / max) * 40);
+        return (
+          <g key={it.label}>
+            <T x={4} y={y + 6} size={4.2} anchor="start" weight={600}>{it.label}</T>
+            <rect x={46} y={y + 1} width={w} height={7} rx={1.5} fill={i % 2 === 0 ? color : AMBER} />
+            <T x={r3(46 + w + 2)} y={y + 6.6} size={4.4} anchor="start">{`${String(it.value).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ${unit}`}</T>
+          </g>
+        );
+      })}
+    </Panel>
+  );
+};
