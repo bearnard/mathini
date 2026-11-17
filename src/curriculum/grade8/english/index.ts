@@ -27,6 +27,18 @@ export const englishHLGrade8: Subject = {
           description: 'Grammar-in-context with bias, prejudice and stereotype awareness.',
           component: lazy(() => import('./term1/language-structures-bias/LanguageStructuresBias')),
         },
+        {
+          id: 'gr8-friendly-letter-t1',
+          title: 'Writing a Friendly Letter',
+          description: "Purpose, layout, informal language, and writing a letter from a picture or other visual stimulus.",
+          component: lazy(() => import('./term1/friendly-letter/FriendlyLetter')),
+        },
+        {
+          id: 'gr8-investigative-report-t1',
+          title: 'Writing an Investigative Report',
+          description: "Asking a question, using a questionnaire, presenting findings, and writing a conclusion and recommendation.",
+          component: lazy(() => import('./term1/investigative-report/InvestigativeReport')),
+        },
       ],
     },
     {
@@ -50,6 +62,18 @@ export const englishHLGrade8: Subject = {
           title: 'Language for Report and Dialogue',
           description: 'Perfect and future tense, conjunctions, speech conversion and voice.',
           component: lazy(() => import('./term2/language-report-dialogue/LanguageReportDialogue')),
+        },
+        {
+          id: 'gr8-instructions-directions-t2',
+          title: 'Instruction Texts and Giving Directions',
+          description: "Writing clear instructions with numbered steps, and giving directions with landmarks.",
+          component: lazy(() => import('./term2/instructions-directions/InstructionsDirections')),
+        },
+        {
+          id: 'gr8-dialogue-and-interview-t2',
+          title: 'Writing a Dialogue and a Written Interview',
+          description: "The format of a dialogue, how to use stage directions, and the questions and answers of a written interview.",
+          component: lazy(() => import('./term2/dialogue-and-interview/DialogueAndInterview')),
         },
       ],
     },
