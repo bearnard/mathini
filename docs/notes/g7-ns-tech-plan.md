@@ -4,8 +4,8 @@ Source: audit/caps-alignment.md; CAPS Senior Phase NS and Technology Gr 7-9.
 
 | Branch | Lessons | Task ids | State |
 |---|---|---|---|
-| feat/g7-ns-life-earth | Variation (T1), The History of Astronomy (T4) | gr7-variation-t1, gr7-history-of-astronomy-t4 | done |
-| feat/g7-ns-matter-energy | Periodic Table (T2), national grid (T3) | gr7-periodic-table-t2, gr7-national-electricity-grid-t3 | todo |
+| feat/g7-ns-life-earth | Variation (T1), The History of Astronomy (T4) | gr7-variation-t1, gr7-history-of-astronomy-t4 | merged |
+| feat/g7-ns-matter-energy | Periodic Table (T2), national grid (T3) | gr7-periodic-table-t2, gr7-national-electricity-grid-t3 | done (branch 1 merged) |
 | feat/g7-tech-graphic | Graphical communication (T1) | gr7-graphical-communication-t1 | todo |
 | feat/g9-tech-mechanical-control | Ratchet and pawl, brakes, cleat (T2) | gr9-mechanical-control-t2 | todo |
 | feat/g9-tech-perspective | Single vanishing point drawing (T2) | gr9-vanishing-point-t2 | todo |
