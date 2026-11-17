@@ -99,18 +99,48 @@ export const itGrade10: Subject = {
           description: 'Flow control and function-based development',
           component: lazy(() => import('./term2/control-structures-modular-programming/ControlStructuresModularProgramming')),
         },
-        {
-          id: 'gr10-database-introductory-object-concepts-t2',
-          title: 'Database and Introductory Object Concepts',
-          description: 'Data organization and object-oriented fundamentals',
-          component: lazy(() => import('./term2/database-introductory-object-concepts/DatabaseIntroductoryObjectConcepts')),
-        },
       ],
     },
     {
       id: 3,
       title: 'Term 3',
       topics: [
+        {
+          id: 'gr10-computer-management-t3',
+          title: 'Computer Management: Files, Housekeeping and Security',
+          description: "File types and extensions, saving and exporting, housekeeping tasks, security features, and installing software.",
+          component: lazy(() => import('./term3/computer-management/ComputerManagement')),
+        },
+        {
+          id: 'gr10-internet-www-t3',
+          title: 'The Internet and the World Wide Web',
+          description: "What the Internet is, IP addresses and domain names, getting connected, the Web, browsers, and searching.",
+          component: lazy(() => import('./term3/internet-www/InternetWww')),
+        },
+        {
+          id: 'gr10-email-internet-threats-popia-t3',
+          title: 'E-mail and Internet Threats, Safe Use and POPIA',
+          description: "Viruses, hoaxes, fake news, spam, phishing, spoofing and pharming described, safe use, and the purpose of POPIA.",
+          component: lazy(() => import('./term3/email-internet-threats-popia/EmailInternetThreatsPopia')),
+        },
+        {
+          id: 'gr10-social-implications-cyber-safety-t4',
+          title: 'Social Implications and Cyber Safety',
+          description: 'IT ethics, security, and digital citizenship',
+          component: lazy(() => import('./term4/social-implications-cyber-safety/SocialImplicationsCyberSafety')),
+        },
+        {
+          id: 'gr10-loops-strings-algorithms-t3',
+          title: 'Loops, Strings, Prime Numbers and GCD',
+          description: "For, while and repeat loops, string handling from first principles and with Delphi methods, and algorithms for prime numbers, GCD and LCM.",
+          component: lazy(() => import('./term3/loops-strings-algorithms/LoopsStringsAlgorithms')),
+        },
+        {
+          id: 'gr10-gui-design-timer-project-t3',
+          title: 'GUI Design, the Timer and Planning a Project',
+          description: "Human-computer interaction and grouping, panels and tabbed panes, a timer for animation, program persistence, and project requirements.",
+          component: lazy(() => import('./term3/gui-design-timer-project/GuiDesignTimerProject')),
+        },
         {
           id: 'gr10-integrated-solution-development-t3',
           title: 'Integrated Solution Development',
@@ -124,10 +154,10 @@ export const itGrade10: Subject = {
       title: 'Term 4',
       topics: [
         {
-          id: 'gr10-social-implications-cyber-safety-t4',
-          title: 'Social Implications and Cyber Safety',
-          description: 'IT ethics, security, and digital citizenship',
-          component: lazy(() => import('./term4/social-implications-cyber-safety/SocialImplicationsCyberSafety')),
+          id: 'gr10-internet-services-text-files-t4',
+          title: 'Internet Services and Text Files',
+          description: "Online storage, synchronisation, collaboration, shopping and social media, and saving and loading a text file for the PAT.",
+          component: lazy(() => import('./term4/internet-services-text-files/InternetServicesTextFiles')),
         },
         {
           id: 'gr10-revision-year-end-examination-preparation-t4',
