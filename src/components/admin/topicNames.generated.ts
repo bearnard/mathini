@@ -4275,6 +4275,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Sharpeville 1960",
   "History (Social Sciences)"
  ],
+ "9|gr9-single-vanishing-point-t2": [
+  "Single Vanishing Point Perspective",
+  "Technology"
+ ],
  "9|gr9-social-environmental-responsibility-t2": [
   "Social and Environmental Responsibility",
   "Life Orientation"

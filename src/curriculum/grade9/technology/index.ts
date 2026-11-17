@@ -45,6 +45,12 @@ export const technologyGrade9: Subject = {
           description: 'Ratchet and pawl, disc brake, bicycle brake and cleat.',
           component: lazy(() => import('./term2/mechanical-control-systems/MechanicalControlSystems')),
         },
+        {
+          id: 'single-vanishing-point',
+          title: 'Single Vanishing Point Perspective',
+          description: 'Eye level and the vanishing point, a shaded wooden block, and the inside of a classroom.',
+          component: lazy(() => import('./term2/single-vanishing-point/SingleVanishingPoint')),
+        },
       ],
     },
     {

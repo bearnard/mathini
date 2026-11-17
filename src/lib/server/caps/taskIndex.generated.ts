@@ -950,6 +950,7 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr9-sentence-structure-cohesion-t2": ["eng", 9],
   "gr9-sexuality-health-t2": ["lo", 9],
   "gr9-sharpeville-1960-t4": ["his", 9],
+  "gr9-single-vanishing-point-t2": ["tech", 9],
   "gr9-social-environmental-responsibility-t2": ["lo", 9],
   "gr9-soil-erosion-management-t3": ["geo", 9],
   "gr9-sophiatown-bantustans-t3": ["his", 9],
