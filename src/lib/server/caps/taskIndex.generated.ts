@@ -521,7 +521,6 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr12-public-sector-t1": ["econ", 12],
   "gr12-quality-management-systems-t2": ["bus", 12],
   "gr12-rate-extent-reaction-t2": ["ps", 12],
-  "gr12-rates-equilibrium-acids-bases-t2": ["ps", 12],
   "gr12-reading-viewing-t1": ["xho", 12],
   "gr12-reading-viewing-t2": ["xho", 12],
   "gr12-reading-viewing-t3": ["xho", 12],
