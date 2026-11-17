@@ -912,6 +912,7 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr9-lithosphere-earth-resources-t4": ["ns", 9],
   "gr9-mandela-release-unbanning-t4": ["his", 9],
   "gr9-map-scale-coordinates-t1": ["geo", 9],
+  "gr9-mechanical-control-systems-t2": ["tech", 9],
   "gr9-music-t1": ["ca", 9],
   "gr9-music-t2": ["ca", 9],
   "gr9-music-t3": ["ca", 9],
