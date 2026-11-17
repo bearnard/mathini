@@ -33,6 +33,18 @@ Source of scope: CAPS Social Sciences Grades 4-6, Grade 6 History Term 1 (Mapung
 | 20 | The lesson says that some Europeans found the book hard to believe but later explorers found much of it to be true. | A general statement; not tied to a named person. | Teacher judgement |
 | 21 | Marco Polo's whole journey (1271 to 1295) lies inside the years of Mapungubwe (1220 to 1300), as the CAPS says ("at the same time as Mapungubwe was at its height"). | Arithmetic; a test checks it. | |
 
-## Branches C and D (to be added when written)
-- The Renaissance (Leonardo da Vinci, Galileo); inventions and reasons for exploring.
+## Branch C: The Renaissance; inventions and reasons for exploring (Term 2)
+
+| # | What the lessons say | How sure | Where to check |
+|---|---|---|---|
+| 22 | Renaissance means "rebirth": in Europe, new interest in learning, art and science. The lesson says it was a change in Europe and that Africa and Asia had their own learning. | Standard. | Textbook |
+| 23 | Leonardo da Vinci 1452 to 1519 (67 years), Italian painter (Mona Lisa), inventor, scientist; drew plans for machines such as a flying machine. | Dates certain. | Encyclopaedia |
+| 24 | Galileo 1564 to 1642 (78 years), Italian; used a telescope to see mountains on the Moon and moons around Jupiter; supported the idea that the Earth moves around the sun; improved the telescope but did not invent it. | Certain. | Encyclopaedia |
+| 25 | SENSITIVE: "Some Church leaders disagreed with him and limited his freedom." Kept to one plain sentence; no trial, no punishment named, no blame on a religion. | Accurate and deliberately mild. Teacher to judge whether it needs more or less. | Textbook |
+| 26 | The printing press came to Europe about 1450. | Textbook rounding; the lesson says "about". | Textbook |
+| 27 | Reasons: wealth (spices, silk, gold), a sea route to Asia, spreading Christianity, curiosity and fame. Said as reasons Europeans gave and held, not as justification. | Standard. | CAPS, textbook |
+| 28 | Inventions: compass (said to have been used in China first), astrolabe, better maps, the caravel (light ship that could sail against the wind). | Standard. | Encyclopaedia |
+| 29 | Arab and African sailors already knew these seas well. | True and general; no person or voyage named. | |
+
+## Branch D (to be added when written)
 - Dias and Da Gama (Mossel Bay 1488 from both sides); VOC journeys and a sailor's life.

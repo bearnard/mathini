@@ -46,4 +46,8 @@ export const GALILEO = { born: 1564, died: 1642 } as const;
 export const DIAS_MOSSEL_BAY = 1488;
 export const DA_GAMA_VOYAGE: Span = { name: 'Da Gama to India', from: 1497, to: 1498, exact: false };
 export const VOC_FOUNDED = 1602;
+/** Gutenberg's printing press in Europe: about 1450 (textbook rounding). */
+export const PRINTING_PRESS_ABOUT = 1450;
+export const LEONARDO_SPAN: Span = { name: 'Leonardo da Vinci', from: LEONARDO.born, to: LEONARDO.died, exact: true };
+export const GALILEO_SPAN: Span = { name: 'Galileo', from: GALILEO.born, to: GALILEO.died, exact: true };
 export const age = (p: { born: number; died: number }): number => p.died - p.born;
