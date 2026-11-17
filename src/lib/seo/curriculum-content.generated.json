@@ -7341,6 +7341,16 @@
                 "id": "gr12-two-dimensional-arrays-t2",
                 "title": "Two-Dimensional Arrays (Delphi)",
                 "description": "Rows and columns, nested loops, row and column totals, and finding the largest value."
+              },
+              {
+                "id": "gr12-cloud-computing-virtualisation-t2",
+                "title": "Cloud Computing, SaaS and Virtualisation",
+                "description": "Effect on hardware, software as a service, virtualisation of servers, and arguments for and against."
+              },
+              {
+                "id": "gr12-computer-management-t2",
+                "title": "Computer Management",
+                "description": "Housekeeping, protecting the system, data integrity, and recommending tasks for a situation."
               }
             ]
           },

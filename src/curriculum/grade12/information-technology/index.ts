@@ -81,6 +81,18 @@ export const informationTechnologyGrade12: Subject = {
           description: "Rows and columns, nested loops, row and column totals, and finding the largest value.",
           component: lazy(() => import('./term2/two-dimensional-arrays/TwoDimensionalArrays')),
         },
+        {
+          id: "gr12-cloud-computing-virtualisation-t2",
+          title: "Cloud Computing, SaaS and Virtualisation",
+          description: "Effect on hardware, software as a service, virtualisation of servers, and arguments for and against.",
+          component: lazy(() => import('./term2/cloud-computing-virtualisation/CloudComputingVirtualisation')),
+        },
+        {
+          id: "gr12-computer-management-t2",
+          title: "Computer Management",
+          description: "Housekeeping, protecting the system, data integrity, and recommending tasks for a situation.",
+          component: lazy(() => import('./term2/computer-management/ComputerManagement')),
+        },
       ],
     },
     {

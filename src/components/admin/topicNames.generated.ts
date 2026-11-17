@@ -1403,6 +1403,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Climate and Geomorphology Revision",
   "Social Sciences: Geography"
  ],
+ "12|gr12-cloud-computing-virtualisation-t2": [
+  "Cloud Computing, SaaS and Virtualisation",
+  "Information Technology"
+ ],
  "12|gr12-codesa-and-negotiated-settlement-t3": [
   "CODESA and the Negotiated Settlement",
   "History"
@@ -1434,6 +1438,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-company-share-capital-t1": [
   "Company Share Capital",
   "Accounting"
+ ],
+ "12|gr12-computer-management-t2": [
+  "Computer Management",
+  "Information Technology"
  ],
  "12|gr12-contemporary-economic-issues-t3": [
   "Contemporary Economic Issues",
