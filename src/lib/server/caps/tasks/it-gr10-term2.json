@@ -1,1 +1,12 @@
-{"tasks":{"gr10-control-structures-modular-programming-t2":"Grade 10 IT Term 2: Selection and iteration control structures, modular design and procedures/functions.","gr10-database-introductory-object-concepts-t2":"Grade 10 IT Term 2: Introductory database concepts, tables, fields, records, and introductory OOP concepts."}}
+{
+  "tasks": {
+    "gr10-control-structures-modular-programming-t2": "Grade 10 IT Term 2: Selection and iteration control structures, modular design and procedures/functions.",
+    "gr10-database-introductory-object-concepts-t2": "Grade 10 IT Term 2: Introductory database concepts, tables, fields, records, and introductory OOP concepts.",
+    "gr10-hardware-devices-t2": "Topic: Hardware: Devices, the System Unit and Ports. Cover input, output, storage and combined devices, the motherboard, CPU and RAM, ports such as USB, HDMI and NIC, and primary versus secondary memory. Ask Grade 10 learners to classify a device, say what a port is for, or tell RAM from storage.",
+    "gr10-operating-systems-utilities-drivers-t2": "Topic: Operating Systems, Utilities and Device Drivers. Cover the roles of an operating system, types of operating system and examples, utility programs, and device drivers with plug and play. Ask Grade 10 learners to name a role, match an OS to a device, or say why a driver is needed.",
+    "gr10-networks-overview-t2": "Topic: Networks: An Overview. Cover reasons for networks, nodes, NICs, switches and routers, wired and wireless media, PAN, HAN, LAN and WAN, and client-server versus peer-to-peer. Ask Grade 10 learners to name a network type for a situation, compare media, or choose client-server or peer-to-peer.",
+    "gr10-e-communication-email-netiquette-t2": "Topic: E-communication, E-mail and Netiquette. Cover e-communication tools, e-mail parts (To, Cc, Bcc, subject, attachment), netiquette, and the effects of e-communication on accuracy, time, distance, cost and speed. Ask Grade 10 learners to choose a tool or an e-mail field, or judge a message.",
+    "gr10-problem-solving-polya-user-stories-t2": "Topic: Problem Solving: Polya, User Stories and Noun-Verb Analysis. Cover Polya's four steps, planning techniques, user stories, noun-verb analysis of a user story, and acceptance tests. Ask Grade 10 learners to name the step, write or analyse a short user story, or pick a good test.",
+    "gr10-ergonomics-green-health-t2": "Topic: Ergonomics, Green Computing and Health. Cover ergonomics and a healthy workstation, health issues of computer use (eye strain, RSI, posture), and green computing practices. Ask Grade 10 learners to give a way to prevent a problem or a green practice."
+  }
+}

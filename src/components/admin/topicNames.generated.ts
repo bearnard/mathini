@@ -15,6 +15,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Algebraic Expressions",
   "Mathematics"
  ],
+ "10|gr10-algorithms-ipo-trace-tables-t1": [
+  "Algorithms, IPO Tables and Trace Tables",
+  "Information Technology"
+ ],
  "10|gr10-analysis-interpretation": [
   "Analysis and Interpretation",
   "Accounting"
@@ -99,6 +103,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Computer Systems and File Management",
   "Computer Applications Technology"
  ],
+ "10|gr10-computers-software-ict-systems-t1": [
+  "Computers, Software and ICT Systems",
+  "Information Technology"
+ ],
  "10|gr10-conservation-mechanical-energy-t4": [
   "Conservation of Mechanical Energy",
   "Physical Sciences"
@@ -143,6 +151,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Document Integration and Exam Consolidation",
   "Computer Applications Technology"
  ],
+ "10|gr10-e-communication-email-netiquette-t2": [
+  "E-communication, E-mail and Netiquette",
+  "Information Technology"
+ ],
  "10|gr10-economics-basics-scarcity-macroeconomic-flows": [
   "Economics Basics, Scarcity and Macroeconomic Flows",
   "Economics"
@@ -155,6 +167,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Equations and Inequalities",
   "Mathematics"
  ],
+ "10|gr10-ergonomics-green-health-t2": [
+  "Ergonomics, Green Computing and Health",
+  "Information Technology"
+ ],
  "10|gr10-essay-writing-process-t1": [
   "Writing an Essay: Narrative, Descriptive and Argumentative",
   "English HL"
@@ -166,6 +182,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-exponents-t1": [
   "Exponents",
   "Mathematics"
+ ],
+ "10|gr10-file-management-t1": [
+  "File Management",
+  "Information Technology"
  ],
  "10|gr10-finance-documents-tariff-systems-t2": [
   "Finance: Documents and Tariff Systems",
@@ -195,6 +215,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Growth, Development and South African Economic Change",
   "Economics"
  ],
+ "10|gr10-hardware-devices-t2": [
+  "Hardware: Devices, the System Unit and Ports",
+  "Information Technology"
+ ],
  "10|gr10-history-of-life-earth-t3": [
   "History of Life on Earth",
   "Life Sciences"
@@ -222,6 +246,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-letters-cv-agenda-minutes-t1": [
   "Transactional Texts: Letters, CV, Agenda, Minutes and Obituary",
   "English HL"
+ ],
+ "10|gr10-licences-digital-divide-t1": [
+  "Licences, Copyright and the Digital Divide",
+  "Information Technology"
  ],
  "10|gr10-life-roles-t3": [
   "Life Roles and Their Responsibilities",
@@ -279,6 +307,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Networks and Data Handling",
   "Information Technology"
  ],
+ "10|gr10-networks-overview-t2": [
+  "Networks: An Overview",
+  "Information Technology"
+ ],
  "10|gr10-novel-drama-study-t2": [
   "Studying a Novel or Drama",
   "English HL"
@@ -290,6 +322,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-numbers-calculations-context-t1": [
   "Numbers and Calculations in Context",
   "Mathematical Literacy"
+ ],
+ "10|gr10-operating-systems-utilities-drivers-t2": [
+  "Operating Systems, Utilities and Device Drivers",
+  "Information Technology"
  ],
  "10|gr10-oral-communication-t3": [
   "Oral Communication: Speeches, Meetings and Discussion",
@@ -350,6 +386,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-probability-t4": [
   "Probability",
   "Mathematics"
+ ],
+ "10|gr10-problem-solving-polya-user-stories-t2": [
+  "Problem Solving: Polya, User Stories and Noun-Verb Analysis",
+  "Information Technology"
  ],
  "10|gr10-programming-foundations-t1": [
   "Programming Foundations",
