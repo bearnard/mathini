@@ -672,6 +672,24 @@ export const grade6: Grade = {
                             title: "Term 1",
                             topics: [
                                 {
+                                    id: "his-limpopo-valley-k2-schroda",
+                                    title: "Societies in the Limpopo Valley: K2 and Schroda",
+                                    description: "How farming villages grew bigger and more organised before Mapungubwe.",
+                                    component: lazy(() => import('./history/term1/limpopo-valley-k2-schroda/LimpopoValleyK2Schroda'))
+                                },
+                                {
+                                    id: "his-mapungubwe-kingdom",
+                                    title: "Mapungubwe: a kingdom with a sacred king",
+                                    description: "The first state in southern Africa: the king, the hill, the first town and social classes.",
+                                    component: lazy(() => import('./history/term1/mapungubwe-kingdom/MapungubweKingdom'))
+                                },
+                                {
+                                    id: "his-mapungubwe-trade-today",
+                                    title: "Mapungubwe: gold, trade and journeys",
+                                    description: "The golden rhinoceros, trade across the Indian Ocean, journeys on foot and Mapungubwe today.",
+                                    component: lazy(() => import('./history/term1/mapungubwe-trade-today/MapungubweTradeToday'))
+                                },
+                                {
                                     id: "his-what-is-history",
                                     title: "What is History?",
                                     description: "The study of the past and how we learn about it.",

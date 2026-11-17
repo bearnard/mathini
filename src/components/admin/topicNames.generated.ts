@@ -2451,6 +2451,18 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Length",
   "Mathematics"
  ],
+ "6|gr6-limpopo-valley-k2-schroda-t1": [
+  "Societies in the Limpopo Valley: K2 and Schroda",
+  "History"
+ ],
+ "6|gr6-mapungubwe-kingdom-t1": [
+  "Mapungubwe: a kingdom with a sacred king",
+  "History"
+ ],
+ "6|gr6-mapungubwe-trade-today-t1": [
+  "Mapungubwe: gold, trade and journeys",
+  "History"
+ ],
  "6|gr6-mass-t4": [
   "Mass",
   "Mathematics"

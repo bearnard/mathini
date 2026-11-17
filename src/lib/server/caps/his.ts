@@ -1,6 +1,7 @@
 import type { SubjectConfig } from '../caps/types';
 import hisGr6Facts from './tasks/his-gr6-facts.json';
 import { withLessonFacts } from './lessonFacts';
+import hisGr6Term1 from './tasks/his-gr6-term1.json';
 import hisGr7Term1 from './tasks/his-gr7-term1.json';
 import hisGr7Term2 from './tasks/his-gr7-term2.json';
 import hisGr7Term3 from './tasks/his-gr7-term3.json';
@@ -61,7 +62,7 @@ const rawHistoryTasks: Record<string, string> = {
 };
 
 // Grade 6 scopes carry the lesson's own facts too (stops invented counts, dates and article numbers).
-const existingHistoryTasks = withLessonFacts(rawHistoryTasks, hisGr6Facts.facts);
+const existingHistoryTasks = withLessonFacts({ ...rawHistoryTasks, ...hisGr6Term1.tasks }, hisGr6Facts.facts);
 
 export const his: SubjectConfig = {
   getPreamble(grade: number): string {

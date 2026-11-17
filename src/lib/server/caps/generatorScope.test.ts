@@ -63,7 +63,7 @@ test('the 16 Grade 6 Afrikaans tasks have scope that names the topic and demands
 
 test('Grade 6 History and Geography scopes carry the lesson facts, and the lesson wins over the older scope', () => {
   const slugs = Object.entries(TASK_INDEX).filter(([, v]) => v[1] === 6 && (v[0] === 'his' || v[0] === 'geo')).map(([s]) => s);
-  assert.equal(slugs.length, 32, 'the 16 History and 16 Geography Grade 6 topics');
+  assert.ok(slugs.length >= 32, 'the 16 History and 16 Geography Grade 6 topics, and the Wave A History additions');
   for (const slug of slugs) {
     const s = scopeFor(slug)!.scope;
     assert.ok(s.includes('Lesson facts to rely on:'), `${slug} has no lesson facts`);
