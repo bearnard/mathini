@@ -571,6 +571,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Computer Architecture",
   "Information Technology"
  ],
+ "11|gr11-computer-management-threats-t1": [
+  "Computer Management: Threats and Remedies",
+  "Information Technology"
+ ],
  "11|gr11-creative-thinking-problem-solving-t2": [
   "Creative Thinking and Problem Solving",
   "Business Studies"
@@ -589,6 +593,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "11|gr11-databases-sql-t2": [
   "Databases and SQL",
+  "Information Technology"
+ ],
+ "11|gr11-dbms-database-types-t2": [
+  "Database Management Systems and Database Types",
   "Information Technology"
  ],
  "11|gr11-debugging-testing-t4": [
@@ -618,6 +626,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-development-of-self-t1": [
   "Development of the Self in Society",
   "Life Orientation"
+ ],
+ "11|gr11-digitalisation-gig-economy-t2": [
+  "Digitalisation, the Gig Economy and Your Online Identity",
+  "Information Technology"
  ],
  "11|gr11-drama-poetry-comparison-t3": [
   "Drama and Poetry Comparison",
@@ -907,6 +919,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Finance: Taxation",
   "Mathematical Literacy"
  ],
+ "11|gr11-mobile-wireless-e-communication-t2": [
+  "Mobile and Wireless E-communication",
+  "Information Technology"
+ ],
  "11|gr11-momentum-t2": [
   "Momentum and Impulse",
   "Physical Sciences"
@@ -915,9 +931,17 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Money, Banking and the Central Bank",
   "Economics"
  ],
+ "11|gr11-motherboard-memory-caching-t1": [
+  "The Motherboard, Memory and Caching",
+  "Information Technology"
+ ],
  "11|gr11-nazism-and-race-t3": [
   "Nazism and Race",
   "History"
+ ],
+ "11|gr11-network-innovation-t1": [
+  "Network Types, Innovation and Location-Based Computing",
+  "Information Technology"
  ],
  "11|gr11-network-topologies-t3": [
   "Network Topologies",
@@ -1127,6 +1151,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Soil Formation and Erosion",
   "Social Sciences: Geography"
  ],
+ "11|gr11-sorting-parallel-arrays-dates-t1": [
+  "Sorting, Parallel Arrays, Dates and Strings",
+  "Information Technology"
+ ],
  "11|gr11-south-africa-africa-t3": [
   "South Africa in Africa: SADC and NEPAD",
   "Economics"
@@ -1167,6 +1195,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Summary Writing Technique",
   "English HL"
  ],
+ "11|gr11-system-software-processing-t1": [
+  "System Software and Processing Techniques",
+  "Information Technology"
+ ],
  "11|gr11-systems-technologies-accessibility-t1": [
   "Systems Technologies and Accessibility",
   "Computer Applications Technology"
@@ -1190,6 +1222,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-tsarism-1905-revolution-t1": [
   "Tsarism and the 1905 Revolution",
   "History"
+ ],
+ "11|gr11-user-defined-methods-t2": [
+  "User-Defined Methods: Procedures and Functions",
+  "Information Technology"
  ],
  "11|gr11-vat-calculations-recording-t4": [
   "VAT Calculations and Recording",
