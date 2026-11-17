@@ -225,11 +225,6 @@
                 "description": "Compare fractions to find which is bigger or smaller."
               },
               {
-                "id": "g6-decimal-place-value",
-                "title": "Decimal Place Value",
-                "description": "Understand the value of digits in decimal numbers."
-              },
-              {
                 "id": "g6-number-patterns",
                 "title": "Number Patterns",
                 "description": "Discover the rules behind number sequences."
@@ -245,14 +240,29 @@
                 "description": "Learn to identify different shapes and their properties."
               },
               {
-                "id": "g6-3d-objects",
-                "title": "3D Objects",
-                "description": "Explore 3D shapes and their properties."
-              },
-              {
                 "id": "g6-add-subtract-5digit",
                 "title": "Adding and Subtracting 5-digit Numbers",
                 "description": "Estimate, then add and subtract in columns and check your answer."
+              },
+              {
+                "id": "number-sentences",
+                "title": "Number Sentences",
+                "description": "Turn word problems into equations and solve for the unknown."
+              },
+              {
+                "id": "time",
+                "title": "Time",
+                "description": "Clocks, 24-hour time and durations."
+              },
+              {
+                "id": "data-handling",
+                "title": "Data Handling",
+                "description": "Mean, mode, median, range and reading graphs."
+              },
+              {
+                "id": "common-fractions",
+                "title": "Common Fractions",
+                "description": "Equivalent fractions, simplifying, and adding & subtracting."
               }
             ]
           },
@@ -261,19 +271,9 @@
             "title": "Term 2",
             "topics": [
               {
-                "id": "number-sentences",
-                "title": "Number Sentences",
-                "description": "Turn word problems into equations and solve for the unknown."
-              },
-              {
                 "id": "t2-patterns",
                 "title": "Patterns",
                 "description": "Numeric and geometric patterns, rules and flow diagrams."
-              },
-              {
-                "id": "common-fractions",
-                "title": "Common Fractions",
-                "description": "Equivalent fractions, simplifying, and adding & subtracting."
               },
               {
                 "id": "decimal-fractions",
@@ -289,6 +289,26 @@
                 "id": "g6-divide-2digit",
                 "title": "Dividing by 2-digit Numbers",
                 "description": "Clue boards, multiply then subtract, checking and remainders."
+              },
+              {
+                "id": "g6-3d-objects",
+                "title": "3D Objects",
+                "description": "Explore 3D shapes and their properties."
+              },
+              {
+                "id": "symmetry",
+                "title": "Symmetry",
+                "description": "Lines of symmetry and reflections."
+              },
+              {
+                "id": "capacity",
+                "title": "Capacity",
+                "description": "Millilitres and litres, and how much containers hold."
+              },
+              {
+                "id": "g6-decimal-place-value",
+                "title": "Decimal Place Value",
+                "description": "Understand the value of digits in decimal numbers."
               }
             ]
           },
@@ -302,24 +322,9 @@
                 "description": "Units, conversions and measuring length."
               },
               {
-                "id": "symmetry",
-                "title": "Symmetry",
-                "description": "Lines of symmetry and reflections."
-              },
-              {
                 "id": "shape-properties",
                 "title": "2D Shapes & 3D Objects",
                 "description": "Sides, angles, faces, edges and vertices."
-              },
-              {
-                "id": "area-perimeter",
-                "title": "Area & Perimeter",
-                "description": "Area and perimeter of squares and rectangles."
-              },
-              {
-                "id": "volume",
-                "title": "Volume",
-                "description": "Volume of cubes and rectangular prisms."
               },
               {
                 "id": "g6-add-subtract-6digit",
@@ -345,6 +350,11 @@
                 "id": "g6-viewing-objects",
                 "title": "Viewing Objects",
                 "description": "Matching views of objects and structures of cubes with the position of the viewer."
+              },
+              {
+                "id": "mass",
+                "title": "Mass",
+                "description": "Grams, kilograms and tonnes, with conversions."
               }
             ]
           },
@@ -352,26 +362,6 @@
             "id": 4,
             "title": "Term 4",
             "topics": [
-              {
-                "id": "mass",
-                "title": "Mass",
-                "description": "Grams, kilograms and tonnes, with conversions."
-              },
-              {
-                "id": "time",
-                "title": "Time",
-                "description": "Clocks, 24-hour time and durations."
-              },
-              {
-                "id": "capacity",
-                "title": "Capacity",
-                "description": "Millilitres and litres, and how much containers hold."
-              },
-              {
-                "id": "data-handling",
-                "title": "Data Handling",
-                "description": "Mean, mode, median, range and reading graphs."
-              },
               {
                 "id": "problem-solving",
                 "title": "Problem Solving",
@@ -401,6 +391,16 @@
                 "id": "g6-enlargements",
                 "title": "Enlargements and Reductions",
                 "description": "Drawing larger and smaller copies of triangles and quadrilaterals."
+              },
+              {
+                "id": "area-perimeter",
+                "title": "Area & Perimeter",
+                "description": "Area and perimeter of squares and rectangles."
+              },
+              {
+                "id": "volume",
+                "title": "Volume",
+                "description": "Volume of cubes and rectangular prisms."
               }
             ]
           }
@@ -3717,6 +3717,11 @@
                 "id": "gr9-physical-education-task-1-t1",
                 "title": "Physical Education Task — Term 1",
                 "description": "Develop fitness, coordination, teamwork, and safe participation in physical activity."
+              },
+              {
+                "id": "gr9-sexuality-health-t2",
+                "title": "Sexuality and Health",
+                "description": "Understand puberty, sexual health, disease prevention, consent, and responsible choices."
               }
             ]
           },
@@ -3725,24 +3730,14 @@
             "title": "Term 2",
             "topics": [
               {
-                "id": "gr9-social-environmental-responsibility-t2",
-                "title": "Social and Environmental Responsibility",
-                "description": "Investigate community health, environmental care, and responsible action for change."
-              },
-              {
-                "id": "gr9-sexuality-health-t2",
-                "title": "Sexuality and Health",
-                "description": "Understand puberty, sexual health, disease prevention, consent, and responsible choices."
-              },
-              {
-                "id": "gr9-substance-abuse-emotional-safety-t2",
-                "title": "Substance Abuse and Emotional Safety",
-                "description": "Recognise harmful behaviour, understand coping strategies, and access support services."
-              },
-              {
                 "id": "gr9-physical-education-task-2-t2",
                 "title": "Physical Education Task — Term 2",
                 "description": "Apply sport skills in competitive and recreational contexts while maintaining fair play."
+              },
+              {
+                "id": "gr9-democracy-human-rights-t3",
+                "title": "Democracy and Human Rights",
+                "description": "Explore democratic structures, the Constitution, rights, duties, and citizen participation."
               }
             ]
           },
@@ -3750,11 +3745,6 @@
             "id": 3,
             "title": "Term 3",
             "topics": [
-              {
-                "id": "gr9-democracy-human-rights-t3",
-                "title": "Democracy and Human Rights",
-                "description": "Explore democratic structures, the Constitution, rights, duties, and citizen participation."
-              },
               {
                 "id": "gr9-diversity-social-justice-t3",
                 "title": "Diversity and Social Justice",
@@ -3769,6 +3759,16 @@
                 "id": "gr9-physical-education-task-3-t3",
                 "title": "Physical Education Task — Term 3",
                 "description": "Demonstrate athletics, leadership, and consistency in physical activity."
+              },
+              {
+                "id": "gr9-careers-career-choices-t4",
+                "title": "Careers and Career Choices",
+                "description": "Match abilities and interests to career fields and Grade 10 subject choices."
+              },
+              {
+                "id": "gr9-social-environmental-responsibility-t2",
+                "title": "Social and Environmental Responsibility",
+                "description": "Investigate community health, environmental care, and responsible action for change."
               }
             ]
           },
@@ -3776,11 +3776,6 @@
             "id": 4,
             "title": "Term 4",
             "topics": [
-              {
-                "id": "gr9-careers-career-choices-t4",
-                "title": "Careers and Career Choices",
-                "description": "Match abilities and interests to career fields and Grade 10 subject choices."
-              },
               {
                 "id": "gr9-study-methods-exam-readiness-t4",
                 "title": "Study Methods and Exam Readiness",
@@ -3795,6 +3790,11 @@
                 "id": "gr9-physical-education-task-4-t4",
                 "title": "Physical Education Task — Term 4",
                 "description": "Review fitness, set personal targets, and evaluate lifelong activity goals."
+              },
+              {
+                "id": "gr9-substance-abuse-emotional-safety-t2",
+                "title": "Substance Abuse and Emotional Safety",
+                "description": "Recognise harmful behaviour, understand coping strategies, and access support services."
               }
             ]
           }
@@ -6518,14 +6518,14 @@
                 "description": "Depreciation, carrying values, disposals, asset management interpretation, and controls over fixed assets."
               },
               {
-                "id": "gr12-manufacturing-cost-statements-t2",
-                "title": "Manufacturing Cost Statements",
-                "description": "Prime cost, factory overheads, work-in-process, cost of production and unit-cost analysis."
-              },
-              {
                 "id": "gr12-bank-creditors-reconciliations-t2",
                 "title": "Bank and Creditors Reconciliations",
                 "description": "Bank reconciliation, cashbook updates, creditors reconciliation and internal control procedures."
+              },
+              {
+                "id": "gr12-vat-concepts-control-t3",
+                "title": "VAT Concepts and Control",
+                "description": "Output and input VAT, VAT calculations, VAT control and ethical compliance with SARS rules."
               }
             ]
           },
@@ -6533,11 +6533,6 @@
             "id": 3,
             "title": "Term 3",
             "topics": [
-              {
-                "id": "gr12-vat-concepts-control-t3",
-                "title": "VAT Concepts and Control",
-                "description": "Output and input VAT, VAT calculations, VAT control and ethical compliance with SARS rules."
-              },
               {
                 "id": "gr12-budgeting-projected-income-t3",
                 "title": "Budgeting and Projected Income",
@@ -6547,6 +6542,11 @@
                 "id": "gr12-trial-exam-revision-t3",
                 "title": "Trial Examination Revision",
                 "description": "Integrated revision across companies, interpretation, manufacturing, reconciliations, VAT and budgeting."
+              },
+              {
+                "id": "gr12-manufacturing-cost-statements-t2",
+                "title": "Manufacturing Cost Statements",
+                "description": "Prime cost, factory overheads, work-in-process, cost of production and unit-cost analysis."
               }
             ]
           },
@@ -6623,17 +6623,6 @@
                 "description": "Compare management and leadership, apply leadership styles and interpret leadership theories in CAPS contexts."
               },
               {
-                "id": "gr12-investment-insurance-conflict-management-t2",
-                "title": "Investment, Insurance and Conflict Management",
-                "description": "Advise on investment and insurance options while improving team performance and conflict management."
-              }
-            ]
-          },
-          {
-            "id": 3,
-            "title": "Term 3",
-            "topics": [
-              {
                 "id": "gr12-human-rights-inclusivity-t3",
                 "title": "Human Rights and Inclusivity",
                 "description": "Evaluate human rights, diversity and inclusive business behaviour in Grade 12 contexts."
@@ -6642,11 +6631,22 @@
                 "id": "gr12-environmental-social-responsibility-t3",
                 "title": "Environmental and Social Responsibility",
                 "description": "Recommend responsible responses to environmental issues and distinguish between CSR and CSI."
-              },
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "title": "Term 3",
+            "topics": [
               {
                 "id": "gr12-presentation-data-response-ownership-t3",
                 "title": "Presentation, Data Response and Forms of Ownership",
                 "description": "Interpret presented business information, answer data-response questions and compare forms of ownership."
+              },
+              {
+                "id": "gr12-investment-insurance-conflict-management-t2",
+                "title": "Investment, Insurance and Conflict Management",
+                "description": "Advise on investment and insurance options while improving team performance and conflict management."
               }
             ]
           },

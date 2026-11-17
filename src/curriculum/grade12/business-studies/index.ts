@@ -32,7 +32,7 @@ export const businessStudiesGrade12: Subject = {
           title: "Creative Thinking and Business Strategies",
           description: "Use creative-thinking tools, decision-making steps, Porters Five Forces and strategic planning in Grade 12 business scenarios.",
           component: lazy(() => import('./term1/creative-thinking-business-strategies/CreativeThinkingBusinessStrategies')),
-        },
+        }
       ],
     },
     {
@@ -58,18 +58,6 @@ export const businessStudiesGrade12: Subject = {
           component: lazy(() => import('./term2/leadership-management/LeadershipManagement')),
         },
         {
-          id: 'gr12-investment-insurance-conflict-management-t2',
-          title: "Investment, Insurance and Conflict Management",
-          description: "Advise on investment and insurance options while improving team performance and conflict management.",
-          component: lazy(() => import('./term2/investment-insurance-conflict-management/InvestmentInsuranceConflictManagement')),
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: 'Term 3',
-      topics: [
-        {
           id: 'gr12-human-rights-inclusivity-t3',
           title: "Human Rights and Inclusivity",
           description: "Evaluate human rights, diversity and inclusive business behaviour in Grade 12 contexts.",
@@ -80,13 +68,25 @@ export const businessStudiesGrade12: Subject = {
           title: "Environmental and Social Responsibility",
           description: "Recommend responsible responses to environmental issues and distinguish between CSR and CSI.",
           component: lazy(() => import('./term3/environmental-social-responsibility/EnvironmentalSocialResponsibility')),
-        },
+        }
+      ],
+    },
+    {
+      id: 3,
+      title: 'Term 3',
+      topics: [
         {
           id: 'gr12-presentation-data-response-ownership-t3',
           title: "Presentation, Data Response and Forms of Ownership",
           description: "Interpret presented business information, answer data-response questions and compare forms of ownership.",
           component: lazy(() => import('./term3/presentation-data-response-ownership/PresentationDataResponseOwnership')),
         },
+        {
+          id: 'gr12-investment-insurance-conflict-management-t2',
+          title: "Investment, Insurance and Conflict Management",
+          description: "Advise on investment and insurance options while improving team performance and conflict management.",
+          component: lazy(() => import('./term2/investment-insurance-conflict-management/InvestmentInsuranceConflictManagement')),
+        }
       ],
     },
     {
@@ -110,7 +110,7 @@ export const businessStudiesGrade12: Subject = {
           title: "Exam Action Verbs and Time Management",
           description: "Refine exam technique by interpreting action verbs, using mark allocation and managing time effectively.",
           component: lazy(() => import('./term4/exam-action-verbs-time-management/ExamActionVerbsTimeManagement')),
-        },
+        }
       ],
     },
   ],

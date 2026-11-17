@@ -32,7 +32,7 @@ export const accountingGrade12: Subject = {
           title: 'Analysis, Interpretation and Ethics',
           description: 'Financial indicators, audit reports, governance and ethical interpretation of company performance.',
           component: lazy(() => import('./term1/analysis-interpretation-ethics/AnalysisInterpretationEthics')),
-        },
+        }
       ],
     },
     {
@@ -52,29 +52,23 @@ export const accountingGrade12: Subject = {
           component: lazy(() => import('./term2/fixed-assets-analysis-control/FixedAssetsAnalysisControl')),
         },
         {
-          id: 'gr12-manufacturing-cost-statements-t2',
-          title: 'Manufacturing Cost Statements',
-          description: 'Prime cost, factory overheads, work-in-process, cost of production and unit-cost analysis.',
-          component: lazy(() => import('./term2/manufacturing-cost-statements/ManufacturingCostStatements')),
-        },
-        {
           id: 'gr12-bank-creditors-reconciliations-t2',
           title: 'Bank and Creditors Reconciliations',
           description: 'Bank reconciliation, cashbook updates, creditors reconciliation and internal control procedures.',
           component: lazy(() => import('./term2/bank-creditors-reconciliations/BankCreditorsReconciliations')),
         },
+        {
+          id: 'gr12-vat-concepts-control-t3',
+          title: 'VAT Concepts and Control',
+          description: 'Output and input VAT, VAT calculations, VAT control and ethical compliance with SARS rules.',
+          component: lazy(() => import('./term3/vat-concepts-control/VatConceptsControl')),
+        }
       ],
     },
     {
       id: 3,
       title: 'Term 3',
       topics: [
-        {
-          id: 'gr12-vat-concepts-control-t3',
-          title: 'VAT Concepts and Control',
-          description: 'Output and input VAT, VAT calculations, VAT control and ethical compliance with SARS rules.',
-          component: lazy(() => import('./term3/vat-concepts-control/VatConceptsControl')),
-        },
         {
           id: 'gr12-budgeting-projected-income-t3',
           title: 'Budgeting and Projected Income',
@@ -87,6 +81,12 @@ export const accountingGrade12: Subject = {
           description: 'Integrated revision across companies, interpretation, manufacturing, reconciliations, VAT and budgeting.',
           component: lazy(() => import('./term3/trial-exam-revision/TrialExamRevision')),
         },
+        {
+          id: 'gr12-manufacturing-cost-statements-t2',
+          title: 'Manufacturing Cost Statements',
+          description: 'Prime cost, factory overheads, work-in-process, cost of production and unit-cost analysis.',
+          component: lazy(() => import('./term2/manufacturing-cost-statements/ManufacturingCostStatements')),
+        }
       ],
     },
     {
@@ -110,7 +110,7 @@ export const accountingGrade12: Subject = {
           title: 'Exam Readiness Strategies',
           description: 'Final CAPS consolidation, exam technique, interpretation habits and ethics-linked judgement.',
           component: lazy(() => import('./term4/exam-readiness-strategies/ExamReadinessStrategies')),
-        },
+        }
       ],
     },
   ],
