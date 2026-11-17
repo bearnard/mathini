@@ -3659,6 +3659,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Data Handling",
   "Mathematics"
  ],
+ "9|gr9-debtors-credit-t2": [
+  "Credit Sales and the Debtors Journal",
+  "Economic Management Sciences"
+ ],
  "9|gr9-defiance-campaign-freedom-charter-t3": [
   "Defiance Campaign and Freedom Charter",
   "History (Social Sciences)"

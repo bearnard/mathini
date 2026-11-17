@@ -3833,6 +3833,11 @@
                 "id": "gr9-budgeting-business-decisions",
                 "title": "Budgeting and Business Decisions",
                 "description": "Creating realistic budgets, monitoring variance, prioritizing spending, strategic decisions."
+              },
+              {
+                "id": "gr9-debtors-credit-t2",
+                "title": "Credit Sales and the Debtors Journal",
+                "description": "Credit sales, the National Credit Act, the debtors journal (DJ), debtors allowances (DAJ) and receipts from debtors."
               }
             ]
           },

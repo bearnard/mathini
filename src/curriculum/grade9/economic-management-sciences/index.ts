@@ -39,6 +39,12 @@ export const emsGrade9: Subject = {
           description: 'Creating realistic budgets, monitoring variance, prioritizing spending, strategic decisions.',
           component: lazy(() => import('./term2/budgeting-business-decisions/BudgetingBusinessDecisions')),
         },
+        {
+          id: 'gr9-debtors-credit-t2',
+          title: 'Credit Sales and the Debtors Journal',
+          description: 'Credit sales, the National Credit Act, the debtors journal (DJ), debtors allowances (DAJ) and receipts from debtors.',
+          component: lazy(() => import('./term2/debtors-credit/DebtorsCredit')),
+        },
       ],
     },
     {
