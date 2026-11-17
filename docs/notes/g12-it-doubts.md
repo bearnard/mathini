@@ -52,3 +52,22 @@ Source: DBE CAPS FET Information Technology Grades 10-12 (the original document,
 
 ## Not covered on purpose
 - Dynamic arrays (`SetLength`) and arrays of records.
+
+## 2024 amendment, package 1 (seven new lessons and six term moves)
+
+Source: the 2024 CAPS amendment, Grade 12 teaching plan (DBE Circular S9 of 2025: it applies to Grades 10 to 12 from January 2026). Comparison: `audit/it-2024-amendment-check.md`.
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 1 | AI, VR, AR and MR | The three kinds of reality are defined in one line each (VR replaces the view, AR adds to it, MR lets digital objects react to the room). | Textbooks differ on where AR ends and MR begins; the amendment lists the three without definitions. |
+| 2 | AI, VR, AR and MR | AI limitations: data, bias, errors, no real understanding. No products or vendors are named. | The amendment lists "advantages, disadvantages and limitations" without examples. |
+| 3 | Computer criminals | "Cracker" is taught as an ethical hacker, because the amendment writes "crackers (ethical hacker)". Many sources use cracker for a criminal. | Wording follows the CAPS; a teacher may want to say that usage varies. |
+| 4 | Computer criminals | Everything is described, nothing is instructed. | None. |
+| 5 | Network parts | Fibre, Wi-Fi, 4G, 5G and satellite are compared in one line each; no speeds are given. | Speeds and prices change quickly. |
+| 6 | E-communication security | SSL is taught with its newer name TLS in one sentence; public key encrypts, private key decrypts. | Simplified: real connections use keys to agree a shared key. |
+| 7 | E-communication security | Blockchain: a shared record in linked blocks where each block holds a fingerprint (hash) of the one before. | The amendment gives only the term. |
+| 8 | SEO | Honest versus dishonest methods (keyword stuffing, hidden text, link farms). | The amendment lists SEO without detail. |
+| 9 | Caring for data | Validation and verification are separated as "sensible" and "matches the source". | Some textbooks swap the two words. |
+| 10 | Performance | Cache is taught as the fastest memory, then RAM, then storage. SSD usually faster than HDD. | Relative statements; no figures. |
+
+Term moves (no content change): GUI Design to Term 2, Algorithmic Refinement to Term 3, Classes in Delphi to Term 2, Networks, Security and Systems Integration to Term 3, Advanced Databases and SQL to Term 1, Data Collection, Warehousing and Mining to Term 1.

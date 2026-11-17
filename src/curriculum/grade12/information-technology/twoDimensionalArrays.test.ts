@@ -20,7 +20,8 @@ const q = (part: string) => {
 
 test('the 2-D arrays lesson is registered in Term 2 (the existing ids are unchanged), with a task instruction', () => {
   const t2 = informationTechnologyGrade12.terms.find((t) => t.id === 2)!.topics.map((t) => t.id);
-  assert.ok(t2.includes('gr12-advanced-databases-sql-t2'), 'the existing Term 2 SQL lesson is still there');
+  assert.ok(!t2.includes('gr12-advanced-databases-sql-t2'), 'the SQL lesson moved to Term 1 (2024 amendment: SQL is a Term 1 topic)');
+  assert.ok(informationTechnologyGrade12.terms.find((t) => t.id === 1)!.topics.some((p) => p.id === 'gr12-advanced-databases-sql-t2'));
   assert.ok(t2.includes('gr12-two-dimensional-arrays-t2'));
   const tasks = (JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/it-gr12-missing.json', 'utf8')) as { tasks: Record<string, string> }).tasks;
   assert.ok('gr12-two-dimensional-arrays-t2' in tasks);

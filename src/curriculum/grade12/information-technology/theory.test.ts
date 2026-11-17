@@ -22,7 +22,7 @@ const LESSONS: Lesson[] = [
   { id: 'gr12-software-methodologies-design-tools-t1', term: 1, dir: 'term1/software-methodologies-design-tools', ...methodologies },
   { id: 'gr12-cloud-computing-virtualisation-t2', term: 2, dir: 'term2/cloud-computing-virtualisation', ...cloud },
   { id: 'gr12-computer-management-t2', term: 2, dir: 'term2/computer-management', ...management },
-  { id: 'gr12-data-collection-warehousing-mining-t3', term: 3, dir: 'term3/data-collection-warehousing-mining', ...data },
+  { id: 'gr12-data-collection-warehousing-mining-t3', term: 1, dir: 'term3/data-collection-warehousing-mining', ...data },
   { id: 'gr12-web3-semantic-search-t3', term: 3, dir: 'term3/web3-semantic-search', ...web3 },
   { id: 'gr12-internet-services-technologies-t3', term: 3, dir: 'term3/internet-services-technologies', ...services },
 ];

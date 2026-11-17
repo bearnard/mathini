@@ -25,8 +25,13 @@ const MOVES: [Grade, string, string, number][] = [
   [grade12, 'business-studies', 'gr12-human-rights-inclusivity-t3', 2], [grade12, 'business-studies', 'gr12-environmental-social-responsibility-t3', 2],
   [grade12, 'his', 'gr12-black-consciousness-movement-t1', 2], [grade12, 'his', 'gr12-soweto-uprising-t1', 2], [grade12, 'his', 'gr12-trade-unions-and-the-udf-t1', 2],
   [grade12, 'ls', 'gr12-endocrine-homeostasis-plant-responses-t2', 3],
-  [grade12, 'it', 'gr12-relational-data-joins-normalisation-t2', 1], [grade12, 'it', 'gr12-networks-security-systems-integration-t2', 1],
+  [grade12, 'it', 'gr12-relational-data-joins-normalisation-t2', 1], [grade12, 'it', 'gr12-networks-security-systems-integration-t2', 3],
   [grade12, 'it', 'gr12-forms-reports-database-program-integration-t2', 1], [grade12, 'it', 'gr12-cyber-security-emerging-technologies-t3', 2],
+  // 2024 CAPS amendment (Circular S9 of 2025): the amended Grade 12 plan places these lessons in these terms
+  [grade12, 'it', 'gr12-gui-design-event-driven-programming-t1', 2], [grade12, 'it', 'gr12-algorithmic-refinement-validation-testing-t1', 3],
+  [grade12, 'it', 'gr12-classes-in-delphi-t1', 2], [grade12, 'it', 'gr12-advanced-databases-sql-t2', 1], [grade12, 'it', 'gr12-data-collection-warehousing-mining-t3', 1],
+  [grade12, 'it', 'gr12-ai-vr-ar-mr-t2', 2], [grade12, 'it', 'gr12-computer-criminals-cybercrime-t2', 2], [grade12, 'it', 'gr12-network-parts-internet-access-t3', 3],
+  [grade12, 'it', 'gr12-e-communication-security-t3', 3], [grade12, 'it', 'gr12-seo-search-t3', 3], [grade12, 'it', 'gr12-caring-for-data-big-data-t1', 1], [grade12, 'it', 'gr12-performance-gpu-caching-t1', 1],
 ];
 
 test('moved lessons are listed in their CAPS term', () => {
