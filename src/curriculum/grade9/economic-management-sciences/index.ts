@@ -63,6 +63,18 @@ export const emsGrade9: Subject = {
           description: 'Production efficiency, quality control, marketing strategy, 4Ps and market research.',
           component: lazy(() => import('./term3/production-marketing/ProductionMarketing')),
         },
+        {
+          id: 'gr9-debtors-ledger-t3',
+          title: 'Debtors Ledger and General Ledger Posting',
+          description: "Debtors' accounts, posting the journal totals, and agreeing the list with the control account.",
+          component: lazy(() => import('./term3/debtors-ledger/DebtorsLedger')),
+        },
+        {
+          id: 'gr9-creditors-journals-t3',
+          title: 'Credit Purchases: Creditors Journals',
+          description: 'The creditors journal, creditors allowances, payments to creditors, and the creditors ledger.',
+          component: lazy(() => import('./term3/creditors-journals/CreditorsJournals')),
+        },
       ],
     },
     {
@@ -80,6 +92,12 @@ export const emsGrade9: Subject = {
           title: 'Exam Revision and Preparation',
           description: 'Case study analysis, concept integration, exam strategies, timed practice.',
           component: lazy(() => import('./term4/exam-revision-preparation/ExamRevisionPreparation')),
+        },
+        {
+          id: 'gr9-cash-credit-trial-balance-t4',
+          title: 'Cash and Credit Transactions with the Trial Balance',
+          description: 'Analysing cash and credit transactions, finding the balances, and drawing up a trial balance.',
+          component: lazy(() => import('./term4/cash-credit-trial-balance/CashCreditTrialBalance')),
         },
       ],
     },

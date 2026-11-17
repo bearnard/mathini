@@ -3719,6 +3719,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Careers and Career Choices",
   "Life Orientation"
  ],
+ "9|gr9-cash-credit-trial-balance-t4": [
+  "Cash and Credit Transactions with the Trial Balance",
+  "Economic Management Sciences"
+ ],
  "9|gr9-cells-tissues-organisation-t1": [
   "Cells, Tissues and Levels of Organisation",
   "Natural Sciences"
@@ -3747,6 +3751,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Kreatiewe & Persoonlike Skryfwerk",
   "Afrikaans FAL"
  ],
+ "9|gr9-creditors-journals-t3": [
+  "Credit Purchases: Creditors Journals",
+  "Economic Management Sciences"
+ ],
  "9|gr9-cv-and-covering-letter-t3": [
   "Writing a CV and a Covering Letter",
   "English HL"
@@ -3773,6 +3781,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "9|gr9-debtors-credit-t2": [
   "Credit Sales and the Debtors Journal",
+  "Economic Management Sciences"
+ ],
+ "9|gr9-debtors-ledger-t3": [
+  "Debtors Ledger and General Ledger Posting",
   "Economic Management Sciences"
  ],
  "9|gr9-defiance-campaign-freedom-charter-t3": [

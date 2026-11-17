@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { controlBalance, creditorsLedger, creditorsPostings, debtorsLedger, debtorsPostings, postTransactions, reconciles, trialBalance, type Entry } from './ems9c-helpers';
+import { partyAccount, controlBalance, creditorsLedger, creditorsPostings, debtorsLedger, debtorsPostings, postTransactions, reconciles, trialBalance, type Entry } from './ems9c-helpers';
 
 const e = (date: string, name: string, ref: string, amount: number): Entry => ({ date, name, ref, amount });
 const DJ = [e('2 Mar', 'Dlamini', 'INV01', 1200), e('5 Mar', 'Naidoo', 'INV02', 850), e('9 Mar', 'Dlamini', 'INV03', 400), e('12 Mar', 'Pillay', 'INV04', 1500)];
@@ -37,4 +37,15 @@ test('creditors mirror the debtors: purchases are credits, allowances and paymen
   assert.deepEqual(control, { balance: 1200, side: 'credit' });
   assert.equal(reconciles(ledger, control.balance), true);
   assert.equal(trialBalance(postTransactions(posts)).balanced, true);
+});
+
+test('a party account as a T-account: a debtor owes on the debit side, a creditor is owed on the credit side, and the balance agrees with the party list', () => {
+  const dj = [e('2 Mar', 'Dlamini', 'INV01', 1200), e('9 Mar', 'Dlamini', 'INV03', 400)];
+  const crj = [e('20 Mar', 'Dlamini', 'R01', 1000)];
+  const d = partyAccount(debtorsLedger(dj, [], crj)[0], 'debtor');
+  assert.deepEqual([d.totalDebit, d.totalCredit, d.balance, d.side], [1600, 1000, 600, 'debit']);
+  const cj = [e('3 Mar', 'Mokoena Wholesalers', 'S101', 2400)];
+  const cpj = [e('25 Mar', 'Mokoena Wholesalers', 'EFT1', 2000)];
+  const c = partyAccount(creditorsLedger(cj, [], cpj)[0], 'creditor');
+  assert.deepEqual([c.totalDebit, c.totalCredit, c.balance, c.side], [2000, 2400, 400, 'credit']);
 });
