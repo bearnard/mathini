@@ -669,6 +669,7 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr7-geometry-of-2d-shapes-and-straight-lines-t1": ["math", 7],
   "gr7-grammar-cohesion-t2": ["eng", 7],
   "gr7-grammar-consolidation-t4": ["eng", 7],
+  "gr7-graphical-communication-t1": ["nst", 7],
   "gr7-graphs-t3": ["math", 7],
   "gr7-history-of-astronomy-t4": ["nst", 7],
   "gr7-integers-t4": ["math", 7],

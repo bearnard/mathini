@@ -17,6 +17,12 @@ export const technologyGrade7: Subject = {
             () => import('./term1/mechanical-systems-and-control/MechanicalSystemsAndControl'),
           ),
         },
+        {
+          id: 'graphical-communication',
+          title: 'Graphical Communication',
+          description: 'Line types, scale and dimensions, oblique drawing, and single vanishing point perspective.',
+          component: lazy(() => import('./term1/graphical-communication/GraphicalCommunication')),
+        },
       ],
     },
     {
