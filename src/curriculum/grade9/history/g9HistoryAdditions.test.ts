@@ -87,7 +87,7 @@ test('the sensitive material is handled with care: both points of view, no casua
   const p = lessonText(pacific);
   assert.ok(/Two points of view/.test(p) && /apologised and paid compensation/.test(p) && /loyal/.test(p));
   assert.ok(!/\b\d{2,3}[ ,]?000\b[^.]{0,40}(killed|died|dead)/.test(p), 'no contested casualty figures');
-  assert.ok(/more than 100\D{0,2}000/.test(p));
+  assert.ok(/[Mm]ore than 100\D{0,2}000/.test(p));
   const u = lessonText(udhr);
   assert.ok(/not a law that a court can enforce/.test(u));
 });
