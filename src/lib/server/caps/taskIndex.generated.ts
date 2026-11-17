@@ -807,6 +807,7 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr9-dance-t3": ["ca", 9],
   "gr9-dance-t4": ["ca", 9],
   "gr9-data-handling-t4": ["math", 9],
+  "gr9-debtors-credit-t2": ["ems", 9],
   "gr9-defiance-campaign-freedom-charter-t3": ["his", 9],
   "gr9-democracy-human-rights-t3": ["lo", 9],
   "gr9-development-of-self-t1": ["lo", 9],
