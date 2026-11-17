@@ -2823,6 +2823,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Writing and Presenting",
   "isiXhosa SAL"
  ],
+ "7|gr7-afr-exam-writing-practice-t4": [
+  "Eksamen-skryf Oefening",
+  "Afrikaans FAL"
+ ],
  "7|gr7-area-and-perimeter-of-2d-shapes-t2": [
   "Area and Perimeter of 2D Shapes",
   "Mathematics"
@@ -2896,8 +2900,8 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Natural Sciences"
  ],
  "7|gr7-exam-writing-practice-t4": [
-  "Eksamen-skryf Oefening",
-  "Afrikaans FAL"
+  "Exam Writing Practice",
+  "English HL"
  ],
  "7|gr7-exponents-t1": [
   "Exponents",
@@ -3159,6 +3163,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Writing & Presenting",
   "isiXhosa SAL"
  ],
+ "8|gr8-afr-creative-writing-project-t3": [
+  "Kreatiewe Skryfprojek",
+  "Afrikaans FAL"
+ ],
  "8|gr8-algebraic-equations-t2": [
   "Algebraic Equations",
   "Mathematics"
@@ -3228,8 +3236,8 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Mathematics"
  ],
  "8|gr8-creative-writing-project-t3": [
-  "Kreatiewe Skryfprojek",
-  "Afrikaans FAL"
+  "Creative Writing Project",
+  "English HL"
  ],
  "8|gr8-dance-t1": [
   "Dance",
@@ -3653,6 +3661,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "9|gr9-afr-diary-entry-t2": [
   "Dagboekinskrywing",
+  "Afrikaans FAL"
+ ],
+ "9|gr9-afr-language-structures-t1": [
+  "Taalstrukture in Konteks",
+  "Afrikaans FAL"
+ ],
+ "9|gr9-afr-synoptic-revision-t4": [
+  "Sinoptiese Hersiening",
   "Afrikaans FAL"
  ],
  "9|gr9-afr-will-testament-t3": [
@@ -4160,8 +4176,8 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Social Sciences: Geography"
  ],
  "9|gr9-synoptic-revision-t4": [
-  "Sinoptiese Hersiening",
-  "Afrikaans FAL"
+  "Synoptic Revision",
+  "English HL"
  ],
  "9|gr9-technology-society-t4": [
   "Technology in Society and Exam Consolidation",

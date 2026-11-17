@@ -186,7 +186,7 @@ const RevisionExaminationPractice = () => (
     title="Revision and Examination Practice"
     subtitle="Comprehensive physics review and assessment"
     learnSteps={learnSteps}
-    task="gr10-revision-examination-practice-t4"
+    task="gr10-ps-revision-examination-practice-t4"
     bank={bank}
     apiPath="/api/caps/ps"
   />

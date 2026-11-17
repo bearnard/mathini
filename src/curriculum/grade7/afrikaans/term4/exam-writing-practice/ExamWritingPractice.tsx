@@ -159,7 +159,7 @@ const ExamWritingPractice = () => (
     title="Eksamen-skryf Oefening"
     subtitle="Timed writing, format recall and editing"
     learnSteps={learnSteps}
-    task="gr7-exam-writing-practice-t4"
+    task="gr7-afr-exam-writing-practice-t4"
     bank={bank}
     speak="options"
   />

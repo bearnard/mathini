@@ -70,7 +70,7 @@ export const psGrade10: Subject = {
           component: lazy(() => import('./term4/conservation-mechanical-energy/ConservationMechanicalEnergy')),
         },
         {
-          id: 'gr10-revision-examination-practice-t4',
+          id: 'gr10-ps-revision-examination-practice-t4',
           title: 'Revision and Examination Practice',
           description: 'Comprehensive physics review and assessment',
           component: lazy(() => import('./term4/revision-examination-practice/RevisionExaminationPractice')),

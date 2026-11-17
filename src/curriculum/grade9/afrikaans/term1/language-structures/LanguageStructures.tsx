@@ -182,7 +182,7 @@ const LanguageStructures = () => (
     title="Taalstrukture in Konteks"
     subtitle="Plurals, adjectives, tenses, and punctuation"
     learnSteps={learnSteps}
-    task="gr9-language-structures-t1"
+    task="gr9-afr-language-structures-t1"
     bank={bank}
     speak="options"
   />

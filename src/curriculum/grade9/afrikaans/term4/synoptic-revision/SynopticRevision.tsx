@@ -184,7 +184,7 @@ const SynopticRevision = () => (
     title="Sinoptiese Hersiening"
     subtitle="Full curriculum review, mixed-genre texts, and comprehension strategies"
     learnSteps={learnSteps}
-    task="gr9-synoptic-revision-t4"
+    task="gr9-afr-synoptic-revision-t4"
     bank={bank}
     speak="options"
   />

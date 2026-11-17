@@ -20,6 +20,7 @@ import path from 'node:path';
 import { makeQkey } from '../src/lib/shared/qkey';
 import { registerQuestionSql, sqlStr, type SeedQuestion } from '../src/lib/server/questions/sql';
 import { gather, type CodeQuestion, type FieldChange } from './question-drift';
+import { duplicateTaskIds } from '../src/test-support/taskIds';
 
 export const CHUNK_MAX = 1000;
 export const NIGHT_CAP = 40000;
@@ -150,6 +151,13 @@ export function planSync(
 const fmt = (n: number) => n.toLocaleString('en-ZA').replace(/,/g, ' ');
 
 async function main() {
+  // Questions are keyed by (task, prompt) and served by task: two lessons on one task id would share one pool. Refuse to sync until every task id is unique.
+  const dupTasks = duplicateTaskIds();
+  if (Object.keys(dupTasks).length > 0) {
+    console.error('Refusing to sync: these task ids are used by more than one lesson (give one of them a subject prefix, see src/taskIdsUnique.test.ts):');
+    for (const [task, files] of Object.entries(dupTasks)) console.error(`  ${task}\n${files.map((f) => `    ${f}`).join('\n')}`);
+    process.exit(2);
+  }
   const arg = (k: string, d: string) => { const i = process.argv.indexOf(k); return i >= 0 ? process.argv[i + 1] : d; };
   const flag = (k: string) => process.argv.includes(k);
   const auditDir = process.env.D1_AUDIT_DIR ?? path.join(process.env.HOME ?? '', 'Source/private/mathini/audit/d1-serving');
