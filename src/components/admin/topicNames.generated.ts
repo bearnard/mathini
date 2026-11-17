@@ -2431,6 +2431,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Dividing by 3-digit Numbers",
   "Mathematics"
  ],
+ "6|gr6-east-coast-trade-great-zimbabwe-t1": [
+  "East coast trade and Great Zimbabwe",
+  "History"
+ ],
  "6|gr6-enlargements-t4": [
   "Enlargements and Reductions",
   "Mathematics"
@@ -2461,6 +2465,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "6|gr6-mapungubwe-trade-today-t1": [
   "Mapungubwe: gold, trade and journeys",
+  "History"
+ ],
+ "6|gr6-marco-polo-t1": [
+  "Marco Polo: a European explorer in Asia",
   "History"
  ],
  "6|gr6-mass-t4": [
