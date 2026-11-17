@@ -2,7 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
 import { learnSteps } from './Slides';
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: "What is a rite of passage?",
     options: ["A ceremony for an important life stage", "A road that leads to a new town", "A game played between two schools", "A rule that is kept in a classroom at times"],

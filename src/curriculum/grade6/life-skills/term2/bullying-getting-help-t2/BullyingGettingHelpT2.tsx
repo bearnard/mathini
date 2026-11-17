@@ -2,7 +2,7 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem } from '../../../../../components/CapsSubjectTopic';
 import { learnSteps } from './Slides';
 
-const bank: CapsItem[] = [
+export const bank: CapsItem[] = [
   {
     prompt: "Which description fits bullying?",
     options: ["Hurting someone again and again on purpose", "A friendly game that both children enjoy", "One accidental bump in the school corridor", "A single argument that is soon forgotten"],
