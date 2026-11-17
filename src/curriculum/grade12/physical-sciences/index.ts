@@ -27,6 +27,12 @@ export const physicalSciencesGrade12: Subject = {
           description: "Work confidently with Grade 12 organic chemistry naming, properties and reaction patterns.",
           component: lazy(() => import('./term1/organic-molecules-reactions/OrganicMoleculesReactions')),
         },
+        {
+          id: "gr12-plastics-polymers-t1",
+          title: "Plastics and Polymers",
+          description: "Monomers and polymers, addition and condensation polymerisation, recycling codes and the environment.",
+          component: lazy(() => import('./term1/plastics-polymers/PlasticsPolymers')),
+        },
       ],
     },
     {
@@ -80,6 +86,12 @@ export const physicalSciencesGrade12: Subject = {
           title: "Electrochemical Reactions",
           description: "Interpret galvanic and electrolytic cells, half-reactions and practical electrochemistry uses.",
           component: lazy(() => import('./term3/electrochemical-reactions/ElectrochemicalReactions')),
+        },
+        {
+          id: "gr12-fertiliser-industry-t3",
+          title: "The Fertiliser Industry",
+          description: "N, P and K fertilisers, the Haber, Ostwald and contact processes, and the effect of fertilisers on the environment.",
+          component: lazy(() => import('./term3/fertiliser-industry/FertiliserIndustry')),
         },
       ],
     },
