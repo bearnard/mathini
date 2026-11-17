@@ -12,5 +12,15 @@ Source: DBE CAPS FET Information Technology Grades 10-12 (the original document,
 | 4 | Every printed number is recomputed in `twoDimensionalArrays.test.ts` from one data table with Delphi semantics (1-based bounds, `div` and `mod`). | None. |
 | 5 | The lesson does not teach reading the array from a text file, or arrays of strings, although the NSC practical paper often does. | CAPS lists structure, stepping through the items and basic operations such as row and column aggregates; a teacher may want a follow-up. |
 
+## Term 1: hardware, methodologies and design tools
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 6 | Hardware | Performance facts are relative (an SSD is usually faster than an HDD; cache is faster than RAM); no fixed speeds or sizes are given. | Specifications change quickly; a teacher may add current figures. |
+| 7 | Hardware | The system motivations for home, games, SOHO and power users are typical examples, not fixed specifications. A graphics card is mentioned for games although CAPS lists only CPU, memory, storage and network speed as performance factors. | A teacher should confirm that a graphics card is acceptable in the classroom answer. |
+| 8 | Methodologies | The four methodologies are summarised in one idea, strength, weakness and situation each. Names such as Scrum are not taught. | CAPS says "overview and comparison"; textbooks differ in emphasis. |
+| 9 | Methodologies | Noun-verb analysis is shown on a library example (nouns suggest classes and attributes, verbs suggest methods). | A teacher may prefer an example from the PAT. |
+| 10 | Design tools | TOE, IPO, CRC and UML are each given one example or description; drawing a UML diagram is not assessed by multiple choice. | CAPS says "any appropriate tools". |
+
 ## Not covered on purpose
 - Dynamic arrays (`SetLength`) and arrays of records.

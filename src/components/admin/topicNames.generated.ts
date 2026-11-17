@@ -1623,6 +1623,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "GUI Design and Event-Driven Programming",
   "Information Technology"
  ],
+ "12|gr12-hardware-mobile-technologies-t1": [
+  "Hardware: Mobile Technologies and Performance",
+  "Information Technology"
+ ],
  "12|gr12-hardware-software-accessibility-t1": [
   "Hardware, Software and Accessibility",
   "Computer Applications Technology"
@@ -2049,6 +2053,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "12|gr12-social-implications-privacy-ethics-t3": [
   "Social Implications, Privacy and Ethics",
+  "Information Technology"
+ ],
+ "12|gr12-software-methodologies-design-tools-t1": [
+  "Software Methodologies and Design Tools",
   "Information Technology"
  ],
  "12|gr12-solution-development-advanced-applications-t2": [
