@@ -3687,6 +3687,11 @@
                 "id": "gr9-resistance-to-nazism-t1",
                 "title": "Resistance to Nazism",
                 "description": "Opposition from within Germany and occupied territories; courage under tyranny"
+              },
+              {
+                "id": "gr9-wwii-pacific-t1",
+                "title": "World War II in the Pacific",
+                "description": "Japanese expansion, Pearl Harbor, the camps for Japanese Americans, and prisoners of war."
               }
             ]
           },
@@ -3739,6 +3744,11 @@
                 "id": "gr9-womens-march-resistance-t3",
                 "title": "Women's March and Resistance",
                 "description": "Multi-racial solidarity, women's leadership, and continuing struggle"
+              },
+              {
+                "id": "gr9-udhr-t3",
+                "title": "The Universal Declaration of Human Rights",
+                "description": "Why it was written, what it says, how strong it is, and apartheid."
               }
             ]
           },

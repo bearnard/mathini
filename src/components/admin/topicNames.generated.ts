@@ -4243,6 +4243,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Transformation Geometry",
   "Mathematics"
  ],
+ "9|gr9-udhr-t3": [
+  "The Universal Declaration of Human Rights",
+  "History (Social Sciences)"
+ ],
  "9|gr9-understanding-development-hdi-t2": [
   "Understanding Development and HDI",
   "Social Sciences: Geography"
@@ -4298,6 +4302,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-writing-presenting-t4": [
   "Writing & Presenting",
   "isiXhosa FAL"
+ ],
+ "9|gr9-wwii-pacific-t1": [
+  "World War II in the Pacific",
+  "History (Social Sciences)"
  ]
 };
 
