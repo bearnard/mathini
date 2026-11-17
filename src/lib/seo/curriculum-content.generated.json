@@ -2088,6 +2088,11 @@
                 "id": "essay-writing-style",
                 "title": "Essay Writing and Style",
                 "description": "Narrative and reflective essays, coherence, style and editing."
+              },
+              {
+                "id": "gr8-letter-to-the-press-t3",
+                "title": "Writing a Letter to the Press",
+                "description": "Reacting to a newspaper article, the layout of a letter to the editor, giving a clear view with reasons, and a polite persuasive tone."
               }
             ]
           },
@@ -2109,6 +2114,21 @@
                 "id": "language-literature-consolidation",
                 "title": "Language and Literature Consolidation",
                 "description": "Integrated comprehension, literature response, grammar and summary."
+              },
+              {
+                "id": "gr8-newspaper-magazine-article-t4",
+                "title": "Writing a Newspaper or Magazine Article",
+                "description": "The headline and by-line, the lead that answers who, what, where, when and why, the body, quotations, and fact and opinion."
+              },
+              {
+                "id": "gr8-diary-entry-t4",
+                "title": "Writing a Diary Entry",
+                "description": "Date, first person, events and feelings, informal language, and reflection."
+              },
+              {
+                "id": "gr8-journalistic-report-t4",
+                "title": "Writing a Journalistic (News) Report",
+                "description": "Objective tone, facts first, sources and quotations, the past tense, and how a news report differs from an article."
               }
             ]
           }
