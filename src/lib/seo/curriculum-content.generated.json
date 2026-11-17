@@ -1115,6 +1115,16 @@
                 "id": "creative-arts-t2",
                 "title": "Creative Arts",
                 "description": "Texture, printmaking, collage, puppetry and performance."
+              },
+              {
+                "id": "bullying-getting-help-t2",
+                "title": "Bullying: Reasons and Getting Help",
+                "description": "What bullying is, why some children bully, where to find help, and how to stop."
+              },
+              {
+                "id": "cultural-rites-of-passage-t2",
+                "title": "Cultural Rites of Passage",
+                "description": "Birth and baptism, weddings and death: their meaning and significance."
               }
             ]
           },
