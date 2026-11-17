@@ -732,6 +732,18 @@ export const grade6: Grade = {
                             title: "Term 2",
                             topics: [
                                 {
+                                    id: "his-renaissance",
+                                    title: "The Renaissance: Leonardo da Vinci and Galileo",
+                                    description: "A time of new ideas in Europe, and two people who looked closely at the world.",
+                                    component: lazy(() => import('./history/term2/renaissance/RenaissanceLeonardoGalileo'))
+                                },
+                                {
+                                    id: "his-inventions-reasons-exploring",
+                                    title: "Why Europeans explored, and the inventions that helped",
+                                    description: "Reasons for sailing far from home, and the tools that made long voyages possible.",
+                                    component: lazy(() => import('./history/term2/inventions-reasons-exploring/InventionsReasonsExploring'))
+                                },
+                                {
                                     id: "his-british-take-cape",
                                     title: "The British Take the Cape",
                                     description: "Why the British took the Cape in 1795 and 1806.",

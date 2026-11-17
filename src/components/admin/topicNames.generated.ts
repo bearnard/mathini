@@ -2447,6 +2447,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Flow Diagrams",
   "Mathematics"
  ],
+ "6|gr6-inventions-reasons-exploring-t2": [
+  "Why Europeans explored, and the inventions that helped",
+  "History"
+ ],
  "6|gr6-large-numbers-t1": [
   "Large Numbers",
   "Mathematics"
@@ -2518,6 +2522,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|gr6-problem-solving-t4": [
   "Problem Solving",
   "Mathematics"
+ ],
+ "6|gr6-renaissance-t2": [
+  "The Renaissance: Leonardo da Vinci and Galileo",
+  "History"
  ],
  "6|gr6-shapes-2d-t1": [
   "2D Shapes",
