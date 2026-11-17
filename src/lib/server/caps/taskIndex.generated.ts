@@ -867,7 +867,6 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr9-grammar-revision-accuracy-t1": ["eng", 9],
   "gr9-graphic-orthographic-drawing-t1": ["tech", 9],
   "gr9-graphs-t3": ["math", 9],
-  "gr9-heat-energy-transfer-t3": ["ns", 9],
   "gr9-holocaust-genocide-t1": ["his", 9],
   "gr9-human-body-systems-health-t1": ["ns", 9],
   "gr9-hydraulics-pneumatics-t2": ["tech", 9],

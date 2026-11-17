@@ -3344,11 +3344,6 @@
                 "id": "gr9-cost-electrical-power",
                 "title": "Cost of Electrical Power",
                 "description": "Watts, kilowatt-hours, the cost of an appliance and prepaid electricity."
-              },
-              {
-                "id": "gr9-heat-energy-transfer",
-                "title": "Heat and Energy Transfer",
-                "description": "Conduction, convection, radiation, insulation, exothermic and endothermic reactions."
               }
             ]
           },
@@ -7701,11 +7696,6 @@
                 "id": "gr12-nervous-system-sense-organs-t2",
                 "title": "Nervous System and Sense Organs",
                 "description": "Human nervous coordination, reflex arc, eye and ear function."
-              },
-              {
-                "id": "gr12-endocrine-homeostasis-plant-responses-t2",
-                "title": "Endocrine System, Homeostasis and Plant Responses",
-                "description": "Hormonal control, homeostasis and plant responses to stimuli."
               }
             ]
           },
@@ -7713,6 +7703,11 @@
             "id": 3,
             "title": "Term 3",
             "topics": [
+              {
+                "id": "gr12-endocrine-homeostasis-plant-responses-t2",
+                "title": "Endocrine System, Homeostasis and Plant Responses",
+                "description": "Hormonal control, homeostasis and plant responses to stimuli."
+              },
               {
                 "id": "gr12-evolution-natural-selection-t3",
                 "title": "Evolution by Natural Selection",

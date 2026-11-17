@@ -75,12 +75,6 @@ export const naturalSciencesGrade9: Subject = {
           description: 'Watts, kilowatt-hours, the cost of an appliance and prepaid electricity.',
           component: lazy(() => import('./term3/cost-power/CostPower')),
         },
-        {
-          id: 'gr9-heat-energy-transfer',
-          title: 'Heat and Energy Transfer',
-          description: 'Conduction, convection, radiation, insulation, exothermic and endothermic reactions.',
-          component: lazy(() => import('./term3/heat-energy-transfer/HeatEnergyTransfer')),
-        },
       ],
     },
     {
