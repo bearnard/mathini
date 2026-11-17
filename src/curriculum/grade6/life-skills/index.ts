@@ -21,6 +21,8 @@ export const lifeSkills: Subject = {
         { id: 'personal-social-wellbeing-t2', title: 'Personal & Social Well-being', description: 'Friendships, conflict resolution, personal safety.', component: lazy(() => import('./term2/personal-social-wellbeing-t2/PersonalSocialWellbeingT2')) },
         { id: 'physical-education-t2', title: 'Physical Education', description: 'Invasion games, agility, teamwork and fair play.', component: lazy(() => import('./term2/physical-education-t2/PhysicalEducationT2')) },
         { id: 'creative-arts-t2', title: 'Creative Arts', description: 'Texture, printmaking, collage, puppetry and performance.', component: lazy(() => import('./term2/creative-arts-t2/CreativeArtsT2')) },
+        { id: 'bullying-getting-help-t2', title: 'Bullying: Reasons and Getting Help', description: 'What bullying is, why some children bully, where to find help, and how to stop.', component: lazy(() => import('./term2/bullying-getting-help-t2/BullyingGettingHelpT2')) },
+        { id: 'cultural-rites-of-passage-t2', title: 'Cultural Rites of Passage', description: 'Birth and baptism, weddings and death: their meaning and significance.', component: lazy(() => import('./term2/cultural-rites-of-passage-t2/CulturalRitesOfPassageT2')) },
       ],
     },
     {

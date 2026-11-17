@@ -2271,6 +2271,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "The British Take the Cape",
   "History"
  ],
+ "6|bullying-getting-help-t2": [
+  "Bullying: Reasons and Getting Help",
+  "Life Skills"
+ ],
  "6|byvoeglike-naamwoorde": [
   "Byvoeglike Naamwoorde",
   "Afrikaans (FAL)"
@@ -2314,6 +2318,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|creative-transactional-writing": [
   "Creative & Transactional Writing",
   "English HL"
+ ],
+ "6|cultural-rites-of-passage-t2": [
+  "Cultural Rites of Passage",
+  "Life Skills"
  ],
  "6|current-issues-media": [
   "Media Texts",
