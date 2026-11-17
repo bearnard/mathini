@@ -7,7 +7,7 @@ Source: `audit/caps-alignment.md` (Grade 11 Physical Sciences, 11 HIGH gaps); CA
 | feat/g11-ps-t1 | T1 | Newton's Law of Universal Gravitation (`gr11-gravitation-t1`), Atomic Combinations (`gr11-atomic-combinations-t1`), The Chemistry of Water (`gr11-chemistry-of-water-t1`) | done |
 | feat/g11-ps-optics | T2 | Refraction and Snell's Law (`gr11-refraction-snell-t2`), Wavefronts and Diffraction (`gr11-diffraction-t2`) | done |
 | feat/g11-ps-gases-moles | T2 | Ideal Gases (`gr11-ideal-gases-t2`), Moles, Gas Volumes and Concentration (`gr11-moles-concentration-t2`), Stoichiometry (`gr11-stoichiometry-t2`) | done (three lessons: the 12-hour quantitative topic is split in two) |
-| feat/g11-ps-t3 | T3 | Electromagnetism, Energy and Chemical Change, Acid-Base Reactions | todo |
+| feat/g11-ps-t3 | T3 | Electromagnetism (`gr11-electromagnetism-t3`), Energy and Chemical Change (`gr11-energy-chemical-change-t3`), Acid-Base Reactions (`gr11-acid-base-reactions-t3`) | done |
 | feat/g11-ps-t4 | T4 | Mining and Mineral Processing | todo |
 
 Constants are the NSC data-sheet values and are quoted in each question that needs them (G = 6,67 × 10⁻¹¹ N·m²·kg⁻²; R = 8,31 J·K⁻¹·mol⁻¹; Earth M = 5,98 × 10²⁴ kg, r = 6,38 × 10⁶ m).

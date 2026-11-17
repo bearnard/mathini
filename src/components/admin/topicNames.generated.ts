@@ -539,6 +539,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "The 1917 Russian Revolution",
   "History"
  ],
+ "11|gr11-acid-base-reactions-t3": [
+  "Acid-Base Reactions",
+  "Physical Sciences"
+ ],
  "11|gr11-acquiring-a-business-t1": [
   "Acquiring a Business",
   "Business Studies"
@@ -747,6 +751,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Electrochemical Cells",
   "Physical Sciences"
  ],
+ "11|gr11-electromagnetism-t3": [
+  "Electromagnetism",
+  "Physical Sciences"
+ ],
  "11|gr11-electrostatics-t2": [
   "Electrostatics",
   "Physical Sciences"
@@ -758,6 +766,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-energy-balance-t1": [
   "The Earth's Energy Balance",
   "Social Sciences: Geography"
+ ],
+ "11|gr11-energy-chemical-change-t3": [
+  "Energy and Chemical Change",
+  "Physical Sciences"
  ],
  "11|gr11-energy-resources-t4": [
   "Energy Resources",

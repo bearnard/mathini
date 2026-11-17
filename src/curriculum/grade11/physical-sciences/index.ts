@@ -135,6 +135,24 @@ export const physicalSciencesGrade11: Subject = {
           description: 'Galvanic cells, standard electrode potentials, EMF calculation and electrolytic cells.',
           component: lazy(() => import('./term3/electrochemical-cells/ElectrochemicalCells')),
         },
+        {
+          id: 'gr11-electromagnetism-t3',
+          title: 'Electromagnetism',
+          description: "The field around a current, the solenoid, magnetic flux, Faraday's law and Lenz's law.",
+          component: lazy(() => import('./term3/electromagnetism/Electromagnetism')),
+        },
+        {
+          id: 'gr11-energy-chemical-change-t3',
+          title: 'Energy and Chemical Change',
+          description: 'Bond energy, enthalpy, ΔH, activation energy and energy graphs.',
+          component: lazy(() => import('./term3/energy-chemical-change/EnergyChemicalChange')),
+        },
+        {
+          id: 'gr11-acid-base-reactions-t3',
+          title: 'Acid-Base Reactions',
+          description: 'Acid-base theories, conjugate pairs, ampholytes, salt-forming reactions and a simple titration.',
+          component: lazy(() => import('./term3/acid-base-reactions/AcidBaseReactions')),
+        },
       ],
     },
     {
