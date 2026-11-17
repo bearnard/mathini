@@ -33,6 +33,12 @@ export const historyGrade9: Subject = {
           description: 'Opposition from within Germany and occupied territories; courage under tyranny',
           component: lazy(() => import('./term1/resistance-to-nazism/ResistanceToNazism')),
         },
+        {
+          id: 'gr9-wwii-pacific-t1',
+          title: 'World War II in the Pacific',
+          description: 'Japanese expansion, Pearl Harbor, the camps for Japanese Americans, and prisoners of war.',
+          component: lazy(() => import('./term1/wwii-pacific/WwiiPacific')),
+        },
       ],
     },
     {
@@ -92,6 +98,12 @@ export const historyGrade9: Subject = {
           title: 'Women\'s March and Resistance',
           description: 'Multi-racial solidarity, women\'s leadership, and continuing struggle',
           component: lazy(() => import('./term3/womens-march-resistance/WomensMarchResistance')),
+        },
+        {
+          id: 'gr9-udhr-t3',
+          title: 'The Universal Declaration of Human Rights',
+          description: 'Why it was written, what it says, how strong it is, and apartheid.',
+          component: lazy(() => import('./term3/udhr/Udhr')),
         },
       ],
     },
