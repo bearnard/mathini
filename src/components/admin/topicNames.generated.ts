@@ -3635,6 +3635,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Banking, Saving and EMS Consolidation",
   "Economic Management Sciences"
  ],
+ "8|gr8-beyond-the-solar-system-t4": [
+  "Beyond the Solar System",
+  "Natural Sciences"
+ ],
  "8|gr8-biogeochemical-cycles-t2": [
   "Biogeochemical Cycles",
   "Natural Sciences"
@@ -3902,6 +3906,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-logic-and-pat-design-work-t2": [
   "Logic and PAT Design Work",
   "Technology"
+ ],
+ "8|gr8-looking-into-space-t4": [
+  "Looking into Space",
+  "Natural Sciences"
  ],
  "8|gr8-making-and-evaluating-prototypes-t3": [
   "Making and Evaluating Prototypes",

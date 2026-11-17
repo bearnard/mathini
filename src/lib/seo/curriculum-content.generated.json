@@ -2599,6 +2599,16 @@
                 "id": "forms-and-transfer-of-energy",
                 "title": "Forms and Transfer of Energy",
                 "description": "Energy forms, transfer pathways, and conservation of energy in systems."
+              },
+              {
+                "id": "beyond-the-solar-system",
+                "title": "Beyond the Solar System",
+                "description": "The Milky Way Galaxy, our nearest star, light years, light hours and light minutes, and the Universe."
+              },
+              {
+                "id": "looking-into-space",
+                "title": "Looking into Space",
+                "description": "Constellations, optical and radio telescopes such as SALT and the SKA, and good places to look into space."
               }
             ]
           }
