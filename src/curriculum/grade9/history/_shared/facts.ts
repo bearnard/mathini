@@ -32,6 +32,13 @@ export const UDHR = {
   chair: 'Eleanor Roosevelt',
 } as const;
 
+export const RACE = {
+  /** The Population Registration Act of 1950 classified every South African into a "population group". */
+  registrationAct: { year: 1950 },
+  /** CAPS wording: people descended from ancestors who lived in Africa "as recently as 100 000 years ago". Scientists give earlier dates for the first modern humans. */
+  ancestorsYears: 100000,
+} as const;
+
 export const PROJECT = {
   /** The CAPS written research and oral history project: numbers from the CAPS. */
   researchWords: 300,

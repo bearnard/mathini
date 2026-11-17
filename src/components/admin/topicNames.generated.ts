@@ -4055,6 +4055,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Number Systems and Operations",
   "Mathematics"
  ],
+ "9|gr9-oral-history-project-t3": [
+  "The Oral History and Research Project",
+  "History (Social Sciences)"
+ ],
  "9|gr9-oral-literature-narrative-t3": [
   "Oral Literature and Narrative Traditions",
   "English HL"
@@ -4110,6 +4114,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-pythagoras-t2": [
   "Theorem of Pythagoras",
   "Mathematics"
+ ],
+ "9|gr9-racism-myth-of-race-t3": [
+  "Racism and the Myth of Race",
+  "History (Social Sciences)"
  ],
  "9|gr9-reading-viewing-t1": [
   "Reading & Viewing",

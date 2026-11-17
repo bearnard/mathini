@@ -105,6 +105,18 @@ export const historyGrade9: Subject = {
           description: 'Why it was written, what it says, how strong it is, and apartheid.',
           component: lazy(() => import('./term3/udhr/Udhr')),
         },
+        {
+          id: 'gr9-racism-myth-of-race-t3',
+          title: 'Racism and the Myth of Race',
+          description: 'What racism is, our common ancestry, why race is a social construct, and apartheid classification.',
+          component: lazy(() => import('./term3/racism-myth-of-race/RacismMythOfRace')),
+        },
+        {
+          id: 'gr9-oral-history-project-t3',
+          title: 'The Oral History and Research Project',
+          description: 'What oral history is, what the project asks, good questions, and interviewing with care.',
+          component: lazy(() => import('./term3/oral-history-project/OralHistoryProject')),
+        },
       ],
     },
     {

@@ -6,15 +6,19 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import type { CapsItem, LearnStep } from '../../../components/CapsSubjectTopic';
 import { checkQuestion } from '../../../lib/shared/questionQuality';
 import { findGaps } from '../../../../scripts/g10-12-coverage';
-import { PACIFIC, UDHR, dateText } from './_shared/facts';
+import { PACIFIC, PROJECT, RACE, UDHR, dateText } from './_shared/facts';
 import { historyGrade9 } from './index';
 import * as pacific from './term1/wwii-pacific/WwiiPacificContent';
 import * as udhr from './term3/udhr/UdhrContent';
+import * as racism from './term3/racism-myth-of-race/RacismMythOfRaceContent';
+import * as oral from './term3/oral-history-project/OralHistoryProjectContent';
 
 interface Lesson { id: string; term: number; dir: string; learnSteps: LearnStep[]; bank: CapsItem[] }
 const LESSONS: Lesson[] = [
   { id: 'gr9-wwii-pacific-t1', term: 1, dir: 'term1/wwii-pacific', ...pacific },
   { id: 'gr9-udhr-t3', term: 3, dir: 'term3/udhr', ...udhr },
+  { id: 'gr9-racism-myth-of-race-t3', term: 3, dir: 'term3/racism-myth-of-race', ...racism },
+  { id: 'gr9-oral-history-project-t3', term: 3, dir: 'term3/oral-history-project', ...oral },
 ];
 const html = (n: Parameters<typeof renderToStaticMarkup>[0]) => renderToStaticMarkup(n);
 const text = (s: string) => s.replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/g, ' ').replace(/\s+/g, ' ').trim();
@@ -30,7 +34,7 @@ test('the Grade 9 History additions are registered in their term after the exist
     assert.deepEqual(ids.slice(0, existing[term].length), existing[term], `term ${term}: existing lessons keep their place and ids`);
     for (const l of LESSONS.filter((x) => x.term === term)) assert.ok(ids.includes(l.id), l.id);
   }
-  for (const [file, id] of [['term1', 'gr9-wwii-pacific-t1'], ['term3', 'gr9-udhr-t3']]) assert.ok(id in (JSON.parse(fs.readFileSync(`src/lib/server/caps/tasks/his-gr9-${file}.json`, 'utf8')) as { tasks: Record<string, string> }).tasks, id);
+  for (const [file, id] of [['term1', 'gr9-wwii-pacific-t1'], ['term3', 'gr9-udhr-t3'], ['term3', 'gr9-racism-myth-of-race-t3'], ['term3', 'gr9-oral-history-project-t3']]) assert.ok(id in (JSON.parse(fs.readFileSync(`src/lib/server/caps/tasks/his-gr9-${file}.json`, 'utf8')) as { tasks: Record<string, string> }).tasks, id);
 });
 
 for (const l of LESSONS) {
@@ -90,4 +94,26 @@ test('the sensitive material is handled with care: both points of view, no casua
   assert.ok(/[Mm]ore than 100\D{0,2}000/.test(p));
   const u = lessonText(udhr);
   assert.ok(/not a law that a court can enforce/.test(u));
+});
+
+test('RACISM: the Act year, the CAPS common-ancestry wording and the social-construct point are in the lesson, with the 1950 question answered from the facts', () => {
+  assert.equal(RACE.registrationAct.year, 1950);
+  assert.equal(RACE.ancestorsYears, 100000);
+  const r = lessonText(racism);
+  assert.ok(/Population Registration Act of 1950/.test(r));
+  assert.ok(/100\D{0,2}000 years ago/.test(r) && /even earlier/.test(r), 'the CAPS wording with the note that scientists give earlier dates');
+  assert.ok(/social construct, not a biological one/.test(r) && /real effects/.test(r));
+  assert.ok(racism.bank.some((q) => q.prompt.includes('1950') && q.answer === 'It sorted South Africans into groups'));
+});
+
+test('ORAL HISTORY: the CAPS numbers (300 words, 2 illustrations, about 10 questions, 600 words) are in the lesson and in the answers', () => {
+  assert.deepEqual([PROJECT.researchWords, PROJECT.illustrations, PROJECT.questions, PROJECT.storyWords], [300, 2, 10, 600]);
+  const o = lessonText(oral);
+  for (const frag of ['300 words', '2 illustrations', 'about 10 questions', '600 words']) assert.ok(o.includes(frag), frag);
+  const ans = (part: string) => oral.bank.find((q) => q.prompt.includes(part))!.answer;
+  assert.equal(ans('minimum length of the written research'), '300 words');
+  assert.equal(ans('How many illustrations'), '2');
+  assert.equal(ans('About how many questions'), 'About 10');
+  assert.equal(ans('How long should the story'), '600 words');
+  assert.ok(/Ask permission/.test(o) && /skip/.test(o));
 });
