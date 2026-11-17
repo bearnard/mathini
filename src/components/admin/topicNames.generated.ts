@@ -3627,6 +3627,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Area, Perimeter, Surface Area and Volume",
   "Mathematics"
  ],
+ "8|gr8-atoms-elements-compounds-t2": [
+  "Atoms, Elements, Compounds and Mixtures",
+  "Natural Sciences"
+ ],
  "8|gr8-banking-saving-t4": [
   "Banking, Saving and EMS Consolidation",
   "Economic Management Sciences"
@@ -3702,6 +3706,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-democracy-and-human-rights-t3": [
   "Democracy and Human Rights",
   "Life Orientation"
+ ],
+ "8|gr8-density-expansion-pressure-t2": [
+  "Density, Expansion and Gas Pressure",
+  "Natural Sciences"
  ],
  "8|gr8-development-of-the-self-in-society-t1": [
   "Development of the Self in Society",
@@ -3939,6 +3947,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Numeric and Geometric Patterns; Functions and Relationships",
   "Mathematics"
  ],
+ "8|gr8-particle-model-and-states-t2": [
+  "Particle Model of Matter and States",
+  "Natural Sciences"
+ ],
  "8|gr8-photosynthesis-and-respiration-t1": [
   "Photosynthesis and Respiration",
   "Natural Sciences"
@@ -3970,6 +3982,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-probability-t4": [
   "Probability",
   "Mathematics"
+ ],
+ "8|gr8-reactants-and-products-t2": [
+  "Chemical Reactions: Reactants and Products",
+  "Natural Sciences"
  ],
  "8|gr8-reading-viewing-t1": [
   "Reading & Viewing",

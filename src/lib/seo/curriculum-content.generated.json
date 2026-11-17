@@ -2527,6 +2527,26 @@
                 "id": "solar-system-and-gravity",
                 "title": "Solar System and Gravity",
                 "description": "Solar-system objects, scale ideas, and gravity as the force of attraction."
+              },
+              {
+                "id": "particle-model-and-states",
+                "title": "Particle Model of Matter and States",
+                "description": "Arrangement and movement of particles in solids, liquids and gases, change of state and diffusion."
+              },
+              {
+                "id": "density-expansion-pressure",
+                "title": "Density, Expansion and Gas Pressure",
+                "description": "Density and floating, expansion and contraction in terms of particles, and the pressure of a gas."
+              },
+              {
+                "id": "atoms-elements-compounds",
+                "title": "Atoms, Elements, Compounds and Mixtures",
+                "description": "Atoms and sub-atomic particles, elements, molecules, compounds and mixtures."
+              },
+              {
+                "id": "reactants-and-products",
+                "title": "Chemical Reactions: Reactants and Products",
+                "description": "Reactants, products, rearranged atoms and everyday chemical reactions."
               }
             ]
           },
