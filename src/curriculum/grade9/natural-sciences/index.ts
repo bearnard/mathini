@@ -64,6 +64,18 @@ export const naturalSciencesGrade9: Subject = {
           component: lazy(() => import('./term3/electricity-safety/ElectricitySafety')),
         },
         {
+          id: 'gr9-electricity-generation-grid',
+          title: 'Electricity Generation and the National Grid',
+          description: 'Power stations, alternative sources of energy, Koeberg and the national electricity grid.',
+          component: lazy(() => import('./term3/generation-grid/GenerationGrid')),
+        },
+        {
+          id: 'gr9-cost-electrical-power',
+          title: 'Cost of Electrical Power',
+          description: 'Watts, kilowatt-hours, the cost of an appliance and prepaid electricity.',
+          component: lazy(() => import('./term3/cost-power/CostPower')),
+        },
+        {
           id: 'gr9-heat-energy-transfer',
           title: 'Heat and Energy Transfer',
           description: 'Conduction, convection, radiation, insulation, exothermic and endothermic reactions.',
