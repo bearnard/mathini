@@ -4283,6 +4283,11 @@
                 "id": "gr10-word-processing-fundamentals",
                 "title": "Word Processing Fundamentals",
                 "description": "Cover workspace, document structure, text entry, editing, formatting, paragraph/page layout, proofing, illustrations."
+              },
+              {
+                "id": "gr10-ergonomics-green-computing-t1",
+                "title": "Ergonomics and Green Computing",
+                "description": "A healthy workstation, health issues from computer use, and green computing practices."
               }
             ]
           },
@@ -4299,6 +4304,16 @@
                 "id": "gr10-word-processing-spreadsheets-information-management",
                 "title": "Word Processing, Spreadsheets and Information Management",
                 "description": "Cover advanced word processing, tables, headers/footers, spreadsheets, cell references, formulae, ranges, data vs information."
+              },
+              {
+                "id": "gr10-wearables-rfid-qr-nfc-gps-t2",
+                "title": "Wearables, Codes, NFC, GPS and Communication Channels",
+                "description": "Wearable devices, RFID, magnetic strips, bar codes and QR codes, NFC, GPS, and the channels devices use to communicate."
+              },
+              {
+                "id": "gr10-licences-creative-commons-t2",
+                "title": "Software Licences and Creative Commons",
+                "description": "End-user and site licences, copyright, and how creative commons lets creators share their work."
               }
             ]
           },
@@ -4315,6 +4330,11 @@
                 "id": "gr10-application-development-web-basics",
                 "title": "Application Development and Web Basics",
                 "description": "Cover spreadsheets, word processing, presentations, HTML syntax, basic tags, web design, PAT phase 1."
+              },
+              {
+                "id": "gr10-digital-citizenship-netiquette-blogs-t3",
+                "title": "Digital Citizenship, Netiquette, Blogs and Web Applications",
+                "description": "Being a responsible digital citizen, your digital footprint, netiquette for e-mail and social media, and blogs, wikis and web applications."
               }
             ]
           },

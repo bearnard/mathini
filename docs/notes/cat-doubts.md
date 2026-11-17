@@ -23,3 +23,11 @@ Source: the 2024 CAPS amendment (DBE Circular S9 of 2025). Comparison: `audit/ca
 | 5 | Gig economy | Described neutrally with a benefit and a drawback. | None. |
 | 6 | Phishing and pharming, malware | Described only; nothing is instructed. | None. |
 | 7 | E-banking | SSL, https and extra verification are mentioned as habits. | The amendment says "for example SSL / https lock". |
+
+## Grade 10 (Terms 1 to 3)
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 1 | Ergonomics and green computing | The 20-20-20 rule is a common guideline. | Not CAPS wording. |
+| 2 | Wearables, RFID, QR, NFC, GPS | A bar code is "a number the system looks up". | Simplified. |
+| 3 | Licences and creative commons | Four common conditions are listed (attribution, non-commercial, no derivatives, share alike). | Real licences combine them in set ways. |
+| 4 | Digital citizenship and blogs | A wiki is "a site that many people can edit". | None. |

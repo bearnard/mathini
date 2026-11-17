@@ -1,6 +1,7 @@
 {
   "tasks": {
     "gr10-internet-communication-networks": "Topic: Internet, communication and networks. Cover internet and WWW, browsers, search engines, e-mail, attachments, netiquette, POPI, communication devices, digital citizenship. Ask about internet-technology definitions, online-safety scenarios, communication methods.",
-    "gr10-application-development-web-basics": "Topic: Application development and web basics. Cover spreadsheets, word processing, presentations, HTML syntax, basic tags, web design, PAT phase 1. Ask about practical software tasks, HTML tag correction, PAT evidence, theory/practical integration."
+    "gr10-application-development-web-basics": "Topic: Application development and web basics. Cover spreadsheets, word processing, presentations, HTML syntax, basic tags, web design, PAT phase 1. Ask about practical software tasks, HTML tag correction, PAT evidence, theory/practical integration.",
+    "gr10-digital-citizenship-netiquette-blogs-t3": "Topic: Digital Citizenship, Netiquette, Blogs and Web Applications. Cover digital citizens, active and passive digital footprints, netiquette on e-mail and social media, blogs, vlogs, wikis and web applications. Ask Grade 10 learners to judge a post, name a netiquette rule or define a tool."
   }
 }

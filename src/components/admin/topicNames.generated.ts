@@ -139,6 +139,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Diagnostic Features of Major Kingdoms",
   "Life Sciences"
  ],
+ "10|gr10-digital-citizenship-netiquette-blogs-t3": [
+  "Digital Citizenship, Netiquette, Blogs and Web Applications",
+  "Computer Applications Technology"
+ ],
  "10|gr10-diversity-discrimination-t1": [
   "Diversity, Discrimination and Human Rights Violations",
   "Life Orientation"
@@ -170,6 +174,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-equations-inequalities-t1": [
   "Equations and Inequalities",
   "Mathematics"
+ ],
+ "10|gr10-ergonomics-green-computing-t1": [
+  "Ergonomics and Green Computing",
+  "Computer Applications Technology"
  ],
  "10|gr10-ergonomics-green-health-t2": [
   "Ergonomics, Green Computing and Health",
@@ -262,6 +270,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-letters-cv-agenda-minutes-t1": [
   "Transactional Texts: Letters, CV, Agenda, Minutes and Obituary",
   "English HL"
+ ],
+ "10|gr10-licences-creative-commons-t2": [
+  "Software Licences and Creative Commons",
+  "Computer Applications Technology"
  ],
  "10|gr10-licences-digital-divide-t1": [
   "Licences, Copyright and the Digital Divide",
@@ -510,6 +522,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-waves-sound-light-t1": [
   "Waves, Sound and Light",
   "Physical Sciences"
+ ],
+ "10|gr10-wearables-rfid-qr-nfc-gps-t2": [
+  "Wearables, Codes, NFC, GPS and Communication Channels",
+  "Computer Applications Technology"
  ],
  "10|gr10-word-processing-fundamentals": [
   "Word Processing Fundamentals",
