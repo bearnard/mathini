@@ -12,6 +12,9 @@ import * as hardware from './term1/hardware-mobile-technologies/HardwareMobileTe
 import * as methodologies from './term1/software-methodologies-design-tools/SoftwareMethodologiesDesignToolsContent';
 import * as cloud from './term2/cloud-computing-virtualisation/CloudComputingVirtualisationContent';
 import * as management from './term2/computer-management/ComputerManagementContent';
+import * as data from './term3/data-collection-warehousing-mining/DataCollectionWarehousingMiningContent';
+import * as web3 from './term3/web3-semantic-search/Web3SemanticSearchContent';
+import * as services from './term3/internet-services-technologies/InternetServicesTechnologiesContent';
 
 interface Lesson { id: string; term: number; dir: string; learnSteps: LearnStep[]; bank: CapsItem[] }
 const LESSONS: Lesson[] = [
@@ -19,6 +22,9 @@ const LESSONS: Lesson[] = [
   { id: 'gr12-software-methodologies-design-tools-t1', term: 1, dir: 'term1/software-methodologies-design-tools', ...methodologies },
   { id: 'gr12-cloud-computing-virtualisation-t2', term: 2, dir: 'term2/cloud-computing-virtualisation', ...cloud },
   { id: 'gr12-computer-management-t2', term: 2, dir: 'term2/computer-management', ...management },
+  { id: 'gr12-data-collection-warehousing-mining-t3', term: 3, dir: 'term3/data-collection-warehousing-mining', ...data },
+  { id: 'gr12-web3-semantic-search-t3', term: 3, dir: 'term3/web3-semantic-search', ...web3 },
+  { id: 'gr12-internet-services-technologies-t3', term: 3, dir: 'term3/internet-services-technologies', ...services },
 ];
 const html = (n: Parameters<typeof renderToStaticMarkup>[0]) => renderToStaticMarkup(n);
 const text = (s: string) => s.replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/g, ' ').replace(/\s+/g, ' ').trim();
@@ -122,4 +128,47 @@ test('computer management: defragmenting is for an HDD and not an SSD, a UPS is 
   assert.equal(management.bank.find((q) => q.prompt.includes('benefits from defragmenting'))!.answer, 'A hard disk drive');
   assert.equal(management.bank.find((q) => q.prompt.includes('UPS protect'))!.answer, 'A sudden power failure');
   assert.ok(/load-shedding/.test(t) && /can be restored/.test(t));
+});
+
+test('data collection and mining: RFID, the mining steps in order, and the examples agree with the lesson', () => {
+  const t = lessonText(data);
+  assert.ok(/RFID \(radio-frequency identification\)/.test(t));
+  const steps = ['Extract the data', 'Look for patterns', 'Discover knowledge', 'Strategy'];
+  let at = -1;
+  for (const s of steps) { const i = t.indexOf(s); assert.ok(i > at, `${s} is in order`); at = i; }
+  assert.equal(data.bank.find((q) => q.prompt.includes('What does RFID stand for'))!.answer, 'Radio-frequency identification');
+  assert.equal(data.bank.find((q) => q.prompt.includes('comes after data is extracted'))!.answer.startsWith('Looking for patterns'), true);
+  assert.ok(/Invisible does not mean secret or illegal/.test(t), 'invisible collection is not called illegal');
+});
+
+test('Web 3.0 is the Semantic Web; semantic search and mediated search are described, with the privacy concern', () => {
+  const t = lessonText(web3);
+  assert.ok(/Web 3\.0 \(the Semantic Web\)/.test(t) && /Semantic search/.test(t) && /Mediated search/.test(t));
+  assert.equal(web3.bank.find((q) => q.prompt.includes('What is Web 3.0 called in CAPS'))!.answer.includes('Semantic'), true);
+  assert.ok(/privacy is at risk/.test(t));
+});
+
+// A small well-formedness check for the XML that the lesson shows and that a question offers: every tag is closed and the tags are nested properly.
+const wellFormed = (xml: string): boolean => {
+  const stack: string[] = [];
+  const re = /<(\/?)([a-zA-Z][\w-]*)[^>]*?(\/?)>/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(xml))) {
+    if (m[3] === '/') continue;
+    if (m[1] === '/') { if (stack.pop() !== m[2]) return false; } else stack.push(m[2]);
+  }
+  return stack.length === 0 && /^\s*<([\w-]+)[\s\S]*<\/\1>\s*$/.test(xml);
+};
+
+test('internet services: the XML example is well formed, only the correct XML option is well formed, and the CSS rule means what the question says', () => {
+  assert.equal(wellFormed(services.XML_EXAMPLE), true);
+  const q = services.bank.find((x) => x.prompt.includes('Which XML text is correct'))!;
+  for (const o of q.options) assert.equal(wellFormed(o), o === q.answer, o);
+  assert.ok(/h1 \{\s*color: blue;/.test(services.CSS_EXAMPLE));
+  const css = services.bank.find((x) => x.prompt.includes('h1 { color: blue; }'))!;
+  assert.equal(css.answer, 'Makes every h1 heading blue');
+  assert.equal(services.bank.find((x) => x.prompt.includes('Where does PHP code run'))!.answer, 'On the server');
+  assert.equal(services.bank.find((x) => x.prompt.includes('JavaScript script usually run'))!.answer, 'In the browser');
+  assert.equal(services.bank.find((x) => x.prompt.includes('What does CSS stand for'))!.answer, 'Cascading Style Sheets');
+  assert.ok(/A cookie is not a program/.test(lessonText(services)));
 });

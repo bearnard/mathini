@@ -7382,6 +7382,21 @@
                 "id": "gr12-integrated-solution-development-pat-completion-t3",
                 "title": "Integrated Solution Development and PAT Completion",
                 "description": "Integrated programming solutions, testing, documentation and PAT completion for Grade 12."
+              },
+              {
+                "id": "gr12-data-collection-warehousing-mining-t3",
+                "title": "Data Collection, Data Warehousing and Data Mining",
+                "description": "RFID, online and invisible collection, warehouses, the steps of mining, and location-based data."
+              },
+              {
+                "id": "gr12-web3-semantic-search-t3",
+                "title": "Web 3.0, Semantic Search and Online Applications",
+                "description": "Web 1.0, 2.0 and 3.0, the Semantic Web, online applications and storage, and improving searching."
+              },
+              {
+                "id": "gr12-internet-services-technologies-t3",
+                "title": "Internet Services Technologies",
+                "description": "Cookies and databases, scripts and AJAX, PHP and JavaScript, XML, and CSS."
               }
             ]
           },

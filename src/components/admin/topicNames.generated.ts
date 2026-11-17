@@ -1471,6 +1471,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Cyber Security and Emerging Technologies",
   "Information Technology"
  ],
+ "12|gr12-data-collection-warehousing-mining-t3": [
+  "Data Collection, Data Warehousing and Data Mining",
+  "Information Technology"
+ ],
  "12|gr12-data-handling-t1": [
   "Data Handling",
   "Mathematical Literacy"
@@ -1697,6 +1701,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "12|gr12-integrated-solution-development-pat-completion-t3": [
   "Integrated Solution Development and PAT Completion",
+  "Information Technology"
+ ],
+ "12|gr12-internet-services-technologies-t3": [
+  "Internet Services Technologies",
   "Information Technology"
  ],
  "12|gr12-inventory-valuation-control-t2": [
@@ -2170,6 +2178,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-vertical-projectile-motion-t1": [
   "Vertical Projectile Motion",
   "Physical Sciences"
+ ],
+ "12|gr12-web3-semantic-search-t3": [
+  "Web 3.0, Semantic Search and Online Applications",
+  "Information Technology"
  ],
  "12|gr12-women-and-peace-movements-t2": [
   "Women's Liberation, Women in South Africa and Peace Movements",

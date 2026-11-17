@@ -32,5 +32,15 @@ Source: DBE CAPS FET Information Technology Grades 10-12 (the original document,
 | 14 | Computer management | Defragmenting is taught for a hard disk drive and not for an SSD. | Modern operating systems schedule this themselves; a teacher may want to say so. |
 | 15 | Computer management | A UPS and load-shedding are used as the power-failure example; the advice to keep one backup copy away from the building is a common rule, not CAPS wording. | South African context added by the author. |
 
+## Term 3: data, Web 3.0 and internet services
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 16 | Data | "Invisible" collection is taught as data the person does not type in (card swipes, toll passes, cellphones), and the lesson says that it is not by itself secret or illegal. | CAPS lists the examples without a definition. |
+| 17 | Data | The mining example (baby food and nappies) is a simple illustration, not a claim about a real shop. Mining is taught in four steps following the CAPS list (SQL, extracting, patterns, knowledge, strategy). | CAPS gives a list, not a process. |
+| 18 | Web 3.0 | Web 3.0 is taught as the Semantic Web, as CAPS says. The wider popular meaning of the word (decentralised web, blockchain) is not taught. | Terminology differs outside CAPS. |
+| 19 | Web 3.0 | **Mediated search** is described generally: a search helped by an intermediary such as a person or a specialised search service. | The CAPS gives only the name. Textbook definitions differ; a teacher should confirm the expected answer. One question depends on it. |
+| 20 | Internet services | The XML and CSS examples are simple and are checked in the test (the XML is well formed, the CSS rule is the one the question describes). JavaScript is described as running in the browser, PHP on the server. | JavaScript can also run on a server; the lesson follows CAPS (locally: scripts, AJAX; online: server-side scripts). |
+
 ## Not covered on purpose
 - Dynamic arrays (`SetLength`) and arrays of records.

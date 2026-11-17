@@ -117,6 +117,24 @@ export const informationTechnologyGrade12: Subject = {
           description: "Integrated programming solutions, testing, documentation and PAT completion for Grade 12.",
           component: lazy(() => import('./term3/integrated-solution-development-pat-completion/IntegratedSolutionDevelopmentPatCompletion')),
         },
+        {
+          id: "gr12-data-collection-warehousing-mining-t3",
+          title: "Data Collection, Data Warehousing and Data Mining",
+          description: "RFID, online and invisible collection, warehouses, the steps of mining, and location-based data.",
+          component: lazy(() => import('./term3/data-collection-warehousing-mining/DataCollectionWarehousingMining')),
+        },
+        {
+          id: "gr12-web3-semantic-search-t3",
+          title: "Web 3.0, Semantic Search and Online Applications",
+          description: "Web 1.0, 2.0 and 3.0, the Semantic Web, online applications and storage, and improving searching.",
+          component: lazy(() => import('./term3/web3-semantic-search/Web3SemanticSearch')),
+        },
+        {
+          id: "gr12-internet-services-technologies-t3",
+          title: "Internet Services Technologies",
+          description: "Cookies and databases, scripts and AJAX, PHP and JavaScript, XML, and CSS.",
+          component: lazy(() => import('./term3/internet-services-technologies/InternetServicesTechnologies')),
+        },
       ],
     },
     {
