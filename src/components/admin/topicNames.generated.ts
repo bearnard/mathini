@@ -3751,6 +3751,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Ecosystems and Micro-organisms",
   "Natural Sciences"
  ],
+ "8|gr8-electric-circuits-current-t3": [
+  "Electric Circuits and Current Electricity",
+  "Natural Sciences"
+ ],
  "8|gr8-electrical-systems-and-circuit-safety-t2": [
   "Electrical Systems and Circuit Safety",
   "Technology"
@@ -4027,6 +4031,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "The Scramble for Africa",
   "History"
  ],
+ "8|gr8-series-parallel-circuits-t3": [
+  "Series and Parallel Circuits",
+  "Natural Sciences"
+ ],
  "8|gr8-settlement-and-urbanisation-t3": [
   "Settlement and Urbanisation",
   "Geography"
@@ -4049,6 +4057,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "8|gr8-solar-system-and-gravity-t2": [
   "Solar System and Gravity",
+  "Natural Sciences"
+ ],
+ "8|gr8-static-electricity-t3": [
+  "Static Electricity",
   "Natural Sciences"
  ],
  "8|gr8-structures-and-design-brief-t1": [
@@ -4078,6 +4090,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-transport-and-trade-t4": [
   "Transport and Trade",
   "Geography"
+ ],
+ "8|gr8-visible-light-t3": [
+  "Visible Light",
+  "Natural Sciences"
  ],
  "8|gr8-visual-arts-t1": [
   "Visual Arts",
