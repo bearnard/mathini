@@ -46,18 +46,6 @@ export const informationTechnologyGrade11: Subject = {
           component: lazy(() => import('./term1/computer-management-threats/ComputerManagementThreats')),
         },
         {
-          id: 'gr11-oop-classes-objects-t1',
-          title: 'OOP: Classes and Objects',
-          description: 'Defining classes, instantiating objects, UML class diagrams and access modifiers.',
-          component: lazy(() => import('./term1/oop-classes-objects/OopClassesObjects')),
-        },
-        {
-          id: 'gr11-oop-methods-constructors-t1',
-          title: 'OOP: Methods and Constructors',
-          description: 'Writing constructors, getter/setter methods, method parameters and return values.',
-          component: lazy(() => import('./term1/oop-methods-constructors/OopMethodsConstructors')),
-        },
-        {
           id: 'gr11-algorithms-t1',
           title: 'Algorithms',
           description: 'Flowcharts, pseudocode, sequential/selection/iteration structures and search algorithms.',
@@ -92,18 +80,6 @@ export const informationTechnologyGrade11: Subject = {
           title: 'Software Engineering',
           description: 'SDLC phases, development methodologies, system documentation and version control.',
           component: lazy(() => import('./term2/software-engineering/SoftwareEngineering')),
-        },
-        {
-          id: 'gr11-databases-sql-t2',
-          title: 'Databases and SQL',
-          description: 'Relational databases, primary/foreign keys and foundational SQL queries.',
-          component: lazy(() => import('./term2/databases-sql/DatabasesSql')),
-        },
-        {
-          id: 'gr11-sql-integration-t2',
-          title: 'SQL Integration',
-          description: 'Advanced SQL (JOINs, GROUP BY, aggregate functions) and database integration in programs.',
-          component: lazy(() => import('./term2/sql-integration/SqlIntegration')),
         },
         {
           id: 'gr11-protocols-media-t3',
@@ -147,6 +123,18 @@ export const informationTechnologyGrade11: Subject = {
           description: 'POPIA, cybercrime, digital security, the digital divide and ethical computing.',
           component: lazy(() => import('./term3/social-implications/SocialImplications')),
         },
+        {
+          id: 'gr11-database-design-keys-erd-t3',
+          title: 'Database Design: Keys, Relationships and ERDs',
+          description: 'Records, fields and tables, kinds of key, relationships and referential integrity, and entity relationship diagrams.',
+          component: lazy(() => import('./term3/database-design-keys-erd/DatabaseDesignKeysErd')),
+        },
+        {
+          id: 'gr11-database-access-code-multi-form-t3',
+          title: 'Using a Database in Code and Multi-Form Programs',
+          description: 'Connecting to a single-table database, navigating and changing a dataset, passing values, and a program with more than one form.',
+          component: lazy(() => import('./term3/database-access-code-multi-form/DatabaseAccessCodeMultiForm')),
+        },
       ],
     },
     {
@@ -170,6 +158,24 @@ export const informationTechnologyGrade11: Subject = {
           title: 'Examination Consolidation',
           description: 'Integrated revision across all Grade 11 IT topics for the year-end examinations.',
           component: lazy(() => import('./term4/exam-consolidation/ExamConsolidation')),
+        },
+        {
+          id: 'gr11-iot-4ir-big-data-t4',
+          title: 'The Internet of Things, 4IR and Big Data',
+          description: 'What the Internet of Things is, the fourth and fifth industrial revolutions, big data and its four Vs, and the social implications.',
+          component: lazy(() => import('./term4/iot-4ir-big-data/IotFourIrBigData')),
+        },
+        {
+          id: 'gr11-streaming-compression-t4',
+          title: 'Streaming, Downloading and Compression',
+          description: 'Download versus streaming, live broadcasts, lossless and lossy compression, and quality against bandwidth.',
+          component: lazy(() => import('./term4/streaming-compression/StreamingCompression')),
+        },
+        {
+          id: 'gr11-internet-services-websites-security-t4',
+          title: 'Websites, HTTP and Internet Security Services',
+          description: 'Static and dynamic websites, location-based sites, HTTP and HTTPS, multi-factor authentication, OTP and tokens, and Internet careers.',
+          component: lazy(() => import('./term4/internet-services-websites-security/InternetServicesWebsitesSecurity')),
         },
       ],
     },

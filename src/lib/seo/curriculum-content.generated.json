@@ -6046,16 +6046,6 @@
                 "description": "Human error, physical threats, hardware failure, malware, social engineering and their remedies."
               },
               {
-                "id": "gr11-oop-classes-objects-t1",
-                "title": "OOP: Classes and Objects",
-                "description": "Defining classes, instantiating objects, UML class diagrams and access modifiers."
-              },
-              {
-                "id": "gr11-oop-methods-constructors-t1",
-                "title": "OOP: Methods and Constructors",
-                "description": "Writing constructors, getter/setter methods, method parameters and return values."
-              },
-              {
                 "id": "gr11-algorithms-t1",
                 "title": "Algorithms",
                 "description": "Flowcharts, pseudocode, sequential/selection/iteration structures and search algorithms."
@@ -6085,16 +6075,6 @@
                 "id": "gr11-software-engineering-t2",
                 "title": "Software Engineering",
                 "description": "SDLC phases, development methodologies, system documentation and version control."
-              },
-              {
-                "id": "gr11-databases-sql-t2",
-                "title": "Databases and SQL",
-                "description": "Relational databases, primary/foreign keys and foundational SQL queries."
-              },
-              {
-                "id": "gr11-sql-integration-t2",
-                "title": "SQL Integration",
-                "description": "Advanced SQL (JOINs, GROUP BY, aggregate functions) and database integration in programs."
               },
               {
                 "id": "gr11-protocols-media-t3",
@@ -6131,6 +6111,16 @@
                 "id": "gr11-social-implications-t3",
                 "title": "Social Implications",
                 "description": "POPIA, cybercrime, digital security, the digital divide and ethical computing."
+              },
+              {
+                "id": "gr11-database-design-keys-erd-t3",
+                "title": "Database Design: Keys, Relationships and ERDs",
+                "description": "Records, fields and tables, kinds of key, relationships and referential integrity, and entity relationship diagrams."
+              },
+              {
+                "id": "gr11-database-access-code-multi-form-t3",
+                "title": "Using a Database in Code and Multi-Form Programs",
+                "description": "Connecting to a single-table database, navigating and changing a dataset, passing values, and a program with more than one form."
               }
             ]
           },
@@ -6152,6 +6142,21 @@
                 "id": "gr11-exam-consolidation-t4",
                 "title": "Examination Consolidation",
                 "description": "Integrated revision across all Grade 11 IT topics for the year-end examinations."
+              },
+              {
+                "id": "gr11-iot-4ir-big-data-t4",
+                "title": "The Internet of Things, 4IR and Big Data",
+                "description": "What the Internet of Things is, the fourth and fifth industrial revolutions, big data and its four Vs, and the social implications."
+              },
+              {
+                "id": "gr11-streaming-compression-t4",
+                "title": "Streaming, Downloading and Compression",
+                "description": "Download versus streaming, live broadcasts, lossless and lossy compression, and quality against bandwidth."
+              },
+              {
+                "id": "gr11-internet-services-websites-security-t4",
+                "title": "Websites, HTTP and Internet Security Services",
+                "description": "Static and dynamic websites, location-based sites, HTTP and HTTPS, multi-factor authentication, OTP and tokens, and Internet careers."
               }
             ]
           }

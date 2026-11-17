@@ -159,3 +159,27 @@ test('the hidden Grade 12 Life Orientation lessons are out of the curriculum but
   for (const t of lo.terms) assert.ok(t.topics.length > 0, `Term ${t.id} is not empty`);
   assert.equal(lo.terms.find((t) => t.id === 2)!.topics.length, 2);
 });
+
+// 2024 CAPS amendment (DBE Circular S9 of 2025), Grade 11 IT: OOP is Grade 12 Term 2 and SQL is Grade 12 Term 1, so the four Grade 11 lessons on them are hidden
+// now that the Grade 11 replacements are live. Code, task instructions and D1 questions stay; each page redirects (308) to the Grade 11 IT subject page.
+test('the hidden Grade 11 IT lessons are out of the curriculum but their code, task instructions and redirects remain, and the replacements are listed', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const it = grade11.subjects.find((x) => x.id === 'it')!;
+  const ids = it.terms.flatMap((t) => t.topics.map((p) => p.id));
+  const hidden: [string, string, string, string][] = [
+    ['gr11-oop-classes-objects-t1', 'term1/oop-classes-objects/OopClassesObjects.tsx', 'oop-classes-and-objects', 'it-gr11-term1.json'],
+    ['gr11-oop-methods-constructors-t1', 'term1/oop-methods-constructors/OopMethodsConstructors.tsx', 'oop-methods-and-constructors', 'it-gr11-term1.json'],
+    ['gr11-databases-sql-t2', 'term2/databases-sql/DatabasesSql.tsx', 'databases-and-sql', 'it-gr11-term2.json'],
+    ['gr11-sql-integration-t2', 'term2/sql-integration/SqlIntegration.tsx', 'sql-integration', 'it-gr11-term2.json'],
+  ];
+  for (const [id, file, slug, taskFile] of hidden) {
+    assert.ok(!ids.includes(id), `${id} is hidden`);
+    assert.ok(fs.existsSync(`src/curriculum/grade11/information-technology/${file}`), `${file} is kept`);
+    assert.equal(LEGACY_REDIRECTS.find((r) => r.source === `/grade-11/information-technology/${slug}`)?.destination, '/grade-11/information-technology');
+    const tasks = JSON.parse(fs.readFileSync(`src/lib/server/caps/tasks/${taskFile}`, 'utf8')).tasks as Record<string, string>;
+    assert.ok(id in tasks, `${id}: the task instruction is kept`);
+  }
+  for (const id of ['gr11-database-design-keys-erd-t3', 'gr11-database-access-code-multi-form-t3', 'gr11-iot-4ir-big-data-t4', 'gr11-streaming-compression-t4', 'gr11-internet-services-websites-security-t4', 'gr11-user-defined-methods-t2', 'gr11-dbms-database-types-t2']) assert.ok(ids.includes(id), `${id} is listed`);
+  for (const t of it.terms) assert.ok(t.topics.length > 0, `Term ${t.id} is not empty`);
+});

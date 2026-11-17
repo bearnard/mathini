@@ -587,13 +587,17 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Data Processing",
   "Information Technology"
  ],
+ "11|gr11-database-access-code-multi-form-t3": [
+  "Using a Database in Code and Multi-Form Programs",
+  "Information Technology"
+ ],
+ "11|gr11-database-design-keys-erd-t3": [
+  "Database Design: Keys, Relationships and ERDs",
+  "Information Technology"
+ ],
  "11|gr11-database-reports-spreadsheet-integration-t3": [
   "Database Reports and Spreadsheet Integration",
   "Computer Applications Technology"
- ],
- "11|gr11-databases-sql-t2": [
-  "Databases and SQL",
-  "Information Technology"
  ],
  "11|gr11-dbms-database-types-t2": [
   "Database Management Systems and Database Types",
@@ -795,9 +799,17 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Intermolecular Forces",
   "Physical Sciences"
  ],
+ "11|gr11-internet-services-websites-security-t4": [
+  "Websites, HTTP and Internet Security Services",
+  "Information Technology"
+ ],
  "11|gr11-inventory-systems-stock-valuation-t3": [
   "Inventory Systems and Stock Valuation",
   "Accounting"
+ ],
+ "11|gr11-iot-4ir-big-data-t4": [
+  "The Internet of Things, 4IR and Big Data",
+  "Information Technology"
  ],
  "11|gr11-language-consolidation-editing-t3": [
   "Language Consolidation and Editing",
@@ -962,14 +974,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-number-patterns-t1": [
   "Number Patterns",
   "Mathematics"
- ],
- "11|gr11-oop-classes-objects-t1": [
-  "OOP: Classes and Objects",
-  "Information Technology"
- ],
- "11|gr11-oop-methods-constructors-t1": [
-  "OOP: Methods and Constructors",
-  "Information Technology"
  ],
  "11|gr11-operations-marketing-function-t2": [
   "Operations and Marketing Function",
@@ -1167,10 +1171,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Spreadsheets: IF Logic and Databases",
   "Computer Applications Technology"
  ],
- "11|gr11-sql-integration-t2": [
-  "SQL Integration",
-  "Information Technology"
- ],
  "11|gr11-stalins-ussr-t1": [
   "Stalin's USSR",
   "History"
@@ -1186,6 +1186,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-statistics-t4": [
   "Statistics",
   "Mathematics"
+ ],
+ "11|gr11-streaming-compression-t4": [
+  "Streaming, Downloading and Compression",
+  "Information Technology"
  ],
  "11|gr11-study-skills-coping-t1": [
   "Study Skills and Coping Strategies",

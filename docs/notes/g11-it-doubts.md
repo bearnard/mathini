@@ -16,3 +16,15 @@ Source: the 2024 CAPS amendment, Grade 11 teaching plan (DBE Circular S9 of 2025
 | 10 | User-defined methods | Delphi examples use `CalcVAT`; value parameters only (the amendment says "Value parameters only"). | `var` parameters are not taught. |
 
 Term moves in branch A (no content change): Computer Architecture to Term 1, File Handling to Term 2, Network Topologies to Term 1, Protocols and Transmission Media to Term 2.
+
+## Branch B (Terms 3 and 4)
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 11 | Database design | Alternate key is "another field that could also identify a record". | Textbooks differ slightly on the term. |
+| 12 | Database access in code | Posting a change is taught as a step; the exact Delphi calls differ by component (ADOTable, ADOQuery). | The amendment says "access fields and records ... apply all changes". |
+| 13 | IoT, 4IR, big data | 5IR is described as people and machines working together. | The amendment names 4IR and 5IR without definitions; wording varies. |
+| 14 | Streaming and compression | Lossy and lossless are shown with ZIP, JPEG and MP3. | Examples only. |
+| 15 | Websites and security | The padlock shows an encrypted connection and does not prove honesty. | None. |
+
+Hidden after the replacements went live (Wave B): OOP: Classes and Objects, OOP: Methods and Constructors (Grade 12 Term 2 in the amendment), Databases and SQL, SQL Integration (Grade 12 Term 1). Code, task instructions and D1 questions are kept; the pages go to the Grade 11 IT subject page.
