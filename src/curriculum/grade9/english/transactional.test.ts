@@ -9,11 +9,15 @@ import { findGaps } from '../../../../scripts/g10-12-coverage';
 import { englishHLGrade9 } from './index';
 import * as diary from './term2/diary-entry/DiaryEntryContent';
 import * as constitution from './term2/constitution-and-policy/ConstitutionAndPolicyContent';
+import * as will from './term3/will-and-testament/WillAndTestamentContent';
+import * as cv from './term3/cv-and-covering-letter/CvAndCoveringLetterContent';
 
 interface Lesson { id: string; term: number; dir: string; learnSteps: LearnStep[]; bank: CapsItem[] }
 const LESSONS: Lesson[] = [
   { id: 'diary-entry', term: 2, dir: 'term2/diary-entry', ...diary },
   { id: 'constitution-and-policy', term: 2, dir: 'term2/constitution-and-policy', ...constitution },
+  { id: 'will-and-testament', term: 3, dir: 'term3/will-and-testament', ...will },
+  { id: 'cv-and-covering-letter', term: 3, dir: 'term3/cv-and-covering-letter', ...cv },
 ];
 const html = (n: Parameters<typeof renderToStaticMarkup>[0]) => renderToStaticMarkup(n);
 const text = (s: string) => s.replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/g, ' ').replace(/\s+/g, ' ').trim();
@@ -79,4 +83,19 @@ test('every model text is labelled as original and shows its parts', () => {
   for (const needle of ['Date and time', 'Events', 'Evaluation', 'first person']) assert.ok(d.includes(needle), `diary: ${needle}`);
   const c = text(html(h('div', null, constitution.learnSteps.map((s) => s.content))));
   for (const needle of ['Membership', 'Amendments', 'Date of adoption and signature', 'binding']) assert.ok(c.includes(needle), `constitution: ${needle}`);
+});
+
+test('the will lesson keeps the legal detail out of the questions and tells the learner to see a lawyer', () => {
+  const t = text(html(h('div', null, will.learnSteps.map((s) => s.content))));
+  assert.ok(/drawn up with a lawyer/.test(t));
+  const bankText = will.bank.map((q) => `${q.prompt} ${q.options.join(' ')} ${q.explanation}`).join(' ');
+  assert.ok(!/\b(age|years old|two witnesses|valid|Wills Act)\b/i.test(bankText), 'no question depends on the exact legal rules');
+});
+
+test('the covering letter lesson gives the closing rule: Yours faithfully after Dear Sir or Madam, Yours sincerely after a name', () => {
+  const t = text(html(h('div', null, cv.learnSteps.map((s) => s.content))));
+  assert.ok(/Dear Sir or Madam.{0,30}Yours faithfully/.test(t) && /Dear Mr Naidoo.{0,40}Yours sincerely/.test(t));
+  const ends = cv.bank.filter((q) => /How should it end/.test(q.prompt));
+  assert.equal(ends.length, 2);
+  assert.deepEqual(ends.map((q) => q.answer).sort(), ['Yours faithfully', 'Yours sincerely']);
 });

@@ -87,6 +87,18 @@ export const englishHLGrade9: Subject = {
           description: 'Active and passive voice, reported speech, figurative language and complex sentences.',
           component: lazy(() => import('./term3/advanced-language-context/AdvancedLanguageContext')),
         },
+        {
+          id: 'will-and-testament',
+          title: 'Reading and Writing a Will and Testament',
+          description: 'Key words, the parts of a will, formal language, signing and witnesses, and writing one for a task.',
+          component: lazy(() => import('./term3/will-and-testament/WillAndTestament')),
+        },
+        {
+          id: 'cv-and-covering-letter',
+          title: 'Writing a CV and a Covering Letter',
+          description: 'What a CV provides, how to present it, and the layout and language of a covering letter.',
+          component: lazy(() => import('./term3/cv-and-covering-letter/CvAndCoveringLetter')),
+        },
       ],
     },
     {
