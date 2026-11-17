@@ -3651,6 +3651,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Advertensies & Visuele Oortuiging",
   "Afrikaans FAL"
  ],
+ "9|gr9-afr-application-letter-t4": [
+  "Aansoekbrief",
+  "Afrikaans FAL"
+ ],
  "9|gr9-afr-constitution-policy-t2": [
   "Grondwet en Beleid",
   "Afrikaans FAL"
@@ -3661,6 +3665,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "9|gr9-afr-diary-entry-t2": [
   "Dagboekinskrywing",
+  "Afrikaans FAL"
+ ],
+ "9|gr9-afr-email-t4": [
+  "E-pos",
   "Afrikaans FAL"
  ],
  "9|gr9-afr-language-structures-t1": [

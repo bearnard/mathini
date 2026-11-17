@@ -15,6 +15,8 @@ Nothing here has been checked by a first-language speaker. Every Afrikaans word,
 | 7 | CV and covering letter | Headings Persoonlike besonderhede, Kwalifikasies, Werkondervinding, Verwysings (referees). | Textbooks differ; `Verwysings` is widely used for referees. |
 | 8 | Covering letter | Greeting `Geagte Meneer/Mevrou` and closing `Vriendelike groete` (the same forms as the existing formal-letter lesson). | The closings `Die uwe` and `Hoogagtend` are also taught in some schools; they are not used here. |
 | 9 | Both | Names and numbers are invented (`082 000 0000`, `Hillcrest Hoërskool`, `Mev. N. Dlamini`). | Placeholders so that no real person is named. |
+| 10 | Application letter | `u` is taught as the formal `you` (with `jou` as the informal wrong choice in a formal letter), and the three-part plan: opening (the post and where it was advertised), middle (experience and qualities), ending (CV attached, interview, thanks). | The plan is the author's; CAPS names the text type only. |
+| 11 | E-mail | Lines `Aan`, `Kopie`, `Onderwerp` (To, CC, Subject); formal `Geagte Mev. Dlamini` / `Vriendelike groete` against informal `Hallo Zinzi` / `Groete`; `Donderdag` and `Mag ons asseblief ... gebruik?`. | Standard; please confirm that `Kopie` is the usual label for CC in Afrikaans mail programs (some show `KK`). |
 
 
 ## Every Afrikaans item shown, with its English gloss
@@ -30,7 +32,8 @@ Nothing here has been checked by a first-language speaker. Every Afrikaans word,
 | 14 Maart | 14 March |
 | Liewe Dagboek, | Dear Diary, |
 | Ek | I |
-| Geagte Meneer | Dear Sir (the wrong opening for a diary) |
+| Geagte Meneer | Dear Sir |
+| Die register moet by die leser pas | The register must suit the reader. |
 | Hy het gister gehardloop. | He ran yesterday. (the wrong, third-person example) |
 | gister | yesterday |
 | vandag | today |
@@ -148,3 +151,48 @@ Nothing here has been checked by a first-language speaker. Every Afrikaans word,
 | Vriendelike groete | kind regards |
 | Onderwerp | subject |
 | Dekbrief | covering letter |
+
+### application
+
+| Afrikaans | English |
+|---|---|
+| aansoekbrief | letter of application |
+| Ek het u advertensie in die koerant gesien. | I saw your advertisement in the newspaper. |
+| Ek doen aansoek vir die pos van biblioteekassistent. | I am applying for the post of library assistant. |
+| Haai | Hey (the wrong, casual greeting) |
+| ondervinding | experience |
+| eienskappe | qualities |
+| Ek was twee jaar lank biblioteekmonitor. | I was a library monitor for two years. |
+| Ek is betroubaar. | I am reliable. |
+| Ek is die beste | I am the best (the unsupported-claim example) |
+| u | you (formal) |
+| Baie dankie vir u tyd. | Thank you very much for your time. |
+| Ek is beskikbaar vir 'n onderhoud. | I am available for an interview. |
+| jou | your (informal; the wrong word in a formal letter) |
+| Aansoekbrief | letter of application |
+| Ondervinding | experience |
+| U | you (formal) |
+
+### email
+
+| Afrikaans | English |
+|---|---|
+| e-pos | e-mail |
+| Aan | To |
+| Kopie | CC (copy) |
+| Onderwerp | subject |
+| Onderwerp: Versoek om die saal | Subject: Request for the hall |
+| u | you (formal) |
+| Geagte Mev. Dlamini | Dear Mrs Dlamini |
+| Mag ons asseblief die saal op Donderdag gebruik? | May we please use the hall on Thursday? |
+| Baie dankie. | Thank you very much. |
+| asseblief | please |
+| Vriendelike groete | kind regards |
+| Hallo | Hello |
+| Groete | regards, cheers (informal) |
+| Hallo Zinzi! | Hello Zinzi! |
+| Raai wat het vandag gebeur! | Guess what happened today! |
+| Geagte Meneer | Dear Sir |
+| Hallo Zinzi | Hello Zinzi |
+| Hallo Meneer | Hello Sir (the mixed-register wrong example) |
+| E-pos | e-mail |

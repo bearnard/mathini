@@ -3050,6 +3050,16 @@
                 "id": "afr-grammar-consolidation",
                 "title": "Taalkonsolidasie",
                 "description": "Year-end grammar review, punctuation, vocabulary, FET preparation."
+              },
+              {
+                "id": "afr-application-letter",
+                "title": "Aansoekbrief",
+                "description": "The opening, experience and qualities, the ending, and the formal u."
+              },
+              {
+                "id": "afr-email",
+                "title": "E-pos",
+                "description": "The parts of an e-mail, a formal and an informal message, and choosing the register."
               }
             ]
           }

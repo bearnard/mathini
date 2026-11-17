@@ -123,6 +123,18 @@ export const afrikaansFALGrade9: Subject = {
           description: 'Year-end grammar review, punctuation, vocabulary, FET preparation.',
           component: lazy(() => import('./term4/grammar-consolidation/GrammarConsolidation')),
         },
+        {
+          id: 'afr-application-letter',
+          title: 'Aansoekbrief',
+          description: 'The opening, experience and qualities, the ending, and the formal u.',
+          component: lazy(() => import('./term4/application-letter/ApplicationLetter')),
+        },
+        {
+          id: 'afr-email',
+          title: 'E-pos',
+          description: 'The parts of an e-mail, a formal and an informal message, and choosing the register.',
+          component: lazy(() => import('./term4/email/Email')),
+        },
       ],
     },
   ],
