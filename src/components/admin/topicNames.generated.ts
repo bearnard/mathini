@@ -1335,6 +1335,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Algorithmic Refinement, Validation and Testing",
   "Information Technology"
  ],
+ "12|gr12-alternatives-to-evolution-t4": [
+  "Alternatives to Evolution",
+  "Life Sciences"
+ ],
  "12|gr12-analysis-interpretation-ethics-t1": [
   "Analysis, Interpretation and Ethics",
   "Accounting"
@@ -1434,6 +1438,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-counting-probability-t3": [
   "Counting and Probability",
   "Mathematics"
+ ],
+ "12|gr12-cradle-of-humankind-t4": [
+  "The Cradle of Humankind",
+  "Life Sciences"
  ],
  "12|gr12-creative-thinking-business-strategies-t1": [
   "Creative Thinking and Business Strategies",

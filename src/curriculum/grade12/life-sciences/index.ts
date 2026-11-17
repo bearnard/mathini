@@ -106,6 +106,18 @@ export const lifeSciencesGrade12: Subject = {
       title: 'Term 4',
       topics: [
         {
+          id: 'gr12-cradle-of-humankind-t4',
+          title: "The Cradle of Humankind",
+          description: "South African fossil sites, scientists and evolutionary trends in human evolution.",
+          component: lazy(() => import('./term4/cradle-of-humankind/CradleOfHumankind')),
+        },
+        {
+          id: 'gr12-alternatives-to-evolution-t4',
+          title: "Alternatives to Evolution",
+          description: "Creationism, Intelligent Design, Literalism and Theistic evolution as views people hold.",
+          component: lazy(() => import('./term4/alternatives-to-evolution/AlternativesToEvolution')),
+        },
+        {
           id: 'gr12-paper1-human-reproduction-homeostasis-t4',
           title: "Paper 1 — Human Reproduction and Homeostasis",
           description: "Paper 1 revision focused on human reproduction, pregnancy and homeostasis.",
