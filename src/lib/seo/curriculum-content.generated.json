@@ -7438,6 +7438,16 @@
                 "description": "Pedigrees, sex-linked traits and mutation-based genetic variation."
               },
               {
+                "id": "gr12-genetic-engineering-t2",
+                "title": "Genetic Engineering",
+                "description": "Biotechnology, recombinant DNA, GMOs, stem cells and cloning."
+              },
+              {
+                "id": "gr12-dna-fingerprinting-t2",
+                "title": "DNA Fingerprinting, Paternity and mtDNA",
+                "description": "DNA profiles, paternity testing, forensics and mitochondrial DNA."
+              },
+              {
                 "id": "gr12-nervous-system-sense-organs-t2",
                 "title": "Nervous System and Sense Organs",
                 "description": "Human nervous coordination, reflex arc, eye and ear function."

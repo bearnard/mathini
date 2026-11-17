@@ -1439,6 +1439,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Digital Communication and Emerging Technologies",
   "Computer Applications Technology"
  ],
+ "12|gr12-dna-fingerprinting-t2": [
+  "DNA Fingerprinting, Paternity and mtDNA",
+  "Life Sciences"
+ ],
  "12|gr12-dna-protein-synthesis-t1": [
   "DNA and Protein Synthesis",
   "Life Sciences"
@@ -1554,6 +1558,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-functions-inverse-functions-t1": [
   "Functions and Inverse Functions",
   "Mathematics"
+ ],
+ "12|gr12-genetic-engineering-t2": [
+  "Genetic Engineering",
+  "Life Sciences"
  ],
  "12|gr12-genetics-inheritance-t2": [
   "Genetics and Inheritance",
