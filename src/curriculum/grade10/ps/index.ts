@@ -147,6 +147,24 @@ export const psGrade10: Subject = {
           description: 'Concentration of solutions, the molar volume of a gas and theoretical yield.',
           component: lazy(() => import('./term3/concentration-gas-yield/ConcentrationGasYield')),
         },
+        {
+          id: 'gr10-position-displacement-t3',
+          title: 'Position, Displacement and Distance',
+          description: 'Frame of reference, position, distance and displacement in one dimension.',
+          component: lazy(() => import('./term3/position-displacement/PositionDisplacement')),
+        },
+        {
+          id: 'gr10-speed-velocity-acceleration-t3',
+          title: 'Speed, Velocity and Acceleration',
+          description: 'Average speed, average velocity, changing units and acceleration.',
+          component: lazy(() => import('./term3/speed-velocity-acceleration/SpeedVelocityAcceleration')),
+        },
+        {
+          id: 'gr10-instantaneous-velocity-t3',
+          title: 'Instantaneous Velocity and Position-Time Graphs',
+          description: 'Gradients of x-t graphs, instantaneous velocity and constant acceleration.',
+          component: lazy(() => import('./term3/instantaneous-velocity/InstantaneousVelocity')),
+        },
       ],
     },
     {
