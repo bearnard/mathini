@@ -3,7 +3,7 @@
 import { authJson, checkWriteRequest, requireRole } from '../adultAuth/roles';
 import { readCapped } from '../adultAuth/http';
 import { buildClassProgress } from './classProgress';
-import { buildSchoolProgress, canAdminSchool, decideAsSchoolAdmin, pendingForSchool, schoolsOfAdmin } from './schoolAdmins';
+import { buildSchoolProgress, canAdminSchool, recommendAsSchoolAdmin, pendingForSchool, schoolsOfAdmin } from './schoolAdmins';
 import type { SchoolsDeps } from './http';
 
 type Handler = (user: { userId: string; email: string }, schoolId: string, schools: { id: string; name: string }[]) => Promise<Response>;
@@ -41,7 +41,7 @@ export const handleSchoolClass = (req: Request, deps: SchoolsDeps, classId: stri
     return r.ok ? authJson(r.progress) : authJson({ error: r.error }, r.status);
   });
 
-/** POST { decision: 'confirm' | 'decline', note? } with ?school= . Header X-Auth-Action: school-decide. */
+/** POST { decision: 'recommend' | 'not_recommend', note? } with ?school= . Header X-Auth-Action: school-decide. Records a recommendation only: it never grants the teacher role (the owner does, in /admin/teachers). */
 export async function handleSchoolDecide(req: Request, deps: SchoolsDeps, targetUserId: string): Promise<Response> {
   const bad = checkWriteRequest(req, 'school-decide');
   if (bad) return authJson({ error: bad }, 403);
@@ -49,7 +49,7 @@ export async function handleSchoolDecide(req: Request, deps: SchoolsDeps, target
     const text = await readCapped(req, 2048);
     let b: Record<string, unknown> = {};
     try { const v = text ? JSON.parse(text) : {}; if (v && typeof v === 'object' && !Array.isArray(v)) b = v as Record<string, unknown>; else return authJson({ error: 'invalid request' }, 400); } catch { return authJson({ error: 'invalid request' }, 400); }
-    const r = await decideAsSchoolAdmin(deps.db, user, schoolId, targetUserId, b.decision, b.note, deps.now);
-    return r.ok ? authJson({ ok: true, status: r.status }) : authJson({ error: r.error }, r.status);
+    const r = await recommendAsSchoolAdmin(deps.db, user, schoolId, targetUserId, b.decision, b.note, deps.now);
+    return r.ok ? authJson({ ok: true, verdict: r.verdict }) : authJson({ error: r.error }, r.status);
   });
 }

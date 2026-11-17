@@ -29,6 +29,7 @@ function Row({ a, onDone }: { a: AdminApplication; onDone: () => void }) {
         <dt className="admin-muted">SACE number</dt><dd style={{ margin: 0 }}><code>{a.saceNumber}</code></dd>
         <dt className="admin-muted">School</dt><dd style={{ margin: 0 }}>{a.schoolName}{a.province ? `, ${a.province}` : ''}</dd>
         {a.subjectsNote && (<><dt className="admin-muted">Teaches</dt><dd style={{ margin: 0 }}>{a.subjectsNote}</dd></>)}
+        {a.endorsement && (<><dt className="admin-muted">School admin</dt><dd style={{ margin: 0 }}>{a.endorsement.verdict === 'recommend' ? 'Recommends' : 'Does not recommend'} ({a.endorsement.by}, {when(a.endorsement.at)}){a.endorsement.note ? `: ${a.endorsement.note}` : ''}</dd></>)}
         {a.note && (<><dt className="admin-muted">Note</dt><dd style={{ margin: 0 }}>{a.note}</dd></>)}
       </dl>
       {(a.status === 'pending' || a.status === 'approved') && (
@@ -52,7 +53,7 @@ export default function TeachersPage() {
     <main style={{ maxWidth: 980, margin: '0 auto', padding: 16 }}>
       <h1 style={{ fontSize: 22, fontWeight: 700 }}>Teachers</h1>
       <p className="admin-secondary" style={{ fontSize: 14, marginTop: 4 }}>
-        Teachers ask for the role from their account page. Check the SACE number and the school, then approve. The teacher role is granted only here.
+        Teachers ask for the role from their account page. Check the SACE number and the school, then approve. The teacher role is granted only here. A school admin can recommend or not recommend an applicant of their school; that is shown on the application and decides nothing.
       </p>
       <div role="group" aria-label="Filter" style={{ display: 'flex', gap: 6, marginTop: 12, flexWrap: 'wrap' }}>
         {(['pending', 'approved', 'rejected', ''] as const).map((f) => (

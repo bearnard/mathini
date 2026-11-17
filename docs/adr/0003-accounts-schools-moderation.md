@@ -26,7 +26,7 @@ PrepPals (scholar.hibbins.org) is going **public**, for **families, teachers and
 | Question | Decision |
 |---|---|
 | Who keeps questions accurate | **Verified teachers in subject moderator groups** (by subject + phase), proposing changes with discussion and approval |
-| Teacher verification | **SACE registration number + confirmation by the teacher's school** |
+| Teacher verification | **SACE registration number, checked and approved by the platform admin (owner) only. The teacher's school admin can recommend, not approve** (owner decision, November 2026) |
 | Approval rule at start | **The owner approves every change until a subject+phase group has 5 moderators**; then 1 moderator approval (2 later) |
 | Adult sign-in | **Magic link by email** |
 | Audience | Public: learners, parents/families, teachers, schools |
@@ -41,7 +41,7 @@ PrepPals (scholar.hibbins.org) is going **public**, for **families, teachers and
 | **Parent/guardian** | Email magic link, then **link** a child (the child's code + PIN, or an invite from the child's screen) | Give/withdraw consent, see linked children's progress, reset a child's PIN, report a problem |
 | **Teacher** | Email magic link + **SACE number** + school confirmation | Everything a parent can for their CLASSES; create classes; set exam scope; propose question changes; join discussions |
 | **Subject moderator** | Appointed by admin, per **subject + phase** (e.g. NST · Intermediate) | Approve/reject proposals in that group, with a written reason |
-| **School admin** | Appointed by admin for one school | Confirm the school's teachers; see school-level progress |
+| **School admin** | Appointed by admin for one school | **Recommend** the school's teachers (the owner approves); see school-level progress |
 | **Admin** | The owner (Cloudflare Access, ADR 0002) | Everything; appoints moderators and school admins; overrides |
 
 **Child safety rules (non-negotiable):**
@@ -115,7 +115,7 @@ affects. Needs a scheduled job: fix the cron (it doesn't run today; OpenNext exp
 - **Exam scope:** a teacher sets "Grade 6 NST test, Terms 3–4, on 28 Nov". Learners in the class
   get matching exam practice and a **daily plan** counting down to it. This removes the guessing
   about what an exam covers.
-- **School admin** confirms teacher accounts claiming that school.
+- **School admin** recommends (or does not recommend) teacher applications naming that school; the recommendation is shown to the owner in /admin/teachers (table `teacher_endorsements`, migration 0027). Only the owner grants the teacher role.
 
 ### 7. Consent (POPIA)
 

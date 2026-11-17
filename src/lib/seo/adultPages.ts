@@ -51,9 +51,9 @@ export const FOR_PARENTS: AdultPage = {
 export const FOR_TEACHERS: AdultPage = {
   path: '/for-teachers',
   title: 'PrepPals for Teachers: Classes, Exam Scope and Progress',
-  description: 'Create classes with a join code, set the exam scope and date, and see how your class is doing, by nickname. Every teacher is checked (SACE) before it is turned on.',
+  description: 'Create classes with a join code, set the exam scope and date, and see how your class is doing, by nickname. The PrepPals team checks your SACE registration and approves you before it is turned on.',
   h1: 'PrepPals for teachers',
-  intro: 'Create classes, choose what an exam covers and when it is, and see how your class is doing. We check every teacher before teacher tools are turned on.',
+  intro: 'Create classes, choose what an exam covers and when it is, and see how your class is doing. The PrepPals team checks your SACE registration and approves you before teacher tools are turned on.',
   gets: [
     { heading: 'Classes with a join code', body: 'Make a class for a grade and subjects. Learners join with the code you give them and can leave at any time. You see who is in the class by nickname.' },
     { heading: 'How the class is doing', body: 'See which topics the class is finding easy or hard, how mock tests went, and how the class has improved since a date you choose. It is built to encourage: learners are not ranked.' },
@@ -62,7 +62,7 @@ export const FOR_TEACHERS: AdultPage = {
   steps: [
     'Sign in with your email address. We send you a link that works once, for 15 minutes.',
     'Open your account page and choose “Apply as a teacher”. Give your SACE registration number, your school and your province.',
-    'We check your details and approve your application. Until then it shows as waiting. If it is not approved you can apply again after 30 days.',
+    'The PrepPals team checks your SACE registration and approves you. Nobody else can approve you, not even a school admin; a school admin can only recommend you. Until then your application shows as waiting. If it is not approved you can apply again after 30 days.',
     'Make your first class and share its join code with your learners.',
   ],
   privacy: [
@@ -72,9 +72,9 @@ export const FOR_TEACHERS: AdultPage = {
     'The teacher area never shows ads or uses third-party analytics, and we do not sell or share this information.',
   ],
   faq: [
-    { q: 'Why do you check teachers?', a: 'Teachers see learners’ progress, so we confirm each teacher’s SACE registration and school before turning teacher tools on.' },
+    { q: 'Why do you check teachers?', a: 'Teachers see learners’ progress, so the PrepPals team checks each teacher’s SACE registration and school and approves them before teacher tools are turned on. A school admin cannot approve a teacher; they can only recommend one.' },
     { q: 'What do learners tell me?', a: 'Nothing is shared beyond their nickname and their progress in your class. They are told this before they join.' },
-    { q: 'How long does approval take?', a: 'We approve applications by hand, so it is not instant. Your account page shows whether your application is waiting.' },
+    { q: 'How long does approval take?', a: 'The PrepPals team approves applications by hand, so it is not instant. Your account page shows whether your application is waiting.' },
     { q: 'What if my application is not approved?', a: 'Your account page shows the reason we gave, and you can apply again after 30 days.' },
     { q: 'Can I delete my account?', a: 'Yes, from your account page. Your account, your SACE number, your classes and their join codes are removed. Learners’ own accounts are not touched.' },
   ],

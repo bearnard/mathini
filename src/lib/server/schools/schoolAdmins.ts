@@ -1,5 +1,6 @@
-// ADR 0003 sections 1 and 6: school admins. The owner (the admin) appoints one or more adults per school. A school admin can confirm or decline the teacher
-// applications of THEIR school (the owner keeps every override) and sees school-level progress. Pure server logic over AdminDb.
+// ADR 0003 sections 1 and 6: school admins. The owner (the admin) appoints one or more adults per school. A school admin can RECOMMEND (or not recommend) the
+// teacher applications of THEIR school and sees school-level progress. The school admin never grants the teacher role: only the owner does, in /admin/teachers.
+// Pure server logic over AdminDb.
 //
 // The role alone grants nothing: a school admin is an adult with the user_roles role 'school_admin' AND an active row in school_admins for the school.
 // Every read and write here takes the school id from that row, never from the request, so one school's admin can never reach another school's data.
@@ -8,7 +9,7 @@ import type { SchoolClassSummary, SchoolProgress } from '../../shared/schoolProg
 import { dayNumberOf, daysUntil } from '../../shared/dailyPlan';
 import { round1, sastDayNumber } from '../../shared/progressMeasures';
 import { isUuid } from './classes';
-import { decideApplication, maskSace, normName } from './teachers';
+import { maskSace, normName } from './teachers';
 
 export const MAX_SCHOOL_ADMINS = 5;
 const DAY_MS = 86_400_000;
@@ -94,7 +95,10 @@ export async function schoolsOfAdmin(db: AdminDb, userId: string): Promise<Schoo
 export const canAdminSchool = async (db: AdminDb, userId: string, schoolId: unknown): Promise<boolean> =>
   isUuid(schoolId) && (await db.all<{ n: number }>('SELECT 1 AS n FROM school_admins WHERE user_id = ? AND school_id = ? AND revoked_at IS NULL', [userId, schoolId])).length > 0;
 
-export interface SchoolApplication { userId: string; email: string; schoolName: string; province: string | null; subjectsNote: string | null; saceMasked: string; submittedAt: number }
+export type EndorsementVerdict = 'recommend' | 'not_recommend';
+/** What a school admin said about an applicant. Shown to the owner next to the application. */
+export interface Endorsement { verdict: EndorsementVerdict; note: string | null; by: string; at: number }
+export interface SchoolApplication { userId: string; email: string; schoolName: string; province: string | null; subjectsNote: string | null; saceMasked: string; submittedAt: number; endorsement: Endorsement | null }
 
 type AppRow = { user_id: string; email: string | null; sace_number: string; school_name: string; province: string | null; subjects_note: string | null; submitted_at: number };
 const matches = (a: { school_name: string; province: string | null }, s: SchoolRow) => normName(a.school_name) === normName(s.name) && (a.province ?? '') === (s.province ?? '');
@@ -110,23 +114,39 @@ export async function pendingForSchool(db: AdminDb, schoolId: string): Promise<S
     `SELECT a.user_id, u.email, a.sace_number, a.school_name, a.province, a.subjects_note, a.submitted_at FROM teacher_applications a LEFT JOIN users u ON u.id = a.user_id
      WHERE a.status = 'pending' ORDER BY a.submitted_at ASC LIMIT 400`,
   );
-  return rows.filter((a) => matches(a, school)).map((a) => ({
-    userId: a.user_id, email: a.email ?? '(deleted)', schoolName: a.school_name, province: a.province, subjectsNote: a.subjects_note, saceMasked: maskSace(a.sace_number), submittedAt: Number(a.submitted_at),
-  }));
+  const mine = rows.filter((a) => matches(a, school));
+  const ends = mine.length === 0 ? [] : await db.all<{ user_id: string; verdict: string; note: string | null; endorsed_by: string; endorsed_at: number }>(
+    `SELECT user_id, verdict, note, endorsed_by, endorsed_at FROM teacher_endorsements WHERE school_id = ? AND user_id IN (${JSON_LIST})`, [schoolId, JSON.stringify(mine.map((a) => a.user_id))],
+  );
+  return mine.map((a) => {
+    const e = ends.find((x) => x.user_id === a.user_id);
+    return {
+      userId: a.user_id, email: a.email ?? '(deleted)', schoolName: a.school_name, province: a.province, subjectsNote: a.subjects_note, saceMasked: maskSace(a.sace_number), submittedAt: Number(a.submitted_at),
+      endorsement: e ? { verdict: e.verdict as EndorsementVerdict, note: e.note, by: e.endorsed_by, at: Number(e.endorsed_at) } : null,
+    };
+  });
 }
 
 /**
- * A school admin confirms or declines a teacher who named their school. Confirming grants the teacher role through the SAME code as the owner's approval
- * (one batch: application, school link, role), recorded as decided by "<email> (school admin)". The application must name the admin's school.
+ * A school admin RECOMMENDS a teacher who named their school, or says they do not teach there. This only records the recommendation (teacher_endorsements,
+ * shown to the owner in /admin/teachers): it never changes the application and never grants the teacher role. The owner alone approves, in /admin/teachers.
+ * The words 'confirm' and 'decline' (the old buttons) are read as recommend and not_recommend, so an old page cannot grant anything either.
+ * The application must be pending and name the admin's school.
  */
-export async function decideAsSchoolAdmin(db: AdminDb, actor: { userId: string; email: string }, schoolId: unknown, targetUserId: unknown, decision: unknown, note: unknown, now: number): Promise<{ ok: true; status: 'approved' | 'rejected' } | Fail> {
+export async function recommendAsSchoolAdmin(db: AdminDb, actor: { userId: string; email: string }, schoolId: unknown, targetUserId: unknown, decision: unknown, note: unknown, now: number): Promise<{ ok: true; verdict: EndorsementVerdict } | Fail> {
   if (!(await canAdminSchool(db, actor.userId, schoolId))) return fail(404, 'Not found');
-  if (decision !== 'confirm' && decision !== 'decline') return fail(400, 'Unknown decision');
+  const verdict: EndorsementVerdict | null = decision === 'recommend' || decision === 'confirm' ? 'recommend' : decision === 'not_recommend' || decision === 'decline' ? 'not_recommend' : null;
+  if (!verdict) return fail(400, 'Unknown decision');
   if (typeof targetUserId !== 'string' || !/^[0-9a-f-]{36}$/i.test(targetUserId)) return fail(404, 'Not found');
   const pending = await pendingForSchool(db, schoolId as string);
   if (!pending.some((p) => p.userId === targetUserId)) return fail(404, 'Not found');
-  const r = await decideApplication(db, targetUserId, { decision: decision === 'confirm' ? 'approve' : 'reject', schoolId: decision === 'confirm' ? schoolId : undefined, note }, `${actor.email} (school admin)`, now);
-  return r.ok ? { ok: true, status: r.status as 'approved' | 'rejected' } : fail(r.status, r.error);
+  const text = typeof note === 'string' ? note.replace(/[\u0000-\u001f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 300) || null : null;
+  await db.batch([{
+    sql: `INSERT INTO teacher_endorsements (user_id, school_id, verdict, note, endorsed_by, endorsed_at) VALUES (?, ?, ?, ?, ?, ?)
+          ON CONFLICT(user_id) DO UPDATE SET school_id = excluded.school_id, verdict = excluded.verdict, note = excluded.note, endorsed_by = excluded.endorsed_by, endorsed_at = excluded.endorsed_at`,
+    params: [targetUserId, schoolId as string, verdict, text, actor.email, now],
+  }]);
+  return { ok: true, verdict };
 }
 
 // ---------- school-level progress ----------

@@ -1,6 +1,7 @@
 // ADR 0003 phase 3: teacher applications and the admin's decision. Pure server logic over AdminDb (the same SQL on D1 and node:sqlite).
 //
-// The teacher role is granted ONLY here, when the admin approves (user_roles.granted_by = 'admin'). Nothing else in the app can grant it.
+// The teacher role is granted ONLY here, when the owner (the platform admin, in /admin/teachers) approves (user_roles.granted_by = 'admin'). Nothing else in the app can grant it.
+// A school admin can only RECOMMEND an applicant (schoolAdmins.ts, teacher_endorsements); the recommendation is shown to the owner and decides nothing.
 // The SACE number is returned by listApplications (the admin screen) and, masked, to the applicant. It is in no other response and in no export.
 import type { AdminDb, Statement } from '../admin/db';
 
@@ -50,7 +51,7 @@ export async function applyAsTeacher(db: AdminDb, userId: string, input: ApplyIn
             subjects_note = excluded.subjects_note, status = 'pending', submitted_at = excluded.submitted_at,
             decided_at = NULL, decided_by = NULL, decision_note = NULL, school_id = NULL`,
     params: [userId, sace, school, province || null, note || null, now],
-  }]);
+  }, { sql: 'DELETE FROM teacher_endorsements WHERE user_id = ?', params: [userId] }]); // a school admin's earlier recommendation belongs to the earlier application
   return { ok: true, status: 'pending' };
 }
 
@@ -67,6 +68,8 @@ export async function getOwnApplication(db: AdminDb, userId: string): Promise<Ow
 export interface AdminApplication {
   userId: string; email: string; saceNumber: string; schoolName: string; province: string | null; subjectsNote: string | null; schoolId: string | null;
   status: ApplicationStatus; submittedAt: number; decidedAt: number | null; decidedBy: string | null; note: string | null;
+  /** What the school admin said about this applicant (a recommendation only: the owner decides). */
+  endorsement: { verdict: 'recommend' | 'not_recommend'; note: string | null; by: string; at: number } | null;
 }
 
 /** For /admin/teachers only (it shows the SACE number). Pending first (oldest first), then the others, newest decision first. */
@@ -74,9 +77,11 @@ export async function listApplications(db: AdminDb, status?: ApplicationStatus):
   const rows = await db.all<{
     user_id: string; email: string | null; sace_number: string; school_name: string; province: string | null; subjects_note: string | null; school_id: string | null;
     status: string; submitted_at: number; decided_at: number | null; decided_by: string | null; decision_note: string | null;
+    e_verdict: string | null; e_note: string | null; e_by: string | null; e_at: number | null;
   }>(
-    `SELECT a.user_id, u.email, a.sace_number, a.school_name, a.province, a.subjects_note, a.school_id, a.status, a.submitted_at, a.decided_at, a.decided_by, a.decision_note
-     FROM teacher_applications a LEFT JOIN users u ON u.id = a.user_id
+    `SELECT a.user_id, u.email, a.sace_number, a.school_name, a.province, a.subjects_note, a.school_id, a.status, a.submitted_at, a.decided_at, a.decided_by, a.decision_note,
+            e.verdict AS e_verdict, e.note AS e_note, e.endorsed_by AS e_by, e.endorsed_at AS e_at
+     FROM teacher_applications a LEFT JOIN users u ON u.id = a.user_id LEFT JOIN teacher_endorsements e ON e.user_id = a.user_id
      ${status ? 'WHERE a.status = ?' : ''}
      ORDER BY CASE a.status WHEN 'pending' THEN 0 ELSE 1 END, CASE a.status WHEN 'pending' THEN a.submitted_at END ASC, a.decided_at DESC
      LIMIT 200`,
@@ -85,6 +90,7 @@ export async function listApplications(db: AdminDb, status?: ApplicationStatus):
   return rows.map((r) => ({
     userId: r.user_id, email: r.email ?? '(deleted)', saceNumber: r.sace_number, schoolName: r.school_name, province: r.province, subjectsNote: r.subjects_note, schoolId: r.school_id,
     status: r.status as ApplicationStatus, submittedAt: Number(r.submitted_at), decidedAt: r.decided_at == null ? null : Number(r.decided_at), decidedBy: r.decided_by, note: r.decision_note,
+    endorsement: r.e_verdict ? { verdict: r.e_verdict as 'recommend' | 'not_recommend', note: r.e_note, by: r.e_by ?? '', at: Number(r.e_at) } : null,
   }));
 }
 

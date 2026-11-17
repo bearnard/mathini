@@ -68,7 +68,7 @@ export default function TeacherApply({ roles }: { roles: string[] }) {
       <h2 className="text-lg font-bold text-slate-900">Are you a teacher?</h2>
       {app === 'error' && <p className="mt-2 text-sm text-red-700" role="alert">Could not load your application.</p>}
       {app && app !== 'error' && app.status === 'pending' && (
-        <p className="mt-2 text-slate-700" role="status">Thank you. Your application for {app.schoolName} (SACE {app.saceMasked}) is waiting to be checked. We will approve it once we have confirmed your details.</p>
+        <p className="mt-2 text-slate-700" role="status">Thank you. Your application for {app.schoolName} (SACE {app.saceMasked}) is waiting to be checked. The PrepPals team checks your SACE registration and approves you. Nobody else can approve you, but a school admin may recommend you.</p>
       )}
       {app && app !== 'error' && app.status === 'rejected' && (
         <p className="mt-2 text-slate-700" role="status">Your last application was not approved{app.note ? `: ${app.note}` : '.'} {waiting ? `You can send a new one on ${waitDate}.` : 'You can send a new one.'}</p>
@@ -96,7 +96,7 @@ export default function TeacherApply({ roles }: { roles: string[] }) {
           <label className="block text-sm font-medium text-slate-700">What do you teach? (optional)
             <input className={field} value={note} onChange={(e) => setNote(e.target.value)} maxLength={200} />
           </label>
-          <p className="text-sm text-slate-600">Your SACE number is seen only by the owner, to check you. It is never shown to learners or other teachers.</p>
+          <p className="text-sm text-slate-600">Your SACE number is seen only by the PrepPals team, to check you. It is never shown to learners or other teachers.</p>
           {err && <p className="text-sm text-red-700" role="alert">{err}</p>}
           <div className="flex gap-2">
             <button type="submit" disabled={busy} className="min-h-12 flex-1 rounded-xl bg-indigo-600 px-4 text-base font-semibold text-white disabled:opacity-60">{busy ? 'Sending…' : 'Send application'}</button>
