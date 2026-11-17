@@ -35,3 +35,13 @@ export const HELP_NUMBERS = {
   cellphoneEmergency: { number: '112', note: 'works from a cell phone' },
   poisons: { number: '0861 555 777', note: 'Poisons Information Helpline' },
 } as const;
+
+/** Term 4 health facts: each number is a widely taught rule of thumb for children (no medicine names or doses anywhere). Asserted in g6LifeSkillsPsw.test.ts. */
+export const HEALTH = {
+  /** Cool a burn or scald under cool running water for at least this many minutes. */
+  burnCoolMinutes: 10,
+  /** Wash hands with soap and water for about this many seconds. */
+  handWashSeconds: 20,
+  /** A cough that lasts more than this many weeks is a reason to go to the clinic (TB). */
+  coughWeeks: 2,
+} as const;

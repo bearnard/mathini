@@ -1182,6 +1182,21 @@
                 "id": "creative-arts-t4",
                 "title": "Creative Arts",
                 "description": "3D construction, dance-drama and final showcase."
+              },
+              {
+                "id": "gr6-basic-first-aid-t4",
+                "title": "Basic First Aid",
+                "description": "Cuts, burns, sunburn, stings, bites, poisoning, choking, and when to get help."
+              },
+              {
+                "id": "gr6-food-hygiene-t4",
+                "title": "Food Hygiene",
+                "description": "Safe and harmful food, preparing and storing food, and food-borne diseases."
+              },
+              {
+                "id": "gr6-communicable-diseases-t4",
+                "title": "Communicable Diseases",
+                "description": "Colds, mumps, chickenpox, TB and athlete's foot: causes, signs, prevention and help."
               }
             ]
           }
