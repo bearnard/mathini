@@ -38,7 +38,10 @@ test('GradeExplorer is light and server-rendered: no script, no image, no client
   assert.ok(!/['"]use client['"]/.test(src));
   assert.ok(!/getCloudflareContext|from '[^']*server[^']*'|fetch\(/.test(src));
   assert.ok(explorer.length < 200_000, `explorer HTML is ${explorer.length} bytes`);
-  assert.ok(zlib.gzipSync(explorer).length < 25_000, 'about 25 KB or less once compressed');
+  // The FULL explorer (every topic) grows with the curriculum; the landing page renders it with topicsPerSubject={5} (checked below).
+  assert.ok(zlib.gzipSync(explorer).length < 32_000, `full explorer ${zlib.gzipSync(explorer).length} bytes gzipped (budget 32 KB)`);
+  const onLanding = renderToStaticMarkup(createElement(GradeExplorer, { topicsPerSubject: 5 }));
+  assert.ok(zlib.gzipSync(onLanding).length < 16_000, `landing explorer ${zlib.gzipSync(onLanding).length} bytes gzipped (budget 16 KB)`);
 });
 
 test('GradeExplorer is accessible: a labelled fieldset, tabs are real labels at least 44px tall, headings in order, "Show topics" summaries', () => {
