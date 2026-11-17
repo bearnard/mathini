@@ -87,6 +87,18 @@ export const afrikaansFALGrade9: Subject = {
           description: 'Sentence patterns, active/passive voice, editing, grammatical accuracy.',
           component: lazy(() => import('./term3/sentence-structure-voice/SentenceStructureVoice')),
         },
+        {
+          id: 'afr-will-testament',
+          title: 'Testament',
+          description: 'Key words, bemaak sentences, the order of a will, and exact language.',
+          component: lazy(() => import('./term3/will-testament/WillTestament')),
+        },
+        {
+          id: 'afr-cv-covering-letter',
+          title: 'CV en Dekbrief',
+          description: 'CV headings, referees, and the key sentences, layout and closing of a covering letter.',
+          component: lazy(() => import('./term3/cv-covering-letter/CvCoveringLetter')),
+        },
       ],
     },
     {

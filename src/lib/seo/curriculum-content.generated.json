@@ -3019,6 +3019,16 @@
                 "id": "afr-sentence-structure-voice",
                 "title": "Sinstruktuur & Stem",
                 "description": "Sentence patterns, active/passive voice, editing, grammatical accuracy."
+              },
+              {
+                "id": "afr-will-testament",
+                "title": "Testament",
+                "description": "Key words, bemaak sentences, the order of a will, and exact language."
+              },
+              {
+                "id": "afr-cv-covering-letter",
+                "title": "CV en Dekbrief",
+                "description": "CV headings, referees, and the key sentences, layout and closing of a covering letter."
               }
             ]
           },
