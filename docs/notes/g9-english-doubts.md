@@ -21,6 +21,7 @@ Source: DBE CAPS English Home Language, Senior Phase Grades 7-9 (Grade 9 teachin
 | 8 | Will | The model will names an executor, beneficiaries and "the rest"; clause headings follow the CAPS list (date, estate, beneficiaries, language, execution). | CAPS gives a list of elements, not a format. |
 | 9 | CV | The CV has the CAPS parts (personal details, formal qualifications, work experience, referees) and a "post applied for" line. | Textbook layouts differ (some add an objective or interests). |
 | 10 | Covering letter | "Yours faithfully" after "Dear Sir or Madam", "Yours sincerely" after a name. | Standard SA/UK convention; some teachers also accept "Dear Sir/Madam". |
+| 12 | Covering letter | The closing follows the CAPS formal letter description: the formal closing, then the writer's surname and initials ("Mahlangu L."), and the subject line is underlined. | Many textbooks sign with the full name; CAPS words it as surname and initials. |
 | 11 | Both | Telephone numbers and e-mail addresses are placeholders (082 000 0000, example.com). | Chosen so that no real person is contacted. |
 
 ## Not covered on purpose
