@@ -40,17 +40,23 @@ test('no term of the changed subjects is empty and no topic is listed twice', ()
   }
 });
 
-// Wave B3, Grade 12 IT: "Advanced OOP: Inheritance and Polymorphism" is not in the Grade 12 CAPS. It is hidden: out of the menus, the registry and the sitemap,
-// the lesson code stays in the repo, its page redirects (308) to the subject page, and its questions (the task instruction and the D1 rows) are untouched.
-test('the hidden Grade 12 IT lesson is out of the curriculum but its code, task instruction and redirect remain', async () => {
+// Wave B3, Grade 12 IT: two lessons that are not in the Grade 12 CAPS are hidden: out of the menus, the registry and the sitemap; the lesson code stays in the repo,
+// the page redirects (308), and the questions (the task instruction and the D1 rows) are untouched. "Encapsulation" waits for the CAPS lesson "Classes in Delphi".
+test('the hidden Grade 12 IT lessons are out of the curriculum but their code, task instruction and redirect remain', async () => {
   const fs = await import('node:fs');
   const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
   const it = grade12.subjects.find((x) => x.id === 'it')!;
   const ids = it.terms.flatMap((t) => t.topics.map((p) => p.id));
-  assert.ok(!ids.includes('gr12-advanced-oop-inheritance-polymorphism-t1'));
-  assert.ok(fs.existsSync('src/curriculum/grade12/information-technology/term1/advanced-oop-inheritance-polymorphism/AdvancedOopInheritancePolymorphism.tsx'), 'the code is kept');
+  const hidden: [string, string, string, string][] = [
+    ['gr12-advanced-oop-inheritance-polymorphism-t1', 'term1/advanced-oop-inheritance-polymorphism/AdvancedOopInheritancePolymorphism.tsx', '/grade-12/information-technology/advanced-oop-inheritance-and-polymorphism', '/grade-12/information-technology'],
+    ['gr12-encapsulation-class-design-exception-handling-t1', 'term1/encapsulation-class-design-exception-handling/EncapsulationClassDesignExceptionHandling.tsx', '/grade-12/information-technology/encapsulation-class-design-and-exception-handling', '/grade-12/information-technology/classes-in-delphi'],
+  ];
   const tasks = JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/it-gr12-term1.json', 'utf8')).tasks as Record<string, string>;
-  assert.ok('gr12-advanced-oop-inheritance-polymorphism-t1' in tasks, 'the task instruction is kept');
-  const r = LEGACY_REDIRECTS.find((x) => x.source === '/grade-12/information-technology/advanced-oop-inheritance-and-polymorphism');
-  assert.deepEqual(r?.destination, '/grade-12/information-technology');
+  for (const [id, file, source, destination] of hidden) {
+    assert.ok(!ids.includes(id), `${id} is hidden`);
+    assert.ok(fs.existsSync(`src/curriculum/grade12/information-technology/${file}`), 'the code is kept');
+    assert.ok(id in tasks, 'the task instruction is kept');
+    assert.equal(LEGACY_REDIRECTS.find((x) => x.source === source)?.destination, destination);
+  }
+  assert.ok(ids.includes('gr12-classes-in-delphi-t1'), 'the CAPS class lesson that replaces Encapsulation is listed');
 });

@@ -10,12 +10,6 @@ export const informationTechnologyGrade12: Subject = {
       title: 'Term 1',
       topics: [
         {
-          id: "gr12-encapsulation-class-design-exception-handling-t1",
-          title: "Encapsulation, Class Design and Exception Handling",
-          description: "Encapsulation, validation, constructor design, exception handling and debugging strategies.",
-          component: lazy(() => import('./term1/encapsulation-class-design-exception-handling/EncapsulationClassDesignExceptionHandling')),
-        },
-        {
           id: "gr12-gui-design-event-driven-programming-t1",
           title: "GUI Design and Event-Driven Programming",
           description: "GUI layout, controls, events, validation and separating interface code from logic.",
@@ -38,6 +32,12 @@ export const informationTechnologyGrade12: Subject = {
           title: "Software Methodologies and Design Tools",
           description: "Waterfall, RAD, incremental and agile; TOE, IPO, CRC and UML; noun-verb analysis and starting the PAT.",
           component: lazy(() => import('./term1/software-methodologies-design-tools/SoftwareMethodologiesDesignTools')),
+        },
+        {
+          id: "gr12-classes-in-delphi-t1",
+          title: "Classes in Delphi",
+          description: "Class and object, the constructor, accessor, mutator and auxiliary methods, and tracing a class.",
+          component: lazy(() => import('./term1/classes-in-delphi/ClassesInDelphi')),
         },
         {
           id: "gr12-relational-data-joins-normalisation-t2",
