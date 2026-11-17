@@ -1511,6 +1511,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Digital Communication and Emerging Technologies",
   "Computer Applications Technology"
  ],
+ "12|gr12-discussion-debate-panel-t2": [
+  "Discussions, Debates and Panels",
+  "English HL"
+ ],
  "12|gr12-dna-fingerprinting-t2": [
   "DNA Fingerprinting, Paternity and mtDNA",
   "Life Sciences"
@@ -1727,6 +1731,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Internet Services Technologies",
   "Information Technology"
  ],
+ "12|gr12-interview-dialogue-t2": [
+  "Interviews and Dialogues",
+  "English HL"
+ ],
+ "12|gr12-introducing-speaker-vote-of-thanks-t3": [
+  "Introducing a Speaker and a Vote of Thanks",
+  "English HL"
+ ],
  "12|gr12-inventory-valuation-control-t2": [
   "Inventory Valuation and Control",
   "Accounting"
@@ -1762,6 +1774,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-lifestyle-diseases-t3": [
   "Lifestyle Diseases and Interventions",
   "Life Orientation"
+ ],
+ "12|gr12-listening-comprehension-t1": [
+  "Listening for Comprehension",
+  "English HL"
  ],
  "12|gr12-listening-speaking-t1": [
   "Listening & Speaking",
@@ -1882,6 +1898,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-nsc-theory-exam-technique-t4": [
   "NSC Theory Exam Technique",
   "Information Technology"
+ ],
+ "12|gr12-oral-paper4-tasks-t1": [
+  "Paper 4 Orals: The Tasks and the 50 Marks",
+  "English HL"
  ],
  "12|gr12-oral-trial-preparation-t3": [
   "Oral Completion and Trial Preparation",
@@ -2006,6 +2026,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-polynomial-functions-t2": [
   "Polynomial Functions",
   "Mathematics"
+ ],
+ "12|gr12-prepared-unprepared-speeches-t1": [
+  "Prepared and Unprepared Speeches",
+  "English HL"
  ],
  "12|gr12-prescribed-texts-orientation-t1": [
   "Prescribed Texts and Exam Orientation",

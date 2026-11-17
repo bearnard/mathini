@@ -37,6 +37,27 @@ export const englishHLGrade12: Subject = {
             'Strengthen comprehension, summary, visual literacy, editing and oral preparation for Paper 1 routines.',
           component: lazy(() => import('./term1/paper1-language-practice/Paper1LanguagePractice')),
         },
+        {
+          id: 'gr12-oral-paper4-tasks-t1',
+          title: 'Paper 4 Orals: The Tasks and the 50 Marks',
+          description:
+            'What Paper 4 is, what each oral task assesses, when the tasks happen, and how the 50 marks add up.',
+          component: lazy(() => import('./term1/oral-paper4-tasks/OralPaper4Tasks')),
+        },
+        {
+          id: 'gr12-listening-comprehension-t1',
+          title: 'Listening for Comprehension',
+          description:
+            'The listening process, kinds of listening, listening critically, and making notes.',
+          component: lazy(() => import('./term1/listening-comprehension/ListeningComprehension')),
+        },
+        {
+          id: 'gr12-prepared-unprepared-speeches-t1',
+          title: 'Prepared and Unprepared Speeches',
+          description:
+            'Planning, structure and evidence, delivery, and the unprepared speech.',
+          component: lazy(() => import('./term1/prepared-unprepared-speeches/PreparedUnpreparedSpeeches')),
+        },
       ],
     },
     {
@@ -71,6 +92,20 @@ export const englishHLGrade12: Subject = {
             'Prepare across Papers 1, 2 and 3 with timed routines, revision plans and exam-management strategies.',
           component: lazy(() => import('./term2/midyear-exam-preparation/MidyearExamPreparation')),
         },
+        {
+          id: 'gr12-interview-dialogue-t2',
+          title: 'Interviews and Dialogues',
+          description:
+            'Planning an interview, the five phases, asking questions and listening, and dialogue.',
+          component: lazy(() => import('./term2/interview-dialogue/InterviewDialogue')),
+        },
+        {
+          id: 'gr12-discussion-debate-panel-t2',
+          title: 'Discussions, Debates and Panels',
+          description:
+            'Informal discussion, debate terms and procedure, panel discussions and the chairperson.',
+          component: lazy(() => import('./term2/discussion-debate-panel/DiscussionDebatePanel')),
+        },
       ],
     },
     {
@@ -97,6 +132,13 @@ export const englishHLGrade12: Subject = {
           description:
             'Complete SBA oral work while preparing strategically for listening tasks, speaking and trial exams.',
           component: lazy(() => import('./term3/oral-trial-preparation/OralTrialPreparation')),
+        },
+        {
+          id: 'gr12-introducing-speaker-vote-of-thanks-t3',
+          title: 'Introducing a Speaker and a Vote of Thanks',
+          description:
+            'Researching and introducing a speaker, a model introduction, and offering a vote of thanks.',
+          component: lazy(() => import('./term3/introducing-speaker-vote-of-thanks/IntroducingSpeakerVoteOfThanks')),
         },
       ],
     },
