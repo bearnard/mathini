@@ -3543,6 +3543,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Dialoog en onderhoud",
   "Afrikaans FAL"
  ],
+ "8|gr8-afr-diary-entry-t4": [
+  "Dagboekinskrywing",
+  "Afrikaans FAL"
+ ],
  "8|gr8-afr-friendly-letter-t1": [
   "Vriendskaplike brief",
   "Afrikaans FAL"
@@ -3553,6 +3557,18 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "8|gr8-afr-investigative-report-t1": [
   "Ondersoekende verslag en vraelys",
+  "Afrikaans FAL"
+ ],
+ "8|gr8-afr-letter-to-the-press-t3": [
+  "Brief aan die pers",
+  "Afrikaans FAL"
+ ],
+ "8|gr8-afr-news-report-t4": [
+  "Joernalistieke verslag",
+  "Afrikaans FAL"
+ ],
+ "8|gr8-afr-newspaper-article-t4": [
+  "Koerantberig en tydskrifartikel",
   "Afrikaans FAL"
  ],
  "8|gr8-algebraic-equations-t2": [

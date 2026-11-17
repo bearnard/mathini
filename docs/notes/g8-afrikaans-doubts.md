@@ -16,6 +16,11 @@ Nothing here has been checked by a first-language speaker. Every Afrikaans word,
 | 8 | Interview | The polite `u` for an older person or a stranger; `Dankie vir u tyd.` | Standard. |
 | 9 | All | Names and places are invented. | Placeholders so that no real person is named. |
 
+| 10 | Letter to the press | `Geagte Redakteur,`, `Eerstens ... Tweedens ...`, `Ek stem nie saam nie.`, `Ek vra die raad om ... oop te hou.` and the closing `Vriendelike groete`. | Formal letter conventions differ; the closing follows the existing formal lessons. |
+| 11 | Newspaper article | `opskrif`, `skrywer`, `aanhaling`; the question words wie, wat, waar, wanneer, hoekom; `Hy het gesê: ...` for a quotation. | Textbooks use `skrywer` or `verslaggewer` for the writer. |
+| 12 | Diary entry | Same forms as the Grade 9 diary lesson, simpler. | Standard. |
+| 13 | News report | `feite`, `mening`, `objektief`, `bron` and `Volgens die munisipaliteit ...`. | Standard. |
+
 ## Every Afrikaans item shown, with its English gloss
 
 | Afrikaans | English |
@@ -106,3 +111,75 @@ Nothing here has been checked by a first-language speaker. Every Afrikaans word,
 | Dankie vir u tyd. | Thank you for your time. |
 | Hoe lank werk u al hier? | How long have you worked here? |
 | die beleefde 'you' | the polite you |
+| brief aan die pers | letter to the press |
+| redakteur | editor |
+| Geagte Redakteur | Dear Editor |
+| Liewe Thandi | (see the lesson) |
+| Geagte Redakteur, | Dear Editor, |
+| Ek skryf oor u berig van 1 Augustus. | I am writing about your report of 1 August. |
+| eerstens | firstly |
+| tweedens | secondly |
+| Ek stem nie saam nie | I do not agree |
+| Ek stem saam | I agree |
+| Ek stem nie saam nie. | I do not agree. |
+| Eerstens het baie leerders nie boeke tuis nie. | Firstly, many learners have no books at home. |
+| Ek vra die raad om die biblioteek oop te hou. | I ask the council to keep the library open. |
+| Vriendelike groete | Kind regards |
+| Vriendelike groete, | (see the lesson) |
+| Zinhle Mkhize | Kind regards, Zinhle Mkhize |
+| koerantberig | newspaper report |
+| opskrif | headline |
+| skrywer | writer |
+| Die opskrif | the headline |
+| Die skrywer | the writer |
+| wie | who |
+| wat | what |
+| waar | where |
+| wanneer | when |
+| hoekom | why |
+| Leerders het 200 bome geplant. | Learners planted 200 trees. |
+| Dit het Saterdag by die skool gebeur. | It happened on Saturday at the school. |
+| Hy het gesê | He said |
+| aanhalingstekens | quotation marks |
+| Die Ekoklub het die projek gelei. | The Eco Club led the project. |
+| Die voorsitter het gesê: Ons wil ons skool groen maak. | The chairperson said: We want to make our school green. |
+| dagboekinskrywing | diary entry |
+| Liewe Dagboek | Dear Diary |
+| Liewe Dagboek, | Dear Diary, |
+| Ek | I |
+| gister | yesterday |
+| vandag | today |
+| môre | tomorrow |
+| ge- | (see the lesson) |
+| Ek speel gister | (see the lesson) |
+| Ek het gister gespeel. | (see the lesson) |
+| Gister het ek gespeel. | Yesterday I played. |
+| Môre sal ek rus. | Tomorrow I will rest. |
+| bly | happy |
+| hartseer | sad |
+| moeg | tired |
+| trots | proud |
+| Ek is trots. | I am proud. |
+| Ek was hartseer. | I was sad. |
+| Gister ___ ek gespeel. | (see the lesson) |
+| joernalistieke verslag | news report |
+| feite | facts |
+| mening | opinion |
+| objektief | objective |
+| Die taxi-staanplek is gister gesluit. | The taxi rank was closed yesterday. |
+| Dit is verskriklik. | It is terrible. |
+| bron | source |
+| Volgens die munisipaliteit | According to the municipality |
+| Volgens die munisipaliteit is die staanplek gesluit. | According to the municipality the rank is closed. |
+| Die water het die plek oorstroom. | The water flooded the place. |
+| Die staanplek is gister gesluit. | The rank was closed yesterday. |
+| oor 'n berig in die koerant | about a report in the newspaper |
+| beleefde, formele taal | polite, formal language |
+| redes vir jou mening | reasons for your view |
+| die belangrikste feite | the most important facts |
+| die verlede tyd | the past tense |
+| jou eie mening | your own opinion |
+| Die datum | the date |
+| die skrywer se mening | the writer's opinion |
+| om te sê wat gebeur het | to say what happened |
+| die leser weet waar die feite vandaan kom | the reader knows where the facts come from |
