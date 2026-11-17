@@ -5209,6 +5209,21 @@
                 "id": "gr10-atoms-periodic-table-bonding-t2",
                 "title": "Atoms, Periodic Table and Bonding",
                 "description": "Atomic structure and chemical bonds"
+              },
+              {
+                "id": "gr10-particles-substances-t2",
+                "title": "Particles Substances Are Made Of",
+                "description": "Atoms, molecules, ionic and metallic substances, and how structure decides properties."
+              },
+              {
+                "id": "gr10-physical-chemical-change-t2",
+                "title": "Physical and Chemical Change",
+                "description": "Physical and chemical change, conservation of mass, and exothermic and endothermic reactions."
+              },
+              {
+                "id": "gr10-electrostatics-basics-t2",
+                "title": "Electrostatics Basics",
+                "description": "Two kinds of charge, conductors and insulators, conservation and quantisation of charge."
               }
             ]
           },

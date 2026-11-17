@@ -167,6 +167,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Economics Basics, Scarcity and Macroeconomic Flows",
   "Economics"
  ],
+ "10|gr10-electrostatics-basics-t2": [
+  "Electrostatics Basics",
+  "Physical Sciences"
+ ],
  "10|gr10-electrostatics-electric-circuits-t1": [
   "Electrostatics and Electric Circuits",
   "Physical Sciences"
@@ -403,6 +407,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Revision: Paper 3 Writing and Paper 4 Oral",
   "English HL"
  ],
+ "10|gr10-particles-substances-t2": [
+  "Particles Substances Are Made Of",
+  "Physical Sciences"
+ ],
  "10|gr10-patterns-relationships-representations-t1": [
   "Patterns, Relationships and Representations",
   "Mathematical Literacy"
@@ -410,6 +418,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-payroll-year-end-procedures": [
   "Payroll and Year-end Procedures",
   "Accounting"
+ ],
+ "10|gr10-physical-chemical-change-t2": [
+  "Physical and Chemical Change",
+  "Physical Sciences"
  ],
  "10|gr10-physical-education-t1": [
   "Physical Education: Fitness and Safety",

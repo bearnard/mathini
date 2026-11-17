@@ -81,6 +81,24 @@ export const psGrade10: Subject = {
           description: 'Atomic structure and chemical bonds',
           component: lazy(() => import('./term2/atoms-periodic-table-bonding/AtomsPeriodicTableBonding')),
         },
+        {
+          id: 'gr10-particles-substances-t2',
+          title: 'Particles Substances Are Made Of',
+          description: 'Atoms, molecules, ionic and metallic substances, and how structure decides properties.',
+          component: lazy(() => import('./term2/particles-substances/ParticlesSubstances')),
+        },
+        {
+          id: 'gr10-physical-chemical-change-t2',
+          title: 'Physical and Chemical Change',
+          description: 'Physical and chemical change, conservation of mass, and exothermic and endothermic reactions.',
+          component: lazy(() => import('./term2/physical-chemical-change/PhysicalChemicalChange')),
+        },
+        {
+          id: 'gr10-electrostatics-basics-t2',
+          title: 'Electrostatics Basics',
+          description: 'Two kinds of charge, conductors and insulators, conservation and quantisation of charge.',
+          component: lazy(() => import('./term2/electrostatics-basics/ElectrostaticsBasics')),
+        },
       ],
     },
     {

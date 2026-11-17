@@ -15,7 +15,7 @@ A second wave (approved by the orchestrator) will deepen the 9 PARTIAL topics: t
 | Branch | Term | Lessons | Status |
 |---|---|---|---|
 | feat/g10-ps-w2-t1 | T1 | The Atom and Isotopes (`gr10-atom-isotopes-t1`), Longitudinal Waves (`gr10-longitudinal-waves-t1`), Sound (`gr10-sound-t1`) | done |
-| feat/g10-ps-w2-t2 | T2 | Particles Substances Are Made Of, Physical and Chemical Change, Electrostatics basics | todo |
+| feat/g10-ps-w2-t2 | T2 | Particles Substances Are Made Of (`gr10-particles-substances-t2`), Physical and Chemical Change (`gr10-physical-chemical-change-t2`), Electrostatics Basics (`gr10-electrostatics-basics-t2`) | done |
 | feat/g10-ps-w2-t2b | T2/T3 | Electric Circuits (Grade 10 level only, see doubts), Quantitative Aspects extension (empirical formula, concentration, yield) | todo |
 | feat/g10-ps-w2-t3 | T3 | Motion in One Dimension (instantaneous speed and velocity, graphs) | todo |
 
