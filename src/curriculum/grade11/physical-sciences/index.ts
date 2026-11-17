@@ -87,6 +87,24 @@ export const physicalSciencesGrade11: Subject = {
           description: "Wavefronts, Huygens' principle, diffraction at a gap and the single-slit pattern.",
           component: lazy(() => import('./term2/diffraction/Diffraction')),
         },
+        {
+          id: 'gr11-ideal-gases-t2',
+          title: 'Ideal Gases',
+          description: "Kinetic theory, Boyle's, Charles' and Gay-Lussac's laws, the combined law and PV = nRT.",
+          component: lazy(() => import('./term2/ideal-gases/IdealGases')),
+        },
+        {
+          id: 'gr11-moles-concentration-t2',
+          title: 'Moles, Gas Volumes and Concentration',
+          description: 'Molar mass, molar volume, concentration of solutions and empirical and molecular formulae.',
+          component: lazy(() => import('./term2/moles-concentration/MolesConcentration')),
+        },
+        {
+          id: 'gr11-stoichiometry-t2',
+          title: 'Stoichiometry',
+          description: 'Mass and mole ratios, the limiting reagent, percent yield and percent purity.',
+          component: lazy(() => import('./term2/stoichiometry/Stoichiometry')),
+        },
       ],
     },
     {
