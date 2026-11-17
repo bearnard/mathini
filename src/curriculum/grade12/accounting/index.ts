@@ -62,6 +62,24 @@ export const accountingGrade12: Subject = {
           title: 'VAT Concepts and Control',
           description: 'Output and input VAT, VAT calculations, VAT control and ethical compliance with SARS rules.',
           component: lazy(() => import('./term3/vat-concepts-control/VatConceptsControl')),
+        },
+        {
+          id: 'gr12-close-corporations-t2',
+          title: 'Close Corporations',
+          description: 'What a close corporation is, members and members\u2019 interest, loans to and from members, and its income statement and balance sheet.',
+          component: lazy(() => import('./term2/close-corporations/CloseCorporations')),
+        },
+        {
+          id: 'gr12-internal-control-t2',
+          title: 'Internal Control',
+          description: 'Division of duties, documents, physical controls, and controls over cash, credit, stock, debtors and creditors.',
+          component: lazy(() => import('./term2/internal-control/InternalControl')),
+        },
+        {
+          id: 'gr12-internal-audit-t2',
+          title: 'Internal Audit: Evidence, Sampling and Reports',
+          description: 'Internal and external auditors, audit evidence, sampling, and internal audit reports.',
+          component: lazy(() => import('./term2/internal-audit/InternalAudit')),
         }
       ],
     },
