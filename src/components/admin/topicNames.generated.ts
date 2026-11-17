@@ -2395,6 +2395,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Area & Perimeter",
   "Mathematics"
  ],
+ "6|gr6-basic-first-aid-t4": [
+  "Basic First Aid",
+  "Life Skills"
+ ],
  "6|gr6-capacity-t4": [
   "Capacity",
   "Mathematics"
@@ -2410,6 +2414,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|gr6-common-fractions-t2": [
   "Common Fractions",
   "Mathematics"
+ ],
+ "6|gr6-communicable-diseases-t4": [
+  "Communicable Diseases",
+  "Life Skills"
  ],
  "6|gr6-comparing-fractions-t1": [
   "Comparing Fractions",
@@ -2454,6 +2462,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|gr6-flow-diagrams-t1": [
   "Flow Diagrams",
   "Mathematics"
+ ],
+ "6|gr6-food-hygiene-t4": [
+  "Food Hygiene",
+  "Life Skills"
  ],
  "6|gr6-inventions-reasons-exploring-t2": [
   "Why Europeans explored, and the inventions that helped",

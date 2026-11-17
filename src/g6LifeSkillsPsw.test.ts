@@ -6,7 +6,7 @@ import { stubCss } from './components/subjects/lesson/lessonTest';
 import { extractCuratedBanks } from './test-support/curatedBanks';
 import { checkQuestion } from './lib/shared/questionQuality';
 import { grade6 } from './curriculum/grade6';
-import { HELP_NUMBERS, MANDELA_MINUTES, NATIONAL_DAYS, SYMBOLS } from './curriculum/grade6/life-skills/_shared/psw6Facts';
+import { HEALTH, HELP_NUMBERS, MANDELA_MINUTES, NATIONAL_DAYS, SYMBOLS } from './curriculum/grade6/life-skills/_shared/psw6Facts';
 
 // Grade 6 Life Skills (Personal and Social Well-being) additions: shape, bank quality, and the care points (Childline 116 where relevant, nobody blamed, respect for every culture).
 
@@ -16,9 +16,12 @@ const rites = await import('./curriculum/grade6/life-skills/term2/cultural-rites
 const animals = await import('./curriculum/grade6/life-skills/term3/caring-for-animals-t3/Slides');
 const people = await import('./curriculum/grade6/life-skills/term3/caring-for-people-t3/Slides');
 const nation = await import('./curriculum/grade6/life-skills/term3/nation-building-heritage-t3/Slides');
+const firstAid = await import('./curriculum/grade6/life-skills/term4/basic-first-aid-t4/Slides');
+const foodHygiene = await import('./curriculum/grade6/life-skills/term4/food-hygiene-t4/Slides');
+const diseases = await import('./curriculum/grade6/life-skills/term4/communicable-diseases-t4/Slides');
 const html = (s: { content: unknown }) => renderToStaticMarkup(s.content as never);
 const text = (steps: { content: unknown }[]) => steps.map((s) => html(s).replace(/<[^>]+>/g, ' ').replace(/&nbsp;| /g, ' ').replace(/\s+/g, ' ')).join(' ');
-const LESSONS = { 'bullying-getting-help-t2': bullying, 'cultural-rites-of-passage-t2': rites, 'gr6-caring-for-animals-t3': animals, 'gr6-caring-for-people-t3': people, 'gr6-nation-building-heritage-t3': nation } as const;
+const LESSONS = { 'bullying-getting-help-t2': bullying, 'cultural-rites-of-passage-t2': rites, 'gr6-caring-for-animals-t3': animals, 'gr6-caring-for-people-t3': people, 'gr6-nation-building-heritage-t3': nation, 'gr6-basic-first-aid-t4': firstAid, 'gr6-food-hygiene-t4': foodHygiene, 'gr6-communicable-diseases-t4': diseases } as const;
 const bankOf = (name: string) => extractCuratedBanks().filter((q) => q.file.includes(name.replace(/^gr6-/, '')));
 
 test('the new Life Skills lessons are registered in their term after the existing three (ids unchanged), with a task instruction each', () => {
@@ -110,4 +113,48 @@ test('ANIMALS AND PEOPLE: tell a trusted adult first, SPCA and shelters named, n
   const p = text(people.learnSteps);
   assert.ok(/I feel/.test(p) && /need/.test(p) && /67 minutes/.test(p));
   assert.equal(HELP_NUMBERS.childline.number, '116');
+});
+
+test('the Term 4 lessons are registered after the existing three (ids unchanged), with a task instruction each', () => {
+  const lsk = grade6.subjects.find((x) => x.id === 'lsk')!;
+  const t4 = lsk.terms.find((t) => t.id === 4)!.topics.map((p) => p.id);
+  assert.deepEqual(t4.slice(0, 3), ['personal-social-wellbeing-t4', 'physical-education-t4', 'creative-arts-t4']);
+  const tasks = JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/lsk-term4.json', 'utf8')).tasks as Record<string, string>;
+  for (const id of ['gr6-basic-first-aid-t4', 'gr6-food-hygiene-t4', 'gr6-communicable-diseases-t4']) { assert.ok(t4.includes(id), id); assert.ok(id in tasks, id); }
+});
+
+test('FIRST AID: only the simple widely taught steps, the right numbers, "get an adult" first, never medicines, doses or vomiting, and every Term 4 slide has a labelled picture', () => {
+  assert.deepEqual([HEALTH.burnCoolMinutes, HEALTH.handWashSeconds, HEALTH.coughWeeks], [10, 20, 2]);
+  assert.deepEqual([HELP_NUMBERS.ambulance.number, HELP_NUMBERS.cellphoneEmergency.number, HELP_NUMBERS.poisons.number], ['10177', '112', '0861 555 777']);
+  const t = text(firstAid.learnSteps);
+  assert.ok(/shout for an adult/i.test(t) && /Thinking that a child must treat a serious injury alone/.test(t));
+  assert.ok(/at least 10 minutes/.test(t) && /Putting butter, toothpaste or ice on a burn/.test(t));
+  assert.ok(/Never make the person vomit/.test(t) && /Making a person vomit after poisoning/.test(t));
+  assert.ok(/Do not cut the bite or suck it/.test(t) && /keep the person still/i.test(t));
+  assert.ok(/If the person can cough, let them cough/.test(t) && /cannot cough, speak or breathe/.test(t));
+  assert.ok(!/\b(mg|ml|tablet|pill|paracetamol|ibuprofen|antibiotic|syrup|dose|aspirin|tourniquet)\b/i.test(`${t} ${text(foodHygiene.learnSteps)} ${text(diseases.learnSteps)}`), 'no medicine names or doses');
+  assert.ok(!/(blood everywhere|gore|dead|die\b|death)/i.test(t), 'nothing graphic');
+  const bank = bankOf('basic-first-aid-t4');
+  const ans = (part: string) => bank.find((q) => q.prompt.includes(part))!.answer;
+  assert.equal(ans('which of these numbers calls an ambulance'), '10177');
+  assert.equal(ans('A burn needs cooling under running water'), 'At least 10 minutes');
+  assert.equal(ans('swallowed something poisonous'), 'Make the child vomit', 'asks what NOT to do, and the key is the wrong action');
+  for (const [name, mod] of [['firstAid', firstAid], ['food', foodHygiene], ['diseases', diseases]] as const) {
+    for (const st of mod.learnSteps.slice(0, -1)) assert.match(html(st), /<svg[^>]*aria-label=|<table[^>]*aria-label=|role="img"/, `${name} / ${st.title}: a labelled picture`);
+  }
+});
+
+test('FOOD HYGIENE and COMMUNICABLE DISEASES: the numbers and causes are the facts file and the right germ, TB is not blamed on anyone, help is a clinic, doctor or adult', () => {
+  const f = text(foodHygiene.learnSteps);
+  assert.ok(/about 20 seconds/.test(f) && /no pink inside/.test(f) && /fridge/.test(f) && /Typhoid and cholera/.test(f));
+  assert.equal(foodHygiene.learnSteps.length, 5);
+  const d = text(diseases.learnSteps);
+  assert.ok(/Colds, mumps and chickenpox are caused by viruses/.test(d) && /Tuberculosis, or TB, is caused by bacteria/.test(d) && /caused by a fungus/.test(d));
+  assert.ok(/more than 2 weeks/.test(d) && /Anyone can get TB/.test(d) && /kindness/.test(d));
+  assert.ok(!/(HIV|AIDS)/.test(d), 'TB is not linked to HIV here');
+  const bank = bankOf('communicable-diseases-t4');
+  const ans = (part: string) => bank.find((q) => q.prompt.includes(part))!.answer;
+  assert.equal(ans('What causes athlete'), 'A fungus');
+  assert.equal(ans('How is tuberculosis'), 'Through the air in coughs');
+  assert.equal(ans('What are the signs of chickenpox'), 'Itchy spots with blisters');
 });
