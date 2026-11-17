@@ -2423,6 +2423,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Decimal Place Value",
   "Mathematics"
  ],
+ "6|gr6-dias-da-gama-t2": [
+  "Dias at Mossel Bay and Da Gama's sea route",
+  "History"
+ ],
  "6|gr6-divide-2digit-t2": [
   "Dividing by 2-digit Numbers",
   "Mathematics"
@@ -2554,6 +2558,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|gr6-viewing-objects-t3": [
   "Viewing Objects",
   "Mathematics"
+ ],
+ "6|gr6-voc-sailors-t2": [
+  "The VOC: journeys and a sailor's life",
+  "History"
  ],
  "6|gr6-volume-t3": [
   "Volume",

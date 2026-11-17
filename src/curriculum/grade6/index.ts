@@ -744,6 +744,18 @@ export const grade6: Grade = {
                                     component: lazy(() => import('./history/term2/inventions-reasons-exploring/InventionsReasonsExploring'))
                                 },
                                 {
+                                    id: "his-dias-da-gama",
+                                    title: "Dias at Mossel Bay and Da Gama's sea route",
+                                    description: "The Portuguese sea route round Africa, and the meeting at Mossel Bay from both sides.",
+                                    component: lazy(() => import('./history/term2/dias-da-gama/DiasDaGama'))
+                                },
+                                {
+                                    id: "his-voc-sailors",
+                                    title: "The VOC: journeys and a sailor's life",
+                                    description: "The Dutch East India Company, and what life was like on a long voyage.",
+                                    component: lazy(() => import('./history/term2/voc-sailors/VocSailors'))
+                                },
+                                {
                                     id: "his-british-take-cape",
                                     title: "The British Take the Cape",
                                     description: "Why the British took the Cape in 1795 and 1806.",

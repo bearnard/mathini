@@ -46,5 +46,15 @@ Source of scope: CAPS Social Sciences Grades 4-6, Grade 6 History Term 1 (Mapung
 | 28 | Inventions: compass (said to have been used in China first), astrolabe, better maps, the caravel (light ship that could sail against the wind). | Standard. | Encyclopaedia |
 | 29 | Arab and African sailors already knew these seas well. | True and general; no person or voyage named. | |
 
-## Branch D (to be added when written)
-- Dias and Da Gama (Mossel Bay 1488 from both sides); VOC journeys and a sailor's life.
+## Branch D: Dias and Da Gama; the VOC and a sailor's life (Term 2)
+
+| # | What the lessons say | How sure | Where to check |
+|---|---|---|---|
+| 30 | Bartolomeu Dias sailed round the southern tip of Africa in 1488 and landed at what is now Mossel Bay; his crew was tired and afraid and he turned back. | CAPS date; standard. | CAPS, textbook |
+| 31 | SENSITIVE: the meeting at Mossel Bay, told from both sides: the sailors needed fresh water; the Khoikhoi protected their water and cattle on their own land; neither understood the other; "stones were thrown and a crossbow was fired, and a Khoikhoi man was killed". | The sources agree that the meeting turned violent and that a Khoikhoi man died; the exact order of events differs by source, so the lesson gives no more. Plain and non-graphic on purpose. Teacher to judge the wording. | Textbook; South African History Online |
+| 32 | The lesson does not say Dias "discovered" Mossel Bay or the Cape; a test checks this. The names Cape of Storms and Cape of Good Hope are not used. | Choice. | |
+| 33 | Vasco da Gama set out in 1497 and reached India in 1498 ("about one year"), 9 years after Dias; helped by a local pilot on the east coast of Africa. | Dates standard; the pilot is not named (sources give different names). | Textbook |
+| 34 | The sea route helped some people and harmed others, and brought new traders and conflicts to Africa and Asia. | Deliberately general. | |
+| 35 | VOC = Vereenigde Oostindische Compagnie, the Dutch East India Company, a trading company, started 1602. | Standard. | Encyclopaedia |
+| 36 | Voyages took "many months"; no exact figure given. Ships stopped for fresh water and food; the Cape is not named as the VOC station (1652 is left to the existing lessons). | Safe. | |
+| 37 | Life on board: crowded, hard biscuit and salted meat, heavy work, storms, disease; scurvy is a lack of vitamin C cured by fresh fruit and vegetables; jobs on board. | Standard. "Disease killed more than storms" is a general statement from the sources. | Textbook |
