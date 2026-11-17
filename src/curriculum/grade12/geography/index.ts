@@ -87,6 +87,12 @@ export const geographyGrade12: Subject = {
           description: "Rapid urbanisation, service-delivery pressures, informal settlements and GIS in planning.",
           component: lazy(() => import('./term2/urban-issues-and-planning/UrbanIssuesAndPlanningT2')),
         },
+        {
+          id: 'gr12-gis-t2',
+          title: "Geographical Information Systems (GIS)",
+          description: "Remote sensing, spatial and attribute data, raster and vector data, buffering and querying.",
+          component: lazy(() => import('./term2/gis/GisT2')),
+        },
       ],
     },
     {
@@ -110,6 +116,12 @@ export const geographyGrade12: Subject = {
           title: "Mining, Industries and Development Corridors",
           description: "Mining, industrial location factors, IDZs, SDIs and transport corridors in South Africa.",
           component: lazy(() => import('./term3/mining-industries-and-development-corridors/MiningIndustriesAndDevelopmentCorridorsT3')),
+        },
+        {
+          id: 'gr12-atlases-thematic-maps-t3',
+          title: "Using Atlases and Thematic Maps",
+          description: "Isolines, the atlas index, degrees and minutes, and comparing thematic maps.",
+          component: lazy(() => import('./term3/atlases-thematic-maps/AtlasesThematicMapsT3')),
         },
       ],
     },

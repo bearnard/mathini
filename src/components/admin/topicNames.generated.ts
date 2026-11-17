@@ -1347,6 +1347,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Analytical Geometry of the Circle",
   "Mathematics"
  ],
+ "12|gr12-atlases-thematic-maps-t3": [
+  "Using Atlases and Thematic Maps",
+  "Social Sciences: Geography"
+ ],
  "12|gr12-bank-creditors-reconciliations-t2": [
   "Bank and Creditors Reconciliations",
   "Accounting"
@@ -1630,6 +1634,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-genetics-inheritance-t2": [
   "Genetics and Inheritance",
   "Life Sciences"
+ ],
+ "12|gr12-gis-t2": [
+  "Geographical Information Systems (GIS)",
+  "Social Sciences: Geography"
  ],
  "12|gr12-growth-development-industrial-policy-t3": [
   "Growth, Development and Industrial Policy",

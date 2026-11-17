@@ -7086,6 +7086,11 @@
                 "id": "gr12-urban-issues-and-planning-t2",
                 "title": "Urban Issues and Planning",
                 "description": "Rapid urbanisation, service-delivery pressures, informal settlements and GIS in planning."
+              },
+              {
+                "id": "gr12-gis-t2",
+                "title": "Geographical Information Systems (GIS)",
+                "description": "Remote sensing, spatial and attribute data, raster and vector data, buffering and querying."
               }
             ]
           },
@@ -7107,6 +7112,11 @@
                 "id": "gr12-mining-industries-and-development-corridors-t3",
                 "title": "Mining, Industries and Development Corridors",
                 "description": "Mining, industrial location factors, IDZs, SDIs and transport corridors in South Africa."
+              },
+              {
+                "id": "gr12-atlases-thematic-maps-t3",
+                "title": "Using Atlases and Thematic Maps",
+                "description": "Isolines, the atlas index, degrees and minutes, and comparing thematic maps."
               }
             ]
           },

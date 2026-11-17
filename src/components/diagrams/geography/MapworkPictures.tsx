@@ -203,3 +203,70 @@ export const AerialTypes = () => (
     <T x={84} y={60} size={4.2}>Oblique</T>
   </Panel>
 );
+
+/** GIS layers stacked like sheets of tracing paper: each layer holds one kind of data and they line up over the same area. */
+export const GisLayers = ({ layers }: { layers: string[] }) => {
+  const colors = [E, I, A, R, '#38bdf8'];
+  const h = 14 + layers.length * 13 + 8;
+  return (
+    <Panel h={h} aria={`A stack of ${layers.length} layers of the same area, like sheets of tracing paper: ${layers.join(', ')}. A GIS lines the layers up so that they can be combined.`}>
+      {layers.map((name, i) => {
+        const y = 8 + i * 13;
+        const c = colors[i % colors.length];
+        return (
+          <g key={name}>
+            <polygon points={`22,${y + 10} 40,${y} 98,${y} 80,${y + 10}`} fill="rgba(148,163,184,0.12)" stroke={c} strokeWidth={0.8} />
+            <T x={110} y={y + 6.5} size={4} anchor="end" color={c}>{name}</T>
+          </g>
+        );
+      })}
+    </Panel>
+  );
+};
+
+/** A raster as a grid of cells with some cells shaded (the feature), and the area those cells cover on the ground. */
+export const RasterGrid = ({ cols, rows, shaded, cellM }: { cols: number; rows: number; shaded: number; cellM: number }) => {
+  const size = Math.min(8, 80 / cols, 36 / rows);
+  const x0 = 60 - (cols * size) / 2;
+  const y0 = 7;
+  return (
+    <Panel h={r3(y0 + rows * size + 16)} aria={`A raster grid of ${cols} by ${rows} cells, each ${cellM} m by ${cellM} m. ${shaded} cells are shaded to show a feature. Each cell covers ${cellM * cellM} square metres of ground.`}>
+      {Array.from({ length: rows }, (_, r) => Array.from({ length: cols }, (_, c) => {
+        const idx = r * cols + c;
+        return <rect key={idx} x={r3(x0 + c * size)} y={r3(y0 + r * size)} width={size} height={size} fill={idx < shaded ? 'rgba(74,222,128,0.5)' : 'none'} stroke={MUTED} strokeWidth={0.4} />;
+      }))}
+      <T x={60} y={y0 + rows * size + 7} size={4}>{`${shaded} shaded cells, each ${cellM} m × ${cellM} m`}</T>
+      <T x={60} y={y0 + rows * size + 13} size={3.6} color={MUTED}>{`one cell = ${(cellM * cellM).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} m²`}</T>
+    </Panel>
+  );
+};
+
+/** A river as a line with a buffer strip of the given width on both sides. */
+export const BufferDiagram = ({ bufferM, lengthM }: { bufferM: number; lengthM: number }) => (
+  <Panel h={52} aria={`A river drawn as a line ${lengthM} metres long with a buffer of ${bufferM} metres on each side, so the buffer zone is ${2 * bufferM} metres wide.`}>
+    <rect x={10} y={14} width={100} height={26} fill="rgba(129,140,248,0.25)" stroke={I} strokeWidth={0.6} strokeDasharray="2 1.4" />
+    <line x1={10} y1={27} x2={110} y2={27} stroke="#38bdf8" strokeWidth={1.8} />
+    <T x={60} y={11} size={3.8} color={LINE}>{`buffer ${bufferM} m each side`}</T>
+    <T x={60} y={49} size={3.8} color={MUTED}>{`river ${lengthM.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} m long; buffer ${2 * bufferM} m wide`}</T>
+  </Panel>
+);
+
+/** A small latitude and longitude grid with a point: the labels are whole degrees, the point is at the given degrees and minutes (south and east). */
+export const LatLongGrid = ({ latDeg, latMin, lonDeg, lonMin }: { latDeg: number; latMin: number; lonDeg: number; lonMin: number }) => {
+  const lat = latDeg + latMin / 60;
+  const lon = lonDeg + lonMin / 60;
+  const X = (l: number) => r3(24 + (l - lonDeg) * 60);
+  const Y = (l: number) => r3(14 + (l - latDeg) * 30);
+  return (
+    <Panel h={62} aria={`A grid of latitude and longitude lines. A point lies at ${latDeg} degrees ${latMin} minutes south and ${lonDeg} degrees ${lonMin} minutes east, which is ${String(lat).replace('.', ',')} degrees south and ${String(lon).replace('.', ',')} degrees east.`}>
+      {[0, 1].map((i) => <line key={`v${i}`} x1={X(lonDeg + i)} y1={10} x2={X(lonDeg + i)} y2={54} stroke={MUTED} strokeWidth={0.5} />)}
+      {[0, 1].map((i) => <line key={`h${i}`} x1={18} y1={Y(latDeg + i)} x2={102} y2={Y(latDeg + i)} stroke={MUTED} strokeWidth={0.5} />)}
+      <T x={X(lonDeg)} y={8} size={3.8}>{`${lonDeg}°E`}</T>
+      <T x={X(lonDeg + 1)} y={8} size={3.8}>{`${lonDeg + 1}°E`}</T>
+      <T x={16} y={Y(latDeg) + 1.4} anchor="end" size={3.8}>{`${latDeg}°S`}</T>
+      <T x={16} y={Y(latDeg + 1) + 1.4} anchor="end" size={3.8}>{`${latDeg + 1}°S`}</T>
+      <circle cx={X(lon)} cy={Y(lat)} r={2.2} fill={A} />
+      <T x={X(lon) + 4} y={Y(lat) + 1.4} anchor="start" size={3.8} color={A}>{`${latDeg}°${String(latMin).padStart(2, '0')}'S ${lonDeg}°${String(lonMin).padStart(2, '0')}'E`}</T>
+    </Panel>
+  );
+};
