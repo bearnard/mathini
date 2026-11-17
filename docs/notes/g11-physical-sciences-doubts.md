@@ -20,3 +20,13 @@
 - The intensity curve (sin β / β)² is the standard single-slit result, drawn for 600 nm light through a 3,0 µm slit; it is a picture only.
 - The classroom examples (sound through a 0,9 m doorway, red light versus blue) are illustrations, not measurements.
 - Not covered: the practical project (verifying Snell's law with a glass block) and sketching diffraction patterns for learners to draw.
+
+## Term 2 chemistry: ideal gases, moles and concentration, stoichiometry
+- Three lessons instead of the planned two: the CAPS "quantitative aspects" topic is 12 hours (molar volume and concentration 3 h, "more complex stoichiometric calculations" 6 h), so it is split into "Moles, Gas Volumes and Concentration" and "Stoichiometry" for depth. All the numbers are recomputed with plain Math in `src/g11PsGases.test.ts`.
+- Data-sheet constants quoted in the questions: R = 8,31 J·K⁻¹·mol⁻¹, molar volume 22,4 dm³·mol⁻¹ at 273 K and 101,3 kPa (the lessons say 0 °C or 273 K), Cl = 35,5, T = °C + 273. Avogadro's number is 6,02 × 10²³. Atomic masses used: H 1, C 12, N 14, O 16, Na 23, Mg 24, Cl 35,5, Ca 40 (the data-sheet values).
+- Kinetic theory is stated in the form of the CAPS: random motion, different speeds, collisions with the walls, average speed rising with temperature, real gases closest to ideal at high temperature and low pressure. No Maxwell-Boltzmann curve is drawn.
+- Gay-Lussac's law (constant volume) is named in the CAPS and appears in the lesson and one question.
+- Empirical and molecular formula examples (a C₄H₈ hydrocarbon 85,7% C and 14,3% H; glucose 40,0% C, 6,7% H, 53,3% O) are standard textbook examples with rounded percentages: the tests check that the ratio is within 0,05 of a whole number.
+- The stoichiometry examples are small made-up experiments (6,0 g Mg; 4,0 g H₂ with 8,0 g O₂; a 10,0 g shell sample losing 3,52 g of CO₂ on heating, which is exactly 0,08 mol). Percent purity by heating is a simplification of the CAPS sea-shell activity.
+- Not covered here: the practical tasks (verifying Boyle's law, making standard solutions, titration and precipitation calculations). Titrations are Gr 12 in our lessons; precipitation calculations can be added later.
+- Real-gas deviations are described qualitatively only; the van der Waals equation is not in the CAPS and is not used.

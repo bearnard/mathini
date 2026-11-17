@@ -867,6 +867,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Human Impact on the Environment",
   "Life Sciences"
  ],
+ "11|gr11-ideal-gases-t2": [
+  "Ideal Gases",
+  "Physical Sciences"
+ ],
  "11|gr11-igneous-landforms-t2": [
   "Massive Igneous Landforms",
   "Social Sciences: Geography"
@@ -1030,6 +1034,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-mobile-wireless-e-communication-t2": [
   "Mobile and Wireless E-communication",
   "Information Technology"
+ ],
+ "11|gr11-moles-concentration-t2": [
+  "Moles, Gas Volumes and Concentration",
+  "Physical Sciences"
  ],
  "11|gr11-momentum-t2": [
   "Momentum and Impulse",
@@ -1286,6 +1294,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-statistics-t4": [
   "Statistics",
   "Mathematics"
+ ],
+ "11|gr11-stoichiometry-t2": [
+  "Stoichiometry",
+  "Physical Sciences"
  ],
  "11|gr11-streaming-compression-t4": [
   "Streaming, Downloading and Compression",
