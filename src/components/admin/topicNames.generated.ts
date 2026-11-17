@@ -999,6 +999,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Mid-Year Exam Preparation",
   "English HL"
  ],
+ "11|gr11-mining-minerals-t4": [
+  "Mining and Mineral Processing",
+  "Physical Sciences"
+ ],
  "11|gr11-mixed-economy-t1": [
   "South Africa's Mixed Economy",
   "Economics"
