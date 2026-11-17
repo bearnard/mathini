@@ -21,7 +21,17 @@ Source: DBE CAPS English Home Language, Senior Phase Grades 7-9 (Grade 9 teachin
 | 8 | Will | The model will names an executor, beneficiaries and "the rest"; clause headings follow the CAPS list (date, estate, beneficiaries, language, execution). | CAPS gives a list of elements, not a format. |
 | 9 | CV | The CV has the CAPS parts (personal details, formal qualifications, work experience, referees) and a "post applied for" line. | Textbook layouts differ (some add an objective or interests). |
 | 10 | Covering letter | "Yours faithfully" after "Dear Sir or Madam", "Yours sincerely" after a name. | Standard SA/UK convention; some teachers also accept "Dear Sir/Madam". |
+| 12 | Covering letter | The closing follows the CAPS formal letter description: the formal closing, then the writer's surname and initials ("Mahlangu L."), and the subject line is underlined. | Many textbooks sign with the full name; CAPS words it as surname and initials. |
 | 11 | Both | Telephone numbers and e-mail addresses are placeholders (082 000 0000, example.com). | Chosen so that no real person is contacted. |
+
+## Term 4 branch (letter of application, e-mail)
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 13 | Letter of application | Layout follows the CAPS formal-letter description (two addresses, salutation after the recipient's address, underlined subject line, introduction/body/conclusion, closing with surname and initials). | Many textbooks differ on the underlining and on full names; the lesson follows the CAPS text. |
+| 14 | Letter of application | The paragraph plan (introduction: the post and where it was advertised; body: qualifications, experience and qualities; conclusion: CV attached, availability, thanks) is a common model, not CAPS wording. | CAPS gives the structure, not the content of each paragraph. |
+| 15 | E-mail | The address, CC, subject, message, sender's name and signature follow the CAPS e-mail/sms table. Bcc and attachments are not taught as CAPS content. | CAPS does not mention Bcc. |
+| 16 | E-mail | The example address moloi.q@webmail.co.za is the CAPS example; the model e-mail uses invented addresses on example.co.za. | None. |
 
 ## Not covered on purpose
 - Real legal forms and templates.

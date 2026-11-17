@@ -3739,6 +3739,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Electronic Control and PAT 2",
   "Technology"
  ],
+ "9|gr9-email-t4": [
+  "Writing an E-mail",
+  "English HL"
+ ],
  "9|gr9-end-of-cold-war-t2": [
   "End of the Cold War",
   "History (Social Sciences)"
@@ -3862,6 +3866,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-language-structures-t4": [
   "Language Structures",
   "isiXhosa FAL"
+ ],
+ "9|gr9-letter-of-application-t4": [
+  "Writing a Letter of Application",
+  "English HL"
  ],
  "9|gr9-letters-reviews-t2": [
   "Letters and Reviews",

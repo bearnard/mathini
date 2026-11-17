@@ -67,10 +67,10 @@ export const learnSteps: LearnStep[] = [
           <p>12 May</p>
           <p>The Manager<br />Kopano Books<br />12 Main Road<br />Kimberley</p>
           <p>Dear Sir or Madam</p>
-          <p><strong>Application for the post of weekend assistant</strong></p>
+          <p><strong><u>Application for the post of weekend assistant</u></strong></p>
           <p>I am applying for the post of weekend assistant advertised in the shop window. I enjoy reading and I have served customers at the school fete.</p>
           <p>My CV is attached. I am available for an interview at any time after school.</p>
-          <p>Yours faithfully<br />Lerato Mahlangu</p>
+          <p>Yours faithfully<br />Mahlangu L.</p>
         </ModelText>
       </div>
     ),
@@ -82,9 +82,10 @@ export const learnSteps: LearnStep[] = [
         <Rule>The covering letter has the layout of a formal letter and is written for a particular reader and purpose.</Rule>
         <ul className="space-y-1.5 text-left text-slate-700">
           <li>Sender&rsquo;s address, then the date, then the receiver&rsquo;s address.</li>
-          <li>A salutation and a subject line saying which post you want.</li>
+          <li>A salutation after the receiver&rsquo;s address, then a subject line, underlined, saying which post you want.</li>
           <li>Short paragraphs: the post you want, why you suit it, and that your CV is attached.</li>
           <li>With &ldquo;Dear Sir or Madam&rdquo; end with &ldquo;Yours faithfully&rdquo;. With a name, such as &ldquo;Dear Mr Naidoo&rdquo;, end with &ldquo;Yours sincerely&rdquo;.</li>
+          <li>Formal register throughout, and a closing followed by your surname and initials.</li>
           <li>Use the writing process: plan, draft, revise, edit, proof-read and present.</li>
         </ul>
       </div>
