@@ -101,6 +101,12 @@ export const englishHLGrade8: Subject = {
           description: 'Narrative and reflective essays, coherence, style and editing.',
           component: lazy(() => import('./term3/essay-writing-style/EssayWritingStyle')),
         },
+        {
+          id: 'gr8-letter-to-the-press-t3',
+          title: 'Writing a Letter to the Press',
+          description: "Reacting to a newspaper article, the layout of a letter to the editor, giving a clear view with reasons, and a polite persuasive tone.",
+          component: lazy(() => import('./term3/letter-to-the-press/LetterToThePress')),
+        },
       ],
     },
     {
@@ -126,6 +132,24 @@ export const englishHLGrade8: Subject = {
           component: lazy(
             () => import('./term4/language-literature-consolidation/LanguageLiteratureConsolidation'),
           ),
+        },
+        {
+          id: 'gr8-newspaper-magazine-article-t4',
+          title: 'Writing a Newspaper or Magazine Article',
+          description: "The headline and by-line, the lead that answers who, what, where, when and why, the body, quotations, and fact and opinion.",
+          component: lazy(() => import('./term4/newspaper-magazine-article/NewspaperMagazineArticle')),
+        },
+        {
+          id: 'gr8-diary-entry-t4',
+          title: 'Writing a Diary Entry',
+          description: "Date, first person, events and feelings, informal language, and reflection.",
+          component: lazy(() => import('./term4/diary-entry/DiaryEntry')),
+        },
+        {
+          id: 'gr8-journalistic-report-t4',
+          title: 'Writing a Journalistic (News) Report',
+          description: "Objective tone, facts first, sources and quotations, the past tense, and how a news report differs from an article.",
+          component: lazy(() => import('./term4/journalistic-report/JournalisticReport')),
         },
       ],
     },

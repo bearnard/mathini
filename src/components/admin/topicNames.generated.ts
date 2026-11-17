@@ -3643,6 +3643,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Writing a Dialogue and a Written Interview",
   "English HL"
  ],
+ "8|gr8-diary-entry-t4": [
+  "Writing a Diary Entry",
+  "English HL"
+ ],
  "8|gr8-diversity-and-nation-building-t3": [
   "Diversity and Nation-building",
   "Life Orientation"
@@ -3755,6 +3759,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Writing an Investigative Report",
   "English HL"
  ],
+ "8|gr8-journalistic-report-t4": [
+  "Writing a Journalistic (News) Report",
+  "English HL"
+ ],
  "8|gr8-language-consolidation-t4": [
   "Taalkonsolidasie",
   "Afrikaans FAL"
@@ -3790,6 +3798,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-learning-styles-and-exam-readiness-t4": [
   "Learning Styles and Exam Readiness",
   "Life Orientation"
+ ],
+ "8|gr8-letter-to-the-press-t3": [
+  "Writing a Letter to the Press",
+  "English HL"
  ],
  "8|gr8-listening-speaking-t1": [
   "Listening & Speaking",
@@ -3850,6 +3862,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-narrative-writing-grammar-t1": [
   "Narratiewe Skryfwerk & Grammatika",
   "Afrikaans FAL"
+ ],
+ "8|gr8-newspaper-magazine-article-t4": [
+  "Writing a Newspaper or Magazine Article",
+  "English HL"
  ],
  "8|gr8-numeric-and-geometric-patterns-functions-and-relationships-t1": [
   "Numeric and Geometric Patterns; Functions and Relationships",
