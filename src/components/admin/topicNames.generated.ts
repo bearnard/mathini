@@ -1327,6 +1327,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Advanced Writing and Editing",
   "English HL"
  ],
+ "12|gr12-aerial-orthophoto-t1": [
+  "Aerial Photographs and Orthophoto Maps",
+  "Social Sciences: Geography"
+ ],
  "12|gr12-agriculture-and-food-security-t3": [
   "Agriculture and Food Security",
   "Social Sciences: Geography"
@@ -1446,6 +1450,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-contemporary-economic-issues-t3": [
   "Contemporary Economic Issues",
   "Economics"
+ ],
+ "12|gr12-contours-gradient-sections-t1": [
+  "Contours, Gradient, Cross-sections and Intervisibility",
+  "Social Sciences: Geography"
  ],
  "12|gr12-counting-probability-t3": [
   "Counting and Probability",

@@ -96,6 +96,7 @@ export const learnSteps: LearnStep[] = [
             <>The declination in 2026 is <strong>{m.dmText(nowDecl)} W</strong>.</>,
             <>A tower has a true bearing of {m.bearingText(trueBearing2)}. Magnetic bearing = {trueBearing2}° + {m.dmText(nowDecl)} = <strong>{m.dmText(magB)}</strong>.</>,
             <>If the minutes pass 60, carry 1° for each 60': for example 50' + 20' = 70' = 1°10'.</>,
+            <>If the change is <strong>decreasing</strong>, subtract it. 25°05' W decreasing 4' a year for 10 years: 10 × 4' = 40'. Borrow 1° = 60': 25°05' = 24°65', and 24°65' − 40' = <strong>{m.dmText(m.declinationOnYear(m.dm(25, 5), 2010, -4, 2020))} W</strong>.</>,
           ]}
         />
         <Mistake>Using the printed declination without correcting it for the years since the map was made. The exam asks for the declination in the present year.</Mistake>
@@ -141,6 +142,7 @@ export const bank: CapsItem[] = [
   { prompt: "The declination in a year is 26°10' W. A tower has a true bearing of 090°. What is its magnetic bearing?", options: ["063°50'","090°","116°","116°10'"], answer: "116°10'", explanation: "True bearing + west declination: 090° + 26°10' = 116°10'." },
   { prompt: "Hill K is due west of hill J. What is the true bearing of K from J?", options: ["270°","180°","090°","360°"], answer: "270°", explanation: "West is 270° measured clockwise from north." },
   { prompt: "How are bearings measured?", options: ["Anticlockwise from north","Clockwise from north","Clockwise from east","Anticlockwise from south"], answer: "Clockwise from north", explanation: "A bearing is the angle clockwise from north, written with three digits." },
+  { prompt: "A map gives a declination of 25°05' W in 2010 and says it decreases by 4' W each year. What is the declination in 2020?", options: ["25°45' W", "24°25' W", "24°05' W", "25°01' W"], answer: "24°25' W", explanation: "10 years × 4' = 40'. Subtract and borrow: 25°05' = 24°65', and 24°65' − 40' = 24°25'." },
 ];
 
 const BearingsDeclinationT1 = () => (

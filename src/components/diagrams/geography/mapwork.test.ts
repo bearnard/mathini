@@ -69,6 +69,10 @@ test('the current declination from the map base year, with the carry from 60 min
   assert.equal(m.dmText(m.declinationOnYear(m.dm(22, 50), 2010, 6, 2020)), "23°50'");
   assert.equal(m.dmText(m.declinationOnYear(m.dm(22, 55), 2010, 6, 2020)), "23°55'");
   assert.equal(m.dmText(m.declinationOnYear(m.dm(22, 58), 2010, 6, 2012)), "23°10'");
+  // a DECREASING annual change subtracts, borrowing 1° = 60'
+  assert.equal(m.dmText(m.declinationOnYear(m.dm(25, 5), 2010, -4, 2020)), "24°25'");
+  assert.equal(m.dmText(m.declinationOnYear(m.dm(24, 0), 2010, -6, 2020)), "23°00'");
+  assert.equal(m.dmText(m.declinationOnYear(m.dm(24, 30), 2000, -5, 2026)), "22°20'");
   // 90 degrees true plus 26°10' W is 116°10' magnetic
   assert.equal(m.dmText(m.addDeclination(90, m.dm(26, 10))), "116°10'");
   assert.equal(m.dmText(m.addDeclination(m.dm(65, 40), m.dm(19, 35))), "85°15'");
