@@ -39,6 +39,24 @@ export const psGrade10: Subject = {
           description: 'Pure substances and mixtures, names and formulae, and the properties of materials.',
           component: lazy(() => import('./term1/matter-classification-revision/MatterClassificationRevision')),
         },
+        {
+          id: 'gr10-atom-isotopes-t1',
+          title: 'The Atom and Isotopes',
+          description: 'Models of the atom, mass number and atomic number, isotopes and relative atomic mass.',
+          component: lazy(() => import('./term1/atom-isotopes/AtomIsotopes')),
+        },
+        {
+          id: 'gr10-longitudinal-waves-t1',
+          title: 'Longitudinal Waves',
+          description: 'Compressions and rarefactions on a spring, wavelength, frequency, period and speed.',
+          component: lazy(() => import('./term1/longitudinal-waves/LongitudinalWaves')),
+        },
+        {
+          id: 'gr10-sound-t1',
+          title: 'Sound',
+          description: 'What sound is, speed in different media, pitch, loudness and tone, ultrasound and echoes.',
+          component: lazy(() => import('./term1/sound/Sound')),
+        },
       ],
     },
     {
