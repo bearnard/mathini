@@ -47,86 +47,6 @@ const learnSteps: LearnStep[] = [
     ),
   },
   {
-    title: 'Work and the Work-Energy Theorem',
-    content: (
-      <div className="space-y-6">
-        <p className="text-slate-700">
-          <strong>Work</strong> is energy transferred by a force. It changes an object's kinetic energy.
-        </p>
-        <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-          <h4 className="font-semibold text-yellow-900 mb-2">Work Formula</h4>
-          <Formula block>{String.raw`W = F \Delta x \cos \theta`}</Formula>
-          <p className="text-sm text-slate-600 mt-2">
-            <em>W</em> = work (J), <em>F</em> = force (N), Δx = displacement (m), θ = angle between force and displacement.
-          </p>
-          <p className="text-slate-700 mt-2">
-            • If θ = 0° (force in direction of motion): W = FΔx (positive work)
-            <br />• If θ = 90° (force perpendicular): W = 0 (no work)
-            <br />• If θ = 180° (force opposite): W = −FΔx (negative work)
-          </p>
-        </div>
-        <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
-          <h4 className="font-semibold text-orange-900 mb-2">Work-Energy Theorem</h4>
-          <Formula block>{String.raw`W_{\text{net}} = \Delta E_k = E_{k_f} - E_{k_i}`}</Formula>
-          <p className="text-sm text-slate-600 mt-2">
-            Net work done on an object equals its change in kinetic energy.
-          </p>
-        </div>
-        <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-          <h4 className="font-semibold text-red-900 mb-2">Example</h4>
-          <p className="text-slate-700">
-            A 50 N horizontal force pushes a 5 kg box 4 m along a frictionless horizontal surface, so the 50 N force is the net force. Find work and final velocity (starts from rest).
-          </p>
-          <p className="text-slate-700 mt-2">
-            W = FΔx = 50 × 4 = 200 J
-            <br />W = ΔE<sub>k</sub> = 0,5 × 5 × v² − 0 = 200
-            <br />v² = 80 → v = 8,9 m/s
-          </p>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Power: Rate of Energy Transfer',
-    content: (
-      <div className="space-y-6">
-        <p className="text-slate-700">
-          <strong>Power</strong> is the rate at which work is done or energy is transferred.
-        </p>
-        <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
-          <h4 className="font-semibold text-indigo-900 mb-2">Power Formulas</h4>
-          <div className="space-y-2">
-            <Formula block>{String.raw`P = \frac{W}{t}`}</Formula>
-            <Formula block>{String.raw`P = \frac{E}{t}`}</Formula>
-            <Formula block>{String.raw`P = Fv`}</Formula>
-          </div>
-          <p className="text-sm text-slate-600 mt-2">
-            <em>P</em> = power (W = watts), <em>W</em> = work (J), <em>E</em> = energy (J), <em>t</em> = time (s), <em>F</em> = force (N), <em>v</em> = velocity (m/s).
-          </p>
-        </div>
-        <div className="bg-teal-50 p-4 rounded-lg border border-teal-200">
-          <h4 className="font-semibold text-teal-900 mb-2">Example Calculations</h4>
-          <p className="text-slate-700">
-            <strong>1.</strong> Lift 20 kg to 5 m height in 4 seconds. Find power.
-            <br />W = mgh = 20 × 9,8 × 5 = 980 J
-            <br />P = W/t = 980/4 = 245 W
-          </p>
-          <p className="text-slate-700 mt-3">
-            <strong>2.</strong> A car engine produces 100 N force at 30 m/s.
-            <br />P = Fv = 100 × 30 = 3000 W = 3 kW
-          </p>
-        </div>
-        <div className="bg-pink-50 p-4 rounded-lg border border-pink-200">
-          <h4 className="font-semibold text-pink-900 mb-2">Efficiency</h4>
-          <Formula block>{String.raw`\text{Efficiency} = \frac{E_{\text{useful}}}{E_{\text{input}}} \times 100\%`}</Formula>
-          <p className="text-sm text-slate-600 mt-2">
-            No machine is 100% efficient due to energy losses (friction, heat, sound).
-          </p>
-        </div>
-      </div>
-    ),
-  },
-  {
     title: 'Non-Conservative Forces and Energy Loss',
     content: (
       <div className="space-y-6">
@@ -174,22 +94,22 @@ const bank: PhysicalSciencesItem[] = [
     explanation: 'PE + KE = constant (when no non-conservative forces act)',
   },
   {
-    prompt: 'If work done is 100 J and time is 4 seconds, what is the power?',
-    options: ['25 W', '100 W', '400 W', '25 J'],
-    answer: '25 W',
-    explanation: 'Power = Work / Time = 100 / 4 = 25 W',
-  },
-  {
-    prompt: 'A 50 N force pushes a box 3 m. How much work is done?',
-    options: ['50 J', '150 J', '3 J', '53 J'],
-    answer: '150 J',
-    explanation: 'W = FΔx = 50 × 3 = 150 J',
-  },
-  {
     prompt: 'An object with 200 J kinetic energy has 50 J converted to heat by friction. What is its final kinetic energy?',
     options: ['250 J', '200 J', '150 J', '50 J'],
     answer: '150 J',
     explanation: 'Final KE = Initial KE − Energy lost = 200 − 50 = 150 J',
+  },
+  {
+    prompt: "A 3 kg stone is dropped from a height of 5 m. Ignoring air resistance, what is its gravitational potential energy at the start? Use g = 9,8 m/s².",
+    options: ["147 J", "15 J", "29,4 J", "1,5 J"],
+    answer: "147 J",
+    explanation: "E_p = mgh = 3 × 9,8 × 5 = 147 J",
+  },
+  {
+    prompt: "What happens to the energy of an object that falls freely, with no friction?",
+    options: ["Potential energy becomes kinetic energy", "Kinetic energy becomes potential energy", "Both kinds of energy increase", "Both kinds of energy disappear"],
+    answer: "Potential energy becomes kinetic energy",
+    explanation: "As an object falls, PE changes to KE and the total stays constant.",
   },
 ];
 

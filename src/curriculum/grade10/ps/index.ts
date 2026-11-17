@@ -16,12 +16,6 @@ export const psGrade10: Subject = {
           component: lazy(() => import('./term1/waves-sound-light/WavesSoundLight')),
         },
         {
-          id: 'gr10-electrostatics-electric-circuits-t1',
-          title: 'Electrostatics and Electric Circuits',
-          description: 'Electric forces and current flow',
-          component: lazy(() => import('./term1/electrostatics-electric-circuits/ElectrostaticsElectricCircuits')),
-        },
-        {
           id: 'gr10-pulses-superposition-t1',
           title: 'Transverse Pulses and Superposition',
           description: 'Pulses, amplitude, the speed of a pulse and constructive and destructive interference.',
@@ -57,18 +51,6 @@ export const psGrade10: Subject = {
           description: 'What sound is, speed in different media, pitch, loudness and tone, ultrasound and echoes.',
           component: lazy(() => import('./term1/sound/Sound')),
         },
-      ],
-    },
-    {
-      id: 2,
-      title: 'Term 2',
-      topics: [
-        {
-          id: 'gr10-magnetism-t2',
-          title: 'Magnetism',
-          description: "Poles, magnetic fields, field lines, the Earth's field, the compass and magnetic materials.",
-          component: lazy(() => import('./term2/magnetism/Magnetism')),
-        },
         {
           id: 'gr10-matter-states-phase-change-t2',
           title: 'Matter, States and Phase Change',
@@ -80,6 +62,18 @@ export const psGrade10: Subject = {
           title: 'Atoms, Periodic Table and Bonding',
           description: 'Atomic structure and chemical bonds',
           component: lazy(() => import('./term2/atoms-periodic-table-bonding/AtomsPeriodicTableBonding')),
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: 'Term 2',
+      topics: [
+        {
+          id: 'gr10-magnetism-t2',
+          title: 'Magnetism',
+          description: "Poles, magnetic fields, field lines, the Earth's field, the compass and magnetic materials.",
+          component: lazy(() => import('./term2/magnetism/Magnetism')),
         },
         {
           id: 'gr10-particles-substances-t2',

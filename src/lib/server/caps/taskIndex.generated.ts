@@ -76,7 +76,6 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr10-e-communication-email-netiquette-t2": ["it", 10],
   "gr10-economics-basics-scarcity-macroeconomic-flows": ["econ", 10],
   "gr10-electrostatics-basics-t2": ["ps", 10],
-  "gr10-electrostatics-electric-circuits-t1": ["ps", 10],
   "gr10-em-radiation-t1": ["ps", 10],
   "gr10-email-internet-threats-popia-t3": ["it", 10],
   "gr10-equations-inequalities-t1": ["math", 10],

@@ -183,10 +183,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Electrostatics Basics",
   "Physical Sciences"
  ],
- "10|gr10-electrostatics-electric-circuits-t1": [
-  "Electrostatics and Electric Circuits",
-  "Physical Sciences"
- ],
  "10|gr10-em-radiation-t1": [
   "Electromagnetic Radiation",
   "Physical Sciences"

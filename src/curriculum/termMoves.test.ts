@@ -45,6 +45,8 @@ const MOVES: [Grade, string, string, number][] = [
   // Grade 10 IT branch B
   [grade10, 'it', 'gr10-social-implications-cyber-safety-t4', 3],
   [grade10, 'it', 'gr10-computer-management-t3', 3], [grade10, 'it', 'gr10-internet-www-t3', 3], [grade10, 'it', 'gr10-email-internet-threats-popia-t3', 3], [grade10, 'it', 'gr10-loops-strings-algorithms-t3', 3], [grade10, 'it', 'gr10-gui-design-timer-project-t3', 3], [grade10, 'it', 'gr10-internet-services-text-files-t4', 4],
+  // Grade 10 Physical Sciences Wave B: States of matter and Atoms/Periodic table/Bonding move to Term 1 (CAPS)
+  [grade10, 'ps', 'gr10-matter-states-phase-change-t2', 1], [grade10, 'ps', 'gr10-atoms-periodic-table-bonding-t2', 1],
 ];
 
 test('moved lessons are listed in their CAPS term', () => {
@@ -52,7 +54,7 @@ test('moved lessons are listed in their CAPS term', () => {
 });
 
 test('no term of the changed subjects is empty and no topic is listed twice', () => {
-  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade12, 'lo'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade10, 'it'], [grade11, 'it'], [grade12, 'it'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns']] as [Grade, string][]) {
+  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade12, 'lo'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade10, 'it'], [grade11, 'it'], [grade12, 'it'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns'], [grade10, 'ps']] as [Grade, string][]) {
     const s = g.subjects.find((x) => x.id === id)!;
     for (const t of s.terms) assert.ok(t.topics.length > 0, `${id} term ${t.id}`);
     const ids = s.terms.flatMap((t) => t.topics.map((p) => p.id));
@@ -206,4 +208,33 @@ test('the hidden Grade 10 IT lesson is out of the curriculum but its code, task 
   assert.ok(id in tasks, 'the task instruction is kept');
   assert.equal(LEGACY_REDIRECTS.find((r) => r.source === '/grade-10/information-technology/database-and-introductory-object-concepts')?.destination, '/grade-10/information-technology');
   for (const t of it.terms) assert.ok(t.topics.length > 0, `Term ${t.id} is not empty`);
+});
+
+// Wave B, Grade 10 Physical Sciences: "Electrostatics and Electric Circuits" (Coulomb's law, Ohm's law, power: Grade 11/12) is hidden now that the CAPS lessons
+// Electrostatics Basics and Electric Circuits: Series and Parallel exist. Code, task instruction and D1 rows stay; the page redirects (308) to the subject page.
+test('the hidden Grade 10 Physical Sciences electrostatics and circuits lesson is out of the curriculum but its code, task instruction and redirect remain', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const ps = grade10.subjects.find((x) => x.id === 'ps')!;
+  const ids = ps.terms.flatMap((t) => t.topics.map((p) => p.id));
+  assert.ok(!ids.includes('gr10-electrostatics-electric-circuits-t1'), 'the lesson is hidden');
+  assert.ok(fs.existsSync('src/curriculum/grade10/ps/term1/electrostatics-electric-circuits/ElectrostaticsElectricCircuits.tsx'), 'the code is kept');
+  const tasks = JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/ps-gr10-term1.json', 'utf8')).tasks as Record<string, string>;
+  assert.ok('gr10-electrostatics-electric-circuits-t1' in tasks, 'the task instruction is kept');
+  assert.equal(LEGACY_REDIRECTS.find((x) => x.source === '/grade-10/physical-sciences/electrostatics-and-electric-circuits')?.destination, '/grade-10/physical-sciences');
+  for (const id of ['gr10-electrostatics-basics-t2', 'gr10-circuits-series-parallel-t2']) assert.ok(ids.includes(id), `${id} is listed`);
+});
+
+// Wave B, Grade 10 Physical Sciences: the off-grade sections are trimmed out of three lessons (Doppler and geometric optics; Lewis structures and VSEPR; work-energy theorem and power).
+test('the trimmed Grade 10 Physical Sciences lessons no longer teach Grade 11/12 sections, and their banks are still four questions', async () => {
+  const fs = await import('node:fs');
+  const dir = 'src/curriculum/grade10/ps/';
+  const check = (file: string, gone: string[], questions: number) => {
+    const src = fs.readFileSync(dir + file, 'utf8');
+    for (const t of gone) assert.ok(!src.includes(`title: '${t}'`), `${file} still has ${t}`);
+    assert.equal((src.match(/^\s+prompt:/gm) ?? []).length, questions, file);
+  };
+  check('term1/waves-sound-light/WavesSoundLight.tsx', ['Sound Waves and the Doppler Effect', 'Light, Reflection and Refraction'], 4);
+  check('term2/atoms-periodic-table-bonding/AtomsPeriodicTableBonding.tsx', ['Lewis Structures and Molecular Shapes'], 4);
+  check('term4/conservation-mechanical-energy/ConservationMechanicalEnergy.tsx', ['Work and the Work-Energy Theorem', 'Power: Rate of Energy Transfer'], 4);
 });
