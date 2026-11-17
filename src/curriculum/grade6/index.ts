@@ -604,6 +604,12 @@ export const grade6: Grade = {
                                     title: "Locating Places",
                                     description: "Using grid references and coordinates to find places.",
                                     component: lazy(() => import('./geography/term1/locating-places/LocatingPlaces'))
+                                },
+                                {
+                                    id: "gr6-atlases-global-statistics-t1",
+                                    title: "Atlases and Global Statistics",
+                                    description: "Using an atlas, and some facts about the whole world.",
+                                    component: lazy(() => import('./geography/term1/atlases-global-statistics/AtlasesGlobalStatistics'))
                                 }
                             ]
                         },
@@ -664,6 +670,12 @@ export const grade6: Grade = {
                                     title: "Vegetation & Adaptations",
                                     description: "How plants and animals adapt to their climate.",
                                     component: lazy(() => import('./geography/term3/vegetation-adaptations/VegetationAdaptations'))
+                                },
+                                {
+                                    id: "gr6-coniferous-forests-t3",
+                                    title: "Coniferous Forests",
+                                    description: "Where they are, the climate, plants and animals, and how people live.",
+                                    component: lazy(() => import('./geography/term3/coniferous-forests/ConiferousForests'))
                                 }
                             ]
                         },

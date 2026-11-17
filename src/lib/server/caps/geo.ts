@@ -66,6 +66,10 @@ export const geo: SubjectConfig = {
       'Topic: Migration, push and pull factors. Cover that migration is people moving from one place to live in another, types of migration (rural to urban, urban to urban), push factors (reasons people leave, e.g. no jobs, drought, conflict) and pull factors (reasons people are attracted, e.g. jobs, better schools, safety). Ask to classify a push or pull factor or define migration.',
     'migration-impact':
       'Topic: The impact of migration. Cover the effects of migration on people, families, communities and places, both positive (new opportunities, skills, money sent home) and negative (overcrowding in cities, pressure on services, families separated). Ask about an effect of migration on people or places.',
+    'gr6-atlases-global-statistics-t1':
+      'Topic: Atlases and global statistics. Cover what an atlas is, physical, political and theme maps, the contents page and the index of an atlas, what a map of your own province shows, locating places in the news, and the world\'s three highest mountains, three biggest oceans and largest countries. Ask Grade 6 learners to choose the right kind of map, use a contents page and an index, and compare the stated mountain heights. Do not ask about city populations or exact river lengths.',
+    'gr6-coniferous-forests-t3':
+      'Topic: Coniferous forests. Cover where coniferous forests are (Northern Hemisphere), their climate (long cold winters, short mild summers), conifers and the animals that live there, and how people make a living there. Ask Grade 6 learners to read a simple climate graph, link the environment to how people make a living, and name plants and animals.',
     }, geoGr6Facts.facts),
     ...geoGr7Term1.tasks,
     ...geoGr7Term2.tasks,
