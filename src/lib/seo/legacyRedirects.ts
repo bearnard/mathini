@@ -13,6 +13,9 @@ const LSK_TO_CA = [1, 2, 3, 4].map((n) => `creative-arts-term-${n}`);
 /** Grade 12 Physical Sciences: the combined rate/equilibrium/acids-bases lesson was split into three; its page goes to the first of them (the task id and its questions are unchanged). */
 const PS12_COMBINED = { source: '/grade-12/physical-sciences/reaction-rates-equilibrium-and-acids-bases', destination: '/grade-12/physical-sciences/chemical-equilibrium' };
 
+/** Grade 12 IT "Advanced OOP: Inheritance and Polymorphism" is not in the Grade 12 CAPS, so the lesson is hidden (code and D1 questions kept); its page goes to the subject page. */
+const IT12_HIDDEN = { source: '/grade-12/information-technology/advanced-oop-inheritance-and-polymorphism', destination: '/grade-12/information-technology' };
+
 export interface LegacyRedirect { source: string; destination: string }
 
 const moved = (fromSubject: string, toSubject: string, slugs: string[]): LegacyRedirect[] => [
@@ -27,6 +30,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   ...moved('/grade-7/life-skills', '/grade-7/life-orientation', LSK_TO_LO),
   ...LSK_TO_CA.map((slug) => ({ source: `/grade-7/life-skills/${slug}`, destination: `/grade-7/creative-arts/${slug}` })),
   PS12_COMBINED,
+  IT12_HIDDEN,
 ];
 
 /** The shape next.config.ts `redirects()` wants: permanent: true answers 308. */

@@ -7292,11 +7292,6 @@
             "title": "Term 1",
             "topics": [
               {
-                "id": "gr12-advanced-oop-inheritance-polymorphism-t1",
-                "title": "Advanced OOP: Inheritance and Polymorphism",
-                "description": "Inheritance, method overriding, polymorphism and class hierarchies in Grade 12 programming."
-              },
-              {
                 "id": "gr12-encapsulation-class-design-exception-handling-t1",
                 "title": "Encapsulation, Class Design and Exception Handling",
                 "description": "Encapsulation, validation, constructor design, exception handling and debugging strategies."
@@ -7320,6 +7315,21 @@
                 "id": "gr12-software-methodologies-design-tools-t1",
                 "title": "Software Methodologies and Design Tools",
                 "description": "Waterfall, RAD, incremental and agile; TOE, IPO, CRC and UML; noun-verb analysis and starting the PAT."
+              },
+              {
+                "id": "gr12-relational-data-joins-normalisation-t2",
+                "title": "Relational Data, Joins and Normalisation",
+                "description": "Relationships, joins, many-to-many linking tables and normalisation principles."
+              },
+              {
+                "id": "gr12-networks-security-systems-integration-t2",
+                "title": "Networks, Security and Systems Integration",
+                "description": "Protocol stacks, internet structure, network security and integrated digital systems."
+              },
+              {
+                "id": "gr12-forms-reports-database-program-integration-t2",
+                "title": "Forms, Reports and Database Program Integration",
+                "description": "Forms, reports, lookup controls, program integration and testing database-driven solutions."
               }
             ]
           },
@@ -7331,21 +7341,6 @@
                 "id": "gr12-advanced-databases-sql-t2",
                 "title": "Advanced Databases and SQL",
                 "description": "Advanced SQL selection, sorting, aggregation, keys and data validation for related datasets."
-              },
-              {
-                "id": "gr12-relational-data-joins-normalisation-t2",
-                "title": "Relational Data, Joins and Normalisation",
-                "description": "Relationships, joins, many-to-many linking tables and normalisation principles."
-              },
-              {
-                "id": "gr12-forms-reports-database-program-integration-t2",
-                "title": "Forms, Reports and Database Program Integration",
-                "description": "Forms, reports, lookup controls, program integration and testing database-driven solutions."
-              },
-              {
-                "id": "gr12-networks-security-systems-integration-t2",
-                "title": "Networks, Security and Systems Integration",
-                "description": "Protocol stacks, internet structure, network security and integrated digital systems."
               },
               {
                 "id": "gr12-two-dimensional-arrays-t2",
@@ -7361,6 +7356,11 @@
                 "id": "gr12-computer-management-t2",
                 "title": "Computer Management",
                 "description": "Housekeeping, protecting the system, data integrity, and recommending tasks for a situation."
+              },
+              {
+                "id": "gr12-cyber-security-emerging-technologies-t3",
+                "title": "Cyber Security and Emerging Technologies",
+                "description": "Cyber threats, secure practices, AI, IoT, cloud computing and remote-access risk evaluation."
               }
             ]
           },
@@ -7372,11 +7372,6 @@
                 "id": "gr12-social-implications-privacy-ethics-t3",
                 "title": "Social Implications, Privacy and Ethics",
                 "description": "Privacy, POPIA, digital ethics, accessibility, the digital divide and environmental impact."
-              },
-              {
-                "id": "gr12-cyber-security-emerging-technologies-t3",
-                "title": "Cyber Security and Emerging Technologies",
-                "description": "Cyber threats, secure practices, AI, IoT, cloud computing and remote-access risk evaluation."
               },
               {
                 "id": "gr12-integrated-solution-development-pat-completion-t3",

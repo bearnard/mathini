@@ -1319,10 +1319,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Advanced Databases",
   "Computer Applications Technology"
  ],
- "12|gr12-advanced-oop-inheritance-polymorphism-t1": [
-  "Advanced OOP: Inheritance and Polymorphism",
-  "Information Technology"
- ],
  "12|gr12-advanced-writing-editing-t3": [
   "Advanced Writing and Editing",
   "English HL"

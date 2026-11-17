@@ -10,12 +10,6 @@ export const informationTechnologyGrade12: Subject = {
       title: 'Term 1',
       topics: [
         {
-          id: "gr12-advanced-oop-inheritance-polymorphism-t1",
-          title: "Advanced OOP: Inheritance and Polymorphism",
-          description: "Inheritance, method overriding, polymorphism and class hierarchies in Grade 12 programming.",
-          component: lazy(() => import('./term1/advanced-oop-inheritance-polymorphism/AdvancedOopInheritancePolymorphism')),
-        },
-        {
           id: "gr12-encapsulation-class-design-exception-handling-t1",
           title: "Encapsulation, Class Design and Exception Handling",
           description: "Encapsulation, validation, constructor design, exception handling and debugging strategies.",
@@ -45,6 +39,24 @@ export const informationTechnologyGrade12: Subject = {
           description: "Waterfall, RAD, incremental and agile; TOE, IPO, CRC and UML; noun-verb analysis and starting the PAT.",
           component: lazy(() => import('./term1/software-methodologies-design-tools/SoftwareMethodologiesDesignTools')),
         },
+        {
+          id: "gr12-relational-data-joins-normalisation-t2",
+          title: "Relational Data, Joins and Normalisation",
+          description: "Relationships, joins, many-to-many linking tables and normalisation principles.",
+          component: lazy(() => import('./term2/relational-data-joins-normalisation/RelationalDataJoinsNormalisation')),
+        },
+        {
+          id: "gr12-networks-security-systems-integration-t2",
+          title: "Networks, Security and Systems Integration",
+          description: "Protocol stacks, internet structure, network security and integrated digital systems.",
+          component: lazy(() => import('./term2/networks-security-systems-integration/NetworksSecuritySystemsIntegration')),
+        },
+        {
+          id: "gr12-forms-reports-database-program-integration-t2",
+          title: "Forms, Reports and Database Program Integration",
+          description: "Forms, reports, lookup controls, program integration and testing database-driven solutions.",
+          component: lazy(() => import('./term2/forms-reports-database-program-integration/FormsReportsDatabaseProgramIntegration')),
+        },
       ],
     },
     {
@@ -56,24 +68,6 @@ export const informationTechnologyGrade12: Subject = {
           title: "Advanced Databases and SQL",
           description: "Advanced SQL selection, sorting, aggregation, keys and data validation for related datasets.",
           component: lazy(() => import('./term2/advanced-databases-sql/AdvancedDatabasesSql')),
-        },
-        {
-          id: "gr12-relational-data-joins-normalisation-t2",
-          title: "Relational Data, Joins and Normalisation",
-          description: "Relationships, joins, many-to-many linking tables and normalisation principles.",
-          component: lazy(() => import('./term2/relational-data-joins-normalisation/RelationalDataJoinsNormalisation')),
-        },
-        {
-          id: "gr12-forms-reports-database-program-integration-t2",
-          title: "Forms, Reports and Database Program Integration",
-          description: "Forms, reports, lookup controls, program integration and testing database-driven solutions.",
-          component: lazy(() => import('./term2/forms-reports-database-program-integration/FormsReportsDatabaseProgramIntegration')),
-        },
-        {
-          id: "gr12-networks-security-systems-integration-t2",
-          title: "Networks, Security and Systems Integration",
-          description: "Protocol stacks, internet structure, network security and integrated digital systems.",
-          component: lazy(() => import('./term2/networks-security-systems-integration/NetworksSecuritySystemsIntegration')),
         },
         {
           id: "gr12-two-dimensional-arrays-t2",
@@ -93,6 +87,12 @@ export const informationTechnologyGrade12: Subject = {
           description: "Housekeeping, protecting the system, data integrity, and recommending tasks for a situation.",
           component: lazy(() => import('./term2/computer-management/ComputerManagement')),
         },
+        {
+          id: "gr12-cyber-security-emerging-technologies-t3",
+          title: "Cyber Security and Emerging Technologies",
+          description: "Cyber threats, secure practices, AI, IoT, cloud computing and remote-access risk evaluation.",
+          component: lazy(() => import('./term3/cyber-security-emerging-technologies/CyberSecurityEmergingTechnologies')),
+        },
       ],
     },
     {
@@ -104,12 +104,6 @@ export const informationTechnologyGrade12: Subject = {
           title: "Social Implications, Privacy and Ethics",
           description: "Privacy, POPIA, digital ethics, accessibility, the digital divide and environmental impact.",
           component: lazy(() => import('./term3/social-implications-privacy-ethics/SocialImplicationsPrivacyEthics')),
-        },
-        {
-          id: "gr12-cyber-security-emerging-technologies-t3",
-          title: "Cyber Security and Emerging Technologies",
-          description: "Cyber threats, secure practices, AI, IoT, cloud computing and remote-access risk evaluation.",
-          component: lazy(() => import('./term3/cyber-security-emerging-technologies/CyberSecurityEmergingTechnologies')),
         },
         {
           id: "gr12-integrated-solution-development-pat-completion-t3",
