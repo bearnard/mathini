@@ -42,5 +42,13 @@ Source: DBE CAPS FET Information Technology Grades 10-12 (the original document,
 | 19 | Web 3.0 | **Mediated search** is described generally: a search helped by an intermediary such as a person or a specialised search service. | The CAPS gives only the name. Textbook definitions differ; a teacher should confirm the expected answer. One question depends on it. |
 | 20 | Internet services | The XML and CSS examples are simple and are checked in the test (the XML is well formed, the CSS rule is the one the question describes). JavaScript is described as running in the browser, PHP on the server. | JavaScript can also run on a server; the lesson follows CAPS (locally: scripts, AJAX; online: server-side scripts). |
 
+## Classes in Delphi (Term 1) and the hidden Encapsulation lesson
+
+| # | What | Why it is uncertain |
+|---|---|---|
+| 21 | The class follows the usual NSC style: private attributes starting with f, `constructor Create`, `getX` accessors, `setX` mutators, auxiliary methods (`isDistinction`, `toString`). Every output is computed in `classesInDelphi.test.ts` with the same logic. | A teacher may prefer other prefixes (for example `fMark` against `FMark`). |
+| 22 | "Encapsulation, Class Design and Exception Handling" is hidden now that this lesson exists. Exception handling (try..except) and `finally` are not in the Grade 12 CAPS Term 1 plan (only a Grade 11 line), so they are no longer taught; the code and its D1 questions are kept and its page redirects to this lesson. | The audit found exception handling only in a Grade 11 line; a teacher may still want a short lesson on it. |
+| 23 | Inheritance and polymorphism are not taught (not in the Grade 12 CAPS); that lesson is hidden too. | CAPS says "design a simple class with basic attributes and simple methods". |
+
 ## Not covered on purpose
 - Dynamic arrays (`SetLength`) and arrays of records.

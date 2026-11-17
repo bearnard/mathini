@@ -1403,6 +1403,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Case Study: the US Civil Rights Movement",
   "History"
  ],
+ "12|gr12-classes-in-delphi-t1": [
+  "Classes in Delphi",
+  "Information Technology"
+ ],
  "12|gr12-climate-and-geomorphology-revision-t4": [
   "Climate and Geomorphology Revision",
   "Social Sciences: Geography"
@@ -1542,10 +1546,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-electrodynamics-generators-motors-t3": [
   "Electrodynamics: Generators and Motors",
   "Physical Sciences"
- ],
- "12|gr12-encapsulation-class-design-exception-handling-t1": [
-  "Encapsulation, Class Design and Exception Handling",
-  "Information Technology"
  ],
  "12|gr12-end-of-cold-war-t3": [
   "The End of the Cold War: the Events of 1989",

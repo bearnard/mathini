@@ -30,9 +30,9 @@ const html = (n: Parameters<typeof renderToStaticMarkup>[0]) => renderToStaticMa
 const text = (s: string) => s.replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/g, ' ').replace(/\s+/g, ' ').trim();
 const lessonText = (l: { learnSteps: LearnStep[] }) => text(html(h('div', null, l.learnSteps.map((s) => s.content))));
 
-test('the new Grade 12 IT theory lessons are registered in their CAPS term, and the original lessons (except the one hidden in Wave B) are all still listed under the same ids, with a task instruction each', () => {
+test('the new Grade 12 IT theory lessons are registered in their CAPS term, and the original lessons (except the two hidden in Wave B) are all still listed under the same ids, with a task instruction each', () => {
   const original = [
-    'gr12-encapsulation-class-design-exception-handling-t1', 'gr12-gui-design-event-driven-programming-t1', 'gr12-algorithmic-refinement-validation-testing-t1',
+    'gr12-gui-design-event-driven-programming-t1', 'gr12-algorithmic-refinement-validation-testing-t1',
     'gr12-advanced-databases-sql-t2', 'gr12-relational-data-joins-normalisation-t2', 'gr12-forms-reports-database-program-integration-t2', 'gr12-networks-security-systems-integration-t2',
     'gr12-social-implications-privacy-ethics-t3', 'gr12-cyber-security-emerging-technologies-t3', 'gr12-integrated-solution-development-pat-completion-t3',
     'gr12-nsc-practical-programming-revision-t4', 'gr12-nsc-database-sql-revision-t4', 'gr12-nsc-theory-exam-technique-t4',

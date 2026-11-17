@@ -16,6 +16,9 @@ const PS12_COMBINED = { source: '/grade-12/physical-sciences/reaction-rates-equi
 /** Grade 12 IT "Advanced OOP: Inheritance and Polymorphism" is not in the Grade 12 CAPS, so the lesson is hidden (code and D1 questions kept); its page goes to the subject page. */
 const IT12_HIDDEN = { source: '/grade-12/information-technology/advanced-oop-inheritance-and-polymorphism', destination: '/grade-12/information-technology' };
 
+/** Grade 12 IT "Encapsulation, Class Design and Exception Handling" is hidden now that the CAPS-scoped "Classes in Delphi" lesson exists (code and D1 questions kept); its page goes to the new lesson. */
+const IT12_ENCAPSULATION = { source: '/grade-12/information-technology/encapsulation-class-design-and-exception-handling', destination: '/grade-12/information-technology/classes-in-delphi' };
+
 export interface LegacyRedirect { source: string; destination: string }
 
 const moved = (fromSubject: string, toSubject: string, slugs: string[]): LegacyRedirect[] => [
@@ -31,6 +34,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   ...LSK_TO_CA.map((slug) => ({ source: `/grade-7/life-skills/${slug}`, destination: `/grade-7/creative-arts/${slug}` })),
   PS12_COMBINED,
   IT12_HIDDEN,
+  IT12_ENCAPSULATION,
 ];
 
 /** The shape next.config.ts `redirects()` wants: permanent: true answers 308. */
