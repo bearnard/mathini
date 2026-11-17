@@ -7326,6 +7326,11 @@
                 "id": "gr12-networks-security-systems-integration-t2",
                 "title": "Networks, Security and Systems Integration",
                 "description": "Protocol stacks, internet structure, network security and integrated digital systems."
+              },
+              {
+                "id": "gr12-two-dimensional-arrays-t2",
+                "title": "Two-Dimensional Arrays (Delphi)",
+                "description": "Rows and columns, nested loops, row and column totals, and finding the largest value."
               }
             ]
           },

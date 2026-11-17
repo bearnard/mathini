@@ -563,6 +563,7 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr12-trigonometry-identities-equations-t1": ["math", 12],
   "gr12-trigonometry-two-three-dimensions-t2": ["math", 12],
   "gr12-tropical-cyclones-anticyclones-t1": ["geo", 12],
+  "gr12-two-dimensional-arrays-t2": ["it", 12],
   "gr12-unseen-poetry-interpretation-t2": ["eng", 12],
   "gr12-urban-hierarchy-and-structure-t2": ["geo", 12],
   "gr12-urban-issues-and-planning-t2": ["geo", 12],

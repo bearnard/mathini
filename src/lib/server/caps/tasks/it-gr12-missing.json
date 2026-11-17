@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "gr12-two-dimensional-arrays-t2": "Topic: Two-dimensional arrays in Delphi for Grade 12 Information Technology (CAPS Term 2 programming). Cover the structure of a 2-D array (rows and columns, declared with array[1..R, 1..C] of a type, indexed as arr[row, column], one data type, bounds that count from 1), stepping through the elements with nested loops (the outer loop for the rows and the inner loop for the columns, row by row), basic operations such as row and column totals and the grand total (reset the total to 0 for each row or column; local variables are not set to 0 automatically), finding the largest value and its position, counting values that meet a condition, integer division with div and mod, and common errors (a total that is not reset, a reset in the wrong place, swapped indexes, an index outside the declared bounds). Every number in a question must be worked out from the array shown; ask learners to read and trace code and to give the result."
+  }
+}
