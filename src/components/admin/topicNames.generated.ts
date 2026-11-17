@@ -567,6 +567,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Application Integration and Case Studies",
   "Computer Applications Technology"
  ],
+ "11|gr11-atomic-combinations-t1": [
+  "Atomic Combinations",
+  "Physical Sciences"
+ ],
  "11|gr11-bank-creditors-reconciliations-t1": [
   "Bank and Creditors Reconciliations",
   "Accounting"
@@ -617,6 +621,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "11|gr11-chemistry-consolidation-t4": [
   "Chemistry Consolidation",
+  "Physical Sciences"
+ ],
+ "11|gr11-chemistry-of-water-t1": [
+  "The Chemistry of Water",
   "Physical Sciences"
  ],
  "11|gr11-communist-ideology-t1": [
@@ -818,6 +826,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-globalisation-north-south-t4": [
   "Globalisation and the North-South Divide",
   "Economics"
+ ],
+ "11|gr11-gravitation-t1": [
+  "Newton's Law of Universal Gravitation",
+  "Physical Sciences"
  ],
  "11|gr11-greener-economies-t4": [
   "Greener Economies",

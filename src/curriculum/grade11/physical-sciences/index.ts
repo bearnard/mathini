@@ -27,6 +27,24 @@ export const physicalSciencesGrade11: Subject = {
           description: 'Inertia, F = ma, action-reaction pairs, static and kinetic friction.',
           component: lazy(() => import('./term1/newtons-laws/NewtonsLaws')),
         },
+        {
+          id: 'gr11-gravitation-t1',
+          title: "Newton's Law of Universal Gravitation",
+          description: "F = Gm₁m₂/r², the inverse square law, weight and g on the Earth and the Moon.",
+          component: lazy(() => import('./term1/gravitation/Gravitation')),
+        },
+        {
+          id: 'gr11-atomic-combinations-t1',
+          title: 'Atomic Combinations',
+          description: 'Lewis structures, electronegativity, VSEPR molecular shapes and polarity of molecules.',
+          component: lazy(() => import('./term1/atomic-combinations/AtomicCombinations')),
+        },
+        {
+          id: 'gr11-chemistry-of-water-t1',
+          title: 'The Chemistry of Water',
+          description: 'The bent water molecule, hydrogen bonds, boiling point and why ice floats.',
+          component: lazy(() => import('./term1/chemistry-of-water/ChemistryOfWater')),
+        },
       ],
     },
     {
