@@ -11,6 +11,11 @@ Nothing here has been checked by a first-language speaker. Every Afrikaans word,
 | 3 | Constitution | Headings Naam, Doel, Lidmaatskap, Vergaderings, Wysigings; `Aangeneem op 3 Februarie.` for the date of adoption. | CAPS lists name, membership, terms of reference, date, signature; the Afrikaans headings are the author's choice. |
 | 4 | Constitution | `moet` for a duty and `mag` for a permission; `Die grondwet kan verander word.` | Standard; `gewysig` is the more formal word. |
 | 5 | Policy | `Selfoonbeleid` and `Selfone moet gedurende lesse afgeskakel wees.` | Please confirm the compound and `afgeskakel wees`. |
+| 6 | Will | `bemaak` (leave, bequeath), `aanstel` (appoint) as in `Ek stel my broer as eksekuteur aan.`, and the key words testament, erfgenaam, eksekuteur, boedel, getuies. | Standard legal vocabulary; no legal detail is taught and the lesson says a real will is written with an attorney. |
+| 7 | CV and covering letter | Headings Persoonlike besonderhede, Kwalifikasies, Werkondervinding, Verwysings (referees). | Textbooks differ; `Verwysings` is widely used for referees. |
+| 8 | Covering letter | Greeting `Geagte Meneer/Mevrou` and closing `Vriendelike groete` (the same forms as the existing formal-letter lesson). | The closings `Die uwe` and `Hoogagtend` are also taught in some schools; they are not used here. |
+| 9 | Both | Names and numbers are invented (`082 000 0000`, `Hillcrest Hoërskool`, `Mev. N. Dlamini`). | Placeholders so that no real person is named. |
+
 
 ## Every Afrikaans item shown, with its English gloss
 
@@ -92,3 +97,54 @@ Nothing here has been checked by a first-language speaker. Every Afrikaans word,
 | Grondwet | constitution |
 | Moet | Must |
 | Beleid | Policy |
+
+### will
+
+| Afrikaans | English |
+|---|---|
+| testament | will (the document) |
+| erfgenaam | heir |
+| eksekuteur | executor |
+| Die testament sê wie die erfgenaam is. | The will says who the heir is. |
+| boedel | estate |
+| Bemaak | leave, bequeath (in a will) |
+| Aanstel | appoint (separable verb: stel ... aan) |
+| Ek bemaak my huis aan my dogter. | I leave my house to my daughter. |
+| Ek stel my broer as eksekuteur aan. | I appoint my brother as executor. |
+| Ek gee my huis | I give my house (the too-casual wrong example) |
+| bemaak | leave, bequeath |
+| getuies | witnesses |
+| Die getuies teken ook. | The witnesses also sign. |
+| die datum en die handtekening | the date and the signature |
+| Ek bemaak R50 000 aan my seun, Thabo. | I leave R50 000 to my son, Thabo. |
+| Ek bemaak my goed aan die kinders. | I leave my things to the children (too vague) |
+| my goed | my things (too vague) |
+| Testament | will (the document) |
+| Eksekuteur | executor |
+| Getuies | witnesses |
+
+### cv
+
+| Afrikaans | English |
+|---|---|
+| CV | CV |
+| Persoonlike besonderhede | personal details |
+| Kwalifikasies | qualifications |
+| Werkondervinding | work experience |
+| Kwalifikasies: Graad 9 by Hillcrest Hoërskool. | Qualifications: Grade 9 at Hillcrest High School. |
+| Werkondervinding: biblioteekmonitor vir twee jaar. | Work experience: library monitor for two years. |
+| Verwysings | referees |
+| selfoonnommer | cellphone number |
+| e-posadres | e-mail address |
+| Mev. N. Dlamini, klasonderwyser | Mrs N. Dlamini, class teacher |
+| 082 000 0000 | a placeholder cellphone number |
+| dekbrief | covering letter |
+| onderhoud | interview |
+| Ek doen aansoek vir die pos van naweekassistent. | I am applying for the post of weekend assistant. |
+| My CV is aangeheg. | My CV is attached. |
+| Ek is beskikbaar vir 'n onderhoud. | I am available for an interview. |
+| Haai | Hey (the wrong, casual greeting) |
+| Geagte Meneer/Mevrou | Dear Sir/Madam |
+| Vriendelike groete | kind regards |
+| Onderwerp | subject |
+| Dekbrief | covering letter |

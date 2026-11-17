@@ -3647,8 +3647,16 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Grondwet en Beleid",
   "Afrikaans FAL"
  ],
+ "9|gr9-afr-cv-covering-letter-t3": [
+  "CV en Dekbrief",
+  "Afrikaans FAL"
+ ],
  "9|gr9-afr-diary-entry-t2": [
   "Dagboekinskrywing",
+  "Afrikaans FAL"
+ ],
+ "9|gr9-afr-will-testament-t3": [
+  "Testament",
   "Afrikaans FAL"
  ],
  "9|gr9-algebraic-expressions-t1": [
