@@ -24,5 +24,11 @@ Source of scope: CAPS FET Geography Gr 10-12 (skills progression table; Grade 12
 - **Orthophoto maps at 1:10 000** used with 1:50 000 maps is how South African orthophoto maps are normally produced; please confirm against the orthophoto sheets used in class. The lesson only gives the 1:10 000 versus 1:50 000 comparison (1 km = 10 cm against 2 cm) and does not claim how many orthophoto maps cover one topographic sheet.
 - **No real aerial photographs** are used (no source to credit); the picture is a labelled schematic of vertical and oblique views.
 
-## Branch C (to be added when written)
-- GIS (T2); atlases and thematic maps (T3).
+## Branch C: GIS (T2); Using atlases and thematic maps (T3)
+
+- **GIS.** The lesson follows the CAPS list: GIS as a system for capturing, storing, analysing and displaying spatial data; remote sensing; spatial and spectral resolution; spatial and attribute data; vector (point, line, polygon) and raster data; data manipulation (integration, buffering, querying, statistical analysis); applications by government and the private sector; data standardisation, sharing and security; a paper GIS on tracing paper. The numbers are exact: a 30 m raster cell is 900 m2, 1 ha = 10 000 m2, a buffer on both sides of a feature is 2 x the distance wide.
+- **Which feature is a point, line or polygon** depends on the scale (a town can be a point or a polygon). The questions only use the unambiguous cases (a river is a line, a farm boundary is a polygon, a borehole or school is a point) and say so.
+- **Spectral resolution** is described in one sentence (how many bands of light the sensor records); CAPS does not go further.
+- **Atlases.** Isohyet, isotherm, isobar and contour are the standard isolines. Latitude and longitude in degrees and minutes (60 minutes = 1 degree), converted to decimal degrees; 29 degrees 20 minutes is rounded to 29,33 degrees and the question says "to two decimal places".
+- **Rainfall and vegetation.** The lesson gives only the general link (more rainfall, denser vegetation; low rainfall, semi-desert or desert) and says to check a third map such as temperature. It gives no real place names or rainfall figures, because they would have to be checked against the atlas the learner uses.
+- **Map projections** (equal-area and true-direction) are Grade 10 content in the CAPS table and are not taught here.
