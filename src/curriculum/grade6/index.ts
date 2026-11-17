@@ -424,6 +424,12 @@ export const grade6: Grade = {
                                     title: "Ecosystems & Interdependence",
                                     description: "How living things depend on each other.",
                                     component: lazy(() => import('./natural-sciences/term1/ecosystems/Ecosystems'))
+                                },
+                                {
+                                    id: "gr6-processing-food-t1",
+                                    title: "Methods for Processing Food",
+                                    description: "Why we process food, and ways to cook, keep and ferment it.",
+                                    component: lazy(() => import('./natural-sciences/term1/processing-food/ProcessingFood'))
                                 }
                             ]
                         },
@@ -454,6 +460,18 @@ export const grade6: Grade = {
                                     title: "Solutions & Dissolving",
                                     description: "How solids dissolve to form solutions.",
                                     component: lazy(() => import('./natural-sciences/term2/solutions-dissolving/SolutionsDissolving'))
+                                },
+                                {
+                                    id: "gr6-water-pollution-wetlands-t2",
+                                    title: "Water Pollution and Wetlands",
+                                    description: "What pollutes water, germs and illness, and why wetlands matter.",
+                                    component: lazy(() => import('./natural-sciences/term2/water-pollution-wetlands/WaterPollutionWetlands'))
+                                },
+                                {
+                                    id: "gr6-purifying-water-t2",
+                                    title: "Purifying Dirty Water",
+                                    description: "Sieving, settling, decanting, filtering, boiling and chemicals.",
+                                    component: lazy(() => import('./natural-sciences/term2/purifying-water/PurifyingWater'))
                                 }
                             ]
                         },
