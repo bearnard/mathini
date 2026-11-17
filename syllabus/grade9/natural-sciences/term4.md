@@ -1,21 +1,36 @@
 # Grade 9 — Natural Sciences: Term 4
 
-**CAPS phase:** Senior
+Source: CAPS Natural Sciences Senior Phase Gr 7-9 (sp_ns), Grade 9 Term 1-4 tables and Grade 9 programme of assessment.
+
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 1–8
 
 ## Topics
 
-### Lithosphere and Earth resources
-- **Key concepts:** rocks, minerals, plate tectonics, mining, fossil fuels, environmental impact, Earth structure
-- **Skills / outcomes:** Explain Earth processes, identify resource uses, and evaluate mining impacts on people and the environment.
-- **Assessment angles:** Earth cross-sections, resource-case-study questions, and mining impact comparisons.
-- **Knowledge strand:** Planet Earth & Beyond
+### The Earth as a system
+- **Key concepts:** the spheres of the Earth
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
 
-### Stars and the universe
-- **Key concepts:** stars, galaxies, life cycle of stars, scale of the universe, evidence from observation
-- **Skills / outcomes:** Compare stages in a star’s life cycle, interpret astronomy diagrams, and connect evidence to scientific ideas.
-- **Assessment angles:** Sequence questions, matching terms, and short explanatory responses.
-- **Knowledge strand:** Planet Earth & Beyond
+### Lithosphere
+- **Key concepts:** lithosphere
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
+
+### Mining of mineral resources
+- **Key concepts:** extracting ores
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
+
+### Atmosphere
+- **Key concepts:** layers and composition
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
+
+### Birth, life and death of a star
+- **Key concepts:** life cycle of a star (nebulae, white dwarf)
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
 
 ## Assessment
 - **Formal tasks this term:** Research task and end-of-year examination.

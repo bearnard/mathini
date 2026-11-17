@@ -1,6 +1,8 @@
 # Grade 7 — Afrikaans First Additional Language: Term 2
 
-**CAPS phase:** Intermediate Phase (Gr 6–7)
+Source: CAPS Afrikaans Eerste Addisionele Taal Senior Phase Graad 7-9, Graad 7 Kwartaal 1-4; phase label corrected to Senior Phase (Gr 7-9). Topic content not re-audited here.
+
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 1–10
 
 ## Topics

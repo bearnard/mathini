@@ -1,19 +1,26 @@
 # Grade 12 — Accounting: Term 3
 
+Source: CAPS Accounting Grades 10-12, section 3.2.5-3.2.6 Grade 12 Annual Teaching Plan (pp. 29-39).
+
 **CAPS phase:** FET Phase (Gr 10–12)
 **ATP weeks:** Weeks 1–11
 
 ## Topics
 
-### VAT and budgeting
-- **Key concepts:** VAT calculations, input and output VAT, projected income statement, budgeting assumptions, cash planning
-- **Skills / outcomes:** calculate VAT accurately and prepare projected statements from planning data
-- **Assessment angles:** VAT journal and control questions, projected-income calculations, comment-on-budget items
+### Cost accounting
+- **Key concepts:** production cost statement, short-form income statement, variable and fixed costs, unit cost, contribution, break-even
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
 
-### Revision and trial examination preparation
-- **Key concepts:** revision of companies, interpretation, manufacturing, reconciliations and VAT for full-paper practice
-- **Skills / outcomes:** integrate all Grade 12 topics and manage two-paper trial examination demands
-- **Assessment angles:** full-case integration, mixed calculations, exam strategy and common-error correction
+### Budgeting
+- **Key concepts:** projected income statement and cash budget; budget vs actual
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
+
+### Revision and preliminary (trial) examination preparation
+- **Key concepts:** revision of companies, interpretation, cost accounting, reconciliations and VAT for full-paper practice
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
 
 ## Assessment
 - **Formal tasks this term:** Case study and trial examination.

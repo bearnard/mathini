@@ -1,6 +1,6 @@
 # Grade 8 — Social Sciences: History: Term 4
 
-**CAPS phase:** Senior
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 31–40
 
 ## Topics

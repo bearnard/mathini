@@ -1,6 +1,6 @@
 # Grade 9 — Mathematics: Term 1
 
-**CAPS phase:** Senior Phase (Gr 8–9)
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 1–10
 
 ## Topics

@@ -1,27 +1,59 @@
 # Grade 6 — Mathematics: Term 1
 
-**CAPS phase:** Intermediate Phase (Gr 6–7)
+Source: CAPS Intermediate Phase Mathematics Gr 4-6, 'Time Allocation per Topic: Grade 6' (p. 212) and 3.3.3 Clarification of content for Grade 6 (pp. 213-297).
+
+**CAPS phase:** Intermediate Phase (Gr 4–6)
 **ATP weeks:** Weeks 1–11
 
 ## Topics
 
-### Whole Numbers and Place Value
-- **Key concepts:** ordering, comparing and representing numbers up to at least 9 digits, expanded notation, place value, rounding, prime numbers to 100
-- **Skills / outcomes:** read, write, compare and round large whole numbers, identify place value accurately, and distinguish prime from composite numbers
-- **Assessment angles:** place-value traps, expanded notation, ordering on a number line, prime/composite recognition, rounding to stated place values
-- **Approximate time:** About 2–3 weeks
+### Whole numbers: counting, ordering, comparing, representing, place value (6-digit); prime factors of numbers to at least 100
+- **Key concepts:** counting, ordering, comparing and representing 6-digit numbers, place value, factors, multiples and prime factors of numbers to at least 100
+- **Skills / outcomes:** as set out in the CAPS clarification of content for this topic
+- **Assessment angles:** tasks and tests on the CAPS content listed
+- **CAPS time:** 2 h
 
-### Addition, Subtraction and Multiplication of Whole Numbers
-- **Key concepts:** column methods with 5- and 6-digit numbers, multiplication of 4-digit by 3-digit numbers, estimation, inverse operations, properties of operations
-- **Skills / outcomes:** calculate efficiently, choose suitable written methods, estimate to check reasonableness, and solve financial or measurement contexts
-- **Assessment angles:** carry/borrow errors, multi-step operations, checking with inverse operations, context questions using large numbers
-- **Approximate time:** About 4 weeks
+### Whole numbers: addition and subtraction (5-digit)
+- **Key concepts:** addition and subtraction of 5-digit numbers
+- **Skills / outcomes:** as set out in the CAPS clarification of content for this topic
+- **Assessment angles:** tasks and tests on the CAPS content listed
+- **CAPS time:** 7 h
 
-### Division, Factors, Multiples and Problem Solving
-- **Key concepts:** long division with large numbers, factors, multiples, distributive property, grouping and sharing, ratio and rate contexts
-- **Skills / outcomes:** divide accurately with remainders, interpret answers in context, use multiplication to check division, and solve ratio/rate problems
-- **Assessment angles:** remainders in word problems, factor vs multiple confusion, long-division layout, equal-sharing and grouping questions
-- **Approximate time:** About 3–4 weeks
+### Common fractions
+- **Key concepts:** equivalence and comparing; add and subtract fractions, mixed numbers, fractions of whole numbers
+- **Skills / outcomes:** as set out in the CAPS clarification of content for this topic
+- **Assessment angles:** tasks and tests on the CAPS content listed
+- **CAPS time:** 10 h
+
+### Number sentences
+- **Key concepts:** number sentences
+- **Skills / outcomes:** as set out in the CAPS clarification of content for this topic
+- **Assessment angles:** tasks and tests on the CAPS content listed
+- **CAPS time:** 3 h
+
+### Time
+- **Key concepts:** time
+- **Skills / outcomes:** as set out in the CAPS clarification of content for this topic
+- **Assessment angles:** tasks and tests on the CAPS content listed
+- **CAPS time:** 4 h
+
+### Properties of 2-D shapes
+- **Key concepts:** properties of 2-D shapes
+- **Skills / outcomes:** as set out in the CAPS clarification of content for this topic
+- **Assessment angles:** tasks and tests on the CAPS content listed
+- **CAPS time:** 8 h
+
+### Data handling
+- **Key concepts:** data handling
+- **Skills / outcomes:** as set out in the CAPS clarification of content for this topic
+- **Assessment angles:** tasks and tests on the CAPS content listed
+- **CAPS time:** 10 h
+
+### Numeric patterns
+- **Key concepts:** numeric patterns, flow diagrams
+- **Skills / outcomes:** as set out in the CAPS clarification of content for this topic
+- **Assessment angles:** tasks and tests on the CAPS content listed
+- **CAPS time:** 4 h
 
 ## Assessment
 - **Formal tasks this term:** In-class assignment on whole numbers and end-of-term test on all Term 1 work.

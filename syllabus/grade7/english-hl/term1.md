@@ -1,6 +1,8 @@
 # Grade 7 — English Home Language: Term 1
 
-**CAPS phase:** Intermediate Phase (Gr 6–7)
+Source: CAPS English Home Language Senior Phase Gr 7-9, Grade 7 Terms 1-4; phase label corrected to Senior Phase (Gr 7-9). Topic content not re-audited here.
+
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 1–10
 
 ## Topics

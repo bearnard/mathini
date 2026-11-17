@@ -1,6 +1,8 @@
 # Grade 6 — Social Sciences: Geography: Term 3
 
-**CAPS phase:** Intermediate
+Source: CAPS Social Sciences Gr 4-6, Geography Grade 6 Terms 1-4 (pp. 28-32); phase label corrected to Intermediate Phase (Gr 4-6). Topic content not re-audited here.
+
+**CAPS phase:** Intermediate Phase (Gr 4–6)
 **ATP weeks:** Weeks 21–30
 
 ## Topics

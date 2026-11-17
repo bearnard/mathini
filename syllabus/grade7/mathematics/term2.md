@@ -1,6 +1,8 @@
 # Grade 7 — Mathematics: Term 2
 
-**CAPS phase:** Intermediate Phase (Gr 6–7)
+Source: CAPS Mathematics Senior Phase Gr 7-9, Time allocation per topic Grade 7 (p. 38) and 3.3.1 Clarification of content Grade 7 (pp. 39-70); phase label corrected to Senior Phase (Gr 7-9). Topic content not re-audited here.
+
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 1–10
 
 ## Topics

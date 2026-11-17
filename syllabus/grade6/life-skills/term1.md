@@ -1,25 +1,27 @@
 # Grade 6 — Life Skills: Term 1
 
-**CAPS phase:** Intermediate Phase (Gr 6–7)
+Source: CAPS Life Skills Grades 4-6 (PSW pp. 23-26, PE pp. 30-32, Creative Arts pp. 41-50).
+
+**CAPS phase:** Intermediate Phase (Gr 4–6)
 **ATP weeks:** Weeks 1–10
 
 ## Topics
 
 ### Personal and Social Well-being
-- **Key concepts:** self-image, personal strengths, healthy habits, peer pressure, respect
-- **Skills / outcomes:** talk about identity, set simple goals, practise refusal skills and build supportive friendships
-- **Assessment angles:** scenario MCQs on healthy choices, poster prompts, short reflections on respectful behaviour
+- **Key concepts:** development of the self: body image (positive self-esteem); abilities, interests and potential, action plan; peer pressure; conflict problem solving: mediation and peacekeeping
+- **Skills / outcomes:** Work through the CAPS topics listed for this term.
+- **Assessment angles:** scenario questions, short reflections, role-play prompts
 
 ### Physical Education
-- **Key concepts:** locomotor and non-locomotor movement, balance, coordination, target games, warm-ups
-- **Skills / outcomes:** perform movement sequences, throw and aim accurately, and follow class safety routines
-- **Assessment angles:** skills circuits, observation checklists, participation and teamwork rubrics
+- **Key concepts:** striking and fielding games (participation, movement performance, safety)
+- **Skills / outcomes:** Work through the CAPS topics listed for this term.
+- **Assessment angles:** skills observation checklists, participation records
 
 ### Creative Arts
-- **Key concepts:** line, shape, colour, rhythm, body percussion, drama games
-- **Skills / outcomes:** create a simple 2D artwork, keep a steady beat and improvise short scenes or movement phrases
-- **Assessment angles:** art rubrics on elements, rhythm echo tasks, brief group performances
+- **Key concepts:** performing arts: warm up and play, improvise and create (sound pictures, mime), read, interpret and perform an African folktale drama with drum and C major scale, appreciate South African drama types; visual arts: visual literacy, 2D figures with animals (monochromatic, balance), 3D clay figure with an animal
+- **Skills / outcomes:** Work through the CAPS topics listed for this term.
+- **Assessment angles:** practical performance and artwork rubrics
 
 ## Assessment
-- **Formal tasks this term:** A PSW reflection or poster task, a PE practical observation and a Creative Arts practical activity.
-- **SBA weighting:** Not stated as a fixed term percentage in CAPS; PSW, PE and Creative Arts tasks feed the annual assessment programme.
+- **Formal tasks this term:** PSW, PE and Creative Arts tasks as set out in the CAPS programme of assessment (PSW: formal test Term 2, project Term 3, examination Term 4).
+- **SBA weighting:** Not stated as a fixed term percentage here; see the CAPS Life Skills programme of assessment (Grades 4-6).

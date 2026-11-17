@@ -1,6 +1,6 @@
 # Grade 9 — Afrikaans First Additional Language: Term 4
 
-**CAPS phase:** Senior Phase (Gr 8–9)
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 1–8
 
 ## Topics

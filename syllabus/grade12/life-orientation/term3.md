@@ -1,30 +1,27 @@
 # Grade 12 — Life Orientation: Term 3
 
+Source: CAPS Life Orientation Grades 10-12, Grade 12 Terms 1-4 teaching plan (fet_lo, lines ~1115-1290) and assessment (lines ~1425-1480).
+
 **CAPS phase:** FET Phase (Gr 10–12)
 **ATP weeks:** Weeks 1–10
 
 ## Topics
 
-### Democracy and human rights
-- **Key concepts:** human rights violations, discrimination, redress, constitutional values, accountability
-- **Skills / outcomes:** analyse local and global human-rights issues and defend rights-based responses using evidence
-- **Assessment angles:** source-based questions, issue essays, rights-application tasks
+### Development of the self in society
+- **Key concepts:** human factors causing ill-health, accidents, crises and disasters; lifestyle diseases (cancer, hypertension, heart disease, TB, STIs including HIV/AIDS); intervention strategies; action plan for long-term physical activity
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
 
-### Ideologies, media and citizenship
-- **Key concepts:** ideology, bias, propaganda, social movements, responsible participation
-- **Skills / outcomes:** read persuasive messages critically and evaluate their impact on democracy and social action
-- **Assessment angles:** media comparison tasks, debate prompts, critical-literacy questions
+### Careers and career choices
+- **Key concepts:** job contract; worker rights and obligations; LRA, EEA, BCEA; equity and redress; recruitment; trade unions; work ethics; value of work
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
 
-### Active citizenship and leadership
-- **Key concepts:** civic participation, leadership, social justice, diversity, ethical action
-- **Skills / outcomes:** demonstrate how informed citizens and organisations can promote justice and social cohesion
-- **Assessment angles:** campaign design, reflection writing, case-study responses
-
-### Physical Education Task
-- **Key concepts:** fitness maintenance, teamwork, self-discipline, participation review
-- **Skills / outcomes:** show consistent engagement in physical activity and evaluate personal responsibility for health
-- **Assessment angles:** participation logs, self-assessment, peer feedback
+### Physical Education
+- **Key concepts:** relaxation and recreational activities
+- **Skills / outcomes:** as set out in the CAPS Grade 12 plan for this term
+- **Assessment angles:** theory and practical tasks on the CAPS content listed
 
 ## Assessment
-- **Formal tasks this term:** A source-based task or test, a reflective or practical project, and ongoing PET evidence.
-- **SBA weighting:** FET Life Orientation uses 75% SBA and 25% PET across the year.
+- **Formal tasks this term:** Final examination and the PET.
+- **SBA weighting:** Grade 12 CAPS Life Orientation: five tasks making 400 marks, of which the Physical Education Task (PET) is 80 marks (20% of the year; PET 20 + 40 + 20 in Terms 1-3). This replaces the earlier '75% SBA / 25% PET' wording, which is not CAPS.

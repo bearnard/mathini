@@ -1,6 +1,8 @@
 # Grade 7 — Social Sciences: History: Term 3
 
-**CAPS phase:** Senior
+Source: CAPS Social Sciences Senior Phase Gr 7-9, History Grade 7 Terms 1-4 (pp. 33-36); phase label corrected to Senior Phase (Gr 7-9). Topic content not re-audited here.
+
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 21–30
 
 ## Topics

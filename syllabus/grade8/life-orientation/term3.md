@@ -1,6 +1,6 @@
 # Grade 8 — Life Orientation: Term 3
 
-**CAPS phase:** Senior Phase (Gr 8–9)
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 1–10
 
 ## Topics

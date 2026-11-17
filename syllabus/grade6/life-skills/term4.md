@@ -1,25 +1,27 @@
 # Grade 6 — Life Skills: Term 4
 
-**CAPS phase:** Intermediate Phase (Gr 6–7)
+Source: CAPS Life Skills Grades 4-6 (PSW pp. 23-26, PE pp. 30-32, Creative Arts pp. 41-50).
+
+**CAPS phase:** Intermediate Phase (Gr 4–6)
 **ATP weeks:** Weeks 1–8
 
 ## Topics
 
 ### Personal and Social Well-being
-- **Key concepts:** puberty, emotions, HIV and AIDS awareness, community service, career awareness
-- **Skills / outcomes:** talk about change sensitively, challenge stigma and connect community roles to future aspirations
-- **Assessment angles:** reflection paragraphs, stigma scenarios, community-helper oral prompts
+- **Key concepts:** basic first aid (cuts, burns, bites, poisoning, choking); food hygiene; communicable diseases (mumps, TB, colds, chickenpox, athlete's foot); HIV and AIDS education, caring for people with AIDS
+- **Skills / outcomes:** Work through the CAPS topics listed for this term.
+- **Assessment angles:** scenario questions; end-of-year examination covering the whole year (PSW exam is 60 marks)
 
 ### Physical Education
-- **Key concepts:** team games, fitness circuits, coordination review, recreation and health
-- **Skills / outcomes:** combine the year’s movement skills in games and circuits and evaluate personal participation
-- **Assessment angles:** fitness-station checklists, game-play observation, self-assessment records
+- **Key concepts:** refined movement sequences (shape, speed, direction) or swimming
+- **Skills / outcomes:** Work through the CAPS topics listed for this term.
+- **Assessment angles:** movement observation checklists
 
 ### Creative Arts
-- **Key concepts:** 3D construction, design planning, dance-drama integration, final presentation
-- **Skills / outcomes:** build a simple model or sculpture and present an end-of-year integrated performance
-- **Assessment angles:** portfolio evidence, showcase rubrics, peer feedback on presentations
+- **Key concepts:** performing arts: cultural rituals and ceremonies, a story told through music and movement, optional puppetry; visual arts: 2D and 3D buildings, architecture and the environment
+- **Skills / outcomes:** Work through the CAPS topics listed for this term.
+- **Assessment angles:** practical performance and artwork rubrics
 
 ## Assessment
-- **Formal tasks this term:** A year-end consolidation task, a PE participation record and a Creative Arts showcase or portfolio.
-- **SBA weighting:** Not stated as a fixed term percentage in CAPS; PSW, PE and Creative Arts tasks feed the annual assessment programme.
+- **Formal tasks this term:** PSW, PE and Creative Arts tasks as set out in the CAPS programme of assessment (PSW: formal test Term 2, project Term 3, examination Term 4).
+- **SBA weighting:** Not stated as a fixed term percentage here; see the CAPS Life Skills programme of assessment (Grades 4-6).

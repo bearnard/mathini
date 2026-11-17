@@ -1,21 +1,36 @@
 # Grade 9 — Natural Sciences: Term 3
 
-**CAPS phase:** Senior
+Source: CAPS Natural Sciences Senior Phase Gr 7-9 (sp_ns), Grade 9 Term 1-4 tables and Grade 9 programme of assessment.
+
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 1–10
 
 ## Topics
 
-### Electricity and electric cells
-- **Key concepts:** current, potential difference, resistance, series and parallel circuits, electric cells, circuit symbols
-- **Skills / outcomes:** Build and compare circuits, predict brightness and current changes, and troubleshoot simple electrical systems.
-- **Assessment angles:** Circuit diagrams, comparison of series vs parallel, and short calculation or explanation items.
-- **Knowledge strand:** Energy & Change
+### Forces
+- **Key concepts:** types of forces, contact and field forces, newtons
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
 
-### Heat and energy transfer
-- **Key concepts:** conduction, convection, radiation, insulation, energy in chemical reactions, temperature change
-- **Skills / outcomes:** Interpret investigations, explain insulation, and link chemical change to energy transfer.
-- **Assessment angles:** Practical variables, diagram labels, and everyday application questions.
-- **Knowledge strand:** Energy & Change
+### Electric cells, resistance, series and parallel circuits
+- **Key concepts:** electric cells; resistance (uses of resistors); series and parallel circuits
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
+
+### Safety with electricity
+- **Key concepts:** fuses, earthing, energy theft
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
+
+### Energy and electricity generation
+- **Key concepts:** power station
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
+
+### Cost of electrical power
+- **Key concepts:** power, kWh
+- **Skills / outcomes:** as set out in the CAPS Grade 9 content for this term
+- **Assessment angles:** tests and practical tasks on the CAPS content listed
 
 ## Assessment
 - **Formal tasks this term:** Practical task and control test.

@@ -1,6 +1,6 @@
 # Grade 9 — Technology: Term 2
 
-**CAPS phase:** Senior
+**CAPS phase:** Senior Phase (Gr 7–9)
 **ATP weeks:** Weeks 1–10
 
 ## Topics
