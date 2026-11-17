@@ -3468,6 +3468,11 @@
                 "id": "gears-pulleys",
                 "title": "Gears and Pulleys",
                 "description": "Fixed and movable pulleys, block and tackle, spur gears, bevel gears, worm gears, rack and pinion."
+              },
+              {
+                "id": "mechanical-control-systems",
+                "title": "Mechanical Control Systems",
+                "description": "Ratchet and pawl, disc brake, bicycle brake and cleat."
               }
             ]
           },

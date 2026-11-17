@@ -4119,6 +4119,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Map Scale and Coordinates",
   "Social Sciences: Geography"
  ],
+ "9|gr9-mechanical-control-systems-t2": [
+  "Mechanical Control Systems",
+  "Technology"
+ ],
  "9|gr9-music-t1": [
   "Music",
   "Creative Arts"

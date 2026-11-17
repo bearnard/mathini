@@ -39,6 +39,12 @@ export const technologyGrade9: Subject = {
           description: 'Fixed and movable pulleys, block and tackle, spur gears, bevel gears, worm gears, rack and pinion.',
           component: lazy(() => import('./term2/gears-pulleys/GearsPulleys')),
         },
+        {
+          id: 'mechanical-control-systems',
+          title: 'Mechanical Control Systems',
+          description: 'Ratchet and pawl, disc brake, bicycle brake and cleat.',
+          component: lazy(() => import('./term2/mechanical-control-systems/MechanicalControlSystems')),
+        },
       ],
     },
     {
