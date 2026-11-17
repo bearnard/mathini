@@ -33,6 +33,18 @@ export const geographyGrade12: Subject = {
           description: "Drainage systems, erosion, transport, deposition, river profiles and catchment management.",
           component: lazy(() => import('./term1/fluvial-processes-catchment-management/FluvialProcessesCatchmentManagementT1')),
         },
+        {
+          id: 'gr12-map-scale-distance-area-t1',
+          title: "Map Scale, Distance and Area",
+          description: "Scale, measuring straight and curved distance and calculating area on a 1:50 000 map.",
+          component: lazy(() => import('./term1/map-scale-distance-area/MapScaleDistanceAreaT1')),
+        },
+        {
+          id: 'gr12-bearings-declination-t1',
+          title: "Direction, Bearings and Magnetic Declination",
+          description: "Compass points, true and magnetic bearings, back bearings and the declination today.",
+          component: lazy(() => import('./term1/bearings-declination/BearingsDeclinationT1')),
+        },
       ],
     },
     {

@@ -7040,6 +7040,16 @@
                 "id": "gr12-fluvial-processes-catchment-management-t1",
                 "title": "Fluvial Processes and Catchment Management",
                 "description": "Drainage systems, erosion, transport, deposition, river profiles and catchment management."
+              },
+              {
+                "id": "gr12-map-scale-distance-area-t1",
+                "title": "Map Scale, Distance and Area",
+                "description": "Scale, measuring straight and curved distance and calculating area on a 1:50 000 map."
+              },
+              {
+                "id": "gr12-bearings-declination-t1",
+                "title": "Direction, Bearings and Magnetic Declination",
+                "description": "Compass points, true and magnetic bearings, back bearings and the declination today."
               }
             ]
           },
