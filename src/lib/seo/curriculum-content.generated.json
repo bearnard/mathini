@@ -7120,6 +7120,21 @@
                 "id": "gr12-paper1-language-practice-t1",
                 "title": "Paper 1 Language Practice",
                 "description": "Strengthen comprehension, summary, visual literacy, editing and oral preparation for Paper 1 routines."
+              },
+              {
+                "id": "gr12-oral-paper4-tasks-t1",
+                "title": "Paper 4 Orals: The Tasks and the 50 Marks",
+                "description": "What Paper 4 is, what each oral task assesses, when the tasks happen, and how the 50 marks add up."
+              },
+              {
+                "id": "gr12-listening-comprehension-t1",
+                "title": "Listening for Comprehension",
+                "description": "The listening process, kinds of listening, listening critically, and making notes."
+              },
+              {
+                "id": "gr12-prepared-unprepared-speeches-t1",
+                "title": "Prepared and Unprepared Speeches",
+                "description": "Planning, structure and evidence, delivery, and the unprepared speech."
               }
             ]
           },
@@ -7146,6 +7161,16 @@
                 "id": "gr12-midyear-exam-preparation-t2",
                 "title": "Mid-Year Exam Preparation",
                 "description": "Prepare across Papers 1, 2 and 3 with timed routines, revision plans and exam-management strategies."
+              },
+              {
+                "id": "gr12-interview-dialogue-t2",
+                "title": "Interviews and Dialogues",
+                "description": "Planning an interview, the five phases, asking questions and listening, and dialogue."
+              },
+              {
+                "id": "gr12-discussion-debate-panel-t2",
+                "title": "Discussions, Debates and Panels",
+                "description": "Informal discussion, debate terms and procedure, panel discussions and the chairperson."
               }
             ]
           },
@@ -7167,6 +7192,11 @@
                 "id": "gr12-oral-trial-preparation-t3",
                 "title": "Oral Completion and Trial Preparation",
                 "description": "Complete SBA oral work while preparing strategically for listening tasks, speaking and trial exams."
+              },
+              {
+                "id": "gr12-introducing-speaker-vote-of-thanks-t3",
+                "title": "Introducing a Speaker and a Vote of Thanks",
+                "description": "Researching and introducing a speaker, a model introduction, and offering a vote of thanks."
               }
             ]
           },
