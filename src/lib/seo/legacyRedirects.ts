@@ -48,6 +48,9 @@ const LO12_HIDDEN = [
 /** Grade 11 IT: four lessons are not in the amended Grade 11 CAPS (2024 amendment, DBE Circular S9 of 2025): the two OOP lessons (OOP is Grade 12 Term 2) and the two SQL lessons (SQL is Grade 12 Term 1). Grade 12 has Classes in Delphi and Advanced Databases and SQL. Hidden now that the Grade 11 replacements are live (code, task instructions and D1 questions kept); each page goes to the Grade 11 IT subject page. */
 const IT11_HIDDEN = ['oop-classes-and-objects', 'oop-methods-and-constructors', 'databases-and-sql', 'sql-integration'].map((slug) => ({ source: `/grade-11/information-technology/${slug}`, destination: '/grade-11/information-technology' }));
 
+/** Grade 10 IT: "Database and Introductory Object Concepts" is not in the amended Grade 10 CAPS (databases are Grade 11 Term 3, objects Grade 12 Term 2; DBE Circular S9 of 2025) and is hidden now that the Grade 10 replacements are live (code, task instruction and D1 questions kept); its page goes to the Grade 10 IT subject page. */
+const IT10_HIDDEN = { source: '/grade-10/information-technology/database-and-introductory-object-concepts', destination: '/grade-10/information-technology' };
+
 export interface LegacyRedirect { source: string; destination: string }
 
 const moved = (fromSubject: string, toSubject: string, slugs: string[]): LegacyRedirect[] => [
@@ -68,6 +71,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   ...HIS6_HIDDEN,
   ...LO12_HIDDEN,
   ...IT11_HIDDEN,
+  IT10_HIDDEN,
 ];
 
 /** The shape next.config.ts `redirects()` wants: permanent: true answers 308. */

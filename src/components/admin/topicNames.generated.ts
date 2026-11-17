@@ -95,6 +95,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Comprehension and Summary",
   "English HL"
  ],
+ "10|gr10-computer-management-t3": [
+  "Computer Management: Files, Housekeeping and Security",
+  "Information Technology"
+ ],
  "10|gr10-computer-systems-data-representation-algorithm-design-t1": [
   "Computer Systems, Data Representation and Algorithm Design",
   "Information Technology"
@@ -131,10 +135,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Data Handling",
   "Mathematical Literacy"
  ],
- "10|gr10-database-introductory-object-concepts-t2": [
-  "Database and Introductory Object Concepts",
-  "Information Technology"
- ],
  "10|gr10-diagnostic-features-major-kingdoms-t4": [
   "Diagnostic Features of Major Kingdoms",
   "Life Sciences"
@@ -162,6 +162,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-electrostatics-electric-circuits-t1": [
   "Electrostatics and Electric Circuits",
   "Physical Sciences"
+ ],
+ "10|gr10-email-internet-threats-popia-t3": [
+  "E-mail and Internet Threats, Safe Use and POPIA",
+  "Information Technology"
  ],
  "10|gr10-equations-inequalities-t1": [
   "Equations and Inequalities",
@@ -215,6 +219,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Growth, Development and South African Economic Change",
   "Economics"
  ],
+ "10|gr10-gui-design-timer-project-t3": [
+  "GUI Design, the Timer and Planning a Project",
+  "Information Technology"
+ ],
  "10|gr10-hardware-devices-t2": [
   "Hardware: Devices, the System Unit and Ports",
   "Information Technology"
@@ -234,6 +242,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-internet-communication-networks": [
   "Internet, Communication and Networks",
   "Computer Applications Technology"
+ ],
+ "10|gr10-internet-services-text-files-t4": [
+  "Internet Services and Text Files",
+  "Information Technology"
+ ],
+ "10|gr10-internet-www-t3": [
+  "The Internet and the World Wide Web",
+  "Information Technology"
  ],
  "10|gr10-job-market-lifelong-learning-t4": [
   "Job Market Trends, Qualifications and Lifelong Learning",
@@ -258,6 +274,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-literary-genres-text-features-t1": [
   "Literary Genres and Text Features",
   "English HL"
+ ],
+ "10|gr10-loops-strings-algorithms-t3": [
+  "Loops, Strings, Prime Numbers and GCD",
+  "Information Technology"
  ],
  "10|gr10-maps-plans-models-t3": [
   "Maps, Plans and Models",

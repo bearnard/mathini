@@ -42,6 +42,9 @@ const MOVES: [Grade, string, string, number][] = [
   [grade10, 'it', 'gr10-networks-data-handling-t3', 2],
   [grade10, 'it', 'gr10-computers-software-ict-systems-t1', 1], [grade10, 'it', 'gr10-file-management-t1', 1], [grade10, 'it', 'gr10-algorithms-ipo-trace-tables-t1', 1], [grade10, 'it', 'gr10-licences-digital-divide-t1', 1],
   [grade10, 'it', 'gr10-hardware-devices-t2', 2], [grade10, 'it', 'gr10-operating-systems-utilities-drivers-t2', 2], [grade10, 'it', 'gr10-networks-overview-t2', 2], [grade10, 'it', 'gr10-e-communication-email-netiquette-t2', 2], [grade10, 'it', 'gr10-problem-solving-polya-user-stories-t2', 2], [grade10, 'it', 'gr10-ergonomics-green-health-t2', 2],
+  // Grade 10 IT branch B
+  [grade10, 'it', 'gr10-social-implications-cyber-safety-t4', 3],
+  [grade10, 'it', 'gr10-computer-management-t3', 3], [grade10, 'it', 'gr10-internet-www-t3', 3], [grade10, 'it', 'gr10-email-internet-threats-popia-t3', 3], [grade10, 'it', 'gr10-loops-strings-algorithms-t3', 3], [grade10, 'it', 'gr10-gui-design-timer-project-t3', 3], [grade10, 'it', 'gr10-internet-services-text-files-t4', 4],
 ];
 
 test('moved lessons are listed in their CAPS term', () => {
@@ -186,5 +189,21 @@ test('the hidden Grade 11 IT lessons are out of the curriculum but their code, t
     assert.ok(id in tasks, `${id}: the task instruction is kept`);
   }
   for (const id of ['gr11-database-design-keys-erd-t3', 'gr11-database-access-code-multi-form-t3', 'gr11-iot-4ir-big-data-t4', 'gr11-streaming-compression-t4', 'gr11-internet-services-websites-security-t4', 'gr11-user-defined-methods-t2', 'gr11-dbms-database-types-t2']) assert.ok(ids.includes(id), `${id} is listed`);
+  for (const t of it.terms) assert.ok(t.topics.length > 0, `Term ${t.id} is not empty`);
+});
+
+// 2024 CAPS amendment, Grade 10 IT: databases are Grade 11 Term 3 and objects Grade 12 Term 2, so "Database and Introductory Object Concepts" is hidden now that the Grade 10
+// replacements are live. Code, task instruction and D1 questions stay; the page redirects (308) to the Grade 10 IT subject page.
+test('the hidden Grade 10 IT lesson is out of the curriculum but its code, task instruction and redirect remain', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const it = grade10.subjects.find((x) => x.id === 'it')!;
+  const ids = it.terms.flatMap((t) => t.topics.map((p) => p.id));
+  const id = 'gr10-database-introductory-object-concepts-t2';
+  assert.ok(!ids.includes(id), 'hidden');
+  assert.ok(fs.existsSync('src/curriculum/grade10/it/term2/database-introductory-object-concepts/DatabaseIntroductoryObjectConcepts.tsx'), 'the code is kept');
+  const tasks = JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/it-gr10-term2.json', 'utf8')).tasks as Record<string, string>;
+  assert.ok(id in tasks, 'the task instruction is kept');
+  assert.equal(LEGACY_REDIRECTS.find((r) => r.source === '/grade-10/information-technology/database-and-introductory-object-concepts')?.destination, '/grade-10/information-technology');
   for (const t of it.terms) assert.ok(t.topics.length > 0, `Term ${t.id} is not empty`);
 });
