@@ -51,12 +51,8 @@ export const physicalSciencesGrade12: Subject = {
           description: "Explain Doppler shifts in sound, medicine and astronomy using CAPS Grade 12 reasoning.",
           component: lazy(() => import('./term2/doppler-effect-applications/DopplerEffectApplications')),
         },
-        {
-          id: "gr12-rates-equilibrium-acids-bases-t2",
-          title: "Reaction Rates, Equilibrium and Acids-Bases",
-          description: "Integrate key Grade 12 chemistry ideas on rate, equilibrium and acids or bases in one topic.",
-          component: lazy(() => import('./term2/rates-equilibrium-acids-bases/RatesEquilibriumAcidsBases')),
-        },
+        // The old combined lesson gr12-rates-equilibrium-acids-bases-t2 is no longer listed (its code, task id and D1 questions stay):
+        // it was split into the three lessons below. Its public page redirects (src/lib/seo/legacyRedirects.ts).
         {
           id: "gr12-rate-extent-reaction-t2",
           title: "Rate and Extent of Reaction",

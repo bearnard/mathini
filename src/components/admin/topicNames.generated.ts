@@ -1955,10 +1955,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Rate and Extent of Reaction",
   "Physical Sciences"
  ],
- "12|gr12-rates-equilibrium-acids-bases-t2": [
-  "Reaction Rates, Equilibrium and Acids-Bases",
-  "Physical Sciences"
- ],
  "12|gr12-reading-viewing-t1": [
   "Reading & Viewing",
   "isiXhosa FAL"

@@ -67,3 +67,16 @@ test('old Grade 7 app links (subject=nst / lsk) still open the subject that now 
   assert.deepEqual(open('grade=7&subject=lsk&term=3&topic=gr7-creative-arts-t3'), ['ca', 'gr7-creative-arts-t3']);
   assert.deepEqual(open('grade=7&subject=lsk'), ['lo', undefined]);
 });
+
+test('the old combined Grade 12 Physical Sciences page redirects (308) to Chemical Equilibrium, and its code and task id are kept', async () => {
+  const r = LEGACY_REDIRECTS.find((x) => x.source === '/grade-12/physical-sciences/reaction-rates-equilibrium-and-acids-bases');
+  assert.ok(r);
+  assert.equal(r.destination, '/grade-12/physical-sciences/chemical-equilibrium');
+  assert.ok(nextRedirects().some((x) => x.source === r.source && x.permanent === true));
+  assert.ok(!live.has(r.source));
+  assert.ok(live.has('/grade-12/physical-sciences/rate-and-extent-of-reaction') && live.has('/grade-12/physical-sciences/acids-and-bases'));
+  const fs = await import('node:fs');
+  assert.ok(fs.existsSync('src/curriculum/grade12/physical-sciences/term2/rates-equilibrium-acids-bases/RatesEquilibriumAcidsBases.tsx'));
+  assert.match(fs.readFileSync('src/curriculum/grade12/physical-sciences/term2/rates-equilibrium-acids-bases/RatesEquilibriumAcidsBases.tsx', 'utf8'), /gr12-rates-equilibrium-acids-bases-t2/);
+  assert.ok(Object.keys(JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/ps-gr12-term2.json', 'utf8')).tasks).includes('gr12-rates-equilibrium-acids-bases-t2'));
+});

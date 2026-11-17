@@ -10,6 +10,9 @@ const NST_TO_TECH = ['design-process-and-structures', 'electrical-systems-and-co
 const LSK_TO_LO = [1, 2, 3, 4].flatMap((n) => [`personal-and-social-well-being-term-${n}`, `physical-education-term-${n}`]);
 const LSK_TO_CA = [1, 2, 3, 4].map((n) => `creative-arts-term-${n}`);
 
+/** Grade 12 Physical Sciences: the combined rate/equilibrium/acids-bases lesson was split into three; its page goes to the first of them (the task id and its questions are unchanged). */
+const PS12_COMBINED = { source: '/grade-12/physical-sciences/reaction-rates-equilibrium-and-acids-bases', destination: '/grade-12/physical-sciences/chemical-equilibrium' };
+
 export interface LegacyRedirect { source: string; destination: string }
 
 const moved = (fromSubject: string, toSubject: string, slugs: string[]): LegacyRedirect[] => [
@@ -23,6 +26,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   ...NST_TO_TECH.map((slug) => ({ source: `/grade-7/natural-sciences-and-technology/${slug}`, destination: `/grade-7/technology/${slug}` })),
   ...moved('/grade-7/life-skills', '/grade-7/life-orientation', LSK_TO_LO),
   ...LSK_TO_CA.map((slug) => ({ source: `/grade-7/life-skills/${slug}`, destination: `/grade-7/creative-arts/${slug}` })),
+  PS12_COMBINED,
 ];
 
 /** The shape next.config.ts `redirects()` wants: permanent: true answers 308. */
