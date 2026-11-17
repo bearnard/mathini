@@ -7918,16 +7918,6 @@
                 "description": "Current social and environmental issues, ethics, legislation awareness and realistic interventions."
               },
               {
-                "id": "gr12-community-and-social-action-t2",
-                "title": "Community and Social Action",
-                "description": "Volunteerism, advocacy, leadership, support services and accountable participation in community change."
-              },
-              {
-                "id": "gr12-risk-management-and-support-t2",
-                "title": "Risk Management and Support",
-                "description": "Violence, poverty, substance abuse, trauma, coping strategies and referral to support systems."
-              },
-              {
                 "id": "gr12-physical-education-task-2-t2",
                 "title": "Physical Education Task — Term 2",
                 "description": "Game participation, fitness goals, stress relief, teamwork and active lifestyle habits."
@@ -7947,11 +7937,6 @@
                 "id": "gr12-ideologies-media-and-citizenship-t3",
                 "title": "Ideologies, Media and Citizenship",
                 "description": "Ideology, bias, propaganda, social movements and responsible participation in democracy."
-              },
-              {
-                "id": "gr12-active-citizenship-and-leadership-t3",
-                "title": "Active Citizenship and Leadership",
-                "description": "Civic participation, social justice, diversity, ethical leadership and social cohesion."
               },
               {
                 "id": "gr12-physical-education-task-3-t3",
@@ -7988,11 +7973,6 @@
                 "id": "gr12-world-of-work-readiness-t4",
                 "title": "World of Work Readiness",
                 "description": "CVs, interviews, workplace ethics, contracts, labour rights and professional conduct."
-              },
-              {
-                "id": "gr12-transition-and-personal-planning-t4",
-                "title": "Transition and Personal Planning",
-                "description": "Financial awareness, independence, support networks, resilience and future action planning."
               },
               {
                 "id": "gr12-physical-education-task-4-t4",

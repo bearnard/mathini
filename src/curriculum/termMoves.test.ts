@@ -34,7 +34,7 @@ test('moved lessons are listed in their CAPS term', () => {
 });
 
 test('no term of the changed subjects is empty and no topic is listed twice', () => {
-  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade12, 'it'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns']] as [Grade, string][]) {
+  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade12, 'lo'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade12, 'it'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns']] as [Grade, string][]) {
     const s = g.subjects.find((x) => x.id === id)!;
     for (const t of s.terms) assert.ok(t.topics.length > 0, `${id} term ${t.id}`);
     const ids = s.terms.flatMap((t) => t.topics.map((p) => p.id));
@@ -121,4 +121,31 @@ test('the hidden Grade 6 History lessons are out of the curriculum but their cod
   for (const t of his.terms) assert.ok(t.topics.length > 0, `Term ${t.id} is not empty`);
   assert.equal(his.terms.find((t) => t.id === 1)!.topics.length, 5);
   assert.equal(his.terms.find((t) => t.id === 2)!.topics.length, 4);
+});
+
+// Wave B, Grade 12 Life Orientation: four lessons that are not in the Grade 12 CAPS are hidden now that the CAPS lessons on health, careers and tax exist.
+// Code, task instructions and D1 questions stay; each page redirects (308) to the closest CAPS lesson; no term is left empty.
+test('the hidden Grade 12 Life Orientation lessons are out of the curriculum but their code, task instructions and redirects remain', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const lo = grade12.subjects.find((x) => x.id === 'lo')!;
+  const ids = lo.terms.flatMap((t) => t.topics.map((p) => p.id));
+  const hidden: [string, string, string, string, string][] = [
+    ['gr12-community-and-social-action-t2', 'term2/community-and-social-action/CommunityAndSocialAction.tsx', 'community-and-social-action', 'social-and-environmental-responsibility', 'lo-gr12-term2.json'],
+    ['gr12-risk-management-and-support-t2', 'term2/risk-management-and-support/RiskManagementAndSupport.tsx', 'risk-management-and-support', 'human-factors-in-ill-health-accidents-and-disasters', 'lo-gr12-term2.json'],
+    ['gr12-active-citizenship-and-leadership-t3', 'term3/active-citizenship-and-leadership/ActiveCitizenshipAndLeadership.tsx', 'active-citizenship-and-leadership', 'democracy-and-human-rights', 'lo-gr12-term3.json'],
+    ['gr12-transition-and-personal-planning-t4', 'term4/transition-and-personal-planning/TransitionAndPersonalPlanning.tsx', 'transition-and-personal-planning', 'careers-and-career-choices', 'lo-gr12-term4.json'],
+  ];
+  for (const [id, file, slug, to, taskFile] of hidden) {
+    assert.ok(!ids.includes(id), `${id} is hidden`);
+    assert.ok(fs.existsSync(`src/curriculum/grade12/life-orientation/${file}`), `${file} is kept`);
+    assert.ok(LEGACY_REDIRECTS.some((r) => r.source === `/grade-12/life-orientation/${slug}` && r.destination === `/grade-12/life-orientation/${to}`), `${slug} redirects to ${to}`);
+    const tasks = JSON.parse(fs.readFileSync(`src/lib/server/caps/tasks/${taskFile}`, 'utf8')).tasks as Record<string, string>;
+    assert.ok(tasks[id], `${id}: the task instructions are kept`);
+  }
+  const caps = ['gr12-human-factors-ill-health-t3', 'gr12-lifestyle-diseases-t3', 'gr12-physical-activity-plan-t3', 'gr12-unemployment-solutions-t1', 'gr12-tax-corruption-fraud-t1',
+    'gr12-social-and-environmental-responsibility-t2', 'gr12-democracy-and-human-rights-t3', 'gr12-ideologies-media-and-citizenship-t3', 'gr12-careers-and-career-choices-t4', 'gr12-world-of-work-readiness-t4'];
+  for (const id of caps) assert.ok(ids.includes(id), `${id} is listed`);
+  for (const t of lo.terms) assert.ok(t.topics.length > 0, `Term ${t.id} is not empty`);
+  assert.equal(lo.terms.find((t) => t.id === 2)!.topics.length, 2);
 });

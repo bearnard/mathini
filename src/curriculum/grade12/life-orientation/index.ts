@@ -58,18 +58,6 @@ export const lifeOrientationGrade12: Subject = {
           component: lazy(() => import('./term2/social-and-environmental-responsibility/SocialAndEnvironmentalResponsibility')),
         },
         {
-          id: 'gr12-community-and-social-action-t2',
-          title: 'Community and Social Action',
-          description: 'Volunteerism, advocacy, leadership, support services and accountable participation in community change.',
-          component: lazy(() => import('./term2/community-and-social-action/CommunityAndSocialAction')),
-        },
-        {
-          id: 'gr12-risk-management-and-support-t2',
-          title: 'Risk Management and Support',
-          description: 'Violence, poverty, substance abuse, trauma, coping strategies and referral to support systems.',
-          component: lazy(() => import('./term2/risk-management-and-support/RiskManagementAndSupport')),
-        },
-        {
           id: 'gr12-physical-education-task-2-t2',
           title: 'Physical Education Task — Term 2',
           description: 'Game participation, fitness goals, stress relief, teamwork and active lifestyle habits.',
@@ -92,12 +80,6 @@ export const lifeOrientationGrade12: Subject = {
           title: 'Ideologies, Media and Citizenship',
           description: 'Ideology, bias, propaganda, social movements and responsible participation in democracy.',
           component: lazy(() => import('./term3/ideologies-media-and-citizenship/IdeologiesMediaAndCitizenship')),
-        },
-        {
-          id: 'gr12-active-citizenship-and-leadership-t3',
-          title: 'Active Citizenship and Leadership',
-          description: 'Civic participation, social justice, diversity, ethical leadership and social cohesion.',
-          component: lazy(() => import('./term3/active-citizenship-and-leadership/ActiveCitizenshipAndLeadership')),
         },
         {
           id: 'gr12-physical-education-task-3-t3',
@@ -140,12 +122,6 @@ export const lifeOrientationGrade12: Subject = {
           title: 'World of Work Readiness',
           description: 'CVs, interviews, workplace ethics, contracts, labour rights and professional conduct.',
           component: lazy(() => import('./term4/world-of-work-readiness/WorldOfWorkReadiness')),
-        },
-        {
-          id: 'gr12-transition-and-personal-planning-t4',
-          title: 'Transition and Personal Planning',
-          description: 'Financial awareness, independence, support networks, resilience and future action planning.',
-          component: lazy(() => import('./term4/transition-and-personal-planning/TransitionAndPersonalPlanning')),
         },
         {
           id: 'gr12-physical-education-task-4-t4',
