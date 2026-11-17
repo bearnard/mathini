@@ -19,6 +19,9 @@ const IT12_HIDDEN = { source: '/grade-12/information-technology/advanced-oop-inh
 /** Grade 12 IT "Encapsulation, Class Design and Exception Handling" is hidden now that the CAPS-scoped "Classes in Delphi" lesson exists (code and D1 questions kept); its page goes to the new lesson. */
 const IT12_ENCAPSULATION = { source: '/grade-12/information-technology/encapsulation-class-design-and-exception-handling', destination: '/grade-12/information-technology/classes-in-delphi' };
 
+/** Grade 9 Natural Sciences "Heat and Energy Transfer" is not in the Grade 9 CAPS (the audit's one invented lesson), and the CAPS Energy and Change lessons now exist (forces, safety, generation and the grid, cost of power), so the lesson is hidden (code, task instruction and D1 questions kept); its page goes to the subject page. */
+const NS9_HEAT = { source: '/grade-9/natural-sciences/heat-and-energy-transfer', destination: '/grade-9/natural-sciences' };
+
 export interface LegacyRedirect { source: string; destination: string }
 
 const moved = (fromSubject: string, toSubject: string, slugs: string[]): LegacyRedirect[] => [
@@ -35,6 +38,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   PS12_COMBINED,
   IT12_HIDDEN,
   IT12_ENCAPSULATION,
+  NS9_HEAT,
 ];
 
 /** The shape next.config.ts `redirects()` wants: permanent: true answers 308. */

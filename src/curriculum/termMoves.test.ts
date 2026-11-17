@@ -24,6 +24,7 @@ const MOVES: [Grade, string, string, number][] = [
   [grade12, 'business-studies', 'gr12-investment-insurance-conflict-management-t2', 3],
   [grade12, 'business-studies', 'gr12-human-rights-inclusivity-t3', 2], [grade12, 'business-studies', 'gr12-environmental-social-responsibility-t3', 2],
   [grade12, 'his', 'gr12-black-consciousness-movement-t1', 2], [grade12, 'his', 'gr12-soweto-uprising-t1', 2], [grade12, 'his', 'gr12-trade-unions-and-the-udf-t1', 2],
+  [grade12, 'ls', 'gr12-endocrine-homeostasis-plant-responses-t2', 3],
   [grade12, 'it', 'gr12-relational-data-joins-normalisation-t2', 1], [grade12, 'it', 'gr12-networks-security-systems-integration-t2', 1],
   [grade12, 'it', 'gr12-forms-reports-database-program-integration-t2', 1], [grade12, 'it', 'gr12-cyber-security-emerging-technologies-t3', 2],
 ];
@@ -33,7 +34,7 @@ test('moved lessons are listed in their CAPS term', () => {
 });
 
 test('no term of the changed subjects is empty and no topic is listed twice', () => {
-  for (const [g, id] of [[grade6, 'math'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade12, 'it'], [grade12, 'his']] as [Grade, string][]) {
+  for (const [g, id] of [[grade6, 'math'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade12, 'it'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns']] as [Grade, string][]) {
     const s = g.subjects.find((x) => x.id === id)!;
     for (const t of s.terms) assert.ok(t.topics.length > 0, `${id} term ${t.id}`);
     const ids = s.terms.flatMap((t) => t.topics.map((p) => p.id));
@@ -60,4 +61,31 @@ test('the hidden Grade 12 IT lessons are out of the curriculum but their code, t
     assert.equal(LEGACY_REDIRECTS.find((x) => x.source === source)?.destination, destination);
   }
   assert.ok(ids.includes('gr12-classes-in-delphi-t1'), 'the CAPS class lesson that replaces Encapsulation is listed');
+});
+
+// Wave B3, Grade 9 Natural Sciences: "Heat and Energy Transfer" is not in the Grade 9 CAPS and is hidden now that the CAPS Energy and Change lessons exist.
+// The lesson code, its task instruction and its D1 questions stay; the page redirects (308) to the subject page; Term 3 keeps the CAPS lessons.
+test('the hidden Grade 9 Natural Sciences heat lesson is out of the curriculum but its code, task instruction and redirect remain', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const ns = grade9.subjects.find((x) => x.id === 'ns')!;
+  const ids = ns.terms.flatMap((t) => t.topics.map((p) => p.id));
+  assert.ok(!ids.includes('gr9-heat-energy-transfer'), 'the heat lesson is hidden');
+  assert.ok(fs.existsSync('src/curriculum/grade9/natural-sciences/term3/heat-energy-transfer/HeatEnergyTransfer.tsx'), 'the code is kept');
+  const tasks = JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/ns-gr9-term3.json', 'utf8')).tasks as Record<string, string>;
+  assert.ok('gr9-heat-energy-transfer-t3' in tasks, 'the task instruction is kept');
+  assert.equal(LEGACY_REDIRECTS.find((x) => x.source === '/grade-9/natural-sciences/heat-and-energy-transfer')?.destination, '/grade-9/natural-sciences');
+  const t3 = ns.terms.find((t) => t.id === 3)!.topics.map((p) => p.id);
+  for (const id of ['gr9-electricity-electric-cells', 'gr9-forces', 'gr9-electricity-safety', 'gr9-electricity-generation-grid', 'gr9-cost-electrical-power']) assert.ok(t3.includes(id), `${id} is in Term 3`);
+});
+
+// Wave B4, Grade 12 Life Sciences: the combined Endocrine, Homeostasis and Plant Responses lesson is CAPS Term 3 (it was listed in Term 2); the id, task id and page did not change.
+test('the Grade 12 Life Sciences endocrine lesson is in Term 3, first, and Term 2 keeps the genetics and nervous system lessons', () => {
+  const ls = grade12.subjects.find((x) => x.id === 'ls')!;
+  const t2 = ls.terms.find((t) => t.id === 2)!.topics.map((p) => p.id);
+  const t3 = ls.terms.find((t) => t.id === 3)!.topics.map((p) => p.id);
+  assert.equal(t3[0], 'gr12-endocrine-homeostasis-plant-responses-t2');
+  assert.ok(!t2.includes('gr12-endocrine-homeostasis-plant-responses-t2'));
+  for (const id of ['gr12-genetics-inheritance-t2', 'gr12-genetic-engineering-t2', 'gr12-dna-fingerprinting-t2', 'gr12-nervous-system-sense-organs-t2']) assert.ok(t2.includes(id), id);
+  for (const id of ['gr12-evolution-natural-selection-t3', 'gr12-human-evolution-t3']) assert.ok(t3.includes(id), id);
 });

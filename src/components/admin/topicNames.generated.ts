@@ -3951,10 +3951,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Graphs",
   "Mathematics"
  ],
- "9|gr9-heat-energy-transfer-t3": [
-  "Heat and Energy Transfer",
-  "Natural Sciences"
- ],
  "9|gr9-holocaust-genocide-t1": [
   "The Holocaust and Genocide",
   "History (Social Sciences)"

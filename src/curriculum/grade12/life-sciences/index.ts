@@ -69,18 +69,18 @@ export const lifeSciencesGrade12: Subject = {
           description: "Human nervous coordination, reflex arc, eye and ear function.",
           component: lazy(() => import('./term2/nervous-system-sense-organs/NervousSystemSenseOrgans')),
         },
-        {
-          id: 'gr12-endocrine-homeostasis-plant-responses-t2',
-          title: "Endocrine System, Homeostasis and Plant Responses",
-          description: "Hormonal control, homeostasis and plant responses to stimuli.",
-          component: lazy(() => import('./term2/endocrine-homeostasis-plant-responses/EndocrineHomeostasisPlantResponses')),
-        },
       ],
     },
     {
       id: 3,
       title: 'Term 3',
       topics: [
+        {
+          id: 'gr12-endocrine-homeostasis-plant-responses-t2',
+          title: "Endocrine System, Homeostasis and Plant Responses",
+          description: "Hormonal control, homeostasis and plant responses to stimuli.",
+          component: lazy(() => import('./term2/endocrine-homeostasis-plant-responses/EndocrineHomeostasisPlantResponses')),
+        },
         {
           id: 'gr12-evolution-natural-selection-t3',
           title: "Evolution by Natural Selection",
