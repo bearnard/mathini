@@ -6,7 +6,7 @@ import { SourceBox } from '../../_shared/SourceBox';
 
 export const learnSteps: LearnStep[] = [
   {
-    title: 'Why the Declaration was written',
+    title: 'The reasons for the Declaration',
     content: (
       <div className="space-y-4">
         <Timeline
@@ -18,7 +18,7 @@ export const learnSteps: LearnStep[] = [
             { date: '1948', title: 'The National Party wins power in South Africa', description: 'It begins to make apartheid law.' },
           ]}
         />
-        <Rule>The Universal Declaration of Human Rights was written after World War II. The world had seen terrible crimes against people because of who they were, and countries wanted to say that all people have basic rights.</Rule>
+        <Rule>After World War II, countries drew up the Universal Declaration of Human Rights. The world had seen terrible crimes against people because of who they were, and countries wanted to say that all people have basic rights.</Rule>
         <Mistake>Thinking that the Declaration was written by one country. It was written under the United Nations, by representatives from several countries.</Mistake>
       </div>
     ),
@@ -51,7 +51,7 @@ export const learnSteps: LearnStep[] = [
           <li>South Africa was one of the states that abstained.</li>
           <li>The Bill of Rights in South Africa&rsquo;s Constitution of 1996 protects many of the rights that the Declaration names.</li>
         </ul>
-        <Mistake>Saying that the Declaration was a law that every country had to obey in 1948. It set a standard that countries were asked to follow.</Mistake>
+        <Mistake>Calling the Declaration a binding law in 1948. It set a standard that countries were asked to follow.</Mistake>
       </div>
     ),
   },
@@ -81,8 +81,8 @@ export const learnSteps: LearnStep[] = [
       <Check
         questions={[
           <>When was the Declaration adopted, and how many articles does it have?</>,
-          <>Why was it written after World War II?</>,
-          <>Was the Declaration a law that countries had to obey in 1948?</>,
+          <>What had the world seen in the war that led to it?</>,
+          <>In 1948, could a court force countries to follow the Declaration?</>,
           <>Name one apartheid practice that went against the Declaration.</>,
         ]}
         answers={[
