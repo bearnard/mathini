@@ -1411,6 +1411,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Climate and Geomorphology Revision",
   "Social Sciences: Geography"
  ],
+ "12|gr12-close-corporations-t2": [
+  "Close Corporations",
+  "Accounting"
+ ],
  "12|gr12-cloud-computing-virtualisation-t2": [
   "Cloud Computing, SaaS and Virtualisation",
   "Information Technology"
@@ -1706,6 +1710,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-integrated-solution-development-pat-completion-t3": [
   "Integrated Solution Development and PAT Completion",
   "Information Technology"
+ ],
+ "12|gr12-internal-audit-t2": [
+  "Internal Audit: Evidence, Sampling and Reports",
+  "Accounting"
+ ],
+ "12|gr12-internal-control-t2": [
+  "Internal Control",
+  "Accounting"
  ],
  "12|gr12-internet-services-technologies-t3": [
   "Internet Services Technologies",
