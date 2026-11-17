@@ -472,6 +472,12 @@ export const grade6: Grade = {
                                     title: "Purifying Dirty Water",
                                     description: "Sieving, settling, decanting, filtering, boiling and chemicals.",
                                     component: lazy(() => import('./natural-sciences/term2/purifying-water/PurifyingWater'))
+                                },
+                                {
+                                    id: "gr6-rates-of-dissolving-t2",
+                                    title: "Rates of Dissolving",
+                                    description: "Temperature, stirring, grain size and a fair test.",
+                                    component: lazy(() => import('./natural-sciences/term2/rates-of-dissolving/RatesOfDissolving'))
                                 }
                             ]
                         },
@@ -508,6 +514,18 @@ export const grade6: Grade = {
                                     title: "Mains Electricity & Safety",
                                     description: "Where mains power comes from and staying safe.",
                                     component: lazy(() => import('./natural-sciences/term3/mains-electricity/MainsElectricity'))
+                                },
+                                {
+                                    id: "gr6-fossil-fuels-t3",
+                                    title: "Fossil Fuels and the Power Station",
+                                    description: "Coal, power stations and the trail back to the Sun.",
+                                    component: lazy(() => import('./natural-sciences/term3/fossil-fuels/FossilFuels'))
+                                },
+                                {
+                                    id: "gr6-electricity-cost-renewables-t3",
+                                    title: "Cost, Saving and Renewable Electricity",
+                                    description: "Costs, saving and renewable electricity.",
+                                    component: lazy(() => import('./natural-sciences/term3/electricity-cost-renewables/ElectricityCostRenewables'))
                                 },
                                 {
                                     id: "nst-term3-test",

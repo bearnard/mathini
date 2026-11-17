@@ -595,6 +595,11 @@
                 "id": "gr6-purifying-water-t2",
                 "title": "Purifying Dirty Water",
                 "description": "Sieving, settling, decanting, filtering, boiling and chemicals."
+              },
+              {
+                "id": "gr6-rates-of-dissolving-t2",
+                "title": "Rates of Dissolving",
+                "description": "Temperature, stirring, grain size and a fair test."
               }
             ]
           },
@@ -626,6 +631,16 @@
                 "id": "nst-mains-electricity",
                 "title": "Mains Electricity & Safety",
                 "description": "Where mains power comes from and staying safe."
+              },
+              {
+                "id": "gr6-fossil-fuels-t3",
+                "title": "Fossil Fuels and the Power Station",
+                "description": "Coal, power stations and the trail back to the Sun."
+              },
+              {
+                "id": "gr6-electricity-cost-renewables-t3",
+                "title": "Cost, Saving and Renewable Electricity",
+                "description": "Costs, saving and renewable electricity."
               },
               {
                 "id": "nst-term3-test",

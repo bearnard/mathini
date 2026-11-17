@@ -2479,6 +2479,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "East coast trade and Great Zimbabwe",
   "History"
  ],
+ "6|gr6-electricity-cost-renewables-t3": [
+  "Cost, Saving and Renewable Electricity",
+  "Natural Sciences & Technology"
+ ],
  "6|gr6-enlargements-t4": [
   "Enlargements and Reductions",
   "Mathematics"
@@ -2494,6 +2498,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|gr6-food-hygiene-t4": [
   "Food Hygiene",
   "Life Skills"
+ ],
+ "6|gr6-fossil-fuels-t3": [
+  "Fossil Fuels and the Power Station",
+  "Natural Sciences & Technology"
  ],
  "6|gr6-inventions-reasons-exploring-t2": [
   "Why Europeans explored, and the inventions that helped",
@@ -2581,6 +2589,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "6|gr6-purifying-water-t2": [
   "Purifying Dirty Water",
+  "Natural Sciences & Technology"
+ ],
+ "6|gr6-rates-of-dissolving-t2": [
+  "Rates of Dissolving",
   "Natural Sciences & Technology"
  ],
  "6|gr6-renaissance-t2": [

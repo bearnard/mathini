@@ -1,6 +1,7 @@
 import type { SubjectConfig } from '../caps/types';
 import nstGr6Term1 from './tasks/nst-gr6-term1.json';
 import nstGr6Term2 from './tasks/nst-gr6-term2.json';
+import nstGr6Term3 from './tasks/nst-gr6-term3.json';
 import nstGr7Term1 from './tasks/nst-gr7-term1.json';
 import nstGr7Term2 from './tasks/nst-gr7-term2.json';
 import nstGr7Term3 from './tasks/nst-gr7-term3.json';
@@ -54,6 +55,7 @@ export const nst: SubjectConfig = {
       'Topic: Space exploration and technology. Cover tools for exploring space (satellites, space probes, rockets, space stations), optical telescopes (visible light, need dark clear skies) vs radio telescopes (radio waves, work day and night and through cloud), South African telescopes (SALT near Sutherland in the Northern Cape, the largest single optical telescope in the southern hemisphere; MeerKAT, a radio telescope of 64 dishes in the Karoo, part of the SKA, the Square Kilometre Array in South Africa and Australia), how rockets work (hot gas pushed down, they carry their own oxygen), exploring the Moon (people first walked on it in 1969) and Mars (rovers such as Curiosity and Perseverance), spacesuits (oxygen, pressure, protection from extreme temperatures), and everyday benefits (weather forecasts, TV and phone signals, GPS). Ask about a tool, a telescope, an exploration fact or a benefit.',
     ...nstGr6Term1.tasks,
     ...nstGr6Term2.tasks,
+    ...nstGr6Term3.tasks,
     ...nstGr7Term1.tasks,
     ...nstGr7Term2.tasks,
     ...nstGr7Term3.tasks,
