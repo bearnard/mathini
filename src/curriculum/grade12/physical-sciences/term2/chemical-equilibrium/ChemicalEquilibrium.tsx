@@ -96,7 +96,92 @@ export const learnSteps: LearnStep[] = [
 ];
 
 // BANK:START
-const bank: CapsItem[] = [];
+const bank: CapsItem[] = [
+  {
+    prompt: "Which expression is Kc for N₂(g) + 3H₂(g) ⇌ 2NH₃(g)?",
+    options: ["Kc = [N₂][H₂]³ ÷ [NH₃]²", "Kc = [NH₃]² ÷ ([N₂][H₂]³)", "Kc = [NH₃] ÷ ([N₂][H₂])", "Kc = 2[NH₃] ÷ (3[H₂] + [N₂])"],
+    answer: "Kc = [NH₃]² ÷ ([N₂][H₂]³)",
+    explanation: "Products on top, reactants below, each concentration raised to the power of its coefficient.",
+  },
+  {
+    prompt: "What is true at dynamic equilibrium in a closed system?",
+    options: ["The rates of the forward and reverse reactions are equal", "The concentrations of reactants and products are equal", "Both reactions have stopped", "Only the forward reaction is still taking place"],
+    answer: "The rates of the forward and reverse reactions are equal",
+    explanation: "Equilibrium is dynamic: both reactions continue at the same rate, so the concentrations stay constant.",
+  },
+  {
+    prompt: "At equilibrium [N₂] = 0,5, [H₂] = 1,5 and [NH₃] = 1,0 mol·dm⁻³ for N₂ + 3H₂ ⇌ 2NH₃. What is Kc (two decimal places)?",
+    options: ["0,33", "1,69", "0,67", "0,59"],
+    answer: "0,59",
+    explanation: "Kc = 1,0² ÷ (0,5 × 1,5³) = 1 ÷ 1,6875 = 0,59.",
+  },
+  {
+    prompt: "In H₂ + I₂ ⇌ 2HI the equilibrium concentrations are [H₂] = [I₂] = 0,22 and [HI] = 1,56 mol·dm⁻³. What is Kc (one decimal place)?",
+    options: ["7,1", "2,4", "50,3", "11,0"],
+    answer: "50,3",
+    explanation: "Kc = [HI]² ÷ ([H₂][I₂]) = 1,56² ÷ (0,22 × 0,22) = 2,4336 ÷ 0,0484 = 50,3.",
+  },
+  {
+    prompt: "What is the effect of a catalyst on a system at equilibrium?",
+    options: ["It shifts the equilibrium to the right so that more product forms", "It makes equilibrium be reached faster, with no change in Kc", "It increases the value of Kc so that more product forms", "It lowers the yield of the products at equilibrium"],
+    answer: "It makes equilibrium be reached faster, with no change in Kc",
+    explanation: "A catalyst speeds up the forward and reverse reactions equally.",
+  },
+  {
+    prompt: "N₂ + 3H₂ ⇌ 2NH₃ (exothermic). The temperature is increased. What happens to the equilibrium?",
+    options: ["It shifts to the left and Kc decreases", "It shifts to the right and Kc increases", "It shifts to the right and Kc stays the same", "It does not shift"],
+    answer: "It shifts to the left and Kc decreases",
+    explanation: "A higher temperature favours the endothermic (reverse) reaction. Kc depends on temperature, so it becomes smaller.",
+  },
+  {
+    prompt: "N₂ + 3H₂ ⇌ 2NH₃. The pressure is increased by decreasing the volume. What happens?",
+    options: ["The equilibrium shifts to the left", "The equilibrium does not shift", "The value of Kc increases", "The equilibrium shifts to the right"],
+    answer: "The equilibrium shifts to the right",
+    explanation: "There are fewer gas molecules on the right (2 mol) than on the left (4 mol), so a higher pressure favours the right. Kc is unchanged.",
+  },
+  {
+    prompt: "Some product is removed from a system at equilibrium. How does the system respond?",
+    options: ["It shifts to make more reactant", "It does not respond", "It shifts to make more product", "Kc becomes larger"],
+    answer: "It shifts to make more product",
+    explanation: "The system opposes the change by producing more of what was removed.",
+  },
+  {
+    prompt: "What is the only factor that changes the value of Kc?",
+    options: ["Pressure", "Temperature", "Concentration", "A catalyst"],
+    answer: "Temperature",
+    explanation: "Changes in concentration or pressure shift the position, but Kc keeps its value at a constant temperature.",
+  },
+  {
+    prompt: "A reaction has a very large Kc. What does this tell you?",
+    options: ["Mostly products are present at equilibrium", "The reaction is very fast", "Mostly reactants are present at equilibrium", "The reaction is endothermic"],
+    answer: "Mostly products are present at equilibrium",
+    explanation: "A large Kc means [products] is much greater than [reactants] at equilibrium. It says nothing about the rate.",
+  },
+  {
+    prompt: "Which expression is Kc for CaCO₃(s) ⇌ CaO(s) + CO₂(g)?",
+    options: ["Kc = [CaO][CO₂] ÷ [CaCO₃]", "Kc = [CaO] ÷ [CaCO₃]", "Kc = [CO₂] ÷ [CaCO₃]", "Kc = [CO₂]"],
+    answer: "Kc = [CO₂]",
+    explanation: "Pure solids are left out of the Kc expression, so only the gas remains.",
+  },
+  {
+    prompt: "For H₂(g) + I₂(g) ⇌ 2HI(g) the pressure is increased. What happens to the equilibrium?",
+    options: ["It shifts to the right", "It shifts to the left", "It does not shift", "Kc increases"],
+    answer: "It does not shift",
+    explanation: "There are 2 mol of gas on each side, so a change in pressure favours neither side.",
+  },
+  {
+    prompt: "Why is the yield of a reversible reaction less than 100%?",
+    options: ["The catalyst uses up some of the product while it works", "The reverse reaction converts some product back to reactants", "The forward reaction has stopped once equilibrium is reached", "Kc is always equal to 1 for a reversible reaction"],
+    answer: "The reverse reaction converts some product back to reactants",
+    explanation: "At equilibrium both reactions continue, so reactants remain in the mixture.",
+  },
+  {
+    prompt: "2SO₂ + O₂ ⇌ 2SO₃. Which expression is Kc?",
+    options: ["Kc = [SO₃]² ÷ ([SO₂]²[O₂])", "Kc = [SO₂]²[O₂] ÷ [SO₃]²", "Kc = [SO₃] ÷ ([SO₂][O₂])", "Kc = [SO₃]² ÷ ([SO₂][O₂])"],
+    answer: "Kc = [SO₃]² ÷ ([SO₂]²[O₂])",
+    explanation: "The coefficients 2, 2 and 1 become the powers of the concentrations.",
+  },
+];
 // BANK:END
 
 const ChemicalEquilibrium = () => (

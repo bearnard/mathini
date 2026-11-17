@@ -57,6 +57,24 @@ export const physicalSciencesGrade12: Subject = {
           description: "Integrate key Grade 12 chemistry ideas on rate, equilibrium and acids or bases in one topic.",
           component: lazy(() => import('./term2/rates-equilibrium-acids-bases/RatesEquilibriumAcidsBases')),
         },
+        {
+          id: "gr12-rate-extent-reaction-t2",
+          title: "Rate and Extent of Reaction",
+          description: "Rates of reaction, collision theory, the factors that change the rate, catalysts and energy profiles.",
+          component: lazy(() => import('./term2/rate-extent-reaction/RateExtentReaction')),
+        },
+        {
+          id: "gr12-chemical-equilibrium-t2",
+          title: "Chemical Equilibrium",
+          description: "Dynamic equilibrium, the equilibrium constant Kc and calculations, and Le Chatelier's principle.",
+          component: lazy(() => import('./term2/chemical-equilibrium/ChemicalEquilibrium')),
+        },
+        {
+          id: "gr12-acids-bases-t2",
+          title: "Acids and Bases",
+          description: "Lowry-Brønsted acids and bases, conjugate pairs, pH and Kw, titrations and salt hydrolysis.",
+          component: lazy(() => import('./term2/acids-bases/AcidsBases')),
+        },
       ],
     },
     {

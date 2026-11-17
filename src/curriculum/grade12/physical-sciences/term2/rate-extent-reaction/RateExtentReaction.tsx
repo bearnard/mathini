@@ -87,7 +87,92 @@ export const learnSteps: LearnStep[] = [
 ];
 
 // BANK:START
-const bank: CapsItem[] = [];
+const bank: CapsItem[] = [
+  {
+    prompt: "A reactant's concentration falls from 0,80 to 0,20 mol·dm⁻³ in 30 s. What is the average rate of reaction?",
+    options: ["0,60 mol·dm⁻³·s⁻¹", "0,020 mol·dm⁻³·s⁻¹", "0,0067 mol·dm⁻³·s⁻¹", "0,033 mol·dm⁻³·s⁻¹"],
+    answer: "0,020 mol·dm⁻³·s⁻¹",
+    explanation: "Rate = Δc ÷ Δt = (0,80 − 0,20) ÷ 30 = 0,020 mol·dm⁻³·s⁻¹.",
+  },
+  {
+    prompt: "Which are the SI-style units of the rate of a reaction measured by concentration?",
+    options: ["mol·dm⁻³·s⁻¹", "mol·dm⁻³", "dm³·mol⁻¹", "s·mol⁻¹"],
+    answer: "mol·dm⁻³·s⁻¹",
+    explanation: "Rate = change in concentration (mol·dm⁻³) per unit of time (s).",
+  },
+  {
+    prompt: "According to collision theory, which two conditions must be met for a collision to be effective?",
+    options: ["The particles must be at the same temperature and the same size", "The particles must be gases and collide at a high speed", "The particles must be charged and have equal masses", "The particles must have enough energy and the correct orientation"],
+    answer: "The particles must have enough energy and the correct orientation",
+    explanation: "A collision leads to a reaction only if the particles have at least the activation energy and collide in an orientation that lets bonds break and form.",
+  },
+  {
+    prompt: "Why does a higher temperature increase the rate of a reaction?",
+    options: ["The activation energy of the reaction becomes smaller", "The concentration of the reactants in the solution increases", "A larger fraction of the particles has energy of at least the activation energy", "The particles become larger and so collide more often"],
+    answer: "A larger fraction of the particles has energy of at least the activation energy",
+    explanation: "Heating gives more particles the minimum energy needed, and collisions are also more frequent. The activation energy itself does not change.",
+  },
+  {
+    prompt: "Which change increases the rate of a reaction by increasing the frequency of collisions but NOT the fraction of particles with enough energy?",
+    options: ["Raising the temperature", "Increasing the concentration of a reactant", "Adding a catalyst", "Using a different solvent at the same temperature"],
+    answer: "Increasing the concentration of a reactant",
+    explanation: "A higher concentration puts more particles in the same volume. Temperature and catalysts change how many collisions are effective.",
+  },
+  {
+    prompt: "Why does powdered zinc react faster with acid than a lump of zinc of the same mass?",
+    options: ["The powder has a larger surface area, so more particles can collide", "The powder has a lower activation energy than the lump", "The powder is automatically at a higher temperature", "The powder has a higher concentration of zinc atoms inside"],
+    answer: "The powder has a larger surface area, so more particles can collide",
+    explanation: "Only the particles at the surface are exposed to the acid, and a powder has a much larger surface area.",
+  },
+  {
+    prompt: "What does a catalyst do to a reaction?",
+    options: ["It increases the energy of the products", "It raises the temperature of the system", "It makes the reaction release more heat", "It provides a path with a lower activation energy"],
+    answer: "It provides a path with a lower activation energy",
+    explanation: "A catalyst lowers Ea. It takes part and is regenerated, and ΔH stays the same.",
+  },
+  {
+    prompt: "A catalyst is added to an exothermic reaction. What happens to ΔH?",
+    options: ["It becomes more negative", "It becomes zero", "It stays the same", "It becomes positive"],
+    answer: "It stays the same",
+    explanation: "ΔH depends only on the energy of the reactants and products, which a catalyst does not change.",
+  },
+  {
+    prompt: "Reactants have an energy of 50 kJ·mol⁻¹ and products 30 kJ·mol⁻¹. What is ΔH?",
+    options: ["+20 kJ·mol⁻¹", "−20 kJ·mol⁻¹", "−80 kJ·mol⁻¹", "+80 kJ·mol⁻¹"],
+    answer: "−20 kJ·mol⁻¹",
+    explanation: "ΔH = energy of products − energy of reactants = 30 − 50 = −20 kJ·mol⁻¹: exothermic.",
+  },
+  {
+    prompt: "On an energy profile the reactants are at 50 kJ·mol⁻¹ and the peak is at 90 kJ·mol⁻¹. What is the activation energy?",
+    options: ["40 kJ·mol⁻¹", "90 kJ·mol⁻¹", "140 kJ·mol⁻¹", "20 kJ·mol⁻¹"],
+    answer: "40 kJ·mol⁻¹",
+    explanation: "Ea is the rise from the reactants to the top of the peak: 90 − 50 = 40 kJ·mol⁻¹.",
+  },
+  {
+    prompt: "Products are at a higher energy than the reactants. What type of reaction is this?",
+    options: ["Exothermic", "A catalysed reaction", "A reaction with no activation energy", "Endothermic"],
+    answer: "Endothermic",
+    explanation: "When the products have more energy than the reactants, energy is absorbed: ΔH is positive.",
+  },
+  {
+    prompt: "On a graph of concentration of a reactant against time, where is the rate of reaction the greatest?",
+    options: ["At the end, where the curve is flat", "In the middle, where the curve is straight", "At the start, where the curve is steepest", "At every point, because the rate is constant"],
+    answer: "At the start, where the curve is steepest",
+    explanation: "The gradient of the curve is the rate. It is steepest at the start and flattens as the reactant is used up.",
+  },
+  {
+    prompt: "A product's concentration rises from 0 to 0,45 mol·dm⁻³ in 90 s. What is the average rate of formation?",
+    options: ["0,45 mol·dm⁻³·s⁻¹", "0,0050 mol·dm⁻³·s⁻¹", "0,0020 mol·dm⁻³·s⁻¹", "40,5 mol·dm⁻³·s⁻¹"],
+    answer: "0,0050 mol·dm⁻³·s⁻¹",
+    explanation: "Rate = 0,45 ÷ 90 = 0,0050 mol·dm⁻³·s⁻¹.",
+  },
+  {
+    prompt: "Which change will NOT increase the rate of a reaction between a solid and a solution?",
+    options: ["Using the solid in bigger lumps", "Crushing the solid", "Heating the solution", "Using a more concentrated solution"],
+    answer: "Using the solid in bigger lumps",
+    explanation: "Bigger lumps have a smaller surface area for the same mass, which lowers the rate.",
+  },
+];
 // BANK:END
 
 const RateExtentReaction = () => (

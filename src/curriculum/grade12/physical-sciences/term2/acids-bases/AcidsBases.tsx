@@ -90,7 +90,92 @@ export const learnSteps: LearnStep[] = [
 ];
 
 // BANK:START
-const bank: CapsItem[] = [];
+const bank: CapsItem[] = [
+  {
+    prompt: "In the reaction HCl + H₂O → Cl⁻ + H₃O⁺, which species is the conjugate base of HCl?",
+    options: ["H₂O", "Cl⁻", "H₃O⁺", "H⁺"],
+    answer: "Cl⁻",
+    explanation: "HCl loses a proton (H⁺) and becomes Cl⁻, its conjugate base.",
+  },
+  {
+    prompt: "What is the conjugate acid of NH₃?",
+    options: ["NH₄⁺", "NH₂⁻", "OH⁻", "H₃O⁺"],
+    answer: "NH₄⁺",
+    explanation: "NH₃ accepts a proton, so its conjugate acid is NH₄⁺.",
+  },
+  {
+    prompt: "Which statement defines a Lowry-Brønsted acid?",
+    options: ["A substance that accepts a proton", "A substance that produces OH⁻ in water", "A substance with a pH greater than 7", "A substance that donates a proton"],
+    answer: "A substance that donates a proton",
+    explanation: "A Lowry-Brønsted acid is a proton donor; a base is a proton acceptor.",
+  },
+  {
+    prompt: "What is the pH of a solution with [H₃O⁺] = 1 × 10⁻³ mol·dm⁻³?",
+    options: ["−3", "11", "3", "0,001"],
+    answer: "3",
+    explanation: "pH = −log(10⁻³) = 3.",
+  },
+  {
+    prompt: "What is the pH of 0,010 mol·dm⁻³ HCl (a strong acid)?",
+    options: ["0,01", "2", "12", "1,0"],
+    answer: "2",
+    explanation: "HCl ionises completely, so [H₃O⁺] = 0,010 = 10⁻² mol·dm⁻³ and pH = 2.",
+  },
+  {
+    prompt: "What is the [OH⁻] in a solution of pH 4? (Kw = 1 × 10⁻¹⁴)",
+    options: ["1 × 10⁻¹⁰ mol·dm⁻³", "1 × 10⁻⁴ mol·dm⁻³", "1 × 10⁻⁷ mol·dm⁻³", "1 × 10¹⁰ mol·dm⁻³"],
+    answer: "1 × 10⁻¹⁰ mol·dm⁻³",
+    explanation: "[H₃O⁺] = 10⁻⁴, so [OH⁻] = 10⁻¹⁴ ÷ 10⁻⁴ = 10⁻¹⁰ mol·dm⁻³.",
+  },
+  {
+    prompt: "What is the pH of 0,010 mol·dm⁻³ NaOH?",
+    options: ["2", "10", "1,2", "12"],
+    answer: "12",
+    explanation: "[OH⁻] = 10⁻², so pOH = 2 and pH = 14 − 2 = 12.",
+  },
+  {
+    prompt: "What is the pH of 0,005 mol·dm⁻³ H₂SO₄, if it ionises completely to give two H₃O⁺ per molecule?",
+    options: ["2,3", "3", "2", "1"],
+    answer: "2",
+    explanation: "[H₃O⁺] = 2 × 0,005 = 0,010 mol·dm⁻³, so pH = 2.",
+  },
+  {
+    prompt: "20,0 cm³ of HCl of concentration 0,10 mol·dm⁻³ neutralises 25,0 cm³ of NaOH. What is c(NaOH)?",
+    options: ["0,125 mol·dm⁻³", "0,080 mol·dm⁻³", "0,10 mol·dm⁻³", "0,050 mol·dm⁻³"],
+    answer: "0,080 mol·dm⁻³",
+    explanation: "n(HCl) = 0,10 × 0,020 = 0,0020 mol = n(NaOH). c = 0,0020 ÷ 0,025 = 0,080 mol·dm⁻³.",
+  },
+  {
+    prompt: "10,0 cm³ of H₂SO₄ of concentration 0,50 mol·dm⁻³ neutralises 25,0 cm³ of NaOH (H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O). What is c(NaOH)?",
+    options: ["0,40 mol·dm⁻³", "0,20 mol·dm⁻³", "0,25 mol·dm⁻³", "0,80 mol·dm⁻³"],
+    answer: "0,40 mol·dm⁻³",
+    explanation: "n(H₂SO₄) = 0,50 × 0,0100 = 0,0050 mol, so n(NaOH) = 0,010 mol. c = 0,010 ÷ 0,025 = 0,40 mol·dm⁻³.",
+  },
+  {
+    prompt: "Which salt dissolves in water to give a basic solution?",
+    options: ["ammonium chloride, NH₄Cl", "sodium chloride, NaCl", "potassium nitrate, KNO₃", "sodium ethanoate, CH₃COONa"],
+    answer: "sodium ethanoate, CH₃COONa",
+    explanation: "The ethanoate ion (conjugate base of a weak acid) accepts protons from water, forming OH⁻.",
+  },
+  {
+    prompt: "Which salt dissolves in water to give an acidic solution?",
+    options: ["sodium ethanoate, CH₃COONa", "sodium chloride, NaCl", "ammonium chloride, NH₄Cl", "sodium nitrate, NaNO₃"],
+    answer: "ammonium chloride, NH₄Cl",
+    explanation: "The ammonium ion (conjugate acid of a weak base) donates protons to water, forming H₃O⁺.",
+  },
+  {
+    prompt: "What is meant by a strong acid?",
+    options: ["An acid with a high concentration", "An acid that ionises completely in water", "An acid that has a pH of exactly 1", "An acid that cannot be neutralised"],
+    answer: "An acid that ionises completely in water",
+    explanation: "Strength is how far an acid ionises; concentration is how much of it is dissolved.",
+  },
+  {
+    prompt: "Which description of water is correct in the reaction NH₃ + H₂O ⇌ NH₄⁺ + OH⁻?",
+    options: ["Water acts as an acid", "Water acts as a base", "Water acts as a catalyst", "Water does not take part"],
+    answer: "Water acts as an acid",
+    explanation: "Water donates a proton to NH₃, so it behaves as an acid here (and as a base when an acid donates a proton to it).",
+  },
+];
 // BANK:END
 
 const AcidsBases = () => (

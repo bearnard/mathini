@@ -6,3 +6,10 @@
 4. **Recycling codes 1 to 7** are the standard resin identification codes; confirm the list CAPS expects.
 5. **Ostwald and contact equations**: the three-step Ostwald equations and the oleum route (SO3 + H2SO4 → H2S2O7) are standard school-chemistry versions; confirm the exact set examined.
 6. Molar masses use the CAPS data-sheet values (Cl = 35,5; others whole numbers).
+
+## Rate, equilibrium and acids-bases split (branch feat/g12-ps-rates)
+
+7. **Kc calculations** use equilibrium concentrations given in the question or from a simple initial-change-equilibrium table (H2 + I2 ⇌ 2HI); no quadratic solving. Confirm the depth expected.
+8. **Strong acid pH**: H2SO4 is treated as fully ionised to two H3O+ (pH 2 for 0,005 mol·dm⁻³), the usual school simplification. Confirm.
+9. **Salt hydrolysis** is taught qualitatively (acidic, basic or neutral); no Ka or Kb calculations.
+10. The old combined lesson `gr12-rates-equilibrium-acids-bases-t2` is untouched; the three new lessons overlap it until it is hidden.

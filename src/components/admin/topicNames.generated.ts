@@ -1299,6 +1299,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "1994 Election and the TRC",
   "History"
  ],
+ "12|gr12-acids-bases-t2": [
+  "Acids and Bases",
+  "Physical Sciences"
+ ],
  "12|gr12-active-citizenship-and-leadership-t3": [
   "Active Citizenship and Leadership",
   "Life Orientation"
@@ -1370,6 +1374,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-cat-theory-troubleshooting-communication-t4": [
   "CAT Theory, Troubleshooting and Communication Choices",
   "Computer Applications Technology"
+ ],
+ "12|gr12-chemical-equilibrium-t2": [
+  "Chemical Equilibrium",
+  "Physical Sciences"
  ],
  "12|gr12-circular-flow-multiplier-t1": [
   "Circular Flow and the Multiplier",
@@ -1918,6 +1926,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-quality-management-systems-t2": [
   "Quality Management Systems",
   "Business Studies"
+ ],
+ "12|gr12-rate-extent-reaction-t2": [
+  "Rate and Extent of Reaction",
+  "Physical Sciences"
  ],
  "12|gr12-rates-equilibrium-acids-bases-t2": [
   "Reaction Rates, Equilibrium and Acids-Bases",
