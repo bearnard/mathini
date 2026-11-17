@@ -47,6 +47,8 @@ const MOVES: [Grade, string, string, number][] = [
   [grade10, 'it', 'gr10-computer-management-t3', 3], [grade10, 'it', 'gr10-internet-www-t3', 3], [grade10, 'it', 'gr10-email-internet-threats-popia-t3', 3], [grade10, 'it', 'gr10-loops-strings-algorithms-t3', 3], [grade10, 'it', 'gr10-gui-design-timer-project-t3', 3], [grade10, 'it', 'gr10-internet-services-text-files-t4', 4],
   // Grade 10 Physical Sciences Wave B: States of matter and Atoms/Periodic table/Bonding move to Term 1 (CAPS)
   [grade10, 'ps', 'gr10-matter-states-phase-change-t2', 1], [grade10, 'ps', 'gr10-atoms-periodic-table-bonding-t2', 1],
+  // Grade 11 Physical Sciences Wave B (CAPS terms)
+  [grade11, 'ps', 'gr11-intermolecular-forces-t3', 1], [grade11, 'ps', 'gr11-electrostatics-t2', 3], [grade11, 'ps', 'gr11-electric-circuits-t2', 3], [grade11, 'ps', 'gr11-redox-reactions-t3', 4],
 ];
 
 test('moved lessons are listed in their CAPS term', () => {
@@ -54,7 +56,7 @@ test('moved lessons are listed in their CAPS term', () => {
 });
 
 test('no term of the changed subjects is empty and no topic is listed twice', () => {
-  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade12, 'lo'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade10, 'it'], [grade11, 'it'], [grade12, 'it'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns'], [grade10, 'ps']] as [Grade, string][]) {
+  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade12, 'lo'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade10, 'it'], [grade11, 'it'], [grade12, 'it'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns'], [grade10, 'ps'], [grade11, 'ps']] as [Grade, string][]) {
     const s = g.subjects.find((x) => x.id === id)!;
     for (const t of s.terms) assert.ok(t.topics.length > 0, `${id} term ${t.id}`);
     const ids = s.terms.flatMap((t) => t.topics.map((p) => p.id));
@@ -237,4 +239,29 @@ test('the trimmed Grade 10 Physical Sciences lessons no longer teach Grade 11/12
   check('term1/waves-sound-light/WavesSoundLight.tsx', ['Sound Waves and the Doppler Effect', 'Light, Reflection and Refraction'], 4);
   check('term2/atoms-periodic-table-bonding/AtomsPeriodicTableBonding.tsx', ['Lewis Structures and Molecular Shapes'], 4);
   check('term4/conservation-mechanical-energy/ConservationMechanicalEnergy.tsx', ['Work and the Work-Energy Theorem', 'Power: Rate of Energy Transfer'], 4);
+});
+
+// Wave B, Grade 11 Physical Sciences: five lessons that are Grade 10 or Grade 12 content are hidden (Grade 12 has live equivalents). Code, task instructions and D1 rows stay; each page redirects (308).
+test('the hidden Grade 11 Physical Sciences lessons are out of the curriculum but their code, task instructions and redirects remain', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const ps = grade11.subjects.find((x) => x.id === 'ps')!;
+  const ids = ps.terms.flatMap((t) => t.topics.map((p) => p.id));
+  const hidden: [string, string, string, string][] = [
+    ['gr11-work-energy-t1', 'term1/work-energy/WorkEnergyPower.tsx', 'ps-gr11-term1.json', 'work-energy-and-power'],
+    ['gr11-momentum-t2', 'term2/momentum/Momentum.tsx', 'ps-gr11-term2.json', 'momentum-and-impulse'],
+    ['gr11-projectile-motion-t2', 'term2/projectile-motion/ProjectileMotion.tsx', 'ps-gr11-term2.json', 'vertical-projectile-motion'],
+    ['gr11-organic-chemistry-t3', 'term3/organic-chemistry/OrganicChemistry.tsx', 'ps-gr11-term3.json', 'organic-chemistry'],
+    ['gr11-electrochemical-cells-t3', 'term3/electrochemical-cells/ElectrochemicalCells.tsx', 'ps-gr11-term3.json', 'electrochemical-cells'],
+  ];
+  for (const [id, file, taskFile, slug] of hidden) {
+    assert.ok(!ids.includes(id), `${id} is hidden`);
+    assert.ok(fs.existsSync(`src/curriculum/grade11/physical-sciences/${file}`), `${file} is kept`);
+    const tasks = JSON.parse(fs.readFileSync(`src/lib/server/caps/tasks/${taskFile}`, 'utf8')).tasks as Record<string, string>;
+    assert.ok(`${id}` in tasks, `${id} task instruction is kept`);
+    assert.equal(LEGACY_REDIRECTS.find((r) => r.source === `/grade-11/physical-sciences/${slug}`)?.destination, '/grade-11/physical-sciences');
+  }
+  const terms = ps.terms.map((t) => t.topics.map((p) => p.id));
+  assert.ok(terms[0].includes('gr11-intermolecular-forces-t3') && terms[2].includes('gr11-electrostatics-t2') && terms[2].includes('gr11-electric-circuits-t2') && terms[3].includes('gr11-redox-reactions-t3'));
+  for (const t of terms) assert.ok(t.length > 0);
 });

@@ -54,6 +54,9 @@ const IT10_HIDDEN = { source: '/grade-10/information-technology/database-and-int
 /** Grade 10 Physical Sciences "Electrostatics and Electric Circuits" teaches Coulomb's law, Ohm's law and electrical power (Grade 11/12) and is hidden now that the CAPS lessons "Electrostatics Basics" and "Electric Circuits: Series and Parallel" are live (code, task instruction and D1 rows kept); its page goes to the subject page. */
 const PS10_ELECTRO_HIDDEN = { source: '/grade-10/physical-sciences/electrostatics-and-electric-circuits', destination: '/grade-10/physical-sciences' };
 
+/** Grade 11 Physical Sciences: five lessons are not in the Grade 11 CAPS (Work, Energy and Power; Momentum and Impulse; Vertical Projectile Motion; Organic Chemistry; Electrochemical Cells: Grade 10 or 12 content, all with a live Grade 12 equivalent) and are hidden (code, task instructions and D1 rows kept); each page goes to the subject page. */
+const PS11_HIDDEN = ['work-energy-and-power', 'momentum-and-impulse', 'vertical-projectile-motion', 'organic-chemistry', 'electrochemical-cells'].map((slug) => ({ source: `/grade-11/physical-sciences/${slug}`, destination: '/grade-11/physical-sciences' }));
+
 export interface LegacyRedirect { source: string; destination: string }
 
 const moved = (fromSubject: string, toSubject: string, slugs: string[]): LegacyRedirect[] => [
@@ -76,6 +79,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   ...IT11_HIDDEN,
   IT10_HIDDEN,
   PS10_ELECTRO_HIDDEN,
+  ...PS11_HIDDEN,
 ];
 
 /** The shape next.config.ts `redirects()` wants: permanent: true answers 308. */

@@ -4,26 +4,6 @@ import type { PSItem, LearnStep } from '../../_shared/types';
 
 const learnSteps: LearnStep[] = [
   {
-    title: 'Organic Chemistry Review',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Consolidate IUPAC naming, functional groups, and physical property trends in organic chemistry.
-        </p>
-        <div className="grid gap-3 md:grid-cols-2 text-left">
-          <div className="rounded-xl bg-blue-50 p-4">
-            <strong className="text-blue-700">Naming Checklist</strong>
-            <p className="text-slate-600">1. Longest carbon chain (stem). 2. Identify the functional group (suffix). 3. Number from the end nearest the principal group. 4. Name and locate substituents.</p>
-          </div>
-          <div className="rounded-xl bg-green-50 p-4">
-            <strong className="text-green-700">Key Suffixes</strong>
-            <p className="text-slate-600">-ane, -ene, -ol, -al, -one, -oic acid, -oate, and -amine are the key suffixes to recognise quickly.</p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
     title: 'Intermolecular Forces and Properties Review',
     content: (
       <div className="space-y-4 text-center">
@@ -40,21 +20,16 @@ const learnSteps: LearnStep[] = [
     ),
   },
   {
-    title: 'Redox and Electrochemistry Review',
+    title: 'Redox Review',
     content: (
       <div className="space-y-4 text-center">
         <p className="text-lg text-slate-600">
-          Integrate oxidation number rules, OIL RIG, half-reactions, and cell analysis.
+          Integrate oxidation number rules, OIL RIG, oxidising and reducing agents, and half-reactions.
         </p>
         <div className="grid gap-3 md:grid-cols-2 text-left">
           <div className="rounded-xl bg-orange-50 p-4">
             <strong className="text-orange-700">Redox Checklist</strong>
             <p className="text-slate-600">Assign oxidation numbers, identify what is oxidised and reduced, name the agents, then write balanced half-reactions.</p>
-          </div>
-          <div className="rounded-xl bg-purple-50 p-4">
-            <strong className="text-purple-700">Cell Checklist</strong>
-            <Formula block>{String.raw`E^\circ_{\text{cell}} = E^\circ_{\text{cat}} - E^\circ_{\text{an}}`}</Formula>
-            <p className="text-slate-600">Galvanic cells are spontaneous with a negative anode and positive cathode. Electrolytic cells are non-spontaneous and need external power.</p>
           </div>
         </div>
       </div>
@@ -84,12 +59,6 @@ const learnSteps: LearnStep[] = [
 
 const bank: PSItem[] = [
   {
-    prompt: 'What is the IUPAC name of CH₃CH₂CH₂COOH?',
-    options: ['Propanoic acid', 'Butanoic acid', 'Pentanoic acid', 'Ethanoic acid'],
-    answer: 'Butanoic acid',
-    explanation: 'The compound has 4 carbons and a –COOH group. Parent chain: but-. Functional group: -oic acid. IUPAC name: butanoic acid.',
-  },
-  {
     prompt: 'Why does propan-1-ol (C₃H₇OH) have a higher boiling point than propane (C₃H₈)?',
     options: ['Propan-1-ol has a larger molar mass than propane', 'Propan-1-ol has hydrogen bonds; propane has London forces only', 'Propane is a polar molecule, and the alcohol is not', 'Propan-1-ol has stronger covalent bonds in it'],
     answer: 'Propan-1-ol has hydrogen bonds; propane has London forces only',
@@ -114,29 +83,35 @@ const bank: PSItem[] = [
     explanation: 'In MnO₄⁻, Mn has oxidation number +7. In Mn²⁺, it is +2. The oxidation number decreases (gain of electrons = reduction).',
   },
   {
-    prompt: 'A galvanic cell uses Cu (E° = +0,34 V) as cathode and Fe (E° = −0,44 V) as anode. What is E°_cell?',
-    options: ['−0,78 V', '+0,78 V', '+0,10 V', '−0,10 V'],
-    answer: '+0,78 V',
-    explanation: 'E°_cell = E°_cathode − E°_anode = +0,34 − (−0,44) = +0,34 + 0,44 = +0,78 V.',
-  },
-  {
-    prompt: 'Which functional group is characteristic of esters?',
-    options: ['–OH', '–CHO', '–COO–', '–COOH'],
-    answer: '–COO–',
-    explanation: 'Esters contain the –COO– linkage (ester bond), formed from a carboxylic acid and an alcohol by a condensation reaction.',
-  },
-  {
     prompt: 'HF has a higher boiling point than HCl despite having a lower molar mass. This is because:',
     options: ['HF is an ionic compound, and HCl is not', 'HF has stronger London forces than HCl has', 'HF has hydrogen bonds; HCl has dipole-dipole forces', 'HCl is a non-polar molecule, and HF is polar'],
     answer: 'HF has hydrogen bonds; HCl has dipole-dipole forces',
     explanation: 'HF has H bonded to F, enabling H-bonding (the strongest IMF). HCl\'s H is bonded to Cl, which cannot form H-bonds, so it only has dipole-dipole forces.',
+  },
+  {
+    prompt: "Which type of intermolecular force acts between non-polar molecules such as CH₄?",
+    options: ["London (dispersion) forces", "Hydrogen bonds", "Dipole-dipole forces", "Ionic bonds"],
+    answer: "London (dispersion) forces",
+    explanation: "Non-polar molecules have only London forces, caused by temporary dipoles.",
+  },
+  {
+    prompt: "What is the oxidation number of sulfur in SO₄²⁻?",
+    options: ["+6", "+4", "+2", "−2"],
+    answer: "+6",
+    explanation: "S + 4(−2) = −2, so S = +6.",
+  },
+  {
+    prompt: "In the reaction Zn + Cu²⁺ → Zn²⁺ + Cu, which substance is the reducing agent?",
+    options: ["Zn", "Cu²⁺", "Zn²⁺", "Cu"],
+    answer: "Zn",
+    explanation: "Zn loses electrons (is oxidised), so it is the reducing agent.",
   },
 ];
 
 const ChemistryConsolidation = () => (
   <CapsSubjectTopic
     title="Chemistry Consolidation"
-    subtitle="Integrated review of Grade 11 organic chemistry and electrochemistry"
+    subtitle="Integrated review of Grade 11 intermolecular forces and redox reactions"
     learnSteps={learnSteps}
     task="gr11-chemistry-consolidation-t4"
     bank={bank}

@@ -27,23 +27,6 @@ const learnSteps: LearnStep[] = [
     ),
   },
   {
-    title: 'Projectile Motion and Graphs Review',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          Vertical projectile motion uses the kinematic equations with gravity acting downward. On a velocity-time graph, the slope is acceleration and the area is displacement.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block text-left">
-          <p className="font-bold text-slate-800">Key equations (upward positive, so <Formula>{String.raw`a = g = -9{,}8\text{ m·s}^{-2}`}</Formula>)</p>
-          <Formula block>{String.raw`v_f = v_i + g\Delta t`}</Formula>
-          <Formula block>{String.raw`\Delta y = v_i\Delta t + \frac{1}{2}g(\Delta t)^2`}</Formula>
-          <Formula block>{String.raw`v_f^2 = v_i^2 + 2g\Delta y`}</Formula>
-          <p className="text-slate-600 mt-2">At maximum height, <Formula>{String.raw`v_f = 0`}</Formula>, so the time to the top is <Formula>{String.raw`\Delta t = \frac{v_i}{9{,}8}`}</Formula> (in seconds, with <Formula>{String.raw`v_i`}</Formula> in m·s⁻¹).</p>
-        </div>
-      </div>
-    ),
-  },
-  {
     title: 'Electricity and Circuits Review',
     content: (
       <div className="space-y-4 text-center">
@@ -61,7 +44,6 @@ const learnSteps: LearnStep[] = [
             <strong className="text-yellow-700">Circuits</strong>
             <Formula block>{String.raw`R_T = \sum R`}</Formula>
             <Formula block>{String.raw`\frac{1}{R_T} = \sum \frac{1}{R}`}</Formula>
-            <Formula block>{String.raw`\varepsilon = V_{\text{terminal}} + Ir`}</Formula>
             <Formula block>{String.raw`P = VI = I^2R`}</Formula>
           </div>
         </div>
@@ -110,12 +92,6 @@ const bank: PSItem[] = [
     explanation: 'P = Fv = mgv → v = P/(mg) = 1200/(100 × 9,8) = 1200/980 ≈ 1,22 m/s.',
   },
   {
-    prompt: 'A 6 kg ball moving at 4 m/s right collides with a 2 kg ball at rest. They stick together. What is the final velocity?',
-    options: ['4 m/s right', '3 m/s right', '12 m/s right', '2 m/s right'],
-    answer: '3 m/s right',
-    explanation: 'Conservation of momentum: 6×4 + 2×0 = (6+2)v → 24 = 8v → v = 3 m/s right.',
-  },
-  {
     prompt: 'Two charges Q₁ = +4 μC and Q₂ = −2 μC are 0,2 m apart. What is the magnitude of the force? (k = 9×10⁹ N·m²/C²)',
     options: ['1,8 N', '0,18 N', '18 N', '0,018 N'],
     answer: '1,8 N',
@@ -128,16 +104,22 @@ const bank: PSItem[] = [
     explanation: '1/R_total = 1/6 + 1/3 = 1/6 + 2/6 = 3/6 → R_total = 2 Ω. I = V/R = 12/2 = 6 A.',
   },
   {
-    prompt: 'A ball is thrown upward at 20 m/s. What is its velocity after 3 s? (g = 9,8 m/s², upward positive)',
-    options: ['29,4 m/s upward', '−9,4 m/s (downward)', '−49,4 m/s', '9,4 m/s upward'],
-    answer: '−9,4 m/s (downward)',
-    explanation: 'v = v_i − gΔt = 20 − 9,8 × 3 = 20 − 29,4 = −9,4 m/s. The negative sign means the ball is now moving downward.',
+    prompt: "A 4 kg trolley is pushed with a net force of 12 N. What is its acceleration?",
+    options: ["3 m/s²", "48 m/s²", "0,33 m/s²", "8 m/s²"],
+    answer: "3 m/s²",
+    explanation: "a = F/m = 12/4 = 3 m/s².",
   },
   {
-    prompt: 'What is the terminal voltage of a 10 V EMF battery with internal resistance 0,5 Ω when 4 A flows?',
-    options: ['12 V', '8 V', '10 V', '5 V'],
-    answer: '8 V',
-    explanation: 'V_terminal = ε − Ir = 10 − (4 × 0,5) = 10 − 2 = 8 V.',
+    prompt: "A 6 N force acts east and a 2 N force acts west on the same object. What is the resultant force?",
+    options: ["4 N east", "8 N east", "4 N west", "12 N east"],
+    answer: "4 N east",
+    explanation: "Take east as positive: 6 − 2 = +4 N, so 4 N east.",
+  },
+  {
+    prompt: "A 12 V source is connected across two 4 Ω resistors in series. What is the current?",
+    options: ["1,5 A", "3 A", "0,67 A", "6 A"],
+    answer: "1,5 A",
+    explanation: "R_total = 4 + 4 = 8 Ω, so I = V/R = 12/8 = 1,5 A.",
   },
 ];
 

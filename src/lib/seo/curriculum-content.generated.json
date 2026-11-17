@@ -6776,11 +6776,6 @@
                 "description": "Resultant vectors, component resolution and free-body diagrams."
               },
               {
-                "id": "gr11-work-energy-t1",
-                "title": "Work, Energy and Power",
-                "description": "Work done, kinetic and potential energy, conservation of mechanical energy and power."
-              },
-              {
                 "id": "gr11-newtons-laws-t1",
                 "title": "Newton's Laws and Friction",
                 "description": "Inertia, F = ma, action-reaction pairs, static and kinetic friction."
@@ -6799,6 +6794,11 @@
                 "id": "gr11-chemistry-of-water-t1",
                 "title": "The Chemistry of Water",
                 "description": "The bent water molecule, hydrogen bonds, boiling point and why ice floats."
+              },
+              {
+                "id": "gr11-intermolecular-forces-t3",
+                "title": "Intermolecular Forces",
+                "description": "London forces, dipole-dipole, hydrogen bonding, molecular polarity and physical properties."
               }
             ]
           },
@@ -6806,26 +6806,6 @@
             "id": 2,
             "title": "Term 2",
             "topics": [
-              {
-                "id": "gr11-momentum-t2",
-                "title": "Momentum and Impulse",
-                "description": "Momentum, impulse-momentum theorem, conservation of momentum and collisions."
-              },
-              {
-                "id": "gr11-projectile-motion-t2",
-                "title": "Vertical Projectile Motion",
-                "description": "Free fall, kinematic equations and velocity-time graphs for vertical projectiles."
-              },
-              {
-                "id": "gr11-electrostatics-t2",
-                "title": "Electrostatics",
-                "description": "Electric charge, Coulomb's law, electric fields and field line patterns."
-              },
-              {
-                "id": "gr11-electric-circuits-t2",
-                "title": "Electric Circuits",
-                "description": "Ohm's law, series and parallel circuits, EMF and internal resistance."
-              },
               {
                 "id": "gr11-refraction-snell-t2",
                 "title": "Refraction and Snell's Law",
@@ -6858,29 +6838,19 @@
             "title": "Term 3",
             "topics": [
               {
-                "id": "gr11-organic-chemistry-t3",
-                "title": "Organic Chemistry",
-                "description": "Hydrocarbons, functional groups, IUPAC naming and homologous series."
-              },
-              {
-                "id": "gr11-intermolecular-forces-t3",
-                "title": "Intermolecular Forces",
-                "description": "London forces, dipole-dipole, hydrogen bonding, molecular polarity and physical properties."
-              },
-              {
-                "id": "gr11-redox-reactions-t3",
-                "title": "Redox Reactions",
-                "description": "Oxidation, reduction, OIL RIG, oxidation numbers and identifying redox agents."
-              },
-              {
-                "id": "gr11-electrochemical-cells-t3",
-                "title": "Electrochemical Cells",
-                "description": "Galvanic cells, standard electrode potentials, EMF calculation and electrolytic cells."
-              },
-              {
                 "id": "gr11-electromagnetism-t3",
                 "title": "Electromagnetism",
                 "description": "The field around a current, the solenoid, magnetic flux, Faraday's law and Lenz's law."
+              },
+              {
+                "id": "gr11-electrostatics-t2",
+                "title": "Electrostatics",
+                "description": "Electric charge, Coulomb's law, electric fields and field line patterns."
+              },
+              {
+                "id": "gr11-electric-circuits-t2",
+                "title": "Electric Circuits",
+                "description": "Ohm's law, and series and parallel circuits."
               },
               {
                 "id": "gr11-energy-chemical-change-t3",
@@ -6904,6 +6874,11 @@
                 "description": "The lithosphere, ores, getting metals out of ores, gold in South Africa and the environment."
               },
               {
+                "id": "gr11-redox-reactions-t3",
+                "title": "Redox Reactions",
+                "description": "Oxidation, reduction, OIL RIG, oxidation numbers and identifying redox agents."
+              },
+              {
                 "id": "gr11-physics-consolidation-t4",
                 "title": "Physics Consolidation",
                 "description": "Integrated review of Grade 11 mechanics and electricity for final examination."
@@ -6911,7 +6886,7 @@
               {
                 "id": "gr11-chemistry-consolidation-t4",
                 "title": "Chemistry Consolidation",
-                "description": "Integrated review of Grade 11 organic chemistry and electrochemistry for final examination."
+                "description": "Integrated review of Grade 11 intermolecular forces and redox reactions for final examination."
               },
               {
                 "id": "gr11-final-exam-prep-t4",
