@@ -1351,6 +1351,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Bank and Creditors Reconciliations",
   "Accounting"
  ],
+ "12|gr12-bearings-declination-t1": [
+  "Direction, Bearings and Magnetic Declination",
+  "Social Sciences: Geography"
+ ],
  "12|gr12-black-consciousness-movement-t1": [
   "Black Consciousness Movement",
   "History"
@@ -1746,6 +1750,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-manufacturing-cost-statements-t2": [
   "Manufacturing Cost Statements",
   "Accounting"
+ ],
+ "12|gr12-map-scale-distance-area-t1": [
+  "Map Scale, Distance and Area",
+  "Social Sciences: Geography"
  ],
  "12|gr12-maps-plans-models-t3": [
   "Maps, Plans and Models",
