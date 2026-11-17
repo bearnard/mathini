@@ -2,6 +2,7 @@
 
 import Formula from './Formula';
 import { splitMath } from './mathSegments';
+import { nbspNumbers } from '../../lib/shared/nbspNumbers';
 
 interface MathTextProps {
   /** Text that may contain inline math delimited by $...$  */
@@ -20,13 +21,13 @@ interface MathTextProps {
 const MathText = ({ children, className }: MathTextProps) => {
   // Fast path: no $ means no math
   if (!children.includes('$')) {
-    return <span className={className}>{children}</span>;
+    return <span className={className}>{nbspNumbers(children)}</span>;
   }
 
   return (
     <span className={className}>
       {splitMath(children).map((seg, i) =>
-        seg.math ? <Formula key={i}>{seg.text}</Formula> : <span key={i}>{seg.text}</span>,
+        seg.math ? <Formula key={i}>{seg.text}</Formula> : <span key={i}>{nbspNumbers(seg.text)}</span>,
       )}
     </span>
   );
