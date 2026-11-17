@@ -36,6 +36,15 @@ const HIS6_HIDDEN = [
   ['medicine-in-ancient-times', 'early-and-indigenous-medicine'],
 ].map(([slug, to]) => ({ source: `${H6}/${slug}`, destination: to ? `${H6}/${to}` : H6 }));
 
+/** Grade 12 Life Orientation: four lessons are not in the Grade 12 CAPS (Community and Social Action, Risk Management and Support, Active Citizenship and Leadership, Transition and Personal Planning) and are hidden now that the CAPS lessons on human factors in ill-health, lifestyle diseases, a physical activity plan, unemployment and tax, corruption and fraud exist (code, task instructions and D1 questions kept). Each page goes to the closest CAPS lesson. */
+const LO12 = '/grade-12/life-orientation';
+const LO12_HIDDEN = [
+  ['community-and-social-action', 'social-and-environmental-responsibility'],
+  ['risk-management-and-support', 'human-factors-in-ill-health-accidents-and-disasters'],
+  ['active-citizenship-and-leadership', 'democracy-and-human-rights'],
+  ['transition-and-personal-planning', 'careers-and-career-choices'],
+].map(([slug, to]) => ({ source: `${LO12}/${slug}`, destination: `${LO12}/${to}` }));
+
 export interface LegacyRedirect { source: string; destination: string }
 
 const moved = (fromSubject: string, toSubject: string, slugs: string[]): LegacyRedirect[] => [
@@ -54,6 +63,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   IT12_ENCAPSULATION,
   NS9_HEAT,
   ...HIS6_HIDDEN,
+  ...LO12_HIDDEN,
 ];
 
 /** The shape next.config.ts `redirects()` wants: permanent: true answers 308. */

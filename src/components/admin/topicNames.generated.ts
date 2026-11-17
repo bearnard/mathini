@@ -1303,10 +1303,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Acids and Bases",
   "Physical Sciences"
  ],
- "12|gr12-active-citizenship-and-leadership-t3": [
-  "Active Citizenship and Leadership",
-  "Life Orientation"
- ],
  "12|gr12-advanced-application-integration-t3": [
   "Advanced Application Integration",
   "Computer Applications Technology"
@@ -1438,10 +1434,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-cold-war-vietnam-t1": [
   "Case Study: Vietnam 1954 to 1975",
   "History"
- ],
- "12|gr12-community-and-social-action-t2": [
-  "Community and Social Action",
-  "Life Orientation"
  ],
  "12|gr12-company-financial-statements-t1": [
   "Company Financial Statements",
@@ -2095,10 +2087,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Revision and Trial Examinations",
   "Life Sciences"
  ],
- "12|gr12-risk-management-and-support-t2": [
-  "Risk Management and Support",
-  "Life Orientation"
- ],
  "12|gr12-rural-settlement-challenges-t2": [
   "Rural Settlement Challenges",
   "Social Sciences: Geography"
@@ -2186,10 +2174,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-trade-unions-and-the-udf-t1": [
   "Trade Unions and the UDF",
   "History"
- ],
- "12|gr12-transition-and-personal-planning-t4": [
-  "Transition and Personal Planning",
-  "Life Orientation"
  ],
  "12|gr12-trial-exam-revision-t3": [
   "Trial Examination Revision",
