@@ -819,10 +819,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Electric Circuits",
   "Physical Sciences"
  ],
- "11|gr11-electrochemical-cells-t3": [
-  "Electrochemical Cells",
-  "Physical Sciences"
- ],
  "11|gr11-electromagnetism-t3": [
   "Electromagnetism",
   "Physical Sciences"
@@ -1143,10 +1139,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Moles, Gas Volumes and Concentration",
   "Physical Sciences"
  ],
- "11|gr11-momentum-t2": [
-  "Momentum and Impulse",
-  "Physical Sciences"
- ],
  "11|gr11-money-banking-t3": [
   "Money, Banking and the Central Bank",
   "Economics"
@@ -1186,10 +1178,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-operations-marketing-function-t2": [
   "Operations and Marketing Function",
   "Business Studies"
- ],
- "11|gr11-organic-chemistry-t3": [
-  "Organic Chemistry",
-  "Physical Sciences"
  ],
  "11|gr11-partner-accounts-final-statements-t1": [
   "Partner Accounts and Final Statements",
@@ -1270,10 +1258,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-projected-financial-statements-t3": [
   "Projected Financial Statements",
   "Accounting"
- ],
- "11|gr11-projectile-motion-t2": [
-  "Vertical Projectile Motion",
-  "Physical Sciences"
  ],
  "11|gr11-prose-poetry-visual-literacy-t2": [
   "Prose, Poetry and Visual Literacy",
@@ -1474,10 +1458,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-word-processing-templates-forms-t1": [
   "Word Processing: Templates and Forms",
   "Computer Applications Technology"
- ],
- "11|gr11-work-energy-t1": [
-  "Work, Energy and Power",
-  "Physical Sciences"
  ],
  "11|gr11-world-of-work-entrepreneurship-t4": [
   "World of Work and Entrepreneurship",

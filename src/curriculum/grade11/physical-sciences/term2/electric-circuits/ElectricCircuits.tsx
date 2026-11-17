@@ -76,21 +76,6 @@ const learnSteps: LearnStep[] = [
       </div>
     ),
   },
-  {
-    title: 'EMF and Internal Resistance',
-    content: (
-      <div className="space-y-4 text-center">
-        <p className="text-lg text-slate-600">
-          A real battery has an <strong>internal resistance (r)</strong> that reduces the terminal voltage when current flows. The <strong>EMF (ε)</strong> is the maximum energy the battery can supply per coulomb.
-        </p>
-        <div className="bg-slate-50 p-6 rounded-xl inline-block text-left">
-          <Formula block>{String.raw`\varepsilon = V_{\text{terminal}} + Ir`}</Formula>
-          <p className="text-slate-600">ε = EMF (V), V_terminal = terminal voltage across the external circuit, I = current (A), r = internal resistance (Ω).</p>
-          <p className="text-slate-600 mt-2">As current increases (greater load), the “lost volts” <Formula>{String.raw`Ir`}</Formula> increase, reducing the terminal voltage.</p>
-        </div>
-      </div>
-    ),
-  },
 ];
 
 const bank: PSItem[] = [
@@ -125,12 +110,6 @@ const bank: PSItem[] = [
     explanation: 'In a parallel circuit, all branches are connected between the same two nodes, so each branch has the same potential difference as the source.',
   },
   {
-    prompt: 'A battery has an EMF of 9 V and an internal resistance of 1 Ω. When a current of 2 A flows, what is the terminal voltage?',
-    options: ['11 V', '9 V', '7 V', '18 V'],
-    answer: '7 V',
-    explanation: 'V_terminal = ε − Ir = 9 − (2 × 1) = 9 − 2 = 7 V.',
-  },
-  {
     prompt: 'What is the power dissipated by a 4 Ω resistor carrying a current of 3 A?',
     options: ['12 W', '36 W', '48 W', '0,75 W'],
     answer: '36 W',
@@ -153,12 +132,18 @@ const bank: PSItem[] = [
     answer: 'Total resistance is less than the smallest individual resistance',
     explanation: 'Adding parallel paths provides more routes for current, reducing overall resistance below the smallest branch resistance.',
   },
+  {
+    prompt: "A 6 V source drives current through a 2 Ω and a 4 Ω resistor in series. What is the potential difference across the 4 Ω resistor?",
+    options: ["4 V", "2 V", "6 V", "1 V"],
+    answer: "4 V",
+    explanation: "R_total = 2 + 4 = 6 Ω, so I = 6/6 = 1 A. V = IR = 1 × 4 = 4 V.",
+  },
 ];
 
 const ElectricCircuits = () => (
   <CapsSubjectTopic
     title="Electric Circuits"
-    subtitle="Ohm's law, series and parallel circuits, EMF and internal resistance"
+    subtitle="Ohm's law, and series and parallel circuits"
     learnSteps={learnSteps}
     task="gr11-electric-circuits-t2"
     bank={bank}
