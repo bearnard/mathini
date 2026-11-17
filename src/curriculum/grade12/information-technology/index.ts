@@ -33,6 +33,18 @@ export const informationTechnologyGrade12: Subject = {
           description: "Modular problem solving, recursion or advanced logic, validation and systematic testing.",
           component: lazy(() => import('./term1/algorithmic-refinement-validation-testing/AlgorithmicRefinementValidationTesting')),
         },
+        {
+          id: "gr12-hardware-mobile-technologies-t1",
+          title: "Hardware: Mobile Technologies and Performance",
+          description: "Mobile devices, what makes a computer fast, and matching hardware to a purpose.",
+          component: lazy(() => import('./term1/hardware-mobile-technologies/HardwareMobileTechnologies')),
+        },
+        {
+          id: "gr12-software-methodologies-design-tools-t1",
+          title: "Software Methodologies and Design Tools",
+          description: "Waterfall, RAD, incremental and agile; TOE, IPO, CRC and UML; noun-verb analysis and starting the PAT.",
+          component: lazy(() => import('./term1/software-methodologies-design-tools/SoftwareMethodologiesDesignTools')),
+        },
       ],
     },
     {
