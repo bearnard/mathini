@@ -46,6 +46,12 @@ export const psGrade10: Subject = {
       title: 'Term 2',
       topics: [
         {
+          id: 'gr10-magnetism-t2',
+          title: 'Magnetism',
+          description: "Poles, magnetic fields, field lines, the Earth's field, the compass and magnetic materials.",
+          component: lazy(() => import('./term2/magnetism/Magnetism')),
+        },
+        {
           id: 'gr10-matter-states-phase-change-t2',
           title: 'Matter, States and Phase Change',
           description: 'Properties and transformations of matter',
