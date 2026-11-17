@@ -709,6 +709,11 @@
                 "id": "geo-locating-places",
                 "title": "Locating Places",
                 "description": "Using grid references and coordinates to find places."
+              },
+              {
+                "id": "gr6-atlases-global-statistics-t1",
+                "title": "Atlases and Global Statistics",
+                "description": "Using an atlas, and some facts about the whole world."
               }
             ]
           },
@@ -761,6 +766,11 @@
                 "id": "geo-vegetation-adaptations",
                 "title": "Vegetation & Adaptations",
                 "description": "How plants and animals adapt to their climate."
+              },
+              {
+                "id": "gr6-coniferous-forests-t3",
+                "title": "Coniferous Forests",
+                "description": "Where they are, the climate, plants and animals, and how people live."
               }
             ]
           },

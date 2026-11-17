@@ -2451,6 +2451,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Area & Perimeter",
   "Mathematics"
  ],
+ "6|gr6-atlases-global-statistics-t1": [
+  "Atlases and Global Statistics",
+  "Geography"
+ ],
  "6|gr6-basic-first-aid-t4": [
   "Basic First Aid",
   "Life Skills"
@@ -2478,6 +2482,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|gr6-comparing-fractions-t1": [
   "Comparing Fractions",
   "Mathematics"
+ ],
+ "6|gr6-coniferous-forests-t3": [
+  "Coniferous Forests",
+  "Geography"
  ],
  "6|gr6-data-handling-t4": [
   "Data Handling",
