@@ -808,6 +808,7 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr9-algebraic-expressions-t1": ["math", 9],
   "gr9-apartheid-system-1948-t3": ["his", 9],
   "gr9-area-perimeter-t2": ["math", 9],
+  "gr9-atmosphere-t4": ["ns", 9],
   "gr9-atomic-age-nuclear-power-t2": ["his", 9],
   "gr9-atoms-elements-compounds-t2": ["ns", 9],
   "gr9-budgeting-business-decisions-t2": ["ems", 9],

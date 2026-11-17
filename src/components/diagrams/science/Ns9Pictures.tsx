@@ -122,3 +122,91 @@ export const GridLoss = ({ sent, delivered, unit = 'MWh' }: { sent: number; deli
     </Panel>
   );
 };
+
+/** One bar showing the composition of air: nitrogen, oxygen and the rest (carbon dioxide, water vapour and other gases), in per cent. */
+export const AirBar = ({ nitrogen, oxygen, other }: { nitrogen: number; oxygen: number; other: number }) => {
+  const w = 100;
+  const x0 = 10;
+  const nW = (w * nitrogen) / 100;
+  const oW = (w * oxygen) / 100;
+  const rW = Math.max(1.4, (w * other) / 100);
+  return (
+    <Panel h={44} aria={`A bar showing the gases in air. Nitrogen ${nitrogen}%, oxygen ${oxygen}%, and about ${other}% for carbon dioxide (less than 1%), water vapour and other gases together.`}>
+      <rect x={x0} y={12} width={r3(nW)} height={12} fill={I} />
+      <rect x={r3(x0 + nW)} y={12} width={r3(oW)} height={12} fill={E} />
+      <rect x={r3(x0 + nW + oW)} y={12} width={r3(rW)} height={12} fill={A} />
+      <T x={x0 + nW / 2} y={20} size={4.4} color={INK}>{`nitrogen ${nitrogen}%`}</T>
+      <T x={x0 + nW + oW / 2} y={20} size={4.4} color={INK}>{`oxygen ${oxygen}%`}</T>
+      <T x={60} y={36} size={3.8} color={A}>{`other gases about ${other}%: carbon dioxide (less than 1%), water vapour`}</T>
+    </Panel>
+  );
+};
+
+/** The layers of the atmosphere to scale up to 100 km (the thermosphere goes on to about 350 km): troposphere, stratosphere, mesosphere, thermosphere. */
+export const LayersScale = ({ layers }: { layers: { name: string; fromKm: number; toKm: number }[] }) => {
+  const top = 4;
+  const bottom = 70;
+  const scale = (bottom - top) / 100; // units per km
+  const colors = [E, I, A, R];
+  return (
+    <Panel h={76} aria={`The layers of the atmosphere drawn to scale up to 100 kilometres: ${layers.map((l) => `${l.name} from ${l.fromKm} to ${l.toKm} kilometres`).join(', ')}. The thermosphere continues up to about 350 kilometres.`}>
+      {layers.map((l, i) => {
+        const y1 = bottom - Math.min(l.toKm, 100) * scale;
+        const y2 = bottom - l.fromKm * scale;
+        return (
+          <g key={l.name}>
+            <rect x={8} y={r3(y1)} width={26} height={r3(y2 - y1)} fill={colors[i % colors.length]} opacity={0.55} stroke={INK} strokeWidth={0.4} />
+            <T x={38} y={r3((y1 + y2) / 2 + 1.4)} anchor="start" size={4} color={LINE}>{`${l.name}: ${l.fromKm} to ${l.toKm > 100 ? 'about ' + l.toKm : l.toKm} km`}</T>
+          </g>
+        );
+      })}
+      <T x={21} y={74} size={3.4} color={MUTED}>Earth&apos;s surface</T>
+      <T x={21} y={3.2} size={3.2} color={MUTED}>100 km</T>
+    </Panel>
+  );
+};
+
+/** The temperature in the troposphere at heights above sea level: it falls about 1 °C for every 100 m. */
+export const TempDrop = ({ points }: { points: { heightM: number; tempC: number }[] }) => {
+  const maxH = Math.max(...points.map((p) => p.heightM));
+  const temps = points.map((p) => p.tempC);
+  const lo = Math.min(...temps) - 5;
+  const hi = Math.max(...temps) + 5;
+  const X = (t: number) => r3(18 + ((t - lo) / (hi - lo)) * 86);
+  const Y = (h: number) => r3(52 - (h / maxH) * 40);
+  return (
+    <Panel h={64} aria={`The temperature at heights above sea level in the troposphere: ${points.map((p) => `${p.heightM} metres: ${String(p.tempC).replace('.', ',')} degrees Celsius`).join('; ')}. It falls as the height increases.`}>
+      <line x1={18} y1={52} x2={106} y2={52} stroke={MUTED} strokeWidth={0.5} />
+      <line x1={18} y1={10} x2={18} y2={52} stroke={MUTED} strokeWidth={0.5} />
+      <polyline points={points.map((p) => `${X(p.tempC)},${Y(p.heightM)}`).join(' ')} fill="none" stroke={A} strokeWidth={1.2} />
+      {points.map((p) => (
+        <g key={p.heightM}>
+          <circle cx={X(p.tempC)} cy={Y(p.heightM)} r={1.6} fill={A} />
+          <T x={X(p.tempC) + 3} y={Y(p.heightM) + 1.4} anchor="start" size={3.6}>{`${String(p.tempC).replace('.', ',')} °C`}</T>
+          <T x={16} y={Y(p.heightM) + 1.4} anchor="end" size={3.4} color={MUTED}>{`${p.heightM.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} m`}</T>
+        </g>
+      ))}
+      <T x={62} y={60} size={3.6} color={MUTED}>height above sea level (m) and temperature</T>
+    </Panel>
+  );
+};
+
+/** The greenhouse effect: the Sun warms the Earth, the Earth gives out heat, and greenhouse gases trap some of it, so the air near the surface stays warm. */
+export const GreenhouseDiagram = () => (
+  <Panel h={66} aria="The greenhouse effect. Energy from the Sun reaches the Earth and warms it. The warm Earth gives out heat. A layer of greenhouse gases traps some of this heat and sends it back towards the surface, so the air near the surface is warmer than it would be without them.">
+    <circle cx={16} cy={12} r={6} fill={A} />
+    <T x={16} y={24} size={3.6}>Sun</T>
+    <line x1={24} y1={14} x2={50} y2={44} stroke={A} strokeWidth={1.2} />
+    <polygon points="50,44 45,42 48,39" fill={A} />
+    <rect x={6} y={50} width={108} height={9} fill="rgba(74,222,128,0.4)" stroke={E} strokeWidth={0.5} />
+    <T x={60} y={57} size={3.8} color={INK}>Earth&apos;s surface</T>
+    <rect x={6} y={26} width={108} height={7} fill="rgba(148,163,184,0.25)" stroke={MUTED} strokeWidth={0.4} strokeDasharray="2 1.4" />
+    <T x={84} y={31.6} size={3.6}>greenhouse gases</T>
+    <line x1={64} y1={48} x2={64} y2={37} stroke={R} strokeWidth={1.2} />
+    <polygon points="64,35 61.5,39 66.5,39" fill={R} />
+    <line x1={96} y1={36} x2={96} y2={46} stroke={R} strokeWidth={1.2} strokeDasharray="2 1.4" />
+    <polygon points="96,48 93.5,44 98.5,44" fill={R} />
+    <T x={72} y={21} size={3.4} color={R}>heat escapes upwards</T>
+    <T x={78} y={64.5} size={3.2} color={R}>some heat is trapped and returned</T>
+  </Panel>
+);
