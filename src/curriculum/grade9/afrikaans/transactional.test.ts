@@ -9,16 +9,18 @@ import * as diary from './term2/diary-entry/DiaryEntry';
 import * as constitution from './term2/constitution-policy/ConstitutionPolicy';
 import * as will from './term3/will-testament/WillTestament';
 import * as cv from './term3/cv-covering-letter/CvCoveringLetter';
+import * as application from './term4/application-letter/ApplicationLetter';
+import * as email from './term4/email/Email';
 
 // Wave A Grade 9 Afrikaans FAL transactional texts: the same lesson standard as lessons.test.ts, plus: registration, clean questions,
 // and every Afrikaans phrase shown in a lesson is on the teacher-check list (docs/notes/g9-afrikaans-doubts.md).
-const lessons = { 'afr-diary-entry': diary, 'afr-constitution-policy': constitution, 'afr-will-testament': will, 'afr-cv-covering-letter': cv } as const;
+const lessons = { 'afr-diary-entry': diary, 'afr-constitution-policy': constitution, 'afr-will-testament': will, 'afr-cv-covering-letter': cv, 'afr-application-letter': application, 'afr-email': email } as const;
 const text = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 const slideText = (step: { content: React.ReactNode }) => text(renderToStaticMarkup(createElement('div', null, step.content)));
 const lower = (s: string) => s.toLowerCase().replace(/[’‘]/g, "'");
 
 test('the new lessons are registered in their term after the existing three, with a stable id each', () => {
-  const where: Record<string, number> = { 'afr-diary-entry': 2, 'afr-constitution-policy': 2, 'afr-will-testament': 3, 'afr-cv-covering-letter': 3 };
+  const where: Record<string, number> = { 'afr-diary-entry': 2, 'afr-constitution-policy': 2, 'afr-will-testament': 3, 'afr-cv-covering-letter': 3, 'afr-application-letter': 4, 'afr-email': 4 };
   const ids = (n: number) => afrikaansFALGrade9.terms.find((t) => t.id === n)!.topics.map((t) => t.id);
   assert.deepEqual(ids(2).slice(0, 3), ['afr-journalism-media', 'afr-formal-correspondence', 'afr-grammar-reporting']);
   assert.equal(ids(3).length >= 5, true);
@@ -72,6 +74,6 @@ for (const [name, mod] of Object.entries(lessons)) {
 test('the Afrikaans task ids are unique across subjects (they must not collide with the English Grade 9 lessons)', async () => {
   const { TOPIC_NAMES } = await import('../../../components/admin/topicNames.generated');
   assert.equal(TOPIC_NAMES['9|gr9-afr-diary-entry-t2']?.[1], 'Afrikaans FAL');
-  for (const t of ['gr9-afr-constitution-policy-t2', 'gr9-afr-will-testament-t3', 'gr9-afr-cv-covering-letter-t3']) assert.equal(TOPIC_NAMES[`9|${t}`]?.[1], 'Afrikaans FAL', t);
+  for (const t of ['gr9-afr-constitution-policy-t2', 'gr9-afr-will-testament-t3', 'gr9-afr-cv-covering-letter-t3', 'gr9-afr-application-letter-t4', 'gr9-afr-email-t4']) assert.equal(TOPIC_NAMES[`9|${t}`]?.[1], 'Afrikaans FAL', t);
   assert.equal(TOPIC_NAMES['9|gr9-diary-entry-t2']?.[1], 'English HL', 'the English diary task id is still the English lesson');
 });
