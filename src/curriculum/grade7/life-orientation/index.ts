@@ -1,9 +1,9 @@
 import { lazy } from 'react';
 import type { Subject } from '../../../types/curriculum';
 
-export const lifeSkillsGrade7: Subject = {
-  id: 'lsk',
-  title: 'Life Skills',
+export const lifeOrientationGrade7: Subject = {
+  id: 'lo',
+  title: 'Life Orientation',
   terms: [
     {
       id: 1,
@@ -20,12 +20,6 @@ export const lifeSkillsGrade7: Subject = {
           title: 'Physical Education',
           description: 'Fitness baselines, movement patterns, coordination, and safe warm-ups.',
           component: lazy(() => import('./term1/physical-education/PhysicalEducationT1')),
-        },
-        {
-          id: 'gr7-creative-arts-t1',
-          title: 'Creative Arts',
-          description: 'Observational drawing, texture, rhythm patterns, and improvisation.',
-          component: lazy(() => import('./term1/creative-arts/CreativeArtsT1')),
         },
       ],
     },
@@ -45,12 +39,6 @@ export const lifeSkillsGrade7: Subject = {
           description: 'Passing and receiving, stamina, rules, leadership, and fair competition.',
           component: lazy(() => import('./term2/physical-education/PhysicalEducationT2')),
         },
-        {
-          id: 'gr7-creative-arts-t2',
-          title: 'Creative Arts',
-          description: 'Poster design, characterisation, song structure, and movement motifs.',
-          component: lazy(() => import('./term2/creative-arts/CreativeArtsT2')),
-        },
       ],
     },
     {
@@ -69,12 +57,6 @@ export const lifeSkillsGrade7: Subject = {
           description: 'Athletics, indigenous games, flexibility, endurance, and teamwork.',
           component: lazy(() => import('./term3/physical-education/PhysicalEducationT3')),
         },
-        {
-          id: 'gr7-creative-arts-t3',
-          title: 'Creative Arts',
-          description: 'South African heritage, mixed media, choreography, and evaluation.',
-          component: lazy(() => import('./term3/creative-arts/CreativeArtsT3')),
-        },
       ],
     },
     {
@@ -92,12 +74,6 @@ export const lifeSkillsGrade7: Subject = {
           title: 'Physical Education',
           description: 'Fitness plans, strategy, participation review, and recreation.',
           component: lazy(() => import('./term4/physical-education/PhysicalEducationT4')),
-        },
-        {
-          id: 'gr7-creative-arts-t4',
-          title: 'Creative Arts',
-          description: 'Portfolio curation, rehearsal discipline, showcase, and self-evaluation.',
-          component: lazy(() => import('./term4/creative-arts/CreativeArtsT4')),
         },
       ],
     },

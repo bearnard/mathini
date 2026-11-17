@@ -1,9 +1,9 @@
 import { lazy } from 'react';
 import type { Subject } from '../../../types/curriculum';
 
-export const naturalSciencesTechnologyGrade7: Subject = {
-  id: 'nst',
-  title: 'Natural Sciences & Technology',
+export const naturalSciencesGrade7: Subject = {
+  id: 'ns',
+  title: 'Natural Sciences',
   terms: [
     {
       id: 1,
@@ -20,12 +20,6 @@ export const naturalSciencesTechnologyGrade7: Subject = {
               ),
           ),
         },
-        {
-          id: 'design-process-and-structures',
-          title: 'Design Process and Structures',
-          description: 'IDMEC, structures, forces, and stability in engineering solutions.',
-          component: lazy(() => import('./term1/design-process-and-structures/DesignProcessAndStructures')),
-        },
       ],
     },
     {
@@ -38,15 +32,6 @@ export const naturalSciencesTechnologyGrade7: Subject = {
           description: 'Particle model, indicators, separation methods, and chemical change evidence.',
           component: lazy(
             () => import('./term2/matter-mixtures-acids-and-bases/MatterMixturesAcidsAndBases'),
-          ),
-        },
-        {
-          id: 'processing-materials-and-properties',
-          title: 'Processing Materials and Properties',
-          description: 'Material selection, processing, joining, and sustainability decisions.',
-          component: lazy(
-            () =>
-              import('./term2/processing-materials-and-properties/ProcessingMaterialsAndProperties'),
           ),
         },
       ],
@@ -63,14 +48,6 @@ export const naturalSciencesTechnologyGrade7: Subject = {
             () => import('./term3/energy-transfer-heat-and-motion/EnergyTransferHeatAndMotion'),
           ),
         },
-        {
-          id: 'mechanical-systems-and-control',
-          title: 'Mechanical Systems and Control',
-          description: 'Levers, gears, pulleys, linkages, and systems thinking.',
-          component: lazy(
-            () => import('./term3/mechanical-systems-and-control/MechanicalSystemsAndControl'),
-          ),
-        },
       ],
     },
     {
@@ -83,14 +60,6 @@ export const naturalSciencesTechnologyGrade7: Subject = {
           description: 'Seasons, phases, tides, and gravity in the Earth-Moon-Sun system.',
           component: lazy(
             () => import('./term4/sun-earth-relationship-and-gravity/SunEarthRelationshipAndGravity'),
-          ),
-        },
-        {
-          id: 'electrical-systems-and-control',
-          title: 'Electrical Systems and Control',
-          description: 'Series and parallel circuits, control systems, and electrical safety.',
-          component: lazy(
-            () => import('./term4/electrical-systems-and-control/ElectricalSystemsAndControl'),
           ),
         },
       ],

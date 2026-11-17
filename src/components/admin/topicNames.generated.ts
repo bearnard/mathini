@@ -2713,7 +2713,7 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-biosphere-biodiversity-and-reproduction-t1": [
   "Biosphere, Biodiversity and Reproduction",
-  "Natural Sciences & Technology"
+  "Natural Sciences"
  ],
  "7|gr7-colonisation-of-the-cape-t3": [
   "Colonisation of the Cape",
@@ -2733,19 +2733,19 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-creative-arts-t1": [
   "Creative Arts",
-  "Life Skills"
+  "Creative Arts"
  ],
  "7|gr7-creative-arts-t2": [
   "Creative Arts",
-  "Life Skills"
+  "Creative Arts"
  ],
  "7|gr7-creative-arts-t3": [
   "Creative Arts",
-  "Life Skills"
+  "Creative Arts"
  ],
  "7|gr7-creative-arts-t4": [
   "Creative Arts",
-  "Life Skills"
+  "Creative Arts"
  ],
  "7|gr7-creative-writing-project-t3": [
   "Kreatiewe Skryfprojek",
@@ -2761,7 +2761,7 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-design-process-and-structures-t1": [
   "Design Process and Structures",
-  "Natural Sciences & Technology"
+  "Technology"
  ],
  "7|gr7-drama-continued-novel-study-t3": [
   "Drama or Continued Novel Study",
@@ -2769,11 +2769,11 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-electrical-systems-and-control-t4": [
   "Electrical Systems and Control",
-  "Natural Sciences & Technology"
+  "Technology"
  ],
  "7|gr7-energy-transfer-heat-and-motion-t3": [
   "Energy Transfer, Heat and Motion",
-  "Natural Sciences & Technology"
+  "Natural Sciences"
  ],
  "7|gr7-exam-writing-practice-t4": [
   "Eksamen-skryf Oefening",
@@ -2877,11 +2877,11 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-matter-mixtures-acids-and-bases-t2": [
   "Matter, Mixtures, Acids and Bases",
-  "Natural Sciences & Technology"
+  "Natural Sciences"
  ],
  "7|gr7-mechanical-systems-and-control-t3": [
   "Mechanical Systems and Control",
-  "Natural Sciences & Technology"
+  "Technology"
  ],
  "7|gr7-natural-hazards-volcanoes-earthquakes-and-floods-t2": [
   "Natural Hazards: Volcanoes, Earthquakes and Floods",
@@ -2905,35 +2905,35 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-personal-social-wellbeing-t1": [
   "Personal and Social Well-being",
-  "Life Skills"
+  "Life Orientation"
  ],
  "7|gr7-personal-social-wellbeing-t2": [
   "Personal and Social Well-being",
-  "Life Skills"
+  "Life Orientation"
  ],
  "7|gr7-personal-social-wellbeing-t3": [
   "Personal and Social Well-being",
-  "Life Skills"
+  "Life Orientation"
  ],
  "7|gr7-personal-social-wellbeing-t4": [
   "Personal and Social Well-being",
-  "Life Skills"
+  "Life Orientation"
  ],
  "7|gr7-physical-education-t1": [
   "Physical Education",
-  "Life Skills"
+  "Life Orientation"
  ],
  "7|gr7-physical-education-t2": [
   "Physical Education",
-  "Life Skills"
+  "Life Orientation"
  ],
  "7|gr7-physical-education-t3": [
   "Physical Education",
-  "Life Skills"
+  "Life Orientation"
  ],
  "7|gr7-physical-education-t4": [
   "Physical Education",
-  "Life Skills"
+  "Life Orientation"
  ],
  "7|gr7-poetry-prescribed-text-work-t2": [
   "Poetry and Prescribed Text Work",
@@ -2953,7 +2953,7 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-processing-materials-and-properties-t2": [
   "Processing Materials and Properties",
-  "Natural Sciences & Technology"
+  "Technology"
  ],
  "7|gr7-project-language-refinement-t3": [
   "Project and Language Refinement",
@@ -2993,7 +2993,7 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-sun-earth-relationship-and-gravity-t4": [
   "Sun-Earth Relationship and Gravity",
-  "Natural Sciences & Technology"
+  "Natural Sciences"
  ],
  "7|gr7-surface-area-and-volume-of-3d-objects-t2": [
   "Surface Area and Volume of 3D Objects",
@@ -4145,12 +4145,16 @@ export const SUBJECT_TITLES: Record<string, string> = {
  "6|nst": "Natural Sciences & Technology",
  "6|xho": "isiXhosa SAL",
  "7|afr": "Afrikaans FAL",
+ "7|ca": "Creative Arts",
  "7|eng": "English HL",
  "7|geo": "Geography",
  "7|his": "History",
- "7|lsk": "Life Skills",
+ "7|lo": "Life Orientation",
+ "7|lsk": "Life Orientation",
  "7|math": "Mathematics",
- "7|nst": "Natural Sciences & Technology",
+ "7|ns": "Natural Sciences",
+ "7|nst": "Natural Sciences",
+ "7|tech": "Technology",
  "7|xho": "isiXhosa SAL",
  "8|afr": "Afrikaans FAL",
  "8|ca": "Creative Arts",

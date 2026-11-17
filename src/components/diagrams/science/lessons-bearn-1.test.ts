@@ -6,14 +6,14 @@ import { fileURLToPath } from 'node:url';
 import { uncoveredAnswers } from './scienceHelpers';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const root = path.join(here, '../../../curriculum/grade7/natural-sciences-technology');
+const root = path.join(here, '../../../curriculum/grade7');
 
 const LESSONS: Record<string, { slides: number; uses: string[] }> = {
-  'term1/biosphere-biodiversity-and-reproduction/BiosphereBiodiversityAndReproduction.tsx': { slides: 5, uses: ['KeyTree', 'FlowerParts', 'Compare'] },
-  'term1/design-process-and-structures/DesignProcessAndStructures.tsx': { slides: 5, uses: ['NumberedSteps', 'StructureTypes', 'TensionCompression', 'BracedFrame'] },
-  'term2/matter-mixtures-acids-and-bases/MatterMixturesAcidsAndBases.tsx': { slides: 6, uses: ['ParticleStates', 'FiltrationSetup', 'PhBar', 'litmus'] },
-  'term2/processing-materials-and-properties/ProcessingMaterialsAndProperties.tsx': { slides: 6, uses: ['NumberedSteps', 'Terms'] },
-  'term3/energy-transfer-heat-and-motion/EnergyTransferHeatAndMotion.tsx': { slides: 5, uses: ['EnergyHill', 'HeatTransfer', 'efficiency'] },
+  'natural-sciences/term1/biosphere-biodiversity-and-reproduction/BiosphereBiodiversityAndReproduction.tsx': { slides: 5, uses: ['KeyTree', 'FlowerParts', 'Compare'] },
+  'technology/term2/design-process-and-structures/DesignProcessAndStructures.tsx': { slides: 5, uses: ['NumberedSteps', 'StructureTypes', 'TensionCompression', 'BracedFrame'] },
+  'natural-sciences/term2/matter-mixtures-acids-and-bases/MatterMixturesAcidsAndBases.tsx': { slides: 6, uses: ['ParticleStates', 'FiltrationSetup', 'PhBar', 'litmus'] },
+  'technology/term4/processing-materials-and-properties/ProcessingMaterialsAndProperties.tsx': { slides: 6, uses: ['NumberedSteps', 'Terms'] },
+  'natural-sciences/term3/energy-transfer-heat-and-motion/EnergyTransferHeatAndMotion.tsx': { slides: 5, uses: ['EnergyHill', 'HeatTransfer', 'efficiency'] },
 };
 
 const read = (f: string) => fs.readFileSync(path.join(root, f), 'utf8');

@@ -9,9 +9,9 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, '../../../curriculum');
 
 const LESSONS: Record<string, { slides: number; uses: string[] }> = {
-  'grade7/natural-sciences-technology/term3/mechanical-systems-and-control/MechanicalSystemsAndControl.tsx': { slides: 5, uses: ['LeverDiagram', 'GearPair', 'FixedPulley', 'IpoFlow', 'leverEffort'] },
-  'grade7/natural-sciences-technology/term4/electrical-systems-and-control/ElectricalSystemsAndControl.tsx': { slides: 5, uses: ['CircuitPair', 'IpoFlow', 'NumberedSteps', 'FAULT_STEPS'] },
-  'grade7/natural-sciences-technology/term4/sun-earth-relationship-and-gravity/SunEarthRelationshipAndGravity.tsx': { slides: 5, uses: ['SeasonsTilt', 'MoonOrbit', 'EclipseLines', 'tideType'] },
+  'grade7/technology/term1/mechanical-systems-and-control/MechanicalSystemsAndControl.tsx': { slides: 5, uses: ['LeverDiagram', 'GearPair', 'FixedPulley', 'IpoFlow', 'leverEffort'] },
+  'grade7/technology/term3/electrical-systems-and-control/ElectricalSystemsAndControl.tsx': { slides: 5, uses: ['CircuitPair', 'IpoFlow', 'NumberedSteps', 'FAULT_STEPS'] },
+  'grade7/natural-sciences/term4/sun-earth-relationship-and-gravity/SunEarthRelationshipAndGravity.tsx': { slides: 5, uses: ['SeasonsTilt', 'MoonOrbit', 'EclipseLines', 'tideType'] },
   'grade8/natural-sciences/term1/photosynthesis-and-respiration/PhotosynthesisAndRespiration.tsx': { slides: 5, uses: ['LeafExchange', 'CycleLink', 'Compare'] },
   'grade8/natural-sciences/term1/ecosystems-and-micro-organisms/EcosystemsAndMicroOrganisms.tsx': { slides: 6, uses: ['FoodWeb', 'loseAPredator', 'NumberedSteps', 'DECAY_STEPS', 'Terms', 'Compare'] },
 };

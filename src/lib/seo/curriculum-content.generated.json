@@ -1459,8 +1459,8 @@
         ]
       },
       {
-        "id": "lsk",
-        "title": "Life Skills",
+        "id": "lo",
+        "title": "Life Orientation",
         "terms": [
           {
             "id": 1,
@@ -1475,11 +1475,6 @@
                 "id": "gr7-physical-education-t1",
                 "title": "Physical Education",
                 "description": "Fitness baselines, movement patterns, coordination, and safe warm-ups."
-              },
-              {
-                "id": "gr7-creative-arts-t1",
-                "title": "Creative Arts",
-                "description": "Observational drawing, texture, rhythm patterns, and improvisation."
               }
             ]
           },
@@ -1496,11 +1491,6 @@
                 "id": "gr7-physical-education-t2",
                 "title": "Physical Education",
                 "description": "Passing and receiving, stamina, rules, leadership, and fair competition."
-              },
-              {
-                "id": "gr7-creative-arts-t2",
-                "title": "Creative Arts",
-                "description": "Poster design, characterisation, song structure, and movement motifs."
               }
             ]
           },
@@ -1517,11 +1507,6 @@
                 "id": "gr7-physical-education-t3",
                 "title": "Physical Education",
                 "description": "Athletics, indigenous games, flexibility, endurance, and teamwork."
-              },
-              {
-                "id": "gr7-creative-arts-t3",
-                "title": "Creative Arts",
-                "description": "South African heritage, mixed media, choreography, and evaluation."
               }
             ]
           },
@@ -1538,7 +1523,52 @@
                 "id": "gr7-physical-education-t4",
                 "title": "Physical Education",
                 "description": "Fitness plans, strategy, participation review, and recreation."
-              },
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ca",
+        "title": "Creative Arts",
+        "terms": [
+          {
+            "id": 1,
+            "title": "Term 1",
+            "topics": [
+              {
+                "id": "gr7-creative-arts-t1",
+                "title": "Creative Arts",
+                "description": "Observational drawing, texture, rhythm patterns, and improvisation."
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Term 2",
+            "topics": [
+              {
+                "id": "gr7-creative-arts-t2",
+                "title": "Creative Arts",
+                "description": "Poster design, characterisation, song structure, and movement motifs."
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "title": "Term 3",
+            "topics": [
+              {
+                "id": "gr7-creative-arts-t3",
+                "title": "Creative Arts",
+                "description": "South African heritage, mixed media, choreography, and evaluation."
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "title": "Term 4",
+            "topics": [
               {
                 "id": "gr7-creative-arts-t4",
                 "title": "Creative Arts",
@@ -1664,8 +1694,8 @@
         ]
       },
       {
-        "id": "nst",
-        "title": "Natural Sciences & Technology",
+        "id": "ns",
+        "title": "Natural Sciences",
         "terms": [
           {
             "id": 1,
@@ -1675,11 +1705,6 @@
                 "id": "biosphere-biodiversity-and-reproduction",
                 "title": "Biosphere, Biodiversity and Reproduction",
                 "description": "Habitats, classification, and sexual or asexual reproduction strategies."
-              },
-              {
-                "id": "design-process-and-structures",
-                "title": "Design Process and Structures",
-                "description": "IDMEC, structures, forces, and stability in engineering solutions."
               }
             ]
           },
@@ -1691,11 +1716,6 @@
                 "id": "matter-mixtures-acids-and-bases",
                 "title": "Matter, Mixtures, Acids and Bases",
                 "description": "Particle model, indicators, separation methods, and chemical change evidence."
-              },
-              {
-                "id": "processing-materials-and-properties",
-                "title": "Processing Materials and Properties",
-                "description": "Material selection, processing, joining, and sustainability decisions."
               }
             ]
           },
@@ -1707,11 +1727,6 @@
                 "id": "energy-transfer-heat-and-motion",
                 "title": "Energy Transfer, Heat and Motion",
                 "description": "Kinetic and potential energy, heat transfer, insulation, and efficiency."
-              },
-              {
-                "id": "mechanical-systems-and-control",
-                "title": "Mechanical Systems and Control",
-                "description": "Levers, gears, pulleys, linkages, and systems thinking."
               }
             ]
           },
@@ -1723,11 +1738,56 @@
                 "id": "sun-earth-relationship-and-gravity",
                 "title": "Sun-Earth Relationship and Gravity",
                 "description": "Seasons, phases, tides, and gravity in the Earth-Moon-Sun system."
-              },
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tech",
+        "title": "Technology",
+        "terms": [
+          {
+            "id": 1,
+            "title": "Term 1",
+            "topics": [
+              {
+                "id": "mechanical-systems-and-control",
+                "title": "Mechanical Systems and Control",
+                "description": "Levers, gears, pulleys, linkages, and systems thinking."
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Term 2",
+            "topics": [
+              {
+                "id": "design-process-and-structures",
+                "title": "Design Process and Structures",
+                "description": "IDMEC, structures, forces, and stability in engineering solutions."
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "title": "Term 3",
+            "topics": [
               {
                 "id": "electrical-systems-and-control",
                 "title": "Electrical Systems and Control",
                 "description": "Series and parallel circuits, control systems, and electrical safety."
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "title": "Term 4",
+            "topics": [
+              {
+                "id": "processing-materials-and-properties",
+                "title": "Processing Materials and Properties",
+                "description": "Material selection, processing, joining, and sustainability decisions."
               }
             ]
           }

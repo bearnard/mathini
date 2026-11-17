@@ -15,7 +15,7 @@ registerHooks({
     return nextLoad(url, context);
   },
 });
-const load = async (p: string) => (await import(`../../../curriculum/grade7/life-skills/${p}`)).learnSteps as import('../../CapsSubjectTopic').LearnStep[];
+const load = async (p: string) => (await import(`../../../curriculum/grade7/life-orientation/${p}`)).learnSteps as import('../../CapsSubjectTopic').LearnStep[];
 const [t1, t2, t3, t4] = await Promise.all([
   load('term1/physical-education/PhysicalEducationT1'),
   load('term2/physical-education/PhysicalEducationT2'),
@@ -62,7 +62,7 @@ for (const l of lessons) {
   });
 
   test(`${l.name}: the question bank is byte-identical to main`, () => {
-    const src = readFileSync(new URL(`../../../curriculum/grade7/life-skills/${l.file}`, import.meta.url), 'utf8');
+    const src = readFileSync(new URL(`../../../curriculum/grade7/life-orientation/${l.file}`, import.meta.url), 'utf8');
     assert.equal(createHash('sha256').update(src.slice(src.indexOf('const bank: CapsItem'))).digest('hex').slice(0, 16), l.bank);
   });
 }
