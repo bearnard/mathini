@@ -1327,6 +1327,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Agriculture and Food Security",
   "Social Sciences: Geography"
  ],
+ "12|gr12-ai-vr-ar-mr-t2": [
+  "AI, VR, AR and MR",
+  "Information Technology"
+ ],
  "12|gr12-algorithmic-refinement-validation-testing-t1": [
   "Algorithmic Refinement, Validation and Testing",
   "Information Technology"
@@ -1378,6 +1382,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-careers-and-career-choices-t4": [
   "Careers and Career Choices",
   "Life Orientation"
+ ],
+ "12|gr12-caring-for-data-big-data-t1": [
+  "Caring for Data, Big Data and Privacy",
+  "Information Technology"
  ],
  "12|gr12-cash-flow-statements-t1": [
   "Cash Flow Statements",
@@ -1442,6 +1450,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-company-share-capital-t1": [
   "Company Share Capital",
   "Accounting"
+ ],
+ "12|gr12-computer-criminals-cybercrime-t2": [
+  "Computer Criminals and Cybercrime",
+  "Information Technology"
  ],
  "12|gr12-computer-management-t2": [
   "Computer Management",
@@ -1518,6 +1530,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-doppler-effect-applications-t2": [
   "Doppler Effect and Applications",
   "Physical Sciences"
+ ],
+ "12|gr12-e-communication-security-t3": [
+  "E-communication Security",
+  "Information Technology"
  ],
  "12|gr12-economic-geography-and-mapwork-revision-t4": [
   "Economic Geography and Mapwork Revision",
@@ -1867,6 +1883,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Nervous System and Sense Organs",
   "Life Sciences"
  ],
+ "12|gr12-network-parts-internet-access-t3": [
+  "Network Parts and Internet Access",
+  "Information Technology"
+ ],
  "12|gr12-networks-communication-infrastructure-t2": [
   "Networks and Communication Infrastructure",
   "Computer Applications Technology"
@@ -1983,6 +2003,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Perfect Markets",
   "Economics"
  ],
+ "12|gr12-performance-gpu-caching-t1": [
+  "Performance: GPU, Memory, Cache and Storage",
+  "Information Technology"
+ ],
  "12|gr12-photoelectric-effect-spectra-t3": [
   "Photoelectric Effect and Atomic Spectra",
   "Physical Sciences"
@@ -2098,6 +2122,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-sanctions-disinvestment-and-the-road-to-negotiations-t2": [
   "Sanctions, Disinvestment, and the Road to Negotiations",
   "History"
+ ],
+ "12|gr12-seo-search-t3": [
+  "Better Searching and SEO",
+  "Information Technology"
  ],
  "12|gr12-sequences-series-sigma-t1": [
   "Sequences, Series and Sigma Notation",
