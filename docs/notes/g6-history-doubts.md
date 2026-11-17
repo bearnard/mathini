@@ -19,7 +19,20 @@ Source of scope: CAPS Social Sciences Grades 4-6, Grade 6 History Term 1 (Mapung
 | 11 | "more than 700 years ago": 2026 minus 1300 is 726. | Arithmetic; a test checks it. | |
 | 12 | The meaning of the word "Mapungubwe" is NOT given. | Several glosses are quoted and none is certain. | |
 
-## Branches B, C and D (to be added when written)
-- Great Zimbabwe and East coast trade; Marco Polo.
+## Branch B: East coast trade and Great Zimbabwe; Marco Polo (Term 1)
+
+| # | What the lessons say | How sure | Where to check |
+|---|---|---|---|
+| 13 | Inland people traded gold and ivory with the east coast; merchants from across the Indian Ocean (Arabia, Persia, India) brought cloth and glass beads. | Standard; the CAPS says only "East Coast trade with settlements inland". No port, city or ruler is named. | Textbook |
+| 14 | The trade continued before and after Mapungubwe (continuity); the centre of trade and power moved north to Great Zimbabwe (change). | The CAPS describes Great Zimbabwe as succeeding Mapungubwe as the centre of southern African trade. | CAPS Term 1 background |
+| 15 | Great Zimbabwe is in present-day Zimbabwe and was most powerful from **about AD 1300 to 1450** (about 150 years). | The dates are rounded textbook figures: the site was settled earlier and the reasons for its decline are debated, so the lesson says "about" and gives no reason for the decline. | Textbook; Great Zimbabwe World Heritage listing |
+| 16 | Built by the ancestors of the Shona people, with great stone walls laid without mortar; rulers wealthy from cattle and the gold trade; glass beads and porcelain show long-distance trade. | Standard and the accepted view of historians and archaeologists. The lesson also corrects the old colonial-era claim that foreigners built it, in one sentence. | Textbook |
+| 17 | The meaning of the name "Great Zimbabwe" is NOT given. | Glosses vary; left out. | |
+| 18 | Marco Polo: a merchant's son from Venice, left in 1271 with his father and uncle, came home in 1295 (24 years), travelled mostly overland, served the Mongol ruler Kublai Khan, and his travels were written in a book. | Standard. The lesson does not name the co-author of the book, the route or any city on the way. | Encyclopaedia, textbook |
+| 19 | The book described silk, spices, porcelain and paper money, and was copied by hand because there was no printing press in Europe yet; it made European traders and explorers more interested in Asia (about 200 years before the voyages of Term 2). | Standard. "About 200 years" is a rounded gap between the 1290s and the 1480s. | Textbook |
+| 20 | The lesson says that some Europeans found the book hard to believe but later explorers found much of it to be true. | A general statement; not tied to a named person. | Teacher judgement |
+| 21 | Marco Polo's whole journey (1271 to 1295) lies inside the years of Mapungubwe (1220 to 1300), as the CAPS says ("at the same time as Mapungubwe was at its height"). | Arithmetic; a test checks it. | |
+
+## Branches C and D (to be added when written)
 - The Renaissance (Leonardo da Vinci, Galileo); inventions and reasons for exploring.
 - Dias and Da Gama (Mossel Bay 1488 from both sides); VOC journeys and a sailor's life.

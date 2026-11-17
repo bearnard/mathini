@@ -33,7 +33,8 @@ export const spanAt = (year: number): Span | undefined => SPANS.find((s) => year
 export const inOrder = <T extends { year: number }>(items: readonly T[]): T[] => [...items].sort((a, b) => a.year - b.year);
 
 // ---------------------------------------------------------------- Term 1: Great Zimbabwe and Marco Polo
-export const GREAT_ZIMBABWE: Span = { name: 'Great Zimbabwe', from: 1250, to: 1450, exact: false };
+/** Great Zimbabwe as the centre of trade in southern Africa after Mapungubwe: about AD 1300 to 1450 (textbook dates; the site was settled earlier and the reasons for its decline are debated). */
+export const GREAT_ZIMBABWE: Span = { name: 'Great Zimbabwe', from: 1300, to: 1450, exact: false };
 export const MARCO_POLO_JOURNEY: Span = { name: 'Marco Polo in Asia', from: 1271, to: 1295, exact: true };
 export const MARCO_POLO_LIFE = { born: 1254, died: 1324 } as const;
 /** Mapungubwe and Marco Polo's travels overlapped: the years both were going on. */

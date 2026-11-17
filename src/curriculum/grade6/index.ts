@@ -690,6 +690,18 @@ export const grade6: Grade = {
                                     component: lazy(() => import('./history/term1/mapungubwe-trade-today/MapungubweTradeToday'))
                                 },
                                 {
+                                    id: "his-east-coast-great-zimbabwe",
+                                    title: "East coast trade and Great Zimbabwe",
+                                    description: "Change and continuity in trade with the coast, and the stone city that followed Mapungubwe.",
+                                    component: lazy(() => import('./history/term1/east-coast-great-zimbabwe/EastCoastGreatZimbabwe'))
+                                },
+                                {
+                                    id: "his-marco-polo",
+                                    title: "Marco Polo: a European explorer in Asia",
+                                    description: "His journey, his book and how it made Europeans curious about Asia.",
+                                    component: lazy(() => import('./history/term1/marco-polo/MarcoPolo'))
+                                },
+                                {
                                     id: "his-what-is-history",
                                     title: "What is History?",
                                     description: "The study of the past and how we learn about it.",

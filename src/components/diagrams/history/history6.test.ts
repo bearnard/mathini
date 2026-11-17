@@ -26,7 +26,9 @@ test('the Limpopo Valley spans follow one another from 900 to 1300', () => {
 test('Marco Polo and Mapungubwe overlapped; Great Zimbabwe came after', () => {
   assert.equal(h.years(h.MARCO_POLO_JOURNEY), 24);
   assert.equal(h.overlap(h.MAPUNGUBWE, h.MARCO_POLO_JOURNEY), 1295 - 1271 + 0);
-  assert.equal(h.overlap(h.MAPUNGUBWE, h.GREAT_ZIMBABWE), 50);
+  assert.equal(h.overlap(h.MAPUNGUBWE, h.GREAT_ZIMBABWE), 0, 'Great Zimbabwe took over as the centre of trade when Mapungubwe ended');
+  assert.equal(h.GREAT_ZIMBABWE.from, h.MAPUNGUBWE.to);
+  assert.equal(h.years(h.GREAT_ZIMBABWE), 150);
   assert.ok(h.GREAT_ZIMBABWE.from > h.MAPUNGUBWE.from);
   assert.equal(h.age(h.MARCO_POLO_LIFE), 70);
   assert.equal(h.overlap({ name: 'a', from: 0, to: 10, exact: true }, { name: 'b', from: 20, to: 30, exact: true }), 0);
