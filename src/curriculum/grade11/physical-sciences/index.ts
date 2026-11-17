@@ -75,6 +75,18 @@ export const physicalSciencesGrade11: Subject = {
           description: "Ohm's law, series and parallel circuits, EMF and internal resistance.",
           component: lazy(() => import('./term2/electric-circuits/ElectricCircuits')),
         },
+        {
+          id: 'gr11-refraction-snell-t2',
+          title: "Refraction and Snell's Law",
+          description: "Refractive index, Snell's law, the critical angle, total internal reflection and optical fibres.",
+          component: lazy(() => import('./term2/refraction-snell/RefractionSnell')),
+        },
+        {
+          id: 'gr11-diffraction-t2',
+          title: 'Wavefronts and Diffraction',
+          description: "Wavefronts, Huygens' principle, diffraction at a gap and the single-slit pattern.",
+          component: lazy(() => import('./term2/diffraction/Diffraction')),
+        },
       ],
     },
     {

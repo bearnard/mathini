@@ -5,7 +5,7 @@ Source: `audit/caps-alignment.md` (Grade 11 Physical Sciences, 11 HIGH gaps); CA
 | Branch | Term | New lesson (task slug) | State |
 |---|---|---|---|
 | feat/g11-ps-t1 | T1 | Newton's Law of Universal Gravitation (`gr11-gravitation-t1`), Atomic Combinations (`gr11-atomic-combinations-t1`), The Chemistry of Water (`gr11-chemistry-of-water-t1`) | done |
-| feat/g11-ps-optics | T2 | Refraction and Snell's law, Wavefronts and Diffraction | todo |
+| feat/g11-ps-optics | T2 | Refraction and Snell's Law (`gr11-refraction-snell-t2`), Wavefronts and Diffraction (`gr11-diffraction-t2`) | done |
 | feat/g11-ps-gases-moles | T2 | Ideal Gases, Quantitative Aspects of Chemical Change | todo |
 | feat/g11-ps-t3 | T3 | Electromagnetism, Energy and Chemical Change, Acid-Base Reactions | todo |
 | feat/g11-ps-t4 | T4 | Mining and Mineral Processing | todo |

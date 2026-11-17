@@ -11,3 +11,12 @@
 - Water: boiling points of H₂S (−60 °C), H₂Se (−41 °C) and H₂Te (−2 °C) are rounded textbook values. "Water has the smallest mass of the four" is correct (18 g·mol⁻¹). Density: 1,000 g·cm⁻³ at 4 °C (exactly 0,99997), 0,9998 at 0 °C, 0,9997 at 10 °C, 0,9982 at 20 °C, ice 0,917 g·cm⁻³; 1 000 g of ice takes 1 091 cm³ (about 9% more). The lesson says water is densest at 4 °C, which is the standard CAPS statement.
 - "Up to four hydrogen bonds per water molecule" is the standard textbook limit (two through the hydrogens, two through the lone pairs).
 - Not taught here: specific heat capacity and surface tension of water (not named in the CAPS water topic as I read it).
+
+## Term 2 optics: refraction and Snell's law, wavefronts and diffraction
+- Refractive indices used (air 1,00; water 1,33; glass 1,50; diamond 2,42) are the usual textbook values; the data sheet gives none except c = 3,00 × 10⁸ m·s⁻¹. Every question that needs an index states it in the question. Glass varies from about 1,5 to 1,9, so "glass 1,50" is stated as an example.
+- Critical angles are given to one decimal (glass-air 41,8°, water-air 48,8°, diamond-air 24,4°, core 1,50 to cladding 1,45 75,2°). Answers recomputed with plain Math in the tests; each wrong option is a different real angle.
+- The fibre example uses made-up but realistic core and cladding indices (1,50 and 1,45).
+- Diffraction is qualitative in CAPS. The lesson uses "degree of diffraction increases with λ/a" (CAPS: degree of diffraction ∝ λ). The first dark places at sin θ = λ/a for a single slit are in the lesson's last worked example and in the picture, which goes slightly beyond the CAPS (it is not asked in a question). Please say if the lesson should stay purely qualitative.
+- The intensity curve (sin β / β)² is the standard single-slit result, drawn for 600 nm light through a 3,0 µm slit; it is a picture only.
+- The classroom examples (sound through a 0,9 m doorway, red light versus blue) are illustrations, not measurements.
+- Not covered: the practical project (verifying Snell's law with a glass block) and sketching diffraction patterns for learners to draw.
