@@ -51,6 +51,18 @@ export const englishHLGrade9: Subject = {
           description: 'Pronouns, prepositions, conjunctions, sentence types and tense consistency.',
           component: lazy(() => import('./term2/sentence-structure-cohesion/SentenceStructureCohesion')),
         },
+        {
+          id: 'diary-entry',
+          title: 'Writing a Diary Entry',
+          description: 'Purpose, first person, events and evaluation, language and tone, and the writing process.',
+          component: lazy(() => import('./term2/diary-entry/DiaryEntry')),
+        },
+        {
+          id: 'constitution-and-policy',
+          title: 'Writing a Constitution and a Policy',
+          description: 'Features of the rules, the parts of a constitution, formal language, and how a policy differs.',
+          component: lazy(() => import('./term2/constitution-and-policy/ConstitutionAndPolicy')),
+        },
       ],
     },
     {
