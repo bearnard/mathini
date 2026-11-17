@@ -4,14 +4,14 @@ import { openPoolDb } from './testD1';
 import { bandCounts, scoreRows, updateSql, type BackfillRow } from './qualityBackfill';
 
 const row = (id: number, task: string, prompt: string, options: string[], answer: string, explanation: string | null = 'This explains why the answer is right.'): BackfillRow => ({ id, task, prompt, options: JSON.stringify(options), answer, explanation });
-const good = (id: number, task = 'what-is-history') => row(id, task, `What is the job of source number ${id} in a history lesson about evidence?`, ['It gives evidence', 'It gives a verdict', 'It gives a deadline', 'It gives a diagram'], 'It gives evidence');
+const good = (id: number, task = 'what-is-democracy') => row(id, task, `What is the job of source number ${id} in a history lesson about evidence?`, ['It gives evidence', 'It gives a verdict', 'It gives a deadline', 'It gives a diagram'], 'It gives evidence');
 
 test('scores every row: clean 80+, warn 1-79, rejected 0, with reason codes', () => {
   const scored = scoreRows([
     good(1),
-    row(2, 'what-is-history', 'What is time management?', ['Wasting time', 'Organizing and using your time well', 'Studying all the time', 'Never resting'], 'Organizing and using your time well'),
-    row(3, 'what-is-history', 'How can sand be separated from muddy water?', ['By filtering it twice', 'By using a magnet', 'By sieving the sand', 'By evaporating it'], 'By filtering it twice', 'Filter paper holds back the sand and lets the water through.'),
-    row(4, 'what-is-history', 'Which is right?', ['a1', 'b1', 'c1', 'd1'], 'z9'),
+    row(2, 'what-is-democracy', 'What is time management?', ['Wasting time', 'Organizing and using your time well', 'Studying all the time', 'Never resting'], 'Organizing and using your time well'),
+    row(3, 'what-is-democracy', 'How can sand be separated from muddy water?', ['By filtering it twice', 'By using a magnet', 'By sieving the sand', 'By evaporating it'], 'By filtering it twice', 'Filter paper holds back the sand and lets the water through.'),
+    row(4, 'what-is-democracy', 'Which is right?', ['a1', 'b1', 'c1', 'd1'], 'z9'),
   ]);
   const byId = Object.fromEntries(scored.map((s) => [s.id, s]));
   assert.ok(byId[1].score >= 80 && byId[1].flags.length === 0);
@@ -39,14 +39,14 @@ test('near-duplicates: the EARLIER id keeps its place, the later copy is rejecte
 
 test('numeric word problems are flagged as drift only outside maths-like subjects', () => {
   const q = (task: string) => row(1, task, 'If Sam buys 3 pens at R4 each, how many rand is that in total?', ['R12', 'R7', 'R16', 'R9'], 'R12', 'Three pens at R4 each cost 3 times R4, which is R12.');
-  assert.ok(scoreRows([q('what-is-history')])[0].flags.includes('off_topic_numeric'));
+  assert.ok(scoreRows([q('what-is-democracy')])[0].flags.includes('off_topic_numeric'));
   assert.ok(!scoreRows([q('gr6-area-perimeter-t3')])[0].flags.includes('off_topic_numeric'));
 });
 
 test('the generated SQL, applied to a real item_cache, stores the scores and flags', async () => {
   const t = await openPoolDb();
   if (!t) return;
-  const rows = [good(1), row(2, 'what-is-history', 'What is time management?', ['Wasting time', 'Organizing and using your time well', 'Studying all the time', 'Never resting'], 'Organizing and using your time well')];
+  const rows = [good(1), row(2, 'what-is-democracy', 'What is time management?', ['Wasting time', 'Organizing and using your time well', 'Studying all the time', 'Never resting'], 'Organizing and using your time well')];
   const ins = t.raw.prepare('INSERT INTO item_cache (id, task, prompt, options, answer, explanation, created_at) VALUES (?,?,?,?,?,?,1)');
   for (const r of rows) ins.run(r.id, r.task, r.prompt, r.options, r.answer, r.explanation);
   const files = updateSql(scoreRows(rows), 1);

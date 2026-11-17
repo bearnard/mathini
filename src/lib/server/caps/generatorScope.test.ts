@@ -99,7 +99,7 @@ async function poolFixture(tasks: string[]) {
 const okItem = (i: number): GeneratedItem => ({ prompt: `Which of these describes sample idea number ${i} in the topic?`, options: [`Description one for ${i}`, `Description two for ${i}`, `Description three for ${i}`, `Description four for ${i}`], answer: `Description one for ${i}`, explanation: `Description one for ${i} matches the idea.` });
 
 test('runTopUp skips and logs a pool without scope: the generator is never called for it', async () => {
-  const t = await poolFixture(['made-up-bare-slug', 'meervoude', 'what-is-history']);
+  const t = await poolFixture(['made-up-bare-slug', 'meervoude', 'what-is-democracy']);
   if (!t) return;
   const tasks = registry.grade6.tasks;
   const original = tasks['meervoude'];
@@ -112,7 +112,7 @@ test('runTopUp skips and logs a pool without scope: the generator is never calle
     assert.deepEqual(s.skippedNoIndex, ['made-up-bare-slug']);
     assert.deepEqual(s.skippedNoScope, ['meervoude']);
     assert.ok(prompts.length > 0, 'the grounded pool is still worked');
-    assert.ok(prompts.every((p) => p.includes('what-is-history')), 'every prompt was for the grounded task');
+    assert.ok(prompts.every((p) => p.includes('what-is-democracy')), 'every prompt was for the grounded task');
     assert.ok(!prompts.some((p) => p.includes('meervoude') || p.includes('made-up-bare-slug')));
     assert.ok(logs.some((l) => l.includes('SKIPPED meervoude') && l.includes('bare slug')), 'the skip is logged');
     assert.ok(logs.some((l) => l.includes('SKIPPED made-up-bare-slug')));
@@ -126,7 +126,7 @@ test('calculations batch: only for subjects that calculate (and the Grade 6 math
   for (const code of ['his', 'geo', 'eng', 'xho', 'lsk', 'lo', 'ls', 'ca', 'cat', 'it', 'bus', 'tech']) assert.ok(!calculationsOkFor('x', code), code);
   assert.ok(calculationsOkFor('gr6-time-t4', 'grade6'));
   assert.ok(!calculationsOkFor('meervoude', 'grade6'));
-  assert.ok(!calculationsOkFor('what-is-history', 'his'));
+  assert.ok(!calculationsOkFor('what-is-democracy', 'his'));
 });
 
 test('misconceptions batch: dropped for non-science subjects', () => {
@@ -139,7 +139,7 @@ test('misconceptions batch: dropped for non-science subjects', () => {
 test('batchesFor selects templates by subject, in a fixed order, and always includes definitions and application', () => {
   assert.deepEqual(batchesFor('gr6-time-t4', 'grade6'), ['definitions', 'calculations', 'application', 'misconceptions']);
   assert.deepEqual(batchesFor('meervoude', 'grade6'), ['definitions', 'application']);
-  assert.deepEqual(batchesFor('what-is-history', 'his'), ['definitions', 'application']);
+  assert.deepEqual(batchesFor('what-is-democracy', 'his'), ['definitions', 'application']);
   assert.deepEqual(batchesFor('map-scale', 'geo'), ['definitions', 'application']);
   assert.deepEqual(batchesFor('x', 'eng'), ['definitions', 'application']);
   assert.deepEqual(batchesFor('x', 'ps'), ['definitions', 'calculations', 'application', 'misconceptions']);
@@ -149,23 +149,23 @@ test('batchesFor selects templates by subject, in a fixed order, and always incl
 });
 
 test('a disallowed batch type produces no prompt', () => {
-  assert.equal(buildTopUpPrompt('what-is-history', 'calculations'), null);
-  assert.equal(buildTopUpPrompt('what-is-history', 'misconceptions'), null);
+  assert.equal(buildTopUpPrompt('what-is-democracy', 'calculations'), null);
+  assert.equal(buildTopUpPrompt('what-is-democracy', 'misconceptions'), null);
   assert.equal(buildTopUpPrompt('meervoude', 'calculations'), null);
   assert.ok(buildTopUpPrompt('gr6-time-t4', 'calculations')?.includes('CALCULATIONS'));
 });
 
 test('runTopUp asks a History pool only for definitions and application, and a Maths pool for all four', async () => {
-  const t = await poolFixture(['what-is-history', 'gr6-time-t4']);
+  const t = await poolFixture(['what-is-democracy', 'gr6-time-t4']);
   if (!t) return;
-  const seen: Record<string, Set<string>> = { 'what-is-history': new Set(), 'gr6-time-t4': new Set() };
+  const seen: Record<string, Set<string>> = { 'what-is-democracy': new Set(), 'gr6-time-t4': new Set() };
   let n = 0;
   await runTopUp({ db: t.db, generate: async (p) => {
-    const task = p.includes('Topic "gr6-time-t4"') ? 'gr6-time-t4' : 'what-is-history';
+    const task = p.includes('Topic "gr6-time-t4"') ? 'gr6-time-t4' : 'what-is-democracy';
     for (const k of ['DEFINITIONS', 'CALCULATIONS', 'APPLICATION', 'MISCONCEPTIONS']) if (p.includes(`testing ${k}`) || p.includes(`requiring ${k}`) || p.includes(`apply the topic`) && k === 'APPLICATION' || p.includes('the three WRONG options') && k === 'MISCONCEPTIONS') seen[task].add(k);
     return Array.from({ length: 10 }, () => okItem(++n));
   } }, { ...DEFAULT_LIMITS, maxAccepted: 500, maxApiCalls: 200, maxOps: 500 });
-  assert.deepEqual([...seen['what-is-history']].sort(), ['APPLICATION', 'DEFINITIONS']);
+  assert.deepEqual([...seen['what-is-democracy']].sort(), ['APPLICATION', 'DEFINITIONS']);
   assert.deepEqual([...seen['gr6-time-t4']].sort(), ['APPLICATION', 'CALCULATIONS', 'DEFINITIONS', 'MISCONCEPTIONS']);
 });
 

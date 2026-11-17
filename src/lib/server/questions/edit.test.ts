@@ -8,7 +8,7 @@ import type { TestD1 } from '../testD1';
 import type { AdminDb } from '../admin/db';
 import { decimalPolicyForTask, editQuestion, questionDetail, restoreVersion } from './edit';
 
-const TASK = 'ancient-medicine';
+const TASK = 'early-indigenous-medicine';
 const EMAIL = 'owner@example.org';
 const P = 'Which plant was used to treat burns in early medicine?';
 const base = (over: Record<string, unknown> = {}) => ({
@@ -227,6 +227,6 @@ test('questionDetail gives the current wording, the history newest first, and th
 
 test('decimal policy: Grade 6 maths rejects a decimal point, other maths warns, everything else is unchecked', () => {
   assert.equal(decimalPolicyForTask('gr6-capacity-t4'), 'reject');
-  assert.equal(decimalPolicyForTask('ancient-medicine'), undefined);
+  assert.equal(decimalPolicyForTask('early-indigenous-medicine'), undefined);
   assert.equal(decimalPolicyForTask('no-such-task'), undefined);
 });

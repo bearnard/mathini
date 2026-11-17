@@ -17,8 +17,8 @@ async function env(poolRows: number) {
   if (!t) return null;
   t.raw.exec('CREATE TABLE events (id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER NOT NULL)');
   t.raw.exec('DELETE FROM pool_tasks');
-  t.raw.prepare("INSERT INTO pool_tasks (task, target, enabled, created_at) VALUES ('what-is-history', 5, 1, 1)").run();
-  for (let i = 0; i < poolRows; i++) t.raw.prepare("INSERT INTO item_cache (task, prompt, options, answer, explanation, created_at, quality_score) VALUES ('what-is-history', ?, '[]', 'a', 'e', 1, 90)").run(`p${i}`);
+  t.raw.prepare("INSERT INTO pool_tasks (task, target, enabled, created_at) VALUES ('what-is-democracy', 5, 1, 1)").run();
+  for (let i = 0; i < poolRows; i++) t.raw.prepare("INSERT INTO item_cache (task, prompt, options, answer, explanation, created_at, quality_score) VALUES ('what-is-democracy', ?, '[]', 'a', 'e', 1, 90)").run(`p${i}`);
   const DAY = 86_400_000;
   const now = 1_000 * DAY;
   for (let i = 0; i < 1200; i++) t.raw.prepare('INSERT INTO events (ts) VALUES (?)').run(now - 500 * DAY); // older than 400 days

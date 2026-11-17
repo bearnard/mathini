@@ -701,30 +701,6 @@ export const grade6: Grade = {
                                     description: "His journey, his book and how it made Europeans curious about Asia.",
                                     component: lazy(() => import('./history/term1/marco-polo/MarcoPolo'))
                                 },
-                                {
-                                    id: "his-what-is-history",
-                                    title: "What is History?",
-                                    description: "The study of the past and how we learn about it.",
-                                    component: lazy(() => import('./history/term1/what-is-history/WhatIsHistory'))
-                                },
-                                {
-                                    id: "his-historical-sources",
-                                    title: "Historical Sources",
-                                    description: "Oral, written, visual and object sources.",
-                                    component: lazy(() => import('./history/term1/historical-sources/HistoricalSources'))
-                                },
-                                {
-                                    id: "his-investigating-community",
-                                    title: "Investigating Local History",
-                                    description: "Using interviews, museums and archives.",
-                                    component: lazy(() => import('./history/term1/investigating-community/InvestigatingCommunity'))
-                                },
-                                {
-                                    id: "his-timelines-change",
-                                    title: "Timelines & Change",
-                                    description: "Ordering events and how places change over time.",
-                                    component: lazy(() => import('./history/term1/timelines-change/TimelinesChange'))
-                                }
                             ]
                         },
                         {
@@ -755,30 +731,6 @@ export const grade6: Grade = {
                                     description: "The Dutch East India Company, and what life was like on a long voyage.",
                                     component: lazy(() => import('./history/term2/voc-sailors/VocSailors'))
                                 },
-                                {
-                                    id: "his-british-take-cape",
-                                    title: "The British Take the Cape",
-                                    description: "Why the British took the Cape in 1795 and 1806.",
-                                    component: lazy(() => import('./history/term2/british-take-cape/BritishTakeCape'))
-                                },
-                                {
-                                    id: "his-frontier-peoples",
-                                    title: "Peoples on the Frontier",
-                                    description: "Khoikhoi, San, Xhosa, Boers and British.",
-                                    component: lazy(() => import('./history/term2/frontier-peoples/FrontierPeoples'))
-                                },
-                                {
-                                    id: "his-frontier-conflicts",
-                                    title: "Frontier Conflicts",
-                                    description: "Competition for land, water and cattle.",
-                                    component: lazy(() => import('./history/term2/frontier-conflicts/FrontierConflicts'))
-                                },
-                                {
-                                    id: "his-trekboers-migration",
-                                    title: "Trekboers & Migration",
-                                    description: "Dutch farmers moving inland for grazing land.",
-                                    component: lazy(() => import('./history/term2/trekboers-migration/TrekboersMigration'))
-                                }
                             ]
                         },
                         {
@@ -820,12 +772,6 @@ export const grade6: Grade = {
                                     title: "Early & Indigenous Medicine",
                                     description: "Plants, herbs and traditional healers.",
                                     component: lazy(() => import('./history/term4/early-indigenous-medicine/EarlyIndigenousMedicine'))
-                                },
-                                {
-                                    id: "his-ancient-medicine",
-                                    title: "Medicine in Ancient Times",
-                                    description: "Old beliefs and early ideas about illness.",
-                                    component: lazy(() => import('./history/term4/ancient-medicine/AncientMedicine'))
                                 },
                                 {
                                     id: "his-european-medicine",

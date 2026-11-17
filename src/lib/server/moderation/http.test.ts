@@ -10,7 +10,7 @@ import { ownerList } from './views';
 import { handleModDecide, handleModQueue, handleBank, handleComment, handleComments, handleCommentRemove, handleMine, handleOne, handlePropose, handleRevise, handleWithdraw } from './http';
 
 const NOW = 1_800_000_000_000;
-const TASK = 'ancient-medicine';
+const TASK = 'early-indigenous-medicine';
 const P = 'Which plant was used to treat burns in early medicine?';
 const qid = makeQkey(TASK, P);
 const O = 'https://example.invalid';
