@@ -13,6 +13,8 @@ import TopicContainer from './layout/TopicContainer';
 import { useCapsItems } from '../lib/client/useCapsItems';
 import type { CapsItem } from '../lib/client/useCapsItems';
 import MathText from './subjects/MathText';
+import { nbspNode } from '../lib/shared/nbspNumbers';
+import NbspScope from './NbspScope';
 import { useRunTracker } from '../lib/client/runs/useRunTracker';
 import { submitPracticeRun } from '../lib/client/runs/submitRun';
 import { postAttemptJson } from '../lib/client/runs/runClient';
@@ -141,7 +143,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
   const step = learnSteps[learnStep];
 
   return (
-    <>
+    <NbspScope>
       <TopicContainer title={title} subtitle={subtitle} onModeChange={setMode}>
         {mode === 'learn' ? (
         <Card className="lesson-card p-5 sm:p-8 space-y-8">
@@ -162,7 +164,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
             </div>
           )}
 
-          {step.content}
+          {nbspNode(step.content)}
 
           <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-3 pt-6 sm:pt-8 border-t border-slate-100">
             <Button
@@ -287,7 +289,7 @@ const CapsSubjectTopic = ({ title, subtitle, learnSteps, bank, task, apiPath, gr
         badges={pendingBadges}
         onDismiss={() => setPendingBadges([])}
       />
-    </>
+    </NbspScope>
   );
 };
 
