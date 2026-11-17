@@ -1,6 +1,7 @@
 {
   "tasks": {
     "gr10-computer-systems-file-management": "Topic: Computer systems and file management. Cover types of computers, data and information, desktop GUI, access control, drives, folders, files, naming conventions, hardware and software. Ask about MCQs on hardware/software, file-organisation tasks, shortcut questions.",
-    "gr10-word-processing-fundamentals": "Topic: Word processing fundamentals. Cover workspace, document structure, text entry, editing, formatting, paragraph/page layout, proofing, illustrations. Ask about screen-based practical tasks, formatting fixes, word-processing concepts."
+    "gr10-word-processing-fundamentals": "Topic: Word processing fundamentals. Cover workspace, document structure, text entry, editing, formatting, paragraph/page layout, proofing, illustrations. Ask about screen-based practical tasks, formatting fixes, word-processing concepts.",
+    "gr10-ergonomics-green-computing-t1": "Topic: Ergonomics and Green Computing. Cover a healthy workstation, health issues (eye strain, RSI, posture), correct keyboarding habits, and green computing practices. Ask Grade 10 learners to give a way to prevent a problem or a green practice."
   }
 }

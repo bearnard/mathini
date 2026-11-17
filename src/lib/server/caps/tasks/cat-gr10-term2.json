@@ -1,6 +1,8 @@
 {
   "tasks": {
     "gr10-systems-networks-digital-responsibility": "Topic: Systems, networks and digital responsibility. Cover extended hardware, software categories, device management, networks, network aims, copyright, licensing, ethical use. Ask about hardware/software comparisons, network basics, copyright scenarios.",
-    "gr10-word-processing-spreadsheets-information-management": "Topic: Word processing, spreadsheets and information management. Cover advanced word processing, tables, headers/footers, spreadsheets, cell references, formulae, ranges, data vs information. Ask about spreadsheet formula questions, document edits, integrated application tasks."
+    "gr10-word-processing-spreadsheets-information-management": "Topic: Word processing, spreadsheets and information management. Cover advanced word processing, tables, headers/footers, spreadsheets, cell references, formulae, ranges, data vs information. Ask about spreadsheet formula questions, document edits, integrated application tasks.",
+    "gr10-wearables-rfid-qr-nfc-gps-t2": "Topic: Wearables, Codes, NFC, GPS and Communication Channels. Cover wearables, RFID, magnetic strips, bar codes and QR codes, NFC, GPS, Wi-Fi and Bluetooth. Ask Grade 10 learners to match a technology to its use or range.",
+    "gr10-licences-creative-commons-t2": "Topic: Software Licences and Creative Commons. Cover copyright, end-user and site licences, piracy, creative commons conditions (attribution, non-commercial, no derivatives, share alike) and plagiarism. Ask Grade 10 learners to choose the right licence or say how to use a picture."
   }
 }

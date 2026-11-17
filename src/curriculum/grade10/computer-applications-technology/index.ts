@@ -21,6 +21,12 @@ export const computerApplicationsTechnologyGrade10: Subject = {
           description: 'Cover workspace, document structure, text entry, editing, formatting, paragraph/page layout, proofing, illustrations.',
           component: lazy(() => import('./term1/word-processing-fundamentals/WordProcessingFundamentals')),
         },
+        {
+          id: 'gr10-ergonomics-green-computing-t1',
+          title: 'Ergonomics and Green Computing',
+          description: "A healthy workstation, health issues from computer use, and green computing practices.",
+          component: lazy(() => import('./term1/ergonomics-green-computing/ErgonomicsGreenComputing')),
+        },
       ],
     },
     {
@@ -39,6 +45,18 @@ export const computerApplicationsTechnologyGrade10: Subject = {
           description: 'Cover advanced word processing, tables, headers/footers, spreadsheets, cell references, formulae, ranges, data vs information.',
           component: lazy(() => import('./term2/word-processing-spreadsheets-information-management/WordProcessingSpreadsheets')),
         },
+        {
+          id: 'gr10-wearables-rfid-qr-nfc-gps-t2',
+          title: 'Wearables, Codes, NFC, GPS and Communication Channels',
+          description: "Wearable devices, RFID, magnetic strips, bar codes and QR codes, NFC, GPS, and the channels devices use to communicate.",
+          component: lazy(() => import('./term2/wearables-rfid-qr-nfc-gps/WearablesRfidQrNfcGps')),
+        },
+        {
+          id: 'gr10-licences-creative-commons-t2',
+          title: 'Software Licences and Creative Commons',
+          description: "End-user and site licences, copyright, and how creative commons lets creators share their work.",
+          component: lazy(() => import('./term2/licences-creative-commons/LicencesCreativeCommons')),
+        },
       ],
     },
     {
@@ -56,6 +74,12 @@ export const computerApplicationsTechnologyGrade10: Subject = {
           title: 'Application Development and Web Basics',
           description: 'Cover spreadsheets, word processing, presentations, HTML syntax, basic tags, web design, PAT phase 1.',
           component: lazy(() => import('./term3/application-development-web-basics/ApplicationDevelopmentWebBasics')),
+        },
+        {
+          id: 'gr10-digital-citizenship-netiquette-blogs-t3',
+          title: 'Digital Citizenship, Netiquette, Blogs and Web Applications',
+          description: "Being a responsible digital citizen, your digital footprint, netiquette for e-mail and social media, and blogs, wikis and web applications.",
+          component: lazy(() => import('./term3/digital-citizenship-netiquette-blogs/DigitalCitizenshipNetiquetteBlogs')),
         },
       ],
     },
