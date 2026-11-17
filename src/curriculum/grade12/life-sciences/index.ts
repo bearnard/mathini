@@ -52,6 +52,18 @@ export const lifeSciencesGrade12: Subject = {
           component: lazy(() => import('./term2/pedigrees-sex-linkage-mutations/PedigreesSexLinkageMutations')),
         },
         {
+          id: 'gr12-genetic-engineering-t2',
+          title: "Genetic Engineering",
+          description: "Biotechnology, recombinant DNA, GMOs, stem cells and cloning.",
+          component: lazy(() => import('./term2/genetic-engineering/GeneticEngineering')),
+        },
+        {
+          id: 'gr12-dna-fingerprinting-t2',
+          title: "DNA Fingerprinting, Paternity and mtDNA",
+          description: "DNA profiles, paternity testing, forensics and mitochondrial DNA.",
+          component: lazy(() => import('./term2/dna-fingerprinting/DnaFingerprinting')),
+        },
+        {
           id: 'gr12-nervous-system-sense-organs-t2',
           title: "Nervous System and Sense Organs",
           description: "Human nervous coordination, reflex arc, eye and ear function.",
