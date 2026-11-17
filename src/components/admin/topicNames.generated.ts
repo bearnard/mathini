@@ -4079,6 +4079,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Poetry and Drama Study",
   "English HL"
  ],
+ "9|gr9-price-theory-t2": [
+  "Price Theory: Demand and Supply",
+  "Economic Management Sciences"
+ ],
  "9|gr9-probability-t4": [
   "Probability",
   "Mathematics"
@@ -4138,6 +4142,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-river-coastal-landscapes-t3": [
   "River and Coastal Landscapes",
   "Social Sciences: Geography"
+ ],
+ "9|gr9-sectors-economy-t2": [
+  "Sectors of the Economy",
+  "Economic Management Sciences"
  ],
  "9|gr9-sentence-structure-cohesion-t2": [
   "Sentence Structure and Cohesion",
@@ -4214,6 +4222,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-technology-sustainability-t4": [
   "Technology and Sustainable Resource Use",
   "Social Sciences: Geography"
+ ],
+ "9|gr9-trade-unions-t3": [
+  "Trade Unions",
+  "Economic Management Sciences"
  ],
  "9|gr9-transactional-writing-t1": [
   "Transaksionele Skryfwerk",

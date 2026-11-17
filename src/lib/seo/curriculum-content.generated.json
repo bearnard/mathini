@@ -3908,6 +3908,16 @@
                 "id": "gr9-debtors-credit-t2",
                 "title": "Credit Sales and the Debtors Journal",
                 "description": "Credit sales, the National Credit Act, the debtors journal (DJ), debtors allowances (DAJ) and receipts from debtors."
+              },
+              {
+                "id": "gr9-price-theory-t2",
+                "title": "Price Theory: Demand and Supply",
+                "description": "Demand, supply, the equilibrium price, shortages and surpluses, and shifts of the curves."
+              },
+              {
+                "id": "gr9-sectors-economy-t2",
+                "title": "Sectors of the Economy",
+                "description": "The primary, secondary and tertiary sectors, and how they depend on each other."
               }
             ]
           },
@@ -3934,6 +3944,11 @@
                 "id": "gr9-creditors-journals-t3",
                 "title": "Credit Purchases: Creditors Journals",
                 "description": "The creditors journal, creditors allowances, payments to creditors, and the creditors ledger."
+              },
+              {
+                "id": "gr9-trade-unions-t3",
+                "title": "Trade Unions",
+                "description": "The role of a union, collective bargaining, settling disputes, and strikes."
               }
             ]
           },

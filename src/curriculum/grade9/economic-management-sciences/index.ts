@@ -45,6 +45,18 @@ export const emsGrade9: Subject = {
           description: 'Credit sales, the National Credit Act, the debtors journal (DJ), debtors allowances (DAJ) and receipts from debtors.',
           component: lazy(() => import('./term2/debtors-credit/DebtorsCredit')),
         },
+        {
+          id: 'gr9-price-theory-t2',
+          title: 'Price Theory: Demand and Supply',
+          description: 'Demand, supply, the equilibrium price, shortages and surpluses, and shifts of the curves.',
+          component: lazy(() => import('./term2/price-theory/PriceTheory')),
+        },
+        {
+          id: 'gr9-sectors-economy-t2',
+          title: 'Sectors of the Economy',
+          description: 'The primary, secondary and tertiary sectors, and how they depend on each other.',
+          component: lazy(() => import('./term2/sectors-economy/SectorsEconomy')),
+        },
       ],
     },
     {
@@ -74,6 +86,12 @@ export const emsGrade9: Subject = {
           title: 'Credit Purchases: Creditors Journals',
           description: 'The creditors journal, creditors allowances, payments to creditors, and the creditors ledger.',
           component: lazy(() => import('./term3/creditors-journals/CreditorsJournals')),
+        },
+        {
+          id: 'gr9-trade-unions-t3',
+          title: 'Trade Unions',
+          description: 'The role of a union, collective bargaining, settling disputes, and strikes.',
+          component: lazy(() => import('./term3/trade-unions/TradeUnions')),
         },
       ],
     },

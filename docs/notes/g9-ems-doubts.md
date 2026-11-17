@@ -15,3 +15,13 @@ Source: `audit/caps-alignment.md` (Grade 9 EMS) and the CAPS EMS Senior Phase, G
 
 ## Not covered on purpose
 - Discounts allowed and received, VAT, adjustments and the financial statements.
+
+## Price theory, sectors of the economy and trade unions
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 7 | Price theory | One linear bread market (qd = 220 - 10p, qs = 10p - 20): equilibrium R12 and 100 loaves; shifts of 40 loaves at every price. All numbers are recomputed in `ems9d-helpers.test.ts` and `g9EmsEconomy.test.ts`. | The figures are invented for teaching, not real market data. |
+| 8 | Price theory | Factors that shift demand (incomes, tastes, number of buyers) and supply (costs, technology, number of sellers) are named briefly. Elasticity and price controls are not taught. | CAPS Grade 9 scope. |
+| 9 | Sectors | Three sectors (primary, secondary, tertiary), with a chain example (wheat farm, mill, bakery, shop). The quaternary sector and shares of GDP are not taught. | Some textbooks add a fourth sector. |
+| 10 | Trade unions | The right to join a union and to strike is attributed to the Constitution (section 23); disputes follow negotiation, conciliation, then arbitration or a strike under the Labour Relations Act, with the CCMA helping. No notice periods or day counts are taught (a test checks that none appear). | The exact legal conditions for a protected strike are not taught; a teacher should confirm the level of detail. |
+| 11 | Trade unions | Both workers' and employers' views are given (a strike costs workers their pay and employers their production). | Balance. |
