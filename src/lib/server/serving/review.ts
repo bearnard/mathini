@@ -13,12 +13,13 @@ export interface ReviewPoolEntry {
   section: string;
 }
 
-/** Candidate text from D1 for the candidates whose task is switched on. Never throws; {} when off or on any error. */
-export async function resolveFromD1(db: D1Database, candidates: { qkey: string; task: string }[]): Promise<Record<string, ReviewPoolEntry>> {
+/** Candidate text from D1 for the candidates whose task is switched on (or, with ignoreFlag, every task not excluded). Never throws; {} when off or on any error. */
+export async function resolveFromD1(db: D1Database, candidates: { qkey: string; task: string }[], opts: { ignoreFlag?: boolean } = {}): Promise<Record<string, ReviewPoolEntry>> {
   const out: Record<string, ReviewPoolEntry> = {};
   try {
     const flag = await loadFlag(db);
-    const ids = [...new Set(candidates.filter((c) => isServedFromD1(flag, c.task)).map((c) => c.qkey))];
+    // ignoreFlag (the review endpoint): every task except one the owner excluded. Otherwise only the tasks the practice flag serves from D1.
+    const ids = [...new Set(candidates.filter((c) => (opts.ignoreFlag ? !flag.exclude.includes(c.task) : isServedFromD1(flag, c.task))).map((c) => c.qkey))];
     if (ids.length === 0) return out;
     for (const it of await currentVersions(db, ids)) {
       // id 0 = no item_cache row (a curated question): the attempt is then identified by qkey, which resolves to the canonical id.

@@ -118,6 +118,7 @@ test('progress: the plan starts with due review cards and adds a practice test c
   const stu = addStudent(s.t, { nickname: 'Z' });
   await mk(s, { examDate: dateIn(5) });
   await joinClass(s.t.db, stu, s.cls.joinCode, NOW);
+  s.t.raw.exec('CREATE TABLE IF NOT EXISTS questions (id TEXT PRIMARY KEY, status TEXT)'); // the due-card count joins questions, as in production
   s.t.raw.prepare("INSERT INTO review_items (student_id, qkey, task, subject, section, box, due_day, streak_correct, created_at, updated_at) VALUES (?, 'aaaaaaaaaaaa', 't', 'nst', 'general', 1, 1, 0, 1, 1)").run(stu);
   const p = (await buildProgress(s.t.db, stu, NOW))!;
   const kinds = p.exam!.plan!.steps.map((x) => x.kind);

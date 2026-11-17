@@ -84,7 +84,7 @@ test('review: the page names the real daily number, and "Start review" starts th
   const api = read('src/lib/server/progress/progressApi.ts');
   assert.ok(api.includes("REVIEW_HREF = '/app?start=review'") && api.includes('reviewHref: REVIEW_HREF') && (api.match(/sessionSize: REVIEW_SESSION_SIZE/g) ?? []).length === 3);
   const app = read('src/App.tsx');
-  assert.ok(app.includes("get('start') !== 'review'") && app.includes("setView('review')") && app.includes('startReviewDone'), 'the app starts the review from the link, once');
+  assert.ok(app.includes("get('start') === 'review'") && app.includes("setView('review')") && app.includes('startReviewDone') && app.includes('startReviewOutcome') && app.includes('NO_REVIEW_MESSAGE'), 'the app starts the review from the link, once, and says so when there is nothing to start');
 });
 
 test('Natural Sciences topic practice counts the auto-marked questions only, in the run AND on the summary (written answers are not recorded and not in the score)', () => {

@@ -12,6 +12,7 @@ import { examScopeForGrade } from '../../shared/examScopes';
 import { dailyPlan, dayNumberOf, daysUntil, type PlanTopic } from '../../shared/dailyPlan';
 import { learnerScopesFromRows, scopesForStudentStatement } from '../schools/scopes';
 import { sastDay } from '../review/scheduler';
+import { NOT_RETIRED_QUESTION_SQL } from '../review/due';
 import { ensureProgressRows, refreshForRun } from './topicProgress';
 import { REVIEW_SESSION_SIZE } from '../review/due';
 import { SUBJECT_TITLES, TOPIC_NAMES } from '../../../components/admin/topicNames.generated';
@@ -97,7 +98,7 @@ export async function buildProgress(db: AdminDb, studentId: string, now: number)
        WHERE student_id = ? AND status = 'finished' AND kind IN ('quiz', 'mock_test', 'exam_practice') AND score_pct IS NOT NULL AND n_answered > 0
        ORDER BY finished_at DESC LIMIT ?`, params: [studentId, TEST_HISTORY_READ], optional: true },
     { ...scopesForStudentStatement(studentId), optional: true },
-    { sql: 'SELECT COUNT(*) AS n FROM review_items WHERE student_id = ? AND retired_at IS NULL AND due_day <= ?', params: [studentId, today], optional: true },
+    { sql: `SELECT COUNT(*) AS n FROM review_items WHERE student_id = ? AND retired_at IS NULL AND due_day <= ? AND ${NOT_RETIRED_QUESTION_SQL}`, params: [studentId, today], optional: true },
     { sql: 'SELECT COUNT(*) AS n FROM review_items WHERE student_id = ? AND retired_at IS NOT NULL', params: [studentId], optional: true },
     { sql: "SELECT COALESCE(SUM(n_answered), 0) AS a, COALESCE(SUM(n_correct), 0) AS c FROM runs WHERE student_id = ? AND kind = 'review' AND status = 'finished' AND finished_at >= ?", params: [studentId, now - 7 * DAY_MS], optional: true },
     { sql: "SELECT DISTINCT ((created_at + 7200000) / 86400000) AS d FROM attempts WHERE student_id = ? AND created_at >= ? AND marked_by IS NOT 'client'", params: [studentId, now - STREAK_LOOKBACK_DAYS * DAY_MS], optional: true },

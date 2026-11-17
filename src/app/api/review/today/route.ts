@@ -2,7 +2,7 @@ import { d1Adapter } from '../../../../lib/server/admin/db';
 import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { verifyLiveSession, SESSION_COOKIE_NAME } from '../../../../lib/server/session';
-import { pickDue, type DueRow } from '../../../../lib/server/review/due';
+import { NOT_RETIRED_QUESTION_SQL, pickDue, type DueRow } from '../../../../lib/server/review/due';
 import { sastDay } from '../../../../lib/server/review/scheduler';
 import { REVIEW_GRADE } from '../../../../lib/server/review/store';
 import { makeQkey } from '../../../../lib/shared/qkey';
@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
       .prepare(
         `SELECT qkey, task, subject, section, due_day FROM review_items
          WHERE student_id = ? AND retired_at IS NULL AND due_day <= ?
-           AND NOT EXISTS (SELECT 1 FROM questions q WHERE q.id = review_items.qkey AND q.status = 'retired')
+           AND ${NOT_RETIRED_QUESTION_SQL}
          ORDER BY due_day ASC LIMIT 200`,
       )
       .bind(studentId, today)
@@ -41,8 +41,9 @@ export async function GET(req: NextRequest) {
     const candidates = pickDue(rows, today);
 
     // Resolve pool questions (item_cache is unique on task + prompt, so qkey maps to at most one row).
-    // Flag ON for a task: its current approved version from D1 (found by stable id, so an edited question still resolves). Flag OFF: nothing here.
-    const pool: Record<string, { id: number; prompt: string; options: string[]; answer: string; explanation: string; section: string }> = await resolveFromD1(db, candidates);
+    // D1 holds the CURRENT text of every question (found by its stable id, so an EDITED question still resolves although its new wording hashes to a different
+    // qkey). The review therefore reads D1 for every due card whatever the practice flag says (only a task the owner excluded is left to the code banks).
+    const pool: Record<string, { id: number; prompt: string; options: string[]; answer: string; explanation: string; section: string }> = await resolveFromD1(db, candidates, { ignoreFlag: true });
     const tasks = [...new Set(candidates.filter((c) => !pool[c.qkey]).map((c) => c.task))];
     if (tasks.length > 0) {
       const wanted = new Set(candidates.filter((c) => !pool[c.qkey]).map((c) => c.qkey));
