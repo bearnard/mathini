@@ -554,6 +554,11 @@
                 "id": "nst-ecosystems",
                 "title": "Ecosystems & Interdependence",
                 "description": "How living things depend on each other."
+              },
+              {
+                "id": "gr6-processing-food-t1",
+                "title": "Methods for Processing Food",
+                "description": "Why we process food, and ways to cook, keep and ferment it."
               }
             ]
           },
@@ -580,6 +585,16 @@
                 "id": "nst-solutions-dissolving",
                 "title": "Solutions & Dissolving",
                 "description": "How solids dissolve to form solutions."
+              },
+              {
+                "id": "gr6-water-pollution-wetlands-t2",
+                "title": "Water Pollution and Wetlands",
+                "description": "What pollutes water, germs and illness, and why wetlands matter."
+              },
+              {
+                "id": "gr6-purifying-water-t2",
+                "title": "Purifying Dirty Water",
+                "description": "Sieving, settling, decanting, filtering, boiling and chemicals."
               }
             ]
           },

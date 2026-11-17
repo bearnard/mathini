@@ -2575,6 +2575,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Problem Solving",
   "Mathematics"
  ],
+ "6|gr6-processing-food-t1": [
+  "Methods for Processing Food",
+  "Natural Sciences & Technology"
+ ],
+ "6|gr6-purifying-water-t2": [
+  "Purifying Dirty Water",
+  "Natural Sciences & Technology"
+ ],
  "6|gr6-renaissance-t2": [
   "The Renaissance: Leonardo da Vinci and Galileo",
   "History"
@@ -2614,6 +2622,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|gr6-volume-t3": [
   "Volume",
   "Mathematics"
+ ],
+ "6|gr6-water-pollution-wetlands-t2": [
+  "Water Pollution and Wetlands",
+  "Natural Sciences & Technology"
  ],
  "6|integrated-revision": [
   "Integrated Revision",
