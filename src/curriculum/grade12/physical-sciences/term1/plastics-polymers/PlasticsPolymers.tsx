@@ -44,7 +44,7 @@ export const learnSteps: LearnStep[] = [
           steps={[
             { label: 'n CH₂=CHCl', note: 'monomer', color: '#fbbf24' },
             { label: 'opens C=C', note: 'catalyst, heat' },
-            { label: '−(CH₂−CHCl)ₙ−', note: 'PVC', color: '#34d399' },
+            { label: 'PVC', note: 'poly(chloroethene)', color: '#34d399' },
           ]}
         />
         <Worked
