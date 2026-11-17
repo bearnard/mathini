@@ -1146,6 +1146,21 @@
                 "id": "creative-arts-t3",
                 "title": "Creative Arts",
                 "description": "SA cultural art, mixed media, choral verse and movement."
+              },
+              {
+                "id": "gr6-caring-for-animals-t3",
+                "title": "Caring for Animals",
+                "description": "Acts of cruelty, taking care of animals, protecting them, and places of safety."
+              },
+              {
+                "id": "gr6-caring-for-people-t3",
+                "title": "Caring for People",
+                "description": "Others' needs and views, saying what you need kindly, and acts of kindness."
+              },
+              {
+                "id": "gr6-nation-building-heritage-t3",
+                "title": "Nation-Building and Cultural Heritage",
+                "description": "Heritage and unity, the national symbols, and the national days."
               }
             ]
           },

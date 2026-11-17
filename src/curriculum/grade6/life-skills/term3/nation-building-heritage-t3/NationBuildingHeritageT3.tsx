@@ -5,8 +5,8 @@ import { learnSteps } from './Slides';
 export const bank: CapsItem[] = [
   {
     prompt: "What is cultural heritage?",
-    options: ["Only the old buildings in a big city", "The money that the government has saved", "The rules of a school sports team here", "Customs, languages and places from the past"],
-    answer: "Customs, languages and places from the past",
+    options: ["Only the old buildings in a big city", "Customs and languages from the past", "The money that the government has saved", "The rules of the school sports team there"],
+    answer: "Customs and languages from the past",
     explanation: "Heritage includes languages, music, food, stories and places that are handed down.",
   },
   {
@@ -82,7 +82,7 @@ const NationBuildingHeritageT3 = () => (
     title="Nation-Building and Cultural Heritage"
     subtitle="Heritage and unity, the national symbols, and the national days"
     learnSteps={learnSteps}
-    task="nation-building-heritage-t3"
+    task="gr6-nation-building-heritage-t3"
     bank={bank}
     apiPath="/api/caps/grade6"
   />

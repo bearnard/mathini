@@ -14,3 +14,14 @@ Source: DBE CAPS Life Skills Grades 4-6, Grade 6 Personal and Social Well-being,
 
 ## Not covered on purpose
 - Detail of rituals and of the customs of particular cultures beyond the two named examples.
+
+## Term 3: caring for animals, caring for people, nation-building and cultural heritage
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 6 | Animals | Cruelty is shown as hurting, neglect, abandoning, chaining in the sun and making animals fight; care as food, water, shelter, exercise and a vet; places of safety as the SPCA, shelters and wildlife centres. The lesson says that cruelty to animals is against the law (the Animals Protection Act). | General statements; a teacher may add the local SPCA. |
+| 7 | Animals | Children are told to tell a trusted adult and not to deal with cruelty or a strange animal alone. | By design. |
+| 8 | People | The "I feel... when... I need..." sentence is taught for saying needs kindly. | A common approach, not CAPS wording. |
+| 9 | Nation-building | National days and symbols are in `psw6Facts.ts` and tested: Human Rights Day 21 March, Freedom Day 27 April, Africa Day 25 May, Mandela Day 18 July (67 minutes), Women's Day 9 August, Heritage Day 24 September, Reconciliation Day 16 December; flag first flown on 27 April 1994 (six colours); the anthem joins Nkosi Sikelel' iAfrika and Die Stem and is sung in five languages; coat of arms of 2000 with the motto !ke e: /xarra //ke ("Diverse people unite"). | Standard facts. **Children's Day** is in the CAPS list but has no fixed public-holiday date, so no date is given. Africa Day is not a public holiday in South Africa. |
+| 10 | Nation-building | "Eleven official languages" is used. | Standard. |
+

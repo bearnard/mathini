@@ -2387,6 +2387,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Capacity",
   "Mathematics"
  ],
+ "6|gr6-caring-for-animals-t3": [
+  "Caring for Animals",
+  "Life Skills"
+ ],
+ "6|gr6-caring-for-people-t3": [
+  "Caring for People",
+  "Life Skills"
+ ],
  "6|gr6-common-fractions-t2": [
   "Common Fractions",
   "Mathematics"
@@ -2474,6 +2482,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|gr6-multiply-3digit-t4": [
   "Multiplying by 3-digit Numbers",
   "Mathematics"
+ ],
+ "6|gr6-nation-building-heritage-t3": [
+  "Nation-Building and Cultural Heritage",
+  "Life Skills"
  ],
  "6|gr6-number-patterns-t1": [
   "Number Patterns",
