@@ -31,6 +31,18 @@ Source: DBE CAPS FET History Grades 10-12, **Afrikaans edition (Geskiedenis)** r
 | 18 | Women and peace | Kent State, 4 May 1970, four students killed. | Standard. The lesson does not say that protest ended the war: it says historians disagree. |
 | 19 | Women and peace | CAPS Topic 3 lists the women's movement in general terms; the lesson treats second-wave feminism briefly and South African women more fully. | A teacher should confirm the emphasis. |
 
+## End of the Cold War and new world order branch (term 3)
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 20 | End of the Cold War | Gorbachev resigned on 25 December 1991 and "the Soviet Union ceased to exist the next day". | Standard; the formal act of the Supreme Soviet followed on 26 December. |
+| 21 | End of the Cold War | The reasons for the end of the USSR are presented as several causes weighed (reforms, economy, nationalism, the failed coup, outside pressure); no single cause is named. | Debated among historians; a teacher should confirm the balance. |
+| 22 | End of the Cold War | The turning point for South Africa is presented as shared between the end of the regional war (New York Accords, Namibia), the loss of the communist-threat argument, internal resistance and sanctions; Cuito Cuanavale is mentioned as given weight by some accounts and disputed by others, with no verdict. | Contested; matches the Angola lesson. |
+| 23 | End of the Cold War | CAPS Topic 6 places the unbanning and the release of prisoners "in 1989"; the lesson gives 2 February 1990 (speech) and 11 February 1990 (Mandela) separately. | CAPS wording differs from the usual dates. |
+| 24 | New world order | Globalisation is presented with supporters' and critics' views; IMF and World Bank conditions are described as debated. | Contested. |
+| 25 | New world order | BRICS: first summit 2009, South Africa joined 2010. | Standard dates; the group's membership has since grown, which the lesson does not cover. |
+| 26 | New world order | The Truth and Reconciliation Commission: set up by the Act of 1995, heard victims, offered amnesty for full disclosure of political crimes. | Standard; its hearings began in 1996. |
+
 ## Not covered on purpose
 
 - Events before 1949 in China, as CAPS says ("not for examination").

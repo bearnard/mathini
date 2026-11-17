@@ -1515,6 +1515,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Encapsulation, Class Design and Exception Handling",
   "Information Technology"
  ],
+ "12|gr12-end-of-cold-war-t3": [
+  "The End of the Cold War: the Events of 1989",
+  "History"
+ ],
  "12|gr12-endocrine-homeostasis-plant-responses-t2": [
   "Endocrine System, Homeostasis and Plant Responses",
   "Life Sciences"
@@ -1794,6 +1798,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-networks-security-systems-integration-t2": [
   "Networks, Security and Systems Integration",
   "Information Technology"
+ ],
+ "12|gr12-new-world-order-t3": [
+  "A New World Order: Globalisation, Africa and South Africa",
+  "History"
  ],
  "12|gr12-nsc-database-sql-revision-t4": [
   "NSC Database and SQL Revision",
