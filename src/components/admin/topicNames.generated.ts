@@ -539,6 +539,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "African Nationalism",
   "History"
  ],
+ "11|gr11-ai-big-data-t2": [
+  "Artificial Intelligence and Big Data",
+  "Computer Applications Technology"
+ ],
  "11|gr11-ai-ransomware-pat-finalisation-t4": [
   "AI, Ransomware and PAT Finalisation",
   "Computer Applications Technology"
@@ -626,6 +630,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-chemistry-of-water-t1": [
   "The Chemistry of Water",
   "Physical Sciences"
+ ],
+ "11|gr11-cloud-storage-saas-adverts-t2": [
+  "Cloud Storage, SaaS and Reading Adverts",
+  "Computer Applications Technology"
  ],
  "11|gr11-communist-ideology-t1": [
   "Communist Ideology",
@@ -823,6 +831,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Geomorphology and Topographic Mapwork",
   "Social Sciences: Geography"
  ],
+ "11|gr11-gig-economy-phishing-pharming-t3": [
+  "The Gig Economy, Phishing and Pharming",
+  "Computer Applications Technology"
+ ],
  "11|gr11-gini-redistribution-t2": [
   "Gini Coefficient and Income Redistribution",
   "Economics"
@@ -887,6 +899,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "The Internet of Things, 4IR and Big Data",
   "Information Technology"
  ],
+ "11|gr11-iot-4ir-vr-ar-fake-news-t3": [
+  "IoT, the Fourth Industrial Revolution, VR and AR, and Fake News",
+  "Computer Applications Technology"
+ ],
  "11|gr11-language-consolidation-editing-t3": [
   "Language Consolidation and Editing",
   "English HL"
@@ -918,6 +934,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-ls-revision-exam-prep-t4": [
   "Revision and Examination Practice",
   "Life Sciences"
+ ],
+ "11|gr11-malware-ecommerce-safety-t4": [
+  "Malware Categories and Safe E-commerce and E-banking",
+  "Computer Applications Technology"
  ],
  "11|gr11-manufacturing-costs-break-even-t3": [
   "Manufacturing Costs and Break-Even",
@@ -1329,6 +1349,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "11|gr11-websites-iot-security-privacy-t2": [
   "Websites, IoT, Security and Privacy",
+  "Computer Applications Technology"
+ ],
+ "11|gr11-wireless-nfc-gps-mobile-apps-t3": [
+  "Hotspots, Bluetooth, NFC, GPS, 4G and 5G, and Mobile Apps",
   "Computer Applications Technology"
  ],
  "11|gr11-word-processing-templates-forms-t1": [

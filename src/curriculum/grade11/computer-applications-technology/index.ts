@@ -63,6 +63,18 @@ export const computerApplicationsTechnologyGrade11: Subject = {
           description: 'Cover HTML document structure, common tags, attributes, CSS basics, information quality criteria, and referencing and plagiarism.',
           component: lazy(() => import('./term2/html-web-design-information-management/HtmlWebDesignInformationManagement')),
         },
+        {
+          id: 'gr11-ai-big-data-t2',
+          title: 'Artificial Intelligence and Big Data',
+          description: "What AI is, how it learns from data, what big data is, and how the two are linked.",
+          component: lazy(() => import('./term2/ai-big-data/AiBigData')),
+        },
+        {
+          id: 'gr11-cloud-storage-saas-adverts-t2',
+          title: 'Cloud Storage, SaaS and Reading Adverts',
+          description: "Cloud storage as software as a service, its advantages and risks, and interpreting adverts for hardware and cloud storage.",
+          component: lazy(() => import('./term2/cloud-storage-saas-adverts/CloudStorageSaasAdverts')),
+        },
       ],
     },
     {
@@ -93,6 +105,24 @@ export const computerApplicationsTechnologyGrade11: Subject = {
           description: 'Cover HTML internal and external links, anchor links, tables with colspan/rowspan, mail merge steps, and design principles (alignment, contrast, repetition, proximity).',
           component: lazy(() => import('./term3/html-mail-merge-design-principles/HtmlMailMergeDesignPrinciples')),
         },
+        {
+          id: 'gr11-iot-4ir-vr-ar-fake-news-t3',
+          title: 'IoT, the Fourth Industrial Revolution, VR and AR, and Fake News',
+          description: "The Internet of Things, what the 4IR is, virtual and augmented reality, and spotting fake news.",
+          component: lazy(() => import('./term3/iot-4ir-vr-ar-fake-news/IotFourIrVrArFakeNews')),
+        },
+        {
+          id: 'gr11-wireless-nfc-gps-mobile-apps-t3',
+          title: 'Hotspots, Bluetooth, NFC, GPS, 4G and 5G, and Mobile Apps',
+          description: "Wireless technologies for mobile devices, location services, and installing and using mobile apps.",
+          component: lazy(() => import('./term3/wireless-nfc-gps-mobile-apps/WirelessNfcGpsMobileApps')),
+        },
+        {
+          id: 'gr11-gig-economy-phishing-pharming-t3',
+          title: 'The Gig Economy, Phishing and Pharming',
+          description: "Decentralised work and the gig economy, and deception-based attacks described, with how to avoid them.",
+          component: lazy(() => import('./term3/gig-economy-phishing-pharming/GigEconomyPhishingPharming')),
+        },
       ],
     },
     {
@@ -122,6 +152,12 @@ export const computerApplicationsTechnologyGrade11: Subject = {
           title: 'Exam Preparation and Consolidation',
           description: 'Cover theory and practical paper structure, mixed revision across all Grade 11 CAT topics (hardware, networks, spreadsheets, databases, HTML), and exam technique.',
           component: lazy(() => import('./term4/exam-preparation-consolidation/ExamPreparationConsolidation')),
+        },
+        {
+          id: 'gr11-malware-ecommerce-safety-t4',
+          title: 'Malware Categories and Safe E-commerce and E-banking',
+          description: "Viruses, spyware, ransomware and worms described, and staying safe when you shop and bank online.",
+          component: lazy(() => import('./term4/malware-ecommerce-safety/MalwareEcommerceSafety')),
         },
       ],
     },
