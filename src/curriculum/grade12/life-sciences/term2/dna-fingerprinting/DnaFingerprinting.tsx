@@ -64,7 +64,8 @@ export const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>In forensics, DNA from the scene of a crime, such as blood, saliva or hair roots, is made into a profile and compared with the profiles of suspects. A suspect whose bands do not all match is excluded. A match shows that the sample could have come from that person.</Rule>
-        <DnaGel lanes={[{ label: 'Scene', bands: scene }, ...Object.entries(suspects).map(([label, bands]) => ({ label, bands }))]} />
+        <DnaGel lanes={[{ label: 'Scene', bands: scene }, ...Object.entries(suspects).map(([label, bands]) => ({ label: label.replace('Suspect ', ''), bands }))]} />
+        <p className="text-sm text-slate-500">Lanes: the scene sample, then Suspect P, Suspect Q and Suspect R.</p>
         <Worked
           title="Matching a sample to a suspect"
           steps={[

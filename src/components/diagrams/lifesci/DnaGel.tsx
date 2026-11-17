@@ -18,6 +18,9 @@ export const DnaGel = ({ lanes, rows = 10, highlight }: { lanes: { label: string
   const step = 4.4;
   const h = top + rows * step + 12;
   const y = (pos: number) => r3(top + (pos - 0.5) * step);
+  // Lane labels must never run into each other: shrink the text until the longest label fits its lane.
+  const longest = Math.max(...lanes.map((l) => l.label.length));
+  const labelSize = Math.min(3.8, r3((laneW * 0.94) / (longest * 0.6)));
   return (
     <Panel
       h={r3(h)}
@@ -32,7 +35,7 @@ export const DnaGel = ({ lanes, rows = 10, highlight }: { lanes: { label: string
             {l.bands.map((b) => (
               <rect key={b} x={r3(cx - laneW * 0.32)} y={r3(y(b) - 0.9)} width={r3(laneW * 0.64)} height={1.8} rx={0.4} fill={highlight?.includes(b) ? R : A} />
             ))}
-            <text x={r3(cx)} y={r3(top + rows * step + 7)} textAnchor="middle" fontSize={3.8} fontWeight={800} fill={LINE}>{l.label}</text>
+            <text x={r3(cx)} y={r3(top + rows * step + 7)} textAnchor="middle" fontSize={labelSize} fontWeight={800} fill={LINE}>{l.label}</text>
           </g>
         );
       })}
