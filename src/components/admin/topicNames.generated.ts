@@ -1671,6 +1671,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Human Evolution",
   "Life Sciences"
  ],
+ "12|gr12-human-factors-ill-health-t3": [
+  "Human Factors in Ill-Health, Accidents and Disasters",
+  "Life Orientation"
+ ],
  "12|gr12-human-reproduction-t1": [
   "Human Reproduction",
   "Life Sciences"
@@ -1754,6 +1758,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-leadership-management-t2": [
   "Leadership and Management",
   "Business Studies"
+ ],
+ "12|gr12-lifestyle-diseases-t3": [
+  "Lifestyle Diseases and Interventions",
+  "Life Orientation"
  ],
  "12|gr12-listening-speaking-t1": [
   "Listening & Speaking",
@@ -1967,6 +1975,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Photoelectric Effect and Atomic Spectra",
   "Physical Sciences"
  ],
+ "12|gr12-physical-activity-plan-t3": [
+  "A Long-Term Physical Activity Plan",
+  "Life Orientation"
+ ],
  "12|gr12-physical-education-task-1-t1": [
   "Physical Education Task — Term 1",
   "Life Orientation"
@@ -2131,6 +2143,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Systems Technologies and Social Implications",
   "Computer Applications Technology"
  ],
+ "12|gr12-tax-corruption-fraud-t1": [
+  "SARS Tax Basics, Corruption and Fraud",
+  "Life Orientation"
+ ],
  "12|gr12-taxation-t3": [
   "Finance: Taxation",
   "Mathematical Literacy"
@@ -2174,6 +2190,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-two-dimensional-arrays-t2": [
   "Two-Dimensional Arrays (Delphi)",
   "Information Technology"
+ ],
+ "12|gr12-unemployment-solutions-t1": [
+  "Unemployment and Innovative Solutions",
+  "Life Orientation"
  ],
  "12|gr12-unseen-poetry-interpretation-t2": [
   "Unseen Poetry Interpretation",

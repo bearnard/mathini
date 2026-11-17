@@ -33,6 +33,18 @@ export const lifeOrientationGrade12: Subject = {
           description: 'Fitness maintenance, conditioning, balanced routines and safe participation under academic pressure.',
           component: lazy(() => import('./term1/physical-education-task-1/PhysicalEducationTask1')),
         },
+        {
+          id: 'gr12-unemployment-solutions-t1',
+          title: 'Unemployment and Innovative Solutions',
+          description: 'Reasons for and impact of unemployment, volunteering, part-time work, entrepreneurship, informal jobs and committing to a decision.',
+          component: lazy(() => import('./term1/unemployment-solutions/UnemploymentSolutions')),
+        },
+        {
+          id: 'gr12-tax-corruption-fraud-t1',
+          title: 'SARS Tax Basics, Corruption and Fraud',
+          description: 'Why tax is paid, basic SARS tax obligations, and the impact of corruption and fraud on the individual, company, community and country.',
+          component: lazy(() => import('./term1/tax-corruption-fraud/TaxCorruptionFraud')),
+        },
       ],
     },
     {
@@ -92,6 +104,24 @@ export const lifeOrientationGrade12: Subject = {
           title: 'Physical Education Task — Term 3',
           description: 'Fitness maintenance, teamwork, self-discipline, participation review and health responsibility.',
           component: lazy(() => import('./term3/physical-education-task-3/PhysicalEducationTask3')),
+        },
+        {
+          id: 'gr12-human-factors-ill-health-t3',
+          title: 'Human Factors in Ill-Health, Accidents and Disasters',
+          description: 'Psychological, social, religious and cultural factors, behaviour that harms health, and the human side of accidents and disasters.',
+          component: lazy(() => import('./term3/human-factors-ill-health/HumanFactorsIllHealth')),
+        },
+        {
+          id: 'gr12-lifestyle-diseases-t3',
+          title: 'Lifestyle Diseases and Interventions',
+          description: 'Cancer, hypertension, heart disease, TB and STIs; poverty and gender imbalances; prevention, early detection, treatment, care and support.',
+          component: lazy(() => import('./term3/lifestyle-diseases/LifestyleDiseases')),
+        },
+        {
+          id: 'gr12-physical-activity-plan-t3',
+          title: 'A Long-Term Physical Activity Plan',
+          description: 'Long-term effects of being active, building an action plan, and benefits for lifestyle diseases.',
+          component: lazy(() => import('./term3/physical-activity-plan/PhysicalActivityPlan')),
         },
       ],
     },
