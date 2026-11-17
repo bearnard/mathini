@@ -344,6 +344,30 @@ test('a failed send is kept in last_error (short, no address or link), the next 
   assert.ok(lines.some((l) => l.includes('a send failed: TypeError: fetch failed')));
 });
 
+test('a later successful send clears last_error, so a sent row never shows an old failure', async (t0) => {
+  const w = await world(); if (!w) return t0.skip('node:sqlite unavailable');
+  const r = recorder({ n: 2 }); // the first two sends fail, the retries succeed
+  const first = await runWeeklySummary(w.deps(r.mailer));
+  assert.deepEqual([first.sent, first.failed], [0, 2]);
+  const failed = w.raw.prepare("SELECT status, last_error FROM summary_sent").all() as { status: string; last_error: string | null }[];
+  assert.ok(failed.every((x) => x.status === 'failed' && /resend responded 500/.test(String(x.last_error))), 'the reason is kept after a failure');
+  const second = await runWeeklySummary(w.deps(r.mailer, { now: SUN + DAY }));
+  assert.deepEqual([second.sent, second.failed], [2, 0]);
+  const sent = w.raw.prepare("SELECT status, attempts, last_error FROM summary_sent").all() as { status: string; attempts: number; last_error: string | null }[];
+  assert.ok(sent.every((x) => x.status === 'sent' && x.attempts === 2 && x.last_error === null), JSON.stringify(sent));
+});
+
+test('a send is still recorded as sent when the last_error column is missing (no second mail)', async (t0) => {
+  const w = await world(); if (!w) return t0.skip('node:sqlite unavailable');
+  w.raw.exec('ALTER TABLE summary_sent DROP COLUMN last_error');
+  const r = recorder();
+  const res = await runWeeklySummary(w.deps(r.mailer));
+  assert.equal(res.sent, 2);
+  const again = await runWeeklySummary(w.deps(r.mailer, { now: SUN + DAY }));
+  assert.equal(again.sent, 0, 'nobody is mailed twice');
+  assert.equal(r.sent.length, 2);
+});
+
 test('errorText: name and message, at most 200 characters, no address and no link', () => {
   assert.equal(errorText(new Error('resend responded 422')), 'Error: resend responded 422');
   const long = errorText(new Error('x'.repeat(500)));

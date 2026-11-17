@@ -160,7 +160,12 @@ export async function runWeeklySummary(deps: SummaryDeps): Promise<SummaryResult
           weeks.push(childWeekFrom(progress, { days: Number(stats?.days ?? 0), answers: Number(stats?.answers ?? 0) }, now));
         }
         if (weeks.length === 0 || weeks.every((w) => w.quiet)) {
-          await b.db.batch([{ sql: "UPDATE summary_sent SET status = 'skipped', children = ? WHERE user_id = ? AND week = ?", params: [weeks.length, parent.user_id, week] }]);
+          try {
+            await b.db.batch([{ sql: "UPDATE summary_sent SET status = 'skipped', children = ?, last_error = NULL WHERE user_id = ? AND week = ?", params: [weeks.length, parent.user_id, week] }]);
+          } catch (err) {
+            if (err instanceof BudgetExceeded) throw err;
+            await b.raw.batch([{ sql: "UPDATE summary_sent SET status = 'skipped', children = ? WHERE user_id = ? AND week = ?", params: [weeks.length, parent.user_id, week] }]);
+          }
           result.skipped += 1;
           continue;
         }
@@ -180,7 +185,13 @@ export async function runWeeklySummary(deps: SummaryDeps): Promise<SummaryResult
           log(`weekly summary: a send failed: ${why}`); // name and message only, with any address or link removed
           continue;
         }
-        await b.db.batch([{ sql: "UPDATE summary_sent SET status = 'sent', sent_at = ?, children = ? WHERE user_id = ? AND week = ?", params: [now, weeks.length, parent.user_id, week] }]);
+        // The mail is out: record it and clear any reason left by an earlier failed attempt. If the column is missing the plain update still records the send, so a mail can never be sent twice for want of a column.
+        try {
+          await b.db.batch([{ sql: "UPDATE summary_sent SET status = 'sent', sent_at = ?, children = ?, last_error = NULL WHERE user_id = ? AND week = ?", params: [now, weeks.length, parent.user_id, week] }]);
+        } catch (err) {
+          if (err instanceof BudgetExceeded) throw err;
+          await b.raw.batch([{ sql: "UPDATE summary_sent SET status = 'sent', sent_at = ?, children = ? WHERE user_id = ? AND week = ?", params: [now, weeks.length, parent.user_id, week] }]);
+        }
         result.sent += 1;
       } catch (err) {
         if (!(err instanceof BudgetExceeded)) {
