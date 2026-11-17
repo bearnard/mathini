@@ -15,7 +15,7 @@ test('Grade 7 subjects', () => {
 });
 
 test('Natural Sciences and Technology lessons sit in their CAPS terms', () => {
-  assert.deepEqual(where('ns'), [['biosphere-biodiversity-and-reproduction'], ['matter-mixtures-acids-and-bases'], ['energy-transfer-heat-and-motion'], ['sun-earth-relationship-and-gravity']]);
+  assert.deepEqual(where('ns'), [['biosphere-biodiversity-and-reproduction', 'variation'], ['matter-mixtures-acids-and-bases'], ['energy-transfer-heat-and-motion'], ['sun-earth-relationship-and-gravity', 'history-of-astronomy']]);
   assert.deepEqual(where('tech'), [['mechanical-systems-and-control'], ['design-process-and-structures'], ['electrical-systems-and-control'], ['processing-materials-and-properties']]);
 });
 
@@ -28,7 +28,7 @@ test('no Grade 7 term is empty', () => {
   for (const s of grade7.subjects) for (const t of s.terms) assert.ok(t.topics.length > 0, `${s.id} term ${t.id}`);
 });
 
-test('the 24 restructured lessons keep their original task slugs and API subject codes', async () => {
+test('the restructured lessons keep their original task slugs and API subject codes, and new ones are added here', async () => {
   const { readdirSync, readFileSync, statSync } = await import('node:fs');
   const { join } = await import('node:path');
   const walk = (d: string): string[] => readdirSync(d).flatMap((e) => (statSync(join(d, e)).isDirectory() ? walk(join(d, e)) : [join(d, e)]));
@@ -38,10 +38,10 @@ test('the 24 restructured lessons keep their original task slugs and API subject
       const src = readFileSync(f, 'utf8');
       const task = src.match(/\btask="([^"]+)"/)?.[1];
       const api = src.match(/apiPath="\/api\/caps\/([a-z]+)"/)?.[1];
-      found.push(`${task} ${api}`);
+      if (task) found.push(`${task} ${api}`);
     }
   }
-  const nstTasks = ['biosphere-biodiversity-and-reproduction-t1', 'design-process-and-structures-t1', 'matter-mixtures-acids-and-bases-t2', 'processing-materials-and-properties-t2', 'energy-transfer-heat-and-motion-t3', 'mechanical-systems-and-control-t3', 'sun-earth-relationship-and-gravity-t4', 'electrical-systems-and-control-t4'].map((s) => `gr7-${s} nst`);
+  const nstTasks = ['biosphere-biodiversity-and-reproduction-t1', 'design-process-and-structures-t1', 'matter-mixtures-acids-and-bases-t2', 'processing-materials-and-properties-t2', 'energy-transfer-heat-and-motion-t3', 'mechanical-systems-and-control-t3', 'sun-earth-relationship-and-gravity-t4', 'electrical-systems-and-control-t4', 'variation-t1', 'history-of-astronomy-t4'].map((s) => `gr7-${s} nst`);
   const lskTasks = [1, 2, 3, 4].flatMap((n) => ['personal-social-wellbeing', 'physical-education', 'creative-arts'].map((s) => `gr7-${s}-t${n} lsk`));
   assert.deepEqual(found.sort(), [...nstTasks, ...lskTasks].sort());
 });

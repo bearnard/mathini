@@ -1745,6 +1745,11 @@
                 "id": "biosphere-biodiversity-and-reproduction",
                 "title": "Biosphere, Biodiversity and Reproduction",
                 "description": "Habitats, classification, and sexual or asexual reproduction strategies."
+              },
+              {
+                "id": "variation",
+                "title": "Variation",
+                "description": "Species, variation within a species, inherited characteristics, and showing a class survey in a bar graph."
               }
             ]
           },
@@ -1778,6 +1783,11 @@
                 "id": "sun-earth-relationship-and-gravity",
                 "title": "Sun-Earth Relationship and Gravity",
                 "description": "Seasons, phases, tides, and gravity in the Earth-Moon-Sun system."
+              },
+              {
+                "id": "history-of-astronomy",
+                "title": "The History of Astronomy",
+                "description": "Early calendars and sky knowledge, then Copernicus, Kepler, Galilei and Newton."
               }
             ]
           }

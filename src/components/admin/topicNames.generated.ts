@@ -3011,6 +3011,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Graphs",
   "Mathematics"
  ],
+ "7|gr7-history-of-astronomy-t4": [
+  "The History of Astronomy",
+  "Natural Sciences"
+ ],
  "7|gr7-integers-t4": [
   "Integers",
   "Mathematics"
@@ -3194,6 +3198,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "7|gr7-transformation-geometry-and-3d-objects-t3": [
   "Transformation Geometry and 3D Objects",
   "Mathematics"
+ ],
+ "7|gr7-variation-t1": [
+  "Variation",
+  "Natural Sciences"
  ],
  "7|gr7-visual-literacy-persuasion-t3": [
   "Visuele Geletterdheid & Oorreding",

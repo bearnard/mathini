@@ -20,6 +20,12 @@ export const naturalSciencesGrade7: Subject = {
               ),
           ),
         },
+        {
+          id: 'variation',
+          title: 'Variation',
+          description: 'Species, variation within a species, inherited characteristics, and showing a class survey in a bar graph.',
+          component: lazy(() => import('./term1/variation/Variation')),
+        },
       ],
     },
     {
@@ -61,6 +67,12 @@ export const naturalSciencesGrade7: Subject = {
           component: lazy(
             () => import('./term4/sun-earth-relationship-and-gravity/SunEarthRelationshipAndGravity'),
           ),
+        },
+        {
+          id: 'history-of-astronomy',
+          title: 'The History of Astronomy',
+          description: 'Early calendars and sky knowledge, then Copernicus, Kepler, Galilei and Newton.',
+          component: lazy(() => import('./term4/history-of-astronomy/HistoryOfAstronomy')),
         },
       ],
     },
