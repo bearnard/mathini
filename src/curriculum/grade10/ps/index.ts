@@ -21,6 +21,24 @@ export const psGrade10: Subject = {
           description: 'Electric forces and current flow',
           component: lazy(() => import('./term1/electrostatics-electric-circuits/ElectrostaticsElectricCircuits')),
         },
+        {
+          id: 'gr10-pulses-superposition-t1',
+          title: 'Transverse Pulses and Superposition',
+          description: 'Pulses, amplitude, the speed of a pulse and constructive and destructive interference.',
+          component: lazy(() => import('./term1/pulses-superposition/PulsesSuperposition')),
+        },
+        {
+          id: 'gr10-em-radiation-t1',
+          title: 'Electromagnetic Radiation',
+          description: 'The nature of EM waves, the spectrum, c = fλ, the energy of a photon, uses and dangers.',
+          component: lazy(() => import('./term1/em-radiation/EmRadiation')),
+        },
+        {
+          id: 'gr10-matter-classification-t1',
+          title: 'Revision of Matter and Classification',
+          description: 'Pure substances and mixtures, names and formulae, and the properties of materials.',
+          component: lazy(() => import('./term1/matter-classification-revision/MatterClassificationRevision')),
+        },
       ],
     },
     {
