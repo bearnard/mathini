@@ -8277,6 +8277,16 @@
                 "description": "Strengthen comprehension, summary, visual literacy, editing and oral preparation for Paper 1 routines."
               },
               {
+                "id": "gr12-p1-vocabulary-figures-t1",
+                "title": "Paper 1: Vocabulary and Figures of Speech",
+                "description": "Word relationships, figures of speech, idioms, word origins and parts of words."
+              },
+              {
+                "id": "gr12-p1-summary-writing-t1",
+                "title": "Paper 1: Summary Writing",
+                "description": "Selecting seven points, writing in your own words and counting the words."
+              },
+              {
                 "id": "gr12-oral-paper4-tasks-t1",
                 "title": "Paper 4 Orals: The Tasks and the 50 Marks",
                 "description": "What Paper 4 is, what each oral task assesses, when the tasks happen, and how the 50 marks add up."
@@ -8326,6 +8336,16 @@
                 "id": "gr12-discussion-debate-panel-t2",
                 "title": "Discussions, Debates and Panels",
                 "description": "Informal discussion, debate terms and procedure, panel discussions and the chairperson."
+              },
+              {
+                "id": "gr12-p1-sentence-structures-t2",
+                "title": "Paper 1: Sentence Structures and Conventions",
+                "description": "Voice, direct and indirect speech, clauses, concord, modals and punctuation."
+              },
+              {
+                "id": "gr12-p1-comprehension-visual-t2",
+                "title": "Paper 1: Comprehension Questions and Visual Texts",
+                "description": "Paper 1 layout and time, kinds of questions, answering for the marks, advertisements and cartoons."
               }
             ]
           },
@@ -8342,6 +8362,11 @@
                 "id": "gr12-advanced-writing-editing-t3",
                 "title": "Advanced Writing and Editing",
                 "description": "Refine style, paragraph cohesion, tone, register and editing choices for high-level Paper 3 performance."
+              },
+              {
+                "id": "gr12-p1-critical-language-t3",
+                "title": "Paper 1: Critical Language Awareness",
+                "description": "Fact and opinion, connotation, emotive language, bias and stereotyping, language and power."
               },
               {
                 "id": "gr12-oral-trial-preparation-t3",
