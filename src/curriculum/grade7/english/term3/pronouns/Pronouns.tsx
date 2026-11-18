@@ -46,7 +46,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: "Which of these is an indefinite pronoun?",
-    options: ["myself", "everybody", "them", "mine"],
+    options: ["myself", "everybody", "themselves", "mine"],
     answer: "everybody",
     explanation: "Everybody does not name a particular person.",
   },
