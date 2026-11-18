@@ -635,6 +635,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "African Nationalism",
   "History"
  ],
+ "11|gr11-afrikaner-nationalism-rise-t3": [
+  "The Rise of Afrikaner Nationalism",
+  "History"
+ ],
+ "11|gr11-afrikaner-nationalism-volk-power-t3": [
+  "Defining the Volk and the Power of Nationalism",
+  "History"
+ ],
  "11|gr11-ai-big-data-t2": [
   "Artificial Intelligence and Big Data",
   "Computer Applications Technology"
@@ -670,6 +678,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-atomic-combinations-t1": [
   "Atomic Combinations",
   "Physical Sciences"
+ ],
+ "11|gr11-australia-colonisation-race-theories-t2": [
+  "Australia: Colonisation and Race Theories",
+  "History"
  ],
  "11|gr11-bank-creditors-reconciliations-t1": [
   "Bank and Creditors Reconciliations",
@@ -1450,6 +1462,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-stoichiometry-t2": [
   "Stoichiometry",
   "Physical Sciences"
+ ],
+ "11|gr11-stolen-generations-t2": [
+  "The Stolen Generations",
+  "History"
  ],
  "11|gr11-streaming-compression-t4": [
   "Streaming, Downloading and Compression",

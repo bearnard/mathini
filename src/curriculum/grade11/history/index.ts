@@ -63,6 +63,18 @@ export const historyGrade11: Subject = {
           description: 'Comparing private ownership, planning, ideology, and the USA-USSR debate in the 1930s.',
           component: lazy(() => import('./term2/capitalism-vs-communism/CapitalismVsCommunism')),
         },
+        {
+          id: 'gr11-australia-colonisation-race-theories-t2',
+          title: "Australia: Colonisation and Race Theories",
+          description: "Colonisation, race theories, the White Australia policy and children sent from Britain.",
+          component: lazy(() => import('./term2/australia-colonisation-race-theories/AustraliaColonisationRaceTheories')),
+        },
+        {
+          id: 'gr11-stolen-generations-t2',
+          title: "The Stolen Generations",
+          description: "Assimilation, Cook and Neville, the removals, Bringing Them Home and the apology.",
+          component: lazy(() => import('./term2/stolen-generations/StolenGenerations')),
+        },
       ],
     },
     {
@@ -92,6 +104,18 @@ export const historyGrade11: Subject = {
           title: 'Resistance to Racism',
           description: 'Civil rights, anti-apartheid struggle, international solidarity, and the defeat of racist systems.',
           component: lazy(() => import('./term3/resistance-to-racism/ResistanceToRacism')),
+        },
+        {
+          id: 'gr11-afrikaner-nationalism-rise-t3',
+          title: "The Rise of Afrikaner Nationalism",
+          description: "Background, the language movement, cultural organisations and economic upliftment.",
+          component: lazy(() => import('./term3/afrikaner-nationalism-rise/AfrikanerNationalismRise')),
+        },
+        {
+          id: 'gr11-afrikaner-nationalism-volk-power-t3',
+          title: "Defining the Volk and the Power of Nationalism",
+          description: "Who belonged to the Volk, class, education, labour, religion, 1948 and how historians explain it.",
+          component: lazy(() => import('./term3/afrikaner-nationalism-volk-power/AfrikanerNationalismVolkPower')),
         },
       ],
     },
