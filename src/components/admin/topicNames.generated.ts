@@ -4515,6 +4515,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Budgeting and Business Decisions",
   "Economic Management Sciences"
  ],
+ "9|gr9-business-plan-swot-t4": [
+  "The Business Plan: Format and SWOT",
+  "Economic Management Sciences"
+ ],
  "9|gr9-business-plans-functions-t3": [
   "Business Plans and Functions",
   "Economic Management Sciences"
@@ -4691,6 +4695,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Financial Literacy and Recording",
   "Economic Management Sciences"
  ],
+ "9|gr9-financial-plan-t4": [
+  "The Financial Plan: Costs, Break-even and Mark-up",
+  "Economic Management Sciences"
+ ],
  "9|gr9-food-security-farming-t4": [
   "Food Security and Sustainable Farming",
   "Social Sciences: Geography"
@@ -4698,6 +4706,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-forces-t3": [
   "Forces",
   "Natural Sciences"
+ ],
+ "9|gr9-functions-of-a-business-t3": [
+  "Functions of a Business",
+  "Economic Management Sciences"
  ],
  "9|gr9-functions-relationships-t3": [
   "Functions and Relationships",

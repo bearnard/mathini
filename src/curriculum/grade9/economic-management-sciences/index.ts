@@ -87,6 +87,12 @@ export const emsGrade9: Subject = {
           description: 'The role of a union, collective bargaining, settling disputes, and strikes.',
           component: lazy(() => import('./term3/trade-unions/TradeUnions')),
         },
+        {
+          id: 'gr9-functions-of-a-business-t3',
+          title: 'Functions of a Business',
+          description: 'Administration, purchasing, marketing, finances, public relations, human resources, production, general management and risk management.',
+          component: lazy(() => import('./term3/functions-of-a-business/FunctionsOfABusiness')),
+        },
       ],
     },
     {
@@ -104,6 +110,18 @@ export const emsGrade9: Subject = {
           title: 'Cash and Credit Transactions with the Trial Balance',
           description: 'Analysing cash and credit transactions, finding the balances, and drawing up a trial balance.',
           component: lazy(() => import('./term4/cash-credit-trial-balance/CashCreditTrialBalance')),
+        },
+        {
+          id: 'gr9-business-plan-swot-t4',
+          title: 'The Business Plan: Format and SWOT',
+          description: 'What a business plan is, its ten parts, the production, marketing and management plans, and a SWOT analysis.',
+          component: lazy(() => import('./term4/business-plan-swot/BusinessPlanSwot')),
+        },
+        {
+          id: 'gr9-financial-plan-t4',
+          title: 'The Financial Plan: Costs, Break-even and Mark-up',
+          description: 'Fixed and variable costs, the break-even point, mark-up on cost price and profit percentage.',
+          component: lazy(() => import('./term4/financial-plan/FinancialPlan')),
         },
       ],
     },
