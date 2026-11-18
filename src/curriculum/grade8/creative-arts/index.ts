@@ -64,12 +64,6 @@ export const creativeArtsGrade8: Subject = {
       title: 'Term 2',
       topics: [
         {
-          id: 'visual-arts',
-          title: 'Visual Arts',
-          description: 'Principles of design, pattern, printmaking, collage, and African visual references.',
-          component: lazy(() => import('./term2/visual-arts/VisualArts')),
-        },
-        {
           id: 'music',
           title: 'Music',
           description: 'South African styles, melody, texture, ensemble balance, and call-and-response.',
@@ -124,12 +118,6 @@ export const creativeArtsGrade8: Subject = {
           component: lazy(() => import('./term3/visual-arts/VisualArts')),
         },
         {
-          id: 'music',
-          title: 'Music',
-          description: 'Binary and ternary form, composition basics, ostinato, and listening analysis.',
-          component: lazy(() => import('./term3/music/Music')),
-        },
-        {
           id: 'drama',
           title: 'Drama',
           description: 'Characterisation, conflict, staging, scripted dialogue, and rehearsal.',
@@ -171,18 +159,6 @@ export const creativeArtsGrade8: Subject = {
       id: 4,
       title: 'Term 4',
       topics: [
-        {
-          id: 'visual-arts',
-          title: 'Visual Arts',
-          description: 'Portfolio selection, exhibition planning, finishing techniques, and reflection.',
-          component: lazy(() => import('./term4/visual-arts/VisualArts')),
-        },
-        {
-          id: 'music',
-          title: 'Music',
-          description: 'Performance revision, genre comparison, aural recall, and stage etiquette.',
-          component: lazy(() => import('./term4/music/Music')),
-        },
         {
           id: 'drama',
           title: 'Drama',

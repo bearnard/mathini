@@ -74,6 +74,15 @@ const G8_HIDDEN = [
   ['economic-management-sciences', 'banking-saving-and-ems-consolidation', ''],
 ].map(([subject, slug, to]) => ({ source: `${G8}/${subject}/${slug}`, destination: to ? `${G8}/${subject}/${to}` : `${G8}/${subject}` }));
 
+/** Grade 8 Creative Arts: four lessons that are not in the Grade 8 CAPS (Visual Arts Term 2 pattern, printmaking and collage; Visual Arts Term 4 portfolio and exhibition planning; Music Term 3 binary and ternary form; Music Term 4 genre comparison and stage etiquette) are hidden now that the CAPS lessons for those terms exist (code, task instructions and D1 questions kept). Each page goes to the new lesson of the same art form and term. */
+const CA8 = '/grade-8/creative-arts';
+const CA8_HIDDEN = [
+  ['visual-arts-term-2', 'fashion-design-from-recyclables'],
+  ['visual-arts-term-4', 'scraperboard-etching'],
+  ['music-term-3', 'melodic-ostinato-riffs-and-the-jingle'],
+  ['music-term-4', '6-8-d-major-tempo-and-articulation'],
+].map(([slug, to]) => ({ source: `${CA8}/${slug}`, destination: `${CA8}/${to}` }));
+
 export interface LegacyRedirect { source: string; destination: string }
 
 const moved = (fromSubject: string, toSubject: string, slugs: string[]): LegacyRedirect[] => [
@@ -99,6 +108,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   ...PS11_HIDDEN,
   ...HIS11_HIDDEN,
   ...G8_HIDDEN,
+  ...CA8_HIDDEN,
 ];
 
 /** The shape next.config.ts `redirects()` wants: permanent: true answers 308. */
