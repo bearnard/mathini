@@ -191,7 +191,7 @@ const bank: CapsItem[] = [
     explanation: "Idiophones ring, clink or rattle because their own bodies vibrate.",
   },
   {
-    prompt: "How many families of instruments are in this lesson?",
+    prompt: "Into how many families does this system sort instruments by how they make sound?",
     options: ["Four", "Two", "Three", "Five"],
     answer: "Four",
     explanation: "The families are membranophones, idiophones, chordophones and aerophones.",

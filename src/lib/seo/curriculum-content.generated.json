@@ -2822,6 +2822,11 @@
                 "id": "triplets-f-major-terms",
                 "title": "Triplets, F Major, Dynamics and Tempo Words",
                 "description": "The triplet, the F major scale, piano, forte, crescendo, diminuendo, allegro and andante."
+              },
+              {
+                "id": "sa-poetry-praise-poetry",
+                "title": "South African Poetry and Praise Poetry",
+                "description": "Interpreting a poem, mood, praise poetry, call and response and the role of the praise poet."
               }
             ]
           },
@@ -2853,6 +2858,11 @@
                 "id": "ostinato-riff-jingle",
                 "title": "Melodic Ostinato, Riffs and the Jingle",
                 "description": "Repeating patterns, four lines of lyrics, a one-minute jingle and music technology."
+              },
+              {
+                "id": "polished-improvisation-style",
+                "title": "Polished Improvisation in a Style",
+                "description": "Comedy, tragedy, musical or puppet show, drama elements, technical resources and justifying your choices."
               }
             ]
           },
@@ -2884,6 +2894,16 @@
                 "id": "six-eight-d-major-articulation",
                 "title": "6/8, D Major, Tempo and Articulation",
                 "description": "The time signature 6/8, the D major scale, tempo words, legato, staccato and listening."
+              },
+              {
+                "id": "dialogues-prose-storytelling",
+                "title": "Dialogues, Dramatised Prose and Indigenous Storytelling",
+                "description": "Character in voice and body, status, narrator and characters, the ntsomi, songs and sound effects."
+              },
+              {
+                "id": "drama-in-the-media",
+                "title": "Drama in the Media",
+                "description": "Film, television, radio, documentaries and the internet, drama elements in the media and responding to a media drama."
               }
             ]
           }

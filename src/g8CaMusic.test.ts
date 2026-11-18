@@ -103,5 +103,5 @@ test('INDEPENDENT: families of instruments', () => {
   assert.equal(find(d, 'The sound of a guitar').answer, 'Chordophones');
   assert.equal(find(d, 'Which of these instruments is an aerophone').answer, 'Recorder');
   assert.equal(find(d, 'Which of these instruments is a membranophone').answer, 'Djembe');
-  assert.equal(find(d, 'How many families of instruments are in this lesson').answer, 'Four');
+  assert.equal(find(d, 'Into how many families does this system sort instruments').answer, 'Four');
 });
