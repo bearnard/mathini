@@ -3791,6 +3791,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Forces, Motion and Measurement",
   "Natural Sciences"
  ],
+ "8|gr8-forces-on-materials-t2": [
+  "Forces on Materials and Reinforcing",
+  "Technology"
+ ],
  "8|gr8-formal-correspondence-reviews-t2": [
   "Formal Correspondence and Reviews",
   "English HL"
@@ -3834,6 +3838,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-health-and-risk-behaviour-t2": [
   "Health and Risk Behaviour",
   "Life Orientation"
+ ],
+ "8|gr8-impact-and-packaging-t2": [
+  "Impact of Technology and Packaging",
+  "Technology"
  ],
  "8|gr8-indigenous-technology-and-processing-t4": [
   "Indigenous Technology and Processing",
