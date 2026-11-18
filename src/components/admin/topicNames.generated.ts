@@ -3071,6 +3071,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Caring for People",
   "Life Skills"
  ],
+ "6|gr6-childrens-charter-rights-t3": [
+  "The Children's Charter and Children's Rights",
+  "History"
+ ],
  "6|gr6-common-fractions-t2": [
   "Common Fractions",
   "Mathematics"
@@ -3126,6 +3130,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|gr6-equivalent-fractions-t1": [
   "Equivalent Fractions",
   "Mathematics"
+ ],
+ "6|gr6-fatima-meer-t3": [
+  "Fatima Meer",
+  "History"
  ],
  "6|gr6-flow-diagrams-t1": [
   "Flow Diagrams",
@@ -3183,6 +3191,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Nation-Building and Cultural Heritage",
   "Life Skills"
  ],
+ "6|gr6-national-symbols-t3": [
+  "National Symbols of South Africa",
+  "History"
+ ],
  "6|gr6-number-patterns-t1": [
   "Number Patterns",
   "Mathematics"
@@ -3202,6 +3214,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "6|gr6-percentages-t3": [
   "Percentages",
   "Mathematics"
+ ],
+ "6|gr6-pius-langa-t3": [
+  "Pius Langa",
+  "History"
  ],
  "6|gr6-position-movement-t4": [
   "Position and Movement",

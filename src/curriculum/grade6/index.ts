@@ -826,6 +826,30 @@ export const grade6: Grade = {
                                     title: "Rights, Responsibilities & Government",
                                     description: "Citizens' rights and duties and levels of government.",
                                     component: lazy(() => import('./history/term3/rights-responsibilities/RightsResponsibilities'))
+                                },
+                                {
+                                    id: "his-national-symbols",
+                                    title: "National Symbols of South Africa",
+                                    description: "The flag, the coat of arms and the national anthem, and what they show.",
+                                    component: lazy(() => import('./history/term3/national-symbols/NationalSymbols'))
+                                },
+                                {
+                                    id: "his-fatima-meer",
+                                    title: "Fatima Meer",
+                                    description: "A Durban teacher, writer and activist who worked against apartheid.",
+                                    component: lazy(() => import('./history/term3/fatima-meer/FatimaMeer'))
+                                },
+                                {
+                                    id: "his-pius-langa",
+                                    title: "Pius Langa",
+                                    description: "A lawyer who became a Constitutional Court judge and Chief Justice.",
+                                    component: lazy(() => import('./history/term3/pius-langa/PiusLanga'))
+                                },
+                                {
+                                    id: "his-childrens-charter-rights",
+                                    title: "The Children's Charter and Children's Rights",
+                                    description: "The Children's Charter of 1992, what children need and rights with responsibilities.",
+                                    component: lazy(() => import('./history/term3/childrens-charter-rights/ChildrensCharterRights'))
                                 }
                             ]
                         },

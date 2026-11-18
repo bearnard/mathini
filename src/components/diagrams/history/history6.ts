@@ -53,3 +53,18 @@ export const PRINTING_PRESS_ABOUT = 1450;
 export const LEONARDO_SPAN: Span = { name: 'Leonardo da Vinci', from: LEONARDO.born, to: LEONARDO.died, exact: true };
 export const GALILEO_SPAN: Span = { name: 'Galileo', from: GALILEO.born, to: GALILEO.died, exact: true };
 export const age = (p: { born: number; died: number }): number => p.died - p.born;
+
+// ---------------------------------------------------------------- Term 3: democracy, symbols and people
+export const FLAG_FIRST_FLOWN = 1994;
+export const COAT_OF_ARMS_YEAR = 2000;
+export const ANTHEM_COMBINED = 1997;
+export const FATIMA_MEER = { born: 1928, died: 2010 } as const;
+export const LANGA_CONCOURT_JUDGE = 1994;
+export const LANGA_CHIEF_JUSTICE = { from: 2005, to: 2009 } as const;
+export const CHILDRENS_CHARTER = 1992;
+/** Years Pius Langa served as Chief Justice (2005 to 2009). */
+export const langaChiefJusticeYears = (): number => LANGA_CHIEF_JUSTICE.to - LANGA_CHIEF_JUSTICE.from;
+/** Years from the Children's Charter (1992) to the first democratic election (1994). */
+export const CHARTER_TO_ELECTION = 1994 - CHILDRENS_CHARTER;
+/** Years from the first flag (1994) to the new coat of arms (2000). */
+export const FLAG_TO_ARMS = COAT_OF_ARMS_YEAR - FLAG_FIRST_FLOWN;
