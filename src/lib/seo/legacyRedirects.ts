@@ -57,8 +57,8 @@ const PS10_ELECTRO_HIDDEN = { source: '/grade-10/physical-sciences/electrostatic
 /** Grade 11 Physical Sciences: five lessons are not in the Grade 11 CAPS (Work, Energy and Power; Momentum and Impulse; Vertical Projectile Motion; Organic Chemistry; Electrochemical Cells: Grade 10 or 12 content, all with a live Grade 12 equivalent) and are hidden (code, task instructions and D1 rows kept); each page goes to the subject page. */
 const PS11_HIDDEN = ['work-energy-and-power', 'momentum-and-impulse', 'vertical-projectile-motion', 'organic-chemistry', 'electrochemical-cells'].map((slug) => ({ source: `/grade-11/physical-sciences/${slug}`, destination: '/grade-11/physical-sciences' }));
 
-/** Grade 11 History Wave B: Decolonisation in Africa (Kenya, Algeria, the Year of Africa) is not in the Grade 11 CAPS (Gold Coast / Ghana only, covered in African Nationalism); its code, task instructions and D1 rows stay. */
-const HIS11_HIDDEN = [{ source: '/grade-11/history/decolonisation-in-africa', destination: '/grade-11/history' }];
+/** Grade 11 History Wave B: Decolonisation in Africa (Kenya, Algeria, the Year of Africa), Resistance to Racism (US civil rights and the defeat of apartheid) and Liberation Movements (regional struggles, nation-building) are Grade 12 content, not Grade 11 CAPS Topic 5; the two new Term 4 lessons replace them. Code, task instructions and D1 rows stay. */
+const HIS11_HIDDEN = ['decolonisation-in-africa', 'resistance-to-racism', 'liberation-movements'].map((slug) => ({ source: `/grade-11/history/${slug}`, destination: '/grade-11/history' }));
 
 export interface LegacyRedirect { source: string; destination: string }
 
