@@ -1656,6 +1656,11 @@
                 "id": "afr-advert-poster",
                 "title": "Advertensie en plakkaat",
                 "description": "The parts of an advertisement, words that persuade and the layout of a poster."
+              },
+              {
+                "id": "afr-figures-poems",
+                "title": "Beeldspraak in gedigte",
+                "description": "Vergelyking, metafoor en personifikasie in 'n gedig."
               }
             ]
           },
@@ -1692,6 +1697,11 @@
                 "id": "afr-newspaper-article-interview",
                 "title": "Koerantberig en onderhoud",
                 "description": "The parts of a newspaper report, the five questions and an interview."
+              },
+              {
+                "id": "afr-sound-structure-poems",
+                "title": "Klank en struktuur in gedigte",
+                "description": "Rym, rymskema, alliterasie, herhaling, vers en refrein."
               }
             ]
           },
