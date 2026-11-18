@@ -22,7 +22,8 @@ const lower = (s: string) => s.toLowerCase().replace(/[’‘]/g, "'");
 test('the new lessons are registered in their term after the existing three, with a stable id each', () => {
   const where: Record<string, number> = { 'afr-diary-entry': 2, 'afr-constitution-policy': 2, 'afr-will-testament': 3, 'afr-cv-covering-letter': 3, 'afr-application-letter': 4, 'afr-email': 4 };
   const ids = (n: number) => afrikaansFALGrade9.terms.find((t) => t.id === n)!.topics.map((t) => t.id);
-  assert.deepEqual(ids(2).slice(0, 3), ['afr-journalism-media', 'afr-formal-correspondence', 'afr-grammar-reporting']);
+  // afr-formal-correspondence is hidden (not in the Grade 9 CAPS; formal letters are in the CV and application letter lessons), so Term 2 starts with these two.
+  assert.deepEqual(ids(2).slice(0, 2), ['afr-journalism-media', 'afr-grammar-reporting']);
   assert.equal(ids(3).length >= 5, true);
   for (const [id, term] of Object.entries(where)) assert.ok(ids(term).includes(id), id);
 });

@@ -2787,10 +2787,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Media Texts",
   "English HL"
  ],
- "6|day-night-seasons": [
-  "Day, Night & Seasons",
-  "Natural Sciences & Technology"
- ],
  "6|deeper-literature-response": [
   "Deeper Literature Response",
   "English HL"
@@ -3187,10 +3183,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Meervoude",
   "Afrikaans (FAL)"
  ],
- "6|migration-impact": [
-  "Impact of Migration",
-  "Geography"
- ],
  "6|migration-push-pull": [
   "Migration: Push & Pull",
   "Geography"
@@ -3319,10 +3311,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Teenwoordige Tyd",
   "Afrikaans (FAL)"
  ],
- "6|temperate-polar": [
-  "Mediterranean, Temperate & Polar",
-  "Geography"
- ],
  "6|toekomende-tyd": [
   "Toekomende Tyd",
   "Afrikaans (FAL)"
@@ -3337,10 +3325,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "6|tropical-desert": [
   "Tropical Rainforest & Hot Desert",
-  "Geography"
- ],
- "6|vegetation-adaptations": [
-  "Vegetation & Adaptations",
   "Geography"
  ],
  "6|verlede-tyd": [
@@ -4535,10 +4519,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Business Plans and Functions",
   "Economic Management Sciences"
  ],
- "9|gr9-business-responsibility-integration-t4": [
-  "Business Responsibility and Integration",
-  "Economic Management Sciences"
- ],
  "9|gr9-careers-career-choices-t4": [
   "Careers and Career Choices",
   "Life Orientation"
@@ -4687,10 +4667,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "End of the Cold War",
   "History (Social Sciences)"
  ],
- "9|gr9-entrepreneurship-planning-t2": [
-  "Entrepreneurship and Financial Planning",
-  "Economic Management Sciences"
- ],
  "9|gr9-essay-transactional-writing-t1": [
   "Essay and Transactional Writing",
   "English HL"
@@ -4722,10 +4698,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-forces-t3": [
   "Forces",
   "Natural Sciences"
- ],
- "9|gr9-formal-correspondence-t2": [
-  "Formele Korrespondensie",
-  "Afrikaans FAL"
  ],
  "9|gr9-functions-relationships-t3": [
   "Functions and Relationships",
@@ -4962,10 +4934,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-renewable-non-renewable-resources-t4": [
   "Renewable and Non-Renewable Resources",
   "Social Sciences: Geography"
- ],
- "9|gr9-reports-instructional-texts-t3": [
-  "Reports and Instructional Texts",
-  "English HL"
  ],
  "9|gr9-resistance-to-nazism-t1": [
   "Resistance to Nazism",

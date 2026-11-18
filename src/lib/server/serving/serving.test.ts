@@ -42,8 +42,10 @@ test('isServedFromD1: exclude wins, then an explicit task, then the task grade; 
 
 test('every Grade 6 task slug is known to the flag by grade (so flipping grade 6 covers all of it)', async () => {
   const { GRADE6_BANKS } = await import('../../../curriculum/grade6/reviewBanks');
-  // The nine Grade 6 History lessons hidden in Wave B are out of the task index (nothing is practised or topped up for them) but their code banks stay for old review cards.
-  const hidden = new Set(['what-is-history', 'historical-sources', 'investigating-community', 'timelines-change', 'british-take-cape', 'frontier-peoples', 'frontier-conflicts', 'trekboers-migration', 'ancient-medicine']);
+  // The nine Grade 6 History lessons hidden in Wave B (and the four lessons listed below) are out of the task index (nothing is practised or topped up for them) but their code banks stay for old review cards.
+  const hidden = new Set(['what-is-history', 'historical-sources', 'investigating-community', 'timelines-change', 'british-take-cape', 'frontier-peoples', 'frontier-conflicts', 'trekboers-migration', 'ancient-medicine',
+    // hidden invented lessons: three Geography lessons and the seasons lesson (not Grade 6 CAPS)
+    'temperate-polar', 'vegetation-adaptations', 'migration-impact', 'day-night-seasons']);
   const missing = Object.keys(GRADE6_BANKS).filter((tk) => !hidden.has(tk) && taskGrade(tk) !== 6);
   assert.deepEqual(missing, []);
 });

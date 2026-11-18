@@ -552,12 +552,6 @@ export const grade6: Grade = {
                                     component: lazy(() => import('./natural-sciences/term4/earth-moon-movement/EarthMoonMovement'))
                                 },
                                 {
-                                    id: "nst-day-night-seasons",
-                                    title: "Day, Night & Seasons",
-                                    description: "Why we have day, night and seasons.",
-                                    component: lazy(() => import('./natural-sciences/term4/day-night-seasons/DayNightSeasons'))
-                                },
-                                {
                                     id: "nst-space-exploration",
                                     title: "Space Exploration & Technology",
                                     description: "Telescopes, satellites and rockets.",
@@ -660,18 +654,6 @@ export const grade6: Grade = {
                                     component: lazy(() => import('./geography/term3/tropical-desert/TropicalDesert'))
                                 },
                                 {
-                                    id: "geo-temperate-polar",
-                                    title: "Mediterranean, Temperate & Polar",
-                                    description: "Other climate regions and where they occur.",
-                                    component: lazy(() => import('./geography/term3/temperate-polar/TemperatePolar'))
-                                },
-                                {
-                                    id: "geo-vegetation-adaptations",
-                                    title: "Vegetation & Adaptations",
-                                    description: "How plants and animals adapt to their climate.",
-                                    component: lazy(() => import('./geography/term3/vegetation-adaptations/VegetationAdaptations'))
-                                },
-                                {
                                     id: "gr6-coniferous-forests-t3",
                                     title: "Coniferous Forests",
                                     description: "Where they are, the climate, plants and animals, and how people live.",
@@ -701,12 +683,6 @@ export const grade6: Grade = {
                                     description: "Why people move: push and pull factors.",
                                     component: lazy(() => import('./geography/term4/migration-push-pull/MigrationPushPull'))
                                 },
-                                {
-                                    id: "geo-migration-impact",
-                                    title: "Impact of Migration",
-                                    description: "How migration affects people and places.",
-                                    component: lazy(() => import('./geography/term4/migration-impact/MigrationImpact'))
-                                }
                             ]
                         }
                     ]

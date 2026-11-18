@@ -83,6 +83,18 @@ const CA8_HIDDEN = [
   ['music-term-4', '6-8-d-major-tempo-and-articulation'],
 ].map(([slug, to]) => ({ source: `${CA8}/${slug}`, destination: `${CA8}/${to}` }));
 
+/** Invented lessons that are not in the CAPS are hidden (code, task instructions and D1 questions kept). Grade 6 Geography: Mediterranean, Temperate and Polar (the CAPS has coniferous forests), Vegetation and Adaptations (taught inside each region lesson), Impact of Migration. Grade 6 Natural Sciences and Technology: Day, Night and Seasons (seasons are not Grade 6 CAPS; day and night are in Earth and Moon Movement). Grade 9 EMS: Entrepreneurship and Financial Planning, Business Responsibility and Integration. Grade 9 English: Reports and Instructional Texts. Grade 9 Afrikaans: Formal Correspondence. Each page goes to the closest live lesson, or to the subject page. */
+const INVENTED_HIDDEN = [
+  ['/grade-6/geography/mediterranean-temperate-and-polar', '/grade-6/geography/coniferous-forests'],
+  ['/grade-6/geography/vegetation-and-adaptations', '/grade-6/geography/tropical-rainforest-and-hot-desert'],
+  ['/grade-6/geography/impact-of-migration', '/grade-6/geography/migration-push-and-pull'],
+  ['/grade-6/natural-sciences-and-technology/day-night-and-seasons', '/grade-6/natural-sciences-and-technology/earth-and-moon-movement'],
+  ['/grade-9/economic-management-sciences/entrepreneurship-and-financial-planning', '/grade-9/economic-management-sciences/sectors-of-the-economy'],
+  ['/grade-9/economic-management-sciences/business-responsibility-and-integration', '/grade-9/economic-management-sciences'],
+  ['/grade-9/english-hl/reports-and-instructional-texts', '/grade-9/english-hl'],
+  ['/grade-9/afrikaans-fal/formele-korrespondensie', '/grade-9/afrikaans-fal'],
+].map(([source, destination]) => ({ source, destination }));
+
 export interface LegacyRedirect { source: string; destination: string }
 
 const moved = (fromSubject: string, toSubject: string, slugs: string[]): LegacyRedirect[] => [
@@ -109,6 +121,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   ...HIS11_HIDDEN,
   ...G8_HIDDEN,
   ...CA8_HIDDEN,
+  ...INVENTED_HIDDEN,
 ];
 
 /** The shape next.config.ts `redirects()` wants: permanent: true answers 308. */
