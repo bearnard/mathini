@@ -75,6 +75,12 @@ export const afrikaansFALGrade8: Subject = {
           description: "The layout of a dialogue, and questions and answers in an interview.",
           component: lazy(() => import('./term2/dialogue-interview/DialogueInterview')),
         },
+        {
+          id: 'afr-imagery-sound',
+          title: "Beeldspraak en klankeffekte",
+          description: "Vergelyking, metafoor, personifikasie, hiperbool en onomatopee.",
+          component: lazy(() => import('./term2/imagery-sound/ImagerySound')),
+        },
       ],
     },
     {
@@ -104,6 +110,12 @@ export const afrikaansFALGrade8: Subject = {
           title: 'Brief aan die pers',
           description: "Writing to the editor: the greeting, your view with reasons, and a polite request.",
           component: lazy(() => import('./term3/letter-to-the-press/LetterToThePress')),
+        },
+        {
+          id: 'afr-structure-rhyme',
+          title: "Struktuur en rymskema",
+          description: "Vers, reël, uitleg, rymskema, ritme, herhaling en refrein.",
+          component: lazy(() => import('./term3/structure-rhyme/StructureRhyme')),
         },
       ],
     },
@@ -146,6 +158,12 @@ export const afrikaansFALGrade8: Subject = {
           title: 'Joernalistieke verslag',
           description: "Facts first, named sources, the past tense, and no opinion.",
           component: lazy(() => import('./term4/news-report/NewsReport')),
+        },
+        {
+          id: 'afr-mood-tone-questions',
+          title: "Stemming, toon en kontekstuele vrae",
+          description: "Stemming, toon, tema, kontekstuele vrae en jou eie gedig.",
+          component: lazy(() => import('./term4/mood-tone-questions/MoodToneQuestions')),
         },
       ],
     },
