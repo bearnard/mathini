@@ -5,7 +5,7 @@ Source: `audit/caps-alignment.md` (Grade 11 Economics, Accounting and Business S
 | Branch | Subject | Lessons | Status |
 |---|---|---|---|
 | feat/g11-econ-gaps | Economics | Population and Labour Force (T1); Economic Growth and Wealth Creation (T2); Marginal Utility (T2) | done |
-| feat/g11-acc-gaps | Accounting | Non-Profit Organisations: Concepts and the Analysis Cash Book (T2); Statement of Receipts and Payments and the Accumulated Fund (T2); GAAP Principles (T1) | todo |
+| feat/g11-acc-gaps | Accounting | Non-Profit Organisations: Concepts and the Analysis Cash Book (T2); Statement of Receipts and Payments and the Accumulated Fund (T2); GAAP Principles (T1) | done |
 | feat/g11-bs-gaps | Business Studies | Citizenship Roles and Responsibilities of a Business (T3); Intellectual Property Rights (T1); Trade Unions and the Labour Relations Act (T1) | todo |
 
 ## Wave B list (not done here)

@@ -919,6 +919,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Functions",
   "Mathematics"
  ],
+ "11|gr11-gaap-principles-t1": [
+  "GAAP Principles",
+  "Accounting"
+ ],
  "11|gr11-gas-exchange-t3": [
   "Gas Exchange",
   "Life Sciences"
@@ -1179,6 +1183,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Newton's Laws and Friction",
   "Physical Sciences"
  ],
+ "11|gr11-npo-concepts-analysis-cash-book-t2": [
+  "Non-Profit Organisations: Concepts and the Analysis Cash Book",
+  "Accounting"
+ ],
  "11|gr11-number-patterns-t1": [
   "Number Patterns",
   "Mathematics"
@@ -1282,6 +1290,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-quality-ethics-professionalism-t2": [
   "Quality, Ethics and Professionalism",
   "Business Studies"
+ ],
+ "11|gr11-receipts-payments-accumulated-fund-t2": [
+  "Statement of Receipts and Payments and the Accumulated Fund",
+  "Accounting"
  ],
  "11|gr11-reconciliations-partnerships-revision-t4": [
   "Reconciliations and Partnerships Revision",

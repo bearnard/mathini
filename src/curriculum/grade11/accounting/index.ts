@@ -33,6 +33,12 @@ export const accountingGrade11: Subject = {
           description: 'Cover appropriation account, partner capital accounts, partner current accounts, and preparation of final accounts.',
           component: lazy(() => import('./term1/partner-accounts-final-statements/PartnerAccountsFinalStatements')),
         },
+        {
+          id: 'gr11-gaap-principles-t1',
+          title: 'GAAP Principles',
+          description: 'Historical cost, prudence, materiality, the business entity rule, going concern and matching, with examples.',
+          component: lazy(() => import('./term1/gaap-principles/GaapPrinciples')),
+        },
       ],
     },
     {
@@ -62,6 +68,18 @@ export const accountingGrade11: Subject = {
           title: 'Interpreting Partnership Performance',
           description: 'Cover interpreting ratio results, linking indicators to financial position, comparing ratios across periods, and making recommendations.',
           component: lazy(() => import('./term2/partnership-performance-interpretation/PartnershipPerformanceInterpretation')),
+        },
+        {
+          id: 'gr11-npo-concepts-analysis-cash-book-t2',
+          title: 'Non-Profit Organisations: Concepts and the Analysis Cash Book',
+          description: 'Club concepts, the accumulated fund, membership and entrance fees, and the Analysis Cash Book.',
+          component: lazy(() => import('./term2/npo-concepts-analysis-cash-book/NpoConceptsAnalysisCashBook')),
+        },
+        {
+          id: 'gr11-receipts-payments-accumulated-fund-t2',
+          title: 'Statement of Receipts and Payments and the Accumulated Fund',
+          description: 'Club ledger accounts, the trial balance, the statement of receipts and payments, and receipts against income.',
+          component: lazy(() => import('./term2/receipts-payments-accumulated-fund/ReceiptsPaymentsAccumulatedFund')),
         },
       ],
     },
