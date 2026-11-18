@@ -75,6 +75,18 @@ export const emsGrade8: Subject = {
           description: 'Cash payments journal, sole trader and partnership structures, management levels, budgeting, and market concepts.',
           component: lazy(() => import('./term3/cash-payments-business-ownership/CashPaymentsBusinessOwnership')),
         },
+        {
+          id: 'cash-payments-journal',
+          title: 'Cash Payments Journal and the Combined Cash Journals',
+          description: 'Recording and closing off cash paid, the cash balance carried forward and the effect on the accounting equation.',
+          component: lazy(() => import('./term3/cash-payments-journal/CashPaymentsJournal')),
+        },
+        {
+          id: 'forms-of-ownership',
+          title: 'Forms of Ownership',
+          description: 'Sole traders, partnerships, close corporations, private and public companies, and their role in jobs and natural resources.',
+          component: lazy(() => import('./term3/forms-of-ownership/FormsOfOwnership')),
+        },
       ],
     },
     {

@@ -38,8 +38,8 @@ export const learnSteps: LearnStep[] = [
         <JournalColumns bank={crjTotal()} parts={[{ label: 'Capital', amount: crjColumn('Capital') }, { label: 'Fees earned', amount: crjColumn('Fees earned') }]} bankLabel="Bank" />
         <JournalTable
           title="Cash Receipts Journal of Thandi's Tutoring, March"
-          columns={['Date', 'Doc', 'Details', 'Bank']}
-          rows={CRJ_ENTRIES.map((e) => [e.date, e.doc, `${e.details}`, e.amount])}
+          columns={['Date', 'Doc and details', 'Bank']}
+          rows={CRJ_ENTRIES.map((e) => [e.date, `${e.doc} ${e.details}`, e.amount])}
           total={{ label: 'Total (Bank column)', amount: crjTotal() }}
           aria="The Cash Receipts Journal for March. Capital R10 000 on 1 March, fees R4 500 on 5 March and fees R2 500 on 19 March. The Bank column total is R17 000."
         />
