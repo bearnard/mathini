@@ -27,6 +27,36 @@ export const englishHLGrade7: Subject = {
           description: 'Singular-plural forms, tenses, word order, and direct-indirect speech.',
           component: lazy(() => import('./term1/foundational-grammar-context/FoundationalGrammarContext')),
         },
+        {
+          id: 'gr7-adjectives-comparison-t1',
+          title: 'Adjectives and Degrees of Comparison',
+          description: 'Attributive and predicative adjectives, positive, comparative and superlative, and irregular forms.',
+          component: lazy(() => import('./term1/adjectives-comparison/AdjectivesComparison')),
+        },
+        {
+          id: 'gr7-prefixes-suffixes-roots-t1',
+          title: 'Prefixes, Suffixes and Roots',
+          description: 'Roots, common prefixes and suffixes, and four Latin and Greek roots.',
+          component: lazy(() => import('./term1/prefixes-suffixes-roots/PrefixesSuffixesRoots')),
+        },
+        {
+          id: 'gr7-sentence-parts-clauses-t1',
+          title: 'Sentence Parts and Clauses',
+          description: 'Subject and predicate, main and dependent clauses, conjunctions and agreement.',
+          component: lazy(() => import('./term1/sentence-parts-clauses/SentencePartsClauses')),
+        },
+        {
+          id: 'gr7-multiple-meanings-t1',
+          title: 'Words with More Than One Meaning',
+          description: 'Homophones, homonyms, polysemy, literal and figurative meaning, and riddles.',
+          component: lazy(() => import('./term1/multiple-meanings/MultipleMeanings')),
+        },
+        {
+          id: 'gr7-spelling-dictionary-t1',
+          title: 'Spelling Patterns, Rules and Dictionary Use',
+          description: 'Plurals, adding endings, silent letters, South African spelling and using a dictionary.',
+          component: lazy(() => import('./term1/spelling-dictionary/SpellingDictionary')),
+        },
       ],
     },
     {
