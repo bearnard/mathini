@@ -8,7 +8,7 @@ Source: `audit/caps-alignment.md` (sections "Grade 8 Natural Sciences" and "Grad
 | feat/g8-ns-t3 | T3 | Static Electricity; Electric Circuits and Current Electricity; Series and Parallel Circuits; Visible Light | done |
 | feat/g8-ns-t4 | T4 | Beyond the Solar System; Looking into Space | done |
 | feat/g8-tech-t1 | T1 | Graphic Communication; Frame Structures and Structural Failure | done |
-| feat/g8-tech-t2 | T2 | Impact of Technology and Packaging; Forces on Materials and Reinforcing | todo |
+| feat/g8-tech-t2 | T2 | Impact of Technology and Packaging; Forces on Materials and Reinforcing | done |
 | feat/g8-tech-t3 | T3 | Gear Systems and Mechanical Advantage; Bicycle Gears and Systems Diagrams; Mining Technology, Impact and Bias | todo |
 | feat/g8-tech-t4 | T4 | Electrochemical and Solar Cells; Generating Electricity and the National Grid; Resistors, Ohm's Law (qualitative) and Logic Gates | todo |
 

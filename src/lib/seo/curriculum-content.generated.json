@@ -2657,6 +2657,16 @@
                 "id": "logic-and-pat-design-work",
                 "title": "Logic and PAT Design Work",
                 "description": "AND/OR logic, truth tables, control systems, and panic-button design ideas."
+              },
+              {
+                "id": "impact-and-packaging",
+                "title": "Impact of Technology and Packaging",
+                "description": "Positive and negative impact, plastic bags, recycling paper and designing packaging from a net."
+              },
+              {
+                "id": "forces-on-materials",
+                "title": "Forces on Materials and Reinforcing",
+                "description": "Tension, compression, bending, torsion and shear, reinforcing concrete, plywood and metal sections."
               }
             ]
           },

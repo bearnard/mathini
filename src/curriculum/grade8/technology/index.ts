@@ -60,6 +60,18 @@ export const technologyGrade8: Subject = {
           description: 'AND/OR logic, truth tables, control systems, and panic-button design ideas.',
           component: lazy(() => import('./term2/logic-and-pat-design-work/LogicAndPatDesignWork')),
         },
+        {
+          id: 'impact-and-packaging',
+          title: 'Impact of Technology and Packaging',
+          description: 'Positive and negative impact, plastic bags, recycling paper and designing packaging from a net.',
+          component: lazy(() => import('./term2/impact-and-packaging/ImpactAndPackaging')),
+        },
+        {
+          id: 'forces-on-materials',
+          title: 'Forces on Materials and Reinforcing',
+          description: 'Tension, compression, bending, torsion and shear, reinforcing concrete, plywood and metal sections.',
+          component: lazy(() => import('./term2/forces-on-materials/ForcesOnMaterials')),
+        },
       ],
     },
     {
