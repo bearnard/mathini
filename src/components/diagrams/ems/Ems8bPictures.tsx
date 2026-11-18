@@ -113,3 +113,43 @@ export const ProfitSplit = ({ profit, labels, amounts, ratio }: { profit: number
     </Panel>
   );
 };
+
+/** A T account with a debit side and a credit side, the totals and the closing balance. */
+export const TAccount = ({ name, debits, credits, balance, side }: { name: string; debits: readonly number[]; credits: readonly number[]; balance: number; side: 'debit' | 'credit' | 'nil' }) => {
+  const rows = Math.max(debits.length, credits.length);
+  const sumD = debits.reduce((a, b) => a + b, 0), sumC = credits.reduce((a, b) => a + b, 0);
+  const h = 30 + rows * 7 + 16;
+  return (
+    <Panel h={h} aria={`The ${name} account. Debit side: ${debits.map(rand).join(', ') || 'no entries'}, total ${rand(sumD)}. Credit side: ${credits.map(rand).join(', ') || 'no entries'}, total ${rand(sumC)}. Closing balance ${rand(balance)} on the ${side} side.`}>
+      <T x={60} y={9} size={5} fill={AMBER}>{name}</T>
+      <line x1={10} y1={13} x2={110} y2={13} stroke={LINE} strokeWidth={0.7} />
+      <line x1={60} y1={13} x2={60} y2={28 + rows * 7 + 8} stroke={LINE} strokeWidth={0.7} />
+      <T x={35} y={20} size={3.8} fill={BLUE}>Debit</T>
+      <T x={85} y={20} size={3.8} fill={GREEN}>Credit</T>
+      {debits.map((d, i) => <T key={`d${i}`} x={35} y={28 + i * 7} size={4} fill={BLUE}>{rand(d)}</T>)}
+      {credits.map((c, i) => <T key={`c${i}`} x={85} y={28 + i * 7} size={4} fill={GREEN}>{rand(c)}</T>)}
+      <line x1={14} y1={28 + rows * 7 - 2} x2={106} y2={28 + rows * 7 - 2} stroke={MUTED} strokeWidth={0.4} />
+      <T x={35} y={28 + rows * 7 + 5} size={4} fill={BLUE}>{rand(sumD)}</T>
+      <T x={85} y={28 + rows * 7 + 5} size={4} fill={GREEN}>{rand(sumC)}</T>
+      <T x={60} y={h - 7} size={3.8} fill={ROSE}>{side === 'nil' ? 'balance nil' : `balance ${rand(balance)} (${side})`}</T>
+    </Panel>
+  );
+};
+
+/** Planned against actual: two bars and the difference. */
+export const PlanVsActual = ({ planned, actual, unit = 'sales' }: { planned: number; actual: number; unit?: string }) => {
+  const max = Math.max(planned, actual);
+  const diff = actual - planned;
+  const w = (v: number) => (v / max) * 60;
+  return (
+    <Panel h={46} aria={`Controlling: planned ${unit} ${rand(planned)}, actual ${unit} ${rand(actual)}. The actual result is ${rand(Math.abs(diff))} ${diff < 0 ? 'below' : diff > 0 ? 'above' : 'equal to'} the plan.`}>
+      <T x={4} y={14} size={3.8} anchor="start" weight={600}>planned</T>
+      <rect x={30} y={8} width={w(planned)} height={8} rx={1.5} fill={BLUE} fillOpacity={0.85} />
+      <T x={30 + w(planned) + 2} y={14} size={3.8} anchor="start">{rand(planned)}</T>
+      <T x={4} y={27} size={3.8} anchor="start" weight={600}>actual</T>
+      <rect x={30} y={21} width={w(actual)} height={8} rx={1.5} fill={diff < 0 ? ROSE : GREEN} fillOpacity={0.85} />
+      <T x={30 + w(actual) + 2} y={27} size={3.8} anchor="start">{rand(actual)}</T>
+      <T x={60} y={41} size={4} fill={AMBER}>{diff === 0 ? 'on plan' : `${rand(Math.abs(diff))} ${diff < 0 ? 'below' : 'above'} the plan`}</T>
+    </Panel>
+  );
+};
