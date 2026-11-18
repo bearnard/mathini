@@ -100,3 +100,34 @@ export const LatitudeBands = ({ bands }: { bands: { label: string; from: number;
     </Panel>
   );
 };
+
+/**
+ * A simple sketch map of an imagined settlement, to show what a good sketch map contains: a title, a river and a road,
+ * labelled places, a north arrow and a key. The labels come from the lesson (at most four places).
+ */
+export const SketchMap = ({ title, places, aria }: { title: string; places: string[]; aria: string }) => {
+  const spots = [
+    { x: 30, y: 24 },
+    { x: 56, y: 32 },
+    { x: 80, y: 22 },
+    { x: 96, y: 47 },
+  ].slice(0, places.length);
+  return (
+    <Panel h={62} aria={aria}>
+      <rect x={4} y={4} width={112} height={54} rx={3} fill="none" stroke={MUTED} strokeWidth={0.8} />
+      <T x={60} y={11} size={5.6} color={A}>{title}</T>
+      <path d="M8,56 C30,40 40,50 62,38 S100,30 112,14" fill="none" stroke={I} strokeWidth={2} />
+      <line x1={8} y1={40} x2={112} y2={36} stroke={LINE} strokeWidth={1.4} strokeDasharray="4 2" />
+      {spots.map((s, i) => (
+        <g key={i}>
+          <rect x={s.x - 3} y={s.y - 3} width={6} height={6} fill={[E, R, A, E][i]} />
+          <T x={s.x} y={s.y - 5} size={4.4}>{places[i]}</T>
+        </g>
+      ))}
+      <path d="M104,28 v-9 m-2.4,3 l2.4,-3 l2.4,3" fill="none" stroke={LINE} strokeWidth={1} />
+      <T x={104} y={33} size={4.4}>N</T>
+      <T x={10} y={55} anchor="start" size={4.2} color={I}>Key: river</T>
+      <T x={78} y={55} anchor="start" size={4.2} color={MUTED}>- - road</T>
+    </Panel>
+  );
+};

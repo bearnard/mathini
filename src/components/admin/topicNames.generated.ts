@@ -4479,6 +4479,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Controlling Workers and Taking Land",
   "History"
  ],
+ "8|gr8-land-use-urban-and-rural-settlements-t3": [
+  "Land Use in Urban and Rural Settlements",
+  "Geography"
+ ],
  "8|gr8-language-consolidation-t4": [
   "Taalkonsolidasie",
   "Afrikaans FAL"
@@ -4574,6 +4578,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-mining-technology-impact-bias-t3": [
   "Mining Technology, Impact and Bias",
   "Technology"
+ ],
+ "8|gr8-moving-goods-and-people-in-south-africa-t4": [
+  "Moving Goods and People in South Africa",
+  "Geography"
  ],
  "8|gr8-music-t1": [
   "Music",
@@ -4697,6 +4705,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "8|gr8-settlement-and-urbanisation-t3": [
   "Settlement and Urbanisation",
+  "Geography"
+ ],
+ "8|gr8-settlement-investigation-project-t3": [
+  "Investigating a Settlement",
   "Geography"
  ],
  "8|gr8-sexuality-feelings-values-t1": [

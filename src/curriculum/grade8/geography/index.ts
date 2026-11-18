@@ -72,6 +72,18 @@ export const geographyGrade8: Subject = {
             () => import('./term3/settlement-and-urbanisation/SettlementAndUrbanisation'),
           ),
         },
+        {
+          id: "settlement-investigation-project",
+          title: "Investigating a Settlement",
+          description: "A guide to the Term 3 project: describing, explaining, interviewing and drawing a sketch map.",
+          component: lazy(() => import('./term3/settlement-investigation-project/SettlementInvestigationProject')),
+        },
+        {
+          id: "land-use-urban-and-rural-settlements",
+          title: "Land Use in Urban and Rural Settlements",
+          description: "The zones of a town, high-, middle- and low-income housing, rural settlement types, and aerial photographs.",
+          component: lazy(() => import('./term3/land-use-urban-and-rural-settlements/LandUseUrbanAndRuralSettlements')),
+        },
       ],
     },
     {
@@ -83,6 +95,12 @@ export const geographyGrade8: Subject = {
           title: 'Transport and Trade',
           description: 'Trade reasons, transport modes, harbours, and commuter movement in urban areas.',
           component: lazy(() => import('./term4/transport-and-trade/TransportAndTrade')),
+        },
+        {
+          id: "moving-goods-and-people-in-south-africa",
+          title: "Moving Goods and People in South Africa",
+          description: "Road and rail, a harbour case study, and public transport in cities.",
+          component: lazy(() => import('./term4/moving-goods-and-people-in-south-africa/MovingGoodsAndPeopleInSouthAfrica')),
         },
       ],
     },
