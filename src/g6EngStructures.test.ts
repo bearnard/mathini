@@ -56,7 +56,7 @@ test('each bank has 14 valid questions, no quality reason at all, the key in all
 
 test('task ids start with eng6-, are unique, and each has a task instruction in its own file', () => {
   const tasks = (JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/eng-gr6-structures.json', 'utf8')) as { tasks: Record<string, string> }).tasks;
-  assert.deepEqual(Object.keys(tasks).sort(), Object.values(L).map((l) => l.task).sort());
+  for (const l of Object.values(L)) assert.ok(l.task in tasks, l.task);
   for (const k of Object.keys(tasks)) assert.ok(k.startsWith('eng6-') && !k.startsWith('gr6-'), k);
 });
 

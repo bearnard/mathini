@@ -2807,6 +2807,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Electric Circuits",
   "Natural Sciences & Technology"
  ],
+ "6|eng6-active-passive-voice": [
+  "Active and Passive Voice",
+  "English HL"
+ ],
+ "6|eng6-adverbs": [
+  "Adverbs",
+  "English HL"
+ ],
  "6|eng6-character-sketch": [
   "Writing a Character Sketch",
   "English HL"
@@ -2827,6 +2835,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Writing a Diary Entry",
   "English HL"
  ],
+ "6|eng6-direct-indirect-speech": [
+  "Direct and Indirect Speech",
+  "English HL"
+ ],
  "6|eng6-folklore-myth-legend": [
   "Folklore: Myths and Legends",
   "English HL"
@@ -2843,6 +2855,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Writing a Newspaper Article",
   "English HL"
  ],
+ "6|eng6-past-future-perfect": [
+  "Past Perfect and Future Perfect",
+  "English HL"
+ ],
  "6|eng6-prefixes-suffixes-stems": [
   "Prefixes, Suffixes and Stems",
   "English HL"
@@ -2853,6 +2869,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "6|eng6-pronouns-types": [
   "Pronouns: Interrogative, Demonstrative and Indefinite",
+  "English HL"
+ ],
+ "6|eng6-punctuation-marks": [
+  "Punctuation: Commas, Colons, Semi-colons, Contractions and Brackets",
   "English HL"
  ],
  "6|eng6-story-writing-plot": [
