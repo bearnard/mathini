@@ -124,12 +124,12 @@ const bank: CapsItem[] = [
     explanation: 'Choreography arranges movement ideas into a coherent performance.',
   },
   {
-    prompt: 'How should learners use cultural symbols in class projects?',
+    prompt: 'How should you use cultural symbols in class projects?',
     options: [
       'With respect and understanding of meaning',
       'As decoration without any context',
       'To mock cultural practices',
-      'Only if they are copied exactly from the internet',
+      'Only if you copy them exactly from the internet',
     ],
     answer: 'With respect and understanding of meaning',
     explanation: 'Respectful cultural use avoids stereotypes and misrepresentation.',

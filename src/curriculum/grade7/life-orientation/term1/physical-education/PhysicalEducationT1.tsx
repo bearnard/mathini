@@ -91,7 +91,7 @@ export const learnSteps: LearnStep[] = [
 
 const bank: CapsItem[] = [
   {
-    prompt: 'Why do learners complete baseline fitness checks?',
+    prompt: 'Why do you do a baseline fitness check?',
     options: [
       'To measure starting fitness and set goals',
       'To replace all physical activity',

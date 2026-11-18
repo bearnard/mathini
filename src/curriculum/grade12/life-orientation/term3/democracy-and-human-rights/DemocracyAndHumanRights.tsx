@@ -105,8 +105,8 @@ const items = [
     explanation: 'Formal reporting and lawful channels support fair accountability and redress.',
   },
   {
-    prompt: 'Why should learners study global and local rights issues?',
-    options: ['It shows that rights are the same everywhere', 'It helps them compare issues and defend justice', 'It proves that local issues matter less than global ones', 'It lets them avoid community involvement'],
+    prompt: 'Why is it useful to look at rights issues both globally and in South Africa?',
+    options: ['It shows that rights are the same everywhere', 'It helps you compare issues and defend justice', 'It proves that local issues matter less than global ones', 'It lets you avoid community involvement'],
     answer: 1,
     explanation: 'Studying different contexts strengthens analysis and informed citizenship.',
   },

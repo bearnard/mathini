@@ -171,10 +171,10 @@ export const bank: CapsItem[] = [
     explanation: "Buzzers, beepers, LEDs, motors and bulbs are output devices.",
   },
   {
-    prompt: "How can learners show the effect of resistance in a circuit at this level?",
-    options: ["By observing the brightness of a bulb", "By calculating with a formula", "By weighing the wires", "By measuring the temperature of the cell"],
-    answer: "By observing the brightness of a bulb",
-    explanation: "The effects of resistance are treated qualitatively, using bulb brightness.",
+    prompt: "A bulb in a circuit glows less brightly than before. What does this tell you?",
+    options: ["The resistance increased, so less current flows", "The cell now gives more energy", "The current in the circuit increased", "The circuit is now broken"],
+    answer: "The resistance increased, so less current flows",
+    explanation: "More resistance means less current, and a smaller current makes a bulb glow less brightly.",
   },
 ];
 

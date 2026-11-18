@@ -27,10 +27,11 @@ const find = (dir: string, start: string) => {
 };
 
 for (const t of topics) {
-  test(`${t.dir}: standard lesson shape, 14 valid questions, key spread over all four positions`, () => {
+  const size = t.dir === 'term3/electric-circuits-current' ? 17 : 14;
+  test(`${t.dir}: standard lesson shape, ${size} valid questions, key spread over all four positions`, () => {
     assertLessonShape(lessons[t.dir]);
     const bank = banks[t.dir];
-    assert.equal(bank.length, 14);
+    assert.equal(bank.length, size);
     for (const q of bank) {
       assert.equal(new Set(q.options).size, 4, q.prompt);
       assert.equal(q.options.filter((o) => o === q.answer).length, 1, q.prompt);
@@ -49,6 +50,13 @@ for (const t of topics) {
     }
   });
 }
+
+test('INDEPENDENT: circuit symbols', () => {
+  const d = 'term3/electric-circuits-current';
+  assert.equal(find(d, 'In a circuit diagram, which symbol stands for a bulb').answer, 'A circle with a cross inside');
+  assert.equal(find(d, 'In the circuit-diagram symbol for a cell').answer, 'The longer, thinner line');
+  assert.equal(find(d, 'A circuit diagram shows a switch drawn with a gap').answer, 'The switch is open, so no current flows');
+});
 
 test('INDEPENDENT: light arithmetic and angles', () => {
   const d = 'term3/visible-light';

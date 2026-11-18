@@ -21,6 +21,17 @@ export const COMPONENTS = [
   { name: 'bulb', job: 'a resistor with a filament that heats up and gives light' },
   { name: 'resistor', job: 'opposes the flow of current' },
 ] as const;
+/** Circuit-diagram symbols (CAPS Gr 8 T3: drawing and interpreting a circuit diagram and the symbols used in it). */
+export const CIRCUIT_SYMBOLS = [
+  { name: 'cell', looks: 'a long thin line (the positive terminal) and a short thick line (the negative terminal)' },
+  { name: 'battery', looks: 'two or more cells joined together' },
+  { name: 'bulb', looks: 'a circle with a cross inside' },
+  { name: 'open switch', looks: 'a line lifted away from a contact, leaving a gap' },
+  { name: 'closed switch', looks: 'a line that touches both contacts' },
+  { name: 'resistor', looks: 'a small rectangle' },
+] as const;
+/** In the symbol for a cell the longer line is the positive terminal. */
+export const positiveTerminal = (): 'longer, thinner line' => 'longer, thinner line';
 /** A bulb lights only in a complete (closed) circuit with a source of energy: the switch is closed and there is no break in the wires. */
 export const bulbLights = (hasCell: boolean, switchClosed: boolean, wiresIntact: boolean): boolean => hasCell && switchClosed && wiresIntact;
 /** The current takes the path of lowest resistance: a wire joined straight across the cell makes a short circuit. */

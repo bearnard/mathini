@@ -25,10 +25,10 @@ const [t1, t2, t3, t4] = await Promise.all([
 
 // Grade 7 Physical Education lessons, Terms 1 to 4. Bank hashes are sha256 of the text from `const bank` on, taken from main.
 const lessons = [
-  { name: 'T1', steps: t1, file: 'term1/physical-education/PhysicalEducationT1.tsx', bank: '06586d2d93882aac' },
+  { name: 'T1', steps: t1, file: 'term1/physical-education/PhysicalEducationT1.tsx', bank: '99ec1bdb904dcedc' },
   { name: 'T2', steps: t2, file: 'term2/physical-education/PhysicalEducationT2.tsx', bank: '33755ef8cda33ce4' },
-  { name: 'T3', steps: t3, file: 'term3/physical-education/PhysicalEducationT3.tsx', bank: 'a347e005788e38c2' },
-  { name: 'T4', steps: t4, file: 'term4/physical-education/PhysicalEducationT4.tsx', bank: '75ab6e1704a5a331' },
+  { name: 'T3', steps: t3, file: 'term3/physical-education/PhysicalEducationT3.tsx', bank: 'd2cf3f3ec81f7c13' },
+  { name: 'T4', steps: t4, file: 'term4/physical-education/PhysicalEducationT4.tsx', bank: '63915cdee3a0fbbd' },
 ];
 
 const html = (n: React.ReactNode) => renderToStaticMarkup(createElement('div', null, n));

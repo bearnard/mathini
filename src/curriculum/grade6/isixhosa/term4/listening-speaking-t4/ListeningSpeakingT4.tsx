@@ -55,7 +55,7 @@ export const bank: CapsItem[] = [
     explanation: 'A polite closing thanks the audience and signals the end.',
   },
   {
-    prompt: 'Why do learners practise revision dialogues?',
+    prompt: 'Why is it useful to practise revision dialogues?',
     options: ['To build confidence in speaking and responding', 'To avoid listening activities completely', 'To memorise only one long speech', 'To replace all reading tasks'],
     answer: 'To build confidence in speaking and responding',
     explanation: 'Dialogues strengthen oral confidence, listening, and response skills.',

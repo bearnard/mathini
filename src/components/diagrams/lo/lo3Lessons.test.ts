@@ -25,8 +25,8 @@ const [t2, t3, t4] = await Promise.all([
 // Grade 7 Creative Arts lessons, Terms 2 to 4.
 const lessons = [
   { name: 'T2', steps: t2, file: 'term2/creative-arts/CreativeArtsT2.tsx', bank: '75c40c8071ea6c6b' },
-  { name: 'T3', steps: t3, file: 'term3/creative-arts/CreativeArtsT3.tsx', bank: '3a98e103676c8a7f' },
-  { name: 'T4', steps: t4, file: 'term4/creative-arts/CreativeArtsT4.tsx', bank: 'd6ea3c3c9f517528' },
+  { name: 'T3', steps: t3, file: 'term3/creative-arts/CreativeArtsT3.tsx', bank: '2bcf56ff155faa1c' },
+  { name: 'T4', steps: t4, file: 'term4/creative-arts/CreativeArtsT4.tsx', bank: '2fc0ec14429e20ed' },
 ];
 
 const html = (n: React.ReactNode) => renderToStaticMarkup(createElement('div', null, n));

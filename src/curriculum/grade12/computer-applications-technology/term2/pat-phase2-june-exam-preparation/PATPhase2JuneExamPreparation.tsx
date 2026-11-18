@@ -55,7 +55,7 @@ const items = [
     explanation: "PAT phase 2 is about using the collected information to create meaningful processed outputs.",
   },
   {
-    prompt: "Why should learners back up PAT files regularly during term 2?",
+    prompt: "Why should you back up your PAT files regularly during term 2?",
     options: ['Because PAT work cannot be marked without backups', 'Because losing files would delay both PAT progress and exam preparation', 'Because backups improve the speed of the internet connection at school at the school', 'Because exam papers are written online only'],
     answer: 1,
     explanation: "Regular backups protect important work during a very demanding term.",

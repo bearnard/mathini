@@ -138,7 +138,7 @@ const bank: CapsItem[] = [
     explanation: 'Constitutional rights guide lawful and fair treatment.',
   },
   {
-    prompt: 'How can learners help protect rights daily?',
+    prompt: 'How can you help protect rights every day?',
     options: ['Use respectful language and challenge unfair behaviour', 'Ignore the bullying and the exclusion', 'Mock classmates in front of others', 'Break the rules whenever it is convenient'],
     answer: 'Use respectful language and challenge unfair behaviour',
     explanation: 'Everyday actions can strengthen or weaken rights culture.',

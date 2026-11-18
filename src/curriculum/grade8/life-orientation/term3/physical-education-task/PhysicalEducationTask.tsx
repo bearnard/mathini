@@ -127,7 +127,7 @@ const bank: CapsItem[] = [
     explanation: 'Supportive behaviour strengthens both performance and class culture.',
   },
   {
-    prompt: 'How can learners reduce injury risk in PE?',
+    prompt: 'How can you reduce injury risk in PE?',
     options: [
       'Use proper warm-up, technique, and cool-down',
       'Rush into maximum effort immediately',

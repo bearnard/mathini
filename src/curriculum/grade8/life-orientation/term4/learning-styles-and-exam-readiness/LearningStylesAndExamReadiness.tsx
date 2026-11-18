@@ -120,7 +120,7 @@ const bank: CapsItem[] = [
     explanation: 'Healthy routines and calm strategies improve focus.',
   },
   {
-    prompt: 'Why should learners practise past-style questions?',
+    prompt: 'Why should you practise past-style questions?',
     options: [
       'To improve timing and identify weak areas',
       'To avoid understanding concepts',

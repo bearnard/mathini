@@ -182,7 +182,7 @@ export const bank: CapsItem[] = [
     explanation: 'Ensemble work depends on shared rhythm, listening, and coordination.',
   },
   {
-    prompt: 'Why do learners rehearse before a Creative Arts performance?',
+    prompt: 'Why should you rehearse before a Creative Arts performance?',
     options: [
       'To improve confidence, timing, and expression',
       'To avoid learning the piece',

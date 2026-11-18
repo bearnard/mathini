@@ -31,7 +31,7 @@ const items = [
     explanation: 'Self-discipline involves commitment, preparation and consistency.',
   },
   {
-    prompt: 'Why should learners review their participation record?',
+    prompt: 'Why should you review your participation record?',
     options: [
       'To hide weak effort',
       'To reflect honestly and improve goals',

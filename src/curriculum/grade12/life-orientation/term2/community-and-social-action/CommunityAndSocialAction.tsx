@@ -72,15 +72,15 @@ const items = [
     explanation: 'Community leadership requires listening, planning and ethical responsibility.',
   },
   {
-    prompt: 'Why should learners know about support services?',
+    prompt: 'Why is it useful to know about support services?',
     options: [
-      'So they can avoid community involvement',
-      'So they can refer people to appropriate help',
-      'So they can replace professionals',
-      'So they can work alone',
+      'So you can avoid community involvement',
+      'So you can refer people to appropriate help',
+      'So you can replace professionals',
+      'So you can work alone',
     ],
     answer: 1,
-    explanation: 'Knowing support services helps learners connect needs to the right resources.',
+    explanation: 'Knowing support services helps you connect needs to the right resources.',
   },
   {
     prompt: 'What makes a social action plan realistic?',

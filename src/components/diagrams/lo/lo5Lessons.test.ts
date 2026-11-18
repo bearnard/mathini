@@ -17,10 +17,10 @@ registerHooks({
 const base = 'grade8/life-orientation/term2';
 const load = async (p: string) => (await import(`../../../curriculum/${base}/${p}`)).learnSteps as import('../../CapsSubjectTopic').LearnStep[];
 const files = [
-  { name: 'Community responsibility', file: 'community-responsibility/CommunityResponsibility', bank: '8404782d6e33a54e' },
-  { name: 'Health and risk behaviour', file: 'health-and-risk-behaviour/HealthAndRiskBehaviour', bank: 'bc850530de2d27f7' },
-  { name: 'Physical Education Task', file: 'physical-education-task/PhysicalEducationTask', bank: '058d8574531f5869' },
-  { name: 'Social and environmental responsibility', file: 'social-and-environmental-responsibility/SocialAndEnvironmentalResponsibility', bank: '77201a382feb029a' },
+  { name: 'Community responsibility', file: 'community-responsibility/CommunityResponsibility', bank: '5a1370651fb13db6' },
+  { name: 'Health and risk behaviour', file: 'health-and-risk-behaviour/HealthAndRiskBehaviour', bank: 'dd44eda6c292bfc3' },
+  { name: 'Physical Education Task', file: 'physical-education-task/PhysicalEducationTask', bank: '88bad9641159ff6c' },
+  { name: 'Social and environmental responsibility', file: 'social-and-environmental-responsibility/SocialAndEnvironmentalResponsibility', bank: '10f7275bce6e4b09' },
 ];
 const lessons = await Promise.all(files.map(async (f) => ({ ...f, file: `${f.file}.tsx`, steps: await load(f.file) })));
 const pe = lessons[2].steps;

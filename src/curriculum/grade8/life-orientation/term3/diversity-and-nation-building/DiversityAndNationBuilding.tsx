@@ -106,7 +106,7 @@ const bank: CapsItem[] = [
     explanation: 'Stereotypes ignore individual differences and can cause harm.',
   },
   {
-    prompt: 'How can learners promote inclusion at school?',
+    prompt: 'How can you promote inclusion at school?',
     options: ['Invite others into activities and listen with respect', 'Leave out classmates who seem different', "Use jokes that target a person's identity", 'Spread rumours about the culture of others'],
     answer: 'Invite others into activities and listen with respect',
     explanation: 'Inclusion means ensuring everyone feels accepted and valued.',

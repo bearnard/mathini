@@ -1,5 +1,5 @@
 import { r3 } from '../round';
-import { SPECTRUM, brightnessEach, bulbLights, pathways, reflectionAngle, type Layout } from './ns8bHelpers';
+import { CIRCUIT_SYMBOLS, SPECTRUM, brightnessEach, bulbLights, pathways, reflectionAngle, type Layout } from './ns8bHelpers';
 
 /** Pictures for the Grade 8 Natural Sciences Term 3 lessons. Every line and label comes from ns8bHelpers.ts. */
 
@@ -70,6 +70,45 @@ export const SimpleCircuit = ({ switchClosed }: { switchClosed: boolean }) => {
       <T x={45} y={22} size={3.6} fill={MUTED} weight={600}>switch</T>
       <T x={96} y={52} size={3.6} fill={MUTED} weight={600}>bulb</T>
       <T x={60} y={37} size={4} fill={lit ? AMBER : ROSE}>{lit ? 'closed circuit: bulb lights' : 'open circuit: bulb off'}</T>
+    </Panel>
+  );
+};
+
+/** The circuit-diagram symbols: cell, battery, bulb, open and closed switch, resistor. */
+export const CircuitSymbols = () => {
+  const cell = (x: number, y: number) => (
+    <g>
+      <line x1={x - 1.4} y1={y - 5} x2={x - 1.4} y2={y + 5} stroke={LINE} strokeWidth={0.7} />
+      <line x1={x + 1.4} y1={y - 2.6} x2={x + 1.4} y2={y + 2.6} stroke={LINE} strokeWidth={1.8} />
+    </g>
+  );
+  const wire = (x1: number, x2: number, y: number) => <line x1={x1} y1={y} x2={x2} y2={y} stroke={SKY} strokeWidth={0.8} />;
+  const draw: Record<string, (x: number, y: number) => React.ReactNode> = {
+    cell: (x, y) => <g>{wire(x - 14, x - 1.4, y)}{wire(x + 1.4, x + 14, y)}{cell(x, y)}<T x={x - 4} y={y - 6} size={3.4} fill={AMBER}>+</T></g>,
+    battery: (x, y) => <g>{wire(x - 14, x - 5.4, y)}{wire(x - 2.6, x + 2.6, y)}{wire(x + 5.4, x + 14, y)}{cell(x - 4, y)}{cell(x + 4, y)}</g>,
+    bulb: (x, y) => (
+      <g>
+        {wire(x - 14, x - 5, y)}{wire(x + 5, x + 14, y)}
+        <circle cx={x} cy={y} r={5} fill="none" stroke={LINE} strokeWidth={0.8} />
+        <path d={`M${r3(x - 3.5)} ${r3(y - 3.5)} L${r3(x + 3.5)} ${r3(y + 3.5)} M${r3(x - 3.5)} ${r3(y + 3.5)} L${r3(x + 3.5)} ${r3(y - 3.5)}`} stroke={LINE} strokeWidth={0.8} />
+      </g>
+    ),
+    'open switch': (x, y) => <g>{wire(x - 14, x - 5, y)}{wire(x + 5, x + 14, y)}<circle cx={x - 5} cy={y} r={0.9} fill={LINE} /><circle cx={x + 5} cy={y} r={0.9} fill={LINE} /><line x1={x - 5} y1={y} x2={x + 4} y2={y - 5} stroke={LINE} strokeWidth={0.8} /></g>,
+    'closed switch': (x, y) => <g>{wire(x - 14, x - 5, y)}{wire(x + 5, x + 14, y)}<circle cx={x - 5} cy={y} r={0.9} fill={LINE} /><circle cx={x + 5} cy={y} r={0.9} fill={LINE} /><line x1={x - 5} y1={y} x2={x + 5} y2={y} stroke={LINE} strokeWidth={0.8} /></g>,
+    resistor: (x, y) => <g>{wire(x - 14, x - 6, y)}{wire(x + 6, x + 14, y)}<rect x={x - 6} y={y - 2.5} width={12} height={5} fill="none" stroke={LINE} strokeWidth={0.8} /></g>,
+  };
+  return (
+    <Panel h={66} aria={`Circuit-diagram symbols. ${CIRCUIT_SYMBOLS.map((s) => `${s.name}: ${s.looks}`).join('. ')}.`}>
+      {CIRCUIT_SYMBOLS.map((s, i) => {
+        const x = 21 + (i % 3) * 39;
+        const y = 16 + Math.floor(i / 3) * 30;
+        return (
+          <g key={s.name}>
+            {draw[s.name](x, y)}
+            <T x={x} y={y + 13} size={3.8} fill={MUTED} weight={600}>{s.name}</T>
+          </g>
+        );
+      })}
     </Panel>
   );
 };

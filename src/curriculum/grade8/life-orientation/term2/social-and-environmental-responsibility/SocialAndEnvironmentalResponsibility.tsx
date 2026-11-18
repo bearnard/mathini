@@ -117,7 +117,7 @@ const bank: CapsItem[] = [
     explanation: 'Conservation balances present needs with future needs.',
   },
   {
-    prompt: 'How can learners contribute to cleaner shared spaces?',
+    prompt: 'How can you help keep shared spaces clean?',
     options: ['Join clean-up activities and avoid littering', 'Leave the rubbish for someone else to clear', 'Damage the public facilities', 'Stop others from reporting problems'],
     answer: 'Join clean-up activities and avoid littering',
     explanation: 'Participation and accountability improve community spaces.',
@@ -134,7 +134,7 @@ const bank: CapsItem[] = [
     explanation: 'Pollution has physical, social, and environmental impacts.',
   },
   {
-    prompt: 'What should learners do when they see illegal dumping?',
+    prompt: 'What should you do when you see illegal dumping?',
     options: ['Report it through the right school or community channel', 'Ignore it every time that you see it', 'Dump more waste close by', 'Confront the people in an aggressive way'],
     answer: 'Report it through the right school or community channel',
     explanation: 'Reporting helps authorities respond safely and effectively.',

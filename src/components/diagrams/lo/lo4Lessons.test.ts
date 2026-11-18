@@ -21,9 +21,9 @@ const load = async (p: string) => (await import(`../../../curriculum/grade8/life
 // Grade 8 Life Orientation, Term 1.
 const lessons = [
   { name: 'Development of the self', path: 'development-of-the-self-in-society/DevelopmentOfTheSelfInSociety', bank: '4688576d39f8cf2c' },
-  { name: 'Relationships and emotional wellbeing', path: 'relationships-and-emotional-wellbeing/RelationshipsAndEmotionalWellbeing', bank: 'f31d46eef6a95bdc' },
+  { name: 'Relationships and emotional wellbeing', path: 'relationships-and-emotional-wellbeing/RelationshipsAndEmotionalWellbeing', bank: 'b10d6d2d30969a15' },
   { name: 'Study skills', path: 'study-skills-and-personal-organisation/StudySkillsAndPersonalOrganisation', bank: 'f12e30fa5c2c62d3' },
-  { name: 'Physical Education Task', path: 'physical-education-task/PhysicalEducationTask', bank: '2d49769f358f2031' },
+  { name: 'Physical Education Task', path: 'physical-education-task/PhysicalEducationTask', bank: 'ad2c5374f0492232' },
 ];
 const steps = await Promise.all(lessons.map((l) => load(l.path)));
 

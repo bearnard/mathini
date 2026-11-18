@@ -100,7 +100,7 @@ const items = [
     explanation: 'Protecting health recognises the dignity and worth of every person.',
   },
   {
-    prompt: 'What should learners do before proposing an intervention?',
+    prompt: 'What should you do before proposing an intervention?',
     options: ['Copy a solution used somewhere else', 'Study the issue and who it affects', 'Choose the idea that is cheapest', 'Wait for authorities to propose something'],
     answer: 1,
     explanation: 'Good interventions begin with informed analysis of the actual problem.',

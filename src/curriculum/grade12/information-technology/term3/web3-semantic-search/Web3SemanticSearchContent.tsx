@@ -118,10 +118,10 @@ export const bank: CapsItem[] = [
     explanation: 'These sites depend on the content that users add.',
   },
   {
-    prompt: 'What is Web 3.0 called in CAPS?',
+    prompt: 'What is Web 3.0 also called?',
     options: ['The Searching Web', 'The Semantic Web', 'The Streaming Web', 'The Shopping Web'],
     answer: 'The Semantic Web',
-    explanation: 'In CAPS, Web 3.0 is the Semantic Web, in which data carries meaning.',
+    explanation: 'Web 3.0 is the Semantic Web, in which data carries meaning.',
   },
   {
     prompt: 'What does the Semantic Web add to data?',

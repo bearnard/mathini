@@ -26,7 +26,7 @@ const [t1, t2, t3, t4] = await Promise.all([
 const lessons = [
   { name: 'T1', steps: t1, file: 'term1/personal-social-wellbeing/PersonalSocialWellbeingT1.tsx', bank: '59c9200da89fb013' },
   { name: 'T2', steps: t2, file: 'term2/personal-social-wellbeing/PersonalSocialWellbeingT2.tsx', bank: '0a3a1af8aa83740a' },
-  { name: 'T3', steps: t3, file: 'term3/personal-social-wellbeing/PersonalSocialWellbeingT3.tsx', bank: '40262049124cef0f' },
+  { name: 'T3', steps: t3, file: 'term3/personal-social-wellbeing/PersonalSocialWellbeingT3.tsx', bank: 'e0658879da8c12f0' },
   { name: 'T4', steps: t4, file: 'term4/personal-social-wellbeing/PersonalSocialWellbeingT4.tsx', bank: '37e07f4714b59ad5' },
 ];
 

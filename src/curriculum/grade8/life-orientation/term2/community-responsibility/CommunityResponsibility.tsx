@@ -123,7 +123,7 @@ const bank: CapsItem[] = [
     explanation: 'Volunteering builds responsibility and social connection.',
   },
   {
-    prompt: 'How can learners protect shared spaces?',
+    prompt: 'How can you protect shared spaces?',
     options: ['Use facilities with respect and report damage', 'Treat the equipment in a careless way', 'Leave litter lying in the classrooms', 'Ignore items that are broken or unsafe'],
     answer: 'Use facilities with respect and report damage',
     explanation: 'Shared spaces stay functional when everyone takes ownership.',

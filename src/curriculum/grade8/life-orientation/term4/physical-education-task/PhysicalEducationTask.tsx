@@ -121,7 +121,7 @@ const bank: CapsItem[] = [
     explanation: 'Fair recreation builds confidence and social connection.',
   },
   {
-    prompt: 'How can learners apply strategy during games?',
+    prompt: 'How can you use strategy during games?',
     options: ['Share roles and adapt to what happens in play', 'Play without any plan', 'Ignore your teammates and the spacing', 'Refuse to take tactical feedback'],
     answer: 'Share roles and adapt to what happens in play',
     explanation: 'Simple strategy improves teamwork and decision-making.',
