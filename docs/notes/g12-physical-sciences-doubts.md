@@ -13,3 +13,15 @@
 8. **Strong acid pH**: H2SO4 is treated as fully ionised to two H3O+ (pH 2 for 0,005 mol·dm⁻³), the usual school simplification. Confirm.
 9. **Salt hydrolysis** is taught qualitatively (acidic, basic or neutral); no Ka or Kb calculations.
 10. The old combined lesson `gr12-rates-equilibrium-acids-bases-t2` is untouched; the three new lessons overlap it until it is hidden.
+
+## Gap lessons (polymers, plant nutrients, fertiliser manufacture)
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| G1 | Plant nutrients | Early sources: guano (nitrogen), bone meal (phosphorus), potash from German mines (potassium). The CAPS wording is "before and after the first world war"; the lesson says only that supplies of natural sources were limited and that industry made fertilisers on a large scale during and after the war, with no dates. | Historical detail is deliberately general; a teacher may want to add the dates. |
+| G2 | Plant nutrients | Functions of N, P and K and the deficiency symptoms (pale leaves, weak roots, scorched edges). | Standard school-level statements; confirm. |
+| G3 | Making fertilisers | Hydrogen from coal and steam at Sasol: C + H2O -> CO + H2 and the water-gas shift. | CAPS only says "SASOL from coal and steam"; the two equations are the standard route. |
+| G4 | Making fertilisers | "Much of the potash used in South Africa is imported" (CAPS: sources of potash, imported potassium salts). | Wording follows CAPS, no tonnage given. |
+| G5 | Making fertilisers | Ammonium nitrate as fertiliser and as an ingredient of mining explosives. No details of manufacture or use of explosives. | Sensitive: kept to the CAPS link only. |
+| G6 | Polymers | Recycling numbers 1 to 7 are the standard resin codes from the existing lesson; the CAPS only requires polythene = 4. | Confirm the code list. |
+| G7 | Polymers | Names of PVA's monomer: ethenyl ethanoate (vinyl acetate). | IUPAC and common names both given. |

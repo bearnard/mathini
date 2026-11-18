@@ -33,6 +33,12 @@ export const physicalSciencesGrade12: Subject = {
           description: "Monomers and polymers, addition and condensation polymerisation, recycling codes and the environment.",
           component: lazy(() => import('./term1/plastics-polymers/PlasticsPolymers')),
         },
+        {
+          id: "gr12-polymers-monomers-recycling-t1",
+          title: "Polymers: Identifying Monomers, Uses and Recycling Numbers",
+          description: "Monomers from a chain section, addition or condensation from the structure, polythene uses and recycling numbers.",
+          component: lazy(() => import('./term1/polymers-monomers-recycling/PolymersMonomersRecycling')),
+        },
       ],
     },
     {
@@ -106,6 +112,18 @@ export const physicalSciencesGrade12: Subject = {
           title: "The Fertiliser Industry",
           description: "N, P and K fertilisers, the Haber, Ostwald and contact processes, and the effect of fertilisers on the environment.",
           component: lazy(() => import('./term3/fertiliser-industry/FertiliserIndustry')),
+        },
+        {
+          id: "gr12-plant-nutrients-t3",
+          title: "Plant Nutrients: Sources, Functions and History",
+          description: "Non-mineral and mineral nutrients, the jobs of N, P and K, early fertilisers and the N:P:K ratio.",
+          component: lazy(() => import('./term3/plant-nutrients/PlantNutrients')),
+        },
+        {
+          id: "gr12-fertiliser-manufacture-t3",
+          title: "Making Fertilisers in Industry: Raw Materials, Sasol and Alternatives",
+          description: "Raw materials, ammonia-based, phosphate and potassium fertilisers, Sasol, advantages and alternatives.",
+          component: lazy(() => import('./term3/fertiliser-manufacture/FertiliserManufacture')),
         },
       ],
     },
