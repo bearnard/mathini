@@ -57,7 +57,7 @@ export const bank: CapsItem[] = [
     explanation: "Will be plus ing forms the future continuous.",
   },
   {
-    prompt: "Tomorrow at ten o\\'clock I ___ my maths test.",
+    prompt: "Tomorrow at ten o'clock I ___ my maths test.",
     options: ["will be writing", "wrote", "was writing", "had been writing"],
     answer: "will be writing",
     explanation: "Tomorrow at ten o'clock shows the future continuous.",
