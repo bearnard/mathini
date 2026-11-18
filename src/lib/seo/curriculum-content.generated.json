@@ -924,6 +924,21 @@
                 "id": "eng6-folklore-myth-legend",
                 "title": "Folklore: Myths and Legends",
                 "description": "What a myth and a legend are, their features, and how to write a short folklore story."
+              },
+              {
+                "id": "eng6-pronouns-types",
+                "title": "Pronouns: Interrogative, Demonstrative and Indefinite",
+                "description": "What a pronoun does, and the interrogative, demonstrative and indefinite pronouns."
+              },
+              {
+                "id": "eng6-subject-verb-agreement",
+                "title": "Subject-Verb Agreement and the Simple Tenses",
+                "description": "Subject and verb, agreement, and the simple present, past and future tenses."
+              },
+              {
+                "id": "eng6-prepositions",
+                "title": "Prepositions",
+                "description": "Prepositions of place, time and direction."
               }
             ]
           },
@@ -960,6 +975,16 @@
                 "id": "eng6-story-writing-plot",
                 "title": "Writing a Story with a Plot",
                 "description": "Characters, setting, the plot on a flow chart, a problem and an ending."
+              },
+              {
+                "id": "eng6-prefixes-suffixes-stems",
+                "title": "Prefixes, Suffixes and Stems",
+                "description": "Stems, prefixes, suffixes, word division and dictionary use."
+              },
+              {
+                "id": "eng6-continuous-present-perfect",
+                "title": "Continuous Tenses and the Present Perfect",
+                "description": "Auxiliary verbs, the continuous tenses and the present perfect."
               }
             ]
           },
