@@ -39,6 +39,12 @@ export const englishHLGrade8: Subject = {
           description: "Asking a question, using a questionnaire, presenting findings, and writing a conclusion and recommendation.",
           component: lazy(() => import('./term1/investigative-report/InvestigativeReport')),
         },
+        {
+          id: "reading-a-poem",
+          title: "Reading a Poem: What It Says and How",
+          description: "Lines, stanzas, the speaker, layout, and literal and figurative meaning.",
+          component: lazy(() => import('./term1/reading-a-poem/ReadingAPoem')),
+        },
       ],
     },
     {
@@ -75,6 +81,12 @@ export const englishHLGrade8: Subject = {
           description: "The format of a dialogue, how to use stage directions, and the questions and answers of a written interview.",
           component: lazy(() => import('./term2/dialogue-and-interview/DialogueAndInterview')),
         },
+        {
+          id: "figures-of-speech-in-poems",
+          title: "Figures of Speech in Poems",
+          description: "Simile, metaphor, personification, hyperbole and onomatopoeia, and what they do.",
+          component: lazy(() => import('./term2/figures-of-speech-in-poems/FiguresOfSpeechInPoems')),
+        },
       ],
     },
     {
@@ -106,6 +118,12 @@ export const englishHLGrade8: Subject = {
           title: 'Writing a Letter to the Press',
           description: "Reacting to a newspaper article, the layout of a letter to the editor, giving a clear view with reasons, and a polite persuasive tone.",
           component: lazy(() => import('./term3/letter-to-the-press/LetterToThePress')),
+        },
+        {
+          id: "sound-and-structure-in-poems",
+          title: "Sound and Structure in Poems",
+          description: "Rhyme and rhyme scheme, rhythm, alliteration, repetition and the refrain.",
+          component: lazy(() => import('./term3/sound-and-structure-in-poems/SoundAndStructureInPoems')),
         },
       ],
     },
@@ -150,6 +168,12 @@ export const englishHLGrade8: Subject = {
           title: 'Writing a Journalistic (News) Report',
           description: "Objective tone, facts first, sources and quotations, the past tense, and how a news report differs from an article.",
           component: lazy(() => import('./term4/journalistic-report/JournalisticReport')),
+        },
+        {
+          id: "mood-tone-theme-and-poetry-questions",
+          title: "Mood, Tone, Theme and Answering Poetry Questions",
+          description: "What a poem makes us feel, the poet's attitude, the big idea, how to answer contextual questions and how to write a poem.",
+          component: lazy(() => import('./term4/mood-tone-theme-and-poetry-questions/MoodToneThemeAndPoetryQuestions')),
         },
       ],
     },

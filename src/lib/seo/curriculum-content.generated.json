@@ -2351,6 +2351,11 @@
                 "id": "gr8-investigative-report-t1",
                 "title": "Writing an Investigative Report",
                 "description": "Asking a question, using a questionnaire, presenting findings, and writing a conclusion and recommendation."
+              },
+              {
+                "id": "reading-a-poem",
+                "title": "Reading a Poem: What It Says and How",
+                "description": "Lines, stanzas, the speaker, layout, and literal and figurative meaning."
               }
             ]
           },
@@ -2382,6 +2387,11 @@
                 "id": "gr8-dialogue-and-interview-t2",
                 "title": "Writing a Dialogue and a Written Interview",
                 "description": "The format of a dialogue, how to use stage directions, and the questions and answers of a written interview."
+              },
+              {
+                "id": "figures-of-speech-in-poems",
+                "title": "Figures of Speech in Poems",
+                "description": "Simile, metaphor, personification, hyperbole and onomatopoeia, and what they do."
               }
             ]
           },
@@ -2408,6 +2418,11 @@
                 "id": "gr8-letter-to-the-press-t3",
                 "title": "Writing a Letter to the Press",
                 "description": "Reacting to a newspaper article, the layout of a letter to the editor, giving a clear view with reasons, and a polite persuasive tone."
+              },
+              {
+                "id": "sound-and-structure-in-poems",
+                "title": "Sound and Structure in Poems",
+                "description": "Rhyme and rhyme scheme, rhythm, alliteration, repetition and the refrain."
               }
             ]
           },
@@ -2444,6 +2459,11 @@
                 "id": "gr8-journalistic-report-t4",
                 "title": "Writing a Journalistic (News) Report",
                 "description": "Objective tone, facts first, sources and quotations, the past tense, and how a news report differs from an article."
+              },
+              {
+                "id": "mood-tone-theme-and-poetry-questions",
+                "title": "Mood, Tone, Theme and Answering Poetry Questions",
+                "description": "What a poem makes us feel, the poet's attitude, the big idea, how to answer contextual questions and how to write a poem."
               }
             ]
           }

@@ -4,6 +4,7 @@ import engGr7Term2 from './tasks/eng-gr7-term2.json';
 import engGr7Term3 from './tasks/eng-gr7-term3.json';
 import engGr7Term4 from './tasks/eng-gr7-term4.json';
 import engGr7Structures from './tasks/eng-gr7-structures.json';
+import engGr8Poetry from './tasks/eng-gr8-poetry.json';
 import engGr7TextTypes from './tasks/eng-gr7-text-types.json';
 import engGr8Term1 from './tasks/eng-gr8-term1.json';
 import engGr8Term2 from './tasks/eng-gr8-term2.json';
@@ -73,6 +74,7 @@ export const eng: SubjectConfig = {
     ...engGr7Term4.tasks,
     ...engGr7Structures.tasks,
     ...engGr7TextTypes.tasks,
+    ...engGr8Poetry.tasks,
     // Grade 8
     ...engGr8Term1.tasks,
     ...engGr8Term2.tasks,
