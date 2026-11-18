@@ -186,9 +186,9 @@ export const bank: CapsItem[] = [
     explanation: "With ART, people stay healthy and can live a long life.",
   },
   {
-    prompt: "Why must treatment be taken every day?",
-    options: ["Or the virus can become active again", "Because it tastes better each day", "Because of a rule at the school", "Because it is only for rainy days"],
-    answer: "Or the virus can become active again",
+    prompt: "Why must ART be taken every day?",
+    options: ["Skipping it lets the virus multiply again", "It cures HIV after a few weeks", "It is only needed when you feel sick", "It replaces healthy food and rest"],
+    answer: "Skipping it lets the virus multiply again",
     explanation: "Skipping treatment lets the virus multiply.",
   },
   {
@@ -199,8 +199,8 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: "Why should a neighbour's test result stay private?",
-    options: ["It always makes the person healthier", "It is good for friendship", "It is private and leads to stigma", "It is a school duty"],
-    answer: "It is private and leads to stigma",
+    options: ["Sharing it makes the person healthier", "Neighbours have a right to know it", "It is private, and sharing it can cause stigma", "It must be reported to the school"],
+    answer: "It is private, and sharing it can cause stigma",
     explanation: "A result belongs to the person.",
   },
   {
