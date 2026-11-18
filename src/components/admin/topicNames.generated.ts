@@ -3743,6 +3743,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Brochures and Visual Literacy",
   "English HL"
  ],
+ "8|gr8-career-categories-t2": [
+  "The Six Career Categories and the Role of Work",
+  "Life Orientation"
+ ],
  "8|gr8-careers-and-career-choices-t4": [
   "Careers and Career Choices",
   "Life Orientation"
@@ -3879,6 +3883,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Elektroniese Kommunikasie & Resensies",
   "Afrikaans FAL"
  ],
+ "8|gr8-environmental-health-t3": [
+  "Environmental Health: Laws, Earth Day and Programmes",
+  "Life Orientation"
+ ],
  "8|gr8-essay-writing-style-t3": [
   "Essay Writing and Style",
   "English HL"
@@ -3939,6 +3947,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Gear Systems and Mechanical Advantage",
   "Technology"
  ],
+ "8|gr8-gender-equity-and-gbv-t4": [
+  "Gender Equity and Gender-Based Violence",
+  "Life Orientation"
+ ],
  "8|gr8-general-ledger-trial-balance-t4": [
   "The General Ledger and Trial Balance",
   "Economic Management Sciences"
@@ -3969,6 +3981,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "8|gr8-health-and-risk-behaviour-t2": [
   "Health and Risk Behaviour",
+  "Life Orientation"
+ ],
+ "8|gr8-hiv-and-aids-t3": [
+  "HIV and AIDS: Facts, Treatment and Caring",
+  "Life Orientation"
+ ],
+ "8|gr8-human-rights-violations-t4": [
+  "Human Rights Violations and Counter-Strategies",
   "Life Orientation"
  ],
  "8|gr8-impact-and-packaging-t2": [
@@ -4175,6 +4195,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Relationships and Emotional Wellbeing",
   "Life Orientation"
  ],
+ "8|gr8-relationships-friendships-t1": [
+  "Relationships and Friendships: Starting, Keeping and Ending",
+  "Life Orientation"
+ ],
  "8|gr8-resistors-ohm-logic-t4": [
   "Resistors, Ohm's Law and Logic Gates",
   "Technology"
@@ -4206,6 +4230,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-settlement-and-urbanisation-t3": [
   "Settlement and Urbanisation",
   "Geography"
+ ],
+ "8|gr8-sexuality-feelings-values-t1": [
+  "Sexuality: Feelings, Values, Pressure and Respect",
+  "Life Orientation"
  ],
  "8|gr8-short-stories-drama-t3": [
   "Kortverhale & Drama",
