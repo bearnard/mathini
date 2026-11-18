@@ -25,7 +25,7 @@ export const learnSteps: LearnStep[] = [
           aria={"A table of question words and what to listen for. Who: names of people. Where: places. When: dates, times and order words. How many: numbers and amounts. Why: reasons after because or so."}
         />
         <Worked
-          title="A passage of {o.DETAIL8.words} words"
+          title={`A passage of ${o.DETAIL8.words} words`}
           steps={[
             <>Read at {o.DETAIL8.wpm} words a minute, it lasts {o.DETAIL8.words} ÷ {o.DETAIL8.wpm} = {o.detailMinutes()} minutes.</>,
             <>Your notes can be about {o.DETAIL8.notesWords} words of key words.</>,

@@ -18,7 +18,7 @@ export const learnSteps: LearnStep[] = [
           steps={[{ label: "Opening: greet and catch attention" }, { label: "Body: three main points with examples" }, { label: "Closing: sum up, final thought" }]}
         />
         <Worked
-          title="Planning a {o.SPEECH8.minutes}-minute speech"
+          title={`Planning a ${o.SPEECH8.minutes}-minute speech`}
           steps={[
             <>At {o.SPEECH8.wpm} words a minute, {o.SPEECH8.minutes} minutes is {o.SPEECH8.minutes} × {o.SPEECH8.wpm} = {o.speech8Words()} words.</>,
             <>An opening of {o.SPEECH8.openingWords} words and a closing of {o.SPEECH8.closingWords} words leave {o.speech8Words()} − {o.SPEECH8.openingWords} − {o.SPEECH8.closingWords} = {o.speech8BodyWords()} words for the body.</>,

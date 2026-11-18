@@ -45,7 +45,7 @@ for (const [d] of L) {
     }
     assert.equal(new Set(bank.map((q) => q.options.indexOf(q.answer))).size, 4);
     const t = text(d);
-    assert.ok(!/\bNaN\b|undefined|\[object/.test(t));
+    assert.ok(!/\bNaN\b|undefined|\[object|\{o\./.test(t), 'no unevaluated expressions');
     assert.ok(!/\b\d+ marks\b|\bout of \d+\b/i.test(t), 'no invented marks');
   });
 }

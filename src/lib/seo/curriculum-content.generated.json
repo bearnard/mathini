@@ -3747,6 +3747,11 @@
                 "id": "gr9-prepared-speech-techniques-t1",
                 "title": "Prepared Speech and Presentation Techniques",
                 "description": "Planning a persuasive speech, rhetorical devices and appeals, delivery and rubric criteria."
+              },
+              {
+                "id": "gr9-reading-cartoons-visual-texts-t1",
+                "title": "Reading Cartoons and Visual Texts",
+                "description": "Frames, bubbles and captions, exaggeration, symbols and caricature, layout, tone and message."
               }
             ]
           },
@@ -3793,6 +3798,11 @@
                 "id": "gr9-meeting-oral-tasks-t2",
                 "title": "Meeting Oral Tasks",
                 "description": "The roles at a meeting, chairing, proposals and votes, meeting language and minutes."
+              },
+              {
+                "id": "gr9-summary-writing-t2",
+                "title": "Summary Writing",
+                "description": "Main points and key words, writing in your own words and keeping to the word limit."
               }
             ]
           },
@@ -3829,6 +3839,16 @@
                 "id": "gr9-debate-panel-discussion-t3",
                 "title": "Debate and Panel Discussion",
                 "description": "Debate and panel formats, evidence, rebuttal, fallacies, the chair and rubric criteria."
+              },
+              {
+                "id": "gr9-prose-plot-setting-conflict-t3",
+                "title": "Prose: Plot, Setting and Conflict",
+                "description": "The five stages of a plot, setting and mood, and the kinds of conflict, with an original short story."
+              },
+              {
+                "id": "gr9-prose-character-narrator-theme-t3",
+                "title": "Prose: Character, Narrator and Theme",
+                "description": "Characterisation, the narrator and point of view, and finding the theme, with an original passage."
               }
             ]
           },
@@ -3865,6 +3885,11 @@
                 "id": "analysing-a-poem-and-writing-poetry",
                 "title": "Analysing a Poem and Writing Your Own",
                 "description": "A method for analysis, answering contextual questions with model answers, and writing a poem of four to eight stanzas."
+              },
+              {
+                "id": "gr9-prose-contextual-questions-t4",
+                "title": "Answering Contextual Questions on Prose",
+                "description": "Reading an extract, command words and evidence, inference and a full answer."
               }
             ]
           }
