@@ -2572,6 +2572,11 @@
                 "id": "afr-dialogue-interview",
                 "title": "Dialoog en onderhoud",
                 "description": "The layout of a dialogue, and questions and answers in an interview."
+              },
+              {
+                "id": "afr-imagery-sound",
+                "title": "Beeldspraak en klankeffekte",
+                "description": "Vergelyking, metafoor, personifikasie, hiperbool en onomatopee."
               }
             ]
           },
@@ -2598,6 +2603,11 @@
                 "id": "afr-letter-to-the-press",
                 "title": "Brief aan die pers",
                 "description": "Writing to the editor: the greeting, your view with reasons, and a polite request."
+              },
+              {
+                "id": "afr-structure-rhyme",
+                "title": "Struktuur en rymskema",
+                "description": "Vers, reël, uitleg, rymskema, ritme, herhaling en refrein."
               }
             ]
           },
@@ -2634,6 +2644,11 @@
                 "id": "afr-news-report",
                 "title": "Joernalistieke verslag",
                 "description": "Facts first, named sources, the past tense, and no opinion."
+              },
+              {
+                "id": "afr-mood-tone-questions",
+                "title": "Stemming, toon en kontekstuele vrae",
+                "description": "Stemming, toon, tema, kontekstuele vrae en jou eie gedig."
               }
             ]
           }

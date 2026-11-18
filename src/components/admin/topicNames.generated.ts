@@ -4111,6 +4111,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Vriendskaplike brief",
   "Afrikaans FAL"
  ],
+ "8|gr8-afr-imagery-sound-t2": [
+  "Beeldspraak en klankeffekte",
+  "Afrikaans FAL"
+ ],
  "8|gr8-afr-instructions-directions-t2": [
   "Aanwysings en instruksies",
   "Afrikaans FAL"
@@ -4123,12 +4127,20 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Brief aan die pers",
   "Afrikaans FAL"
  ],
+ "8|gr8-afr-mood-tone-questions-t4": [
+  "Stemming, toon en kontekstuele vrae",
+  "Afrikaans FAL"
+ ],
  "8|gr8-afr-news-report-t4": [
   "Joernalistieke verslag",
   "Afrikaans FAL"
  ],
  "8|gr8-afr-newspaper-article-t4": [
   "Koerantberig en tydskrifartikel",
+  "Afrikaans FAL"
+ ],
+ "8|gr8-afr-structure-rhyme-t3": [
+  "Struktuur en rymskema",
   "Afrikaans FAL"
  ],
  "8|gr8-algebraic-equations-t2": [
