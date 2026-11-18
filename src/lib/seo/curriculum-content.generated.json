@@ -6487,6 +6487,11 @@
                 "description": "Comparing private ownership, planning, ideology, and the USA-USSR debate in the 1930s."
               },
               {
+                "id": "gr11-scientific-racism-t3",
+                "title": "Scientific Racism",
+                "description": "Racial classification, Social Darwinism, eugenics, and how pseudo-science justified oppression."
+              },
+              {
                 "id": "gr11-australia-colonisation-race-theories-t2",
                 "title": "Australia: Colonisation and Race Theories",
                 "description": "Colonisation, race theories, the White Australia policy and children sent from Britain."
@@ -6495,6 +6500,11 @@
                 "id": "gr11-stolen-generations-t2",
                 "title": "The Stolen Generations",
                 "description": "Assimilation, Cook and Neville, the removals, Bringing Them Home and the apology."
+              },
+              {
+                "id": "gr11-nazism-and-race-t3",
+                "title": "Nazism and Race",
+                "description": "Aryan supremacy, anti-Semitism, the Holocaust, and the origins of modern human rights law."
               }
             ]
           },
@@ -6503,24 +6513,9 @@
             "title": "Term 3",
             "topics": [
               {
-                "id": "gr11-scientific-racism-t3",
-                "title": "Scientific Racism",
-                "description": "Racial classification, Social Darwinism, eugenics, and how pseudo-science justified oppression."
-              },
-              {
-                "id": "gr11-nazism-and-race-t3",
-                "title": "Nazism and Race",
-                "description": "Aryan supremacy, anti-Semitism, the Holocaust, and the origins of modern human rights law."
-              },
-              {
-                "id": "gr11-segregation-and-apartheid-t3",
-                "title": "Segregation and Apartheid",
-                "description": "Jim Crow, apartheid legislation, and a comparison of racist systems in the USA and South Africa."
-              },
-              {
-                "id": "gr11-resistance-to-racism-t3",
-                "title": "Resistance to Racism",
-                "description": "Civil rights, anti-apartheid struggle, international solidarity, and the defeat of racist systems."
+                "id": "gr11-african-nationalism-t4",
+                "title": "African Nationalism",
+                "description": "The meaning of nationalism, the ANC, Pan-Africanism, and the growth of independence movements."
               },
               {
                 "id": "gr11-afrikaner-nationalism-rise-t3",
@@ -6531,6 +6526,11 @@
                 "id": "gr11-afrikaner-nationalism-volk-power-t3",
                 "title": "Defining the Volk and the Power of Nationalism",
                 "description": "Who belonged to the Volk, class, education, labour, religion, 1948 and how historians explain it."
+              },
+              {
+                "id": "gr11-zionism-arab-nationalism-t4",
+                "title": "Zionism and Arab Nationalism",
+                "description": "Competing claims to Palestine, the 1948 war, and the Palestinian refugee crisis."
               }
             ]
           },
@@ -6539,19 +6539,14 @@
             "title": "Term 4",
             "topics": [
               {
-                "id": "gr11-african-nationalism-t4",
-                "title": "African Nationalism",
-                "description": "The meaning of nationalism, the ANC, Pan-Africanism, and the growth of independence movements."
+                "id": "gr11-segregation-and-apartheid-t3",
+                "title": "Segregation and Apartheid",
+                "description": "Jim Crow, apartheid legislation, and a comparison of racist systems in the USA and South Africa."
               },
               {
-                "id": "gr11-decolonisation-africa-t4",
-                "title": "Decolonisation in Africa",
-                "description": "Post-war independence, Ghana, Kenya, Algeria, the Year of Africa, and colonial legacies."
-              },
-              {
-                "id": "gr11-zionism-arab-nationalism-t4",
-                "title": "Zionism and Arab Nationalism",
-                "description": "Competing claims to Palestine, the 1948 war, and the Palestinian refugee crisis."
+                "id": "gr11-resistance-to-racism-t3",
+                "title": "Resistance to Racism",
+                "description": "Civil rights, anti-apartheid struggle, international solidarity, and the defeat of racist systems."
               },
               {
                 "id": "gr11-liberation-movements-t4",

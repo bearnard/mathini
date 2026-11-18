@@ -48,6 +48,9 @@ const MOVES: [Grade, string, string, number][] = [
   // Grade 10 Physical Sciences Wave B: States of matter and Atoms/Periodic table/Bonding move to Term 1 (CAPS)
   [grade10, 'ps', 'gr10-matter-states-phase-change-t2', 1], [grade10, 'ps', 'gr10-atoms-periodic-table-bonding-t2', 1],
   // Grade 11 Physical Sciences Wave B (CAPS terms)
+  // Grade 11 History Wave B (CAPS terms)
+  [grade11, 'his', 'gr11-scientific-racism-t3', 2], [grade11, 'his', 'gr11-nazism-and-race-t3', 2], [grade11, 'his', 'gr11-african-nationalism-t4', 3],
+  [grade11, 'his', 'gr11-zionism-arab-nationalism-t4', 3], [grade11, 'his', 'gr11-segregation-and-apartheid-t3', 4],
   [grade11, 'ps', 'gr11-intermolecular-forces-t3', 1], [grade11, 'ps', 'gr11-electrostatics-t2', 3], [grade11, 'ps', 'gr11-electric-circuits-t2', 3], [grade11, 'ps', 'gr11-redox-reactions-t3', 4],
 ];
 
@@ -56,7 +59,7 @@ test('moved lessons are listed in their CAPS term', () => {
 });
 
 test('no term of the changed subjects is empty and no topic is listed twice', () => {
-  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade12, 'lo'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade10, 'it'], [grade11, 'it'], [grade12, 'it'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns'], [grade10, 'ps'], [grade11, 'ps']] as [Grade, string][]) {
+  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade12, 'lo'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade10, 'it'], [grade11, 'it'], [grade12, 'it'], [grade11, 'his'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns'], [grade10, 'ps'], [grade11, 'ps']] as [Grade, string][]) {
     const s = g.subjects.find((x) => x.id === id)!;
     for (const t of s.terms) assert.ok(t.topics.length > 0, `${id} term ${t.id}`);
     const ids = s.terms.flatMap((t) => t.topics.map((p) => p.id));
@@ -264,4 +267,21 @@ test('the hidden Grade 11 Physical Sciences lessons are out of the curriculum bu
   const terms = ps.terms.map((t) => t.topics.map((p) => p.id));
   assert.ok(terms[0].includes('gr11-intermolecular-forces-t3') && terms[2].includes('gr11-electrostatics-t2') && terms[2].includes('gr11-electric-circuits-t2') && terms[3].includes('gr11-redox-reactions-t3'));
   for (const t of terms) assert.ok(t.length > 0);
+});
+
+// Wave B, Grade 11 History: Decolonisation in Africa is Grade 12 territory (the Grade 11 CAPS names Gold Coast / Ghana only) and is hidden; code, task instruction and D1 rows stay; the page redirects (308).
+test('the hidden Grade 11 History lesson is out of the curriculum but its code, task instruction and redirect remain; Term 4 is not empty', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const his = grade11.subjects.find((x) => x.id === 'his')!;
+  const ids = his.terms.flatMap((t) => t.topics.map((p) => p.id));
+  assert.ok(!ids.includes('gr11-decolonisation-africa-t4'));
+  assert.ok(fs.existsSync('src/curriculum/grade11/history/term4/decolonisation-africa/DecolonisationAfrica.tsx'));
+  const tasks = JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/his-gr11-term4.json', 'utf8')).tasks as Record<string, string>;
+  assert.ok('gr11-decolonisation-africa-t4' in tasks);
+  assert.equal(LEGACY_REDIRECTS.find((r) => r.source === '/grade-11/history/decolonisation-in-africa')?.destination, '/grade-11/history');
+  // Resistance to Racism and Liberation Movements stay visible until the Topic 5 replacement lessons are live.
+  const t4 = his.terms.find((t) => t.id === 4)!.topics.map((p) => p.id);
+  assert.deepEqual(t4, ['gr11-segregation-and-apartheid-t3', 'gr11-resistance-to-racism-t3', 'gr11-liberation-movements-t4']);
+  for (const t of his.terms) assert.ok(t.topics.length > 0);
 });

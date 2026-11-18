@@ -29,7 +29,8 @@ test('the four lessons are registered in the right terms with their old neighbou
   const t2 = historyGrade11.terms.find((t) => t.id === 2)!.topics.map((t) => t.id);
   assert.deepEqual(t2.slice(0, 4), ['gr11-roaring-twenties-t2', 'gr11-wall-street-crash-t2', 'gr11-new-deal-t2', 'gr11-capitalism-vs-communism-t2']);
   const t3 = historyGrade11.terms.find((t) => t.id === 3)!.topics.map((t) => t.id);
-  assert.deepEqual(t3.slice(0, 4), ['gr11-scientific-racism-t3', 'gr11-nazism-and-race-t3', 'gr11-segregation-and-apartheid-t3', 'gr11-resistance-to-racism-t3']);
+  // Wave B moved the race lessons to Term 2 and the nationalism lessons to Term 3.
+  assert.deepEqual(t3.slice(0, 3), ['gr11-african-nationalism-t4', 'gr11-afrikaner-nationalism-rise-t3', 'gr11-afrikaner-nationalism-volk-power-t3']);
 });
 
 for (const l of LESSONS) {

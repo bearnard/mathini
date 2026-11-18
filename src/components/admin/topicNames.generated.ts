@@ -799,10 +799,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Debugging and Testing",
   "Information Technology"
  ],
- "11|gr11-decolonisation-africa-t4": [
-  "Decolonisation in Africa",
-  "History"
- ],
  "11|gr11-democracy-human-rights-t3": [
   "Democracy and Human Rights",
   "Life Orientation"
