@@ -4239,6 +4239,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Classification of Matter and Periodic Table",
   "Natural Sciences"
  ],
+ "8|gr8-climate-factors-and-sa-climate-t2": [
+  "Climate Factors and South Africa's Climate",
+  "Geography"
+ ],
+ "8|gr8-climate-kinds-and-climate-graphs-t2": [
+  "Kinds of Climate and Climate Graphs",
+  "Geography"
+ ],
  "8|gr8-climate-regions-in-south-africa-and-the-world-t2": [
   "Climate Regions in South Africa and the World",
   "Geography"
@@ -4338,6 +4346,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-environmental-health-t3": [
   "Environmental Health: Laws, Earth Day and Programmes",
   "Life Orientation"
+ ],
+ "8|gr8-equinox-solstice-seasons-t1": [
+  "Equinox, Solstice and the Seasons",
+  "Geography"
  ],
  "8|gr8-essay-writing-style-t3": [
   "Essay Writing and Style",
@@ -4766,6 +4778,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-whole-numbers-and-integers-t1": [
   "Whole Numbers and Integers",
   "Mathematics"
+ ],
+ "8|gr8-world-time-and-sa-standard-time-t1": [
+  "World Time and South African Standard Time",
+  "Geography"
  ],
  "8|gr8-world-war-i-t4": [
   "World War I",
