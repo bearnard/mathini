@@ -795,6 +795,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Database Management Systems and Database Types",
   "Information Technology"
  ],
+ "11|gr11-debate-t1": [
+  "Debate",
+  "English HL"
+ ],
  "11|gr11-debugging-testing-t4": [
   "Debugging and Testing",
   "Information Technology"
@@ -830,6 +834,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-development-of-self-t1": [
   "Development of the Self in Society",
   "Life Orientation"
+ ],
+ "11|gr11-dialogue-interview-t2": [
+  "Dialogues and Interviews",
+  "English HL"
  ],
  "11|gr11-diffraction-t2": [
   "Wavefronts and Diffraction",
@@ -1043,6 +1051,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Websites, HTTP and Internet Security Services",
   "Information Technology"
  ],
+ "11|gr11-introducing-speaker-vote-of-thanks-t4": [
+  "Introducing a Speaker and Offering a Vote of Thanks",
+  "English HL"
+ ],
  "11|gr11-inventory-systems-stock-valuation-t3": [
   "Inventory Systems and Stock Valuation",
   "Accounting"
@@ -1106,6 +1118,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-media-ideology-citizenship-t3": [
   "Media, Ideology and Active Citizenship",
   "Life Orientation"
+ ],
+ "11|gr11-meetings-procedures-t3": [
+  "Meetings and Meeting Procedures",
+  "English HL"
  ],
  "11|gr11-micro-lending-t3": [
   "Micro-lending and Financial Inclusion",
@@ -1239,6 +1255,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Orthophoto Maps: Scale, Measurement and Orientation",
   "Social Sciences: Geography"
  ],
+ "11|gr11-panel-informal-discussion-t2": [
+  "Panel and Informal Discussions",
+  "English HL"
+ ],
  "11|gr11-partner-accounts-final-statements-t1": [
   "Partner Accounts and Final Statements",
   "Accounting"
@@ -1299,6 +1319,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Population and Labour Force",
   "Economics"
  ],
+ "11|gr11-prepared-unprepared-speech-t1": [
+  "Prepared and Unprepared Speeches",
+  "English HL"
+ ],
  "11|gr11-prescribed-prose-poetry-t1": [
   "Prescribed Prose and Poetry",
   "English HL"
@@ -1358,6 +1382,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-relationships-sexuality-health-t1": [
   "Relationships, Sexuality and Health",
   "Life Orientation"
+ ],
+ "11|gr11-report-review-oral-t4": [
+  "Oral Reports and Reviews",
+  "English HL"
  ],
  "11|gr11-resistance-to-apartheid-1948-1960-t4": [
   "Resistance to Apartheid 1948 to 1960",
@@ -1462,6 +1490,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-stolen-generations-t2": [
   "The Stolen Generations",
   "History"
+ ],
+ "11|gr11-storytelling-praise-poems-t3": [
+  "Storytelling and Praise Poems",
+  "English HL"
  ],
  "11|gr11-streaming-compression-t4": [
   "Streaming, Downloading and Compression",

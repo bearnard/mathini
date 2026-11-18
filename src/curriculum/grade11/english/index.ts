@@ -33,6 +33,18 @@ export const englishHLGrade11: Subject = {
           description: 'Listening comprehension strategies, grammar and editing, unprepared speech, inference and critical response.',
           component: lazy(() => import('./term1/listening-language-context/ListeningLanguageContext')),
         },
+        {
+          id: 'gr11-prepared-unprepared-speech-t1',
+          title: "Prepared and Unprepared Speeches",
+          description: "Plan, structure and deliver a prepared speech, use evidence, and handle an unprepared speech.",
+          component: lazy(() => import('./term1/speech-prepared-unprepared/SpeechPreparedUnprepared')),
+        },
+        {
+          id: 'gr11-debate-t1',
+          title: "Debate",
+          description: "The resolution, the affirmative and negative teams, the order of speakers, rebuttals and how to prepare a case.",
+          component: lazy(() => import('./term1/debate-skills/DebateSkills')),
+        },
       ],
     },
     {
@@ -63,6 +75,18 @@ export const englishHLGrade11: Subject = {
           description: 'Paper 1, 2 and 3 structure and strategies, time management, timed writing practice and exam technique.',
           component: lazy(() => import('./term2/midyear-exam-preparation/MidyearExamPreparation')),
         },
+        {
+          id: 'gr11-dialogue-interview-t2',
+          title: "Dialogues and Interviews",
+          description: "Features of a dialogue, the five phases of an interview, open and closed questions, and active listening.",
+          component: lazy(() => import('./term2/dialogue-interview/DialogueInterview')),
+        },
+        {
+          id: 'gr11-panel-informal-discussion-t2',
+          title: "Panel and Informal Discussions",
+          description: "Informal discussion skills, the panel format, the chairperson's duties and conventional phrases.",
+          component: lazy(() => import('./term2/panel-informal-discussion/PanelInformalDiscussion')),
+        },
       ],
     },
     {
@@ -87,6 +111,18 @@ export const englishHLGrade11: Subject = {
           description: 'Editing for accuracy, active and passive voice, direct and indirect speech, parallel structure and prepared oral delivery.',
           component: lazy(() => import('./term3/language-consolidation-editing/LanguageConsolidationEditing')),
         },
+        {
+          id: 'gr11-meetings-procedures-t3',
+          title: "Meetings and Meeting Procedures",
+          description: "The roles at a meeting, the agenda, motions and voting, and how minutes record decisions.",
+          component: lazy(() => import('./term3/meetings-procedures/MeetingsProcedures')),
+        },
+        {
+          id: 'gr11-storytelling-praise-poems-t3',
+          title: "Storytelling and Praise Poems",
+          description: "How to shape and perform an oral story, and the features of a praise poem.",
+          component: lazy(() => import('./term3/storytelling-praise-poems/StorytellingPraisePoems')),
+        },
       ],
     },
     {
@@ -110,6 +146,18 @@ export const englishHLGrade11: Subject = {
           title: 'Exam Readiness',
           description: 'Paper 1, 2 and 3 strategies, time management, common exam traps and approaching all three papers with confidence.',
           component: lazy(() => import('./term4/exam-readiness/ExamReadiness')),
+        },
+        {
+          id: 'gr11-introducing-speaker-vote-of-thanks-t4',
+          title: "Introducing a Speaker and Offering a Vote of Thanks",
+          description: "How to research and give an introduction to a guest speaker and a short, specific vote of thanks.",
+          component: lazy(() => import('./term4/speaker-introduction-vote-of-thanks/IntroducingSpeakerVoteOfThanks')),
+        },
+        {
+          id: 'gr11-report-review-oral-t4',
+          title: "Oral Reports and Reviews",
+          description: "Plan, structure and deliver a 4 to 5 minute oral report or review.",
+          component: lazy(() => import('./term4/report-review-oral/ReportReviewOral')),
         },
       ],
     },
