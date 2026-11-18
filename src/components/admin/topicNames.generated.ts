@@ -5463,6 +5463,18 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Production and Marketing",
   "Economic Management Sciences"
  ],
+ "9|gr9-prose-character-narrator-theme-t3": [
+  "Prose: Character, Narrator and Theme",
+  "English HL"
+ ],
+ "9|gr9-prose-contextual-questions-t4": [
+  "Answering Contextual Questions on Prose",
+  "English HL"
+ ],
+ "9|gr9-prose-plot-setting-conflict-t3": [
+  "Prose: Plot, Setting and Conflict",
+  "English HL"
+ ],
  "9|gr9-pythagoras-t2": [
   "Theorem of Pythagoras",
   "Mathematics"
@@ -5470,6 +5482,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-racism-myth-of-race-t3": [
   "Racism and the Myth of Race",
   "History (Social Sciences)"
+ ],
+ "9|gr9-reading-cartoons-visual-texts-t1": [
+  "Reading Cartoons and Visual Texts",
+  "English HL"
  ],
  "9|gr9-reading-viewing-t1": [
   "Reading & Viewing",
@@ -5586,6 +5602,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-substance-abuse-emotional-safety-t2": [
   "Substance Abuse and Emotional Safety",
   "Life Orientation"
+ ],
+ "9|gr9-summary-writing-t2": [
+  "Summary Writing",
+  "English HL"
  ],
  "9|gr9-surface-volume-3d-t3": [
   "Surface Area and Volume of 3D Objects",

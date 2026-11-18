@@ -18,7 +18,7 @@ export const learnSteps: LearnStep[] = [
           steps={[{ label: "Audience and purpose" }, { label: "Hook in the opening" }, { label: "Strong points with proof" }, { label: "Closing with call to action" }]}
         />
         <Worked
-          title="Words for a {o.SPEECH9.minutes}-minute speech"
+          title={`Words for a ${o.SPEECH9.minutes}-minute speech`}
           steps={[
             <>At {o.SPEECH9.wpm} words a minute, {o.SPEECH9.minutes} minutes is {o.SPEECH9.minutes} × {o.SPEECH9.wpm} = {o.speech9Words()} words.</>,
             <>With {o.SPEECH9.cards} cue cards, you speak about {o.speech9Words()} ÷ {o.SPEECH9.cards} = {o.speech9WordsPerCard()} words from each card.</>,

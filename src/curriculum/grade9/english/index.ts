@@ -39,6 +39,12 @@ export const englishHLGrade9: Subject = {
           description: 'Planning a persuasive speech, rhetorical devices and appeals, delivery and rubric criteria.',
           component: lazy(() => import('./term1/prepared-speech-techniques/PreparedSpeechTechniques')),
         },
+        {
+          id: 'gr9-reading-cartoons-visual-texts-t1',
+          title: 'Reading Cartoons and Visual Texts',
+          description: 'Frames, bubbles and captions, exaggeration, symbols and caricature, layout, tone and message.',
+          component: lazy(() => import('./term1/reading-cartoons-visual-texts/ReadingCartoonsVisualTexts')),
+        },
       ],
     },
     {
@@ -93,6 +99,12 @@ export const englishHLGrade9: Subject = {
           description: 'The roles at a meeting, chairing, proposals and votes, meeting language and minutes.',
           component: lazy(() => import('./term2/meeting-oral-tasks/MeetingOralTasks')),
         },
+        {
+          id: 'gr9-summary-writing-t2',
+          title: 'Summary Writing',
+          description: 'Main points and key words, writing in your own words and keeping to the word limit.',
+          component: lazy(() => import('./term2/summary-writing/SummaryWriting')),
+        },
       ],
     },
     {
@@ -135,6 +147,18 @@ export const englishHLGrade9: Subject = {
           description: 'Debate and panel formats, evidence, rebuttal, fallacies, the chair and rubric criteria.',
           component: lazy(() => import('./term3/debate-panel-discussion/DebatePanelDiscussion')),
         },
+        {
+          id: 'gr9-prose-plot-setting-conflict-t3',
+          title: 'Prose: Plot, Setting and Conflict',
+          description: 'The five stages of a plot, setting and mood, and the kinds of conflict, with an original short story.',
+          component: lazy(() => import('./term3/prose-plot-setting-conflict/ProsePlotSettingConflict')),
+        },
+        {
+          id: 'gr9-prose-character-narrator-theme-t3',
+          title: 'Prose: Character, Narrator and Theme',
+          description: 'Characterisation, the narrator and point of view, and finding the theme, with an original passage.',
+          component: lazy(() => import('./term3/prose-character-narrator-theme/ProseCharacterNarratorTheme')),
+        },
       ],
     },
     {
@@ -176,6 +200,12 @@ export const englishHLGrade9: Subject = {
           title: "Analysing a Poem and Writing Your Own",
           description: "A method for analysis, answering contextual questions with model answers, and writing a poem of four to eight stanzas.",
           component: lazy(() => import('./term4/analysing-a-poem-and-writing-poetry/AnalysingAPoemAndWritingPoetry')),
+        },
+        {
+          id: 'gr9-prose-contextual-questions-t4',
+          title: 'Answering Contextual Questions on Prose',
+          description: 'Reading an extract, command words and evidence, inference and a full answer.',
+          component: lazy(() => import('./term4/prose-contextual-questions/ProseContextualQuestions')),
         },
       ],
     },

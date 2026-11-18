@@ -18,7 +18,7 @@ export const learnSteps: LearnStep[] = [
           steps={[{ label: "Read it silently first" }, { label: "Mark pauses and hard words" }, { label: "Practise it aloud" }, { label: "Read it to the listeners" }]}
         />
         <Worked
-          title="A passage of {o.READ.words} words"
+          title={`A passage of ${o.READ.words} words`}
           steps={[
             <>At a steady {o.READ.wpm} words a minute, {o.READ.words} words take {o.READ.words} ÷ {o.READ.wpm} = {o.readMinutes()} minutes.</>,
             <>If you read much faster, listeners cannot follow every word.</>,
