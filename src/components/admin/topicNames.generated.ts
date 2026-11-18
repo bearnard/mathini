@@ -811,6 +811,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Drama and Poetry Comparison",
   "English HL"
  ],
+ "11|gr11-economic-growth-wealth-t2": [
+  "Economic Growth and Wealth Creation",
+  "Economics"
+ ],
  "11|gr11-el-nino-la-nina-t1": [
   "El Niño and La Niña",
   "Social Sciences: Geography"
@@ -1043,6 +1047,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Manufacturing Costs and Break-Even",
   "Accounting"
  ],
+ "11|gr11-marginal-utility-t2": [
+  "Marginal Utility",
+  "Economics"
+ ],
  "11|gr11-market-structures-t2": [
   "Market Structures, Costs and Revenue",
   "Economics"
@@ -1234,6 +1242,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-population-ecology-t3": [
   "Population Ecology",
   "Life Sciences"
+ ],
+ "11|gr11-population-labour-force-t1": [
+  "Population and Labour Force",
+  "Economics"
  ],
  "11|gr11-prescribed-prose-poetry-t1": [
   "Prescribed Prose and Poetry",
