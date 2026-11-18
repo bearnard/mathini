@@ -33,6 +33,12 @@ export const afrikaansFALGrade9: Subject = {
           description: 'Thanking someone for help: the opening, what changed, the format and the formal u.',
           component: lazy(() => import('./term1/letter-of-appreciation/LetterOfAppreciation')),
         },
+        {
+          id: 'afr-speech-techniques',
+          title: 'Toesprake: tegnieke en aanbieding',
+          description: 'Planning a persuasive speech, the three appeals, delivery and time.',
+          component: lazy(() => import('./term1/speech-techniques/SpeechTechniques')),
+        },
       ],
     },
     {
@@ -62,6 +68,12 @@ export const afrikaansFALGrade9: Subject = {
           title: 'Grondwet en Beleid',
           description: 'The parts of a constitution, moet and mag, and how a policy differs.',
           component: lazy(() => import('./term2/constitution-policy/ConstitutionPolicy')),
+        },
+        {
+          id: 'afr-meeting-orals',
+          title: 'Vergaderings: mondelinge taak',
+          description: 'Roles at a meeting, proposals and votes, formal language and minutes.',
+          component: lazy(() => import('./term2/meeting-orals/MeetingOrals')),
         },
       ],
     },
@@ -98,6 +110,12 @@ export const afrikaansFALGrade9: Subject = {
           title: 'CV en Dekbrief',
           description: 'CV headings, referees, and the key sentences, layout and closing of a covering letter.',
           component: lazy(() => import('./term3/cv-covering-letter/CvCoveringLetter')),
+        },
+        {
+          id: 'afr-debate-panel',
+          title: 'Debat en paneelbespreking',
+          description: 'Debate and panel, evidence and rebuttal, the chairperson and courtesy.',
+          component: lazy(() => import('./term3/debate-panel/DebatePanel')),
         },
       ],
     },

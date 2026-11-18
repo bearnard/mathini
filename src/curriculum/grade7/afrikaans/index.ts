@@ -39,6 +39,12 @@ export const afrikaansFALGrade7: Subject = {
           description: 'The parts of a poem, rhyming words, and the layout of a dialogue.',
           component: lazy(() => import('./term1/poem-dialogue/PoemDialogue')),
         },
+        {
+          id: 'afr-reading-aloud',
+          title: 'Hardoplees',
+          description: 'Reading aloud: preparing, voice, eye contact and practice.',
+          component: lazy(() => import('./term1/reading-aloud/ReadingAloud')),
+        },
       ],
     },
     {
@@ -80,6 +86,12 @@ export const afrikaansFALGrade7: Subject = {
           title: "Beeldspraak in gedigte",
           description: "Vergelyking, metafoor en personifikasie in 'n gedig.",
           component: lazy(() => import('./term2/figures-poems/FiguresPoems')),
+        },
+        {
+          id: 'afr-listening-strategies',
+          title: 'Luister met \'n doel',
+          description: 'Listening with a purpose, notes and key words, fact, opinion and tone.',
+          component: lazy(() => import('./term2/listening-strategies/ListeningStrategies')),
         },
       ],
     },
@@ -128,6 +140,12 @@ export const afrikaansFALGrade7: Subject = {
           title: "Klank en struktuur in gedigte",
           description: "Rym, rymskema, alliterasie, herhaling, vers en refrein.",
           component: lazy(() => import('./term3/sound-structure-poems/SoundStructurePoems')),
+        },
+        {
+          id: 'afr-debate',
+          title: 'Debat',
+          description: 'The motion, the two teams, building an argument, politeness and time.',
+          component: lazy(() => import('./term3/debate/Debate')),
         },
       ],
     },

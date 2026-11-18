@@ -3571,6 +3571,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Advertensie en plakkaat",
   "Afrikaans FAL"
  ],
+ "7|gr7-afr-debate-t3": [
+  "Debat",
+  "Afrikaans FAL"
+ ],
  "7|gr7-afr-diary-email-flyer-t4": [
   "Dagboek, e-pos en strooibiljet",
   "Afrikaans FAL"
@@ -3595,6 +3599,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Instruksies en aanwysings",
   "Afrikaans FAL"
  ],
+ "7|gr7-afr-listening-strategies-t2": [
+  "Luister met 'n doel",
+  "Afrikaans FAL"
+ ],
  "7|gr7-afr-newspaper-article-interview-t3": [
   "Koerantberig en onderhoud",
   "Afrikaans FAL"
@@ -3605,6 +3613,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-afr-poem-dialogue-t1": [
   "Gedig en dialoog",
+  "Afrikaans FAL"
+ ],
+ "7|gr7-afr-reading-aloud-t1": [
+  "Hardoplees",
   "Afrikaans FAL"
  ],
  "7|gr7-afr-sound-structure-poems-t3": [
@@ -4119,12 +4131,20 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Aanwysings en instruksies",
   "Afrikaans FAL"
  ],
+ "8|gr8-afr-interview-t3": [
+  "Onderhoud: mondeling",
+  "Afrikaans FAL"
+ ],
  "8|gr8-afr-investigative-report-t1": [
   "Ondersoekende verslag en vraelys",
   "Afrikaans FAL"
  ],
  "8|gr8-afr-letter-to-the-press-t3": [
   "Brief aan die pers",
+  "Afrikaans FAL"
+ ],
+ "8|gr8-afr-listening-detail-t2": [
+  "Luister vir besonderhede",
   "Afrikaans FAL"
  ],
  "8|gr8-afr-mood-tone-questions-t4": [
@@ -4137,6 +4157,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "8|gr8-afr-newspaper-article-t4": [
   "Koerantberig en tydskrifartikel",
+  "Afrikaans FAL"
+ ],
+ "8|gr8-afr-prepared-speech-t1": [
+  "Voorbereide toespraak",
   "Afrikaans FAL"
  ],
  "8|gr8-afr-structure-rhyme-t3": [
@@ -4919,6 +4943,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "CV en Dekbrief",
   "Afrikaans FAL"
  ],
+ "9|gr9-afr-debate-panel-t3": [
+  "Debat en paneelbespreking",
+  "Afrikaans FAL"
+ ],
  "9|gr9-afr-diary-entry-t2": [
   "Dagboekinskrywing",
   "Afrikaans FAL"
@@ -4933,6 +4961,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "9|gr9-afr-letter-of-appreciation-t1": [
   "Brief van Waardering",
+  "Afrikaans FAL"
+ ],
+ "9|gr9-afr-meeting-orals-t2": [
+  "Vergaderings: mondelinge taak",
+  "Afrikaans FAL"
+ ],
+ "9|gr9-afr-speech-techniques-t1": [
+  "Toesprake: tegnieke en aanbieding",
   "Afrikaans FAL"
  ],
  "9|gr9-afr-synoptic-revision-t4": [
