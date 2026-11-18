@@ -44,23 +44,6 @@ export const technologyGrade8: Subject = {
       title: 'Term 2',
       topics: [
         {
-          id: 'electrical-systems-and-circuit-safety',
-          title: 'Electrical Systems and Circuit Safety',
-          description: 'Series and parallel circuits, components, and safe electrical practices.',
-          component: lazy(
-            () =>
-              import(
-                './term2/electrical-systems-and-circuit-safety/ElectricalSystemsAndCircuitSafety'
-              ),
-          ),
-        },
-        {
-          id: 'logic-and-pat-design-work',
-          title: 'Logic and PAT Design Work',
-          description: 'AND/OR logic, truth tables, control systems, and panic-button design ideas.',
-          component: lazy(() => import('./term2/logic-and-pat-design-work/LogicAndPatDesignWork')),
-        },
-        {
           id: 'impact-and-packaging',
           title: 'Impact of Technology and Packaging',
           description: 'Positive and negative impact, plastic bags, recycling paper and designing packaging from a net.',
@@ -120,15 +103,21 @@ export const technologyGrade8: Subject = {
       title: 'Term 4',
       topics: [
         {
-          id: 'indigenous-technology-and-processing',
-          title: 'Indigenous Technology and Processing',
-          description: 'Corrosion prevention, food preservation, local knowledge, and sustainability.',
+          id: 'electrical-systems-and-circuit-safety',
+          title: 'Electrical Systems and Circuit Safety',
+          description: 'Series and parallel circuits, components, and safe electrical practices.',
           component: lazy(
             () =>
               import(
-                './term4/indigenous-technology-and-processing/IndigenousTechnologyAndProcessing'
+                './term2/electrical-systems-and-circuit-safety/ElectricalSystemsAndCircuitSafety'
               ),
           ),
+        },
+        {
+          id: 'logic-and-pat-design-work',
+          title: 'Logic and PAT Design Work',
+          description: 'AND/OR logic, truth tables, control systems, and panic-button design ideas.',
+          component: lazy(() => import('./term2/logic-and-pat-design-work/LogicAndPatDesignWork')),
         },
         {
           id: 'cells-batteries-solar',

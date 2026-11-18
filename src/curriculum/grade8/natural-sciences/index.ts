@@ -32,18 +32,6 @@ export const naturalSciencesGrade8: Subject = {
       title: 'Term 2',
       topics: [
         {
-          id: 'biogeochemical-cycles',
-          title: 'Biogeochemical Cycles',
-          description: 'Water, carbon, and nitrogen cycles with decomposers and matter recycling.',
-          component: lazy(() => import('./term2/biogeochemical-cycles/BiogeochemicalCycles')),
-        },
-        {
-          id: 'solar-system-and-gravity',
-          title: 'Solar System and Gravity',
-          description: 'Solar-system objects, scale ideas, and gravity as the force of attraction.',
-          component: lazy(() => import('./term2/solar-system-and-gravity/SolarSystemAndGravity')),
-        },
-        {
           id: 'particle-model-and-states',
           title: 'Particle Model of Matter and States',
           description: 'Arrangement and movement of particles in solids, liquids and gases, change of state and diffusion.',
@@ -67,12 +55,6 @@ export const naturalSciencesGrade8: Subject = {
           description: 'Reactants, products, rearranged atoms and everyday chemical reactions.',
           component: lazy(() => import('./term2/reactants-and-products/ReactantsAndProducts')),
         },
-      ],
-    },
-    {
-      id: 3,
-      title: 'Term 3',
-      topics: [
         {
           id: 'classification-of-matter-and-periodic-table',
           title: 'Classification of Matter and Periodic Table',
@@ -84,17 +66,12 @@ export const naturalSciencesGrade8: Subject = {
               ),
           ),
         },
-        {
-          id: 'chemical-reactions-acids-and-bases',
-          title: 'Chemical Reactions, Acids and Bases',
-          description: 'Reaction evidence, indicators, neutralisation, and separating mixtures.',
-          component: lazy(
-            () =>
-              import(
-                './term3/chemical-reactions-acids-and-bases/ChemicalReactionsAcidsAndBases'
-              ),
-          ),
-        },
+      ],
+    },
+    {
+      id: 3,
+      title: 'Term 3',
+      topics: [
         {
           id: 'static-electricity',
           title: 'Static Electricity',
@@ -126,20 +103,10 @@ export const naturalSciencesGrade8: Subject = {
       title: 'Term 4',
       topics: [
         {
-          id: 'forces-motion-and-measurement',
-          title: 'Forces, Motion and Measurement',
-          description: 'Distance-time-speed relationships and common contact and non-contact forces.',
-          component: lazy(
-            () => import('./term4/forces-motion-and-measurement/ForcesMotionAndMeasurement'),
-          ),
-        },
-        {
-          id: 'forms-and-transfer-of-energy',
-          title: 'Forms and Transfer of Energy',
-          description: 'Energy forms, transfer pathways, and conservation of energy in systems.',
-          component: lazy(
-            () => import('./term4/forms-and-transfer-of-energy/FormsAndTransferOfEnergy'),
-          ),
+          id: 'solar-system-and-gravity',
+          title: 'Solar System and Gravity',
+          description: 'Solar-system objects, scale ideas, and gravity as the force of attraction.',
+          component: lazy(() => import('./term2/solar-system-and-gravity/SolarSystemAndGravity')),
         },
         {
           id: 'beyond-the-solar-system',

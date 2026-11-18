@@ -62,6 +62,7 @@ export const learnSteps: LearnStep[] = [
     content: slide(
       <>
         <Rule>To find the effect of a transaction, decide which items increase or decrease: assets, liabilities or owner's equity. Earning service fees increases an asset (bank) and owner's equity. Paying an expense decreases an asset and owner's equity. Repaying a loan decreases an asset and a liability.</Rule>
+        <Rule>Money coming in is first written in the cash receipts journal and money going out in the cash payments journal. These are subsidiary journals (books of first entry), and you will use them from Term 2.</Rule>
         <EquationBalance assets={end.assets} liabilities={end.liabilities} equity={end.equity} aria="The accounting equation after all five transactions: assets R25 000 equal liabilities R3 000 plus owner's equity R22 000." />
         <Worked
           title="The last three transactions"
