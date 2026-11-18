@@ -3447,6 +3447,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Colonisation of the Cape",
   "History"
  ],
+ "7|gr7-common-diseases-obesity-anorexia-hiv-t4": [
+  "Common Diseases: Obesity, Anorexia and HIV and AIDS",
+  "Life Orientation"
+ ],
+ "7|gr7-common-diseases-tb-diabetes-epilepsy-t4": [
+  "Common Diseases: TB, Diabetes and Epilepsy",
+  "Life Orientation"
+ ],
  "7|gr7-common-fractions-t2": [
   "Common Fractions",
   "Mathematics"
@@ -3483,6 +3491,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Data Handling",
   "Mathematics"
  ],
+ "7|gr7-dealing-with-abuse-t2": [
+  "Dealing with Abuse",
+  "Life Orientation"
+ ],
  "7|gr7-decimal-fractions-t2": [
   "Decimal Fractions",
   "Mathematics"
@@ -3490,6 +3502,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "7|gr7-design-process-and-structures-t1": [
   "Design Process and Structures",
   "Technology"
+ ],
+ "7|gr7-diet-and-nutrition-t4": [
+  "Diet and Nutrition",
+  "Life Orientation"
  ],
  "7|gr7-direct-reported-speech-t2": [
   "Direct and Reported Speech",
@@ -3506,6 +3522,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "7|gr7-energy-transfer-heat-and-motion-t3": [
   "Energy Transfer, Heat and Motion",
   "Natural Sciences"
+ ],
+ "7|gr7-environmental-health-t3": [
+  "Environmental Health: Local Problems, Projects and Action Plans",
+  "Life Orientation"
  ],
  "7|gr7-exam-writing-practice-t4": [
   "Exam Writing Practice",
@@ -3647,6 +3667,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Numeric and Geometric Patterns",
   "Mathematics"
  ],
+ "7|gr7-oral-traditions-and-scriptures-t4": [
+  "Oral Traditions and Scriptures of Major Religions",
+  "Life Orientation"
+ ],
  "7|gr7-patterns-functions-and-algebra-consolidation-t4": [
   "Patterns, Functions and Algebra Consolidation",
   "Mathematics"
@@ -3718,6 +3742,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "7|gr7-project-language-refinement-t3": [
   "Project and Language Refinement",
   "English HL"
+ ],
+ "7|gr7-reading-studying-memory-t1": [
+  "Reading, Studying and Memory Skills",
+  "Life Orientation"
  ],
  "7|gr7-reading-viewing-t1": [
   "Reading & Viewing",
