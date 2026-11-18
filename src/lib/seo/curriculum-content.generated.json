@@ -3933,6 +3933,11 @@
                 "id": "afr-meeting-orals",
                 "title": "Vergaderings: mondelinge taak",
                 "description": "Roles at a meeting, proposals and votes, formal language and minutes."
+              },
+              {
+                "id": "afr-imagery-symbol",
+                "title": "Beeld, simbool en ironie",
+                "description": "Beeld, simbool, ironie en kontras in 'n gedig."
               }
             ]
           },
@@ -3969,6 +3974,11 @@
                 "id": "afr-debate-panel",
                 "title": "Debat en paneelbespreking",
                 "description": "Debate and panel, evidence and rebuttal, the chairperson and courtesy."
+              },
+              {
+                "id": "afr-form-structure",
+                "title": "Vorm en struktuur",
+                "description": "Vrye vers, gerymde vers, koeplet, kwatryn en enjambement."
               }
             ]
           },
@@ -4000,6 +4010,11 @@
                 "id": "afr-email",
                 "title": "E-pos",
                 "description": "The parts of an e-mail, a formal and an informal message, and choosing the register."
+              },
+              {
+                "id": "afr-tone-questions-writing",
+                "title": "Toon, boodskap, vrae en skryf",
+                "description": "Toon, boodskap, kontekstuele vrae en jou eie gedig."
               }
             ]
           }

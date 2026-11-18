@@ -75,6 +75,12 @@ export const afrikaansFALGrade9: Subject = {
           description: 'Roles at a meeting, proposals and votes, formal language and minutes.',
           component: lazy(() => import('./term2/meeting-orals/MeetingOrals')),
         },
+        {
+          id: 'afr-imagery-symbol',
+          title: "Beeld, simbool en ironie",
+          description: "Beeld, simbool, ironie en kontras in 'n gedig.",
+          component: lazy(() => import('./term2/imagery-symbol/ImagerySymbol')),
+        },
       ],
     },
     {
@@ -117,6 +123,12 @@ export const afrikaansFALGrade9: Subject = {
           description: 'Debate and panel, evidence and rebuttal, the chairperson and courtesy.',
           component: lazy(() => import('./term3/debate-panel/DebatePanel')),
         },
+        {
+          id: 'afr-form-structure',
+          title: "Vorm en struktuur",
+          description: "Vrye vers, gerymde vers, koeplet, kwatryn en enjambement.",
+          component: lazy(() => import('./term3/form-structure/FormStructure')),
+        },
       ],
     },
     {
@@ -152,6 +164,12 @@ export const afrikaansFALGrade9: Subject = {
           title: 'E-pos',
           description: 'The parts of an e-mail, a formal and an informal message, and choosing the register.',
           component: lazy(() => import('./term4/email/Email')),
+        },
+        {
+          id: 'afr-tone-questions-writing',
+          title: "Toon, boodskap, vrae en skryf",
+          description: "Toon, boodskap, kontekstuele vrae en jou eie gedig.",
+          component: lazy(() => import('./term4/tone-questions-writing/ToneQuestionsWriting')),
         },
       ],
     },
