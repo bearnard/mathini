@@ -32,6 +32,18 @@ export const lifeOrientationGrade8: Subject = {
           ),
         },
         {
+          id: 'gr8-sexuality-feelings-values-t1',
+          title: "Sexuality: Feelings, Values, Pressure and Respect",
+          description: "Normal feelings, what influences you, respect and consent, saying no and where to get help.",
+          component: lazy(() => import('./term1/sexuality-feelings-values/SexualityFeelingsValues')),
+        },
+        {
+          id: 'gr8-relationships-friendships-t1',
+          title: "Relationships and Friendships: Starting, Keeping and Ending",
+          description: "Starting a friendship, healthy friendships, constructive disagreement and ending an unhealthy friendship.",
+          component: lazy(() => import('./term1/relationships-friendships/RelationshipsFriendships')),
+        },
+        {
           id: 'study-skills-and-personal-organisation',
           title: 'Study Skills and Personal Organisation',
           description: 'Time management, homework routines, concentration, and planning habits.',
@@ -74,6 +86,12 @@ export const lifeOrientationGrade8: Subject = {
           ),
         },
         {
+          id: 'gr8-career-categories-t2',
+          title: "The Six Career Categories and the Role of Work",
+          description: "Realistic, investigative, artistic, social, enterprising and conventional careers, and how work meets needs.",
+          component: lazy(() => import('./term2/career-categories/CareerCategories')),
+        },
+        {
           id: 'community-responsibility',
           title: 'Community Responsibility',
           description: 'Community services, empathy, shared spaces, reporting, and volunteering.',
@@ -104,6 +122,18 @@ export const lifeOrientationGrade8: Subject = {
           component: lazy(() => import('./term3/diversity-and-nation-building/DiversityAndNationBuilding')),
         },
         {
+          id: 'gr8-hiv-and-aids-t3',
+          title: "HIV and AIDS: Facts, Treatment and Caring",
+          description: "What HIV and AIDS are, how HIV is and is not passed on, prevention, testing, treatment and ending stigma.",
+          component: lazy(() => import('./term3/hiv-and-aids/HivAndAids')),
+        },
+        {
+          id: 'gr8-environmental-health-t3',
+          title: "Environmental Health: Laws, Earth Day and Programmes",
+          description: "Environmental health, laws that protect the environment, Earth Day and planning a programme.",
+          component: lazy(() => import('./term3/environmental-health/EnvironmentalHealth')),
+        },
+        {
           id: 'conflict-management-and-communication',
           title: 'Conflict Management and Communication',
           description: 'Mediation, assertiveness, listening, compromise, and problem solving.',
@@ -131,6 +161,18 @@ export const lifeOrientationGrade8: Subject = {
           title: 'Careers and Career Choices',
           description: 'Interests, abilities, occupations, and aspiration mapping.',
           component: lazy(() => import('./term4/careers-and-career-choices/CareersAndCareerChoices')),
+        },
+        {
+          id: 'gr8-human-rights-violations-t4',
+          title: "Human Rights Violations and Counter-Strategies",
+          description: "Types of human rights violations and peaceful, lawful ways to respond.",
+          component: lazy(() => import('./term4/human-rights-violations/HumanRightsViolations')),
+        },
+        {
+          id: 'gr8-gender-equity-and-gbv-t4',
+          title: "Gender Equity and Gender-Based Violence",
+          description: "Gender equity in sport, gender-based violence, its impact, the law and where to get help.",
+          component: lazy(() => import('./term4/gender-equity-and-gbv/GenderEquityAndGbv')),
         },
         {
           id: 'learning-styles-and-exam-readiness',

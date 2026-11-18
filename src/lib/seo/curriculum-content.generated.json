@@ -2963,6 +2963,16 @@
                 "description": "Peer pressure, bullying, abuse awareness, communication, and help-seeking."
               },
               {
+                "id": "gr8-sexuality-feelings-values-t1",
+                "title": "Sexuality: Feelings, Values, Pressure and Respect",
+                "description": "Normal feelings, what influences you, respect and consent, saying no and where to get help."
+              },
+              {
+                "id": "gr8-relationships-friendships-t1",
+                "title": "Relationships and Friendships: Starting, Keeping and Ending",
+                "description": "Starting a friendship, healthy friendships, constructive disagreement and ending an unhealthy friendship."
+              },
+              {
                 "id": "study-skills-and-personal-organisation",
                 "title": "Study Skills and Personal Organisation",
                 "description": "Time management, homework routines, concentration, and planning habits."
@@ -2987,6 +2997,11 @@
                 "id": "health-and-risk-behaviour",
                 "title": "Health and Risk Behaviour",
                 "description": "Substance abuse awareness, personal safety, refusal skills, and resilience."
+              },
+              {
+                "id": "gr8-career-categories-t2",
+                "title": "The Six Career Categories and the Role of Work",
+                "description": "Realistic, investigative, artistic, social, enterprising and conventional careers, and how work meets needs."
               },
               {
                 "id": "community-responsibility",
@@ -3015,6 +3030,16 @@
                 "description": "Culture, prejudice, inclusion, ubuntu, and social cohesion."
               },
               {
+                "id": "gr8-hiv-and-aids-t3",
+                "title": "HIV and AIDS: Facts, Treatment and Caring",
+                "description": "What HIV and AIDS are, how HIV is and is not passed on, prevention, testing, treatment and ending stigma."
+              },
+              {
+                "id": "gr8-environmental-health-t3",
+                "title": "Environmental Health: Laws, Earth Day and Programmes",
+                "description": "Environmental health, laws that protect the environment, Earth Day and planning a programme."
+              },
+              {
                 "id": "conflict-management-and-communication",
                 "title": "Conflict Management and Communication",
                 "description": "Mediation, assertiveness, listening, compromise, and problem solving."
@@ -3034,6 +3059,16 @@
                 "id": "careers-and-career-choices",
                 "title": "Careers and Career Choices",
                 "description": "Interests, abilities, occupations, and aspiration mapping."
+              },
+              {
+                "id": "gr8-human-rights-violations-t4",
+                "title": "Human Rights Violations and Counter-Strategies",
+                "description": "Types of human rights violations and peaceful, lawful ways to respond."
+              },
+              {
+                "id": "gr8-gender-equity-and-gbv-t4",
+                "title": "Gender Equity and Gender-Based Violence",
+                "description": "Gender equity in sport, gender-based violence, its impact, the law and where to get help."
               },
               {
                 "id": "learning-styles-and-exam-readiness",
