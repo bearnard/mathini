@@ -22,3 +22,15 @@ Source: DBE CAPS Social Sciences Grades 7-9, Grade 8 Geography Terms 1 to 4 (sp_
 | 14 | Climate kinds | Ten kinds of climate follow the CAPS list. | CAPS says other atlases may group them differently as long as six or more are used. |
 | 15 | Climate kinds | The three example climate graphs (Mediterranean, tropical, desert) use invented values and are labelled "invented values, not a real place". Example A total 580 mm; Example B 2 320 mm with a 1 °C range; Example C 37 mm. | No real place is described by these numbers. |
 | 16 | Climate kinds | The latitude strip is labelled "schematic, not to scale" (tropical 0 to 15, deserts 15 to 35, temperate 35 to 60, polar 60 to 90 degrees). | Real boundaries are not straight lines of latitude. |
+
+## Branch D (Terms 3 and 4)
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 17 | Settlement project | The lesson is a guide to the formally assessed project (parts, reasons for location, interviews, sketch map). It does not replace the project and gives no marks. | Please check that the six parts match your school's task sheet. |
+| 18 | Settlement project | Johannesburg is the example for growth after gold ("found there in 1886"); a mine closing is the example for decline. | Standard; no figures about people or jobs. |
+| 19 | Land use | Residential patterns are described by income (large plots, gardens; small plots, many people per hectare; informal settlements) and linked to apartheid planning and the cost of land. | Sensitive topic; stated plainly and without place names. The common-mistake box says informal settlements are communities. |
+| 20 | Land use | Rural types follow CAPS (farming, mining, forestry, fishing); the vertical and oblique photographs are explained in one line each. | CAPS says models of land use and topographic maps are not needed at this level. |
+| 21 | Transport | The harbour case study is Durban (sheltered natural bay, road, rail and pipeline links to Gauteng; containers, fuel, vehicles, sugar and citrus; container ships, tankers, bulk carriers, car carriers, passenger liners). | CAPS lets the teacher pick the harbour. The cargo lists are qualitative; no tonnes, rand or percentages are given, since they change from year to year. Please confirm Durban is the harbour you teach. |
+| 22 | Transport | International examples of public transit: Bogotá (Colombia) and Curitiba (Brazil) for bus rapid transport; the pedestrian streets of many European city centres for car-free zones. | Standard examples; the lesson does not give dates or numbers. |
+| 23 | Transport | South African bus rapid transport systems are mentioned as being in Johannesburg and Cape Town, without their names. | Kept general because the systems change. |

@@ -3258,6 +3258,16 @@
                 "id": "settlement-and-urbanisation",
                 "title": "Settlement and Urbanisation",
                 "description": "Settlement types, land use, migration, urban growth, and South African urban history."
+              },
+              {
+                "id": "settlement-investigation-project",
+                "title": "Investigating a Settlement",
+                "description": "A guide to the Term 3 project: describing, explaining, interviewing and drawing a sketch map."
+              },
+              {
+                "id": "land-use-urban-and-rural-settlements",
+                "title": "Land Use in Urban and Rural Settlements",
+                "description": "The zones of a town, high-, middle- and low-income housing, rural settlement types, and aerial photographs."
               }
             ]
           },
@@ -3269,6 +3279,11 @@
                 "id": "transport-and-trade",
                 "title": "Transport and Trade",
                 "description": "Trade reasons, transport modes, harbours, and commuter movement in urban areas."
+              },
+              {
+                "id": "moving-goods-and-people-in-south-africa",
+                "title": "Moving Goods and People in South Africa",
+                "description": "Road and rail, a harbour case study, and public transport in cities."
               }
             ]
           }
