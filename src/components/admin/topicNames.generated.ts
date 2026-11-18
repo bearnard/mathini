@@ -4115,6 +4115,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Area, Perimeter, Surface Area and Volume",
   "Mathematics"
  ],
+ "8|gr8-ashanti-kingdom-and-the-gold-coast-t3": [
+  "The Ashanti Kingdom and the Gold Coast",
+  "History"
+ ],
  "8|gr8-atoms-elements-compounds-t2": [
   "Atoms, Elements, Compounds and Mixtures",
   "Natural Sciences"
@@ -4126,6 +4130,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-bicycle-gears-systems-diagrams-t3": [
   "Bicycle Gears and Systems Diagrams",
   "Technology"
+ ],
+ "8|gr8-britain-home-front-world-war-i-t4": [
+  "Britain at Home in World War I",
+  "History"
  ],
  "8|gr8-britain-workers-and-protest-t1": [
   "Workers and Protest in Industrial Britain",

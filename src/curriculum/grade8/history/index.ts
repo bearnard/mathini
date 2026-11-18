@@ -88,6 +88,12 @@ export const historyGrade8: Subject = {
             'Berlin Conference, imperial expansion, resistance in Africa, and long-term consequences.',
           component: lazy(() => import('./term3/scramble-for-africa/ScrambleForAfrica')),
         },
+        {
+          id: 'ashanti-kingdom-and-the-gold-coast',
+          title: "The Ashanti Kingdom and the Gold Coast",
+          description: "The coast before the Europeans, early contact, British colonisation and its results.",
+          component: lazy(() => import('./term3/ashanti-kingdom-and-the-gold-coast/AshantiKingdomAndTheGoldCoast')),
+        },
       ],
     },
     {
@@ -100,6 +106,12 @@ export const historyGrade8: Subject = {
           description:
             'Nationalism, alliances, trench warfare, propaganda, women in war, and South African experiences.',
           component: lazy(() => import('./term4/world-war-i/WorldWarI')),
+        },
+        {
+          id: 'britain-home-front-world-war-i',
+          title: "Britain at Home in World War I",
+          description: "Conscription, propaganda, conscientious objectors, music and poetry, and women.",
+          component: lazy(() => import('./term4/britain-home-front-world-war-i/BritainHomeFrontWorldWarI')),
         },
       ],
     },

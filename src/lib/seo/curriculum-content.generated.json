@@ -3318,6 +3318,11 @@
                 "id": "scramble-for-africa",
                 "title": "The Scramble for Africa",
                 "description": "Berlin Conference, imperial expansion, resistance in Africa, and long-term consequences."
+              },
+              {
+                "id": "ashanti-kingdom-and-the-gold-coast",
+                "title": "The Ashanti Kingdom and the Gold Coast",
+                "description": "The coast before the Europeans, early contact, British colonisation and its results."
               }
             ]
           },
@@ -3329,6 +3334,11 @@
                 "id": "world-war-i",
                 "title": "World War I",
                 "description": "Nationalism, alliances, trench warfare, propaganda, women in war, and South African experiences."
+              },
+              {
+                "id": "britain-home-front-world-war-i",
+                "title": "Britain at Home in World War I",
+                "description": "Conscription, propaganda, conscientious objectors, music and poetry, and women."
               }
             ]
           }
