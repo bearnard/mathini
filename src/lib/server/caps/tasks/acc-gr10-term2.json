@@ -1,6 +1,8 @@
 {
   "tasks": {
     "gr10-combined-transactions-reconciliations": "Topic: Combined transactions and reconciliations. Cover combined cash and credit transactions, debtors reconciliation, creditors reconciliation, control accounts, subsidiary ledgers. Ask about reconciliation adjustments, matching, error-spotting.",
-    "gr10-payroll-year-end-procedures": "Topic: Payroll and year-end procedures. Cover salaries and wages, deductions, employer contributions, SJ, WJ, pre/post-adjustment trial balance, final accounts. Ask about payroll calculations, adjustment entries, final-account formats."
+    "gr10-payroll-year-end-procedures": "Topic: Payroll and year-end procedures. Cover salaries and wages, deductions, employer contributions, SJ, WJ, pre/post-adjustment trial balance, final accounts. Ask about payroll calculations, adjustment entries, final-account formats.",
+    "gr10-vat-concepts-rates-t2": "Topic: VAT need, purpose, principles and rates. Ask about vendors, output and input VAT, tax invoices, VAT-able, zero-rated and exempt items at general level, the 15% rate.",
+    "gr10-vat-calculations-account-t2": "Topic: VAT calculations and the VAT Control account. Ask about price including and excluding VAT, net VAT payable or refundable, debit and credit sides, paying SARS."
   }
 }

@@ -147,6 +147,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Cost Accounting Basics",
   "Accounting"
  ],
+ "10|gr10-cost-concepts-budget-types-t4": [
+  "Cost Concepts and Budget Types",
+  "Accounting"
+ ],
  "10|gr10-creative-thinking-opportunity-analysis": [
   "Creative Thinking and Opportunity Analysis",
   "Business Studies"
@@ -286,6 +290,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-integrated-solution-development-t3": [
   "Integrated Solution Development",
   "Information Technology"
+ ],
+ "10|gr10-internal-control-components-t1": [
+  "Internal Control: the Five Components",
+  "Accounting"
  ],
  "10|gr10-internet-communication-networks": [
   "Internet, Communication and Networks",
@@ -614,6 +622,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-trigonometry-t1": [
   "Trigonometry",
   "Mathematics"
+ ],
+ "10|gr10-vat-calculations-account-t2": [
+  "VAT Calculations: Input, Output and the VAT Account",
+  "Accounting"
+ ],
+ "10|gr10-vat-concepts-rates-t2": [
+  "VAT: Need, Purpose, Principles and Rates",
+  "Accounting"
  ],
  "10|gr10-vectors-motion-mechanical-energy-t3": [
   "Vectors, Motion and Mechanical Energy",
