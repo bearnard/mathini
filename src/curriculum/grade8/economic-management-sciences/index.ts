@@ -99,6 +99,18 @@ export const emsGrade8: Subject = {
           description: 'Banking services, savings and interest, entrepreneurial qualities, and integrated case studies connecting all EMS concepts.',
           component: lazy(() => import('./term4/banking-saving/BankingSaving')),
         },
+        {
+          id: 'levels-functions-management',
+          title: 'Levels and Functions of Management',
+          description: 'Levels of management, planning, organising, leading and controlling, management styles and good management.',
+          component: lazy(() => import('./term4/levels-functions-management/LevelsFunctionsManagement')),
+        },
+        {
+          id: 'general-ledger-trial-balance',
+          title: 'The General Ledger and Trial Balance',
+          description: 'Double entry, T accounts, posting from the cash journals, balancing accounts and preparing a trial balance of a service business.',
+          component: lazy(() => import('./term4/general-ledger-trial-balance/GeneralLedgerTrialBalance')),
+        },
       ],
     },
   ],

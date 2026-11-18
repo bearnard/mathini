@@ -3855,6 +3855,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Gear Systems and Mechanical Advantage",
   "Technology"
  ],
+ "8|gr8-general-ledger-trial-balance-t4": [
+  "The General Ledger and Trial Balance",
+  "Economic Management Sciences"
+ ],
  "8|gr8-geometry-of-2d-shapes-and-straight-lines-t2": [
   "Geometry of 2D Shapes and Straight Lines",
   "Mathematics"
@@ -3946,6 +3950,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-letter-to-the-press-t3": [
   "Writing a Letter to the Press",
   "English HL"
+ ],
+ "8|gr8-levels-functions-management-t4": [
+  "Levels and Functions of Management",
+  "Economic Management Sciences"
  ],
  "8|gr8-listening-speaking-t1": [
   "Listening & Speaking",

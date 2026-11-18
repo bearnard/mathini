@@ -3139,6 +3139,16 @@
                 "id": "banking-saving",
                 "title": "Banking, Saving and EMS Consolidation",
                 "description": "Banking services, savings and interest, entrepreneurial qualities, and integrated case studies connecting all EMS concepts."
+              },
+              {
+                "id": "levels-functions-management",
+                "title": "Levels and Functions of Management",
+                "description": "Levels of management, planning, organising, leading and controlling, management styles and good management."
+              },
+              {
+                "id": "general-ledger-trial-balance",
+                "title": "The General Ledger and Trial Balance",
+                "description": "Double entry, T accounts, posting from the cash journals, balancing accounts and preparing a trial balance of a service business."
               }
             ]
           }
