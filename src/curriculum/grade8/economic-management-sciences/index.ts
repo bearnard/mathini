@@ -45,6 +45,24 @@ export const emsGrade8: Subject = {
           description: 'The accounting cycle, cash receipts journal, general ledger, and the four factors of production in entrepreneurship.',
           component: lazy(() => import('./term2/financial-literacy-entrepreneurship/FinancialLiteracyEntrepreneurship')),
         },
+        {
+          id: 'accounting-cycle-statements',
+          title: 'The Accounting Cycle: Income Statement and Balance Sheet',
+          description: 'The accounting cycle, the ledger and trial balance, and the income statement and balance sheet of a service business.',
+          component: lazy(() => import('./term2/accounting-cycle-statements/AccountingCycleStatements')),
+        },
+        {
+          id: 'cash-receipts-journal',
+          title: 'Cash Receipts Journal',
+          description: 'Recording and closing off cash received by a service business, and its effect on the accounting equation.',
+          component: lazy(() => import('./term2/cash-receipts-journal/CashReceiptsJournal')),
+        },
+        {
+          id: 'factors-markets',
+          title: 'Factors of Production and Markets',
+          description: 'Factors of production, remuneration, kinds of labour, fair employment, and the goods and services and factor markets.',
+          component: lazy(() => import('./term2/factors-markets/FactorsMarkets')),
+        },
       ],
     },
     {

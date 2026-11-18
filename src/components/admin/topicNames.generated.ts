@@ -3575,6 +3575,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Accounting Concepts and the Accounting Equation",
   "Economic Management Sciences"
  ],
+ "8|gr8-accounting-cycle-statements-t2": [
+  "The Accounting Cycle: Income Statement and Balance Sheet",
+  "Economic Management Sciences"
+ ],
  "8|gr8-afr-creative-writing-project-t3": [
   "Kreatiewe Skryfprojek",
   "Afrikaans FAL"
@@ -3661,6 +3665,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "8|gr8-cash-payments-business-ownership-t3": [
   "Cash Payments, Business Ownership and Management",
+  "Economic Management Sciences"
+ ],
+ "8|gr8-cash-receipts-journal-t2": [
+  "Cash Receipts Journal",
   "Economic Management Sciences"
  ],
  "8|gr8-cells-batteries-solar-t4": [
@@ -3794,6 +3802,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-exponents-t1": [
   "Exponents",
   "Mathematics"
+ ],
+ "8|gr8-factors-markets-t2": [
+  "Factors of Production and Markets",
+  "Economic Management Sciences"
  ],
  "8|gr8-financial-literacy-entrepreneurship-t2": [
   "Financial Literacy and Entrepreneurship Basics",
