@@ -3831,12 +3831,28 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Brochures and Visual Literacy",
   "English HL"
  ],
+ "8|gr8-ca-careers-decoration-t3": [
+  "Careers in Arts and Design and Surface Decoration",
+  "Creative Arts"
+ ],
+ "8|gr8-ca-clay-containers-t1": [
+  "Clay and Mythological Containers",
+  "Creative Arts"
+ ],
  "8|gr8-ca-dialogue-storytelling-t4": [
   "Dialogues, Dramatised Prose and Indigenous Storytelling",
   "Creative Arts"
  ],
+ "8|gr8-ca-fashion-design-t2": [
+  "Fashion Design from Recyclables",
+  "Creative Arts"
+ ],
  "8|gr8-ca-instrument-families-t1": [
   "Families of Instruments",
+  "Creative Arts"
+ ],
+ "8|gr8-ca-lettering-graffiti-t1": [
+  "Creative Lettering and Graffiti",
   "Creative Arts"
  ],
  "8|gr8-ca-media-t4": [
@@ -3859,8 +3875,20 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Polished Improvisation in a Style",
   "Creative Arts"
  ],
+ "8|gr8-ca-scraperboard-t4": [
+  "Scraperboard Etching",
+  "Creative Arts"
+ ],
  "8|gr8-ca-six-eight-d-major-t4": [
   "6/8, D Major, Tempo and Articulation",
+  "Creative Arts"
+ ],
+ "8|gr8-ca-societal-issues-art-t2": [
+  "Societal Issues in South African Art",
+  "Creative Arts"
+ ],
+ "8|gr8-ca-tone-texture-t4": [
+  "Tone and Texture: Crumpled Fabric, Oil Pastel and Tempera",
   "Creative Arts"
  ],
  "8|gr8-ca-triplets-f-major-t2": [

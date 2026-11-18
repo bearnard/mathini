@@ -2791,6 +2791,16 @@
                 "id": "instrument-families",
                 "title": "Families of Instruments",
                 "description": "Membranophones, idiophones, chordophones and aerophones and how to hear the difference."
+              },
+              {
+                "id": "lettering-graffiti",
+                "title": "Creative Lettering and Graffiti",
+                "description": "Lettering in popular culture, art elements, design principles, complementary colours and designing with ink."
+              },
+              {
+                "id": "clay-mythological-containers",
+                "title": "Clay and Mythological Containers",
+                "description": "Functional containers, the pinch pot, joining and decorating clay, and a mythological container from recyclables."
               }
             ]
           },
@@ -2827,6 +2837,16 @@
                 "id": "sa-poetry-praise-poetry",
                 "title": "South African Poetry and Praise Poetry",
                 "description": "Interpreting a poem, mood, praise poetry, call and response and the role of the praise poet."
+              },
+              {
+                "id": "fashion-design-recyclables",
+                "title": "Fashion Design from Recyclables",
+                "description": "Fashion through the ages, designing a garment, tools and sharing, and careers in fashion."
+              },
+              {
+                "id": "societal-issues-art",
+                "title": "Societal Issues in South African Art",
+                "description": "Art as social commentary, symbols, drawing with 2B, 3B and 4B pencils, planning and respect."
               }
             ]
           },
@@ -2863,6 +2883,11 @@
                 "id": "polished-improvisation-style",
                 "title": "Polished Improvisation in a Style",
                 "description": "Comedy, tragedy, musical or puppet show, drama elements, technical resources and justifying your choices."
+              },
+              {
+                "id": "careers-surface-decoration",
+                "title": "Careers in Arts and Design and Surface Decoration",
+                "description": "Careers in the arts and design, researching a career, surface decoration and making 2D and 3D designs."
               }
             ]
           },
@@ -2904,6 +2929,16 @@
                 "id": "drama-in-the-media",
                 "title": "Drama in the Media",
                 "description": "Film, television, radio, documentaries and the internet, drama elements in the media and responding to a media drama."
+              },
+              {
+                "id": "tone-texture-pastel-tempera",
+                "title": "Tone and Texture: Crumpled Fabric, Oil Pastel and Tempera",
+                "description": "Drawing crumpled fabric, design principles, oil pastel and tempera, and talking about artworks."
+              },
+              {
+                "id": "scraperboard-etching",
+                "title": "Scraperboard Etching",
+                "description": "Wax and ink scraperboard, shape, line, tone and texture, contrast and emphasis, and working safely."
               }
             ]
           }
