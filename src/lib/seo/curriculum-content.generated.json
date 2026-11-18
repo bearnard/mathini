@@ -3267,6 +3267,11 @@
                 "id": "grammar-revision-accuracy",
                 "title": "Grammar Revision and Accuracy",
                 "description": "Nouns, adjectives, verbs, punctuation, direct and indirect speech."
+              },
+              {
+                "id": "letter-of-appreciation",
+                "title": "Writing a Letter of Appreciation",
+                "description": "Thanking someone for help or advice: the layout, the main and supporting ideas, and a polite, warm register."
               }
             ]
           },
@@ -3382,6 +3387,11 @@
                 "id": "afr-language-structures",
                 "title": "Taalstrukture in Konteks",
                 "description": "Plurals, adjectives, tenses, punctuation in literature and composition."
+              },
+              {
+                "id": "afr-letter-of-appreciation",
+                "title": "Brief van Waardering",
+                "description": "Thanking someone for help: the opening, what changed, the format and the formal u."
               }
             ]
           },

@@ -4479,6 +4479,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Taalstrukture in Konteks",
   "Afrikaans FAL"
  ],
+ "9|gr9-afr-letter-of-appreciation-t1": [
+  "Brief van Waardering",
+  "Afrikaans FAL"
+ ],
  "9|gr9-afr-synoptic-revision-t4": [
   "Sinoptiese Hersiening",
   "Afrikaans FAL"
@@ -4793,6 +4797,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "9|gr9-letter-of-application-t4": [
   "Writing a Letter of Application",
+  "English HL"
+ ],
+ "9|gr9-letter-of-appreciation-t1": [
+  "Writing a Letter of Appreciation",
   "English HL"
  ],
  "9|gr9-letters-reviews-t2": [

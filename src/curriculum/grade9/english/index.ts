@@ -27,6 +27,12 @@ export const englishHLGrade9: Subject = {
           description: 'Nouns, adjectives, verbs, punctuation, direct and indirect speech.',
           component: lazy(() => import('./term1/grammar-revision-accuracy/GrammarRevisionAccuracy')),
         },
+        {
+          id: 'letter-of-appreciation',
+          title: 'Writing a Letter of Appreciation',
+          description: 'Thanking someone for help or advice: the layout, the main and supporting ideas, and a polite, warm register.',
+          component: lazy(() => import('./term1/letter-of-appreciation/LetterOfAppreciation')),
+        },
       ],
     },
     {
