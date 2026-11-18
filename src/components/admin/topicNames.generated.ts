@@ -4383,6 +4383,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Instruction Texts and Giving Directions",
   "English HL"
  ],
+ "8|gr8-interest-hire-purchase-exchange-t1": [
+  "Interest, Hire Purchase and Exchange Rates",
+  "Mathematics"
+ ],
  "8|gr8-investigative-report-t1": [
   "Writing an Investigative Report",
   "English HL"
@@ -4507,6 +4511,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Particle Model of Matter and States",
   "Natural Sciences"
  ],
+ "8|gr8-percentages-and-financial-t1": [
+  "Percentages and Financial Contexts",
+  "Mathematics"
+ ],
  "8|gr8-photosynthesis-and-respiration-t1": [
   "Photosynthesis and Respiration",
   "Natural Sciences"
@@ -4537,6 +4545,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "8|gr8-probability-t4": [
   "Probability",
+  "Mathematics"
+ ],
+ "8|gr8-ratio-and-rate-t1": [
+  "Ratio and Rate",
   "Mathematics"
  ],
  "8|gr8-reactants-and-products-t2": [
@@ -4582,6 +4594,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-revision-oral-completion-t4": [
   "Revision and Oral Completion",
   "English HL"
+ ],
+ "8|gr8-scientific-notation-t1": [
+  "Scientific Notation",
+  "Mathematics"
  ],
  "8|gr8-scramble-for-africa-t3": [
   "The Scramble for Africa",
