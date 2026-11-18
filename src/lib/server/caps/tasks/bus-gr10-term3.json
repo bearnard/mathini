@@ -1,6 +1,9 @@
 {
   "tasks": {
     "gr10-creative-thinking-opportunity-analysis": "Topic: Creative thinking and opportunity analysis. Cover creative thinking, problem-solving cycle, business opportunities, market research. Ask about problem-solving steps, opportunity screening, case-study evaluations.",
-    "gr10-business-information-planning": "Topic: Business information and planning. Cover presentation methods, business plan structure, viability. Ask about presentation techniques, business-plan sections, planning application to scenarios."
+    "gr10-business-information-planning": "Topic: Business information and planning. Cover presentation methods, business plan structure, viability. Ask about presentation techniques, business-plan sections, planning application to scenarios.",
+    "gr10-business-location-t3": "Topic: Business location decision (Grade 10 Business Studies, Term 3). Cover why location matters, the factors (labour, transport and infrastructure, electricity and water, market, raw materials, climate, regulations, taxes, crime) and weighted scoring of sites. Ask Grade 10 learners directly (you); give all data in the question; name Acts only as areas of law, with no section numbers or thresholds.",
+    "gr10-contracts-t3": "Topic: Contracts (Grade 10 Business Studies, Term 3). Cover what a contract is and what makes it valid, the employment, insurance, lease, hire purchase and rental contracts with their parties, rights and responsibilities, and the total and extra cost of hire purchase. Ask Grade 10 learners directly (you); give all data in the question; name Acts only as areas of law, with no section numbers or thresholds.",
+    "gr10-swot-research-creative-t3": "Topic: SWOT, research and creative techniques (Grade 10 Business Studies, Term 3). Cover SWOT, primary and secondary research instruments and survey percentages, brainstorming, mind maps, SCAMPER, force-field analysis and indigenous knowledge, and viability. Ask Grade 10 learners directly (you); give all data in the question; name Acts only as areas of law, with no section numbers or thresholds."
   }
 }
