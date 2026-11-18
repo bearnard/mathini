@@ -22,7 +22,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: "Which word can begin an adjectival (relative) clause?",
-    options: ["because", "who", "when", "if"],
+    options: ["because", "who", "although", "if"],
     answer: "who",
     explanation: "Who is a relative pronoun.",
   },
