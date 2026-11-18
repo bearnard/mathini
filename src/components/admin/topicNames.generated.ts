@@ -4955,6 +4955,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "E-pos",
   "Afrikaans FAL"
  ],
+ "9|gr9-afr-form-structure-t3": [
+  "Vorm en struktuur",
+  "Afrikaans FAL"
+ ],
+ "9|gr9-afr-imagery-symbol-t2": [
+  "Beeld, simbool en ironie",
+  "Afrikaans FAL"
+ ],
  "9|gr9-afr-language-structures-t1": [
   "Taalstrukture in Konteks",
   "Afrikaans FAL"
@@ -4973,6 +4981,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "9|gr9-afr-synoptic-revision-t4": [
   "Sinoptiese Hersiening",
+  "Afrikaans FAL"
+ ],
+ "9|gr9-afr-tone-questions-writing-t4": [
+  "Toon, boodskap, vrae en skryf",
   "Afrikaans FAL"
  ],
  "9|gr9-afr-will-testament-t3": [
