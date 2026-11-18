@@ -69,6 +69,12 @@ export const lifeSciencesGrade12: Subject = {
           description: "Human nervous coordination, reflex arc, eye and ear function.",
           component: lazy(() => import('./term2/nervous-system-sense-organs/NervousSystemSenseOrgans')),
         },
+        {
+          id: 'gr12-nervous-disorders-injuries-drugs-t2',
+          title: "Nervous System: Disorders, Injuries and the Effects of Drugs",
+          description: "Alzheimer's disease and MS, brain and spinal injuries, the effects of drugs and a reaction-time investigation.",
+          component: lazy(() => import('./term2/nervous-disorders-injuries-drugs/NervousDisordersInjuriesDrugs')),
+        },
       ],
     },
     {
@@ -82,10 +88,28 @@ export const lifeSciencesGrade12: Subject = {
           component: lazy(() => import('./term2/endocrine-homeostasis-plant-responses/EndocrineHomeostasisPlantResponses')),
         },
         {
+          id: 'gr12-plant-defence-t3',
+          title: "Plant Defence Mechanisms",
+          description: "Physical and chemical defences of plants.",
+          component: lazy(() => import('./term3/plant-defence/PlantDefence')),
+        },
+        {
           id: 'gr12-evolution-natural-selection-t3',
           title: "Evolution by Natural Selection",
           description: "Natural selection, comparison of theories, speciation and evidence for evolution.",
           component: lazy(() => import('./term3/evolution-natural-selection/EvolutionNaturalSelection')),
+        },
+        {
+          id: 'gr12-artificial-selection-isolation-t3',
+          title: "Artificial Selection and Reproductive Isolation",
+          description: "Artificial selection, reproductive isolation mechanisms and how isolation leads to new species.",
+          component: lazy(() => import('./term3/artificial-selection-isolation/ArtificialSelectionIsolation')),
+        },
+        {
+          id: 'gr12-evolution-present-times-t3',
+          title: "Evolution in Present Times",
+          description: "Resistance to insecticides, antibiotics and antiretrovirals, Galapagos finch beaks and speciation.",
+          component: lazy(() => import('./term3/evolution-present-times/EvolutionPresentTimes')),
         },
         {
           id: 'gr12-human-evolution-t3',
@@ -116,6 +140,12 @@ export const lifeSciencesGrade12: Subject = {
           title: "Alternatives to Evolution",
           description: "Creationism, Intelligent Design, Literalism and Theistic evolution as views people hold.",
           component: lazy(() => import('./term4/alternatives-to-evolution/AlternativesToEvolution')),
+        },
+        {
+          id: 'gr12-human-impact-environment-t4',
+          title: "Human Impact on the Environment: Paper 2 Revision",
+          description: "Causes and effects of human impact, data on environmental change and solutions.",
+          component: lazy(() => import('./term4/human-impact-environment/HumanImpactEnvironment')),
         },
         {
           id: 'gr12-paper1-human-reproduction-homeostasis-t4',
