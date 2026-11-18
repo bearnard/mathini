@@ -9200,6 +9200,11 @@
                 "id": "gr12-plastics-polymers-t1",
                 "title": "Plastics and Polymers",
                 "description": "Monomers and polymers, addition and condensation polymerisation, recycling codes and the environment."
+              },
+              {
+                "id": "gr12-polymers-monomers-recycling-t1",
+                "title": "Polymers: Identifying Monomers, Uses and Recycling Numbers",
+                "description": "Monomers from a chain section, addition or condensation from the structure, polythene uses and recycling numbers."
               }
             ]
           },
@@ -9262,6 +9267,16 @@
                 "id": "gr12-fertiliser-industry-t3",
                 "title": "The Fertiliser Industry",
                 "description": "N, P and K fertilisers, the Haber, Ostwald and contact processes, and the effect of fertilisers on the environment."
+              },
+              {
+                "id": "gr12-plant-nutrients-t3",
+                "title": "Plant Nutrients: Sources, Functions and History",
+                "description": "Non-mineral and mineral nutrients, the jobs of N, P and K, early fertilisers and the N:P:K ratio."
+              },
+              {
+                "id": "gr12-fertiliser-manufacture-t3",
+                "title": "Making Fertilisers in Industry: Raw Materials, Sasol and Alternatives",
+                "description": "Raw materials, ammonia-based, phosphate and potassium fertilisers, Sasol, advantages and alternatives."
               }
             ]
           },

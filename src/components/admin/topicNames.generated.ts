@@ -1995,6 +1995,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "The Fertiliser Industry",
   "Physical Sciences"
  ],
+ "12|gr12-fertiliser-manufacture-t3": [
+  "Making Fertilisers in Industry: Raw Materials, Sasol and Alternatives",
+  "Physical Sciences"
+ ],
  "12|gr12-final-nsc-paper-strategy-t4": [
   "Final NSC Paper Strategy",
   "English HL"
@@ -2427,6 +2431,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Physical Education Task — Term 4",
   "Life Orientation"
  ],
+ "12|gr12-plant-nutrients-t3": [
+  "Plant Nutrients: Sources, Functions and History",
+  "Physical Sciences"
+ ],
  "12|gr12-plastics-polymers-t1": [
   "Plastics and Polymers",
   "Physical Sciences"
@@ -2434,6 +2442,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-political-violence-and-transition-t3": [
   "Political Violence and Transition",
   "History"
+ ],
+ "12|gr12-polymers-monomers-recycling-t1": [
+  "Polymers: Identifying Monomers, Uses and Recycling Numbers",
+  "Physical Sciences"
  ],
  "12|gr12-polynomial-functions-t2": [
   "Polynomial Functions",
