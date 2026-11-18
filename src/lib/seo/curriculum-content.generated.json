@@ -3688,6 +3688,16 @@
                 "id": "constitution-and-policy",
                 "title": "Writing a Constitution and a Policy",
                 "description": "Features of the rules, the parts of a constitution, formal language, and how a policy differs."
+              },
+              {
+                "id": "imagery-and-symbolism-in-poems",
+                "title": "Imagery and Symbolism in Poems",
+                "description": "The senses in a poem, symbols, extended metaphor and how they carry meaning."
+              },
+              {
+                "id": "form-and-structure-in-poems",
+                "title": "Form and Structure in Poems",
+                "description": "Stanza forms, free verse, enjambment, caesura and the sonnet."
               }
             ]
           },
@@ -3714,6 +3724,11 @@
                 "id": "cv-and-covering-letter",
                 "title": "Writing a CV and a Covering Letter",
                 "description": "What a CV provides, how to present it, and the layout and language of a covering letter."
+              },
+              {
+                "id": "tone-mood-irony-and-message",
+                "title": "Tone, Mood, Irony and the Poet's Message",
+                "description": "Reading the speaker's attitude, the feeling of the poem, irony and the message."
               }
             ]
           },
@@ -3745,6 +3760,11 @@
                 "id": "email",
                 "title": "Writing an E-mail",
                 "description": "The parts of an e-mail, the address, formal and informal register, and the writing process."
+              },
+              {
+                "id": "analysing-a-poem-and-writing-poetry",
+                "title": "Analysing a Poem and Writing Your Own",
+                "description": "A method for analysis, answering contextual questions with model answers, and writing a poem of four to eight stanzas."
               }
             ]
           }
