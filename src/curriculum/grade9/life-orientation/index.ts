@@ -88,12 +88,6 @@ export const lifeOrientationGrade9: Subject = {
       title: 'Term 3',
       topics: [
         {
-          id: 'gr9-diversity-social-justice-t3',
-          title: 'Diversity and Social Justice',
-          description: 'Analyse discrimination, promote gender equity, and build inclusive communities.',
-          component: lazy(() => import('./term3/diversity-social-justice/DiversitySocialJustice')),
-        },
-        {
           id: 'gr9-conflict-resolution-advocacy-t3',
           title: 'Conflict Resolution and Advocacy',
           description: 'Use negotiation and mediation strategies, develop leadership, and advocate for change.',
@@ -129,12 +123,6 @@ export const lifeOrientationGrade9: Subject = {
       id: 4,
       title: 'Term 4',
       topics: [
-        {
-          id: 'gr9-study-methods-exam-readiness-t4',
-          title: 'Study Methods and Exam Readiness',
-          description: 'Develop exam technique, revision schedules, and stress management for the FET phase.',
-          component: lazy(() => import('./term4/study-methods-exam-readiness/StudyMethodsExamReadiness')),
-        },
         {
           id: 'gr9-responsible-future-planning-t4',
           title: 'Responsible Future Planning',

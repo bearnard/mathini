@@ -83,6 +83,16 @@ const CA8_HIDDEN = [
   ['music-term-4', '6-8-d-major-tempo-and-articulation'],
 ].map(([slug, to]) => ({ source: `${CA8}/${slug}`, destination: `${CA8}/${to}` }));
 
+/** Senior Phase Life Orientation Wave B: six lessons that are not in the Grade 8 or Grade 9 CAPS (Grade 8 study skills, community responsibility, conflict management and responsible decision-making; Grade 9 diversity and social justice, study methods and exam readiness) are hidden now that the CAPS lessons exist (code, task instructions and D1 questions kept); their pages go to the Life Orientation subject page. */
+const LO_SENIOR_HIDDEN = [
+  ['grade-8', 'study-skills-and-personal-organisation'],
+  ['grade-8', 'community-responsibility'],
+  ['grade-8', 'conflict-management-and-communication'],
+  ['grade-8', 'responsible-decision-making'],
+  ['grade-9', 'diversity-and-social-justice'],
+  ['grade-9', 'study-methods-and-exam-readiness'],
+].map(([g, slug]) => ({ source: `/${g}/life-orientation/${slug}`, destination: `/${g}/life-orientation` }));
+
 /** Invented lessons that are not in the CAPS are hidden (code, task instructions and D1 questions kept). Grade 6 Geography: Mediterranean, Temperate and Polar (the CAPS has coniferous forests), Vegetation and Adaptations (taught inside each region lesson), Impact of Migration. Grade 6 Natural Sciences and Technology: Day, Night and Seasons (seasons are not Grade 6 CAPS; day and night are in Earth and Moon Movement). Grade 9 EMS: Entrepreneurship and Financial Planning, Business Responsibility and Integration. Grade 9 English: Reports and Instructional Texts. Grade 9 Afrikaans: Formal Correspondence. Each page goes to the closest live lesson, or to the subject page. */
 const INVENTED_HIDDEN = [
   ['/grade-6/geography/mediterranean-temperate-and-polar', '/grade-6/geography/coniferous-forests'],
@@ -121,6 +131,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   ...HIS11_HIDDEN,
   ...G8_HIDDEN,
   ...CA8_HIDDEN,
+  ...LO_SENIOR_HIDDEN,
   ...INVENTED_HIDDEN,
 ];
 
