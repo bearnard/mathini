@@ -33,6 +33,12 @@ export const englishHLGrade9: Subject = {
           description: 'Thanking someone for help or advice: the layout, the main and supporting ideas, and a polite, warm register.',
           component: lazy(() => import('./term1/letter-of-appreciation/LetterOfAppreciation')),
         },
+        {
+          id: 'gr9-prepared-speech-techniques-t1',
+          title: 'Prepared Speech and Presentation Techniques',
+          description: 'Planning a persuasive speech, rhetorical devices and appeals, delivery and rubric criteria.',
+          component: lazy(() => import('./term1/prepared-speech-techniques/PreparedSpeechTechniques')),
+        },
       ],
     },
     {
@@ -81,6 +87,12 @@ export const englishHLGrade9: Subject = {
           description: "Stanza forms, free verse, enjambment, caesura and the sonnet.",
           component: lazy(() => import('./term2/form-and-structure-in-poems/FormAndStructureInPoems')),
         },
+        {
+          id: 'gr9-meeting-oral-tasks-t2',
+          title: 'Meeting Oral Tasks',
+          description: 'The roles at a meeting, chairing, proposals and votes, meeting language and minutes.',
+          component: lazy(() => import('./term2/meeting-oral-tasks/MeetingOralTasks')),
+        },
       ],
     },
     {
@@ -116,6 +128,12 @@ export const englishHLGrade9: Subject = {
           title: "Tone, Mood, Irony and the Poet's Message",
           description: "Reading the speaker's attitude, the feeling of the poem, irony and the message.",
           component: lazy(() => import('./term3/tone-mood-irony-and-message/ToneMoodIronyAndMessage')),
+        },
+        {
+          id: 'gr9-debate-panel-discussion-t3',
+          title: 'Debate and Panel Discussion',
+          description: 'Debate and panel formats, evidence, rebuttal, fallacies, the chair and rubric criteria.',
+          component: lazy(() => import('./term3/debate-panel-discussion/DebatePanelDiscussion')),
         },
       ],
     },

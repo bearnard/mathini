@@ -3679,6 +3679,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Dealing with Abuse",
   "Life Orientation"
  ],
+ "7|gr7-debate-skills-t3": [
+  "Debate Skills",
+  "English HL"
+ ],
  "7|gr7-decimal-fractions-t2": [
   "Decimal Fractions",
   "Mathematics"
@@ -3831,6 +3835,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Listening & Speaking",
   "isiXhosa SAL"
  ],
+ "7|gr7-listening-strategies-t2": [
+  "Listening Strategies",
+  "English HL"
+ ],
  "7|gr7-mali-and-timbuktu-in-the-fourteenth-century-t1": [
   "Mali and Timbuktu in the Fourteenth Century",
   "History"
@@ -3961,6 +3969,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-pronouns-t3": [
   "Pronouns",
+  "English HL"
+ ],
+ "7|gr7-reading-aloud-t1": [
+  "Reading Aloud",
   "English HL"
  ],
  "7|gr7-reading-studying-memory-t1": [
@@ -4483,6 +4495,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Interest, Hire Purchase and Exchange Rates",
   "Mathematics"
  ],
+ "8|gr8-interview-skills-t3": [
+  "Interview Skills: Planning, Asking and Answering",
+  "English HL"
+ ],
  "8|gr8-investigative-report-t1": [
   "Writing an Investigative Report",
   "English HL"
@@ -4546,6 +4562,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-levels-functions-management-t4": [
   "Levels and Functions of Management",
   "Economic Management Sciences"
+ ],
+ "8|gr8-listening-detail-viewpoint-t2": [
+  "Listening for Detail and Viewpoint",
+  "English HL"
  ],
  "8|gr8-listening-speaking-t1": [
   "Listening & Speaking",
@@ -4662,6 +4682,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-poetry-early-literature-study-t1": [
   "Poësie & Vroeë Literatuurstudie",
   "Afrikaans FAL"
+ ],
+ "8|gr8-prepared-speech-t1": [
+  "Prepared Speech: Structure, Delivery and Rubric",
+  "English HL"
  ],
  "8|gr8-probability-t4": [
   "Probability",
@@ -5015,6 +5039,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Data Handling",
   "Mathematics"
  ],
+ "9|gr9-debate-panel-discussion-t3": [
+  "Debate and Panel Discussion",
+  "English HL"
+ ],
  "9|gr9-debtors-credit-t2": [
   "Credit Sales and the Debtors Journal",
   "Economic Management Sciences"
@@ -5271,6 +5299,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Mechanical Control Systems",
   "Technology"
  ],
+ "9|gr9-meeting-oral-tasks-t2": [
+  "Meeting Oral Tasks",
+  "English HL"
+ ],
  "9|gr9-music-t1": [
   "Music",
   "Creative Arts"
@@ -5341,6 +5373,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "9|gr9-poetry-drama-study-t2": [
   "Poetry and Drama Study",
+  "English HL"
+ ],
+ "9|gr9-prepared-speech-techniques-t1": [
+  "Prepared Speech and Presentation Techniques",
   "English HL"
  ],
  "9|gr9-price-theory-t2": [
