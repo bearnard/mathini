@@ -3415,6 +3415,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Writing and Presenting",
   "isiXhosa SAL"
  ],
+ "7|gr7-adjectives-comparison-t1": [
+  "Adjectives and Degrees of Comparison",
+  "English HL"
+ ],
  "7|gr7-afr-exam-writing-practice-t4": [
   "Eksamen-skryf Oefening",
   "Afrikaans FAL"
@@ -3607,6 +3611,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Mechanical Systems and Control",
   "Technology"
  ],
+ "7|gr7-multiple-meanings-t1": [
+  "Words with More Than One Meaning",
+  "English HL"
+ ],
  "7|gr7-national-electricity-grid-t3": [
   "The National Electricity Supply",
   "Natural Sciences"
@@ -3679,6 +3687,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Population Growth and Change",
   "Geography"
  ],
+ "7|gr7-prefixes-suffixes-roots-t1": [
+  "Prefixes, Suffixes and Roots",
+  "English HL"
+ ],
  "7|gr7-probability-t4": [
   "Probability",
   "Mathematics"
@@ -3719,9 +3731,17 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Hersiening van Genres en Vaardighede",
   "Afrikaans FAL"
  ],
+ "7|gr7-sentence-parts-clauses-t1": [
+  "Sentence Parts and Clauses",
+  "English HL"
+ ],
  "7|gr7-short-stories-reviews-t1": [
   "Kortverhale & Resensies",
   "Afrikaans FAL"
+ ],
+ "7|gr7-spelling-dictionary-t1": [
+  "Spelling Patterns, Rules and Dictionary Use",
+  "English HL"
  ],
  "7|gr7-sun-earth-relationship-and-gravity-t4": [
   "Sun-Earth Relationship and Gravity",
