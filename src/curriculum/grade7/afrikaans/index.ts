@@ -75,6 +75,12 @@ export const afrikaansFALGrade7: Subject = {
           description: 'The parts of an advertisement, words that persuade and the layout of a poster.',
           component: lazy(() => import('./term2/advert-poster/AdvertPoster')),
         },
+        {
+          id: 'afr-figures-poems',
+          title: "Beeldspraak in gedigte",
+          description: "Vergelyking, metafoor en personifikasie in 'n gedig.",
+          component: lazy(() => import('./term2/figures-poems/FiguresPoems')),
+        },
       ],
     },
     {
@@ -116,6 +122,12 @@ export const afrikaansFALGrade7: Subject = {
           title: 'Koerantberig en onderhoud',
           description: 'The parts of a newspaper report, the five questions and an interview.',
           component: lazy(() => import('./term3/newspaper-article-interview/NewspaperArticleInterview')),
+        },
+        {
+          id: 'afr-sound-structure-poems',
+          title: "Klank en struktuur in gedigte",
+          description: "Rym, rymskema, alliterasie, herhaling, vers en refrein.",
+          component: lazy(() => import('./term3/sound-structure-poems/SoundStructurePoems')),
         },
       ],
     },

@@ -3579,6 +3579,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Eksamen-skryf Oefening",
   "Afrikaans FAL"
  ],
+ "7|gr7-afr-figures-poems-t2": [
+  "Beeldspraak in gedigte",
+  "Afrikaans FAL"
+ ],
  "7|gr7-afr-forms-questionnaire-t3": [
   "Vorms en vraelyste",
   "Afrikaans FAL"
@@ -3601,6 +3605,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-afr-poem-dialogue-t1": [
   "Gedig en dialoog",
+  "Afrikaans FAL"
+ ],
+ "7|gr7-afr-sound-structure-poems-t3": [
+  "Klank en struktuur in gedigte",
   "Afrikaans FAL"
  ],
  "7|gr7-apostrophe-hyphen-quotation-t2": [
