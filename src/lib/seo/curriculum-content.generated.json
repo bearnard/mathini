@@ -934,6 +934,16 @@
                 "id": "process-writing-grammar",
                 "title": "Process Writing & Grammar",
                 "description": "Drafting essays, friendly letters, grammar essentials."
+              },
+              {
+                "id": "eng6-newspaper-article",
+                "title": "Writing a Newspaper Article",
+                "description": "Headline, by-line, the lead paragraph, the five Ws and writing in the third person."
+              },
+              {
+                "id": "eng6-folklore-myth-legend",
+                "title": "Folklore: Myths and Legends",
+                "description": "What a myth and a legend are, their features, and how to write a short folklore story."
               }
             ]
           },
@@ -955,6 +965,21 @@
                 "id": "language-extension",
                 "title": "Language Extension",
                 "description": "Synonyms, antonyms, idioms, tense and punctuation."
+              },
+              {
+                "id": "eng6-instructional-text",
+                "title": "Instructional Texts: Recipes and Directions",
+                "description": "Recipes and directions: what you need, steps in order, command verbs and sequence words."
+              },
+              {
+                "id": "eng6-information-text-weather",
+                "title": "Information Texts: Weather Reports and Charts",
+                "description": "Reading and writing a weather report and chart, with the correct units and tense."
+              },
+              {
+                "id": "eng6-story-writing-plot",
+                "title": "Writing a Story with a Plot",
+                "description": "Characters, setting, the plot on a flow chart, a problem and an ending."
               }
             ]
           },
@@ -976,6 +1001,21 @@
                 "id": "complex-sentence-work",
                 "title": "Complex Sentence Work",
                 "description": "Phrases, clauses, conjunctions, complex sentences."
+              },
+              {
+                "id": "eng6-character-sketch",
+                "title": "Writing a Character Sketch",
+                "description": "Choosing a character, describing looks and personality, and showing what a person does."
+              },
+              {
+                "id": "eng6-diary-entry",
+                "title": "Writing a Diary Entry",
+                "description": "The date, the first person, the past tense, feelings and a plan for tomorrow."
+              },
+              {
+                "id": "eng6-comic-strip-script",
+                "title": "Comic Strips and Writing a Comic Script",
+                "description": "Panels, speech bubbles, captions, sound words and a script that tells a story in pictures."
               }
             ]
           },
@@ -997,6 +1037,11 @@
                 "id": "language-consolidation",
                 "title": "Language Consolidation",
                 "description": "Parts of speech, tense, direct speech, spelling."
+              },
+              {
+                "id": "eng6-descriptive-paragraph",
+                "title": "Writing a Descriptive Paragraph",
+                "description": "Topic sentence, the five senses, exact adjectives and similes, and organising your description."
               }
             ]
           }

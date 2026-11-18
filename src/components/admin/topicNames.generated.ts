@@ -2811,6 +2811,42 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Electric Circuits",
   "Natural Sciences & Technology"
  ],
+ "6|eng6-character-sketch": [
+  "Writing a Character Sketch",
+  "English HL"
+ ],
+ "6|eng6-comic-strip-script": [
+  "Comic Strips and Writing a Comic Script",
+  "English HL"
+ ],
+ "6|eng6-descriptive-paragraph": [
+  "Writing a Descriptive Paragraph",
+  "English HL"
+ ],
+ "6|eng6-diary-entry": [
+  "Writing a Diary Entry",
+  "English HL"
+ ],
+ "6|eng6-folklore-myth-legend": [
+  "Folklore: Myths and Legends",
+  "English HL"
+ ],
+ "6|eng6-information-text-weather": [
+  "Information Texts: Weather Reports and Charts",
+  "English HL"
+ ],
+ "6|eng6-instructional-text": [
+  "Instructional Texts: Recipes and Directions",
+  "English HL"
+ ],
+ "6|eng6-newspaper-article": [
+  "Writing a Newspaper Article",
+  "English HL"
+ ],
+ "6|eng6-story-writing-plot": [
+  "Writing a Story with a Plot",
+  "English HL"
+ ],
  "6|european-medicine": [
   "European Medicine & Discoveries",
   "History"
