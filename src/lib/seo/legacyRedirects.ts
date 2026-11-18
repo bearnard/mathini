@@ -60,6 +60,20 @@ const PS11_HIDDEN = ['work-energy-and-power', 'momentum-and-impulse', 'vertical-
 /** Grade 11 History Wave B: Decolonisation in Africa (Kenya, Algeria, the Year of Africa) is not in the Grade 11 CAPS (Gold Coast / Ghana only, covered in African Nationalism); its code, task instructions and D1 rows stay. */
 const HIS11_HIDDEN = [{ source: '/grade-11/history/decolonisation-in-africa', destination: '/grade-11/history' }];
 
+/** Grade 8 Natural Sciences, Technology and EMS: lessons that are not in the Grade 8 CAPS (biogeochemical cycles, forces and motion, energy forms, acids and bases; Grade 9 processing) and the four older EMS bundle lessons whose CAPS parts now each have their own lesson are hidden (code, task instructions and D1 questions kept). Each page goes to the closest CAPS lesson, or to the subject page. */
+const G8 = '/grade-8';
+const G8_HIDDEN = [
+  ['natural-sciences', 'biogeochemical-cycles', ''],
+  ['natural-sciences', 'forces-motion-and-measurement', ''],
+  ['natural-sciences', 'forms-and-transfer-of-energy', ''],
+  ['natural-sciences', 'chemical-reactions-acids-and-bases', 'chemical-reactions-reactants-and-products'],
+  ['technology', 'indigenous-technology-and-processing', 'mining-technology-impact-and-bias'],
+  ['economic-management-sciences', 'the-economy-government-and-accounting-foundations', 'government-and-the-national-budget'],
+  ['economic-management-sciences', 'financial-literacy-and-entrepreneurship-basics', 'the-accounting-cycle-income-statement-and-balance-sheet'],
+  ['economic-management-sciences', 'cash-payments-business-ownership-and-management', 'cash-payments-journal-and-the-combined-cash-journals'],
+  ['economic-management-sciences', 'banking-saving-and-ems-consolidation', ''],
+].map(([subject, slug, to]) => ({ source: `${G8}/${subject}/${slug}`, destination: to ? `${G8}/${subject}/${to}` : `${G8}/${subject}` }));
+
 export interface LegacyRedirect { source: string; destination: string }
 
 const moved = (fromSubject: string, toSubject: string, slugs: string[]): LegacyRedirect[] => [
@@ -84,6 +98,7 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   PS10_ELECTRO_HIDDEN,
   ...PS11_HIDDEN,
   ...HIS11_HIDDEN,
+  ...G8_HIDDEN,
 ];
 
 /** The shape next.config.ts `redirects()` wants: permanent: true answers 308. */

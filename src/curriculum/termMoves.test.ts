@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { grade6 } from './grade6';
+import { grade8 } from './grade8';
 import { grade9 } from './grade9';
 import { grade10 } from './grade10';
 import { grade11 } from './grade11';
@@ -284,4 +285,45 @@ test('the hidden Grade 11 History lesson is out of the curriculum but its code, 
   const t4 = his.terms.find((t) => t.id === 4)!.topics.map((p) => p.id);
   assert.deepEqual(t4, ['gr11-segregation-and-apartheid-t3', 'gr11-resistance-to-racism-t3', 'gr11-liberation-movements-t4']);
   for (const t of his.terms) assert.ok(t.topics.length > 0);
+});
+
+// Wave B, Grade 8 Natural Sciences, Technology and EMS (CAPS terms): wrong-term lessons move (task ids and slugs unchanged), lessons that are not Grade 8 CAPS and four older EMS bundle lessons whose CAPS
+// parts now each have their own lesson are hidden. Code, task instructions and D1 rows stay; each page redirects (308) to a page that exists; no term is empty.
+test('Grade 8 NS, Technology and EMS: moved lessons sit in their CAPS term and the hidden ones are out but kept with a redirect', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const slugify = (t: string) => t.toLowerCase().replace(/&/g, 'and').replace(/[()]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const sub = (id: string) => grade8.subjects.find((x) => x.id === id)!;
+  assert.equal(termOf(grade8, 'ns', 'classification-of-matter-and-periodic-table'), 2);
+  assert.equal(termOf(grade8, 'ns', 'solar-system-and-gravity'), 4);
+  assert.equal(termOf(grade8, 'tech', 'electrical-systems-and-circuit-safety'), 4);
+  assert.equal(termOf(grade8, 'tech', 'logic-and-pat-design-work'), 4);
+  // [subject id, subject slug, topic id, component dir, task file, slug of the hidden page]
+  const hidden: [string, string, string, string, string, string][] = [
+    ['ns', 'natural-sciences', 'biogeochemical-cycles', 'natural-sciences/term2/biogeochemical-cycles', 'ns-gr8-term2.json', 'biogeochemical-cycles'],
+    ['ns', 'natural-sciences', 'forces-motion-and-measurement', 'natural-sciences/term4/forces-motion-and-measurement', 'ns-gr8-term4.json', 'forces-motion-and-measurement'],
+    ['ns', 'natural-sciences', 'forms-and-transfer-of-energy', 'natural-sciences/term4/forms-and-transfer-of-energy', 'ns-gr8-term4.json', 'forms-and-transfer-of-energy'],
+    ['ns', 'natural-sciences', 'chemical-reactions-acids-and-bases', 'natural-sciences/term3/chemical-reactions-acids-and-bases', 'ns-gr8-term3.json', 'chemical-reactions-acids-and-bases'],
+    ['tech', 'technology', 'indigenous-technology-and-processing', 'technology/term4/indigenous-technology-and-processing', 'tech-gr8-term4.json', 'indigenous-technology-and-processing'],
+    ['ems', 'economic-management-sciences', 'economy-government-accounting', 'economic-management-sciences/term1/economy-government-accounting', 'ems-gr8-term1.json', 'the-economy-government-and-accounting-foundations'],
+    ['ems', 'economic-management-sciences', 'financial-literacy-entrepreneurship', 'economic-management-sciences/term2/financial-literacy-entrepreneurship', 'ems-gr8-term2.json', 'financial-literacy-and-entrepreneurship-basics'],
+    ['ems', 'economic-management-sciences', 'cash-payments-business-ownership', 'economic-management-sciences/term3/cash-payments-business-ownership', 'ems-gr8-term3.json', 'cash-payments-business-ownership-and-management'],
+    ['ems', 'economic-management-sciences', 'banking-saving', 'economic-management-sciences/term4/banking-saving', 'ems-gr8-term4.json', 'banking-saving-and-ems-consolidation'],
+  ];
+  for (const [sid, sslug, id, dir, taskFile, slug] of hidden) {
+    const ids = sub(sid).terms.flatMap((t) => t.topics.map((p) => p.id));
+    assert.ok(!ids.includes(id), `${id} is hidden`);
+    assert.ok(fs.existsSync(`src/curriculum/grade8/${dir}`), `${dir} is kept`);
+    const tasks = JSON.parse(fs.readFileSync(`src/lib/server/caps/tasks/${taskFile}`, 'utf8')).tasks as Record<string, string>;
+    assert.ok(Object.keys(tasks).some((k) => k.includes(id)), `${id} task instruction is kept`);
+    const r = LEGACY_REDIRECTS.find((x) => x.source === `/grade-8/${sslug}/${slug}`);
+    assert.ok(r, `${slug} redirects`);
+    const dest = r.destination.replace(`/grade-8/${sslug}`, '').replace(/^\//, '');
+    if (dest) assert.ok(sub(sid).terms.some((t) => t.topics.some((p) => slugify(p.title) === dest)), `${r.destination} is a live page`);
+  }
+  const counts = (sid: string) => sub(sid).terms.map((t) => t.topics.length);
+  assert.deepEqual(counts('ns'), [2, 5, 4, 3]);
+  assert.deepEqual(counts('tech'), [4, 2, 5, 6]);
+  assert.deepEqual(counts('ems'), [3, 3, 2, 2]);
+  for (const sid of ['ns', 'tech', 'ems']) for (const t of sub(sid).terms) assert.ok(t.topics.length > 0, `${sid} term ${t.id} is not empty`);
 });

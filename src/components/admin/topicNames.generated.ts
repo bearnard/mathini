@@ -3723,10 +3723,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Atoms, Elements, Compounds and Mixtures",
   "Natural Sciences"
  ],
- "8|gr8-banking-saving-t4": [
-  "Banking, Saving and EMS Consolidation",
-  "Economic Management Sciences"
- ],
  "8|gr8-beyond-the-solar-system-t4": [
   "Beyond the Solar System",
   "Natural Sciences"
@@ -3734,10 +3730,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-bicycle-gears-systems-diagrams-t3": [
   "Bicycle Gears and Systems Diagrams",
   "Technology"
- ],
- "8|gr8-biogeochemical-cycles-t2": [
-  "Biogeochemical Cycles",
-  "Natural Sciences"
  ],
  "8|gr8-brochures-visual-literacy-t1": [
   "Brochures and Visual Literacy",
@@ -3751,10 +3743,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Careers and Career Choices",
   "Life Orientation"
  ],
- "8|gr8-cash-payments-business-ownership-t3": [
-  "Cash Payments, Business Ownership and Management",
-  "Economic Management Sciences"
- ],
  "8|gr8-cash-payments-journal-t3": [
   "Cash Payments Journal and the Combined Cash Journals",
   "Economic Management Sciences"
@@ -3766,10 +3754,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-cells-batteries-solar-t4": [
   "Electrochemical and Solar Cells",
   "Technology"
- ],
- "8|gr8-chemical-reactions-acids-and-bases-t3": [
-  "Chemical Reactions, Acids and Bases",
-  "Natural Sciences"
  ],
  "8|gr8-classification-of-matter-and-periodic-table-t3": [
   "Classification of Matter and Periodic Table",
@@ -3859,10 +3843,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Drama",
   "Creative Arts"
  ],
- "8|gr8-economy-government-accounting-t1": [
-  "The Economy, Government and Accounting Foundations",
-  "Economic Management Sciences"
- ],
  "8|gr8-ecosystems-and-micro-organisms-t1": [
   "Ecosystems and Micro-organisms",
   "Natural Sciences"
@@ -3903,17 +3883,9 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Factors of Production and Markets",
   "Economic Management Sciences"
  ],
- "8|gr8-financial-literacy-entrepreneurship-t2": [
-  "Financial Literacy and Entrepreneurship Basics",
-  "Economic Management Sciences"
- ],
  "8|gr8-folklore-youth-novel-study-t2": [
   "Volksverhale & Jeugromanstudie",
   "Afrikaans FAL"
- ],
- "8|gr8-forces-motion-and-measurement-t4": [
-  "Forces, Motion and Measurement",
-  "Natural Sciences"
  ],
  "8|gr8-forces-on-materials-t2": [
   "Forces on Materials and Reinforcing",
@@ -3922,10 +3894,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-formal-correspondence-reviews-t2": [
   "Formal Correspondence and Reviews",
   "English HL"
- ],
- "8|gr8-forms-and-transfer-of-energy-t4": [
-  "Forms and Transfer of Energy",
-  "Natural Sciences"
  ],
  "8|gr8-forms-of-ownership-t3": [
   "Forms of Ownership",
@@ -3993,10 +3961,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "8|gr8-impact-and-packaging-t2": [
   "Impact of Technology and Packaging",
-  "Technology"
- ],
- "8|gr8-indigenous-technology-and-processing-t4": [
-  "Indigenous Technology and Processing",
   "Technology"
  ],
  "8|gr8-industrial-revolution-in-britain-and-southern-africa-t1": [

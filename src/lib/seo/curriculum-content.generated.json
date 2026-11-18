@@ -2519,16 +2519,6 @@
             "title": "Term 2",
             "topics": [
               {
-                "id": "biogeochemical-cycles",
-                "title": "Biogeochemical Cycles",
-                "description": "Water, carbon, and nitrogen cycles with decomposers and matter recycling."
-              },
-              {
-                "id": "solar-system-and-gravity",
-                "title": "Solar System and Gravity",
-                "description": "Solar-system objects, scale ideas, and gravity as the force of attraction."
-              },
-              {
                 "id": "particle-model-and-states",
                 "title": "Particle Model of Matter and States",
                 "description": "Arrangement and movement of particles in solids, liquids and gases, change of state and diffusion."
@@ -2547,6 +2537,11 @@
                 "id": "reactants-and-products",
                 "title": "Chemical Reactions: Reactants and Products",
                 "description": "Reactants, products, rearranged atoms and everyday chemical reactions."
+              },
+              {
+                "id": "classification-of-matter-and-periodic-table",
+                "title": "Classification of Matter and Periodic Table",
+                "description": "Elements, compounds, mixtures, and periodic-table basics."
               }
             ]
           },
@@ -2554,16 +2549,6 @@
             "id": 3,
             "title": "Term 3",
             "topics": [
-              {
-                "id": "classification-of-matter-and-periodic-table",
-                "title": "Classification of Matter and Periodic Table",
-                "description": "Elements, compounds, mixtures, and periodic-table basics."
-              },
-              {
-                "id": "chemical-reactions-acids-and-bases",
-                "title": "Chemical Reactions, Acids and Bases",
-                "description": "Reaction evidence, indicators, neutralisation, and separating mixtures."
-              },
               {
                 "id": "static-electricity",
                 "title": "Static Electricity",
@@ -2591,14 +2576,9 @@
             "title": "Term 4",
             "topics": [
               {
-                "id": "forces-motion-and-measurement",
-                "title": "Forces, Motion and Measurement",
-                "description": "Distance-time-speed relationships and common contact and non-contact forces."
-              },
-              {
-                "id": "forms-and-transfer-of-energy",
-                "title": "Forms and Transfer of Energy",
-                "description": "Energy forms, transfer pathways, and conservation of energy in systems."
+                "id": "solar-system-and-gravity",
+                "title": "Solar System and Gravity",
+                "description": "Solar-system objects, scale ideas, and gravity as the force of attraction."
               },
               {
                 "id": "beyond-the-solar-system",
@@ -2649,16 +2629,6 @@
             "title": "Term 2",
             "topics": [
               {
-                "id": "electrical-systems-and-circuit-safety",
-                "title": "Electrical Systems and Circuit Safety",
-                "description": "Series and parallel circuits, components, and safe electrical practices."
-              },
-              {
-                "id": "logic-and-pat-design-work",
-                "title": "Logic and PAT Design Work",
-                "description": "AND/OR logic, truth tables, control systems, and panic-button design ideas."
-              },
-              {
                 "id": "impact-and-packaging",
                 "title": "Impact of Technology and Packaging",
                 "description": "Positive and negative impact, plastic bags, recycling paper and designing packaging from a net."
@@ -2706,9 +2676,14 @@
             "title": "Term 4",
             "topics": [
               {
-                "id": "indigenous-technology-and-processing",
-                "title": "Indigenous Technology and Processing",
-                "description": "Corrosion prevention, food preservation, local knowledge, and sustainability."
+                "id": "electrical-systems-and-circuit-safety",
+                "title": "Electrical Systems and Circuit Safety",
+                "description": "Series and parallel circuits, components, and safe electrical practices."
+              },
+              {
+                "id": "logic-and-pat-design-work",
+                "title": "Logic and PAT Design Work",
+                "description": "AND/OR logic, truth tables, control systems, and panic-button design ideas."
               },
               {
                 "id": "cells-batteries-solar",
@@ -3098,11 +3073,6 @@
             "title": "Term 1",
             "topics": [
               {
-                "id": "economy-government-accounting",
-                "title": "The Economy, Government and Accounting Foundations",
-                "description": "Government structures, budgets, taxation, and basic accounting principles including source documents and double-entry recording."
-              },
-              {
                 "id": "government-national-budget",
                 "title": "Government and the National Budget",
                 "description": "Levels of government, direct and indirect taxes, the National Budget, growth, inequality and the standard of living."
@@ -3123,11 +3093,6 @@
             "id": 2,
             "title": "Term 2",
             "topics": [
-              {
-                "id": "financial-literacy-entrepreneurship",
-                "title": "Financial Literacy and Entrepreneurship Basics",
-                "description": "The accounting cycle, cash receipts journal, general ledger, and the four factors of production in entrepreneurship."
-              },
               {
                 "id": "accounting-cycle-statements",
                 "title": "The Accounting Cycle: Income Statement and Balance Sheet",
@@ -3150,11 +3115,6 @@
             "title": "Term 3",
             "topics": [
               {
-                "id": "cash-payments-business-ownership",
-                "title": "Cash Payments, Business Ownership and Management",
-                "description": "Cash payments journal, sole trader and partnership structures, management levels, budgeting, and market concepts."
-              },
-              {
                 "id": "cash-payments-journal",
                 "title": "Cash Payments Journal and the Combined Cash Journals",
                 "description": "Recording and closing off cash paid, the cash balance carried forward and the effect on the accounting equation."
@@ -3170,11 +3130,6 @@
             "id": 4,
             "title": "Term 4",
             "topics": [
-              {
-                "id": "banking-saving",
-                "title": "Banking, Saving and EMS Consolidation",
-                "description": "Banking services, savings and interest, entrepreneurial qualities, and integrated case studies connecting all EMS concepts."
-              },
               {
                 "id": "levels-functions-management",
                 "title": "Levels and Functions of Management",
