@@ -4599,6 +4599,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Cells, Tissues and Levels of Organisation",
   "Natural Sciences"
  ],
+ "9|gr9-challenging-situations-t4": [
+  "Challenging Situations: Grief, Loss, Trauma and Depression",
+  "Life Orientation"
+ ],
  "9|gr9-chemical-reactions-acids-bases-t2": [
   "Chemical Reactions, Acids, Bases and Salts",
   "Natural Sciences"
@@ -4614,6 +4618,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-constitution-and-policy-t2": [
   "Writing a Constitution and a Policy",
   "English HL"
+ ],
+ "9|gr9-constitutional-values-role-models-t2": [
+  "Constitutional Values and Role Models",
+  "Life Orientation"
  ],
  "9|gr9-contour-lines-slopes-t1": [
   "Contour Lines and Slopes",
@@ -4919,9 +4927,17 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Music",
   "Creative Arts"
  ],
+ "9|gr9-national-days-t2": [
+  "National and International Days",
+  "Life Orientation"
+ ],
  "9|gr9-negotiations-1994-election-t4": [
   "Negotiations and 1994 Election",
   "History (Social Sciences)"
+ ],
+ "9|gr9-nsc-and-ncv-t2": [
+  "After Grade 9: the NSC and the NCV",
+  "Life Orientation"
  ],
  "9|gr9-number-systems-operations-t1": [
   "Number Systems and Operations",
@@ -5011,6 +5027,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Relationships and Life Changes",
   "Life Orientation"
  ],
+ "9|gr9-religions-and-peace-t4": [
+  "Religions and Peace",
+  "Life Orientation"
+ ],
  "9|gr9-renewable-non-renewable-resources-t4": [
   "Renewable and Non-Renewable Resources",
   "Social Sciences: Geography"
@@ -5075,6 +5095,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Space Race and Berlin Wall",
   "History (Social Sciences)"
  ],
+ "9|gr9-sport-ethics-t4": [
+  "Sport Ethics",
+  "Life Orientation"
+ ],
  "9|gr9-stars-universe-t4": [
   "Stars and the Universe",
   "Natural Sciences"
@@ -5082,6 +5106,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-structures-accessible-design-t1": [
   "Structures and Accessible Design",
   "Technology"
+ ],
+ "9|gr9-study-career-funding-t4": [
+  "Study and Career Funding",
+  "Life Orientation"
  ],
  "9|gr9-study-methods-exam-readiness-t4": [
   "Study Methods and Exam Readiness",
@@ -5139,6 +5167,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "USA vs Soviet Union: Superpowers",
   "History (Social Sciences)"
  ],
+ "9|gr9-violence-causes-help-t3": [
+  "Violence: Causes, Impact, Alternatives and Help",
+  "Life Orientation"
+ ],
  "9|gr9-visual-arts-t1": [
   "Visual Arts",
   "Creative Arts"
@@ -5166,6 +5198,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-womens-march-resistance-t3": [
   "Women's March and Resistance",
   "History (Social Sciences)"
+ ],
+ "9|gr9-workplace-rights-t2": [
+  "Rights, Responsibilities and Opportunities in the Workplace",
+  "Life Orientation"
  ],
  "9|gr9-world-war-2-allies-axis-t1": [
   "World War II: Allies and Axis",

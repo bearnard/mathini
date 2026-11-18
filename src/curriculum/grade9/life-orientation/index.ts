@@ -56,7 +56,31 @@ export const lifeOrientationGrade9: Subject = {
           title: 'Democracy and Human Rights',
           description: 'Explore democratic structures, the Constitution, rights, duties, and citizen participation.',
           component: lazy(() => import('./term3/democracy-human-rights/DemocracyHumanRights')),
-        }
+        },
+        {
+          id: 'gr9-constitutional-values-role-models-t2',
+          title: "Constitutional Values and Role Models",
+          description: "Values of the Constitution, positive and negative role models and applying values.",
+          component: lazy(() => import('./term2/constitutional-values-role-models/ConstitutionalValuesRoleModels')),
+        },
+        {
+          id: 'gr9-national-days-t2',
+          title: "National and International Days",
+          description: "National days, respect for people with disabilities and HIV, and planning a celebration.",
+          component: lazy(() => import('./term2/national-days/NationalDays')),
+        },
+        {
+          id: 'gr9-nsc-and-ncv-t2',
+          title: "After Grade 9: the NSC and the NCV",
+          description: "The two pathways after Grade 9 and how to decide.",
+          component: lazy(() => import('./term2/nsc-and-ncv/NscAndNcv')),
+        },
+        {
+          id: 'gr9-workplace-rights-t2',
+          title: "Rights, Responsibilities and Opportunities in the Workplace",
+          description: "Workers' rights and responsibilities and opportunities such as learnerships.",
+          component: lazy(() => import('./term2/workplace-rights/WorkplaceRights')),
+        },
       ],
     },
     {
@@ -92,7 +116,13 @@ export const lifeOrientationGrade9: Subject = {
           title: 'Social and Environmental Responsibility',
           description: 'Investigate community health, environmental care, and responsible action for change.',
           component: lazy(() => import('./term2/social-environmental-responsibility/SocialEnvironmentalResponsibility')),
-        }
+        },
+        {
+          id: 'gr9-violence-causes-help-t3',
+          title: "Violence: Causes, Impact, Alternatives and Help",
+          description: "Forms and causes of violence, its impact, alternatives and where to find help.",
+          component: lazy(() => import('./term3/violence-causes-help/ViolenceCausesHelp')),
+        },
       ],
     },
     {
@@ -122,7 +152,31 @@ export const lifeOrientationGrade9: Subject = {
           title: 'Substance Abuse and Emotional Safety',
           description: 'Recognise harmful behaviour, understand coping strategies, and access support services.',
           component: lazy(() => import('./term2/substance-abuse-emotional-safety/SubstanceAbuseEmotionalSafety')),
-        }
+        },
+        {
+          id: 'gr9-study-career-funding-t4',
+          title: "Study and Career Funding",
+          description: "Bursaries, loans, learnerships, funding providers and lifelong learning goals.",
+          component: lazy(() => import('./term4/study-career-funding/StudyCareerFunding')),
+        },
+        {
+          id: 'gr9-religions-and-peace-t4',
+          title: "Religions and Peace",
+          description: "Freedom of religion and how many religions contribute to peace.",
+          component: lazy(() => import('./term4/religions-and-peace/ReligionsAndPeace')),
+        },
+        {
+          id: 'gr9-sport-ethics-t4',
+          title: "Sport Ethics",
+          description: "Fair play, honesty, respect, cheating and doping, inclusion and sportsmanship.",
+          component: lazy(() => import('./term4/sport-ethics/SportEthics')),
+        },
+        {
+          id: 'gr9-challenging-situations-t4',
+          title: "Challenging Situations: Grief, Loss, Trauma and Depression",
+          description: "Strong feelings in hard times, depression, healthy coping and where to get help.",
+          component: lazy(() => import('./term4/challenging-situations/ChallengingSituations')),
+        },
       ],
     },
   ],
