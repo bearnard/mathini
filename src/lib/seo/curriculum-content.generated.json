@@ -6304,6 +6304,26 @@
                 "id": "gr11-africa-climate-gis-t1",
                 "title": "Africa's Climate and GIS",
                 "description": "Africa's climate zones, desertification in the Sahel, the Benguela Current and remote sensing."
+              },
+              {
+                "id": "gr11-droughts-causes-effects-t1",
+                "title": "Droughts: Causes, Effects and Vulnerability",
+                "description": "Areas at risk, natural and human causes of drought, its effects and who is most vulnerable."
+              },
+              {
+                "id": "gr11-desertification-management-t1",
+                "title": "Desertification: Causes, Effects and Management",
+                "description": "Causes and effects of desertification, carrying capacity and management strategies with case studies."
+              },
+              {
+                "id": "gr11-aerial-photographs-landforms-t1",
+                "title": "Aerial Photographs and Landforms",
+                "description": "Vertical and oblique photographs, identifying landforms, tone, texture and shadow and photograph scale."
+              },
+              {
+                "id": "gr11-orthophoto-maps-orienting-t1",
+                "title": "Orthophoto Maps: Scale, Measurement and Orientation",
+                "description": "Orthophoto maps with 1:50 000 maps, measuring distance and area and orienting photographs."
               }
             ]
           },
@@ -6330,6 +6350,11 @@
                 "id": "gr11-geomorphology-mapwork-t2",
                 "title": "Geomorphology and Topographic Mapwork",
                 "description": "Reading 1:50 000 maps, identifying slope types, drawing cross-sections and locating landforms."
+              },
+              {
+                "id": "gr11-fieldwork-weather-data-t2",
+                "title": "Fieldwork: Collecting and Presenting Weather Data",
+                "description": "Weather instruments, recording and processing data, graphs and synoptic maps."
               }
             ]
           },
@@ -6356,6 +6381,26 @@
                 "id": "gr11-state-business-roles-t3",
                 "title": "Roles of State and Business in Development",
                 "description": "South Africa's NDP, FDI, Public-Private Partnerships and regional bodies (SADC, AU, BRICS)."
+              },
+              {
+                "id": "gr11-development-factors-t3",
+                "title": "Factors that Affect Development",
+                "description": "Resources, energy, history, trade, population growth, skills and the environment."
+              },
+              {
+                "id": "gr11-development-models-t3",
+                "title": "Development Models: Rostow, Core and Periphery, Sustainability",
+                "description": "Rostow's stages and criticisms, core and periphery at different scales, and sustainability."
+              },
+              {
+                "id": "gr11-community-based-development-t3",
+                "title": "Community-Based Development",
+                "description": "Top-down and bottom-up approaches and rural and urban community projects."
+              },
+              {
+                "id": "gr11-using-atlases-t3",
+                "title": "Using Atlases",
+                "description": "Kinds of maps, comparing thematic maps, projections, the index and grid references."
               }
             ]
           },
