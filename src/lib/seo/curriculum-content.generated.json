@@ -901,6 +901,26 @@
                 "id": "his-rights-responsibilities",
                 "title": "Rights, Responsibilities & Government",
                 "description": "Citizens' rights and duties and levels of government."
+              },
+              {
+                "id": "his-national-symbols",
+                "title": "National Symbols of South Africa",
+                "description": "The flag, the coat of arms and the national anthem, and what they show."
+              },
+              {
+                "id": "his-fatima-meer",
+                "title": "Fatima Meer",
+                "description": "A Durban teacher, writer and activist who worked against apartheid."
+              },
+              {
+                "id": "his-pius-langa",
+                "title": "Pius Langa",
+                "description": "A lawyer who became a Constitutional Court judge and Chief Justice."
+              },
+              {
+                "id": "his-childrens-charter-rights",
+                "title": "The Children's Charter and Children's Rights",
+                "description": "The Children's Charter of 1992, what children need and rights with responsibilities."
               }
             ]
           },
