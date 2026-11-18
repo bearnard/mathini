@@ -15,6 +15,24 @@ export const emsGrade8: Subject = {
           description: 'Government structures, budgets, taxation, and basic accounting principles including source documents and double-entry recording.',
           component: lazy(() => import('./term1/economy-government-accounting/EconomyGovernmentAccounting')),
         },
+        {
+          id: 'government-national-budget',
+          title: 'Government and the National Budget',
+          description: 'Levels of government, direct and indirect taxes, the National Budget, growth, inequality and the standard of living.',
+          component: lazy(() => import('./term1/government-national-budget/GovernmentNationalBudget')),
+        },
+        {
+          id: 'accounting-concepts-equation',
+          title: 'Accounting Concepts and the Accounting Equation',
+          description: 'Assets, liabilities, owner equity, capital, income, expenses, profit and loss, and the effect of transactions on A = OE + L.',
+          component: lazy(() => import('./term1/accounting-concepts-equation/AccountingConceptsEquation')),
+        },
+        {
+          id: 'source-documents-t1',
+          title: 'Source Documents',
+          description: 'Receipts, deposit slips, till slips, cheques, counterfoils, bank statements and cash invoices.',
+          component: lazy(() => import('./term1/source-documents-t1/SourceDocumentsT1')),
+        },
       ],
     },
     {

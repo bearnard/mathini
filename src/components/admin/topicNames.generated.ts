@@ -3571,6 +3571,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Writing & Presenting",
   "isiXhosa SAL"
  ],
+ "8|gr8-accounting-concepts-equation-t1": [
+  "Accounting Concepts and the Accounting Equation",
+  "Economic Management Sciences"
+ ],
  "8|gr8-afr-creative-writing-project-t3": [
   "Kreatiewe Skryfprojek",
   "Afrikaans FAL"
@@ -3839,6 +3843,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Geometry of 3D Objects",
   "Mathematics"
  ],
+ "8|gr8-government-national-budget-t1": [
+  "Government and the National Budget",
+  "Economic Management Sciences"
+ ],
  "8|gr8-grammar-reporting-coherence-t2": [
   "Grammatika vir Verslagdoening & Samehang",
   "Afrikaans FAL"
@@ -4106,6 +4114,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-solar-system-and-gravity-t2": [
   "Solar System and Gravity",
   "Natural Sciences"
+ ],
+ "8|gr8-source-documents-t1": [
+  "Source Documents",
+  "Economic Management Sciences"
  ],
  "8|gr8-static-electricity-t3": [
   "Static Electricity",

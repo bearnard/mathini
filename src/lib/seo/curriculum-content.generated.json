@@ -3066,6 +3066,21 @@
                 "id": "economy-government-accounting",
                 "title": "The Economy, Government and Accounting Foundations",
                 "description": "Government structures, budgets, taxation, and basic accounting principles including source documents and double-entry recording."
+              },
+              {
+                "id": "government-national-budget",
+                "title": "Government and the National Budget",
+                "description": "Levels of government, direct and indirect taxes, the National Budget, growth, inequality and the standard of living."
+              },
+              {
+                "id": "accounting-concepts-equation",
+                "title": "Accounting Concepts and the Accounting Equation",
+                "description": "Assets, liabilities, owner equity, capital, income, expenses, profit and loss, and the effect of transactions on A = OE + L."
+              },
+              {
+                "id": "source-documents-t1",
+                "title": "Source Documents",
+                "description": "Receipts, deposit slips, till slips, cheques, counterfoils, bank statements and cash invoices."
               }
             ]
           },
