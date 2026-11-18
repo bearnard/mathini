@@ -25,4 +25,24 @@ Source: DBE CAPS Social Sciences Grades 7-9, Grade 8 History Terms 1 to 4 (sp_ss
 | 17 | Turning point | The Land Act is described as keeping African land ownership to the reserves; no percentages of land are given. | Percentages differ between sources. |
 | 18 | All | Names of imagined speakers are not used; sources are described by role (planter, labourer, miner, Randlord, African leader). | Avoids implying a real person said it. |
 
-Branch B will add the Ashanti case study (Term 3) and Britain's home front in the First World War (Term 4) to this file.
+## Branch B (Terms 3 and 4)
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 19 | Ashanti | The Ashanti Union "about 1700" with the Golden Stool as the symbol of the nation. | Sources give dates between about 1695 and 1701; the lesson says "about 1700". |
+| 20 | Ashanti | Portuguese arrival "1471"; British entry into Kumasi "1874"; Prempeh I exiled "1896"; War of the Golden Stool "1900"; annexation "1901"; Ghana independent "1957". | Standard dates. The 1874 British force is described as taking the capital for a short time and then leaving. |
+| 21 | Ashanti | The Ashanti traded gold, kola and enslaved people to the coast. | Stated plainly as part of the trade; no numbers of people given. The lesson does not say that the Ashanti alone took part. |
+| 22 | Ashanti | The British reason is paraphrased as "peace and trade" in a colonial official source; the Ashanti view is the Stool as the soul of the nation. | Both views are original paraphrases. Please confirm the balance. |
+| 23 | Ashanti | Yaa Asantewaa called "Queen Mother of Ejisu" in the check answer. | Standard title. |
+| 24 | Home front | Conscription "1916" (Military Service Act). | The Act applied first to single men and then to married men; the lesson gives the year only. |
+| 25 | Home front | CAPS spells the suffragette leader "Emily Pankhurst"; the correct name is Emmeline Pankhurst. The lesson writes Emmeline Pankhurst (called Emily in the CAPS). | Confirm that the correction is fine to show to learners. |
+| 26 | Home front | Women over 30 who met conditions won the vote in 1918. | Simplified: the conditions were about property; no other details given. |
+| 27 | Home front | The poem source is an original paraphrase in the spirit of Wilfred Owen; no lines are quoted. | Avoids misquoting. Songs are described without naming titles. |
+| 28 | Home front | Conscientious objectors: some did other work and some went to prison; no numbers. | Numbers differ between sources. |
+
+
+## Added after review of branch A
+
+| # | Lesson | What | Why it is uncertain |
+|---|---|---|---|
+| 29 | Turning point (Term 2) | The lesson keeps the CAPS wording "Transvaal Indian Congress (TIC) 1903". Historians usually date the 1903 body as the Transvaal British Indian Association, and the Transvaal Indian Congress itself to 1927. | Flagged for the teacher; the lesson, timeline and questions follow the CAPS wording and date, so a learner who writes "TIC 1903" is marked correct. |
