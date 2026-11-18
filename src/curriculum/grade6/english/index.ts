@@ -43,6 +43,9 @@ export const englishHL: Subject = {
         { id: "eng6-character-sketch", title: "Writing a Character Sketch", description: "Choosing a character, describing looks and personality, and showing what a person does.", component: lazy(() => import('./term3/character-sketch/CharacterSketch')) },
         { id: "eng6-diary-entry", title: "Writing a Diary Entry", description: "The date, the first person, the past tense, feelings and a plan for tomorrow.", component: lazy(() => import('./term3/diary-entry/DiaryEntry')) },
         { id: "eng6-comic-strip-script", title: "Comic Strips and Writing a Comic Script", description: "Panels, speech bubbles, captions, sound words and a script that tells a story in pictures.", component: lazy(() => import('./term3/comic-strip-script/ComicStripScript')) },
+        { id: "eng6-active-passive-voice", title: "Active and Passive Voice", description: "The active voice, the passive voice, the passive in three tenses and when to use it.", component: lazy(() => import('./term3/active-passive-voice/ActivePassiveVoice')) },
+        { id: "eng6-direct-indirect-speech", title: "Direct and Indirect Speech", description: "Direct speech with quotation marks, indirect speech and the changes it needs.", component: lazy(() => import('./term3/direct-indirect-speech/DirectIndirectSpeech')) },
+        { id: "eng6-past-future-perfect", title: "Past Perfect and Future Perfect", description: "The past perfect, the future perfect and the time clues that go with them.", component: lazy(() => import('./term3/past-future-perfect/PastFuturePerfect')) },
       ],
     },
     {
@@ -53,6 +56,8 @@ export const englishHL: Subject = {
         { id: 'exam-writing-practice', title: 'Exam Writing Practice', description: 'Essay planning, transactional texts, editing.', component: lazy(() => import('./term4/exam-writing-practice/ExamWritingPractice')) },
         { id: 'language-consolidation', title: 'Language Consolidation', description: 'Parts of speech, tense, direct speech, spelling.', component: lazy(() => import('./term4/language-consolidation/LanguageConsolidation')) },
         { id: "eng6-descriptive-paragraph", title: "Writing a Descriptive Paragraph", description: "Topic sentence, the five senses, exact adjectives and similes, and organising your description.", component: lazy(() => import('./term4/descriptive-paragraph/DescriptiveParagraph')) },
+        { id: "eng6-adverbs", title: "Adverbs", description: "Adverbs of manner, time, place, degree, duration and frequency.", component: lazy(() => import('./term4/adverbs/Adverbs')) },
+        { id: "eng6-punctuation-marks", title: "Punctuation: Commas, Colons, Semi-colons, Contractions and Brackets", description: "Commas, colons, semi-colons, apostrophes in contractions and brackets.", component: lazy(() => import('./term4/punctuation-marks/PunctuationMarks')) },
       ],
     },
   ],

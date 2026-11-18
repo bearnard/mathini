@@ -1021,6 +1021,21 @@
                 "id": "eng6-comic-strip-script",
                 "title": "Comic Strips and Writing a Comic Script",
                 "description": "Panels, speech bubbles, captions, sound words and a script that tells a story in pictures."
+              },
+              {
+                "id": "eng6-active-passive-voice",
+                "title": "Active and Passive Voice",
+                "description": "The active voice, the passive voice, the passive in three tenses and when to use it."
+              },
+              {
+                "id": "eng6-direct-indirect-speech",
+                "title": "Direct and Indirect Speech",
+                "description": "Direct speech with quotation marks, indirect speech and the changes it needs."
+              },
+              {
+                "id": "eng6-past-future-perfect",
+                "title": "Past Perfect and Future Perfect",
+                "description": "The past perfect, the future perfect and the time clues that go with them."
               }
             ]
           },
@@ -1047,6 +1062,16 @@
                 "id": "eng6-descriptive-paragraph",
                 "title": "Writing a Descriptive Paragraph",
                 "description": "Topic sentence, the five senses, exact adjectives and similes, and organising your description."
+              },
+              {
+                "id": "eng6-adverbs",
+                "title": "Adverbs",
+                "description": "Adverbs of manner, time, place, degree, duration and frequency."
+              },
+              {
+                "id": "eng6-punctuation-marks",
+                "title": "Punctuation: Commas, Colons, Semi-colons, Contractions and Brackets",
+                "description": "Commas, colons, semi-colons, apostrophes in contractions and brackets."
               }
             ]
           }
