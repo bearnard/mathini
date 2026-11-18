@@ -40,6 +40,30 @@ export const mathematicsGrade8: Subject = {
             () => import('./term1/algebraic-expressions-and-equations/AlgebraicExpressionsAndEquations'),
           ),
         },
+        {
+          id: 'scientific-notation',
+          title: 'Scientific Notation',
+          description: 'Writing large numbers as a × 10ⁿ, converting back and comparing.',
+          component: lazy(() => import('./term1/scientific-notation/ScientificNotation')),
+        },
+        {
+          id: 'ratio-and-rate',
+          title: 'Ratio and Rate',
+          description: 'Simplifying and sharing in a ratio, increasing and decreasing in a ratio, speed and best buy.',
+          component: lazy(() => import('./term1/ratio-and-rate/RatioAndRate')),
+        },
+        {
+          id: 'percentages-and-financial',
+          title: 'Percentages and Financial Contexts',
+          description: 'Percentage of an amount, profit and loss, discount, VAT and budgets.',
+          component: lazy(() => import('./term1/percentages-and-financial/PercentagesAndFinancial')),
+        },
+        {
+          id: 'interest-hire-purchase-exchange',
+          title: 'Interest, Hire Purchase and Exchange Rates',
+          description: 'Simple interest year by year, loans, hire purchase and exchange rates.',
+          component: lazy(() => import('./term1/interest-hire-purchase-exchange/InterestHirePurchaseExchange')),
+        },
       ],
     },
     {

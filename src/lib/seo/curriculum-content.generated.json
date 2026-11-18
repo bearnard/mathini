@@ -2661,6 +2661,26 @@
                 "id": "algebraic-expressions-and-equations",
                 "title": "Algebraic Expressions and Equations",
                 "description": "Simplification, expansion, substitution, and linear equations."
+              },
+              {
+                "id": "scientific-notation",
+                "title": "Scientific Notation",
+                "description": "Writing large numbers as a × 10ⁿ, converting back and comparing."
+              },
+              {
+                "id": "ratio-and-rate",
+                "title": "Ratio and Rate",
+                "description": "Simplifying and sharing in a ratio, increasing and decreasing in a ratio, speed and best buy."
+              },
+              {
+                "id": "percentages-and-financial",
+                "title": "Percentages and Financial Contexts",
+                "description": "Percentage of an amount, profit and loss, discount, VAT and budgets."
+              },
+              {
+                "id": "interest-hire-purchase-exchange",
+                "title": "Interest, Hire Purchase and Exchange Rates",
+                "description": "Simple interest year by year, loans, hire purchase and exchange rates."
               }
             ]
           },
