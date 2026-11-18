@@ -10,10 +10,12 @@ Source: `audit/caps-alignment.md` (sections "Grade 8 Natural Sciences" and "Grad
 | feat/g8-tech-t1 | T1 | Graphic Communication; Frame Structures and Structural Failure | done |
 | feat/g8-tech-t2 | T2 | Impact of Technology and Packaging; Forces on Materials and Reinforcing | done |
 | feat/g8-tech-t3 | T3 | Gear Systems and Mechanical Advantage; Bicycle Gears and Systems Diagrams; Mining Technology, Impact and Bias | done |
-| feat/g8-tech-t4 | T4 | Electrochemical and Solar Cells; Generating Electricity and the National Grid; Resistors, Ohm's Law (qualitative) and Logic Gates | todo |
+| feat/g8-tech-t4 | T4 | Electrochemical and Solar Cells; Generating Electricity and the National Grid; Resistors, Ohm's Law (qualitative) and Logic Gates | done |
 
 Mini-PATs are practical assessment tasks, not lessons, and are not built.
 
 ## Wave B list (not done here)
 Natural Sciences: Classification of Matter and Periodic Table (T3, CAPS T2); Chemical Reactions, Acids and Bases (T3, CAPS T2; acids and bases are not Grade 8); Solar System and Gravity (T2, CAPS T4; gravity is not Grade 8); Biogeochemical Cycles, Forces, Motion and Measurement, Forms and Transfer of Energy (not in the Grade 8 CAPS).
 Technology: Electrical Systems and Circuit Safety and Logic and PAT Design Work (T2, CAPS T4); Indigenous Technology and Processing (T4; processing is Grade 9, Grade 8 indigenous technology is Iron Age mining in T3).
+
+All 21 lessons (10 Natural Sciences, 11 Technology) are done. Remaining for a later Wave B: the wrong-term and non-CAPS Grade 8 lessons listed above.

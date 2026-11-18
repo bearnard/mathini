@@ -3659,6 +3659,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Cash Payments, Business Ownership and Management",
   "Economic Management Sciences"
  ],
+ "8|gr8-cells-batteries-solar-t4": [
+  "Electrochemical and Solar Cells",
+  "Technology"
+ ],
  "8|gr8-chemical-reactions-acids-and-bases-t3": [
   "Chemical Reactions, Acids and Bases",
   "Natural Sciences"
@@ -3765,6 +3769,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "8|gr8-electrical-systems-and-circuit-safety-t2": [
   "Electrical Systems and Circuit Safety",
+  "Technology"
+ ],
+ "8|gr8-electricity-generation-grid-t4": [
+  "Generating Electricity and the National Grid",
   "Technology"
  ],
  "8|gr8-electronic-communication-reviews-t2": [
@@ -4046,6 +4054,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-relationships-and-emotional-wellbeing-t1": [
   "Relationships and Emotional Wellbeing",
   "Life Orientation"
+ ],
+ "8|gr8-resistors-ohm-logic-t4": [
+  "Resistors, Ohm's Law and Logic Gates",
+  "Technology"
  ],
  "8|gr8-responsible-decision-making-t4": [
   "Responsible Decision-making",

@@ -131,6 +131,24 @@ export const technologyGrade8: Subject = {
           ),
         },
         {
+          id: 'cells-batteries-solar',
+          title: 'Electrochemical and Solar Cells',
+          description: 'Cells and batteries, series and parallel cells, and solar cells with their advantages and disadvantages.',
+          component: lazy(() => import('./term4/cells-batteries-solar/CellsBatteriesSolar')),
+        },
+        {
+          id: 'electricity-generation-grid',
+          title: 'Generating Electricity and the National Grid',
+          description: 'Thermal, hydroelectric and wind power stations, AC, transformers, the national grid and fair sharing of energy.',
+          component: lazy(() => import('./term4/electricity-generation-grid/ElectricityGenerationGrid')),
+        },
+        {
+          id: 'resistors-ohm-logic',
+          title: "Resistors, Ohm's Law and Logic Gates",
+          description: "Circuit components and symbols, resistors, a qualitative Ohm's law, and AND and OR logic gates with truth tables.",
+          component: lazy(() => import('./term4/resistors-ohm-logic/ResistorsOhmLogic')),
+        },
+        {
           id: 'systems-consolidation-and-exam-preparation',
           title: 'Systems Consolidation and Exam Preparation',
           description: 'Integrated mechanical, structural, and electrical revision for exams.',

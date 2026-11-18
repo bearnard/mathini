@@ -2711,6 +2711,21 @@
                 "description": "Corrosion prevention, food preservation, local knowledge, and sustainability."
               },
               {
+                "id": "cells-batteries-solar",
+                "title": "Electrochemical and Solar Cells",
+                "description": "Cells and batteries, series and parallel cells, and solar cells with their advantages and disadvantages."
+              },
+              {
+                "id": "electricity-generation-grid",
+                "title": "Generating Electricity and the National Grid",
+                "description": "Thermal, hydroelectric and wind power stations, AC, transformers, the national grid and fair sharing of energy."
+              },
+              {
+                "id": "resistors-ohm-logic",
+                "title": "Resistors, Ohm's Law and Logic Gates",
+                "description": "Circuit components and symbols, resistors, a qualitative Ohm's law, and AND and OR logic gates with truth tables."
+              },
+              {
                 "id": "systems-consolidation-and-exam-preparation",
                 "title": "Systems Consolidation and Exam Preparation",
                 "description": "Integrated mechanical, structural, and electrical revision for exams."
