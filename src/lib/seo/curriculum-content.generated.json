@@ -3266,6 +3266,21 @@
                 "id": "industrial-revolution-in-britain-and-southern-africa",
                 "title": "Industrial Revolution in Britain and Southern Africa",
                 "description": "Industrialisation, urbanisation, child labour, trade unions, and Kimberley diamond mining."
+              },
+              {
+                "id": "britain-workers-and-protest",
+                "title": "Workers and Protest in Industrial Britain",
+                "description": "Town life, child labour, the Luddites, the Swing Riots and the first big trade union."
+              },
+              {
+                "id": "southern-africa-1860-indentured-labour",
+                "title": "Southern Africa by 1860 and Indentured Labour",
+                "description": "Who ruled where, sugar in Natal, and workers brought from India."
+              },
+              {
+                "id": "kimberley-diamonds-and-monopoly",
+                "title": "Diamond Mining in Kimberley",
+                "description": "Why diamonds matter, the claims, black claimholders and the rise of De Beers."
               }
             ]
           },
@@ -3277,6 +3292,21 @@
                 "id": "mineral-revolution-in-south-africa",
                 "title": "The Mineral Revolution in South Africa",
                 "description": "Gold mining, migrant labour, compounds, Johannesburg, dispossession, segregation, and Union."
+              },
+              {
+                "id": "labour-control-and-land",
+                "title": "Controlling Workers and Taking Land",
+                "description": "Closed compounds, migrant labour, and the defeat of the Xhosa, the Pedi and the Zulu."
+              },
+              {
+                "id": "gold-randlords-and-miners",
+                "title": "Gold on the Witwatersrand",
+                "description": "Deep mining, the Randlords, the Chamber of Mines and the workers."
+              },
+              {
+                "id": "mineral-revolution-turning-point",
+                "title": "The Mineral Revolution as a Turning Point",
+                "description": "War, new organisations, Union, the Land Act and a changed map."
               }
             ]
           },

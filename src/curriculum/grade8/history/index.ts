@@ -21,6 +21,24 @@ export const historyGrade8: Subject = {
               ),
           ),
         },
+        {
+          id: 'britain-workers-and-protest',
+          title: "Workers and Protest in Industrial Britain",
+          description: "Town life, child labour, the Luddites, the Swing Riots and the first big trade union.",
+          component: lazy(() => import('./term1/britain-workers-and-protest/BritainWorkersAndProtest')),
+        },
+        {
+          id: 'southern-africa-1860-indentured-labour',
+          title: "Southern Africa by 1860 and Indentured Labour",
+          description: "Who ruled where, sugar in Natal, and workers brought from India.",
+          component: lazy(() => import('./term1/southern-africa-1860-indentured-labour/SouthernAfrica1860IndenturedLabour')),
+        },
+        {
+          id: 'kimberley-diamonds-and-monopoly',
+          title: "Diamond Mining in Kimberley",
+          description: "Why diamonds matter, the claims, black claimholders and the rise of De Beers.",
+          component: lazy(() => import('./term1/kimberley-diamonds-and-monopoly/KimberleyDiamondsAndMonopoly')),
+        },
       ],
     },
     {
@@ -38,6 +56,24 @@ export const historyGrade8: Subject = {
                 './term2/mineral-revolution-in-south-africa/MineralRevolutionInSouthAfrica'
               ),
           ),
+        },
+        {
+          id: 'labour-control-and-land',
+          title: "Controlling Workers and Taking Land",
+          description: "Closed compounds, migrant labour, and the defeat of the Xhosa, the Pedi and the Zulu.",
+          component: lazy(() => import('./term2/labour-control-and-land/LabourControlAndLand')),
+        },
+        {
+          id: 'gold-randlords-and-miners',
+          title: "Gold on the Witwatersrand",
+          description: "Deep mining, the Randlords, the Chamber of Mines and the workers.",
+          component: lazy(() => import('./term2/gold-randlords-and-miners/GoldRandlordsAndMiners')),
+        },
+        {
+          id: 'mineral-revolution-turning-point',
+          title: "The Mineral Revolution as a Turning Point",
+          description: "War, new organisations, Union, the Land Act and a changed map.",
+          component: lazy(() => import('./term2/mineral-revolution-turning-point/MineralRevolutionTurningPoint')),
         },
       ],
     },
