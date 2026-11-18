@@ -3,6 +3,13 @@
 // slug -> [subject code in the caps registry, grade]. The weekly top-up needs it to write a proper prompt for any grade.
 
 export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
+  "afr6-describe-process-t1": ["grade6", 6],
+  "afr6-diary-entry-t2": ["grade6", 6],
+  "afr6-factual-report-t1": ["grade6", 6],
+  "afr6-news-report-poster-t4": ["grade6", 6],
+  "afr6-opinion-paragraph-t2": ["grade6", 6],
+  "afr6-short-play-t3": ["grade6", 6],
+  "afr6-simple-story-t1": ["grade6", 6],
   "begripstoets": ["grade6", 6],
   "bullying-getting-help-t2": ["grade6", 6],
   "byvoeglike-naamwoorde": ["grade6", 6],

@@ -433,6 +433,21 @@
                 "id": "afr-teenwoordige-tyd",
                 "title": "Teenwoordige Tyd",
                 "description": "The present tense."
+              },
+              {
+                "id": "afr-simple-story",
+                "title": "Skryf ’n Storie",
+                "description": "The beginning, middle and end of a short story, with simple past sentences."
+              },
+              {
+                "id": "afr-factual-report",
+                "title": "Skryf ’n Feitelike Verslag",
+                "description": "Facts and opinions, the parts of a short report and sentences with facts."
+              },
+              {
+                "id": "afr-describe-process",
+                "title": "Beskryf ’n Proses",
+                "description": "Order words and the steps of a simple process, such as making a sandwich."
               }
             ]
           },
@@ -459,6 +474,16 @@
                 "id": "afr-vriendskaplike-brief",
                 "title": "Vriendskaplike Brief",
                 "description": "Writing a friendly letter."
+              },
+              {
+                "id": "afr-diary-entry",
+                "title": "Skryf ’n Dagboekinskrywing",
+                "description": "The date, Liewe Dagboek, what happened, how you feel and a plan for tomorrow."
+              },
+              {
+                "id": "afr-opinion-paragraph",
+                "title": "Skryf ’n Mening",
+                "description": "Giving an opinion with a reason, agreeing and disagreeing politely."
               }
             ]
           },
@@ -485,6 +510,11 @@
                 "id": "afr-sinsbou",
                 "title": "Sinsbou",
                 "description": "Sentence structure and word order (STOMPI)."
+              },
+              {
+                "id": "afr-short-play",
+                "title": "Skryf ’n Toneelstuk",
+                "description": "Characters, lines with a name and a colon, and a short conversation."
               }
             ]
           },
@@ -511,6 +541,11 @@
                 "id": "afr-gemengde-hersiening",
                 "title": "Gemengde Hersiening",
                 "description": "Mixed revision across the year."
+              },
+              {
+                "id": "afr-news-report-poster",
+                "title": "Nuusberig en Plakkaat",
+                "description": "The headline, who, what, where and when, and the words on a poster."
               }
             ]
           }

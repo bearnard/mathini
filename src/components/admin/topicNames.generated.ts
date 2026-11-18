@@ -2727,6 +2727,34 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "TB and HIV",
   "Life Skills"
  ],
+ "6|afr6-describe-process-t1": [
+  "Beskryf ’n Proses",
+  "Afrikaans (FAL)"
+ ],
+ "6|afr6-diary-entry-t2": [
+  "Skryf ’n Dagboekinskrywing",
+  "Afrikaans (FAL)"
+ ],
+ "6|afr6-factual-report-t1": [
+  "Skryf ’n Feitelike Verslag",
+  "Afrikaans (FAL)"
+ ],
+ "6|afr6-news-report-poster-t4": [
+  "Nuusberig en Plakkaat",
+  "Afrikaans (FAL)"
+ ],
+ "6|afr6-opinion-paragraph-t2": [
+  "Skryf ’n Mening",
+  "Afrikaans (FAL)"
+ ],
+ "6|afr6-short-play-t3": [
+  "Skryf ’n Toneelstuk",
+  "Afrikaans (FAL)"
+ ],
+ "6|afr6-simple-story-t1": [
+  "Skryf ’n Storie",
+  "Afrikaans (FAL)"
+ ],
  "6|begripstoets": [
   "Begripstoets",
   "Afrikaans (FAL)"

@@ -22,6 +22,7 @@ import xhoTerm4 from './tasks/xho-term4.json';
 import afrGr6 from './tasks/afr-gr6.json';
 import engGr6TextTypes from './tasks/eng-gr6-text-types.json';
 import engGr6Structures from './tasks/eng-gr6-structures.json';
+import afrGr6TextTypes from './tasks/afr-gr6-text-types.json';
 
 const ISIXHOSA_DIRECTIVE =
   ' Write every question, all four options and the explanation in isiXhosa.';
@@ -69,5 +70,6 @@ export const grade6: SubjectConfig = {
     // Grade 6 English text types (Wave A): ids start with eng6- so they are never taken for Maths (the gr6- prefix).
     ...engGr6TextTypes.tasks,
     ...engGr6Structures.tasks,
+    ...afrGr6TextTypes.tasks,
   },
 };
