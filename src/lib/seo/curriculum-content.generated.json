@@ -4808,6 +4808,11 @@
                 "id": "gr10-sole-trader-cash-credit-processing",
                 "title": "Sole Trader Cash and Credit Processing",
                 "description": "Cover CRJ, CPJ, PCJ, DJ, DAJ, CJ, CAJ, GJ, general ledger, debtors ledger, creditors ledger, trial balance."
+              },
+              {
+                "id": "gr10-internal-control-components-t1",
+                "title": "Internal Control: the Five Components",
+                "description": "Cover the five components of internal control: control environment, risk assessment, control activities, information and communication, monitoring, with stock and cash count differences."
               }
             ]
           },
@@ -4824,6 +4829,16 @@
                 "id": "gr10-payroll-year-end-procedures",
                 "title": "Payroll and Year-end Procedures",
                 "description": "Cover salaries and wages, deductions, employer contributions, SJ, WJ, pre/post-adjustment trial balance, final accounts."
+              },
+              {
+                "id": "gr10-vat-concepts-rates-t2",
+                "title": "VAT: Need, Purpose, Principles and Rates",
+                "description": "Cover why VAT exists, vendors, output and input VAT, VAT-able, zero-rated and exempt items, the 15% rate."
+              },
+              {
+                "id": "gr10-vat-calculations-account-t2",
+                "title": "VAT Calculations: Input, Output and the VAT Account",
+                "description": "Cover adding and removing VAT, output and input VAT, net VAT payable or refundable, the VAT Control account."
               }
             ]
           },
@@ -4856,6 +4871,11 @@
                 "id": "gr10-budgeting-examination-consolidation",
                 "title": "Budgeting and Examination Consolidation",
                 "description": "Cover cash budget, projected income statement, Grade 10 bookkeeping revision."
+              },
+              {
+                "id": "gr10-cost-concepts-budget-types-t4",
+                "title": "Cost Concepts and Budget Types",
+                "description": "Cover direct and indirect costs, prime and manufacturing cost, variable and fixed costs, work in progress, cash, zero-based and capital budgets."
               }
             ]
           }
