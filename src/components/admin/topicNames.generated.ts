@@ -623,6 +623,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Advanced Essay and Functional Writing",
   "English HL"
  ],
+ "11|gr11-aerial-photographs-landforms-t1": [
+  "Aerial Photographs and Landforms",
+  "Social Sciences: Geography"
+ ],
  "11|gr11-africa-climate-gis-t1": [
   "Africa's Climate and GIS",
   "Social Sciences: Geography"
@@ -735,6 +739,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Communist Ideology",
   "History"
  ],
+ "11|gr11-community-based-development-t3": [
+  "Community-Based Development",
+  "Social Sciences: Geography"
+ ],
  "11|gr11-community-participation-t2": [
   "Community Participation",
   "Life Orientation"
@@ -791,12 +799,24 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Democratic Structures and Participation",
   "Life Orientation"
  ],
+ "11|gr11-desertification-management-t1": [
+  "Desertification: Causes, Effects and Management",
+  "Social Sciences: Geography"
+ ],
  "11|gr11-developing-economies-poverty-t3": [
   "Developing Economies and Poverty",
   "Economics"
  ],
+ "11|gr11-development-factors-t3": [
+  "Factors that Affect Development",
+  "Social Sciences: Geography"
+ ],
  "11|gr11-development-indicators-t3": [
   "Development Indicators",
+  "Social Sciences: Geography"
+ ],
+ "11|gr11-development-models-t3": [
+  "Development Models: Rostow, Core and Periphery, Sustainability",
   "Social Sciences: Geography"
  ],
  "11|gr11-development-of-self-t1": [
@@ -814,6 +834,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-drama-poetry-comparison-t3": [
   "Drama and Poetry Comparison",
   "English HL"
+ ],
+ "11|gr11-droughts-causes-effects-t1": [
+  "Droughts: Causes, Effects and Vulnerability",
+  "Social Sciences: Geography"
  ],
  "11|gr11-economic-growth-wealth-t2": [
   "Economic Growth and Wealth Creation",
@@ -898,6 +922,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-factors-of-production-t1": [
   "Factors of Production and Remuneration",
   "Economics"
+ ],
+ "11|gr11-fieldwork-weather-data-t2": [
+  "Fieldwork: Collecting and Presenting Weather Data",
+  "Social Sciences: Geography"
  ],
  "11|gr11-file-handling-t1": [
   "File Handling",
@@ -1203,6 +1231,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Operations and Marketing Function",
   "Business Studies"
  ],
+ "11|gr11-orthophoto-maps-orienting-t1": [
+  "Orthophoto Maps: Scale, Measurement and Orientation",
+  "Social Sciences: Geography"
+ ],
  "11|gr11-partner-accounts-final-statements-t1": [
   "Partner Accounts and Final Statements",
   "Accounting"
@@ -1466,6 +1498,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-user-defined-methods-t2": [
   "User-Defined Methods: Procedures and Functions",
   "Information Technology"
+ ],
+ "11|gr11-using-atlases-t3": [
+  "Using Atlases",
+  "Social Sciences: Geography"
  ],
  "11|gr11-vat-calculations-recording-t4": [
   "VAT Calculations and Recording",
