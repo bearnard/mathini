@@ -333,3 +333,35 @@ test('Grade 8 NS, Technology and EMS: moved lessons sit in their CAPS term and t
   assert.deepEqual(counts('ems'), [3, 3, 2, 2]);
   for (const sid of ['ns', 'tech', 'ems']) for (const t of sub(sid).terms) assert.ok(t.topics.length > 0, `${sid} term ${t.id} is not empty`);
 });
+
+// Wave B, Grade 8 Creative Arts: the Visual Arts Term 2 and Term 4 bundles and the Music Term 3 and Term 4 bundles are not in the Grade 8 CAPS and are hidden now that the CAPS lessons exist for those terms.
+// Code, task instructions and D1 rows stay; each page redirects (308) to the new lesson of that term; no term is empty and the other bundle lessons stay.
+test('Grade 8 Creative Arts: the four hidden bundle lessons are out but kept with a redirect, and their terms still have the CAPS lessons', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const slugify = (t: string) => t.toLowerCase().replace(/&/g, 'and').replace(/[()]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const ca = grade8.subjects.find((x) => x.id === 'ca')!;
+  const term = (n: number) => ca.terms.find((t) => t.id === n)!.topics.map((p) => p.id);
+  // [term, topic id, component dir, task id, slug of the hidden page, slug of the lesson it goes to]
+  const hidden: [number, string, string, string, string, string][] = [
+    [2, 'visual-arts', 'term2/visual-arts', 'gr8-visual-arts-t2', 'visual-arts-term-2', 'fashion-design-from-recyclables'],
+    [4, 'visual-arts', 'term4/visual-arts', 'gr8-visual-arts-t4', 'visual-arts-term-4', 'scraperboard-etching'],
+    [3, 'music', 'term3/music', 'gr8-music-t3', 'music-term-3', 'melodic-ostinato-riffs-and-the-jingle'],
+    [4, 'music', 'term4/music', 'gr8-music-t4', 'music-term-4', '6-8-d-major-tempo-and-articulation'],
+  ];
+  const liveSlugs = new Set(ca.terms.flatMap((t) => t.topics.map((p) => slugify(p.title))));
+  for (const [n, id, dir, task, slug, to] of hidden) {
+    assert.ok(!term(n).includes(id), `Term ${n} ${id} is hidden`);
+    assert.ok(fs.existsSync(`src/curriculum/grade8/creative-arts/${dir}`), `${dir} is kept`);
+    const tasks = JSON.parse(fs.readFileSync(`src/lib/server/caps/tasks/ca-gr8-term${n}.json`, 'utf8')).tasks as Record<string, string>;
+    assert.ok(task in tasks, `${task} task instruction is kept`);
+    assert.equal(LEGACY_REDIRECTS.find((r) => r.source === `/grade-8/creative-arts/${slug}`)?.destination, `/grade-8/creative-arts/${to}`);
+    assert.ok(liveSlugs.has(to), `${to} is a live page`);
+  }
+  // the CAPS-right bundle lessons stay
+  assert.ok(term(1).includes('visual-arts') && term(1).includes('music') && term(1).includes('drama') && term(1).includes('dance'));
+  assert.ok(term(2).includes('music') && term(2).includes('drama') && term(2).includes('dance'));
+  assert.ok(term(3).includes('visual-arts') && term(3).includes('drama') && term(3).includes('dance'));
+  assert.ok(term(4).includes('drama') && term(4).includes('dance'));
+  assert.deepEqual(ca.terms.map((t) => t.topics.length), [8, 7, 7, 8]);
+});

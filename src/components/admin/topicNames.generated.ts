@@ -4247,14 +4247,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Music",
   "Creative Arts"
  ],
- "8|gr8-music-t3": [
-  "Music",
-  "Creative Arts"
- ],
- "8|gr8-music-t4": [
-  "Music",
-  "Creative Arts"
- ],
  "8|gr8-narrative-writing-grammar-t1": [
   "Narratiewe Skryfwerk & Grammatika",
   "Afrikaans FAL"
@@ -4431,15 +4423,7 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Visual Arts",
   "Creative Arts"
  ],
- "8|gr8-visual-arts-t2": [
-  "Visual Arts",
-  "Creative Arts"
- ],
  "8|gr8-visual-arts-t3": [
-  "Visual Arts",
-  "Creative Arts"
- ],
- "8|gr8-visual-arts-t4": [
   "Visual Arts",
   "Creative Arts"
  ],
