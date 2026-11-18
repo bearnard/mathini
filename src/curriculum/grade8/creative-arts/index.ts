@@ -159,6 +159,12 @@ export const creativeArtsGrade8: Subject = {
           description: 'Careers in the arts and design, researching a career, surface decoration and making 2D and 3D designs.',
           component: lazy(() => import('./term3/careers-surface-decoration/CareersSurfaceDecoration')),
         },
+        {
+          id: 'dance-careers-discussing-dance',
+          title: 'Dance Careers and Discussing a Dance You Have Seen',
+          description: 'Describing a dance, space, force and relationships, careers in dance and researching a dance career.',
+          component: lazy(() => import('./term3/dance-careers-discussing-dance/DanceCareersDiscussingDance')),
+        },
       ],
     },
     {
@@ -218,6 +224,12 @@ export const creativeArtsGrade8: Subject = {
           title: 'Scraperboard Etching',
           description: 'Wax and ink scraperboard, shape, line, tone and texture, contrast and emphasis, and working safely.',
           component: lazy(() => import('./term4/scraperboard-etching/ScraperboardEtching')),
+        },
+        {
+          id: 'gestures-movement-sentence',
+          title: 'Gestures and the Movement Sentence',
+          description: 'Literal and abstract gestures, the movement sentence with counts, and composing a sequence about an idea or mood.',
+          component: lazy(() => import('./term4/gestures-movement-sentence/GesturesMovementSentence')),
         },
       ],
     },

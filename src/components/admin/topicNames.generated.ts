@@ -3839,12 +3839,20 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Clay and Mythological Containers",
   "Creative Arts"
  ],
+ "8|gr8-ca-dance-careers-t3": [
+  "Dance Careers and Discussing a Dance You Have Seen",
+  "Creative Arts"
+ ],
  "8|gr8-ca-dialogue-storytelling-t4": [
   "Dialogues, Dramatised Prose and Indigenous Storytelling",
   "Creative Arts"
  ],
  "8|gr8-ca-fashion-design-t2": [
   "Fashion Design from Recyclables",
+  "Creative Arts"
+ ],
+ "8|gr8-ca-gestures-movement-t4": [
+  "Gestures and the Movement Sentence",
   "Creative Arts"
  ],
  "8|gr8-ca-instrument-families-t1": [
