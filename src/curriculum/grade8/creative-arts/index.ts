@@ -81,6 +81,12 @@ export const creativeArtsGrade8: Subject = {
           description: 'The triplet, the F major scale, piano, forte, crescendo, diminuendo, allegro and andante.',
           component: lazy(() => import('./term2/triplets-f-major-terms/TripletsFMajorTerms')),
         },
+        {
+          id: 'sa-poetry-praise-poetry',
+          title: 'South African Poetry and Praise Poetry',
+          description: 'Interpreting a poem, mood, praise poetry, call and response and the role of the praise poet.',
+          component: lazy(() => import('./term2/sa-poetry-praise-poetry/SaPoetryPraisePoetry')),
+        },
       ],
     },
     {
@@ -117,6 +123,12 @@ export const creativeArtsGrade8: Subject = {
           description: 'Repeating patterns, four lines of lyrics, a one-minute jingle and music technology.',
           component: lazy(() => import('./term3/ostinato-riff-jingle/OstinatoRiffJingle')),
         },
+        {
+          id: 'polished-improvisation-style',
+          title: 'Polished Improvisation in a Style',
+          description: 'Comedy, tragedy, musical or puppet show, drama elements, technical resources and justifying your choices.',
+          component: lazy(() => import('./term3/polished-improvisation-style/PolishedImprovisationStyle')),
+        },
       ],
     },
     {
@@ -152,6 +164,18 @@ export const creativeArtsGrade8: Subject = {
           title: '6/8, D Major, Tempo and Articulation',
           description: 'The time signature 6/8, the D major scale, tempo words, legato, staccato and listening.',
           component: lazy(() => import('./term4/six-eight-d-major-articulation/SixEightDMajorArticulation')),
+        },
+        {
+          id: 'dialogues-prose-storytelling',
+          title: 'Dialogues, Dramatised Prose and Indigenous Storytelling',
+          description: 'Character in voice and body, status, narrator and characters, the ntsomi, songs and sound effects.',
+          component: lazy(() => import('./term4/dialogues-prose-storytelling/DialoguesProseStorytelling')),
+        },
+        {
+          id: 'drama-in-the-media',
+          title: 'Drama in the Media',
+          description: 'Film, television, radio, documentaries and the internet, drama elements in the media and responding to a media drama.',
+          component: lazy(() => import('./term4/drama-in-the-media/DramaInTheMedia')),
         },
       ],
     },

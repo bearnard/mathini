@@ -3795,8 +3795,16 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Brochures and Visual Literacy",
   "English HL"
  ],
+ "8|gr8-ca-dialogue-storytelling-t4": [
+  "Dialogues, Dramatised Prose and Indigenous Storytelling",
+  "Creative Arts"
+ ],
  "8|gr8-ca-instrument-families-t1": [
   "Families of Instruments",
+  "Creative Arts"
+ ],
+ "8|gr8-ca-media-t4": [
+  "Drama in the Media",
   "Creative Arts"
  ],
  "8|gr8-ca-music-literacy-t1": [
@@ -3805,6 +3813,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "8|gr8-ca-ostinato-jingle-t3": [
   "Melodic Ostinato, Riffs and the Jingle",
+  "Creative Arts"
+ ],
+ "8|gr8-ca-poetry-praise-t2": [
+  "South African Poetry and Praise Poetry",
+  "Creative Arts"
+ ],
+ "8|gr8-ca-polished-improvisation-t3": [
+  "Polished Improvisation in a Style",
   "Creative Arts"
  ],
  "8|gr8-ca-six-eight-d-major-t4": [
