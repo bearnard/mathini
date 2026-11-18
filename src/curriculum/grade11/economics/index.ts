@@ -16,6 +16,12 @@ export const economicsGrade11: Subject = {
           component: lazy(() => import('./term1/factors-of-production/FactorsOfProduction')),
         },
         {
+          id: 'gr11-population-labour-force-t1',
+          title: 'Population and Labour Force',
+          description: 'Population characteristics, the labour force, participation, absorption and unemployment rates and the dependency ratio.',
+          component: lazy(() => import('./term1/population-labour-force/PopulationLabourForce')),
+        },
+        {
           id: 'gr11-gdp-gni-t1',
           title: 'GDP, GNI and Gross Value Added',
           description: 'Three approaches to measuring GDP, the distinction between GDP and GNI, nominal vs real GDP, and GDP per capita calculations.',
@@ -62,6 +68,18 @@ export const economicsGrade11: Subject = {
           title: 'Gini Coefficient and Income Redistribution',
           description: "Lorenz curve, Gini coefficient calculation and interpretation, SA's extreme inequality context, and evaluation of redistribution policies.",
           component: lazy(() => import('./term2/gini-redistribution/GiniRedistribution')),
+        },
+        {
+          id: 'gr11-economic-growth-wealth-t2',
+          title: 'Economic Growth and Wealth Creation',
+          description: 'Wealth creation, the growth rate and real GDP, methods and constraints on growth, and the standard of living.',
+          component: lazy(() => import('./term2/economic-growth-wealth/EconomicGrowthWealth')),
+        },
+        {
+          id: 'gr11-marginal-utility-t2',
+          title: 'Marginal Utility',
+          description: 'Total and marginal utility, diminishing marginal utility, consumer equilibrium and the link to demand.',
+          component: lazy(() => import('./term2/marginal-utility/MarginalUtility')),
         },
       ],
     },
