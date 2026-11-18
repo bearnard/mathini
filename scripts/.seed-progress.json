@@ -126,8 +126,17 @@
     "gr6-shapes-t3",
     "gr6-symmetry-t3",
     "gr6-volume-t3",
-    "gr6-time-t4"
+    "gr6-time-t4",
+    "creative-arts-t2",
+    "ecosystems",
+    "nutrients",
+    "fair-trade"
   ],
-  "failed": [],
-  "totalInserted": 4145
+  "failed": [
+    "listening-speaking-t3",
+    "reading-viewing-t3",
+    "frontier-conflicts",
+    "what-is-history"
+  ],
+  "totalInserted": 4294
 }
