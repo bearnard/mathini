@@ -979,6 +979,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "GDP, GNI and Gross Value Added",
   "Economics"
  ],
+ "11|gr11-gender-roles-power-abuse-t4": [
+  "Gender Roles and Unequal Power",
+  "Life Orientation"
+ ],
  "11|gr11-geomorphology-mapwork-t2": [
   "Geomorphology and Topographic Mapwork",
   "Social Sciences: Geography"
@@ -1006,6 +1010,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-hardware-storage-management-t1": [
   "Hardware and Storage Management",
   "Computer Applications Technology"
+ ],
+ "11|gr11-healthy-lifestyle-accidents-nutrition-t3": [
+  "A Healthy Balanced Lifestyle: Accidents and Nutrition",
+  "Life Orientation"
  ],
  "11|gr11-html-mail-merge-design-principles-t3": [
   "HTML, Mail Merge and Design Principles",
@@ -1117,6 +1125,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "11|gr11-media-ideology-citizenship-t3": [
   "Media, Ideology and Active Citizenship",
+  "Life Orientation"
+ ],
+ "11|gr11-media-relationship-values-t1": [
+  "The Media and Your Beliefs about Relationships",
   "Life Orientation"
  ],
  "11|gr11-meetings-procedures-t3": [
@@ -1383,6 +1395,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Relationships, Sexuality and Health",
   "Life Orientation"
  ],
+ "11|gr11-religions-belief-moral-dilemmas-t4": [
+  "Religions, Beliefs and Moral Dilemmas",
+  "Life Orientation"
+ ],
  "11|gr11-report-review-oral-t4": [
   "Oral Reports and Reviews",
   "English HL"
@@ -1409,6 +1425,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "11|gr11-risk-and-wellbeing-t2": [
   "Risk and Wellbeing",
+  "Life Orientation"
+ ],
+ "11|gr11-risky-behaviour-peer-pressure-t3": [
+  "Risky Behaviour, Peer Pressure and Getting Help",
   "Life Orientation"
  ],
  "11|gr11-roaring-twenties-t2": [
@@ -1459,6 +1479,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "South Africa in Africa: SADC and NEPAD",
   "Economics"
  ],
+ "11|gr11-sport-nation-building-t1": [
+  "Sport and Nation Building",
+  "Life Orientation"
+ ],
  "11|gr11-spreadsheets-databases-fundamentals-t1": [
   "Spreadsheets and Databases Fundamentals",
   "Computer Applications Technology"
@@ -1501,6 +1525,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "11|gr11-study-skills-coping-t1": [
   "Study Skills and Coping Strategies",
+  "Life Orientation"
+ ],
+ "11|gr11-study-styles-annual-plan-t2": [
+  "Study Styles, Strategies and Your Annual Study Plan",
   "Life Orientation"
  ],
  "11|gr11-summary-writing-technique-t2": [

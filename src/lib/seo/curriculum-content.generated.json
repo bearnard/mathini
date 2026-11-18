@@ -6964,6 +6964,16 @@
                 "id": "gr11-physical-education-task-1-t1",
                 "title": "Physical Education Task — Term 1",
                 "description": "Fitness components, technique, personal activity programming and health benefits."
+              },
+              {
+                "id": "gr11-sport-nation-building-t1",
+                "title": "Sport and Nation Building",
+                "description": "How players and spectators behave, what triggers poor behaviour, and how sport can support or harm nation building."
+              },
+              {
+                "id": "gr11-media-relationship-values-t1",
+                "title": "The Media and Your Beliefs about Relationships",
+                "description": "How films, adverts and social media shape what you expect from relationships, and how to think about them critically."
               }
             ]
           },
@@ -6990,6 +7000,11 @@
                 "id": "gr11-physical-education-task-2-t2",
                 "title": "Physical Education Task — Term 2",
                 "description": "Team sports, strategy, leadership, fair play and wellness tracking."
+              },
+              {
+                "id": "gr11-study-styles-annual-plan-t2",
+                "title": "Study Styles, Strategies and Your Annual Study Plan",
+                "description": "Study skills, styles and strategies, exam skills, and building an annual study plan with goals."
               }
             ]
           },
@@ -7016,6 +7031,16 @@
                 "id": "gr11-physical-education-task-3-t3",
                 "title": "Physical Education Task — Term 3",
                 "description": "Athletics skills, conditioning, inclusive leadership, safe practice and sustained effort."
+              },
+              {
+                "id": "gr11-healthy-lifestyle-accidents-nutrition-t3",
+                "title": "A Healthy Balanced Lifestyle: Accidents and Nutrition",
+                "description": "The facets of a balanced lifestyle, the causes and prevention of accidents, and the role of nutrition in health and activity."
+              },
+              {
+                "id": "gr11-risky-behaviour-peer-pressure-t3",
+                "title": "Risky Behaviour, Peer Pressure and Getting Help",
+                "description": "Risky behaviour, substances, sexual health and consent, handling peer pressure, and where to get help."
               }
             ]
           },
@@ -7042,6 +7067,16 @@
                 "id": "gr11-physical-education-task-4-t4",
                 "title": "Physical Education Task — Term 4",
                 "description": "Fitness reflection, lifelong physical activity, sustainable goals and participation habits."
+              },
+              {
+                "id": "gr11-gender-roles-power-abuse-t4",
+                "title": "Gender Roles and Unequal Power",
+                "description": "Gender roles, unequal power and abuse of power, the effects on well-being, and how to address inequality."
+              },
+              {
+                "id": "gr11-religions-belief-moral-dilemmas-t4",
+                "title": "Religions, Beliefs and Moral Dilemmas",
+                "description": "South Africa's religions and belief systems, clarifying your own values, and thinking through moral dilemmas respectfully."
               }
             ]
           }
