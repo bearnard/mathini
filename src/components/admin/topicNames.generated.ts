@@ -2815,6 +2815,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Comic Strips and Writing a Comic Script",
   "English HL"
  ],
+ "6|eng6-continuous-present-perfect": [
+  "Continuous Tenses and the Present Perfect",
+  "English HL"
+ ],
  "6|eng6-descriptive-paragraph": [
   "Writing a Descriptive Paragraph",
   "English HL"
@@ -2839,8 +2843,24 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Writing a Newspaper Article",
   "English HL"
  ],
+ "6|eng6-prefixes-suffixes-stems": [
+  "Prefixes, Suffixes and Stems",
+  "English HL"
+ ],
+ "6|eng6-prepositions": [
+  "Prepositions",
+  "English HL"
+ ],
+ "6|eng6-pronouns-types": [
+  "Pronouns: Interrogative, Demonstrative and Indefinite",
+  "English HL"
+ ],
  "6|eng6-story-writing-plot": [
   "Writing a Story with a Plot",
+  "English HL"
+ ],
+ "6|eng6-subject-verb-agreement": [
+  "Subject-Verb Agreement and the Simple Tenses",
   "English HL"
  ],
  "6|european-medicine": [

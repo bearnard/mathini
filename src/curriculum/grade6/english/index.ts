@@ -14,6 +14,9 @@ export const englishHL: Subject = {
         { id: 'process-writing-grammar', title: 'Process Writing & Grammar', description: 'Drafting essays, friendly letters, grammar essentials.', component: lazy(() => import('./term1/process-writing-grammar/ProcessWritingGrammar')) },
         { id: "eng6-newspaper-article", title: "Writing a Newspaper Article", description: "Headline, by-line, the lead paragraph, the five Ws and writing in the third person.", component: lazy(() => import('./term1/newspaper-article/NewspaperArticle')) },
         { id: "eng6-folklore-myth-legend", title: "Folklore: Myths and Legends", description: "What a myth and a legend are, their features, and how to write a short folklore story.", component: lazy(() => import('./term1/folklore-myth-legend/FolkloreMythLegend')) },
+        { id: "eng6-pronouns-types", title: "Pronouns: Interrogative, Demonstrative and Indefinite", description: "What a pronoun does, and the interrogative, demonstrative and indefinite pronouns.", component: lazy(() => import('./term1/pronouns-types/PronounsTypes')) },
+        { id: "eng6-subject-verb-agreement", title: "Subject-Verb Agreement and the Simple Tenses", description: "Subject and verb, agreement, and the simple present, past and future tenses.", component: lazy(() => import('./term1/subject-verb-agreement/SubjectVerbAgreement')) },
+        { id: "eng6-prepositions", title: "Prepositions", description: "Prepositions of place, time and direction.", component: lazy(() => import('./term1/prepositions/Prepositions')) },
       ],
     },
     {
@@ -26,6 +29,8 @@ export const englishHL: Subject = {
         { id: "eng6-instructional-text", title: "Instructional Texts: Recipes and Directions", description: "Recipes and directions: what you need, steps in order, command verbs and sequence words.", component: lazy(() => import('./term2/instructional-text/InstructionalText')) },
         { id: "eng6-information-text-weather", title: "Information Texts: Weather Reports and Charts", description: "Reading and writing a weather report and chart, with the correct units and tense.", component: lazy(() => import('./term2/information-text-weather/InformationTextWeather')) },
         { id: "eng6-story-writing-plot", title: "Writing a Story with a Plot", description: "Characters, setting, the plot on a flow chart, a problem and an ending.", component: lazy(() => import('./term2/story-writing-plot/StoryWritingPlot')) },
+        { id: "eng6-prefixes-suffixes-stems", title: "Prefixes, Suffixes and Stems", description: "Stems, prefixes, suffixes, word division and dictionary use.", component: lazy(() => import('./term2/prefixes-suffixes-stems/PrefixesSuffixesStems')) },
+        { id: "eng6-continuous-present-perfect", title: "Continuous Tenses and the Present Perfect", description: "Auxiliary verbs, the continuous tenses and the present perfect.", component: lazy(() => import('./term2/continuous-present-perfect/ContinuousPresentPerfect')) },
       ],
     },
     {

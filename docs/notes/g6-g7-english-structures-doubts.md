@@ -1,0 +1,15 @@
+# Grades 6 and 7 English HL language structures: doubts and decisions (for an English teacher to check)
+
+Orchestrator #1040/#1041. Each example sentence was written so that exactly one option is correct; anything debatable is listed here and kept out of the questions.
+
+## Grade 6 (branch feat/eng6-structures-a): T1 pronouns, subject-verb agreement and simple tenses, prepositions; T2 prefixes, suffixes and stems, continuous tenses and the present perfect
+- Task ids start with `eng6-` (never `gr6-`): the weekly top-up treats `gr6-*` as Mathematics. The task instructions are in their own file, `eng-gr6-structures.json`.
+- Scope follows the Grade 6 English HL teaching plans (word level, sentence level, spelling and punctuation columns): interrogative, demonstrative and indefinite pronouns (T1 and T3); subject-verb agreement and the simple tenses (T1); prepositions (T1); stems, prefixes and suffixes and the dictionary (T2); the continuous tenses and the present perfect (T2).
+- Pronouns: whom is listed as the formal interrogative for a person as the object, and no question depends on it. Demonstrative pronouns are taught only when they stand alone (This is my seat); when they come before a noun (this seat) they are determiners, and no question uses that form. Everyone, someone and nothing take a singular verb. Few and many are listed as indefinite pronouns, following the CAPS wording.
+- Prepositions: between for two and among for more than two is taught as the rule; some speakers use among and between more loosely, so only clear cases are asked. Time: at with clock times, on with days and dates, in with months, years and parts of the day. The sentence The school day starts at 08:00 has the time preposition at; by 08:00 would also be correct English but means no later than, so it is not an option.
+- Agreement: the verb to be is shown with I am, he is, we are; a subject joined by and is plural. The irregular past forms taught are went, ate and saw.
+- Prefixes and suffixes: un (not), re (again), dis (opposite), mis (wrongly), pre (before); ful (full of), less (without), ness, ly, er (a person who), ment. Misspell is used to show that the stem keeps its spelling. Word division: between syllables with a hyphen (beau-ti-ful); the lesson also says never to leave a single letter on a line, which is a common school rule rather than a CAPS rule.
+- Tenses: the present perfect is taught as has or have plus the past participle, with the participles finished, eaten, gone, seen and written. The past continuous question uses when I phoned, which shows an action in progress in the past. Present perfect continuous appears only as a wrong option and is not taught.
+- Spelling: South African English throughout (colour, practise as a verb, practice as a noun; neither word is needed in these lessons).
+- The words o'clock and 08:00 are used for time; no decimal numbers appear.
+- Not built: the Term 3 and Term 4 structures (past perfect and future perfect, active and passive voice, direct and indirect speech, adverbs, punctuation) which are in branch feat/eng6-structures-b.
