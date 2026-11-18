@@ -33,6 +33,18 @@ export const businessStudiesGrade11: Subject = {
           description: 'Cover the four acquisition avenues: starting from scratch, buying an existing business, buying a franchise, and family business inheritance.',
           component: lazy(() => import('./term1/acquiring-a-business/AcquiringABusiness')),
         },
+        {
+          id: 'gr11-intellectual-property-rights-t1',
+          title: 'Intellectual Property Rights',
+          description: 'Cover copyright, patents and trade marks, piracy and its effects, and what a business can do to protect its intellectual property.',
+          component: lazy(() => import('./term1/intellectual-property-rights/IntellectualPropertyRights')),
+        },
+        {
+          id: 'gr11-trade-unions-labour-relations-act-t1',
+          title: 'Trade Unions and the Labour Relations Act',
+          description: 'Cover the purpose of the Labour Relations Act, what trade unions are and do, and strikes, go-slows and lockouts.',
+          component: lazy(() => import('./term1/trade-unions-labour-relations-act/TradeUnionsLabourRelationsAct')),
+        },
       ],
     },
     {
@@ -92,6 +104,12 @@ export const businessStudiesGrade11: Subject = {
           title: 'Team Dynamics and Conflict Management',
           description: 'Cover Tuckman\'s five team stages, team roles, sources and types of conflict, and conflict-resolution strategies including negotiation, mediation and arbitration.',
           component: lazy(() => import('./term3/team-dynamics-conflict/TeamDynamicsConflict')),
+        },
+        {
+          id: 'gr11-citizenship-roles-responsibilities-t3',
+          title: 'Citizenship Roles and Responsibilities of a Business',
+          description: 'Cover the business community, corporate social investment, and the roles of businesses, NGOs, CBOs and individuals in community development.',
+          component: lazy(() => import('./term3/citizenship-roles-responsibilities/CitizenshipRolesResponsibilities')),
         },
       ],
     },

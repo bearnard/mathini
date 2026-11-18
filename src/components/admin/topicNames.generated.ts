@@ -723,6 +723,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "The Chemistry of Water",
   "Physical Sciences"
  ],
+ "11|gr11-citizenship-roles-responsibilities-t3": [
+  "Citizenship Roles and Responsibilities of a Business",
+  "Business Studies"
+ ],
  "11|gr11-cloud-storage-saas-adverts-t2": [
   "Cloud Storage, SaaS and Reading Adverts",
   "Computer Applications Technology"
@@ -990,6 +994,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-infrastructure-exclusion-t1": [
   "Infrastructure and Economic Exclusion",
   "Economics"
+ ],
+ "11|gr11-intellectual-property-rights-t1": [
+  "Intellectual Property Rights",
+  "Business Studies"
  ],
  "11|gr11-intermolecular-forces-t3": [
   "Intermolecular Forces",
@@ -1438,6 +1446,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "11|gr11-trade-globalisation-t3": [
   "Trade and Globalisation",
   "Social Sciences: Geography"
+ ],
+ "11|gr11-trade-unions-labour-relations-act-t1": [
+  "Trade Unions and the Labour Relations Act",
+  "Business Studies"
  ],
  "11|gr11-trig-sine-cosine-rule-t3": [
   "Trigonometry — Sine, Cosine and Area Rules",
