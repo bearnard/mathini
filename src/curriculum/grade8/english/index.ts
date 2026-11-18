@@ -45,6 +45,12 @@ export const englishHLGrade8: Subject = {
           description: "Lines, stanzas, the speaker, layout, and literal and figurative meaning.",
           component: lazy(() => import('./term1/reading-a-poem/ReadingAPoem')),
         },
+        {
+          id: 'gr8-prepared-speech-t1',
+          title: 'Prepared Speech: Structure, Delivery and Rubric',
+          description: 'Opening, body and closing, speech techniques, delivery and rubric criteria.',
+          component: lazy(() => import('./term1/prepared-speech/PreparedSpeech')),
+        },
       ],
     },
     {
@@ -87,6 +93,12 @@ export const englishHLGrade8: Subject = {
           description: "Simile, metaphor, personification, hyperbole and onomatopoeia, and what they do.",
           component: lazy(() => import('./term2/figures-of-speech-in-poems/FiguresOfSpeechInPoems')),
         },
+        {
+          id: 'gr8-listening-detail-viewpoint-t2',
+          title: 'Listening for Detail and Viewpoint',
+          description: 'Facts and key words, main idea and summary, viewpoint, bias and tone.',
+          component: lazy(() => import('./term2/listening-detail-viewpoint/ListeningDetailViewpoint')),
+        },
       ],
     },
     {
@@ -124,6 +136,12 @@ export const englishHLGrade8: Subject = {
           title: "Sound and Structure in Poems",
           description: "Rhyme and rhyme scheme, rhythm, alliteration, repetition and the refrain.",
           component: lazy(() => import('./term3/sound-and-structure-in-poems/SoundAndStructureInPoems')),
+        },
+        {
+          id: 'gr8-interview-skills-t3',
+          title: 'Interview Skills: Planning, Asking and Answering',
+          description: 'Open and closed questions, follow-ups, roles, courtesy and timing.',
+          component: lazy(() => import('./term3/interview-skills/InterviewSkills')),
         },
       ],
     },

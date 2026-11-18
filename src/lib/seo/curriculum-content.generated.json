@@ -1435,6 +1435,11 @@
                 "id": "gr7-drama-dialogue-t1",
                 "title": "Writing a Dialogue for Drama",
                 "description": "The format of a script, stage directions, character and style, and enacting and checking a scene."
+              },
+              {
+                "id": "gr7-reading-aloud-t1",
+                "title": "Reading Aloud",
+                "description": "Preparing, voice skills, expression and what a reading-aloud rubric looks at."
               }
             ]
           },
@@ -1486,6 +1491,11 @@
                 "id": "gr7-drama-review-t2",
                 "title": "Writing a Drama Review",
                 "description": "The parts of a review, describing acting and staging, giving an opinion and ordering the paragraphs."
+              },
+              {
+                "id": "gr7-listening-strategies-t2",
+                "title": "Listening Strategies",
+                "description": "Listening with a purpose, note-taking, fact and opinion, and tone."
               }
             ]
           },
@@ -1532,6 +1542,11 @@
                 "id": "gr7-newspaper-article-t3",
                 "title": "Writing a Newspaper Article",
                 "description": "The parts of a news article, the lead and the five Ws, quotations and headlines."
+              },
+              {
+                "id": "gr7-debate-skills-t3",
+                "title": "Debate Skills",
+                "description": "The motion, the two teams, building an argument, rebuttal and courtesy."
               }
             ]
           },
@@ -2356,6 +2371,11 @@
                 "id": "reading-a-poem",
                 "title": "Reading a Poem: What It Says and How",
                 "description": "Lines, stanzas, the speaker, layout, and literal and figurative meaning."
+              },
+              {
+                "id": "gr8-prepared-speech-t1",
+                "title": "Prepared Speech: Structure, Delivery and Rubric",
+                "description": "Opening, body and closing, speech techniques, delivery and rubric criteria."
               }
             ]
           },
@@ -2392,6 +2412,11 @@
                 "id": "figures-of-speech-in-poems",
                 "title": "Figures of Speech in Poems",
                 "description": "Simile, metaphor, personification, hyperbole and onomatopoeia, and what they do."
+              },
+              {
+                "id": "gr8-listening-detail-viewpoint-t2",
+                "title": "Listening for Detail and Viewpoint",
+                "description": "Facts and key words, main idea and summary, viewpoint, bias and tone."
               }
             ]
           },
@@ -2423,6 +2448,11 @@
                 "id": "sound-and-structure-in-poems",
                 "title": "Sound and Structure in Poems",
                 "description": "Rhyme and rhyme scheme, rhythm, alliteration, repetition and the refrain."
+              },
+              {
+                "id": "gr8-interview-skills-t3",
+                "title": "Interview Skills: Planning, Asking and Answering",
+                "description": "Open and closed questions, follow-ups, roles, courtesy and timing."
               }
             ]
           },
@@ -3657,6 +3687,11 @@
                 "id": "letter-of-appreciation",
                 "title": "Writing a Letter of Appreciation",
                 "description": "Thanking someone for help or advice: the layout, the main and supporting ideas, and a polite, warm register."
+              },
+              {
+                "id": "gr9-prepared-speech-techniques-t1",
+                "title": "Prepared Speech and Presentation Techniques",
+                "description": "Planning a persuasive speech, rhetorical devices and appeals, delivery and rubric criteria."
               }
             ]
           },
@@ -3698,6 +3733,11 @@
                 "id": "form-and-structure-in-poems",
                 "title": "Form and Structure in Poems",
                 "description": "Stanza forms, free verse, enjambment, caesura and the sonnet."
+              },
+              {
+                "id": "gr9-meeting-oral-tasks-t2",
+                "title": "Meeting Oral Tasks",
+                "description": "The roles at a meeting, chairing, proposals and votes, meeting language and minutes."
               }
             ]
           },
@@ -3729,6 +3769,11 @@
                 "id": "tone-mood-irony-and-message",
                 "title": "Tone, Mood, Irony and the Poet's Message",
                 "description": "Reading the speaker's attitude, the feeling of the poem, irony and the message."
+              },
+              {
+                "id": "gr9-debate-panel-discussion-t3",
+                "title": "Debate and Panel Discussion",
+                "description": "Debate and panel formats, evidence, rebuttal, fallacies, the chair and rubric criteria."
               }
             ]
           },

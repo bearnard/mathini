@@ -69,6 +69,12 @@ export const englishHLGrade7: Subject = {
           description: 'The format of a script, stage directions, character and style, and enacting and checking a scene.',
           component: lazy(() => import('./term1/drama-dialogue/DramaDialogue')),
         },
+        {
+          id: 'gr7-reading-aloud-t1',
+          title: 'Reading Aloud',
+          description: 'Preparing, voice skills, expression and what a reading-aloud rubric looks at.',
+          component: lazy(() => import('./term1/reading-aloud/ReadingAloud')),
+        },
       ],
     },
     {
@@ -129,6 +135,12 @@ export const englishHLGrade7: Subject = {
           description: 'The parts of a review, describing acting and staging, giving an opinion and ordering the paragraphs.',
           component: lazy(() => import('./term2/drama-review/DramaReview')),
         },
+        {
+          id: 'gr7-listening-strategies-t2',
+          title: 'Listening Strategies',
+          description: 'Listening with a purpose, note-taking, fact and opinion, and tone.',
+          component: lazy(() => import('./term2/listening-strategies/ListeningStrategies')),
+        },
       ],
     },
     {
@@ -184,6 +196,12 @@ export const englishHLGrade7: Subject = {
           title: 'Writing a Newspaper Article',
           description: 'The parts of a news article, the lead and the five Ws, quotations and headlines.',
           component: lazy(() => import('./term3/newspaper-article/NewspaperArticle')),
+        },
+        {
+          id: 'gr7-debate-skills-t3',
+          title: 'Debate Skills',
+          description: 'The motion, the two teams, building an argument, rebuttal and courtesy.',
+          component: lazy(() => import('./term3/debate-skills/DebateSkills')),
         },
       ],
     },
