@@ -1432,6 +1432,16 @@
                 "id": "project-language-refinement",
                 "title": "Project and Language Refinement",
                 "description": "Project writing, active-passive voice, punctuation, and clauses."
+              },
+              {
+                "id": "gr7-clauses-t3",
+                "title": "Noun, Adjectival, Adverbial and Relative Clauses",
+                "description": "The three kinds of dependent clause, relative pronouns and adverbial conjunctions."
+              },
+              {
+                "id": "gr7-pronouns-t3",
+                "title": "Pronouns",
+                "description": "Personal, possessive, reflexive, demonstrative, interrogative, indefinite and relative pronouns."
               }
             ]
           },
@@ -1453,6 +1463,16 @@
                 "id": "grammar-consolidation",
                 "title": "Grammar Consolidation",
                 "description": "Tenses, clauses, punctuation, vocabulary, and language in context."
+              },
+              {
+                "id": "gr7-verbs-gerunds-t4",
+                "title": "Verbs: Auxiliary, Finite and Non-finite, Gerunds",
+                "description": "Finite and non-finite verbs, auxiliary verbs, participles and gerunds."
+              },
+              {
+                "id": "gr7-bias-emotive-language-t4",
+                "title": "Bias, Stereotypes and Emotive Language",
+                "description": "Bias and prejudice, stereotypes, emotive and manipulative language and rhetorical questions."
               }
             ]
           }
