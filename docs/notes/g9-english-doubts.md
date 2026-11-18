@@ -33,5 +33,12 @@ Source: DBE CAPS English Home Language, Senior Phase Grades 7-9 (Grade 9 teachin
 | 15 | E-mail | The address, CC, subject, message, sender's name and signature follow the CAPS e-mail/sms table. Bcc and attachments are not taught as CAPS content. | CAPS does not mention Bcc. |
 | 16 | E-mail | The example address moloi.q@webmail.co.za is the CAPS example; the model e-mail uses invented addresses on example.co.za. | None. |
 
+## Wave A gap: Writing a Letter of Appreciation (Term 1)
+- CAPS Grade 9 Term 1 names "write a letter of appreciation for help or advice received": correct format, purpose, main and supporting ideas, language use, register, logical order of sentences, conjunctions for cohesion, a variety of sentence types, and process writing. The lesson covers each of these; it has five slides and 14 questions.
+- The model letter is original: the writer (Thandi Mokoena), the teacher (Mrs Pillay), the street and the town are invented, and the marks (48% to 67%) are made up.
+- Layout: the writer's address and the date at the top, the salutation Dear Mrs Pillay, three short paragraphs and Yours sincerely with the writer's name. CAPS gives no layout for this letter; the layout follows the friendly-letter layout in the other lessons. A subject line is not used, because the CAPS description of the formal letter (not this one) has it. Please confirm that your teachers do not expect a recipient's address in this letter.
+- Closing: Yours sincerely after a name. Some teachers accept Kind regards for a warm thank-you letter; the lesson teaches Yours sincerely and says nothing about other closings.
+- Register: polite and warm, no slang. The lesson does not teach a formal, distant register, because the letter thanks a person the writer knows.
+
 ## Not covered on purpose
 - Real legal forms and templates.

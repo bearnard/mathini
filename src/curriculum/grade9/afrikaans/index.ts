@@ -27,6 +27,12 @@ export const afrikaansFALGrade9: Subject = {
           description: 'Plurals, adjectives, tenses, punctuation in literature and composition.',
           component: lazy(() => import('./term1/language-structures/LanguageStructures')),
         },
+        {
+          id: 'afr-letter-of-appreciation',
+          title: 'Brief van Waardering',
+          description: 'Thanking someone for help: the opening, what changed, the format and the formal u.',
+          component: lazy(() => import('./term1/letter-of-appreciation/LetterOfAppreciation')),
+        },
       ],
     },
     {

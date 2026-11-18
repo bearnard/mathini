@@ -196,3 +196,39 @@ Nothing here has been checked by a first-language speaker. Every Afrikaans word,
 | Hallo Zinzi | Hello Zinzi |
 | Hallo Meneer | Hello Sir (the mixed-register wrong example) |
 | E-pos | e-mail |
+
+## Wave A gap: Brief van waardering (letter of appreciation, Quarter 1)
+
+Nothing here has been checked by a first-language speaker. CAPS Grade 9 Quarter 1 names "write a letter of appreciation for help or advice received" with correct format, purpose, main and supporting ideas, register, logical order and conjunctions.
+
+| # | What | Why it is uncertain |
+|---|---|---|
+| 17 | `Baie dankie vir u hulp.` and `Ek wil u bedank vir u advies.` as the opening, `u` for the reader. | Standard; please confirm that `bedank` is natural here for a Grade 9 learner. |
+| 18 | `Geagte Mev. Pillay` as the greeting of a letter to a teacher and `Vriendelike groete` as the closing, as in the other formal lessons. | A warmer `Liewe Mev. Pillay` and `Groete` are also used for a letter of thanks; this lesson keeps to the polite forms. |
+| 19 | `omdat` and `daarom` as the reason and result words, `Ek is dankbaar omdat u my gehelp het.` | Standard; the word order after `omdat` (verb at the end) is not taught here. |
+| 20 | `My punte het beter geword.` and `U het my gewys hoe om 'n leerrooster te maak.` as the supporting ideas. | `leerrooster` (revision timetable) is a compound that some teachers would write as `studierooster`; please confirm. |
+| 21 | `Dankie, maat` is shown as the informal wrong choice for a teacher. | Standard colloquial; please confirm the register note. |
+| 22 | The name `Mev. Pillay` is invented (no real person), as are the model letter details. | None. |
+
+| Afrikaans | English |
+|---|---|
+| brief van waardering | letter of appreciation |
+| waardering | appreciation |
+| hulp | help |
+| advies | advice |
+| Baie dankie vir u hulp. | Thank you very much for your help. |
+| Ek wil u bedank vir u advies. | I want to thank you for your advice. |
+| Dankie, maat | Thanks, mate (the informal wrong example) |
+| omdat | because |
+| daarom | therefore |
+| beter | better |
+| My punte het beter geword. | My marks got better. |
+| Ek is dankbaar omdat u my gehelp het. | I am grateful because you helped me. |
+| Ek is dankbaar | I am grateful |
+| brief | letter |
+| Geagte Mev. Pillay | Dear Mrs Pillay |
+| Vriendelike groete | Kind regards |
+| u | you (formal) |
+| jou | you (informal, the wrong choice for a teacher) |
+| Weer eens baie dankie vir u tyd. | Thank you once more for your time. |
+| U het my gewys hoe om 'n leerrooster te maak. | You showed me how to make a revision timetable. |
