@@ -3939,6 +3939,16 @@
                 "id": "gr9-surface-volume-3d",
                 "title": "Surface Area and Volume of 3D Objects",
                 "description": "Surface area and volume of common 3D forms."
+              },
+              {
+                "id": "gr9-factorising-algebraic-expressions",
+                "title": "Factorising Algebraic Expressions",
+                "description": "Common factors, grouping, difference of two squares, trinomials and algebraic fractions."
+              },
+              {
+                "id": "gr9-solving-equations-by-factorising",
+                "title": "Solving Equations by Factorising",
+                "description": "Products of factors equal to 0, equations from problems, substitution and tables of ordered pairs."
               }
             ]
           },
