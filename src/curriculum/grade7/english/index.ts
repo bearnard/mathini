@@ -57,6 +57,18 @@ export const englishHLGrade7: Subject = {
           description: 'Plurals, adding endings, silent letters, South African spelling and using a dictionary.',
           component: lazy(() => import('./term1/spelling-dictionary/SpellingDictionary')),
         },
+        {
+          id: 'gr7-poem-writing-t1',
+          title: 'Writing a Poem',
+          description: 'Lines, stanzas, rhyme, imagery, figures of speech, free verse and the writing process.',
+          component: lazy(() => import('./term1/poem-writing/PoemWriting')),
+        },
+        {
+          id: 'gr7-drama-dialogue-t1',
+          title: 'Writing a Dialogue for Drama',
+          description: 'The format of a script, stage directions, character and style, and enacting and checking a scene.',
+          component: lazy(() => import('./term1/drama-dialogue/DramaDialogue')),
+        },
       ],
     },
     {
@@ -105,6 +117,18 @@ export const englishHLGrade7: Subject = {
           description: 'The apostrophe of possession, contractions, the hyphen and quotation marks.',
           component: lazy(() => import('./term2/apostrophe-hyphen-quotation/ApostropheHyphenQuotation')),
         },
+        {
+          id: 'gr7-instructions-t2',
+          title: 'Writing Instructions',
+          description: 'Title, materials, numbered steps, command verbs, sequence words and exact details.',
+          component: lazy(() => import('./term2/instructions/Instructions')),
+        },
+        {
+          id: 'gr7-drama-review-t2',
+          title: 'Writing a Drama Review',
+          description: 'The parts of a review, describing acting and staging, giving an opinion and ordering the paragraphs.',
+          component: lazy(() => import('./term2/drama-review/DramaReview')),
+        },
       ],
     },
     {
@@ -143,6 +167,24 @@ export const englishHLGrade7: Subject = {
           description: 'Personal, possessive, reflexive, demonstrative, interrogative, indefinite and relative pronouns.',
           component: lazy(() => import('./term3/pronouns/Pronouns')),
         },
+        {
+          id: 'gr7-forms-questionnaires-t3',
+          title: 'Forms and Questionnaires',
+          description: 'Reading and filling in a form, dates and tick boxes, questionnaires, and the signature and declaration.',
+          component: lazy(() => import('./term3/forms-questionnaires/FormsQuestionnaires')),
+        },
+        {
+          id: 'gr7-notice-agenda-minutes-t3',
+          title: 'Notice, Agenda and Minutes',
+          description: 'The parts of a notice, an agenda and minutes, and choosing the right text for a purpose.',
+          component: lazy(() => import('./term3/notice-agenda-minutes/NoticeAgendaMinutes')),
+        },
+        {
+          id: 'gr7-newspaper-article-t3',
+          title: 'Writing a Newspaper Article',
+          description: 'The parts of a news article, the lead and the five Ws, quotations and headlines.',
+          component: lazy(() => import('./term3/newspaper-article/NewspaperArticle')),
+        },
       ],
     },
     {
@@ -178,6 +220,18 @@ export const englishHLGrade7: Subject = {
           title: 'Bias, Stereotypes and Emotive Language',
           description: 'Bias and prejudice, stereotypes, emotive and manipulative language and rhetorical questions.',
           component: lazy(() => import('./term4/bias-emotive-language/BiasEmotiveLanguage')),
+        },
+        {
+          id: 'gr7-diary-email-flyer-t4',
+          title: 'Diary Entry, E-mail and Flyer',
+          description: 'A diary entry, an e-mail, a flyer and choosing the register.',
+          component: lazy(() => import('./term4/diary-email-flyer/DiaryEmailFlyer')),
+        },
+        {
+          id: 'gr7-speech-t4',
+          title: 'Writing and Giving a Speech',
+          description: 'The structure of a speech, audience and purpose, speech techniques and delivery.',
+          component: lazy(() => import('./term4/speech/Speech')),
         },
       ],
     },

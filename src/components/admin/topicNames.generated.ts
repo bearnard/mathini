@@ -3511,6 +3511,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Design Process and Structures",
   "Technology"
  ],
+ "7|gr7-diary-email-flyer-t4": [
+  "Diary Entry, E-mail and Flyer",
+  "English HL"
+ ],
  "7|gr7-diet-and-nutrition-t4": [
   "Diet and Nutrition",
   "Life Orientation"
@@ -3521,6 +3525,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-drama-continued-novel-study-t3": [
   "Drama or Continued Novel Study",
+  "English HL"
+ ],
+ "7|gr7-drama-dialogue-t1": [
+  "Writing a Dialogue for Drama",
+  "English HL"
+ ],
+ "7|gr7-drama-review-t2": [
+  "Writing a Drama Review",
   "English HL"
  ],
  "7|gr7-electrical-systems-and-control-t4": [
@@ -3553,6 +3565,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-formal-functional-writing-t2": [
   "Formal and Functional Writing",
+  "English HL"
+ ],
+ "7|gr7-forms-questionnaires-t3": [
+  "Forms and Questionnaires",
   "English HL"
  ],
  "7|gr7-foundational-grammar-context-t1": [
@@ -3590,6 +3606,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "7|gr7-history-of-astronomy-t4": [
   "The History of Astronomy",
   "Natural Sciences"
+ ],
+ "7|gr7-instructions-t2": [
+  "Writing Instructions",
+  "English HL"
  ],
  "7|gr7-integers-t4": [
   "Integers",
@@ -3667,6 +3687,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Natural Resources and Conservation in South Africa",
   "Geography"
  ],
+ "7|gr7-newspaper-article-t3": [
+  "Writing a Newspaper Article",
+  "English HL"
+ ],
+ "7|gr7-notice-agenda-minutes-t3": [
+  "Notice, Agenda and Minutes",
+  "English HL"
+ ],
  "7|gr7-novel-short-story-study-t1": [
   "Novel or Short Story Study",
   "English HL"
@@ -3718,6 +3746,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "7|gr7-physical-education-t4": [
   "Physical Education",
   "Life Orientation"
+ ],
+ "7|gr7-poem-writing-t1": [
+  "Writing a Poem",
+  "English HL"
  ],
  "7|gr7-poetry-prescribed-text-work-t2": [
   "Poetry and Prescribed Text Work",
@@ -3794,6 +3826,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "7|gr7-short-stories-reviews-t1": [
   "Kortverhale & Resensies",
   "Afrikaans FAL"
+ ],
+ "7|gr7-speech-t4": [
+  "Writing and Giving a Speech",
+  "English HL"
  ],
  "7|gr7-spelling-dictionary-t1": [
   "Spelling Patterns, Rules and Dictionary Use",
