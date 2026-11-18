@@ -21,18 +21,18 @@ export const businessStudiesGrade10: Subject = {
           description: 'Cover quality, quality control, quality assurance, market environment, macro environment, opportunities, threats.',
           component: lazy(() => import('./term1/quality-external-environments/QualityExternalEnvironments')),
         },
-      ],
-    },
-    {
-      id: 2,
-      title: 'Term 2',
-      topics: [
         {
           id: 'gr10-business-sectors-socio-economic-issues',
           title: 'Business Sectors and Socio-economic Issues',
           description: 'Cover primary, secondary, tertiary sectors, formal/informal, public/private sectors, inequality, poverty, unemployment, HIV/AIDS.',
           component: lazy(() => import('./term2/business-sectors-socio-economic-issues/BusinessSectorsSocioeconomic')),
         },
+      ],
+    },
+    {
+      id: 2,
+      title: 'Term 2',
+      topics: [
         {
           id: 'gr10-social-responsibility-forms-ownership',
           title: 'Social Responsibility and Forms of Ownership',

@@ -54,6 +54,10 @@ const MOVES: [Grade, string, string, number][] = [
   // Grade 11 History Wave B (CAPS terms)
   [grade11, 'his', 'gr11-scientific-racism-t3', 2], [grade11, 'his', 'gr11-nazism-and-race-t3', 2], [grade11, 'his', 'gr11-african-nationalism-t4', 3],
   [grade11, 'his', 'gr11-zionism-arab-nationalism-t4', 3], [grade11, 'his', 'gr11-segregation-and-apartheid-t3', 4],
+  // Grade 10 Wave B (G10 gaps task): pure moves to the CAPS term; ids, task ids and URLs unchanged
+  [grade10, 'ls', 'gr10-transport-systems-mammals-t2', 3], [grade10, 'ls', 'gr10-biodiversity-classification-t3', 4], [grade10, 'ls', 'gr10-history-of-life-earth-t3', 4],
+  [grade10, 'accounting', 'gr10-combined-transactions-reconciliations', 1], [grade10, 'accounting', 'gr10-adjustments-financial-statements', 2],
+  [grade10, 'business-studies', 'gr10-business-sectors-socio-economic-issues', 1],
   [grade11, 'ps', 'gr11-intermolecular-forces-t3', 1], [grade11, 'ps', 'gr11-electrostatics-t2', 3], [grade11, 'ps', 'gr11-electric-circuits-t2', 3], [grade11, 'ps', 'gr11-redox-reactions-t3', 4],
 ];
 
@@ -62,7 +66,7 @@ test('moved lessons are listed in their CAPS term', () => {
 });
 
 test('no term of the changed subjects is empty and no topic is listed twice', () => {
-  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade12, 'lo'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade10, 'it'], [grade11, 'it'], [grade12, 'it'], [grade11, 'his'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns'], [grade10, 'ps'], [grade11, 'ps']] as [Grade, string][]) {
+  for (const [g, id] of [[grade6, 'math'], [grade6, 'his'], [grade12, 'lo'], [grade9, 'lo'], [grade12, 'accounting'], [grade12, 'business-studies'], [grade10, 'it'], [grade11, 'it'], [grade12, 'it'], [grade11, 'his'], [grade12, 'his'], [grade12, 'ls'], [grade9, 'ns'], [grade10, 'ps'], [grade11, 'ps'], [grade10, 'ls'], [grade10, 'accounting'], [grade10, 'business-studies']] as [Grade, string][]) {
     const s = g.subjects.find((x) => x.id === id)!;
     for (const t of s.terms) assert.ok(t.topics.length > 0, `${id} term ${t.id}`);
     const ids = s.terms.flatMap((t) => t.topics.map((p) => p.id));
