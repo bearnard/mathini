@@ -4823,6 +4823,11 @@
                 "id": "gr10-internal-control-components-t1",
                 "title": "Internal Control: the Five Components",
                 "description": "Cover the five components of internal control: control environment, risk assessment, control activities, information and communication, monitoring, with stock and cash count differences."
+              },
+              {
+                "id": "gr10-combined-transactions-reconciliations",
+                "title": "Combined Transactions and Reconciliations",
+                "description": "Cover combined cash and credit transactions, debtors reconciliation, creditors reconciliation, control accounts, subsidiary ledgers."
               }
             ]
           },
@@ -4830,11 +4835,6 @@
             "id": 2,
             "title": "Term 2",
             "topics": [
-              {
-                "id": "gr10-combined-transactions-reconciliations",
-                "title": "Combined Transactions and Reconciliations",
-                "description": "Cover combined cash and credit transactions, debtors reconciliation, creditors reconciliation, control accounts, subsidiary ledgers."
-              },
               {
                 "id": "gr10-payroll-year-end-procedures",
                 "title": "Payroll and Year-end Procedures",
@@ -4849,6 +4849,11 @@
                 "id": "gr10-vat-calculations-account-t2",
                 "title": "VAT Calculations: Input, Output and the VAT Account",
                 "description": "Cover adding and removing VAT, output and input VAT, net VAT payable or refundable, the VAT Control account."
+              },
+              {
+                "id": "gr10-adjustments-financial-statements",
+                "title": "Adjustments and Financial Statements",
+                "description": "Cover depreciation, accruals, prepayments, bad debts, final accounts, statement of comprehensive income, statement of financial position."
               }
             ]
           },
@@ -4856,11 +4861,6 @@
             "id": 3,
             "title": "Term 3",
             "topics": [
-              {
-                "id": "gr10-adjustments-financial-statements",
-                "title": "Adjustments and Financial Statements",
-                "description": "Cover depreciation, accruals, prepayments, bad debts, final accounts, statement of comprehensive income, statement of financial position."
-              },
               {
                 "id": "gr10-analysis-interpretation",
                 "title": "Analysis and Interpretation",
@@ -4908,6 +4908,11 @@
                 "id": "gr10-quality-external-environments",
                 "title": "Quality and External Environments",
                 "description": "Cover quality, quality control, quality assurance, market environment, macro environment, opportunities, threats."
+              },
+              {
+                "id": "gr10-business-sectors-socio-economic-issues",
+                "title": "Business Sectors and Socio-economic Issues",
+                "description": "Cover primary, secondary, tertiary sectors, formal/informal, public/private sectors, inequality, poverty, unemployment, HIV/AIDS."
               }
             ]
           },
@@ -4915,11 +4920,6 @@
             "id": 2,
             "title": "Term 2",
             "topics": [
-              {
-                "id": "gr10-business-sectors-socio-economic-issues",
-                "title": "Business Sectors and Socio-economic Issues",
-                "description": "Cover primary, secondary, tertiary sectors, formal/informal, public/private sectors, inequality, poverty, unemployment, HIV/AIDS."
-              },
               {
                 "id": "gr10-social-responsibility-forms-ownership",
                 "title": "Social Responsibility and Forms of Ownership",
@@ -5544,11 +5544,6 @@
                 "id": "gr10-animal-tissues-support-systems-t2",
                 "title": "Animal Tissues and Support Systems",
                 "description": "Tissue types and skeletal anatomy"
-              },
-              {
-                "id": "gr10-transport-systems-mammals-t2",
-                "title": "Transport Systems in Mammals",
-                "description": "Circulation, respiration, and excretion"
               }
             ]
           },
@@ -5562,14 +5557,9 @@
                 "description": "Ecology and environmental systems"
               },
               {
-                "id": "gr10-biodiversity-classification-t3",
-                "title": "Biodiversity and Classification",
-                "description": "Taxonomy and evolutionary diversity"
-              },
-              {
-                "id": "gr10-history-of-life-earth-t3",
-                "title": "History of Life on Earth",
-                "description": "Evolution and paleontology"
+                "id": "gr10-transport-systems-mammals-t2",
+                "title": "Transport Systems in Mammals",
+                "description": "Circulation, respiration, and excretion"
               }
             ]
           },
@@ -5586,6 +5576,16 @@
                 "id": "gr10-revision-examination-practice-t4",
                 "title": "Revision and Examination Practice",
                 "description": "Comprehensive review and assessment preparation"
+              },
+              {
+                "id": "gr10-biodiversity-classification-t3",
+                "title": "Biodiversity and Classification",
+                "description": "Taxonomy and evolutionary diversity"
+              },
+              {
+                "id": "gr10-history-of-life-earth-t3",
+                "title": "History of Life on Earth",
+                "description": "Evolution and paleontology"
               }
             ]
           }

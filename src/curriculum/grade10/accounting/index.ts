@@ -27,18 +27,18 @@ export const accountingGrade10: Subject = {
           description: 'Cover the five components of internal control: control environment, risk assessment, control activities, information and communication, monitoring, with stock and cash count differences.',
           component: lazy(() => import('./term1/internal-control-components/InternalControlComponents')),
         },
-      ],
-    },
-    {
-      id: 2,
-      title: 'Term 2',
-      topics: [
         {
           id: 'gr10-combined-transactions-reconciliations',
           title: 'Combined Transactions and Reconciliations',
           description: 'Cover combined cash and credit transactions, debtors reconciliation, creditors reconciliation, control accounts, subsidiary ledgers.',
           component: lazy(() => import('./term2/combined-transactions-reconciliations/CombinedTransactions')),
         },
+      ],
+    },
+    {
+      id: 2,
+      title: 'Term 2',
+      topics: [
         {
           id: 'gr10-payroll-year-end-procedures',
           title: 'Payroll and Year-end Procedures',
@@ -57,18 +57,18 @@ export const accountingGrade10: Subject = {
           description: 'Cover adding and removing VAT, output and input VAT, net VAT payable or refundable, the VAT Control account.',
           component: lazy(() => import('./term2/vat-calculations-account/VatCalculationsAccount')),
         },
-      ],
-    },
-    {
-      id: 3,
-      title: 'Term 3',
-      topics: [
         {
           id: 'gr10-adjustments-financial-statements',
           title: 'Adjustments and Financial Statements',
           description: 'Cover depreciation, accruals, prepayments, bad debts, final accounts, statement of comprehensive income, statement of financial position.',
           component: lazy(() => import('./term3/adjustments-financial-statements/AdjustmentsFinancial')),
         },
+      ],
+    },
+    {
+      id: 3,
+      title: 'Term 3',
+      topics: [
         {
           id: 'gr10-analysis-interpretation',
           title: 'Analysis and Interpretation',
