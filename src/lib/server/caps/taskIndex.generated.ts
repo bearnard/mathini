@@ -172,6 +172,8 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr10-physical-education-t3": ["lo", 10],
   "gr10-physical-education-t4": ["lo", 10],
   "gr10-plant-tissues-organs-t2": ["ls", 10],
+  "gr10-plants-root-stem-secondary-growth-t2": ["ls", 10],
+  "gr10-plants-water-transpiration-t2": ["ls", 10],
   "gr10-poetry-seen-unseen-t3": ["eng", 10],
   "gr10-position-displacement-t3": ["ps", 10],
   "gr10-power-gender-t1": ["lo", 10],

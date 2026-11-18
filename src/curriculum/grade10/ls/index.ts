@@ -40,6 +40,18 @@ export const lsGrade10: Subject = {
           component: lazy(() => import('./term2/plant-tissues-organs/PlantTissuesOrgans')),
         },
         {
+          id: 'gr10-plants-root-stem-secondary-growth-t2',
+          title: "Support and Transport in Plants 1: Dicot Root and Stem",
+          description: "Tissues of the dicot root and stem, xylem and phloem cells, secondary growth and annual rings.",
+          component: lazy(() => import('./term2/plants-root-stem-secondary-growth/PlantsRootStemSecondaryGrowth')),
+        },
+        {
+          id: 'gr10-plants-water-transpiration-t2',
+          title: "Support and Transport in Plants 2: Water Uptake and Transpiration",
+          description: "Water and mineral uptake, transpiration and its factors, wilting, guttation and translocation.",
+          component: lazy(() => import('./term2/plants-water-transpiration/PlantsWaterTranspiration')),
+        },
+        {
           id: 'gr10-animal-tissues-support-systems-t2',
           title: 'Animal Tissues and Support Systems',
           description: 'Tissue types and skeletal anatomy',

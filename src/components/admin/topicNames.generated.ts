@@ -467,6 +467,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Plant Tissues and Organs",
   "Life Sciences"
  ],
+ "10|gr10-plants-root-stem-secondary-growth-t2": [
+  "Support and Transport in Plants 1: Dicot Root and Stem",
+  "Life Sciences"
+ ],
+ "10|gr10-plants-water-transpiration-t2": [
+  "Support and Transport in Plants 2: Water Uptake and Transpiration",
+  "Life Sciences"
+ ],
  "10|gr10-poetry-seen-unseen-t3": [
   "Reading Poetry: Seen and Unseen",
   "English HL"
