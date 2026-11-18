@@ -4135,14 +4135,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Common and Decimal Fractions",
   "Mathematics"
  ],
- "8|gr8-community-responsibility-t2": [
-  "Community Responsibility",
-  "Life Orientation"
- ],
- "8|gr8-conflict-management-and-communication-t3": [
-  "Conflict Management and Communication",
-  "Life Orientation"
- ],
  "8|gr8-construction-of-geometric-figures-t2": [
   "Construction of Geometric Figures",
   "Mathematics"
@@ -4527,10 +4519,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Resistors, Ohm's Law and Logic Gates",
   "Technology"
  ],
- "8|gr8-responsible-decision-making-t4": [
-  "Responsible Decision-making",
-  "Life Orientation"
- ],
  "8|gr8-review-report-writing-t4": [
   "Resensie- en Verslagskryfwerk",
   "Afrikaans FAL"
@@ -4590,10 +4578,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-structures-and-design-brief-t1": [
   "Structures and Design Brief",
   "Technology"
- ],
- "8|gr8-study-skills-and-personal-organisation-t1": [
-  "Study Skills and Personal Organisation",
-  "Life Orientation"
  ],
  "8|gr8-systems-consolidation-and-exam-preparation-t4": [
   "Systems Consolidation and Exam Preparation",
@@ -4846,10 +4830,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-diary-entry-t2": [
   "Writing a Diary Entry",
   "English HL"
- ],
- "9|gr9-diversity-social-justice-t3": [
-  "Diversity and Social Justice",
-  "Life Orientation"
  ],
  "9|gr9-drama-t1": [
   "Drama",
@@ -5265,10 +5245,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "9|gr9-study-career-funding-t4": [
   "Study and Career Funding",
-  "Life Orientation"
- ],
- "9|gr9-study-methods-exam-readiness-t4": [
-  "Study Methods and Exam Readiness",
   "Life Orientation"
  ],
  "9|gr9-study-skills-transition-t1": [

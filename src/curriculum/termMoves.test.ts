@@ -21,6 +21,8 @@ const MOVES: [Grade, string, string, number][] = [
   [grade6, 'math', 'time', 1], [grade6, 'math', 'data-handling', 1], [grade6, 'math', 'number-sentences', 1], [grade6, 'math', 'common-fractions', 1],
   [grade6, 'math', 'g6-3d-objects', 2], [grade6, 'math', 'symmetry', 2], [grade6, 'math', 'capacity', 2], [grade6, 'math', 'g6-decimal-place-value', 2],
   [grade6, 'math', 'mass', 3], [grade6, 'math', 'area-perimeter', 4], [grade6, 'math', 'volume', 4],
+  // Senior Phase Life Orientation Wave B: Grade 8 lessons move to the CAPS term
+  [grade8, 'lo', 'careers-and-career-choices', 3], [grade8, 'lo', 'democracy-and-human-rights', 4], [grade8, 'lo', 'social-and-environmental-responsibility', 3], [grade8, 'lo', 'learning-styles-and-exam-readiness', 2],
   [grade9, 'lo', 'gr9-sexuality-health-t2', 1], [grade9, 'lo', 'gr9-democracy-human-rights-t3', 2], [grade9, 'lo', 'gr9-careers-career-choices-t4', 3],
   [grade9, 'lo', 'gr9-social-environmental-responsibility-t2', 3], [grade9, 'lo', 'gr9-substance-abuse-emotional-safety-t2', 4],
   [grade12, 'accounting', 'gr12-vat-concepts-control-t3', 2], [grade12, 'accounting', 'gr12-manufacturing-cost-statements-t2', 3],
@@ -408,4 +410,38 @@ test('invented Grade 6 and Grade 9 lessons are out of the curriculum but their c
   assert.deepEqual(counts(grade9, 'eng'), [4, 5, 4, 5]);
   assert.deepEqual(counts(grade9, 'afr'), [4, 4, 5, 5]);
   for (const [g, sid] of [[grade6, 'geo'], [grade6, 'nst'], [grade9, 'ems'], [grade9, 'eng'], [grade9, 'afr']] as [Grade, string][]) for (const t of sub(g, sid).terms) assert.ok(t.topics.length > 0, `${sid} term ${t.id} is not empty`);
+});
+
+// Senior Phase Life Orientation Wave B: six lessons that are not in the Grade 8 or Grade 9 CAPS are hidden now that the CAPS lessons exist. Code, task instructions and D1 questions stay;
+// their pages redirect to the Life Orientation subject page. Lessons that are the only cover of a CAPS item stay (listed below).
+test('the hidden Grade 8 and 9 Life Orientation lessons are out of the curriculum but their code, task instructions and redirects remain', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const { SEO_GRADES, subjectPath, topicPath } = await import('../lib/seo/curriculumIndex');
+  const live = new Set(SEO_GRADES.flatMap((g) => g.subjects.flatMap((s) => [subjectPath(g, s), ...s.terms.flatMap((t) => t.topics.map((p) => topicPath(g, s, p)))])));
+  const lo = (g: Grade) => g.subjects.find((x) => x.id === 'lo')!;
+  const ids = (g: Grade) => lo(g).terms.flatMap((t) => t.topics.map((p) => p.id));
+  const hidden: [Grade, string, string, string, string][] = [
+    [grade8, 'study-skills-and-personal-organisation', 'grade8/life-orientation/term1/study-skills-and-personal-organisation/StudySkillsAndPersonalOrganisation.tsx', 'gr8-study-skills-and-personal-organisation-t1', '/grade-8/life-orientation/study-skills-and-personal-organisation'],
+    [grade8, 'community-responsibility', 'grade8/life-orientation/term2/community-responsibility/CommunityResponsibility.tsx', 'gr8-community-responsibility-t2', '/grade-8/life-orientation/community-responsibility'],
+    [grade8, 'conflict-management-and-communication', 'grade8/life-orientation/term3/conflict-management-and-communication/ConflictManagementAndCommunication.tsx', 'gr8-conflict-management-and-communication-t3', '/grade-8/life-orientation/conflict-management-and-communication'],
+    [grade8, 'responsible-decision-making', 'grade8/life-orientation/term4/responsible-decision-making/ResponsibleDecisionMaking.tsx', 'gr8-responsible-decision-making-t4', '/grade-8/life-orientation/responsible-decision-making'],
+    [grade9, 'gr9-diversity-social-justice-t3', 'grade9/life-orientation/term3/diversity-social-justice/DiversitySocialJustice.tsx', 'gr9-diversity-social-justice-t3', '/grade-9/life-orientation/diversity-and-social-justice'],
+    [grade9, 'gr9-study-methods-exam-readiness-t4', 'grade9/life-orientation/term4/study-methods-exam-readiness/StudyMethodsExamReadiness.tsx', 'gr9-study-methods-exam-readiness-t4', '/grade-9/life-orientation/study-methods-and-exam-readiness'],
+  ];
+  for (const [g, id, file, task, path] of hidden) {
+    assert.ok(!ids(g).includes(id), `${id} is hidden`);
+    const src = `src/curriculum/${file}`;
+    assert.ok(fs.existsSync(src), `${file} is kept`);
+    assert.ok(fs.readFileSync(src, 'utf8').includes(`"${task}"`), `${id}: task id ${task} is kept in the component`);
+    const r = LEGACY_REDIRECTS.find((x) => x.source === path);
+    assert.ok(r, `${path} redirects`);
+    assert.ok(live.has(r.destination), `${r.destination} is a live page`);
+    assert.ok(!live.has(path), `${path} is no longer a live page`);
+  }
+  // lessons that are the only cover of a CAPS item stay
+  for (const id of ['learning-styles-and-exam-readiness', 'diversity-and-nation-building', 'relationships-and-emotional-wellbeing', 'health-and-risk-behaviour']) assert.ok(ids(grade8).includes(id), id);
+  for (const id of ['gr9-relationships-life-changes-t1', 'gr9-conflict-resolution-advocacy-t3', 'gr9-study-skills-transition-t1']) assert.ok(ids(grade9).includes(id), id);
+  assert.deepEqual(lo(grade8).terms.map((t) => t.topics.length), [5, 4, 6, 4]);
+  assert.deepEqual(lo(grade9).terms.map((t) => t.topics.length), [5, 6, 5, 7]);
 });

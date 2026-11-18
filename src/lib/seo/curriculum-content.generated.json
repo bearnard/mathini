@@ -3313,11 +3313,6 @@
                 "description": "Starting a friendship, healthy friendships, constructive disagreement and ending an unhealthy friendship."
               },
               {
-                "id": "study-skills-and-personal-organisation",
-                "title": "Study Skills and Personal Organisation",
-                "description": "Time management, homework routines, concentration, and planning habits."
-              },
-              {
                 "id": "physical-education-task",
                 "title": "Physical Education Task",
                 "description": "Warm-ups, basic fitness, invasion-game skills, safety, and fair play."
@@ -3329,11 +3324,6 @@
             "title": "Term 2",
             "topics": [
               {
-                "id": "social-and-environmental-responsibility",
-                "title": "Social and Environmental Responsibility",
-                "description": "Environmental health, pollution, water use, waste management, and conservation."
-              },
-              {
                 "id": "health-and-risk-behaviour",
                 "title": "Health and Risk Behaviour",
                 "description": "Substance abuse awareness, personal safety, refusal skills, and resilience."
@@ -3344,14 +3334,14 @@
                 "description": "Realistic, investigative, artistic, social, enterprising and conventional careers, and how work meets needs."
               },
               {
-                "id": "community-responsibility",
-                "title": "Community Responsibility",
-                "description": "Community services, empathy, shared spaces, reporting, and volunteering."
-              },
-              {
                 "id": "physical-education-task",
                 "title": "Physical Education Task",
                 "description": "Net or wall games, agility, endurance, coordination, and teamwork."
+              },
+              {
+                "id": "learning-styles-and-exam-readiness",
+                "title": "Learning Styles and Exam Readiness",
+                "description": "Revision plans, memory strategies, note-making, and stress management."
               }
             ]
           },
@@ -3359,11 +3349,6 @@
             "id": 3,
             "title": "Term 3",
             "topics": [
-              {
-                "id": "democracy-and-human-rights",
-                "title": "Democracy and Human Rights",
-                "description": "Rights, responsibilities, equality, dignity, respect, and constitutional values."
-              },
               {
                 "id": "diversity-and-nation-building",
                 "title": "Diversity and Nation-building",
@@ -3380,14 +3365,19 @@
                 "description": "Environmental health, laws that protect the environment, Earth Day and planning a programme."
               },
               {
-                "id": "conflict-management-and-communication",
-                "title": "Conflict Management and Communication",
-                "description": "Mediation, assertiveness, listening, compromise, and problem solving."
-              },
-              {
                 "id": "physical-education-task",
                 "title": "Physical Education Task",
                 "description": "Athletics, relays, indigenous games, flexibility, and teamwork."
+              },
+              {
+                "id": "careers-and-career-choices",
+                "title": "Careers and Career Choices",
+                "description": "Interests, abilities, occupations, and aspiration mapping."
+              },
+              {
+                "id": "social-and-environmental-responsibility",
+                "title": "Social and Environmental Responsibility",
+                "description": "Environmental health, pollution, water use, waste management, and conservation."
               }
             ]
           },
@@ -3395,11 +3385,6 @@
             "id": 4,
             "title": "Term 4",
             "topics": [
-              {
-                "id": "careers-and-career-choices",
-                "title": "Careers and Career Choices",
-                "description": "Interests, abilities, occupations, and aspiration mapping."
-              },
               {
                 "id": "gr8-human-rights-violations-t4",
                 "title": "Human Rights Violations and Counter-Strategies",
@@ -3411,19 +3396,14 @@
                 "description": "Gender equity in sport, gender-based violence, its impact, the law and where to get help."
               },
               {
-                "id": "learning-styles-and-exam-readiness",
-                "title": "Learning Styles and Exam Readiness",
-                "description": "Revision plans, memory strategies, note-making, and stress management."
-              },
-              {
-                "id": "responsible-decision-making",
-                "title": "Responsible Decision-making",
-                "description": "Goal setting, consequences, influence, resilience, and healthy routines."
-              },
-              {
                 "id": "physical-education-task",
                 "title": "Physical Education Task",
                 "description": "Games application, personal fitness review, participation, and recreation."
+              },
+              {
+                "id": "democracy-and-human-rights",
+                "title": "Democracy and Human Rights",
+                "description": "Rights, responsibilities, equality, dignity, respect, and constitutional values."
               }
             ]
           }
@@ -4566,11 +4546,6 @@
             "title": "Term 3",
             "topics": [
               {
-                "id": "gr9-diversity-social-justice-t3",
-                "title": "Diversity and Social Justice",
-                "description": "Analyse discrimination, promote gender equity, and build inclusive communities."
-              },
-              {
                 "id": "gr9-conflict-resolution-advocacy-t3",
                 "title": "Conflict Resolution and Advocacy",
                 "description": "Use negotiation and mediation strategies, develop leadership, and advocate for change."
@@ -4601,11 +4576,6 @@
             "id": 4,
             "title": "Term 4",
             "topics": [
-              {
-                "id": "gr9-study-methods-exam-readiness-t4",
-                "title": "Study Methods and Exam Readiness",
-                "description": "Develop exam technique, revision schedules, and stress management for the FET phase."
-              },
               {
                 "id": "gr9-responsible-future-planning-t4",
                 "title": "Responsible Future Planning",
