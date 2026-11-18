@@ -1,5 +1,7 @@
 {
   "tasks": {
-    "gr8-maps-globes-and-satellite-images-t1": "Topic: Maps, globes and satellite images. Cover atlases, latitude and longitude, ratio scale, time zones, the international date line, seasons, and uses of satellite imagery. Ask Grade 8 learners to interpret coordinates and scale, reason about time and date changes, and apply mapwork ideas to local and global examples."
+    "gr8-maps-globes-and-satellite-images-t1": "Topic: Maps, globes and satellite images. Cover atlases, latitude and longitude, ratio scale, time zones, the international date line, seasons, and uses of satellite imagery. Ask Grade 8 learners to interpret coordinates and scale, reason about time and date changes, and apply mapwork ideas to local and global examples.",
+    "gr8-equinox-solstice-seasons-t1": "Topic: Equinox, solstice and the seasons. Cover the Earth's revolution, the tilt of the axis (23,5 degrees), why we have seasons, the equinoxes and solstices, the angle of the midday sun (90 minus the degrees between the latitude and where the sun is overhead), and seasonal changes in the length of day and night and in temperature. Ask Grade 8 learners to calculate sun angles and to explain, not only name, the seasons. Keep any figures exact.",
+    "gr8-world-time-and-sa-standard-time-t1": "Topic: World time, time zones and South African Standard Time. Cover 15 degrees of longitude per hour, the Prime Meridian, ahead and behind in time, South African Standard Time (UTC+2, 30 degrees east, no daylight saving), time differences between places and the International Date Line. Use standard time only. Ask Grade 8 learners to calculate times in other places."
   }
 }
