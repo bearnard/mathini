@@ -30,12 +30,13 @@ test('the Grade 9 transactional-text lessons are registered in their CAPS term a
   const existing: Record<number, string[]> = {
     1: ['advertising-visual-design', 'essay-transactional-writing', 'grammar-revision-accuracy'],
     2: ['poetry-drama-study', 'letters-reviews', 'sentence-structure-cohesion'],
-    3: ['oral-literature-narrative', 'reports-instructional-texts', 'advanced-language-context'],
+    // reports-instructional-texts is hidden (not in the Grade 9 CAPS)
+    3: ['oral-literature-narrative', 'advanced-language-context'],
     4: ['synoptic-revision', 'examination-writing-practice', 'grammar-literature-consolidation'],
   };
   for (const term of [1, 2, 3, 4]) {
     const ids = englishHLGrade9.terms.find((t) => t.id === term)!.topics.map((t) => t.id);
-    assert.deepEqual(ids.slice(0, 3), existing[term], `term ${term}: existing lessons keep their place and ids`);
+    assert.deepEqual(ids.slice(0, existing[term].length), existing[term], `term ${term}: existing lessons keep their place and ids`);
     for (const l of LESSONS.filter((x) => x.term === term)) assert.ok(ids.includes(l.id), l.id);
   }
   const tasks = (JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/eng-gr9-transactional.json', 'utf8')) as { tasks: Record<string, string> }).tasks;

@@ -76,12 +76,6 @@ export const englishHLGrade9: Subject = {
           component: lazy(() => import('./term3/oral-literature-narrative/OralLiteratureNarrative')),
         },
         {
-          id: 'reports-instructional-texts',
-          title: 'Reports and Instructional Texts',
-          description: 'Report writing, instructions, sequencing, audience awareness and information organization.',
-          component: lazy(() => import('./term3/reports-instructional-texts/ReportsInstructionalTexts')),
-        },
-        {
           id: 'advanced-language-context',
           title: 'Advanced Language in Context',
           description: 'Active and passive voice, reported speech, figurative language and complex sentences.',

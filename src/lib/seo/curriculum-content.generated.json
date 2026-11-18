@@ -664,11 +664,6 @@
                 "description": "Rotation, revolution and the Moon's orbit."
               },
               {
-                "id": "nst-day-night-seasons",
-                "title": "Day, Night & Seasons",
-                "description": "Why we have day, night and seasons."
-              },
-              {
                 "id": "nst-space-exploration",
                 "title": "Space Exploration & Technology",
                 "description": "Telescopes, satellites and rockets."
@@ -758,16 +753,6 @@
                 "description": "Two contrasting climate regions and their life."
               },
               {
-                "id": "geo-temperate-polar",
-                "title": "Mediterranean, Temperate & Polar",
-                "description": "Other climate regions and where they occur."
-              },
-              {
-                "id": "geo-vegetation-adaptations",
-                "title": "Vegetation & Adaptations",
-                "description": "How plants and animals adapt to their climate."
-              },
-              {
                 "id": "gr6-coniferous-forests-t3",
                 "title": "Coniferous Forests",
                 "description": "Where they are, the climate, plants and animals, and how people live."
@@ -792,11 +777,6 @@
                 "id": "geo-migration-push-pull",
                 "title": "Migration: Push & Pull",
                 "description": "Why people move: push and pull factors."
-              },
-              {
-                "id": "geo-migration-impact",
-                "title": "Impact of Migration",
-                "description": "How migration affects people and places."
               }
             ]
           }
@@ -3331,11 +3311,6 @@
                 "description": "Folktales, myths, oral presentation, interview and sequencing skills."
               },
               {
-                "id": "reports-instructional-texts",
-                "title": "Reports and Instructional Texts",
-                "description": "Report writing, instructions, sequencing, audience awareness and information organization."
-              },
-              {
                 "id": "advanced-language-context",
                 "title": "Advanced Language in Context",
                 "description": "Active and passive voice, reported speech, figurative language and complex sentences."
@@ -3418,11 +3393,6 @@
                 "id": "afr-journalism-media",
                 "title": "Joernalistiek & Mediatekste",
                 "description": "News reports, magazine articles, interviews, fact vs opinion, key information."
-              },
-              {
-                "id": "afr-formal-correspondence",
-                "title": "Formele Korrespondensie",
-                "description": "Formal letters, register awareness, audience-purpose matching, layout conventions."
               },
               {
                 "id": "afr-grammar-reporting",
@@ -4375,11 +4345,6 @@
             "title": "Term 2",
             "topics": [
               {
-                "id": "gr9-entrepreneurship-planning",
-                "title": "Entrepreneurship and Financial Planning",
-                "description": "Entrepreneurial traits, business opportunities, budgeting, financial planning and viability."
-              },
-              {
                 "id": "gr9-budgeting-business-decisions",
                 "title": "Budgeting and Business Decisions",
                 "description": "Creating realistic budgets, monitoring variance, prioritizing spending, strategic decisions."
@@ -4436,11 +4401,6 @@
             "id": 4,
             "title": "Term 4",
             "topics": [
-              {
-                "id": "gr9-business-responsibility-integration",
-                "title": "Business Responsibility and Integration",
-                "description": "Labour responsibility, corporate social responsibility, integrated business thinking."
-              },
               {
                 "id": "gr9-exam-revision-preparation",
                 "title": "Exam Revision and Preparation",

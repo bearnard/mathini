@@ -365,3 +365,47 @@ test('Grade 8 Creative Arts: the four hidden bundle lessons are out but kept wit
   assert.ok(term(4).includes('drama') && term(4).includes('dance'));
   assert.deepEqual(ca.terms.map((t) => t.topics.length), [8, 7, 7, 8]);
 });
+
+// Hide of invented lessons that are not in the CAPS: Grade 6 Geography (3), Grade 6 Natural Sciences and Technology (seasons), Grade 9 EMS (2), Grade 9 English (1), Grade 9 Afrikaans (1).
+// Component code and task ids stay; each page redirects (308) to a live page; no term is empty; the lessons that are the only cover of a CAPS item stay.
+test('invented Grade 6 and Grade 9 lessons are out of the curriculum but their code and task id remain, with a redirect to a live page', async () => {
+  const fs = await import('node:fs');
+  const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
+  const { SEO_GRADES, subjectPath, topicPath } = await import('../lib/seo/curriculumIndex');
+  const live = new Set(SEO_GRADES.flatMap((g) => g.subjects.flatMap((s) => [subjectPath(g, s), ...s.terms.flatMap((t) => t.topics.map((p) => topicPath(g, s, p)))])));
+  const sub = (g: Grade, id: string) => g.subjects.find((x) => x.id === id)!;
+  const ids = (g: Grade, id: string) => sub(g, id).terms.flatMap((t) => t.topics.map((p) => p.id));
+  // [grade, subject id, topic id, component file, task id in the component, hidden page path]
+  const hidden: [Grade, string, string, string, string, string][] = [
+    [grade6, 'geo', 'geo-temperate-polar', 'grade6/geography/term3/temperate-polar/TemperatePolar.tsx', 'temperate-polar', '/grade-6/geography/mediterranean-temperate-and-polar'],
+    [grade6, 'geo', 'geo-vegetation-adaptations', 'grade6/geography/term3/vegetation-adaptations/VegetationAdaptations.tsx', 'vegetation-adaptations', '/grade-6/geography/vegetation-and-adaptations'],
+    [grade6, 'geo', 'geo-migration-impact', 'grade6/geography/term4/migration-impact/MigrationImpact.tsx', 'migration-impact', '/grade-6/geography/impact-of-migration'],
+    [grade6, 'nst', 'nst-day-night-seasons', 'grade6/natural-sciences/term4/day-night-seasons/DayNightSeasons.tsx', 'day-night-seasons', '/grade-6/natural-sciences-and-technology/day-night-and-seasons'],
+    [grade9, 'ems', 'gr9-entrepreneurship-planning', 'grade9/economic-management-sciences/term2/entrepreneurship-planning/EntrepreneurshipPlanning.tsx', 'gr9-entrepreneurship-planning-t2', '/grade-9/economic-management-sciences/entrepreneurship-and-financial-planning'],
+    [grade9, 'ems', 'gr9-business-responsibility-integration', 'grade9/economic-management-sciences/term4/business-responsibility-integration/BusinessResponsibilityIntegration.tsx', 'gr9-business-responsibility-integration-t4', '/grade-9/economic-management-sciences/business-responsibility-and-integration'],
+    [grade9, 'eng', 'reports-instructional-texts', 'grade9/english/term3/reports-instructional-texts/ReportsInstructionalTexts.tsx', 'gr9-reports-instructional-texts-t3', '/grade-9/english-hl/reports-and-instructional-texts'],
+    [grade9, 'afr', 'afr-formal-correspondence', 'grade9/afrikaans/term2/formal-correspondence/FormalCorrespondence.tsx', 'gr9-formal-correspondence-t2', '/grade-9/afrikaans-fal/formele-korrespondensie'],
+  ];
+  for (const [g, sid, id, file, task, path] of hidden) {
+    assert.ok(!ids(g, sid).includes(id), `${id} is hidden`);
+    const src = `src/curriculum/${file}`;
+    assert.ok(fs.existsSync(src), `${file} is kept`);
+    assert.ok(fs.readFileSync(src, 'utf8').includes(`"${task}"`), `${id}: task id ${task} is kept in the component`);
+    const r = LEGACY_REDIRECTS.find((x) => x.source === path);
+    assert.ok(r, `${path} redirects`);
+    assert.ok(live.has(r.destination), `${r.destination} is a live page`);
+    assert.ok(!live.has(path), `${path} is no longer a live page`);
+  }
+  // lessons that are the only cover of a CAPS item stay
+  for (const id of ['geo-climate-regions', 'geo-trade-case-studies']) assert.ok(ids(grade6, 'geo').includes(id), id);
+  for (const id of ['gr9-budgeting-business-decisions', 'gr9-production-marketing', 'gr9-business-plans-functions']) assert.ok(ids(grade9, 'ems').includes(id), id);
+  for (const id of ['letters-reviews', 'essay-transactional-writing', 'oral-literature-narrative']) assert.ok(ids(grade9, 'eng').includes(id), id);
+  for (const id of ['afr-creative-personal-writing', 'afr-journalism-media', 'afr-transactional-writing']) assert.ok(ids(grade9, 'afr').includes(id), id);
+  const counts = (g: Grade, sid: string) => sub(g, sid).terms.filter((t) => t.id > 0).map((t) => t.topics.length);
+  assert.deepEqual(counts(grade6, 'geo'), [5, 4, 3, 3]);
+  assert.deepEqual(counts(grade6, 'nst'), [5, 7, 8, 4]);
+  assert.deepEqual(counts(grade9, 'ems'), [2, 4, 5, 2]);
+  assert.deepEqual(counts(grade9, 'eng'), [3, 5, 4, 5]);
+  assert.deepEqual(counts(grade9, 'afr'), [3, 4, 5, 5]);
+  for (const [g, sid] of [[grade6, 'geo'], [grade6, 'nst'], [grade9, 'ems'], [grade9, 'eng'], [grade9, 'afr']] as [Grade, string][]) for (const t of sub(g, sid).terms) assert.ok(t.topics.length > 0, `${sid} term ${t.id} is not empty`);
+});

@@ -40,12 +40,6 @@ export const afrikaansFALGrade9: Subject = {
           component: lazy(() => import('./term2/journalism-media/JournalismMedia')),
         },
         {
-          id: 'afr-formal-correspondence',
-          title: 'Formele Korrespondensie',
-          description: 'Formal letters, register awareness, audience-purpose matching, layout conventions.',
-          component: lazy(() => import('./term2/formal-correspondence/FormalCorrespondence')),
-        },
-        {
           id: 'afr-grammar-reporting',
           title: 'Grammatika vir Verslagdoening',
           description: 'Direct/indirect speech, conjunctions, language editing, coherence.',

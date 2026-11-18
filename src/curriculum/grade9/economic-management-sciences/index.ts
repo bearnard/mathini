@@ -28,12 +28,6 @@ export const emsGrade9: Subject = {
       title: 'Term 2',
       topics: [
         {
-          id: 'gr9-entrepreneurship-planning',
-          title: 'Entrepreneurship and Financial Planning',
-          description: 'Entrepreneurial traits, business opportunities, budgeting, financial planning and viability.',
-          component: lazy(() => import('./term2/entrepreneurship-planning/EntrepreneurshipPlanning')),
-        },
-        {
           id: 'gr9-budgeting-business-decisions',
           title: 'Budgeting and Business Decisions',
           description: 'Creating realistic budgets, monitoring variance, prioritizing spending, strategic decisions.',
@@ -99,12 +93,6 @@ export const emsGrade9: Subject = {
       id: 4,
       title: 'Term 4',
       topics: [
-        {
-          id: 'gr9-business-responsibility-integration',
-          title: 'Business Responsibility and Integration',
-          description: 'Labour responsibility, corporate social responsibility, integrated business thinking.',
-          component: lazy(() => import('./term4/business-responsibility-integration/BusinessResponsibilityIntegration')),
-        },
         {
           id: 'gr9-exam-revision-preparation',
           title: 'Exam Revision and Preparation',
