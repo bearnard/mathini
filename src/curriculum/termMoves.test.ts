@@ -404,7 +404,7 @@ test('invented Grade 6 and Grade 9 lessons are out of the curriculum but their c
   const counts = (g: Grade, sid: string) => sub(g, sid).terms.filter((t) => t.id > 0).map((t) => t.topics.length);
   assert.deepEqual(counts(grade6, 'geo'), [5, 4, 3, 3]);
   assert.deepEqual(counts(grade6, 'nst'), [5, 7, 8, 4]);
-  assert.deepEqual(counts(grade9, 'ems'), [2, 4, 5, 2]);
+  assert.deepEqual(counts(grade9, 'ems'), [2, 4, 6, 4]);
   assert.deepEqual(counts(grade9, 'eng'), [3, 5, 4, 5]);
   assert.deepEqual(counts(grade9, 'afr'), [3, 4, 5, 5]);
   for (const [g, sid] of [[grade6, 'geo'], [grade6, 'nst'], [grade9, 'ems'], [grade9, 'eng'], [grade9, 'afr']] as [Grade, string][]) for (const t of sub(g, sid).terms) assert.ok(t.topics.length > 0, `${sid} term ${t.id} is not empty`);
