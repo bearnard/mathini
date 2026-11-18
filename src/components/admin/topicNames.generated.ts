@@ -3795,6 +3795,26 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Brochures and Visual Literacy",
   "English HL"
  ],
+ "8|gr8-ca-instrument-families-t1": [
+  "Families of Instruments",
+  "Creative Arts"
+ ],
+ "8|gr8-ca-music-literacy-t1": [
+  "Music Literacy: Note Values, Time Signatures and Keys",
+  "Creative Arts"
+ ],
+ "8|gr8-ca-ostinato-jingle-t3": [
+  "Melodic Ostinato, Riffs and the Jingle",
+  "Creative Arts"
+ ],
+ "8|gr8-ca-six-eight-d-major-t4": [
+  "6/8, D Major, Tempo and Articulation",
+  "Creative Arts"
+ ],
+ "8|gr8-ca-triplets-f-major-t2": [
+  "Triplets, F Major, Dynamics and Tempo Words",
+  "Creative Arts"
+ ],
  "8|gr8-career-categories-t2": [
   "The Six Career Categories and the Role of Work",
   "Life Orientation"

@@ -33,6 +33,18 @@ export const creativeArtsGrade8: Subject = {
           description: 'Locomotor and non-locomotor movement, posture, space, time, and safe stretching.',
           component: lazy(() => import('./term1/dance/Dance')),
         },
+        {
+          id: 'music-literacy-notes-keys',
+          title: 'Music Literacy: Note Values, Time Signatures and Keys',
+          description: 'Note values and rests, 2/4 3/4 4/4, clefs and the C and G major scales.',
+          component: lazy(() => import('./term1/music-literacy-notes-keys/MusicLiteracyNotesKeys')),
+        },
+        {
+          id: 'instrument-families',
+          title: 'Families of Instruments',
+          description: 'Membranophones, idiophones, chordophones and aerophones and how to hear the difference.',
+          component: lazy(() => import('./term1/instrument-families/InstrumentFamilies')),
+        },
       ],
     },
     {
@@ -62,6 +74,12 @@ export const creativeArtsGrade8: Subject = {
           title: 'Dance',
           description: 'Motif development, folk or social dance, rhythm, group patterns, and coordination.',
           component: lazy(() => import('./term2/dance/Dance')),
+        },
+        {
+          id: 'triplets-f-major-terms',
+          title: 'Triplets, F Major, Dynamics and Tempo Words',
+          description: 'The triplet, the F major scale, piano, forte, crescendo, diminuendo, allegro and andante.',
+          component: lazy(() => import('./term2/triplets-f-major-terms/TripletsFMajorTerms')),
         },
       ],
     },
@@ -93,6 +111,12 @@ export const creativeArtsGrade8: Subject = {
           description: 'Space, energy, choreographic devices, cultural dance study, and performance quality.',
           component: lazy(() => import('./term3/dance/Dance')),
         },
+        {
+          id: 'ostinato-riff-jingle',
+          title: 'Melodic Ostinato, Riffs and the Jingle',
+          description: 'Repeating patterns, four lines of lyrics, a one-minute jingle and music technology.',
+          component: lazy(() => import('./term3/ostinato-riff-jingle/OstinatoRiffJingle')),
+        },
       ],
     },
     {
@@ -122,6 +146,12 @@ export const creativeArtsGrade8: Subject = {
           title: 'Dance',
           description: 'Final routine, timing, expression, appreciation, and careers awareness.',
           component: lazy(() => import('./term4/dance/Dance')),
+        },
+        {
+          id: 'six-eight-d-major-articulation',
+          title: '6/8, D Major, Tempo and Articulation',
+          description: 'The time signature 6/8, the D major scale, tempo words, legato, staccato and listening.',
+          component: lazy(() => import('./term4/six-eight-d-major-articulation/SixEightDMajorArticulation')),
         },
       ],
     },
