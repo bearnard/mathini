@@ -95,6 +95,24 @@ export const technologyGrade8: Subject = {
           description: 'Levers, inclined planes, wedges, wheel and axle, and force multiplication.',
           component: lazy(() => import('./term3/simple-machines-revision/SimpleMachinesRevision')),
         },
+        {
+          id: 'gear-systems-mechanical-advantage',
+          title: 'Gear Systems and Mechanical Advantage',
+          description: 'Counter-rotation, idler and bevel gears, velocity ratio and mechanical advantage calculated from teeth.',
+          component: lazy(() => import('./term3/gear-systems-mechanical-advantage/GearSystemsMechanicalAdvantage')),
+        },
+        {
+          id: 'bicycle-gears-systems-diagrams',
+          title: 'Bicycle Gears and Systems Diagrams',
+          description: 'Chain wheel and cogs, high and low gears, and input-process-output systems diagrams.',
+          component: lazy(() => import('./term3/bicycle-gears-systems-diagrams/BicycleGearsSystemsDiagrams')),
+        },
+        {
+          id: 'mining-technology-impact-bias',
+          title: 'Mining Technology, Impact and Bias',
+          description: 'Mining in South Africa, acid mine drainage, dust pollution, Iron Age technology and gender bias.',
+          component: lazy(() => import('./term3/mining-technology-impact-bias/MiningTechnologyImpactBias')),
+        },
       ],
     },
     {
