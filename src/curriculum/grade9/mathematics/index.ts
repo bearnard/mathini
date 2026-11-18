@@ -87,6 +87,18 @@ export const mathematicsGrade9: Subject = {
           description: 'Surface area and volume of common 3D forms.',
           component: lazy(() => import('./term3/surface-volume-3d/SurfaceVolumeT3')),
         },
+        {
+          id: 'gr9-factorising-algebraic-expressions',
+          title: 'Factorising Algebraic Expressions',
+          description: 'Common factors, grouping, difference of two squares, trinomials and algebraic fractions.',
+          component: lazy(() => import('./term3/factorising-algebraic-expressions/FactorisingAlgebraicExpressions')),
+        },
+        {
+          id: 'gr9-solving-equations-by-factorising',
+          title: 'Solving Equations by Factorising',
+          description: 'Products of factors equal to 0, equations from problems, substitution and tables of ordered pairs.',
+          component: lazy(() => import('./term3/solving-equations-by-factorising/SolvingEquationsByFactorising')),
+        },
       ],
     },
     {

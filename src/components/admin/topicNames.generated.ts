@@ -4967,6 +4967,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Exponents",
   "Mathematics"
  ],
+ "9|gr9-factorising-algebraic-expressions-t3": [
+  "Factorising Algebraic Expressions",
+  "Mathematics"
+ ],
  "9|gr9-financial-literacy-recording-t1": [
   "Financial Literacy and Recording",
   "Economic Management Sciences"
@@ -5286,6 +5290,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-soil-erosion-management-t3": [
   "Soil Erosion and Management",
   "Social Sciences: Geography"
+ ],
+ "9|gr9-solving-equations-by-factorising-t3": [
+  "Solving Equations by Factorising",
+  "Mathematics"
  ],
  "9|gr9-sophiatown-bantustans-t3": [
   "Sophiatown and Bantustans",
