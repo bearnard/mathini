@@ -1370,6 +1370,16 @@
                 "id": "gr7-spelling-dictionary-t1",
                 "title": "Spelling Patterns, Rules and Dictionary Use",
                 "description": "Plurals, adding endings, silent letters, South African spelling and using a dictionary."
+              },
+              {
+                "id": "gr7-poem-writing-t1",
+                "title": "Writing a Poem",
+                "description": "Lines, stanzas, rhyme, imagery, figures of speech, free verse and the writing process."
+              },
+              {
+                "id": "gr7-drama-dialogue-t1",
+                "title": "Writing a Dialogue for Drama",
+                "description": "The format of a script, stage directions, character and style, and enacting and checking a scene."
               }
             ]
           },
@@ -1411,6 +1421,16 @@
                 "id": "gr7-apostrophe-hyphen-quotation-t2",
                 "title": "Apostrophe, Hyphen and Quotation Marks",
                 "description": "The apostrophe of possession, contractions, the hyphen and quotation marks."
+              },
+              {
+                "id": "gr7-instructions-t2",
+                "title": "Writing Instructions",
+                "description": "Title, materials, numbered steps, command verbs, sequence words and exact details."
+              },
+              {
+                "id": "gr7-drama-review-t2",
+                "title": "Writing a Drama Review",
+                "description": "The parts of a review, describing acting and staging, giving an opinion and ordering the paragraphs."
               }
             ]
           },
@@ -1442,6 +1462,21 @@
                 "id": "gr7-pronouns-t3",
                 "title": "Pronouns",
                 "description": "Personal, possessive, reflexive, demonstrative, interrogative, indefinite and relative pronouns."
+              },
+              {
+                "id": "gr7-forms-questionnaires-t3",
+                "title": "Forms and Questionnaires",
+                "description": "Reading and filling in a form, dates and tick boxes, questionnaires, and the signature and declaration."
+              },
+              {
+                "id": "gr7-notice-agenda-minutes-t3",
+                "title": "Notice, Agenda and Minutes",
+                "description": "The parts of a notice, an agenda and minutes, and choosing the right text for a purpose."
+              },
+              {
+                "id": "gr7-newspaper-article-t3",
+                "title": "Writing a Newspaper Article",
+                "description": "The parts of a news article, the lead and the five Ws, quotations and headlines."
               }
             ]
           },
@@ -1473,6 +1508,16 @@
                 "id": "gr7-bias-emotive-language-t4",
                 "title": "Bias, Stereotypes and Emotive Language",
                 "description": "Bias and prejudice, stereotypes, emotive and manipulative language and rhetorical questions."
+              },
+              {
+                "id": "gr7-diary-email-flyer-t4",
+                "title": "Diary Entry, E-mail and Flyer",
+                "description": "A diary entry, an e-mail, a flyer and choosing the register."
+              },
+              {
+                "id": "gr7-speech-t4",
+                "title": "Writing and Giving a Speech",
+                "description": "The structure of a speech, audience and purpose, speech techniques and delivery."
               }
             ]
           }
