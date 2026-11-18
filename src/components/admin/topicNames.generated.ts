@@ -4383,6 +4383,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Factors of Production and Markets",
   "Economic Management Sciences"
  ],
+ "8|gr8-figures-of-speech-in-poems-t2": [
+  "Figures of Speech in Poems",
+  "English HL"
+ ],
  "8|gr8-folklore-youth-novel-study-t2": [
   "Volksverhale & Jeugromanstudie",
   "Afrikaans FAL"
@@ -4595,6 +4599,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Mining Technology, Impact and Bias",
   "Technology"
  ],
+ "8|gr8-mood-tone-theme-and-poetry-questions-t4": [
+  "Mood, Tone, Theme and Answering Poetry Questions",
+  "English HL"
+ ],
  "8|gr8-moving-goods-and-people-in-south-africa-t4": [
   "Moving Goods and People in South Africa",
   "Geography"
@@ -4666,6 +4674,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-reactants-and-products-t2": [
   "Chemical Reactions: Reactants and Products",
   "Natural Sciences"
+ ],
+ "8|gr8-reading-a-poem-t1": [
+  "Reading a Poem: What It Says and How",
+  "English HL"
  ],
  "8|gr8-reading-viewing-t1": [
   "Reading & Viewing",
@@ -4750,6 +4762,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-solar-system-and-gravity-t2": [
   "Solar System and Gravity",
   "Natural Sciences"
+ ],
+ "8|gr8-sound-and-structure-in-poems-t3": [
+  "Sound and Structure in Poems",
+  "English HL"
  ],
  "8|gr8-source-documents-t1": [
   "Source Documents",
