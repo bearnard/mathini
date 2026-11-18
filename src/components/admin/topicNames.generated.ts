@@ -3667,6 +3667,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Cash Payments, Business Ownership and Management",
   "Economic Management Sciences"
  ],
+ "8|gr8-cash-payments-journal-t3": [
+  "Cash Payments Journal and the Combined Cash Journals",
+  "Economic Management Sciences"
+ ],
  "8|gr8-cash-receipts-journal-t2": [
   "Cash Receipts Journal",
   "Economic Management Sciences"
@@ -3830,6 +3834,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-forms-and-transfer-of-energy-t4": [
   "Forms and Transfer of Energy",
   "Natural Sciences"
+ ],
+ "8|gr8-forms-of-ownership-t3": [
+  "Forms of Ownership",
+  "Economic Management Sciences"
  ],
  "8|gr8-frame-structures-failure-t1": [
   "Frame Structures and Structural Failure",

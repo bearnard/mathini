@@ -89,3 +89,27 @@ export const LabourLevels = () => (
     <T x={60} y={44} size={3.4} fill={MUTED} weight={600}>the longer bar: more training and higher pay</T>
   </Panel>
 );
+
+/** A profit shared between partners in a ratio. */
+export const ProfitSplit = ({ profit, labels, amounts, ratio }: { profit: number; labels: readonly string[]; amounts: readonly number[]; ratio: readonly number[] }) => {
+  const cols = [GREEN, BLUE, AMBER, ROSE];
+  let x = 8;
+  return (
+    <Panel h={46} aria={`A profit of ${rand(profit)} shared in the ratio ${ratio.join(' to ')}. ${labels.map((l, i) => `${l} gets ${rand(amounts[i])}`).join(', ')}. The shares add up to the profit.`}>
+      <T x={60} y={8} size={4.2} fill={AMBER}>{`profit ${rand(profit)} shared ${ratio.join(' : ')}`}</T>
+      {amounts.map((a, i) => {
+        const w = (a / profit) * 104;
+        const x0 = x;
+        x += w;
+        return (
+          <g key={labels[i]}>
+            <rect x={x0} y={14} width={w} height={14} fill={cols[i % cols.length]} fillOpacity={0.85} />
+            <T x={x0 + w / 2} y={22.5} size={3.8} fill={INK}>{rand(a)}</T>
+            <T x={x0 + w / 2} y={36} size={3.6} fill={cols[i % cols.length]}>{labels[i]}</T>
+          </g>
+        );
+      })}
+      <T x={60} y={43} size={3.4} fill={MUTED} weight={600}>the shares add up to the whole profit</T>
+    </Panel>
+  );
+};

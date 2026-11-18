@@ -15,3 +15,11 @@
 - Factors of production follow the CAPS wording: capital (own and borrowed), labour (unskilled, semi-skilled, skilled), natural resources, entrepreneurship and remuneration. Fair employment practices are listed in general terms (contract, safe workplace, at least the minimum wage, no unfair discrimination); no minimum-wage figure is quoted because it changes. The wage bill example (5 workers at R200 for 20 days) is imaginary.
 - Markets: the goods and services market and the factor market (labour and financial markets). The circular flow is a simple picture, not a full model.
 - Not built: the Term 2 formal tasks (the project and the mid-year examination).
+
+## Term 3 (feat/g8-ems-t3)
+- The Cash Payments Journal and the combined journals use the same business as Term 2 (Thandi's Tutoring): receipts R17 000, payments R5 100, cash balance R11 900 carried forward. Tests recompute the Bank column against the analysis columns, the balance, and the accounting equation after all seven transactions (receipts raise assets and equity; the three expenses lower both by R3 100; the equipment purchase swaps one asset for another). Assets = owner's equity = R13 900, with no liabilities (cash transactions only).
+- CPJ columns used: Date, Document and details, Bank, with the analysis shown as Rent, Telephone, Salaries and Equipment. School formats vary.
+- A small display fix is included: the Term 2 CRJ table now also uses three columns (Date, Doc and details, Bank), because four columns were clipped at 320 px width.
+- Forms of ownership are at the characteristics level the CAPS asks for: sole trader, partnership (profit shared in an agreed ratio, e.g. R60 000 in 3 : 2 gives R36 000 and R24 000), close corporation, private company ((Pty) Ltd) and public company (Ltd), limited liability, advantages and disadvantages, and the role in sustainable job creation and sustainable use of natural resources. No legal detail (no section numbers, member or partner limits) is given. The close-corporation note is stated as: no new close corporations can be registered since 1 May 2011 and existing ones continue, as in the Grade 12 lesson.
+- The statements about advantages and disadvantages are general; the best form depends on size, capital and risk, which the lesson says.
+- Not built: the Term 3 formal tasks (the case study and the controlled test).
