@@ -39,6 +39,18 @@ export const businessStudiesGrade10: Subject = {
           description: 'Cover social responsibility, CSR, sole proprietor, partnership, non-profit company, profit companies, co-operatives.',
           component: lazy(() => import('./term2/social-responsibility-forms-ownership/SocialResponsibilityOwnership')),
         },
+        {
+          id: 'gr10-entrepreneurial-qualities-t2',
+          title: "Entrepreneurial Qualities",
+          description: "What an entrepreneur is, the entrepreneurial qualities and assessing your own.",
+          component: lazy(() => import('./term2/entrepreneurial-qualities/EntrepreneurialQualities')),
+        },
+        {
+          id: 'gr10-socio-economic-issues-depth-t2',
+          title: "Contemporary Socio-economic Issues in Depth",
+          description: "Piracy, counterfeiting, gambling, pyramid schemes, crime, strikes and inclusivity.",
+          component: lazy(() => import('./term2/socio-economic-issues-depth/SocioEconomicIssuesDepth')),
+        },
       ],
     },
     {
@@ -57,6 +69,24 @@ export const businessStudiesGrade10: Subject = {
           description: 'Cover presentation methods, business plan structure, viability.',
           component: lazy(() => import('./term3/business-information-planning/BusinessInformationPlanning')),
         },
+        {
+          id: 'gr10-business-location-t3',
+          title: "Business Location Decision",
+          description: "Why location matters, location factors and weighing up sites.",
+          component: lazy(() => import('./term3/business-location/BusinessLocation')),
+        },
+        {
+          id: 'gr10-contracts-t3',
+          title: "Contracts",
+          description: "Types of contracts, their parties, rights and responsibilities and hire purchase cost.",
+          component: lazy(() => import('./term3/contracts/Contracts')),
+        },
+        {
+          id: 'gr10-swot-research-creative-t3',
+          title: "SWOT, Research and Creative Techniques",
+          description: "SWOT, research instruments, creative thinking techniques and force-field analysis.",
+          component: lazy(() => import('./term3/swot-research-creative/SwotResearchCreative')),
+        },
       ],
     },
     {
@@ -68,6 +98,12 @@ export const businessStudiesGrade10: Subject = {
           title: 'Relationship and Team Performance',
           description: 'Cover interpersonal relationships, prejudice, values, diversity, team criteria, collaborative performance, conflict.',
           component: lazy(() => import('./term4/relationship-team-performance/RelationshipTeamPerformance')),
+        },
+        {
+          id: 'gr10-self-management-t4',
+          title: "Self-Management",
+          description: "Time management and goals, professional image, self-knowledge, confidence and stress.",
+          component: lazy(() => import('./term4/self-management/SelfManagement')),
         },
         {
           id: 'gr10-revision-final-paper-preparation',

@@ -75,6 +75,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Business Information and Planning",
   "Business Studies"
  ],
+ "10|gr10-business-location-t3": [
+  "Business Location Decision",
+  "Business Studies"
+ ],
  "10|gr10-business-sectors-socio-economic-issues": [
   "Business Sectors and Socio-economic Issues",
   "Business Studies"
@@ -130,6 +134,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-conservation-mechanical-energy-t4": [
   "Conservation of Mechanical Energy",
   "Physical Sciences"
+ ],
+ "10|gr10-contracts-t3": [
+  "Contracts",
+  "Business Studies"
  ],
  "10|gr10-control-structures-modular-programming-t2": [
   "Control Structures and Modular Programming",
@@ -190,6 +198,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-email-internet-threats-popia-t3": [
   "E-mail and Internet Threats, Safe Use and POPIA",
   "Information Technology"
+ ],
+ "10|gr10-entrepreneurial-qualities-t2": [
+  "Entrepreneurial Qualities",
+  "Business Studies"
  ],
  "10|gr10-equations-inequalities-t1": [
   "Equations and Inequalities",
@@ -527,6 +539,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Self-awareness, Self-esteem and Self-development",
   "Life Orientation"
  ],
+ "10|gr10-self-management-t4": [
+  "Self-Management",
+  "Business Studies"
+ ],
  "10|gr10-social-environmental-responsibility-t2": [
   "Social and Environmental Responsibility",
   "Life Orientation"
@@ -537,6 +553,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "10|gr10-social-responsibility-forms-ownership": [
   "Social Responsibility and Forms of Ownership",
+  "Business Studies"
+ ],
+ "10|gr10-socio-economic-issues-depth-t2": [
+  "Contemporary Socio-economic Issues in Depth",
   "Business Studies"
  ],
  "10|gr10-sole-trader-cash-credit-processing": [
@@ -566,6 +586,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "10|gr10-subjects-career-fields-t1": [
   "Subjects, Career Fields and Study Choices",
   "Life Orientation"
+ ],
+ "10|gr10-swot-research-creative-t3": [
+  "SWOT, Research and Creative Techniques",
+  "Business Studies"
  ],
  "10|gr10-systems-networks-digital-responsibility": [
   "Systems, Networks and Digital Responsibility",

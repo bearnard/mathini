@@ -4864,6 +4864,16 @@
                 "id": "gr10-social-responsibility-forms-ownership",
                 "title": "Social Responsibility and Forms of Ownership",
                 "description": "Cover social responsibility, CSR, sole proprietor, partnership, non-profit company, profit companies, co-operatives."
+              },
+              {
+                "id": "gr10-entrepreneurial-qualities-t2",
+                "title": "Entrepreneurial Qualities",
+                "description": "What an entrepreneur is, the entrepreneurial qualities and assessing your own."
+              },
+              {
+                "id": "gr10-socio-economic-issues-depth-t2",
+                "title": "Contemporary Socio-economic Issues in Depth",
+                "description": "Piracy, counterfeiting, gambling, pyramid schemes, crime, strikes and inclusivity."
               }
             ]
           },
@@ -4880,6 +4890,21 @@
                 "id": "gr10-business-information-planning",
                 "title": "Business Information and Planning",
                 "description": "Cover presentation methods, business plan structure, viability."
+              },
+              {
+                "id": "gr10-business-location-t3",
+                "title": "Business Location Decision",
+                "description": "Why location matters, location factors and weighing up sites."
+              },
+              {
+                "id": "gr10-contracts-t3",
+                "title": "Contracts",
+                "description": "Types of contracts, their parties, rights and responsibilities and hire purchase cost."
+              },
+              {
+                "id": "gr10-swot-research-creative-t3",
+                "title": "SWOT, Research and Creative Techniques",
+                "description": "SWOT, research instruments, creative thinking techniques and force-field analysis."
               }
             ]
           },
@@ -4891,6 +4916,11 @@
                 "id": "gr10-relationship-team-performance",
                 "title": "Relationship and Team Performance",
                 "description": "Cover interpersonal relationships, prejudice, values, diversity, team criteria, collaborative performance, conflict."
+              },
+              {
+                "id": "gr10-self-management-t4",
+                "title": "Self-Management",
+                "description": "Time management and goals, professional image, self-knowledge, confidence and stress."
               },
               {
                 "id": "gr10-revision-final-paper-preparation",
