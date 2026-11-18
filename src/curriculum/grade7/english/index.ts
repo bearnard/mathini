@@ -81,6 +81,30 @@ export const englishHLGrade7: Subject = {
           description: 'Adjectives, adverbs, conjunctions, and sentence links for flow.',
           component: lazy(() => import('./term2/grammar-cohesion/GrammarCohesion')),
         },
+        {
+          id: 'gr7-active-passive-voice-t2',
+          title: 'Active and Passive Voice',
+          description: 'Transitive and intransitive verbs, the passive in three tenses and the present progressive passive.',
+          component: lazy(() => import('./term2/active-passive-voice/ActivePassiveVoice')),
+        },
+        {
+          id: 'gr7-prepositions-adverbs-t2',
+          title: 'Prepositions and Adverbs',
+          description: 'Prepositional phrases, fixed prepositions, the forms of adverbs and the words hard, hardly, late and lately.',
+          component: lazy(() => import('./term2/prepositions-adverbs/PrepositionsAdverbs')),
+        },
+        {
+          id: 'gr7-direct-reported-speech-t2',
+          title: 'Direct and Reported Speech',
+          description: 'Reported statements, questions and commands, and the changes of tense, time and pronoun.',
+          component: lazy(() => import('./term2/direct-reported-speech/DirectReportedSpeech')),
+        },
+        {
+          id: 'gr7-apostrophe-hyphen-quotation-t2',
+          title: 'Apostrophe, Hyphen and Quotation Marks',
+          description: 'The apostrophe of possession, contractions, the hyphen and quotation marks.',
+          component: lazy(() => import('./term2/apostrophe-hyphen-quotation/ApostropheHyphenQuotation')),
+        },
       ],
     },
     {
