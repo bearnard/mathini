@@ -269,19 +269,25 @@ test('the hidden Grade 11 Physical Sciences lessons are out of the curriculum bu
   for (const t of terms) assert.ok(t.length > 0);
 });
 
-// Wave B, Grade 11 History: Decolonisation in Africa is Grade 12 territory (the Grade 11 CAPS names Gold Coast / Ghana only) and is hidden; code, task instruction and D1 rows stay; the page redirects (308).
-test('the hidden Grade 11 History lesson is out of the curriculum but its code, task instruction and redirect remain; Term 4 is not empty', async () => {
+// Wave B, Grade 11 History: Decolonisation in Africa, Resistance to Racism and Liberation Movements are Grade 12 territory and are hidden (the last two once the Topic 5 replacement lessons were live); code, task instructions and D1 rows stay; the pages redirect (308).
+test('the hidden Grade 11 History lessons are out of the curriculum but their code, task instructions and redirects remain; no term is empty', async () => {
   const fs = await import('node:fs');
   const { LEGACY_REDIRECTS } = await import('../lib/seo/legacyRedirects');
   const his = grade11.subjects.find((x) => x.id === 'his')!;
   const ids = his.terms.flatMap((t) => t.topics.map((p) => p.id));
-  assert.ok(!ids.includes('gr11-decolonisation-africa-t4'));
-  assert.ok(fs.existsSync('src/curriculum/grade11/history/term4/decolonisation-africa/DecolonisationAfrica.tsx'));
-  const tasks = JSON.parse(fs.readFileSync('src/lib/server/caps/tasks/his-gr11-term4.json', 'utf8')).tasks as Record<string, string>;
-  assert.ok('gr11-decolonisation-africa-t4' in tasks);
-  assert.equal(LEGACY_REDIRECTS.find((r) => r.source === '/grade-11/history/decolonisation-in-africa')?.destination, '/grade-11/history');
-  // Resistance to Racism and Liberation Movements stay visible until the Topic 5 replacement lessons are live.
+  const hidden: [string, string, string, string][] = [
+    ['gr11-decolonisation-africa-t4', 'term4/decolonisation-africa/DecolonisationAfrica.tsx', 'his-gr11-term4.json', 'decolonisation-in-africa'],
+    ['gr11-liberation-movements-t4', 'term4/liberation-movements/LiberationMovements.tsx', 'his-gr11-term4.json', 'liberation-movements'],
+    ['gr11-resistance-to-racism-t3', 'term3/resistance-to-racism/ResistanceToRacism.tsx', 'his-gr11-term3.json', 'resistance-to-racism'],
+  ];
+  for (const [id, file, taskFile, slug] of hidden) {
+    assert.ok(!ids.includes(id), `${id} is hidden`);
+    assert.ok(fs.existsSync(`src/curriculum/grade11/history/${file}`), `${file} is kept`);
+    const tasks = JSON.parse(fs.readFileSync(`src/lib/server/caps/tasks/${taskFile}`, 'utf8')).tasks as Record<string, string>;
+    assert.ok(id in tasks, `${id} task instruction is kept`);
+    assert.equal(LEGACY_REDIRECTS.find((r) => r.source === `/grade-11/history/${slug}`)?.destination, '/grade-11/history');
+  }
   const t4 = his.terms.find((t) => t.id === 4)!.topics.map((p) => p.id);
-  assert.deepEqual(t4, ['gr11-segregation-and-apartheid-t3', 'gr11-resistance-to-racism-t3', 'gr11-liberation-movements-t4']);
+  assert.deepEqual(t4, ['gr11-segregation-and-apartheid-t3', 'gr11-resistance-to-apartheid-1948-1960-t4', 'gr11-sharpeville-armed-struggle-rivonia-t4']);
   for (const t of his.terms) assert.ok(t.topics.length > 0);
 });

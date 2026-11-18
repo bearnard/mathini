@@ -1063,10 +1063,6 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Layered Rocks and Karoo Landscapes",
   "Social Sciences: Geography"
  ],
- "11|gr11-liberation-movements-t4": [
-  "Liberation Movements",
-  "History"
- ],
  "11|gr11-listening-language-context-t1": [
   "Listening and Language in Context",
   "English HL"
@@ -1363,8 +1359,8 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Relationships, Sexuality and Health",
   "Life Orientation"
  ],
- "11|gr11-resistance-to-racism-t3": [
-  "Resistance to Racism",
+ "11|gr11-resistance-to-apartheid-1948-1960-t4": [
+  "Resistance to Apartheid 1948 to 1960",
   "History"
  ],
  "11|gr11-resource-sustainability-t4": [
@@ -1397,6 +1393,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "11|gr11-segregation-and-apartheid-t3": [
   "Segregation and Apartheid",
+  "History"
+ ],
+ "11|gr11-sharpeville-armed-struggle-rivonia-t4": [
+  "Sharpeville, the Armed Struggle and the Rivonia Trial",
   "History"
  ],
  "11|gr11-slopes-mass-movement-t2": [
