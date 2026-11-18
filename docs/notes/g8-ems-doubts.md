@@ -7,3 +7,11 @@
 - Debit and credit are named as the two sides of an account; double entry and T accounts are Grade 8 Term 4 and come in a later lesson.
 - Deposit totals use the notes R200, R100, R50, R20 and R10; coins are not used. Cheque counterfoils are described as the record kept in the cheque book.
 - Not built: the Term 1 formal tasks (the data response and the controlled test).
+
+## Term 2 (feat/g8-ems-t2)
+- One small service business, "Thandi's Tutoring", is used for the cycle, the cash journals, the ledger and the statements (seven cash transactions: capital R10 000, fees R4 500 and R2 500, rent R1 500, telephone R400, salaries R1 200, equipment R2 000). A test recomputes the journals, bank balance, ledger, trial balance, income statement and balance sheet by hand and checks that every total balances and that the Bank column of the CRJ equals the sum of its analysis columns. No liabilities arise (cash transactions only), so the balance sheet is assets = owner's equity.
+- Scope follows the Grade 8 CAPS Term 2: the overview of the accounting cycle (transactions, source documents, subsidiary journals, General Ledger, Trial Balance, Income Statement, Balance Sheet), the Cash Receipts Journal of a service business (columns and uses, source documents, entering, closing off, effect on the accounting equation) and factors of production and markets. Posting from the journals to the ledger in detail (T accounts, double entry) is CAPS Term 4 and is shown here only as a result (the trial balance).
+- The CRJ columns used are Date, Document, Details and Bank, with the analysis shown as Capital and Fees earned. Real school formats vary (some add Sundry or Interest columns); the lesson says so.
+- Factors of production follow the CAPS wording: capital (own and borrowed), labour (unskilled, semi-skilled, skilled), natural resources, entrepreneurship and remuneration. Fair employment practices are listed in general terms (contract, safe workplace, at least the minimum wage, no unfair discrimination); no minimum-wage figure is quoted because it changes. The wage bill example (5 workers at R200 for 20 days) is imaginary.
+- Markets: the goods and services market and the factor market (labour and financial markets). The circular flow is a simple picture, not a full model.
+- Not built: the Term 2 formal tasks (the project and the mid-year examination).
