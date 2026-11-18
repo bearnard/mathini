@@ -2683,6 +2683,21 @@
                 "id": "simple-machines-revision",
                 "title": "Simple Machines Revision",
                 "description": "Levers, inclined planes, wedges, wheel and axle, and force multiplication."
+              },
+              {
+                "id": "gear-systems-mechanical-advantage",
+                "title": "Gear Systems and Mechanical Advantage",
+                "description": "Counter-rotation, idler and bevel gears, velocity ratio and mechanical advantage calculated from teeth."
+              },
+              {
+                "id": "bicycle-gears-systems-diagrams",
+                "title": "Bicycle Gears and Systems Diagrams",
+                "description": "Chain wheel and cogs, high and low gears, and input-process-output systems diagrams."
+              },
+              {
+                "id": "mining-technology-impact-bias",
+                "title": "Mining Technology, Impact and Bias",
+                "description": "Mining in South Africa, acid mine drainage, dust pollution, Iron Age technology and gender bias."
               }
             ]
           },

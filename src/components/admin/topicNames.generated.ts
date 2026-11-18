@@ -3639,6 +3639,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Beyond the Solar System",
   "Natural Sciences"
  ],
+ "8|gr8-bicycle-gears-systems-diagrams-t3": [
+  "Bicycle Gears and Systems Diagrams",
+  "Technology"
+ ],
  "8|gr8-biogeochemical-cycles-t2": [
   "Biogeochemical Cycles",
   "Natural Sciences"
@@ -3815,6 +3819,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Functions and Relationships",
   "Mathematics"
  ],
+ "8|gr8-gear-systems-mechanical-advantage-t3": [
+  "Gear Systems and Mechanical Advantage",
+  "Technology"
+ ],
  "8|gr8-geometry-of-2d-shapes-and-straight-lines-t2": [
   "Geometry of 2D Shapes and Straight Lines",
   "Mathematics"
@@ -3946,6 +3954,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-mineral-revolution-in-south-africa-t2": [
   "The Mineral Revolution in South Africa",
   "History"
+ ],
+ "8|gr8-mining-technology-impact-bias-t3": [
+  "Mining Technology, Impact and Bias",
+  "Technology"
  ],
  "8|gr8-music-t1": [
   "Music",
