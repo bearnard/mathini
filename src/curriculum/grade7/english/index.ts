@@ -131,6 +131,18 @@ export const englishHLGrade7: Subject = {
           description: 'Project writing, active-passive voice, punctuation, and clauses.',
           component: lazy(() => import('./term3/project-language-refinement/ProjectLanguageRefinement')),
         },
+        {
+          id: 'gr7-clauses-t3',
+          title: 'Noun, Adjectival, Adverbial and Relative Clauses',
+          description: 'The three kinds of dependent clause, relative pronouns and adverbial conjunctions.',
+          component: lazy(() => import('./term3/clauses/Clauses')),
+        },
+        {
+          id: 'gr7-pronouns-t3',
+          title: 'Pronouns',
+          description: 'Personal, possessive, reflexive, demonstrative, interrogative, indefinite and relative pronouns.',
+          component: lazy(() => import('./term3/pronouns/Pronouns')),
+        },
       ],
     },
     {
@@ -154,6 +166,18 @@ export const englishHLGrade7: Subject = {
           title: 'Grammar Consolidation',
           description: 'Tenses, clauses, punctuation, vocabulary, and language in context.',
           component: lazy(() => import('./term4/grammar-consolidation/GrammarConsolidation')),
+        },
+        {
+          id: 'gr7-verbs-gerunds-t4',
+          title: 'Verbs: Auxiliary, Finite and Non-finite, Gerunds',
+          description: 'Finite and non-finite verbs, auxiliary verbs, participles and gerunds.',
+          component: lazy(() => import('./term4/verbs-gerunds/VerbsGerunds')),
+        },
+        {
+          id: 'gr7-bias-emotive-language-t4',
+          title: 'Bias, Stereotypes and Emotive Language',
+          description: 'Bias and prejudice, stereotypes, emotive and manipulative language and rhetorical questions.',
+          component: lazy(() => import('./term4/bias-emotive-language/BiasEmotiveLanguage')),
         },
       ],
     },

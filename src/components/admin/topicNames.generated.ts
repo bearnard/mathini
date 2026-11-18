@@ -3439,9 +3439,17 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Assesseringsgerigte Taalpraktyk",
   "Afrikaans FAL"
  ],
+ "7|gr7-bias-emotive-language-t4": [
+  "Bias, Stereotypes and Emotive Language",
+  "English HL"
+ ],
  "7|gr7-biosphere-biodiversity-and-reproduction-t1": [
   "Biosphere, Biodiversity and Reproduction",
   "Natural Sciences"
+ ],
+ "7|gr7-clauses-t3": [
+  "Noun, Adjectival, Adverbial and Relative Clauses",
+  "English HL"
  ],
  "7|gr7-colonisation-of-the-cape-t3": [
   "Colonisation of the Cape",
@@ -3719,6 +3727,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Project and Language Refinement",
   "English HL"
  ],
+ "7|gr7-pronouns-t3": [
+  "Pronouns",
+  "English HL"
+ ],
  "7|gr7-reading-viewing-t1": [
   "Reading & Viewing",
   "isiXhosa SAL"
@@ -3778,6 +3790,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "7|gr7-variation-t1": [
   "Variation",
   "Natural Sciences"
+ ],
+ "7|gr7-verbs-gerunds-t4": [
+  "Verbs: Auxiliary, Finite and Non-finite, Gerunds",
+  "English HL"
  ],
  "7|gr7-visual-literacy-persuasion-t3": [
   "Visuele Geletterdheid & Oorreding",
