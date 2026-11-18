@@ -1731,6 +1731,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Analytical Geometry of the Circle",
   "Mathematics"
  ],
+ "12|gr12-artificial-selection-isolation-t3": [
+  "Artificial Selection and Reproductive Isolation",
+  "Life Sciences"
+ ],
  "12|gr12-atlases-thematic-maps-t3": [
   "Using Atlases and Thematic Maps",
   "Social Sciences: Geography"
@@ -1975,6 +1979,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Evolution by Natural Selection",
   "Life Sciences"
  ],
+ "12|gr12-evolution-present-times-t3": [
+  "Evolution in Present Times",
+  "Life Sciences"
+ ],
  "12|gr12-exam-action-verbs-time-management-t4": [
   "Exam Action Verbs and Time Management",
   "Business Studies"
@@ -2082,6 +2090,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-human-factors-ill-health-t3": [
   "Human Factors in Ill-Health, Accidents and Disasters",
   "Life Orientation"
+ ],
+ "12|gr12-human-impact-environment-t4": [
+  "Human Impact on the Environment: Paper 2 Revision",
+  "Life Sciences"
  ],
  "12|gr12-human-reproduction-t1": [
   "Human Reproduction",
@@ -2279,6 +2291,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Momentum, Impulse and Collisions",
   "Physical Sciences"
  ],
+ "12|gr12-nervous-disorders-injuries-drugs-t2": [
+  "Nervous System: Disorders, Injuries and the Effects of Drugs",
+  "Life Sciences"
+ ],
  "12|gr12-nervous-system-sense-organs-t2": [
   "Nervous System and Sense Organs",
   "Life Sciences"
@@ -2430,6 +2446,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "12|gr12-physical-education-task-4-t4": [
   "Physical Education Task — Term 4",
   "Life Orientation"
+ ],
+ "12|gr12-plant-defence-t3": [
+  "Plant Defence Mechanisms",
+  "Life Sciences"
  ],
  "12|gr12-plant-nutrients-t3": [
   "Plant Nutrients: Sources, Functions and History",

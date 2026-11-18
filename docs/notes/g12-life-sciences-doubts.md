@@ -38,3 +38,18 @@ The CAPS names the sites and scientists but gives **no ages**. The lesson states
 - **Definitions used.** Creationism: the belief that life was created by a creator such as God. Intelligent Design: the claim that some complex features of life point to an intelligent designer (it does not name the designer). Literalism: reading a holy text, such as the Genesis creation story, as an exact account of events. Theistic evolution: the belief that God used evolution, accepting the scientific evidence for it. A teacher or a person of the relevant faith should confirm these are fair.
 - **Cultural example.** One Zulu tradition (uNkulunkulu came out of a bed of reeds, the uthlanga) is used as an example of a cultural explanation. It is the standard account, but it should be checked by a Zulu-speaking teacher, and other communities' stories could be added.
 - **Not covered.** Other religions' accounts beyond the example above, and the debate about teaching creationism in schools.
+
+## Gap lessons (#1016): nervous disorders and drugs, plant defence, artificial selection and isolation, evolution in present times, human impact
+
+The audit status listed the Cradle of Humankind and alternatives to evolution as open, but both already existed (Term 4). The remaining CAPS gaps found by a keyword and slide-title scan were: nervous-system disorders, injuries and drugs (T2), plant defence, artificial selection, reproductive isolation, evolution in present times (T3) and the Grade 11 human-impact topic that is also examined in Grade 12 (T4). The combined Endocrine, Homeostasis and Plant Responses lesson is already in Term 3 (pinned in `termMoves.test.ts`), so no move was needed.
+
+- **Drugs (teacher check).** Effects, harms and help only: dagga, heroin, ecstasy and tik are described as depressants or stimulants with their effects on the nervous system and general harms. No doses, routes of use, preparation or sources. Help: a trusted adult, a clinic, a school counsellor and Childline on 116 for under-18s. A test fails on dosing or use words.
+- **Alzheimer's disease and MS.** Described at CAPS level (loss of nerve cells; immune attack on the myelin sheath); no cure; treatment eases symptoms or slows MS. Confirm wording.
+- **Stem cell research.** Stated as promising and still being researched, not a standard cure.
+- **Reaction time.** Five imaginary reaction times (0,21 to 0,28 s, mean 0,25 s) and a slowed reaction of 0,45 s are teaching values; 100 km/h = 27,78 m/s gives 6,94 m and 12,5 m. These are illustrations, not measured driver data.
+- **Resistance model.** 0,5% resistant, 95% of susceptible insects killed per spray, giving 9,13%, 66,78% and 97,57%: an imaginary model to show the logic of selection, not field data.
+- **Galapagos finch beaks.** Mean beak depth 9,2 mm before and 9,7 mm after a drought is stated as "approximate" from the well-known Galapagos studies; a teacher may want to check the exact figures.
+- **Speciation examples.** Baobabs in Africa and Madagascar and the Galapagos finches are named in one sentence each; no species counts are given.
+- **Artificial selection.** The herd yields (12 to 16,5 litres a day) are imaginary. Maize and its wild relative teosinte are named as the crop example without dates.
+- **Plant defence.** Examples: acacia thorns and tannins, cactus and prickly pear spines, stinging nettle hairs, aloe (bitter), oleander (poisonous), euphorbia latex. Confirm the South African examples.
+- **Human impact.** Forest area (12 000 to 9 000 ha) is imaginary data. The Grade 11 lesson remains; the Grade 12 lesson is a revision for Paper 2 with different questions.
