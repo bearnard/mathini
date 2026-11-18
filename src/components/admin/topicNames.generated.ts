@@ -4903,6 +4903,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Algebraic Expressions and Equations",
   "Mathematics"
  ],
+ "9|gr9-analysing-a-poem-and-writing-poetry-t4": [
+  "Analysing a Poem and Writing Your Own",
+  "English HL"
+ ],
  "9|gr9-apartheid-system-1948-t3": [
   "The Apartheid System 1948",
   "History (Social Sciences)"
@@ -5127,6 +5131,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Forces",
   "Natural Sciences"
  ],
+ "9|gr9-form-and-structure-in-poems-t2": [
+  "Form and Structure in Poems",
+  "English HL"
+ ],
  "9|gr9-functions-of-a-business-t3": [
   "Functions of a Business",
   "Economic Management Sciences"
@@ -5186,6 +5194,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-hydraulics-pneumatics-t2": [
   "Hydraulics, Pneumatics and Pascal's Principle",
   "Technology"
+ ],
+ "9|gr9-imagery-and-symbolism-in-poems-t2": [
+  "Imagery and Symbolism in Poems",
+  "English HL"
  ],
  "9|gr9-journalism-media-t2": [
   "Joernalistiek & Mediatekste",
@@ -5490,6 +5502,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "9|gr9-technology-sustainability-t4": [
   "Technology and Sustainable Resource Use",
   "Social Sciences: Geography"
+ ],
+ "9|gr9-tone-mood-irony-and-message-t3": [
+  "Tone, Mood, Irony and the Poet's Message",
+  "English HL"
  ],
  "9|gr9-trade-unions-t3": [
   "Trade Unions",
