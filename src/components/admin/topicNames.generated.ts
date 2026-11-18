@@ -4111,6 +4111,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Bicycle Gears and Systems Diagrams",
   "Technology"
  ],
+ "8|gr8-britain-workers-and-protest-t1": [
+  "Workers and Protest in Industrial Britain",
+  "History"
+ ],
  "8|gr8-brochures-visual-literacy-t1": [
   "Brochures and Visual Literacy",
   "English HL"
@@ -4375,6 +4379,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Geometry of 3D Objects",
   "Mathematics"
  ],
+ "8|gr8-gold-randlords-and-miners-t2": [
+  "Gold on the Witwatersrand",
+  "History"
+ ],
  "8|gr8-government-national-budget-t1": [
   "Government and the National Budget",
   "Economic Management Sciences"
@@ -4426,6 +4434,14 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-journalistic-report-t4": [
   "Writing a Journalistic (News) Report",
   "English HL"
+ ],
+ "8|gr8-kimberley-diamonds-and-monopoly-t1": [
+  "Diamond Mining in Kimberley",
+  "History"
+ ],
+ "8|gr8-labour-control-and-land-t2": [
+  "Controlling Workers and Taking Land",
+  "History"
  ],
  "8|gr8-language-consolidation-t4": [
   "Taalkonsolidasie",
@@ -4513,6 +4529,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "8|gr8-mineral-revolution-in-south-africa-t2": [
   "The Mineral Revolution in South Africa",
+  "History"
+ ],
+ "8|gr8-mineral-revolution-turning-point-t2": [
+  "The Mineral Revolution as a Turning Point",
   "History"
  ],
  "8|gr8-mining-technology-impact-bias-t3": [
@@ -4670,6 +4690,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-source-documents-t1": [
   "Source Documents",
   "Economic Management Sciences"
+ ],
+ "8|gr8-southern-africa-1860-indentured-labour-t1": [
+  "Southern Africa by 1860 and Indentured Labour",
+  "History"
  ],
  "8|gr8-static-electricity-t3": [
   "Static Electricity",
