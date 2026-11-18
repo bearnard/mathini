@@ -20,7 +20,14 @@ test('Natural Sciences and Technology lessons sit in their CAPS terms', () => {
 });
 
 test('Life Orientation keeps PSW and PE, Creative Arts has the four arts lessons, and topic ids are unchanged', () => {
-  assert.deepEqual(where('lo'), [1, 2, 3, 4].map((n) => [`gr7-personal-social-wellbeing-t${n}`, `gr7-physical-education-t${n}`]));
+  // The Senior Phase LO gap lessons (#972) sit between PSW and PE in their CAPS terms.
+  const extra: Record<number, string[]> = {
+    1: ['gr7-reading-studying-memory-t1'],
+    2: ['gr7-dealing-with-abuse-t2'],
+    3: ['gr7-environmental-health-t3'],
+    4: ['gr7-diet-and-nutrition-t4', 'gr7-common-diseases-tb-diabetes-epilepsy-t4', 'gr7-common-diseases-obesity-anorexia-hiv-t4', 'gr7-oral-traditions-and-scriptures-t4'],
+  };
+  assert.deepEqual(where('lo'), [1, 2, 3, 4].map((n) => [`gr7-personal-social-wellbeing-t${n}`, ...extra[n], `gr7-physical-education-t${n}`]));
   assert.deepEqual(where('ca'), [1, 2, 3, 4].map((n) => [`gr7-creative-arts-t${n}`]));
 });
 
@@ -43,5 +50,6 @@ test('the restructured lessons keep their original task slugs and API subject co
   }
   const nstTasks = ['biosphere-biodiversity-and-reproduction-t1', 'design-process-and-structures-t1', 'matter-mixtures-acids-and-bases-t2', 'processing-materials-and-properties-t2', 'energy-transfer-heat-and-motion-t3', 'mechanical-systems-and-control-t3', 'sun-earth-relationship-and-gravity-t4', 'electrical-systems-and-control-t4', 'variation-t1', 'history-of-astronomy-t4', 'periodic-table-t2', 'national-electricity-grid-t3', 'graphical-communication-t1'].map((s) => `gr7-${s} nst`);
   const lskTasks = [1, 2, 3, 4].flatMap((n) => ['personal-social-wellbeing', 'physical-education', 'creative-arts'].map((s) => `gr7-${s}-t${n} lsk`));
-  assert.deepEqual(found.sort(), [...nstTasks, ...lskTasks].sort());
+  const loGaps = ['reading-studying-memory-t1', 'dealing-with-abuse-t2', 'environmental-health-t3', 'diet-and-nutrition-t4', 'common-diseases-tb-diabetes-epilepsy-t4', 'common-diseases-obesity-anorexia-hiv-t4', 'oral-traditions-and-scriptures-t4'].map((s) => `gr7-${s} lsk`);
+  assert.deepEqual(found.sort(), [...nstTasks, ...lskTasks, ...loGaps].sort());
 });

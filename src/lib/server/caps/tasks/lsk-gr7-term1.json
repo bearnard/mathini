@@ -2,6 +2,7 @@
   "tasks": {
     "gr7-personal-social-wellbeing-t1": "Generate Grade 7 Life Skills multiple-choice items on personal and social well-being covering self-concept, values, puberty, emotions, and decision-making. Ask scenario-based questions about managing emotions, checking myths against facts, and making responsible everyday choices.",
     "gr7-physical-education-t1": "Generate Grade 7 Life Skills multiple-choice items on physical education covering fitness baselines, movement patterns, coordination, cooperation, and safe warm-ups. Ask learners to identify safe practice routines, teamwork behaviour, and ways to track fitness progress.",
-    "gr7-creative-arts-t1": "Generate Grade 7 Life Skills multiple-choice items on creative arts covering observational drawing, texture, rhythm patterns, ensemble voice, and improvisation. Ask learners to identify artistic techniques, rhythm structure, and clear scene-building choices."
+    "gr7-creative-arts-t1": "Generate Grade 7 Life Skills multiple-choice items on creative arts covering observational drawing, texture, rhythm patterns, ensemble voice, and improvisation. Ask learners to identify artistic techniques, rhythm structure, and clear scene-building choices.",
+    "gr7-reading-studying-memory-t1": "Topic: Reading, studying and memory skills (Grade 7 Life Orientation, Term 1). Cover why reading and studying matter, good study habits and steps, and skills to develop memory (spacing, chunking, mnemonics, mind maps, sleep, teaching others). Ask the learner directly (you), never about learners or CAPS."
   }
 }
