@@ -2339,6 +2339,26 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Organic Molecules and Reactions",
   "Physical Sciences"
  ],
+ "12|gr12-p1-comprehension-visual-t2": [
+  "Paper 1: Comprehension Questions and Visual Texts",
+  "English HL"
+ ],
+ "12|gr12-p1-critical-language-t3": [
+  "Paper 1: Critical Language Awareness",
+  "English HL"
+ ],
+ "12|gr12-p1-sentence-structures-t2": [
+  "Paper 1: Sentence Structures and Conventions",
+  "English HL"
+ ],
+ "12|gr12-p1-summary-writing-t1": [
+  "Paper 1: Summary Writing",
+  "English HL"
+ ],
+ "12|gr12-p1-vocabulary-figures-t1": [
+  "Paper 1: Vocabulary and Figures of Speech",
+  "English HL"
+ ],
  "12|gr12-paper-1-revision-t4": [
   "Paper 1 Revision",
   "Accounting"

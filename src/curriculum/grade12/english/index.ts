@@ -38,6 +38,18 @@ export const englishHLGrade12: Subject = {
           component: lazy(() => import('./term1/paper1-language-practice/Paper1LanguagePractice')),
         },
         {
+          id: 'gr12-p1-vocabulary-figures-t1',
+          title: "Paper 1: Vocabulary and Figures of Speech",
+          description: "Word relationships, figures of speech, idioms, word origins and parts of words.",
+          component: lazy(() => import('./term1/p1-vocabulary-figures/P1VocabularyFigures')),
+        },
+        {
+          id: 'gr12-p1-summary-writing-t1',
+          title: "Paper 1: Summary Writing",
+          description: "Selecting seven points, writing in your own words and counting the words.",
+          component: lazy(() => import('./term1/p1-summary-writing/P1SummaryWriting')),
+        },
+        {
           id: 'gr12-oral-paper4-tasks-t1',
           title: 'Paper 4 Orals: The Tasks and the 50 Marks',
           description:
@@ -106,6 +118,18 @@ export const englishHLGrade12: Subject = {
             'Informal discussion, debate terms and procedure, panel discussions and the chairperson.',
           component: lazy(() => import('./term2/discussion-debate-panel/DiscussionDebatePanel')),
         },
+        {
+          id: 'gr12-p1-sentence-structures-t2',
+          title: "Paper 1: Sentence Structures and Conventions",
+          description: "Voice, direct and indirect speech, clauses, concord, modals and punctuation.",
+          component: lazy(() => import('./term2/p1-sentence-structures/P1SentenceStructures')),
+        },
+        {
+          id: 'gr12-p1-comprehension-visual-t2',
+          title: "Paper 1: Comprehension Questions and Visual Texts",
+          description: "Paper 1 layout and time, kinds of questions, answering for the marks, advertisements and cartoons.",
+          component: lazy(() => import('./term2/p1-comprehension-visual/P1ComprehensionVisual')),
+        },
       ],
     },
     {
@@ -125,6 +149,12 @@ export const englishHLGrade12: Subject = {
           description:
             'Refine style, paragraph cohesion, tone, register and editing choices for high-level Paper 3 performance.',
           component: lazy(() => import('./term3/advanced-writing-editing/AdvancedWritingEditing')),
+        },
+        {
+          id: 'gr12-p1-critical-language-t3',
+          title: "Paper 1: Critical Language Awareness",
+          description: "Fact and opinion, connotation, emotive language, bias and stereotyping, language and power.",
+          component: lazy(() => import('./term3/p1-critical-language/P1CriticalLanguage')),
         },
         {
           id: 'gr12-oral-trial-preparation-t3',
