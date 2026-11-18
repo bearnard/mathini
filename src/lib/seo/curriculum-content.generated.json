@@ -2736,6 +2736,16 @@
                 "id": "dance",
                 "title": "Dance",
                 "description": "Locomotor and non-locomotor movement, posture, space, time, and safe stretching."
+              },
+              {
+                "id": "music-literacy-notes-keys",
+                "title": "Music Literacy: Note Values, Time Signatures and Keys",
+                "description": "Note values and rests, 2/4 3/4 4/4, clefs and the C and G major scales."
+              },
+              {
+                "id": "instrument-families",
+                "title": "Families of Instruments",
+                "description": "Membranophones, idiophones, chordophones and aerophones and how to hear the difference."
               }
             ]
           },
@@ -2762,6 +2772,11 @@
                 "id": "dance",
                 "title": "Dance",
                 "description": "Motif development, folk or social dance, rhythm, group patterns, and coordination."
+              },
+              {
+                "id": "triplets-f-major-terms",
+                "title": "Triplets, F Major, Dynamics and Tempo Words",
+                "description": "The triplet, the F major scale, piano, forte, crescendo, diminuendo, allegro and andante."
               }
             ]
           },
@@ -2788,6 +2803,11 @@
                 "id": "dance",
                 "title": "Dance",
                 "description": "Space, energy, choreographic devices, cultural dance study, and performance quality."
+              },
+              {
+                "id": "ostinato-riff-jingle",
+                "title": "Melodic Ostinato, Riffs and the Jingle",
+                "description": "Repeating patterns, four lines of lyrics, a one-minute jingle and music technology."
               }
             ]
           },
@@ -2814,6 +2834,11 @@
                 "id": "dance",
                 "title": "Dance",
                 "description": "Final routine, timing, expression, appreciation, and careers awareness."
+              },
+              {
+                "id": "six-eight-d-major-articulation",
+                "title": "6/8, D Major, Tempo and Articulation",
+                "description": "The time signature 6/8, the D major scale, tempo words, legato, staccato and listening."
               }
             ]
           }

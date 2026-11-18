@@ -1,0 +1,14 @@
+# Grade 8 Creative Arts: doubts and decisions (for a Creative Arts teacher to check)
+
+## Music (feat/g8-ca-music): 5 lessons, 14 questions each
+- Scope follows the Grade 8 CAPS music plan. T1 literacy: note values (semibreve, dotted minim, minim, crotchet, quaver) and rests, 2/4 3/4 4/4, treble and bass clefs and letter names, the C and G major scales. T1 and T3 listening: the four families of instruments (one lesson, in T1). T2 literacy: triplet, F major, dynamics (piano, forte, crescendo, diminuendo), tempo (allegro, andante). T3 performing and creating: ostinato, lyrics, jingle, music technology. T4 literacy: 6/8, D major, moderato, presto, ritardando, a tempo, legato, staccato, and a listening write-up.
+- Lessons teach about music; they do not ask for a performance, so no singing, playing or composing is marked. No song, score, lyric or recording is quoted: the only notes are scales and a four-note pattern (C E G E) made up for the lesson.
+- Mnemonic and layout: the lines of the treble staff are given as E G B D F and the spaces as F A C E. The bass staff lines G B D F A and spaces A C E G are stated in words only (the picture shows the treble staff). Check these are the names your learners are taught.
+- Triplet: taught as three triplet quavers in the time of one crotchet beat. A triplet crotchet or other triplets are not mentioned.
+- Key signatures: G major F♯ (one sharp); F major B♭ (one flat); D major F♯ and C♯ (two sharps). Scales are drawn on the treble staff starting on the key note above middle C (C and D start on C4 and D4; G and F start on G4 and F4). The sharp or flat sign is drawn next to the note, not as a key signature at the start, so the picture shows the scale and not a piece of written music.
+- 6/8: counted as two beats of three quavers (a dotted crotchet each). In slow or fast pieces some teachers count six; the lesson states the usual way.
+- Tempo words are given with meanings only (andante at a walking pace, moderato at a moderate speed, allegro fast and lively, presto very fast). No metronome ranges are quoted, because books differ. The only tempo figure is 120 beats a minute in the jingle example.
+- Instruments by family: membranophones (djembe, ngoma drum, snare drum), idiophones (marimba, triangle, shaker), chordophones (guitar, violin, uhadi), aerophones (flute, recorder, vuvuzela). The tambourine and the mbira were left out on purpose because they can be classed in more than one way. The uhadi is described as a musical bow with a string.
+- Jingle: "about a minute long" is the CAPS length. The bar count (60 s at 120 beats a minute in 4/4 = 30 bars) is a worked example, not a rule.
+- Four lines of lyrics: the plan (introduce the issue, say how it affects people, show what could change, end with a clear message) is a suggestion, not a CAPS rule. The topics named are bullying and littering.
+- Not built: the term practical tasks (performance, composition, the formal assessments).
