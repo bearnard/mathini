@@ -25,6 +25,18 @@ export const technologyGrade8: Subject = {
             () => import('./term1/structures-and-design-brief/StructuresAndDesignBrief'),
           ),
         },
+        {
+          id: 'graphic-communication',
+          title: 'Graphic Communication',
+          description: 'Line types, scale and dimensions, single-view and isometric drawings, and perspective.',
+          component: lazy(() => import('./term1/graphic-communication/GraphicCommunication')),
+        },
+        {
+          id: 'frame-structures-failure',
+          title: 'Frame Structures and Structural Failure',
+          description: 'Roof trusses, forces in members, triangulation, spanning structures and how structures fail.',
+          component: lazy(() => import('./term1/frame-structures-failure/FrameStructuresFailure')),
+        },
       ],
     },
     {

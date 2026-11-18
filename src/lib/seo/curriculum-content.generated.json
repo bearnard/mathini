@@ -2631,6 +2631,16 @@
                 "id": "structures-and-design-brief",
                 "title": "Structures and Design Brief",
                 "description": "Structure types, forces, loads, and using IDMEC in design tasks."
+              },
+              {
+                "id": "graphic-communication",
+                "title": "Graphic Communication",
+                "description": "Line types, scale and dimensions, single-view and isometric drawings, and perspective."
+              },
+              {
+                "id": "frame-structures-failure",
+                "title": "Frame Structures and Structural Failure",
+                "description": "Roof trusses, forces in members, triangulation, spanning structures and how structures fail."
               }
             ]
           },

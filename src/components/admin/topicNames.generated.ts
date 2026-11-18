@@ -3799,6 +3799,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Forms and Transfer of Energy",
   "Natural Sciences"
  ],
+ "8|gr8-frame-structures-failure-t1": [
+  "Frame Structures and Structural Failure",
+  "Technology"
+ ],
  "8|gr8-friendly-letter-t1": [
   "Writing a Friendly Letter",
   "English HL"
@@ -3818,6 +3822,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "8|gr8-grammar-reporting-coherence-t2": [
   "Grammatika vir Verslagdoening & Samehang",
   "Afrikaans FAL"
+ ],
+ "8|gr8-graphic-communication-t1": [
+  "Graphic Communication",
+  "Technology"
  ],
  "8|gr8-graphs-t4": [
   "Graphs",
