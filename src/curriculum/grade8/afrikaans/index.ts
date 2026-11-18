@@ -39,6 +39,12 @@ export const afrikaansFALGrade8: Subject = {
           description: "The question, the questionnaire, the findings and the conclusion.",
           component: lazy(() => import('./term1/investigative-report/InvestigativeReport')),
         },
+        {
+          id: 'afr-prepared-speech',
+          title: 'Voorbereide toespraak',
+          description: 'The parts of a speech, speech techniques, cue cards, eye contact and time.',
+          component: lazy(() => import('./term1/prepared-speech/PreparedSpeech')),
+        },
       ],
     },
     {
@@ -81,6 +87,12 @@ export const afrikaansFALGrade8: Subject = {
           description: "Vergelyking, metafoor, personifikasie, hiperbool en onomatopee.",
           component: lazy(() => import('./term2/imagery-sound/ImagerySound')),
         },
+        {
+          id: 'afr-listening-detail',
+          title: 'Luister vir besonderhede',
+          description: 'Listening for details, the main idea, summary, viewpoint and bias.',
+          component: lazy(() => import('./term2/listening-detail/ListeningDetail')),
+        },
       ],
     },
     {
@@ -116,6 +128,12 @@ export const afrikaansFALGrade8: Subject = {
           title: "Struktuur en rymskema",
           description: "Vers, reël, uitleg, rymskema, ritme, herhaling en refrein.",
           component: lazy(() => import('./term3/structure-rhyme/StructureRhyme')),
+        },
+        {
+          id: 'afr-interview',
+          title: 'Onderhoud: mondeling',
+          description: 'Roles, open and closed questions, follow-up questions, thanks and time.',
+          component: lazy(() => import('./term3/interview/Interview')),
         },
       ],
     },

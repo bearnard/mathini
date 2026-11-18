@@ -1625,6 +1625,11 @@
                 "id": "afr-poem-dialogue",
                 "title": "Gedig en dialoog",
                 "description": "The parts of a poem, rhyming words, and the layout of a dialogue."
+              },
+              {
+                "id": "afr-reading-aloud",
+                "title": "Hardoplees",
+                "description": "Reading aloud: preparing, voice, eye contact and practice."
               }
             ]
           },
@@ -1661,6 +1666,11 @@
                 "id": "afr-figures-poems",
                 "title": "Beeldspraak in gedigte",
                 "description": "Vergelyking, metafoor en personifikasie in 'n gedig."
+              },
+              {
+                "id": "afr-listening-strategies",
+                "title": "Luister met 'n doel",
+                "description": "Listening with a purpose, notes and key words, fact, opinion and tone."
               }
             ]
           },
@@ -1702,6 +1712,11 @@
                 "id": "afr-sound-structure-poems",
                 "title": "Klank en struktuur in gedigte",
                 "description": "Rym, rymskema, alliterasie, herhaling, vers en refrein."
+              },
+              {
+                "id": "afr-debate",
+                "title": "Debat",
+                "description": "The motion, the two teams, building an argument, politeness and time."
               }
             ]
           },
@@ -2541,6 +2556,11 @@
                 "id": "afr-investigative-report",
                 "title": "Ondersoekende verslag en vraelys",
                 "description": "The question, the questionnaire, the findings and the conclusion."
+              },
+              {
+                "id": "afr-prepared-speech",
+                "title": "Voorbereide toespraak",
+                "description": "The parts of a speech, speech techniques, cue cards, eye contact and time."
               }
             ]
           },
@@ -2577,6 +2597,11 @@
                 "id": "afr-imagery-sound",
                 "title": "Beeldspraak en klankeffekte",
                 "description": "Vergelyking, metafoor, personifikasie, hiperbool en onomatopee."
+              },
+              {
+                "id": "afr-listening-detail",
+                "title": "Luister vir besonderhede",
+                "description": "Listening for details, the main idea, summary, viewpoint and bias."
               }
             ]
           },
@@ -2608,6 +2633,11 @@
                 "id": "afr-structure-rhyme",
                 "title": "Struktuur en rymskema",
                 "description": "Vers, reël, uitleg, rymskema, ritme, herhaling en refrein."
+              },
+              {
+                "id": "afr-interview",
+                "title": "Onderhoud: mondeling",
+                "description": "Roles, open and closed questions, follow-up questions, thanks and time."
               }
             ]
           },
@@ -3867,6 +3897,11 @@
                 "id": "afr-letter-of-appreciation",
                 "title": "Brief van Waardering",
                 "description": "Thanking someone for help: the opening, what changed, the format and the formal u."
+              },
+              {
+                "id": "afr-speech-techniques",
+                "title": "Toesprake: tegnieke en aanbieding",
+                "description": "Planning a persuasive speech, the three appeals, delivery and time."
               }
             ]
           },
@@ -3893,6 +3928,11 @@
                 "id": "afr-constitution-policy",
                 "title": "Grondwet en Beleid",
                 "description": "The parts of a constitution, moet and mag, and how a policy differs."
+              },
+              {
+                "id": "afr-meeting-orals",
+                "title": "Vergaderings: mondelinge taak",
+                "description": "Roles at a meeting, proposals and votes, formal language and minutes."
               }
             ]
           },
@@ -3924,6 +3964,11 @@
                 "id": "afr-cv-covering-letter",
                 "title": "CV en Dekbrief",
                 "description": "CV headings, referees, and the key sentences, layout and closing of a covering letter."
+              },
+              {
+                "id": "afr-debate-panel",
+                "title": "Debat en paneelbespreking",
+                "description": "Debate and panel, evidence and rebuttal, the chairperson and courtesy."
               }
             ]
           },
