@@ -64,6 +64,12 @@ export const historyGrade11: Subject = {
           component: lazy(() => import('./term2/capitalism-vs-communism/CapitalismVsCommunism')),
         },
         {
+          id: 'gr11-scientific-racism-t3',
+          title: 'Scientific Racism',
+          description: 'Racial classification, Social Darwinism, eugenics, and how pseudo-science justified oppression.',
+          component: lazy(() => import('./term3/scientific-racism/ScientificRacism')),
+        },
+        {
           id: 'gr11-australia-colonisation-race-theories-t2',
           title: "Australia: Colonisation and Race Theories",
           description: "Colonisation, race theories, the White Australia policy and children sent from Britain.",
@@ -75,6 +81,12 @@ export const historyGrade11: Subject = {
           description: "Assimilation, Cook and Neville, the removals, Bringing Them Home and the apology.",
           component: lazy(() => import('./term2/stolen-generations/StolenGenerations')),
         },
+        {
+          id: 'gr11-nazism-and-race-t3',
+          title: 'Nazism and Race',
+          description: 'Aryan supremacy, anti-Semitism, the Holocaust, and the origins of modern human rights law.',
+          component: lazy(() => import('./term3/nazism-and-race/NazismAndRace')),
+        },
       ],
     },
     {
@@ -82,28 +94,10 @@ export const historyGrade11: Subject = {
       title: 'Term 3',
       topics: [
         {
-          id: 'gr11-scientific-racism-t3',
-          title: 'Scientific Racism',
-          description: 'Racial classification, Social Darwinism, eugenics, and how pseudo-science justified oppression.',
-          component: lazy(() => import('./term3/scientific-racism/ScientificRacism')),
-        },
-        {
-          id: 'gr11-nazism-and-race-t3',
-          title: 'Nazism and Race',
-          description: 'Aryan supremacy, anti-Semitism, the Holocaust, and the origins of modern human rights law.',
-          component: lazy(() => import('./term3/nazism-and-race/NazismAndRace')),
-        },
-        {
-          id: 'gr11-segregation-and-apartheid-t3',
-          title: 'Segregation and Apartheid',
-          description: 'Jim Crow, apartheid legislation, and a comparison of racist systems in the USA and South Africa.',
-          component: lazy(() => import('./term3/segregation-and-apartheid/SegregationAndApartheid')),
-        },
-        {
-          id: 'gr11-resistance-to-racism-t3',
-          title: 'Resistance to Racism',
-          description: 'Civil rights, anti-apartheid struggle, international solidarity, and the defeat of racist systems.',
-          component: lazy(() => import('./term3/resistance-to-racism/ResistanceToRacism')),
+          id: 'gr11-african-nationalism-t4',
+          title: 'African Nationalism',
+          description: 'The meaning of nationalism, the ANC, Pan-Africanism, and the growth of independence movements.',
+          component: lazy(() => import('./term4/african-nationalism/AfricanNationalism')),
         },
         {
           id: 'gr11-afrikaner-nationalism-rise-t3',
@@ -117,6 +111,12 @@ export const historyGrade11: Subject = {
           description: "Who belonged to the Volk, class, education, labour, religion, 1948 and how historians explain it.",
           component: lazy(() => import('./term3/afrikaner-nationalism-volk-power/AfrikanerNationalismVolkPower')),
         },
+        {
+          id: 'gr11-zionism-arab-nationalism-t4',
+          title: 'Zionism and Arab Nationalism',
+          description: 'Competing claims to Palestine, the 1948 war, and the Palestinian refugee crisis.',
+          component: lazy(() => import('./term4/zionism-arab-nationalism/ZionismArabNationalism')),
+        },
       ],
     },
     {
@@ -124,22 +124,16 @@ export const historyGrade11: Subject = {
       title: 'Term 4',
       topics: [
         {
-          id: 'gr11-african-nationalism-t4',
-          title: 'African Nationalism',
-          description: 'The meaning of nationalism, the ANC, Pan-Africanism, and the growth of independence movements.',
-          component: lazy(() => import('./term4/african-nationalism/AfricanNationalism')),
+          id: 'gr11-segregation-and-apartheid-t3',
+          title: 'Segregation and Apartheid',
+          description: 'Jim Crow, apartheid legislation, and a comparison of racist systems in the USA and South Africa.',
+          component: lazy(() => import('./term3/segregation-and-apartheid/SegregationAndApartheid')),
         },
         {
-          id: 'gr11-decolonisation-africa-t4',
-          title: 'Decolonisation in Africa',
-          description: 'Post-war independence, Ghana, Kenya, Algeria, the Year of Africa, and colonial legacies.',
-          component: lazy(() => import('./term4/decolonisation-africa/DecolonisationAfrica')),
-        },
-        {
-          id: 'gr11-zionism-arab-nationalism-t4',
-          title: 'Zionism and Arab Nationalism',
-          description: 'Competing claims to Palestine, the 1948 war, and the Palestinian refugee crisis.',
-          component: lazy(() => import('./term4/zionism-arab-nationalism/ZionismArabNationalism')),
+          id: 'gr11-resistance-to-racism-t3',
+          title: 'Resistance to Racism',
+          description: 'Civil rights, anti-apartheid struggle, international solidarity, and the defeat of racist systems.',
+          component: lazy(() => import('./term3/resistance-to-racism/ResistanceToRacism')),
         },
         {
           id: 'gr11-liberation-movements-t4',

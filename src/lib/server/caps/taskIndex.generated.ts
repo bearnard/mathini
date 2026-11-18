@@ -230,7 +230,6 @@ export const TASK_INDEX: Record<string, [code: string, grade: number]> = {
   "gr11-database-reports-spreadsheet-integration-t3": ["cat", 11],
   "gr11-dbms-database-types-t2": ["it", 11],
   "gr11-debugging-testing-t4": ["it", 11],
-  "gr11-decolonisation-africa-t4": ["his", 11],
   "gr11-democracy-human-rights-t3": ["lo", 11],
   "gr11-democratic-structures-participation-t3": ["lo", 11],
   "gr11-desertification-management-t1": ["geo", 11],
