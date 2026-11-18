@@ -3423,8 +3423,40 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Adjectives and Degrees of Comparison",
   "English HL"
  ],
+ "7|gr7-afr-advert-poster-t2": [
+  "Advertensie en plakkaat",
+  "Afrikaans FAL"
+ ],
+ "7|gr7-afr-diary-email-flyer-t4": [
+  "Dagboek, e-pos en strooibiljet",
+  "Afrikaans FAL"
+ ],
  "7|gr7-afr-exam-writing-practice-t4": [
   "Eksamen-skryf Oefening",
+  "Afrikaans FAL"
+ ],
+ "7|gr7-afr-forms-questionnaire-t3": [
+  "Vorms en vraelyste",
+  "Afrikaans FAL"
+ ],
+ "7|gr7-afr-informal-letter-t1": [
+  "Informele brief",
+  "Afrikaans FAL"
+ ],
+ "7|gr7-afr-instructions-directions-t2": [
+  "Instruksies en aanwysings",
+  "Afrikaans FAL"
+ ],
+ "7|gr7-afr-newspaper-article-interview-t3": [
+  "Koerantberig en onderhoud",
+  "Afrikaans FAL"
+ ],
+ "7|gr7-afr-notice-agenda-minutes-t3": [
+  "Kennisgewing, agenda en notule",
+  "Afrikaans FAL"
+ ],
+ "7|gr7-afr-poem-dialogue-t1": [
+  "Gedig en dialoog",
   "Afrikaans FAL"
  ],
  "7|gr7-apostrophe-hyphen-quotation-t2": [

@@ -1545,6 +1545,16 @@
                 "id": "afr-word-sentence-grammar",
                 "title": "Woord- en Sinvlak Grammatika",
                 "description": "Grammar, tenses, plurals, idioms and sentence-level control."
+              },
+              {
+                "id": "afr-informal-letter",
+                "title": "Informele brief",
+                "description": "The layout, what to write, friendly language and the closing."
+              },
+              {
+                "id": "afr-poem-dialogue",
+                "title": "Gedig en dialoog",
+                "description": "The parts of a poem, rhyming words, and the layout of a dialogue."
               }
             ]
           },
@@ -1566,6 +1576,16 @@
                 "id": "afr-assessment-language-practice",
                 "title": "Assesseringsgerigte Taalpraktyk",
                 "description": "Comprehension, visual literacy and language-use preparation."
+              },
+              {
+                "id": "afr-instructions-directions",
+                "title": "Instruksies en aanwysings",
+                "description": "Commands, order words and giving directions."
+              },
+              {
+                "id": "afr-advert-poster",
+                "title": "Advertensie en plakkaat",
+                "description": "The parts of an advertisement, words that persuade and the layout of a poster."
               }
             ]
           },
@@ -1587,6 +1607,21 @@
                 "id": "afr-language-reinforcement",
                 "title": "Taalversterking",
                 "description": "Language accuracy through editing, punctuation and vocabulary."
+              },
+              {
+                "id": "afr-forms-questionnaire",
+                "title": "Vorms en vraelyste",
+                "description": "Filling in a form, the commands on a form and answering a questionnaire."
+              },
+              {
+                "id": "afr-notice-agenda-minutes",
+                "title": "Kennisgewing, agenda en notule",
+                "description": "A notice, an agenda and minutes."
+              },
+              {
+                "id": "afr-newspaper-article-interview",
+                "title": "Koerantberig en onderhoud",
+                "description": "The parts of a newspaper report, the five questions and an interview."
               }
             ]
           },
@@ -1608,6 +1643,11 @@
                 "id": "afr-language-consolidation",
                 "title": "Taalkonsolidasie",
                 "description": "Year-end grammar, punctuation and sentence-structure consolidation."
+              },
+              {
+                "id": "afr-diary-email-flyer",
+                "title": "Dagboek, e-pos en strooibiljet",
+                "description": "A diary entry, an e-mail and a flyer."
               }
             ]
           }
