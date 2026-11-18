@@ -4,6 +4,13 @@
 import type { ReviewBankItem } from '../../lib/client/review/types';
 
 export const GRADE6_BANKS: Record<string, () => Promise<ReviewBankItem[]>> = {
+  'afr6-describe-process-t1': () => import('./afrikaans/term1/describe-process/DescribeProcess').then((m) => m.bank),
+  'afr6-diary-entry-t2': () => import('./afrikaans/term2/diary-entry/DiaryEntry').then((m) => m.bank),
+  'afr6-factual-report-t1': () => import('./afrikaans/term1/factual-report/FactualReport').then((m) => m.bank),
+  'afr6-news-report-poster-t4': () => import('./afrikaans/term4/news-report-poster/NewsReportPoster').then((m) => m.bank),
+  'afr6-opinion-paragraph-t2': () => import('./afrikaans/term2/opinion-paragraph/OpinionParagraph').then((m) => m.bank),
+  'afr6-short-play-t3': () => import('./afrikaans/term3/short-play/ShortPlay').then((m) => m.bank),
+  'afr6-simple-story-t1': () => import('./afrikaans/term1/simple-story/SimpleStory').then((m) => m.bank),
   'ancient-medicine': () => import('./history/term4/ancient-medicine/AncientMedicine').then((m) => m.bank),
   'begripstoets': () => import('./afrikaans/term2/begripstoets/Begripstoets').then((m) => m.bank),
   'british-take-cape': () => import('./history/term2/british-take-cape/BritishTakeCape').then((m) => m.bank),

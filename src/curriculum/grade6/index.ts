@@ -285,6 +285,24 @@ export const grade6: Grade = {
                                     title: "Teenwoordige Tyd",
                                     description: "The present tense.",
                                     component: lazy(() => import('./afrikaans/term1/teenwoordige-tyd/TeenwoordigeTyd'))
+                                },
+                                {
+                                    id: "afr-simple-story",
+                                    title: "Skryf ’n Storie",
+                                    description: "The beginning, middle and end of a short story, with simple past sentences.",
+                                    component: lazy(() => import('./afrikaans/term1/simple-story/SimpleStory'))
+                                },
+                                {
+                                    id: "afr-factual-report",
+                                    title: "Skryf ’n Feitelike Verslag",
+                                    description: "Facts and opinions, the parts of a short report and sentences with facts.",
+                                    component: lazy(() => import('./afrikaans/term1/factual-report/FactualReport'))
+                                },
+                                {
+                                    id: "afr-describe-process",
+                                    title: "Beskryf ’n Proses",
+                                    description: "Order words and the steps of a simple process, such as making a sandwich.",
+                                    component: lazy(() => import('./afrikaans/term1/describe-process/DescribeProcess'))
                                 }
                             ]
                         },
@@ -315,6 +333,18 @@ export const grade6: Grade = {
                                     title: "Vriendskaplike Brief",
                                     description: "Writing a friendly letter.",
                                     component: lazy(() => import('./afrikaans/term2/vriendskaplike-brief/VriendskaplikeBrief'))
+                                },
+                                {
+                                    id: "afr-diary-entry",
+                                    title: "Skryf ’n Dagboekinskrywing",
+                                    description: "The date, Liewe Dagboek, what happened, how you feel and a plan for tomorrow.",
+                                    component: lazy(() => import('./afrikaans/term2/diary-entry/DiaryEntry'))
+                                },
+                                {
+                                    id: "afr-opinion-paragraph",
+                                    title: "Skryf ’n Mening",
+                                    description: "Giving an opinion with a reason, agreeing and disagreeing politely.",
+                                    component: lazy(() => import('./afrikaans/term2/opinion-paragraph/OpinionParagraph'))
                                 }
                             ]
                         },
@@ -345,6 +375,12 @@ export const grade6: Grade = {
                                     title: "Sinsbou",
                                     description: "Sentence structure and word order (STOMPI).",
                                     component: lazy(() => import('./afrikaans/term3/sinsbou/Sinsbou'))
+                                },
+                                {
+                                    id: "afr-short-play",
+                                    title: "Skryf ’n Toneelstuk",
+                                    description: "Characters, lines with a name and a colon, and a short conversation.",
+                                    component: lazy(() => import('./afrikaans/term3/short-play/ShortPlay'))
                                 }
                             ]
                         },
@@ -375,6 +411,12 @@ export const grade6: Grade = {
                                     title: "Gemengde Hersiening",
                                     description: "Mixed revision across the year.",
                                     component: lazy(() => import('./afrikaans/term4/gemengde-hersiening/GemengdeHersiening'))
+                                },
+                                {
+                                    id: "afr-news-report-poster",
+                                    title: "Nuusberig en Plakkaat",
+                                    description: "The headline, who, what, where and when, and the words on a poster.",
+                                    component: lazy(() => import('./afrikaans/term4/news-report-poster/NewsReportPoster'))
                                 }
                             ]
                         }
