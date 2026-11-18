@@ -125,7 +125,7 @@ const bank: CapsItem[] = [
     explanation: 'Regular training supports gradual, safer fitness improvement.',
   },
   {
-    prompt: 'What should learners do if equipment looks unsafe?',
+    prompt: 'What should you do if equipment looks unsafe?',
     options: [
       'Report it immediately to the teacher',
       'Use it anyway',

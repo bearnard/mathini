@@ -140,11 +140,11 @@ const bank: CapsItem[] = [
     explanation: 'Order supports storytelling of your learning journey.',
   },
   {
-    prompt: 'What should learners check before final presentation?',
+    prompt: 'What should you check before your final presentation?',
     options: [
       'Timing, transitions, and clarity of message',
       'Only whether the room is cold',
-      'How fast they can finish speaking',
+      'How fast you can finish speaking',
       'Whether peers are watching only',
     ],
     answer: 'Timing, transitions, and clarity of message',

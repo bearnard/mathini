@@ -26,9 +26,9 @@ const [conflict, democracy, diversity, pet] = await Promise.all([
 // Grade 8 Life Orientation, Term 3.
 const lessons = [
   { name: 'Conflict', steps: conflict, file: 'conflict-management-and-communication/ConflictManagementAndCommunication.tsx', bank: '78df394fd3d5e192' },
-  { name: 'Democracy', steps: democracy, file: 'democracy-and-human-rights/DemocracyAndHumanRights.tsx', bank: '13502d48d8edadba' },
-  { name: 'Diversity', steps: diversity, file: 'diversity-and-nation-building/DiversityAndNationBuilding.tsx', bank: '32a374f5a6716dc1' },
-  { name: 'PET', steps: pet, file: 'physical-education-task/PhysicalEducationTask.tsx', bank: '96b63c1d673fcefb' },
+  { name: 'Democracy', steps: democracy, file: 'democracy-and-human-rights/DemocracyAndHumanRights.tsx', bank: '67826bf7c5a62552' },
+  { name: 'Diversity', steps: diversity, file: 'diversity-and-nation-building/DiversityAndNationBuilding.tsx', bank: '9a5e5181732ba2dd' },
+  { name: 'PET', steps: pet, file: 'physical-education-task/PhysicalEducationTask.tsx', bank: '01045452d3079f64' },
 ];
 
 const html = (n: React.ReactNode) => renderToStaticMarkup(createElement('div', null, n));

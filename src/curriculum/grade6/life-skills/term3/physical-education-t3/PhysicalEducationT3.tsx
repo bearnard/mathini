@@ -121,7 +121,7 @@ const learnSteps: LearnStep[] = [
 
 export const bank: CapsItem[] = [
   {
-    prompt: 'Why should learners warm up before athletics activities?',
+    prompt: 'Why should you warm up before athletics activities?',
     options: ['To prepare the body and lower the risk of injury', 'To make the lesson finish faster', 'To avoid moving during the activity', 'To stop the muscles from working'],
     answer: 'To prepare the body and lower the risk of injury',
     explanation: 'Warm-ups increase blood flow and help muscles get ready for movement.',
@@ -204,7 +204,7 @@ export const bank: CapsItem[] = [
     explanation: 'Fair play combines honesty, respect, and good sportsmanship.',
   },
   {
-    prompt: 'What should learners do after vigorous exercise?',
+    prompt: 'What should you do after vigorous exercise?',
     options: [
       'Cool down with slower movement and gentle stretches',
       'Stop suddenly and fall to the ground',

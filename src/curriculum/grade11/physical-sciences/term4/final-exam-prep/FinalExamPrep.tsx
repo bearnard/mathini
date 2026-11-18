@@ -95,15 +95,15 @@ const learnSteps: LearnStep[] = [
 
 const bank: PSItem[] = [
   {
-    prompt: 'What does CAPS stand for in the South African curriculum?',
+    prompt: 'A question gives a mass of 500 g and a speed of 72 km/h. What should you do before you substitute into a formula?',
     options: [
-      'Curriculum and Assessment Policy Statement',
-      'Core Academic Programme Standards',
-      'Curriculum and Assessment Performance Standards',
-      'Content and Assessment Policy Standards',
+      'Convert to SI units: 0,5 kg and 20 m/s',
+      'Use 500 and 72 as they are given',
+      'Convert to 5 kg and 7,2 m/s',
+      'Convert only the mass, because speed has no SI unit',
     ],
-    answer: 'Curriculum and Assessment Policy Statement',
-    explanation: 'CAPS stands for Curriculum and Assessment Policy Statement — the national curriculum framework for South African schools.',
+    answer: 'Convert to SI units: 0,5 kg and 20 m/s',
+    explanation: '500 g ÷ 1 000 = 0,5 kg and 72 km/h ÷ 3,6 = 20 m/s. Always convert to SI units before you substitute.',
   },
   {
     prompt: 'Which Paper covers organic chemistry in the Grade 11 Physical Sciences final exam?',

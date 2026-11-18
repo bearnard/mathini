@@ -140,10 +140,10 @@ export const bank: CapsItem[] = [
     explanation: 'Evaluative listening means judging what you hear, for example an argument or an advert.',
   },
   {
-    prompt: 'How many times should a listening comprehension text be read or played before learners answer the questions?',
+    prompt: 'In a listening comprehension, how many times is the text usually read or played before you answer the questions?',
     options: ['Once, with no repeat', 'Ten times in a row', 'It is not read aloud at all', 'At least twice'],
     answer: 'At least twice',
-    explanation: 'The text is read or played at least twice, so that learners can listen first for the general sense and then for detail.',
+    explanation: 'The text is read or played at least twice, so that you can listen first for the general sense and then for detail.',
   },
   {
     prompt: 'What does "projection" mean in public speaking?',

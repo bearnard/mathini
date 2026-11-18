@@ -19,8 +19,8 @@ const load = async (p: string) => (await import(`../../../curriculum/grade8/life
 // Grade 8 Life Orientation, Term 4.
 const lessons = [
   { name: 'Careers', file: 'careers-and-career-choices/CareersAndCareerChoices', bank: '1d8f8183cd928cbb' },
-  { name: 'Learning styles', file: 'learning-styles-and-exam-readiness/LearningStylesAndExamReadiness', bank: 'baaeb00a600b3ea6' },
-  { name: 'PE task', file: 'physical-education-task/PhysicalEducationTask', bank: '28f85183ddd3e705' },
+  { name: 'Learning styles', file: 'learning-styles-and-exam-readiness/LearningStylesAndExamReadiness', bank: '84150fcf0b6278f7' },
+  { name: 'PE task', file: 'physical-education-task/PhysicalEducationTask', bank: 'ce8b7ab6fb7c89a2' },
   { name: 'Decision-making', file: 'responsible-decision-making/ResponsibleDecisionMaking', bank: '11fabb922a914837' },
 ];
 const steps: Record<string, import('../../CapsSubjectTopic').LearnStep[]> = {};

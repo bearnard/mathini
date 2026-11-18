@@ -173,7 +173,7 @@ export const bank: CapsItem[] = [
     explanation: "Lightning is a huge electron discharge.",
   },
   {
-    prompt: "What do learners observe when a charged ruler is held near tiny pieces of tissue paper?",
+    prompt: "What do you observe when a charged ruler is held near tiny pieces of tissue paper?",
     options: ["The paper is attracted to the ruler", "The paper is pushed away from the ruler", "The paper burns", "Nothing happens to the paper"],
     answer: "The paper is attracted to the ruler",
     explanation: "The charges in the paper are attracted by the ruler.",

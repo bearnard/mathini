@@ -144,10 +144,10 @@ const bank: CapsItem[] = [
     explanation: 'Control, threats, and fear are key abuse warning signs.',
   },
   {
-    prompt: 'How can learners resist negative peer pressure?',
+    prompt: 'How can you resist negative peer pressure?',
     options: ['Use refusal skills and pick safe friends', 'Follow every decision that the crowd makes', 'Take risks in order to be popular', 'Ignore your own values and beliefs'],
     answer: 'Use refusal skills and pick safe friends',
-    explanation: 'Strong values and refusal phrases help learners make safer choices.',
+    explanation: 'Strong values and refusal phrases help you make safer choices.',
   },
 ];
 

@@ -123,7 +123,7 @@ const bank: CapsItem[] = [
     explanation: 'Coordination supports balanced and effective movement.',
   },
   {
-    prompt: 'How can learners build endurance safely?',
+    prompt: 'How can you build endurance safely?',
     options: [
       'Increase activity gradually over time',
       'Do maximum effort once then stop for weeks',

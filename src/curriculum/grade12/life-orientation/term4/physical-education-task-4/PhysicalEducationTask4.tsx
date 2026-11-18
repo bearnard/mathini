@@ -59,8 +59,8 @@ const items = [
     explanation: 'Participation records help learners reflect on consistency and growth.',
   },
   {
-    prompt: 'What should learners avoid when planning long-term fitness?',
-    options: ['Gradual plans that suit their schedule', 'Extreme routines they cannot maintain', 'Activities that match their ability', 'Regular reviews of their progress'],
+    prompt: 'What should you avoid when planning long-term fitness?',
+    options: ['Gradual plans that suit your schedule', 'Extreme routines you cannot maintain', 'Activities that match your ability', 'Regular reviews of your progress'],
     answer: 1,
     explanation: 'Unsustainable extremes usually lead to inconsistency or injury.',
   },

@@ -104,7 +104,7 @@ const bank: CapsItem[] = [
     explanation: 'Stereotypes ignore individual differences and can cause harm.',
   },
   {
-    prompt: 'How can learners challenge gender stereotypes respectfully?',
+    prompt: 'How can you challenge gender stereotypes respectfully?',
     options: ['Question assumptions and include everyone in opportunities', 'Repeat biased jokes in order to fit in', 'Ban classmates from taking part in activities', 'Ignore the unfair comments that are made'],
     answer: 'Question assumptions and include everyone in opportunities',
     explanation: 'Respectful challenge promotes fairness and inclusion.',

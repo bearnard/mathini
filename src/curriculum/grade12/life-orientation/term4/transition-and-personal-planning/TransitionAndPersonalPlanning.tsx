@@ -94,7 +94,7 @@ const items = [
     explanation: 'A useful plan includes concrete steps and resources.',
   },
   {
-    prompt: 'Why should learners keep important documents organised?',
+    prompt: 'Why should you keep your important documents organised?',
     options: [
       'It makes applications and transitions easier to manage',
       'Documents are not important after school',

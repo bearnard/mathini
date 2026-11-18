@@ -105,7 +105,7 @@ const bank: CapsItem[] = [
     explanation: 'Flexible muscles and joints support safer, smoother movement.',
   },
   {
-    prompt: 'What should learners do before a timed running event?',
+    prompt: 'What should you do before a timed running event?',
     options: ['Warm up gradually with dynamic movement', 'Start at maximum speed immediately', 'Skip hydration and preparation', 'Sit quietly until the whistle'],
     answer: 'Warm up gradually with dynamic movement',
     explanation: 'A proper warm-up prepares the body for safe performance.',

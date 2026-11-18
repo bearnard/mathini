@@ -140,7 +140,7 @@ const bank: CapsItem[] = [
     explanation: 'Reliable support gives safe and informed guidance.',
   },
   {
-    prompt: 'How can learners lower everyday risk?',
+    prompt: 'How can you lower everyday risk?',
     options: ['Think ahead about the consequences before acting', 'Act first and think about it afterwards', 'Ignore the warning signs around you', 'Choose to be popular rather than safe'],
     answer: 'Think ahead about the consequences before acting',
     explanation: 'Consequence thinking improves responsible decisions.',

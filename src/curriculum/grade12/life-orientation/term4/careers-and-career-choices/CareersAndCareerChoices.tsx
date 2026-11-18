@@ -49,10 +49,10 @@ const items = [
     explanation: 'University and TVET study are both formal post-school pathways.',
   },
   {
-    prompt: 'Why must learners check entry requirements early?',
-    options: ['They change too often for planning to be useful', 'They help learners plan realistic applications', 'They are needed after acceptance is given', 'They matter once the course has begun'],
+    prompt: 'Why should you check entry requirements early?',
+    options: ['They change too often for planning to be useful', 'They help you plan realistic applications', 'They are needed after acceptance is given', 'They matter once the course has begun'],
     answer: 1,
-    explanation: 'Early checking prevents learners from applying blindly or missing key requirements.',
+    explanation: 'Early checking prevents you from applying blindly or missing key requirements.',
   },
   {
     prompt: 'What is the purpose of a bursary?',

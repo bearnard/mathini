@@ -140,10 +140,10 @@ const bank: CapsItem[] = [
     explanation: 'South Africa has many religions, and the Bill of Rights protects freedom of religion and belief.',
   },
   {
-    prompt: 'Which of these is one of the major religions in South Africa listed in the curriculum?',
+    prompt: 'Which of these is one of the major religions practised in South Africa?',
     options: ['Judaism', 'Greek mythology', 'A school code of conduct', 'A political party'],
     answer: 'Judaism',
-    explanation: 'Judaism, Christianity, Islam, Hinduism, Buddhism, the Baha\'i Faith and African religion are the major religions in the curriculum.',
+    explanation: 'Judaism, Christianity, Islam, Hinduism, Buddhism, the Baha\'i Faith and African religion are major religions practised in South Africa.',
   },
   {
     prompt: 'What is the holy book of Islam?',

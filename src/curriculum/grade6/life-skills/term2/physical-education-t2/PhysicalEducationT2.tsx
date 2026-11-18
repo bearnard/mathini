@@ -133,7 +133,7 @@ export const bank: CapsItem[] = [
     explanation: 'Fair play means being honest and respecting the rules of the game.',
   },
   {
-    prompt: 'Why do learners practise catching and passing drills many times?',
+    prompt: 'Why should you practise catching and passing drills many times?',
     options: ['To improve skill and fitness', 'To avoid moving in games', 'To make the game slower', 'To stop working with teammates'],
     answer: 'To improve skill and fitness',
     explanation: 'Repeated drills build control, confidence, and physical fitness.',

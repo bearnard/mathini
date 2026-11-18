@@ -108,7 +108,7 @@ const bank: CapsItem[] = [
     explanation: 'Strategy helps teams respond to changing game situations.',
   },
   {
-    prompt: 'How can learners review participation effectively?',
+    prompt: 'How can you review your participation effectively?',
     options: ['Reflect on effort, skills and teamwork', 'Focus on the winning scores only, nothing else', 'Avoid feedback from the teachers entirely', 'Skip all of the self-assessment tasks'],
     answer: 'Reflect on effort, skills and teamwork',
     explanation: 'Participation review identifies progress and next goals.',

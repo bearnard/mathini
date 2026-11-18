@@ -2,8 +2,8 @@ import CapsSubjectTopic from '../../../../../components/CapsSubjectTopic';
 import type { CapsItem, LearnStep } from '../../../../../components/CapsSubjectTopic';
 import { Check, Mistake, Rule, Worked } from '../../../../../components/subjects/lesson/LessonBlocks';
 import { FactCards } from '../../../../../components/diagrams/aq10/Aq10';
-import { SimpleCircuit } from '../../../../../components/diagrams/ns8/Ns8b';
-import { COMPONENTS, ELECTROLYSIS, bulbLights } from '../../../../../components/diagrams/ns8/ns8bHelpers';
+import { CircuitSymbols, SimpleCircuit } from '../../../../../components/diagrams/ns8/Ns8b';
+import { CIRCUIT_SYMBOLS, COMPONENTS, ELECTROLYSIS, bulbLights, positiveTerminal } from '../../../../../components/diagrams/ns8/ns8bHelpers';
 
 // Every statement comes from ns8bHelpers.ts (tested in ns8bHelpers.test.ts and g8NsT3.test.ts). Circuits are qualitative at Grade 8: there is no V = IR here.
 const slide = (children: React.ReactNode) => <div className="space-y-4">{children}</div>;
@@ -49,6 +49,25 @@ export const learnSteps: LearnStep[] = [
     ),
   },
   {
+    title: 'Circuit diagrams and symbols',
+    content: slide(
+      <>
+        <Rule>Scientists draw a circuit as a circuit diagram, using a symbol for each component. Wires are drawn as straight lines. In the symbol for a cell, the long thin line is the positive terminal and the short thick line is the negative terminal. A battery is two or more cells joined together.</Rule>
+        <CircuitSymbols />
+        <Worked
+          title="Read the diagram"
+          steps={[
+            `A circle with a cross inside is a ${CIRCUIT_SYMBOLS.find((s) => s.looks.startsWith('a circle'))!.name}.`,
+            `A small rectangle is a ${CIRCUIT_SYMBOLS.find((s) => s.looks === 'a small rectangle')!.name}.`,
+            `The positive terminal of a cell is the ${positiveTerminal()}.`,
+            'A switch drawn with a gap is open, so the circuit is broken and no current flows.',
+          ]}
+        />
+        <Mistake>Drawing a picture of a real bulb or battery in a circuit diagram. Use the symbols, and draw the wires as straight lines with square corners.</Mistake>
+      </>,
+    ),
+  },
+  {
     title: 'Effects of an electric current',
     content: slide(
       <>
@@ -57,9 +76,9 @@ export const learnSteps: LearnStep[] = [
           cards={[
             { title: 'Heating effect', line1: 'a bulb filament gets white hot', line2: 'a fuse melts if it overheats' },
             { title: 'Magnetic effect', line1: 'current in a coil of wire makes', line2: 'a temporary electromagnet' },
-            { title: 'Chemical effect', line1: `water gives ${ELECTROLYSIS.water.products.join(' and ')}`, line2: `copper chloride: ${ELECTROLYSIS.copperChloride.products.join(' and ')}` },
+            { title: 'Chemical effect', line1: `water gives ${ELECTROLYSIS.water.products.join(' and ')}`, line2: `copper(II) chloride: ${ELECTROLYSIS.copperChloride.products.join(' and ')}` },
           ]}
-          aria="Effects of a current. The heating effect: a bulb filament gets white hot and a fuse melts if it overheats. The magnetic effect: current in a coil of wire makes a temporary electromagnet. The chemical effect: electrolysis breaks water into hydrogen and oxygen, and copper chloride solution into copper and chlorine."
+          aria="Effects of a current. The heating effect: a bulb filament gets white hot and a fuse melts if it overheats. The magnetic effect: current in a coil of wire makes a temporary electromagnet. The chemical effect: electrolysis breaks water into hydrogen and oxygen, and copper(II) chloride solution into copper and chlorine."
         />
         <Worked
           title="Why is a fuse a safety device?"
@@ -151,7 +170,7 @@ export const bank: CapsItem[] = [
   },
   {
     prompt: "What is a fuse?",
-    options: ["A wire that stores charge", "A safety wire that melts", "A switch to turn a bulb on", "A source of energy for it"],
+    options: ["A wire that stores charge", "A safety wire that melts", "A switch to turn a bulb on", "A cell that gives energy"],
     answer: "A safety wire that melts",
     explanation: "A fuse melts when a circuit overheats.",
   },
@@ -174,10 +193,28 @@ export const bank: CapsItem[] = [
     explanation: "A current can cause a chemical reaction in a solution called electrolysis.",
   },
   {
-    prompt: "What products form when copper chloride solution is broken down by electrolysis?",
+    prompt: "What products form when copper(II) chloride solution is broken down by electrolysis?",
     options: ["Copper and chlorine", "Hydrogen and oxygen", "Copper and oxygen", "Chlorine and hydrogen"],
     answer: "Copper and chlorine",
     explanation: "Copper is deposited on one electrode and chlorine bubbles form at the other.",
+  },
+  {
+    prompt: "In a circuit diagram, which symbol stands for a bulb?",
+    options: ["A small rectangle", "A circle with a cross inside", "A long line and a short line", "A line lifted away from a contact"],
+    answer: "A circle with a cross inside",
+    explanation: "A bulb is drawn as a circle with a cross inside. A small rectangle is a resistor, and a long and a short line is a cell.",
+  },
+  {
+    prompt: "In the circuit-diagram symbol for a cell, which line is the positive terminal?",
+    options: ["The shorter, thicker line", "Both lines", "The longer, thinner line", "Neither line"],
+    answer: "The longer, thinner line",
+    explanation: "The long thin line is the positive terminal and the short thick line is the negative terminal.",
+  },
+  {
+    prompt: "A circuit diagram shows a switch drawn with a gap. What does this tell you?",
+    options: ["The switch is closed and the bulb lights", "The bulb is broken", "The cell is flat", "The switch is open, so no current flows"],
+    answer: "The switch is open, so no current flows",
+    explanation: "A gap means the switch is open, so the pathway is broken and no current flows.",
   },
 ];
 

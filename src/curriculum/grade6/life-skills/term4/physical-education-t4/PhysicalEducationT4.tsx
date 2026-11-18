@@ -169,7 +169,7 @@ export const bank: CapsItem[] = [
     explanation: 'Coordination improves when learners control movement, timing, and rhythm together.',
   },
   {
-    prompt: 'Why do learners warm up before vigorous exercise?',
+    prompt: 'Why should you warm up before vigorous exercise?',
     options: [
       'To prepare the body for movement safely',
       'To make the lesson last longer',

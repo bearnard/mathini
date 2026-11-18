@@ -146,7 +146,7 @@ test('data collection and mining: RFID, the mining steps in order, and the examp
 test('Web 3.0 is the Semantic Web; semantic search and mediated search are described, with the privacy concern', () => {
   const t = lessonText(web3);
   assert.ok(/Web 3\.0 \(the Semantic Web\)/.test(t) && /Semantic search/.test(t) && /Mediated search/.test(t));
-  assert.equal(web3.bank.find((q) => q.prompt.includes('What is Web 3.0 called in CAPS'))!.answer.includes('Semantic'), true);
+  assert.equal(web3.bank.find((q) => q.prompt.includes('What is Web 3.0 also called'))!.answer.includes('Semantic'), true);
   assert.ok(/privacy is at risk/.test(t));
 });
 
