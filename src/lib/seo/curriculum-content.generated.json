@@ -1391,6 +1391,26 @@
                 "id": "grammar-cohesion",
                 "title": "Grammar for Cohesion",
                 "description": "Adjectives, adverbs, conjunctions, and sentence links for flow."
+              },
+              {
+                "id": "gr7-active-passive-voice-t2",
+                "title": "Active and Passive Voice",
+                "description": "Transitive and intransitive verbs, the passive in three tenses and the present progressive passive."
+              },
+              {
+                "id": "gr7-prepositions-adverbs-t2",
+                "title": "Prepositions and Adverbs",
+                "description": "Prepositional phrases, fixed prepositions, the forms of adverbs and the words hard, hardly, late and lately."
+              },
+              {
+                "id": "gr7-direct-reported-speech-t2",
+                "title": "Direct and Reported Speech",
+                "description": "Reported statements, questions and commands, and the changes of tense, time and pronoun."
+              },
+              {
+                "id": "gr7-apostrophe-hyphen-quotation-t2",
+                "title": "Apostrophe, Hyphen and Quotation Marks",
+                "description": "The apostrophe of possession, contractions, the hyphen and quotation marks."
               }
             ]
           },

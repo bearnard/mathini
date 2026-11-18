@@ -3415,6 +3415,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
   "Writing and Presenting",
   "isiXhosa SAL"
  ],
+ "7|gr7-active-passive-voice-t2": [
+  "Active and Passive Voice",
+  "English HL"
+ ],
  "7|gr7-adjectives-comparison-t1": [
   "Adjectives and Degrees of Comparison",
   "English HL"
@@ -3422,6 +3426,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "7|gr7-afr-exam-writing-practice-t4": [
   "Eksamen-skryf Oefening",
   "Afrikaans FAL"
+ ],
+ "7|gr7-apostrophe-hyphen-quotation-t2": [
+  "Apostrophe, Hyphen and Quotation Marks",
+  "English HL"
  ],
  "7|gr7-area-and-perimeter-of-2d-shapes-t2": [
   "Area and Perimeter of 2D Shapes",
@@ -3482,6 +3490,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  "7|gr7-design-process-and-structures-t1": [
   "Design Process and Structures",
   "Technology"
+ ],
+ "7|gr7-direct-reported-speech-t2": [
+  "Direct and Reported Speech",
+  "English HL"
  ],
  "7|gr7-drama-continued-novel-study-t3": [
   "Drama or Continued Novel Study",
@@ -3689,6 +3701,10 @@ export const TOPIC_NAMES: Record<string, [string, string]> = {
  ],
  "7|gr7-prefixes-suffixes-roots-t1": [
   "Prefixes, Suffixes and Roots",
+  "English HL"
+ ],
+ "7|gr7-prepositions-adverbs-t2": [
+  "Prepositions and Adverbs",
   "English HL"
  ],
  "7|gr7-probability-t4": [
